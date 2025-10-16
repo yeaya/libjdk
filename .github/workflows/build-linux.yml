@@ -15,6 +15,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/install
@@ -38,6 +40,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DINSTAll_TO_REPO=ON -DJCPP_HOME=${{github.workspace}}/jcpphome
