@@ -1,0 +1,57 @@
+name: Build on ubuntu-22.04
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/install
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target install
+
+    - name: Package
+      run: cpack
+
+    - name: Package source
+      run: cpack --config CPackSourceConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: libjdk
+        path: ${{github.workspace}}/build/libjdk*.zip
+
+  build-repo:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DINSTAll_TO_REPO=ON -DJCPP_HOME=${{github.workspace}}/jcpphome
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target install
+
+    - name: Package
+      run: cpack
+
+    - name: Package source
+      run: cpack --config CPackSourceConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: libjdk-repo
+        path: ${{github.workspace}}/build/libjdk*.zip
