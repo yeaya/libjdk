@@ -68,9 +68,6 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Install libffi
-      run: brew install libffi
-
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DINSTAll_TO_REPO=ON -DBUILD_TEST=OFF -DJCPP_HOME=${{github.workspace}}/jcpphome
 

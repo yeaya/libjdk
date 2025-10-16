@@ -171,27 +171,50 @@ addLib(java.net.http java.base)
 
 addLib(java.scripting java.base)
 
-addLib(java.se
-	java.compiler
-	java.datatransfer
-	java.desktop
-	java.instrument
-	java.logging
-	java.management
-	java.management.rmi
-	java.naming
-	java.net.http
-	java.prefs
-	java.rmi
-	java.scripting
-	java.security.jgss
-	java.security.sasl
-	java.sql
-	java.sql.rowset
-	java.transaction.xa
-	java.xml
-	java.xml.crypto
-)
+if(WIN32)
+	addLib(java.se
+		java.compiler
+		java.datatransfer
+		java.desktop
+		java.instrument
+		java.logging
+		java.management
+		java.management.rmi
+		java.naming
+		java.net.http
+		java.prefs
+		java.rmi
+		java.scripting
+		java.security.jgss
+		java.security.sasl
+		java.sql
+		java.sql.rowset
+		java.transaction.xa
+		java.xml
+		java.xml.crypto
+	)
+else()
+	addLib(java.se
+		java.compiler
+		java.datatransfer
+		java.instrument
+		java.logging
+		java.management
+		java.management.rmi
+		java.naming
+		java.net.http
+		java.prefs
+		java.rmi
+		java.scripting
+		java.security.jgss
+		java.security.sasl
+		java.sql
+		java.sql.rowset
+		java.transaction.xa
+		java.xml
+		java.xml.crypto
+	)
+endif()
 
 addLib(jdk.net java.base)
 
