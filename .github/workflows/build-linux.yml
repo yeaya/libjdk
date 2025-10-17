@@ -25,15 +25,15 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target install
 
     - name: Package
-      run: cpack
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
 
-    - name: Package source
-      run: cpack --config CPackSourceConfig.cmake
+   - name: Package source
+      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk
-        path: ${{github.workspace}}/build/libjdk*.zip
+        path: ${{github.workspace}}/build/libjdk*.tar.gz
 
   build-repo:
     runs-on: ubuntu-22.04
@@ -50,12 +50,12 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target install
 
     - name: Package
-      run: cpack
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
 
-    - name: Package source
-      run: cpack --config CPackSourceConfig.cmake
+   - name: Package source
+      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk-repo
-        path: ${{github.workspace}}/build/libjdk*.zip
+        path: ${{github.workspace}}/build/libjdk*.tar.gz
