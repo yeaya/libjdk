@@ -22,10 +22,10 @@ jobs:
       run: brew install libffi
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DCMAKE_INSTALL_PREFIX=${{github.workspace}}/install
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target install
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -50,10 +50,10 @@ jobs:
       run: brew install libffi
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DINSTAll_TO_REPO=ON -DJCPP_HOME=${{github.workspace}}/jcpphome
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DINSTAll_TO_REPO=ON
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target install
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake

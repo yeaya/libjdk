@@ -214,27 +214,6 @@ if(WIN32)
 		java.xml
 		java.xml.crypto
 	)
-else()
-	addLib(java.se
-		java.compiler
-		java.datatransfer
-		java.instrument
-		java.logging
-		java.management
-		java.management.rmi
-		java.naming
-		java.net.http
-		java.prefs
-		java.rmi
-		java.scripting
-		java.security.jgss
-		java.security.sasl
-		java.sql
-		java.sql.rowset
-		java.transaction.xa
-		java.xml
-		java.xml.crypto
-	)
 endif()
 
 addLib(jdk.net java.base)
