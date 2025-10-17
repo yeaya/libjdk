@@ -33,7 +33,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk
-        path: ${{github.workspace}}/build/libjdk*.zip
+        path: ${{github.workspace}}/libjdk*.zip
 
   build-withtest:
     runs-on: windows-2025
@@ -58,7 +58,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk-withtest
-        path: ${{github.workspace}}/build/libjdk-17.35.0-windows.zip
+        path: ${{github.workspace}}/libjdk*.zip
 
   build-repo:
     runs-on: windows-2025
@@ -83,4 +83,4 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk-repo
-        path: ${{github.workspace}}/build/libjdk*.zip
+        path: ${{github.workspace}}/libjdk*.zip
