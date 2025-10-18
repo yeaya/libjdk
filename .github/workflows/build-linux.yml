@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - run: git clone --recursive ${{github.repositoryUrl}} ${{github.workspace}}/src
+    - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
 
     - uses: lukka/get-cmake@latest
 
