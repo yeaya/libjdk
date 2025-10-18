@@ -42,7 +42,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk
-        path: ${{github.workspace}}/libjdk-macos-17.35.tar.gz
+        path: ${{github.workspace}}/libjdk-17.35-macos-aarch64.tar.gz
 
   build-repo:
     runs-on: macos-26
@@ -67,5 +67,5 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk
-        path: ${{github.workspace}}/libjdk-macos-17.35-repo.tar.gz
+        name: libjdk.repo
+        path: ${{github.workspace}}/libjdk-17.35-macos-aarch64.repo.tar.gz

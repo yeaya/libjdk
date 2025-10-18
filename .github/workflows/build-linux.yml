@@ -12,12 +12,12 @@ env:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    container: quay.io/pypa/manylinux_2_28_x86_64
 
     steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: recursive
-        path: src
+    - run: git clone --recursive ${{github.repositoryUrl}} ${{github.workspace}}/src
+
+    - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
       run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5
@@ -39,16 +39,15 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk
-        path: ${{github.workspace}}/libjdk-linux-17.35.tar.gz
+        path: ${{github.workspace}}/libjdk-17.35-linux-x86_64.tar.gz
 
   build-repo:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: recursive
-        path: src
+    - run: git clone --recursive ${{github.repositoryUrl}} ${{github.workspace}}/src
+
+    - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
       run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DINSTAll_TO_REPO=ON
@@ -64,5 +63,5 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-repo
-        path: ${{github.workspace}}/libjdk-linux-17.35-repo.tar.gz
+        name: libjdk.repo
+        path: ${{github.workspace}}/libjdk-17.35-linux-x86_64.repo.tar.gz

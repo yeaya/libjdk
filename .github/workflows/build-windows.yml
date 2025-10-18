@@ -38,7 +38,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk
-        path: ${{github.workspace}}/libjdk-windows-17.35.zip
+        path: ${{github.workspace}}/libjdk-17.35-windows-x86_64.zip
 
   build-withtest:
     runs-on: windows-2025
@@ -61,7 +61,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk-withtest
-        path: ${{github.workspace}}/libjdk-windows-17.35.zip
+        path: ${{github.workspace}}/libjdk-17.35-windows-x86_64.zip
 
   build-repo:
     runs-on: windows-2025
@@ -87,9 +87,9 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk-source
-        path: ${{github.workspace}}/libjdk-17.35.tar.gz
+        path: ${{github.workspace}}/libjdk-17.35.zip
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk
-        path: ${{github.workspace}}/libjdk-windows-17.35-repo.tar.gz
+        name: libjdk.repo
+        path: ${{github.workspace}}/libjdk-17.35-windows-x86_64.repo.zip
