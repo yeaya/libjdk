@@ -1,6 +1,9 @@
 # libjdk
 
-A comprehensive C++ implementation of the Java Development Kit (JDK), providing native C++ libraries that mirror the functionality of Java's core libraries and modules.
+![License](https://img.shields.io/badge/license-GPL%20v2%20with%20Classpath%20Exception-green.svg)
+![Platforms](https://img.shields.io/badge/platforms-Windows%20|%20Linux%20|%20macOS-lightgrey.svg)
+
+**libjdk** is a comprehensive C++ implementation of the Java Development Kit (JDK), providing native C++ libraries that mirror the functionality of Java's core libraries and modules. While it provides Java-like APIs, it runs as native C++ code without requiring a Java Virtual Machine.
 
 ## Overview
 
@@ -22,44 +25,44 @@ libjdk is a complete C++ reimplementation of the Java Development Kit, offering 
 The project includes implementations of the following Java modules:
 
 ### Core Modules
-- **java.base** - Core Java classes and utilities
-- **java.compiler** - Java compiler API
-- **java.logging** - Logging framework
-- **java.xml** - XML processing
-- **java.xml.crypto** - XML cryptography
+- [**java.base**](https://github.com/libjdk/java.base) - Core Java classes and utilities
+- [**java.compiler**](https://github.com/libjdk/java.compiler) - Java compiler API
+- [**java.logging**](https://github.com/libjdk/java.logging) - Logging framework
+- [**java.xml**](https://github.com/libjdk/java.xml) - XML processing
+- [**java.xml.crypto**](https://github.com/libjdk/java.xml.crypto) - XML cryptography
 
 ### Networking & Communication
-- **java.net.http** - HTTP client
-- **java.rmi** - Remote Method Invocation
-- **java.naming** - Naming and directory services
-- **java.security.sasl** - SASL authentication
-- **java.security.jgss** - Generic Security Services
+- [**java.net.http**](https://github.com/libjdk/java.net.http) - HTTP client
+- [**java.rmi**](https://github.com/libjdk/java.rmi) - Remote Method Invocation
+- [**java.naming**](https://github.com/libjdk/java.naming) - Naming and directory services
+- [**java.security.sasl**](https://github.com/libjdk/java.security.sasl) - SASL authentication
+- [**java.security.jgss**](https://github.com/libjdk/java.security.jgss) - Generic Security Services
 
 ### Database & Transactions
-- **java.sql** - Database connectivity
-- **java.sql.rowset** - RowSet implementations
-- **java.transaction.xa** - XA transaction support
+- [**java.sql**](https://github.com/libjdk/java.sql) - Database connectivity
+- [**java.sql.rowset**](https://github.com/libjdk/java.sql.rowset) - RowSet implementations
+- [**java.transaction.xa**](https://github.com/libjdk/java.transaction.xa) - XA transaction support
 
 ### Desktop & UI
-- **java.desktop** - Desktop applications (Windows only)
-- **java.datatransfer** - Data transfer operations
-- **java.prefs** - User preferences
+- [**java.desktop**](https://github.com/libjdk/java.desktop) - Desktop applications (Windows only)
+- [**java.datatransfer**](https://github.com/libjdk/java.datatransfer) - Data transfer operations
+- [**java.prefs**](https://github.com/libjdk/java.prefs) - User preferences
 
 ### Management & Monitoring
-- **java.management** - Management and monitoring
-- **java.management.rmi** - RMI-based management
-- **java.instrument** - Java instrumentation
+- [**java.management**](https://github.com/libjdk/java.management) - Management and monitoring
+- [**java.management.rmi**](https://github.com/libjdk/java.management.rmi) - RMI-based management
+- [**java.instrument**](https://github.com/libjdk/java.instrument) - Java instrumentation
 
 ### Additional Modules
-- **java.scripting** - Scripting engine
-- **jdk.compiler** - JDK compiler tools
-- **jdk.httpserver** - HTTP server
-- **jdk.charsets** - Character set support
-- **jdk.localedata** - Locale data
-- **jdk.net** - Network utilities
-- **jdk.unsupported** - Unsupported APIs
-- **jdk.zipfs** - ZIP file system
-- **java.se** - Java SE platform (Windows only)
+- [**java.scripting**](https://github.com/libjdk/java.scripting) - Scripting engine
+- [**jdk.compiler**](https://github.com/libjdk/jdk.compiler) - JDK compiler tools
+- [**jdk.httpserver**](https://github.com/libjdk/jdk.httpserver) - HTTP server
+- [**jdk.charsets**](https://github.com/libjdk/jdk.charsets) - Character set support
+- [**jdk.localedata**](https://github.com/libjdk/jdk.localedata) - Locale data
+- [**jdk.net**](https://github.com/libjdk/jdk.net) - Network utilities
+- [**jdk.unsupported**](https://github.com/libjdk/jdk.unsupported) - Unsupported APIs
+- [**jdk.zipfs**](https://github.com/libjdk/jdk.zipfs) - ZIP file system
+- [**java.se**](https://github.com/libjdk/java.se) - Java SE platform (Windows only)
 
 ## Core Runtime Features
 
@@ -235,16 +238,16 @@ After building and installing, you can use the libraries in your C++ projects:
 #include <jcpp.h>
 
 int main() {
-	$System::init();
-	try {
-		$System::out->println("Hello, libjdk!"_s);
-	} catch ($Throwable&) {
-		$var($Throwable, e, $catch());
-		e->printStackTrace();
+    $System::init();
+    try {
+        $System::out->println("Hello, libjdk!"_s);
+    } catch ($Throwable&) {
+        $var($Throwable, e, $catch());
+        e->printStackTrace();
         return 1;
-	}
-	$System::deinit();
-	return 0;
+    }
+    $System::deinit();
+    return 0;
 }
 ```
 
