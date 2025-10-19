@@ -19,7 +19,7 @@ jobs:
         submodules: recursive
 
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DBUILD_TEST=OFF
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
@@ -32,35 +32,12 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-source
+        name: libjdk-17.35-source
         path: ${{github.workspace}}/libjdk-17.35.zip
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk
-        path: ${{github.workspace}}/libjdk-17.35-windows-x86_64.zip
-
-  build-withtest:
-    runs-on: windows-2025
-
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        submodules: recursive
-        path: src
-
-    - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5
-
-    - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
-    - name: Package
-      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: libjdk-withtest
+        name: libjdk-17.35-windows-x86_64
         path: ${{github.workspace}}/libjdk-17.35-windows-x86_64.zip
 
   build-repo:
@@ -81,10 +58,7 @@ jobs:
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
 
-    - name: Package source
-      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
-
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk.repo
+        name: libjdk-17.35-windows-x86_64.repo
         path: ${{github.workspace}}/libjdk-17.35-windows-x86_64.repo.zip
