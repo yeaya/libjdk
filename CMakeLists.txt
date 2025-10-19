@@ -44,7 +44,7 @@ if(BUILD_TEST)
 endif()
 
 if(INSTALL_TO_REPO)
-	message(STATUS "install to {JCPP_HOME}/repository")
+	message(STATUS "Install to jcpp repository, {JCPP_REPOSITORY_ROOT} or {JCPP_HOME}/repository")
 endif()
 
 if(ENABLE_NC)
@@ -79,7 +79,7 @@ message(STATUS "CMAKE_INSTALL_PREFIX:" ${CMAKE_INSTALL_PREFIX} " INSTALL_TO_REPO
 if(NOT J)
 	set(J 1)
 endif()
-#message(STATUS "J:" ${J})
+message(STATUS "J:" ${J})
 
 set(tmpJcppHome ${CMAKE_BINARY_DIR}/tmpJcppHome)
 set(tmpInstall ${CMAKE_BINARY_DIR}/tmpInstall)
