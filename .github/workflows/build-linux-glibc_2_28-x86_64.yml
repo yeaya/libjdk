@@ -41,7 +41,7 @@ jobs:
         name: libjdk-17.35-linux-x86_64
         path: ${{github.workspace}}/libjdk-17.35-linux-x86_64.tar.gz
 
-build-test:
+  build-test:
     runs-on: ubuntu-22.04
     container: quay.io/pypa/manylinux_2_28_x86_64
 
