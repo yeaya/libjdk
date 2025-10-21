@@ -213,8 +213,8 @@ if(WIN32)
 	)
 endif()
 
-# jdk.httpserver for test
-addLib(jdk.net java.base jdk.httpserver)
+# java.net.http jdk.httpserver for test
+addLib(jdk.net java.base java.net.http jdk.httpserver)
 
 addLib(jdk.localedata java.base)
 
