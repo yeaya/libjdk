@@ -25,7 +25,7 @@ jobs:
       run: brew install libffi
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=OFF -DJ=5
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
@@ -46,6 +46,32 @@ jobs:
         name: libjdk-17.35-macos-x86_64
         path: ${{github.workspace}}/libjdk-17.35-macos-x86_64.tar.gz
 
+  build-test:
+    runs-on: macos-15-intel
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        path: src
+
+    - name: Install libffi
+      run: brew install libffi
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON -DJ=5
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: libjdk-17.35-macos-x86_64.test
+        path: ${{github.workspace}}/libjdk-17.35-macos-x86_64.tar.gz
+
   build-repo:
     runs-on: macos-15-intel
 
@@ -59,7 +85,7 @@ jobs:
       run: brew install libffi
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DINSTALL_TO_REPO=ON
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF -DJ=5
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
