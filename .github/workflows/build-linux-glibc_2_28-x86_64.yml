@@ -61,8 +61,8 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-17.35-linux-x86_64.repo
-        path: ${{github.workspace}}/libjdk-17.35-linux-x86_64.repo.tar.gz
+        name: libjdk-17.35-linux-x86_64.test
+        path: ${{github.workspace}}/libjdk-17.35-linux-x86_64.tar.gz
 
   build-repo:
     runs-on: ubuntu-22.04
