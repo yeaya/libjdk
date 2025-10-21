@@ -1,4 +1,4 @@
-name: Build on macos-26
+name: Build on macos-15-x86_64
 
 on:
   push:
@@ -8,10 +8,12 @@ on:
 
 env:
   BUILD_TYPE: Release
+  JCPP_LOG_LEVEL: debug
+  JCPP_LOG_CONSOLE: enable
 
 jobs:
   build:
-    runs-on: macos-26
+    runs-on: macos-15-intel
 
     steps:
     - uses: actions/checkout@v4
@@ -26,7 +28,7 @@ jobs:
       run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -41,11 +43,11 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-17.35-macos-aarch64
-        path: ${{github.workspace}}/libjdk-17.35-macos-aarch64.tar.gz
+        name: libjdk-17.35-macos-x86_64
+        path: ${{github.workspace}}/libjdk-17.35-macos-x86_64.tar.gz
 
   build-repo:
-    runs-on: macos-26
+    runs-on: macos-15-intel
 
     steps:
     - uses: actions/checkout@v4
@@ -60,12 +62,12 @@ jobs:
       run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DJ=5 -DINSTALL_TO_REPO=ON
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-17.35-macos-aarch64.repo
-        path: ${{github.workspace}}/libjdk-17.35-macos-aarch64.repo.tar.gz
+        name: libjdk-17.35-macos-x86_64.repo
+        path: ${{github.workspace}}/libjdk-17.35-macos-x86_64.repo.tar.gz
