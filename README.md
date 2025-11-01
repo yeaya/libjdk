@@ -112,101 +112,10 @@ libjdk implements high-performance, low-latency automatic memory management:
 ### Basic Build
 
 ```bash
-cd ..
+git clone --recursive https://github.com/libjdk/libjdk libjdk
 mkdir build
-cd build
-cmake ../libjdk -DCMAKE_BUILD_TYPE=Release
-cmake --build .
-```
-
-### Build Options
-
-- `BUILD_SHARED_LIB`: Build shared libraries (default: ON)
-- `BUILD_TEST`: Build test suites (default: ON)
-- `INSTALL_TO_REPO`: Install to jcpp repository (default: OFF)
-- `ENABLE_NC`: Enable null check (default: OFF)
-
-### Parallel Build
-
-```bash
-cd ..
-mkdir build
-cd build
-cmake ../libjdk -DJ=8
-cmake --build .
-```
-
-## Installation
-
-### Standard Installation
-
-```bash
-cd ../build
-cmake ../libjdk
-cmake --build . --target install
-```
-
-### Repository Installation
-
-```bash
-cd ../build
-cmake -DINSTALL_TO_REPO=ON ../libjdk
-cmake --build . --config Release --target install
-```
-
-## Packaging with CPack
-
-libjdk supports multiple packaging formats through CPack for easy distribution:
-
-### Supported Package Formats
-
-- **Windows**: ZIP archives
-- **Linux**: TGZ (tar.gz) archives  
-- **macOS**: TGZ (tar.gz) archives
-
-### Creating Packages
-
-```bash
-# Build and create package
-cd ../build
-cmake --build . --target package
-
-# Create source package
-cmake --build . --target package_source
-
-# Create specific package type
-cpack -G ZIP    # Windows ZIP
-cpack -G TGZ    # Linux/macOS tar.gz
-```
-
-### Package Naming Convention
-
-Packages are automatically named using the pattern:
-```
-{PROJECT_NAME}-{VERSION}-{OS}-{ARCH}.{EXT}
-```
-
-Examples:
-- `libjdk-17.35-windows-x86_64.zip`
-- `libjdk-17.35-linux-x86_64.tgz`
-- `libjdk-17.35-macos-aarch64.tgz`
-
-### Package Contents
-
-Each package includes:
-- **Libraries**: Shared/static libraries for all modules
-- **Headers**: C++ header files for API usage
-- **Test Suites**: Complete test suites for validation
-- **Legal Notices**: License and attribution information
-
-### Repository Packages
-
-For repository installation, packages are created with `.repo` extension:
-```bash
-cd ../build
-cmake -DINSTALL_TO_REPO=ON ../libjdk
-cmake --build . --target package
-# Creates: libjdk-17.35-windows-x86_64.repo
+cmake -S libjdk -B build -DCMAKE_BUILD_TYPE=Release -DINSTALL_TO_REPO=ON -DBUILD_TEST=ON -DJ=5
+cmake --build build --config Release -j 3
 ```
 
 ## Project Structure
@@ -240,11 +149,9 @@ After building and installing, you can use the libraries in your C++ projects:
 int main() {
     $System::init();
     try {
-        $System::out->println("Hello, libjdk!"_s);
-    } catch ($Throwable&) {
-        $var($Throwable, e, $catch());
+        $System::out->println("hello, world"_s);
+    } catch ($Throwable& e) {
         e->printStackTrace();
-        return 1;
     }
     $System::deinit();
     return 0;
