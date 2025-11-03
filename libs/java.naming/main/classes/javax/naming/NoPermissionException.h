@@ -1,0 +1,28 @@
+#ifndef _javax_naming_NoPermissionException_h_
+#define _javax_naming_NoPermissionException_h_
+//$ class javax.naming.NoPermissionException
+//$ extends javax.naming.NamingSecurityException
+
+#include <javax/naming/NamingSecurityException.h>
+
+namespace javax {
+	namespace naming {
+
+class $export NoPermissionException : public ::javax::naming::NamingSecurityException {
+	$class(NoPermissionException, $NO_CLASS_INIT, ::javax::naming::NamingSecurityException)
+public:
+	NoPermissionException();
+	void init$($String* explanation);
+	void init$();
+	static const int64_t serialVersionUID = (int64_t)0x7482369E4144455F;
+	NoPermissionException(const NoPermissionException& e);
+	virtual void throw$() override;
+	inline NoPermissionException* operator ->() {
+		return (NoPermissionException*)throwing$;
+	}
+};
+
+	} // naming
+} // javax
+
+#endif // _javax_naming_NoPermissionException_h_

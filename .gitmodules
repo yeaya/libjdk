@@ -3,94 +3,9 @@
 	url = ../java.base
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "java.compiler"]
-	path = libs/java.compiler
-	url = ../java.compiler
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.datatransfer"]
-	path = libs/java.datatransfer
-	url = ../java.datatransfer
-	fetchRecurseSubmodules = on-demand
-	branch = .
 [submodule "java.desktop"]
 	path = libs/java.desktop
 	url = ../java.desktop
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.instrument"]
-	path = libs/java.instrument
-	url = ../java.instrument
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.logging"]
-	path = libs/java.logging
-	url = ../java.logging
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.management"]
-	path = libs/java.management
-	url = ../java.management
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.management.rmi"]
-	path = libs/java.management.rmi
-	url = ../java.management.rmi
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.naming"]
-	path = libs/java.naming
-	url = ../java.naming
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.net.http"]
-	path = libs/java.net.http
-	url = ../java.net.http
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.prefs"]
-	path = libs/java.prefs
-	url = ../java.prefs
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.rmi"]
-	path = libs/java.rmi
-	url = ../java.rmi
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.scripting"]
-	path = libs/java.scripting
-	url = ../java.scripting
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.se"]
-	path = libs/java.se
-	url = ../java.se
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.security.jgss"]
-	path = libs/java.security.jgss
-	url = ../java.security.jgss
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.security.sasl"]
-	path = libs/java.security.sasl
-	url = ../java.security.sasl
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.sql"]
-	path = libs/java.sql
-	url = ../java.sql
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.sql.rowset"]
-	path = libs/java.sql.rowset
-	url = ../java.sql.rowset
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.transaction.xa"]
-	path = libs/java.transaction.xa
-	url = ../java.transaction.xa
 	fetchRecurseSubmodules = on-demand
 	branch = .
 [submodule "java.xml"]
@@ -98,38 +13,8 @@
 	url = ../java.xml
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "java.xml.crypto"]
-	path = libs/java.xml.crypto
-	url = ../java.xml.crypto
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "jdk.charsets"]
-	path = libs/jdk.charsets
-	url = ../jdk.charsets
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "jdk.compiler"]
-	path = libs/jdk.compiler
-	url = ../jdk.compiler
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "jdk.httpserver"]
-	path = libs/jdk.httpserver
-	url = ../jdk.httpserver
-	fetchRecurseSubmodules = on-demand
-	branch = .
 [submodule "jdk.localedata"]
 	path = libs/jdk.localedata
 	url = ../jdk.localedata
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "jdk.net"]
-	path = libs/jdk.net
-	url = ../jdk.net
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "jdk.unsupported"]
-	path = libs/jdk.unsupported
-	url = ../jdk.unsupported
 	fetchRecurseSubmodules = on-demand
 	branch = .

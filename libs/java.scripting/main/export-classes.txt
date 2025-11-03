@@ -1,0 +1,13 @@
+com.sun.tools.script.shell.Main
+javax.script.AbstractScriptEngine
+javax.script.Bindings
+javax.script.Compilable
+javax.script.CompiledScript
+javax.script.Invocable
+javax.script.ScriptContext
+javax.script.ScriptEngine
+javax.script.ScriptEngineFactory
+javax.script.ScriptEngineManager
+javax.script.ScriptException
+javax.script.SimpleBindings
+javax.script.SimpleScriptContext

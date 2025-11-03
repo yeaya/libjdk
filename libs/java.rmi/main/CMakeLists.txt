@@ -1,0 +1,86 @@
+#machine generated
+
+jcpp_add_dependencies(
+	"java.base:17.35"
+	"java.logging:17.35"
+)
+
+add_definitions(-DJCPP_USE_LIB_CURRENT_OBJECT_STACK_CACHE)
+
+include_directories("classes")
+include_directories("native")
+
+add_subdirectory("classes")
+add_subdirectory("native")
+
+set(local_object ${local_object}
+	"$<TARGET_OBJECTS:classes>"
+	"$<TARGET_OBJECTS:classes.java.rmi>"
+	"$<TARGET_OBJECTS:classes.java.rmi.dgc>"
+	"$<TARGET_OBJECTS:classes.java.rmi.registry>"
+	"$<TARGET_OBJECTS:classes.java.rmi.server>"
+	"$<TARGET_OBJECTS:classes.javax.rmi.ssl>"
+	"$<TARGET_OBJECTS:classes.sun.rmi.log>"
+	"$<TARGET_OBJECTS:classes.sun.rmi.registry>"
+	"$<TARGET_OBJECTS:classes.sun.rmi.runtime>"
+	"$<TARGET_OBJECTS:classes.sun.rmi.server>"
+	"$<TARGET_OBJECTS:classes.sun.rmi.transport>"
+	"$<TARGET_OBJECTS:classes.sun.rmi.transport.tcp>"
+	"$<TARGET_OBJECTS:native>"
+)
+
+if(BUILD_STATIC_LIB)
+	add_library(${JCPP_PROJECT_NAME}_static STATIC "${local_object}" "${source_SRCS}")
+
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES VERSION ${JCPP_PROJECT_VERSION} SOVERSION 1)
+
+	jcpp_enable_bigobj(${JCPP_PROJECT_NAME}_static)
+
+	install(TARGETS ${JCPP_PROJECT_NAME}_static
+		LIBRARY DESTINATION "${JCPP_INSTALL_LIB_DIR}"
+		ARCHIVE DESTINATION "${JCPP_INSTALL_LIB_DIR}"
+		RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
+	)
+endif()
+
+if(BUILD_SHARED_LIB)
+	add_library(${JCPP_PROJECT_NAME}_shared SHARED "${local_object}" "${source_SRCS}")
+
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES VERSION ${JCPP_PROJECT_VERSION} SOVERSION 1)
+if(JCPP_OS MATCHES "linux")
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES INSTALL_RPATH "\\\$ORIGIN;\\\$ORIGIN/../lib")
+elseif(JCPP_OS MATCHES "macos")
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES INSTALL_RPATH ".;../lib")
+endif()
+
+	target_link_libraries(${JCPP_PROJECT_NAME}_shared
+		PUBLIC ${JCPP_DEPENDENCY_LIBS}
+		PRIVATE ${JCPP_EXT_LIBS}
+	)
+
+	jcpp_enable_bigobj(${JCPP_PROJECT_NAME}_shared)
+
+	jcpp_encode_symbol(${JCPP_PROJECT_NAME}_shared)
+
+	install(TARGETS ${JCPP_PROJECT_NAME}_shared
+		LIBRARY DESTINATION "${JCPP_INSTALL_LIB_DIR}"
+		ARCHIVE DESTINATION "${JCPP_INSTALL_LIB_DIR}"
+		RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
+	)
+endif()
+
+install(
+	DIRECTORY "include/"
+	DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
+)
+
+if(INSTALL_TO_REPO)
+	install(
+		FILES "dependencies.txt"
+		DESTINATION "${JCPP_INSTALL_DIR}"
+	)
+endif()

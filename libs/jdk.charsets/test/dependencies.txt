@@ -1,0 +1,2 @@
+jdk.charsets:17.35
+java.base:17.35

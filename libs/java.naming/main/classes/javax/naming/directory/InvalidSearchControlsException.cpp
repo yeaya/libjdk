@@ -1,0 +1,66 @@
+#include <javax/naming/directory/InvalidSearchControlsException.h>
+
+#include <javax/naming/NamingException.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NamingException = ::javax::naming::NamingException;
+
+namespace javax {
+	namespace naming {
+		namespace directory {
+
+$FieldInfo _InvalidSearchControlsException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidSearchControlsException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _InvalidSearchControlsException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidSearchControlsException::*)()>(&InvalidSearchControlsException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidSearchControlsException::*)($String*)>(&InvalidSearchControlsException::init$))},
+	{}
+};
+
+$ClassInfo _InvalidSearchControlsException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"javax.naming.directory.InvalidSearchControlsException",
+	"javax.naming.NamingException",
+	nullptr,
+	_InvalidSearchControlsException_FieldInfo_,
+	_InvalidSearchControlsException_MethodInfo_
+};
+
+$Object* allocate$InvalidSearchControlsException($Class* clazz) {
+	return $of($alloc(InvalidSearchControlsException));
+}
+
+void InvalidSearchControlsException::init$() {
+	$NamingException::init$();
+}
+
+void InvalidSearchControlsException::init$($String* msg) {
+	$NamingException::init$(msg);
+}
+
+InvalidSearchControlsException::InvalidSearchControlsException() {
+}
+
+InvalidSearchControlsException::InvalidSearchControlsException(const InvalidSearchControlsException& e) : $NamingException(e) {
+}
+
+void InvalidSearchControlsException::throw$() {
+	throw *this;
+}
+
+$Class* InvalidSearchControlsException::load$($String* name, bool initialize) {
+	$loadClass(InvalidSearchControlsException, name, initialize, &_InvalidSearchControlsException_ClassInfo_, allocate$InvalidSearchControlsException);
+	return class$;
+}
+
+$Class* InvalidSearchControlsException::class$ = nullptr;
+
+		} // directory
+	} // naming
+} // javax
