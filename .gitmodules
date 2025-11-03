@@ -133,8 +133,3 @@
 	url = ../jdk.unsupported
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "jdk.zipfs"]
-	path = libs/jdk.zipfs
-	url = ../jdk.zipfs
-	fetchRecurseSubmodules = on-demand
-	branch = .

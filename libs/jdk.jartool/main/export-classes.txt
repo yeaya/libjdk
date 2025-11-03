@@ -1,0 +1,9 @@
+com.sun.jarsigner.ContentSigner
+com.sun.jarsigner.ContentSignerParameters
+jdk.security.jarsigner.JarSigner
+jdk.security.jarsigner.JarSigner$Builder
+jdk.security.jarsigner.JarSigner$JarSignerParameters
+jdk.security.jarsigner.JarSigner$SignatureFile
+jdk.security.jarsigner.JarSignerException
+sun.security.tools.jarsigner.Main
+sun.tools.jar.Main

@@ -1,0 +1,4 @@
+com.sun.jarsigner
+jdk.security.jarsigner
+sun.security.tools.jarsigner
+sun.tools.jar

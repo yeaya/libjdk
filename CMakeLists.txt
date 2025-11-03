@@ -146,6 +146,8 @@ addLib(java.xml.crypto java.logging java.xml)
 
 addLib(java.compiler java.base)
 
+addLib(jdk.jartool java.base)
+
 addLib(jdk.zipfs java.base)
 
 addLib(jdk.compiler java.compiler jdk.zipfs)
@@ -220,7 +222,7 @@ addLib(jdk.localedata java.base)
 
 if(INSTALL_TO_REPO)
 	install(
-		DIRECTORY "${tmpJcppHome}/"
+		DIRECTORY "${tmpJcppHome}/repository/"
 		DESTINATION "."
 	)
 else()
