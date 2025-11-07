@@ -42,9 +42,9 @@ public:
 	static $Array<::java::lang::management::ThreadInfo>* dumpThreads0($longs* ids, bool lockedMonitors, bool lockedSynchronizers, int32_t maxDepth);
 	void ensureThreadAllocatedMemorySupported();
 	virtual $longs* findDeadlockedThreads() override;
-	static $Array<::java::lang::Thread>* findDeadlockedThreads0();
+	static $ThreadArray* findDeadlockedThreads0();
 	virtual $longs* findMonitorDeadlockedThreads() override;
-	static $Array<::java::lang::Thread>* findMonitorDeadlockedThreads0();
+	static $ThreadArray* findMonitorDeadlockedThreads0();
 	virtual $longs* getAllThreadIds() override;
 	virtual int64_t getCurrentThreadAllocatedBytes();
 	virtual int64_t getCurrentThreadCpuTime() override;
@@ -72,7 +72,7 @@ public:
 	static void getThreadUserCpuTime1($longs* ids, $longs* result);
 	virtual int64_t getThreadUserTime(int64_t id) override;
 	virtual $longs* getThreadUserTime($longs* ids);
-	static $Array<::java::lang::Thread>* getThreads();
+	static $ThreadArray* getThreads();
 	virtual int64_t getTotalStartedThreadCount() override;
 	virtual bool isCurrentThreadCpuTimeSupported() override;
 	virtual bool isObjectMonitorUsageSupported() override;

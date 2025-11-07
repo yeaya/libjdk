@@ -13,7 +13,6 @@
 #undef MAX_VALUE
 #undef THREAD_MXBEAN_NAME
 
-using $ThreadArray = $Array<::java::lang::Thread>;
 using $ThreadInfoArray = $Array<::java::lang::management::ThreadInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
