@@ -270,14 +270,6 @@ jobs:
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
 
-    - name: Package source
-      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-source
-        path: ${{github.workspace}}/libjdk-${{steps.get-version-id.outputs.id}}.tar.gz
-
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
 
