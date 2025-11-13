@@ -21,20 +21,26 @@ jobs:
     container: quay.io/pypa/manylinux_2_28_x86_64
 
     steps:
+    - name: set PACKAGE_VERSION
+      if: ${{ github.event.inputs.package-version != '' }}
+      run: echo "$github.event.inputs.package-version"
+      env:
+        PACKAGE_VERSION: ${{github.event.inputs.package-version}}
+
     - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
 
     - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{github.event.inputs.package-version}}
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{env.PACKAGE_VERSION}}
 
     - name: Package source
       run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-${{github.event.inputs.package-version}}-source.tar.gz
-        path: ${{github.workspace}}/libjdk-${{github.event.inputs.package-version}}.tar.gz
+        name: libjdk-${{env.PACKAGE_VERSION}}-source.tar.gz
+        path: ${{github.workspace}}/libjdk-${{env.PACKAGE_VERSION}}.tar.gz
 
   package-source-zip:
     runs-on: windows-2025
@@ -46,15 +52,15 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{github.event.inputs.package-version}}
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{env.PACKAGE_VERSION}}
 
     - name: Package source
       run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-${{github.event.inputs.package-version}}-source.zip
-        path: ${{github.workspace}}/libjdk-${{github.event.inputs.package-version}}.zip
+        name: libjdk-${{env.PACKAGE_VERSION}}-source.zip
+        path: ${{github.workspace}}/libjdk-${{env.PACKAGE_VERSION}}.zip
 
   build-linux-x86_64:
     runs-on: ubuntu-22.04
