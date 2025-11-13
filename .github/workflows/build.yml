@@ -20,6 +20,9 @@ jobs:
 
     - uses: lukka/get-cmake@latest
 
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION=${{env.PACKAGE_VERSION}}
+
     - name: Package source
       run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
 
@@ -36,6 +39,9 @@ jobs:
       with:
         submodules: recursive
         path: src
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION=${{env.PACKAGE_VERSION}}
 
     - name: Package source
       run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake

@@ -1,0 +1,193 @@
+name: 'Do build'
+description: 'Build the JDK using make'
+inputs:
+  package-version:
+    description: 'package version'
+    required: true
+  BUILD_TYPE:
+    description: 'build type'
+    required: true
+  INSTALL_TO_REPO:
+    description: 'install to repo'
+    required: true
+  BUILD_TEST:
+    description: 'build test'
+    required: false
+  package-source:
+    description: 'package source'
+    required: false
+  get-cmake:
+    description: 'get cmake'
+    required: false
+  make-target:
+    description: 'Make target(s)'
+    required: true
+  platform:
+    description: 'Platform name'
+    required: true
+  debug-suffix:
+    description: 'File name suffix denoting debug level, possibly empty'
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
+
+    - uses: lukka/get-cmake@latest
+      if: inputs.get-cmake == 'true'
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=OFF -DJ=5
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+
+    - name: Package source
+      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
+      if: inputs.package-source == 'true'
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: libjdk-17.35-source
+        path: ${{github.workspace}}/libjdk-17.35.tar.gz
+      if: inputs.package-source == 'true'
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: libjdk-17.35-linux-x86_64
+        path: ${{github.workspace}}/libjdk-17.35-linux-x86_64.tar.gz
+
+    - name: 'Build'
+      id: build
+      run: >
+        make -k LOG=info ${{ inputs.make-target }}
+        || bash ./.github/scripts/gen-build-failure-report.sh "$GITHUB_STEP_SUMMARY"
+      shell: bash
+
+    - name: 'Check for failure'
+      id: check
+      run: |
+        # Check for failure marker file
+        build_dir="$(ls -d build/*)"
+        if [[ -e $build_dir/build-failure ]]; then
+          # Collect relevant log files
+          mkdir failure-logs
+          cp \
+              $build_dir/spec.gmk \
+              $build_dir/build.log \
+              $build_dir/configure.log \
+              $build_dir/make-support/failure-summary.log \
+              $build_dir/make-support/failure-logs/* \
+              failure-logs/ 2> /dev/null || true
+          echo 'failure=true' >> $GITHUB_OUTPUT
+        fi
+      shell: bash
+
+    - name: 'Upload build logs'
+      uses: actions/upload-artifact@v4
+      with:
+        name: failure-logs-${{ inputs.platform }}${{ inputs.debug-suffix }}
+        path: failure-logs
+      if: steps.check.outputs.failure == 'true'
+
+      # This is the best way I found to abort the job with an error message
+    - name: 'Notify about build failures'
+      uses: actions/github-script@v7
+      with:
+        script: core.setFailed('Build failed. See summary for details.')
+      if: steps.check.outputs.failure == 'true'
+
+
+
+name: Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    container: quay.io/pypa/manylinux_2_28_x86_64
+
+    steps:
+    - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
+
+    - uses: lukka/get-cmake@latest
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=OFF -DJ=5
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+
+    - name: Package source
+      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: libjdk-17.35-source
+        path: ${{github.workspace}}/libjdk-17.35.tar.gz
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: libjdk-17.35-linux-x86_64
+        path: ${{github.workspace}}/libjdk-17.35-linux-x86_64.tar.gz
+
+  build-test:
+    runs-on: ubuntu-22.04
+    container: quay.io/pypa/manylinux_2_28_x86_64
+
+    steps:
+    - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
+
+    - uses: lukka/get-cmake@latest
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON -DJ=5
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: libjdk-17.35-linux-x86_64.test
+        path: ${{github.workspace}}/libjdk-17.35-linux-x86_64.tar.gz
+
+  build-repo:
+    runs-on: ubuntu-22.04
+    container: quay.io/pypa/manylinux_2_28_x86_64
+
+    steps:
+    - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
+
+    - uses: lukka/get-cmake@latest
+
+    - name: Configure CMake
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF -DJ=5
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+
+    - name: Package
+      run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: libjdk-17.35-linux-x86_64.repo
+        path: ${{github.workspace}}/libjdk-17.35-linux-x86_64.repo.tar.gz
