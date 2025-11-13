@@ -28,20 +28,30 @@ jobs:
       env:
         PACKAGE_VERSION: ${{github.event.inputs.package-version}}
 
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
+    - name: Print Output
+      id: output
+      run: echo "${{steps.get-version-id.outputs.id}}"
+
     - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
 
     - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{env.PACKAGE_VERSION}}
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Package source
       run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-${{env.PACKAGE_VERSION}}-source.tar.gz
-        path: ${{github.workspace}}/libjdk-${{env.PACKAGE_VERSION}}.tar.gz
+        name: libjdk-${{steps.get-version-id.outputs.id}}-source.tar.gz
+        path: ${{github.workspace}}/libjdk-${{steps.get-version-id.outputs.id}}.tar.gz
 
   package-source-zip:
     runs-on: windows-2025
