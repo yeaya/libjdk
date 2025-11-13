@@ -14,7 +14,7 @@ on:
 
 env:
   BUILD_TYPE: Release
-  PACKAGE_VERSION: 17.35.0-${{github.ref}}
+  PACKAGE_VERSION: 17.35
 
 jobs:
   package-source-tar-gz:
@@ -23,7 +23,7 @@ jobs:
 
     steps:
     - name: set PACKAGE_VERSION
-#      if: ${{ github.event.inputs.package-version != '' }}
+      if: github.event.inputs.package-version != ''
       run: echo "${{github.event.inputs.package-version}}"
       env:
         PACKAGE_VERSION: ${{github.event.inputs.package-version}}
