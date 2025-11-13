@@ -2,8 +2,9 @@ name: Build
 
 on:
   push:
-    branches-ignore:
-      - pr/*
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   workflow_dispatch:
     inputs:
       package-version:
