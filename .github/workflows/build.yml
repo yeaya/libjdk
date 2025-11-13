@@ -28,7 +28,7 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-${{env.PACKAGE_VERSION}}-source
+        name: libjdk-${{env.PACKAGE_VERSION}}-source.tar.gz
         path: ${{github.workspace}}/libjdk-${{env.PACKAGE_VERSION}}.tar.gz
 
   package-source-zip:
@@ -48,7 +48,7 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-${{env.PACKAGE_VERSION}}-source
+        name: libjdk-${{env.PACKAGE_VERSION}}-source.zip
         path: ${{github.workspace}}/libjdk-${{env.PACKAGE_VERSION}}.zip
 
   build-linux-x86_64:
