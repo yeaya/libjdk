@@ -8,7 +8,7 @@ on:
 
 env:
   BUILD_TYPE: Release
-  PACKAGE_VERSION: 17.35-beta1
+  PACKAGE_VERSION: 17.35.0-beta1
 
 jobs:
   package-source-tar-gz:
