@@ -23,7 +23,7 @@ jobs:
 
     steps:
     - name: set PACKAGE_VERSION
-      if: ${{ github.event.inputs.package-version != '' }}
+#      if: ${{ github.event.inputs.package-version != '' }}
       run: echo "$github.event.inputs.package-version"
       env:
         PACKAGE_VERSION: ${{github.event.inputs.package-version}}
