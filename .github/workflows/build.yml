@@ -2,9 +2,14 @@ name: Build
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches-ignore:
+      - pr/*
+  workflow_dispatch:
+    inputs:
+      package-version:
+        description: 'package version'
+        required: true
+        default: '17.35.0'
 
 env:
   BUILD_TYPE: Release
@@ -21,15 +26,15 @@ jobs:
     - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{env.PACKAGE_VERSION}}
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{github.event.inputs.package-version}}
 
     - name: Package source
       run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-${{env.PACKAGE_VERSION}}-source.tar.gz
-        path: ${{github.workspace}}/libjdk-${{env.PACKAGE_VERSION}}.tar.gz
+        name: libjdk-${{github.event.inputs.package-version}}-source.tar.gz
+        path: ${{github.workspace}}/libjdk-${{github.event.inputs.package-version}}.tar.gz
 
   package-source-zip:
     runs-on: windows-2025
@@ -41,15 +46,15 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{env.PACKAGE_VERSION}}
+      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{github.event.inputs.package-version}}
 
     - name: Package source
       run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-${{env.PACKAGE_VERSION}}-source.zip
-        path: ${{github.workspace}}/libjdk-${{env.PACKAGE_VERSION}}.zip
+        name: libjdk-${{github.event.inputs.package-version}}-source.zip
+        path: ${{github.workspace}}/libjdk-${{github.event.inputs.package-version}}.zip
 
   build-linux-x86_64:
     runs-on: ubuntu-22.04
