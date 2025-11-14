@@ -1,10 +1,7 @@
 name: Build on macos-26-aarch64
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_dispatch:
 
 env:
   BUILD_TYPE: Release
@@ -14,6 +11,12 @@ jobs:
     runs-on: macos-26
 
     steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
     - uses: actions/checkout@v4
       with:
         submodules: recursive
@@ -33,21 +36,27 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-17.35-source
-        path: ${{github.workspace}}/libjdk-17.35.tar.gz
+        name: libjdk-${{steps.get-version-id.outputs.id}}-source
+        path: ${{github.workspace}}/libjdk-${{steps.get-version-id.outputs.id}}.tar.gz
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-17.35-macos-aarch64
-        path: ${{github.workspace}}/libjdk-17.35-macos-aarch64.tar.gz
+        name: libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64
+        path: ${{github.workspace}}/libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.tar.gz
 
   build-test:
     runs-on: macos-26
 
     steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
     - uses: actions/checkout@v4
       with:
         submodules: recursive
@@ -67,13 +76,19 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-17.35-macos-aarch64.test
-        path: ${{github.workspace}}/libjdk-17.35-macos-aarch64.tar.gz
+        name: libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.test
+        path: ${{github.workspace}}/libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.tar.gz
 
   build-repo:
     runs-on: macos-26
 
     steps:
+    - name: Get tag or commit id
+      id: get-version-id
+      uses: iawia002/get-tag-or-commit-id@v1
+      with:
+        length: 7
+
     - uses: actions/checkout@v4
       with:
         submodules: recursive
@@ -93,5 +108,5 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: libjdk-17.35-macos-aarch64.repo
-        path: ${{github.workspace}}/libjdk-17.35-macos-aarch64.repo.tar.gz
+        name: libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.repo
+        path: ${{github.workspace}}/libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.repo.tar.gz
