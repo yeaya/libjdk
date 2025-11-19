@@ -451,37 +451,37 @@ jobs:
         name: libjdk-${{steps.get-version-id.outputs.id}}-linux-x86_64
     - uses: actions/download-artifact@v5
       with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-linux-x86_64-repo
+        name: libjdk-${{steps.get-version-id.outputs.id}}-linux-x86_64.repo
     - uses: actions/download-artifact@v5
       with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64
     - uses: actions/download-artifact@v5
       with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64-repo
+        name: libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64.repo
     - uses: actions/download-artifact@v5
       with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64
     - uses: actions/download-artifact@v5
       with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64-repo
+        name: libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64.repo
     - uses: actions/download-artifact@v5
       with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64
     - uses: actions/download-artifact@v5
       with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64-repo
+        name: libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.repo
     - uses: actions/download-artifact@v5
       with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-windows-x86_64
     - uses: actions/download-artifact@v5
       with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-windows-x86_64-repo
+        name: libjdk-${{steps.get-version-id.outputs.id}}-windows-x86_64.repo
     - uses: actions/download-artifact@v5
       with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-windows-aarch64
     - uses: actions/download-artifact@v5
       with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-windows-aarch64-repo
+        name: libjdk-${{steps.get-version-id.outputs.id}}-windows-aarch64.repo
     - name: Release
       uses: softprops/action-gh-release@v2
       if: github.ref_type == 'tag'
@@ -490,14 +490,14 @@ jobs:
           libjdk-${{steps.get-version-id.outputs.id}}.tar.gz
           libjdk-${{steps.get-version-id.outputs.id}}.zip
           libjdk-${{steps.get-version-id.outputs.id}}-linux-x86_64.tar.gz
-          libjdk-${{steps.get-version-id.outputs.id}}-linux-x86_64-repo.tar.gz
+          libjdk-${{steps.get-version-id.outputs.id}}-linux-x86_64.repo.tar.gz
           libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64.tar.gz
-          libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64-repo.tar.gz
+          libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64.repo.tar.gz
           libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64.tar.gz
-          libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64-repo.tar.gz
+          libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64.repo.tar.gz
           libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.tar.gz
-          libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64-repo.tar.gz
+          libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.repo.tar.gz
           libjdk-${{steps.get-version-id.outputs.id}}-windows-x86_64.zip
-          libjdk-${{steps.get-version-id.outputs.id}}-windows-x86_64-repo.zip
+          libjdk-${{steps.get-version-id.outputs.id}}-windows-x86_64.repo.zip
           libjdk-${{steps.get-version-id.outputs.id}}-windows-aarch64.zip
-          libjdk-${{steps.get-version-id.outputs.id}}-windows-aarch64-repo.zip
+          libjdk-${{steps.get-version-id.outputs.id}}-windows-aarch64.repo.zip
