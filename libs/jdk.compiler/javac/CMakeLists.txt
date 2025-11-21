@@ -40,13 +40,13 @@ if(BUILD_SHARED_LIB)
 		add_custom_command(TARGET ${JCPP_PROJECT_FULL_NAME}-javac POST_BUILD
 			COMMAND ${CMAKE_COMMAND} -E copy_if_different
 				${runtimeFile}
-				$<TARGET_FILE_DIR:${JCPP_PROJECT_FULL_NAME}-test>
+				$<TARGET_FILE_DIR:${JCPP_PROJECT_FULL_NAME}-javac>
 		)
 	endforeach()
 	add_custom_command(TARGET ${JCPP_PROJECT_FULL_NAME}-javac POST_BUILD
 		COMMAND ${CMAKE_COMMAND} -E copy_if_different
 			$<TARGET_FILE:${JCPP_PROJECT_NAME}_shared>
-			$<TARGET_FILE_DIR:${JCPP_PROJECT_FULL_NAME}-test>
+			$<TARGET_FILE_DIR:${JCPP_PROJECT_FULL_NAME}-javac>
 	)
 else()
 
