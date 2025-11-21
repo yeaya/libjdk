@@ -9,6 +9,7 @@ on:
 
 env:
   BUILD_TYPE: Release
+  GENERATOR: Ninja
   JCPP_LOG_LEVEL: debug
   JCPP_LOG_CONSOLE: enable
 
@@ -81,10 +82,10 @@ jobs:
     - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -110,10 +111,10 @@ jobs:
     - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -142,10 +143,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -174,10 +175,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -206,10 +207,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -238,10 +239,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -270,10 +271,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -302,10 +303,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -330,11 +331,14 @@ jobs:
         submodules: recursive
         path: src
 
+    - name: Configure build
+      uses: ilammy/msvc-dev-cmd@v1
+
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -359,11 +363,14 @@ jobs:
         submodules: recursive
         path: src
 
+    - name: Configure build
+      uses: ilammy/msvc-dev-cmd@v1
+
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -388,11 +395,16 @@ jobs:
         submodules: recursive
         path: src
 
+    - name: Configure build
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: arm64
+
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=OFF -DBUILD_TEST=ON
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -417,11 +429,16 @@ jobs:
         submodules: recursive
         path: src
 
+    - name: Configure build
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: arm64
+
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF -DJ=5
+      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DINSTALL_TO_REPO=ON -DBUILD_TEST=OFF
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} -j 3
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
