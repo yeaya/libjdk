@@ -16,7 +16,7 @@ add_subdirectory("classes")
 aux_source_directory("." source_SRCS)
 
 set(local_object ${local_object}
-	"$<TARGET_OBJECTS:javac-classes>"
+	"$<TARGET_OBJECTS:javac>"
 )
 
 add_executable(${JCPP_PROJECT_FULL_NAME}-javac "${local_object}" "${source_SRCS}")

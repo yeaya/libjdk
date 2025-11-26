@@ -14,30 +14,30 @@ add_subdirectory("native")
 
 set(local_object ${local_object}
 	"$<TARGET_OBJECTS:classes>"
-	"$<TARGET_OBJECTS:classes.com.sun.jmx.defaults>"
-	"$<TARGET_OBJECTS:classes.com.sun.jmx.intercep_0>"
-	"$<TARGET_OBJECTS:classes.com.sun.jmx.mbeanser_1>"
-	"$<TARGET_OBJECTS:classes.com.sun.jmx.remote.i_2>"
-	"$<TARGET_OBJECTS:classes.com.sun.jmx.remote.s_3>"
-	"$<TARGET_OBJECTS:classes.com.sun.jmx.remote.u_4>"
-	"$<TARGET_OBJECTS:classes.java.lang.management>"
-	"$<TARGET_OBJECTS:classes.javax.management>"
-	"$<TARGET_OBJECTS:classes.javax.management.loa_5>"
-	"$<TARGET_OBJECTS:classes.javax.management.mod_6>"
-	"$<TARGET_OBJECTS:classes.javax.management.mon_7>"
-	"$<TARGET_OBJECTS:classes.javax.management.ope_8>"
-	"$<TARGET_OBJECTS:classes.javax.management.rel_9>"
-	"$<TARGET_OBJECTS:classes.javax.management.re_10>"
-	"$<TARGET_OBJECTS:classes.javax.management.timer>"
-	"$<TARGET_OBJECTS:classes.sun.management>"
-	"$<TARGET_OBJECTS:classes.sun.management.counter>"
-	"$<TARGET_OBJECTS:classes.sun.management.coun_11>"
-	"$<TARGET_OBJECTS:classes.sun.management.spi>"
+	"$<TARGET_OBJECTS:com.sun.jmx.defaults>"
+	"$<TARGET_OBJECTS:com.sun.jmx.interceptor>"
+	"$<TARGET_OBJECTS:com.sun.jmx.mbeanserver>"
+	"$<TARGET_OBJECTS:com.sun.jmx.remote.internal>"
+	"$<TARGET_OBJECTS:com.sun.jmx.remote.security>"
+	"$<TARGET_OBJECTS:com.sun.jmx.remote.util>"
+	"$<TARGET_OBJECTS:java.lang.management>"
+	"$<TARGET_OBJECTS:javax.management>"
+	"$<TARGET_OBJECTS:javax.management.loading>"
+	"$<TARGET_OBJECTS:javax.management.modelmbean>"
+	"$<TARGET_OBJECTS:javax.management.monitor>"
+	"$<TARGET_OBJECTS:javax.management.openmbean>"
+	"$<TARGET_OBJECTS:javax.management.relation>"
+	"$<TARGET_OBJECTS:javax.management.remote>"
+	"$<TARGET_OBJECTS:javax.management.timer>"
+	"$<TARGET_OBJECTS:sun.management>"
+	"$<TARGET_OBJECTS:sun.management.counter>"
+	"$<TARGET_OBJECTS:sun.management.counter.perf>"
+	"$<TARGET_OBJECTS:sun.management.spi>"
 	"$<TARGET_OBJECTS:native>"
 )
 
 if(BUILD_STATIC_LIB)
-	add_library(${JCPP_PROJECT_NAME}_static STATIC "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_static STATIC ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
@@ -53,7 +53,7 @@ if(BUILD_STATIC_LIB)
 endif()
 
 if(BUILD_SHARED_LIB)
-	add_library(${JCPP_PROJECT_NAME}_shared SHARED "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_shared SHARED ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)

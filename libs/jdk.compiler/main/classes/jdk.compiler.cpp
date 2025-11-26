@@ -1652,8 +1652,12 @@
 #include <jdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$3.h>
 #include <jdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager.h>
 #include <jdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1.h>
+#include <jdk/internal/shellsupport/doc/resources/javadocformatter.h>
 #include <sun/tools/serialver/Res.h>
 #include <sun/tools/serialver/SerialVer.h>
+#include <sun/tools/serialver/resources/serialver.h>
+#include <sun/tools/serialver/resources/serialver_ja.h>
+#include <sun/tools/serialver/resources/serialver_zh_CN.h>
 
 
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
@@ -3300,8 +3304,12 @@
 	$classEntry("jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$3", ::jdk::internal::shellsupport::doc::JavadocHelper$OnDemandJavadocHelper$3),
 	$classEntry("jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager", ::jdk::internal::shellsupport::doc::JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager),
 	$classEntry("jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1", ::jdk::internal::shellsupport::doc::JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1),
+	$classEntry("jdk.internal.shellsupport.doc.resources.javadocformatter", ::jdk::internal::shellsupport::doc::resources::javadocformatter),
 	$classEntry("sun.tools.serialver.Res", ::sun::tools::serialver::Res),
-	$classEntry("sun.tools.serialver.SerialVer", ::sun::tools::serialver::SerialVer)
+	$classEntry("sun.tools.serialver.SerialVer", ::sun::tools::serialver::SerialVer),
+	$classEntry("sun.tools.serialver.resources.serialver", ::sun::tools::serialver::resources::serialver),
+	$classEntry("sun.tools.serialver.resources.serialver_ja", ::sun::tools::serialver::resources::serialver_ja),
+	$classEntry("sun.tools.serialver.resources.serialver_zh_CN", ::sun::tools::serialver::resources::serialver_zh_CN)
 };
 
 const char* _jdk$compiler_packages_[] = {
@@ -3333,7 +3341,9 @@ const char* _jdk$compiler_packages_[] = {
 	"com.sun.tools.sjavac.server",
 	"com.sun.tools.sjavac.server.log",
 	"jdk.internal.shellsupport.doc",
-	"sun.tools.serialver"
+	"jdk.internal.shellsupport.doc.resources",
+	"sun.tools.serialver",
+	"sun.tools.serialver.resources"
 };
 
 void jdk$compiler$PreloadClass(void* eventData) {

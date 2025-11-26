@@ -2,11 +2,11 @@
 
 add_subdirectory("xml")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.org.jcp_SRCS)
-file(GLOB classes.org.jcp_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.org.jcp_HEADERS}) 
-list(LENGTH classes.org.jcp_SRCS classes.org.jcp_SRCS_LENGTH)
-if(classes.org.jcp_SRCS_LENGTH)
-	add_library(classes.org.jcp OBJECT "${classes.org.jcp_SRCS}" "${classes.org.jcp_HEADERS}")
-	jcpp_enable_bigobj(classes.org.jcp)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(org.jcp OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(org.jcp)
 endif()

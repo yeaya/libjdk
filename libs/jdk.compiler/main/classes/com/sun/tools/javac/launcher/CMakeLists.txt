@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.com.sun.tools.javac._5_SRCS)
-file(GLOB classes.com.sun.tools.javac._5_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.com.sun.tools.javac._5_HEADERS}) 
-list(LENGTH classes.com.sun.tools.javac._5_SRCS classes.com.sun.tools.javac._5_SRCS_LENGTH)
-if(classes.com.sun.tools.javac._5_SRCS_LENGTH)
-	add_library(classes.com.sun.tools.javac._5 OBJECT "${classes.com.sun.tools.javac._5_SRCS}" "${classes.com.sun.tools.javac._5_HEADERS}")
-	jcpp_enable_bigobj(classes.com.sun.tools.javac._5)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(com.sun.tools.javac.launcher OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(com.sun.tools.javac.launcher)
 endif()

@@ -62,6 +62,18 @@
 #include <sun/util/logging/internal/LoggingProviderImpl.h>
 #include <sun/util/logging/internal/LoggingProviderImpl$JULWrapper.h>
 #include <sun/util/logging/internal/LoggingProviderImpl$LogManagerAccess.h>
+#include <sun/util/logging/resources/logging.h>
+#include <sun/util/logging/resources/logging_de.h>
+#include <sun/util/logging/resources/logging_es.h>
+#include <sun/util/logging/resources/logging_fr.h>
+#include <sun/util/logging/resources/logging_it.h>
+#include <sun/util/logging/resources/logging_ja.h>
+#include <sun/util/logging/resources/logging_ko.h>
+#include <sun/util/logging/resources/logging_pt_BR.h>
+#include <sun/util/logging/resources/logging_sv.h>
+#include <sun/util/logging/resources/logging_zh_CN.h>
+#include <sun/util/logging/resources/logging_zh_HK.h>
+#include <sun/util/logging/resources/logging_zh_TW.h>
 
 
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
@@ -119,13 +131,26 @@
 	$classEntry("sun.net.www.protocol.http.logging.HttpLogFormatter", ::sun::net::www::protocol::http::logging::HttpLogFormatter),
 	$classEntry("sun.util.logging.internal.LoggingProviderImpl", ::sun::util::logging::internal::LoggingProviderImpl),
 	$classEntry("sun.util.logging.internal.LoggingProviderImpl$JULWrapper", ::sun::util::logging::internal::LoggingProviderImpl$JULWrapper),
-	$classEntry("sun.util.logging.internal.LoggingProviderImpl$LogManagerAccess", ::sun::util::logging::internal::LoggingProviderImpl$LogManagerAccess)
+	$classEntry("sun.util.logging.internal.LoggingProviderImpl$LogManagerAccess", ::sun::util::logging::internal::LoggingProviderImpl$LogManagerAccess),
+	$classEntry("sun.util.logging.resources.logging", ::sun::util::logging::resources::logging),
+	$classEntry("sun.util.logging.resources.logging_de", ::sun::util::logging::resources::logging_de),
+	$classEntry("sun.util.logging.resources.logging_es", ::sun::util::logging::resources::logging_es),
+	$classEntry("sun.util.logging.resources.logging_fr", ::sun::util::logging::resources::logging_fr),
+	$classEntry("sun.util.logging.resources.logging_it", ::sun::util::logging::resources::logging_it),
+	$classEntry("sun.util.logging.resources.logging_ja", ::sun::util::logging::resources::logging_ja),
+	$classEntry("sun.util.logging.resources.logging_ko", ::sun::util::logging::resources::logging_ko),
+	$classEntry("sun.util.logging.resources.logging_pt_BR", ::sun::util::logging::resources::logging_pt_BR),
+	$classEntry("sun.util.logging.resources.logging_sv", ::sun::util::logging::resources::logging_sv),
+	$classEntry("sun.util.logging.resources.logging_zh_CN", ::sun::util::logging::resources::logging_zh_CN),
+	$classEntry("sun.util.logging.resources.logging_zh_HK", ::sun::util::logging::resources::logging_zh_HK),
+	$classEntry("sun.util.logging.resources.logging_zh_TW", ::sun::util::logging::resources::logging_zh_TW)
 };
 
 const char* _java$logging_packages_[] = {
 	"java.util.logging",
 	"sun.net.www.protocol.http.logging",
-	"sun.util.logging.internal"
+	"sun.util.logging.internal",
+	"sun.util.logging.resources"
 };
 
 void java$logging$PreloadClass(void* eventData) {

@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.org.jcp.xml.dsig.in_30_SRCS)
-file(GLOB classes.org.jcp.xml.dsig.in_30_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.org.jcp.xml.dsig.in_30_HEADERS}) 
-list(LENGTH classes.org.jcp.xml.dsig.in_30_SRCS classes.org.jcp.xml.dsig.in_30_SRCS_LENGTH)
-if(classes.org.jcp.xml.dsig.in_30_SRCS_LENGTH)
-	add_library(classes.org.jcp.xml.dsig.in_30 OBJECT "${classes.org.jcp.xml.dsig.in_30_SRCS}" "${classes.org.jcp.xml.dsig.in_30_HEADERS}")
-	jcpp_enable_bigobj(classes.org.jcp.xml.dsig.in_30)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(org.jcp.xml.dsig.internal.dom OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(org.jcp.xml.dsig.internal.dom)
 endif()

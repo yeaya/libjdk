@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.com.sun.rowset.inter_0_SRCS)
-file(GLOB classes.com.sun.rowset.inter_0_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.com.sun.rowset.inter_0_HEADERS}) 
-list(LENGTH classes.com.sun.rowset.inter_0_SRCS classes.com.sun.rowset.inter_0_SRCS_LENGTH)
-if(classes.com.sun.rowset.inter_0_SRCS_LENGTH)
-	add_library(classes.com.sun.rowset.inter_0 OBJECT "${classes.com.sun.rowset.inter_0_SRCS}" "${classes.com.sun.rowset.inter_0_HEADERS}")
-	jcpp_enable_bigobj(classes.com.sun.rowset.inter_0)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(com.sun.rowset.internal OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(com.sun.rowset.internal)
 endif()

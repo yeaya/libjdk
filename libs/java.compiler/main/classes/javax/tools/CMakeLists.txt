@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.javax.tools_SRCS)
-file(GLOB classes.javax.tools_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.javax.tools_HEADERS}) 
-list(LENGTH classes.javax.tools_SRCS classes.javax.tools_SRCS_LENGTH)
-if(classes.javax.tools_SRCS_LENGTH)
-	add_library(classes.javax.tools OBJECT "${classes.javax.tools_SRCS}" "${classes.javax.tools_HEADERS}")
-	jcpp_enable_bigobj(classes.javax.tools)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(javax.tools OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(javax.tools)
 endif()

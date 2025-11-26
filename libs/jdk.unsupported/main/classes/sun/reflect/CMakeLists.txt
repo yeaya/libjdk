@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.sun.reflect_SRCS)
-file(GLOB classes.sun.reflect_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.sun.reflect_HEADERS}) 
-list(LENGTH classes.sun.reflect_SRCS classes.sun.reflect_SRCS_LENGTH)
-if(classes.sun.reflect_SRCS_LENGTH)
-	add_library(classes.sun.reflect OBJECT "${classes.sun.reflect_SRCS}" "${classes.sun.reflect_HEADERS}")
-	jcpp_enable_bigobj(classes.sun.reflect)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(sun.reflect OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(sun.reflect)
 endif()

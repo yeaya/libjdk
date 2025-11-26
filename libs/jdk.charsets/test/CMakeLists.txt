@@ -6,12 +6,12 @@ jcpp_add_dependencies(
 
 add_definitions(-DJCPP_USE_LIB_CURRENT_OBJECT_STACK_CACHE)
 
-include_directories("classes")
-include_directories("../main/include")
+include_directories("share/classes")
+include_directories("../main/share/include")
 
-add_subdirectory("classes")
+add_subdirectory("share/classes")
 
-aux_source_directory("." source_SRCS)
+aux_source_directory("share" source_SRCS)
 
 set(local_object ${local_object}
 	"$<TARGET_OBJECTS:test-classes>"

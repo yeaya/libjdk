@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.javax.sql_SRCS)
-file(GLOB classes.javax.sql_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.javax.sql_HEADERS}) 
-list(LENGTH classes.javax.sql_SRCS classes.javax.sql_SRCS_LENGTH)
-if(classes.javax.sql_SRCS_LENGTH)
-	add_library(classes.javax.sql OBJECT "${classes.javax.sql_SRCS}" "${classes.javax.sql_HEADERS}")
-	jcpp_enable_bigobj(classes.javax.sql)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(javax.sql OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(javax.sql)
 endif()

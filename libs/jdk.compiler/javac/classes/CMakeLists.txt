@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" javac-classes_SRCS)
-file(GLOB javac-classes_HEADERS *.h *.hpp)
-source_group("Include" FILES ${javac-classes_HEADERS}) 
-list(LENGTH javac-classes_SRCS javac-classes_SRCS_LENGTH)
-if(javac-classes_SRCS_LENGTH)
-	add_library(javac-classes OBJECT "${javac-classes_SRCS}" "${javac-classes_HEADERS}")
-	jcpp_enable_bigobj(javac-classes)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(javac OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(javac)
 endif()

@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.java.lang.instrument_SRCS)
-file(GLOB classes.java.lang.instrument_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.java.lang.instrument_HEADERS}) 
-list(LENGTH classes.java.lang.instrument_SRCS classes.java.lang.instrument_SRCS_LENGTH)
-if(classes.java.lang.instrument_SRCS_LENGTH)
-	add_library(classes.java.lang.instrument OBJECT "${classes.java.lang.instrument_SRCS}" "${classes.java.lang.instrument_HEADERS}")
-	jcpp_enable_bigobj(classes.java.lang.instrument)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(java.lang.instrument OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(java.lang.instrument)
 endif()

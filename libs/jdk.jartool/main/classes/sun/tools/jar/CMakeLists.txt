@@ -2,11 +2,11 @@
 
 add_subdirectory("resources")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.sun.tools.jar_SRCS)
-file(GLOB classes.sun.tools.jar_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.sun.tools.jar_HEADERS}) 
-list(LENGTH classes.sun.tools.jar_SRCS classes.sun.tools.jar_SRCS_LENGTH)
-if(classes.sun.tools.jar_SRCS_LENGTH)
-	add_library(classes.sun.tools.jar OBJECT "${classes.sun.tools.jar_SRCS}" "${classes.sun.tools.jar_HEADERS}")
-	jcpp_enable_bigobj(classes.sun.tools.jar)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(sun.tools.jar OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(sun.tools.jar)
 endif()

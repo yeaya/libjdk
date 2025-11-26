@@ -17,13 +17,13 @@ add_subdirectory("classes")
 
 set(local_object ${local_object}
 	"$<TARGET_OBJECTS:classes>"
-	"$<TARGET_OBJECTS:classes.com.sun.jmx.remote.i_1>"
-	"$<TARGET_OBJECTS:classes.com.sun.jmx.remote.p_3>"
-	"$<TARGET_OBJECTS:classes.javax.management.rem_5>"
+	"$<TARGET_OBJECTS:com.sun.jmx.remote.internal.rm>"
+	"$<TARGET_OBJECTS:com.sun.jmx.remote.protocol.rm>"
+	"$<TARGET_OBJECTS:javax.management.remote.rmi>"
 )
 
 if(BUILD_STATIC_LIB)
-	add_library(${JCPP_PROJECT_NAME}_static STATIC "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_static STATIC ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
@@ -39,7 +39,7 @@ if(BUILD_STATIC_LIB)
 endif()
 
 if(BUILD_SHARED_LIB)
-	add_library(${JCPP_PROJECT_NAME}_shared SHARED "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_shared SHARED ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)

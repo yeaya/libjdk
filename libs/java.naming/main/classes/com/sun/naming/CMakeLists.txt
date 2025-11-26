@@ -2,11 +2,11 @@
 
 add_subdirectory("internal")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.com.sun.naming_SRCS)
-file(GLOB classes.com.sun.naming_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.com.sun.naming_HEADERS}) 
-list(LENGTH classes.com.sun.naming_SRCS classes.com.sun.naming_SRCS_LENGTH)
-if(classes.com.sun.naming_SRCS_LENGTH)
-	add_library(classes.com.sun.naming OBJECT "${classes.com.sun.naming_SRCS}" "${classes.com.sun.naming_HEADERS}")
-	jcpp_enable_bigobj(classes.com.sun.naming)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(com.sun.naming OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(com.sun.naming)
 endif()

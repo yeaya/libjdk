@@ -42,48 +42,48 @@ if(JCPP_OS MATCHES "windows")
 endif()
 
 set(local_object ${local_object}
-	"$<TARGET_OBJECTS:classes.javax.security.auth._0>"
-	"$<TARGET_OBJECTS:classes.org.ietf.jgss>"
-	"$<TARGET_OBJECTS:classes.sun.net.www.protocol_2>"
-	"$<TARGET_OBJECTS:classes.sun.security.jgss>"
-	"$<TARGET_OBJECTS:classes.sun.security.jgss.krb5>"
-	"$<TARGET_OBJECTS:classes.sun.security.jgss.kr_3>"
-	"$<TARGET_OBJECTS:classes.sun.security.jgss.spi>"
-	"$<TARGET_OBJECTS:classes.sun.security.jgss.sp_4>"
-	"$<TARGET_OBJECTS:classes.sun.security.jgss.wr_5>"
-	"$<TARGET_OBJECTS:classes.sun.security.krb5>"
-	"$<TARGET_OBJECTS:classes.sun.security.krb5.in_6>"
-	"$<TARGET_OBJECTS:classes.sun.security.krb5.in_7>"
-	"$<TARGET_OBJECTS:classes.sun.security.krb5.in_8>"
-	"$<TARGET_OBJECTS:classes.sun.security.krb5.in_9>"
-	"$<TARGET_OBJECTS:classes.sun.security.krb5.i_10>"
-	"$<TARGET_OBJECTS:classes.sun.security.krb5.i_11>"
-	"$<TARGET_OBJECTS:classes.sun.security.krb5.i_12>"
+	"$<TARGET_OBJECTS:javax.security.auth.kerberos>"
+	"$<TARGET_OBJECTS:org.ietf.jgss>"
+	"$<TARGET_OBJECTS:sun.net.www.protocol.http.spne>"
+	"$<TARGET_OBJECTS:sun.security.jgss>"
+	"$<TARGET_OBJECTS:sun.security.jgss.krb5>"
+	"$<TARGET_OBJECTS:sun.security.jgss.krb5.interna>"
+	"$<TARGET_OBJECTS:sun.security.jgss.spi>"
+	"$<TARGET_OBJECTS:sun.security.jgss.spnego>"
+	"$<TARGET_OBJECTS:sun.security.jgss.wrapper>"
+	"$<TARGET_OBJECTS:sun.security.krb5>"
+	"$<TARGET_OBJECTS:sun.security.krb5.internal>"
+	"$<TARGET_OBJECTS:sun.security.krb5.internal.cca>"
+	"$<TARGET_OBJECTS:sun.security.krb5.internal.cry>"
+	"$<TARGET_OBJECTS:sun.security.krb5.internal.c_0>"
+	"$<TARGET_OBJECTS:sun.security.krb5.internal.kta>"
+	"$<TARGET_OBJECTS:sun.security.krb5.internal.rca>"
+	"$<TARGET_OBJECTS:sun.security.krb5.internal.uti>"
 	"$<TARGET_OBJECTS:native.libj2gss>"
 )
 
 if(JCPP_OS MATCHES "linux")
 	set(local_object ${local_object}
-		"$<TARGET_OBJECTS:linux-classes>"
+		"$<TARGET_OBJECTS:linux>"
 	)
 endif()
 
 if(JCPP_OS MATCHES "macos")
 	set(local_object ${local_object}
-		"$<TARGET_OBJECTS:macos-classes>"
+		"$<TARGET_OBJECTS:macos>"
 		"$<TARGET_OBJECTS:macos-native.libosxkrb5>"
 	)
 endif()
 
 if(JCPP_OS MATCHES "windows")
 	set(local_object ${local_object}
-		"$<TARGET_OBJECTS:windows-classes>"
-		"$<TARGET_OBJECTS:windows-classes.sun.securit_15>"
+		"$<TARGET_OBJECTS:windows>"
+		"$<TARGET_OBJECTS:windows.sun.security.krb5.in_1>"
 	)
 endif()
 
 if(BUILD_STATIC_LIB)
-	add_library(${JCPP_PROJECT_NAME}_static STATIC "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_static STATIC ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
@@ -99,7 +99,7 @@ if(BUILD_STATIC_LIB)
 endif()
 
 if(BUILD_SHARED_LIB)
-	add_library(${JCPP_PROJECT_NAME}_shared SHARED "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_shared SHARED ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)

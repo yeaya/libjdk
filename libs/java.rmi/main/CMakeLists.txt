@@ -15,22 +15,22 @@ add_subdirectory("native")
 
 set(local_object ${local_object}
 	"$<TARGET_OBJECTS:classes>"
-	"$<TARGET_OBJECTS:classes.java.rmi>"
-	"$<TARGET_OBJECTS:classes.java.rmi.dgc>"
-	"$<TARGET_OBJECTS:classes.java.rmi.registry>"
-	"$<TARGET_OBJECTS:classes.java.rmi.server>"
-	"$<TARGET_OBJECTS:classes.javax.rmi.ssl>"
-	"$<TARGET_OBJECTS:classes.sun.rmi.log>"
-	"$<TARGET_OBJECTS:classes.sun.rmi.registry>"
-	"$<TARGET_OBJECTS:classes.sun.rmi.runtime>"
-	"$<TARGET_OBJECTS:classes.sun.rmi.server>"
-	"$<TARGET_OBJECTS:classes.sun.rmi.transport>"
-	"$<TARGET_OBJECTS:classes.sun.rmi.transport.tcp>"
+	"$<TARGET_OBJECTS:java.rmi>"
+	"$<TARGET_OBJECTS:java.rmi.dgc>"
+	"$<TARGET_OBJECTS:java.rmi.registry>"
+	"$<TARGET_OBJECTS:java.rmi.server>"
+	"$<TARGET_OBJECTS:javax.rmi.ssl>"
+	"$<TARGET_OBJECTS:sun.rmi.log>"
+	"$<TARGET_OBJECTS:sun.rmi.registry>"
+	"$<TARGET_OBJECTS:sun.rmi.runtime>"
+	"$<TARGET_OBJECTS:sun.rmi.server>"
+	"$<TARGET_OBJECTS:sun.rmi.transport>"
+	"$<TARGET_OBJECTS:sun.rmi.transport.tcp>"
 	"$<TARGET_OBJECTS:native>"
 )
 
 if(BUILD_STATIC_LIB)
-	add_library(${JCPP_PROJECT_NAME}_static STATIC "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_static STATIC ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
@@ -46,7 +46,7 @@ if(BUILD_STATIC_LIB)
 endif()
 
 if(BUILD_SHARED_LIB)
-	add_library(${JCPP_PROJECT_NAME}_shared SHARED "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_shared SHARED ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)

@@ -2,11 +2,11 @@
 
 add_subdirectory("implementations")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.com.sun.org.apache.x_2_SRCS)
-file(GLOB classes.com.sun.org.apache.x_2_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.com.sun.org.apache.x_2_HEADERS}) 
-list(LENGTH classes.com.sun.org.apache.x_2_SRCS classes.com.sun.org.apache.x_2_SRCS_LENGTH)
-if(classes.com.sun.org.apache.x_2_SRCS_LENGTH)
-	add_library(classes.com.sun.org.apache.x_2 OBJECT "${classes.com.sun.org.apache.x_2_SRCS}" "${classes.com.sun.org.apache.x_2_HEADERS}")
-	jcpp_enable_bigobj(classes.com.sun.org.apache.x_2)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(com.sun.org.apache.xml.inter_1 OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(com.sun.org.apache.xml.inter_1)
 endif()

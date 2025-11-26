@@ -14,27 +14,27 @@ add_subdirectory("classes")
 
 set(local_object ${local_object}
 	"$<TARGET_OBJECTS:classes>"
-	"$<TARGET_OBJECTS:classes.com.sun.jndi.ldap>"
-	"$<TARGET_OBJECTS:classes.com.sun.jndi.ldap.ext>"
-	"$<TARGET_OBJECTS:classes.com.sun.jndi.ldap.pool>"
-	"$<TARGET_OBJECTS:classes.com.sun.jndi.ldap.sasl>"
-	"$<TARGET_OBJECTS:classes.com.sun.jndi.toolkit_0>"
-	"$<TARGET_OBJECTS:classes.com.sun.jndi.toolkit_1>"
-	"$<TARGET_OBJECTS:classes.com.sun.jndi.toolkit_2>"
-	"$<TARGET_OBJECTS:classes.com.sun.jndi.url.ldap>"
-	"$<TARGET_OBJECTS:classes.com.sun.jndi.url.ldaps>"
-	"$<TARGET_OBJECTS:classes.com.sun.naming.inter_3>"
-	"$<TARGET_OBJECTS:classes.javax.naming>"
-	"$<TARGET_OBJECTS:classes.javax.naming.directory>"
-	"$<TARGET_OBJECTS:classes.javax.naming.event>"
-	"$<TARGET_OBJECTS:classes.javax.naming.ldap>"
-	"$<TARGET_OBJECTS:classes.javax.naming.ldap.spi>"
-	"$<TARGET_OBJECTS:classes.javax.naming.spi>"
-	"$<TARGET_OBJECTS:classes.sun.security.provide_5>"
+	"$<TARGET_OBJECTS:com.sun.jndi.ldap>"
+	"$<TARGET_OBJECTS:com.sun.jndi.ldap.ext>"
+	"$<TARGET_OBJECTS:com.sun.jndi.ldap.pool>"
+	"$<TARGET_OBJECTS:com.sun.jndi.ldap.sasl>"
+	"$<TARGET_OBJECTS:com.sun.jndi.toolkit.ctx>"
+	"$<TARGET_OBJECTS:com.sun.jndi.toolkit.dir>"
+	"$<TARGET_OBJECTS:com.sun.jndi.toolkit.url>"
+	"$<TARGET_OBJECTS:com.sun.jndi.url.ldap>"
+	"$<TARGET_OBJECTS:com.sun.jndi.url.ldaps>"
+	"$<TARGET_OBJECTS:com.sun.naming.internal>"
+	"$<TARGET_OBJECTS:javax.naming>"
+	"$<TARGET_OBJECTS:javax.naming.directory>"
+	"$<TARGET_OBJECTS:javax.naming.event>"
+	"$<TARGET_OBJECTS:javax.naming.ldap>"
+	"$<TARGET_OBJECTS:javax.naming.ldap.spi>"
+	"$<TARGET_OBJECTS:javax.naming.spi>"
+	"$<TARGET_OBJECTS:sun.security.provider.certpa_0>"
 )
 
 if(BUILD_STATIC_LIB)
-	add_library(${JCPP_PROJECT_NAME}_static STATIC "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_static STATIC ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
@@ -50,7 +50,7 @@ if(BUILD_STATIC_LIB)
 endif()
 
 if(BUILD_SHARED_LIB)
-	add_library(${JCPP_PROJECT_NAME}_shared SHARED "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_shared SHARED ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)

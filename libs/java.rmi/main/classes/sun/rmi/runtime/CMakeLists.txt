@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.sun.rmi.runtime_SRCS)
-file(GLOB classes.sun.rmi.runtime_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.sun.rmi.runtime_HEADERS}) 
-list(LENGTH classes.sun.rmi.runtime_SRCS classes.sun.rmi.runtime_SRCS_LENGTH)
-if(classes.sun.rmi.runtime_SRCS_LENGTH)
-	add_library(classes.sun.rmi.runtime OBJECT "${classes.sun.rmi.runtime_SRCS}" "${classes.sun.rmi.runtime_HEADERS}")
-	jcpp_enable_bigobj(classes.sun.rmi.runtime)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(sun.rmi.runtime OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(sun.rmi.runtime)
 endif()

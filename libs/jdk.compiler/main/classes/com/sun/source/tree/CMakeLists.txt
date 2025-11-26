@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.com.sun.source.tree_SRCS)
-file(GLOB classes.com.sun.source.tree_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.com.sun.source.tree_HEADERS}) 
-list(LENGTH classes.com.sun.source.tree_SRCS classes.com.sun.source.tree_SRCS_LENGTH)
-if(classes.com.sun.source.tree_SRCS_LENGTH)
-	add_library(classes.com.sun.source.tree OBJECT "${classes.com.sun.source.tree_SRCS}" "${classes.com.sun.source.tree_HEADERS}")
-	jcpp_enable_bigobj(classes.com.sun.source.tree)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(com.sun.source.tree OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(com.sun.source.tree)
 endif()

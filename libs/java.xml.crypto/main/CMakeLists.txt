@@ -14,43 +14,43 @@ add_subdirectory("classes")
 
 set(local_object ${local_object}
 	"$<TARGET_OBJECTS:classes>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache.x_1>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache.x_2>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache.x_3>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache.x_4>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache.x_5>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache.x_6>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache.x_7>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache.x_8>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache.x_9>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._10>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._11>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._12>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._13>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._14>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._15>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._16>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._17>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._18>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._19>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._20>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._21>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._22>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._23>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.apache._24>"
-	"$<TARGET_OBJECTS:classes.com.sun.org.slf4j.i_25>"
-	"$<TARGET_OBJECTS:classes.javax.xml.crypto>"
-	"$<TARGET_OBJECTS:classes.javax.xml.crypto.dom>"
-	"$<TARGET_OBJECTS:classes.javax.xml.crypto.dsig>"
-	"$<TARGET_OBJECTS:classes.javax.xml.crypto.ds_26>"
-	"$<TARGET_OBJECTS:classes.javax.xml.crypto.ds_27>"
-	"$<TARGET_OBJECTS:classes.javax.xml.crypto.ds_28>"
-	"$<TARGET_OBJECTS:classes.org.jcp.xml.dsig.in_29>"
-	"$<TARGET_OBJECTS:classes.org.jcp.xml.dsig.in_30>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inter_0>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inter_1>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inter_2>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inter_3>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inter_4>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inter_5>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inter_6>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inter_7>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inter_8>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inter_9>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_10>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_11>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_12>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_13>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_14>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_15>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_16>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_17>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_18>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_19>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_20>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_21>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_22>"
+	"$<TARGET_OBJECTS:com.sun.org.apache.xml.inte_23>"
+	"$<TARGET_OBJECTS:com.sun.org.slf4j.internal>"
+	"$<TARGET_OBJECTS:javax.xml.crypto>"
+	"$<TARGET_OBJECTS:javax.xml.crypto.dom>"
+	"$<TARGET_OBJECTS:javax.xml.crypto.dsig>"
+	"$<TARGET_OBJECTS:javax.xml.crypto.dsig.dom>"
+	"$<TARGET_OBJECTS:javax.xml.crypto.dsig.keyinfo>"
+	"$<TARGET_OBJECTS:javax.xml.crypto.dsig.spec>"
+	"$<TARGET_OBJECTS:org.jcp.xml.dsig.internal>"
+	"$<TARGET_OBJECTS:org.jcp.xml.dsig.internal.dom>"
 )
 
 if(BUILD_STATIC_LIB)
-	add_library(${JCPP_PROJECT_NAME}_static STATIC "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_static STATIC ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
@@ -66,7 +66,7 @@ if(BUILD_STATIC_LIB)
 endif()
 
 if(BUILD_SHARED_LIB)
-	add_library(${JCPP_PROJECT_NAME}_shared SHARED "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_shared SHARED ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)

@@ -6,17 +6,61 @@ jcpp_add_dependencies(
 
 add_definitions(-DJCPP_USE_LIB_CURRENT_OBJECT_STACK_CACHE)
 
-include_directories("classes")
+include_directories("share/classes")
 
-add_subdirectory("classes")
+if(JCPP_OS MATCHES "linux")
+	include_directories("linux/classes")
+endif()
+
+if(JCPP_OS MATCHES "macos")
+	include_directories("macos/classes")
+endif()
+
+if(JCPP_OS MATCHES "windows")
+	include_directories("windows/classes")
+endif()
+
+add_subdirectory("share/classes")
+
+if(JCPP_OS MATCHES "linux")
+	add_subdirectory("linux/classes")
+endif()
+
+if(JCPP_OS MATCHES "macos")
+	add_subdirectory("macos/classes")
+endif()
+
+if(JCPP_OS MATCHES "windows")
+	add_subdirectory("windows/classes")
+endif()
 
 set(local_object ${local_object}
-	"$<TARGET_OBJECTS:classes>"
-	"$<TARGET_OBJECTS:classes.sun.nio.cs.ext>"
+	"$<TARGET_OBJECTS:sun.nio.cs.ext>"
 )
 
+if(JCPP_OS MATCHES "linux")
+	set(local_object ${local_object}
+		"$<TARGET_OBJECTS:linux>"
+		"$<TARGET_OBJECTS:linux.sun.nio.cs.ext>"
+	)
+endif()
+
+if(JCPP_OS MATCHES "macos")
+	set(local_object ${local_object}
+		"$<TARGET_OBJECTS:macos>"
+		"$<TARGET_OBJECTS:macos.sun.nio.cs.ext>"
+	)
+endif()
+
+if(JCPP_OS MATCHES "windows")
+	set(local_object ${local_object}
+		"$<TARGET_OBJECTS:windows>"
+		"$<TARGET_OBJECTS:windows.sun.nio.cs.ext>"
+	)
+endif()
+
 if(BUILD_STATIC_LIB)
-	add_library(${JCPP_PROJECT_NAME}_static STATIC "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_static STATIC ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
@@ -32,7 +76,7 @@ if(BUILD_STATIC_LIB)
 endif()
 
 if(BUILD_SHARED_LIB)
-	add_library(${JCPP_PROJECT_NAME}_shared SHARED "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_shared SHARED ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)
@@ -60,13 +104,13 @@ endif()
 endif()
 
 install(
-	DIRECTORY "include/"
+	DIRECTORY "share/include/"
 	DESTINATION "${JCPP_INSTALL_INCLUDE_DIR}"
 )
 
 if(INSTALL_TO_REPO)
 	install(
-		FILES "dependencies.txt"
+		FILES "share/dependencies.txt"
 		DESTINATION "${JCPP_INSTALL_DIR}"
 	)
 endif()

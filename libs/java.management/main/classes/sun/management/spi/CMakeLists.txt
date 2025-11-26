@@ -1,10 +1,10 @@
 #machine generated
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.sun.management.spi_SRCS)
-file(GLOB classes.sun.management.spi_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.sun.management.spi_HEADERS}) 
-list(LENGTH classes.sun.management.spi_SRCS classes.sun.management.spi_SRCS_LENGTH)
-if(classes.sun.management.spi_SRCS_LENGTH)
-	add_library(classes.sun.management.spi OBJECT "${classes.sun.management.spi_SRCS}" "${classes.sun.management.spi_HEADERS}")
-	jcpp_enable_bigobj(classes.sun.management.spi)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(sun.management.spi OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(sun.management.spi)
 endif()

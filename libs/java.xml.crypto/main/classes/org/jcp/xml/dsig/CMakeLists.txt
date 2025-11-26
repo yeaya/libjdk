@@ -2,11 +2,11 @@
 
 add_subdirectory("internal")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.org.jcp.xml.dsig_SRCS)
-file(GLOB classes.org.jcp.xml.dsig_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.org.jcp.xml.dsig_HEADERS}) 
-list(LENGTH classes.org.jcp.xml.dsig_SRCS classes.org.jcp.xml.dsig_SRCS_LENGTH)
-if(classes.org.jcp.xml.dsig_SRCS_LENGTH)
-	add_library(classes.org.jcp.xml.dsig OBJECT "${classes.org.jcp.xml.dsig_SRCS}" "${classes.org.jcp.xml.dsig_HEADERS}")
-	jcpp_enable_bigobj(classes.org.jcp.xml.dsig)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(org.jcp.xml.dsig OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(org.jcp.xml.dsig)
 endif()

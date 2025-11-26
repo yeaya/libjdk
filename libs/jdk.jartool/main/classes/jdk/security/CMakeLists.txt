@@ -2,11 +2,11 @@
 
 add_subdirectory("jarsigner")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.jdk.security_SRCS)
-file(GLOB classes.jdk.security_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.jdk.security_HEADERS}) 
-list(LENGTH classes.jdk.security_SRCS classes.jdk.security_SRCS_LENGTH)
-if(classes.jdk.security_SRCS_LENGTH)
-	add_library(classes.jdk.security OBJECT "${classes.jdk.security_SRCS}" "${classes.jdk.security_HEADERS}")
-	jcpp_enable_bigobj(classes.jdk.security)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(jdk.security OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(jdk.security)
 endif()

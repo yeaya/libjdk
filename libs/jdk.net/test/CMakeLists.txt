@@ -19,16 +19,16 @@ aux_source_directory("share" source_SRCS)
 
 set(local_object ${local_object}
 	"$<TARGET_OBJECTS:test-classes>"
-	"$<TARGET_OBJECTS:test-classes.com.foo.content_0>"
-	"$<TARGET_OBJECTS:test-classes.handlers.bar>"
-	"$<TARGET_OBJECTS:test-classes.handlers.foo>"
-	"$<TARGET_OBJECTS:test-classes.handlers.jar>"
-	"$<TARGET_OBJECTS:test-classes.jdk.internal.ne_1>"
-	"$<TARGET_OBJECTS:test-classes.jdk.internal.ne_2>"
-	"$<TARGET_OBJECTS:test-classes.jdk.internal.ne_3>"
-	"$<TARGET_OBJECTS:test-classes.org.reactivestr_4>"
-	"$<TARGET_OBJECTS:test-classes.org.reactivestr_7>"
-	"$<TARGET_OBJECTS:test-classes.p>"
+	"$<TARGET_OBJECTS:test.com.foo.content.text>"
+	"$<TARGET_OBJECTS:test.handlers.bar>"
+	"$<TARGET_OBJECTS:test.handlers.foo>"
+	"$<TARGET_OBJECTS:test.handlers.jar>"
+	"$<TARGET_OBJECTS:test.jdk.internal.net.http>"
+	"$<TARGET_OBJECTS:test.jdk.internal.net.http.hpa>"
+	"$<TARGET_OBJECTS:test.jdk.internal.net.http.web>"
+	"$<TARGET_OBJECTS:test.org.reactivestreams>"
+	"$<TARGET_OBJECTS:test.org.reactivestreams.tck_0>"
+	"$<TARGET_OBJECTS:test.p>"
 )
 
 add_executable(${JCPP_PROJECT_FULL_NAME}-test "${local_object}" "${source_SRCS}")

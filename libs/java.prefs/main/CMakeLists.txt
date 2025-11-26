@@ -42,35 +42,35 @@ if(JCPP_OS MATCHES "windows")
 endif()
 
 set(local_object ${local_object}
-	"$<TARGET_OBJECTS:classes.java.util.prefs>"
+	"$<TARGET_OBJECTS:java.util.prefs>"
 )
 
 if(JCPP_OS MATCHES "linux")
 	set(local_object ${local_object}
-		"$<TARGET_OBJECTS:linux-classes>"
-		"$<TARGET_OBJECTS:linux-classes.java.util.prefs>"
+		"$<TARGET_OBJECTS:linux>"
+		"$<TARGET_OBJECTS:linux.java.util.prefs>"
 		"$<TARGET_OBJECTS:linux-native>"
 	)
 endif()
 
 if(JCPP_OS MATCHES "macos")
 	set(local_object ${local_object}
-		"$<TARGET_OBJECTS:macos-classes>"
-		"$<TARGET_OBJECTS:macos-classes.java.util.prefs>"
+		"$<TARGET_OBJECTS:macos>"
+		"$<TARGET_OBJECTS:macos.java.util.prefs>"
 		"$<TARGET_OBJECTS:macos-native>"
 	)
 endif()
 
 if(JCPP_OS MATCHES "windows")
 	set(local_object ${local_object}
-		"$<TARGET_OBJECTS:windows-classes>"
-		"$<TARGET_OBJECTS:windows-classes.java.util.pr_0>"
+		"$<TARGET_OBJECTS:windows>"
+		"$<TARGET_OBJECTS:windows.java.util.prefs>"
 		"$<TARGET_OBJECTS:windows-native>"
 	)
 endif()
 
 if(BUILD_STATIC_LIB)
-	add_library(${JCPP_PROJECT_NAME}_static STATIC "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_static STATIC ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_static PROPERTIES CLEAN_DIRECT_OUTPUT 1)
@@ -86,7 +86,7 @@ if(BUILD_STATIC_LIB)
 endif()
 
 if(BUILD_SHARED_LIB)
-	add_library(${JCPP_PROJECT_NAME}_shared SHARED "${local_object}" "${source_SRCS}")
+	add_library(${JCPP_PROJECT_NAME}_shared SHARED ${local_object} ${source_SRCS})
 
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_NAME}_shared PROPERTIES CLEAN_DIRECT_OUTPUT 1)

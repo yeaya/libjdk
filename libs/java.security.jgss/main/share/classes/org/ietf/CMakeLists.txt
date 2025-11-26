@@ -2,11 +2,11 @@
 
 add_subdirectory("jgss")
 
-aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}" classes.org.ietf_SRCS)
-file(GLOB classes.org.ietf_HEADERS *.h *.hpp)
-source_group("Include" FILES ${classes.org.ietf_HEADERS}) 
-list(LENGTH classes.org.ietf_SRCS classes.org.ietf_SRCS_LENGTH)
-if(classes.org.ietf_SRCS_LENGTH)
-	add_library(classes.org.ietf OBJECT "${classes.org.ietf_SRCS}" "${classes.org.ietf_HEADERS}")
-	jcpp_enable_bigobj(classes.org.ietf)
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(org.ietf OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(org.ietf)
 endif()

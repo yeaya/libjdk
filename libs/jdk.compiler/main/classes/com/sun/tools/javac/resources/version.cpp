@@ -42,7 +42,7 @@ $ObjectArray2* version::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("full"_s),
-			$of("17+35-2724"_s)
+			$of("17-internal+0-adhoc.yeaya.jdk-jdk-17-35"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("jdk"_s),
@@ -50,7 +50,7 @@ $ObjectArray2* version::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("release"_s),
-			$of("17"_s)
+			$of("17-internal"_s)
 		})
 	});
 }
