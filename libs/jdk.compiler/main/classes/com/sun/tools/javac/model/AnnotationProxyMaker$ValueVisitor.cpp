@@ -197,7 +197,8 @@ void AnnotationProxyMaker$ValueVisitor::visitArray($Attribute$Array* a) {
 						$1Array::set(res, i, this->value);
 					} catch ($IllegalArgumentException& e) {
 						$set(this, value, nullptr);
-						return;
+						return$1 = true;
+						goto $finally;
 					}
 				}
 				$set(this, value, res);

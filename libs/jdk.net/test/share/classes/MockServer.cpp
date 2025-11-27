@@ -271,7 +271,8 @@ void MockServer::run() {
 						}
 					} catch ($IOException& e) {
 						if (this->closed) {
-							return;
+							return$1 = true;
+							goto $finally;
 						}
 						e->printStackTrace($System::out);
 					}
@@ -282,7 +283,7 @@ void MockServer::run() {
 			}
 		} catch ($Throwable& var$2) {
 			$assign(var$0, var$2);
-		} /*finally*/ {
+		} $finally: {
 			if (this->closed) {
 				$nc($System::out)->println("Server closed: exiting accept loop"_s);
 			} else {

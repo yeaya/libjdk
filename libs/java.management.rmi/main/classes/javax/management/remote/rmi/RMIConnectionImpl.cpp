@@ -1401,7 +1401,9 @@ $Object* RMIConnectionImpl::doPrivilegedOperation(int32_t operation, $ObjectArra
 				$var($RMIConnectionImpl$PrivilegedOperation, op, $new($RMIConnectionImpl$PrivilegedOperation, this, operation, params));
 				if (reqACC == nullptr) {
 					try {
-						return $of(op->run());
+						$assign(var$2, op->run());
+						return$1 = true;
+						goto $finally;
 					} catch ($Exception& e) {
 						if ($instanceOf($RuntimeException, e)) {
 							$throw($cast($RuntimeException, e));

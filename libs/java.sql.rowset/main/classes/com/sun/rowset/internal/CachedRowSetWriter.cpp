@@ -539,7 +539,9 @@ bool CachedRowSetWriter::insertNewRow($CachedRowSet* crs, $PreparedStatement* ps
 													}
 												}
 												$nc(pstmt)->executeUpdate();
-												return false;
+												var$8 = false;
+												return$7 = true;
+												goto $finally2;
 											} catch ($SQLException& ex) {
 												$nc(this->crsResolve)->moveToInsertRow();
 												for (int32_t i = 1; i <= icolCount; ++i) {
@@ -547,7 +549,9 @@ bool CachedRowSetWriter::insertNewRow($CachedRowSet* crs, $PreparedStatement* ps
 												}
 												$nc(this->crsResolve)->insertRow();
 												$nc(this->crsResolve)->moveToCurrentRow();
-												return true;
+												var$8 = true;
+												return$7 = true;
+												goto $finally2;
 											}
 										} catch ($Throwable& t$) {
 											if (rs2 != nullptr) {

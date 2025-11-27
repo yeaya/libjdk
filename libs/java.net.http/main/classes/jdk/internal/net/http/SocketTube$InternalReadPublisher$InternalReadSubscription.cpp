@@ -456,7 +456,8 @@ void SocketTube$InternalReadPublisher$InternalReadSubscription::read() {
 									$nc(this->readScheduler)->stop();
 								}
 								$nc(this->this$1->this$0)->debugState("leaving read() loop after EOF: "_s);
-								return;
+								return$1 = true;
+								goto $finally;
 							} else if ($Utils::remaining(bytes) > 0) {
 								if ($nc($nc(this->this$1->this$0)->debug)->on()) {
 									$nc($nc(this->this$1->this$0)->debug)->log($$str({"read bytes: "_s, $$str($Utils::remaining(bytes))}));
@@ -470,7 +471,8 @@ void SocketTube$InternalReadPublisher$InternalReadSubscription::read() {
 									continue;
 								}
 								$nc(this->this$1->this$0)->debugState("leaving read() loop after onNext: "_s);
-								return;
+								return$1 = true;
+								goto $finally;
 							} else {
 								if ($nc($nc(this->this$1->this$0)->debug)->on()) {
 									$nc($nc(this->this$1->this$0)->debug)->log("no more bytes available"_s);
@@ -481,7 +483,8 @@ void SocketTube$InternalReadPublisher$InternalReadSubscription::read() {
 									continue;
 								}
 								$nc(this->this$1->this$0)->debugState("leaving read() loop with no bytes"_s);
-								return;
+								return$1 = true;
+								goto $finally;
 							}
 						} catch ($Throwable& x) {
 							signalError(x);
