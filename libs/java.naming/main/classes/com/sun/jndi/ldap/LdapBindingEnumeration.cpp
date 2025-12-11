@@ -40,7 +40,6 @@
 #undef CLASSNAME
 #undef JAVA_ATTRIBUTES
 
-using $ControlArray = $Array<::javax::naming::ldap::Control>;
 using $AbstractLdapNamingEnumeration = ::com::sun::jndi::ldap::AbstractLdapNamingEnumeration;
 using $BindingWithControls = ::com::sun::jndi::ldap::BindingWithControls;
 using $LdapCtx = ::com::sun::jndi::ldap::LdapCtx;
@@ -58,26 +57,17 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $Hashtable = ::java::util::Hashtable;
 using $Vector = ::java::util::Vector;
 using $Binding = ::javax::naming::Binding;
 using $CompositeName = ::javax::naming::CompositeName;
 using $Context = ::javax::naming::Context;
 using $Name = ::javax::naming::Name;
 using $NameClassPair = ::javax::naming::NameClassPair;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
-using $Attribute = ::javax::naming::directory::Attribute;
 using $Attributes = ::javax::naming::directory::Attributes;
 using $DirectoryManager = ::javax::naming::spi::DirectoryManager;
 

@@ -27,7 +27,6 @@
 #undef _TAG_TRANSFORMS
 
 using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
-using $KeyInfoContent = ::com::sun::org::apache::xml::internal::security::keys::content::KeyInfoContent;
 using $XMLSignatureException = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureException;
 using $Transforms = ::com::sun::org::apache::xml::internal::security::transforms::Transforms;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
@@ -41,7 +40,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {

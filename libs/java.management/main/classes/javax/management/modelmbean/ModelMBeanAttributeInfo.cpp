@@ -40,9 +40,7 @@ using $Method = ::java::lang::reflect::Method;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Descriptor = ::javax::management::Descriptor;
-using $DescriptorAccess = ::javax::management::DescriptorAccess;
 using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
-using $MBeanFeatureInfo = ::javax::management::MBeanFeatureInfo;
 using $RuntimeOperationsException = ::javax::management::RuntimeOperationsException;
 using $DescriptorSupport = ::javax::management::modelmbean::DescriptorSupport;
 

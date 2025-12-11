@@ -27,22 +27,16 @@
 
 #undef TYPE
 
-using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
-using $MBeanNotificationInfoArray = $Array<::javax::management::MBeanNotificationInfo>;
 using $MXBeanProxy = ::com::sun::jmx::mbeanserver::MXBeanProxy;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Method = ::java::lang::reflect::Method;

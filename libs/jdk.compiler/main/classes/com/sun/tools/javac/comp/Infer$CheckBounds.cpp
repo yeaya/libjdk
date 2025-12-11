@@ -27,7 +27,6 @@
 
 using $Type$UndetVar$InferenceBoundArray = $Array<::com::sun::tools::javac::code::Type$UndetVar$InferenceBound>;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
@@ -41,14 +40,9 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 using $BiFunction = ::java::util::function::BiFunction;
 using $BiPredicate = ::java::util::function::BiPredicate;
 

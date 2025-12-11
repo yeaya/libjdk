@@ -28,7 +28,6 @@
 
 using $CanonicalizationException = ::com::sun::org::apache::xml::internal::security::c14n::CanonicalizationException;
 using $Canonicalizer = ::com::sun::org::apache::xml::internal::security::c14n::Canonicalizer;
-using $AttrCompare = ::com::sun::org::apache::xml::internal::security::c14n::helper::AttrCompare;
 using $CanonicalizerBase = ::com::sun::org::apache::xml::internal::security::c14n::implementations::CanonicalizerBase;
 using $NameSpaceSymbTable = ::com::sun::org::apache::xml::internal::security::c14n::implementations::NameSpaceSymbTable;
 using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;

@@ -27,14 +27,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $Surrogate$Parser = ::sun::nio::cs::Surrogate$Parser;
-using $ISO2022 = ::sun::nio::cs::ext::ISO2022;
 
 namespace sun {
 	namespace nio {

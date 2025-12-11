@@ -9,7 +9,6 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
-using $GraphUtils = ::com::sun::tools::javac::util::GraphUtils;
 using $GraphUtils$TarjanNode = ::com::sun::tools::javac::util::GraphUtils$TarjanNode;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
@@ -19,7 +18,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractQueue = ::java::util::AbstractQueue;
 using $Iterator = ::java::util::Iterator;
 
 namespace com {

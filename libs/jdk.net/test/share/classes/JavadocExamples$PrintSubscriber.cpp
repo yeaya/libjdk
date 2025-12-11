@@ -6,14 +6,12 @@
 
 #undef MAX_VALUE
 
-using $JavadocExamples = ::JavadocExamples;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 
 $FieldInfo _JavadocExamples$PrintSubscriber_FieldInfo_[] = {

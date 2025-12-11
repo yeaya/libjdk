@@ -3,7 +3,6 @@
 #include <java/io/InputStream.h>
 #include <jcpp.h>
 
-using $ReferenceData = ::com::sun::org::apache::xml::internal::security::signature::reference::ReferenceData;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

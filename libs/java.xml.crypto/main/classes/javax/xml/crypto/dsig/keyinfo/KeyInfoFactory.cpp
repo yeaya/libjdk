@@ -26,25 +26,13 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $BigInteger = ::java::math::BigInteger;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $NoSuchProviderException = ::java::security::NoSuchProviderException;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
-using $PublicKey = ::java::security::PublicKey;
 using $Security = ::java::security::Security;
-using $List = ::java::util::List;
 using $NoSuchMechanismException = ::javax::xml::crypto::NoSuchMechanismException;
-using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
-using $KeyInfo = ::javax::xml::crypto::dsig::keyinfo::KeyInfo;
-using $KeyName = ::javax::xml::crypto::dsig::keyinfo::KeyName;
-using $KeyValue = ::javax::xml::crypto::dsig::keyinfo::KeyValue;
-using $PGPData = ::javax::xml::crypto::dsig::keyinfo::PGPData;
-using $RetrievalMethod = ::javax::xml::crypto::dsig::keyinfo::RetrievalMethod;
-using $X509Data = ::javax::xml::crypto::dsig::keyinfo::X509Data;
-using $X509IssuerSerial = ::javax::xml::crypto::dsig::keyinfo::X509IssuerSerial;
 
 namespace javax {
 	namespace xml {

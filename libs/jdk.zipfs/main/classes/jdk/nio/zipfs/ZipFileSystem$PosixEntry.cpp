@@ -21,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
-using $PosixFileAttributes = ::java::nio::file::attribute::PosixFileAttributes;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 using $Collection = ::java::util::Collection;
 using $Optional = ::java::util::Optional;

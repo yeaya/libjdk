@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;
 using $IBM29626C$Decoder = ::sun::nio::cs::ext::IBM29626C$Decoder;
 using $IBM29626C$Encoder = ::sun::nio::cs::ext::IBM29626C$Encoder;

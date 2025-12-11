@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Descriptor = ::javax::management::Descriptor;
-using $DescriptorRead = ::javax::management::DescriptorRead;
 
 namespace javax {
 	namespace management {

@@ -4,7 +4,6 @@
 #include <com/sun/net/httpserver/BasicAuthenticator.h>
 #include <jcpp.h>
 
-using $MultiAuthTest = ::MultiAuthTest;
 using $BasicAuthenticator = ::com::sun::net::httpserver::BasicAuthenticator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

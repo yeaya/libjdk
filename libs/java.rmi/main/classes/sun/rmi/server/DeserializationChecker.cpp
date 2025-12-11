@@ -4,10 +4,8 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
-using $ObjectStreamClass = ::java::io::ObjectStreamClass;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Method = ::java::lang::reflect::Method;
 
 namespace sun {
 	namespace rmi {

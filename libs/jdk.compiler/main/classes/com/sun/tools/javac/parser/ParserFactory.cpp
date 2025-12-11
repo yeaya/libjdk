@@ -24,7 +24,6 @@ using $Preview = ::com::sun::tools::javac::code::Preview;
 using $Source = ::com::sun::tools::javac::code::Source;
 using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $Lexer = ::com::sun::tools::javac::parser::Lexer;
-using $Scanner = ::com::sun::tools::javac::parser::Scanner;
 using $ScannerFactory = ::com::sun::tools::javac::parser::ScannerFactory;
 using $Tokens = ::com::sun::tools::javac::parser::Tokens;
 using $DocTreeMaker = ::com::sun::tools::javac::tree::DocTreeMaker;

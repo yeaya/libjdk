@@ -29,7 +29,6 @@ using $Infer$InferenceStepArray = $Array<::com::sun::tools::javac::comp::Infer$I
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
-using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$BoundFilter = ::com::sun::tools::javac::comp::Infer$BoundFilter;
 using $Infer$InferenceStep$1 = ::com::sun::tools::javac::comp::Infer$InferenceStep$1;
 using $Infer$InferenceStep$2 = ::com::sun::tools::javac::comp::Infer$InferenceStep$2;

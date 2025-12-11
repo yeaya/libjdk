@@ -18,10 +18,8 @@
 #undef GLOBAL_SCOPE
 
 using $FilterOutputStream = ::java::io::FilterOutputStream;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Reader = ::java::io::Reader;
 using $Writer = ::java::io::Writer;

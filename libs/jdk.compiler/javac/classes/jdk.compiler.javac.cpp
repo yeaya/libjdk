@@ -94,5 +94,4 @@ void jdk$compiler$javac::init() {
 		_jdk$compiler$javac_args_
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

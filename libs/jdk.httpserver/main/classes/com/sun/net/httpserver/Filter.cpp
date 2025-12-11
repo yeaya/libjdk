@@ -10,8 +10,6 @@
 
 using $Filter$1 = ::com::sun::net::httpserver::Filter$1;
 using $Filter$2 = ::com::sun::net::httpserver::Filter$2;
-using $Filter$Chain = ::com::sun::net::httpserver::Filter$Chain;
-using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

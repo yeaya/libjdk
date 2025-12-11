@@ -31,7 +31,6 @@
 #undef TYPE_PARAMETER
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Attribute$TypeCompound = ::com::sun::tools::javac::code::Attribute$TypeCompound;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
@@ -41,8 +40,7 @@ using $TargetType = ::com::sun::tools::javac::code::TargetType;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
-using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -50,7 +48,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $Iterator = ::java::util::Iterator;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
@@ -115,7 +113,7 @@ $Object* allocate$Symbol$TypeVariableSymbol($Class* clazz) {
 	return $of($alloc(Symbol$TypeVariableSymbol));
 }
 
-$1List* Symbol$TypeVariableSymbol::getEnclosedElements() {
+$List* Symbol$TypeVariableSymbol::getEnclosedElements() {
 	 return this->$Symbol$TypeSymbol::getEnclosedElements();
 }
 
@@ -177,12 +175,12 @@ $Element* Symbol$TypeVariableSymbol::getGenericElement() {
 	return this->owner;
 }
 
-$1List* Symbol$TypeVariableSymbol::getBounds() {
+$List* Symbol$TypeVariableSymbol::getBounds() {
 	$useLocalCurrentObjectStackCache();
 	$var($Type$TypeVar, t, $cast($Type$TypeVar, this->type));
 	$var($Type, bound, $nc(t)->getUpperBound());
 	if (!$nc(bound)->isCompound()) {
-		return $List::of(bound);
+		return $1List::of(bound);
 	}
 	$var($Type$ClassType, ct, $cast($Type$ClassType, bound));
 	if (!$nc($nc($nc(ct)->tsym)->erasure_field)->isInterface()) {
@@ -192,11 +190,11 @@ $1List* Symbol$TypeVariableSymbol::getBounds() {
 	}
 }
 
-$1List* Symbol$TypeVariableSymbol::getAnnotationMirrors() {
+$List* Symbol$TypeVariableSymbol::getAnnotationMirrors() {
 	$useLocalCurrentObjectStackCache();
-	$var($List, candidates, $nc(this->owner)->getRawTypeAttributes());
+	$var($1List, candidates, $nc(this->owner)->getRawTypeAttributes());
 	int32_t index = $nc($($nc(this->owner)->getTypeParameters()))->indexOf(this);
-	$var($List, res, $List::nil());
+	$var($1List, res, $1List::nil());
 	{
 		$var($Iterator, i$, $nc(candidates)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -214,7 +212,7 @@ $1List* Symbol$TypeVariableSymbol::getAnnotationMirrors() {
 $Attribute$Compound* Symbol$TypeVariableSymbol::getAttribute($Class* annoType) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, name, $nc(annoType)->getName());
-	$var($List, candidates, $nc(this->owner)->getRawTypeAttributes());
+	$var($1List, candidates, $nc(this->owner)->getRawTypeAttributes());
 	int32_t index = $nc($($nc(this->owner)->getTypeParameters()))->indexOf(this);
 	{
 		$var($Iterator, i$, $nc(candidates)->iterator());

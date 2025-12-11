@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/util/Context.h>
 #include <jcpp.h>
 
-using $Context = ::com::sun::tools::javac::util::Context;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

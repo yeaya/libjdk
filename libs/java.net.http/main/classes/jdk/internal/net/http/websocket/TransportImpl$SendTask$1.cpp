@@ -22,8 +22,6 @@ using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $Supplier = ::java::util::function::Supplier;
 using $MessageEncoder = ::jdk::internal::net::http::websocket::MessageEncoder;
-using $MessageQueue$QueueCallback = ::jdk::internal::net::http::websocket::MessageQueue$QueueCallback;
-using $TransportImpl = ::jdk::internal::net::http::websocket::TransportImpl;
 using $TransportImpl$SendTask = ::jdk::internal::net::http::websocket::TransportImpl$SendTask;
 
 namespace jdk {

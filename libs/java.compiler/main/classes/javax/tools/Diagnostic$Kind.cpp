@@ -16,7 +16,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Diagnostic = ::javax::tools::Diagnostic;
 
 namespace javax {
 	namespace tools {

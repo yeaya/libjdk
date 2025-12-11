@@ -14,7 +14,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Checksum = ::sun::security::krb5::Checksum;
 using $KrbCryptoException = ::sun::security::krb5::KrbCryptoException;

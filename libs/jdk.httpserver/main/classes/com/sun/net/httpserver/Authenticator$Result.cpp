@@ -3,7 +3,6 @@
 #include <com/sun/net/httpserver/Authenticator.h>
 #include <jcpp.h>
 
-using $Authenticator = ::com::sun::net::httpserver::Authenticator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

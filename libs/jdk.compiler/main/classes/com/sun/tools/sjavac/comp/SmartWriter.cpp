@@ -14,8 +14,6 @@ using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {

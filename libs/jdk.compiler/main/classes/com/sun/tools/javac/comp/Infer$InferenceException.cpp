@@ -6,7 +6,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
-using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Resolve$InapplicableMethodException = ::com::sun::tools::javac::comp::Resolve$InapplicableMethodException;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $List = ::com::sun::tools::javac::util::List;

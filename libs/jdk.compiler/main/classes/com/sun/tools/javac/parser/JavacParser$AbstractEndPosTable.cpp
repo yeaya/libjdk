@@ -8,8 +8,6 @@
 #undef NOPOS
 
 using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
-using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

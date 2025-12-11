@@ -4,7 +4,6 @@
 #include <FlowAdaptersCompileOnly.h>
 #include <jcpp.h>
 
-using $FlowAdaptersCompileOnly = ::FlowAdaptersCompileOnly;
 using $FlowAdaptersCompileOnly$ListSubscriber = ::FlowAdaptersCompileOnly$ListSubscriber;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

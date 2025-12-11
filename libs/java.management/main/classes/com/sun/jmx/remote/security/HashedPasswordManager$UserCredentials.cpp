@@ -3,7 +3,6 @@
 #include <com/sun/jmx/remote/security/HashedPasswordManager.h>
 #include <jcpp.h>
 
-using $HashedPasswordManager = ::com::sun::jmx::remote::security::HashedPasswordManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

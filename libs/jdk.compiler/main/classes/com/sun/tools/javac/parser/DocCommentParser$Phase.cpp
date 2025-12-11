@@ -9,7 +9,6 @@
 #undef PREAMBLE
 
 using $DocCommentParser$PhaseArray = $Array<::com::sun::tools::javac::parser::DocCommentParser$Phase>;
-using $DocCommentParser = ::com::sun::tools::javac::parser::DocCommentParser;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

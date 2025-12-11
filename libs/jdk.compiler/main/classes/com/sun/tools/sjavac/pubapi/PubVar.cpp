@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $TypeDesc = ::com::sun::tools::sjavac::pubapi::TypeDesc;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

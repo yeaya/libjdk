@@ -7,12 +7,9 @@
 
 #undef TYPEAPPLY
 
-using $JCTree$TagArray = $Array<::com::sun::tools::javac::tree::JCTree$Tag>;
-using $TypeEnter = ::com::sun::tools::javac::comp::TypeEnter;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

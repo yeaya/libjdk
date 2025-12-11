@@ -32,7 +32,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Target = ::com::sun::tools::javac::jvm::Target;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $Tokens$TokenKind = ::com::sun::tools::javac::parser::Tokens$TokenKind;
-using $CompilerProperties = ::com::sun::tools::javac::resources::CompilerProperties;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;

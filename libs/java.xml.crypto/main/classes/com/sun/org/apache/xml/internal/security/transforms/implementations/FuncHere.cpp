@@ -24,10 +24,8 @@
 #undef TEXT_NODE
 
 using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
-using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $I18n = ::com::sun::org::apache::xml::internal::security::utils::I18n;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
-using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $NodeSetDTM = ::com::sun::org::apache::xpath::internal::NodeSetDTM;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $NodeSequence = ::com::sun::org::apache::xpath::internal::axes::NodeSequence;

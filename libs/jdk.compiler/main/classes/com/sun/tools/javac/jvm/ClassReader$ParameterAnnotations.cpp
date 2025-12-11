@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
-using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

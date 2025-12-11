@@ -15,7 +15,6 @@
 #include <sun/security/krb5/internal/ktab/KeyTab.h>
 #include <jcpp.h>
 
-using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $KerberosKeyArray = $Array<::javax::security::auth::kerberos::KerberosKey>;
 using $EncryptionKeyArray = $Array<::sun::security::krb5::EncryptionKey>;
 using $File = ::java::io::File;

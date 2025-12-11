@@ -45,19 +45,11 @@
 #undef UNION_TYPE
 #undef VARIABLE
 
-using $MemberReferenceTree$ReferenceModeArray = $Array<::com::sun::source::tree::MemberReferenceTree$ReferenceMode>;
-using $Tree$KindArray = $Array<::com::sun::source::tree::Tree$Kind>;
-using $TypeAnnotations$AnnotationTypeArray = $Array<::com::sun::tools::javac::code::TypeAnnotations$AnnotationType>;
-using $ElementKindArray = $Array<::javax::lang::model::element::ElementKind>;
-using $MemberReferenceTree = ::com::sun::source::tree::MemberReferenceTree;
 using $MemberReferenceTree$ReferenceMode = ::com::sun::source::tree::MemberReferenceTree$ReferenceMode;
-using $Tree = ::com::sun::source::tree::Tree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
-using $TypeAnnotations = ::com::sun::tools::javac::code::TypeAnnotations;
 using $TypeAnnotations$AnnotationType = ::com::sun::tools::javac::code::TypeAnnotations$AnnotationType;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

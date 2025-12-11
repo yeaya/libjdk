@@ -18,7 +18,6 @@
 #undef THROWS
 
 using $Flags = ::com::sun::tools::javac::code::Flags;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
@@ -26,10 +25,7 @@ using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$Structu
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$UndetVarListener = ::com::sun::tools::javac::code::Type$UndetVar$UndetVarListener;
-using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
-using $Infer$AbstractIncorporationEngine = ::com::sun::tools::javac::comp::Infer$AbstractIncorporationEngine;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

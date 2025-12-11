@@ -23,7 +23,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Path = ::java::nio::file::Path;
 using $Collection = ::java::util::Collection;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $StandardLocation = ::javax::tools::StandardLocation;

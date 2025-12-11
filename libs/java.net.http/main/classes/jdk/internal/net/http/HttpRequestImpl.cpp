@@ -54,22 +54,16 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Proxy = ::java::net::Proxy;
 using $Proxy$Type = ::java::net::Proxy$Type;
 using $ProxySelector = ::java::net::ProxySelector;
-using $SocketAddress = ::java::net::SocketAddress;
 using $URI = ::java::net::URI;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
-using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Duration = ::java::time::Duration;
@@ -78,14 +72,12 @@ using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
-using $BiPredicate = ::java::util::function::BiPredicate;
 using $Supplier = ::java::util::function::Supplier;
 using $Http2ClientImpl = ::jdk::internal::net::http::Http2ClientImpl;
 using $HttpRequestBuilderImpl = ::jdk::internal::net::http::HttpRequestBuilderImpl;
 using $HttpHeadersBuilder = ::jdk::internal::net::http::common::HttpHeadersBuilder;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 using $Utils$ProxyHeaders = ::jdk::internal::net::http::common::Utils$ProxyHeaders;
-using $WebSocketRequest = ::jdk::internal::net::http::websocket::WebSocketRequest;
 
 namespace jdk {
 	namespace internal {

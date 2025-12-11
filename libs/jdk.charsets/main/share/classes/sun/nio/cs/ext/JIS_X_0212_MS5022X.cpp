@@ -12,7 +12,6 @@
 #include <sun/nio/cs/ext/JIS_X_0212_MS5022X$EncodeHolder.h>
 #include <jcpp.h>
 
-using $charArray2 = $Array<char16_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -23,7 +22,6 @@ using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Decoder_DBCSONLY = ::sun::nio::cs::DoubleByte$Decoder_DBCSONLY;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $DoubleByte$Encoder_DBCSONLY = ::sun::nio::cs::DoubleByte$Encoder_DBCSONLY;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;
 using $JIS_X_0212_MS5022X$DecodeHolder = ::sun::nio::cs::ext::JIS_X_0212_MS5022X$DecodeHolder;
 using $JIS_X_0212_MS5022X$EncodeHolder = ::sun::nio::cs::ext::JIS_X_0212_MS5022X$EncodeHolder;

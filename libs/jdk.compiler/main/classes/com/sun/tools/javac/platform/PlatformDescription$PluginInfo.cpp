@@ -4,11 +4,9 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $PlatformDescription = ::com::sun::tools::javac::platform::PlatformDescription;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {

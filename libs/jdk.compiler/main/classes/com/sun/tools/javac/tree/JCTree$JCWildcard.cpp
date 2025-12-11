@@ -32,7 +32,6 @@ using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -12,7 +12,6 @@
 #undef INFO
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
@@ -22,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Level = ::java::util::logging::Level;
 using $Logger = ::java::util::logging::Logger;
-using $Log = ::sun::rmi::runtime::Log;
 
 namespace sun {
 	namespace rmi {

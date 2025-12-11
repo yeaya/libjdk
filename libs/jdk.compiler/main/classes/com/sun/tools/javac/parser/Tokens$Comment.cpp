@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/parser/Tokens.h>
 #include <jcpp.h>
 
-using $Tokens = ::com::sun::tools::javac::parser::Tokens;
-using $Tokens$Comment$CommentStyle = ::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

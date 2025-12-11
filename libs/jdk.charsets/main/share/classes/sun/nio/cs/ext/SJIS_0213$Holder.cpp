@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $CharsetMapping = ::sun::nio::cs::CharsetMapping;
-using $SJIS_0213 = ::sun::nio::cs::ext::SJIS_0213;
 using $SJIS_0213$Holder$1 = ::sun::nio::cs::ext::SJIS_0213$Holder$1;
 
 namespace sun {

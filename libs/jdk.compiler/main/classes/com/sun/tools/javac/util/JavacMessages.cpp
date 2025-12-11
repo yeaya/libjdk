@@ -39,17 +39,14 @@
 #undef NO_SOURCE
 
 using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
-using $Messages = ::com::sun::tools::javac::api::Messages;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $AbstractDiagnosticFormatter = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter;
 using $BasicDiagnosticFormatter = ::com::sun::tools::javac::util::BasicDiagnosticFormatter;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticInfo = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticInfo;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $JavacMessages$ResourceBundleHelper = ::com::sun::tools::javac::util::JavacMessages$ResourceBundleHelper;
 using $List = ::com::sun::tools::javac::util::List;
@@ -65,11 +62,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $MessageFormat = ::java::text::MessageFormat;
 using $AbstractMap = ::java::util::AbstractMap;

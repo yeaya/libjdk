@@ -4,7 +4,6 @@
 #include <jcpp.h>
 
 using $Types = ::com::sun::tools::javac::code::Types;
-using $PoolConstant$LoadableConstant = ::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

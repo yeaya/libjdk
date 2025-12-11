@@ -12,7 +12,6 @@
 
 using $LdapURL = ::com::sun::jndi::ldap::LdapURL;
 using $ServiceLocator = ::com::sun::jndi::ldap::ServiceLocator;
-using $Uri = ::com::sun::jndi::toolkit::url::Uri;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;

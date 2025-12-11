@@ -14,7 +14,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $KrbAsReqBuilder = ::sun::security::krb5::KrbAsReqBuilder;
 
 namespace sun {
 	namespace security {

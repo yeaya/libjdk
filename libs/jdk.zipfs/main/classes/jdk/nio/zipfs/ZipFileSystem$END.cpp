@@ -14,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ZipConstants = ::jdk::nio::zipfs::ZipConstants;
-using $ZipFileSystem = ::jdk::nio::zipfs::ZipFileSystem;
 using $ZipUtils = ::jdk::nio::zipfs::ZipUtils;
 
 namespace jdk {

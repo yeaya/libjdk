@@ -29,7 +29,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $GSSContext = ::org::ietf::jgss::GSSContext;
 using $GSSCredential = ::org::ietf::jgss::GSSCredential;
 using $GSSException = ::org::ietf::jgss::GSSException;

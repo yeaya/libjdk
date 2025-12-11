@@ -23,7 +23,6 @@
 #undef CLASS
 #undef TYPEVAR
 
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$CompoundScope = ::com::sun::tools::javac::code::Scope$CompoundScope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
@@ -33,7 +32,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$ImplementationCache$Entry = ::com::sun::tools::javac::code::Types$ImplementationCache$Entry;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

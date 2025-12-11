@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/parser/DocCommentParser.h>
 #include <jcpp.h>
 
-using $DocCommentParser = ::com::sun::tools::javac::parser::DocCommentParser;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

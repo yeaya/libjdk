@@ -10,7 +10,6 @@
 using $StringUtils = ::com::sun::tools::javac::util::StringUtils;
 using $TypeDesc = ::com::sun::tools::sjavac::pubapi::TypeDesc;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;

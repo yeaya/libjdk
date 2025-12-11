@@ -21,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
 using $List = ::java::util::List;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $Http1Response = ::jdk::internal::net::http::Http1Response;

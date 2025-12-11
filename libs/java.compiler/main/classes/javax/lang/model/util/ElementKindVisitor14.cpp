@@ -19,7 +19,6 @@ using $RecordComponentElement = ::javax::lang::model::element::RecordComponentEl
 using $TypeElement = ::javax::lang::model::element::TypeElement;
 using $VariableElement = ::javax::lang::model::element::VariableElement;
 using $ElementKindVisitor9 = ::javax::lang::model::util::ElementKindVisitor9;
-using $SimpleElementVisitor6 = ::javax::lang::model::util::SimpleElementVisitor6;
 
 namespace javax {
 	namespace lang {

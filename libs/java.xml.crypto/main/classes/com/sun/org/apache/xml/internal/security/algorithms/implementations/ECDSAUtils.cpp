@@ -26,7 +26,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
-using $ECKey = ::java::security::interfaces::ECKey;
 using $ECPublicKey = ::java::security::interfaces::ECPublicKey;
 using $ECField = ::java::security::spec::ECField;
 using $ECFieldF2m = ::java::security::spec::ECFieldF2m;

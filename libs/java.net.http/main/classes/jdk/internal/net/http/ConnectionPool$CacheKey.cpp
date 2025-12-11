@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Objects = ::java::util::Objects;
-using $ConnectionPool = ::jdk::internal::net::http::ConnectionPool;
 
 namespace jdk {
 	namespace internal {

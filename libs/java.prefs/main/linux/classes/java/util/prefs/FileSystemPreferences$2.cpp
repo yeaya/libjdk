@@ -12,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $FileSystemPreferences = ::java::util::prefs::FileSystemPreferences;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 

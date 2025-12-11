@@ -7,10 +7,8 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
-using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

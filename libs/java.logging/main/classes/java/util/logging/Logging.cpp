@@ -24,7 +24,6 @@ using $List = ::java::util::List;
 using $Level = ::java::util::logging::Level;
 using $LogManager = ::java::util::logging::LogManager;
 using $Logger = ::java::util::logging::Logger;
-using $LoggingMXBean = ::java::util::logging::LoggingMXBean;
 
 namespace java {
 	namespace util {

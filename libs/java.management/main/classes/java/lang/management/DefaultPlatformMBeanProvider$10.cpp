@@ -26,17 +26,10 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $BufferPoolMXBean = ::java::lang::management::BufferPoolMXBean;
 using $DefaultPlatformMBeanProvider = ::java::lang::management::DefaultPlatformMBeanProvider;
-using $PlatformManagedObject = ::java::lang::management::PlatformManagedObject;
 using $AbstractMap = ::java::util::AbstractMap;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
@@ -46,7 +39,6 @@ using $Consumer = ::java::util::function::Consumer;
 using $Stream = ::java::util::stream::Stream;
 using $ObjectName = ::javax::management::ObjectName;
 using $ManagementFactoryHelper = ::sun::management::ManagementFactoryHelper;
-using $PlatformMBeanProvider$PlatformComponent = ::sun::management::spi::PlatformMBeanProvider$PlatformComponent;
 
 namespace java {
 	namespace lang {

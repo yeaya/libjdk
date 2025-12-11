@@ -7,13 +7,8 @@
 #include <javax/tools/Diagnostic$Kind.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AnnotationMirror = ::javax::lang::model::element::AnnotationMirror;
-using $AnnotationValue = ::javax::lang::model::element::AnnotationValue;
-using $Element = ::javax::lang::model::element::Element;
-using $Diagnostic$Kind = ::javax::tools::Diagnostic$Kind;
 
 namespace javax {
 	namespace annotation {

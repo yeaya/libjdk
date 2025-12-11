@@ -3,8 +3,6 @@
 #include <com/sun/source/doctree/ReferenceTree.h>
 #include <jcpp.h>
 
-using $InlineTagTree = ::com::sun::source::doctree::InlineTagTree;
-using $ReferenceTree = ::com::sun::source::doctree::ReferenceTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

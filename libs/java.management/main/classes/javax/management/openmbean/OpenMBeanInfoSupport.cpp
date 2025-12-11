@@ -30,18 +30,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Descriptor = ::javax::management::Descriptor;
-using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
-using $MBeanConstructorInfo = ::javax::management::MBeanConstructorInfo;
 using $MBeanInfo = ::javax::management::MBeanInfo;
-using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
-using $MBeanOperationInfo = ::javax::management::MBeanOperationInfo;
 using $OpenMBeanInfo = ::javax::management::openmbean::OpenMBeanInfo;
 
 namespace javax {

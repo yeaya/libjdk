@@ -6,13 +6,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $URLArray = $Array<::java::net::URL>;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URL = ::java::net::URL;
-using $Enumeration = ::java::util::Enumeration;
-using $Set = ::java::util::Set;
 
 namespace javax {
 	namespace management {

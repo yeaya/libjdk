@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
 
 namespace javax {
 	namespace lang {

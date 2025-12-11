@@ -13,7 +13,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $BinaryRepresentationWriter = ::jdk::internal::net::http::hpack::BinaryRepresentationWriter;
 using $HeaderTable = ::jdk::internal::net::http::hpack::HeaderTable;
 using $IntegerWriter = ::jdk::internal::net::http::hpack::IntegerWriter;
-using $SimpleHeaderTable = ::jdk::internal::net::http::hpack::SimpleHeaderTable;
 
 namespace jdk {
 	namespace internal {

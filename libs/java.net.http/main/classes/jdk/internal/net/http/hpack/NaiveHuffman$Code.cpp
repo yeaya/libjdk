@@ -8,7 +8,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NaiveHuffman = ::jdk::internal::net::http::hpack::NaiveHuffman;
 
 namespace jdk {
 	namespace internal {

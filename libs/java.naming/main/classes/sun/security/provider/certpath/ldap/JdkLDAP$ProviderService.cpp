@@ -28,7 +28,6 @@ using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $JdkLDAP = ::sun::security::provider::certpath::ldap::JdkLDAP;
 using $LDAPCertStore = ::sun::security::provider::certpath::ldap::LDAPCertStore;
 
 namespace sun {

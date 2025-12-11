@@ -27,7 +27,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Profile = ::com::sun::tools::javac::jvm::Profile;
 using $Target = ::com::sun::tools::javac::jvm::Target;
 using $Option = ::com::sun::tools::javac::main::Option;
-using $CompilerProperties = ::com::sun::tools::javac::resources::CompilerProperties;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
 using $JCDiagnostic$Warning = ::com::sun::tools::javac::util::JCDiagnostic$Warning;

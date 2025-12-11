@@ -35,27 +35,20 @@
 #undef REFERENCE
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
-using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
-using $Types$MapVisitor = ::com::sun::tools::javac::code::Types$MapVisitor;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$RecoveryInfo = ::com::sun::tools::javac::comp::Attr$RecoveryInfo;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
-using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
 using $DeferredAttr$DeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$DeferredTypeMap;
 using $DeferredAttr$RecoveryDeferredTypeMap$1 = ::com::sun::tools::javac::comp::DeferredAttr$RecoveryDeferredTypeMap$1;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $List = ::com::sun::tools::javac::util::List;

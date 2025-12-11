@@ -19,22 +19,16 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
-using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $Type$StructuralTypeMapping$1 = ::com::sun::tools::javac::code::Type$StructuralTypeMapping$1;
 using $Type$StructuralTypeMapping$2 = ::com::sun::tools::javac::code::Type$StructuralTypeMapping$2;
 using $Type$StructuralTypeMapping$3 = ::com::sun::tools::javac::code::Type$StructuralTypeMapping$3;
 using $Type$StructuralTypeMapping$4 = ::com::sun::tools::javac::code::Type$StructuralTypeMapping$4;
-using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
-using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;

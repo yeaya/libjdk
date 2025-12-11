@@ -13,7 +13,6 @@
 #undef TRANSITIVE
 
 using $Directive$RequiresFlagArray = $Array<::com::sun::tools::javac::code::Directive$RequiresFlag>;
-using $Directive = ::com::sun::tools::javac::code::Directive;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

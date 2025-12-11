@@ -3,10 +3,8 @@
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
-using $InlineTagTree = ::com::sun::source::doctree::InlineTagTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {

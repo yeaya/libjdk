@@ -10,7 +10,6 @@
 
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
-using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $DeferredAttr$DeferredType$SpeculativeCache = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType$SpeculativeCache;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;

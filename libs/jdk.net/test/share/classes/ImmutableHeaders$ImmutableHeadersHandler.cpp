@@ -11,16 +11,13 @@
 
 #undef US_ASCII
 
-using $ImmutableHeaders = ::ImmutableHeaders;
 using $Headers = ::com::sun::net::httpserver::Headers;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
-using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
 $MethodInfo _ImmutableHeaders$ImmutableHeadersHandler_MethodInfo_[] = {

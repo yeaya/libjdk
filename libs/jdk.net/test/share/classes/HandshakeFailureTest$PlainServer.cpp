@@ -11,12 +11,9 @@
 #include <java/net/Socket.h>
 #include <jcpp.h>
 
-using $HandshakeFailureTest = ::HandshakeFailureTest;
 using $HandshakeFailureTest$AbstractServer = ::HandshakeFailureTest$AbstractServer;
 using $DataInputStream = ::java::io::DataInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
@@ -25,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;

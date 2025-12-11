@@ -21,7 +21,6 @@
 #undef SUCCESS
 
 using $Resolve$VerboseResolutionModeArray = $Array<::com::sun::tools::javac::comp::Resolve$VerboseResolutionMode>;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Options = ::com::sun::tools::javac::util::Options;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,11 +28,9 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {

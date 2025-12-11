@@ -14,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 
 namespace com {

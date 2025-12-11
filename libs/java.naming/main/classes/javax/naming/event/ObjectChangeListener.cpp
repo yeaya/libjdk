@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NamingEvent = ::javax::naming::event::NamingEvent;
-using $NamingListener = ::javax::naming::event::NamingListener;
 
 namespace javax {
 	namespace naming {

@@ -44,7 +44,6 @@ using $XMLX509SubjectName = ::com::sun::org::apache::xml::internal::security::ke
 using $KeyResolverSpi = ::com::sun::org::apache::xml::internal::security::keys::keyresolver::KeyResolverSpi;
 using $StorageResolver = ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
@@ -65,7 +64,6 @@ using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Arrays = ::java::util::Arrays;
 using $Enumeration = ::java::util::Enumeration;
 using $SecretKey = ::javax::crypto::SecretKey;
-using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 

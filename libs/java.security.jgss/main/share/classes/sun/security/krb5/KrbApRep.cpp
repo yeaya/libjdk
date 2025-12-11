@@ -26,7 +26,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $Credentials = ::sun::security::krb5::Credentials;
 using $EncryptedData = ::sun::security::krb5::EncryptedData;

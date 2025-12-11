@@ -8,10 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Modifier = ::javax::lang::model::element::Modifier;
-using $NestingKind = ::javax::lang::model::element::NestingKind;
-using $FileObject = ::javax::tools::FileObject;
-using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace javax {
 	namespace tools {

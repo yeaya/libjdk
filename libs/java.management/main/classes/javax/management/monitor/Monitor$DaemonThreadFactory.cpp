@@ -16,9 +16,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-using $Monitor = ::javax::management::monitor::Monitor;
 
 namespace javax {
 	namespace management {

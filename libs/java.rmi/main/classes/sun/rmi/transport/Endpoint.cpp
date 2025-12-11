@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Channel = ::sun::rmi::transport::Channel;
-using $Target = ::sun::rmi::transport::Target;
-using $Transport = ::sun::rmi::transport::Transport;
 
 namespace sun {
 	namespace rmi {

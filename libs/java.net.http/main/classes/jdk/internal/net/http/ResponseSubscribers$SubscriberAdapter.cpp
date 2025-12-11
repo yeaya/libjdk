@@ -22,8 +22,6 @@ using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Function = ::java::util::function::Function;
-using $ResponseSubscribers = ::jdk::internal::net::http::ResponseSubscribers;
-using $ResponseSubscribers$TrustedSubscriber = ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
 
 namespace jdk {

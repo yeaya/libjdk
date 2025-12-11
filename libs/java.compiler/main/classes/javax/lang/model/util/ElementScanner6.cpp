@@ -26,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;

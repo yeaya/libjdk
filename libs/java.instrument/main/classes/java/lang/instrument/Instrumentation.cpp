@@ -9,15 +9,8 @@
 #include <java/util/jar/JarFile.h>
 #include <jcpp.h>
 
-using $ClassDefinitionArray = $Array<::java::lang::instrument::ClassDefinition>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
-using $ClassFileTransformer = ::java::lang::instrument::ClassFileTransformer;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
-using $JarFile = ::java::util::jar::JarFile;
 
 namespace java {
 	namespace lang {

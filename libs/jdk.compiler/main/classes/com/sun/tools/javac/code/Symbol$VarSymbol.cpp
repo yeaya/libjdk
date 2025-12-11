@@ -61,8 +61,7 @@ using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Constants = ::com::sun::tools::javac::util::Constants;
-using $List = ::com::sun::tools::javac::util::List;
-using $1Name = ::com::sun::tools::javac::util::Name;
+using $Name = ::com::sun::tools::javac::util::Name;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
@@ -72,18 +71,14 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Callable = ::java::util::concurrent::Callable;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
-using $Name = ::javax::lang::model::element::Name;
+using $1Name = ::javax::lang::model::element::Name;
 using $VariableElement = ::javax::lang::model::element::VariableElement;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
@@ -158,7 +153,7 @@ $MethodInfo _Symbol$VarSymbol_MethodInfo_[] = {
 	{"*getEnclosedElements", "()Ljava/util/List;", nullptr, $PUBLIC},
 	{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$VarSymbol::*)(int64_t,$1Name*,$Type*,$Symbol*)>(&Symbol$VarSymbol::init$))},
+	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$VarSymbol::*)(int64_t,$Name*,$Type*,$Symbol*)>(&Symbol$VarSymbol::init$))},
 	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
 	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC},
 	{"asMemberOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
@@ -211,7 +206,7 @@ $Set* Symbol$VarSymbol::getModifiers() {
 	 return this->$Symbol::getModifiers();
 }
 
-$1List* Symbol$VarSymbol::getEnclosedElements() {
+$List* Symbol$VarSymbol::getEnclosedElements() {
 	 return this->$Symbol::getEnclosedElements();
 }
 
@@ -239,7 +234,7 @@ void Symbol$VarSymbol::finalize() {
 	this->$Symbol::finalize();
 }
 
-void Symbol$VarSymbol::init$(int64_t flags, $1Name* name, $Type* type, $Symbol* owner) {
+void Symbol$VarSymbol::init$(int64_t flags, $Name* name, $Type* type, $Symbol* owner) {
 	$init($Kinds$Kind);
 	$Symbol::init$($Kinds$Kind::VAR, flags, name, type, owner);
 	this->pos = $Position::NOPOS;
@@ -360,7 +355,7 @@ $Object* Symbol$VarSymbol::accept($Symbol$Visitor* v, Object$* p) {
 	return $of($nc(v)->visitVarSymbol(this, p));
 }
 
-$1List* Symbol$VarSymbol::getAnnotationMirrors() {
+$List* Symbol$VarSymbol::getAnnotationMirrors() {
 	return $Symbol::getAnnotationMirrors();
 }
 
@@ -368,7 +363,7 @@ $Element* Symbol$VarSymbol::getEnclosingElement() {
 	return $Symbol::getEnclosingElement();
 }
 
-$Name* Symbol$VarSymbol::getSimpleName() {
+$1Name* Symbol$VarSymbol::getSimpleName() {
 	return $Symbol::getSimpleName();
 }
 

@@ -20,13 +20,11 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Level = ::java::util::logging::Level;
 using $Logger = ::java::util::logging::Logger;
-using $SaslClient = ::javax::security::sasl::SaslClient;
 using $SaslException = ::javax::security::sasl::SaslException;
 
 namespace com {

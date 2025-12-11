@@ -34,7 +34,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $CompositeName = ::javax::naming::CompositeName;
 using $Context = ::javax::naming::Context;
 using $LinkRef = ::javax::naming::LinkRef;

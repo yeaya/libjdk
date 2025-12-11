@@ -16,12 +16,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $CodeSource = ::java::security::CodeSource;
-using $PermissionCollection = ::java::security::PermissionCollection;
 using $Permissions = ::java::security::Permissions;
 using $Policy = ::java::security::Policy;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Certificate = ::java::security::cert::Certificate;
-using $LoaderHandler = ::sun::rmi::server::LoaderHandler;
 
 namespace sun {
 	namespace rmi {

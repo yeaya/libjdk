@@ -34,11 +34,8 @@
 
 using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Kinds$KindName = ::com::sun::tools::javac::code::Kinds$KindName;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $AttrRecover = ::com::sun::tools::javac::comp::AttrRecover;
@@ -47,7 +44,6 @@ using $Resolve$MethodResolutionContext = ::com::sun::tools::javac::comp::Resolve
 using $Resolve$MethodResolutionContext$Candidate = ::com::sun::tools::javac::comp::Resolve$MethodResolutionContext$Candidate;
 using $Resolve$MethodResolutionDiagHelper = ::com::sun::tools::javac::comp::Resolve$MethodResolutionDiagHelper;
 using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
@@ -57,7 +53,6 @@ using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Facto
 using $List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

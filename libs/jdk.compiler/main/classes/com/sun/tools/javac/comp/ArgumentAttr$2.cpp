@@ -9,13 +9,9 @@
 #undef EXPRESSION
 #undef STATEMENT
 
-using $LambdaExpressionTree$BodyKindArray = $Array<::com::sun::source::tree::LambdaExpressionTree$BodyKind>;
-using $LambdaExpressionTree = ::com::sun::source::tree::LambdaExpressionTree;
 using $LambdaExpressionTree$BodyKind = ::com::sun::source::tree::LambdaExpressionTree$BodyKind;
-using $ArgumentAttr = ::com::sun::tools::javac::comp::ArgumentAttr;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

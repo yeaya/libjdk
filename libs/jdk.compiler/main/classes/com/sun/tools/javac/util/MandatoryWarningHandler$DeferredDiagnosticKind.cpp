@@ -10,7 +10,6 @@
 #undef IN_FILES
 
 using $MandatoryWarningHandler$DeferredDiagnosticKindArray = $Array<::com::sun::tools::javac::util::MandatoryWarningHandler$DeferredDiagnosticKind>;
-using $MandatoryWarningHandler = ::com::sun::tools::javac::util::MandatoryWarningHandler;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

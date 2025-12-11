@@ -45,7 +45,6 @@
 #undef VERSION
 
 using $DocTree$KindArray = $Array<::com::sun::source::doctree::DocTree$Kind>;
-using $DocTree = ::com::sun::source::doctree::DocTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

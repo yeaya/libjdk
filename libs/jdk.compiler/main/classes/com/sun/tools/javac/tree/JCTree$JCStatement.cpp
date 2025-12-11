@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
-using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $ClassInfo = ::java::lang::ClassInfo;

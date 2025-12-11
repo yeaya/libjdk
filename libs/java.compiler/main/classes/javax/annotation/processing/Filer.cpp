@@ -6,13 +6,8 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
-using $ElementArray = $Array<::javax::lang::model::element::Element>;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileObject = ::javax::tools::FileObject;
-using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace javax {
 	namespace annotation {

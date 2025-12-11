@@ -22,15 +22,12 @@
 #undef RESOURCE_VARIABLE
 #undef STATIC_INIT
 
-using $ElementKindArray = $Array<::javax::lang::model::element::ElementKind>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
-using $ElementKindVisitor6 = ::javax::lang::model::util::ElementKindVisitor6;
 
 namespace javax {
 	namespace lang {

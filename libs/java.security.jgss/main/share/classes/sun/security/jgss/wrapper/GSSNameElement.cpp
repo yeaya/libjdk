@@ -34,7 +34,6 @@
 #undef NT_USER_NAME
 
 using $OidArray = $Array<::org::ietf::jgss::Oid>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

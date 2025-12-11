@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Permission = ::java::security::Permission;
-using $BiFunction = ::java::util::function::BiFunction;
 using $KrbServicePermissionCollection = ::javax::security::auth::kerberos::KrbServicePermissionCollection;
 using $ServicePermission = ::javax::security::auth::kerberos::ServicePermission;
 

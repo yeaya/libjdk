@@ -13,8 +13,6 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Collection = ::java::util::Collection;
-using $List = ::java::util::List;
-using $Element = ::javax::lang::model::element::Element;
 using $VariableElement = ::javax::lang::model::element::VariableElement;
 using $ElementScanner6 = ::javax::lang::model::util::ElementScanner6;
 

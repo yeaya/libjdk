@@ -46,5 +46,4 @@ void java$security$sasl$test::init() {
 		java$security$sasl$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

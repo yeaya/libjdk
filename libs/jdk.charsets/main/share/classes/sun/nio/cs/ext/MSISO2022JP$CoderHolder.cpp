@@ -12,12 +12,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $JIS_X_0208_MS932 = ::sun::nio::cs::ext::JIS_X_0208_MS932;
-using $MSISO2022JP = ::sun::nio::cs::ext::MSISO2022JP;
 
 namespace sun {
 	namespace nio {

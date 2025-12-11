@@ -26,7 +26,6 @@
 #undef COMPRESSED
 
 using $Resolve$MethodResolutionDiagHelper$TemplateArray = $Array<::com::sun::tools::javac::comp::Resolve$MethodResolutionDiagHelper$Template>;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$MethodCheckDiag = ::com::sun::tools::javac::comp::Resolve$MethodCheckDiag;
 using $Resolve$MethodResolutionDiagHelper$1 = ::com::sun::tools::javac::comp::Resolve$MethodResolutionDiagHelper$1;
 using $Resolve$MethodResolutionDiagHelper$2 = ::com::sun::tools::javac::comp::Resolve$MethodResolutionDiagHelper$2;

@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $Http1Exchange = ::jdk::internal::net::http::Http1Exchange;
 
 namespace jdk {
 	namespace internal {

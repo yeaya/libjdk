@@ -11,11 +11,10 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $1MethodInfo = ::java::lang::MethodInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
 using $CompilerThreadStat = ::sun::management::CompilerThreadStat;
 using $HotspotCompilation = ::sun::management::HotspotCompilation;
-using $MethodInfo = ::sun::management::MethodInfo;
-using $Counter = ::sun::management::counter::Counter;
+using $1MethodInfo = ::sun::management::MethodInfo;
 using $LongCounter = ::sun::management::counter::LongCounter;
 using $StringCounter = ::sun::management::counter::StringCounter;
 
@@ -32,7 +31,7 @@ $FieldInfo _HotspotCompilation$CompilerThreadInfo_FieldInfo_[] = {
 	{}
 };
 
-$1MethodInfo _HotspotCompilation$CompilerThreadInfo_MethodInfo_[] = {
+$MethodInfo _HotspotCompilation$CompilerThreadInfo_MethodInfo_[] = {
 	{"<init>", "(Lsun/management/HotspotCompilation;Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(HotspotCompilation$CompilerThreadInfo::*)($HotspotCompilation*,$String*,int32_t)>(&HotspotCompilation$CompilerThreadInfo::init$))},
 	{"getCompilerThreadStat", "()Lsun/management/CompilerThreadStat;", nullptr, 0},
 	{}
@@ -77,7 +76,7 @@ void HotspotCompilation$CompilerThreadInfo::init$($HotspotCompilation* this$0, $
 $CompilerThreadStat* HotspotCompilation$CompilerThreadInfo::getCompilerThreadStat() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$0, $nc(this->method)->stringValue());
-	$var($MethodInfo, minfo, $new($MethodInfo, var$0, (int32_t)$nc(this->type)->longValue(), -1));
+	$var($1MethodInfo, minfo, $new($1MethodInfo, var$0, (int32_t)$nc(this->type)->longValue(), -1));
 	$var($String, var$1, this->name);
 	int64_t var$2 = $nc(this->compiles)->longValue();
 	return $new($CompilerThreadStat, var$1, var$2, $nc(this->time)->longValue(), minfo);

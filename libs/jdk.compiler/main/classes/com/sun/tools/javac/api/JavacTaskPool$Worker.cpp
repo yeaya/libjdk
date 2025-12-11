@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/api/JavacTaskPool.h>
 #include <jcpp.h>
 
-using $JavacTask = ::com::sun::source::util::JavacTask;
-using $JavacTaskPool = ::com::sun::tools::javac::api::JavacTaskPool;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

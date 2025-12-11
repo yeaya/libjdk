@@ -35,7 +35,6 @@
 #undef WRONG_MTHS
 
 using $Kinds$KindArray = $Array<::com::sun::tools::javac::code::Kinds$Kind>;
-using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $Kinds$Kind$Category = ::com::sun::tools::javac::code::Kinds$Kind$Category;
 using $Kinds$KindName = ::com::sun::tools::javac::code::Kinds$KindName;
 using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;

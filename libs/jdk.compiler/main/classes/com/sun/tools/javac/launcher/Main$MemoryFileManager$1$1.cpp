@@ -6,7 +6,6 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $Main$MemoryFileManager = ::com::sun::tools::javac::launcher::Main$MemoryFileManager;
 using $Main$MemoryFileManager$1 = ::com::sun::tools::javac::launcher::Main$MemoryFileManager$1;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

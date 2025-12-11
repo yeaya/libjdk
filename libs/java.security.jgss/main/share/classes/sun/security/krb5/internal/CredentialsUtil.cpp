@@ -54,7 +54,6 @@ using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $Config = ::sun::security::krb5::Config;
 using $Credentials = ::sun::security::krb5::Credentials;
-using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $KrbTgsReq = ::sun::security::krb5::KrbTgsReq;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
@@ -69,7 +68,6 @@ using $PaPacOptions = ::sun::security::krb5::internal::PaPacOptions;
 using $ReferralsCache = ::sun::security::krb5::internal::ReferralsCache;
 using $ReferralsCache$ReferralCacheEntry = ::sun::security::krb5::internal::ReferralsCache$ReferralCacheEntry;
 using $Ticket = ::sun::security::krb5::internal::Ticket;
-using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
 using $DerValue = ::sun::security::util::DerValue;
 
 namespace sun {

@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
-using $DeferredAttr$DeferredStuckPolicy = ::com::sun::tools::javac::comp::DeferredAttr$DeferredStuckPolicy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

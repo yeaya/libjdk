@@ -8,10 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Connection = ::java::sql::Connection;
-using $ResultSet = ::java::sql::ResultSet;
-using $RowIdLifetime = ::java::sql::RowIdLifetime;
-using $Wrapper = ::java::sql::Wrapper;
 
 namespace java {
 	namespace sql {

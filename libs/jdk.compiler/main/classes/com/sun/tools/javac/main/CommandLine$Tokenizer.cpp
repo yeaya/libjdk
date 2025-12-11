@@ -4,7 +4,6 @@
 #include <java/io/Reader.h>
 #include <jcpp.h>
 
-using $CommandLine = ::com::sun::tools::javac::main::CommandLine;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

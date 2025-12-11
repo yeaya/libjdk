@@ -29,7 +29,6 @@
 
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
 using $Analyzer$StatementAnalyzer = ::com::sun::tools::javac::comp::Analyzer$StatementAnalyzer;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
@@ -40,19 +39,13 @@ using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariable
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Log$DeferredDiagnosticHandler = ::com::sun::tools::javac::util::Log$DeferredDiagnosticHandler;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Predicate = ::java::util::function::Predicate;
 
 namespace com {

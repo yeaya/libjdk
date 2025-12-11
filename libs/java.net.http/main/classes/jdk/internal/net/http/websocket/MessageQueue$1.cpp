@@ -11,14 +11,11 @@
 #undef PONG
 #undef TEXT
 
-using $MessageQueue$TypeArray = $Array<::jdk::internal::net::http::websocket::MessageQueue$Type>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $MessageQueue = ::jdk::internal::net::http::websocket::MessageQueue;
 using $MessageQueue$Type = ::jdk::internal::net::http::websocket::MessageQueue$Type;
 
 namespace jdk {

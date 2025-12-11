@@ -20,13 +20,11 @@
 #undef UNBOUND
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
-using $Resolve$LookupHelper = ::com::sun::tools::javac::comp::Resolve$LookupHelper;
 using $Resolve$MethodReferenceLookupHelper = ::com::sun::tools::javac::comp::Resolve$MethodReferenceLookupHelper;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $Resolve$ReferenceLookupHelper = ::com::sun::tools::javac::comp::Resolve$ReferenceLookupHelper;

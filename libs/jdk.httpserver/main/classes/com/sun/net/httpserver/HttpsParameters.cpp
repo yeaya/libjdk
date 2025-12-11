@@ -5,12 +5,9 @@
 #include <javax/net/ssl/SSLParameters.h>
 #include <jcpp.h>
 
-using $HttpsConfigurator = ::com::sun::net::httpserver::HttpsConfigurator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $SSLParameters = ::javax::net::ssl::SSLParameters;
 
 namespace com {
 	namespace sun {

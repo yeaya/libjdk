@@ -22,7 +22,6 @@
 #undef TYP
 
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
@@ -34,7 +33,6 @@ using $TypeEnter$AbstractHeaderPhase = ::com::sun::tools::javac::comp::TypeEnter
 using $TypeEnter$HeaderPhase = ::com::sun::tools::javac::comp::TypeEnter$HeaderPhase;
 using $TypeEnter$Phase = ::com::sun::tools::javac::comp::TypeEnter$Phase;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $Dependencies$CompletionCause = ::com::sun::tools::javac::util::Dependencies$CompletionCause;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;

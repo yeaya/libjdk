@@ -11,7 +11,6 @@
 #undef POS_OFFSET
 #undef SB_OFFSET
 
-using $JavadocTokenizer = ::com::sun::tools::javac::parser::JavadocTokenizer;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

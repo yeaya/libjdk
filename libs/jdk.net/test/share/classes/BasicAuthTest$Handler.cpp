@@ -10,16 +10,13 @@
 
 #undef US_ASCII
 
-using $BasicAuthTest = ::BasicAuthTest;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
-using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
 $FieldInfo _BasicAuthTest$Handler_FieldInfo_[] = {

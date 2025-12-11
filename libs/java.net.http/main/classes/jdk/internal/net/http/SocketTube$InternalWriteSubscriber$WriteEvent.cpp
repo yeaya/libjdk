@@ -20,7 +20,6 @@ using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $AsyncEvent = ::jdk::internal::net::http::AsyncEvent;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
-using $SocketTube = ::jdk::internal::net::http::SocketTube;
 using $SocketTube$InternalWriteSubscriber = ::jdk::internal::net::http::SocketTube$InternalWriteSubscriber;
 using $SocketTube$SocketFlowEvent = ::jdk::internal::net::http::SocketTube$SocketFlowEvent;
 using $Logger = ::jdk::internal::net::http::common::Logger;

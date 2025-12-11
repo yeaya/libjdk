@@ -11,7 +11,6 @@
 
 using $DeferredAttr$DeferredAttrNode = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrNode;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;

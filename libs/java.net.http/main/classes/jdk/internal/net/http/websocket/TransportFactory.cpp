@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MessageQueue = ::jdk::internal::net::http::websocket::MessageQueue;
-using $MessageStreamConsumer = ::jdk::internal::net::http::websocket::MessageStreamConsumer;
-using $Transport = ::jdk::internal::net::http::websocket::Transport;
 
 namespace jdk {
 	namespace internal {

@@ -4,7 +4,6 @@
 #include <com/sun/net/httpserver/BasicAuthenticator.h>
 #include <jcpp.h>
 
-using $BasicAuthTest = ::BasicAuthTest;
 using $BasicAuthenticator = ::com::sun::net::httpserver::BasicAuthenticator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

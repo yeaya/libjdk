@@ -9,7 +9,6 @@
 #undef LOG
 
 using $Arguments$ErrorModeArray = $Array<::com::sun::tools::javac::main::Arguments$ErrorMode>;
-using $Arguments = ::com::sun::tools::javac::main::Arguments;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -37,14 +37,14 @@ using $Subject = ::javax::security::auth::Subject;
 using $KerberosKey = ::javax::security::auth::kerberos::KerberosKey;
 using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
 using $KerberosTicket = ::javax::security::auth::kerberos::KerberosTicket;
-using $1KeyTab = ::javax::security::auth::kerberos::KeyTab;
+using $KeyTab = ::javax::security::auth::kerberos::KeyTab;
 using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;
 using $SubjectComber = ::sun::security::jgss::krb5::SubjectComber;
 using $Credentials = ::sun::security::krb5::Credentials;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $KeyTab = ::sun::security::krb5::internal::ktab::KeyTab;
+using $1KeyTab = ::sun::security::krb5::internal::ktab::KeyTab;
 
 namespace sun {
 	namespace security {
@@ -110,10 +110,10 @@ ServiceCreds* ServiceCreds::getInstance($Subject* subj, $String* serverPrincipal
 	} else if ($nc(sc->allPrincs)->size() == 1) {
 		bool hasUnbound = false;
 		{
-			$load($1KeyTab);
-			$var($Iterator, i$, $nc($($SubjectComber::findMany(subj, nullptr, nullptr, $1KeyTab::class$)))->iterator());
+			$load($KeyTab);
+			$var($Iterator, i$, $nc($($SubjectComber::findMany(subj, nullptr, nullptr, $KeyTab::class$)))->iterator());
 			for (; $nc(i$)->hasNext();) {
-				$var($1KeyTab, ktab, $cast($1KeyTab, i$->next()));
+				$var($KeyTab, ktab, $cast($KeyTab, i$->next()));
 				{
 					if (!$nc(ktab)->isBound()) {
 						hasUnbound = true;
@@ -127,8 +127,8 @@ ServiceCreds* ServiceCreds::getInstance($Subject* subj, $String* serverPrincipal
 			$assign(serverPrincipal, $nc(sc->kp)->getName());
 		}
 	}
-	$load($1KeyTab);
-	$set(sc, ktabs, $SubjectComber::findMany(subj, serverPrincipal, nullptr, $1KeyTab::class$));
+	$load($KeyTab);
+	$set(sc, ktabs, $SubjectComber::findMany(subj, serverPrincipal, nullptr, $KeyTab::class$));
 	$load($KerberosKey);
 	$set(sc, kk, $SubjectComber::findMany(subj, serverPrincipal, nullptr, $KerberosKey::class$));
 	$load($KerberosTicket);
@@ -161,7 +161,7 @@ $KerberosKeyArray* ServiceCreds::getKKeys() {
 		{
 			$var($Iterator, i$, $nc(this->ktabs)->iterator());
 			for (; $nc(i$)->hasNext();) {
-				$var($1KeyTab, ktab, $cast($1KeyTab, i$->next()));
+				$var($KeyTab, ktab, $cast($KeyTab, i$->next()));
 				{
 					$var($PrincipalName, pn, $nc($($Krb5Util::snapshotFromJavaxKeyTab(ktab)))->getOneName());
 					if (pn != nullptr) {
@@ -202,7 +202,7 @@ $KerberosKeyArray* ServiceCreds::getKKeys($KerberosPrincipal* princ) {
 	{
 		$var($Iterator, i$, $nc(this->ktabs)->iterator());
 		for (; $nc(i$)->hasNext();) {
-			$var($1KeyTab, ktab, $cast($1KeyTab, i$->next()));
+			$var($KeyTab, ktab, $cast($KeyTab, i$->next()));
 			{
 				bool var$0 = $nc(ktab)->getPrincipal() == nullptr;
 				if (var$0 && ktab->isBound()) {

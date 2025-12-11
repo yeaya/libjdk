@@ -37,7 +37,6 @@ using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
 using $JCTree$JCTypeCast = ::com::sun::tools::javac::tree::JCTree$JCTypeCast;
 using $JCTree$JCUnary = ::com::sun::tools::javac::tree::JCTree$JCUnary;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

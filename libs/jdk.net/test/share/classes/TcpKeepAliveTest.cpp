@@ -23,7 +23,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
@@ -32,7 +31,6 @@ using $MulticastSocket = ::java::net::MulticastSocket;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
-using $SocketOption = ::java::net::SocketOption;
 using $Set = ::java::util::Set;
 using $ExtendedSocketOptions = ::jdk::net::ExtendedSocketOptions;
 

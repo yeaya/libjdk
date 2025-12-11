@@ -21,7 +21,6 @@ using $EncryptedData = ::sun::security::krb5::EncryptedData;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $AuthorizationData = ::sun::security::krb5::internal::AuthorizationData;
-using $EncKDCRepPart = ::sun::security::krb5::internal::EncKDCRepPart;
 using $HostAddresses = ::sun::security::krb5::internal::HostAddresses;
 using $KDCRep = ::sun::security::krb5::internal::KDCRep;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;

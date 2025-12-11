@@ -22,7 +22,6 @@ using $MethodInvocationTree = ::com::sun::source::tree::MethodInvocationTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;

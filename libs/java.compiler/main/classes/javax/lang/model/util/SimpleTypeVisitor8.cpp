@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $IntersectionType = ::javax::lang::model::type::IntersectionType;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
-using $SimpleTypeVisitor6 = ::javax::lang::model::util::SimpleTypeVisitor6;
 using $SimpleTypeVisitor7 = ::javax::lang::model::util::SimpleTypeVisitor7;
 
 namespace javax {

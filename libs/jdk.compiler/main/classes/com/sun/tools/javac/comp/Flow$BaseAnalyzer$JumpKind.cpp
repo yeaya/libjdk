@@ -15,12 +15,9 @@
 #undef YIELD
 
 using $Flow$BaseAnalyzer$JumpKindArray = $Array<::com::sun::tools::javac::comp::Flow$BaseAnalyzer$JumpKind>;
-using $Flow = ::com::sun::tools::javac::comp::Flow;
-using $Flow$BaseAnalyzer = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer;
 using $Flow$BaseAnalyzer$JumpKind$1 = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer$JumpKind$1;
 using $Flow$BaseAnalyzer$JumpKind$2 = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer$JumpKind$2;
 using $Flow$BaseAnalyzer$JumpKind$3 = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer$JumpKind$3;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

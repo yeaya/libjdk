@@ -13,10 +13,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $MS932 = ::sun::nio::cs::MS932;
-using $MS932_0213 = ::sun::nio::cs::ext::MS932_0213;
 using $SJIS_0213$Decoder = ::sun::nio::cs::ext::SJIS_0213$Decoder;
 
 namespace sun {

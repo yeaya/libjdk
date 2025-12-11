@@ -8,7 +8,6 @@
 #undef POLY
 #undef STANDALONE
 
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCPolyExpression$PolyKind = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression$PolyKind;
 using $ClassInfo = ::java::lang::ClassInfo;

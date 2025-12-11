@@ -8,7 +8,6 @@
 #undef TRAILING
 
 using $TextBlockSupport$WhitespaceChecksArray = $Array<::com::sun::tools::javac::parser::TextBlockSupport$WhitespaceChecks>;
-using $TextBlockSupport = ::com::sun::tools::javac::parser::TextBlockSupport;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

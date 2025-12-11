@@ -34,7 +34,6 @@ using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$ErrorType$1 = ::com::sun::tools::javac::code::Type$ErrorType$1;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;

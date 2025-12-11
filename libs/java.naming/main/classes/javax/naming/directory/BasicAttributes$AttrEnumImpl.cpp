@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $Attribute = ::javax::naming::directory::Attribute;
 using $BasicAttributes = ::javax::naming::directory::BasicAttributes;
 

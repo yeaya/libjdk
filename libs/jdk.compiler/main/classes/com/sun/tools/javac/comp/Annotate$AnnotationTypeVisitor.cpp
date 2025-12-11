@@ -19,7 +19,6 @@
 #include <jcpp.h>
 
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
@@ -31,9 +30,7 @@ using $TypeEnvs = ::com::sun::tools::javac::comp::TypeEnvs;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

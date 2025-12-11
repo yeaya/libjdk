@@ -15,11 +15,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $Big5 = ::sun::nio::cs::Big5;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $HKSCS$Decoder = ::sun::nio::cs::HKSCS$Decoder;
-using $Big5_HKSCS_2001 = ::sun::nio::cs::ext::Big5_HKSCS_2001;
 using $HKSCS2001Mapping = ::sun::nio::cs::ext::HKSCS2001Mapping;
 
 namespace sun {

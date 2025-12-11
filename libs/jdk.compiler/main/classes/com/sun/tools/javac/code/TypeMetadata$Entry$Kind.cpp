@@ -8,8 +8,6 @@
 #undef ANNOTATIONS
 
 using $TypeMetadata$Entry$KindArray = $Array<::com::sun::tools::javac::code::TypeMetadata$Entry$Kind>;
-using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
-using $TypeMetadata$Entry = ::com::sun::tools::javac::code::TypeMetadata$Entry;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -12,14 +12,11 @@
 #undef LONG
 #undef SHORT
 
-using $Monitor$NumericalTypeArray = $Array<::javax::management::monitor::Monitor$NumericalType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Monitor = ::javax::management::monitor::Monitor;
 using $Monitor$NumericalType = ::javax::management::monitor::Monitor$NumericalType;
 
 namespace javax {

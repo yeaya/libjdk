@@ -8,12 +8,10 @@
 using $TargetedNotificationArray = $Array<::javax::management::remote::TargetedNotification>;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TargetedNotification = ::javax::management::remote::TargetedNotification;
 
 namespace javax {
 	namespace management {

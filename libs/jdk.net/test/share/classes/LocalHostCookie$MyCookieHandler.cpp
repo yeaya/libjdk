@@ -9,7 +9,6 @@
 using $LocalHostCookie = ::LocalHostCookie;
 using $Headers = ::com::sun::net::httpserver::Headers;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
-using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

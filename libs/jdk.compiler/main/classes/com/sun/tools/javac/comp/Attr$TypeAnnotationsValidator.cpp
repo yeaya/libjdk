@@ -65,12 +65,8 @@
 #undef TYPEUNION
 #undef WILDCARD
 
-using $Tree = ::com::sun::source::tree::Tree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
-using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeAnnotations = ::com::sun::tools::javac::code::TypeAnnotations;
 using $TypeAnnotations$AnnotationType = ::com::sun::tools::javac::code::TypeAnnotations$AnnotationType;
@@ -89,7 +85,6 @@ using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCInstanceOf = ::com::sun::tools::javac::tree::JCTree$JCInstanceOf;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
-using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$JCPattern = ::com::sun::tools::javac::tree::JCTree$JCPattern;
@@ -103,10 +98,8 @@ using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariable
 using $JCTree$JCWildcard = ::com::sun::tools::javac::tree::JCTree$JCWildcard;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Log = ::com::sun::tools::javac::util::Log;

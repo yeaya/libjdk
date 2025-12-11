@@ -7,7 +7,6 @@
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ToolProvider = ::java::util::spi::ToolProvider;
 using $Main = ::sun::tools::jar::Main;
 
 namespace sun {

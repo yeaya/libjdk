@@ -45,7 +45,6 @@ using $MessageDigest = ::java::security::MessageDigest;
 using $Arrays = ::java::util::Arrays;
 using $GSSException = ::org::ietf::jgss::GSSException;
 using $MessageProp = ::org::ietf::jgss::MessageProp;
-using $GSSToken = ::sun::security::jgss::GSSToken;
 using $CipherHelper = ::sun::security::jgss::krb5::CipherHelper;
 using $Krb5Context = ::sun::security::jgss::krb5::Krb5Context;
 using $Krb5Token = ::sun::security::jgss::krb5::Krb5Token;

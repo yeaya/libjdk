@@ -8,7 +8,6 @@
 #include <jcpp.h>
 
 using $GraphUtils$DotVisitor = ::com::sun::tools::javac::util::GraphUtils$DotVisitor;
-using $GraphUtils$NodeVisitor = ::com::sun::tools::javac::util::GraphUtils$NodeVisitor;
 using $GraphUtils$Tarjan = ::com::sun::tools::javac::util::GraphUtils$Tarjan;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;

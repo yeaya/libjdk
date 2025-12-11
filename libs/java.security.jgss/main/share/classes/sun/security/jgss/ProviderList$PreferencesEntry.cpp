@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Provider = ::java::security::Provider;
 using $Oid = ::org::ietf::jgss::Oid;
-using $ProviderList = ::sun::security::jgss::ProviderList;
 
 namespace sun {
 	namespace security {

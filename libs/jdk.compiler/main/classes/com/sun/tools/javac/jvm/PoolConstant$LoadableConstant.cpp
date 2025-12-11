@@ -5,7 +5,6 @@
 #include <jcpp.h>
 
 using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
-using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $PoolConstant$LoadableConstant$BasicConstant = ::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant$BasicConstant;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;

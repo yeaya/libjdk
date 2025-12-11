@@ -10,12 +10,9 @@
 #undef UNREGISTER
 #undef WRITE
 
-using $MBeanServerFileAccessController$AccessTypeArray = $Array<::com::sun::jmx::remote::security::MBeanServerFileAccessController$AccessType>;
-using $MBeanServerFileAccessController = ::com::sun::jmx::remote::security::MBeanServerFileAccessController;
 using $MBeanServerFileAccessController$AccessType = ::com::sun::jmx::remote::security::MBeanServerFileAccessController$AccessType;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
-using $ResponseSubscribers = ::jdk::internal::net::http::ResponseSubscribers;
 
 namespace jdk {
 	namespace internal {

@@ -20,7 +20,6 @@
 #include <javax/management/openmbean/OpenType.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ArrayStoreException = ::java::lang::ArrayStoreException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -29,7 +29,6 @@ using $DefaultPlatformMBeanProvider = ::java::lang::management::DefaultPlatformM
 using $GarbageCollectorMXBean = ::java::lang::management::GarbageCollectorMXBean;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
 using $MemoryManagerMXBean = ::java::lang::management::MemoryManagerMXBean;
-using $PlatformManagedObject = ::java::lang::management::PlatformManagedObject;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
@@ -37,12 +36,10 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $ObjectName = ::javax::management::ObjectName;
 using $ManagementFactoryHelper = ::sun::management::ManagementFactoryHelper;
-using $PlatformMBeanProvider$PlatformComponent = ::sun::management::spi::PlatformMBeanProvider$PlatformComponent;
 
 namespace java {
 	namespace lang {

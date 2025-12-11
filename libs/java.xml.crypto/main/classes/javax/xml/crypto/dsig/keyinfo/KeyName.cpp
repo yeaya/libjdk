@@ -4,7 +4,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 
 namespace javax {
 	namespace xml {

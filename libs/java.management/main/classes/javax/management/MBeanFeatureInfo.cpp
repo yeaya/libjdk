@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
 using $Descriptor = ::javax::management::Descriptor;
-using $DescriptorRead = ::javax::management::DescriptorRead;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
 
 namespace javax {

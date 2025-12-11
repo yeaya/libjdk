@@ -48,5 +48,4 @@ void java$xml$crypto$test::init() {
 		java$xml$crypto$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

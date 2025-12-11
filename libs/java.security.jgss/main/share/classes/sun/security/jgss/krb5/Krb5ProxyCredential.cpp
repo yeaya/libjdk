@@ -45,7 +45,6 @@ using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 using $Credentials = ::sun::security::krb5::Credentials;
 using $KrbException = ::sun::security::krb5::KrbException;
-using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $Ticket = ::sun::security::krb5::internal::Ticket;
 
 namespace sun {

@@ -19,8 +19,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RowSetReader = ::javax::sql::RowSetReader;
-using $RowSetWriter = ::javax::sql::RowSetWriter;
 
 namespace javax {
 	namespace sql {

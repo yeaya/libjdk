@@ -19,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
-using $HPACK$Logger = ::jdk::internal::net::http::hpack::HPACK$Logger;
 
 namespace jdk {
 	namespace internal {

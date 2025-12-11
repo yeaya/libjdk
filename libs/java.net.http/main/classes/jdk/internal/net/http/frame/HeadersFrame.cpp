@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $List = ::java::util::List;
 using $HeaderFrame = ::jdk::internal::net::http::frame::HeaderFrame;
-using $Http2Frame = ::jdk::internal::net::http::frame::Http2Frame;
 
 namespace jdk {
 	namespace internal {

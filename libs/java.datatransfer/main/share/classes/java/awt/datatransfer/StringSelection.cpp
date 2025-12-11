@@ -12,7 +12,6 @@
 
 using $DataFlavorArray = $Array<::java::awt::datatransfer::DataFlavor>;
 using $Clipboard = ::java::awt::datatransfer::Clipboard;
-using $ClipboardOwner = ::java::awt::datatransfer::ClipboardOwner;
 using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $UnsupportedFlavorException = ::java::awt::datatransfer::UnsupportedFlavorException;

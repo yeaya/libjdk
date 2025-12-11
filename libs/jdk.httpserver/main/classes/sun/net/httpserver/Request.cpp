@@ -22,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $ServerConfig = ::sun::net::httpserver::ServerConfig;
 
 namespace sun {

@@ -32,18 +32,11 @@
 #undef VOID
 
 using $LambdaExpressionTree$BodyKind = ::com::sun::source::tree::LambdaExpressionTree$BodyKind;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
-using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
-using $DeferredAttr$FilterScanner = ::com::sun::tools::javac::comp::DeferredAttr$FilterScanner;
 using $DeferredAttr$LambdaReturnScanner = ::com::sun::tools::javac::comp::DeferredAttr$LambdaReturnScanner;
 using $DeferredAttr$PolyScanner = ::com::sun::tools::javac::comp::DeferredAttr$PolyScanner;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
-using $Resolve$MethodCheckContext = ::com::sun::tools::javac::comp::Resolve$MethodCheckContext;
-using $Resolve$MostSpecificCheck = ::com::sun::tools::javac::comp::Resolve$MostSpecificCheck;
 using $Resolve$MostSpecificCheck$MostSpecificCheckContext = ::com::sun::tools::javac::comp::Resolve$MostSpecificCheck$MostSpecificCheckContext;
 using $Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker$1 = ::com::sun::tools::javac::comp::Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker$1;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;

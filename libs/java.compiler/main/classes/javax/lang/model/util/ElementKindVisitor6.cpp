@@ -21,7 +21,6 @@
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -35,7 +34,6 @@ using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
 using $TypeParameterElement = ::javax::lang::model::element::TypeParameterElement;
 using $VariableElement = ::javax::lang::model::element::VariableElement;
-using $AbstractElementVisitor6 = ::javax::lang::model::util::AbstractElementVisitor6;
 using $ElementKindVisitor6$1 = ::javax::lang::model::util::ElementKindVisitor6$1;
 using $SimpleElementVisitor6 = ::javax::lang::model::util::SimpleElementVisitor6;
 

@@ -8,13 +8,6 @@
 #include <com/sun/tools/javac/code/Attribute$Error.h>
 #include <jcpp.h>
 
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
-using $Attribute$Array = ::com::sun::tools::javac::code::Attribute$Array;
-using $Attribute$Class = ::com::sun::tools::javac::code::Attribute$Class;
-using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
-using $Attribute$Constant = ::com::sun::tools::javac::code::Attribute$Constant;
-using $Attribute$Enum = ::com::sun::tools::javac::code::Attribute$Enum;
-using $Attribute$Error = ::com::sun::tools::javac::code::Attribute$Error;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

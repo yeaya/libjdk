@@ -9,9 +9,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GNUStyleOptions = ::sun::tools::jar::GNUStyleOptions;
 using $GNUStyleOptions$OptionType = ::sun::tools::jar::GNUStyleOptions$OptionType;
-using $Main = ::sun::tools::jar::Main;
 
 namespace sun {
 	namespace tools {

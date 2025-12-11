@@ -35,7 +35,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ElementKind = ::javax::lang::model::element::ElementKind;

@@ -18,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
 using $Charset = ::java::nio::charset::Charset;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;

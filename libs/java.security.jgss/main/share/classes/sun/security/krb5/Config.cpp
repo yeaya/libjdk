@@ -93,7 +93,6 @@
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $PermissionArray = $Array<::java::security::Permission>;
-using $Closeable = ::java::io::Closeable;
 using $File = ::java::io::File;
 using $FilePermission = ::java::io::FilePermission;
 using $IOException = ::java::io::IOException;
@@ -109,21 +108,15 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $DirectoryStream = ::java::nio::file::DirectoryStream;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $AccessControlContext = ::java::security::AccessControlContext;
@@ -308,7 +301,7 @@ $String* Config::getWindowsDirectory(bool isSystem) {
 	$init(Config);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(Config, getWindowsDirectory, $String*, bool isSystem);
-	$assign($ret, $invokeNativeStatic(Config, getWindowsDirectory, isSystem));
+	$assign($ret, $invokeNativeStaticObject(isSystem));
 	$finishNativeStatic();
 	return $ret;
 }

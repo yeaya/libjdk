@@ -4,8 +4,6 @@
 #include <com/sun/net/httpserver/HttpExchange.h>
 #include <jcpp.h>
 
-using $Authenticator$Result = ::com::sun::net::httpserver::Authenticator$Result;
-using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

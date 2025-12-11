@@ -17,19 +17,15 @@
 #undef WHERE_CLAUSES
 
 using $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeatureArray = $Array<::com::sun::tools::javac::util::RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature>;
-using $DiagnosticFormatter$Configuration = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration;
 using $AbstractDiagnosticFormatter = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter;
-using $AbstractDiagnosticFormatter$SimpleConfiguration = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter$SimpleConfiguration;
 using $ForwardingDiagnosticFormatter$ForwardingConfiguration = ::com::sun::tools::javac::util::ForwardingDiagnosticFormatter$ForwardingConfiguration;
 using $Options = ::com::sun::tools::javac::util::Options;
-using $RichDiagnosticFormatter = ::com::sun::tools::javac::util::RichDiagnosticFormatter;
 using $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature = ::com::sun::tools::javac::util::RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $EnumSet = ::java::util::EnumSet;
 
 namespace com {

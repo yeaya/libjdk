@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/comp/InferenceContext.h>
 #include <jcpp.h>
 
-using $Infer = ::com::sun::tools::javac::comp::Infer;
-using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

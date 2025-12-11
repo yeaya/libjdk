@@ -11,8 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Attributes = ::javax::naming::directory::Attributes;
 using $SearchResult = ::javax::naming::directory::SearchResult;
-using $Control = ::javax::naming::ldap::Control;
-using $HasControls = ::javax::naming::ldap::HasControls;
 
 namespace com {
 	namespace sun {

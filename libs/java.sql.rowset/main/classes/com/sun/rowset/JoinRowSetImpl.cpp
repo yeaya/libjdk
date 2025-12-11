@@ -105,7 +105,6 @@ using $RowSet = ::javax::sql::RowSet;
 using $RowSetEvent = ::javax::sql::RowSetEvent;
 using $RowSetListener = ::javax::sql::RowSetListener;
 using $RowSetMetaData = ::javax::sql::RowSetMetaData;
-using $BaseRowSet = ::javax::sql::rowset::BaseRowSet;
 using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
 using $JoinRowSet = ::javax::sql::rowset::JoinRowSet;
 using $Joinable = ::javax::sql::rowset::Joinable;

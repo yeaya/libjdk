@@ -17,7 +17,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Subject = ::javax::security::auth::Subject;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $Configuration = ::javax::security::auth::login::Configuration;

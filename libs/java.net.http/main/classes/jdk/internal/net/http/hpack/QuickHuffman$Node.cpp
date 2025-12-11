@@ -3,11 +3,9 @@
 #include <jdk/internal/net/http/hpack/QuickHuffman.h>
 #include <jcpp.h>
 
-using $QuickHuffman$NodeArray = $Array<::jdk::internal::net::http::hpack::QuickHuffman$Node>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $QuickHuffman = ::jdk::internal::net::http::hpack::QuickHuffman;
 
 namespace jdk {
 	namespace internal {

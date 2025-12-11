@@ -27,7 +27,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $US_ASCII = ::sun::nio::cs::US_ASCII;
 using $EUC_CN = ::sun::nio::cs::ext::EUC_CN;
 using $EUC_TW = ::sun::nio::cs::ext::EUC_TW;

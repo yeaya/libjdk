@@ -13,12 +13,8 @@
 #undef SYSTEM_MODULES
 #undef UPGRADE_MODULE_PATH
 
-using $JavaFileObject$KindArray = $Array<::javax::tools::JavaFileObject$Kind>;
-using $StandardLocationArray = $Array<::javax::tools::StandardLocation>;
-using $ModuleFinder = ::com::sun::tools::javac::code::ModuleFinder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

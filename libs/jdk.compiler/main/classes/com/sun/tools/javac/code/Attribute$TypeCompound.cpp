@@ -7,7 +7,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;

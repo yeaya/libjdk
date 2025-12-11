@@ -12,7 +12,6 @@
 using $MBeanNotificationInfoArray = $Array<::javax::management::MBeanNotificationInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GarbageCollectorMXBean = ::java::lang::management::GarbageCollectorMXBean;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
 using $ObjectName = ::javax::management::ObjectName;
 using $MemoryManagerImpl = ::sun::management::MemoryManagerImpl;
@@ -81,7 +80,7 @@ void GarbageCollectorImpl::init$($String* name) {
 int64_t GarbageCollectorImpl::getCollectionCount() {
 	int64_t $ret = 0;
 	$prepareNative(GarbageCollectorImpl, getCollectionCount, int64_t);
-	$ret = $invokeNative(GarbageCollectorImpl, getCollectionCount);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -89,7 +88,7 @@ int64_t GarbageCollectorImpl::getCollectionCount() {
 int64_t GarbageCollectorImpl::getCollectionTime() {
 	int64_t $ret = 0;
 	$prepareNative(GarbageCollectorImpl, getCollectionTime, int64_t);
-	$ret = $invokeNative(GarbageCollectorImpl, getCollectionTime);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }

@@ -4,11 +4,8 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $BlockTree = ::com::sun::source::tree::BlockTree;
-using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {

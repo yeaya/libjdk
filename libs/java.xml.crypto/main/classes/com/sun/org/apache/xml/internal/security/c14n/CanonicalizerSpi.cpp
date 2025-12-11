@@ -15,8 +15,6 @@ using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Set = ::java::util::Set;
 using $Document = ::org::w3c::dom::Document;
 using $Node = ::org::w3c::dom::Node;
 

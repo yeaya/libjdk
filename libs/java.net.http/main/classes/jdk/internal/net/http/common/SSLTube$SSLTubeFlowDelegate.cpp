@@ -40,10 +40,8 @@ using $FlowTube$TubePublisher = ::jdk::internal::net::http::common::FlowTube$Tub
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
 using $SSLFlowDelegate = ::jdk::internal::net::http::common::SSLFlowDelegate;
 using $SSLFlowDelegate$Reader = ::jdk::internal::net::http::common::SSLFlowDelegate$Reader;
-using $SSLFlowDelegate$Writer = ::jdk::internal::net::http::common::SSLFlowDelegate$Writer;
 using $SSLTube = ::jdk::internal::net::http::common::SSLTube;
 using $SSLTube$SSLSubscriberWrapper = ::jdk::internal::net::http::common::SSLTube$SSLSubscriberWrapper;
-using $SSLTube$SSLSubscriptionWrapper = ::jdk::internal::net::http::common::SSLTube$SSLSubscriptionWrapper;
 using $SubscriberWrapper = ::jdk::internal::net::http::common::SubscriberWrapper;
 using $SubscriberWrapper$SchedulingAction = ::jdk::internal::net::http::common::SubscriberWrapper$SchedulingAction;
 

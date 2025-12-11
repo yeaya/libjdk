@@ -10,11 +10,9 @@
 #undef TYPE_ARGUMENT
 #undef WILDCARD
 
-using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
 using $TypeAnnotationPosition$TypePathEntryKind = ::com::sun::tools::javac::code::TypeAnnotationPosition$TypePathEntryKind;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

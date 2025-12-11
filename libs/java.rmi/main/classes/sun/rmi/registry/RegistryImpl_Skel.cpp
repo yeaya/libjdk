@@ -20,7 +20,6 @@
 
 using $OperationArray = $Array<::java::rmi::server::Operation>;
 using $IOException = ::java::io::IOException;
-using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutput = ::java::io::ObjectOutput;
 using $ClassCastException = ::java::lang::ClassCastException;
@@ -34,7 +33,6 @@ using $Remote = ::java::rmi::Remote;
 using $UnmarshalException = ::java::rmi::UnmarshalException;
 using $Operation = ::java::rmi::server::Operation;
 using $RemoteCall = ::java::rmi::server::RemoteCall;
-using $Skeleton = ::java::rmi::server::Skeleton;
 using $SkeletonMismatchException = ::java::rmi::server::SkeletonMismatchException;
 using $JavaObjectInputStreamReadString = ::jdk::internal::access::JavaObjectInputStreamReadString;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;

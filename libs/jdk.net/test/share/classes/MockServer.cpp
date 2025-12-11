@@ -21,7 +21,6 @@
 #include <jcpp.h>
 
 using $MockServer$Connection = ::MockServer$Connection;
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;

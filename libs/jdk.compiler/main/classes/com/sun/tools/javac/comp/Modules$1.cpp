@@ -22,7 +22,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $ModuleFinder = ::com::sun::tools::javac::code::ModuleFinder;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Modules = ::com::sun::tools::javac::comp::Modules;
@@ -32,7 +31,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 

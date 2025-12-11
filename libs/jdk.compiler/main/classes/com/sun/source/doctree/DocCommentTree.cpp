@@ -7,7 +7,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $DocTree = ::com::sun::source::doctree::DocTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractList = ::java::util::AbstractList;

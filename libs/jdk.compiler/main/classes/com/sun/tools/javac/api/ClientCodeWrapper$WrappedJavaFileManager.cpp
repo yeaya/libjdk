@@ -26,7 +26,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
@@ -37,7 +36,6 @@ using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
-using $OptionChecker = ::javax::tools::OptionChecker;
 
 namespace com {
 	namespace sun {

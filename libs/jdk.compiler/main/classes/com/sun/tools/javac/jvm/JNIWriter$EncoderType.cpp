@@ -11,7 +11,6 @@
 #undef SIGNATURE
 
 using $JNIWriter$EncoderTypeArray = $Array<::com::sun::tools::javac::jvm::JNIWriter$EncoderType>;
-using $JNIWriter = ::com::sun::tools::javac::jvm::JNIWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -9,7 +9,6 @@
 #undef REFERENCE
 
 using $Operators$ComparisonKindArray = $Array<::com::sun::tools::javac::comp::Operators$ComparisonKind>;
-using $Operators = ::com::sun::tools::javac::comp::Operators;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

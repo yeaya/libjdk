@@ -6,10 +6,6 @@
 #include <javax/management/MBeanOperationInfo.h>
 #include <jcpp.h>
 
-using $MBeanAttributeInfoArray = $Array<::javax::management::MBeanAttributeInfo>;
-using $MBeanConstructorInfoArray = $Array<::javax::management::MBeanConstructorInfo>;
-using $MBeanNotificationInfoArray = $Array<::javax::management::MBeanNotificationInfo>;
-using $MBeanOperationInfoArray = $Array<::javax::management::MBeanOperationInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

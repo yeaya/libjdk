@@ -25,12 +25,9 @@
 #include <jcpp.h>
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $LambdaToMethod = ::com::sun::tools::javac::comp::LambdaToMethod;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
@@ -44,7 +41,6 @@ using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariable
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $List = ::com::sun::tools::javac::util::List;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

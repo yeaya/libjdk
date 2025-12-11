@@ -3,10 +3,8 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
-using $ReferenceData = ::com::sun::org::apache::xml::internal::security::signature::reference::ReferenceData;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 
 namespace com {
 	namespace sun {

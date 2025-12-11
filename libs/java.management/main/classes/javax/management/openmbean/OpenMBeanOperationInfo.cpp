@@ -4,10 +4,8 @@
 #include <javax/management/openmbean/OpenType.h>
 #include <jcpp.h>
 
-using $MBeanParameterInfoArray = $Array<::javax::management::MBeanParameterInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $OpenType = ::javax::management::openmbean::OpenType;
 
 namespace javax {
 	namespace management {

@@ -14,9 +14,7 @@
 #undef ASN1_BAD_ID
 
 using $LastReqEntryArray = $Array<::sun::security::krb5::internal::LastReqEntry>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

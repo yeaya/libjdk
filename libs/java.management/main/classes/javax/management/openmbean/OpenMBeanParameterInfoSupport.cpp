@@ -25,7 +25,6 @@ using $Set = ::java::util::Set;
 using $Descriptor = ::javax::management::Descriptor;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
 using $JMException = ::javax::management::JMException;
-using $MBeanFeatureInfo = ::javax::management::MBeanFeatureInfo;
 using $MBeanParameterInfo = ::javax::management::MBeanParameterInfo;
 using $OpenDataException = ::javax::management::openmbean::OpenDataException;
 using $OpenMBeanAttributeInfoSupport = ::javax::management::openmbean::OpenMBeanAttributeInfoSupport;

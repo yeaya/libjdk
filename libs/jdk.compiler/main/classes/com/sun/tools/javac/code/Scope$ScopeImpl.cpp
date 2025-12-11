@@ -31,7 +31,6 @@
 #undef NON_RECURSIVE
 
 using $Scope$EntryArray = $Array<::com::sun::tools::javac::code::Scope$Entry>;
-using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$Entry = ::com::sun::tools::javac::code::Scope$Entry;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
@@ -43,17 +42,12 @@ using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $IdentityHashMap = ::java::util::IdentityHashMap;

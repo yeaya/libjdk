@@ -14,14 +14,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::javax::lang::model::element::Element;
-using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
-using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
 using $RecordComponentElement = ::javax::lang::model::element::RecordComponentElement;
-using $TypeElement = ::javax::lang::model::element::TypeElement;
-using $TypeParameterElement = ::javax::lang::model::element::TypeParameterElement;
-using $VariableElement = ::javax::lang::model::element::VariableElement;
 
 namespace javax {
 	namespace lang {

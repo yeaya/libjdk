@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Level = ::java::util::logging::Level;
-using $Log = ::sun::rmi::runtime::Log;
 
 namespace sun {
 	namespace rmi {

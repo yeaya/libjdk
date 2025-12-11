@@ -12,7 +12,6 @@
 
 using $Resolve$ReferenceLookupResult$StaticKindArray = $Array<::com::sun::tools::javac::comp::Resolve$ReferenceLookupResult$StaticKind>;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Resolve$ReferenceLookupResult = ::com::sun::tools::javac::comp::Resolve$ReferenceLookupResult;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

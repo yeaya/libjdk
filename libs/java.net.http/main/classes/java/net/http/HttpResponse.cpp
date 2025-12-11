@@ -10,11 +10,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URI = ::java::net::URI;
-using $HttpClient$Version = ::java::net::http::HttpClient$Version;
-using $HttpHeaders = ::java::net::http::HttpHeaders;
-using $HttpRequest = ::java::net::http::HttpRequest;
-using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace net {

@@ -26,7 +26,6 @@ using $StringReader = ::java::io::StringReader;
 using $Writer = ::java::io::Writer;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -36,7 +35,6 @@ using $CharBuffer = ::java::nio::CharBuffer;
 using $Objects = ::java::util::Objects;
 using $Modifier = ::javax::lang::model::element::Modifier;
 using $NestingKind = ::javax::lang::model::element::NestingKind;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace javax {

@@ -22,7 +22,6 @@
 
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticFlag = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticFlag;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;

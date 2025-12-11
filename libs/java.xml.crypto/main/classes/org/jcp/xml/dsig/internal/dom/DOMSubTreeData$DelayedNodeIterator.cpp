@@ -25,11 +25,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $DOMSubTreeData = ::org::jcp::xml::dsig::internal::dom::DOMSubTreeData;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
 

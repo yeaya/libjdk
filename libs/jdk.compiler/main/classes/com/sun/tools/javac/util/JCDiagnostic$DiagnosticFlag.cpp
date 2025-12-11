@@ -14,7 +14,6 @@
 #undef SYNTAX
 
 using $JCDiagnostic$DiagnosticFlagArray = $Array<::com::sun::tools::javac::util::JCDiagnostic$DiagnosticFlag>;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

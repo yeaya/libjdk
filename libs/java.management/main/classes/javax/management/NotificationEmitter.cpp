@@ -6,9 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NotificationBroadcaster = ::javax::management::NotificationBroadcaster;
-using $NotificationFilter = ::javax::management::NotificationFilter;
-using $NotificationListener = ::javax::management::NotificationListener;
 
 namespace javax {
 	namespace management {

@@ -33,7 +33,6 @@
 #undef XML_LANG_URI
 
 using $CanonicalizationException = ::com::sun::org::apache::xml::internal::security::c14n::CanonicalizationException;
-using $AttrCompare = ::com::sun::org::apache::xml::internal::security::c14n::helper::AttrCompare;
 using $C14nHelper = ::com::sun::org::apache::xml::internal::security::c14n::helper::C14nHelper;
 using $CanonicalizerBase = ::com::sun::org::apache::xml::internal::security::c14n::implementations::CanonicalizerBase;
 using $NameSpaceSymbTable = ::com::sun::org::apache::xml::internal::security::c14n::implementations::NameSpaceSymbTable;

@@ -28,8 +28,6 @@
 #undef YIELD
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
-using $Flow = ::com::sun::tools::javac::comp::Flow;
 using $Flow$BaseAnalyzer$JumpKind = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer$JumpKind;
 using $Flow$BaseAnalyzer$PendingExit = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer$PendingExit;
 using $Flow$Liveness = ::com::sun::tools::javac::comp::Flow$Liveness;

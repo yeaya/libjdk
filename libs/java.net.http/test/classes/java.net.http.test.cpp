@@ -44,5 +44,4 @@ void java$net$http$test::init() {
 		java$net$http$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

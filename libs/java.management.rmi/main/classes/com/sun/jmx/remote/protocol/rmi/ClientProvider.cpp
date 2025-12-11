@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $Map = ::java::util::Map;
 using $JMXConnector = ::javax::management::remote::JMXConnector;
-using $JMXConnectorProvider = ::javax::management::remote::JMXConnectorProvider;
 using $JMXServiceURL = ::javax::management::remote::JMXServiceURL;
 using $RMIConnector = ::javax::management::remote::rmi::RMIConnector;
 

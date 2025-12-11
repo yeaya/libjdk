@@ -18,7 +18,6 @@ using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $IdentifierTree = ::com::sun::source::doctree::IdentifierTree;
 using $ReferenceTree = ::com::sun::source::doctree::ReferenceTree;
 using $SerialFieldTree = ::com::sun::source::doctree::SerialFieldTree;
-using $DCTree = ::com::sun::tools::javac::tree::DCTree;
 using $DCTree$DCBlockTag = ::com::sun::tools::javac::tree::DCTree$DCBlockTag;
 using $DCTree$DCIdentifier = ::com::sun::tools::javac::tree::DCTree$DCIdentifier;
 using $DCTree$DCReference = ::com::sun::tools::javac::tree::DCTree$DCReference;

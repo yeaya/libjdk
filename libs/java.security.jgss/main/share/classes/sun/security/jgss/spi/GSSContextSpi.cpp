@@ -10,16 +10,8 @@
 #include <sun/security/jgss/spi/GSSNameSpi.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Provider = ::java::security::Provider;
-using $ChannelBinding = ::org::ietf::jgss::ChannelBinding;
-using $MessageProp = ::org::ietf::jgss::MessageProp;
-using $Oid = ::org::ietf::jgss::Oid;
-using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
-using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 
 namespace sun {
 	namespace security {

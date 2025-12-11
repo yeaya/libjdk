@@ -49,7 +49,6 @@ using $SecretKey = ::javax::crypto::SecretKey;
 using $QName = ::javax::xml::namespace$::QName;
 using $Attr = ::org::w3c::dom::Attr;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {

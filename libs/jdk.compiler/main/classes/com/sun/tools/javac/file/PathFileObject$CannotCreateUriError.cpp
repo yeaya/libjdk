@@ -4,7 +4,6 @@
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
-using $PathFileObject = ::com::sun::tools::javac::file::PathFileObject;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;

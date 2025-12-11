@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Key = ::java::security::Key;
 using $KeySelector$SingletonKeySelector = ::javax::xml::crypto::KeySelector$SingletonKeySelector;
-using $KeySelectorResult = ::javax::xml::crypto::KeySelectorResult;
 
 namespace javax {
 	namespace xml {

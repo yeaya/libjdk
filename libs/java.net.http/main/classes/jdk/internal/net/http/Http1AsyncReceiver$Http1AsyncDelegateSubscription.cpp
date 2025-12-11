@@ -16,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Consumer = ::java::util::function::Consumer;
 using $AbstractSubscription = ::jdk::internal::net::http::AbstractSubscription;
-using $Http1AsyncReceiver = ::jdk::internal::net::http::Http1AsyncReceiver;
 using $Demand = ::jdk::internal::net::http::common::Demand;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
 

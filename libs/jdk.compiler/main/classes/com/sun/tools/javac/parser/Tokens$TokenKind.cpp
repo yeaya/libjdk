@@ -127,9 +127,7 @@
 #undef WHILE
 
 using $Tokens$TokenKindArray = $Array<::com::sun::tools::javac::parser::Tokens$TokenKind>;
-using $Formattable = ::com::sun::tools::javac::api::Formattable;
 using $Messages = ::com::sun::tools::javac::api::Messages;
-using $Tokens = ::com::sun::tools::javac::parser::Tokens;
 using $Tokens$1 = ::com::sun::tools::javac::parser::Tokens$1;
 using $Tokens$Token$Tag = ::com::sun::tools::javac::parser::Tokens$Token$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -138,7 +136,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
-using $Predicate = ::java::util::function::Predicate;
 
 namespace com {
 	namespace sun {

@@ -18,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Remote = ::java::rmi::Remote;
 using $DGC = ::java::rmi::dgc::DGC;
 using $ObjID = ::java::rmi::server::ObjID;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Dispatcher = ::sun::rmi::server::Dispatcher;
 using $UnicastServerRef = ::sun::rmi::server::UnicastServerRef;
 using $DGCImpl = ::sun::rmi::transport::DGCImpl;

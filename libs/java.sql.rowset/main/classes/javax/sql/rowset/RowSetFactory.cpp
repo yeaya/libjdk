@@ -7,11 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
-using $FilteredRowSet = ::javax::sql::rowset::FilteredRowSet;
-using $JdbcRowSet = ::javax::sql::rowset::JdbcRowSet;
-using $JoinRowSet = ::javax::sql::rowset::JoinRowSet;
-using $WebRowSet = ::javax::sql::rowset::WebRowSet;
 
 namespace javax {
 	namespace sql {

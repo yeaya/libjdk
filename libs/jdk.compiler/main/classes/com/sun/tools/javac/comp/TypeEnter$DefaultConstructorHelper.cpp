@@ -8,12 +8,7 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
-using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
-using $TypeEnter = ::com::sun::tools::javac::comp::TypeEnter;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
-using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

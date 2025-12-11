@@ -4,12 +4,10 @@
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
-using $HierarchicalName = ::com::sun::jndi::toolkit::dir::HierarchicalName;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Enumeration = ::java::util::Enumeration;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace com {

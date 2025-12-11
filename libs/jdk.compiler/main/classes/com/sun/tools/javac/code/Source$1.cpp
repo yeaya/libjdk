@@ -21,11 +21,9 @@
 #undef JDK8
 #undef JDK9
 
-using $SourceArray = $Array<::com::sun::tools::javac::code::Source>;
 using $Source = ::com::sun::tools::javac::code::Source;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

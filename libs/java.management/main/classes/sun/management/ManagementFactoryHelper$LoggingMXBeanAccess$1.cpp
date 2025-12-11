@@ -13,9 +13,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $ModuleLayer = ::java::lang::ModuleLayer;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Optional = ::java::util::Optional;
-using $ManagementFactoryHelper$LoggingMXBeanAccess = ::sun::management::ManagementFactoryHelper$LoggingMXBeanAccess;
 
 namespace sun {
 	namespace management {

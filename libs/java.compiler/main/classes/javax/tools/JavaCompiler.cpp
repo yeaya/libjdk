@@ -10,18 +10,9 @@
 #include <javax/tools/Tool.h>
 #include <jcpp.h>
 
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
-using $Locale = ::java::util::Locale;
-using $DiagnosticListener = ::javax::tools::DiagnosticListener;
-using $JavaCompiler$CompilationTask = ::javax::tools::JavaCompiler$CompilationTask;
-using $JavaFileManager = ::javax::tools::JavaFileManager;
-using $OptionChecker = ::javax::tools::OptionChecker;
-using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 using $Tool = ::javax::tools::Tool;
 
 namespace javax {

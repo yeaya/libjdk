@@ -52,7 +52,6 @@ using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $ZipException = ::java::util::zip::ZipException;
 using $ZipConstants = ::jdk::nio::zipfs::ZipConstants;
-using $ZipFileAttributes = ::jdk::nio::zipfs::ZipFileAttributes;
 using $ZipFileSystem = ::jdk::nio::zipfs::ZipFileSystem;
 using $ZipFileSystem$IndexNode = ::jdk::nio::zipfs::ZipFileSystem$IndexNode;
 using $ZipUtils = ::jdk::nio::zipfs::ZipUtils;

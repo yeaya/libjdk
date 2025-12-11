@@ -4,7 +4,6 @@
 #include <LineAdaptersCompileOnly.h>
 #include <jcpp.h>
 
-using $LineAdaptersCompileOnly = ::LineAdaptersCompileOnly;
 using $LineAdaptersCompileOnly$StringSubscriber = ::LineAdaptersCompileOnly$StringSubscriber;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

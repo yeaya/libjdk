@@ -44,5 +44,4 @@ void java$transaction$xa$test::init() {
 		java$transaction$xa$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

@@ -21,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $Set = ::java::util::Set;

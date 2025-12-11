@@ -133,7 +133,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $Provider = ::java::security::Provider;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $List = ::java::util::List;
 using $Data = ::javax::xml::crypto::Data;

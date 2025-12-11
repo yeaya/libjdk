@@ -32,7 +32,6 @@
 #undef SYNCHRONIZED
 
 using $Flags = ::com::sun::tools::javac::code::Flags;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
@@ -41,21 +40,15 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
 using $JavaCompiler$2 = ::com::sun::tools::javac::main::JavaCompiler$2;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
-using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

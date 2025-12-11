@@ -7,7 +7,6 @@
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SSLSession = ::javax::net::ssl::SSLSession;
 
 namespace com {
 	namespace sun {

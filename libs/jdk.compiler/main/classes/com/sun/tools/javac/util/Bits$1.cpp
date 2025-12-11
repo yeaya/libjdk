@@ -8,12 +8,9 @@
 #undef NORMAL
 #undef UNKNOWN
 
-using $Bits$BitsStateArray = $Array<::com::sun::tools::javac::util::Bits$BitsState>;
-using $Bits = ::com::sun::tools::javac::util::Bits;
 using $Bits$BitsState = ::com::sun::tools::javac::util::Bits$BitsState;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

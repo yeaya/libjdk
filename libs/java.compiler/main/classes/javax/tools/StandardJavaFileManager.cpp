@@ -23,7 +23,6 @@
 #include <javax/tools/StandardJavaFileManager$PathFactory.h>
 #include <jcpp.h>
 
-using $FileArray = $Array<::java::io::File>;
 using $PathArray = $Array<::java::nio::file::Path>;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -34,11 +33,7 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Path = ::java::nio::file::Path;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
@@ -47,7 +42,6 @@ using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $FileObject = ::javax::tools::FileObject;
-using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $StandardJavaFileManager$1 = ::javax::tools::StandardJavaFileManager$1;
 using $StandardJavaFileManager$2 = ::javax::tools::StandardJavaFileManager$2;

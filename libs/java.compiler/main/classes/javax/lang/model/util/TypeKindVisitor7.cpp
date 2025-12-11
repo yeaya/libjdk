@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $UnionType = ::javax::lang::model::type::UnionType;
-using $SimpleTypeVisitor6 = ::javax::lang::model::util::SimpleTypeVisitor6;
 using $TypeKindVisitor6 = ::javax::lang::model::util::TypeKindVisitor6;
 
 namespace javax {

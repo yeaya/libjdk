@@ -10,14 +10,12 @@
 
 #undef UTF_8
 
-using $ShortRequestBody = ::ShortRequestBody;
 using $ShortRequestBody$AbstractDelegateRequestBody = ::ShortRequestBody$AbstractDelegateRequestBody;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
 $MethodInfo _ShortRequestBody$StringRequestBody_MethodInfo_[] = {

@@ -6,14 +6,12 @@
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
-using $SingleCertificateResolver = ::com::sun::org::apache::xml::internal::security::keys::storage::implementations::SingleCertificateResolver;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace com {

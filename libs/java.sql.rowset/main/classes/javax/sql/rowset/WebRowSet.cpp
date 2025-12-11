@@ -10,15 +10,9 @@
 #undef PUBLIC_XML_SCHEMA
 #undef SCHEMA_SYSTEM_ID
 
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $Reader = ::java::io::Reader;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ResultSet = ::java::sql::ResultSet;
-using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
 
 namespace javax {
 	namespace sql {

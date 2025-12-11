@@ -21,19 +21,14 @@ using $JavacScope = ::com::sun::tools::javac::api::JavacScope;
 using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$CompoundScope = ::com::sun::tools::javac::code::Scope$CompoundScope;
 using $Scope$ImportScope = ::com::sun::tools::javac::code::Scope$ImportScope;
-using $Scope$NamedImportScope = ::com::sun::tools::javac::code::Scope$NamedImportScope;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Predicate = ::java::util::function::Predicate;
 
 namespace com {
 	namespace sun {

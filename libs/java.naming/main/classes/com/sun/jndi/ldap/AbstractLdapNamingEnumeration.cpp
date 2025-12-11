@@ -30,7 +30,6 @@
 #undef LDAP_SUCCESS
 #undef LDAP_TIME_LIMIT_EXCEEDED
 
-using $ControlArray = $Array<::javax::naming::ldap::Control>;
 using $LdapClient = ::com::sun::jndi::ldap::LdapClient;
 using $LdapCtx = ::com::sun::jndi::ldap::LdapCtx;
 using $LdapEntry = ::com::sun::jndi::ldap::LdapEntry;
@@ -38,23 +37,18 @@ using $LdapName = ::com::sun::jndi::ldap::LdapName;
 using $LdapReferralContext = ::com::sun::jndi::ldap::LdapReferralContext;
 using $LdapReferralException = ::com::sun::jndi::ldap::LdapReferralException;
 using $LdapResult = ::com::sun::jndi::ldap::LdapResult;
-using $ReferralEnumeration = ::com::sun::jndi::ldap::ReferralEnumeration;
 using $Continuation = ::com::sun::jndi::toolkit::ctx::Continuation;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Hashtable = ::java::util::Hashtable;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Vector = ::java::util::Vector;
-using $Context = ::javax::naming::Context;
 using $LimitExceededException = ::javax::naming::LimitExceededException;
 using $Name = ::javax::naming::Name;
 using $NameClassPair = ::javax::naming::NameClassPair;
 using $NamingException = ::javax::naming::NamingException;
 using $PartialResultException = ::javax::naming::PartialResultException;
-using $Attributes = ::javax::naming::directory::Attributes;
 
 namespace com {
 	namespace sun {

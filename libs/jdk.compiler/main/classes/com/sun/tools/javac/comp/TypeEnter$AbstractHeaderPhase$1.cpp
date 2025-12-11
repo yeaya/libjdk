@@ -13,7 +13,6 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
-using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
@@ -22,7 +21,6 @@ using $TypeEnter$AbstractHeaderPhase = ::com::sun::tools::javac::comp::TypeEnter
 using $TypeEnter$AbstractHeaderPhase$Synthesizer = ::com::sun::tools::javac::comp::TypeEnter$AbstractHeaderPhase$Synthesizer;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
-using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

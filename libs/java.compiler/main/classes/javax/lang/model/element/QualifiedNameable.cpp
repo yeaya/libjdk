@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Element = ::javax::lang::model::element::Element;
-using $Name = ::javax::lang::model::element::Name;
 
 namespace javax {
 	namespace lang {

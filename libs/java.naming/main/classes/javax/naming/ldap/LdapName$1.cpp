@@ -10,7 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $LdapName = ::javax::naming::ldap::LdapName;
 using $Rdn = ::javax::naming::ldap::Rdn;

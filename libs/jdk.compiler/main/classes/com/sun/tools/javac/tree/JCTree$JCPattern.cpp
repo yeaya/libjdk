@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
-using $PatternTree = ::com::sun::source::tree::PatternTree;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -32,13 +32,11 @@ using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
 using $FSInfo = ::com::sun::tools::javac::file::FSInfo;
 using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
-using $JavacFileManager$Container = ::com::sun::tools::javac::file::JavacFileManager$Container;
-using $JavacFileManager$SortFiles = ::com::sun::tools::javac::file::JavacFileManager$SortFiles;
 using $PathFileObject = ::com::sun::tools::javac::file::PathFileObject;
 using $RelativePath = ::com::sun::tools::javac::file::RelativePath;
 using $RelativePath$RelativeDirectory = ::com::sun::tools::javac::file::RelativePath$RelativeDirectory;
 using $RelativePath$RelativeFile = ::com::sun::tools::javac::file::RelativePath$RelativeFile;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $IOException = ::java::io::IOException;
 using $CharSequence = ::java::lang::CharSequence;
@@ -47,18 +45,15 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Files = ::java::nio::file::Files;
 using $InvalidPathException = ::java::nio::file::InvalidPathException;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Set = ::java::util::Set;
-using $BaseStream = ::java::util::stream::BaseStream;
 using $Stream = ::java::util::stream::Stream;
 using $SourceVersion = ::javax::lang::model::SourceVersion;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
@@ -130,7 +125,7 @@ void JavacFileManager$DirectoryContainer::list($Path* userPath, $RelativePath$Re
 	if (!this->this$0->caseMapCheck(d, subdirectory)) {
 		return;
 	}
-	$var($1List, files, nullptr);
+	$var($List, files, nullptr);
 	try {
 		$var($Stream, s, $Files::list(d));
 		{
@@ -209,7 +204,7 @@ bool JavacFileManager$DirectoryContainer::maintainsDirectoryIndex() {
 }
 
 $Iterable* JavacFileManager$DirectoryContainer::indexedDirectories() {
-	return static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>($List::nil())));
+	return static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>($1List::nil())));
 }
 
 JavacFileManager$DirectoryContainer::JavacFileManager$DirectoryContainer() {

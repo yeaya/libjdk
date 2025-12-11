@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $RealmException = ::sun::security::krb5::RealmException;
-using $CredentialsCache = ::sun::security::krb5::internal::ccache::CredentialsCache;
 
 namespace sun {
 	namespace security {

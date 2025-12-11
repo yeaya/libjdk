@@ -20,25 +20,20 @@
 #undef ERROR
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
-using $Infer$InferenceException = ::com::sun::tools::javac::comp::Infer$InferenceException;
 using $Infer$InferenceStep = ::com::sun::tools::javac::comp::Infer$InferenceStep;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::CompilerProperties$Fragments;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
-using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $1List = ::java::util::List;
 
 namespace com {

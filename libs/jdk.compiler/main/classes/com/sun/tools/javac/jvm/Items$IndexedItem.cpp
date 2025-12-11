@@ -7,7 +7,6 @@
 #include <com/sun/tools/javac/jvm/Items.h>
 #include <jcpp.h>
 
-using $Items$ItemArray = $Array<::com::sun::tools::javac::jvm::Items$Item>;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $ByteCodes = ::com::sun::tools::javac::jvm::ByteCodes;
 using $Code = ::com::sun::tools::javac::jvm::Code;

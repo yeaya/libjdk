@@ -30,7 +30,6 @@ using $Map = ::java::util::Map;
 using $Random = ::java::util::Random;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $SaslException = ::javax::security::sasl::SaslException;
-using $SaslServer = ::javax::security::sasl::SaslServer;
 
 namespace com {
 	namespace sun {

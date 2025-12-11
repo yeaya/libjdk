@@ -26,7 +26,6 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $URI = ::java::net::URI;
 using $SSLSession = ::javax::net::ssl::SSLSession;
 using $ExchangeImpl = ::sun::net::httpserver::ExchangeImpl;
-using $HttpContextImpl = ::sun::net::httpserver::HttpContextImpl;
 
 namespace sun {
 	namespace net {

@@ -15,8 +15,6 @@
 #undef RECORD_PHASE
 
 using $Dependencies$CompletionCauseArray = $Array<::com::sun::tools::javac::util::Dependencies$CompletionCause>;
-using $Dependencies = ::com::sun::tools::javac::util::Dependencies;
-using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -38,7 +38,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoClassDefFoundError = ::java::lang::NoClassDefFoundError;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
@@ -52,7 +51,6 @@ using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
-using $ManagementFactoryHelper = ::sun::management::ManagementFactoryHelper;
 using $ManagementFactoryHelper$LoggingMXBeanAccess$1 = ::sun::management::ManagementFactoryHelper$LoggingMXBeanAccess$1;
 
 namespace sun {

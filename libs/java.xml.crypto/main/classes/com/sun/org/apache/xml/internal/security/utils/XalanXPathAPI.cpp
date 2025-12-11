@@ -28,7 +28,6 @@
 #undef TYPE
 
 using $FuncHere = ::com::sun::org::apache::xml::internal::security::transforms::implementations::FuncHere;
-using $XPathAPI = ::com::sun::org::apache::xml::internal::security::utils::XPathAPI;
 using $PrefixResolver = ::com::sun::org::apache::xml::internal::utils::PrefixResolver;
 using $PrefixResolverDefault = ::com::sun::org::apache::xml::internal::utils::PrefixResolverDefault;
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
@@ -49,7 +48,6 @@ using $Modifier = ::java::lang::reflect::Modifier;
 using $ErrorListener = ::javax::xml::transform::ErrorListener;
 using $SourceLocator = ::javax::xml::transform::SourceLocator;
 using $Document = ::org::w3c::dom::Document;
-using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;
 

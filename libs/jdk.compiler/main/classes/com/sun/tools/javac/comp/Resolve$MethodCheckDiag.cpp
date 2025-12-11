@@ -10,7 +10,6 @@
 #undef VARARG_MISMATCH
 
 using $Resolve$MethodCheckDiagArray = $Array<::com::sun::tools::javac::comp::Resolve$MethodCheckDiag>;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

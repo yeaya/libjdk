@@ -12,12 +12,9 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $InstanceAlreadyExistsException = ::javax::management::InstanceAlreadyExistsException;
 using $MBeanServer = ::javax::management::MBeanServer;
-using $ObjectInstance = ::javax::management::ObjectInstance;
 using $ObjectName = ::javax::management::ObjectName;
-using $ManagementFactoryHelper = ::sun::management::ManagementFactoryHelper;
 
 namespace sun {
 	namespace management {

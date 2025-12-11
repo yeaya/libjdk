@@ -17,20 +17,16 @@
 
 using $JCEMapper = ::com::sun::org::apache::xml::internal::security::algorithms::JCEMapper;
 using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
-using $XMLX509DataContent = ::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509DataContent;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $Signature11ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::Signature11ElementProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MessageDigest = ::java::security::MessageDigest;
-using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {

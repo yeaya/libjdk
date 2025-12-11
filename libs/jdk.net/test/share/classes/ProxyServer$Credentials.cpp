@@ -3,7 +3,6 @@
 #include <ProxyServer.h>
 #include <jcpp.h>
 
-using $ProxyServer = ::ProxyServer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

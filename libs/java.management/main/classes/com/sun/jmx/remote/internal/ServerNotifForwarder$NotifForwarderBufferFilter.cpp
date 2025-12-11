@@ -13,14 +13,12 @@
 #include <jcpp.h>
 
 using $ServerNotifForwarder$IdAndFilterArray = $Array<::com::sun::jmx::remote::internal::ServerNotifForwarder$IdAndFilter>;
-using $NotificationBufferFilter = ::com::sun::jmx::remote::internal::NotificationBufferFilter;
 using $ServerNotifForwarder = ::com::sun::jmx::remote::internal::ServerNotifForwarder;
 using $ServerNotifForwarder$IdAndFilter = ::com::sun::jmx::remote::internal::ServerNotifForwarder$IdAndFilter;
 using $ClassLogger = ::com::sun::jmx::remote::util::ClassLogger;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;

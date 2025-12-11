@@ -29,7 +29,6 @@ using $JmxProperties = ::com::sun::jmx::defaults::JmxProperties;
 using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;

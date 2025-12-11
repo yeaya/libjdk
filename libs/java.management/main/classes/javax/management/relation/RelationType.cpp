@@ -4,11 +4,8 @@
 #include <javax/management/relation/RoleInfo.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $RoleInfo = ::javax::management::relation::RoleInfo;
 
 namespace javax {
 	namespace management {

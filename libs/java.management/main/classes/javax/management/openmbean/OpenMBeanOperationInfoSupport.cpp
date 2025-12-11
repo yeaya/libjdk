@@ -30,11 +30,8 @@ using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $Descriptor = ::javax::management::Descriptor;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
-using $MBeanFeatureInfo = ::javax::management::MBeanFeatureInfo;
 using $MBeanOperationInfo = ::javax::management::MBeanOperationInfo;
-using $MBeanParameterInfo = ::javax::management::MBeanParameterInfo;
 using $OpenMBeanOperationInfo = ::javax::management::openmbean::OpenMBeanOperationInfo;
-using $OpenMBeanParameterInfo = ::javax::management::openmbean::OpenMBeanParameterInfo;
 using $OpenType = ::javax::management::openmbean::OpenType;
 
 namespace javax {

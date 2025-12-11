@@ -9,13 +9,9 @@
 #undef ANALYZE
 #undef COMPILATION
 
-using $TaskEvent$KindArray = $Array<::com::sun::source::util::TaskEvent$Kind>;
-using $TaskEvent = ::com::sun::source::util::TaskEvent;
 using $TaskEvent$Kind = ::com::sun::source::util::TaskEvent$Kind;
-using $PublicApiCollector = ::com::sun::tools::sjavac::comp::dependencies::PublicApiCollector;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

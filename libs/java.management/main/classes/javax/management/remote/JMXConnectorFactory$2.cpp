@@ -11,8 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $JMXConnectorFactory = ::javax::management::remote::JMXConnectorFactory;
 using $JMXConnectorFactory$2$1 = ::javax::management::remote::JMXConnectorFactory$2$1;
 
 namespace javax {

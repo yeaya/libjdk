@@ -11,8 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Reference = ::java::lang::ref::Reference;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
-using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
-using $OperationTrackers$Tracker = ::jdk::internal::net::http::common::OperationTrackers$Tracker;
 
 namespace jdk {
 	namespace internal {

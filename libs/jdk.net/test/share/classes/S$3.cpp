@@ -7,7 +7,6 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-using $S = ::S;
 using $S$3$1 = ::S$3$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -15,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Stream = ::java::util::stream::Stream;

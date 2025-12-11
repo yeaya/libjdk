@@ -5,9 +5,7 @@
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
 
-using $ZeroRedirects = ::ZeroRedirects;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
-using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

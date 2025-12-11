@@ -5,7 +5,6 @@
 #include <jcpp.h>
 
 using $Main = ::com::sun::tools::script::shell::Main;
-using $Main$Command = ::com::sun::tools::script::shell::Main$Command;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

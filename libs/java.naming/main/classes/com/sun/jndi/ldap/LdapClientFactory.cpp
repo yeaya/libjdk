@@ -9,7 +9,6 @@
 using $LdapClient = ::com::sun::jndi::ldap::LdapClient;
 using $PoolCallback = ::com::sun::jndi::ldap::pool::PoolCallback;
 using $PooledConnection = ::com::sun::jndi::ldap::pool::PooledConnection;
-using $PooledConnectionFactory = ::com::sun::jndi::ldap::pool::PooledConnectionFactory;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

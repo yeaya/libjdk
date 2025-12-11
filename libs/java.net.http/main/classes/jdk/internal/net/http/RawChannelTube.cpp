@@ -61,17 +61,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $System$Logger = ::java::lang::System$Logger;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Cleaner = ::java::lang::ref::Cleaner;
-using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $AbstractList = ::java::util::AbstractList;
@@ -95,7 +88,6 @@ using $FlowTube$TubePublisher = ::jdk::internal::net::http::common::FlowTube$Tub
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 using $Utils = ::jdk::internal::net::http::common::Utils;
-using $RawChannel = ::jdk::internal::net::http::websocket::RawChannel;
 using $RawChannel$RawEvent = ::jdk::internal::net::http::websocket::RawChannel$RawEvent;
 
 namespace jdk {

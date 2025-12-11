@@ -9,7 +9,6 @@
 #undef UNKNOWN
 
 using $JavacParser$EnumeratorEstimateArray = $Array<::com::sun::tools::javac::parser::JavacParser$EnumeratorEstimate>;
-using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

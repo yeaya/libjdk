@@ -9,8 +9,6 @@
 #undef RIGHT
 
 using $JCTree$JCOperatorExpression$OperandPosArray = $Array<::com::sun::tools::javac::tree::JCTree$JCOperatorExpression$OperandPos>;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCOperatorExpression = ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

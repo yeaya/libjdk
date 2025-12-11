@@ -4,10 +4,8 @@
 #include <java/lang/Iterable.h>
 #include <jcpp.h>
 
-using $PlatformDescription = ::com::sun::tools::javac::platform::PlatformDescription;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace com {

@@ -7,9 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DynamicMBean = ::javax::management::DynamicMBean;
-using $PersistentMBean = ::javax::management::PersistentMBean;
-using $ModelMBeanInfo = ::javax::management::modelmbean::ModelMBeanInfo;
-using $ModelMBeanNotificationBroadcaster = ::javax::management::modelmbean::ModelMBeanNotificationBroadcaster;
 
 namespace javax {
 	namespace management {

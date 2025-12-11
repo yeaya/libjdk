@@ -11,7 +11,6 @@
 #undef START
 
 using $DiagnosticFormatter$PositionKindArray = $Array<::com::sun::tools::javac::api::DiagnosticFormatter$PositionKind>;
-using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

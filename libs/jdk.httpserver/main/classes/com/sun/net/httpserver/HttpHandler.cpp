@@ -3,7 +3,6 @@
 #include <com/sun/net/httpserver/HttpExchange.h>
 #include <jcpp.h>
 
-using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

@@ -7,7 +7,6 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <jcpp.h>
 
-using $ReferenceParser = ::com::sun::tools::javac::parser::ReferenceParser;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $List = ::com::sun::tools::javac::util::List;

@@ -14,7 +14,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Operators = ::com::sun::tools::javac::comp::Operators;
 using $Operators$UnaryNumericOperator = ::com::sun::tools::javac::comp::Operators$UnaryNumericOperator;
-using $Operators$UnaryOperatorHelper = ::com::sun::tools::javac::comp::Operators$UnaryOperatorHelper;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

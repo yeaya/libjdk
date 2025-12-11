@@ -78,16 +78,11 @@
 #undef TYP
 
 using $Analyzer$StatementAnalyzerArray = $Array<::com::sun::tools::javac::comp::Analyzer$StatementAnalyzer>;
-using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Source = ::com::sun::tools::javac::code::Source;
 using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Analyzer$1 = ::com::sun::tools::javac::comp::Analyzer$1;
 using $Analyzer$2 = ::com::sun::tools::javac::comp::Analyzer$2;
@@ -113,14 +108,12 @@ using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttributionMode = ::com::sun::tools::javac::comp::DeferredAttr$AttributionMode;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeCopier = ::com::sun::tools::javac::tree::TreeCopier;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
@@ -128,7 +121,6 @@ using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Log = ::com::sun::tools::javac::util::Log;
-using $Log$DeferredDiagnosticHandler = ::com::sun::tools::javac::util::Log$DeferredDiagnosticHandler;
 using $Log$DiagnosticHandler = ::com::sun::tools::javac::util::Log$DiagnosticHandler;
 using $Options = ::com::sun::tools::javac::util::Options;
 using $Position = ::com::sun::tools::javac::util::Position;
@@ -139,21 +131,14 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StackTraceElement = ::java::lang::StackTraceElement;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $Arrays = ::java::util::Arrays;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
 using $Function = ::java::util::function::Function;
 using $Supplier = ::java::util::function::Supplier;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {

@@ -32,7 +32,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $Runnable = ::java::lang::Runnable;
 using $Runtime = ::java::lang::Runtime;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
@@ -454,7 +453,7 @@ bool MacOSXPreferencesFile::addNode($String* path, $String* name, int64_t user, 
 	$init(MacOSXPreferencesFile);
 	bool $ret = false;
 	$prepareNativeStatic(MacOSXPreferencesFile, addNode, bool, $String* path, $String* name, int64_t user, int64_t host);
-	$ret = $invokeNativeStatic(MacOSXPreferencesFile, addNode, path, name, user, host);
+	$ret = $invokeNativeStatic(path, name, user, host);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -462,7 +461,7 @@ bool MacOSXPreferencesFile::addNode($String* path, $String* name, int64_t user, 
 void MacOSXPreferencesFile::removeNode($String* path, $String* name, int64_t user, int64_t host) {
 	$init(MacOSXPreferencesFile);
 	$prepareNativeStatic(MacOSXPreferencesFile, removeNode, void, $String* path, $String* name, int64_t user, int64_t host);
-	$invokeNativeStatic(MacOSXPreferencesFile, removeNode, path, name, user, host);
+	$invokeNativeStatic(path, name, user, host);
 	$finishNativeStatic();
 }
 
@@ -470,7 +469,7 @@ bool MacOSXPreferencesFile::addChildToNode($String* path, $String* child, $Strin
 	$init(MacOSXPreferencesFile);
 	bool $ret = false;
 	$prepareNativeStatic(MacOSXPreferencesFile, addChildToNode, bool, $String* path, $String* child, $String* name, int64_t user, int64_t host);
-	$ret = $invokeNativeStatic(MacOSXPreferencesFile, addChildToNode, path, child, name, user, host);
+	$ret = $invokeNativeStatic(path, child, name, user, host);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -478,21 +477,21 @@ bool MacOSXPreferencesFile::addChildToNode($String* path, $String* child, $Strin
 void MacOSXPreferencesFile::removeChildFromNode($String* path, $String* child, $String* name, int64_t user, int64_t host) {
 	$init(MacOSXPreferencesFile);
 	$prepareNativeStatic(MacOSXPreferencesFile, removeChildFromNode, void, $String* path, $String* child, $String* name, int64_t user, int64_t host);
-	$invokeNativeStatic(MacOSXPreferencesFile, removeChildFromNode, path, child, name, user, host);
+	$invokeNativeStatic(path, child, name, user, host);
 	$finishNativeStatic();
 }
 
 void MacOSXPreferencesFile::addKeyToNode($String* path, $String* key, $String* value, $String* name, int64_t user, int64_t host) {
 	$init(MacOSXPreferencesFile);
 	$prepareNativeStatic(MacOSXPreferencesFile, addKeyToNode, void, $String* path, $String* key, $String* value, $String* name, int64_t user, int64_t host);
-	$invokeNativeStatic(MacOSXPreferencesFile, addKeyToNode, path, key, value, name, user, host);
+	$invokeNativeStatic(path, key, value, name, user, host);
 	$finishNativeStatic();
 }
 
 void MacOSXPreferencesFile::removeKeyFromNode($String* path, $String* key, $String* name, int64_t user, int64_t host) {
 	$init(MacOSXPreferencesFile);
 	$prepareNativeStatic(MacOSXPreferencesFile, removeKeyFromNode, void, $String* path, $String* key, $String* name, int64_t user, int64_t host);
-	$invokeNativeStatic(MacOSXPreferencesFile, removeKeyFromNode, path, key, name, user, host);
+	$invokeNativeStatic(path, key, name, user, host);
 	$finishNativeStatic();
 }
 
@@ -500,7 +499,7 @@ $String* MacOSXPreferencesFile::getKeyFromNode($String* path, $String* key, $Str
 	$init(MacOSXPreferencesFile);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(MacOSXPreferencesFile, getKeyFromNode, $String*, $String* path, $String* key, $String* name, int64_t user, int64_t host);
-	$assign($ret, $invokeNativeStatic(MacOSXPreferencesFile, getKeyFromNode, path, key, name, user, host));
+	$assign($ret, $invokeNativeStaticObject(path, key, name, user, host));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -509,7 +508,7 @@ $StringArray* MacOSXPreferencesFile::getChildrenForNode($String* path, $String* 
 	$init(MacOSXPreferencesFile);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(MacOSXPreferencesFile, getChildrenForNode, $StringArray*, $String* path, $String* name, int64_t user, int64_t host);
-	$assign($ret, $invokeNativeStatic(MacOSXPreferencesFile, getChildrenForNode, path, name, user, host));
+	$assign($ret, $invokeNativeStaticObject(path, name, user, host));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -518,7 +517,7 @@ $StringArray* MacOSXPreferencesFile::getKeysForNode($String* path, $String* name
 	$init(MacOSXPreferencesFile);
 	$var($StringArray, $ret, nullptr);
 	$prepareNativeStatic(MacOSXPreferencesFile, getKeysForNode, $StringArray*, $String* path, $String* name, int64_t user, int64_t host);
-	$assign($ret, $invokeNativeStatic(MacOSXPreferencesFile, getKeysForNode, path, name, user, host));
+	$assign($ret, $invokeNativeStaticObject(path, name, user, host));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -527,7 +526,7 @@ bool MacOSXPreferencesFile::synchronize($String* name, int64_t user, int64_t hos
 	$init(MacOSXPreferencesFile);
 	bool $ret = false;
 	$prepareNativeStatic(MacOSXPreferencesFile, synchronize, bool, $String* name, int64_t user, int64_t host);
-	$ret = $invokeNativeStatic(MacOSXPreferencesFile, synchronize, name, user, host);
+	$ret = $invokeNativeStatic(name, user, host);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -536,7 +535,7 @@ int64_t MacOSXPreferencesFile::currentUser() {
 	$init(MacOSXPreferencesFile);
 	int64_t $ret = 0;
 	$prepareNativeStatic(MacOSXPreferencesFile, currentUser, int64_t);
-	$ret = $invokeNativeStatic(MacOSXPreferencesFile, currentUser);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -545,7 +544,7 @@ int64_t MacOSXPreferencesFile::anyUser() {
 	$init(MacOSXPreferencesFile);
 	int64_t $ret = 0;
 	$prepareNativeStatic(MacOSXPreferencesFile, anyUser, int64_t);
-	$ret = $invokeNativeStatic(MacOSXPreferencesFile, anyUser);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -554,7 +553,7 @@ int64_t MacOSXPreferencesFile::currentHost() {
 	$init(MacOSXPreferencesFile);
 	int64_t $ret = 0;
 	$prepareNativeStatic(MacOSXPreferencesFile, currentHost, int64_t);
-	$ret = $invokeNativeStatic(MacOSXPreferencesFile, currentHost);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -563,7 +562,7 @@ int64_t MacOSXPreferencesFile::anyHost() {
 	$init(MacOSXPreferencesFile);
 	int64_t $ret = 0;
 	$prepareNativeStatic(MacOSXPreferencesFile, anyHost, int64_t);
-	$ret = $invokeNativeStatic(MacOSXPreferencesFile, anyHost);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

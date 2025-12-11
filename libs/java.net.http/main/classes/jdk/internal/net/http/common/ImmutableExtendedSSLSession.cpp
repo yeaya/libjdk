@@ -17,7 +17,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $Principal = ::java::security::Principal;
 using $List = ::java::util::List;
 using $ExtendedSSLSession = ::javax::net::ssl::ExtendedSSLSession;
-using $SSLSession = ::javax::net::ssl::SSLSession;
 using $SSLSessionContext = ::javax::net::ssl::SSLSessionContext;
 
 namespace jdk {

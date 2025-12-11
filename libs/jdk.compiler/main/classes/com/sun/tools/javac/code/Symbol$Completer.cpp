@@ -6,7 +6,6 @@
 
 #undef NULL_COMPLETER
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$Completer$1 = ::com::sun::tools::javac::code::Symbol$Completer$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

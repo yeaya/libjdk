@@ -18,7 +18,6 @@
 #undef ANNOTATIONS
 #undef EMPTY
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
@@ -30,11 +29,9 @@ using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeMetadata$Entry$Kind = ::com::sun::tools::javac::code::TypeMetadata$Entry$Kind;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$25 = ::com::sun::tools::javac::code::Types$25;
-using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

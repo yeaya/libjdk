@@ -22,13 +22,8 @@
 #include <jcpp.h>
 
 using $TypeArray = $Array<::com::sun::tools::javac::code::Type>;
-using $Code$LocalVarArray = $Array<::com::sun::tools::javac::jvm::Code$LocalVar>;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCPrimitiveType = ::com::sun::tools::javac::code::Type$JCPrimitiveType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Code = ::com::sun::tools::javac::jvm::Code;
@@ -43,11 +38,9 @@ using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
 using $Cloneable = ::java::lang::Cloneable;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {

@@ -13,9 +13,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
-using $SingleByte$Decoder = ::sun::nio::cs::SingleByte$Decoder;
 using $EUC_JP$Decoder = ::sun::nio::cs::ext::EUC_JP$Decoder;
-using $EUC_JP_LINUX = ::sun::nio::cs::ext::EUC_JP_LINUX;
 
 namespace sun {
 	namespace nio {

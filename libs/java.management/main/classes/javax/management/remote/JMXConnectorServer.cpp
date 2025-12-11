@@ -35,16 +35,13 @@ using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
-using $MBeanRegistration = ::javax::management::MBeanRegistration;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $Notification = ::javax::management::Notification;
 using $NotificationBroadcasterSupport = ::javax::management::NotificationBroadcasterSupport;
 using $ObjectName = ::javax::management::ObjectName;
-using $JMXAddressable = ::javax::management::remote::JMXAddressable;
 using $JMXConnectionNotification = ::javax::management::remote::JMXConnectionNotification;
 using $JMXConnector = ::javax::management::remote::JMXConnector;
 using $JMXConnectorFactory = ::javax::management::remote::JMXConnectorFactory;
-using $JMXConnectorServerMBean = ::javax::management::remote::JMXConnectorServerMBean;
 using $JMXServiceURL = ::javax::management::remote::JMXServiceURL;
 using $MBeanServerForwarder = ::javax::management::remote::MBeanServerForwarder;
 

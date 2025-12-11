@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/parser/ReferenceParser.h>
 #include <jcpp.h>
 
-using $ReferenceParser = ::com::sun::tools::javac::parser::ReferenceParser;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

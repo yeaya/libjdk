@@ -16,7 +16,6 @@ using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
 using $Infer$InferenceStep = ::com::sun::tools::javac::comp::Infer$InferenceStep;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
-using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -16,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WebSocket = ::java::net::http::WebSocket;
-using $WebSocket$Listener = ::java::net::http::WebSocket$Listener;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 
 $FieldInfo _WebSocketExample$2_FieldInfo_[] = {

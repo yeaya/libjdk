@@ -8,11 +8,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Data = ::javax::xml::crypto::Data;
 using $URIReference = ::javax::xml::crypto::URIReference;
-using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 
 namespace javax {
 	namespace xml {

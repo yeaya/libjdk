@@ -26,7 +26,6 @@
 #undef SECOND
 #undef YEAR
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

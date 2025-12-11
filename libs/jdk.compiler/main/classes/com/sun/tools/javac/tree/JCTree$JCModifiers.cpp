@@ -21,12 +21,12 @@ using $Flags = ::com::sun::tools::javac::code::Flags;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 using $Set = ::java::util::Set;
 
 namespace com {
@@ -46,7 +46,7 @@ $MethodInfo _JCTree$JCModifiers_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JLcom/sun/tools/javac/util/List;)V", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCModifiers::*)(int64_t,$1List*)>(&JCTree$JCModifiers::init$))},
+	{"<init>", "(JLcom/sun/tools/javac/util/List;)V", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCModifiers::*)(int64_t,$List*)>(&JCTree$JCModifiers::init$))},
 	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
 	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
 	{"getAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC},
@@ -102,7 +102,7 @@ void JCTree$JCModifiers::finalize() {
 	this->$JCTree::finalize();
 }
 
-void JCTree$JCModifiers::init$(int64_t flags, $1List* annotations) {
+void JCTree$JCModifiers::init$(int64_t flags, $List* annotations) {
 	$JCTree::init$();
 	this->flags = flags;
 	$set(this, annotations, annotations);
@@ -121,7 +121,7 @@ $Set* JCTree$JCModifiers::getFlags() {
 	return $Flags::asModifierSet(this->flags);
 }
 
-$List* JCTree$JCModifiers::getAnnotations() {
+$1List* JCTree$JCModifiers::getAnnotations() {
 	return this->annotations;
 }
 

@@ -22,16 +22,11 @@
 #include <jcpp.h>
 
 using $DeferredLintHandler = ::com::sun::tools::javac::code::DeferredLintHandler;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Check = ::com::sun::tools::javac::comp::Check;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $TypeEnter = ::com::sun::tools::javac::comp::TypeEnter;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Dependencies = ::com::sun::tools::javac::util::Dependencies;
 using $Dependencies$CompletionCause = ::com::sun::tools::javac::util::Dependencies$CompletionCause;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;

@@ -23,7 +23,6 @@ using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $HKSCS$Decoder = ::sun::nio::cs::HKSCS$Decoder;
 using $HKSCS$Encoder = ::sun::nio::cs::HKSCS$Encoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $Big5 = ::sun::nio::cs::ext::Big5;
 using $Big5_HKSCS$Decoder = ::sun::nio::cs::ext::Big5_HKSCS$Decoder;
 using $Big5_HKSCS$Encoder = ::sun::nio::cs::ext::Big5_HKSCS$Encoder;

@@ -6,12 +6,9 @@
 #include <javax/naming/ldap/Control.h>
 #include <jcpp.h>
 
-using $ControlArray = $Array<::javax::naming::ldap::Control>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
-using $Context = ::javax::naming::Context;
 using $ReferralException = ::javax::naming::ReferralException;
 
 namespace javax {

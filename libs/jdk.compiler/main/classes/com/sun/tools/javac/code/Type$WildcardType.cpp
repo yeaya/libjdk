@@ -34,13 +34,12 @@ using $Type$WildcardType$1 = ::com::sun::tools::javac::code::Type$WildcardType$1
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
@@ -266,7 +265,7 @@ $Object* Type$WildcardType::accept($TypeVisitor* v, Object$* p) {
 	return $of($nc(v)->visitWildcard(this, p));
 }
 
-$1List* Type$WildcardType::getAnnotationMirrors() {
+$List* Type$WildcardType::getAnnotationMirrors() {
 	return $Type::getAnnotationMirrors();
 }
 

@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $RequestPublishers = ::jdk::internal::net::http::RequestPublishers;
 using $RequestPublishers$ByteArrayPublisher = ::jdk::internal::net::http::RequestPublishers$ByteArrayPublisher;
 
 namespace jdk {

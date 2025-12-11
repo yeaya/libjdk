@@ -5,13 +5,8 @@
 #include <javax/management/openmbean/TabularType.h>
 #include <jcpp.h>
 
-using $CompositeDataArray = $Array<::javax::management::openmbean::CompositeData>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
-using $Set = ::java::util::Set;
-using $CompositeData = ::javax::management::openmbean::CompositeData;
-using $TabularType = ::javax::management::openmbean::TabularType;
 
 namespace javax {
 	namespace management {

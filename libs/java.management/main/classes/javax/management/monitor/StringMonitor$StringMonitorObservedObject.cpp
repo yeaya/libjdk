@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ObjectName = ::javax::management::ObjectName;
 using $Monitor$ObservedObject = ::javax::management::monitor::Monitor$ObservedObject;
-using $StringMonitor = ::javax::management::monitor::StringMonitor;
 
 namespace javax {
 	namespace management {

@@ -12,12 +12,10 @@
 #include <com/sun/tools/javac/tree/TreeScanner.h>
 #include <jcpp.h>
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Lower = ::com::sun::tools::javac::comp::Lower;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAssignOp = ::com::sun::tools::javac::tree::JCTree$JCAssignOp;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCUnary = ::com::sun::tools::javac::tree::JCTree$JCUnary;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;

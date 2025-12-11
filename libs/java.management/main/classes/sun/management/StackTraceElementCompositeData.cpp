@@ -46,7 +46,6 @@ using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $CompositeDataSupport = ::javax::management::openmbean::CompositeDataSupport;
 using $CompositeType = ::javax::management::openmbean::CompositeType;
 using $OpenDataException = ::javax::management::openmbean::OpenDataException;
-using $OpenType = ::javax::management::openmbean::OpenType;
 using $LazyCompositeData = ::sun::management::LazyCompositeData;
 using $MappedMXBeanType = ::sun::management::MappedMXBeanType;
 

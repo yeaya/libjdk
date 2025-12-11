@@ -15,13 +15,10 @@
 #include <jcpp.h>
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Enter = ::com::sun::tools::javac::comp::Enter;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCPackageDecl = ::com::sun::tools::javac::tree::JCTree$JCPackageDecl;

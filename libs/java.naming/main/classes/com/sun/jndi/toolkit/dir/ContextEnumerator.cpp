@@ -23,7 +23,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Binding = ::javax::naming::Binding;
 using $Context = ::javax::naming::Context;
 using $Name = ::javax::naming::Name;
-using $NameClassPair = ::javax::naming::NameClassPair;
 using $NameParser = ::javax::naming::NameParser;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;

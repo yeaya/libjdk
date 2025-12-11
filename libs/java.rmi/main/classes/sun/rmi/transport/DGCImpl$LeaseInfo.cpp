@@ -19,7 +19,6 @@ using $VMID = ::java::rmi::dgc::VMID;
 using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
-using $Level = ::java::util::logging::Level;
 using $Log = ::sun::rmi::runtime::Log;
 using $DGCImpl = ::sun::rmi::transport::DGCImpl;
 

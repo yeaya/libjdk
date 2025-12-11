@@ -8,7 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HPACK = ::jdk::internal::net::http::hpack::HPACK;
 using $HPACK$Logger = ::jdk::internal::net::http::hpack::HPACK$Logger;
 using $HPACK$Logger$Level = ::jdk::internal::net::http::hpack::HPACK$Logger$Level;
 

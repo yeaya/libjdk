@@ -9,7 +9,6 @@
 #undef UNSET
 
 using $JavaCompiler$ImplicitSourcePolicyArray = $Array<::com::sun::tools::javac::main::JavaCompiler$ImplicitSourcePolicy>;
-using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

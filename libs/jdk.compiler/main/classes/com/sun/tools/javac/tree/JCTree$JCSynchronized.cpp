@@ -20,7 +20,6 @@ using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $SynchronizedTree = ::com::sun::source::tree::SynchronizedTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;

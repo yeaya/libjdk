@@ -25,9 +25,7 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $JNIWriter = ::com::sun::tools::javac::jvm::JNIWriter;
 using $JNIWriter$TypeSignature$JvmTypeVisitor = ::com::sun::tools::javac::jvm::JNIWriter$TypeSignature$JvmTypeVisitor;
-using $JavacElements = ::com::sun::tools::javac::model::JavacElements;
 using $List = ::com::sun::tools::javac::util::List;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;

@@ -17,7 +17,6 @@ using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Provider = ::java::security::Provider;
 using $Signature = ::java::security::Signature;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $AbstractDOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod;
 using $DOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod;
 using $Element = ::org::w3c::dom::Element;
 

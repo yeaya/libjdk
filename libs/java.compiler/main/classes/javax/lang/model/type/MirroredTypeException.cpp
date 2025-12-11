@@ -10,7 +10,6 @@ using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 using $MirroredTypesException = ::javax::lang::model::type::MirroredTypesException;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 

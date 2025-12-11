@@ -12,7 +12,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;

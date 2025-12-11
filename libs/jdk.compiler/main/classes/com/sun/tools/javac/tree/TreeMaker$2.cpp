@@ -23,13 +23,9 @@
 #undef VOID
 #undef WILDCARD
 
-using $TypeTagArray = $Array<::com::sun::tools::javac::code::TypeTag>;
-using $TypeKindArray = $Array<::javax::lang::model::type::TypeKind>;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

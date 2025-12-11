@@ -9,15 +9,11 @@
 #undef ERROR
 #undef WARNING
 
-using $Diagnostic$KindArray = $Array<::javax::tools::Diagnostic$Kind>;
-using $JavacProcessingEnvironment = ::com::sun::tools::javac::processing::JavacProcessingEnvironment;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Diagnostic = ::javax::tools::Diagnostic;
 using $Diagnostic$Kind = ::javax::tools::Diagnostic$Kind;
 
 namespace com {

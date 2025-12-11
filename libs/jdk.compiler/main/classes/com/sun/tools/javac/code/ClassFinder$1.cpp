@@ -18,7 +18,6 @@
 
 using $ClassFinder = ::com::sun::tools::javac::code::ClassFinder;
 using $Flags = ::com::sun::tools::javac::code::Flags;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

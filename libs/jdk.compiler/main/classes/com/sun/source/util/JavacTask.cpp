@@ -13,20 +13,14 @@
 #include <jcpp.h>
 
 using $ParameterNameProvider = ::com::sun::source::util::ParameterNameProvider;
-using $TaskListener = ::com::sun::source::util::TaskListener;
 using $BasicJavacTask = ::com::sun::tools::javac::api::BasicJavacTask;
 using $JavacProcessingEnvironment = ::com::sun::tools::javac::processing::JavacProcessingEnvironment;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProcessingEnvironment = ::javax::annotation::processing::ProcessingEnvironment;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
-using $Elements = ::javax::lang::model::util::Elements;
-using $Types = ::javax::lang::model::util::Types;
-using $JavaCompiler$CompilationTask = ::javax::tools::JavaCompiler$CompilationTask;
 
 namespace com {
 	namespace sun {

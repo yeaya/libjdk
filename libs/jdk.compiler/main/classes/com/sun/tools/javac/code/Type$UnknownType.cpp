@@ -18,7 +18,6 @@ using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $1List = ::com::sun::tools::javac::util::List;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -31,7 +31,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $SecretKey = ::javax::crypto::SecretKey;
 using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $EncryptedData = ::sun::security::krb5::EncryptedData;

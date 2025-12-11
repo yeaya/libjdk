@@ -9,7 +9,6 @@
 #include <java/util/Properties.h>
 #include <jcpp.h>
 
-using $GraphUtils = ::com::sun::tools::javac::util::GraphUtils;
 using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $GraphUtils$DottableNode = ::com::sun::tools::javac::util::GraphUtils$DottableNode;
 using $GraphUtils$Node = ::com::sun::tools::javac::util::GraphUtils$Node;

@@ -46,9 +46,7 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $Remote = ::java::rmi::Remote;
 using $RemoteServer = ::java::rmi::server::RemoteServer;
 using $ServerNotActiveException = ::java::rmi::server::ServerNotActiveException;
 using $Principal = ::java::security::Principal;
@@ -64,7 +62,6 @@ using $JMXAuthenticator = ::javax::management::remote::JMXAuthenticator;
 using $JMXConnectorServer = ::javax::management::remote::JMXConnectorServer;
 using $RMIConnection = ::javax::management::remote::rmi::RMIConnection;
 using $RMIConnectorServer = ::javax::management::remote::rmi::RMIConnectorServer;
-using $RMIServer = ::javax::management::remote::rmi::RMIServer;
 using $Subject = ::javax::security::auth::Subject;
 
 namespace javax {

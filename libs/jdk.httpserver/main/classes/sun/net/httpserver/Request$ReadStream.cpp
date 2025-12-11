@@ -22,12 +22,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $BufferOverflowException = ::java::nio::BufferOverflowException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $Request = ::sun::net::httpserver::Request;
 using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 

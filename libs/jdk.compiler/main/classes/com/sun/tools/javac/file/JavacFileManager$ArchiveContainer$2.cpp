@@ -18,7 +18,6 @@
 #undef SKIP_SUBTREE
 
 using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
-using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $JavacFileManager$ArchiveContainer = ::com::sun::tools::javac::file::JavacFileManager$ArchiveContainer;
 using $PathFileObject = ::com::sun::tools::javac::file::PathFileObject;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
@@ -33,7 +32,6 @@ using $SimpleFileVisitor = ::java::nio::file::SimpleFileVisitor;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $Set = ::java::util::Set;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
-using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace com {
 	namespace sun {

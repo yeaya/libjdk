@@ -21,8 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
@@ -30,7 +28,6 @@ using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $PullPublisher = ::jdk::internal::net::http::PullPublisher;
-using $RequestPublishers = ::jdk::internal::net::http::RequestPublishers;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
 namespace jdk {

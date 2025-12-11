@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $DocTree = ::com::sun::source::doctree::DocTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

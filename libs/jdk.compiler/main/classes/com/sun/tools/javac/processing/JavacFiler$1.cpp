@@ -9,15 +9,11 @@
 #undef CLASS
 #undef SOURCE
 
-using $JavaFileObject$KindArray = $Array<::javax::tools::JavaFileObject$Kind>;
-using $JavacFiler = ::com::sun::tools::javac::processing::JavacFiler;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace com {

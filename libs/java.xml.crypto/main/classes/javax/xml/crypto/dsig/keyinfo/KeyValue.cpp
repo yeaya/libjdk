@@ -10,8 +10,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PublicKey = ::java::security::PublicKey;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 
 namespace javax {
 	namespace xml {

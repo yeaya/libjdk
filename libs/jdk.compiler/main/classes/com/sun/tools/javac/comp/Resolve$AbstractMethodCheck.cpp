@@ -36,7 +36,6 @@ using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
-using $Infer$InferenceException = ::com::sun::tools::javac::comp::Infer$InferenceException;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$AbstractMethodCheck$SharedInapplicableMethodException = ::com::sun::tools::javac::comp::Resolve$AbstractMethodCheck$SharedInapplicableMethodException;
@@ -46,9 +45,6 @@ using $Resolve$MethodCheckDiag = ::com::sun::tools::javac::comp::Resolve$MethodC
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
-using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
@@ -59,7 +55,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 namespace com {
 	namespace sun {

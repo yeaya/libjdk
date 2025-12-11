@@ -10,7 +10,6 @@
 #undef TYPE
 
 using $TypeAnnotations$AnnotationTypeArray = $Array<::com::sun::tools::javac::code::TypeAnnotations$AnnotationType>;
-using $TypeAnnotations = ::com::sun::tools::javac::code::TypeAnnotations;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

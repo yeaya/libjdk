@@ -44,5 +44,4 @@ void jdk$unsupported$test::init() {
 		jdk$unsupported$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

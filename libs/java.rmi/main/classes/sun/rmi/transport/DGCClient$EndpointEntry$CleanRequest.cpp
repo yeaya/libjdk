@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ObjID = ::java::rmi::server::ObjID;
-using $DGCClient$EndpointEntry = ::sun::rmi::transport::DGCClient$EndpointEntry;
 
 namespace sun {
 	namespace rmi {

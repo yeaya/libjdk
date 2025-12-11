@@ -57,7 +57,6 @@ using $DOMXMLSignatureFactory = ::org::jcp::xml::dsig::internal::dom::DOMXMLSign
 using $DOMXPathFilter2Transform = ::org::jcp::xml::dsig::internal::dom::DOMXPathFilter2Transform;
 using $DOMXPathTransform = ::org::jcp::xml::dsig::internal::dom::DOMXPathTransform;
 using $DOMXSLTTransform = ::org::jcp::xml::dsig::internal::dom::DOMXSLTTransform;
-using $XMLDSigRI = ::org::jcp::xml::dsig::internal::dom::XMLDSigRI;
 
 namespace org {
 	namespace jcp {

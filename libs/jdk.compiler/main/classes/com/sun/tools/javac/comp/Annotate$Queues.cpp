@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/util/ListBuffer.h>
 #include <jcpp.h>
 
-using $Annotate = ::com::sun::tools::javac::comp::Annotate;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -14,7 +14,6 @@
 
 using $LdapClient = ::com::sun::jndi::ldap::LdapClient;
 using $LdapEntry = ::com::sun::jndi::ldap::LdapEntry;
-using $LdapReferralException = ::com::sun::jndi::ldap::LdapReferralException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

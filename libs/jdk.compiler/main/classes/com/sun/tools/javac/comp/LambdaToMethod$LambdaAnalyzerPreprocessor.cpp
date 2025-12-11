@@ -80,19 +80,15 @@
 #undef VAR
 
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCVoidType = ::com::sun::tools::javac::code::Type$JCVoidType;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $LambdaToMethod = ::com::sun::tools::javac::comp::LambdaToMethod;
 using $LambdaToMethod$1 = ::com::sun::tools::javac::comp::LambdaToMethod$1;
@@ -125,21 +121,16 @@ using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
-using $JCDiagnostic$Note = ::com::sun::tools::javac::util::JCDiagnostic$Note;
 using $List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
@@ -150,7 +141,6 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {

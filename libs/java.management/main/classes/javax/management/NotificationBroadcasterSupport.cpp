@@ -35,17 +35,14 @@ using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Set = ::java::util::Set;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
 using $Executor = ::java::util::concurrent::Executor;
 using $ListenerNotFoundException = ::javax::management::ListenerNotFoundException;
-using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
 using $Notification = ::javax::management::Notification;
 using $NotificationBroadcasterSupport$1 = ::javax::management::NotificationBroadcasterSupport$1;
 using $NotificationBroadcasterSupport$ListenerInfo = ::javax::management::NotificationBroadcasterSupport$ListenerInfo;
 using $NotificationBroadcasterSupport$SendNotifJob = ::javax::management::NotificationBroadcasterSupport$SendNotifJob;
 using $NotificationBroadcasterSupport$WildcardListenerInfo = ::javax::management::NotificationBroadcasterSupport$WildcardListenerInfo;
-using $NotificationEmitter = ::javax::management::NotificationEmitter;
 using $NotificationFilter = ::javax::management::NotificationFilter;
 using $NotificationListener = ::javax::management::NotificationListener;
 

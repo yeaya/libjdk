@@ -21,7 +21,6 @@ using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ObjectOutputStream$PutField = ::java::io::ObjectOutputStream$PutField;
 using $ObjectStreamField = ::java::io::ObjectStreamField;
-using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

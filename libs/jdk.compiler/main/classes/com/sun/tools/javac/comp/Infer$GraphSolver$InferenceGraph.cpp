@@ -25,7 +25,6 @@
 
 using $Type$UndetVar$InferenceBoundArray = $Array<::com::sun::tools::javac::code::Type$UndetVar$InferenceBound>;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
 using $Infer$GraphSolver = ::com::sun::tools::javac::comp::Infer$GraphSolver;
@@ -33,7 +32,6 @@ using $Infer$GraphSolver$InferenceGraph$Node = ::com::sun::tools::javac::comp::I
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $GraphUtils = ::com::sun::tools::javac::util::GraphUtils;
-using $GraphUtils$AbstractNode = ::com::sun::tools::javac::util::GraphUtils$AbstractNode;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;

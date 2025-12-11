@@ -3,8 +3,6 @@
 #include <com/sun/tools/javac/util/Position.h>
 #include <jcpp.h>
 
-using $LineMap = ::com::sun::source::tree::LineMap;
-using $Position = ::com::sun::tools::javac::util::Position;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

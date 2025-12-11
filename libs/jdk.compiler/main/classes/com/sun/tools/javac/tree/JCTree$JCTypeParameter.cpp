@@ -21,13 +21,13 @@ using $TypeParameterTree = ::com::sun::source::tree::TypeParameterTree;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 using $1Name = ::javax::lang::model::element::Name;
 
 namespace com {
@@ -48,7 +48,7 @@ $MethodInfo _JCTree$JCTypeParameter_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCTypeParameter::*)($Name*,$1List*,$1List*)>(&JCTree$JCTypeParameter::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCTypeParameter::*)($Name*,$List*,$List*)>(&JCTree$JCTypeParameter::init$))},
 	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
 	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
 	{"getAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC},
@@ -105,7 +105,7 @@ void JCTree$JCTypeParameter::finalize() {
 	this->$JCTree::finalize();
 }
 
-void JCTree$JCTypeParameter::init$($Name* name, $1List* bounds, $1List* annotations) {
+void JCTree$JCTypeParameter::init$($Name* name, $List* bounds, $List* annotations) {
 	$JCTree::init$();
 	$set(this, name, name);
 	$set(this, bounds, bounds);
@@ -125,11 +125,11 @@ $1Name* JCTree$JCTypeParameter::getName() {
 	return this->name;
 }
 
-$List* JCTree$JCTypeParameter::getBounds() {
+$1List* JCTree$JCTypeParameter::getBounds() {
 	return this->bounds;
 }
 
-$List* JCTree$JCTypeParameter::getAnnotations() {
+$1List* JCTree$JCTypeParameter::getAnnotations() {
 	return this->annotations;
 }
 

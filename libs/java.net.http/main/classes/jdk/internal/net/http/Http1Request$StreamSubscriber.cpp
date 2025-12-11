@@ -24,7 +24,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
@@ -34,7 +33,6 @@ using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Http1Exchange = ::jdk::internal::net::http::Http1Exchange;
 using $Http1Exchange$Http1BodySubscriber = ::jdk::internal::net::http::Http1Exchange$Http1BodySubscriber;
 using $Http1Request = ::jdk::internal::net::http::Http1Request;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 
 namespace jdk {
 	namespace internal {

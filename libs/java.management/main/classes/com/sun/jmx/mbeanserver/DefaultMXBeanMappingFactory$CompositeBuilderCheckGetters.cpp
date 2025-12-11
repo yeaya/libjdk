@@ -13,7 +13,6 @@
 
 using $MXBeanMappingArray = $Array<::com::sun::jmx::mbeanserver::MXBeanMapping>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
-using $DefaultMXBeanMappingFactory = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory;
 using $DefaultMXBeanMappingFactory$CompositeBuilder = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$CompositeBuilder;
 using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $IOException = ::java::io::IOException;

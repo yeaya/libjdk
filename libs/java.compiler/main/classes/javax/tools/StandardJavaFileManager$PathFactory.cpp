@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Path = ::java::nio::file::Path;
-using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 
 namespace javax {
 	namespace tools {

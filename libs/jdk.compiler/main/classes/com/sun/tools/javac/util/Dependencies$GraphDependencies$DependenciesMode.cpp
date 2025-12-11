@@ -14,18 +14,14 @@
 #undef SOURCE
 
 using $Dependencies$GraphDependencies$DependenciesModeArray = $Array<::com::sun::tools::javac::util::Dependencies$GraphDependencies$DependenciesMode>;
-using $Dependencies = ::com::sun::tools::javac::util::Dependencies;
-using $Dependencies$GraphDependencies = ::com::sun::tools::javac::util::Dependencies$GraphDependencies;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {

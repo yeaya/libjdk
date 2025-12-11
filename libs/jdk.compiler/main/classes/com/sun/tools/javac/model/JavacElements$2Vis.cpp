@@ -29,7 +29,6 @@ using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Attribute$Constant = ::com::sun::tools::javac::code::Attribute$Constant;
 using $Attribute$Enum = ::com::sun::tools::javac::code::Attribute$Enum;
 using $Attribute$Error = ::com::sun::tools::javac::code::Attribute$Error;
-using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $JavacElements = ::com::sun::tools::javac::model::JavacElements;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;

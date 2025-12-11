@@ -9,9 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpResponse = ::java::net::http::HttpResponse;
-using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
-using $HttpResponse$ResponseInfo = ::java::net::http::HttpResponse$ResponseInfo;
 
 namespace java {
 	namespace net {

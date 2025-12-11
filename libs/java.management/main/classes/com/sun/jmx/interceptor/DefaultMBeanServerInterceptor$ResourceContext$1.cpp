@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $DefaultMBeanServerInterceptor$ResourceContext = ::com::sun::jmx::interceptor::DefaultMBeanServerInterceptor$ResourceContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

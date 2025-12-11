@@ -6,13 +6,8 @@
 #include <java/util/function/Supplier.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
-using $BiConsumer = ::java::util::function::BiConsumer;
-using $Supplier = ::java::util::function::Supplier;
 
 namespace jdk {
 	namespace internal {

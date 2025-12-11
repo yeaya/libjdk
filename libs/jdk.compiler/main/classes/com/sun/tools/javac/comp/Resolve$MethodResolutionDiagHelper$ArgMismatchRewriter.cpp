@@ -8,8 +8,6 @@
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <jcpp.h>
 
-using $Resolve$MethodResolutionDiagHelper = ::com::sun::tools::javac::comp::Resolve$MethodResolutionDiagHelper;
-using $Resolve$MethodResolutionDiagHelper$DiagnosticRewriter = ::com::sun::tools::javac::comp::Resolve$MethodResolutionDiagHelper$DiagnosticRewriter;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;

@@ -21,17 +21,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $PullPublisher = ::jdk::internal::net::http::PullPublisher;
-using $RequestPublishers = ::jdk::internal::net::http::RequestPublishers;
 using $RequestPublishers$IterablePublisher$ByteBufferIterator = ::jdk::internal::net::http::RequestPublishers$IterablePublisher$ByteBufferIterator;
 
 namespace jdk {

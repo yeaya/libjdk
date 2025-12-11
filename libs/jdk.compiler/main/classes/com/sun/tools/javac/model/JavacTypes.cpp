@@ -73,7 +73,6 @@
 using $TypeMirrorArray = $Array<::javax::lang::model::type::TypeMirror>;
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
@@ -83,16 +82,12 @@ using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
-using $Type$JCPrimitiveType = ::com::sun::tools::javac::code::Type$JCPrimitiveType;
-using $Type$JCVoidType = ::com::sun::tools::javac::code::Type$JCVoidType;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
-using $1Types = ::com::sun::tools::javac::code::Types;
+using $Types = ::com::sun::tools::javac::code::Types;
 using $JavacTypes$1 = ::com::sun::tools::javac::model::JavacTypes$1;
 using $Context = ::com::sun::tools::javac::util::Context;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
@@ -101,19 +96,14 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractSet = ::java::util::AbstractSet;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $EnumSet = ::java::util::EnumSet;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Stream = ::java::util::stream::Stream;
@@ -132,7 +122,6 @@ using $ReferenceType = ::javax::lang::model::type::ReferenceType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $WildcardType = ::javax::lang::model::type::WildcardType;
-using $Types = ::javax::lang::model::util::Types;
 
 namespace com {
 	namespace sun {
@@ -247,7 +236,7 @@ JavacTypes* JavacTypes::instance($Context* context) {
 void JavacTypes::init$($Context* context) {
 	$nc(context)->put(JavacTypes::class$, $of(this));
 	$set(this, syms, $Symtab::instance(context));
-	$set(this, types, $1Types::instance(context));
+	$set(this, types, $Types::instance(context));
 }
 
 $Element* JavacTypes::asElement($TypeMirror* t) {
@@ -307,7 +296,7 @@ bool JavacTypes::isSubsignature($ExecutableType* m1, $ExecutableType* m2) {
 	return $nc(this->types)->isSubSignature($cast($Type, m1), $cast($Type, m2));
 }
 
-$1List* JavacTypes::directSupertypes($TypeMirror* t) {
+$List* JavacTypes::directSupertypes($TypeMirror* t) {
 	$useLocalCurrentObjectStackCache();
 	validateTypeNotIn(t, JavacTypes::EXEC_OR_PKG_OR_MOD);
 	$var($Type, ty, $cast($Type, t));

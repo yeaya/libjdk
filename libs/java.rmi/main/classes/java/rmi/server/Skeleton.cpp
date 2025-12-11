@@ -5,12 +5,9 @@
 #include <java/rmi/server/RemoteCall.h>
 #include <jcpp.h>
 
-using $OperationArray = $Array<::java::rmi::server::Operation>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Remote = ::java::rmi::Remote;
-using $RemoteCall = ::java::rmi::server::RemoteCall;
 
 namespace java {
 	namespace rmi {

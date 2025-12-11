@@ -26,13 +26,11 @@ using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpResponse = ::java::net::http::HttpResponse;
 using $Optional = ::java::util::Optional;
-using $SSLSession = ::javax::net::ssl::SSLSession;
 using $Exchange = ::jdk::internal::net::http::Exchange;
 using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $HttpResponseImpl$RawChannelProvider = ::jdk::internal::net::http::HttpResponseImpl$RawChannelProvider;
 using $Response = ::jdk::internal::net::http::Response;
 using $RawChannel = ::jdk::internal::net::http::websocket::RawChannel;
-using $RawChannel$Provider = ::jdk::internal::net::http::websocket::RawChannel$Provider;
 
 namespace jdk {
 	namespace internal {

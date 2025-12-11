@@ -18,13 +18,11 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $List = ::java::util::List;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $ConcurrentLinkedQueue = ::java::util::concurrent::ConcurrentLinkedQueue;

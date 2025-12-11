@@ -36,19 +36,12 @@
 
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
-using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
 using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
@@ -60,7 +53,6 @@ using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $Objects = ::java::util::Objects;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Predicate = ::java::util::function::Predicate;
 using $ToLongFunction = ::java::util::function::ToLongFunction;

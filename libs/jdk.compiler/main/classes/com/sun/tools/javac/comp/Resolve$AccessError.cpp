@@ -31,15 +31,12 @@
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$InvalidSymbolError = ::com::sun::tools::javac::comp::Resolve$InvalidSymbolError;
 using $Resolve$SymbolNotFoundError = ::com::sun::tools::javac::comp::Resolve$SymbolNotFoundError;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
@@ -48,12 +45,10 @@ using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Facto
 using $List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EnumSet = ::java::util::EnumSet;
 
 namespace com {
 	namespace sun {

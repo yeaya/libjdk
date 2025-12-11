@@ -13,7 +13,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $RequiredModelMBean = ::javax::management::modelmbean::RequiredModelMBean;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 

@@ -44,22 +44,15 @@ using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $Collection = ::java::util::Collection;
 using $1List = ::java::util::List;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Collector = ::java::util::stream::Collector;
 using $Stream = ::java::util::stream::Stream;
 
 namespace com {

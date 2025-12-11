@@ -7,9 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Number = ::java::lang::Number;
-using $ObjectName = ::javax::management::ObjectName;
-using $MonitorMBean = ::javax::management::monitor::MonitorMBean;
 
 namespace javax {
 	namespace management {

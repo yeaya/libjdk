@@ -9,7 +9,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $PlainProxyConnectionTest = ::PlainProxyConnectionTest;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

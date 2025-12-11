@@ -15,14 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $KeySelectorResult = ::javax::xml::crypto::KeySelectorResult;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
-using $SignedInfo = ::javax::xml::crypto::dsig::SignedInfo;
-using $XMLSignContext = ::javax::xml::crypto::dsig::XMLSignContext;
-using $XMLSignature$SignatureValue = ::javax::xml::crypto::dsig::XMLSignature$SignatureValue;
-using $XMLValidateContext = ::javax::xml::crypto::dsig::XMLValidateContext;
-using $KeyInfo = ::javax::xml::crypto::dsig::keyinfo::KeyInfo;
 
 namespace javax {
 	namespace xml {

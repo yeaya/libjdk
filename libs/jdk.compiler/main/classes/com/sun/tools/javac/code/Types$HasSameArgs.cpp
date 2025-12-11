@@ -16,15 +16,12 @@
 #undef METHOD
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$TypeRelation = ::com::sun::tools::javac::code::Types$TypeRelation;
-using $List = ::com::sun::tools::javac::util::List;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

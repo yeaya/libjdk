@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FramesDecoder = ::jdk::internal::net::http::frame::FramesDecoder;
-using $Http2Frame = ::jdk::internal::net::http::frame::Http2Frame;
 
 namespace jdk {
 	namespace internal {

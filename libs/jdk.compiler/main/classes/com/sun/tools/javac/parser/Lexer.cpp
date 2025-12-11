@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/util/Position$LineMap.h>
 #include <jcpp.h>
 
-using $Tokens$Token = ::com::sun::tools::javac::parser::Tokens$Token;
-using $Position$LineMap = ::com::sun::tools::javac::util::Position$LineMap;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

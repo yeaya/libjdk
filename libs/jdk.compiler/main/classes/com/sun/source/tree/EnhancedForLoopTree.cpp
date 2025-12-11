@@ -4,9 +4,6 @@
 #include <com/sun/source/tree/VariableTree.h>
 #include <jcpp.h>
 
-using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
-using $StatementTree = ::com::sun::source::tree::StatementTree;
-using $VariableTree = ::com::sun::source::tree::VariableTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

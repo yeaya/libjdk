@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
-using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
 using $Optional = ::java::util::Optional;
 

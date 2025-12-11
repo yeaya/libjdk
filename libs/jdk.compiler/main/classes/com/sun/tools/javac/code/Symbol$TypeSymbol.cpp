@@ -32,7 +32,6 @@
 
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
@@ -42,16 +41,14 @@ using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Annotate$AnnotationTypeMetadata = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeMetadata;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Name$Table = ::com::sun::tools::javac::util::Name$Table;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Element = ::javax::lang::model::element::Element;
 using $1Name = ::javax::lang::model::element::Name;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
@@ -174,9 +171,9 @@ bool Symbol$TypeSymbol::precedes(Symbol$TypeSymbol* that, $Types* types) {
 	return $nc(this->type)->hasTag($TypeTag::TYPEVAR);
 }
 
-$1List* Symbol$TypeSymbol::getEnclosedElements() {
+$List* Symbol$TypeSymbol::getEnclosedElements() {
 	$useLocalCurrentObjectStackCache();
-	$var($List, list, $List::nil());
+	$var($1List, list, $1List::nil());
 	$init($Kinds$Kind);
 	$init($TypeTag);
 	if (this->kind == $Kinds$Kind::TYP && $nc(this->type)->hasTag($TypeTag::TYPEVAR)) {
@@ -212,7 +209,7 @@ $Object* Symbol$TypeSymbol::accept($Symbol$Visitor* v, Object$* p) {
 	return $of($nc(v)->visitTypeSymbol(this, p));
 }
 
-$1List* Symbol$TypeSymbol::getAnnotationMirrors() {
+$List* Symbol$TypeSymbol::getAnnotationMirrors() {
 	return $Symbol::getAnnotationMirrors();
 }
 

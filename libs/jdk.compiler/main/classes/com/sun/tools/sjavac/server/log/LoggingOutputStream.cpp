@@ -12,7 +12,6 @@
 using $Log = ::com::sun::tools::sjavac::Log;
 using $Log$Level = ::com::sun::tools::sjavac::Log$Level;
 using $LoggingOutputStream$EolTrackingByteArrayOutputStream = ::com::sun::tools::sjavac::server::log::LoggingOutputStream$EolTrackingByteArrayOutputStream;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

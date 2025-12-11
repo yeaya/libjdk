@@ -13,7 +13,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Element = ::javax::lang::model::element::Element;
 using $VariableElement = ::javax::lang::model::element::VariableElement;
 using $ElementKindVisitor6 = ::javax::lang::model::util::ElementKindVisitor6;
-using $SimpleElementVisitor6 = ::javax::lang::model::util::SimpleElementVisitor6;
 
 namespace javax {
 	namespace lang {

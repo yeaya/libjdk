@@ -14,21 +14,14 @@
 #include <java/util/function/Predicate.h>
 #include <jcpp.h>
 
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Set = ::java::util::Set;
 using $Predicate = ::java::util::function::Predicate;
 

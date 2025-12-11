@@ -28,7 +28,6 @@ using $BigInteger = ::java::math::BigInteger;
 using $KeyFactory = ::java::security::KeyFactory;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PublicKey = ::java::security::PublicKey;
-using $RSAKey = ::java::security::interfaces::RSAKey;
 using $RSAPublicKey = ::java::security::interfaces::RSAPublicKey;
 using $KeySpec = ::java::security::spec::KeySpec;
 using $RSAPublicKeySpec = ::java::security::spec::RSAPublicKeySpec;

@@ -4,7 +4,6 @@
 #include <com/sun/net/httpserver/Authenticator.h>
 #include <jcpp.h>
 
-using $Authenticator = ::com::sun::net::httpserver::Authenticator;
 using $Authenticator$Result = ::com::sun::net::httpserver::Authenticator$Result;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

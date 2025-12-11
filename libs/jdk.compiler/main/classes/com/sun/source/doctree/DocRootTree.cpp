@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $InlineTagTree = ::com::sun::source::doctree::InlineTagTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 
 namespace com {

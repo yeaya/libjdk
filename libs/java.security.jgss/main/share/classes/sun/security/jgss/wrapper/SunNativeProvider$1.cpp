@@ -20,9 +20,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Error = ::java::lang::Error;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
-using $Oid = ::org::ietf::jgss::Oid;
 using $GSSLibStub = ::sun::security::jgss::wrapper::GSSLibStub;
 using $SunNativeProvider = ::sun::security::jgss::wrapper::SunNativeProvider;
 

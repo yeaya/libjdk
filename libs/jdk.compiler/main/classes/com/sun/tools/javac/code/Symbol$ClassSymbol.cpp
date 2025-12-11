@@ -68,7 +68,6 @@
 #undef TYP
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
-using $AnnoConstruct = ::com::sun::tools::javac::code::AnnoConstruct;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
 using $Flags = ::com::sun::tools::javac::code::Flags;
@@ -77,27 +76,20 @@ using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableSco
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
-using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$RecordComponent = ::com::sun::tools::javac::code::Symbol$RecordComponent;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Symbol$Visitor = ::com::sun::tools::javac::code::Symbol$Visitor;
-using $SymbolMetadata = ::com::sun::tools::javac::code::SymbolMetadata;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
-using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Annotate$AnnotationTypeMetadata = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeMetadata;
 using $Enter = ::com::sun::tools::javac::comp::Enter;
-using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $Serializable = ::java::io::Serializable;
@@ -105,16 +97,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $Inherited = ::java::lang::annotation::Inherited;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Iterator = ::java::util::Iterator;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Element = ::javax::lang::model::element::Element;
@@ -124,7 +111,6 @@ using $1Name = ::javax::lang::model::element::Name;
 using $NestingKind = ::javax::lang::model::element::NestingKind;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {
@@ -257,7 +243,7 @@ $Object* allocate$Symbol$ClassSymbol($Class* clazz) {
 	return $of($alloc(Symbol$ClassSymbol));
 }
 
-$1List* Symbol$ClassSymbol::getAnnotationMirrors() {
+$List* Symbol$ClassSymbol::getAnnotationMirrors() {
 	 return this->$Symbol$TypeSymbol::getAnnotationMirrors();
 }
 
@@ -305,7 +291,7 @@ $TypeMirror* Symbol$ClassSymbol::MemberClass0$::asType() {
 	return ((Symbol$ClassSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ClassSymbol, memberClass0$)))->asType();
 }
 
-$1List* Symbol$ClassSymbol::MemberClass0$::getEnclosedElements() {
+$List* Symbol$ClassSymbol::MemberClass0$::getEnclosedElements() {
 	return ((Symbol$ClassSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ClassSymbol, memberClass0$)))->getEnclosedElements();
 }
 
@@ -325,19 +311,19 @@ $TypeMirror* Symbol$ClassSymbol::MemberClass0$::getSuperclass() {
 	return ((Symbol$ClassSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ClassSymbol, memberClass0$)))->getSuperclass();
 }
 
-$1List* Symbol$ClassSymbol::MemberClass0$::getInterfaces() {
+$List* Symbol$ClassSymbol::MemberClass0$::getInterfaces() {
 	return ((Symbol$ClassSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ClassSymbol, memberClass0$)))->getInterfaces();
 }
 
-$1List* Symbol$ClassSymbol::MemberClass0$::getTypeParameters() {
+$List* Symbol$ClassSymbol::MemberClass0$::getTypeParameters() {
 	return ((Symbol$ClassSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ClassSymbol, memberClass0$)))->getTypeParameters();
 }
 
-$1List* Symbol$ClassSymbol::MemberClass0$::getRecordComponents() {
+$List* Symbol$ClassSymbol::MemberClass0$::getRecordComponents() {
 	return ((Symbol$ClassSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ClassSymbol, memberClass0$)))->getRecordComponents();
 }
 
-$1List* Symbol$ClassSymbol::MemberClass0$::getPermittedSubclasses() {
+$List* Symbol$ClassSymbol::MemberClass0$::getPermittedSubclasses() {
 	return ((Symbol$ClassSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ClassSymbol, memberClass0$)))->getPermittedSubclasses();
 }
 
@@ -361,7 +347,7 @@ int32_t Symbol$ClassSymbol::MemberClass0$::hashCode() {
 	return ((Symbol$ClassSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ClassSymbol, memberClass0$)))->hashCode();
 }
 
-$1List* Symbol$ClassSymbol::MemberClass0$::getAnnotationMirrors() {
+$List* Symbol$ClassSymbol::MemberClass0$::getAnnotationMirrors() {
 	return ((Symbol$ClassSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ClassSymbol, memberClass0$)))->getAnnotationMirrors();
 }
 
@@ -392,7 +378,7 @@ void Symbol$ClassSymbol::MemberClass0$::finalize() {
 void Symbol$ClassSymbol::init$(int64_t flags, $Name* name, $Type* type, $Symbol* owner) {
 	$init($Kinds$Kind);
 	$Symbol$TypeSymbol::init$($Kinds$Kind::TYP, flags, name, type, owner);
-	$set(this, recordComponents, $List::nil());
+	$set(this, recordComponents, $1List::nil());
 	this->isPermittedExplicit = false;
 	$set(this, members_field, nullptr);
 	$set(this, fullname, formFullName(name, owner));
@@ -400,7 +386,7 @@ void Symbol$ClassSymbol::init$(int64_t flags, $Name* name, $Type* type, $Symbol*
 	$set(this, sourcefile, nullptr);
 	$set(this, classfile, nullptr);
 	$set(this, annotationTypeMetadata, $Annotate$AnnotationTypeMetadata::notAnAnnotationType());
-	$set(this, permitted, $List::nil());
+	$set(this, permitted, $1List::nil());
 }
 
 void Symbol$ClassSymbol::init$(int64_t flags, $Name* name, $Symbol* owner) {
@@ -423,12 +409,12 @@ $Scope$WriteableScope* Symbol$ClassSymbol::members() {
 	return this->members_field;
 }
 
-$List* Symbol$ClassSymbol::getRawAttributes() {
+$1List* Symbol$ClassSymbol::getRawAttributes() {
 	complete();
 	return $Symbol$TypeSymbol::getRawAttributes();
 }
 
-$List* Symbol$ClassSymbol::getRawTypeAttributes() {
+$1List* Symbol$ClassSymbol::getRawTypeAttributes() {
 	complete();
 	return $Symbol$TypeSymbol::getRawTypeAttributes();
 }
@@ -437,7 +423,7 @@ $Type* Symbol$ClassSymbol::erasure($Types* types) {
 	$useLocalCurrentObjectStackCache();
 	if (this->erasure_field == nullptr) {
 		$var($Type, var$0, $nc(types)->erasure($($nc(this->type)->getEnclosingType())));
-		$var($List, var$1, $List::nil());
+		$var($1List, var$1, $1List::nil());
 		$set(this, erasure_field, $new($Type$ClassType, var$0, var$1, this, $($nc(this->type)->getMetadata())));
 	}
 	return this->erasure_field;
@@ -455,11 +441,11 @@ $Name* Symbol$ClassSymbol::getQualifiedName() {
 	return this->fullname;
 }
 
-$1List* Symbol$ClassSymbol::getEnclosedElements() {
+$List* Symbol$ClassSymbol::getEnclosedElements() {
 	$useLocalCurrentObjectStackCache();
-	$var($List, result, $cast($List, $Symbol$TypeSymbol::getEnclosedElements()));
+	$var($1List, result, $cast($1List, $Symbol$TypeSymbol::getEnclosedElements()));
 	if (!$nc(this->recordComponents)->isEmpty()) {
-		$var($List, reversed, $nc(this->recordComponents)->reverse());
+		$var($1List, reversed, $nc(this->recordComponents)->reverse());
 		{
 			$var($Iterator, i$, $nc(reversed)->iterator());
 			for (; $nc(i$)->hasNext();) {
@@ -487,7 +473,7 @@ bool Symbol$ClassSymbol::isSubClass($Symbol* base, $Types* types) {
 			$var($Type, t, this->type);
 			for (; $nc(t)->hasTag($TypeTag::CLASS); $assign(t, $nc(types)->supertype(t))) {
 				{
-					$var($List, is, types->interfaces(t));
+					$var($1List, is, types->interfaces(t));
 					for (; $nc(is)->nonEmpty(); $assign(is, $nc(is)->tail)) {
 						if ($nc($nc(($cast($Type, is->head)))->tsym)->isSubClass(base, types)) {
 							return true;
@@ -523,7 +509,7 @@ void Symbol$ClassSymbol::complete() {
 	}
 }
 
-$List* Symbol$ClassSymbol::getInterfaces() {
+$1List* Symbol$ClassSymbol::getInterfaces() {
 	$useLocalCurrentObjectStackCache();
 	apiComplete();
 	{
@@ -536,14 +522,14 @@ $List* Symbol$ClassSymbol::getInterfaces() {
 		}
 		if (var$0) {
 			if ($nc(classType)->interfaces_field == nullptr) {
-				$set(classType, interfaces_field, $List::nil());
+				$set(classType, interfaces_field, $1List::nil());
 			}
 			if ($nc(classType)->all_interfaces_field != nullptr) {
 				return $Type::getModelTypes(classType->all_interfaces_field);
 			}
 			return $nc(classType)->interfaces_field;
 		} else {
-			return $List::nil();
+			return $1List::nil();
 		}
 	}
 }
@@ -631,7 +617,7 @@ $Symbol$RecordComponent* Symbol$ClassSymbol::getRecordComponent($Symbol$VarSymbo
 	return nullptr;
 }
 
-$Symbol$RecordComponent* Symbol$ClassSymbol::getRecordComponent($JCTree$JCVariableDecl* var, bool addIfMissing, $List* annotations) {
+$Symbol$RecordComponent* Symbol$ClassSymbol::getRecordComponent($JCTree$JCVariableDecl* var, bool addIfMissing, $1List* annotations) {
 	$useLocalCurrentObjectStackCache();
 	{
 		$var($Iterator, i$, $nc(this->recordComponents)->iterator());
@@ -651,11 +637,11 @@ $Symbol$RecordComponent* Symbol$ClassSymbol::getRecordComponent($JCTree$JCVariab
 	return rc;
 }
 
-$List* Symbol$ClassSymbol::getRecordComponents() {
+$1List* Symbol$ClassSymbol::getRecordComponents() {
 	return this->recordComponents;
 }
 
-void Symbol$ClassSymbol::setRecordComponents($List* recordComponents) {
+void Symbol$ClassSymbol::setRecordComponents($1List* recordComponents) {
 	$set(this, recordComponents, recordComponents);
 }
 
@@ -762,11 +748,11 @@ bool Symbol$ClassSymbol::isRecord() {
 	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)0x2000000000000000)) != 0;
 }
 
-$List* Symbol$ClassSymbol::getPermittedSubclasses() {
+$1List* Symbol$ClassSymbol::getPermittedSubclasses() {
 	return $nc(this->permitted)->map(static_cast<$Function*>($$new(Symbol$ClassSymbol$$Lambda$lambda$getPermittedSubclasses$0)));
 }
 
-$List* Symbol$ClassSymbol::getTypeParameters() {
+$1List* Symbol$ClassSymbol::getTypeParameters() {
 	return $Symbol$TypeSymbol::getTypeParameters();
 }
 

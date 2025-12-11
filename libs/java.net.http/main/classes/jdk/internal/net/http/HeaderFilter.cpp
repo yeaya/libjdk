@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
-using $MultiExchange = ::jdk::internal::net::http::MultiExchange;
-using $Response = ::jdk::internal::net::http::Response;
 
 namespace jdk {
 	namespace internal {

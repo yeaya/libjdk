@@ -71,7 +71,6 @@ using $APOptions = ::sun::security::krb5::internal::APOptions;
 using $AuthorizationData = ::sun::security::krb5::internal::AuthorizationData;
 using $HostAddresses = ::sun::security::krb5::internal::HostAddresses;
 using $KDCOptions = ::sun::security::krb5::internal::KDCOptions;
-using $KDCReq = ::sun::security::krb5::internal::KDCReq;
 using $KDCReqBody = ::sun::security::krb5::internal::KDCReqBody;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
@@ -83,7 +82,6 @@ using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
 using $EType = ::sun::security::krb5::internal::crypto::EType;
 using $KeyUsage = ::sun::security::krb5::internal::crypto::KeyUsage;
 using $Nonce = ::sun::security::krb5::internal::crypto::Nonce;
-using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
 
 namespace sun {
 	namespace security {

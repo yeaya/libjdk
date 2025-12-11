@@ -82,5 +82,4 @@ void java$se$test::init() {
 		java$se$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

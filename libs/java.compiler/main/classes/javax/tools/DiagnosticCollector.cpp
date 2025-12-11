@@ -17,7 +17,6 @@ using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Diagnostic = ::javax::tools::Diagnostic;
-using $DiagnosticListener = ::javax::tools::DiagnosticListener;
 
 namespace javax {
 	namespace tools {

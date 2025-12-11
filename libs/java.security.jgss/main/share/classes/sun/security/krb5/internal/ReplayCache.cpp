@@ -13,9 +13,7 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
-using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $ReplayCache$1 = ::sun::security::krb5::internal::ReplayCache$1;
-using $AuthTimeWithHash = ::sun::security::krb5::internal::rcache::AuthTimeWithHash;
 using $DflCache = ::sun::security::krb5::internal::rcache::DflCache;
 using $MemoryCache = ::sun::security::krb5::internal::rcache::MemoryCache;
 

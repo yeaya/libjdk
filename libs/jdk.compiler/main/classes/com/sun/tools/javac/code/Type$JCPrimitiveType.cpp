@@ -36,16 +36,14 @@ using $Type$JCPrimitiveType$2 = ::com::sun::tools::javac::code::Type$JCPrimitive
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $List = ::com::sun::tools::javac::util::List;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $PrimitiveType = ::javax::lang::model::type::PrimitiveType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
@@ -279,7 +277,7 @@ $TypeKind* Type$JCPrimitiveType::getKind() {
 	$throwNew($AssertionError);
 }
 
-$1List* Type$JCPrimitiveType::getAnnotationMirrors() {
+$List* Type$JCPrimitiveType::getAnnotationMirrors() {
 	return $Type::getAnnotationMirrors();
 }
 

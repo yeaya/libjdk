@@ -3,10 +3,8 @@
 #include <javax/tools/Diagnostic.h>
 #include <jcpp.h>
 
-using $TextTree = ::com::sun::source::doctree::TextTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Diagnostic = ::javax::tools::Diagnostic;
 
 namespace com {
 	namespace sun {

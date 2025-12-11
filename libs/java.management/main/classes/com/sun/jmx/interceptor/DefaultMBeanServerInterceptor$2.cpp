@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $DefaultMBeanServerInterceptor = ::com::sun::jmx::interceptor::DefaultMBeanServerInterceptor;
-using $DefaultMBeanServerInterceptor$ResourceContext = ::com::sun::jmx::interceptor::DefaultMBeanServerInterceptor$ResourceContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

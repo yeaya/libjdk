@@ -38,7 +38,6 @@ using $Set = ::java::util::Set;
 using $Attributes = ::java::util::jar::Attributes;
 using $Attributes$Name = ::java::util::jar::Attributes$Name;
 using $Manifest = ::java::util::jar::Manifest;
-using $JarSigner = ::jdk::security::jarsigner::JarSigner;
 using $ManifestDigester = ::sun::security::util::ManifestDigester;
 using $ManifestDigester$Entry = ::sun::security::util::ManifestDigester$Entry;
 using $SignatureFileVerifier = ::sun::security::util::SignatureFileVerifier;

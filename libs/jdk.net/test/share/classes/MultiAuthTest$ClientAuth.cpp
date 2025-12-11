@@ -6,7 +6,6 @@
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <jcpp.h>
 
-using $MultiAuthTest = ::MultiAuthTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

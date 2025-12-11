@@ -30,7 +30,6 @@ using $DomainCombiner = ::java::security::DomainCombiner;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $Permissions = ::java::security::Permissions;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $Certificate = ::java::security::cert::Certificate;
 using $Subject = ::javax::security::auth::Subject;
 using $SubjectDomainCombiner = ::javax::security::auth::SubjectDomainCombiner;
 

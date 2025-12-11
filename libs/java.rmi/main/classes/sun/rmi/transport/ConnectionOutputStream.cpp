@@ -14,7 +14,6 @@
 using $DataOutput = ::java::io::DataOutput;
 using $ObjectOutput = ::java::io::ObjectOutput;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

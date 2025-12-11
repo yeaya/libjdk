@@ -26,12 +26,10 @@
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -15,10 +15,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Sasl = ::javax::security::sasl::Sasl;
-using $SaslClient = ::javax::security::sasl::SaslClient;
 using $SaslException = ::javax::security::sasl::SaslException;
 
 namespace com {

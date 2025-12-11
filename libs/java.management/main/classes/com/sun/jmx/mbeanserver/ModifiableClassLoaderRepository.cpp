@@ -5,10 +5,7 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ObjectName = ::javax::management::ObjectName;
-using $ClassLoaderRepository = ::javax::management::loading::ClassLoaderRepository;
 
 namespace com {
 	namespace sun {

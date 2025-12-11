@@ -10,7 +10,6 @@
 #include <jcpp.h>
 
 using $GraphUtils$DependencyKindArray = $Array<::com::sun::tools::javac::util::GraphUtils$DependencyKind>;
-using $GraphUtils = ::com::sun::tools::javac::util::GraphUtils;
 using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $GraphUtils$Node = ::com::sun::tools::javac::util::GraphUtils$Node;
 using $GraphUtils$NodeVisitor = ::com::sun::tools::javac::util::GraphUtils$NodeVisitor;
@@ -19,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 
 namespace com {

@@ -16,7 +16,6 @@
 
 #undef IDENT
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $JavacElements = ::com::sun::tools::javac::model::JavacElements;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
@@ -27,7 +26,6 @@ using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
-using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

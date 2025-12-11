@@ -9,7 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WebSocket$Listener = ::java::net::http::WebSocket$Listener;
 
 $FieldInfo _WebSocketExample$1_FieldInfo_[] = {
 	{"this$0", "LWebSocketExample;", nullptr, $FINAL | $SYNTHETIC, $field(WebSocketExample$1, this$0)},

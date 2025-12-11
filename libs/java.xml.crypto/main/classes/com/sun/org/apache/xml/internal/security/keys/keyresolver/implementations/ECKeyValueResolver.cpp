@@ -37,7 +37,6 @@ using $PublicKey = ::java::security::PublicKey;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {

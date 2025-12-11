@@ -24,10 +24,7 @@
 #undef UPWARDS
 
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
@@ -39,7 +36,6 @@ using $Types$TypeProjection = ::com::sun::tools::javac::code::Types$TypeProjecti
 using $Types$TypeProjection$TypeArgumentProjection$1 = ::com::sun::tools::javac::code::Types$TypeProjection$TypeArgumentProjection$1;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

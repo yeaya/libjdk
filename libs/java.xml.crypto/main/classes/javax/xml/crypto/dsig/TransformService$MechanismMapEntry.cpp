@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Map$Entry = ::java::util::Map$Entry;
-using $TransformService = ::javax::xml::crypto::dsig::TransformService;
 
 namespace javax {
 	namespace xml {

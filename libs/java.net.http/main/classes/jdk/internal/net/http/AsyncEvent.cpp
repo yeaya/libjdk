@@ -6,11 +6,9 @@
 
 #undef REPEATING
 
-using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 
 namespace jdk {
 	namespace internal {

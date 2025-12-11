@@ -39,44 +39,16 @@
 #include <com/sun/source/doctree/VersionTree.h>
 #include <jcpp.h>
 
-using $AttributeTree = ::com::sun::source::doctree::AttributeTree;
-using $AuthorTree = ::com::sun::source::doctree::AuthorTree;
 using $BlockTagTree = ::com::sun::source::doctree::BlockTagTree;
-using $CommentTree = ::com::sun::source::doctree::CommentTree;
-using $DeprecatedTree = ::com::sun::source::doctree::DeprecatedTree;
-using $DocCommentTree = ::com::sun::source::doctree::DocCommentTree;
-using $DocRootTree = ::com::sun::source::doctree::DocRootTree;
 using $DocTree = ::com::sun::source::doctree::DocTree;
 using $DocTypeTree = ::com::sun::source::doctree::DocTypeTree;
-using $EndElementTree = ::com::sun::source::doctree::EndElementTree;
-using $EntityTree = ::com::sun::source::doctree::EntityTree;
-using $ErroneousTree = ::com::sun::source::doctree::ErroneousTree;
 using $HiddenTree = ::com::sun::source::doctree::HiddenTree;
-using $IdentifierTree = ::com::sun::source::doctree::IdentifierTree;
 using $IndexTree = ::com::sun::source::doctree::IndexTree;
-using $InheritDocTree = ::com::sun::source::doctree::InheritDocTree;
 using $InlineTagTree = ::com::sun::source::doctree::InlineTagTree;
-using $LinkTree = ::com::sun::source::doctree::LinkTree;
-using $LiteralTree = ::com::sun::source::doctree::LiteralTree;
-using $ParamTree = ::com::sun::source::doctree::ParamTree;
 using $ProvidesTree = ::com::sun::source::doctree::ProvidesTree;
-using $ReferenceTree = ::com::sun::source::doctree::ReferenceTree;
-using $ReturnTree = ::com::sun::source::doctree::ReturnTree;
-using $SeeTree = ::com::sun::source::doctree::SeeTree;
-using $SerialDataTree = ::com::sun::source::doctree::SerialDataTree;
-using $SerialFieldTree = ::com::sun::source::doctree::SerialFieldTree;
-using $SerialTree = ::com::sun::source::doctree::SerialTree;
-using $SinceTree = ::com::sun::source::doctree::SinceTree;
-using $StartElementTree = ::com::sun::source::doctree::StartElementTree;
 using $SummaryTree = ::com::sun::source::doctree::SummaryTree;
 using $SystemPropertyTree = ::com::sun::source::doctree::SystemPropertyTree;
-using $TextTree = ::com::sun::source::doctree::TextTree;
-using $ThrowsTree = ::com::sun::source::doctree::ThrowsTree;
-using $UnknownBlockTagTree = ::com::sun::source::doctree::UnknownBlockTagTree;
-using $UnknownInlineTagTree = ::com::sun::source::doctree::UnknownInlineTagTree;
 using $UsesTree = ::com::sun::source::doctree::UsesTree;
-using $ValueTree = ::com::sun::source::doctree::ValueTree;
-using $VersionTree = ::com::sun::source::doctree::VersionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

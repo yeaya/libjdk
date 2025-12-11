@@ -31,7 +31,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $Exchange = ::jdk::internal::net::http::Exchange;
-using $HeaderFilter = ::jdk::internal::net::http::HeaderFilter;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
 using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $MultiExchange = ::jdk::internal::net::http::MultiExchange;

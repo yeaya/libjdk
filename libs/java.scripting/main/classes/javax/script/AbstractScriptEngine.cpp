@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Bindings = ::javax::script::Bindings;
 using $ScriptContext = ::javax::script::ScriptContext;
-using $ScriptEngine = ::javax::script::ScriptEngine;
 using $SimpleScriptContext = ::javax::script::SimpleScriptContext;
 
 namespace javax {

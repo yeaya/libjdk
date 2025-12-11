@@ -20,21 +20,15 @@
 #undef UPPER
 
 using $Type$UndetVar$InferenceBoundArray = $Array<::com::sun::tools::javac::code::Type$UndetVar$InferenceBound>;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
-using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$InferenceStep = ::com::sun::tools::javac::comp::Infer$InferenceStep;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $List = ::com::sun::tools::javac::util::List;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -44,5 +44,4 @@ void java$compiler$test::init() {
 		java$compiler$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

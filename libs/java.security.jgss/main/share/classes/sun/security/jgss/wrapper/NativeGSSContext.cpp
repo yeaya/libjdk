@@ -75,7 +75,6 @@ using $Oid = ::org::ietf::jgss::Oid;
 using $GSSExceptionImpl = ::sun::security::jgss::GSSExceptionImpl;
 using $GSSHeader = ::sun::security::jgss::GSSHeader;
 using $GSSUtil = ::sun::security::jgss::GSSUtil;
-using $GSSContextSpi = ::sun::security::jgss::spi::GSSContextSpi;
 using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 using $NegTokenInit = ::sun::security::jgss::spnego::NegTokenInit;

@@ -19,26 +19,10 @@
 #include <java/sql/Timestamp.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigDecimal = ::java::math::BigDecimal;
-using $URL = ::java::net::URL;
-using $1Array = ::java::sql::Array;
-using $Blob = ::java::sql::Blob;
-using $Clob = ::java::sql::Clob;
-using $Date = ::java::sql::Date;
-using $NClob = ::java::sql::NClob;
-using $Ref = ::java::sql::Ref;
-using $RowId = ::java::sql::RowId;
-using $SQLData = ::java::sql::SQLData;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
 using $SQLType = ::java::sql::SQLType;
-using $SQLXML = ::java::sql::SQLXML;
-using $Struct = ::java::sql::Struct;
-using $Time = ::java::sql::Time;
-using $Timestamp = ::java::sql::Timestamp;
 
 namespace java {
 	namespace sql {

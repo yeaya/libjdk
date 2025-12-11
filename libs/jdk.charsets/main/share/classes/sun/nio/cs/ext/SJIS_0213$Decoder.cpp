@@ -20,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
@@ -28,7 +27,6 @@ using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $CharsetMapping = ::sun::nio::cs::CharsetMapping;
 using $CharsetMapping$Entry = ::sun::nio::cs::CharsetMapping$Entry;
-using $SJIS_0213 = ::sun::nio::cs::ext::SJIS_0213;
 using $SJIS_0213$Holder = ::sun::nio::cs::ext::SJIS_0213$Holder;
 
 namespace sun {

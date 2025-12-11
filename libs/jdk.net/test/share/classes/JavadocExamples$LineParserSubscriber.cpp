@@ -12,7 +12,6 @@
 
 #undef MAX_VALUE
 
-using $JavadocExamples = ::JavadocExamples;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -22,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;

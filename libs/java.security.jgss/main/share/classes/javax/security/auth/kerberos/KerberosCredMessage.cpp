@@ -17,7 +17,6 @@ using $Arrays = ::java::util::Arrays;
 using $Base64 = ::java::util::Base64;
 using $Base64$Encoder = ::java::util::Base64$Encoder;
 using $Objects = ::java::util::Objects;
-using $Destroyable = ::javax::security::auth::Destroyable;
 using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
 
 namespace javax {

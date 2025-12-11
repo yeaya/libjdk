@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCounter$Flags = ::sun::management::counter::AbstractCounter$Flags;
-using $Counter = ::sun::management::counter::Counter;
 using $Units = ::sun::management::counter::Units;
 using $Variability = ::sun::management::counter::Variability;
 

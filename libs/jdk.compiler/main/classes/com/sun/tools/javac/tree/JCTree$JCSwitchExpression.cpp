@@ -21,7 +21,6 @@ using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $SwitchExpressionTree = ::com::sun::source::tree::SwitchExpressionTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;

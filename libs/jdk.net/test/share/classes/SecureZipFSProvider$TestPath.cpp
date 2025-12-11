@@ -15,7 +15,6 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
-using $SecureZipFSProvider = ::SecureZipFSProvider;
 using $SecureZipFSProvider$SecureZipFS = ::SecureZipFSProvider$SecureZipFS;
 using $SecureZipFSProvider$TestPath$1 = ::SecureZipFSProvider$TestPath$1;
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;

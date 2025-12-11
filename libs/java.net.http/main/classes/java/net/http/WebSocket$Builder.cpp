@@ -10,11 +10,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URI = ::java::net::URI;
-using $WebSocket = ::java::net::http::WebSocket;
-using $WebSocket$Listener = ::java::net::http::WebSocket$Listener;
-using $Duration = ::java::time::Duration;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 
 namespace java {
 	namespace net {

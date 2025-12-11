@@ -22,7 +22,6 @@
 #undef METHOD
 
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
@@ -33,12 +32,10 @@ using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$UnaryVisitor = ::com::sun::tools::javac::code::Types$UnaryVisitor;
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;

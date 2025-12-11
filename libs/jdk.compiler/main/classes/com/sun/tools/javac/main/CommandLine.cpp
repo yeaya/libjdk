@@ -19,13 +19,10 @@
 
 using $CommandLine$Tokenizer = ::com::sun::tools::javac::main::CommandLine$Tokenizer;
 using $CommandLine$UnmatchedQuote = ::com::sun::tools::javac::main::CommandLine$UnmatchedQuote;
-using $BufferedReader = ::java::io::BufferedReader;
 using $Reader = ::java::io::Reader;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Charset = ::java::nio::charset::Charset;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;

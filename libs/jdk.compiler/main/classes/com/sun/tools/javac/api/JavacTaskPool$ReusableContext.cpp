@@ -44,13 +44,10 @@
 #undef PARSE
 #undef PATCH_MODULE_PATH
 
-using $CompilationUnitTree = ::com::sun::source::tree::CompilationUnitTree;
 using $JavacTask = ::com::sun::source::util::JavacTask;
 using $TaskEvent = ::com::sun::source::util::TaskEvent;
 using $TaskEvent$Kind = ::com::sun::source::util::TaskEvent$Kind;
-using $TaskListener = ::com::sun::source::util::TaskListener;
 using $TreeScanner = ::com::sun::source::util::TreeScanner;
-using $JavacTaskPool = ::com::sun::tools::javac::api::JavacTaskPool;
 using $JavacTaskPool$ReusableContext$1 = ::com::sun::tools::javac::api::JavacTaskPool$ReusableContext$1;
 using $JavacTaskPool$ReusableContext$ReusableJavaCompiler = ::com::sun::tools::javac::api::JavacTaskPool$ReusableContext$ReusableJavaCompiler;
 using $JavacTaskPool$ReusableContext$ReusableLog = ::com::sun::tools::javac::api::JavacTaskPool$ReusableContext$ReusableLog;
@@ -69,7 +66,6 @@ using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
 using $JavacElements = ::com::sun::tools::javac::model::JavacElements;
 using $PlatformDescription = ::com::sun::tools::javac::platform::PlatformDescription;
 using $Context = ::com::sun::tools::javac::util::Context;
-using $Context$Factory = ::com::sun::tools::javac::util::Context$Factory;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Options = ::com::sun::tools::javac::util::Options;
@@ -80,7 +76,6 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
-using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;

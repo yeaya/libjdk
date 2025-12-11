@@ -22,13 +22,8 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 using $AccessController = ::java::security::AccessController;
@@ -36,8 +31,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ExtendedSocketOptions$PlatformSocketOptions = ::jdk::net::ExtendedSocketOptions$PlatformSocketOptions;
 using $UnixDomainPrincipal = ::jdk::net::UnixDomainPrincipal;
 using $UnixUserPrincipals = ::sun::nio::fs::UnixUserPrincipals;
-using $UnixUserPrincipals$Group = ::sun::nio::fs::UnixUserPrincipals$Group;
-using $UnixUserPrincipals$User = ::sun::nio::fs::UnixUserPrincipals$User;
 
 namespace jdk {
 	namespace net {
@@ -212,21 +205,21 @@ $UnixDomainPrincipal* LinuxSocketOptions::getSoPeerCred(int32_t fd) {
 void LinuxSocketOptions::setTcpkeepAliveProbes0(int32_t fd, int32_t value) {
 	$init(LinuxSocketOptions);
 	$prepareNativeStatic(LinuxSocketOptions, setTcpkeepAliveProbes0, void, int32_t fd, int32_t value);
-	$invokeNativeStatic(LinuxSocketOptions, setTcpkeepAliveProbes0, fd, value);
+	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 void LinuxSocketOptions::setTcpKeepAliveTime0(int32_t fd, int32_t value) {
 	$init(LinuxSocketOptions);
 	$prepareNativeStatic(LinuxSocketOptions, setTcpKeepAliveTime0, void, int32_t fd, int32_t value);
-	$invokeNativeStatic(LinuxSocketOptions, setTcpKeepAliveTime0, fd, value);
+	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 void LinuxSocketOptions::setTcpKeepAliveIntvl0(int32_t fd, int32_t value) {
 	$init(LinuxSocketOptions);
 	$prepareNativeStatic(LinuxSocketOptions, setTcpKeepAliveIntvl0, void, int32_t fd, int32_t value);
-	$invokeNativeStatic(LinuxSocketOptions, setTcpKeepAliveIntvl0, fd, value);
+	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
@@ -234,7 +227,7 @@ int32_t LinuxSocketOptions::getTcpkeepAliveProbes0(int32_t fd) {
 	$init(LinuxSocketOptions);
 	int32_t $ret = 0;
 	$prepareNativeStatic(LinuxSocketOptions, getTcpkeepAliveProbes0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(LinuxSocketOptions, getTcpkeepAliveProbes0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -243,7 +236,7 @@ int32_t LinuxSocketOptions::getTcpKeepAliveTime0(int32_t fd) {
 	$init(LinuxSocketOptions);
 	int32_t $ret = 0;
 	$prepareNativeStatic(LinuxSocketOptions, getTcpKeepAliveTime0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(LinuxSocketOptions, getTcpKeepAliveTime0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -252,7 +245,7 @@ int32_t LinuxSocketOptions::getTcpKeepAliveIntvl0(int32_t fd) {
 	$init(LinuxSocketOptions);
 	int32_t $ret = 0;
 	$prepareNativeStatic(LinuxSocketOptions, getTcpKeepAliveIntvl0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(LinuxSocketOptions, getTcpKeepAliveIntvl0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -260,7 +253,7 @@ int32_t LinuxSocketOptions::getTcpKeepAliveIntvl0(int32_t fd) {
 void LinuxSocketOptions::setQuickAck0(int32_t fd, bool on) {
 	$init(LinuxSocketOptions);
 	$prepareNativeStatic(LinuxSocketOptions, setQuickAck0, void, int32_t fd, bool on);
-	$invokeNativeStatic(LinuxSocketOptions, setQuickAck0, fd, on);
+	$invokeNativeStatic(fd, on);
 	$finishNativeStatic();
 }
 
@@ -268,7 +261,7 @@ bool LinuxSocketOptions::getQuickAck0(int32_t fd) {
 	$init(LinuxSocketOptions);
 	bool $ret = false;
 	$prepareNativeStatic(LinuxSocketOptions, getQuickAck0, bool, int32_t fd);
-	$ret = $invokeNativeStatic(LinuxSocketOptions, getQuickAck0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -277,7 +270,7 @@ int64_t LinuxSocketOptions::getSoPeerCred0(int32_t fd) {
 	$init(LinuxSocketOptions);
 	int64_t $ret = 0;
 	$prepareNativeStatic(LinuxSocketOptions, getSoPeerCred0, int64_t, int32_t fd);
-	$ret = $invokeNativeStatic(LinuxSocketOptions, getSoPeerCred0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -286,7 +279,7 @@ bool LinuxSocketOptions::keepAliveOptionsSupported0() {
 	$init(LinuxSocketOptions);
 	bool $ret = false;
 	$prepareNativeStatic(LinuxSocketOptions, keepAliveOptionsSupported0, bool);
-	$ret = $invokeNativeStatic(LinuxSocketOptions, keepAliveOptionsSupported0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -295,7 +288,7 @@ bool LinuxSocketOptions::quickAckSupported0() {
 	$init(LinuxSocketOptions);
 	bool $ret = false;
 	$prepareNativeStatic(LinuxSocketOptions, quickAckSupported0, bool);
-	$ret = $invokeNativeStatic(LinuxSocketOptions, quickAckSupported0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -304,7 +297,7 @@ bool LinuxSocketOptions::incomingNapiIdSupported0() {
 	$init(LinuxSocketOptions);
 	bool $ret = false;
 	$prepareNativeStatic(LinuxSocketOptions, incomingNapiIdSupported0, bool);
-	$ret = $invokeNativeStatic(LinuxSocketOptions, incomingNapiIdSupported0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -313,7 +306,7 @@ int32_t LinuxSocketOptions::getIncomingNapiId0(int32_t fd) {
 	$init(LinuxSocketOptions);
 	int32_t $ret = 0;
 	$prepareNativeStatic(LinuxSocketOptions, getIncomingNapiId0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(LinuxSocketOptions, getIncomingNapiId0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }

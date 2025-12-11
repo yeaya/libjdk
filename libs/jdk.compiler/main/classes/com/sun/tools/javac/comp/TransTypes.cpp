@@ -112,7 +112,6 @@
 #undef VOID
 
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Source = ::com::sun::tools::javac::code::Source;
@@ -120,13 +119,11 @@ using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$OperatorSymbol = ::com::sun::tools::javac::code::Symbol$OperatorSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$IntersectionClassType = ::com::sun::tools::javac::code::Type$IntersectionClassType;
-using $Type$JCPrimitiveType = ::com::sun::tools::javac::code::Type$JCPrimitiveType;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
@@ -152,7 +149,6 @@ using $JCTree$JCBreak = ::com::sun::tools::javac::tree::JCTree$JCBreak;
 using $JCTree$JCCase = ::com::sun::tools::javac::tree::JCTree$JCCase;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCTree$JCConditional = ::com::sun::tools::javac::tree::JCTree$JCConditional;
 using $JCTree$JCDoWhileLoop = ::com::sun::tools::javac::tree::JCTree$JCDoWhileLoop;
 using $JCTree$JCEnhancedForLoop = ::com::sun::tools::javac::tree::JCTree$JCEnhancedForLoop;
@@ -202,15 +198,12 @@ using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagn
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Log = ::com::sun::tools::javac::util::Log;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $Names = ::com::sun::tools::javac::util::Names;
-using $Warner = ::com::sun::tools::javac::util::Warner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 
 namespace com {

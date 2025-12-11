@@ -10,14 +10,11 @@
 #undef UNREGISTERED
 #undef WAITING
 
-using $TransportImpl$ChannelStateArray = $Array<::jdk::internal::net::http::websocket::TransportImpl$ChannelState>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $TransportImpl = ::jdk::internal::net::http::websocket::TransportImpl;
 using $TransportImpl$ChannelState = ::jdk::internal::net::http::websocket::TransportImpl$ChannelState;
 
 namespace jdk {

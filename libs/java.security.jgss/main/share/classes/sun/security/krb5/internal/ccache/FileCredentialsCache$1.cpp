@@ -7,8 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $FileCredentialsCache = ::sun::security::krb5::internal::ccache::FileCredentialsCache;
 
 namespace sun {
 	namespace security {

@@ -5,11 +5,8 @@
 #include <org/w3c/dom/Element.h>
 #include <jcpp.h>
 
-using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Element = ::org::w3c::dom::Element;
 
 namespace com {
 	namespace sun {

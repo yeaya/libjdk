@@ -26,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $AbstractList = ::java::util::AbstractList;
-using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $MBeanServer = ::javax::management::MBeanServer;

@@ -8,7 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RemoteObjectInvocationHandler = ::java::rmi::server::RemoteObjectInvocationHandler;
 using $RemoteObjectInvocationHandler$MethodToHash_Maps$1 = ::java::rmi::server::RemoteObjectInvocationHandler$MethodToHash_Maps$1;
 using $WeakClassHashMap = ::sun::rmi::server::WeakClassHashMap;
 

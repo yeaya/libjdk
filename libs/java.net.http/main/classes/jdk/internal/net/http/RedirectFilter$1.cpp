@@ -10,16 +10,12 @@
 #undef NEVER
 #undef NORMAL
 
-using $HttpClient$RedirectArray = $Array<::java::net::http::HttpClient$Redirect>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $HttpClient = ::java::net::http::HttpClient;
 using $HttpClient$Redirect = ::java::net::http::HttpClient$Redirect;
-using $RedirectFilter = ::jdk::internal::net::http::RedirectFilter;
 
 namespace jdk {
 	namespace internal {

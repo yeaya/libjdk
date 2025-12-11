@@ -7,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 using $Node = ::org::w3c::dom::Node;
 
 namespace javax {

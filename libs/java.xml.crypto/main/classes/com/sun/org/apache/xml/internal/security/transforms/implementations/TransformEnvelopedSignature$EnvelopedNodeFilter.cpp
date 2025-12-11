@@ -5,8 +5,6 @@
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
-using $NodeFilter = ::com::sun::org::apache::xml::internal::security::signature::NodeFilter;
-using $TransformEnvelopedSignature = ::com::sun::org::apache::xml::internal::security::transforms::implementations::TransformEnvelopedSignature;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

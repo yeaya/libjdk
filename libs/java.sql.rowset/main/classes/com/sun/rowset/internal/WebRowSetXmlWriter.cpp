@@ -55,7 +55,6 @@ using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintStream = ::java::io::PrintStream;
-using $Serializable = ::java::io::Serializable;
 using $Writer = ::java::io::Writer;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -69,7 +68,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
 using $BigDecimal = ::java::math::BigDecimal;
-using $1Date = ::java::sql::Date;
+using $Date = ::java::sql::Date;
 using $ResultSet = ::java::sql::ResultSet;
 using $ResultSetMetaData = ::java::sql::ResultSetMetaData;
 using $SQLException = ::java::sql::SQLException;
@@ -77,13 +76,11 @@ using $Time = ::java::sql::Time;
 using $Timestamp = ::java::sql::Timestamp;
 using $Types = ::java::sql::Types;
 using $MessageFormat = ::java::text::MessageFormat;
-using $Date = ::java::util::Date;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $Stack = ::java::util::Stack;
-using $Vector = ::java::util::Vector;
 using $RowSet = ::javax::sql::RowSet;
 using $RowSetInternal = ::javax::sql::RowSetInternal;
 using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
@@ -388,7 +385,7 @@ void WebRowSetXmlWriter::writeValue(int32_t idx, $RowSet* caller) {
 			int64_t l = 0;
 			float f = 0;
 			double d = 0;
-			$var($1Date, date, nullptr)
+			$var($Date, date, nullptr)
 			$var($Time, time, nullptr)
 			$var($Timestamp, ts, nullptr)
 			switch (type) {

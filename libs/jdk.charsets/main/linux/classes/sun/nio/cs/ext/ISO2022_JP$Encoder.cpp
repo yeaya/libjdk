@@ -22,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
@@ -32,7 +31,6 @@ using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $JIS_X_0208 = ::sun::nio::cs::JIS_X_0208;
 using $Surrogate$Parser = ::sun::nio::cs::Surrogate$Parser;
-using $ISO2022_JP = ::sun::nio::cs::ext::ISO2022_JP;
 
 namespace sun {
 	namespace nio {

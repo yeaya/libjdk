@@ -4,11 +4,8 @@
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
-using $DocTree = ::com::sun::source::doctree::DocTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {

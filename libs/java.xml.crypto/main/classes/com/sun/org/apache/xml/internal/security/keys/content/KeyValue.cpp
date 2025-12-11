@@ -22,7 +22,6 @@
 #undef _TAG_KEYVALUE
 #undef _TAG_RSAKEYVALUE
 
-using $KeyInfoContent = ::com::sun::org::apache::xml::internal::security::keys::content::KeyInfoContent;
 using $DSAKeyValue = ::com::sun::org::apache::xml::internal::security::keys::content::keyvalues::DSAKeyValue;
 using $ECKeyValue = ::com::sun::org::apache::xml::internal::security::keys::content::keyvalues::ECKeyValue;
 using $RSAKeyValue = ::com::sun::org::apache::xml::internal::security::keys::content::keyvalues::RSAKeyValue;

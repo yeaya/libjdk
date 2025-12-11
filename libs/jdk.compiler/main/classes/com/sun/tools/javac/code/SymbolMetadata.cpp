@@ -27,8 +27,6 @@
 #undef MTH
 #undef TYP
 
-using $AttributeArray = $Array<::com::sun::tools::javac::code::Attribute>;
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Array = ::com::sun::tools::javac::code::Attribute$Array;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Attribute$TypeCompound = ::com::sun::tools::javac::code::Attribute$TypeCompound;
@@ -37,8 +35,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $TargetType = ::com::sun::tools::javac::code::TargetType;
-using $Type = ::com::sun::tools::javac::code::Type;
-using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;

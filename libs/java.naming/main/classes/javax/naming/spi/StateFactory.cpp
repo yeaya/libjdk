@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
-using $Context = ::javax::naming::Context;
-using $Name = ::javax::naming::Name;
 
 namespace javax {
 	namespace naming {

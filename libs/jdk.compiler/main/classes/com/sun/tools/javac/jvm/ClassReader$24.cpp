@@ -42,7 +42,6 @@
 #undef TRANSITIVE
 #undef TYP
 
-using $ClassFinder$BadClassFile = ::com::sun::tools::javac::code::ClassFinder$BadClassFile;
 using $Directive$ExportsDirective = ::com::sun::tools::javac::code::Directive$ExportsDirective;
 using $Directive$OpensDirective = ::com::sun::tools::javac::code::Directive$OpensDirective;
 using $Directive$RequiresDirective = ::com::sun::tools::javac::code::Directive$RequiresDirective;
@@ -52,7 +51,6 @@ using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ModuleFlags = ::com::sun::tools::javac::code::Symbol$ModuleFlags;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
 using $ClassFile$Version = ::com::sun::tools::javac::jvm::ClassFile$Version;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
@@ -71,14 +69,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $Collection = ::java::util::Collection;
 using $Set = ::java::util::Set;

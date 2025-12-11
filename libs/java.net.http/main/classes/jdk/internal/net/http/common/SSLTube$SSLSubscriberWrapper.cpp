@@ -23,7 +23,6 @@ using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
-using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 using $SSLFlowDelegate = ::jdk::internal::net::http::common::SSLFlowDelegate;
 using $SSLTube = ::jdk::internal::net::http::common::SSLTube;

@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SingleByte = ::sun::nio::cs::SingleByte;
-using $IBM1145 = ::sun::nio::cs::ext::IBM1145;
 
 namespace sun {
 	namespace nio {

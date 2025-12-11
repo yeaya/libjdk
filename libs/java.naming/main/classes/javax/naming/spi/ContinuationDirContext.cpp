@@ -23,7 +23,6 @@
 using $ModificationItemArray = $Array<::javax::naming::directory::ModificationItem>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Hashtable = ::java::util::Hashtable;
 using $CannotProceedException = ::javax::naming::CannotProceedException;
 using $CompositeName = ::javax::naming::CompositeName;

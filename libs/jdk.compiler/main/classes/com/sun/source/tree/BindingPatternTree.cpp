@@ -3,8 +3,6 @@
 #include <com/sun/source/tree/VariableTree.h>
 #include <jcpp.h>
 
-using $PatternTree = ::com::sun::source::tree::PatternTree;
-using $VariableTree = ::com::sun::source::tree::VariableTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

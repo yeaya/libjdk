@@ -5,7 +5,6 @@
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
-using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

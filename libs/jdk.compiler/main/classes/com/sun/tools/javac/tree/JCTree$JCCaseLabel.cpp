@@ -5,7 +5,6 @@
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <jcpp.h>
 
-using $CaseLabelTree = ::com::sun::source::tree::CaseLabelTree;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;

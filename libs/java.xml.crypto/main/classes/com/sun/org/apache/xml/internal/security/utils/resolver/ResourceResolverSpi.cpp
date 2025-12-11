@@ -4,8 +4,6 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext.h>
 #include <jcpp.h>
 
-using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
-using $ResourceResolverContext = ::com::sun::org::apache::xml::internal::security::utils::resolver::ResourceResolverContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

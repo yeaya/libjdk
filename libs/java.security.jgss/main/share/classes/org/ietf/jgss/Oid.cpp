@@ -11,7 +11,6 @@
 #undef FAILURE
 
 using $OidArray = $Array<::org::ietf::jgss::Oid>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

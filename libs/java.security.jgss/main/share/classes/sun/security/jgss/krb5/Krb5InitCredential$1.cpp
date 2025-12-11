@@ -13,10 +13,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessControlContext = ::java::security::AccessControlContext;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $KerberosTicket = ::javax::security::auth::kerberos::KerberosTicket;
 using $GSSCaller = ::sun::security::jgss::GSSCaller;
-using $Krb5InitCredential = ::sun::security::jgss::krb5::Krb5InitCredential;
 using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;
 
 namespace sun {

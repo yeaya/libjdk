@@ -19,17 +19,16 @@ using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ProvidesTree = ::com::sun::source::tree::ProvidesTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCDirective = ::com::sun::tools::javac::tree::JCTree$JCDirective;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -48,7 +47,7 @@ $MethodInfo _JCTree$JCProvides_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCProvides::*)($JCTree$JCExpression*,$1List*)>(&JCTree$JCProvides::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCProvides::*)($JCTree$JCExpression*,$List*)>(&JCTree$JCProvides::init$))},
 	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
 	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
 	{"getImplementationNames", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC},
@@ -105,7 +104,7 @@ void JCTree$JCProvides::finalize() {
 	this->$JCTree$JCDirective::finalize();
 }
 
-void JCTree$JCProvides::init$($JCTree$JCExpression* serviceName, $1List* implNames) {
+void JCTree$JCProvides::init$($JCTree$JCExpression* serviceName, $List* implNames) {
 	$JCTree$JCDirective::init$();
 	$set(this, serviceName, serviceName);
 	$set(this, implNames, implNames);
@@ -128,7 +127,7 @@ $ExpressionTree* JCTree$JCProvides::getServiceName() {
 	return this->serviceName;
 }
 
-$List* JCTree$JCProvides::getImplementationNames() {
+$1List* JCTree$JCProvides::getImplementationNames() {
 	return this->implNames;
 }
 

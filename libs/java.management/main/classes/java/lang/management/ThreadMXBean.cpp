@@ -8,8 +8,6 @@ using $ThreadInfoArray = $Array<::java::lang::management::ThreadInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $PlatformManagedObject = ::java::lang::management::PlatformManagedObject;
-using $ThreadInfo = ::java::lang::management::ThreadInfo;
 
 namespace java {
 	namespace lang {

@@ -51,7 +51,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $Result = ::javax::xml::transform::Result;
 using $Source = ::javax::xml::transform::Source;

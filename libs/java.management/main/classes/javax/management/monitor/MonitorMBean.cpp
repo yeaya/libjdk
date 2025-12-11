@@ -3,11 +3,9 @@
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
 
-using $ObjectNameArray = $Array<::javax::management::ObjectName>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ObjectName = ::javax::management::ObjectName;
 
 namespace javax {
 	namespace management {

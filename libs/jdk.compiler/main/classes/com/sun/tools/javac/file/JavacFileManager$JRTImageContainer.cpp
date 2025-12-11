@@ -28,21 +28,16 @@
 
 using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
 using $JRTIndex = ::com::sun::tools::javac::file::JRTIndex;
-using $JRTIndex$CtSym = ::com::sun::tools::javac::file::JRTIndex$CtSym;
 using $JRTIndex$Entry = ::com::sun::tools::javac::file::JRTIndex$Entry;
 using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
-using $JavacFileManager$Container = ::com::sun::tools::javac::file::JavacFileManager$Container;
 using $PathFileObject = ::com::sun::tools::javac::file::PathFileObject;
 using $RelativePath$RelativeDirectory = ::com::sun::tools::javac::file::RelativePath$RelativeDirectory;
 using $RelativePath$RelativeFile = ::com::sun::tools::javac::file::RelativePath$RelativeFile;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
-using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -55,7 +50,6 @@ using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
-using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace com {
 	namespace sun {

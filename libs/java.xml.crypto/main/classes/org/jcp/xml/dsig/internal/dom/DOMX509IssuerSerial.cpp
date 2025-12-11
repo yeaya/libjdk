@@ -31,7 +31,6 @@ using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
-using $Text = ::org::w3c::dom::Text;
 
 namespace org {
 	namespace jcp {

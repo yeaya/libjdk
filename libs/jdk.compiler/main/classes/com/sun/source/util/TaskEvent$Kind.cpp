@@ -13,7 +13,6 @@
 #undef PARSE
 
 using $TaskEvent$KindArray = $Array<::com::sun::source::util::TaskEvent$Kind>;
-using $TaskEvent = ::com::sun::source::util::TaskEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

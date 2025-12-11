@@ -49,27 +49,19 @@
 #undef US
 
 using $Serializable = ::java::io::Serializable;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $AssertionError = ::java::lang::AssertionError;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $ProtocolException = ::java::net::ProtocolException;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
@@ -79,7 +71,6 @@ using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
-using $BiPredicate = ::java::util::function::BiPredicate;
 using $Function = ::java::util::function::Function;
 using $Http1HeaderParser$1 = ::jdk::internal::net::http::Http1HeaderParser$1;
 using $Http1HeaderParser$State = ::jdk::internal::net::http::Http1HeaderParser$State;

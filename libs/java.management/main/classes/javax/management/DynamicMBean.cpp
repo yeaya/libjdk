@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Attribute = ::javax::management::Attribute;
-using $AttributeList = ::javax::management::AttributeList;
-using $MBeanInfo = ::javax::management::MBeanInfo;
 
 namespace javax {
 	namespace management {

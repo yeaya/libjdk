@@ -14,12 +14,12 @@
 
 using $Directive = ::com::sun::tools::javac::code::Directive;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 using $ModuleElement$DirectiveKind = ::javax::lang::model::element::ModuleElement$DirectiveKind;
 using $ModuleElement$DirectiveVisitor = ::javax::lang::model::element::ModuleElement$DirectiveVisitor;
 using $ModuleElement$ProvidesDirective = ::javax::lang::model::element::ModuleElement$ProvidesDirective;
@@ -40,7 +40,7 @@ $FieldInfo _Directive$ProvidesDirective_FieldInfo_[] = {
 $MethodInfo _Directive$ProvidesDirective_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)V", $PUBLIC, $method(static_cast<void(Directive$ProvidesDirective::*)($Symbol$ClassSymbol*,$1List*)>(&Directive$ProvidesDirective::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)V", $PUBLIC, $method(static_cast<void(Directive$ProvidesDirective::*)($Symbol$ClassSymbol*,$List*)>(&Directive$ProvidesDirective::init$))},
 	{"accept", "(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"getImplementations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PUBLIC},
@@ -85,7 +85,7 @@ void Directive$ProvidesDirective::finalize() {
 	this->$Directive::finalize();
 }
 
-void Directive$ProvidesDirective::init$($Symbol$ClassSymbol* service, $1List* impls) {
+void Directive$ProvidesDirective::init$($Symbol$ClassSymbol* service, $List* impls) {
 	$Directive::init$();
 	$set(this, service, service);
 	$set(this, impls, impls);
@@ -100,7 +100,7 @@ $TypeElement* Directive$ProvidesDirective::getService() {
 	return $as($TypeElement, this->service);
 }
 
-$List* Directive$ProvidesDirective::getImplementations() {
+$1List* Directive$ProvidesDirective::getImplementations() {
 	return this->impls;
 }
 

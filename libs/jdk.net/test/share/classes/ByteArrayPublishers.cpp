@@ -38,7 +38,6 @@
 #undef HTTP_1_1
 #undef LOOPS
 
-using $HttpContext = ::com::sun::net::httpserver::HttpContext;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $HttpServer = ::com::sun::net::httpserver::HttpServer;
@@ -51,12 +50,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $URI = ::java::net::URI;
@@ -68,11 +62,8 @@ using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
 using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse = ::java::net::http::HttpResponse;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $AbstractQueue = ::java::util::AbstractQueue;
 using $ArrayList = ::java::util::ArrayList;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $LinkedBlockingQueue = ::java::util::concurrent::LinkedBlockingQueue;

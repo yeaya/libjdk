@@ -48,7 +48,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodError = ::java::lang::NoSuchMethodError;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 using $MarshalledObject = ::java::rmi::MarshalledObject;

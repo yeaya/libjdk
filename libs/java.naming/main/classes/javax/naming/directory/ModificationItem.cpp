@@ -8,7 +8,6 @@
 #undef REMOVE_ATTRIBUTE
 #undef REPLACE_ATTRIBUTE
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

@@ -11,15 +11,9 @@
 #undef REMOVE_ATTRIBUTE
 #undef REPLACE_ATTRIBUTE
 
-using $ModificationItemArray = $Array<::javax::naming::directory::ModificationItem>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Context = ::javax::naming::Context;
-using $Name = ::javax::naming::Name;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
-using $Attributes = ::javax::naming::directory::Attributes;
-using $SearchControls = ::javax::naming::directory::SearchControls;
 
 namespace javax {
 	namespace naming {

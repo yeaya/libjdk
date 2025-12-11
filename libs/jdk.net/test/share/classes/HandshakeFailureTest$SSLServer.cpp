@@ -18,7 +18,6 @@
 #include <javax/net/ssl/TrustManager.h>
 #include <jcpp.h>
 
-using $HandshakeFailureTest = ::HandshakeFailureTest;
 using $HandshakeFailureTest$AbstractServer = ::HandshakeFailureTest$AbstractServer;
 using $KeyManagerArray = $Array<::javax::net::ssl::KeyManager>;
 using $TrustManagerArray = $Array<::javax::net::ssl::TrustManager>;
@@ -31,15 +30,12 @@ using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ServerSocket = ::java::net::ServerSocket;
-using $Socket = ::java::net::Socket;
 using $SecureRandom = ::java::security::SecureRandom;
 using $ServerSocketFactory = ::javax::net::ServerSocketFactory;
 using $SSLContext = ::javax::net::ssl::SSLContext;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
-using $SSLServerSocketFactory = ::javax::net::ssl::SSLServerSocketFactory;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 
 $FieldInfo _HandshakeFailureTest$SSLServer_FieldInfo_[] = {

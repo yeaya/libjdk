@@ -8,7 +8,6 @@
 #undef SPECULATIVE
 
 using $DeferredAttr$AttrModeArray = $Array<::com::sun::tools::javac::comp::DeferredAttr$AttrMode>;
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

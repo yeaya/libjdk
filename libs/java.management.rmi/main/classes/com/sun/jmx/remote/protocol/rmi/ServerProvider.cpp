@@ -14,7 +14,6 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $Map = ::java::util::Map;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $JMXConnectorServer = ::javax::management::remote::JMXConnectorServer;
-using $JMXConnectorServerProvider = ::javax::management::remote::JMXConnectorServerProvider;
 using $JMXServiceURL = ::javax::management::remote::JMXServiceURL;
 using $RMIConnectorServer = ::javax::management::remote::rmi::RMIConnectorServer;
 

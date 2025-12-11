@@ -28,7 +28,6 @@
 
 using $CompileProperties = ::com::sun::tools::sjavac::CompileProperties;
 using $Log = ::com::sun::tools::sjavac::Log;
-using $Transformer = ::com::sun::tools::sjavac::Transformer;
 using $CompilationService = ::com::sun::tools::sjavac::comp::CompilationService;
 using $Options = ::com::sun::tools::sjavac::options::Options;
 using $BufferedWriter = ::java::io::BufferedWriter;
@@ -42,7 +41,6 @@ using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $URI = ::java::net::URI;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractSet = ::java::util::AbstractSet;

@@ -15,7 +15,6 @@
 #include <javax/lang/model/type/TypeMirror.h>
 #include <jcpp.h>
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
@@ -23,11 +22,9 @@ using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $JNIWriter$1 = ::com::sun::tools::javac::jvm::JNIWriter$1;
 using $JNIWriter$SimpleTypeVisitor = ::com::sun::tools::javac::jvm::JNIWriter$SimpleTypeVisitor;
-using $JNIWriter$TypeSignature = ::com::sun::tools::javac::jvm::JNIWriter$TypeSignature;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

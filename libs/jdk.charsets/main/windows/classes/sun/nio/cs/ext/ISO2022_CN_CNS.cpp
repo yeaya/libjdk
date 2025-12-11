@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $EUC_TW = ::sun::nio::cs::ext::EUC_TW;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;
 using $ISO2022 = ::sun::nio::cs::ext::ISO2022;

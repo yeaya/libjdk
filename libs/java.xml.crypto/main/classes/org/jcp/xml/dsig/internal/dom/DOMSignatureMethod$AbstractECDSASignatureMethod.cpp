@@ -17,13 +17,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Key = ::java::security::Key;
-using $ECKey = ::java::security::interfaces::ECKey;
 using $ECPrivateKey = ::java::security::interfaces::ECPrivateKey;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $ECField = ::java::security::spec::ECField;
 using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 using $EllipticCurve = ::java::security::spec::EllipticCurve;
-using $DOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod;
 using $DOMSignatureMethod$AbstractP1363FormatSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractP1363FormatSignatureMethod;
 using $Element = ::org::w3c::dom::Element;
 

@@ -12,7 +12,6 @@
 
 using $Resolve$MethodResolutionPhaseArray = $Array<::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase>;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$MethodResolutionPhase$1 = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

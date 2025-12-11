@@ -10,13 +10,11 @@
 #undef XMLNS
 
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
 using $Attr = ::org::w3c::dom::Attr;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {

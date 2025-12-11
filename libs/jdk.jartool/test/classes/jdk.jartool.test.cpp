@@ -44,5 +44,4 @@ void jdk$jartool$test::init() {
 		jdk$jartool$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

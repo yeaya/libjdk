@@ -48,7 +48,6 @@ using $TextInputCallback = ::javax::security::auth::callback::TextInputCallback;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
 using $RealmCallback = ::javax::security::sasl::RealmCallback;
 using $Sasl = ::javax::security::sasl::Sasl;
-using $SaslClient = ::javax::security::sasl::SaslClient;
 using $SaslException = ::javax::security::sasl::SaslException;
 
 namespace com {

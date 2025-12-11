@@ -8,7 +8,6 @@
 #undef STATEMENT
 
 using $CaseTree$CaseKindArray = $Array<::com::sun::source::tree::CaseTree$CaseKind>;
-using $CaseTree = ::com::sun::source::tree::CaseTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

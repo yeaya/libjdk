@@ -8,8 +8,6 @@
 #undef STUCK
 
 using $Infer$DependencyKindArray = $Array<::com::sun::tools::javac::comp::Infer$DependencyKind>;
-using $Infer = ::com::sun::tools::javac::comp::Infer;
-using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

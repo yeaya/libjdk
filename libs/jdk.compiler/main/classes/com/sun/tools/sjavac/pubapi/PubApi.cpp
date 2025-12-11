@@ -48,7 +48,6 @@
 #undef TYPE_PATTERN
 #undef VAR_PATTERN
 
-using $ModifierArray = $Array<::javax::lang::model::element::Modifier>;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $StringUtils = ::com::sun::tools::javac::util::StringUtils;
 using $Util = ::com::sun::tools::sjavac::Util;
@@ -59,20 +58,13 @@ using $PubVar = ::com::sun::tools::sjavac::pubapi::PubVar;
 using $TypeDesc = ::com::sun::tools::sjavac::pubapi::TypeDesc;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
-using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractSet = ::java::util::AbstractSet;
@@ -92,7 +84,6 @@ using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $Modifier = ::javax::lang::model::element::Modifier;

@@ -20,7 +20,6 @@
 #undef RELEASE_MASK
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

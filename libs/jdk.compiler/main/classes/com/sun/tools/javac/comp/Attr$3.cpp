@@ -12,14 +12,12 @@
 #include <jcpp.h>
 
 using $Attr = ::com::sun::tools::javac::comp::Attr;
-using $Check = ::com::sun::tools::javac::comp::Check;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $Check$NestedCheckContext = ::com::sun::tools::javac::comp::Check$NestedCheckContext;
 using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::CompilerProperties$Fragments;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
-using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

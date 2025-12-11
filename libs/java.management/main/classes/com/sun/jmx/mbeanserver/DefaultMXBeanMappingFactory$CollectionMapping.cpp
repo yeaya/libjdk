@@ -35,7 +35,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $1Array = ::java::lang::reflect::Array;
 using $ParameterizedType = ::java::lang::reflect::ParameterizedType;
@@ -50,7 +49,6 @@ using $Set = ::java::util::Set;
 using $SortedSet = ::java::util::SortedSet;
 using $TreeSet = ::java::util::TreeSet;
 using $ArrayType = ::javax::management::openmbean::ArrayType;
-using $OpenDataException = ::javax::management::openmbean::OpenDataException;
 using $OpenType = ::javax::management::openmbean::OpenType;
 
 namespace com {

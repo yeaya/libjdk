@@ -5,13 +5,10 @@
 #include <java/lang/Iterable.h>
 #include <jcpp.h>
 
-using $GraphUtils = ::com::sun::tools::javac::util::GraphUtils;
 using $GraphUtils$AbstractNode = ::com::sun::tools::javac::util::GraphUtils$AbstractNode;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace com {

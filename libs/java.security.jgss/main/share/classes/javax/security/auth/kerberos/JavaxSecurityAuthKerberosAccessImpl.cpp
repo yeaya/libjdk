@@ -11,7 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
 using $KerberosTicket = ::javax::security::auth::kerberos::KerberosTicket;
 using $1KeyTab = ::javax::security::auth::kerberos::KeyTab;
-using $JavaxSecurityAuthKerberosAccess = ::sun::security::krb5::JavaxSecurityAuthKerberosAccess;
 using $KeyTab = ::sun::security::krb5::internal::ktab::KeyTab;
 
 namespace javax {

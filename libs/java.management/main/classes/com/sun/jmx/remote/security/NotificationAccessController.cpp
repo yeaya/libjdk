@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Notification = ::javax::management::Notification;
-using $ObjectName = ::javax::management::ObjectName;
-using $Subject = ::javax::security::auth::Subject;
 
 namespace com {
 	namespace sun {

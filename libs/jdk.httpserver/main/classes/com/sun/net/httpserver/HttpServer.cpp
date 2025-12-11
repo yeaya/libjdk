@@ -7,13 +7,10 @@
 #include <java/util/concurrent/Executor.h>
 #include <jcpp.h>
 
-using $HttpContext = ::com::sun::net::httpserver::HttpContext;
-using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $HttpServerProvider = ::com::sun::net::httpserver::spi::HttpServerProvider;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $Executor = ::java::util::concurrent::Executor;
 
 namespace com {
 	namespace sun {

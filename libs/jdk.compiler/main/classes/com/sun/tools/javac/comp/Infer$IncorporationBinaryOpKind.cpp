@@ -13,12 +13,8 @@
 #undef IS_SUBTYPE
 
 using $Infer$IncorporationBinaryOpKindArray = $Array<::com::sun::tools::javac::comp::Infer$IncorporationBinaryOpKind>;
-using $Type = ::com::sun::tools::javac::code::Type;
-using $Types = ::com::sun::tools::javac::code::Types;
-using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$IncorporationBinaryOpKind$1 = ::com::sun::tools::javac::comp::Infer$IncorporationBinaryOpKind$1;
 using $Infer$IncorporationBinaryOpKind$2 = ::com::sun::tools::javac::comp::Infer$IncorporationBinaryOpKind$2;
-using $Warner = ::com::sun::tools::javac::util::Warner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

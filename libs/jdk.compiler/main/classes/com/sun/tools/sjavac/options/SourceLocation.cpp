@@ -13,7 +13,6 @@
 using $Module = ::com::sun::tools::sjavac::Module;
 using $ProblemException = ::com::sun::tools::sjavac::ProblemException;
 using $Source = ::com::sun::tools::sjavac::Source;
-using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

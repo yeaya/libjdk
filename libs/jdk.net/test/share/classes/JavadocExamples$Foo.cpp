@@ -7,12 +7,10 @@
 
 #undef UTF_8
 
-using $JavadocExamples = ::JavadocExamples;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
 $FieldInfo _JavadocExamples$Foo_FieldInfo_[] = {

@@ -19,7 +19,6 @@ using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $LockInfoArray = $Array<::java::lang::management::LockInfo>;
 using $MonitorInfoArray = $Array<::java::lang::management::MonitorInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;

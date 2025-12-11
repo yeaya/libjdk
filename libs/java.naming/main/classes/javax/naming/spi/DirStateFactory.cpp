@@ -10,12 +10,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
-using $Context = ::javax::naming::Context;
-using $Name = ::javax::naming::Name;
-using $Attributes = ::javax::naming::directory::Attributes;
-using $DirStateFactory$Result = ::javax::naming::spi::DirStateFactory$Result;
-using $StateFactory = ::javax::naming::spi::StateFactory;
 
 namespace javax {
 	namespace naming {

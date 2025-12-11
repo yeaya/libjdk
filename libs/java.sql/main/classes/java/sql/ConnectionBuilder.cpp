@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Connection = ::java::sql::Connection;
-using $ShardingKey = ::java::sql::ShardingKey;
 
 namespace java {
 	namespace sql {

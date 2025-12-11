@@ -11,7 +11,6 @@
 
 using $LocalHostCookie = ::LocalHostCookie;
 using $LocalHostCookie$MyCookieHandler = ::LocalHostCookie$MyCookieHandler;
-using $HttpContext = ::com::sun::net::httpserver::HttpContext;
 using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $HttpServer = ::com::sun::net::httpserver::HttpServer;
 using $IOException = ::java::io::IOException;

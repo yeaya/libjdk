@@ -7,13 +7,8 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $Authenticator = ::com::sun::net::httpserver::Authenticator;
-using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
-using $HttpServer = ::com::sun::net::httpserver::HttpServer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {

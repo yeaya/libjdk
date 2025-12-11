@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $KeySelector = ::javax::xml::crypto::KeySelector;
-using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
 
 namespace javax {
 	namespace xml {

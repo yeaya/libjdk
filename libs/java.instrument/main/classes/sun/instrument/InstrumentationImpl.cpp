@@ -52,22 +52,15 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Void = ::java::lang::Void;
-using $ClassDefinition = ::java::lang::instrument::ClassDefinition;
 using $ClassFileTransformer = ::java::lang::instrument::ClassFileTransformer;
 using $Instrumentation = ::java::lang::instrument::Instrumentation;
 using $UnmodifiableModuleException = ::java::lang::instrument::UnmodifiableModuleException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $Executable = ::java::lang::reflect::Executable;
 using $Method = ::java::lang::reflect::Method;
@@ -90,7 +83,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
 using $JarFile = ::java::util::jar::JarFile;
-using $ZipFile = ::java::util::zip::ZipFile;
 using $BootLoader = ::jdk::internal::loader::BootLoader;
 using $Modules = ::jdk::internal::module::Modules;
 using $InstrumentationImpl$1 = ::sun::instrument::InstrumentationImpl$1;
@@ -738,7 +730,7 @@ $TransformerManager* InstrumentationImpl::findTransformerManager($ClassFileTrans
 bool InstrumentationImpl::isModifiableClass0(int64_t nativeAgent, $Class* theClass) {
 	bool $ret = false;
 	$prepareNative(InstrumentationImpl, isModifiableClass0, bool, int64_t nativeAgent, $Class* theClass);
-	$ret = $invokeNative(InstrumentationImpl, isModifiableClass0, nativeAgent, theClass);
+	$ret = $invokeNative(nativeAgent, theClass);
 	$finishNative();
 	return $ret;
 }
@@ -746,39 +738,39 @@ bool InstrumentationImpl::isModifiableClass0(int64_t nativeAgent, $Class* theCla
 bool InstrumentationImpl::isRetransformClassesSupported0(int64_t nativeAgent) {
 	bool $ret = false;
 	$prepareNative(InstrumentationImpl, isRetransformClassesSupported0, bool, int64_t nativeAgent);
-	$ret = $invokeNative(InstrumentationImpl, isRetransformClassesSupported0, nativeAgent);
+	$ret = $invokeNative(nativeAgent);
 	$finishNative();
 	return $ret;
 }
 
 void InstrumentationImpl::setHasTransformers(int64_t nativeAgent, bool has) {
 	$prepareNative(InstrumentationImpl, setHasTransformers, void, int64_t nativeAgent, bool has);
-	$invokeNative(InstrumentationImpl, setHasTransformers, nativeAgent, has);
+	$invokeNative(nativeAgent, has);
 	$finishNative();
 }
 
 void InstrumentationImpl::setHasRetransformableTransformers(int64_t nativeAgent, bool has) {
 	$prepareNative(InstrumentationImpl, setHasRetransformableTransformers, void, int64_t nativeAgent, bool has);
-	$invokeNative(InstrumentationImpl, setHasRetransformableTransformers, nativeAgent, has);
+	$invokeNative(nativeAgent, has);
 	$finishNative();
 }
 
 void InstrumentationImpl::retransformClasses0(int64_t nativeAgent, $ClassArray* classes) {
 	$prepareNative(InstrumentationImpl, retransformClasses0, void, int64_t nativeAgent, $ClassArray* classes);
-	$invokeNative(InstrumentationImpl, retransformClasses0, nativeAgent, classes);
+	$invokeNative(nativeAgent, classes);
 	$finishNative();
 }
 
 void InstrumentationImpl::redefineClasses0(int64_t nativeAgent, $ClassDefinitionArray* definitions) {
 	$prepareNative(InstrumentationImpl, redefineClasses0, void, int64_t nativeAgent, $ClassDefinitionArray* definitions);
-	$invokeNative(InstrumentationImpl, redefineClasses0, nativeAgent, definitions);
+	$invokeNative(nativeAgent, definitions);
 	$finishNative();
 }
 
 $ClassArray* InstrumentationImpl::getAllLoadedClasses0(int64_t nativeAgent) {
 	$var($ClassArray, $ret, nullptr);
 	$prepareNative(InstrumentationImpl, getAllLoadedClasses0, $ClassArray*, int64_t nativeAgent);
-	$assign($ret, $invokeNative(InstrumentationImpl, getAllLoadedClasses0, nativeAgent));
+	$assign($ret, $invokeNativeObject(nativeAgent));
 	$finishNative();
 	return $ret;
 }
@@ -786,7 +778,7 @@ $ClassArray* InstrumentationImpl::getAllLoadedClasses0(int64_t nativeAgent) {
 $ClassArray* InstrumentationImpl::getInitiatedClasses0(int64_t nativeAgent, $ClassLoader* loader) {
 	$var($ClassArray, $ret, nullptr);
 	$prepareNative(InstrumentationImpl, getInitiatedClasses0, $ClassArray*, int64_t nativeAgent, $ClassLoader* loader);
-	$assign($ret, $invokeNative(InstrumentationImpl, getInitiatedClasses0, nativeAgent, loader));
+	$assign($ret, $invokeNativeObject(nativeAgent, loader));
 	$finishNative();
 	return $ret;
 }
@@ -794,20 +786,20 @@ $ClassArray* InstrumentationImpl::getInitiatedClasses0(int64_t nativeAgent, $Cla
 int64_t InstrumentationImpl::getObjectSize0(int64_t nativeAgent, Object$* objectToSize) {
 	int64_t $ret = 0;
 	$prepareNative(InstrumentationImpl, getObjectSize0, int64_t, int64_t nativeAgent, Object$* objectToSize);
-	$ret = $invokeNative(InstrumentationImpl, getObjectSize0, nativeAgent, objectToSize);
+	$ret = $invokeNative(nativeAgent, objectToSize);
 	$finishNative();
 	return $ret;
 }
 
 void InstrumentationImpl::appendToClassLoaderSearch0(int64_t nativeAgent, $String* jarfile, bool bootLoader) {
 	$prepareNative(InstrumentationImpl, appendToClassLoaderSearch0, void, int64_t nativeAgent, $String* jarfile, bool bootLoader);
-	$invokeNative(InstrumentationImpl, appendToClassLoaderSearch0, nativeAgent, jarfile, bootLoader);
+	$invokeNative(nativeAgent, jarfile, bootLoader);
 	$finishNative();
 }
 
 void InstrumentationImpl::setNativeMethodPrefixes(int64_t nativeAgent, $StringArray* prefixes, bool isRetransformable) {
 	$prepareNative(InstrumentationImpl, setNativeMethodPrefixes, void, int64_t nativeAgent, $StringArray* prefixes, bool isRetransformable);
-	$invokeNative(InstrumentationImpl, setNativeMethodPrefixes, nativeAgent, prefixes, isRetransformable);
+	$invokeNative(nativeAgent, prefixes, isRetransformable);
 	$finishNative();
 }
 
@@ -894,7 +886,7 @@ void InstrumentationImpl::loadAgent($String* path) {
 void InstrumentationImpl::loadAgent0($String* path) {
 	$init(InstrumentationImpl);
 	$prepareNativeStatic(InstrumentationImpl, loadAgent0, void, $String* path);
-	$invokeNativeStatic(InstrumentationImpl, loadAgent0, path);
+	$invokeNativeStatic(path);
 	$finishNativeStatic();
 }
 

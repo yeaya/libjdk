@@ -30,10 +30,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runtime = ::java::lang::Runtime;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
-using $MemoryMXBean = ::java::lang::management::MemoryMXBean;
-using $MemoryManagerMXBean = ::java::lang::management::MemoryManagerMXBean;
 using $MemoryNotificationInfo = ::java::lang::management::MemoryNotificationInfo;
-using $MemoryPoolMXBean = ::java::lang::management::MemoryPoolMXBean;
 using $MemoryUsage = ::java::lang::management::MemoryUsage;
 using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
 using $Notification = ::javax::management::Notification;
@@ -187,7 +184,7 @@ $MemoryPoolMXBeanArray* MemoryImpl::getMemoryPools0() {
 	$init(MemoryImpl);
 	$var($MemoryPoolMXBeanArray, $ret, nullptr);
 	$prepareNativeStatic(MemoryImpl, getMemoryPools0, $MemoryPoolMXBeanArray*);
-	$assign($ret, $invokeNativeStatic(MemoryImpl, getMemoryPools0));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -196,7 +193,7 @@ $MemoryManagerMXBeanArray* MemoryImpl::getMemoryManagers0() {
 	$init(MemoryImpl);
 	$var($MemoryManagerMXBeanArray, $ret, nullptr);
 	$prepareNativeStatic(MemoryImpl, getMemoryManagers0, $MemoryManagerMXBeanArray*);
-	$assign($ret, $invokeNativeStatic(MemoryImpl, getMemoryManagers0));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -204,14 +201,14 @@ $MemoryManagerMXBeanArray* MemoryImpl::getMemoryManagers0() {
 $MemoryUsage* MemoryImpl::getMemoryUsage0(bool heap) {
 	$var($MemoryUsage, $ret, nullptr);
 	$prepareNative(MemoryImpl, getMemoryUsage0, $MemoryUsage*, bool heap);
-	$assign($ret, $invokeNative(MemoryImpl, getMemoryUsage0, heap));
+	$assign($ret, $invokeNativeObject(heap));
 	$finishNative();
 	return $ret;
 }
 
 void MemoryImpl::setVerboseGC(bool value) {
 	$prepareNative(MemoryImpl, setVerboseGC, void, bool value);
-	$invokeNative(MemoryImpl, setVerboseGC, value);
+	$invokeNative(value);
 	$finishNative();
 }
 

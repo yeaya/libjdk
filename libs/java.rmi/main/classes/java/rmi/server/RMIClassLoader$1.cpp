@@ -9,8 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RMIClassLoader = ::java::rmi::server::RMIClassLoader;
-using $RMIClassLoaderSpi = ::java::rmi::server::RMIClassLoaderSpi;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace java {
 	namespace rmi {

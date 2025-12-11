@@ -13,7 +13,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $LongBuffer = ::java::nio::LongBuffer;
 using $AbstractCounter = ::sun::management::counter::AbstractCounter;
-using $LongCounter = ::sun::management::counter::LongCounter;
 using $Units = ::sun::management::counter::Units;
 using $Variability = ::sun::management::counter::Variability;
 using $LongCounterSnapshot = ::sun::management::counter::perf::LongCounterSnapshot;

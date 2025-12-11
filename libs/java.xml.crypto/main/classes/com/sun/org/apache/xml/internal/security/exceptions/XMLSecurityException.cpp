@@ -5,7 +5,6 @@
 #include <jcpp.h>
 
 using $I18n = ::com::sun::org::apache::xml::internal::security::utils::I18n;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Exception = ::java::lang::Exception;

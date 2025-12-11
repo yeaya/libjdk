@@ -21,7 +21,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $SocketAddress = ::java::net::SocketAddress;
 using $URI = ::java::net::URI;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpHeaders = ::java::net::http::HttpHeaders;

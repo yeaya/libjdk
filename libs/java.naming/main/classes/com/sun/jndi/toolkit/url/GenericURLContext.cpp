@@ -29,7 +29,6 @@ using $InvalidNameException = ::javax::naming::InvalidNameException;
 using $Name = ::javax::naming::Name;
 using $NameParser = ::javax::naming::NameParser;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;
-using $NamingException = ::javax::naming::NamingException;
 using $OperationNotSupportedException = ::javax::naming::OperationNotSupportedException;
 using $NamingManager = ::javax::naming::spi::NamingManager;
 using $ResolveResult = ::javax::naming::spi::ResolveResult;

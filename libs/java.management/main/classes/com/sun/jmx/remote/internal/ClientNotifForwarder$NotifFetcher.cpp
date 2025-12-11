@@ -30,7 +30,6 @@
 
 #undef UNREGISTRATION_NOTIFICATION
 
-using $IntegerArray = $Array<::java::lang::Integer>;
 using $TargetedNotificationArray = $Array<::javax::management::remote::TargetedNotification>;
 using $ClientListenerInfo = ::com::sun::jmx::remote::internal::ClientListenerInfo;
 using $ClientNotifForwarder = ::com::sun::jmx::remote::internal::ClientNotifForwarder;
@@ -47,7 +46,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;

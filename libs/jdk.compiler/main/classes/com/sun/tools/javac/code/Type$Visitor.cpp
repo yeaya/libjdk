@@ -11,18 +11,6 @@
 #include <com/sun/tools/javac/code/Type$WildcardType.h>
 #include <jcpp.h>
 
-using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
-using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
-using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
-using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
-using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
-using $Type$ModuleType = ::com::sun::tools::javac::code::Type$ModuleType;
-using $Type$PackageType = ::com::sun::tools::javac::code::Type$PackageType;
-using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
-using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
-using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

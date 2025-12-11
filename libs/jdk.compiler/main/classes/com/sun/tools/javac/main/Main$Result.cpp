@@ -11,7 +11,6 @@
 #undef SYSERR
 
 using $Main$ResultArray = $Array<::com::sun::tools::javac::main::Main$Result>;
-using $Main = ::com::sun::tools::javac::main::Main;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -25,12 +25,12 @@ using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -52,7 +52,7 @@ $MethodInfo _JCTree$JCNewArray_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCNewArray::*)($JCTree$JCExpression*,$1List*,$1List*)>(&JCTree$JCNewArray::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCNewArray::*)($JCTree$JCExpression*,$List*,$List*)>(&JCTree$JCNewArray::init$))},
 	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
 	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
 	{"getAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", $PUBLIC},
@@ -112,12 +112,12 @@ void JCTree$JCNewArray::finalize() {
 	this->$JCTree$JCExpression::finalize();
 }
 
-void JCTree$JCNewArray::init$($JCTree$JCExpression* elemtype, $1List* dims, $1List* elems) {
+void JCTree$JCNewArray::init$($JCTree$JCExpression* elemtype, $List* dims, $List* elems) {
 	$JCTree$JCExpression::init$();
 	$set(this, elemtype, elemtype);
 	$set(this, dims, dims);
-	$set(this, annotations, $1List::nil());
-	$set(this, dimAnnotations, $1List::nil());
+	$set(this, annotations, $List::nil());
+	$set(this, dimAnnotations, $List::nil());
 	$set(this, elems, elems);
 }
 
@@ -134,11 +134,11 @@ $Tree* JCTree$JCNewArray::getType() {
 	return static_cast<$Tree*>(static_cast<$JCTree*>(static_cast<$JCTree$JCCaseLabel*>(this->elemtype)));
 }
 
-$List* JCTree$JCNewArray::getDimensions() {
+$1List* JCTree$JCNewArray::getDimensions() {
 	return this->dims;
 }
 
-$List* JCTree$JCNewArray::getInitializers() {
+$1List* JCTree$JCNewArray::getInitializers() {
 	return this->elems;
 }
 
@@ -151,11 +151,11 @@ $JCTree$Tag* JCTree$JCNewArray::getTag() {
 	return $JCTree$Tag::NEWARRAY;
 }
 
-$List* JCTree$JCNewArray::getAnnotations() {
+$1List* JCTree$JCNewArray::getAnnotations() {
 	return this->annotations;
 }
 
-$List* JCTree$JCNewArray::getDimAnnotations() {
+$1List* JCTree$JCNewArray::getDimAnnotations() {
 	return this->dimAnnotations;
 }
 

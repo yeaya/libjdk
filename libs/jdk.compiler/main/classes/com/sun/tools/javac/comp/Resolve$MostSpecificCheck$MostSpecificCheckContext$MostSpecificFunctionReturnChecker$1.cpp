@@ -9,7 +9,6 @@
 
 using $DeferredAttr$LambdaReturnScanner = ::com::sun::tools::javac::comp::DeferredAttr$LambdaReturnScanner;
 using $Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker = ::com::sun::tools::javac::comp::Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;

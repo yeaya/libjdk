@@ -62,10 +62,10 @@ using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $Main = ::com::sun::tools::javac::main::Main;
 using $Main$Result = ::com::sun::tools::javac::main::Main$Result;
 using $Context = ::com::sun::tools::javac::util::Context;
-using $Log = ::com::sun::tools::javac::util::Log;
+using $1Log = ::com::sun::tools::javac::util::Log;
 using $BuildState = ::com::sun::tools::sjavac::BuildState;
 using $JavacState = ::com::sun::tools::sjavac::JavacState;
-using $1Log = ::com::sun::tools::sjavac::Log;
+using $Log = ::com::sun::tools::sjavac::Log;
 using $Module = ::com::sun::tools::sjavac::Module;
 using $ProblemException = ::com::sun::tools::sjavac::ProblemException;
 using $Source = ::com::sun::tools::sjavac::Source;
@@ -74,7 +74,6 @@ using $CompilationService = ::com::sun::tools::sjavac::comp::CompilationService;
 using $Option = ::com::sun::tools::sjavac::options::Option;
 using $Options = ::com::sun::tools::sjavac::options::Options;
 using $SourceLocation = ::com::sun::tools::sjavac::options::SourceLocation;
-using $Sjavac = ::com::sun::tools::sjavac::server::Sjavac;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $PrintWriter = ::java::io::PrintWriter;
@@ -82,22 +81,13 @@ using $Serializable = ::java::io::Serializable;
 using $StringWriter = ::java::io::StringWriter;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $Writer = ::java::io::Writer;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractSet = ::java::util::AbstractSet;
@@ -194,7 +184,7 @@ public:
 	void init$() {
 	}
 	virtual void accept(Object$* msg) override {
-		$1Log::error($cast($String, msg));
+		$Log::error($cast($String, msg));
 	}
 	static $Object* allocate$($Class* clazz) {
 		return $of($alloc<SjavacImpl$$Lambda$error$2>());
@@ -258,7 +248,7 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 	try {
 		$assign(options, $Options::parseArgs(args));
 	} catch ($IllegalArgumentException& e) {
-		$1Log::error($(e->getMessage()));
+		$Log::error($(e->getMessage()));
 		$init($Main$Result);
 		return $Main$Result::CMDERR;
 	}
@@ -294,7 +284,7 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 		$var($Context, context, $new($Context));
 		$var($StringWriter, strWriter, $new($StringWriter));
 		$var($PrintWriter, printWriter, $new($PrintWriter, static_cast<$Writer*>(strWriter)));
-		$Log::preRegister(context, printWriter);
+		$1Log::preRegister(context, printWriter);
 		$JavacFileManager::preRegister(context);
 		$var($StringArray, passThroughArgs, $fcast($StringArray, $nc($($nc($($Stream::of(args)))->filter(static_cast<$Predicate*>($$new(SjavacImpl$$Lambda$lambda$compile$0)))))->toArray(static_cast<$IntFunction*>($$new(SjavacImpl$$Lambda$lambda$compile$1$1)))));
 		$Main$Result* result = $$new($Main, "javac"_s, printWriter)->compile(passThroughArgs, context);
@@ -335,7 +325,7 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 			$var($Module, var$6, current_module);
 			findSourceFiles(var$2, var$3, var$4, var$5, var$6, options->isDefaultPackagePermitted(), false);
 			if (sources->isEmpty()) {
-				$1Log::error("Found nothing to compile!"_s);
+				$Log::error("Found nothing to compile!"_s);
 				$init($Main$Result);
 				return $Main$Result::ERROR;
 			}
@@ -384,15 +374,15 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 				javac_state->deleteClassArtifactsInTaintedPackages();
 				again = javac_state->performJavaCompilations(compilationService, options, recently_compiled, rc);
 				if (!rc->get(0)) {
-					$1Log::debug("Compilation failed."_s);
+					$Log::debug("Compilation failed."_s);
 					break;
 				}
 				if (!again) {
-					$1Log::debug("Nothing left to do."_s);
+					$Log::debug("Nothing left to do."_s);
 				}
 				++round;
 			} while (again);
-			$1Log::debug("No need to do another round."_s);
+			$Log::debug("No need to do another round."_s);
 			if (rc->get(0)) {
 				javac_state->save();
 				$nc($(javac_state->now()))->flattenArtifacts(modules);
@@ -401,12 +391,12 @@ $Main$Result* SjavacImpl::compile($StringArray* args) {
 			$init($Main$Result);
 			return rc->get(0) ? $Main$Result::OK : $Main$Result::ERROR;
 		} catch ($ProblemException& e) {
-			$1Log::error($(e->getMessage()));
-			$1Log::debug(static_cast<$Throwable*>(e));
+			$Log::error($(e->getMessage()));
+			$Log::debug(static_cast<$Throwable*>(e));
 			$init($Main$Result);
 			return $Main$Result::ERROR;
 		} catch ($Exception& e) {
-			$1Log::error(static_cast<$Throwable*>(e));
+			$Log::error(static_cast<$Throwable*>(e));
 			$init($Main$Result);
 			return $Main$Result::ERROR;
 		}
@@ -439,7 +429,7 @@ bool SjavacImpl::validateOptions($Options* options) {
 		}
 	}
 	if (err != nullptr) {
-		$1Log::error(err);
+		$Log::error(err);
 	}
 	return err == nullptr;
 }
@@ -453,7 +443,7 @@ bool SjavacImpl::srcDstOverlap($List* locs, $Path* dest) {
 			$var($SourceLocation, loc, $cast($SourceLocation, i$->next()));
 			{
 				if (isOverlapping($($nc(loc)->getPath()), dest)) {
-					$1Log::error($$str({"Source location "_s, $($nc(loc)->getPath()), " overlaps with destination "_s, dest}));
+					$Log::error($$str({"Source location "_s, $($nc(loc)->getPath()), " overlaps with destination "_s, dest}));
 					return true;
 				}
 			}
@@ -480,13 +470,13 @@ bool SjavacImpl::createIfMissing($Path* dir) {
 		return true;
 	}
 	if ($Files::exists(dir, $$new($LinkOptionArray, 0))) {
-		$1Log::error($$str({dir, " is not a directory."_s}));
+		$Log::error($$str({dir, " is not a directory."_s}));
 		return false;
 	}
 	try {
 		$Files::createDirectories(dir, $$new($FileAttributeArray, 0));
 	} catch ($IOException& e) {
-		$1Log::error($$str({"Could not create directory: "_s, $(e->getMessage())}));
+		$Log::error($$str({"Could not create directory: "_s, $(e->getMessage())}));
 		return false;
 	}
 	return true;
@@ -509,9 +499,9 @@ void SjavacImpl::findSourceFiles($List* sourceLocations, $Set* sourceTypes, $Map
 void SjavacImpl::printRound(int32_t round) {
 	$init(SjavacImpl);
 	$useLocalCurrentObjectStackCache();
-	$1Log::debug("****************************************"_s);
-	$1Log::debug($$str({"* Round "_s, $$str(round), "                              *"_s}));
-	$1Log::debug("****************************************"_s);
+	$Log::debug("****************************************"_s);
+	$Log::debug($$str({"* Round "_s, $$str(round), "                              *"_s}));
+	$Log::debug("****************************************"_s);
 }
 
 $StringArray* SjavacImpl::lambda$compile$1(int32_t x$0) {

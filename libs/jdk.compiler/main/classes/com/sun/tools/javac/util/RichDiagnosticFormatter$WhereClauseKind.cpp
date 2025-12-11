@@ -9,7 +9,6 @@
 #undef TYPEVAR
 
 using $RichDiagnosticFormatter$WhereClauseKindArray = $Array<::com::sun::tools::javac::util::RichDiagnosticFormatter$WhereClauseKind>;
-using $RichDiagnosticFormatter = ::com::sun::tools::javac::util::RichDiagnosticFormatter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

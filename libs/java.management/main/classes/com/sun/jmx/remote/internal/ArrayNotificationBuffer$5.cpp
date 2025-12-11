@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MBeanServerNotification = ::javax::management::MBeanServerNotification;
 using $Notification = ::javax::management::Notification;
-using $NotificationListener = ::javax::management::NotificationListener;
 
 namespace com {
 	namespace sun {

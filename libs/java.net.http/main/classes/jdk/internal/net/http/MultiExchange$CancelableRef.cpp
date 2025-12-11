@@ -9,9 +9,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $MultiExchange = ::jdk::internal::net::http::MultiExchange;
 using $Cancelable = ::jdk::internal::net::http::common::Cancelable;
 
 namespace jdk {

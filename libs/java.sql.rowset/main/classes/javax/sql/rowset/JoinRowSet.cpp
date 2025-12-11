@@ -11,15 +11,9 @@
 #undef LEFT_OUTER_JOIN
 #undef RIGHT_OUTER_JOIN
 
-using $RowSetArray = $Array<::javax::sql::RowSet>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
-using $RowSet = ::javax::sql::RowSet;
-using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
-using $Joinable = ::javax::sql::rowset::Joinable;
-using $WebRowSet = ::javax::sql::rowset::WebRowSet;
 
 namespace javax {
 	namespace sql {

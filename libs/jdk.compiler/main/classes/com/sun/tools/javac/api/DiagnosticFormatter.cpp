@@ -6,13 +6,9 @@
 #include <javax/tools/Diagnostic.h>
 #include <jcpp.h>
 
-using $DiagnosticFormatter$Configuration = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration;
-using $DiagnosticFormatter$PositionKind = ::com::sun::tools::javac::api::DiagnosticFormatter$PositionKind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Locale = ::java::util::Locale;
-using $Diagnostic = ::javax::tools::Diagnostic;
 
 namespace com {
 	namespace sun {

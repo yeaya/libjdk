@@ -18,7 +18,6 @@
 #undef PROCESSING_INSTRUCTION_NODE
 #undef TEXT_NODE
 
-using $ReferenceSubTreeData = ::com::sun::org::apache::xml::internal::security::signature::reference::ReferenceSubTreeData;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -26,7 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;

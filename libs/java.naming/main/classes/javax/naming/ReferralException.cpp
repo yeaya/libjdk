@@ -8,8 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
-using $Context = ::javax::naming::Context;
 using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {

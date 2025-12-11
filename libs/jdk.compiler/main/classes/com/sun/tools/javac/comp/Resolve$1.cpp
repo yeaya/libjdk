@@ -24,14 +24,12 @@
 #include <jcpp.h>
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
@@ -39,10 +37,7 @@ using $Resolve$AccessError = ::com::sun::tools::javac::comp::Resolve$AccessError
 using $Resolve$InvalidSymbolError = ::com::sun::tools::javac::comp::Resolve$InvalidSymbolError;
 using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

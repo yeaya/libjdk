@@ -15,17 +15,16 @@
 #include <jcpp.h>
 
 using $ClientFactoryImpl = ::com::sun::security::sasl::ClientFactoryImpl;
-using $Provider = ::com::sun::security::sasl::Provider;
 using $ServerFactoryImpl = ::com::sun::security::sasl::ServerFactoryImpl;
-using $1FactoryImpl = ::com::sun::security::sasl::digest::FactoryImpl;
-using $FactoryImpl = ::com::sun::security::sasl::ntlm::FactoryImpl;
+using $FactoryImpl = ::com::sun::security::sasl::digest::FactoryImpl;
+using $1FactoryImpl = ::com::sun::security::sasl::ntlm::FactoryImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidParameterException = ::java::security::InvalidParameterException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $1Provider = ::java::security::Provider;
+using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $ProviderException = ::java::security::ProviderException;
 using $List = ::java::util::List;
@@ -37,7 +36,7 @@ namespace com {
 			namespace sasl {
 
 $MethodInfo _Provider$ProviderService_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Provider$ProviderService::*)($1Provider*,$String*,$String*,$String*)>(&Provider$ProviderService::init$))},
+	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Provider$ProviderService::*)($Provider*,$String*,$String*,$String*)>(&Provider$ProviderService::init$))},
 	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException"},
 	{}
 };
@@ -68,7 +67,7 @@ $Object* allocate$Provider$ProviderService($Class* clazz) {
 	return $of($alloc(Provider$ProviderService));
 }
 
-void Provider$ProviderService::init$($1Provider* p, $String* type, $String* algo, $String* cn) {
+void Provider$ProviderService::init$($Provider* p, $String* type, $String* algo, $String* cn) {
 	$Provider$Service::init$(p, type, algo, cn, nullptr, nullptr);
 }
 
@@ -81,10 +80,10 @@ $Object* Provider$ProviderService::newInstance(Object$* ctrParamObj) {
 	$var($String, algo, getAlgorithm());
 	try {
 		if ($nc(algo)->equals("DIGEST-MD5"_s)) {
-			return $of($new($1FactoryImpl));
+			return $of($new($FactoryImpl));
 		}
 		if ($nc(algo)->equals("NTLM"_s)) {
-			return $of($new($FactoryImpl));
+			return $of($new($1FactoryImpl));
 		}
 		if ($nc(type)->equals("SaslClientFactory"_s)) {
 			bool var$1 = $nc(algo)->equals("EXTERNAL"_s);

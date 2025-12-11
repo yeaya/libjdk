@@ -18,8 +18,6 @@
 
 using $JCTree$JCMemberReference$ReferenceKindArray = $Array<::com::sun::tools::javac::tree::JCTree$JCMemberReference$ReferenceKind>;
 using $MemberReferenceTree$ReferenceMode = ::com::sun::source::tree::MemberReferenceTree$ReferenceMode;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

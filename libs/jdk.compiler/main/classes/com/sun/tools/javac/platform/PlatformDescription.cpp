@@ -4,12 +4,9 @@
 #include <javax/tools/JavaFileManager.h>
 #include <jcpp.h>
 
-using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $JavaFileManager = ::javax::tools::JavaFileManager;
 
 namespace com {
 	namespace sun {

@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
 
 namespace com {

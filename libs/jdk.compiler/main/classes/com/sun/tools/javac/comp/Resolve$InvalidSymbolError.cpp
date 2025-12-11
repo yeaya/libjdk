@@ -17,7 +17,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;

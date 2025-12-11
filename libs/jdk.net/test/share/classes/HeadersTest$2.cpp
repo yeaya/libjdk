@@ -24,12 +24,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
-using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
-using $BiPredicate = ::java::util::function::BiPredicate;
 
 $FieldInfo _HeadersTest$2_FieldInfo_[] = {
 	{"val$value", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HeadersTest$2, val$value)},

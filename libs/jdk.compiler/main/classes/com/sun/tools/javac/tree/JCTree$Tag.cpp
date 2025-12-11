@@ -112,7 +112,6 @@
 #undef YIELD
 
 using $JCTree$TagArray = $Array<::com::sun::tools::javac::tree::JCTree$Tag>;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

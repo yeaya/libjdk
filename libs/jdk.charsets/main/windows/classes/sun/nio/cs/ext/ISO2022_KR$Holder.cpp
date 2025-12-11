@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $EUC_KR = ::sun::nio::cs::ext::EUC_KR;
-using $ISO2022_KR = ::sun::nio::cs::ext::ISO2022_KR;
 
 namespace sun {
 	namespace nio {

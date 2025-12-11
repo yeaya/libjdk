@@ -102,7 +102,6 @@ using $DataSource = ::javax::sql::DataSource;
 using $RowSetListener = ::javax::sql::RowSetListener;
 using $RowSetMetaData = ::javax::sql::RowSetMetaData;
 using $BaseRowSet = ::javax::sql::rowset::BaseRowSet;
-using $JdbcRowSet = ::javax::sql::rowset::JdbcRowSet;
 using $RowSetMetaDataImpl = ::javax::sql::rowset::RowSetMetaDataImpl;
 using $RowSetWarning = ::javax::sql::rowset::RowSetWarning;
 

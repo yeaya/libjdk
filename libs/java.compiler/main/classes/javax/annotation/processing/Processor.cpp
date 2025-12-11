@@ -11,15 +11,7 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Set = ::java::util::Set;
-using $ProcessingEnvironment = ::javax::annotation::processing::ProcessingEnvironment;
-using $RoundEnvironment = ::javax::annotation::processing::RoundEnvironment;
-using $SourceVersion = ::javax::lang::model::SourceVersion;
-using $AnnotationMirror = ::javax::lang::model::element::AnnotationMirror;
-using $Element = ::javax::lang::model::element::Element;
-using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 
 namespace javax {
 	namespace annotation {

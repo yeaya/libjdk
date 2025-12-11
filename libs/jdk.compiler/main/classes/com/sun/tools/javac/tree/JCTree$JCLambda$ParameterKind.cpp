@@ -9,8 +9,6 @@
 #undef IMPLICIT
 
 using $JCTree$JCLambda$ParameterKindArray = $Array<::com::sun::tools::javac::tree::JCTree$JCLambda$ParameterKind>;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -10,13 +10,11 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Predicate = ::java::util::function::Predicate;
 
 namespace com {
 	namespace sun {

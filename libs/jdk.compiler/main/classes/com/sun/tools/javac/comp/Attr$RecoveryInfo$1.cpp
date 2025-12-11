@@ -14,10 +14,7 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
-using $Attr$RecoveryInfo = ::com::sun::tools::javac::comp::Attr$RecoveryInfo;
-using $Check = ::com::sun::tools::javac::comp::Check;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $Check$NestedCheckContext = ::com::sun::tools::javac::comp::Check$NestedCheckContext;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;

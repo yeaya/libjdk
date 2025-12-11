@@ -4,13 +4,9 @@
 #include <jdk/internal/net/http/websocket/RawChannel$RawEvent.h>
 #include <jcpp.h>
 
-using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
-using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $RawChannel$RawEvent = ::jdk::internal::net::http::websocket::RawChannel$RawEvent;
 
 namespace jdk {
 	namespace internal {

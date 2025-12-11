@@ -32,7 +32,6 @@
 #undef _TAG_X509SUBJECTNAME
 
 using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
-using $KeyInfoContent = ::com::sun::org::apache::xml::internal::security::keys::content::KeyInfoContent;
 using $XMLX509CRL = ::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509CRL;
 using $XMLX509Certificate = ::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509Certificate;
 using $XMLX509Digest = ::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509Digest;

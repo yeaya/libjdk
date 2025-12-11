@@ -15,7 +15,6 @@ using $AttributeValueExp = ::javax::management::AttributeValueExp;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $ObjectName = ::javax::management::ObjectName;
 using $QueryEval = ::javax::management::QueryEval;
-using $QueryExp = ::javax::management::QueryExp;
 using $StringValueExp = ::javax::management::StringValueExp;
 using $ValueExp = ::javax::management::ValueExp;
 

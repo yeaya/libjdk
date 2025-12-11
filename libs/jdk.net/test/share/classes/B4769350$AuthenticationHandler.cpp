@@ -6,14 +6,12 @@
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
 
-using $B4769350 = ::B4769350;
 using $Headers = ::com::sun::net::httpserver::Headers;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 
 $MethodInfo _B4769350$AuthenticationHandler_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(B4769350$AuthenticationHandler::*)()>(&B4769350$AuthenticationHandler::init$))},

@@ -17,7 +17,6 @@
 #undef UNLAMBDA
 
 using $CompileStates$CompileStateArray = $Array<::com::sun::tools::javac::comp::CompileStates$CompileState>;
-using $CompileStates = ::com::sun::tools::javac::comp::CompileStates;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

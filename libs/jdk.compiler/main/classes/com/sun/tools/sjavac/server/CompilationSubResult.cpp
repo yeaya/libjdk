@@ -7,7 +7,6 @@
 #include <jcpp.h>
 
 using $Main$Result = ::com::sun::tools::javac::main::Main$Result;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

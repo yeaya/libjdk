@@ -54,7 +54,6 @@
 #undef VARBINARY
 #undef VARCHAR
 
-using $CachedRowSetImpl = ::com::sun::rowset::CachedRowSetImpl;
 using $JdbcRowSetResourceBundle = ::com::sun::rowset::JdbcRowSetResourceBundle;
 using $WebRowSetImpl = ::com::sun::rowset::WebRowSetImpl;
 using $Row = ::com::sun::rowset::internal::Row;
@@ -71,7 +70,6 @@ using $Float = ::java::lang::Float;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
 using $BigDecimal = ::java::math::BigDecimal;
@@ -89,7 +87,6 @@ using $Map = ::java::util::Map;
 using $Vector = ::java::util::Vector;
 using $RowSet = ::javax::sql::RowSet;
 using $RowSetMetaData = ::javax::sql::RowSetMetaData;
-using $BaseRowSet = ::javax::sql::rowset::BaseRowSet;
 using $RowSetMetaDataImpl = ::javax::sql::rowset::RowSetMetaDataImpl;
 using $Attributes = ::org::xml::sax::Attributes;
 using $SAXException = ::org::xml::sax::SAXException;

@@ -27,7 +27,6 @@
 #undef SYNTHETIC
 
 using $Flags = ::com::sun::tools::javac::code::Flags;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
@@ -36,21 +35,15 @@ using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor;
 using $List = ::com::sun::tools::javac::util::List;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
 

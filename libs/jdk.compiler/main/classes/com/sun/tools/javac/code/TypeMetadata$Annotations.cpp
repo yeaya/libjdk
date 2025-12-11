@@ -10,7 +10,6 @@
 #undef ANNOTATIONS
 #undef TO_BE_SET
 
-using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeMetadata$Entry = ::com::sun::tools::javac::code::TypeMetadata$Entry;
 using $TypeMetadata$Entry$Kind = ::com::sun::tools::javac::code::TypeMetadata$Entry$Kind;
 using $Assert = ::com::sun::tools::javac::util::Assert;

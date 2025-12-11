@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Diagnostic = ::javax::tools::Diagnostic;
 
 namespace javax {
 	namespace tools {

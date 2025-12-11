@@ -8,10 +8,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
-using $JMXConnector = ::javax::management::remote::JMXConnector;
-using $JMXServiceURL = ::javax::management::remote::JMXServiceURL;
-using $MBeanServerForwarder = ::javax::management::remote::MBeanServerForwarder;
 
 namespace javax {
 	namespace management {

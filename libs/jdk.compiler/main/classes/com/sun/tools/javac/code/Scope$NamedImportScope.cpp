@@ -34,7 +34,6 @@
 
 using $ScopeArray = $Array<::com::sun::tools::javac::code::Scope>;
 using $Scope = ::com::sun::tools::javac::code::Scope;
-using $Scope$CompoundScope = ::com::sun::tools::javac::code::Scope$CompoundScope;
 using $Scope$FilterImportScope = ::com::sun::tools::javac::code::Scope$FilterImportScope;
 using $Scope$ImportFilter = ::com::sun::tools::javac::code::Scope$ImportFilter;
 using $Scope$ImportScope = ::com::sun::tools::javac::code::Scope$ImportScope;
@@ -51,18 +50,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $Function = ::java::util::function::Function;

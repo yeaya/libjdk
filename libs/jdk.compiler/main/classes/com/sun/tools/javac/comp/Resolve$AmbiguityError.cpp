@@ -27,14 +27,12 @@
 
 using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Kinds$KindName = ::com::sun::tools::javac::code::Kinds$KindName;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
@@ -43,7 +41,6 @@ using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Facto
 using $List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

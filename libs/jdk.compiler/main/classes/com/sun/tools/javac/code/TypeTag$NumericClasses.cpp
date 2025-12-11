@@ -17,7 +17,6 @@
 #undef SHORT_CLASS
 #undef SHORT_SUPERCLASSES
 
-using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

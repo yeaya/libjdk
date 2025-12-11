@@ -9,10 +9,8 @@
 #include <com/sun/tools/javac/code/Type.h>
 #include <jcpp.h>
 
-using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Type = ::com::sun::tools::javac::code::Type;

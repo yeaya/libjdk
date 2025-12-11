@@ -20,7 +20,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SSLEngineResult = ::javax::net::ssl::SSLEngineResult;
 using $SSLEngineResult$HandshakeStatus = ::javax::net::ssl::SSLEngineResult$HandshakeStatus;
 using $SSLEngineResult$Status = ::javax::net::ssl::SSLEngineResult$Status;
-using $SSLFlowDelegate = ::jdk::internal::net::http::common::SSLFlowDelegate;
 
 namespace jdk {
 	namespace internal {

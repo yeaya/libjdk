@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
-using $PCK = ::sun::nio::cs::ext::PCK;
 using $PCK$DecodeHolder = ::sun::nio::cs::ext::PCK$DecodeHolder;
 
 namespace sun {

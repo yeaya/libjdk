@@ -14,7 +14,6 @@ using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
-using $OperatingSystemMXBean = ::java::lang::management::OperatingSystemMXBean;
 using $ObjectName = ::javax::management::ObjectName;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Util = ::sun::management::Util;

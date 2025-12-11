@@ -10,7 +10,6 @@
 #include <javax/naming/directory/BasicAttributes.h>
 #include <jcpp.h>
 
-using $LdapName = ::com::sun::jndi::ldap::LdapName;
 using $LdapName$TypeAndValue = ::com::sun::jndi::ldap::LdapName$TypeAndValue;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -11,7 +11,6 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Check = ::com::sun::tools::javac::comp::Check;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;

@@ -14,18 +14,12 @@
 #undef PCK
 #undef REQUIRES
 
-using $Kinds$KindArray = $Array<::com::sun::tools::javac::code::Kinds$Kind>;
-using $ModuleElement$DirectiveKindArray = $Array<::javax::lang::model::element::ModuleElement$DirectiveKind>;
-using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $JavacElements = ::com::sun::tools::javac::model::JavacElements;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $ModuleElement$DirectiveKind = ::javax::lang::model::element::ModuleElement$DirectiveKind;
 
 namespace com {

@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-using $MultiExchange = ::jdk::internal::net::http::MultiExchange;
 
 namespace jdk {
 	namespace internal {

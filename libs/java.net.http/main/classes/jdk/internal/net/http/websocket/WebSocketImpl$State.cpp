@@ -20,7 +20,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WebSocketImpl = ::jdk::internal::net::http::websocket::WebSocketImpl;
 
 namespace jdk {
 	namespace internal {

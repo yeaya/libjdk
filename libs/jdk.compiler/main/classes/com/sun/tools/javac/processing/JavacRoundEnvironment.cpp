@@ -33,9 +33,7 @@
 #undef NOT_AN_ANNOTATION_TYPE
 
 using $TypeElementArray = $Array<::javax::lang::model::element::TypeElement>;
-using $Source = ::com::sun::tools::javac::code::Source;
 using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
-using $JavacElements = ::com::sun::tools::javac::model::JavacElements;
 using $JavacProcessingEnvironment = ::com::sun::tools::javac::processing::JavacProcessingEnvironment;
 using $JavacRoundEnvironment$AnnotationSetMultiScanner = ::com::sun::tools::javac::processing::JavacRoundEnvironment$AnnotationSetMultiScanner;
 using $JavacRoundEnvironment$AnnotationSetScanner = ::com::sun::tools::javac::processing::JavacRoundEnvironment$AnnotationSetScanner;
@@ -58,11 +56,9 @@ using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $ProcessingEnvironment = ::javax::annotation::processing::ProcessingEnvironment;
-using $RoundEnvironment = ::javax::annotation::processing::RoundEnvironment;
 using $AnnotationMirror = ::javax::lang::model::element::AnnotationMirror;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
-using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
 using $DeclaredType = ::javax::lang::model::type::DeclaredType;
 using $Elements = ::javax::lang::model::util::Elements;

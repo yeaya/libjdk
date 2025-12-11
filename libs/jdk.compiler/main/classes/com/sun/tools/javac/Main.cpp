@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $Main = ::com::sun::tools::javac::main::Main;
-using $Main$Result = ::com::sun::tools::javac::main::Main$Result;
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

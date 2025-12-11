@@ -4,10 +4,8 @@
 #include <javax/lang/model/element/VariableElement.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $VariableElement = ::javax::lang::model::element::VariableElement;
 
 namespace com {
 	namespace sun {

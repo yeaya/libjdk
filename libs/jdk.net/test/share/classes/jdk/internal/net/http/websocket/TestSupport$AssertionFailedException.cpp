@@ -8,7 +8,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $TestSupport = ::jdk::internal::net::http::websocket::TestSupport;
 
 namespace jdk {
 	namespace internal {

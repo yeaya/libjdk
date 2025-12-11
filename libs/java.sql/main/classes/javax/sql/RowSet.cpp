@@ -18,26 +18,8 @@
 #include <javax/sql/RowSetListener.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigDecimal = ::java::math::BigDecimal;
-using $URL = ::java::net::URL;
-using $1Array = ::java::sql::Array;
-using $Blob = ::java::sql::Blob;
-using $Clob = ::java::sql::Clob;
-using $Date = ::java::sql::Date;
-using $NClob = ::java::sql::NClob;
-using $Ref = ::java::sql::Ref;
-using $ResultSet = ::java::sql::ResultSet;
-using $RowId = ::java::sql::RowId;
-using $SQLXML = ::java::sql::SQLXML;
-using $Time = ::java::sql::Time;
-using $Timestamp = ::java::sql::Timestamp;
-using $Calendar = ::java::util::Calendar;
-using $Map = ::java::util::Map;
-using $RowSetListener = ::javax::sql::RowSetListener;
 
 namespace javax {
 	namespace sql {

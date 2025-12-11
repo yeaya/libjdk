@@ -10,7 +10,6 @@
 #undef SPECULATIVE
 
 using $DeferredAttr$AttributionModeArray = $Array<::com::sun::tools::javac::comp::DeferredAttr$AttributionMode>;
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

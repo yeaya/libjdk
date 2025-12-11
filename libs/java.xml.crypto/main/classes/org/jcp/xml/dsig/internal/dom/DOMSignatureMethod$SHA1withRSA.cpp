@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $SignatureMethod = ::javax::xml::crypto::dsig::SignatureMethod;
 using $AbstractDOMSignatureMethod$Type = ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod$Type;
-using $DOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod;
 using $DOMSignatureMethod$AbstractRSASignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractRSASignatureMethod;
 using $Element = ::org::w3c::dom::Element;
 

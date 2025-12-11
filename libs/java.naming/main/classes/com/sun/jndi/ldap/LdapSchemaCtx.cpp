@@ -43,7 +43,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Hashtable = ::java::util::Hashtable;
 using $CompositeName = ::javax::naming::CompositeName;
 using $Name = ::javax::naming::Name;

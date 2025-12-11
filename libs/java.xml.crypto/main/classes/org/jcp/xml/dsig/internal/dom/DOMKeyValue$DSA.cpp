@@ -30,7 +30,6 @@ using $BigInteger = ::java::math::BigInteger;
 using $KeyFactory = ::java::security::KeyFactory;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PublicKey = ::java::security::PublicKey;
-using $DSAKey = ::java::security::interfaces::DSAKey;
 using $DSAParams = ::java::security::interfaces::DSAParams;
 using $DSAPublicKey = ::java::security::interfaces::DSAPublicKey;
 using $DSAPublicKeySpec = ::java::security::spec::DSAPublicKeySpec;

@@ -30,9 +30,7 @@ using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
-using $NodeSetData = ::javax::xml::crypto::NodeSetData;
 using $ApacheData = ::org::jcp::xml::dsig::internal::dom::ApacheData;
-using $Document = ::org::w3c::dom::Document;
 using $Node = ::org::w3c::dom::Node;
 
 namespace org {

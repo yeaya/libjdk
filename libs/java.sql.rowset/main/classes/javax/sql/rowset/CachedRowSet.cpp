@@ -17,16 +17,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Connection = ::java::sql::Connection;
-using $ResultSet = ::java::sql::ResultSet;
-using $Savepoint = ::java::sql::Savepoint;
-using $Collection = ::java::util::Collection;
 using $RowSet = ::javax::sql::RowSet;
-using $RowSetEvent = ::javax::sql::RowSetEvent;
-using $RowSetMetaData = ::javax::sql::RowSetMetaData;
-using $Joinable = ::javax::sql::rowset::Joinable;
-using $RowSetWarning = ::javax::sql::rowset::RowSetWarning;
-using $SyncProvider = ::javax::sql::rowset::spi::SyncProvider;
 
 namespace javax {
 	namespace sql {

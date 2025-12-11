@@ -18,7 +18,6 @@ using $JavacTrees = ::com::sun::tools::javac::api::JavacTrees;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $List = ::com::sun::tools::javac::util::List;
 using $Position = ::com::sun::tools::javac::util::Position;
-using $Position$LineMap = ::com::sun::tools::javac::util::Position$LineMap;
 using $IOException = ::java::io::IOException;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -26,7 +25,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {

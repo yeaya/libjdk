@@ -36,7 +36,6 @@
 
 using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
-using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
 using $AbstractDiagnosticFormatter = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter;
 using $BasicDiagnosticFormatter = ::com::sun::tools::javac::util::BasicDiagnosticFormatter;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
@@ -51,7 +50,6 @@ using $List = ::com::sun::tools::javac::util::List;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -62,7 +60,6 @@ using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
 using $Diagnostic = ::javax::tools::Diagnostic;
 using $Diagnostic$Kind = ::javax::tools::Diagnostic$Kind;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {

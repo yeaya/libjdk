@@ -43,7 +43,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ContinuationFrame = ::jdk::internal::net::http::frame::ContinuationFrame;
 using $DataFrame = ::jdk::internal::net::http::frame::DataFrame;
-using $ErrorFrame = ::jdk::internal::net::http::frame::ErrorFrame;
 using $GoAwayFrame = ::jdk::internal::net::http::frame::GoAwayFrame;
 using $HeaderFrame = ::jdk::internal::net::http::frame::HeaderFrame;
 using $HeadersFrame = ::jdk::internal::net::http::frame::HeadersFrame;

@@ -8,7 +8,6 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
-using $ClassFinder$BadClassFile = ::com::sun::tools::javac::code::ClassFinder$BadClassFile;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $PoolReader = ::com::sun::tools::javac::jvm::PoolReader;
 using $ByteBuffer = ::com::sun::tools::javac::util::ByteBuffer;
@@ -17,9 +16,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $BitSet = ::java::util::BitSet;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {

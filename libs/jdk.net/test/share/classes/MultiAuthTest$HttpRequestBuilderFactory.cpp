@@ -5,13 +5,11 @@
 #include <java/net/http/HttpRequest$Builder.h>
 #include <jcpp.h>
 
-using $MultiAuthTest = ::MultiAuthTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
-using $Function = ::java::util::function::Function;
 
 $MethodInfo _MultiAuthTest$HttpRequestBuilderFactory_MethodInfo_[] = {
 	{"request", "(Ljava/net/URI;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC},

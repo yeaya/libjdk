@@ -120,14 +120,11 @@
 #undef UNBOUND
 #undef VARDEF
 
-using $CaseTree$CaseKind = ::com::sun::source::tree::CaseTree$CaseKind;
 using $MemberReferenceTree$ReferenceMode = ::com::sun::source::tree::MemberReferenceTree$ReferenceMode;
 using $ModuleTree$ModuleKind = ::com::sun::source::tree::ModuleTree$ModuleKind;
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $DocCommentTable = ::com::sun::tools::javac::tree::DocCommentTable;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
@@ -175,7 +172,6 @@ using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$JCOpens = ::com::sun::tools::javac::tree::JCTree$JCOpens;
-using $JCTree$JCOperatorExpression = ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression;
 using $JCTree$JCPackageDecl = ::com::sun::tools::javac::tree::JCTree$JCPackageDecl;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
 using $JCTree$JCParenthesizedPattern = ::com::sun::tools::javac::tree::JCTree$JCParenthesizedPattern;
@@ -213,20 +209,16 @@ using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $Convert = ::com::sun::tools::javac::util::Convert;
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Name$Table = ::com::sun::tools::javac::util::Name$Table;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $IOException = ::java::io::IOException;
 using $StringWriter = ::java::io::StringWriter;
 using $Writer = ::java::io::Writer;
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Number = ::java::lang::Number;
 using $Iterator = ::java::util::Iterator;
 

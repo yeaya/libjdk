@@ -17,7 +17,6 @@
 using $Source = ::com::sun::tools::javac::code::Source;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $CompilerProperties = ::com::sun::tools::javac::resources::CompilerProperties;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
 using $JCDiagnostic$Note = ::com::sun::tools::javac::util::JCDiagnostic$Note;

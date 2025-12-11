@@ -50,5 +50,4 @@ void java$security$jgss$test::init() {
 		java$security$jgss$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

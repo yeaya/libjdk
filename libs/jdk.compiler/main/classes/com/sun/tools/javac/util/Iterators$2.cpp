@@ -5,7 +5,6 @@
 #include <java/util/function/Predicate.h>
 #include <jcpp.h>
 
-using $Iterators = ::com::sun::tools::javac::util::Iterators;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

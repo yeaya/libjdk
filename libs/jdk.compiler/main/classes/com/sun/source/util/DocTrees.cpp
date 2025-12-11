@@ -18,26 +18,11 @@
 #include <javax/tools/JavaCompiler$CompilationTask.h>
 #include <jcpp.h>
 
-using $DocCommentTree = ::com::sun::source::doctree::DocCommentTree;
-using $DocTree = ::com::sun::source::doctree::DocTree;
-using $EntityTree = ::com::sun::source::doctree::EntityTree;
-using $CompilationUnitTree = ::com::sun::source::tree::CompilationUnitTree;
-using $DocTreeFactory = ::com::sun::source::util::DocTreeFactory;
-using $DocTreePath = ::com::sun::source::util::DocTreePath;
-using $TreePath = ::com::sun::source::util::TreePath;
 using $Trees = ::com::sun::source::util::Trees;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BreakIterator = ::java::text::BreakIterator;
-using $List = ::java::util::List;
 using $ProcessingEnvironment = ::javax::annotation::processing::ProcessingEnvironment;
-using $Element = ::javax::lang::model::element::Element;
-using $PackageElement = ::javax::lang::model::element::PackageElement;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
-using $Diagnostic$Kind = ::javax::tools::Diagnostic$Kind;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaCompiler$CompilationTask = ::javax::tools::JavaCompiler$CompilationTask;
 
 namespace com {

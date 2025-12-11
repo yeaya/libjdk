@@ -10,8 +10,6 @@
 #undef LINE
 
 using $Tokens$Comment$CommentStyleArray = $Array<::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle>;
-using $Tokens = ::com::sun::tools::javac::parser::Tokens;
-using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

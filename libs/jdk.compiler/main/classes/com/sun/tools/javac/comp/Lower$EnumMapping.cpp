@@ -42,33 +42,24 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
-using $Type$JCPrimitiveType = ::com::sun::tools::javac::code::Type$JCPrimitiveType;
 using $Lower = ::com::sun::tools::javac::comp::Lower;
-using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
 using $ClassWriter = ::com::sun::tools::javac::jvm::ClassWriter;
 using $Target = ::com::sun::tools::javac::jvm::Target;
-using $JCTree$JCArrayAccess = ::com::sun::tools::javac::tree::JCTree$JCArrayAccess;
 using $JCTree$JCAssign = ::com::sun::tools::javac::tree::JCTree$JCAssign;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
-using $JCTree$JCCatch = ::com::sun::tools::javac::tree::JCTree$JCCatch;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCExpressionStatement = ::com::sun::tools::javac::tree::JCTree$JCExpressionStatement;
 using $JCTree$JCLiteral = ::com::sun::tools::javac::tree::JCTree$JCLiteral;
-using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
-using $JCTree$JCTry = ::com::sun::tools::javac::tree::JCTree$JCTry;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;

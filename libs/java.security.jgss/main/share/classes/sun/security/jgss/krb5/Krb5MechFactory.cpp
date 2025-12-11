@@ -45,7 +45,6 @@ using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Permission = ::java::security::Permission;
@@ -69,7 +68,6 @@ using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;
 using $GSSContextSpi = ::sun::security::jgss::spi::GSSContextSpi;
 using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
-using $MechanismFactory = ::sun::security::jgss::spi::MechanismFactory;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 
 namespace sun {

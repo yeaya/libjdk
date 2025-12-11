@@ -18,7 +18,6 @@ using $PrimitiveTypeTree = ::com::sun::source::tree::PrimitiveTypeTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;

@@ -40,8 +40,6 @@
 #undef VERBOSE
 
 using $OperationArray = $Array<::java::rmi::server::Operation>;
-using $DataInput = ::java::io::DataInput;
-using $DataOutput = ::java::io::DataOutput;
 using $IOException = ::java::io::IOException;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -60,28 +58,21 @@ using $Float = ::java::lang::Float;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Method = ::java::lang::reflect::Method;
 using $MarshalException = ::java::rmi::MarshalException;
 using $Remote = ::java::rmi::Remote;
 using $RemoteException = ::java::rmi::RemoteException;
 using $UnmarshalException = ::java::rmi::UnmarshalException;
 using $ObjID = ::java::rmi::server::ObjID;
-using $Operation = ::java::rmi::server::Operation;
 using $RemoteCall = ::java::rmi::server::RemoteCall;
 using $RemoteObject = ::java::rmi::server::RemoteObject;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Level = ::java::util::logging::Level;
 using $JavaObjectInputStreamReadString = ::jdk::internal::access::JavaObjectInputStreamReadString;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $Log = ::sun::rmi::runtime::Log;

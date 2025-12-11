@@ -29,7 +29,6 @@ using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $EUC_CN = ::sun::nio::cs::EUC_CN;
 using $EUC_TW = ::sun::nio::cs::EUC_TW;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $US_ASCII = ::sun::nio::cs::US_ASCII;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;
 using $ISO2022_CN$Decoder = ::sun::nio::cs::ext::ISO2022_CN$Decoder;

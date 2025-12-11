@@ -39,7 +39,6 @@ using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $Vector = ::java::util::Vector;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $ConcurrentHashMap$KeySetView = ::java::util::concurrent::ConcurrentHashMap$KeySetView;
 using $DelegationPermission = ::javax::security::auth::kerberos::DelegationPermission;
 
 namespace javax {

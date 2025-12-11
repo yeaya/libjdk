@@ -8,15 +8,9 @@
 #include <javax/xml/crypto/dsig/XMLValidateContext.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Data = ::javax::xml::crypto::Data;
 using $URIReference = ::javax::xml::crypto::URIReference;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
-using $DigestMethod = ::javax::xml::crypto::dsig::DigestMethod;
-using $XMLValidateContext = ::javax::xml::crypto::dsig::XMLValidateContext;
 
 namespace javax {
 	namespace xml {

@@ -9,7 +9,6 @@
 #undef SOURCE
 
 using $Attribute$RetentionPolicyArray = $Array<::com::sun::tools::javac::code::Attribute$RetentionPolicy>;
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -8,13 +8,9 @@
 
 #undef EXPORTER_ATTRIBUTE
 
-using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Remote = ::java::rmi::Remote;
-using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;
-using $RMIServerSocketFactory = ::java::rmi::server::RMIServerSocketFactory;
 
 namespace com {
 	namespace sun {

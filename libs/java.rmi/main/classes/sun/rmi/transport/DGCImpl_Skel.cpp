@@ -20,7 +20,6 @@
 
 using $ObjIDArray = $Array<::java::rmi::server::ObjID>;
 using $OperationArray = $Array<::java::rmi::server::Operation>;
-using $DataInput = ::java::io::DataInput;
 using $IOException = ::java::io::IOException;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectOutput = ::java::io::ObjectOutput;
@@ -35,10 +34,8 @@ using $Remote = ::java::rmi::Remote;
 using $UnmarshalException = ::java::rmi::UnmarshalException;
 using $Lease = ::java::rmi::dgc::Lease;
 using $VMID = ::java::rmi::dgc::VMID;
-using $ObjID = ::java::rmi::server::ObjID;
 using $Operation = ::java::rmi::server::Operation;
 using $RemoteCall = ::java::rmi::server::RemoteCall;
-using $Skeleton = ::java::rmi::server::Skeleton;
 using $SkeletonMismatchException = ::java::rmi::server::SkeletonMismatchException;
 using $DGCImpl = ::sun::rmi::transport::DGCImpl;
 using $StreamRemoteCall = ::sun::rmi::transport::StreamRemoteCall;

@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $PlatformLoggingMXBean = ::java::lang::management::PlatformLoggingMXBean;
 using $List = ::java::util::List;
 using $ObjectName = ::javax::management::ObjectName;
-using $ManagementFactoryHelper = ::sun::management::ManagementFactoryHelper;
 using $ManagementFactoryHelper$LoggingMXBeanAccess = ::sun::management::ManagementFactoryHelper$LoggingMXBeanAccess;
 using $Util = ::sun::management::Util;
 

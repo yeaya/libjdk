@@ -25,7 +25,6 @@ using $Context = ::javax::naming::Context;
 using $Name = ::javax::naming::Name;
 using $NameParser = ::javax::naming::NameParser;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;
-using $NamingException = ::javax::naming::NamingException;
 using $Attributes = ::javax::naming::directory::Attributes;
 using $DirContext = ::javax::naming::directory::DirContext;
 using $SearchControls = ::javax::naming::directory::SearchControls;

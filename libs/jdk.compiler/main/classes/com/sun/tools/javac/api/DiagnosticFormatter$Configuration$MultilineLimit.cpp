@@ -8,7 +8,6 @@
 #undef LENGTH
 
 using $DiagnosticFormatter$Configuration$MultilineLimitArray = $Array<::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$MultilineLimit>;
-using $DiagnosticFormatter$Configuration = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

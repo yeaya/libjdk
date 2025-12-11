@@ -40,21 +40,13 @@
 #undef VERSION
 #undef WARNING
 
-using $DocTree$KindArray = $Array<::com::sun::source::doctree::DocTree$Kind>;
-using $Tree$KindArray = $Array<::com::sun::source::tree::Tree$Kind>;
-using $Diagnostic$KindArray = $Array<::javax::tools::Diagnostic$Kind>;
-using $DocTree = ::com::sun::source::doctree::DocTree;
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
-using $Tree = ::com::sun::source::tree::Tree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
-using $JavacTrees = ::com::sun::tools::javac::api::JavacTrees;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Diagnostic = ::javax::tools::Diagnostic;
 using $Diagnostic$Kind = ::javax::tools::Diagnostic$Kind;
 
 namespace com {

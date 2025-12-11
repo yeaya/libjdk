@@ -40,7 +40,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Enumeration = ::java::util::Enumeration;
 using $HashSet = ::java::util::HashSet;

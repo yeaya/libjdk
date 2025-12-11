@@ -21,7 +21,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $Constructor = ::java::lang::reflect::Constructor;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ExtendedSocketOptions = ::jdk::net::ExtendedSocketOptions;
 using $ExtendedSocketOptions$PlatformSocketOptions$1 = ::jdk::net::ExtendedSocketOptions$PlatformSocketOptions$1;
 using $UnixDomainPrincipal = ::jdk::net::UnixDomainPrincipal;
 

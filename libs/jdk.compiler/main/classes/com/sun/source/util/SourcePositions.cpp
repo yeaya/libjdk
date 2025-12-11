@@ -3,8 +3,6 @@
 #include <com/sun/source/tree/CompilationUnitTree.h>
 #include <jcpp.h>
 
-using $CompilationUnitTree = ::com::sun::source::tree::CompilationUnitTree;
-using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

@@ -19,7 +19,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
-using $RMIConnector = ::javax::management::remote::rmi::RMIConnector;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 
 namespace javax {

@@ -24,7 +24,6 @@
 #undef NO_PARAMS
 #undef UNKNOWN
 
-using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $MBeanOperationInfoArray = $Array<::javax::management::MBeanOperationInfo>;
 using $MBeanParameterInfoArray = $Array<::javax::management::MBeanParameterInfo>;
 using $AnnotationArray2 = $Array<::java::lang::annotation::Annotation, 2>;
@@ -32,17 +31,14 @@ using $Introspector = ::com::sun::jmx::mbeanserver::Introspector;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
-using $Cloneable = ::java::lang::Cloneable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
 using $Executable = ::java::lang::reflect::Executable;
 using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Descriptor = ::javax::management::Descriptor;
 using $MBeanFeatureInfo = ::javax::management::MBeanFeatureInfo;

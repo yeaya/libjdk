@@ -25,13 +25,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
-using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
 using $Duration = ::java::time::Duration;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
-using $BiPredicate = ::java::util::function::BiPredicate;
 
 $FieldInfo _HeadersTest$10_FieldInfo_[] = {
 	{"val$bad", "Ljava/time/Duration;", nullptr, $FINAL | $SYNTHETIC, $field(HeadersTest$10, val$bad)},

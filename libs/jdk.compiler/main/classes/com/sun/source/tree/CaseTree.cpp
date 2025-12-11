@@ -9,13 +9,11 @@
 #undef STATEMENT
 
 using $CaseTree$CaseKind = ::com::sun::source::tree::CaseTree$CaseKind;
-using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {

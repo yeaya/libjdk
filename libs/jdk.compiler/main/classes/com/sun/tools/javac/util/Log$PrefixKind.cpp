@@ -8,7 +8,6 @@
 #undef JAVAC
 
 using $Log$PrefixKindArray = $Array<::com::sun::tools::javac::util::Log$PrefixKind>;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

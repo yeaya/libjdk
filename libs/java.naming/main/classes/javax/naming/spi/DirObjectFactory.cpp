@@ -8,11 +8,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
-using $Context = ::javax::naming::Context;
-using $Name = ::javax::naming::Name;
-using $Attributes = ::javax::naming::directory::Attributes;
-using $ObjectFactory = ::javax::naming::spi::ObjectFactory;
 
 namespace javax {
 	namespace naming {

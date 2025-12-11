@@ -26,9 +26,7 @@
 
 using $PADataArray = $Array<::sun::security::krb5::internal::PAData>;
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -38,7 +36,6 @@ using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $EncryptedData = ::sun::security::krb5::EncryptedData;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $Realm = ::sun::security::krb5::Realm;
-using $EncKDCRepPart = ::sun::security::krb5::internal::EncKDCRepPart;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $KrbApErrException = ::sun::security::krb5::internal::KrbApErrException;
 using $PAData = ::sun::security::krb5::internal::PAData;

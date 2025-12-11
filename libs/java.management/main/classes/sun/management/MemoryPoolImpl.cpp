@@ -25,7 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
 using $MemoryManagerMXBean = ::java::lang::management::MemoryManagerMXBean;
-using $MemoryPoolMXBean = ::java::lang::management::MemoryPoolMXBean;
 using $MemoryType = ::java::lang::management::MemoryType;
 using $MemoryUsage = ::java::lang::management::MemoryUsage;
 using $ObjectName = ::javax::management::ObjectName;
@@ -310,7 +309,7 @@ bool MemoryPoolImpl::isCollectionUsageThresholdSupported() {
 $MemoryUsage* MemoryPoolImpl::getUsage0() {
 	$var($MemoryUsage, $ret, nullptr);
 	$prepareNative(MemoryPoolImpl, getUsage0, $MemoryUsage*);
-	$assign($ret, $invokeNative(MemoryPoolImpl, getUsage0));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
@@ -318,7 +317,7 @@ $MemoryUsage* MemoryPoolImpl::getUsage0() {
 $MemoryUsage* MemoryPoolImpl::getPeakUsage0() {
 	$var($MemoryUsage, $ret, nullptr);
 	$prepareNative(MemoryPoolImpl, getPeakUsage0, $MemoryUsage*);
-	$assign($ret, $invokeNative(MemoryPoolImpl, getPeakUsage0));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
@@ -326,46 +325,46 @@ $MemoryUsage* MemoryPoolImpl::getPeakUsage0() {
 $MemoryUsage* MemoryPoolImpl::getCollectionUsage0() {
 	$var($MemoryUsage, $ret, nullptr);
 	$prepareNative(MemoryPoolImpl, getCollectionUsage0, $MemoryUsage*);
-	$assign($ret, $invokeNative(MemoryPoolImpl, getCollectionUsage0));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
 
 void MemoryPoolImpl::setUsageThreshold0(int64_t current, int64_t newThreshold) {
 	$prepareNative(MemoryPoolImpl, setUsageThreshold0, void, int64_t current, int64_t newThreshold);
-	$invokeNative(MemoryPoolImpl, setUsageThreshold0, current, newThreshold);
+	$invokeNative(current, newThreshold);
 	$finishNative();
 }
 
 void MemoryPoolImpl::setCollectionThreshold0(int64_t current, int64_t newThreshold) {
 	$prepareNative(MemoryPoolImpl, setCollectionThreshold0, void, int64_t current, int64_t newThreshold);
-	$invokeNative(MemoryPoolImpl, setCollectionThreshold0, current, newThreshold);
+	$invokeNative(current, newThreshold);
 	$finishNative();
 }
 
 void MemoryPoolImpl::resetPeakUsage0() {
 	$prepareNative(MemoryPoolImpl, resetPeakUsage0, void);
-	$invokeNative(MemoryPoolImpl, resetPeakUsage0);
+	$invokeNative();
 	$finishNative();
 }
 
 $MemoryManagerMXBeanArray* MemoryPoolImpl::getMemoryManagers0() {
 	$var($MemoryManagerMXBeanArray, $ret, nullptr);
 	$prepareNative(MemoryPoolImpl, getMemoryManagers0, $MemoryManagerMXBeanArray*);
-	$assign($ret, $invokeNative(MemoryPoolImpl, getMemoryManagers0));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
 
 void MemoryPoolImpl::setPoolUsageSensor($Sensor* s) {
 	$prepareNative(MemoryPoolImpl, setPoolUsageSensor, void, $Sensor* s);
-	$invokeNative(MemoryPoolImpl, setPoolUsageSensor, s);
+	$invokeNative(s);
 	$finishNative();
 }
 
 void MemoryPoolImpl::setPoolCollectionSensor($Sensor* s) {
 	$prepareNative(MemoryPoolImpl, setPoolCollectionSensor, void, $Sensor* s);
-	$invokeNative(MemoryPoolImpl, setPoolCollectionSensor, s);
+	$invokeNative(s);
 	$finishNative();
 }
 

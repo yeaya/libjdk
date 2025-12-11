@@ -121,7 +121,7 @@ using $RelativePath$RelativeFile = ::com::sun::tools::javac::file::RelativePath$
 using $Option = ::com::sun::tools::javac::main::Option;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Factory = ::com::sun::tools::javac::util::Context$Factory;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Options = ::com::sun::tools::javac::util::Options;
 using $File = ::java::io::File;
@@ -142,21 +142,14 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $ModuleLayer = ::java::lang::ModuleLayer;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Configuration = ::java::lang::module::Configuration;
 using $ModuleFinder = ::java::lang::module::ModuleFinder;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
-using $URL = ::java::net::URL;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $FileSystem = ::java::nio::file::FileSystem;
@@ -177,7 +170,7 @@ using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
@@ -191,7 +184,6 @@ using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
-using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 using $StandardJavaFileManager$PathFactory = ::javax::tools::StandardJavaFileManager$PathFactory;
 using $StandardLocation = ::javax::tools::StandardLocation;
 
@@ -353,7 +345,7 @@ $Class* JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3::class$ = nullptr
 class JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4 : public $Function {
 	$class(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, $NO_CLASS_INIT, $Function)
 public:
-	void init$($1List* nonIndexingContainers) {
+	void init$($List* nonIndexingContainers) {
 		$set(this, nonIndexingContainers, nonIndexingContainers);
 	}
 	virtual $Object* apply(Object$* d) override {
@@ -362,7 +354,7 @@ public:
 	static $Object* allocate$($Class* clazz) {
 		return $of($alloc<JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4>());
 	}
-	$1List* nonIndexingContainers = nullptr;
+	$List* nonIndexingContainers = nullptr;
 	static $FieldInfo fieldInfos[2];
 	static $MethodInfo methodInfos[3];
 	static $ClassInfo classInfo$;
@@ -372,7 +364,7 @@ $FieldInfo JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDire
 	{}
 };
 $MethodInfo JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::*)($1List*)>(&JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::init$))},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::*)($List*)>(&JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4::init$))},
 	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
 	{}
 };
@@ -396,7 +388,7 @@ public:
 	void init$() {
 	}
 	virtual void accept(Object$* pathAndContainerList) override {
-		JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$3($cast($1List, pathAndContainerList));
+		JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$3($cast($List, pathAndContainerList));
 	}
 	static $Object* allocate$($Class* clazz) {
 		return $of($alloc<JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$3$5>());
@@ -581,14 +573,14 @@ $MethodInfo _JavacFileManager_MethodInfo_[] = {
 	{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&JavacFileManager::isValidName))},
 	{"lambda$asFiles$5", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Iterator*(*)($Iterable*)>(&JavacFileManager::lambda$asFiles$5))},
 	{"lambda$asPaths$4", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Iterator*(*)($Iterable*)>(&JavacFileManager::lambda$asPaths$4))},
-	{"lambda$indexPathsAndContainersByRelativeDirectory$2", "(Ljava/util/List;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$1List*(*)($1List*,$RelativePath$RelativeDirectory*)>(&JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$2))},
-	{"lambda$indexPathsAndContainersByRelativeDirectory$3", "(Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($1List*)>(&JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$3))},
-	{"lambda$pathsAndContainers$1", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$1List*(JavacFileManager::*)($JavaFileManager$Location*,$RelativePath$RelativeDirectory*)>(&JavacFileManager::lambda$pathsAndContainers$1))},
+	{"lambda$indexPathsAndContainersByRelativeDirectory$2", "(Ljava/util/List;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($List*,$RelativePath$RelativeDirectory*)>(&JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$2))},
+	{"lambda$indexPathsAndContainersByRelativeDirectory$3", "(Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($List*)>(&JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$3))},
+	{"lambda$pathsAndContainers$1", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$List*(JavacFileManager::*)($JavaFileManager$Location*,$RelativePath$RelativeDirectory*)>(&JavacFileManager::lambda$pathsAndContainers$1))},
 	{"lambda$preRegister$0", "(Lcom/sun/tools/javac/util/Context;)Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavaFileManager*(*)($Context*)>(&JavacFileManager::lambda$preRegister$0))},
 	{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, nullptr, "java.io.IOException"},
 	{"listLocationsForModules", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"pathsAndContainers", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;", $PRIVATE, $method(static_cast<$1List*(JavacFileManager::*)($JavaFileManager$Location*,$RelativePath$RelativeDirectory*)>(&JavacFileManager::pathsAndContainers)), "java.io.IOException"},
-	{"pathsAndContainers", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/List;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;", $PRIVATE, $method(static_cast<$1List*(JavacFileManager::*)($JavaFileManager$Location*)>(&JavacFileManager::pathsAndContainers))},
+	{"pathsAndContainers", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List;", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;", $PRIVATE, $method(static_cast<$List*(JavacFileManager::*)($JavaFileManager$Location*,$RelativePath$RelativeDirectory*)>(&JavacFileManager::pathsAndContainers)), "java.io.IOException"},
+	{"pathsAndContainers", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/List;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/util/List<Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;>;", $PRIVATE, $method(static_cast<$List*(JavacFileManager::*)($JavaFileManager$Location*)>(&JavacFileManager::pathsAndContainers))},
 	{"preRegister", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Context*)>(&JavacFileManager::preRegister))},
 	{"printAscii", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&JavacFileManager::printAscii))},
 	{"setContext", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC},
@@ -1270,10 +1262,10 @@ $Iterable* JavacFileManager::getLocationAsPaths($JavaFileManager$Location* locat
 	return $nc(this->locations)->getLocation(location);
 }
 
-$1List* JavacFileManager::pathsAndContainers($JavaFileManager$Location* location, $RelativePath$RelativeDirectory* relativeDirectory) {
+$List* JavacFileManager::pathsAndContainers($JavaFileManager$Location* location, $RelativePath$RelativeDirectory* relativeDirectory) {
 	$useLocalCurrentObjectStackCache();
 	try {
-		return $cast($1List, $nc(($cast($Map, $($nc(this->pathsAndContainersByLocationAndRelativeDirectory)->computeIfAbsent(location, static_cast<$Function*>($$new(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, this)))))))->computeIfAbsent(relativeDirectory, static_cast<$Function*>($$new(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, this, location))));
+		return $cast($List, $nc(($cast($Map, $($nc(this->pathsAndContainersByLocationAndRelativeDirectory)->computeIfAbsent(location, static_cast<$Function*>($$new(JavacFileManager$$Lambda$indexPathsAndContainersByRelativeDirectory$2, this)))))))->computeIfAbsent(relativeDirectory, static_cast<$Function*>($$new(JavacFileManager$$Lambda$lambda$pathsAndContainers$1$3, this, location))));
 	} catch ($UncheckedIOException& e) {
 		$throw($($cast($IOException, e->getCause())));
 	}
@@ -1283,8 +1275,8 @@ $1List* JavacFileManager::pathsAndContainers($JavaFileManager$Location* location
 $Map* JavacFileManager::indexPathsAndContainersByRelativeDirectory($JavaFileManager$Location* location) {
 	$useLocalCurrentObjectStackCache();
 	$var($Map, result, $new($HashMap));
-	$var($1List, allPathsAndContainers, pathsAndContainers(location));
-	$var($1List, nonIndexingContainers, $new($ArrayList));
+	$var($List, allPathsAndContainers, pathsAndContainers(location));
+	$var($List, nonIndexingContainers, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(allPathsAndContainers)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -1308,7 +1300,7 @@ $Map* JavacFileManager::indexPathsAndContainersByRelativeDirectory($JavaFileMana
 						for (; $nc(i$)->hasNext();) {
 							$var($RelativePath$RelativeDirectory, directory, $cast($RelativePath$RelativeDirectory, i$->next()));
 							{
-								$nc(($cast($1List, $(result->computeIfAbsent(directory, static_cast<$Function*>($$new(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, nonIndexingContainers)))))))->add(pathAndContainer);
+								$nc(($cast($List, $(result->computeIfAbsent(directory, static_cast<$Function*>($$new(JavacFileManager$$Lambda$lambda$indexPathsAndContainersByRelativeDirectory$2$4, nonIndexingContainers)))))))->add(pathAndContainer);
 							}
 						}
 					}
@@ -1321,13 +1313,13 @@ $Map* JavacFileManager::indexPathsAndContainersByRelativeDirectory($JavaFileMana
 	return result;
 }
 
-$1List* JavacFileManager::pathsAndContainers($JavaFileManager$Location* location) {
+$List* JavacFileManager::pathsAndContainers($JavaFileManager$Location* location) {
 	$useLocalCurrentObjectStackCache();
 	$var($Collection, paths, $cast($Collection, getLocationAsPaths(location)));
 	if (paths == nullptr) {
-		return $List::nil();
+		return $1List::nil();
 	}
-	$var($1List, pathsAndContainers, $new($ArrayList, $nc(paths)->size()));
+	$var($List, pathsAndContainers, $new($ArrayList, $nc(paths)->size()));
 	{
 		$var($Iterator, i$, $nc(paths)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -1570,18 +1562,18 @@ $Iterator* JavacFileManager::lambda$asPaths$4($Iterable* files) {
 	return $new($JavacFileManager$2, files);
 }
 
-void JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$3($1List* pathAndContainerList) {
+void JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$3($List* pathAndContainerList) {
 	$init(JavacFileManager);
 	$Collections::sort(pathAndContainerList);
 }
 
-$1List* JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$2($1List* nonIndexingContainers, $RelativePath$RelativeDirectory* d) {
+$List* JavacFileManager::lambda$indexPathsAndContainersByRelativeDirectory$2($List* nonIndexingContainers, $RelativePath$RelativeDirectory* d) {
 	$init(JavacFileManager);
 	return $new($ArrayList, static_cast<$Collection*>(nonIndexingContainers));
 }
 
-$1List* JavacFileManager::lambda$pathsAndContainers$1($JavaFileManager$Location* location, $RelativePath$RelativeDirectory* d) {
-	return $cast($1List, $nc(this->nonIndexingContainersByLocation)->get(location));
+$List* JavacFileManager::lambda$pathsAndContainers$1($JavaFileManager$Location* location, $RelativePath$RelativeDirectory* d) {
+	return $cast($List, $nc(this->nonIndexingContainersByLocation)->get(location));
 }
 
 $JavaFileManager* JavacFileManager::lambda$preRegister$0($Context* c) {

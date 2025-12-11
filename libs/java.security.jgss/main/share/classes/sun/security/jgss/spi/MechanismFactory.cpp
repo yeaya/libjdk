@@ -7,14 +7,8 @@
 #include <sun/security/jgss/spi/GSSNameSpi.h>
 #include <jcpp.h>
 
-using $OidArray = $Array<::org::ietf::jgss::Oid>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Provider = ::java::security::Provider;
-using $Oid = ::org::ietf::jgss::Oid;
-using $GSSContextSpi = ::sun::security::jgss::spi::GSSContextSpi;
-using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
-using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 
 namespace sun {
 	namespace security {

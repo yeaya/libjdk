@@ -75,12 +75,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ProxySelector = ::java::net::ProxySelector;
 using $URI = ::java::net::URI;
@@ -94,11 +89,9 @@ using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscri
 using $HttpResponse$BodySubscribers = ::java::net::http::HttpResponse$BodySubscribers;
 using $HttpResponse$ResponseInfo = ::java::net::http::HttpResponse$ResponseInfo;
 using $HttpTimeoutException = ::java::net::http::HttpTimeoutException;
-using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $Permission = ::java::security::Permission;
 using $Duration = ::java::time::Duration;
-using $Collection = ::java::util::Collection;
 using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
@@ -109,21 +102,19 @@ using $BiConsumer = ::java::util::function::BiConsumer;
 using $BiFunction = ::java::util::function::BiFunction;
 using $Function = ::java::util::function::Function;
 using $Supplier = ::java::util::function::Supplier;
-using $Stream = ::java::util::stream::Stream;
 using $Exchange$ConnectionAborter = ::jdk::internal::net::http::Exchange$ConnectionAborter;
 using $ExchangeImpl = ::jdk::internal::net::http::ExchangeImpl;
 using $Http1Exchange = ::jdk::internal::net::http::Http1Exchange;
 using $Http2ClientImpl = ::jdk::internal::net::http::Http2ClientImpl;
 using $Http2Connection = ::jdk::internal::net::http::Http2Connection;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
-using $HttpClientImpl$DelegatingExecutor = ::jdk::internal::net::http::HttpClientImpl$DelegatingExecutor;
 using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
 using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $MultiExchange = ::jdk::internal::net::http::MultiExchange;
 using $ProxyAuthenticationRequired = ::jdk::internal::net::http::ProxyAuthenticationRequired;
 using $PushGroup = ::jdk::internal::net::http::PushGroup;
 using $Response = ::jdk::internal::net::http::Response;
-using $1Stream = ::jdk::internal::net::http::Stream;
+using $Stream = ::jdk::internal::net::http::Stream;
 using $Log = ::jdk::internal::net::http::common::Log;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
@@ -1410,7 +1401,7 @@ $CompletionStage* Exchange::lambda$checkForUpgradeAsync$13($Http1Exchange* e, $H
 	if (cached) {
 		$nc(this->connectionAborter)->disable();
 	}
-	$var($1Stream, s, c->getStream(1));
+	$var($Stream, s, c->getStream(1));
 	if (s == nullptr) {
 		$var($Throwable, t, c->getRecordedCause());
 		$var($IOException, ioe, nullptr);

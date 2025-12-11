@@ -43,18 +43,11 @@
 #undef TYP
 #undef TYPEVAR
 
-using $AnnoConstruct = ::com::sun::tools::javac::code::AnnoConstruct;
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
-using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Lint = ::com::sun::tools::javac::code::Lint;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
@@ -70,19 +63,15 @@ using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
-using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCTypeApply = ::com::sun::tools::javac::tree::JCTree$JCTypeApply;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $Documented = ::java::lang::annotation::Documented;
 
 namespace com {

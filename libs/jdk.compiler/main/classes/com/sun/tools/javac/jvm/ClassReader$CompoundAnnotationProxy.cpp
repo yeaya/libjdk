@@ -16,20 +16,17 @@
 
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$ProxyVisitor = ::com::sun::tools::javac::jvm::ClassReader$ProxyVisitor;
 using $List = ::com::sun::tools::javac::util::List;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $1Name = ::javax::lang::model::element::Name;
+using $Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {

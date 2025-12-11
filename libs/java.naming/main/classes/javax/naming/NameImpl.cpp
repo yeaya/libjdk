@@ -27,7 +27,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Enumeration = ::java::util::Enumeration;
 using $Locale = ::java::util::Locale;

@@ -7,13 +7,11 @@
 
 using $JmxMBeanServer = ::com::sun::jmx::mbeanserver::JmxMBeanServer;
 using $MBeanInstantiator = ::com::sun::jmx::mbeanserver::MBeanInstantiator;
-using $ModifiableClassLoaderRepository = ::com::sun::jmx::mbeanserver::ModifiableClassLoaderRepository;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace com {
 	namespace sun {

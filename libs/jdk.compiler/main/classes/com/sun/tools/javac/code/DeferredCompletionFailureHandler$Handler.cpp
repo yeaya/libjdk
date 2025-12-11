@@ -6,10 +6,6 @@
 #include <com/sun/tools/javac/code/Symbol$CompletionFailure.h>
 #include <jcpp.h>
 
-using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
-using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

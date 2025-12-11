@@ -8,12 +8,10 @@
 #include <java/util/concurrent/atomic/AtomicReferenceFieldUpdater.h>
 #include <jcpp.h>
 
-using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DriverManager = ::java::sql::DriverManager;
 using $SQLException$1 = ::java::sql::SQLException$1;

@@ -27,22 +27,16 @@
 #undef NON_RECURSIVE
 #undef NOT_AN_ANNOTATION_TYPE
 
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Annotate = ::com::sun::tools::javac::comp::Annotate;
 using $Annotate$AnnotationTypeCompleter = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeCompleter;
 using $Annotate$AnnotationTypeMetadata$1 = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeMetadata$1;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $Name = ::com::sun::tools::javac::util::Name;
-using $Name$Table = ::com::sun::tools::javac::util::Name$Table;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

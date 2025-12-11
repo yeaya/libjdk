@@ -4,11 +4,8 @@
 #include <javax/sql/rowset/WebRowSet.h>
 #include <jcpp.h>
 
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RowSetReader = ::javax::sql::RowSetReader;
-using $WebRowSet = ::javax::sql::rowset::WebRowSet;
 
 namespace javax {
 	namespace sql {

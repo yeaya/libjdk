@@ -8,7 +8,6 @@
 #undef NEW
 
 using $MemberReferenceTree$ReferenceModeArray = $Array<::com::sun::source::tree::MemberReferenceTree$ReferenceMode>;
-using $MemberReferenceTree = ::com::sun::source::tree::MemberReferenceTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

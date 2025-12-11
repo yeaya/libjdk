@@ -12,14 +12,11 @@
 #undef READY
 #undef SIZE_UPDATE
 
-using $Decoder$StateArray = $Array<::jdk::internal::net::http::hpack::Decoder$State>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Decoder = ::jdk::internal::net::http::hpack::Decoder;
 using $Decoder$State = ::jdk::internal::net::http::hpack::Decoder$State;
 
 namespace jdk {

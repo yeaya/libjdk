@@ -21,7 +21,6 @@
 
 using $MXBeanMappingArray = $Array<::com::sun::jmx::mbeanserver::MXBeanMapping>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
-using $DefaultMXBeanMappingFactory = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory;
 using $DefaultMXBeanMappingFactory$CompositeBuilder = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$CompositeBuilder;
 using $Util = ::com::sun::jmx::mbeanserver::Util;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -36,7 +35,6 @@ using $Proxy = ::java::lang::reflect::Proxy;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $CompositeDataInvocationHandler = ::javax::management::openmbean::CompositeDataInvocationHandler;

@@ -22,19 +22,14 @@
 #undef SPECULATIVE
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$JCVoidType = ::com::sun::tools::javac::code::Type$JCVoidType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$MapVisitor = ::com::sun::tools::javac::code::Types$MapVisitor;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
 using $DeferredAttr$DeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$DeferredTypeMap;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

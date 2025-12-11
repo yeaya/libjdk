@@ -17,7 +17,6 @@ using $ParenthesizedPatternTree = ::com::sun::source::tree::ParenthesizedPattern
 using $PatternTree = ::com::sun::source::tree::PatternTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCPattern = ::com::sun::tools::javac::tree::JCTree$JCPattern;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;

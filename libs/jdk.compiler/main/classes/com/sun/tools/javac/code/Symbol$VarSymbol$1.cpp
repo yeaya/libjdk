@@ -17,7 +17,6 @@ using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $1List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $ClassInfo = ::java::lang::ClassInfo;

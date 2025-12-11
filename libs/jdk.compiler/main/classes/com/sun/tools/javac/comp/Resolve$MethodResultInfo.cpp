@@ -30,7 +30,6 @@ using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

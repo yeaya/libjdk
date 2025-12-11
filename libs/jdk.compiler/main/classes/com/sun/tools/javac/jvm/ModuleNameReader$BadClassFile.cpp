@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/jvm/ModuleNameReader.h>
 #include <jcpp.h>
 
-using $ModuleNameReader = ::com::sun::tools::javac::jvm::ModuleNameReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

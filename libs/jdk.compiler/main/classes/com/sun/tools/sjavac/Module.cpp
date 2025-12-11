@@ -18,7 +18,6 @@ using $Source = ::com::sun::tools::sjavac::Source;
 using $PubApi = ::com::sun::tools::sjavac::pubapi::PubApi;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;

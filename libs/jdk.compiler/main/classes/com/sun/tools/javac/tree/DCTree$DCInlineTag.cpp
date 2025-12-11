@@ -5,10 +5,6 @@
 #include <com/sun/tools/javac/tree/DCTree.h>
 #include <jcpp.h>
 
-using $DocTree = ::com::sun::source::doctree::DocTree;
-using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
-using $InlineTagTree = ::com::sun::source::doctree::InlineTagTree;
-using $DCTree = ::com::sun::tools::javac::tree::DCTree;
 using $DCTree$DCEndPosTree = ::com::sun::tools::javac::tree::DCTree$DCEndPosTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

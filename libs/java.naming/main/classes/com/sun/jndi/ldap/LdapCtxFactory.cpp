@@ -51,14 +51,12 @@ using $ComponentContext = ::com::sun::jndi::toolkit::ctx::ComponentContext;
 using $ComponentDirContext = ::com::sun::jndi::toolkit::ctx::ComponentDirContext;
 using $PartialCompositeContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeContext;
 using $PartialCompositeDirContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeDirContext;
-using $Uri = ::com::sun::jndi::toolkit::url::Uri;
 using $ldapURLContextFactory = ::com::sun::jndi::url::ldap::ldapURLContextFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
@@ -74,9 +72,7 @@ using $StringRefAddr = ::javax::naming::StringRefAddr;
 using $Attribute = ::javax::naming::directory::Attribute;
 using $BasicAttribute = ::javax::naming::directory::BasicAttribute;
 using $DirContext = ::javax::naming::directory::DirContext;
-using $Control = ::javax::naming::ldap::Control;
 using $LdapDnsProviderResult = ::javax::naming::ldap::spi::LdapDnsProviderResult;
-using $InitialContextFactory = ::javax::naming::spi::InitialContextFactory;
 using $ObjectFactory = ::javax::naming::spi::ObjectFactory;
 
 namespace com {

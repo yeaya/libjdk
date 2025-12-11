@@ -19,7 +19,6 @@ using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
-using $Env = ::com::sun::tools::javac::comp::Env;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;

@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/code/TypeMetadata.h>
 #include <jcpp.h>
 
-using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
-using $TypeMetadata$Entry$Kind = ::com::sun::tools::javac::code::TypeMetadata$Entry$Kind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

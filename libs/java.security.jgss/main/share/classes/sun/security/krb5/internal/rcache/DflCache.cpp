@@ -25,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Path = ::java::nio::file::Path;
 using $VM = ::jdk::internal::misc::VM;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
@@ -33,7 +32,6 @@ using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $KrbApErrException = ::sun::security::krb5::internal::KrbApErrException;
 using $ReplayCache = ::sun::security::krb5::internal::ReplayCache;
-using $AuthTime = ::sun::security::krb5::internal::rcache::AuthTime;
 using $AuthTimeWithHash = ::sun::security::krb5::internal::rcache::AuthTimeWithHash;
 using $DflCache$Storage = ::sun::security::krb5::internal::rcache::DflCache$Storage;
 

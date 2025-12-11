@@ -12,13 +12,13 @@ using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -32,7 +32,7 @@ $FieldInfo _Type$ClassType$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$ClassType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(static_cast<void(Type$ClassType$1::*)($Type$ClassType*,$Type*,$1List*,$Symbol$TypeSymbol*,$TypeMetadata*)>(&Type$ClassType$1::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(static_cast<void(Type$ClassType$1::*)($Type$ClassType*,$Type*,$List*,$Symbol$TypeSymbol*,$TypeMetadata*)>(&Type$ClassType$1::init$))},
 	{"asElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
 	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
 	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
@@ -74,7 +74,7 @@ $Object* allocate$Type$ClassType$1($Class* clazz) {
 	return $of($alloc(Type$ClassType$1));
 }
 
-void Type$ClassType$1::init$($Type$ClassType* this$0, $Type* outer, $1List* typarams, $Symbol$TypeSymbol* tsym, $TypeMetadata* metadata) {
+void Type$ClassType$1::init$($Type$ClassType* this$0, $Type* outer, $List* typarams, $Symbol$TypeSymbol* tsym, $TypeMetadata* metadata) {
 	$set(this, this$0, this$0);
 	$Type$ClassType::init$(outer, typarams, tsym, metadata);
 }
@@ -83,7 +83,7 @@ $Type* Type$ClassType$1::baseType() {
 	return this->this$0->baseType();
 }
 
-$1List* Type$ClassType$1::getTypeArguments() {
+$List* Type$ClassType$1::getTypeArguments() {
 	return $Type$ClassType::getTypeArguments();
 }
 
@@ -95,7 +95,7 @@ $Symbol$TypeSymbol* Type$ClassType$1::asElement() {
 	return $Type$ClassType::asElement();
 }
 
-$List* Type$ClassType$1::getAnnotationMirrors() {
+$1List* Type$ClassType$1::getAnnotationMirrors() {
 	return $Type$ClassType::getAnnotationMirrors();
 }
 

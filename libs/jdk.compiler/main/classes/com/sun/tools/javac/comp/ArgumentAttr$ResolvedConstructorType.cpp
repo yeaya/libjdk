@@ -19,17 +19,13 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $ArgumentAttr = ::com::sun::tools::javac::comp::ArgumentAttr;
 using $ArgumentAttr$ArgumentType = ::com::sun::tools::javac::comp::ArgumentAttr$ArgumentType;
 using $ArgumentAttr$ResolvedMemberType = ::com::sun::tools::javac::comp::ArgumentAttr$ResolvedMemberType;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
-using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;

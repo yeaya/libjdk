@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SSLContext = ::javax::net::ssl::SSLContext;
-using $SSLParameters = ::javax::net::ssl::SSLParameters;
 
 namespace com {
 	namespace sun {

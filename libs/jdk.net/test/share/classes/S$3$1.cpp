@@ -21,8 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-using $BaseStream = ::java::util::stream::BaseStream;
 using $Stream = ::java::util::stream::Stream;
 
 $FieldInfo _S$3$1_FieldInfo_[] = {

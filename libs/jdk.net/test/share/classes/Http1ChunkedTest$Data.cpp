@@ -12,7 +12,6 @@
 #undef REQ5_RESPONSE_BODY
 #undef RESPONSE_HEADERS
 
-using $Http1ChunkedTest = ::Http1ChunkedTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

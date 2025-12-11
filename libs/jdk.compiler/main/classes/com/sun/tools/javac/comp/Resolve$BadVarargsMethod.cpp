@@ -13,7 +13,6 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <jcpp.h>
 
-using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;

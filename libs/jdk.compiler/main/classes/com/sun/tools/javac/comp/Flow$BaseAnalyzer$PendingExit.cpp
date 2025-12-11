@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
-using $Flow$BaseAnalyzer = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

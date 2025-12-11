@@ -16,7 +16,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MessageQueue = ::jdk::internal::net::http::websocket::MessageQueue;
 
 namespace jdk {
 	namespace internal {

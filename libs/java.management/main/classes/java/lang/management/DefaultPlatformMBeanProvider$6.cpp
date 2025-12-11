@@ -24,7 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultPlatformMBeanProvider = ::java::lang::management::DefaultPlatformMBeanProvider;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
 using $MemoryPoolMXBean = ::java::lang::management::MemoryPoolMXBean;
-using $PlatformManagedObject = ::java::lang::management::PlatformManagedObject;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
@@ -34,7 +33,6 @@ using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $ObjectName = ::javax::management::ObjectName;
 using $ManagementFactoryHelper = ::sun::management::ManagementFactoryHelper;
-using $PlatformMBeanProvider$PlatformComponent = ::sun::management::spi::PlatformMBeanProvider$PlatformComponent;
 
 namespace java {
 	namespace lang {

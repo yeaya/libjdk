@@ -6,9 +6,7 @@
 #include <com/sun/tools/javac/util/Assert.h>
 #include <jcpp.h>
 
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
-using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

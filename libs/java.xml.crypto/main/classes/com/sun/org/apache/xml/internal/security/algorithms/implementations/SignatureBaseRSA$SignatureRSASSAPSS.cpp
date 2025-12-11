@@ -26,7 +26,6 @@
 #undef _TAG_SALTLENGTH
 #undef _TAG_TRAILERFIELD
 
-using $SignatureAlgorithmSpi = ::com::sun::org::apache::xml::internal::security::algorithms::SignatureAlgorithmSpi;
 using $SignatureBaseRSA = ::com::sun::org::apache::xml::internal::security::algorithms::implementations::SignatureBaseRSA;
 using $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm = ::com::sun::org::apache::xml::internal::security::algorithms::implementations::SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;
 using $XMLSignature = ::com::sun::org::apache::xml::internal::security::signature::XMLSignature;

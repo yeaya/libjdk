@@ -45,7 +45,6 @@ using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ObjectOutputStream$PutField = ::java::io::ObjectOutputStream$PutField;
 using $ObjectStreamField = ::java::io::ObjectStreamField;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $Boolean = ::java::lang::Boolean;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -71,7 +70,6 @@ using $MBeanServer = ::javax::management::MBeanServer;
 using $MalformedObjectNameException = ::javax::management::MalformedObjectNameException;
 using $ObjectName$PatternProperty = ::javax::management::ObjectName$PatternProperty;
 using $ObjectName$Property = ::javax::management::ObjectName$Property;
-using $QueryExp = ::javax::management::QueryExp;
 
 namespace javax {
 	namespace management {

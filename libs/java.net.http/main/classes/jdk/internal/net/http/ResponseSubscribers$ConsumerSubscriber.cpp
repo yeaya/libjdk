@@ -18,7 +18,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -29,8 +28,6 @@ using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $Consumer = ::java::util::function::Consumer;
-using $ResponseSubscribers = ::jdk::internal::net::http::ResponseSubscribers;
-using $ResponseSubscribers$TrustedSubscriber = ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
 
 namespace jdk {

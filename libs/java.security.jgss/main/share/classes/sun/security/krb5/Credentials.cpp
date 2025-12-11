@@ -55,7 +55,6 @@ using $Locale = ::java::util::Locale;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $Credentials$1 = ::sun::security::krb5::Credentials$1;
-using $EncryptedData = ::sun::security::krb5::EncryptedData;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $KrbTgsReq = ::sun::security::krb5::KrbTgsReq;
@@ -71,7 +70,6 @@ using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
 using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
 using $CredentialsCache = ::sun::security::krb5::internal::ccache::CredentialsCache;
 using $EType = ::sun::security::krb5::internal::crypto::EType;
-using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
 
 namespace sun {
 	namespace security {
@@ -184,7 +182,7 @@ Credentials* Credentials::acquireDefaultNativeCreds($ints* eTypes) {
 	$init(Credentials);
 	$var(Credentials, $ret, nullptr);
 	$prepareNativeStatic(Credentials, acquireDefaultNativeCreds, Credentials*, $ints* eTypes);
-	$assign($ret, $invokeNativeStatic(Credentials, acquireDefaultNativeCreds, eTypes));
+	$assign($ret, $invokeNativeStaticObject(eTypes));
 	$finishNativeStatic();
 	return $ret;
 }

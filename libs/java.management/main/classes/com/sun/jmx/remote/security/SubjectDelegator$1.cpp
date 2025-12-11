@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 

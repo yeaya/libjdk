@@ -10,11 +10,9 @@
 #include <java/lang/UnsupportedOperationException.h>
 #include <jcpp.h>
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $List = ::com::sun::tools::javac::util::List;

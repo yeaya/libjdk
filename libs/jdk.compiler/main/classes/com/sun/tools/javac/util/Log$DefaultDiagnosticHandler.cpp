@@ -19,7 +19,6 @@ using $Log = ::com::sun::tools::javac::util::Log;
 using $Log$1 = ::com::sun::tools::javac::util::Log$1;
 using $Log$DiagnosticHandler = ::com::sun::tools::javac::util::Log$DiagnosticHandler;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

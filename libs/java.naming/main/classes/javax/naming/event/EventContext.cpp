@@ -11,9 +11,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Context = ::javax::naming::Context;
-using $Name = ::javax::naming::Name;
-using $NamingListener = ::javax::naming::event::NamingListener;
 
 namespace javax {
 	namespace naming {

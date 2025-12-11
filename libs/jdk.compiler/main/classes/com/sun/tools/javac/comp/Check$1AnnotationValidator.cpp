@@ -11,7 +11,6 @@
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Check = ::com::sun::tools::javac::comp::Check;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $ClassInfo = ::java::lang::ClassInfo;

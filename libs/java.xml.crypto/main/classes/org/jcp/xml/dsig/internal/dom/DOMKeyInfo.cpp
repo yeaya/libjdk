@@ -50,16 +50,15 @@ using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
-using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
+using $1DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
 using $DOMSignContext = ::javax::xml::crypto::dsig::dom::DOMSignContext;
 using $KeyInfo = ::javax::xml::crypto::dsig::keyinfo::KeyInfo;
-using $KeyValue = ::javax::xml::crypto::dsig::keyinfo::KeyValue;
 using $DOMKeyName = ::org::jcp::xml::dsig::internal::dom::DOMKeyName;
 using $DOMKeyValue = ::org::jcp::xml::dsig::internal::dom::DOMKeyValue;
 using $DOMPGPData = ::org::jcp::xml::dsig::internal::dom::DOMPGPData;
 using $DOMRetrievalMethod = ::org::jcp::xml::dsig::internal::dom::DOMRetrievalMethod;
-using $1DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
+using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $DOMX509Data = ::org::jcp::xml::dsig::internal::dom::DOMX509Data;
 using $Attr = ::org::w3c::dom::Attr;
@@ -113,19 +112,19 @@ $Object* allocate$DOMKeyInfo($Class* clazz) {
 }
 
 bool DOMKeyInfo::isFeatureSupported($String* feature) {
-	 return this->$1DOMStructure::isFeatureSupported(feature);
+	 return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMKeyInfo::clone() {
-	 return this->$1DOMStructure::clone();
+	 return this->$DOMStructure::clone();
 }
 
 $String* DOMKeyInfo::toString() {
-	 return this->$1DOMStructure::toString();
+	 return this->$DOMStructure::toString();
 }
 
 void DOMKeyInfo::finalize() {
-	this->$1DOMStructure::finalize();
+	this->$DOMStructure::finalize();
 }
 
 $List* DOMKeyInfo::getContent($KeyInfo* ki) {
@@ -135,7 +134,7 @@ $List* DOMKeyInfo::getContent($KeyInfo* ki) {
 
 void DOMKeyInfo::init$($List* content, $String* id) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	if (content == nullptr) {
 		$throwNew($NullPointerException, "content cannot be null"_s);
 	}
@@ -157,7 +156,7 @@ void DOMKeyInfo::init$($List* content, $String* id) {
 
 void DOMKeyInfo::init$($Element* kiElem, $XMLCryptoContext* context, $Provider* provider) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	$var($Attr, attr, $nc(kiElem)->getAttributeNodeNS(nullptr, "Id"_s));
 	if (attr != nullptr) {
 		$set(this, id, attr->getValue());
@@ -196,7 +195,7 @@ void DOMKeyInfo::init$($Element* kiElem, $XMLCryptoContext* context, $Provider* 
 							if (var$8 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 								content->add($$new($DOMPGPData, childElem));
 							} else {
-								content->add($$new($DOMStructure, childElem));
+								content->add($$new($1DOMStructure, childElem));
 							}
 						}
 					}
@@ -221,10 +220,10 @@ void DOMKeyInfo::marshal($XMLStructure* parent, $XMLCryptoContext* context) {
 	if (parent == nullptr) {
 		$throwNew($NullPointerException, "parent is null"_s);
 	}
-	if (!($instanceOf($DOMStructure, parent))) {
+	if (!($instanceOf($1DOMStructure, parent))) {
 		$throwNew($ClassCastException, "parent must be of type DOMStructure"_s);
 	}
-	$var($Node, pNode, $nc(($cast($DOMStructure, parent)))->getNode());
+	$var($Node, pNode, $nc(($cast($1DOMStructure, parent)))->getNode());
 	$var($String, dsPrefix, $DOMUtils::getSignaturePrefix(context));
 	$init($XMLSignature);
 	$var($Element, kiElem, $DOMUtils::createElement($($DOMUtils::getOwnerDocument(pNode)), "KeyInfo"_s, $XMLSignature::XMLNS, dsPrefix));
@@ -259,10 +258,10 @@ void DOMKeyInfo::marshal($Node* parent, $Element* kiElem, $Node* nextSibling, $S
 		for (; $nc(i$)->hasNext();) {
 			$var($XMLStructure, kiType, $cast($XMLStructure, i$->next()));
 			{
-				if ($instanceOf($1DOMStructure, kiType)) {
-					$nc(($cast($1DOMStructure, kiType)))->marshal(kiElem, dsPrefix, context);
+				if ($instanceOf($DOMStructure, kiType)) {
+					$nc(($cast($DOMStructure, kiType)))->marshal(kiElem, dsPrefix, context);
 				} else {
-					$DOMUtils::appendChild(kiElem, $($nc(($cast($DOMStructure, kiType)))->getNode()));
+					$DOMUtils::appendChild(kiElem, $($nc(($cast($1DOMStructure, kiType)))->getNode()));
 				}
 			}
 		}

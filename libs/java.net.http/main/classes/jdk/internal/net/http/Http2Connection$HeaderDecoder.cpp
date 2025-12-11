@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
-using $Http2Connection = ::jdk::internal::net::http::Http2Connection;
 using $Http2Connection$ValidatingHeadersConsumer = ::jdk::internal::net::http::Http2Connection$ValidatingHeadersConsumer;
 using $HttpHeadersBuilder = ::jdk::internal::net::http::common::HttpHeadersBuilder;
 

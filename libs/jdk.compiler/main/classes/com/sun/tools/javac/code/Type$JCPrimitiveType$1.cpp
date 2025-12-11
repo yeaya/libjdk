@@ -14,7 +14,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$JCPrimitiveType = ::com::sun::tools::javac::code::Type$JCPrimitiveType;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $1List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

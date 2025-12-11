@@ -55,22 +55,13 @@
 #undef UNKNOWN
 #undef VAR
 
-using $Attribute$RetentionPolicyArray = $Array<::com::sun::tools::javac::code::Attribute$RetentionPolicy>;
-using $Kinds$KindArray = $Array<::com::sun::tools::javac::code::Kinds$Kind>;
-using $TargetTypeArray = $Array<::com::sun::tools::javac::code::TargetType>;
-using $TypeTagArray = $Array<::com::sun::tools::javac::code::TypeTag>;
-using $Code$StackMapFormatArray = $Array<::com::sun::tools::javac::jvm::Code$StackMapFormat>;
 using $Attribute$RetentionPolicy = ::com::sun::tools::javac::code::Attribute$RetentionPolicy;
-using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $TargetType = ::com::sun::tools::javac::code::TargetType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $ClassWriter = ::com::sun::tools::javac::jvm::ClassWriter;
-using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Code$StackMapFormat = ::com::sun::tools::javac::jvm::Code$StackMapFormat;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

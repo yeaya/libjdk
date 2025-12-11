@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ConnectionPool$CacheKey = ::jdk::internal::net::http::ConnectionPool$CacheKey;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
-using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
 using $PlainHttpConnection = ::jdk::internal::net::http::PlainHttpConnection;
 
 namespace jdk {

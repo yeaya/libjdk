@@ -27,15 +27,11 @@ using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Array = ::com::sun::tools::javac::code::Attribute$Array;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $AnnotationProxyMaker = ::com::sun::tools::javac::model::AnnotationProxyMaker;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Name$Table = ::com::sun::tools::javac::util::Name$Table;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -45,7 +41,6 @@ using $Inherited = ::java::lang::annotation::Inherited;
 using $Repeatable = ::java::lang::annotation::Repeatable;
 using $1Array = ::java::lang::reflect::Array;
 using $Iterator = ::java::util::Iterator;
-using $AnnotatedConstruct = ::javax::lang::model::AnnotatedConstruct;
 
 namespace com {
 	namespace sun {

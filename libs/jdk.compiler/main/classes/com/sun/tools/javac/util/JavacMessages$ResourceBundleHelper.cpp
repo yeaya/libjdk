@@ -5,12 +5,9 @@
 #include <java/util/ResourceBundle.h>
 #include <jcpp.h>
 
-using $JavacMessages = ::com::sun::tools::javac::util::JavacMessages;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Locale = ::java::util::Locale;
-using $ResourceBundle = ::java::util::ResourceBundle;
 
 namespace com {
 	namespace sun {

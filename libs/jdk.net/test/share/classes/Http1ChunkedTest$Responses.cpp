@@ -20,7 +20,6 @@
 #undef REQ5_RESPONSE_BODY
 #undef RESPONSE_HEADERS
 
-using $Http1ChunkedTest = ::Http1ChunkedTest;
 using $Http1ChunkedTest$Data = ::Http1ChunkedTest$Data;
 using $Http1ChunkedTest$ResponsesArray = $Array<Http1ChunkedTest$Responses>;
 using $ClassInfo = ::java::lang::ClassInfo;

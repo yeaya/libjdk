@@ -60,7 +60,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $EventObject = ::java::util::EventObject;
 using $Vector = ::java::util::Vector;
@@ -68,10 +67,8 @@ using $Binding = ::javax::naming::Binding;
 using $CompositeName = ::javax::naming::CompositeName;
 using $InterruptedNamingException = ::javax::naming::InterruptedNamingException;
 using $Name = ::javax::naming::Name;
-using $NameClassPair = ::javax::naming::NameClassPair;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
-using $SearchControls = ::javax::naming::directory::SearchControls;
 using $SearchResult = ::javax::naming::directory::SearchResult;
 using $EventContext = ::javax::naming::event::EventContext;
 using $EventDirContext = ::javax::naming::event::EventDirContext;
@@ -80,7 +77,6 @@ using $NamingExceptionEvent = ::javax::naming::event::NamingExceptionEvent;
 using $NamingListener = ::javax::naming::event::NamingListener;
 using $Control = ::javax::naming::ldap::Control;
 using $HasControls = ::javax::naming::ldap::HasControls;
-using $LdapContext = ::javax::naming::ldap::LdapContext;
 using $LdapName = ::javax::naming::ldap::LdapName;
 
 namespace com {

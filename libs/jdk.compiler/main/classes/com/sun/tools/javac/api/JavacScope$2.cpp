@@ -12,17 +12,14 @@
 #undef VALIDATOR
 
 using $JavacScope = ::com::sun::tools::javac::api::JavacScope;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$StarImportScope = ::com::sun::tools::javac::code::Scope$StarImportScope;
 using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Predicate = ::java::util::function::Predicate;
 
 namespace com {
 	namespace sun {

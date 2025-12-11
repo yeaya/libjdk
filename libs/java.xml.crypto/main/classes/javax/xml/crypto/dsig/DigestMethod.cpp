@@ -9,7 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AlgorithmMethod = ::javax::xml::crypto::AlgorithmMethod;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 
 namespace javax {

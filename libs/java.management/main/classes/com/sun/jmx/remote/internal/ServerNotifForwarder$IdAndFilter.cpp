@@ -4,7 +4,6 @@
 #include <javax/management/NotificationFilter.h>
 #include <jcpp.h>
 
-using $ServerNotifForwarder = ::com::sun::jmx::remote::internal::ServerNotifForwarder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

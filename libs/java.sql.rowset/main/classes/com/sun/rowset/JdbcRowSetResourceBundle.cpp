@@ -13,11 +13,9 @@
 #undef SLASH
 #undef UNDERSCORE
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
 using $Enumeration = ::java::util::Enumeration;
 using $Locale = ::java::util::Locale;
 using $PropertyResourceBundle = ::java::util::PropertyResourceBundle;

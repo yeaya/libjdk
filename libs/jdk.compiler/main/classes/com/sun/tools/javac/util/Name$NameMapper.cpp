@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <jcpp.h>
 
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

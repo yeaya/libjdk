@@ -17,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
-using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $SocketTube = ::jdk::internal::net::http::SocketTube;

@@ -6,15 +6,12 @@
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
 
-using $ServerNotifForwarder = ::com::sun::jmx::remote::internal::ServerNotifForwarder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $MBeanServer = ::javax::management::MBeanServer;
-using $ObjectInstance = ::javax::management::ObjectInstance;
 using $ObjectName = ::javax::management::ObjectName;
 
 namespace com {

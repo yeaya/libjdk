@@ -18,7 +18,6 @@ using $Code$State = ::com::sun::tools::javac::jvm::Code$State;
 using $Gen = ::com::sun::tools::javac::jvm::Gen;
 using $Gen$GenContext = ::com::sun::tools::javac::jvm::Gen$GenContext;
 using $Gen$GenFinalizer = ::com::sun::tools::javac::jvm::Gen$GenFinalizer;
-using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
 using $Items$LocalItem = ::com::sun::tools::javac::jvm::Items$LocalItem;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;

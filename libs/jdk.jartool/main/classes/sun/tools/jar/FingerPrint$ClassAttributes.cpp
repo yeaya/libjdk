@@ -29,7 +29,6 @@ using $ClassVisitor = ::jdk::internal::org::objectweb::asm$::ClassVisitor;
 using $FieldVisitor = ::jdk::internal::org::objectweb::asm$::FieldVisitor;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
 using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
-using $FingerPrint = ::sun::tools::jar::FingerPrint;
 using $FingerPrint$Field = ::sun::tools::jar::FingerPrint$Field;
 using $FingerPrint$Method = ::sun::tools::jar::FingerPrint$Method;
 

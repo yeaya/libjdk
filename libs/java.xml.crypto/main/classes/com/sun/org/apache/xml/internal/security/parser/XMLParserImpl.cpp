@@ -35,7 +35,6 @@
 #undef DOCUMENT_BUILDERS_DISALLOW_DOCTYPE
 #undef FEATURE_SECURE_PROCESSING
 
-using $XMLParser = ::com::sun::org::apache::xml::internal::security::parser::XMLParser;
 using $XMLParserException = ::com::sun::org::apache::xml::internal::security::parser::XMLParserException;
 using $XMLParserImpl$1 = ::com::sun::org::apache::xml::internal::security::parser::XMLParserImpl$1;
 using $XMLParserImpl$2 = ::com::sun::org::apache::xml::internal::security::parser::XMLParserImpl$2;
@@ -51,11 +50,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractMap = ::java::util::AbstractMap;

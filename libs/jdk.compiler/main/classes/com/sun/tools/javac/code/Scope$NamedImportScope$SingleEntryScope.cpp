@@ -16,9 +16,8 @@
 
 using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
-using $Scope$NamedImportScope = ::com::sun::tools::javac::code::Scope$NamedImportScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -28,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $List = ::java::util::List;
 using $Predicate = ::java::util::function::Predicate;
 
 namespace com {
@@ -82,7 +80,7 @@ $Object* allocate$Scope$NamedImportScope$SingleEntryScope($Class* clazz) {
 void Scope$NamedImportScope$SingleEntryScope::init$($Symbol* owner, $Symbol* sym, $Scope* origin) {
 	$Scope::init$(owner);
 	$set(this, sym, sym);
-	$set(this, content, $1List::of(sym));
+	$set(this, content, $List::of(sym));
 	$set(this, origin, origin);
 }
 

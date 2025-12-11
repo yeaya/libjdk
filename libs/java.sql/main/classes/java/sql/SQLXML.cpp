@@ -10,14 +10,8 @@
 
 #undef SQLXML
 
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $Reader = ::java::io::Reader;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Result = ::javax::xml::transform::Result;
-using $Source = ::javax::xml::transform::Source;
 
 namespace java {
 	namespace sql {

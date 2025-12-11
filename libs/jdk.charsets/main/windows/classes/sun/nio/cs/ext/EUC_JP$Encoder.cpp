@@ -23,7 +23,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
@@ -33,7 +32,6 @@ using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $JIS_X_0201 = ::sun::nio::cs::JIS_X_0201;
 using $SingleByte$Encoder = ::sun::nio::cs::SingleByte$Encoder;
 using $Surrogate$Parser = ::sun::nio::cs::Surrogate$Parser;
-using $EUC_JP = ::sun::nio::cs::ext::EUC_JP;
 using $JIS_X_0208 = ::sun::nio::cs::ext::JIS_X_0208;
 using $JIS_X_0212 = ::sun::nio::cs::ext::JIS_X_0212;
 

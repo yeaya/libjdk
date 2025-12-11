@@ -8,7 +8,6 @@
 #include <java/nio/file/Path.h>
 #include <jcpp.h>
 
-using $Option = ::com::sun::tools::javac::main::Option;
 using $Option$InvalidValueException = ::com::sun::tools::javac::main::Option$InvalidValueException;
 using $JCDiagnostic$DiagnosticInfo = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticInfo;
 using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
@@ -16,7 +15,6 @@ using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Path = ::java::nio::file::Path;
 
 namespace com {
 	namespace sun {

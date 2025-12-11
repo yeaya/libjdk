@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/main/Option.h>
 #include <jcpp.h>
 
-using $Option = ::com::sun::tools::javac::main::Option;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

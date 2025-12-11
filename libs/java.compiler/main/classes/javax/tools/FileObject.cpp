@@ -7,14 +7,8 @@
 #include <java/net/URI.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $Reader = ::java::io::Reader;
-using $Writer = ::java::io::Writer;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URI = ::java::net::URI;
 
 namespace javax {
 	namespace tools {

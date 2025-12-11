@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Savepoint = ::java::sql::Savepoint;
-using $RowSetWriter = ::javax::sql::RowSetWriter;
 
 namespace javax {
 	namespace sql {

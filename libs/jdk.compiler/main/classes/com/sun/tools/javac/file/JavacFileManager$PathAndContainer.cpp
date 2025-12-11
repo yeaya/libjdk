@@ -6,10 +6,8 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $JavacFileManager$Container = ::com::sun::tools::javac::file::JavacFileManager$Container;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;

@@ -13,12 +13,10 @@
 
 #undef KRB5_KT_VNO_1
 
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;

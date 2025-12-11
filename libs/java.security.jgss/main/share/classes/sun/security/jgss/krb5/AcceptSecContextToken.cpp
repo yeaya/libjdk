@@ -24,7 +24,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GSSException = ::org::ietf::jgss::GSSException;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;
-using $GSSToken = ::sun::security::jgss::GSSToken;
 using $InitialToken = ::sun::security::jgss::krb5::InitialToken;
 using $Krb5Context = ::sun::security::jgss::krb5::Krb5Context;
 using $Krb5Token = ::sun::security::jgss::krb5::Krb5Token;

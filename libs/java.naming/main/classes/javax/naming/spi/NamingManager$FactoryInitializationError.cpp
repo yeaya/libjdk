@@ -14,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamingException = ::javax::naming::NamingException;
 using $NoInitialContextException = ::javax::naming::NoInitialContextException;
-using $NamingManager = ::javax::naming::spi::NamingManager;
 
 namespace javax {
 	namespace naming {

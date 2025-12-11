@@ -8,7 +8,6 @@
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
-using $StorageResolver = ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver;
 using $StorageResolverSpi = ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolverSpi;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

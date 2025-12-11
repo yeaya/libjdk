@@ -11,9 +11,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $DoubleByte$Encoder_DBCSONLY = ::sun::nio::cs::DoubleByte$Encoder_DBCSONLY;
-using $IBM834 = ::sun::nio::cs::ext::IBM834;
 using $IBM933$EncodeHolder = ::sun::nio::cs::ext::IBM933$EncodeHolder;
 
 namespace sun {

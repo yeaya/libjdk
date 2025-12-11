@@ -26,7 +26,6 @@ using $Continuation = ::com::sun::jndi::toolkit::ctx::Continuation;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $CannotProceedException = ::javax::naming::CannotProceedException;

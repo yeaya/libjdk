@@ -17,10 +17,8 @@
 #undef MTH
 
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Env = ::com::sun::tools::javac::comp::Env;

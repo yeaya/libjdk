@@ -23,7 +23,6 @@
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
@@ -36,10 +35,8 @@ using $CharsetProvider = ::java::nio::charset::spi::CharsetProvider;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
-using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $TreeMap = ::java::util::TreeMap;
 using $AbstractCharsetProvider$1 = ::sun::nio::cs::ext::AbstractCharsetProvider$1;
 

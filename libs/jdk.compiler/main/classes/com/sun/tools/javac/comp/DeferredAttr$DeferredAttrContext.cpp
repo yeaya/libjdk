@@ -47,8 +47,6 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
@@ -63,24 +61,16 @@ using $Infer$GraphSolver$InferenceGraph$Node = ::com::sun::tools::javac::comp::I
 using $Infer$GraphStrategy$NodeNotFoundException = ::com::sun::tools::javac::comp::Infer$GraphStrategy$NodeNotFoundException;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $GraphUtils = ::com::sun::tools::javac::util::GraphUtils;
-using $GraphUtils$AbstractNode = ::com::sun::tools::javac::util::GraphUtils$AbstractNode;
 using $List = ::com::sun::tools::javac::util::List;
 using $Warner = ::com::sun::tools::javac::util::Warner;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
@@ -89,7 +79,6 @@ using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Collector = ::java::util::stream::Collector;
 using $Stream = ::java::util::stream::Stream;
 
 namespace com {

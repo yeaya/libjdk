@@ -16,15 +16,12 @@
 
 using $DeferredLintHandler = ::com::sun::tools::javac::code::DeferredLintHandler;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Modules = ::com::sun::tools::javac::comp::Modules;
 using $Modules$ModuleVisitor = ::com::sun::tools::javac::comp::Modules$ModuleVisitor;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -32,7 +29,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {

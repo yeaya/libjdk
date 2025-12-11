@@ -20,17 +20,13 @@
 #undef RETURN_GENERATED_KEYS
 #undef SUCCESS_NO_INFO
 
-using $AutoCloseable = ::java::lang::AutoCloseable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Connection = ::java::sql::Connection;
-using $ResultSet = ::java::sql::ResultSet;
 using $SQLException = ::java::sql::SQLException;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
-using $SQLWarning = ::java::sql::SQLWarning;
 using $Wrapper = ::java::sql::Wrapper;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;

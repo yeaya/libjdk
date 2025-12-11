@@ -18,18 +18,11 @@
 #undef VAR
 #undef VAR_SYNTAX_IMPLICIT_LAMBDAS
 
-using $JCDiagnostic$FragmentArray = $Array<::com::sun::tools::javac::util::JCDiagnostic$Fragment>;
-using $JCDiagnostic$FragmentArray2 = $Array<::com::sun::tools::javac::util::JCDiagnostic$Fragment, 2>;
-using $Source = ::com::sun::tools::javac::code::Source;
 using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
 using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $JavacParser$LambdaParameterKind = ::com::sun::tools::javac::parser::JavacParser$LambdaParameterKind;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
-using $List = ::com::sun::tools::javac::util::List;
-using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

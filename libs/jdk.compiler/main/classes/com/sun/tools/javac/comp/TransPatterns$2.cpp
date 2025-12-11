@@ -11,9 +11,7 @@
 #include <jcpp.h>
 
 using $Symbol$BindingSymbol = ::com::sun::tools::javac::code::Symbol$BindingSymbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $TransPatterns = ::com::sun::tools::javac::comp::TransPatterns;
-using $TransPatterns$BasicBindingContext = ::com::sun::tools::javac::comp::TransPatterns$BasicBindingContext;
 using $TransPatterns$BindingDeclarationFenceBindingContext = ::com::sun::tools::javac::comp::TransPatterns$BindingDeclarationFenceBindingContext;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;

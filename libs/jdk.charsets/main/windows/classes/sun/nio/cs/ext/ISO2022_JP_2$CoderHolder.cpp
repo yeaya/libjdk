@@ -12,11 +12,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
-using $ISO2022_JP_2 = ::sun::nio::cs::ext::ISO2022_JP_2;
 using $JIS_X_0212 = ::sun::nio::cs::ext::JIS_X_0212;
 
 namespace sun {

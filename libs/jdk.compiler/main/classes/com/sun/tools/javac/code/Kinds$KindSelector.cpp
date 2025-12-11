@@ -29,13 +29,11 @@
 #undef VAR
 
 using $Kinds$KindSelectorArray = $Array<::com::sun::tools::javac::code::Kinds$KindSelector>;
-using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $Kinds$KindName = ::com::sun::tools::javac::code::Kinds$KindName;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractSet = ::java::util::AbstractSet;
 using $EnumSet = ::java::util::EnumSet;
 using $Set = ::java::util::Set;

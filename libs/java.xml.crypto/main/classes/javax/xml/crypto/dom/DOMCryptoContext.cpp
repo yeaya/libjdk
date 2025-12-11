@@ -26,7 +26,6 @@ using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $KeySelector = ::javax::xml::crypto::KeySelector;
 using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
-using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $Element = ::org::w3c::dom::Element;
 
 namespace javax {

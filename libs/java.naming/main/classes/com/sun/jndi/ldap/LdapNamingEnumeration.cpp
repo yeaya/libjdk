@@ -21,7 +21,6 @@
 #undef CLASSNAME
 #undef JAVA_ATTRIBUTES
 
-using $ControlArray = $Array<::javax::naming::ldap::Control>;
 using $AbstractLdapNamingEnumeration = ::com::sun::jndi::ldap::AbstractLdapNamingEnumeration;
 using $LdapCtx = ::com::sun::jndi::ldap::LdapCtx;
 using $LdapReferralContext = ::com::sun::jndi::ldap::LdapReferralContext;
@@ -36,7 +35,6 @@ using $Vector = ::java::util::Vector;
 using $CompositeName = ::javax::naming::CompositeName;
 using $Name = ::javax::naming::Name;
 using $NameClassPair = ::javax::naming::NameClassPair;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $Attribute = ::javax::naming::directory::Attribute;
 using $Attributes = ::javax::naming::directory::Attributes;
 using $DirContext = ::javax::naming::directory::DirContext;

@@ -21,17 +21,16 @@ using $BlockTree = ::com::sun::source::tree::BlockTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $Flags = ::com::sun::tools::javac::code::Flags;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -51,7 +50,7 @@ $MethodInfo _JCTree$JCBlock_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JLcom/sun/tools/javac/util/List;)V", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCBlock::*)(int64_t,$1List*)>(&JCTree$JCBlock::init$))},
+	{"<init>", "(JLcom/sun/tools/javac/util/List;)V", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCBlock::*)(int64_t,$List*)>(&JCTree$JCBlock::init$))},
 	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
 	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
 	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC},
@@ -108,7 +107,7 @@ void JCTree$JCBlock::finalize() {
 	this->$JCTree$JCStatement::finalize();
 }
 
-void JCTree$JCBlock::init$(int64_t flags, $1List* stats) {
+void JCTree$JCBlock::init$(int64_t flags, $List* stats) {
 	$JCTree$JCStatement::init$();
 	this->endpos = $Position::NOPOS;
 	$set(this, stats, stats);
@@ -124,7 +123,7 @@ $Tree$Kind* JCTree$JCBlock::getKind() {
 	return $Tree$Kind::BLOCK;
 }
 
-$List* JCTree$JCBlock::getStatements() {
+$1List* JCTree$JCBlock::getStatements() {
 	return this->stats;
 }
 

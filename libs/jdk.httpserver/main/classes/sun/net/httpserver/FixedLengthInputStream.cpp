@@ -9,14 +9,12 @@
 #include <sun/net/httpserver/ServerImpl.h>
 #include <jcpp.h>
 
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ExchangeImpl = ::sun::net::httpserver::ExchangeImpl;
-using $HttpConnection = ::sun::net::httpserver::HttpConnection;
 using $LeftOverInputStream = ::sun::net::httpserver::LeftOverInputStream;
 using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 

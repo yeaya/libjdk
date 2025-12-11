@@ -12,9 +12,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $KdcComm = ::sun::security::krb5::KdcComm;
 using $NetClient = ::sun::security::krb5::internal::NetClient;
 

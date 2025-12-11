@@ -4,9 +4,7 @@
 #include <java/util/StringTokenizer.h>
 #include <jcpp.h>
 
-using $ServiceLocator = ::com::sun::jndi::ldap::ServiceLocator;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

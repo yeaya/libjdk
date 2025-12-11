@@ -15,11 +15,9 @@
 #undef XA_OK
 #undef XA_RDONLY
 
-using $XidArray = $Array<::javax::transaction::xa::Xid>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Xid = ::javax::transaction::xa::Xid;
 
 namespace javax {
 	namespace transaction {

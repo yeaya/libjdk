@@ -7,9 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleElement = ::javax::lang::model::element::ModuleElement;
-using $ModuleElement$Directive = ::javax::lang::model::element::ModuleElement$Directive;
-using $TypeElement = ::javax::lang::model::element::TypeElement;
 
 namespace javax {
 	namespace lang {

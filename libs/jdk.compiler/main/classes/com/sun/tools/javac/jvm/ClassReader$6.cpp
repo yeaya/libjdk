@@ -12,7 +12,6 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $ClassFile$Version = ::com::sun::tools::javac::jvm::ClassFile$Version;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$AttributeReader = ::com::sun::tools::javac::jvm::ClassReader$AttributeReader;

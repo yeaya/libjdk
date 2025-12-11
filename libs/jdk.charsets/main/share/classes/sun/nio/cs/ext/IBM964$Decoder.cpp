@@ -18,13 +18,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
-using $IBM964 = ::sun::nio::cs::ext::IBM964;
 
 namespace sun {
 	namespace nio {
@@ -109,7 +107,7 @@ $CoderResult* IBM964$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst
 				int32_t inputSize = 1;
 				char16_t outputChar = (char16_t)0xFFFD;
 				byte1 = (int32_t)($nc(sa)->get(sp) & (uint32_t)255);
-				if (byte1 == this->SS2) {
+				if (byte1 == IBM964$Decoder::SS2) {
 					if (sl - sp < 4) {
 						$init($CoderResult);
 						$assign(var$6, $CoderResult::UNDERFLOW);
@@ -143,7 +141,7 @@ $CoderResult* IBM964$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst
 					}
 					inputSize = 4;
 					outputChar = $nc(this->mappingTableG2)->charAt(((byte1 - 161) * 94) + byte2 - 161);
-				} else if (byte1 == this->SS3) {
+				} else if (byte1 == IBM964$Decoder::SS3) {
 					$assign(var$6, $CoderResult::malformedForLength(1));
 					return$5 = true;
 					goto $finally;
@@ -217,7 +215,7 @@ $CoderResult* IBM964$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* ds
 				int32_t inputSize = 1;
 				char16_t outputChar = (char16_t)0xFFFD;
 				byte1 = (int32_t)(src->get() & (uint32_t)255);
-				if (byte1 == this->SS2) {
+				if (byte1 == IBM964$Decoder::SS2) {
 					if (src->remaining() < 3) {
 						$init($CoderResult);
 						$assign(var$2, $CoderResult::UNDERFLOW);
@@ -251,7 +249,7 @@ $CoderResult* IBM964$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* ds
 					}
 					inputSize = 4;
 					outputChar = $nc(this->mappingTableG2)->charAt(((byte1 - 161) * 94) + byte2 - 161);
-				} else if (byte1 == this->SS3) {
+				} else if (byte1 == IBM964$Decoder::SS3) {
 					$assign(var$2, $CoderResult::malformedForLength(1));
 					return$1 = true;
 					goto $finally;

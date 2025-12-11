@@ -18,7 +18,6 @@
 #undef TAG_CONTEXT
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -31,7 +30,6 @@ using $HostAddresses = ::sun::security::krb5::internal::HostAddresses;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
-using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;

@@ -15,14 +15,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $List = ::java::util::List;
 using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $PullPublisher = ::jdk::internal::net::http::PullPublisher;
-using $RequestPublishers = ::jdk::internal::net::http::RequestPublishers;
 
 namespace jdk {
 	namespace internal {

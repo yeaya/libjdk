@@ -6,9 +6,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $1MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $MethodInfo = ::sun::management::MethodInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace management {
@@ -18,7 +16,7 @@ $CompoundAttribute _HotspotCompilationMBean_MethodAnnotations_getCompilerThreadS
 	{}
 };
 
-$1MethodInfo _HotspotCompilationMBean_MethodInfo_[] = {
+$MethodInfo _HotspotCompilationMBean_MethodInfo_[] = {
 	{"getBailoutCompileCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
 	{"getCompiledMethodCodeSize", "()J", nullptr, $PUBLIC | $ABSTRACT},
 	{"getCompiledMethodSize", "()J", nullptr, $PUBLIC | $ABSTRACT},

@@ -46,7 +46,6 @@ using $MBeanServerDelegateMBean = ::javax::management::MBeanServerDelegateMBean;
 using $MBeanServerNotification = ::javax::management::MBeanServerNotification;
 using $Notification = ::javax::management::Notification;
 using $NotificationBroadcasterSupport = ::javax::management::NotificationBroadcasterSupport;
-using $NotificationEmitter = ::javax::management::NotificationEmitter;
 using $NotificationFilter = ::javax::management::NotificationFilter;
 using $NotificationListener = ::javax::management::NotificationListener;
 using $ObjectName = ::javax::management::ObjectName;

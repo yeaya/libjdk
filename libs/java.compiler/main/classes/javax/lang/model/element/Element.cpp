@@ -11,13 +11,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Set = ::java::util::Set;
 using $AnnotatedConstruct = ::javax::lang::model::AnnotatedConstruct;
-using $ElementKind = ::javax::lang::model::element::ElementKind;
-using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
-using $Name = ::javax::lang::model::element::Name;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace javax {
 	namespace lang {

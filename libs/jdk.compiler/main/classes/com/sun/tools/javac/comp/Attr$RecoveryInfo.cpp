@@ -16,11 +16,9 @@
 
 using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$RecoveryInfo$1 = ::com::sun::tools::javac::comp::Attr$RecoveryInfo$1;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
-using $Check = ::com::sun::tools::javac::comp::Check;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $Check$NestedCheckContext = ::com::sun::tools::javac::comp::Check$NestedCheckContext;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;

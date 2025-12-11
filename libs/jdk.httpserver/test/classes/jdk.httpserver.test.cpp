@@ -44,5 +44,4 @@ void jdk$httpserver$test::init() {
 		jdk$httpserver$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

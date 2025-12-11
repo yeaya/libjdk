@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Subject = ::javax::security::auth::Subject;
 
 namespace javax {
 	namespace management {

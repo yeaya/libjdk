@@ -8,7 +8,6 @@
 #undef TLS_UNIQUE
 
 using $TlsChannelBinding$TlsChannelBindingTypeArray = $Array<::com::sun::jndi::ldap::sasl::TlsChannelBinding$TlsChannelBindingType>;
-using $TlsChannelBinding = ::com::sun::jndi::ldap::sasl::TlsChannelBinding;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -8,7 +8,6 @@
 #undef JAVADOC
 #undef NOPOS
 
-using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
 using $Tokens$Comment$CommentStyle = ::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle;
 using $DocTreeMaker = ::com::sun::tools::javac::tree::DocTreeMaker;
 using $Position = ::com::sun::tools::javac::util::Position;

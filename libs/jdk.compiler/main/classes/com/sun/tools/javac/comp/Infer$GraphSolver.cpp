@@ -25,7 +25,6 @@ using $Infer$GraphSolver$InferenceGraph$Node = ::com::sun::tools::javac::comp::I
 using $Infer$GraphStrategy = ::com::sun::tools::javac::comp::Infer$GraphStrategy;
 using $Infer$InferenceException = ::com::sun::tools::javac::comp::Infer$InferenceException;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
-using $GraphUtils$AbstractNode = ::com::sun::tools::javac::util::GraphUtils$AbstractNode;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $List = ::com::sun::tools::javac::util::List;
 using $Warner = ::com::sun::tools::javac::util::Warner;
@@ -34,8 +33,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $EnumSet = ::java::util::EnumSet;
 
 namespace com {
 	namespace sun {

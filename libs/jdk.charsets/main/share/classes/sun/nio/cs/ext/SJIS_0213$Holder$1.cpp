@@ -5,12 +5,10 @@
 #include <sun/nio/cs/ext/SJIS_0213.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $CharsetMapping = ::sun::nio::cs::CharsetMapping;
 using $SJIS_0213 = ::sun::nio::cs::ext::SJIS_0213;
 

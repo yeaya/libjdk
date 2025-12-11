@@ -7,7 +7,6 @@
 #include <jcpp.h>
 
 using $HttpServer = ::com::sun::net::httpserver::HttpServer;
-using $HttpsConfigurator = ::com::sun::net::httpserver::HttpsConfigurator;
 using $HttpServerProvider = ::com::sun::net::httpserver::spi::HttpServerProvider;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

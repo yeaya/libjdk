@@ -12,8 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PhantomReference = ::java::lang::ref::PhantomReference;
-using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
-using $DGCClient$EndpointEntry = ::sun::rmi::transport::DGCClient$EndpointEntry;
 using $DGCClient$EndpointEntry$RefEntry = ::sun::rmi::transport::DGCClient$EndpointEntry$RefEntry;
 using $LiveRef = ::sun::rmi::transport::LiveRef;
 

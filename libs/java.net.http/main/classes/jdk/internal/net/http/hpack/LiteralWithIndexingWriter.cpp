@@ -14,8 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $HeaderTable = ::jdk::internal::net::http::hpack::HeaderTable;
 using $IndexNameValueWriter = ::jdk::internal::net::http::hpack::IndexNameValueWriter;
-using $SimpleHeaderTable = ::jdk::internal::net::http::hpack::SimpleHeaderTable;
-using $SimpleHeaderTable$HeaderField = ::jdk::internal::net::http::hpack::SimpleHeaderTable$HeaderField;
 
 namespace jdk {
 	namespace internal {

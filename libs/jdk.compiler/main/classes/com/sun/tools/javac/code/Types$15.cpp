@@ -17,15 +17,11 @@
 
 #undef TYPEVAR
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;

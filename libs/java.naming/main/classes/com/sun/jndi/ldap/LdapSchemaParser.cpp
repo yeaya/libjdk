@@ -68,7 +68,6 @@ using $HierMemDirCtx = ::com::sun::jndi::toolkit::dir::HierMemDirCtx;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Enumeration = ::java::util::Enumeration;
 using $Vector = ::java::util::Vector;
 using $ConfigurationException = ::javax::naming::ConfigurationException;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;

@@ -8,7 +8,6 @@
 #include <jcpp.h>
 
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeInfo$1Result = ::com::sun::tools::javac::tree::TreeInfo$1Result;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $List = ::com::sun::tools::javac::util::List;

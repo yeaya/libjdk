@@ -10,7 +10,6 @@
 #include <jcpp.h>
 
 using $ConvertingMethod = ::com::sun::jmx::mbeanserver::ConvertingMethod;
-using $MBeanAnalyzer$MBeanVisitor = ::com::sun::jmx::mbeanserver::MBeanAnalyzer$MBeanVisitor;
 using $MXBeanProxy = ::com::sun::jmx::mbeanserver::MXBeanProxy;
 using $MXBeanProxy$GetHandler = ::com::sun::jmx::mbeanserver::MXBeanProxy$GetHandler;
 using $MXBeanProxy$InvokeHandler = ::com::sun::jmx::mbeanserver::MXBeanProxy$InvokeHandler;

@@ -10,7 +10,6 @@
 #undef OPERAND
 
 using $Option$OptionGroupArray = $Array<::com::sun::tools::javac::main::Option$OptionGroup>;
-using $Option = ::com::sun::tools::javac::main::Option;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

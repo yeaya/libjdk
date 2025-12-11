@@ -10,7 +10,6 @@
 
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
 using $TypeEnter$AbstractHeaderPhase$Synthesizer = ::com::sun::tools::javac::comp::TypeEnter$AbstractHeaderPhase$Synthesizer;
 using $List = ::com::sun::tools::javac::util::List;

@@ -16,7 +16,6 @@ using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $LiteralTree = ::com::sun::source::doctree::LiteralTree;
 using $TextTree = ::com::sun::source::doctree::TextTree;
-using $DCTree = ::com::sun::tools::javac::tree::DCTree;
 using $DCTree$DCInlineTag = ::com::sun::tools::javac::tree::DCTree$DCInlineTag;
 using $DCTree$DCText = ::com::sun::tools::javac::tree::DCTree$DCText;
 using $Assert = ::com::sun::tools::javac::util::Assert;

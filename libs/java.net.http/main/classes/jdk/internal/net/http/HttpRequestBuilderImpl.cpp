@@ -36,7 +36,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $URI = ::java::net::URI;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpRequest = ::java::net::http::HttpRequest;

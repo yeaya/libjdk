@@ -15,7 +15,6 @@ using $BigInteger = ::java::math::BigInteger;
 using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 using $ECPoint = ::java::security::spec::ECPoint;
 using $EllipticCurve = ::java::security::spec::EllipticCurve;
-using $DOMKeyValue$EC = ::org::jcp::xml::dsig::internal::dom::DOMKeyValue$EC;
 
 namespace org {
 	namespace jcp {

@@ -21,7 +21,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
-using $RuntimeMXBean = ::java::lang::management::RuntimeMXBean;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

@@ -39,7 +39,6 @@ using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $FileObjectWithLocation = ::com::sun::tools::sjavac::comp::FileObjectWithLocation;
 using $JavaFileObjectWithLocation = ::com::sun::tools::sjavac::comp::JavaFileObjectWithLocation;
 using $SmartFileObject = ::com::sun::tools::sjavac::comp::SmartFileObject;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;

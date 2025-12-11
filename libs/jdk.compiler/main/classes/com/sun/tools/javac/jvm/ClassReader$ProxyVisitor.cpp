@@ -7,12 +7,6 @@
 #include <com/sun/tools/javac/jvm/ClassReader.h>
 #include <jcpp.h>
 
-using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
-using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
-using $ClassReader$ArrayAttributeProxy = ::com::sun::tools::javac::jvm::ClassReader$ArrayAttributeProxy;
-using $ClassReader$ClassAttributeProxy = ::com::sun::tools::javac::jvm::ClassReader$ClassAttributeProxy;
-using $ClassReader$CompoundAnnotationProxy = ::com::sun::tools::javac::jvm::ClassReader$CompoundAnnotationProxy;
-using $ClassReader$EnumAttributeProxy = ::com::sun::tools::javac::jvm::ClassReader$EnumAttributeProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

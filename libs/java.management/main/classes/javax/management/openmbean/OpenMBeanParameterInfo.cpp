@@ -5,10 +5,7 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Set = ::java::util::Set;
-using $OpenType = ::javax::management::openmbean::OpenType;
 
 namespace javax {
 	namespace management {

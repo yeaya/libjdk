@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $TestSupport = ::jdk::internal::net::http::websocket::TestSupport;
 
 namespace jdk {
 	namespace internal {

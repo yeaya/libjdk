@@ -23,12 +23,12 @@ using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -47,7 +47,7 @@ $MethodInfo _JCTree$JCTypeApply_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCTypeApply::*)($JCTree$JCExpression*,$1List*)>(&JCTree$JCTypeApply::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCTypeApply::*)($JCTree$JCExpression*,$List*)>(&JCTree$JCTypeApply::init$))},
 	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
 	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
 	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC},
@@ -104,7 +104,7 @@ void JCTree$JCTypeApply::finalize() {
 	this->$JCTree$JCExpression::finalize();
 }
 
-void JCTree$JCTypeApply::init$($JCTree$JCExpression* clazz, $1List* arguments) {
+void JCTree$JCTypeApply::init$($JCTree$JCExpression* clazz, $List* arguments) {
 	$JCTree$JCExpression::init$();
 	$set(this, clazz, clazz);
 	$set(this, arguments, arguments);
@@ -123,7 +123,7 @@ $JCTree* JCTree$JCTypeApply::getType() {
 	return this->clazz;
 }
 
-$List* JCTree$JCTypeApply::getTypeArguments() {
+$1List* JCTree$JCTypeApply::getTypeArguments() {
 	return this->arguments;
 }
 

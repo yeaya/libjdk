@@ -12,7 +12,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$MapVisitor = ::com::sun::tools::javac::code::Types$MapVisitor;
 using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

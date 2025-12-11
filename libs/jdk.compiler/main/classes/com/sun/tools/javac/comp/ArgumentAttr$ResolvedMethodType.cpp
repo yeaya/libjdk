@@ -21,7 +21,6 @@ using $ArgumentAttr$ArgumentType = ::com::sun::tools::javac::comp::ArgumentAttr$
 using $ArgumentAttr$ResolvedMemberType = ::com::sun::tools::javac::comp::ArgumentAttr$ResolvedMemberType;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
 using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;

@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ReferenceType = ::javax::lang::model::type::ReferenceType;
 
 namespace javax {
 	namespace lang {

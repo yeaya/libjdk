@@ -11,10 +11,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BufferPoolMXBean = ::java::lang::management::BufferPoolMXBean;
 using $ObjectName = ::javax::management::ObjectName;
 using $VM$BufferPool = ::jdk::internal::misc::VM$BufferPool;
-using $ManagementFactoryHelper = ::sun::management::ManagementFactoryHelper;
 using $Util = ::sun::management::Util;
 
 namespace sun {

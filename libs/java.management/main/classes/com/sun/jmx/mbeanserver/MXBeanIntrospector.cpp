@@ -30,7 +30,6 @@
 #undef EMPTY_DESCRIPTOR
 #undef UNKNOWN
 
-using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $DescriptorArray = $Array<::javax::management::Descriptor>;
 using $MBeanParameterInfoArray = $Array<::javax::management::MBeanParameterInfo>;
@@ -48,7 +47,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
 using $Executable = ::java::lang::reflect::Executable;
@@ -63,7 +61,6 @@ using $MBeanOperationInfo = ::javax::management::MBeanOperationInfo;
 using $MBeanParameterInfo = ::javax::management::MBeanParameterInfo;
 using $OpenMBeanAttributeInfoSupport = ::javax::management::openmbean::OpenMBeanAttributeInfoSupport;
 using $OpenMBeanOperationInfoSupport = ::javax::management::openmbean::OpenMBeanOperationInfoSupport;
-using $OpenMBeanParameterInfo = ::javax::management::openmbean::OpenMBeanParameterInfo;
 using $OpenMBeanParameterInfoSupport = ::javax::management::openmbean::OpenMBeanParameterInfoSupport;
 using $OpenType = ::javax::management::openmbean::OpenType;
 

@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/comp/Env.h>
 #include <jcpp.h>
 
-using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

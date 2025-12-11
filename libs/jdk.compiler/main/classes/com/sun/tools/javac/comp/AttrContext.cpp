@@ -16,15 +16,9 @@
 
 #undef FULL
 
-using $Lint = ::com::sun::tools::javac::code::Lint;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Type = ::com::sun::tools::javac::code::Type;
-using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $DeferredAttr$AttributionMode = ::com::sun::tools::javac::comp::DeferredAttr$AttributionMode;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

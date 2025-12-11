@@ -8,7 +8,6 @@
 #undef MEMBER
 
 using $ClassReader$AttributeKindArray = $Array<::com::sun::tools::javac::jvm::ClassReader$AttributeKind>;
-using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

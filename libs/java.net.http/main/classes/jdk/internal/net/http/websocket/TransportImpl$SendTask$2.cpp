@@ -19,7 +19,6 @@ using $CharBuffer = ::java::nio::CharBuffer;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $Supplier = ::java::util::function::Supplier;
-using $MessageQueue$QueueCallback = ::jdk::internal::net::http::websocket::MessageQueue$QueueCallback;
 using $TransportImpl$SendTask = ::jdk::internal::net::http::websocket::TransportImpl$SendTask;
 
 namespace jdk {

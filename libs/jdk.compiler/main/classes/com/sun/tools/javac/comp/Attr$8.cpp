@@ -10,7 +10,6 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$PostAttrAnalyzer = ::com::sun::tools::javac::comp::Attr$PostAttrAnalyzer;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;

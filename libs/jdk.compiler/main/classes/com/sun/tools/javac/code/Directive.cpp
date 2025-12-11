@@ -5,7 +5,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleElement$Directive = ::javax::lang::model::element::ModuleElement$Directive;
 
 namespace com {
 	namespace sun {

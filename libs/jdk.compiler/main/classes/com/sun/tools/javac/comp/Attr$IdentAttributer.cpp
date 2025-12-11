@@ -31,7 +31,6 @@
 #undef TYP_PCK
 
 using $CaseLabelTree = ::com::sun::source::tree::CaseLabelTree;
-using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $IdentifierTree = ::com::sun::source::tree::IdentifierTree;
 using $MemberSelectTree = ::com::sun::source::tree::MemberSelectTree;
 using $Tree = ::com::sun::source::tree::Tree;
@@ -46,15 +45,12 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
-using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $1Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {

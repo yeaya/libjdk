@@ -15,7 +15,6 @@ using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol
 using $ClassFile$Version = ::com::sun::tools::javac::jvm::ClassFile$Version;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$AttributeReader = ::com::sun::tools::javac::jvm::ClassReader$AttributeReader;
-using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

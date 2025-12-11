@@ -3,7 +3,6 @@
 #include <com/sun/jndi/ldap/pool/PooledConnection.h>
 #include <jcpp.h>
 
-using $PooledConnection = ::com::sun::jndi::ldap::pool::PooledConnection;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

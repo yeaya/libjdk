@@ -38,12 +38,10 @@
 
 using $EncryptionKeyArray = $Array<::sun::security::krb5::EncryptionKey>;
 using $KeyTabEntryArray = $Array<::sun::security::krb5::internal::ktab::KeyTabEntry>;
-using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
@@ -53,7 +51,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
@@ -76,8 +73,6 @@ using $KeyTabConstants = ::sun::security::krb5::internal::ktab::KeyTabConstants;
 using $KeyTabEntry = ::sun::security::krb5::internal::ktab::KeyTabEntry;
 using $KeyTabInputStream = ::sun::security::krb5::internal::ktab::KeyTabInputStream;
 using $KeyTabOutputStream = ::sun::security::krb5::internal::ktab::KeyTabOutputStream;
-using $KrbDataInputStream = ::sun::security::krb5::internal::util::KrbDataInputStream;
-using $KrbDataOutputStream = ::sun::security::krb5::internal::util::KrbDataOutputStream;
 
 namespace sun {
 	namespace security {

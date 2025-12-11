@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/main/Main$Result.h>
 #include <jcpp.h>
 
-using $Main$Result = ::com::sun::tools::javac::main::Main$Result;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

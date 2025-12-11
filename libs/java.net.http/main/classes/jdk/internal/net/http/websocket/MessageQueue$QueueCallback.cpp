@@ -11,12 +11,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $CharBuffer = ::java::nio::CharBuffer;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
-using $BiConsumer = ::java::util::function::BiConsumer;
-using $Supplier = ::java::util::function::Supplier;
-using $MessageQueue = ::jdk::internal::net::http::websocket::MessageQueue;
 
 namespace jdk {
 	namespace internal {

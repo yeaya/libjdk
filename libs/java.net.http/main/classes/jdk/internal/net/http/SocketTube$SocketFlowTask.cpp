@@ -18,7 +18,6 @@ using $Lock = ::java::util::concurrent::locks::Lock;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $SocketTube = ::jdk::internal::net::http::SocketTube;
 using $SequentialScheduler$DeferredCompleter = ::jdk::internal::net::http::common::SequentialScheduler$DeferredCompleter;
-using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;
 
 namespace jdk {
 	namespace internal {

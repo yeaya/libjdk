@@ -20,9 +20,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $Reference = ::java::lang::ref::Reference;
 using $List = ::java::util::List;
 using $NamingException = ::javax::naming::NamingException;
 

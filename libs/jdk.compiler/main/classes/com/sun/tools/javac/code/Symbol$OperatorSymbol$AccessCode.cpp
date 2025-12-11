@@ -18,9 +18,7 @@
 #undef UNKNOWN
 
 using $Symbol$OperatorSymbol$AccessCodeArray = $Array<::com::sun::tools::javac::code::Symbol$OperatorSymbol$AccessCode>;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$1 = ::com::sun::tools::javac::code::Symbol$1;
-using $Symbol$OperatorSymbol = ::com::sun::tools::javac::code::Symbol$OperatorSymbol;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

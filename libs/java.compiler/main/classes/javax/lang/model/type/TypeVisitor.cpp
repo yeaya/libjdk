@@ -15,18 +15,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ArrayType = ::javax::lang::model::type::ArrayType;
-using $DeclaredType = ::javax::lang::model::type::DeclaredType;
-using $ErrorType = ::javax::lang::model::type::ErrorType;
-using $ExecutableType = ::javax::lang::model::type::ExecutableType;
-using $IntersectionType = ::javax::lang::model::type::IntersectionType;
-using $NoType = ::javax::lang::model::type::NoType;
-using $NullType = ::javax::lang::model::type::NullType;
-using $PrimitiveType = ::javax::lang::model::type::PrimitiveType;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
-using $TypeVariable = ::javax::lang::model::type::TypeVariable;
-using $UnionType = ::javax::lang::model::type::UnionType;
-using $WildcardType = ::javax::lang::model::type::WildcardType;
 
 namespace javax {
 	namespace lang {

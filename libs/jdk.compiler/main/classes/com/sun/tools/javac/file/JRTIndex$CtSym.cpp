@@ -5,7 +5,6 @@
 
 #undef EMPTY
 
-using $JRTIndex = ::com::sun::tools::javac::file::JRTIndex;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

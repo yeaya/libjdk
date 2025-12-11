@@ -10,12 +10,9 @@
 #undef SINGLE
 #undef UNQUOTED
 
-using $AttributeTree$ValueKindArray = $Array<::com::sun::source::doctree::AttributeTree$ValueKind>;
 using $AttributeTree$ValueKind = ::com::sun::source::doctree::AttributeTree$ValueKind;
-using $DocPretty = ::com::sun::tools::javac::tree::DocPretty;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

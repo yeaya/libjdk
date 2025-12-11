@@ -7,13 +7,10 @@
 #include <jcpp.h>
 
 using $ConvertingMethod = ::com::sun::jmx::mbeanserver::ConvertingMethod;
-using $MXBeanProxy = ::com::sun::jmx::mbeanserver::MXBeanProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
-using $ObjectName = ::javax::management::ObjectName;
 
 namespace com {
 	namespace sun {

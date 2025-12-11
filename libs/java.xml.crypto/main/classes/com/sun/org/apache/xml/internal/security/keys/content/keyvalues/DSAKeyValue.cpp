@@ -31,9 +31,7 @@
 #undef _TAG_Y
 
 using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
-using $KeyValueContent = ::com::sun::org::apache::xml::internal::security::keys::content::keyvalues::KeyValueContent;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $I18n = ::com::sun::org::apache::xml::internal::security::utils::I18n;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -46,7 +44,6 @@ using $Key = ::java::security::Key;
 using $KeyFactory = ::java::security::KeyFactory;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PublicKey = ::java::security::PublicKey;
-using $DSAKey = ::java::security::interfaces::DSAKey;
 using $DSAParams = ::java::security::interfaces::DSAParams;
 using $DSAPublicKey = ::java::security::interfaces::DSAPublicKey;
 using $DSAPublicKeySpec = ::java::security::spec::DSAPublicKeySpec;

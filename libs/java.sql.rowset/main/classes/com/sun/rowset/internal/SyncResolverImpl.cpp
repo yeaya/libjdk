@@ -96,7 +96,6 @@ using $RowSetEvent = ::javax::sql::RowSetEvent;
 using $RowSetInternal = ::javax::sql::RowSetInternal;
 using $RowSetListener = ::javax::sql::RowSetListener;
 using $RowSetMetaData = ::javax::sql::RowSetMetaData;
-using $BaseRowSet = ::javax::sql::rowset::BaseRowSet;
 using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
 using $RowSetMetaDataImpl = ::javax::sql::rowset::RowSetMetaDataImpl;
 using $RowSetWarning = ::javax::sql::rowset::RowSetWarning;

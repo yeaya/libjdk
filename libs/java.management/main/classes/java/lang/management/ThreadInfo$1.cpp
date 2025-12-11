@@ -9,15 +9,12 @@
 #undef TIMED_WAITING
 #undef WAITING
 
-using $Thread$StateArray = $Array<::java::lang::Thread$State>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $Thread$State = ::java::lang::Thread$State;
-using $ThreadInfo = ::java::lang::management::ThreadInfo;
 
 namespace java {
 	namespace lang {

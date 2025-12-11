@@ -5,9 +5,6 @@
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <jcpp.h>
 
-using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

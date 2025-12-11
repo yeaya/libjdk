@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Properties = ::java::util::Properties;
 using $CompoundName = ::javax::naming::CompoundName;
 using $Name = ::javax::naming::Name;
-using $NameParser = ::javax::naming::NameParser;
 
 namespace com {
 	namespace sun {

@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 
 namespace com {

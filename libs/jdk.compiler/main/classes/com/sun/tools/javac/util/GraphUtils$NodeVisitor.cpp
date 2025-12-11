@@ -8,8 +8,6 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
-using $GraphUtils = ::com::sun::tools::javac::util::GraphUtils;
-using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $GraphUtils$Node = ::com::sun::tools::javac::util::GraphUtils$Node;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

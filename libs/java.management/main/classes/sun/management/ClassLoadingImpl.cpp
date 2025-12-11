@@ -11,7 +11,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ClassLoadingMXBean = ::java::lang::management::ClassLoadingMXBean;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
 using $ObjectName = ::javax::management::ObjectName;
 using $Util = ::sun::management::Util;
@@ -80,7 +79,7 @@ void ClassLoadingImpl::setVerbose(bool value) {
 void ClassLoadingImpl::setVerboseClass(bool value) {
 	$init(ClassLoadingImpl);
 	$prepareNativeStatic(ClassLoadingImpl, setVerboseClass, void, bool value);
-	$invokeNativeStatic(ClassLoadingImpl, setVerboseClass, value);
+	$invokeNativeStatic(value);
 	$finishNativeStatic();
 }
 

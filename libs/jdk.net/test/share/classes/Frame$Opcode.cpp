@@ -11,7 +11,6 @@
 #undef PONG
 #undef TEXT
 
-using $Frame = ::Frame;
 using $Frame$OpcodeArray = $Array<Frame$Opcode>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

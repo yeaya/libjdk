@@ -31,7 +31,6 @@ using $FileLock = ::java::nio::channels::FileLock;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $ZipFileSystem = ::jdk::nio::zipfs::ZipFileSystem;

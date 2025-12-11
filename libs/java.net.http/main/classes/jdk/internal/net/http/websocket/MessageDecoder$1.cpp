@@ -9,15 +9,12 @@
 #undef PING
 #undef PONG
 
-using $Frame$OpcodeArray = $Array<::jdk::internal::net::http::websocket::Frame$Opcode>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $Frame$Opcode = ::jdk::internal::net::http::websocket::Frame$Opcode;
-using $MessageDecoder = ::jdk::internal::net::http::websocket::MessageDecoder;
 
 namespace jdk {
 	namespace internal {

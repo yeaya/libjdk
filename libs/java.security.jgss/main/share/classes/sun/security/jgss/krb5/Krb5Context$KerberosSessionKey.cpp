@@ -10,8 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Key = ::java::security::Key;
-using $Krb5Context = ::sun::security::jgss::krb5::Krb5Context;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
 

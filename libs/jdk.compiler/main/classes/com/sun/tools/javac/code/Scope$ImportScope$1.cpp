@@ -8,7 +8,6 @@
 
 using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$ImportScope = ::com::sun::tools::javac::code::Scope$ImportScope;
-using $Scope$ScopeListener = ::com::sun::tools::javac::code::Scope$ScopeListener;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ClassInfo = ::java::lang::ClassInfo;

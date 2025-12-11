@@ -3,7 +3,6 @@
 #include <DummySecureWebSocketServer.h>
 #include <jcpp.h>
 
-using $DummySecureWebSocketServer = ::DummySecureWebSocketServer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

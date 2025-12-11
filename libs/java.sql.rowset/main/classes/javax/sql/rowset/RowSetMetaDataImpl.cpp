@@ -36,7 +36,6 @@
 
 using $FieldArray = $Array<::java::lang::reflect::Field>;
 using $RowSetMetaDataImpl$ColInfoArray = $Array<::javax::sql::rowset::RowSetMetaDataImpl$ColInfo>;
-using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;

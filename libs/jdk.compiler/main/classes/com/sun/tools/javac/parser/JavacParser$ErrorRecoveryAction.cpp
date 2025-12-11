@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
-using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -25,7 +25,6 @@
 #undef ARRAY
 #undef CLASS
 
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
@@ -34,7 +33,6 @@ using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$AdaptFailure = ::com::sun::tools::javac::code::Types$AdaptFailure;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor;
 using $Types$TypePair = ::com::sun::tools::javac::code::Types$TypePair;
 using $List = ::com::sun::tools::javac::util::List;

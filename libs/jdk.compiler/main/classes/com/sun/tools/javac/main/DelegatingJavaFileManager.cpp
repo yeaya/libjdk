@@ -32,7 +32,6 @@ using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
-using $OptionChecker = ::javax::tools::OptionChecker;
 using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 
 namespace com {

@@ -15,11 +15,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $MBeanServerDelegate = ::javax::management::MBeanServerDelegate;
-using $ObjectInstance = ::javax::management::ObjectInstance;
-using $ObjectName = ::javax::management::ObjectName;
 
 namespace com {
 	namespace sun {

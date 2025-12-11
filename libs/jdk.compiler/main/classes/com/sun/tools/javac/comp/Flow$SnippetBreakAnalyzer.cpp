@@ -20,7 +20,6 @@
 using $Flow = ::com::sun::tools::javac::comp::Flow;
 using $Flow$AliveAnalyzer = ::com::sun::tools::javac::comp::Flow$AliveAnalyzer;
 using $Flow$Liveness = ::com::sun::tools::javac::comp::Flow$Liveness;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBreak = ::com::sun::tools::javac::tree::JCTree$JCBreak;
 using $JCTree$JCDoWhileLoop = ::com::sun::tools::javac::tree::JCTree$JCDoWhileLoop;
 using $JCTree$JCEnhancedForLoop = ::com::sun::tools::javac::tree::JCTree$JCEnhancedForLoop;

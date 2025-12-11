@@ -8,13 +8,11 @@
 
 #undef MAX_BUFFERS_IN_QUEUE
 
-using $HttpInputStreamTest = ::HttpInputStreamTest;
 using $HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream = ::HttpInputStreamTest$HttpInputStreamHandler$HttpResponseInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
 using $HttpResponse$ResponseInfo = ::java::net::http::HttpResponse$ResponseInfo;
 

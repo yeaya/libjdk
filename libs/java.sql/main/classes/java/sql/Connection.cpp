@@ -23,28 +23,12 @@
 #undef TRANSACTION_REPEATABLE_READ
 #undef TRANSACTION_SERIALIZABLE
 
-using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $1Array = ::java::sql::Array;
-using $Blob = ::java::sql::Blob;
-using $CallableStatement = ::java::sql::CallableStatement;
-using $Clob = ::java::sql::Clob;
-using $DatabaseMetaData = ::java::sql::DatabaseMetaData;
-using $NClob = ::java::sql::NClob;
-using $PreparedStatement = ::java::sql::PreparedStatement;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
-using $SQLWarning = ::java::sql::SQLWarning;
-using $SQLXML = ::java::sql::SQLXML;
-using $Savepoint = ::java::sql::Savepoint;
 using $ShardingKey = ::java::sql::ShardingKey;
-using $Statement = ::java::sql::Statement;
-using $Struct = ::java::sql::Struct;
 using $Wrapper = ::java::sql::Wrapper;
-using $Map = ::java::util::Map;
-using $Properties = ::java::util::Properties;
-using $Executor = ::java::util::concurrent::Executor;
 
 namespace java {
 	namespace sql {

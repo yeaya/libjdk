@@ -17,7 +17,6 @@ using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $UsesTree = ::com::sun::source::tree::UsesTree;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCDirective = ::com::sun::tools::javac::tree::JCTree$JCDirective;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;

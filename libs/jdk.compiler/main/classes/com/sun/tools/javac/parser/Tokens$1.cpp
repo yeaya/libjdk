@@ -24,12 +24,9 @@
 #undef SEMI
 #undef STRINGLITERAL
 
-using $Tokens$TokenKindArray = $Array<::com::sun::tools::javac::parser::Tokens$TokenKind>;
-using $Tokens = ::com::sun::tools::javac::parser::Tokens;
 using $Tokens$TokenKind = ::com::sun::tools::javac::parser::Tokens$TokenKind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

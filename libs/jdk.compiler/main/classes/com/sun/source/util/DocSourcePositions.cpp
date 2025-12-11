@@ -4,10 +4,6 @@
 #include <com/sun/source/tree/CompilationUnitTree.h>
 #include <jcpp.h>
 
-using $DocCommentTree = ::com::sun::source::doctree::DocCommentTree;
-using $DocTree = ::com::sun::source::doctree::DocTree;
-using $CompilationUnitTree = ::com::sun::source::tree::CompilationUnitTree;
-using $SourcePositions = ::com::sun::source::util::SourcePositions;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

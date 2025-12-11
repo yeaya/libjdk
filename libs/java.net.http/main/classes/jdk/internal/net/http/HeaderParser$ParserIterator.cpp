@@ -4,12 +4,10 @@
 #include <jdk/internal/net/http/HeaderParser.h>
 #include <jcpp.h>
 
-using $StringArray2 = $Array<::java::lang::String, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $HeaderParser = ::jdk::internal::net::http::HeaderParser;
 

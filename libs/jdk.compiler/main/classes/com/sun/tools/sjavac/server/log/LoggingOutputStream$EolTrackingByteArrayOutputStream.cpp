@@ -6,7 +6,6 @@
 
 #undef EOL
 
-using $LoggingOutputStream = ::com::sun::tools::sjavac::server::log::LoggingOutputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

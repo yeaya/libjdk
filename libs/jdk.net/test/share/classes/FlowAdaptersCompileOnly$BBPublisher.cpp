@@ -4,11 +4,9 @@
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <jcpp.h>
 
-using $FlowAdaptersCompileOnly = ::FlowAdaptersCompileOnly;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 
 $MethodInfo _FlowAdaptersCompileOnly$BBPublisher_MethodInfo_[] = {

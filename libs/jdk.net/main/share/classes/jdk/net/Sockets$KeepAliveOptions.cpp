@@ -18,11 +18,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Socket = ::java::net::Socket;
-using $SocketOption = ::java::net::SocketOption;
 using $Collection = ::java::util::Collection;
 using $Set = ::java::util::Set;
 using $ExtendedSocketOptions = ::jdk::net::ExtendedSocketOptions;
-using $Sockets = ::jdk::net::Sockets;
 
 namespace jdk {
 	namespace net {

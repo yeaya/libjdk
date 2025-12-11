@@ -11,7 +11,6 @@
 #include <jcpp.h>
 
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$1 = ::com::sun::tools::javac::util::JCDiagnostic$1;
 using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
 using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
@@ -19,7 +18,6 @@ using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Frag
 using $JCDiagnostic$Note = ::com::sun::tools::javac::util::JCDiagnostic$Note;
 using $JCDiagnostic$Warning = ::com::sun::tools::javac::util::JCDiagnostic$Warning;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

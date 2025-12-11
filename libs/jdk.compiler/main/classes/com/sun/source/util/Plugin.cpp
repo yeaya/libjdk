@@ -3,7 +3,6 @@
 #include <com/sun/source/util/JavacTask.h>
 #include <jcpp.h>
 
-using $JavacTask = ::com::sun::source::util::JavacTask;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

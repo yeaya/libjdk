@@ -44,7 +44,6 @@ using $ObjectInstance = ::javax::management::ObjectInstance;
 using $ObjectName = ::javax::management::ObjectName;
 using $QueryExp = ::javax::management::QueryExp;
 using $ClassLoaderRepository = ::javax::management::loading::ClassLoaderRepository;
-using $MBeanServerForwarder = ::javax::management::remote::MBeanServerForwarder;
 
 namespace com {
 	namespace sun {

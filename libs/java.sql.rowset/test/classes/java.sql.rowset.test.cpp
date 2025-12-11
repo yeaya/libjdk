@@ -56,5 +56,4 @@ void java$sql$rowset$test::init() {
 		java$sql$rowset$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

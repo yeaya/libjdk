@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/jvm/JNIWriter$TypeSignature.h>
 #include <jcpp.h>
 
-using $JNIWriter$TypeSignature = ::com::sun::tools::javac::jvm::JNIWriter$TypeSignature;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

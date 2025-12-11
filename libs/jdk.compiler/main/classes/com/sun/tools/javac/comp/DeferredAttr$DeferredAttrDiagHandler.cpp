@@ -16,24 +16,17 @@
 #include <java/util/function/Predicate.h>
 #include <jcpp.h>
 
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$DeferredAttrDiagHandler$PosScanner = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrDiagHandler$PosScanner;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Log$DeferredDiagnosticHandler = ::com::sun::tools::javac::util::Log$DeferredDiagnosticHandler;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Predicate = ::java::util::function::Predicate;
 
 namespace com {

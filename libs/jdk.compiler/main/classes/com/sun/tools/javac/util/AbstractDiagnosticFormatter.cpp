@@ -54,9 +54,6 @@
 #undef NOPOS
 #undef SOURCE
 
-using $Tree = ::com::sun::source::tree::Tree;
-using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
-using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
 using $DiagnosticFormatter$Configuration = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration;
 using $DiagnosticFormatter$Configuration$DiagnosticPart = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$DiagnosticPart;
 using $DiagnosticFormatter$Configuration$MultilineLimit = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$MultilineLimit;
@@ -92,7 +89,6 @@ using $Position = ::com::sun::tools::javac::util::Position;
 using $StringUtils = ::com::sun::tools::javac::util::StringUtils;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

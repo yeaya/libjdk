@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 
 namespace sun {
 	namespace security {

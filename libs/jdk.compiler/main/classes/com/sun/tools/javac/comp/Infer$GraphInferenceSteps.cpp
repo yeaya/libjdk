@@ -15,7 +15,6 @@
 #undef UPPER
 
 using $Infer$GraphInferenceStepsArray = $Array<::com::sun::tools::javac::comp::Infer$GraphInferenceSteps>;
-using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$InferenceStep = ::com::sun::tools::javac::comp::Infer$InferenceStep;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

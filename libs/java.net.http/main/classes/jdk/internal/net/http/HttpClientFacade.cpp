@@ -35,7 +35,6 @@ using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $SSLContext = ::javax::net::ssl::SSLContext;
 using $SSLParameters = ::javax::net::ssl::SSLParameters;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
-using $OperationTrackers$Trackable = ::jdk::internal::net::http::common::OperationTrackers$Trackable;
 using $OperationTrackers$Tracker = ::jdk::internal::net::http::common::OperationTrackers$Tracker;
 
 namespace jdk {

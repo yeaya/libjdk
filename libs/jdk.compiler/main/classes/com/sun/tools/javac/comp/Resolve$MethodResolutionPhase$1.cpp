@@ -17,7 +17,6 @@ using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$M
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

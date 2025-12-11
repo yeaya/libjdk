@@ -7,7 +7,6 @@
 #include <com/sun/tools/javac/util/Pair.h>
 #include <jcpp.h>
 
-using $PoolConstant$LoadableConstantArray = $Array<::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant>;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $PoolConstant$Dynamic$BsmKey = ::com::sun::tools::javac::jvm::PoolConstant$Dynamic$BsmKey;

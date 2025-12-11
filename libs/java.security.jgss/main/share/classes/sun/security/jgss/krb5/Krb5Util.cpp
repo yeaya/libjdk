@@ -26,20 +26,17 @@
 #undef GSS_KRB5_MECH_OID
 #undef KRB_NT_SRV_INST
 
-using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $EncryptionKeyArray = $Array<::sun::security::krb5::EncryptionKey>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessControlContext = ::java::security::AccessControlContext;
-using $Key = ::java::security::Key;
 using $Date = ::java::util::Date;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $Subject = ::javax::security::auth::Subject;
 using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
 using $KerberosTicket = ::javax::security::auth::kerberos::KerberosTicket;
-using $1KeyTab = ::javax::security::auth::kerberos::KeyTab;
-using $Oid = ::org::ietf::jgss::Oid;
+using $KeyTab = ::javax::security::auth::kerberos::KeyTab;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;
 using $GSSCaller = ::sun::security::jgss::GSSCaller;
 using $GSSUtil = ::sun::security::jgss::GSSUtil;
@@ -50,7 +47,7 @@ using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $JavaxSecurityAuthKerberosAccess = ::sun::security::krb5::JavaxSecurityAuthKerberosAccess;
 using $KerberosSecrets = ::sun::security::krb5::KerberosSecrets;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $KeyTab = ::sun::security::krb5::internal::ktab::KeyTab;
+using $1KeyTab = ::sun::security::krb5::internal::ktab::KeyTab;
 
 namespace sun {
 	namespace security {
@@ -68,8 +65,8 @@ $MethodInfo _Krb5Util_MethodInfo_[] = {
 	{"getInitialTicket", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/security/AccessControlContext;)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $STATIC, $method(static_cast<$KerberosTicket*(*)($GSSCaller*,$String*,$AccessControlContext*)>(&Krb5Util::getInitialTicket)), "javax.security.auth.login.LoginException"},
 	{"getServiceCreds", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/security/AccessControlContext;)Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ServiceCreds*(*)($GSSCaller*,$String*,$AccessControlContext*)>(&Krb5Util::getServiceCreds)), "javax.security.auth.login.LoginException"},
 	{"getServiceTicket", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/lang/String;Ljava/security/AccessControlContext;)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $STATIC, $method(static_cast<$KerberosTicket*(*)($GSSCaller*,$String*,$String*,$AccessControlContext*)>(&Krb5Util::getServiceTicket)), "javax.security.auth.login.LoginException"},
-	{"keysFromJavaxKeyTab", "(Ljavax/security/auth/kerberos/KeyTab;Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$EncryptionKeyArray*(*)($1KeyTab*,$PrincipalName*)>(&Krb5Util::keysFromJavaxKeyTab))},
-	{"snapshotFromJavaxKeyTab", "(Ljavax/security/auth/kerberos/KeyTab;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$KeyTab*(*)($1KeyTab*)>(&Krb5Util::snapshotFromJavaxKeyTab))},
+	{"keysFromJavaxKeyTab", "(Ljavax/security/auth/kerberos/KeyTab;Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$EncryptionKeyArray*(*)($KeyTab*,$PrincipalName*)>(&Krb5Util::keysFromJavaxKeyTab))},
+	{"snapshotFromJavaxKeyTab", "(Ljavax/security/auth/kerberos/KeyTab;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$1KeyTab*(*)($KeyTab*)>(&Krb5Util::snapshotFromJavaxKeyTab))},
 	{"ticketToCreds", "(Ljavax/security/auth/kerberos/KerberosTicket;)Lsun/security/krb5/Credentials;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Credentials*(*)($KerberosTicket*)>(&Krb5Util::ticketToCreds)), "sun.security.krb5.KrbException,java.io.IOException"},
 	{}
 };
@@ -179,12 +176,12 @@ $Credentials* Krb5Util::ticketToCreds($KerberosTicket* kerbTicket) {
 	return $new($Credentials, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, $(kerbTicket->getClientAddresses()));
 }
 
-$KeyTab* Krb5Util::snapshotFromJavaxKeyTab($1KeyTab* ktab) {
+$1KeyTab* Krb5Util::snapshotFromJavaxKeyTab($KeyTab* ktab) {
 	$init(Krb5Util);
 	return $nc($($KerberosSecrets::getJavaxSecurityAuthKerberosAccess()))->keyTabTakeSnapshot(ktab);
 }
 
-$EncryptionKeyArray* Krb5Util::keysFromJavaxKeyTab($1KeyTab* ktab, $PrincipalName* cname) {
+$EncryptionKeyArray* Krb5Util::keysFromJavaxKeyTab($KeyTab* ktab, $PrincipalName* cname) {
 	$init(Krb5Util);
 	return $nc($(snapshotFromJavaxKeyTab(ktab)))->readServiceKeys(cname);
 }

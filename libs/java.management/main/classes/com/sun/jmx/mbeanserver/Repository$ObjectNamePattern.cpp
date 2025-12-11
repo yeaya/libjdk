@@ -10,7 +10,6 @@
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
 
-using $Repository = ::com::sun::jmx::mbeanserver::Repository;
 using $Util = ::com::sun::jmx::mbeanserver::Util;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

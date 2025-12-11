@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $IBM943$DecodeHolder = ::sun::nio::cs::ext::IBM943$DecodeHolder;
 using $IBM943$EncodeHolder = ::sun::nio::cs::ext::IBM943$EncodeHolder;
-using $IBM943C = ::sun::nio::cs::ext::IBM943C;
 
 namespace sun {
 	namespace nio {

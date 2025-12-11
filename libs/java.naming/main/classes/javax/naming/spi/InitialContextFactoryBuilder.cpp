@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
-using $InitialContextFactory = ::javax::naming::spi::InitialContextFactory;
 
 namespace javax {
 	namespace naming {

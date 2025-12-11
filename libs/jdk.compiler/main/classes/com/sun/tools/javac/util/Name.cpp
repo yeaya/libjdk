@@ -9,7 +9,6 @@
 #include <jcpp.h>
 
 using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
-using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $Convert = ::com::sun::tools::javac::util::Convert;
 using $Name$NameMapper = ::com::sun::tools::javac::util::Name$NameMapper;
 using $Name$Table = ::com::sun::tools::javac::util::Name$Table;

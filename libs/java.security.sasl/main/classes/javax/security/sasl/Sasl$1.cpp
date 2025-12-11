@@ -10,9 +10,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
-using $Sasl = ::javax::security::sasl::Sasl;
 using $SaslClientFactory = ::javax::security::sasl::SaslClientFactory;
 
 namespace javax {

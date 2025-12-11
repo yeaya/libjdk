@@ -9,7 +9,6 @@
 #include <jcpp.h>
 
 using $JavacTrees = ::com::sun::tools::javac::api::JavacTrees;
-using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
 using $Tokens$Comment$CommentStyle = ::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle;
 using $IOException = ::java::io::IOException;
 using $CharSequence = ::java::lang::CharSequence;

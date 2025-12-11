@@ -10,17 +10,8 @@
 #include <javax/management/modelmbean/ModelMBeanOperationInfo.h>
 #include <jcpp.h>
 
-using $DescriptorArray = $Array<::javax::management::Descriptor>;
-using $MBeanAttributeInfoArray = $Array<::javax::management::MBeanAttributeInfo>;
-using $MBeanConstructorInfoArray = $Array<::javax::management::MBeanConstructorInfo>;
-using $MBeanNotificationInfoArray = $Array<::javax::management::MBeanNotificationInfo>;
-using $MBeanOperationInfoArray = $Array<::javax::management::MBeanOperationInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Descriptor = ::javax::management::Descriptor;
-using $ModelMBeanAttributeInfo = ::javax::management::modelmbean::ModelMBeanAttributeInfo;
-using $ModelMBeanNotificationInfo = ::javax::management::modelmbean::ModelMBeanNotificationInfo;
-using $ModelMBeanOperationInfo = ::javax::management::modelmbean::ModelMBeanOperationInfo;
 
 namespace javax {
 	namespace management {

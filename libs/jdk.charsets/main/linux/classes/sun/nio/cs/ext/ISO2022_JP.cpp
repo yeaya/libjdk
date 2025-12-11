@@ -24,7 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $JIS_X_0201 = ::sun::nio::cs::JIS_X_0201;
 using $JIS_X_0208 = ::sun::nio::cs::JIS_X_0208;
 using $US_ASCII = ::sun::nio::cs::US_ASCII;

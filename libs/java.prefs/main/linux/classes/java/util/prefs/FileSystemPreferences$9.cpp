@@ -16,12 +16,10 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $BackingStoreException = ::java::util::prefs::BackingStoreException;
 using $FileSystemPreferences = ::java::util::prefs::FileSystemPreferences;
-using $FileSystemPreferences$NodeCreate = ::java::util::prefs::FileSystemPreferences$NodeCreate;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace java {

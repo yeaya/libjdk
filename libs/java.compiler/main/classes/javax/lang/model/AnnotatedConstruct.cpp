@@ -4,11 +4,8 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Annotation = ::java::lang::annotation::Annotation;
-using $List = ::java::util::List;
 
 namespace javax {
 	namespace lang {

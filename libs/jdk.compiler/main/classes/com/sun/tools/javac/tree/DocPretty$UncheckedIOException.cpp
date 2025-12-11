@@ -5,7 +5,6 @@
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
-using $DocPretty = ::com::sun::tools::javac::tree::DocPretty;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;

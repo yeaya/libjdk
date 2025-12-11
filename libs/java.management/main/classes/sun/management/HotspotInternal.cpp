@@ -13,7 +13,6 @@ using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MBeanRegistration = ::javax::management::MBeanRegistration;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $ObjectName = ::javax::management::ObjectName;
 using $HotspotInternalMBean = ::sun::management::HotspotInternalMBean;

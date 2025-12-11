@@ -7,7 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Preferences = ::java::util::prefs::Preferences;
-using $PreferencesFactory = ::java::util::prefs::PreferencesFactory;
 using $WindowsPreferences = ::java::util::prefs::WindowsPreferences;
 
 namespace java {

@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/platform/PlatformProvider.h>
 #include <jcpp.h>
 
-using $PlatformProvider = ::com::sun::tools::javac::platform::PlatformProvider;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -22,7 +22,6 @@
 
 using $CopyOptionArray = $Array<::java::nio::file::CopyOption>;
 using $Log = ::com::sun::tools::sjavac::Log;
-using $Transformer = ::com::sun::tools::sjavac::Transformer;
 using $Util = ::com::sun::tools::sjavac::Util;
 using $CompilationService = ::com::sun::tools::sjavac::comp::CompilationService;
 using $Options = ::com::sun::tools::sjavac::options::Options;

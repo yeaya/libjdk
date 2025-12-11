@@ -22,10 +22,8 @@
 #undef COMPILATION
 
 using $CompilationUnitTree = ::com::sun::source::tree::CompilationUnitTree;
-using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $TaskEvent = ::com::sun::source::util::TaskEvent;
 using $TaskEvent$Kind = ::com::sun::source::util::TaskEvent$Kind;
-using $TaskListener = ::com::sun::source::util::TaskListener;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $Log = ::com::sun::tools::sjavac::Log;
 using $PathAndPackageVerifier$EnclosingPkgIterator = ::com::sun::tools::sjavac::comp::PathAndPackageVerifier$EnclosingPkgIterator;
@@ -34,14 +32,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URI = ::java::net::URI;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {

@@ -34,7 +34,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $StackTraceElement = ::java::lang::StackTraceElement;
-using $LockInfo = ::java::lang::management::LockInfo;
 using $MonitorInfo = ::java::lang::management::MonitorInfo;
 using $Type = ::java::lang::reflect::Type;
 using $AbstractMap = ::java::util::AbstractMap;

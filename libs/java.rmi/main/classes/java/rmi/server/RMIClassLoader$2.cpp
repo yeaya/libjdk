@@ -11,7 +11,6 @@ using $ClassLoader = ::java::lang::ClassLoader;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RMIClassLoader = ::java::rmi::server::RMIClassLoader;
 using $RMIClassLoaderSpi = ::java::rmi::server::RMIClassLoaderSpi;
 using $LoaderHandler = ::sun::rmi::server::LoaderHandler;
 

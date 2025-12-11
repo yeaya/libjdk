@@ -35,19 +35,13 @@
 #undef QUEUE
 
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
@@ -69,7 +63,6 @@ using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Level = ::java::util::logging::Level;
 using $Stream = ::java::util::stream::Stream;
-using $AbstractClassLoaderValue = ::jdk::internal::loader::AbstractClassLoaderValue;
 using $ClassLoaderValue = ::jdk::internal::loader::ClassLoaderValue;
 
 namespace java {

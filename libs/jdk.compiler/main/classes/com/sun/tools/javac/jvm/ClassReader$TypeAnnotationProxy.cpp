@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
-using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$CompoundAnnotationProxy = ::com::sun::tools::javac::jvm::ClassReader$CompoundAnnotationProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

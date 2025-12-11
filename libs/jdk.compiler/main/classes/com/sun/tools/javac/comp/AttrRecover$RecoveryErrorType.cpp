@@ -8,10 +8,7 @@
 #include <jcpp.h>
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
-using $AttrRecover = ::com::sun::tools::javac::comp::AttrRecover;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

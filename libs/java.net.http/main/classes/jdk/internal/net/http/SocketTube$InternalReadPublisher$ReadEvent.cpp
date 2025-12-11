@@ -21,7 +21,6 @@ using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $AsyncEvent = ::jdk::internal::net::http::AsyncEvent;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
-using $SocketTube = ::jdk::internal::net::http::SocketTube;
 using $SocketTube$InternalReadPublisher = ::jdk::internal::net::http::SocketTube$InternalReadPublisher;
 using $SocketTube$InternalReadPublisher$InternalReadSubscription = ::jdk::internal::net::http::SocketTube$InternalReadPublisher$InternalReadSubscription;
 using $SocketTube$SocketFlowEvent = ::jdk::internal::net::http::SocketTube$SocketFlowEvent;

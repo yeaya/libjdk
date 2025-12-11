@@ -21,7 +21,6 @@ using $Map = ::java::util::Map;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $SaslException = ::javax::security::sasl::SaslException;
 using $SaslServer = ::javax::security::sasl::SaslServer;
-using $SaslServerFactory = ::javax::security::sasl::SaslServerFactory;
 
 namespace com {
 	namespace sun {

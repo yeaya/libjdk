@@ -23,7 +23,6 @@
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $ClientCommunicatorAdmin = ::com::sun::jmx::remote::internal::ClientCommunicatorAdmin;
-using $ClientNotifForwarder = ::com::sun::jmx::remote::internal::ClientNotifForwarder;
 using $ClassLogger = ::com::sun::jmx::remote::util::ClassLogger;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -37,7 +36,6 @@ using $Set = ::java::util::Set;
 using $Attribute = ::javax::management::Attribute;
 using $AttributeList = ::javax::management::AttributeList;
 using $MBeanInfo = ::javax::management::MBeanInfo;
-using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
 using $NotificationFilter = ::javax::management::NotificationFilter;
 using $NotificationListener = ::javax::management::NotificationListener;
 using $ObjectInstance = ::javax::management::ObjectInstance;

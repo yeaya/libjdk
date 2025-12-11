@@ -4,10 +4,8 @@
 #include <org/w3c/dom/Document.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Document = ::org::w3c::dom::Document;
 
 namespace com {
 	namespace sun {

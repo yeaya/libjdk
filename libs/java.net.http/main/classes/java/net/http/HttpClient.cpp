@@ -21,17 +21,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $HttpClient$Builder = ::java::net::http::HttpClient$Builder;
-using $HttpClient$Redirect = ::java::net::http::HttpClient$Redirect;
-using $HttpClient$Version = ::java::net::http::HttpClient$Version;
-using $HttpRequest = ::java::net::http::HttpRequest;
-using $HttpResponse = ::java::net::http::HttpResponse;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
-using $HttpResponse$PushPromiseHandler = ::java::net::http::HttpResponse$PushPromiseHandler;
 using $WebSocket$Builder = ::java::net::http::WebSocket$Builder;
-using $Optional = ::java::util::Optional;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
-using $SSLContext = ::javax::net::ssl::SSLContext;
-using $SSLParameters = ::javax::net::ssl::SSLParameters;
 using $HttpClientBuilderImpl = ::jdk::internal::net::http::HttpClientBuilderImpl;
 
 namespace java {

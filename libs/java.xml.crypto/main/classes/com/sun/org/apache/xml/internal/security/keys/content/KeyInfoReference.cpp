@@ -12,16 +12,13 @@
 #undef _ATT_URI
 #undef _TAG_KEYINFOREFERENCE
 
-using $KeyInfoContent = ::com::sun::org::apache::xml::internal::security::keys::content::KeyInfoContent;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $Signature11ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::Signature11ElementProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {

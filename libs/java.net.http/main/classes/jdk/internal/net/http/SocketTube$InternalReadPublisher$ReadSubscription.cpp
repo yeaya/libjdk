@@ -20,16 +20,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
-using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
 using $SocketTube = ::jdk::internal::net::http::SocketTube;
 using $SocketTube$BufferSource = ::jdk::internal::net::http::SocketTube$BufferSource;
 using $SocketTube$InternalReadPublisher = ::jdk::internal::net::http::SocketTube$InternalReadPublisher;
 using $SocketTube$InternalReadPublisher$InternalReadSubscription = ::jdk::internal::net::http::SocketTube$InternalReadPublisher$InternalReadSubscription;
 using $SocketTube$SSLDirectBufferSource = ::jdk::internal::net::http::SocketTube$SSLDirectBufferSource;
-using $SocketTube$SliceBufferSource = ::jdk::internal::net::http::SocketTube$SliceBufferSource;
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 

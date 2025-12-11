@@ -22,11 +22,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
-using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
 using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
-using $BiPredicate = ::java::util::function::BiPredicate;
 
 $MethodInfo _HeadersTest$6_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HeadersTest$6::*)()>(&HeadersTest$6::init$))},

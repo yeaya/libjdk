@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GSSCredential = ::org::ietf::jgss::GSSCredential;
 using $Oid = ::org::ietf::jgss::Oid;
-using $GSSCredentialImpl = ::sun::security::jgss::GSSCredentialImpl;
 
 namespace sun {
 	namespace security {

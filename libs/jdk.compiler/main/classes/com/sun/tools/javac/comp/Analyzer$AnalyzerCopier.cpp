@@ -45,20 +45,14 @@ using $JCTree$JCUnary = ::com::sun::tools::javac::tree::JCTree$JCUnary;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeCopier = ::com::sun::tools::javac::tree::TreeCopier;
-using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $List = ::com::sun::tools::javac::util::List;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Consumer = ::java::util::function::Consumer;
 
 namespace com {

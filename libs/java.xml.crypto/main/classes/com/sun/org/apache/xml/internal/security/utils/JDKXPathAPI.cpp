@@ -22,7 +22,6 @@
 #undef TRUE
 
 using $DOMNamespaceContext = ::com::sun::org::apache::xml::internal::security::utils::DOMNamespaceContext;
-using $XPathAPI = ::com::sun::org::apache::xml::internal::security::utils::XPathAPI;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -30,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $NamespaceContext = ::javax::xml::namespace$::NamespaceContext;
-using $QName = ::javax::xml::namespace$::QName;
 using $TransformerException = ::javax::xml::transform::TransformerException;
 using $XPath = ::javax::xml::xpath::XPath;
 using $XPathConstants = ::javax::xml::xpath::XPathConstants;

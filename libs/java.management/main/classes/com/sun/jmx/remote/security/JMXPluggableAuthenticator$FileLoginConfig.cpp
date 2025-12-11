@@ -18,7 +18,6 @@
 
 using $AppConfigurationEntryArray = $Array<::javax::security::auth::login::AppConfigurationEntry>;
 using $FileLoginModule = ::com::sun::jmx::remote::security::FileLoginModule;
-using $JMXPluggableAuthenticator = ::com::sun::jmx::remote::security::JMXPluggableAuthenticator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

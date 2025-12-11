@@ -15,7 +15,6 @@ using $Key = ::java::security::Key;
 using $KeySelector = ::javax::xml::crypto::KeySelector;
 using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
-using $XMLSignContext = ::javax::xml::crypto::dsig::XMLSignContext;
 using $Node = ::org::w3c::dom::Node;
 
 namespace javax {

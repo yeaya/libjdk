@@ -25,7 +25,6 @@
 #undef RESPONSE
 
 using $ImmutableHeaders$ImmutableHeadersHandler = ::ImmutableHeaders$ImmutableHeadersHandler;
-using $HttpContext = ::com::sun::net::httpserver::HttpContext;
 using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $HttpServer = ::com::sun::net::httpserver::HttpServer;
 using $PrintStream = ::java::io::PrintStream;
@@ -44,7 +43,6 @@ using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse = ::java::net::http::HttpResponse;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
 using $List = ::java::util::List;
 using $Executor = ::java::util::concurrent::Executor;

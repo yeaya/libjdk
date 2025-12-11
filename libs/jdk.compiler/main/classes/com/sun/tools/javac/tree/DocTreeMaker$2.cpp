@@ -11,12 +11,9 @@
 #undef SUMMARY
 #undef TEXT
 
-using $DocTree$KindArray = $Array<::com::sun::source::doctree::DocTree$Kind>;
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
-using $DocTreeMaker = ::com::sun::tools::javac::tree::DocTreeMaker;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

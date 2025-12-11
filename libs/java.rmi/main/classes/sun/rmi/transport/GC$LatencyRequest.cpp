@@ -9,7 +9,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -17,7 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NavigableSet = ::java::util::NavigableSet;
-using $Set = ::java::util::Set;
 using $SortedSet = ::java::util::SortedSet;
 using $TreeSet = ::java::util::TreeSet;
 using $GC = ::sun::rmi::transport::GC;

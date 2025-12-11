@@ -20,18 +20,14 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$IntersectionClassType = ::com::sun::tools::javac::code::Type$IntersectionClassType;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$DescriptorCache = ::com::sun::tools::javac::code::Types$DescriptorCache;
-using $Types$FunctionDescriptorLookupError = ::com::sun::tools::javac::code::Types$FunctionDescriptorLookupError;
 using $Check = ::com::sun::tools::javac::comp::Check;
 using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::CompilerProperties$Fragments;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
-using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Iterator = ::java::util::Iterator;
 
 namespace com {

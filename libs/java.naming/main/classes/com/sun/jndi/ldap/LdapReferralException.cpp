@@ -25,7 +25,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Hashtable = ::java::util::Hashtable;
 using $Vector = ::java::util::Vector;
 using $Context = ::javax::naming::Context;
@@ -33,7 +32,6 @@ using $Name = ::javax::naming::Name;
 using $NamingException = ::javax::naming::NamingException;
 using $ReferralException = ::javax::naming::ReferralException;
 using $DirContext = ::javax::naming::directory::DirContext;
-using $Control = ::javax::naming::ldap::Control;
 using $LdapContext = ::javax::naming::ldap::LdapContext;
 using $LdapReferralException = ::javax::naming::ldap::LdapReferralException;
 

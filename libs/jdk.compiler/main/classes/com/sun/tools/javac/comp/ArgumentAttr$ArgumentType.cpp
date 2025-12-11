@@ -28,7 +28,6 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $ArgumentAttr = ::com::sun::tools::javac::comp::ArgumentAttr;
 using $ArgumentAttr$UniquePos = ::com::sun::tools::javac::comp::ArgumentAttr$UniquePos;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
@@ -36,7 +35,6 @@ using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
-using $DeferredAttr$AttributionMode = ::com::sun::tools::javac::comp::DeferredAttr$AttributionMode;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
 using $Env = ::com::sun::tools::javac::comp::Env;

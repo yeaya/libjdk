@@ -65,17 +65,14 @@
 #undef VAR
 #undef VERBOSE
 
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
-using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
@@ -97,14 +94,12 @@ using $Options = ::com::sun::tools::javac::util::Options;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $IOException = ::java::io::IOException;
 using $PrintWriter = ::java::io::PrintWriter;
-using $Writer = ::java::io::Writer;
 using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
-using $Enum = ::java::lang::Enum;
 using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

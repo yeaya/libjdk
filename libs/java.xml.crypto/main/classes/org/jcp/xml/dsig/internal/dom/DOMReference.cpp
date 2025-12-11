@@ -97,11 +97,7 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $AccessController = ::java::security::AccessController;
@@ -118,7 +114,6 @@ using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
-using $AlgorithmMethod = ::javax::xml::crypto::AlgorithmMethod;
 using $Data = ::javax::xml::crypto::Data;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $NodeSetData = ::javax::xml::crypto::NodeSetData;
@@ -128,7 +123,6 @@ using $URIReference = ::javax::xml::crypto::URIReference;
 using $URIReferenceException = ::javax::xml::crypto::URIReferenceException;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
-using $DOMURIReference = ::javax::xml::crypto::dom::DOMURIReference;
 using $CanonicalizationMethod = ::javax::xml::crypto::dsig::CanonicalizationMethod;
 using $DigestMethod = ::javax::xml::crypto::dsig::DigestMethod;
 using $Reference = ::javax::xml::crypto::dsig::Reference;
@@ -155,7 +149,6 @@ using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
-using $Text = ::org::w3c::dom::Text;
 
 namespace org {
 	namespace jcp {

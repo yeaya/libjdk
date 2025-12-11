@@ -11,18 +11,15 @@
 #include <jcpp.h>
 
 using $Option = ::com::sun::tools::javac::main::Option;
-using $Option$InvalidValueException = ::com::sun::tools::javac::main::Option$InvalidValueException;
 using $Option$OptionGroup = ::com::sun::tools::javac::main::Option$OptionGroup;
 using $Option$OptionKind = ::com::sun::tools::javac::main::Option$OptionKind;
 using $OptionHelper = ::com::sun::tools::javac::main::OptionHelper;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
-using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ModuleDescriptor$Version = ::java::lang::module::ModuleDescriptor$Version;
 
 namespace com {

@@ -11,8 +11,6 @@
 #undef DEFAULT_OK
 
 using $Resolve$InterfaceLookupPhaseArray = $Array<::com::sun::tools::javac::comp::Resolve$InterfaceLookupPhase>;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$InterfaceLookupPhase$1 = ::com::sun::tools::javac::comp::Resolve$InterfaceLookupPhase$1;
 using $Resolve$InterfaceLookupPhase$2 = ::com::sun::tools::javac::comp::Resolve$InterfaceLookupPhase$2;
 using $ClassInfo = ::java::lang::ClassInfo;

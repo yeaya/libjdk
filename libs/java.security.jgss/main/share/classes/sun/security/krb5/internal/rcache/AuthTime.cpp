@@ -20,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $AuthTimeWithHash = ::sun::security::krb5::internal::rcache::AuthTimeWithHash;

@@ -9,9 +9,6 @@
 #undef SOURCE
 
 using $Dependencies$GraphDependencies$CompletionNode$KindArray = $Array<::com::sun::tools::javac::util::Dependencies$GraphDependencies$CompletionNode$Kind>;
-using $Dependencies = ::com::sun::tools::javac::util::Dependencies;
-using $Dependencies$GraphDependencies = ::com::sun::tools::javac::util::Dependencies$GraphDependencies;
-using $Dependencies$GraphDependencies$CompletionNode = ::com::sun::tools::javac::util::Dependencies$GraphDependencies$CompletionNode;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

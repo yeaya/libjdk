@@ -7,7 +7,6 @@
 #include <javax/lang/model/element/AnnotationValueVisitor.h>
 #include <jcpp.h>
 
-using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -15,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $AnnotationValue = ::javax::lang::model::element::AnnotationValue;
 using $AnnotationValueVisitor = ::javax::lang::model::element::AnnotationValueVisitor;
 
 namespace com {

@@ -4,11 +4,9 @@
 #include <java/net/SocketOption.h>
 #include <jcpp.h>
 
-using $DummySecureWebSocketServer$WebSocketChannel = ::DummySecureWebSocketServer$WebSocketChannel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SocketOption = ::java::net::SocketOption;
 
 $MethodInfo _DummySecureWebSocketServer$WebSocketChannel$Config_MethodInfo_[] = {
 	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},

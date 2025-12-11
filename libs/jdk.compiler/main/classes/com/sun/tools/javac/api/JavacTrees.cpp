@@ -185,7 +185,7 @@ using $CatchTree = ::com::sun::source::tree::CatchTree;
 using $ClassTree = ::com::sun::source::tree::ClassTree;
 using $CompilationUnitTree = ::com::sun::source::tree::CompilationUnitTree;
 using $MethodTree = ::com::sun::source::tree::MethodTree;
-using $1Scope = ::com::sun::source::tree::Scope;
+using $Scope = ::com::sun::source::tree::Scope;
 using $Tree = ::com::sun::source::tree::Tree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $DocSourcePositions = ::com::sun::source::util::DocSourcePositions;
@@ -212,7 +212,6 @@ using $JavacTrees$Copier = ::com::sun::tools::javac::api::JavacTrees$Copier;
 using $JavacTrees$HtmlFileObject = ::com::sun::tools::javac::api::JavacTrees$HtmlFileObject;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$NamedImportScope = ::com::sun::tools::javac::code::Scope$NamedImportScope;
 using $Scope$StarImportScope = ::com::sun::tools::javac::code::Scope$StarImportScope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
@@ -228,9 +227,7 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Type$UnionClassType = ::com::sun::tools::javac::code::Type$UnionClassType;
-using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Check = ::com::sun::tools::javac::comp::Check;
@@ -269,7 +266,6 @@ using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariable
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $Abort = ::com::sun::tools::javac::util::Abort;
 using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Assert = ::com::sun::tools::javac::util::Assert;
@@ -277,9 +273,6 @@ using $Context = ::com::sun::tools::javac::util::Context;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic$DiagnosticFlag = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticFlag;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
-using $JCDiagnostic$Note = ::com::sun::tools::javac::util::JCDiagnostic$Note;
-using $JCDiagnostic$Warning = ::com::sun::tools::javac::util::JCDiagnostic$Warning;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Log = ::com::sun::tools::javac::util::Log;
@@ -293,22 +286,15 @@ using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $BreakIterator = ::java::text::BreakIterator;
 using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractSet = ::java::util::AbstractSet;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -1184,7 +1170,7 @@ $TypeMirror* JavacTrees::getTypeMirror($TreePath* path) {
 	return ty == nullptr ? ($TypeMirror*)nullptr : static_cast<$TypeMirror*>($nc(ty)->stripMetadataIfNeeded());
 }
 
-$1Scope* JavacTrees::getScope($TreePath* path) {
+$Scope* JavacTrees::getScope($TreePath* path) {
 	return $JavacScope::create($(getAttrContext(path)));
 }
 
@@ -1267,7 +1253,7 @@ $DocCommentTree* JavacTrees::getDocCommentTree($Element* e, $String* relativeFil
 	return getDocCommentTree(fileForInput);
 }
 
-bool JavacTrees::isAccessible($1Scope* scope, $TypeElement* type) {
+bool JavacTrees::isAccessible($Scope* scope, $TypeElement* type) {
 	$useLocalCurrentObjectStackCache();
 	$var($Symbol$ClassSymbol, classSymbol, nullptr);
 	$var($JavacScope, javacScope, nullptr);
@@ -1289,7 +1275,7 @@ bool JavacTrees::isAccessible($1Scope* scope, $TypeElement* type) {
 	return var$0 && $nc(this->resolve)->isAccessible($nc(javacScope)->env, static_cast<$Symbol$TypeSymbol*>(classSymbol), true);
 }
 
-bool JavacTrees::isAccessible($1Scope* scope, $Element* member, $DeclaredType* type) {
+bool JavacTrees::isAccessible($Scope* scope, $Element* member, $DeclaredType* type) {
 	$useLocalCurrentObjectStackCache();
 	$var($Type, codeType, nullptr);
 	$var($Symbol, symbol, nullptr);

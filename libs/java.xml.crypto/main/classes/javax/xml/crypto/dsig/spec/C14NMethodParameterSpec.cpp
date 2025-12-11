@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParameterSpec;
 
 namespace javax {
 	namespace xml {

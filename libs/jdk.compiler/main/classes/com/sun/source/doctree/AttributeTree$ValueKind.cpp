@@ -10,7 +10,6 @@
 #undef UNQUOTED
 
 using $AttributeTree$ValueKindArray = $Array<::com::sun::source::doctree::AttributeTree$ValueKind>;
-using $AttributeTree = ::com::sun::source::doctree::AttributeTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

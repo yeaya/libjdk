@@ -8,14 +8,11 @@
 #undef READING_BODY
 #undef READING_HEADERS
 
-using $Http1Response$StateArray = $Array<::jdk::internal::net::http::Http1Response$State>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Http1Response = ::jdk::internal::net::http::Http1Response;
 using $Http1Response$State = ::jdk::internal::net::http::Http1Response$State;
 
 namespace jdk {

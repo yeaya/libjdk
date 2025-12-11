@@ -9,10 +9,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $NestingKind = ::javax::lang::model::element::NestingKind;
 using $Parameterizable = ::javax::lang::model::element::Parameterizable;
-using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace javax {
 	namespace lang {

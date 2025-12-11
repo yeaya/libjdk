@@ -15,7 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collator = ::java::text::Collator;
-using $Comparator = ::java::util::Comparator;
 using $Locale = ::java::util::Locale;
 
 namespace com {

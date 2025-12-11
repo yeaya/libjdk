@@ -9,8 +9,6 @@
 #include <jcpp.h>
 
 using $XMLSecurityRuntimeException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityRuntimeException;
-using $NodeFilter = ::com::sun::org::apache::xml::internal::security::signature::NodeFilter;
-using $TransformXPath = ::com::sun::org::apache::xml::internal::security::transforms::implementations::TransformXPath;
 using $XPathAPI = ::com::sun::org::apache::xml::internal::security::utils::XPathAPI;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

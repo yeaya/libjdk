@@ -6,13 +6,11 @@
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <jcpp.h>
 
-using $ShortRequestBody = ::ShortRequestBody;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
-using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 
 $FieldInfo _ShortRequestBody$AbstractDelegateRequestBody_FieldInfo_[] = {

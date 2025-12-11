@@ -6,16 +6,12 @@
 #include <jdk/nio/zipfs/ZipPosixFileAttributeView.h>
 #include <jcpp.h>
 
-using $ZipFileAttributeView$AttrIDArray = $Array<::jdk::nio::zipfs::ZipFileAttributeView$AttrID>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $ZipFileAttributeView = ::jdk::nio::zipfs::ZipFileAttributeView;
 using $ZipFileAttributeView$AttrID = ::jdk::nio::zipfs::ZipFileAttributeView$AttrID;
-using $ZipPosixFileAttributeView = ::jdk::nio::zipfs::ZipPosixFileAttributeView;
 
 namespace jdk {
 	namespace nio {

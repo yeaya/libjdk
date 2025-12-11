@@ -30,12 +30,14 @@ message(STATUS "JCPP_ARCH:${JCPP_ARCH}")
 
 option(BUILD_SHARED_LIB "Build shared lib" ON)
 option(BUILD_TEST "Build test" ON)
-option(INSTALL_TO_REPO "Install to jcpp repository, {JCPP_REPOSITORY_ROOT} or {JCPP_HOME}/repository" OFF)
-option(ENABLE_NC "Enable NC(nullcheck)" OFF)
+set(SUBSYSTEM "CONSOLE" CACHE STRING "Set the subsystem for the executable")
+message(STATUS "SUBSYSTEM:${SUBSYSTEM}")
+set(JCPP_SUBSYSTEM "${SUBSYSTEM}")
 
 if(BUILD_SHARED_LIB)
 	message(STATUS "build shared lib")
 else()
+	set(BUILD_STATIC_LIB true)
 	message(STATUS "build static lib")
 endif()
 
@@ -43,19 +45,11 @@ if(BUILD_TEST)
 	message(STATUS "build test")
 endif()
 
-if(INSTALL_TO_REPO)
-	message(STATUS "Install to jcpp repository, {JCPP_REPOSITORY_ROOT} or {JCPP_HOME}/repository")
-endif()
-
-if(ENABLE_NC)
-	message(STATUS "enable NC(nullcheck)")
-endif()
-
 if(NOT JCPP_REPOSITORY_ROOT)
 	if(NOT JCPP_HOME)
 		set(JCPP_HOME "$ENV{JCPP_HOME}")
 		if(NOT JCPP_HOME)
-			if(WIN32)
+			if(JCPP_OS MATCHES "windows")
 				set(JCPP_HOME "$ENV{HOMEDRIVE}$ENV{HOMEPATH}/jcpp")
 			else()
 				set(JCPP_HOME "$ENV{HOME}/jcpp")
@@ -71,18 +65,15 @@ else()
 endif()
 message(STATUS "JCPP_REPOSITORY_ROOT:" ${JCPP_REPOSITORY_ROOT})
 
-if(INSTALL_TO_REPO)
-	set(CMAKE_INSTALL_PREFIX ${JCPP_REPOSITORY_ROOT})
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+	set(CMAKE_INSTALL_PREFIX "${JCPP_REPOSITORY_ROOT}" CACHE PATH "..." FORCE)
 endif()
-message(STATUS "CMAKE_INSTALL_PREFIX:" ${CMAKE_INSTALL_PREFIX} " INSTALL_TO_REPO:" ${INSTALL_TO_REPO})
+message(STATUS "CMAKE_INSTALL_PREFIX:" ${CMAKE_INSTALL_PREFIX})
 
 if(NOT CMAKE_BUILD_TYPE MATCHES "Debug")
 	set(CMAKE_BUILD_TYPE "Release")
 endif()
 
-if(NOT J)
-#	set(J 1)
-endif()
 message(STATUS "J:" ${J})
 message(STATUS "CMAKE_GENERATOR:" ${CMAKE_GENERATOR})
 
@@ -111,28 +102,23 @@ macro(addLib libName)
 	else()
 		set(libConfigure ${libConfigure} -DBUILD_SHARED_LIB=OFF)
 	endif()
-	if(ENABLE_NC)
-		set(libConfigure ${libConfigure} -DENABLE_NC=ON)
-	else()
-		set(libConfigure ${libConfigure} -DENABLE_NC=OFF)
-	endif()
 	if(BUILD_TEST)
 		set(libConfigure ${libConfigure} -DBUILD_TEST=ON)
 	else()
 		set(libConfigure ${libConfigure} -DBUILD_TEST=OFF)
 	endif()
-	set(libConfigure ${libConfigure} -DJCPP_HOME=${tmpJcppHome} -DCMAKE_INSTALL_PREFIX=${tmpInstall})
+	set(libConfigure ${libConfigure} -DJCPP_HOME=${tmpJcppHome})
 
-	if(INSTALL_TO_REPO)
+	if(CMAKE_INSTALL_PREFIX STREQUAL "${JCPP_REPOSITORY_ROOT}")
 		add_custom_target(${libName} ALL
-			COMMAND ${libConfigure} -DINSTALL_TO_REPO=ON
+			COMMAND ${libConfigure}
 			COMMAND ${libInstall}
 		)
 	else()
 		add_custom_target(${libName} ALL
-			COMMAND ${libConfigure} -DINSTALL_TO_REPO=ON
+			COMMAND ${libConfigure}
 			COMMAND ${libInstall}
-			COMMAND ${libConfigure} -DINSTALL_TO_REPO=OFF
+			COMMAND ${libConfigure} -DCMAKE_INSTALL_PREFIX=${tmpInstall}
 			COMMAND ${libInstall}
 		)
 	endif()
@@ -186,10 +172,8 @@ addLib(java.datatransfer java.base)
 
 addLib(jdk.httpserver java.base)
 
-if(JCPP_OS MATCHES "windows")
-	# java.logging jdk.httpserver for test
-	addLib(java.desktop java.prefs java.datatransfer java.xml java.logging jdk.httpserver)
-endif()
+# java.logging jdk.httpserver for test
+addLib(java.desktop java.prefs java.datatransfer java.xml java.logging jdk.httpserver)
 
 addLib(jdk.charsets java.base)
 
@@ -197,36 +181,34 @@ addLib(java.net.http java.base)
 
 addLib(java.scripting java.base)
 
-if(JCPP_OS MATCHES "windows")
-	addLib(java.se
-		java.compiler
-		java.datatransfer
-		java.desktop
-		java.instrument
-		java.logging
-		java.management
-		java.management.rmi
-		java.naming
-		java.net.http
-		java.prefs
-		java.rmi
-		java.scripting
-		java.security.jgss
-		java.security.sasl
-		java.sql
-		java.sql.rowset
-		java.transaction.xa
-		java.xml
-		java.xml.crypto
-	)
-endif()
+addLib(java.se
+	java.compiler
+	java.datatransfer
+	java.desktop
+	java.instrument
+	java.logging
+	java.management
+	java.management.rmi
+	java.naming
+	java.net.http
+	java.prefs
+	java.rmi
+	java.scripting
+	java.security.jgss
+	java.security.sasl
+	java.sql
+	java.sql.rowset
+	java.transaction.xa
+	java.xml
+	java.xml.crypto
+)
 
 # java.net.http jdk.httpserver for test
 addLib(jdk.net java.base java.net.http jdk.httpserver)
 
 addLib(jdk.localedata java.base)
 
-if(INSTALL_TO_REPO)
+if(CMAKE_INSTALL_PREFIX STREQUAL "${JCPP_REPOSITORY_ROOT}")
 	install(
 		DIRECTORY "${tmpJcppHome}/repository/"
 		DESTINATION "."
@@ -251,9 +233,6 @@ if(NOT PACKAGE_VERSION)
 endif()
 set(CPACK_PACKAGE_VERSION "${PACKAGE_VERSION}")
 set(CPACK_PACKAGE_FILE_NAME ${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${JCPP_OS}-${JCPP_ARCH})
-if(INSTALL_TO_REPO)
-	set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_FILE_NAME}.repo")
-endif()
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
 if(JCPP_OS MATCHES "windows")
 	set(CPACK_GENERATOR "ZIP")

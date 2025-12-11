@@ -16,11 +16,8 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
-using $SingleByte$Decoder = ::sun::nio::cs::SingleByte$Decoder;
 using $EUC_JP$Decoder = ::sun::nio::cs::ext::EUC_JP$Decoder;
-using $EUC_JP_Open = ::sun::nio::cs::ext::EUC_JP_Open;
 using $JIS_X_0208_Solaris = ::sun::nio::cs::ext::JIS_X_0208_Solaris;
 using $JIS_X_0212_Solaris = ::sun::nio::cs::ext::JIS_X_0212_Solaris;
 

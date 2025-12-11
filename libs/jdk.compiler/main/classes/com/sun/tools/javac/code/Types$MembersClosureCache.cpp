@@ -25,16 +25,13 @@
 
 using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$CompoundScope = ::com::sun::tools::javac::code::Scope$CompoundScope;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;

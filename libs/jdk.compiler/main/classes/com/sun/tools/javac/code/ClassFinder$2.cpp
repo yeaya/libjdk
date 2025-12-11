@@ -9,11 +9,8 @@
 #undef OTHER
 #undef SOURCE
 
-using $JavaFileObject$KindArray = $Array<::javax::tools::JavaFileObject$Kind>;
-using $ClassFinder = ::com::sun::tools::javac::code::ClassFinder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

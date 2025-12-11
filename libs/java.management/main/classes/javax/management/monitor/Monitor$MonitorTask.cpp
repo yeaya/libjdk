@@ -41,7 +41,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-using $AbstractExecutorService = ::java::util::concurrent::AbstractExecutorService;
 using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
 using $Future = ::java::util::concurrent::Future;
 using $LinkedBlockingQueue = ::java::util::concurrent::LinkedBlockingQueue;
@@ -53,7 +52,6 @@ using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $Monitor = ::javax::management::monitor::Monitor;
 using $Monitor$DaemonThreadFactory = ::javax::management::monitor::Monitor$DaemonThreadFactory;
 using $Monitor$MonitorTask$1 = ::javax::management::monitor::Monitor$MonitorTask$1;
-using $Monitor$SchedulerTask = ::javax::management::monitor::Monitor$SchedulerTask;
 
 namespace javax {
 	namespace management {

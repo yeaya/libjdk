@@ -18,12 +18,10 @@
 #undef TAG_VALUE
 #undef UTF_8
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;

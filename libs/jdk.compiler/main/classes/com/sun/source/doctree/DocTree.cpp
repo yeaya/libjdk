@@ -4,8 +4,6 @@
 #include <com/sun/source/doctree/DocTreeVisitor.h>
 #include <jcpp.h>
 
-using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
-using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

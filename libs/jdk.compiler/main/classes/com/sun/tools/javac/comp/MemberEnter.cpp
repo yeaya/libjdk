@@ -70,7 +70,6 @@
 #undef VAL
 #undef VARARGS
 
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $DeferredLintHandler = ::com::sun::tools::javac::code::DeferredLintHandler;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
@@ -89,8 +88,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
-using $Type$JCVoidType = ::com::sun::tools::javac::code::Type$JCVoidType;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
@@ -106,18 +103,15 @@ using $MemberEnter$InitTreeVisitor = ::com::sun::tools::javac::comp::MemberEnter
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
-using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCErroneous = ::com::sun::tools::javac::tree::JCTree$JCErroneous;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
-using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCTypeParameter = ::com::sun::tools::javac::tree::JCTree$JCTypeParameter;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
@@ -126,7 +120,6 @@ using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Log = ::com::sun::tools::javac::util::Log;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

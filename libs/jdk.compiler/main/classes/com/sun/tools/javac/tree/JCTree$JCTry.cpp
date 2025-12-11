@@ -19,17 +19,16 @@ using $BlockTree = ::com::sun::source::tree::BlockTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $TryTree = ::com::sun::source::tree::TryTree;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -51,7 +50,7 @@ $MethodInfo _JCTree$JCTry_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCatch;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", $PROTECTED, $method(static_cast<void(JCTree$JCTry::*)($1List*,$JCTree$JCBlock*,$1List*,$JCTree$JCBlock*)>(&JCTree$JCTry::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCatch;>;Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", $PROTECTED, $method(static_cast<void(JCTree$JCTry::*)($List*,$JCTree$JCBlock*,$List*,$JCTree$JCBlock*)>(&JCTree$JCTry::init$))},
 	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
 	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
 	{"getBlock", "()Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PUBLIC},
@@ -110,7 +109,7 @@ void JCTree$JCTry::finalize() {
 	this->$JCTree$JCStatement::finalize();
 }
 
-void JCTree$JCTry::init$($1List* resources, $JCTree$JCBlock* body, $1List* catchers, $JCTree$JCBlock* finalizer) {
+void JCTree$JCTry::init$($List* resources, $JCTree$JCBlock* body, $List* catchers, $JCTree$JCBlock* finalizer) {
 	$JCTree$JCStatement::init$();
 	$set(this, body, body);
 	$set(this, catchers, catchers);
@@ -131,7 +130,7 @@ $BlockTree* JCTree$JCTry::getBlock() {
 	return this->body;
 }
 
-$List* JCTree$JCTry::getCatches() {
+$1List* JCTree$JCTry::getCatches() {
 	return this->catchers;
 }
 
@@ -143,7 +142,7 @@ $Object* JCTree$JCTry::accept($TreeVisitor* v, Object$* d) {
 	return $of($nc(v)->visitTry(this, d));
 }
 
-$List* JCTree$JCTry::getResources() {
+$1List* JCTree$JCTry::getResources() {
 	return this->resources;
 }
 

@@ -10,7 +10,6 @@
 
 using $Arguments = ::com::sun::tools::javac::main::Arguments;
 using $Option = ::com::sun::tools::javac::main::Option;
-using $OptionHelper = ::com::sun::tools::javac::main::OptionHelper;
 using $OptionHelper$GrumpyHelper = ::com::sun::tools::javac::main::OptionHelper$GrumpyHelper;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Options = ::com::sun::tools::javac::util::Options;

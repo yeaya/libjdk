@@ -26,7 +26,6 @@
 
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -42,7 +41,6 @@ using $KrbException = ::sun::security::krb5::KrbException;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $HostAddresses = ::sun::security::krb5::internal::HostAddresses;
 using $KDCOptions = ::sun::security::krb5::internal::KDCOptions;
-using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
 using $CredentialsCache = ::sun::security::krb5::internal::ccache::CredentialsCache;

@@ -15,10 +15,6 @@
 
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Types = ::com::sun::tools::javac::code::Types;

@@ -26,7 +26,6 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Arrays = ::java::util::Arrays;
 using $Huffman$Reader = ::jdk::internal::net::http::hpack::Huffman$Reader;

@@ -7,7 +7,6 @@
 #include <jcpp.h>
 
 using $TypeArray = $Array<::com::sun::tools::javac::code::Type>;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $ClassWriter = ::com::sun::tools::javac::jvm::ClassWriter;
 using $ClassWriter$StackMapTableFrame = ::com::sun::tools::javac::jvm::ClassWriter$StackMapTableFrame;
 using $ByteBuffer = ::com::sun::tools::javac::util::ByteBuffer;

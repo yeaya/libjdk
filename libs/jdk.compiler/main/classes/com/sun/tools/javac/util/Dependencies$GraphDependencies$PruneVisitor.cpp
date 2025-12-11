@@ -9,7 +9,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $Dependencies$GraphDependencies = ::com::sun::tools::javac::util::Dependencies$GraphDependencies;
 using $Dependencies$GraphDependencies$Node = ::com::sun::tools::javac::util::Dependencies$GraphDependencies$Node;
 using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $GraphUtils$Node = ::com::sun::tools::javac::util::GraphUtils$Node;

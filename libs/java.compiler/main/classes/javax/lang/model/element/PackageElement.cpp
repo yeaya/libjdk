@@ -4,7 +4,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
 
 namespace javax {
 	namespace lang {

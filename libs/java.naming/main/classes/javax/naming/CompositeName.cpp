@@ -18,7 +18,6 @@ using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Enumeration = ::java::util::Enumeration;
 using $Properties = ::java::util::Properties;
 using $InvalidNameException = ::javax::naming::InvalidNameException;

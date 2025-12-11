@@ -22,12 +22,10 @@ using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
-using $Element = ::javax::lang::model::element::Element;
 using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $Parameterizable = ::javax::lang::model::element::Parameterizable;
 using $RecordComponentElement = ::javax::lang::model::element::RecordComponentElement;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
-using $ElementScanner6 = ::javax::lang::model::util::ElementScanner6;
 using $ElementScanner9 = ::javax::lang::model::util::ElementScanner9;
 
 namespace javax {

@@ -17,7 +17,6 @@
 using $CanonicalizationException = ::com::sun::org::apache::xml::internal::security::c14n::CanonicalizationException;
 using $Canonicalizer20010315 = ::com::sun::org::apache::xml::internal::security::c14n::implementations::Canonicalizer20010315;
 using $Canonicalizer20010315OmitComments = ::com::sun::org::apache::xml::internal::security::c14n::implementations::Canonicalizer20010315OmitComments;
-using $CanonicalizerBase = ::com::sun::org::apache::xml::internal::security::c14n::implementations::CanonicalizerBase;
 using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
 using $TransformSpi = ::com::sun::org::apache::xml::internal::security::transforms::TransformSpi;
 using $Transforms = ::com::sun::org::apache::xml::internal::security::transforms::Transforms;
@@ -26,7 +25,6 @@ using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Element = ::org::w3c::dom::Element;
 
 namespace com {

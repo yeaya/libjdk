@@ -12,7 +12,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Transform = ::javax::xml::crypto::dsig::Transform;
 
 namespace javax {
 	namespace xml {

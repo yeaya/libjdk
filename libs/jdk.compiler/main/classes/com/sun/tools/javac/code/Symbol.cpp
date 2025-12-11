@@ -50,13 +50,11 @@
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $AnnoConstruct = ::com::sun::tools::javac::code::AnnoConstruct;
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol$1 = ::com::sun::tools::javac::code::Symbol$1;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
@@ -71,16 +69,12 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $1Name = ::com::sun::tools::javac::util::Name;
-using $Name$Table = ::com::sun::tools::javac::util::Name$Table;
-using $Names = ::com::sun::tools::javac::util::Names;
+using $Name = ::com::sun::tools::javac::util::Name;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
@@ -91,7 +85,7 @@ using $1List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
-using $Name = ::javax::lang::model::element::Name;
+using $1Name = ::javax::lang::model::element::Name;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace com {
@@ -119,7 +113,7 @@ $MethodInfo _Symbol_MethodInfo_[] = {
 	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
 	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol::*)($Kinds$Kind*,int64_t,$1Name*,$Type*,Symbol*)>(&Symbol::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol::*)($Kinds$Kind*,int64_t,$Name*,$Type*,Symbol*)>(&Symbol::init$))},
 	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC},
 	{"annotationsPendingCompletion", "()Z", nullptr, $PUBLIC},
 	{"apiComplete", "()V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
@@ -401,7 +395,7 @@ $SymbolMetadata* Symbol::getMetadata() {
 	return this->metadata;
 }
 
-void Symbol::init$($Kinds$Kind* kind, int64_t flags, $1Name* name, $Type* type, Symbol* owner) {
+void Symbol::init$($Kinds$Kind* kind, int64_t flags, $Name* name, $Type* type, Symbol* owner) {
 	$AnnoConstruct::init$();
 	$set(this, kind, kind);
 	this->flags_field = flags;
@@ -576,11 +570,11 @@ bool Symbol::isDynamic() {
 	return false;
 }
 
-$1Name* Symbol::getQualifiedName() {
+$Name* Symbol::getQualifiedName() {
 	return this->name;
 }
 
-$1Name* Symbol::flatName() {
+$Name* Symbol::flatName() {
 	return getQualifiedName();
 }
 
@@ -820,7 +814,7 @@ $Set* Symbol::getModifiers() {
 	return $Flags::asModifierSet(flags());
 }
 
-$Name* Symbol::getSimpleName() {
+$1Name* Symbol::getSimpleName() {
 	return this->name;
 }
 

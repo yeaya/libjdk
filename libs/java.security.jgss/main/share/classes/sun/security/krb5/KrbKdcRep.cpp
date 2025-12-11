@@ -38,7 +38,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Checksum = ::sun::security::krb5::Checksum;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $EncKDCRepPart = ::sun::security::krb5::internal::EncKDCRepPart;
 using $HostAddresses = ::sun::security::krb5::internal::HostAddresses;
 using $KDCOptions = ::sun::security::krb5::internal::KDCOptions;
 using $KDCRep = ::sun::security::krb5::internal::KDCRep;
@@ -50,9 +49,7 @@ using $KrbApErrException = ::sun::security::krb5::internal::KrbApErrException;
 using $PAData = ::sun::security::krb5::internal::PAData;
 using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
 using $KeyUsage = ::sun::security::krb5::internal::crypto::KeyUsage;
-using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
 using $DerInputStream = ::sun::security::util::DerInputStream;
-using $DerValue = ::sun::security::util::DerValue;
 
 namespace sun {
 	namespace security {

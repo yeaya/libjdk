@@ -13,9 +13,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URL = ::java::net::URL;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $LoaderHandler = ::sun::rmi::server::LoaderHandler;
 using $LoaderHandler$Loader = ::sun::rmi::server::LoaderHandler$Loader;
 
 namespace sun {

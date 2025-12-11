@@ -48,7 +48,6 @@ using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParam
 using $ApacheCanonicalizer = ::org::jcp::xml::dsig::internal::dom::ApacheCanonicalizer;
 using $DOMSubTreeData = ::org::jcp::xml::dsig::internal::dom::DOMSubTreeData;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
-using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 

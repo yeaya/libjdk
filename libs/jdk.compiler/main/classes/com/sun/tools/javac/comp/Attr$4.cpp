@@ -11,7 +11,6 @@
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCTypeApply = ::com::sun::tools::javac::tree::JCTree$JCTypeApply;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $ClassInfo = ::java::lang::ClassInfo;

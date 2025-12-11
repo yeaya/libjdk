@@ -20,7 +20,6 @@ using $Key = ::java::security::Key;
 using $DSAKey = ::java::security::interfaces::DSAKey;
 using $DSAParams = ::java::security::interfaces::DSAParams;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $DOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod;
 using $DOMSignatureMethod$AbstractP1363FormatSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractP1363FormatSignatureMethod;
 using $Element = ::org::w3c::dom::Element;
 

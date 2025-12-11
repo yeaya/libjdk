@@ -34,7 +34,6 @@
 
 #undef EOF
 
-using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -45,23 +44,14 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $List = ::java::util::List;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $Consumer = ::java::util::function::Consumer;
 using $AsyncEvent = ::jdk::internal::net::http::AsyncEvent;
 using $AsyncTriggerEvent = ::jdk::internal::net::http::AsyncTriggerEvent;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
 using $SocketTube = ::jdk::internal::net::http::SocketTube;
-using $SocketTube$BufferSource = ::jdk::internal::net::http::SocketTube$BufferSource;
 using $SocketTube$InternalReadPublisher = ::jdk::internal::net::http::SocketTube$InternalReadPublisher;
 using $SocketTube$InternalReadPublisher$ReadEvent = ::jdk::internal::net::http::SocketTube$InternalReadPublisher$ReadEvent;
 using $SocketTube$InternalReadPublisher$ReadSubscription = ::jdk::internal::net::http::SocketTube$InternalReadPublisher$ReadSubscription;

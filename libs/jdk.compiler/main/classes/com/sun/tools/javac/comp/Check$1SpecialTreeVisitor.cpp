@@ -12,9 +12,7 @@
 
 using $Check = ::com::sun::tools::javac::comp::Check;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;

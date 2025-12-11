@@ -5,7 +5,6 @@
 #include <java/util/BitSet.h>
 #include <jcpp.h>
 
-using $DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

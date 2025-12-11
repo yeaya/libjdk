@@ -5,7 +5,6 @@
 #include <com/sun/tools/javac/code/Type.h>
 #include <jcpp.h>
 
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Error = ::com::sun::tools::javac::code::Attribute$Error;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $ClassInfo = ::java::lang::ClassInfo;

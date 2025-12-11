@@ -26,22 +26,13 @@
 #undef VAR
 #undef VARARGS
 
-using $Attribute$RetentionPolicyArray = $Array<::com::sun::tools::javac::code::Attribute$RetentionPolicy>;
-using $Kinds$KindArray = $Array<::com::sun::tools::javac::code::Kinds$Kind>;
-using $Lint$LintCategoryArray = $Array<::com::sun::tools::javac::code::Lint$LintCategory>;
-using $TypeTagArray = $Array<::com::sun::tools::javac::code::TypeTag>;
-using $JCTree$TagArray = $Array<::com::sun::tools::javac::tree::JCTree$Tag>;
-using $NestingKindArray = $Array<::javax::lang::model::element::NestingKind>;
-using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$RetentionPolicy = ::com::sun::tools::javac::code::Attribute$RetentionPolicy;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Check = ::com::sun::tools::javac::comp::Check;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

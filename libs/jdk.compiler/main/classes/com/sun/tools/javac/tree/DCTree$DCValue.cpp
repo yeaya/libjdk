@@ -15,7 +15,6 @@ using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $ReferenceTree = ::com::sun::source::doctree::ReferenceTree;
 using $ValueTree = ::com::sun::source::doctree::ValueTree;
-using $DCTree = ::com::sun::tools::javac::tree::DCTree;
 using $DCTree$DCInlineTag = ::com::sun::tools::javac::tree::DCTree$DCInlineTag;
 using $DCTree$DCReference = ::com::sun::tools::javac::tree::DCTree$DCReference;
 using $ClassInfo = ::java::lang::ClassInfo;

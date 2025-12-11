@@ -22,13 +22,8 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 using $AccessController = ::java::security::AccessController;
@@ -36,8 +31,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ExtendedSocketOptions$PlatformSocketOptions = ::jdk::net::ExtendedSocketOptions$PlatformSocketOptions;
 using $UnixDomainPrincipal = ::jdk::net::UnixDomainPrincipal;
 using $UnixUserPrincipals = ::sun::nio::fs::UnixUserPrincipals;
-using $UnixUserPrincipals$Group = ::sun::nio::fs::UnixUserPrincipals$Group;
-using $UnixUserPrincipals$User = ::sun::nio::fs::UnixUserPrincipals$User;
 
 namespace jdk {
 	namespace net {
@@ -177,21 +170,21 @@ $UnixDomainPrincipal* MacOSXSocketOptions::getSoPeerCred(int32_t fd) {
 void MacOSXSocketOptions::setTcpkeepAliveProbes0(int32_t fd, int32_t value) {
 	$init(MacOSXSocketOptions);
 	$prepareNativeStatic(MacOSXSocketOptions, setTcpkeepAliveProbes0, void, int32_t fd, int32_t value);
-	$invokeNativeStatic(MacOSXSocketOptions, setTcpkeepAliveProbes0, fd, value);
+	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 void MacOSXSocketOptions::setTcpKeepAliveTime0(int32_t fd, int32_t value) {
 	$init(MacOSXSocketOptions);
 	$prepareNativeStatic(MacOSXSocketOptions, setTcpKeepAliveTime0, void, int32_t fd, int32_t value);
-	$invokeNativeStatic(MacOSXSocketOptions, setTcpKeepAliveTime0, fd, value);
+	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 void MacOSXSocketOptions::setTcpKeepAliveIntvl0(int32_t fd, int32_t value) {
 	$init(MacOSXSocketOptions);
 	$prepareNativeStatic(MacOSXSocketOptions, setTcpKeepAliveIntvl0, void, int32_t fd, int32_t value);
-	$invokeNativeStatic(MacOSXSocketOptions, setTcpKeepAliveIntvl0, fd, value);
+	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
@@ -199,7 +192,7 @@ int32_t MacOSXSocketOptions::getTcpkeepAliveProbes0(int32_t fd) {
 	$init(MacOSXSocketOptions);
 	int32_t $ret = 0;
 	$prepareNativeStatic(MacOSXSocketOptions, getTcpkeepAliveProbes0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(MacOSXSocketOptions, getTcpkeepAliveProbes0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -208,7 +201,7 @@ int32_t MacOSXSocketOptions::getTcpKeepAliveTime0(int32_t fd) {
 	$init(MacOSXSocketOptions);
 	int32_t $ret = 0;
 	$prepareNativeStatic(MacOSXSocketOptions, getTcpKeepAliveTime0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(MacOSXSocketOptions, getTcpKeepAliveTime0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -217,7 +210,7 @@ int32_t MacOSXSocketOptions::getTcpKeepAliveIntvl0(int32_t fd) {
 	$init(MacOSXSocketOptions);
 	int32_t $ret = 0;
 	$prepareNativeStatic(MacOSXSocketOptions, getTcpKeepAliveIntvl0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(MacOSXSocketOptions, getTcpKeepAliveIntvl0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -226,7 +219,7 @@ int64_t MacOSXSocketOptions::getSoPeerCred0(int32_t fd) {
 	$init(MacOSXSocketOptions);
 	int64_t $ret = 0;
 	$prepareNativeStatic(MacOSXSocketOptions, getSoPeerCred0, int64_t, int32_t fd);
-	$ret = $invokeNativeStatic(MacOSXSocketOptions, getSoPeerCred0, fd);
+	$ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -235,7 +228,7 @@ bool MacOSXSocketOptions::keepAliveOptionsSupported0() {
 	$init(MacOSXSocketOptions);
 	bool $ret = false;
 	$prepareNativeStatic(MacOSXSocketOptions, keepAliveOptionsSupported0, bool);
-	$ret = $invokeNativeStatic(MacOSXSocketOptions, keepAliveOptionsSupported0);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

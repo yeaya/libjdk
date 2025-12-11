@@ -14,17 +14,13 @@
 #include <com/sun/tools/javac/util/ListBuffer.h>
 #include <jcpp.h>
 
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCSwitchExpression = ::com::sun::tools::javac::tree::JCTree$JCSwitchExpression;
 using $JCTree$JCYield = ::com::sun::tools::javac::tree::JCTree$JCYield;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

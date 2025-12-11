@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URLStreamHandlerFactory = ::java::net::URLStreamHandlerFactory;
 using $MLet = ::javax::management::loading::MLet;
-using $PrivateClassLoader = ::javax::management::loading::PrivateClassLoader;
 
 namespace javax {
 	namespace management {

@@ -8,8 +8,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
-using $StandardLocation = ::javax::tools::StandardLocation;
 
 namespace javax {
 	namespace tools {

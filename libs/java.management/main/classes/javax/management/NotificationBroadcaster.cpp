@@ -5,11 +5,8 @@
 #include <javax/management/NotificationListener.h>
 #include <jcpp.h>
 
-using $MBeanNotificationInfoArray = $Array<::javax::management::MBeanNotificationInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NotificationFilter = ::javax::management::NotificationFilter;
-using $NotificationListener = ::javax::management::NotificationListener;
 
 namespace javax {
 	namespace management {

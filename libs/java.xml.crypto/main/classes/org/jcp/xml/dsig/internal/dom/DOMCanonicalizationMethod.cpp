@@ -38,7 +38,6 @@ using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
-using $AlgorithmMethod = ::javax::xml::crypto::AlgorithmMethod;
 using $Data = ::javax::xml::crypto::Data;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;

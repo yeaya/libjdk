@@ -8,8 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $Executor = ::java::util::concurrent::Executor;
-using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 
 namespace sun {
 	namespace net {

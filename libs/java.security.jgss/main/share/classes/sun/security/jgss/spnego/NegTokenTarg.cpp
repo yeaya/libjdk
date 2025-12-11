@@ -18,16 +18,13 @@
 #undef NEG_TOKEN_TARG_ID
 #undef TAG_CONTEXT
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GSSException = ::org::ietf::jgss::GSSException;
 using $Oid = ::org::ietf::jgss::Oid;
-using $GSSToken = ::sun::security::jgss::GSSToken;
 using $GSSUtil = ::sun::security::jgss::GSSUtil;
 using $SpNegoToken = ::sun::security::jgss::spnego::SpNegoToken;
 using $DerInputStream = ::sun::security::util::DerInputStream;

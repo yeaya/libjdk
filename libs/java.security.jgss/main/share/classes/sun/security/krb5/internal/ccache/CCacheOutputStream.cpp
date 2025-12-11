@@ -28,8 +28,6 @@
 #undef TKT_FLG_PROXY
 #undef TKT_FLG_RENEWABLE
 
-using $BufferedOutputStream = ::java::io::BufferedOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -43,7 +41,6 @@ using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
 using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
 using $CredentialsCache$ConfigEntry = ::sun::security::krb5::internal::ccache::CredentialsCache$ConfigEntry;
 using $FileCCacheConstants = ::sun::security::krb5::internal::ccache::FileCCacheConstants;
-using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
 using $KrbDataOutputStream = ::sun::security::krb5::internal::util::KrbDataOutputStream;
 
 namespace sun {

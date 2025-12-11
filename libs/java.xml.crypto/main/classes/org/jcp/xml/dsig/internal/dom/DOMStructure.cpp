@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $List = ::java::util::List;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
-using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $Node = ::org::w3c::dom::Node;

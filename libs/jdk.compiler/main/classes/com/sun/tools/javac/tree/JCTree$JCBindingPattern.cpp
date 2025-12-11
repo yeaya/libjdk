@@ -18,7 +18,6 @@ using $BindingPatternTree = ::com::sun::source::tree::BindingPatternTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $VariableTree = ::com::sun::source::tree::VariableTree;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCPattern = ::com::sun::tools::javac::tree::JCTree$JCPattern;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;

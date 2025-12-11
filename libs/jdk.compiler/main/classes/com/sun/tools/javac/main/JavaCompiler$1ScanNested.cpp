@@ -21,7 +21,6 @@
 
 #undef CLASS
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
@@ -30,7 +29,6 @@ using $Types = ::com::sun::tools::javac::code::Types;
 using $Enter = ::com::sun::tools::javac::comp::Enter;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;

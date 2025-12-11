@@ -5,14 +5,10 @@
 #include <java/util/zip/ZipFile.h>
 #include <jcpp.h>
 
-using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $URI = ::java::net::URI;
-using $X509Certificate = ::java::security::cert::X509Certificate;
-using $ZipFile = ::java::util::zip::ZipFile;
 
 namespace com {
 	namespace sun {

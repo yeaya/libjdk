@@ -9,13 +9,9 @@
 #include <com/sun/tools/javac/util/ListBuffer.h>
 #include <jcpp.h>
 
-using $ArgumentAttr$ArgumentType = ::com::sun::tools::javac::comp::ArgumentAttr$ArgumentType;
 using $ArgumentAttr$SwitchExpressionType = ::com::sun::tools::javac::comp::ArgumentAttr$SwitchExpressionType;
 using $DeferredAttr$SwitchExpressionScanner = ::com::sun::tools::javac::comp::DeferredAttr$SwitchExpressionScanner;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCYield = ::com::sun::tools::javac::tree::JCTree$JCYield;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

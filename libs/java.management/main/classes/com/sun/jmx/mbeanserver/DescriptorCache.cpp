@@ -11,7 +11,6 @@ using $DescriptorArray = $Array<::javax::management::Descriptor>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $WeakHashMap = ::java::util::WeakHashMap;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;

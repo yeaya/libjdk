@@ -15,7 +15,6 @@ using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $IdentifierTree = ::com::sun::source::doctree::IdentifierTree;
 using $ParamTree = ::com::sun::source::doctree::ParamTree;
-using $DCTree = ::com::sun::tools::javac::tree::DCTree;
 using $DCTree$DCBlockTag = ::com::sun::tools::javac::tree::DCTree$DCBlockTag;
 using $DCTree$DCIdentifier = ::com::sun::tools::javac::tree::DCTree$DCIdentifier;
 using $ClassInfo = ::java::lang::ClassInfo;

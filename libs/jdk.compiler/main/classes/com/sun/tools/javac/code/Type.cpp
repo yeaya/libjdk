@@ -43,7 +43,6 @@
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $AnnoConstruct = ::com::sun::tools::javac::code::AnnoConstruct;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type$1 = ::com::sun::tools::javac::code::Type$1;
 using $Type$2 = ::com::sun::tools::javac::code::Type$2;
@@ -64,7 +63,6 @@ using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultT
 using $Types$MapVisitor = ::com::sun::tools::javac::code::Types$MapVisitor;
 using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $Types$UniqueType = ::com::sun::tools::javac::code::Types$UniqueType;
-using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
@@ -80,7 +78,6 @@ using $Iterator = ::java::util::Iterator;
 using $1List = ::java::util::List;
 using $Predicate = ::java::util::function::Predicate;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
 
 namespace com {

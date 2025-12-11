@@ -13,8 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Vector = ::java::util::Vector;
 using $NamingException = ::javax::naming::NamingException;
-using $Control = ::javax::naming::ldap::Control;
-using $UnsolicitedNotification = ::javax::naming::ldap::UnsolicitedNotification;
 
 namespace com {
 	namespace sun {

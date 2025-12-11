@@ -4,11 +4,9 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-using $Messages = ::com::sun::tools::javac::api::Messages;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Locale = ::java::util::Locale;
 
 namespace com {
 	namespace sun {

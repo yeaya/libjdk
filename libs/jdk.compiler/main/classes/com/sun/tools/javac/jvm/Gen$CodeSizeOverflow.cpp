@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/jvm/Gen.h>
 #include <jcpp.h>
 
-using $Gen = ::com::sun::tools::javac::jvm::Gen;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

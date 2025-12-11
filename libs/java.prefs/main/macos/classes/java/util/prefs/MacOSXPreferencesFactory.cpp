@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MacOSXPreferences = ::java::util::prefs::MacOSXPreferences;
 using $Preferences = ::java::util::prefs::Preferences;
-using $PreferencesFactory = ::java::util::prefs::PreferencesFactory;
 
 namespace java {
 	namespace util {

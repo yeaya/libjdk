@@ -40,7 +40,6 @@
 #undef _TAG_TRANSFORM
 #undef _TAG_TRANSFORMS
 
-using $ElementArray = $Array<::org::w3c::dom::Element>;
 using $CanonicalizationException = ::com::sun::org::apache::xml::internal::security::c14n::CanonicalizationException;
 using $Canonicalizer = ::com::sun::org::apache::xml::internal::security::c14n::Canonicalizer;
 using $InvalidCanonicalizerException = ::com::sun::org::apache::xml::internal::security::c14n::InvalidCanonicalizerException;
@@ -50,7 +49,6 @@ using $InvalidTransformException = ::com::sun::org::apache::xml::internal::secur
 using $Transform = ::com::sun::org::apache::xml::internal::security::transforms::Transform;
 using $TransformationException = ::com::sun::org::apache::xml::internal::security::transforms::TransformationException;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;

@@ -27,7 +27,6 @@ using $SaslClient = ::javax::security::sasl::SaslClient;
 using $SaslClientFactory = ::javax::security::sasl::SaslClientFactory;
 using $SaslException = ::javax::security::sasl::SaslException;
 using $SaslServer = ::javax::security::sasl::SaslServer;
-using $SaslServerFactory = ::javax::security::sasl::SaslServerFactory;
 
 namespace com {
 	namespace sun {

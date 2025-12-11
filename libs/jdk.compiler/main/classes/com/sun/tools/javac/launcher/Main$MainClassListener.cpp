@@ -16,7 +16,6 @@ using $JavacTask = ::com::sun::source::util::JavacTask;
 using $TaskEvent = ::com::sun::source::util::TaskEvent;
 using $TaskEvent$Kind = ::com::sun::source::util::TaskEvent$Kind;
 using $TaskListener = ::com::sun::source::util::TaskListener;
-using $Main = ::com::sun::tools::javac::launcher::Main;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

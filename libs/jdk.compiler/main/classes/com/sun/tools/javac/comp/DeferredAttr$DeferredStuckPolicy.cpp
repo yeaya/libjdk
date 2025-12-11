@@ -4,11 +4,9 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {

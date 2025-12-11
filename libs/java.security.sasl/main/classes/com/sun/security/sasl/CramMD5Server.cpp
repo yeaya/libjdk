@@ -31,8 +31,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
@@ -47,7 +45,6 @@ using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
 using $AuthorizeCallback = ::javax::security::sasl::AuthorizeCallback;
 using $SaslException = ::javax::security::sasl::SaslException;
-using $SaslServer = ::javax::security::sasl::SaslServer;
 
 namespace com {
 	namespace sun {

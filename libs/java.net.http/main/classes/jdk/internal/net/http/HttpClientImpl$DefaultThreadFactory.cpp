@@ -13,12 +13,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $SecurityManager = ::java::lang::SecurityManager;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $InnocuousThread = ::jdk::internal::misc::InnocuousThread;
-using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
 
 namespace jdk {
 	namespace internal {

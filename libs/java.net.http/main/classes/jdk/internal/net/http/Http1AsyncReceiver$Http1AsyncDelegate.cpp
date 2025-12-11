@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AbstractSubscription = ::jdk::internal::net::http::AbstractSubscription;
-using $Http1AsyncReceiver = ::jdk::internal::net::http::Http1AsyncReceiver;
 
 namespace jdk {
 	namespace internal {

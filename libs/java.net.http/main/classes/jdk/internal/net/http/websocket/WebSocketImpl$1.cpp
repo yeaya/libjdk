@@ -15,14 +15,11 @@
 #undef TEXT
 #undef WAITING
 
-using $WebSocketImpl$StateArray = $Array<::jdk::internal::net::http::websocket::WebSocketImpl$State>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $WebSocketImpl = ::jdk::internal::net::http::websocket::WebSocketImpl;
 using $WebSocketImpl$State = ::jdk::internal::net::http::websocket::WebSocketImpl$State;
 
 namespace jdk {

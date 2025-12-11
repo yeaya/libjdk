@@ -25,7 +25,6 @@ using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
 using $SecureRandom = ::java::security::SecureRandom;
 using $Signature = ::java::security::Signature;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Element = ::org::w3c::dom::Element;
 
 namespace com {

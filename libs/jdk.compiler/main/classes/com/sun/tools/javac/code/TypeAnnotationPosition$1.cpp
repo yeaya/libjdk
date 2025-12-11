@@ -29,12 +29,9 @@
 #undef THROWS
 #undef UNKNOWN
 
-using $TargetTypeArray = $Array<::com::sun::tools::javac::code::TargetType>;
 using $TargetType = ::com::sun::tools::javac::code::TargetType;
-using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

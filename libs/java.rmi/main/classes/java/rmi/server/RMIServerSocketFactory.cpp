@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ServerSocket = ::java::net::ServerSocket;
 
 namespace java {
 	namespace rmi {

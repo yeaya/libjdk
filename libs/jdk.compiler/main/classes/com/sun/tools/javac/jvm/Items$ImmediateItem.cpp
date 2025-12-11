@@ -26,10 +26,7 @@
 #undef MAX_VALUE
 #undef MIN_VALUE
 
-using $Items$ItemArray = $Array<::com::sun::tools::javac::jvm::Items$Item>;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCPrimitiveType = ::com::sun::tools::javac::code::Type$JCPrimitiveType;
 using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$CondItem = ::com::sun::tools::javac::jvm::Items$CondItem;
@@ -52,11 +49,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $Short = ::java::lang::Short;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $ToIntBiFunction = ::java::util::function::ToIntBiFunction;
 
 namespace com {

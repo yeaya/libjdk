@@ -52,7 +52,6 @@ using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
 using $XMLSignature$SignatureValue = ::javax::xml::crypto::dsig::XMLSignature$SignatureValue;
 using $XMLSignatureException = ::javax::xml::crypto::dsig::XMLSignatureException;
 using $XMLValidateContext = ::javax::xml::crypto::dsig::XMLValidateContext;
-using $KeyInfo = ::javax::xml::crypto::dsig::keyinfo::KeyInfo;
 using $AbstractDOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod;
 using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
@@ -62,7 +61,6 @@ using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
-using $Text = ::org::w3c::dom::Text;
 
 namespace org {
 	namespace jcp {

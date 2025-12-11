@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

@@ -5,12 +5,9 @@
 #include <javax/naming/directory/Attribute.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
-using $Attribute = ::javax::naming::directory::Attribute;
 
 namespace javax {
 	namespace naming {

@@ -20,13 +20,10 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $Log = ::com::sun::tools::javac::util::Log;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $PubapiVisitor = ::com::sun::tools::sjavac::comp::PubapiVisitor;
 using $PubApi = ::com::sun::tools::sjavac::pubapi::PubApi;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -39,8 +36,6 @@ using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Element = ::javax::lang::model::element::Element;
-using $AbstractElementVisitor6 = ::javax::lang::model::util::AbstractElementVisitor6;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {

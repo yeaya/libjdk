@@ -4,7 +4,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Counter = ::sun::management::counter::Counter;
 
 namespace sun {
 	namespace management {

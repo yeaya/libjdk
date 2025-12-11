@@ -8,7 +8,6 @@
 #undef RECURSIVE
 
 using $Scope$LookupKindArray = $Array<::com::sun::tools::javac::code::Scope$LookupKind>;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

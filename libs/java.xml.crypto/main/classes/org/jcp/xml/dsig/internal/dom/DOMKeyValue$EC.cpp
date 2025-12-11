@@ -42,7 +42,6 @@ using $BigInteger = ::java::math::BigInteger;
 using $KeyFactory = ::java::security::KeyFactory;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PublicKey = ::java::security::PublicKey;
-using $ECKey = ::java::security::interfaces::ECKey;
 using $ECPublicKey = ::java::security::interfaces::ECPublicKey;
 using $ECField = ::java::security::spec::ECField;
 using $ECFieldFp = ::java::security::spec::ECFieldFp;
@@ -62,7 +61,6 @@ using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
-using $Text = ::org::w3c::dom::Text;
 
 namespace org {
 	namespace jcp {

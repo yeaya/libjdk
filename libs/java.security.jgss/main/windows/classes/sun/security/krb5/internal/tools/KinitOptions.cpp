@@ -21,7 +21,6 @@
 #undef KRB5_FCC_FVNO_2
 #undef KRB5_FCC_FVNO_4
 
-using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $FileInputStream = ::java::io::FileInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
@@ -34,7 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Instant = ::java::time::Instant;
 using $Config = ::sun::security::krb5::Config;
-using $KrbException = ::sun::security::krb5::KrbException;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $RealmException = ::sun::security::krb5::RealmException;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
@@ -42,8 +40,6 @@ using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $CCacheInputStream = ::sun::security::krb5::internal::ccache::CCacheInputStream;
 using $FileCCacheConstants = ::sun::security::krb5::internal::ccache::FileCCacheConstants;
 using $FileCredentialsCache = ::sun::security::krb5::internal::ccache::FileCredentialsCache;
-using $Tag = ::sun::security::krb5::internal::ccache::Tag;
-using $KrbDataInputStream = ::sun::security::krb5::internal::util::KrbDataInputStream;
 
 namespace sun {
 	namespace security {

@@ -23,7 +23,6 @@ using $DocCommentParser$TagParser = ::com::sun::tools::javac::parser::DocComment
 using $DocCommentParser$TagParser$Kind = ::com::sun::tools::javac::parser::DocCommentParser$TagParser$Kind;
 using $DCTree = ::com::sun::tools::javac::tree::DCTree;
 using $DCTree$DCIdentifier = ::com::sun::tools::javac::tree::DCTree$DCIdentifier;
-using $DCTree$DCParam = ::com::sun::tools::javac::tree::DCTree$DCParam;
 using $DocTreeMaker = ::com::sun::tools::javac::tree::DocTreeMaker;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;

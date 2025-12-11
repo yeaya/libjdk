@@ -23,7 +23,6 @@
 #undef NOT
 
 using $ListArray = $Array<::com::sun::tools::javac::util::List>;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$BindingSymbol = ::com::sun::tools::javac::code::Symbol$BindingSymbol;
 using $MatchBindingsComputer$1 = ::com::sun::tools::javac::comp::MatchBindingsComputer$1;
 using $MatchBindingsComputer$MatchBindings = ::com::sun::tools::javac::comp::MatchBindingsComputer$MatchBindings;
@@ -32,17 +31,13 @@ using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCGuardPattern = ::com::sun::tools::javac::tree::JCTree$JCGuardPattern;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

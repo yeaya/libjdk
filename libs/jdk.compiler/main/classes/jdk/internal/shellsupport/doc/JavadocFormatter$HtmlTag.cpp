@@ -36,7 +36,6 @@ using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Name = ::javax::lang::model::element::Name;
-using $JavadocFormatter = ::jdk::internal::shellsupport::doc::JavadocFormatter;
 
 namespace jdk {
 	namespace internal {

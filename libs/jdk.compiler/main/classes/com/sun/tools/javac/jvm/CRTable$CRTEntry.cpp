@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/jvm/CRTable.h>
 #include <jcpp.h>
 
-using $CRTable = ::com::sun::tools::javac::jvm::CRTable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

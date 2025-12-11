@@ -16,7 +16,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 
 namespace javax {
 	namespace lang {

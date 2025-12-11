@@ -11,12 +11,9 @@
 #undef CLASS
 #undef OTHER
 
-using $JDKPlatformProvider$PlatformDescriptionImpl = ::com::sun::tools::javac::platform::JDKPlatformProvider$PlatformDescriptionImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileObject = ::javax::tools::FileObject;
-using $ForwardingFileObject = ::javax::tools::ForwardingFileObject;
 using $ForwardingJavaFileObject = ::javax::tools::ForwardingJavaFileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;

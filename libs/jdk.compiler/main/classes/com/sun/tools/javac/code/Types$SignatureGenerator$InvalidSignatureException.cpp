@@ -5,7 +5,6 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Types$SignatureGenerator = ::com::sun::tools::javac::code::Types$SignatureGenerator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

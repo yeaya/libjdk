@@ -17,11 +17,9 @@
 #undef RESOURCE_BASED_CONSTRAINED_DELEGATION
 #undef TAG_CONTEXT
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $KDCOptions = ::sun::security::krb5::internal::KDCOptions;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;

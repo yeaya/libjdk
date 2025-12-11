@@ -6,9 +6,7 @@
 
 #undef NONE
 
-using $DefaultMBeanServerInterceptor = ::com::sun::jmx::interceptor::DefaultMBeanServerInterceptor;
 using $DefaultMBeanServerInterceptor$ResourceContext$1 = ::com::sun::jmx::interceptor::DefaultMBeanServerInterceptor$ResourceContext$1;
-using $Repository$RegistrationContext = ::com::sun::jmx::mbeanserver::Repository$RegistrationContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

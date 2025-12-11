@@ -24,14 +24,10 @@
 #undef UNINITIALIZED_THIS
 #undef VOID
 
-using $TypeTagArray = $Array<::com::sun::tools::javac::code::TypeTag>;
-using $Code$StackMapFormatArray = $Array<::com::sun::tools::javac::jvm::Code$StackMapFormat>;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Code$StackMapFormat = ::com::sun::tools::javac::jvm::Code$StackMapFormat;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

@@ -26,18 +26,15 @@
 
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $Context = ::com::sun::tools::javac::util::Context;
-using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $URL = ::java::net::URL;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $AbstractList = ::java::util::AbstractList;
@@ -50,7 +47,6 @@ using $Attributes = ::java::util::jar::Attributes;
 using $Attributes$Name = ::java::util::jar::Attributes$Name;
 using $JarFile = ::java::util::jar::JarFile;
 using $Manifest = ::java::util::jar::Manifest;
-using $ZipFile = ::java::util::zip::ZipFile;
 
 namespace com {
 	namespace sun {

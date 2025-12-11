@@ -23,7 +23,6 @@
 
 using $OptionArray = $Array<::com::sun::tools::javac::main::Option>;
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
-using $Locations = ::com::sun::tools::javac::file::Locations;
 using $Locations$LocationHandler = ::com::sun::tools::javac::file::Locations$LocationHandler;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
@@ -36,14 +35,12 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;

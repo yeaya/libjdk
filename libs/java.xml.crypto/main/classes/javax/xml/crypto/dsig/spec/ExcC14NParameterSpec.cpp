@@ -18,7 +18,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
-using $C14NMethodParameterSpec = ::javax::xml::crypto::dsig::spec::C14NMethodParameterSpec;
 
 namespace javax {
 	namespace xml {

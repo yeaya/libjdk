@@ -13,11 +13,9 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Notification = ::javax::management::Notification;
 using $NotificationBroadcasterSupport = ::javax::management::NotificationBroadcasterSupport;
 using $NotificationBroadcasterSupport$ListenerInfo = ::javax::management::NotificationBroadcasterSupport$ListenerInfo;
-using $NotificationListener = ::javax::management::NotificationListener;
 
 namespace javax {
 	namespace management {

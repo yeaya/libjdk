@@ -18,8 +18,6 @@
 
 using $PoolConstant$LoadableConstantArray = $Array<::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant>;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
-using $PoolConstant$Dynamic = ::com::sun::tools::javac::jvm::PoolConstant$Dynamic;
 using $PoolConstant$LoadableConstant = ::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant;
 using $List = ::com::sun::tools::javac::util::List;
 using $Serializable = ::java::io::Serializable;
@@ -27,14 +25,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Objects = ::java::util::Objects;
 using $Function = ::java::util::function::Function;
-using $Collector = ::java::util::stream::Collector;
 using $Stream = ::java::util::stream::Stream;
 
 namespace com {

@@ -24,7 +24,6 @@ using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
-using $Bindings = ::javax::script::Bindings;
 
 namespace javax {
 	namespace script {

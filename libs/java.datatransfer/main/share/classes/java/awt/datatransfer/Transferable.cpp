@@ -3,8 +3,6 @@
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <jcpp.h>
 
-using $DataFlavorArray = $Array<::java::awt::datatransfer::DataFlavor>;
-using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

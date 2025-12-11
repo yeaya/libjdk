@@ -14,9 +14,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Process = ::java::lang::Process;
 using $Runtime = ::java::lang::Runtime;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $FileCredentialsCache = ::sun::security::krb5::internal::ccache::FileCredentialsCache;
 
 namespace sun {

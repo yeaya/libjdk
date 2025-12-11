@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
-using $NotificationBroadcasterSupport = ::javax::management::NotificationBroadcasterSupport;
 using $NotificationBroadcasterSupport$WildcardListenerInfo = ::javax::management::NotificationBroadcasterSupport$WildcardListenerInfo;
 using $NotificationFilter = ::javax::management::NotificationFilter;
 using $NotificationListener = ::javax::management::NotificationListener;

@@ -35,7 +35,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
-using $Comparator = ::java::util::Comparator;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $DataFlavorUtil = ::sun::datatransfer::DataFlavorUtil;

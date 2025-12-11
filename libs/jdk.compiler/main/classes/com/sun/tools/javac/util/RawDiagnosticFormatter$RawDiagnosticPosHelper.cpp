@@ -7,11 +7,9 @@
 #include <com/sun/tools/javac/util/RawDiagnosticFormatter.h>
 #include <jcpp.h>
 
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
-using $RawDiagnosticFormatter = ::com::sun::tools::javac::util::RawDiagnosticFormatter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

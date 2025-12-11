@@ -19,7 +19,6 @@ using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $NamingException = ::javax::naming::NamingException;
 using $BasicControl = ::javax::naming::ldap::BasicControl;
 using $Control = ::javax::naming::ldap::Control;

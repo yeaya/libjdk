@@ -19,14 +19,11 @@
 #undef STATUS_LINE_FOUND_CR
 #undef STATUS_LINE_FOUND_LF
 
-using $Http1HeaderParser$StateArray = $Array<::jdk::internal::net::http::Http1HeaderParser$State>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $Http1HeaderParser = ::jdk::internal::net::http::Http1HeaderParser;
 using $Http1HeaderParser$State = ::jdk::internal::net::http::Http1HeaderParser$State;
 
 namespace jdk {

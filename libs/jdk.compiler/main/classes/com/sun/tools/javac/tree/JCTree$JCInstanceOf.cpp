@@ -29,7 +29,6 @@ using $JCTree$JCBindingPattern = ::com::sun::tools::javac::tree::JCTree$JCBindin
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCPattern = ::com::sun::tools::javac::tree::JCTree$JCPattern;
-using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;

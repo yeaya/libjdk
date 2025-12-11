@@ -8,7 +8,6 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
 using $DeferredCompletionFailureHandler$1 = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler$1;
 using $DeferredCompletionFailureHandler$DeferredCompleter = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler$DeferredCompleter;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;

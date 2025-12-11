@@ -9,8 +9,6 @@
 #undef PLURAL
 
 using $Source$Feature$DiagKindArray = $Array<::com::sun::tools::javac::code::Source$Feature$DiagKind>;
-using $Source = ::com::sun::tools::javac::code::Source;
-using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

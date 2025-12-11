@@ -9,7 +9,6 @@
 #undef RETAIN_ALL
 
 using $DocCommentParser$WhitespaceRetentionPolicyArray = $Array<::com::sun::tools::javac::parser::DocCommentParser$WhitespaceRetentionPolicy>;
-using $DocCommentParser = ::com::sun::tools::javac::parser::DocCommentParser;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -9,17 +9,9 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
-using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
-using $RelativePath$RelativeDirectory = ::com::sun::tools::javac::file::RelativePath$RelativeDirectory;
-using $RelativePath$RelativeFile = ::com::sun::tools::javac::file::RelativePath$RelativeFile;
-using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Path = ::java::nio::file::Path;
-using $Set = ::java::util::Set;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {

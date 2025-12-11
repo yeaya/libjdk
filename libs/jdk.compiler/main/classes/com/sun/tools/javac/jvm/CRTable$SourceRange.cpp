@@ -6,7 +6,6 @@
 
 #undef NOPOS
 
-using $CRTable = ::com::sun::tools::javac::jvm::CRTable;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

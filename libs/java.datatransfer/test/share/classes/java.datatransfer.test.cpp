@@ -44,5 +44,4 @@ void java$datatransfer$test::init() {
 		java$datatransfer$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

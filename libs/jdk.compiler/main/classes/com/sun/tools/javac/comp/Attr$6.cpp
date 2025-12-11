@@ -11,15 +11,12 @@
 #include <com/sun/tools/javac/tree/TreeScanner.h>
 #include <jcpp.h>
 
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$PostAttrAnalyzer = ::com::sun::tools::javac::comp::Attr$PostAttrAnalyzer;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

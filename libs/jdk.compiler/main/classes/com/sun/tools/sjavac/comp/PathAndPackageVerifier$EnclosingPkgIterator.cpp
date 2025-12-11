@@ -11,16 +11,13 @@
 
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $PathAndPackageVerifier = ::com::sun::tools::sjavac::comp::PathAndPackageVerifier;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 
 namespace com {
 	namespace sun {

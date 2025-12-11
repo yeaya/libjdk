@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $List = ::java::util::List;
-using $QuickHuffman = ::jdk::internal::net::http::hpack::QuickHuffman;
 using $QuickHuffman$Node = ::jdk::internal::net::http::hpack::QuickHuffman$Node;
 
 namespace jdk {

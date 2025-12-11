@@ -24,20 +24,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $HttpResponse = ::java::net::http::HttpResponse;
 using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $Objects = ::java::util::Objects;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $Executor = ::java::util::concurrent::Executor;
 using $BiConsumer = ::java::util::function::BiConsumer;
-using $PushGroup = ::jdk::internal::net::http::PushGroup;
-using $PushGroup$Acceptor = ::jdk::internal::net::http::PushGroup$Acceptor;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
 
 namespace jdk {

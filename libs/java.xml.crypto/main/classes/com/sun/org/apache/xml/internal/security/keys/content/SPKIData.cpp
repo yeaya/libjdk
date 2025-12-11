@@ -7,7 +7,6 @@
 
 #undef _TAG_SPKIDATA
 
-using $KeyInfoContent = ::com::sun::org::apache::xml::internal::security::keys::content::KeyInfoContent;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $ClassInfo = ::java::lang::ClassInfo;

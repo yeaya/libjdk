@@ -7,10 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $AnnotationValue = ::javax::lang::model::element::AnnotationValue;
-using $Parameterizable = ::javax::lang::model::element::Parameterizable;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace javax {
 	namespace lang {

@@ -7,10 +7,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Savepoint = ::java::sql::Savepoint;
 using $RowSet = ::javax::sql::RowSet;
-using $Joinable = ::javax::sql::rowset::Joinable;
-using $RowSetWarning = ::javax::sql::rowset::RowSetWarning;
 
 namespace javax {
 	namespace sql {

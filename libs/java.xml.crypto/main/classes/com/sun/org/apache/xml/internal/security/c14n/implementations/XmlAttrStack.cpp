@@ -21,7 +21,6 @@
 using $XmlAttrStack$XmlsStackElement = ::com::sun::org::apache::xml::internal::security::c14n::implementations::XmlAttrStack$XmlsStackElement;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -38,7 +37,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Attr = ::org::w3c::dom::Attr;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {

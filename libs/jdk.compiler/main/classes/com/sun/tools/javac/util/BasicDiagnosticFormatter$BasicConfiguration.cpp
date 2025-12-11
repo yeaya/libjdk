@@ -30,7 +30,6 @@
 
 using $DiagnosticFormatter$Configuration$DiagnosticPart = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$DiagnosticPart;
 using $AbstractDiagnosticFormatter$SimpleConfiguration = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter$SimpleConfiguration;
-using $BasicDiagnosticFormatter = ::com::sun::tools::javac::util::BasicDiagnosticFormatter;
 using $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind = ::com::sun::tools::javac::util::BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;
 using $BasicDiagnosticFormatter$BasicConfiguration$SourcePosition = ::com::sun::tools::javac::util::BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;
 using $Options = ::com::sun::tools::javac::util::Options;

@@ -11,7 +11,6 @@
 #undef SUMMARY
 
 using $DiagnosticFormatter$Configuration$DiagnosticPartArray = $Array<::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$DiagnosticPart>;
-using $DiagnosticFormatter$Configuration = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

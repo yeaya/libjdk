@@ -31,7 +31,6 @@ using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $Supplier = ::java::util::function::Supplier;
-using $DataFlavorUtil = ::sun::datatransfer::DataFlavorUtil;
 using $DesktopDatatransferService = ::sun::datatransfer::DesktopDatatransferService;
 
 namespace sun {

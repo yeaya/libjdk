@@ -16,24 +16,18 @@
 #include <java/util/function/Predicate.h>
 #include <jcpp.h>
 
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$CompoundScope = ::com::sun::tools::javac::code::Scope$CompoundScope;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Types$MembersClosureCache = ::com::sun::tools::javac::code::Types$MembersClosureCache;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Predicate = ::java::util::function::Predicate;
 
 namespace com {

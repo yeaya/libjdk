@@ -6,13 +6,8 @@
 #include <javax/xml/crypto/dsig/SignatureMethod.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
-using $CanonicalizationMethod = ::javax::xml::crypto::dsig::CanonicalizationMethod;
-using $SignatureMethod = ::javax::xml::crypto::dsig::SignatureMethod;
 
 namespace javax {
 	namespace xml {

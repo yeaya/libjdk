@@ -15,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $CompilationMXBean = ::java::lang::management::CompilationMXBean;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
 using $ObjectName = ::javax::management::ObjectName;
 using $Util = ::sun::management::Util;

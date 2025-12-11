@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
-using $BinaryRepresentationWriter = ::jdk::internal::net::http::hpack::BinaryRepresentationWriter;
 using $HeaderTable = ::jdk::internal::net::http::hpack::HeaderTable;
 using $SizeUpdateWriter = ::jdk::internal::net::http::hpack::SizeUpdateWriter;
 

@@ -4,7 +4,6 @@
 #include <org/w3c/dom/Element.h>
 #include <jcpp.h>
 
-using $JCEMapper = ::com::sun::org::apache::xml::internal::security::algorithms::JCEMapper;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -12,7 +12,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$UniqueType = ::com::sun::tools::javac::code::Types$UniqueType;
 using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
-using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $ClassInfo = ::java::lang::ClassInfo;

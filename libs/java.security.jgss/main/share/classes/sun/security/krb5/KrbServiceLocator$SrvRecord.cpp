@@ -5,14 +5,12 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringTokenizer = ::java::util::StringTokenizer;
-using $KrbServiceLocator = ::sun::security::krb5::KrbServiceLocator;
 
 namespace sun {
 	namespace security {

@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PlatformManagedObject = ::java::lang::management::PlatformManagedObject;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace lang {

@@ -15,9 +15,7 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DocumentationTool = ::javax::tools::DocumentationTool;
 using $DocumentationTool$1 = ::javax::tools::DocumentationTool$1;
-using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 
 namespace javax {
 	namespace tools {

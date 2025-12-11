@@ -33,13 +33,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $GSSException = ::org::ietf::jgss::GSSException;
 using $MessageProp = ::org::ietf::jgss::MessageProp;
 using $GSSHeader = ::sun::security::jgss::GSSHeader;
-using $GSSToken = ::sun::security::jgss::GSSToken;
 using $CipherHelper = ::sun::security::jgss::krb5::CipherHelper;
 using $Krb5Context = ::sun::security::jgss::krb5::Krb5Context;
 using $Krb5Token = ::sun::security::jgss::krb5::Krb5Token;
 using $MessageToken = ::sun::security::jgss::krb5::MessageToken;
 using $Confounder = ::sun::security::krb5::Confounder;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 
 namespace sun {
 	namespace security {

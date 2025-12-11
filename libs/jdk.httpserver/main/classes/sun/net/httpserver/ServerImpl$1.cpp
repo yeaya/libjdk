@@ -14,9 +14,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 
 namespace sun {

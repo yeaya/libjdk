@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $List = ::java::util::List;
-using $SocketTube = ::jdk::internal::net::http::SocketTube;
 
 namespace jdk {
 	namespace internal {

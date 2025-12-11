@@ -40,7 +40,6 @@ using $Comparator = ::java::util::Comparator;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-using $SortedSet = ::java::util::SortedSet;
 using $DataFlavorUtil$CharsetComparator = ::sun::datatransfer::DataFlavorUtil$CharsetComparator;
 using $DataFlavorUtil$DataFlavorComparator = ::sun::datatransfer::DataFlavorUtil$DataFlavorComparator;
 using $DataFlavorUtil$DefaultDesktopDatatransferService = ::sun::datatransfer::DataFlavorUtil$DefaultDesktopDatatransferService;

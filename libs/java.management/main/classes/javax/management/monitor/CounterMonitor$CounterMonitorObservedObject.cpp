@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $ObjectName = ::javax::management::ObjectName;
-using $CounterMonitor = ::javax::management::monitor::CounterMonitor;
 using $Monitor$NumericalType = ::javax::management::monitor::Monitor$NumericalType;
 using $Monitor$ObservedObject = ::javax::management::monitor::Monitor$ObservedObject;
 

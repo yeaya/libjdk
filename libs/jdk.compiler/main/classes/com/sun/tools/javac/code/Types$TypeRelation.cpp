@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/code/Types.h>
 #include <jcpp.h>
 
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

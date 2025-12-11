@@ -27,7 +27,6 @@ using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $ListenerNotFoundException = ::javax::management::ListenerNotFoundException;
 using $Notification = ::javax::management::Notification;
-using $NotificationEmitter = ::javax::management::NotificationEmitter;
 using $NotificationFilter = ::javax::management::NotificationFilter;
 using $NotificationListener = ::javax::management::NotificationListener;
 using $NotificationEmitterSupport$ListenerInfo = ::sun::management::NotificationEmitterSupport$ListenerInfo;

@@ -23,7 +23,6 @@ using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Enum = ::java::lang::Enum;

@@ -8,14 +8,8 @@
 #include <sun/security/jgss/GSSManagerImpl.h>
 #include <jcpp.h>
 
-using $OidArray = $Array<::org::ietf::jgss::Oid>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Provider = ::java::security::Provider;
-using $GSSContext = ::org::ietf::jgss::GSSContext;
-using $GSSCredential = ::org::ietf::jgss::GSSCredential;
-using $GSSName = ::org::ietf::jgss::GSSName;
-using $Oid = ::org::ietf::jgss::Oid;
 using $GSSManagerImpl = ::sun::security::jgss::GSSManagerImpl;
 
 namespace org {

@@ -32,7 +32,6 @@ using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
-using $SSLFlowDelegate = ::jdk::internal::net::http::common::SSLFlowDelegate;
 using $SSLFlowDelegate$Monitor$FinalMonitorable = ::jdk::internal::net::http::common::SSLFlowDelegate$Monitor$FinalMonitorable;
 using $SSLFlowDelegate$Monitorable = ::jdk::internal::net::http::common::SSLFlowDelegate$Monitorable;
 

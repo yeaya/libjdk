@@ -22,9 +22,6 @@ using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Provider = ::java::security::Provider;
 using $Signature = ::java::security::Signature;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
-using $AbstractDOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod;
-using $DOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod;
 using $DOMSignatureMethod$AbstractRSASignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractRSASignatureMethod;
 using $Element = ::org::w3c::dom::Element;
 

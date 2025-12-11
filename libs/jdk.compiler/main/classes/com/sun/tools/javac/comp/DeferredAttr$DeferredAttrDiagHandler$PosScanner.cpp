@@ -6,7 +6,6 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <jcpp.h>
 
-using $DeferredAttr$DeferredAttrDiagHandler = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrDiagHandler;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;

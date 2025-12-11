@@ -36,7 +36,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Map = ::java::util::Map;
 using $Callback = ::javax::security::auth::callback::Callback;
@@ -45,7 +44,6 @@ using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
 using $SaslClient = ::javax::security::sasl::SaslClient;
-using $SaslClientFactory = ::javax::security::sasl::SaslClientFactory;
 using $SaslException = ::javax::security::sasl::SaslException;
 
 namespace com {

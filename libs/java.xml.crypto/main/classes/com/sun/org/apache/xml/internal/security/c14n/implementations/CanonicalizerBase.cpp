@@ -92,7 +92,6 @@ using $ListIterator = ::java::util::ListIterator;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Attr = ::org::w3c::dom::Attr;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Comment = ::org::w3c::dom::Comment;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;

@@ -13,7 +13,6 @@
 #include <javax/lang/model/type/TypeMirror.h>
 #include <jcpp.h>
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
@@ -21,7 +20,6 @@ using $LambdaToMethod = ::com::sun::tools::javac::comp::LambdaToMethod;
 using $TreeDiffer = ::com::sun::tools::javac::comp::TreeDiffer;
 using $TreeHasher = ::com::sun::tools::javac::comp::TreeHasher;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -14,13 +14,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
 using $SocketTube = ::jdk::internal::net::http::SocketTube;
-using $SocketTube$BufferSource = ::jdk::internal::net::http::SocketTube$BufferSource;
 using $BufferSupplier = ::jdk::internal::net::http::common::BufferSupplier;
 
 namespace jdk {

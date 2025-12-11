@@ -64,7 +64,6 @@ using $DeprecatedTree = ::com::sun::source::doctree::DeprecatedTree;
 using $DocCommentTree = ::com::sun::source::doctree::DocCommentTree;
 using $DocRootTree = ::com::sun::source::doctree::DocRootTree;
 using $DocTree = ::com::sun::source::doctree::DocTree;
-using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $DocTypeTree = ::com::sun::source::doctree::DocTypeTree;
 using $EndElementTree = ::com::sun::source::doctree::EndElementTree;
@@ -104,7 +103,6 @@ using $Writer = ::java::io::Writer;
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -112,7 +110,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {

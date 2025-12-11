@@ -23,15 +23,9 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $OptionalLong = ::java::util::OptionalLong;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
@@ -40,7 +34,6 @@ using $LongBinaryOperator = ::java::util::function::LongBinaryOperator;
 using $ToLongFunction = ::java::util::function::ToLongFunction;
 using $LongStream = ::java::util::stream::LongStream;
 using $Stream = ::java::util::stream::Stream;
-using $RequestPublishers = ::jdk::internal::net::http::RequestPublishers;
 using $RequestPublishers$AggregateSubscription = ::jdk::internal::net::http::RequestPublishers$AggregateSubscription;
 
 namespace jdk {

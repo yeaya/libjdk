@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Predicate = ::javax::sql::rowset::Predicate;
-using $WebRowSet = ::javax::sql::rowset::WebRowSet;
 
 namespace javax {
 	namespace sql {

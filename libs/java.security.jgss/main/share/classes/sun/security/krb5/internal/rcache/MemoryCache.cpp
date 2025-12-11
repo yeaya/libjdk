@@ -26,11 +26,7 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
@@ -41,7 +37,6 @@ using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $ReplayCache = ::sun::security::krb5::internal::ReplayCache;
 using $AuthList = ::sun::security::krb5::internal::rcache::AuthList;
-using $AuthTime = ::sun::security::krb5::internal::rcache::AuthTime;
 using $AuthTimeWithHash = ::sun::security::krb5::internal::rcache::AuthTimeWithHash;
 
 namespace sun {

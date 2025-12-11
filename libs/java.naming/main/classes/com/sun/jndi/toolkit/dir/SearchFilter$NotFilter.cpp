@@ -5,7 +5,6 @@
 #include <javax/naming/directory/Attributes.h>
 #include <jcpp.h>
 
-using $AttrFilter = ::com::sun::jndi::toolkit::dir::AttrFilter;
 using $SearchFilter = ::com::sun::jndi::toolkit::dir::SearchFilter;
 using $SearchFilter$StringFilter = ::com::sun::jndi::toolkit::dir::SearchFilter$StringFilter;
 using $ClassInfo = ::java::lang::ClassInfo;

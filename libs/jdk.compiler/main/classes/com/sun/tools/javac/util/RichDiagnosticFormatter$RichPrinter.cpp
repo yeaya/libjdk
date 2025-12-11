@@ -34,24 +34,19 @@
 #undef UNIQUE_TYPEVAR_NAMES
 #undef WHERE_CLAUSES
 
-using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
 using $Printer = ::com::sun::tools::javac::code::Printer;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $AbstractDiagnosticFormatter = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter;
-using $ForwardingDiagnosticFormatter = ::com::sun::tools::javac::util::ForwardingDiagnosticFormatter;
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Name$Table = ::com::sun::tools::javac::util::Name$Table;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $RichDiagnosticFormatter = ::com::sun::tools::javac::util::RichDiagnosticFormatter;
 using $RichDiagnosticFormatter$ClassNameSimplifier = ::com::sun::tools::javac::util::RichDiagnosticFormatter$ClassNameSimplifier;
 using $RichDiagnosticFormatter$RichConfiguration = ::com::sun::tools::javac::util::RichDiagnosticFormatter$RichConfiguration;

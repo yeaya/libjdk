@@ -23,7 +23,6 @@ using $ZipException = ::java::util::zip::ZipException;
 using $ZipConstants = ::jdk::nio::zipfs::ZipConstants;
 using $ZipFileSystem = ::jdk::nio::zipfs::ZipFileSystem;
 using $ZipFileSystem$Entry = ::jdk::nio::zipfs::ZipFileSystem$Entry;
-using $ZipFileSystem$IndexNode = ::jdk::nio::zipfs::ZipFileSystem$IndexNode;
 
 namespace jdk {
 	namespace nio {

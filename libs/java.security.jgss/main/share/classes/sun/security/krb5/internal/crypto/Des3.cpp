@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Des3DkCrypto = ::sun::security::krb5::internal::crypto::dk::Des3DkCrypto;
-using $DkCrypto = ::sun::security::krb5::internal::crypto::dk::DkCrypto;
 
 namespace sun {
 	namespace security {

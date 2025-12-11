@@ -22,13 +22,9 @@
 #undef SIGNATURE
 #undef VOID
 
-using $JNIWriter$EncoderTypeArray = $Array<::com::sun::tools::javac::jvm::JNIWriter$EncoderType>;
-using $TypeKindArray = $Array<::javax::lang::model::type::TypeKind>;
-using $JNIWriter = ::com::sun::tools::javac::jvm::JNIWriter;
 using $JNIWriter$EncoderType = ::com::sun::tools::javac::jvm::JNIWriter$EncoderType;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

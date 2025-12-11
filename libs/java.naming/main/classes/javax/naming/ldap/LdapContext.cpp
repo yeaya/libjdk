@@ -7,13 +7,9 @@
 
 #undef CONTROL_FACTORIES
 
-using $ControlArray = $Array<::javax::naming::ldap::Control>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DirContext = ::javax::naming::directory::DirContext;
-using $ExtendedRequest = ::javax::naming::ldap::ExtendedRequest;
-using $ExtendedResponse = ::javax::naming::ldap::ExtendedResponse;
 
 namespace javax {
 	namespace naming {

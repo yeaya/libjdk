@@ -19,9 +19,7 @@
 #undef _TAG_X509SKI
 
 using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
-using $XMLX509DataContent = ::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509DataContent;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
@@ -32,7 +30,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $X509Extension = ::java::security::cert::X509Extension;
 using $Arrays = ::java::util::Arrays;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;

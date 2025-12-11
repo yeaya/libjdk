@@ -8,7 +8,6 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

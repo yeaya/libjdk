@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/comp/Annotate.h>
 #include <jcpp.h>
 
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Annotate = ::com::sun::tools::javac::comp::Annotate;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

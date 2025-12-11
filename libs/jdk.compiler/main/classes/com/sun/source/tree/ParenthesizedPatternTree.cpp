@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $PatternTree = ::com::sun::source::tree::PatternTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;

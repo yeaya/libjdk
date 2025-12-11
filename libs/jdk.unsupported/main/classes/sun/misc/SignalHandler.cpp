@@ -14,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Signal = ::jdk::internal::misc::Signal;
 using $Signal$Handler = ::jdk::internal::misc::Signal$Handler;
-using $1Signal = ::sun::misc::Signal;
 using $Signal$SunMiscHandler = ::sun::misc::Signal$SunMiscHandler;
 
 namespace sun {

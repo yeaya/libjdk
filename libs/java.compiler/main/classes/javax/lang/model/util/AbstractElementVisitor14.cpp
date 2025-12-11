@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $RecordComponentElement = ::javax::lang::model::element::RecordComponentElement;
 using $AbstractElementVisitor9 = ::javax::lang::model::util::AbstractElementVisitor9;
 
 namespace javax {

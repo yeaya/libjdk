@@ -4,13 +4,8 @@
 #include <java/util/Vector.h>
 #include <jcpp.h>
 
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Integer = ::java::lang::Integer;
-using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Date = ::java::util::Date;
-using $Vector = ::java::util::Vector;
 
 namespace javax {
 	namespace management {

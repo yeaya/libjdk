@@ -34,23 +34,16 @@
 #undef DEBUG
 #undef HTTP_1_1
 
-using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $HttpClient = ::java::net::http::HttpClient;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpResponse = ::java::net::http::HttpResponse;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
-using $Executor = ::java::util::concurrent::Executor;
 using $BiFunction = ::java::util::function::BiFunction;
 using $Function = ::java::util::function::Function;
 using $Supplier = ::java::util::function::Supplier;

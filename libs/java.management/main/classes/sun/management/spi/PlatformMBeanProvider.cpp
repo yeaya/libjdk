@@ -15,7 +15,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
-using $List = ::java::util::List;
 
 namespace sun {
 	namespace management {

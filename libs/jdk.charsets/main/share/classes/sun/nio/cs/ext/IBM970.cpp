@@ -12,7 +12,6 @@
 #include <sun/nio/cs/ext/IBM970$EncodeHolder.h>
 #include <jcpp.h>
 
-using $charArray2 = $Array<char16_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -23,7 +22,6 @@ using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Decoder_EUC_SIM = ::sun::nio::cs::DoubleByte$Decoder_EUC_SIM;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $DoubleByte$Encoder_EUC_SIM = ::sun::nio::cs::DoubleByte$Encoder_EUC_SIM;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;
 using $IBM970$DecodeHolder = ::sun::nio::cs::ext::IBM970$DecodeHolder;
 using $IBM970$EncodeHolder = ::sun::nio::cs::ext::IBM970$EncodeHolder;

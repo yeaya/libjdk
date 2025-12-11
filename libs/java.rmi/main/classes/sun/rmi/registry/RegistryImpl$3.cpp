@@ -10,8 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $RegistryImpl = ::sun::rmi::registry::RegistryImpl;
 
 namespace sun {
 	namespace rmi {

@@ -12,8 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
-using $NodeSetData = ::javax::xml::crypto::NodeSetData;
-using $DOMReference = ::org::jcp::xml::dsig::internal::dom::DOMReference;
 
 namespace org {
 	namespace jcp {

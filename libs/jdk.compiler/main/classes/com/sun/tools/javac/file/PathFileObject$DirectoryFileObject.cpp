@@ -13,7 +13,6 @@
 using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
 using $PathFileObject = ::com::sun::tools::javac::file::PathFileObject;
 using $RelativePath = ::com::sun::tools::javac::file::RelativePath;
-using $RelativePath$RelativeDirectory = ::com::sun::tools::javac::file::RelativePath$RelativeDirectory;
 using $RelativePath$RelativeFile = ::com::sun::tools::javac::file::RelativePath$RelativeFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

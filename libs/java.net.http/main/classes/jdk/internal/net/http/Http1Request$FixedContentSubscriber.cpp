@@ -25,7 +25,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
@@ -34,7 +33,6 @@ using $Http1Exchange = ::jdk::internal::net::http::Http1Exchange;
 using $Http1Exchange$Http1BodySubscriber = ::jdk::internal::net::http::Http1Exchange$Http1BodySubscriber;
 using $Http1Request = ::jdk::internal::net::http::Http1Request;
 using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
-using $FlowTube = ::jdk::internal::net::http::common::FlowTube;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 
 namespace jdk {

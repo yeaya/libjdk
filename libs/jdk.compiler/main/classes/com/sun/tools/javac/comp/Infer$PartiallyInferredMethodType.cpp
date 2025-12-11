@@ -23,7 +23,6 @@
 #undef UNCHECKED
 
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $Types = ::com::sun::tools::javac::code::Types;
@@ -34,9 +33,7 @@ using $Env = ::com::sun::tools::javac::comp::Env;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$InferenceException = ::com::sun::tools::javac::comp::Infer$InferenceException;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
 using $Warner = ::com::sun::tools::javac::util::Warner;

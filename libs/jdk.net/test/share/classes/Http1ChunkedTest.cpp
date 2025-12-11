@@ -36,7 +36,6 @@
 #undef UTF_8
 
 using $Http1ChunkedTest$Responses = ::Http1ChunkedTest$Responses;
-using $Http1ChunkedTest$ResponsesArray = $Array<Http1ChunkedTest$Responses>;
 using $BufferedReader = ::java::io::BufferedReader;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
@@ -46,14 +45,11 @@ using $Reader = ::java::io::Reader;
 using $AssertionError = ::java::lang::AssertionError;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $ProxySelector = ::java::net::ProxySelector;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
@@ -63,9 +59,7 @@ using $HttpClient$Builder = ::java::net::http::HttpClient$Builder;
 using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse = ::java::net::http::HttpResponse;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

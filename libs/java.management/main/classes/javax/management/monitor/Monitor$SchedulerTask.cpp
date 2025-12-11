@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $Future = ::java::util::concurrent::Future;
 using $Monitor = ::javax::management::monitor::Monitor;
 using $Monitor$MonitorTask = ::javax::management::monitor::Monitor$MonitorTask;
 

@@ -26,13 +26,11 @@
 #undef KRB_AP_ERR_INAPP_CKSUM
 #undef NULL_KEY
 
-using $CredentialsArray = $Array<::sun::security::krb5::Credentials>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;

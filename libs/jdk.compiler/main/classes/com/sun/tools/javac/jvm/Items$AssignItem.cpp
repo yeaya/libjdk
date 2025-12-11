@@ -6,7 +6,6 @@
 #include <com/sun/tools/javac/util/Assert.h>
 #include <jcpp.h>
 
-using $Items$ItemArray = $Array<::com::sun::tools::javac::jvm::Items$Item>;
 using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;

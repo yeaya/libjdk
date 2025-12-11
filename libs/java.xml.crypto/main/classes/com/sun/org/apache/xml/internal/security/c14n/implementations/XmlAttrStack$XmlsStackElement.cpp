@@ -6,7 +6,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $XmlAttrStack = ::com::sun::org::apache::xml::internal::security::c14n::implementations::XmlAttrStack;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

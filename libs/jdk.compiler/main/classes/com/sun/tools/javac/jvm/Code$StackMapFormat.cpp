@@ -12,7 +12,6 @@
 #undef NONE
 
 using $Code$StackMapFormatArray = $Array<::com::sun::tools::javac::jvm::Code$StackMapFormat>;
-using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Code$StackMapFormat$1 = ::com::sun::tools::javac::jvm::Code$StackMapFormat$1;
 using $Code$StackMapFormat$2 = ::com::sun::tools::javac::jvm::Code$StackMapFormat$2;
 using $Name = ::com::sun::tools::javac::util::Name;

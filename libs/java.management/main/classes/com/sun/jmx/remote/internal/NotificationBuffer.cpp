@@ -4,10 +4,8 @@
 #include <javax/management/remote/NotificationResult.h>
 #include <jcpp.h>
 
-using $NotificationBufferFilter = ::com::sun::jmx::remote::internal::NotificationBufferFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NotificationResult = ::javax::management::remote::NotificationResult;
 
 namespace com {
 	namespace sun {

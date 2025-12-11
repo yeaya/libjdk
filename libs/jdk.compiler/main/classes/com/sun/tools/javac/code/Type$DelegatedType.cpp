@@ -10,16 +10,15 @@
 
 #undef EMPTY
 
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -95,7 +94,7 @@ $String* Type$DelegatedType::toString() {
 	return $nc(this->qtype)->toString();
 }
 
-$1List* Type$DelegatedType::getTypeArguments() {
+$List* Type$DelegatedType::getTypeArguments() {
 	return $nc(this->qtype)->getTypeArguments();
 }
 
@@ -103,7 +102,7 @@ $Type* Type$DelegatedType::getEnclosingType() {
 	return $nc(this->qtype)->getEnclosingType();
 }
 
-$1List* Type$DelegatedType::getParameterTypes() {
+$List* Type$DelegatedType::getParameterTypes() {
 	return $nc(this->qtype)->getParameterTypes();
 }
 
@@ -115,11 +114,11 @@ $Type* Type$DelegatedType::getReceiverType() {
 	return $nc(this->qtype)->getReceiverType();
 }
 
-$1List* Type$DelegatedType::getThrownTypes() {
+$List* Type$DelegatedType::getThrownTypes() {
 	return $nc(this->qtype)->getThrownTypes();
 }
 
-$1List* Type$DelegatedType::allparams() {
+$List* Type$DelegatedType::allparams() {
 	return $nc(this->qtype)->allparams();
 }
 
@@ -131,7 +130,7 @@ bool Type$DelegatedType::isErroneous() {
 	return $nc(this->qtype)->isErroneous();
 }
 
-$List* Type$DelegatedType::getAnnotationMirrors() {
+$1List* Type$DelegatedType::getAnnotationMirrors() {
 	return $Type::getAnnotationMirrors();
 }
 

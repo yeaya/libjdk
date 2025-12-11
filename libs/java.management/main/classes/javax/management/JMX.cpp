@@ -30,12 +30,10 @@
 
 using $Introspector = ::com::sun::jmx::mbeanserver::Introspector;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Proxy = ::java::lang::reflect::Proxy;

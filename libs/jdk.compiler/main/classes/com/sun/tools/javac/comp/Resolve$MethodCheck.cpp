@@ -7,11 +7,6 @@
 #include <com/sun/tools/javac/util/Warner.h>
 #include <jcpp.h>
 
-using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
-using $Env = ::com::sun::tools::javac::comp::Env;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
-using $List = ::com::sun::tools::javac::util::List;
-using $Warner = ::com::sun::tools::javac::util::Warner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

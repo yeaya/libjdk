@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Element = ::javax::lang::model::element::Element;
 using $RecordComponentElement = ::javax::lang::model::element::RecordComponentElement;
-using $SimpleElementVisitor6 = ::javax::lang::model::util::SimpleElementVisitor6;
 using $SimpleElementVisitor9 = ::javax::lang::model::util::SimpleElementVisitor9;
 
 namespace javax {

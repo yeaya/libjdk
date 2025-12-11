@@ -13,13 +13,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $ModuleElement$Directive = ::javax::lang::model::element::ModuleElement$Directive;
-using $ModuleElement$ExportsDirective = ::javax::lang::model::element::ModuleElement$ExportsDirective;
-using $ModuleElement$OpensDirective = ::javax::lang::model::element::ModuleElement$OpensDirective;
-using $ModuleElement$ProvidesDirective = ::javax::lang::model::element::ModuleElement$ProvidesDirective;
-using $ModuleElement$RequiresDirective = ::javax::lang::model::element::ModuleElement$RequiresDirective;
-using $ModuleElement$UsesDirective = ::javax::lang::model::element::ModuleElement$UsesDirective;
 using $UnknownDirectiveException = ::javax::lang::model::element::UnknownDirectiveException;
 
 namespace javax {

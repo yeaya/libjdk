@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpRequest = ::java::net::http::HttpRequest;
-using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 
 namespace java {
 	namespace net {

@@ -32,18 +32,14 @@
 #undef NT_USER_NAME
 #undef UTF_8
 
-using $OidArray = $Array<::org::ietf::jgss::Oid>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;

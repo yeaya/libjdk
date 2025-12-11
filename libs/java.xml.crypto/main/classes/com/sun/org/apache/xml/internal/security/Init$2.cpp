@@ -3,12 +3,10 @@
 #include <com/sun/org/apache/xml/internal/security/Init.h>
 #include <jcpp.h>
 
-using $Init = ::com::sun::org::apache::xml::internal::security::Init;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Enumeration = ::java::util::Enumeration;
 
 namespace com {
 	namespace sun {

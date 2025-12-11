@@ -23,16 +23,7 @@
 #include <javax/tools/JavaCompiler$CompilationTask.h>
 #include <jcpp.h>
 
-using $CatchTree = ::com::sun::source::tree::CatchTree;
-using $ClassTree = ::com::sun::source::tree::ClassTree;
-using $CompilationUnitTree = ::com::sun::source::tree::CompilationUnitTree;
-using $MethodTree = ::com::sun::source::tree::MethodTree;
-using $Scope = ::com::sun::source::tree::Scope;
-using $Tree = ::com::sun::source::tree::Tree;
-using $SourcePositions = ::com::sun::source::util::SourcePositions;
-using $TreePath = ::com::sun::source::util::TreePath;
 using $AssertionError = ::java::lang::AssertionError;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -40,15 +31,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Method = ::java::lang::reflect::Method;
 using $ProcessingEnvironment = ::javax::annotation::processing::ProcessingEnvironment;
-using $AnnotationMirror = ::javax::lang::model::element::AnnotationMirror;
-using $AnnotationValue = ::javax::lang::model::element::AnnotationValue;
-using $Element = ::javax::lang::model::element::Element;
-using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
-using $TypeElement = ::javax::lang::model::element::TypeElement;
-using $DeclaredType = ::javax::lang::model::type::DeclaredType;
-using $ErrorType = ::javax::lang::model::type::ErrorType;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
-using $Diagnostic$Kind = ::javax::tools::Diagnostic$Kind;
 using $JavaCompiler$CompilationTask = ::javax::tools::JavaCompiler$CompilationTask;
 
 namespace com {

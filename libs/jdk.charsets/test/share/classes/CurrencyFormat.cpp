@@ -33,7 +33,6 @@ using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $DateFormat = ::java::text::DateFormat;
 using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;
 using $NumberFormat = ::java::text::NumberFormat;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;

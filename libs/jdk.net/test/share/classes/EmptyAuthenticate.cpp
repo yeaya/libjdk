@@ -26,7 +26,6 @@
 #include <jcpp.h>
 
 using $Headers = ::com::sun::net::httpserver::Headers;
-using $HttpContext = ::com::sun::net::httpserver::HttpContext;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $HttpServer = ::com::sun::net::httpserver::HttpServer;
@@ -36,12 +35,7 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $URI = ::java::net::URI;
 using $HttpClient = ::java::net::http::HttpClient;
@@ -49,7 +43,6 @@ using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse = ::java::net::http::HttpResponse;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
 using $Optional = ::java::util::Optional;
 

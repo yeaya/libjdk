@@ -46,7 +46,6 @@ using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
 using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $PoolConstant$Dynamic = ::com::sun::tools::javac::jvm::PoolConstant$Dynamic;

@@ -14,10 +14,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 using $URI = ::java::net::URI;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
-using $AuthenticationFilter = ::jdk::internal::net::http::AuthenticationFilter;
 using $AuthenticationFilter$CacheEntry = ::jdk::internal::net::http::AuthenticationFilter$CacheEntry;
 
 namespace jdk {

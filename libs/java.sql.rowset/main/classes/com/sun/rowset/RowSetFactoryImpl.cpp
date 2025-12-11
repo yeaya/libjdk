@@ -23,7 +23,6 @@ using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
 using $FilteredRowSet = ::javax::sql::rowset::FilteredRowSet;
 using $JdbcRowSet = ::javax::sql::rowset::JdbcRowSet;
 using $JoinRowSet = ::javax::sql::rowset::JoinRowSet;
-using $RowSetFactory = ::javax::sql::rowset::RowSetFactory;
 using $WebRowSet = ::javax::sql::rowset::WebRowSet;
 
 namespace com {

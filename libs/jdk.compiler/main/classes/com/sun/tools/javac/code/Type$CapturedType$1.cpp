@@ -11,7 +11,6 @@
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
-using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $ClassInfo = ::java::lang::ClassInfo;

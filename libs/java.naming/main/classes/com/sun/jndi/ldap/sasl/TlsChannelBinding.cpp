@@ -26,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $Certificate = ::java::security::cert::Certificate;
 using $CertificateEncodingException = ::java::security::cert::CertificateEncodingException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Arrays = ::java::util::Arrays;

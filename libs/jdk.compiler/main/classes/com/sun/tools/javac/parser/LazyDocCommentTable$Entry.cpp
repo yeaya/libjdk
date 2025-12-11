@@ -5,9 +5,7 @@
 #include <com/sun/tools/javac/tree/DCTree$DCDocComment.h>
 #include <jcpp.h>
 
-using $LazyDocCommentTable = ::com::sun::tools::javac::parser::LazyDocCommentTable;
 using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
-using $DCTree$DCDocComment = ::com::sun::tools::javac::tree::DCTree$DCDocComment;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

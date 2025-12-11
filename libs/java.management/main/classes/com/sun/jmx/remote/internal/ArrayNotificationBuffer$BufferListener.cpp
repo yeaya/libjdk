@@ -15,7 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Notification = ::javax::management::Notification;
-using $NotificationListener = ::javax::management::NotificationListener;
 using $ObjectName = ::javax::management::ObjectName;
 
 namespace com {

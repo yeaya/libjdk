@@ -18,7 +18,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$TypePair = ::com::sun::tools::javac::code::Types$TypePair;
 using $Types$TypeRelation = ::com::sun::tools::javac::code::Types$TypeRelation;
 using $Boolean = ::java::lang::Boolean;

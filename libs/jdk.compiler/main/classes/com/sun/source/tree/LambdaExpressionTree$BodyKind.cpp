@@ -8,7 +8,6 @@
 #undef STATEMENT
 
 using $LambdaExpressionTree$BodyKindArray = $Array<::com::sun::source::tree::LambdaExpressionTree$BodyKind>;
-using $LambdaExpressionTree = ::com::sun::source::tree::LambdaExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

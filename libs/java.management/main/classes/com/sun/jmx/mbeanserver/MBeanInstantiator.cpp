@@ -81,7 +81,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodError = ::java::lang::NoSuchMethodError;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
@@ -109,7 +108,6 @@ using $ReflectionException = ::javax::management::ReflectionException;
 using $RuntimeErrorException = ::javax::management::RuntimeErrorException;
 using $RuntimeMBeanException = ::javax::management::RuntimeMBeanException;
 using $RuntimeOperationsException = ::javax::management::RuntimeOperationsException;
-using $ClassLoaderRepository = ::javax::management::loading::ClassLoaderRepository;
 using $ConstructorUtil = ::sun::reflect::misc::ConstructorUtil;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 

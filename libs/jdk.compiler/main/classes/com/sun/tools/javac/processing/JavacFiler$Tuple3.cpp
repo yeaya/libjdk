@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/processing/JavacFiler.h>
 #include <jcpp.h>
 
-using $JavacFiler = ::com::sun::tools::javac::processing::JavacFiler;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <jcpp.h>
 
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

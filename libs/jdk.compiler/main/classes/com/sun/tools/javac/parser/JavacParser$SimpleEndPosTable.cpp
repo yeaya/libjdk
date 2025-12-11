@@ -15,7 +15,6 @@
 using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $JavacParser$AbstractEndPosTable = ::com::sun::tools::javac::parser::JavacParser$AbstractEndPosTable;
 using $Lexer = ::com::sun::tools::javac::parser::Lexer;
-using $Tokens$Token = ::com::sun::tools::javac::parser::Tokens$Token;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $IntHashTable = ::com::sun::tools::javac::util::IntHashTable;
 using $Position = ::com::sun::tools::javac::util::Position;

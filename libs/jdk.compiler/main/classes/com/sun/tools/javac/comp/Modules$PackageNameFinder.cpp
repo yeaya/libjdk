@@ -5,12 +5,9 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
-using $Modules = ::com::sun::tools::javac::comp::Modules;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {

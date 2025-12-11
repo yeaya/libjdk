@@ -7,7 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ObjectName = ::javax::management::ObjectName;
 using $ObjectName$Property = ::javax::management::ObjectName$Property;
 
 namespace javax {

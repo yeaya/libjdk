@@ -20,11 +20,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $EUC_TW = ::sun::nio::cs::EUC_TW;
 using $EUC_TW$Encoder = ::sun::nio::cs::EUC_TW$Encoder;
 using $ISO2022$Encoder = ::sun::nio::cs::ext::ISO2022$Encoder;
-using $ISO2022_CN_CNS = ::sun::nio::cs::ext::ISO2022_CN_CNS;
 
 namespace sun {
 	namespace nio {

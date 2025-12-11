@@ -21,7 +21,6 @@
 #include <java/net/SocketOption.h>
 #include <jcpp.h>
 
-using $DummySecureWebSocketServer = ::DummySecureWebSocketServer;
 using $DummySecureWebSocketServer$WebServerSocketChannel$Accepter = ::DummySecureWebSocketServer$WebServerSocketChannel$Accepter;
 using $DummySecureWebSocketServer$WebServerSocketChannel$Addressable = ::DummySecureWebSocketServer$WebServerSocketChannel$Addressable;
 using $DummySecureWebSocketServer$WebServerSocketChannel$Binder = ::DummySecureWebSocketServer$WebServerSocketChannel$Binder;
@@ -35,14 +34,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $ServerSocket = ::java::net::ServerSocket;
-using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketOption = ::java::net::SocketOption;
 

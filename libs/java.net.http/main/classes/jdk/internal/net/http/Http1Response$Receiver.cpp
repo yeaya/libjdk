@@ -10,8 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
-using $Http1AsyncReceiver$Http1AsyncDelegate = ::jdk::internal::net::http::Http1AsyncReceiver$Http1AsyncDelegate;
-using $Http1Response = ::jdk::internal::net::http::Http1Response;
 
 namespace jdk {
 	namespace internal {

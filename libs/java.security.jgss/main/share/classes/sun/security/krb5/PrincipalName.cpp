@@ -52,8 +52,6 @@
 
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $byteArray2 = $Array<int8_t, 2>;
-using $BufferedOutputStream = ::java::io::BufferedOutputStream;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
@@ -67,7 +65,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $SecurityException = ::java::lang::SecurityException;
-using $Field = ::java::lang::reflect::Field;
 using $BigInteger = ::java::math::BigInteger;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
@@ -82,7 +79,6 @@ using $Realm = ::sun::security::krb5::Realm;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $CCacheOutputStream = ::sun::security::krb5::internal::ccache::CCacheOutputStream;
 using $KerberosString = ::sun::security::krb5::internal::util::KerberosString;
-using $KrbDataOutputStream = ::sun::security::krb5::internal::util::KrbDataOutputStream;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;

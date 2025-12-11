@@ -12,9 +12,7 @@
 
 #undef _TAG_X509SUBJECTNAME
 
-using $XMLX509DataContent = ::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509DataContent;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $RFC2253Parser = ::com::sun::org::apache::xml::internal::security::utils::RFC2253Parser;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $ClassInfo = ::java::lang::ClassInfo;

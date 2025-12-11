@@ -17,7 +17,6 @@
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $Log = ::com::sun::tools::sjavac::Log;
 using $Log$Level = ::com::sun::tools::sjavac::Log$Level;
-using $File = ::java::io::File;
 using $FileWriter = ::java::io::FileWriter;
 using $IOException = ::java::io::IOException;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
@@ -28,7 +27,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 

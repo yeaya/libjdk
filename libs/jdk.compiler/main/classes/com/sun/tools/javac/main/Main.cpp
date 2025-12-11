@@ -89,7 +89,6 @@
 #undef XSTDOUT
 
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
-using $JavacTask = ::com::sun::source::util::JavacTask;
 using $BasicJavacTask = ::com::sun::tools::javac::api::BasicJavacTask;
 using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
 using $CacheFSInfo = ::com::sun::tools::javac::file::CacheFSInfo;
@@ -110,20 +109,16 @@ using $AnnotationProcessingError = ::com::sun::tools::javac::processing::Annotat
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $ClientCodeException = ::com::sun::tools::javac::util::ClientCodeException;
 using $Context = ::com::sun::tools::javac::util::Context;
-using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $Dependencies$GraphDependencies = ::com::sun::tools::javac::util::Dependencies$GraphDependencies;
 using $FatalError = ::com::sun::tools::javac::util::FatalError;
 using $JCDiagnostic$DiagnosticInfo = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticInfo;
-using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Log$PrefixKind = ::com::sun::tools::javac::util::Log$PrefixKind;
 using $Log$WriterKind = ::com::sun::tools::javac::util::Log$WriterKind;
 using $Options = ::com::sun::tools::javac::util::Options;
 using $PropagatedException = ::com::sun::tools::javac::util::PropagatedException;
-using $BufferedWriter = ::java::io::BufferedWriter;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
@@ -145,7 +140,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $LinkageError = ::java::lang::LinkageError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StackOverflowError = ::java::lang::StackOverflowError;
@@ -153,7 +147,6 @@ using $VirtualMachineError = ::java::lang::VirtualMachineError;
 using $URL = ::java::net::URL;
 using $Files = ::java::nio::file::Files;
 using $NoSuchFileException = ::java::nio::file::NoSuchFileException;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $CodeSource = ::java::security::CodeSource;
@@ -161,20 +154,15 @@ using $DigestInputStream = ::java::security::DigestInputStream;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $DateFormat = ::java::text::DateFormat;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $Calendar = ::java::util::Calendar;
 using $Collection = ::java::util::Collection;
-using $Date = ::java::util::Date;
-using $Iterator = ::java::util::Iterator;
-using $1List = ::java::util::List;
-using $Map = ::java::util::Map;
+using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
-using $OptionChecker = ::javax::tools::OptionChecker;
 
 namespace com {
 	namespace sun {
@@ -314,7 +302,7 @@ $Main$Result* Main::compile($StringArray* argv, $Context* context) {
 	}
 	$var($Iterable, allArgs, nullptr);
 	try {
-		$assign(allArgs, $CommandLine::parse(Main::ENV_OPT_NAME, $($List::from(argv))));
+		$assign(allArgs, $CommandLine::parse(Main::ENV_OPT_NAME, $($1List::from(argv))));
 	} catch ($CommandLine$UnmatchedQuote& ex) {
 		reportDiag($($CompilerProperties$Errors::UnmatchedQuote(ex->variableName)));
 		$init($Main$Result);
@@ -400,11 +388,11 @@ $Main$Result* Main::compile($StringArray* argv, $Context* context) {
 	$init($Option);
 	if ($nc(this->fileManager)->isSupportedOption($Option::MULTIRELEASE->primaryName) == 1) {
 		$Target* target = $Target::instance(context);
-		$var($List, list, $List::of($($nc(target)->multiReleaseValue())));
+		$var($1List, list, $1List::of($($nc(target)->multiReleaseValue())));
 		$nc(this->fileManager)->handleOption($Option::MULTIRELEASE->primaryName, $($nc(list)->iterator()));
 	}
 	$var($JavaCompiler, comp, $JavaCompiler::instance(context));
-	$var($List, docLintOpts, args->getDocLintOpts());
+	$var($1List, docLintOpts, args->getDocLintOpts());
 	if (!$nc(docLintOpts)->isEmpty()) {
 		t->initDocLint(docLintOpts);
 	}
@@ -421,7 +409,7 @@ $Main$Result* Main::compile($StringArray* argv, $Context* context) {
 			try {
 				$var($Collection, var$6, static_cast<$Collection*>(args->getFileObjects()));
 				$var($Collection, var$7, static_cast<$Collection*>(args->getClassNames()));
-				$nc(comp)->compile(var$6, var$7, nullptr, $(static_cast<$Collection*>(static_cast<$AbstractCollection*>($List::nil()))));
+				$nc(comp)->compile(var$6, var$7, nullptr, $(static_cast<$Collection*>(static_cast<$AbstractCollection*>($1List::nil()))));
 				if ($nc(this->log)->expectDiagKeys != nullptr) {
 					if ($nc($nc(this->log)->expectDiagKeys)->isEmpty()) {
 						$nc(this->log)->printRawLines("all expected diagnostics found"_s);

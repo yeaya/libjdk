@@ -3,8 +3,6 @@
 #include <com/sun/naming/internal/ObjectFactoriesFilter.h>
 #include <jcpp.h>
 
-using $ObjectFactoriesFilter = ::com::sun::naming::internal::ObjectFactoriesFilter;
-using $ObjectInputFilter$FilterInfo = ::java::io::ObjectInputFilter$FilterInfo;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

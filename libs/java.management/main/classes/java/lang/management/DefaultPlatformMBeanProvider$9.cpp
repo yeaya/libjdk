@@ -19,7 +19,6 @@ using $Collections = ::java::util::Collections;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $ManagementFactoryHelper = ::sun::management::ManagementFactoryHelper;
-using $PlatformMBeanProvider$PlatformComponent = ::sun::management::spi::PlatformMBeanProvider$PlatformComponent;
 
 namespace java {
 	namespace lang {

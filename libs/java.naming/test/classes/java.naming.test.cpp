@@ -48,5 +48,4 @@ void java$naming$test::init() {
 		java$naming$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

@@ -20,14 +20,11 @@
 #undef TR
 #undef UL
 
-using $JavadocFormatter$HtmlTagArray = $Array<::jdk::internal::shellsupport::doc::JavadocFormatter$HtmlTag>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $JavadocFormatter = ::jdk::internal::shellsupport::doc::JavadocFormatter;
 using $JavadocFormatter$HtmlTag = ::jdk::internal::shellsupport::doc::JavadocFormatter$HtmlTag;
 
 namespace jdk {

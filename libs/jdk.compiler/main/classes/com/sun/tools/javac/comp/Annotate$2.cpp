@@ -10,7 +10,6 @@
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Annotate = ::com::sun::tools::javac::comp::Annotate;
-using $Annotate$AnnotationTypeCompleter = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeCompleter;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $TypeEnvs = ::com::sun::tools::javac::comp::TypeEnvs;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -17,20 +17,14 @@
 #include <jcpp.h>
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
-using $Type$JCVoidType = ::com::sun::tools::javac::code::Type$JCVoidType;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $TypeEnter = ::com::sun::tools::javac::comp::TypeEnter;
-using $TypeEnter$DefaultConstructorHelper = ::com::sun::tools::javac::comp::TypeEnter$DefaultConstructorHelper;
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

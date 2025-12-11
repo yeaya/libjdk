@@ -3,7 +3,6 @@
 #include <TestKit.h>
 #include <jcpp.h>
 
-using $TestKit = ::TestKit;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

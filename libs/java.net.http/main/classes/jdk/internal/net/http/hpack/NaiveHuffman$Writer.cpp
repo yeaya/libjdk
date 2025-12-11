@@ -17,9 +17,7 @@ using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Huffman$Writer = ::jdk::internal::net::http::hpack::Huffman$Writer;
 using $NaiveHuffman = ::jdk::internal::net::http::hpack::NaiveHuffman;
 using $NaiveHuffman$Code = ::jdk::internal::net::http::hpack::NaiveHuffman$Code;
 

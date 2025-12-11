@@ -160,7 +160,6 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -177,13 +176,8 @@ using $Runtime = ::java::lang::Runtime;
 using $Runtime$Version = ::java::lang::Runtime$Version;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Channel = ::java::nio::channels::Channel;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
 using $AccessMode = ::java::nio::file::AccessMode;
@@ -196,7 +190,6 @@ using $FileStore = ::java::nio::file::FileStore;
 using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystemException = ::java::nio::file::FileSystemException;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $NoSuchFileException = ::java::nio::file::NoSuchFileException;
 using $NotDirectoryException = ::java::nio::file::NotDirectoryException;
 using $OpenOption = ::java::nio::file::OpenOption;
@@ -206,8 +199,6 @@ using $ReadOnlyFileSystemException = ::java::nio::file::ReadOnlyFileSystemExcept
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $WatchService = ::java::nio::file::WatchService;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
-using $FileAttributeView = ::java::nio::file::attribute::FileAttributeView;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
 using $PosixFileAttributeView = ::java::nio::file::attribute::PosixFileAttributeView;
@@ -3293,7 +3284,7 @@ $Inflater* ZipFileSystem::getInflater() {
 
 void ZipFileSystem::releaseInflater($Inflater* inf) {
 	$synchronized(this->inflaters) {
-		if ($nc(this->inflaters)->size() < this->MAX_FLATER) {
+		if ($nc(this->inflaters)->size() < ZipFileSystem::MAX_FLATER) {
 			$nc(inf)->reset();
 			$nc(this->inflaters)->add(inf);
 		} else {
@@ -3315,7 +3306,7 @@ $Deflater* ZipFileSystem::getDeflater() {
 
 void ZipFileSystem::releaseDeflater($Deflater* def) {
 	$synchronized(this->deflaters) {
-		if ($nc(this->deflaters)->size() < this->MAX_FLATER) {
+		if ($nc(this->deflaters)->size() < ZipFileSystem::MAX_FLATER) {
 			$nc(def)->reset();
 			$nc(this->deflaters)->add(def);
 		} else {

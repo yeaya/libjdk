@@ -7,7 +7,6 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Lower = ::com::sun::tools::javac::comp::Lower;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;

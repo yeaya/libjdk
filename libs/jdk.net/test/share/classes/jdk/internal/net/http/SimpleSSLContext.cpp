@@ -21,7 +21,6 @@
 #include <jcpp.h>
 
 using $KeyManagerArray = $Array<::javax::net::ssl::KeyManager>;
-using $TrustManagerArray = $Array<::javax::net::ssl::TrustManager>;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $InputStream = ::java::io::InputStream;
@@ -29,7 +28,6 @@ using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;

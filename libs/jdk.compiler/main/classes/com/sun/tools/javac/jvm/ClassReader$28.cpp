@@ -39,14 +39,10 @@
 #undef THROWS
 #undef UNKNOWN
 
-using $TargetTypeArray = $Array<::com::sun::tools::javac::code::TargetType>;
-using $TypeTagArray = $Array<::com::sun::tools::javac::code::TypeTag>;
 using $TargetType = ::com::sun::tools::javac::code::TargetType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

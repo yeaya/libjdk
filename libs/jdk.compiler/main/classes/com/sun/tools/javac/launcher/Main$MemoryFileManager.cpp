@@ -17,7 +17,6 @@
 #undef CLASS
 #undef CLASS_OUTPUT
 
-using $Main = ::com::sun::tools::javac::launcher::Main;
 using $Main$MemoryFileManager$1 = ::com::sun::tools::javac::launcher::Main$MemoryFileManager$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

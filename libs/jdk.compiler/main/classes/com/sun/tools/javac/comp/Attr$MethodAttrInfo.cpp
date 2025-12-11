@@ -19,7 +19,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$CheckMode = ::com::sun::tools::javac::comp::Attr$CheckMode;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
-using $Check = ::com::sun::tools::javac::comp::Check;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;

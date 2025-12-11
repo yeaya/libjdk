@@ -12,7 +12,6 @@ using $DocCommentTree = ::com::sun::source::doctree::DocCommentTree;
 using $JavacTrees = ::com::sun::tools::javac::api::JavacTrees;
 using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
 using $DCTree$DCDocComment = ::com::sun::tools::javac::tree::DCTree$DCDocComment;
-using $DocCommentTable = ::com::sun::tools::javac::tree::DocCommentTable;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

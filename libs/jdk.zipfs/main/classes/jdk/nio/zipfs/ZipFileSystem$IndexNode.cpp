@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 using $Arrays = ::java::util::Arrays;
-using $ZipFileSystem = ::jdk::nio::zipfs::ZipFileSystem;
 using $ZipFileSystem$ParentLookup = ::jdk::nio::zipfs::ZipFileSystem$ParentLookup;
 
 namespace jdk {

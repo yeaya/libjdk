@@ -17,7 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $Executor = ::java::util::concurrent::Executor;
-using $HttpContextImpl = ::sun::net::httpserver::HttpContextImpl;
 using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 
 namespace sun {

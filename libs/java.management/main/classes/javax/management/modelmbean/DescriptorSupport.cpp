@@ -72,7 +72,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
-using $Comparator = ::java::util::Comparator;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;

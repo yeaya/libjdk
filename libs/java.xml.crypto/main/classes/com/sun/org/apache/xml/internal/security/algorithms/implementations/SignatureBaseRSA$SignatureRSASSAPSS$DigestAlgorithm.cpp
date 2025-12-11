@@ -7,8 +7,6 @@
 #include <jcpp.h>
 
 using $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithmArray = $Array<::com::sun::org::apache::xml::internal::security::algorithms::implementations::SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm>;
-using $SignatureBaseRSA = ::com::sun::org::apache::xml::internal::security::algorithms::implementations::SignatureBaseRSA;
-using $SignatureBaseRSA$SignatureRSASSAPSS = ::com::sun::org::apache::xml::internal::security::algorithms::implementations::SignatureBaseRSA$SignatureRSASSAPSS;
 using $XMLSignatureException = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

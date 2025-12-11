@@ -23,7 +23,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
-using $Remote = ::java::rmi::Remote;
 using $Registry = ::java::rmi::registry::Registry;
 using $ObjID = ::java::rmi::server::ObjID;
 using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;

@@ -22,7 +22,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $Path = ::java::nio::file::Path;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 
 namespace com {
 	namespace sun {

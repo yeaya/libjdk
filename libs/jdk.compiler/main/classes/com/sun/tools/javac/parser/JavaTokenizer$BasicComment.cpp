@@ -8,11 +8,8 @@
 
 #undef JAVADOC
 
-using $JavaTokenizer = ::com::sun::tools::javac::parser::JavaTokenizer;
 using $ScannerFactory = ::com::sun::tools::javac::parser::ScannerFactory;
-using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
 using $Tokens$Comment$CommentStyle = ::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle;
-using $UnicodeReader = ::com::sun::tools::javac::parser::UnicodeReader;
 using $UnicodeReader$PositionTrackingReader = ::com::sun::tools::javac::parser::UnicodeReader$PositionTrackingReader;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -18,7 +18,6 @@ using $JavadocTokenizer$JavadocComment = ::com::sun::tools::javac::parser::Javad
 using $ScannerFactory = ::com::sun::tools::javac::parser::ScannerFactory;
 using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
 using $Tokens$Comment$CommentStyle = ::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle;
-using $UnicodeReader = ::com::sun::tools::javac::parser::UnicodeReader;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $Position$LineMap = ::com::sun::tools::javac::util::Position$LineMap;
 using $ClassInfo = ::java::lang::ClassInfo;

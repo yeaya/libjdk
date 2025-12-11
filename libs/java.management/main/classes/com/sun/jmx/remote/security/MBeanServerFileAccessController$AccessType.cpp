@@ -10,7 +10,6 @@
 #undef WRITE
 
 using $MBeanServerFileAccessController$AccessTypeArray = $Array<::com::sun::jmx::remote::security::MBeanServerFileAccessController$AccessType>;
-using $MBeanServerFileAccessController = ::com::sun::jmx::remote::security::MBeanServerFileAccessController;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

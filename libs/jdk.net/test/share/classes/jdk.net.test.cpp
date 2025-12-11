@@ -944,5 +944,4 @@ void jdk$net$test::init() {
 		jdk$net$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

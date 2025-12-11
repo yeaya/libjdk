@@ -4,7 +4,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MBeanServer = ::javax::management::MBeanServer;
 
 namespace javax {
 	namespace management {

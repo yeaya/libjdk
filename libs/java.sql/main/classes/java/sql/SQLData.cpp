@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SQLInput = ::java::sql::SQLInput;
-using $SQLOutput = ::java::sql::SQLOutput;
 
 namespace java {
 	namespace sql {

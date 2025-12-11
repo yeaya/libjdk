@@ -8,7 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
-using $DOMKeyInfoFactory = ::org::jcp::xml::dsig::internal::dom::DOMKeyInfoFactory;
 
 namespace org {
 	namespace jcp {

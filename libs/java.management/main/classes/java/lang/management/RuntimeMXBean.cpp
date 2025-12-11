@@ -18,16 +18,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProcessHandle = ::java::lang::ProcessHandle;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $PlatformManagedObject = ::java::lang::management::PlatformManagedObject;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 
 namespace java {
 	namespace lang {

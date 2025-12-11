@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Provider = ::java::security::Provider;
-using $Oid = ::org::ietf::jgss::Oid;
-using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 
 namespace sun {
 	namespace security {

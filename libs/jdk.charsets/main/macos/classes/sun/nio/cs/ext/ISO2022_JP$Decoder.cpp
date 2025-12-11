@@ -18,16 +18,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
-using $DelegatableDecoder = ::sun::nio::cs::DelegatableDecoder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $JIS_X_0208 = ::sun::nio::cs::JIS_X_0208;
-using $ISO2022_JP = ::sun::nio::cs::ext::ISO2022_JP;
 
 namespace sun {
 	namespace nio {

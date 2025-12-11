@@ -9,12 +9,9 @@
 #undef DJAVA_EXT_DIRS
 #undef XBOOTCLASSPATH
 
-using $OptionArray = $Array<::com::sun::tools::javac::main::Option>;
-using $Locations = ::com::sun::tools::javac::file::Locations;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

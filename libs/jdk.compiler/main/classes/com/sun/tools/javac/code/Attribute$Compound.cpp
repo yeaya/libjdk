@@ -27,20 +27,16 @@
 
 #undef UNKNOWN
 
-using $AttributeArray = $Array<::com::sun::tools::javac::code::Attribute>;
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Array = ::com::sun::tools::javac::code::Attribute$Array;
 using $Attribute$TypeCompound = ::com::sun::tools::javac::code::Attribute$TypeCompound;
 using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $TargetType = ::com::sun::tools::javac::code::TargetType;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Name$Table = ::com::sun::tools::javac::util::Name$Table;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -13,7 +13,6 @@
 #include <javax/tools/StandardJavaFileManager.h>
 #include <jcpp.h>
 
-using $Main = ::com::sun::tools::javac::launcher::Main;
 using $Main$MemoryClassLoader = ::com::sun::tools::javac::launcher::Main$MemoryClassLoader;
 using $Main$MemoryFileManager = ::com::sun::tools::javac::launcher::Main$MemoryFileManager;
 using $ClassInfo = ::java::lang::ClassInfo;

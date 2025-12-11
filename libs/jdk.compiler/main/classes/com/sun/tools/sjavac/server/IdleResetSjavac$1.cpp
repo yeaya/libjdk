@@ -12,7 +12,6 @@ using $Log = ::com::sun::tools::sjavac::Log;
 using $IdleResetSjavac = ::com::sun::tools::sjavac::server::IdleResetSjavac;
 using $ServerMain = ::com::sun::tools::sjavac::server::ServerMain;
 using $Terminable = ::com::sun::tools::sjavac::server::Terminable;
-using $LazyInitFileLog = ::com::sun::tools::sjavac::server::log::LazyInitFileLog;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

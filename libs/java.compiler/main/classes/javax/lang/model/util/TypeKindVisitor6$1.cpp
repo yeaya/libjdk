@@ -18,15 +18,12 @@
 #undef SHORT
 #undef VOID
 
-using $TypeKindArray = $Array<::javax::lang::model::type::TypeKind>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
-using $TypeKindVisitor6 = ::javax::lang::model::util::TypeKindVisitor6;
 
 namespace javax {
 	namespace lang {

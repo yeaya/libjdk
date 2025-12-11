@@ -25,9 +25,6 @@
 #undef WILDCARD
 
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
@@ -41,7 +38,6 @@ using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

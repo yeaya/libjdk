@@ -12,7 +12,6 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
-using $JavacFileManager$Container = ::com::sun::tools::javac::file::JavacFileManager$Container;
 using $RelativePath$RelativeDirectory = ::com::sun::tools::javac::file::RelativePath$RelativeDirectory;
 using $RelativePath$RelativeFile = ::com::sun::tools::javac::file::RelativePath$RelativeFile;
 using $List = ::com::sun::tools::javac::util::List;

@@ -7,7 +7,6 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-using $MockListener = ::MockListener;
 using $MockListener$Invocation = ::MockListener$Invocation;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

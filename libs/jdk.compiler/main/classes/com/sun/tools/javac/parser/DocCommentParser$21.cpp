@@ -19,7 +19,6 @@ using $DocCommentParser$ParseException = ::com::sun::tools::javac::parser::DocCo
 using $DocCommentParser$TagParser = ::com::sun::tools::javac::parser::DocCommentParser$TagParser;
 using $DocCommentParser$TagParser$Kind = ::com::sun::tools::javac::parser::DocCommentParser$TagParser$Kind;
 using $DCTree = ::com::sun::tools::javac::tree::DCTree;
-using $DCTree$DCSystemProperty = ::com::sun::tools::javac::tree::DCTree$DCSystemProperty;
 using $DocTreeMaker = ::com::sun::tools::javac::tree::DocTreeMaker;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;

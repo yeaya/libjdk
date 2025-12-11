@@ -12,19 +12,11 @@
 #undef DEFAULT_LIFETIME
 #undef INDEFINITE_LIFETIME
 
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $ChannelBinding = ::org::ietf::jgss::ChannelBinding;
-using $GSSCredential = ::org::ietf::jgss::GSSCredential;
-using $GSSName = ::org::ietf::jgss::GSSName;
-using $MessageProp = ::org::ietf::jgss::MessageProp;
-using $Oid = ::org::ietf::jgss::Oid;
 
 namespace org {
 	namespace ietf {

@@ -14,7 +14,6 @@ using $MessageQueue = ::jdk::internal::net::http::websocket::MessageQueue;
 using $MessageStreamConsumer = ::jdk::internal::net::http::websocket::MessageStreamConsumer;
 using $RawChannel = ::jdk::internal::net::http::websocket::RawChannel;
 using $Transport = ::jdk::internal::net::http::websocket::Transport;
-using $TransportFactory = ::jdk::internal::net::http::websocket::TransportFactory;
 using $TransportImpl = ::jdk::internal::net::http::websocket::TransportImpl;
 
 namespace jdk {

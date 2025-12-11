@@ -16,16 +16,13 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BadStringOperationException = ::javax::management::BadStringOperationException;
 using $InstanceNotFoundException = ::javax::management::InstanceNotFoundException;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $ObjectName = ::javax::management::ObjectName;
 using $QueryEval = ::javax::management::QueryEval;
-using $QueryExp = ::javax::management::QueryExp;
 using $StringValueExp = ::javax::management::StringValueExp;
-using $ValueExp = ::javax::management::ValueExp;
 
 namespace javax {
 	namespace management {

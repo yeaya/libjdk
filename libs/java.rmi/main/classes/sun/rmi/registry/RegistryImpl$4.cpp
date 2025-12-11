@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Hashtable = ::java::util::Hashtable;
 using $RegistryImpl = ::sun::rmi::registry::RegistryImpl;
 

@@ -8,7 +8,6 @@
 #include <java/nio/file/Path.h>
 #include <jcpp.h>
 
-using $ShortRequestBody = ::ShortRequestBody;
 using $ShortRequestBody$AbstractDelegateRequestBody = ::ShortRequestBody$AbstractDelegateRequestBody;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -29,7 +29,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
@@ -38,7 +37,6 @@ using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $Perf = ::jdk::internal::perf::Perf;
 using $Perf$GetPerfAction = ::jdk::internal::perf::Perf$GetPerfAction;
-using $VMManagement = ::sun::management::VMManagement;
 using $VMManagementImpl$1 = ::sun::management::VMManagementImpl$1;
 using $PerfInstrumentation = ::sun::management::counter::perf::PerfInstrumentation;
 
@@ -203,7 +201,7 @@ $String* VMManagementImpl::getVersion0() {
 	$init(VMManagementImpl);
 	$var($String, $ret, nullptr);
 	$prepareNativeStatic(VMManagementImpl, getVersion0, $String*);
-	$assign($ret, $invokeNativeStatic(VMManagementImpl, getVersion0));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -211,7 +209,7 @@ $String* VMManagementImpl::getVersion0() {
 void VMManagementImpl::initOptionalSupportFields() {
 	$init(VMManagementImpl);
 	$prepareNativeStatic(VMManagementImpl, initOptionalSupportFields, void);
-	$invokeNativeStatic(VMManagementImpl, initOptionalSupportFields);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -265,7 +263,7 @@ bool VMManagementImpl::isRemoteDiagnosticCommandsSupported() {
 bool VMManagementImpl::isThreadContentionMonitoringEnabled() {
 	bool $ret = false;
 	$prepareNative(VMManagementImpl, isThreadContentionMonitoringEnabled, bool);
-	$ret = $invokeNative(VMManagementImpl, isThreadContentionMonitoringEnabled);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -273,7 +271,7 @@ bool VMManagementImpl::isThreadContentionMonitoringEnabled() {
 bool VMManagementImpl::isThreadCpuTimeEnabled() {
 	bool $ret = false;
 	$prepareNative(VMManagementImpl, isThreadCpuTimeEnabled, bool);
-	$ret = $invokeNative(VMManagementImpl, isThreadCpuTimeEnabled);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -281,7 +279,7 @@ bool VMManagementImpl::isThreadCpuTimeEnabled() {
 bool VMManagementImpl::isThreadAllocatedMemoryEnabled() {
 	bool $ret = false;
 	$prepareNative(VMManagementImpl, isThreadAllocatedMemoryEnabled, bool);
-	$ret = $invokeNative(VMManagementImpl, isThreadAllocatedMemoryEnabled);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -295,7 +293,7 @@ int32_t VMManagementImpl::getLoadedClassCount() {
 int64_t VMManagementImpl::getTotalClassCount() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getTotalClassCount, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getTotalClassCount);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -303,7 +301,7 @@ int64_t VMManagementImpl::getTotalClassCount() {
 int64_t VMManagementImpl::getUnloadedClassCount() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getUnloadedClassCount, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getUnloadedClassCount);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -311,7 +309,7 @@ int64_t VMManagementImpl::getUnloadedClassCount() {
 bool VMManagementImpl::getVerboseClass() {
 	bool $ret = false;
 	$prepareNative(VMManagementImpl, getVerboseClass, bool);
-	$ret = $invokeNative(VMManagementImpl, getVerboseClass);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -319,7 +317,7 @@ bool VMManagementImpl::getVerboseClass() {
 bool VMManagementImpl::getVerboseGC() {
 	bool $ret = false;
 	$prepareNative(VMManagementImpl, getVerboseGC, bool);
-	$ret = $invokeNative(VMManagementImpl, getVerboseGC);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -342,7 +340,7 @@ $String* VMManagementImpl::getVmId() {
 int32_t VMManagementImpl::getProcessId() {
 	int32_t $ret = 0;
 	$prepareNative(VMManagementImpl, getProcessId, int32_t);
-	$ret = $invokeNative(VMManagementImpl, getProcessId);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -403,7 +401,7 @@ $List* VMManagementImpl::getVmArguments() {
 $StringArray* VMManagementImpl::getVmArguments0() {
 	$var($StringArray, $ret, nullptr);
 	$prepareNative(VMManagementImpl, getVmArguments0, $StringArray*);
-	$assign($ret, $invokeNative(VMManagementImpl, getVmArguments0));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
@@ -411,7 +409,7 @@ $StringArray* VMManagementImpl::getVmArguments0() {
 int64_t VMManagementImpl::getStartupTime() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getStartupTime, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getStartupTime);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -419,7 +417,7 @@ int64_t VMManagementImpl::getStartupTime() {
 int64_t VMManagementImpl::getUptime0() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getUptime0, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getUptime0);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -427,7 +425,7 @@ int64_t VMManagementImpl::getUptime0() {
 int32_t VMManagementImpl::getAvailableProcessors() {
 	int32_t $ret = 0;
 	$prepareNative(VMManagementImpl, getAvailableProcessors, int32_t);
-	$ret = $invokeNative(VMManagementImpl, getAvailableProcessors);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -442,7 +440,7 @@ $String* VMManagementImpl::getCompilerName() {
 int64_t VMManagementImpl::getTotalCompileTime() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getTotalCompileTime, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getTotalCompileTime);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -450,7 +448,7 @@ int64_t VMManagementImpl::getTotalCompileTime() {
 int64_t VMManagementImpl::getTotalThreadCount() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getTotalThreadCount, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getTotalThreadCount);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -458,7 +456,7 @@ int64_t VMManagementImpl::getTotalThreadCount() {
 int32_t VMManagementImpl::getLiveThreadCount() {
 	int32_t $ret = 0;
 	$prepareNative(VMManagementImpl, getLiveThreadCount, int32_t);
-	$ret = $invokeNative(VMManagementImpl, getLiveThreadCount);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -466,7 +464,7 @@ int32_t VMManagementImpl::getLiveThreadCount() {
 int32_t VMManagementImpl::getPeakThreadCount() {
 	int32_t $ret = 0;
 	$prepareNative(VMManagementImpl, getPeakThreadCount, int32_t);
-	$ret = $invokeNative(VMManagementImpl, getPeakThreadCount);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -474,7 +472,7 @@ int32_t VMManagementImpl::getPeakThreadCount() {
 int32_t VMManagementImpl::getDaemonThreadCount() {
 	int32_t $ret = 0;
 	$prepareNative(VMManagementImpl, getDaemonThreadCount, int32_t);
-	$ret = $invokeNative(VMManagementImpl, getDaemonThreadCount);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -494,7 +492,7 @@ $String* VMManagementImpl::getOsVersion() {
 int64_t VMManagementImpl::getSafepointCount() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getSafepointCount, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getSafepointCount);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -502,7 +500,7 @@ int64_t VMManagementImpl::getSafepointCount() {
 int64_t VMManagementImpl::getTotalSafepointTime() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getTotalSafepointTime, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getTotalSafepointTime);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -510,7 +508,7 @@ int64_t VMManagementImpl::getTotalSafepointTime() {
 int64_t VMManagementImpl::getSafepointSyncTime() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getSafepointSyncTime, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getSafepointSyncTime);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -518,7 +516,7 @@ int64_t VMManagementImpl::getSafepointSyncTime() {
 int64_t VMManagementImpl::getTotalApplicationNonStoppedTime() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getTotalApplicationNonStoppedTime, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getTotalApplicationNonStoppedTime);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -526,7 +524,7 @@ int64_t VMManagementImpl::getTotalApplicationNonStoppedTime() {
 int64_t VMManagementImpl::getLoadedClassSize() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getLoadedClassSize, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getLoadedClassSize);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -534,7 +532,7 @@ int64_t VMManagementImpl::getLoadedClassSize() {
 int64_t VMManagementImpl::getUnloadedClassSize() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getUnloadedClassSize, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getUnloadedClassSize);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -542,7 +540,7 @@ int64_t VMManagementImpl::getUnloadedClassSize() {
 int64_t VMManagementImpl::getClassLoadingTime() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getClassLoadingTime, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getClassLoadingTime);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -550,7 +548,7 @@ int64_t VMManagementImpl::getClassLoadingTime() {
 int64_t VMManagementImpl::getMethodDataSize() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getMethodDataSize, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getMethodDataSize);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -558,7 +556,7 @@ int64_t VMManagementImpl::getMethodDataSize() {
 int64_t VMManagementImpl::getInitializedClassCount() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getInitializedClassCount, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getInitializedClassCount);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -566,7 +564,7 @@ int64_t VMManagementImpl::getInitializedClassCount() {
 int64_t VMManagementImpl::getClassInitializationTime() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getClassInitializationTime, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getClassInitializationTime);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -574,7 +572,7 @@ int64_t VMManagementImpl::getClassInitializationTime() {
 int64_t VMManagementImpl::getClassVerificationTime() {
 	int64_t $ret = 0;
 	$prepareNative(VMManagementImpl, getClassVerificationTime, int64_t);
-	$ret = $invokeNative(VMManagementImpl, getClassVerificationTime);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }

@@ -22,7 +22,6 @@ using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $HotspotThreadMBean = ::sun::management::HotspotThreadMBean;
 using $VMManagement = ::sun::management::VMManagement;
 
 namespace sun {
@@ -74,7 +73,7 @@ void HotspotThread::init$($VMManagement* vm) {
 int32_t HotspotThread::getInternalThreadCount() {
 	int32_t $ret = 0;
 	$prepareNative(HotspotThread, getInternalThreadCount, int32_t);
-	$ret = $invokeNative(HotspotThread, getInternalThreadCount);
+	$ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -98,7 +97,7 @@ $Map* HotspotThread::getInternalThreadCpuTimes() {
 int32_t HotspotThread::getInternalThreadTimes0($StringArray* names, $longs* times) {
 	int32_t $ret = 0;
 	$prepareNative(HotspotThread, getInternalThreadTimes0, int32_t, $StringArray* names, $longs* times);
-	$ret = $invokeNative(HotspotThread, getInternalThreadTimes0, names, times);
+	$ret = $invokeNative(names, times);
 	$finishNative();
 	return $ret;
 }

@@ -14,8 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Runtime = ::java::lang::Runtime;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $FileSystemPreferences = ::java::util::prefs::FileSystemPreferences;
 using $FileSystemPreferences$4$1 = ::java::util::prefs::FileSystemPreferences$4$1;
 
 namespace java {

@@ -12,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Level = ::java::util::logging::Level;
 using $Logger = ::java::util::logging::Logger;
 using $Log = ::sun::rmi::runtime::Log;
-using $Log$LogFactory = ::sun::rmi::runtime::Log$LogFactory;
 using $Log$LoggerLog = ::sun::rmi::runtime::Log$LoggerLog;
 
 namespace sun {

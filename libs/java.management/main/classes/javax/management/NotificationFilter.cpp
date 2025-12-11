@@ -3,10 +3,8 @@
 #include <javax/management/Notification.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Notification = ::javax::management::Notification;
 
 namespace javax {
 	namespace management {

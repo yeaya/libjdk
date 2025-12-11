@@ -15,16 +15,13 @@
 
 #undef OBJECTNAME
 
-using $DefaultMXBeanMappingFactory = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory;
 using $DefaultMXBeanMappingFactory$NonNullMXBeanMapping = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$NonNullMXBeanMapping;
 using $MXBeanLookup = ::com::sun::jmx::mbeanserver::MXBeanLookup;
-using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Type = ::java::lang::reflect::Type;

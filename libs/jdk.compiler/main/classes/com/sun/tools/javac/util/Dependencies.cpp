@@ -7,10 +7,8 @@
 #include <com/sun/tools/javac/util/Dependencies$DummyDependencies.h>
 #include <jcpp.h>
 
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
-using $Dependencies$CompletionCause = ::com::sun::tools::javac::util::Dependencies$CompletionCause;
 using $Dependencies$DummyDependencies = ::com::sun::tools::javac::util::Dependencies$DummyDependencies;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

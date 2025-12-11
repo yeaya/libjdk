@@ -16,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;

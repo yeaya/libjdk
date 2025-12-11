@@ -21,7 +21,6 @@ using $Directive$ProvidesDirective = ::com::sun::tools::javac::code::Directive$P
 using $Directive$UsesDirective = ::com::sun::tools::javac::code::Directive$UsesDirective;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;

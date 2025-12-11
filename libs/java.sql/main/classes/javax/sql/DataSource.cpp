@@ -8,10 +8,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Connection = ::java::sql::Connection;
 using $ConnectionBuilder = ::java::sql::ConnectionBuilder;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
-using $Wrapper = ::java::sql::Wrapper;
 using $CommonDataSource = ::javax::sql::CommonDataSource;
 
 namespace javax {

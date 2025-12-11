@@ -9,7 +9,6 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
-using $ClassFinder = ::com::sun::tools::javac::code::ClassFinder;
 using $ClassFinder$BadClassFile = ::com::sun::tools::javac::code::ClassFinder$BadClassFile;
 using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;

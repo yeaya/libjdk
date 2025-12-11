@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AnnotationValueVisitor = ::javax::lang::model::element::AnnotationValueVisitor;
 
 namespace javax {
 	namespace lang {

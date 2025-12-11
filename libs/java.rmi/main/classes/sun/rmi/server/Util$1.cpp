@@ -16,8 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $Remote = ::java::rmi::Remote;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Util = ::sun::rmi::server::Util;
 
 namespace sun {
 	namespace rmi {

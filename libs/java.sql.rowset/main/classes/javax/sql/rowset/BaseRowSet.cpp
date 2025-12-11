@@ -57,7 +57,6 @@ using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Cloneable = ::java::lang::Cloneable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;

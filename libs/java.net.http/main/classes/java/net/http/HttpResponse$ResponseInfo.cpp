@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpClient$Version = ::java::net::http::HttpClient$Version;
-using $HttpHeaders = ::java::net::http::HttpHeaders;
-using $HttpResponse = ::java::net::http::HttpResponse;
 
 namespace java {
 	namespace net {

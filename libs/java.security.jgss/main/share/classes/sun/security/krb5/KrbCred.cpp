@@ -51,7 +51,6 @@ using $KRBCred = ::sun::security::krb5::internal::KRBCred;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $KrbCredInfo = ::sun::security::krb5::internal::KrbCredInfo;
-using $Ticket = ::sun::security::krb5::internal::Ticket;
 using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
 using $KeyUsage = ::sun::security::krb5::internal::crypto::KeyUsage;
 using $DerValue = ::sun::security::util::DerValue;

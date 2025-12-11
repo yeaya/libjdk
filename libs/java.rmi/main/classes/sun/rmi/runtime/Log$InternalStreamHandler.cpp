@@ -16,7 +16,6 @@ using $Formatter = ::java::util::logging::Formatter;
 using $LogRecord = ::java::util::logging::LogRecord;
 using $SimpleFormatter = ::java::util::logging::SimpleFormatter;
 using $StreamHandler = ::java::util::logging::StreamHandler;
-using $Log = ::sun::rmi::runtime::Log;
 
 namespace sun {
 	namespace rmi {

@@ -3,7 +3,6 @@
 #include <javax/naming/ldap/Control.h>
 #include <jcpp.h>
 
-using $ControlArray = $Array<::javax::naming::ldap::Control>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

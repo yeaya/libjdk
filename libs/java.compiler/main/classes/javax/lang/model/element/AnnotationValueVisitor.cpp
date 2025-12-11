@@ -9,11 +9,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $AnnotationMirror = ::javax::lang::model::element::AnnotationMirror;
 using $AnnotationValue = ::javax::lang::model::element::AnnotationValue;
-using $VariableElement = ::javax::lang::model::element::VariableElement;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace javax {
 	namespace lang {

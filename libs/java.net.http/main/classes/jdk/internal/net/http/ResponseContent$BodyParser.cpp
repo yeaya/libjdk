@@ -7,9 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Consumer = ::java::util::function::Consumer;
-using $AbstractSubscription = ::jdk::internal::net::http::AbstractSubscription;
-using $ResponseContent = ::jdk::internal::net::http::ResponseContent;
 
 namespace jdk {
 	namespace internal {

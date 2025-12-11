@@ -8,9 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Remote = ::java::rmi::Remote;
-using $RemoteRef = ::java::rmi::server::RemoteRef;
-using $RemoteStub = ::java::rmi::server::RemoteStub;
 
 namespace java {
 	namespace rmi {

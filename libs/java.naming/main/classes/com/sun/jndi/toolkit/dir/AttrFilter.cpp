@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Attributes = ::javax::naming::directory::Attributes;
 
 namespace com {
 	namespace sun {

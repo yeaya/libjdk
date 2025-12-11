@@ -3,10 +3,8 @@
 #include <javax/naming/ldap/ExtendedResponse.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ExtendedResponse = ::javax::naming::ldap::ExtendedResponse;
 
 namespace javax {
 	namespace naming {

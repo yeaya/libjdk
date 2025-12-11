@@ -11,7 +11,6 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCPolyExpression$PolyKind = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression$PolyKind;
 using $ClassInfo = ::java::lang::ClassInfo;

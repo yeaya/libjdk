@@ -8,7 +8,6 @@
 #undef SPECULATIVE_LOOP
 
 using $Flow$FlowKindArray = $Array<::com::sun::tools::javac::comp::Flow$FlowKind>;
-using $Flow = ::com::sun::tools::javac::comp::Flow;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

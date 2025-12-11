@@ -40,14 +40,14 @@ using $SymbolMetadata = ::com::sun::tools::javac::code::SymbolMetadata;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$PackageType = ::com::sun::tools::javac::code::Type$PackageType;
 using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
@@ -55,7 +55,6 @@ using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
 using $1Name = ::javax::lang::model::element::Name;
 using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {
@@ -129,11 +128,11 @@ $Object* allocate$Symbol$PackageSymbol($Class* clazz) {
 	return $of($alloc(Symbol$PackageSymbol));
 }
 
-$1List* Symbol$PackageSymbol::getEnclosedElements() {
+$List* Symbol$PackageSymbol::getEnclosedElements() {
 	 return this->$Symbol$TypeSymbol::getEnclosedElements();
 }
 
-$1List* Symbol$PackageSymbol::getAnnotationMirrors() {
+$List* Symbol$PackageSymbol::getAnnotationMirrors() {
 	 return this->$Symbol$TypeSymbol::getAnnotationMirrors();
 }
 
@@ -189,7 +188,7 @@ $1Name* Symbol$PackageSymbol::MemberClass0$::getSimpleName() {
 	return ((Symbol$PackageSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$PackageSymbol, memberClass0$)))->getSimpleName();
 }
 
-$1List* Symbol$PackageSymbol::MemberClass0$::getEnclosedElements() {
+$List* Symbol$PackageSymbol::MemberClass0$::getEnclosedElements() {
 	return ((Symbol$PackageSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$PackageSymbol, memberClass0$)))->getEnclosedElements();
 }
 
@@ -217,7 +216,7 @@ int32_t Symbol$PackageSymbol::MemberClass0$::hashCode() {
 	return ((Symbol$PackageSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$PackageSymbol, memberClass0$)))->hashCode();
 }
 
-$1List* Symbol$PackageSymbol::MemberClass0$::getAnnotationMirrors() {
+$List* Symbol$PackageSymbol::MemberClass0$::getAnnotationMirrors() {
 	return ((Symbol$PackageSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$PackageSymbol, memberClass0$)))->getAnnotationMirrors();
 }
 
@@ -283,7 +282,7 @@ int64_t Symbol$PackageSymbol::flags() {
 	return this->flags_field;
 }
 
-$List* Symbol$PackageSymbol::getRawAttributes() {
+$1List* Symbol$PackageSymbol::getRawAttributes() {
 	complete();
 	if (this->package_info != nullptr) {
 		$nc(this->package_info)->complete();

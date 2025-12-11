@@ -9,7 +9,6 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
 using $JavacProcessingEnvironment = ::com::sun::tools::javac::processing::JavacProcessingEnvironment;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;

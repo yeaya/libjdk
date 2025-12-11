@@ -15,18 +15,15 @@
 #undef ENGLISH
 
 using $SearchFilter = ::com::sun::jndi::toolkit::dir::SearchFilter;
-using $SearchFilter$StringFilter = ::com::sun::jndi::toolkit::dir::SearchFilter$StringFilter;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Enumeration = ::java::util::Enumeration;
 using $Locale = ::java::util::Locale;
 using $StringTokenizer = ::java::util::StringTokenizer;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
 using $OperationNotSupportedException = ::javax::naming::OperationNotSupportedException;
 using $Attribute = ::javax::naming::directory::Attribute;

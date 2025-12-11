@@ -9,10 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BitSet = ::java::util::BitSet;
-using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
-using $Authenticator = ::sun::security::krb5::internal::Authenticator;
-using $HostAddress = ::sun::security::krb5::internal::HostAddress;
 
 namespace sun {
 	namespace security {

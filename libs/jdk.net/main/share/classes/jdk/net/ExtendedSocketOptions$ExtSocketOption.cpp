@@ -7,8 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SocketOption = ::java::net::SocketOption;
-using $ExtendedSocketOptions = ::jdk::net::ExtendedSocketOptions;
 
 namespace jdk {
 	namespace net {

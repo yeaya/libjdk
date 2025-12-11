@@ -15,7 +15,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Hashtable = ::java::util::Hashtable;
 using $CannotProceedException = ::javax::naming::CannotProceedException;
 using $Context = ::javax::naming::Context;

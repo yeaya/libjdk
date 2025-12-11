@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
-using $SecretKey = ::javax::crypto::SecretKey;
 using $KeyImpl = ::javax::security::auth::kerberos::KeyImpl;
 
 namespace javax {

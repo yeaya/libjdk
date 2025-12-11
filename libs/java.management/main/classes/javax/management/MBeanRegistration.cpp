@@ -4,11 +4,8 @@
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
 
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MBeanServer = ::javax::management::MBeanServer;
-using $ObjectName = ::javax::management::ObjectName;
 
 namespace javax {
 	namespace management {

@@ -12,7 +12,6 @@
 #undef MAX_VALUE
 
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
-using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Code$LocalVar$Range = ::com::sun::tools::javac::jvm::Code$LocalVar$Range;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

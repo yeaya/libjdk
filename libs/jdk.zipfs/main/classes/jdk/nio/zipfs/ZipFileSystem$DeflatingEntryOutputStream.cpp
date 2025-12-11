@@ -12,7 +12,6 @@
 #include <jcpp.h>
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

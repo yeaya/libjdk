@@ -23,13 +23,11 @@
 
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Demand = ::jdk::internal::net::http::common::Demand;
 using $Logger = ::jdk::internal::net::http::common::Logger;
@@ -37,10 +35,8 @@ using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialSched
 using $SequentialScheduler$CompleteRestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask;
 using $Frame$Consumer = ::jdk::internal::net::http::websocket::Frame$Consumer;
 using $Frame$Reader = ::jdk::internal::net::http::websocket::Frame$Reader;
-using $MessageDecoder = ::jdk::internal::net::http::websocket::MessageDecoder;
 using $MessageStreamConsumer = ::jdk::internal::net::http::websocket::MessageStreamConsumer;
 using $RawChannel = ::jdk::internal::net::http::websocket::RawChannel;
-using $RawChannel$RawEvent = ::jdk::internal::net::http::websocket::RawChannel$RawEvent;
 using $TransportImpl = ::jdk::internal::net::http::websocket::TransportImpl;
 using $TransportImpl$1 = ::jdk::internal::net::http::websocket::TransportImpl$1;
 using $TransportImpl$ChannelState = ::jdk::internal::net::http::websocket::TransportImpl$ChannelState;

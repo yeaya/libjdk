@@ -12,7 +12,6 @@
 
 #undef EUC_KR
 
-using $charArray2 = $Array<char16_t, 2>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -21,7 +20,6 @@ using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
-using $HistoricallyNamedCharset = ::sun::nio::cs::HistoricallyNamedCharset;
 using $EUC_KR$DecodeHolder = ::sun::nio::cs::ext::EUC_KR$DecodeHolder;
 using $EUC_KR$EncodeHolder = ::sun::nio::cs::ext::EUC_KR$EncodeHolder;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;

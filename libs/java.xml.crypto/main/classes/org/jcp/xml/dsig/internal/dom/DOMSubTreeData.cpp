@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
-using $NodeSetData = ::javax::xml::crypto::NodeSetData;
 using $DOMSubTreeData$DelayedNodeIterator = ::org::jcp::xml::dsig::internal::dom::DOMSubTreeData$DelayedNodeIterator;
 using $Node = ::org::w3c::dom::Node;
 

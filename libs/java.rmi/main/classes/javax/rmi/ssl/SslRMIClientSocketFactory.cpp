@@ -10,13 +10,11 @@
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Socket = ::java::net::Socket;
 using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;

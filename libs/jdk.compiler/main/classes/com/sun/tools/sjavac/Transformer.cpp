@@ -7,13 +7,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $CompilationService = ::com::sun::tools::sjavac::comp::CompilationService;
-using $Options = ::com::sun::tools::sjavac::options::Options;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URI = ::java::net::URI;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {

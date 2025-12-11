@@ -10,7 +10,6 @@
 #include <org/w3c/dom/NodeList.h>
 #include <jcpp.h>
 
-using $NodeFilter = ::com::sun::org::apache::xml::internal::security::signature::NodeFilter;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -6,12 +6,10 @@
 #include <java/util/logging/Logger.h>
 #include <jcpp.h>
 
-using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
 using $ShardingKeyBuilder = ::java::sql::ShardingKeyBuilder;
-using $Logger = ::java::util::logging::Logger;
 
 namespace javax {
 	namespace sql {

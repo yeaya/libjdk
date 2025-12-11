@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OpenType = ::javax::management::openmbean::OpenType;
-using $MappedMXBeanType = ::sun::management::MappedMXBeanType;
 
 namespace sun {
 	namespace management {

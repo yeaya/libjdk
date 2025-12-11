@@ -14,7 +14,6 @@ using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
-using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParameterSpec;
 
 namespace javax {
 	namespace xml {

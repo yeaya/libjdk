@@ -12,7 +12,6 @@
 #undef PARAM
 
 using $LambdaToMethod$LambdaSymbolKindArray = $Array<::com::sun::tools::javac::comp::LambdaToMethod$LambdaSymbolKind>;
-using $LambdaToMethod = ::com::sun::tools::javac::comp::LambdaToMethod;
 using $LambdaToMethod$1 = ::com::sun::tools::javac::comp::LambdaToMethod$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

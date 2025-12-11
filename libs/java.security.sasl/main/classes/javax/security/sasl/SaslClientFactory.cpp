@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
-using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
-using $SaslClient = ::javax::security::sasl::SaslClient;
 
 namespace javax {
 	namespace security {

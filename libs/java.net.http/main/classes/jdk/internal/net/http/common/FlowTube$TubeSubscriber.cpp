@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-using $FlowTube = ::jdk::internal::net::http::common::FlowTube;
 
 namespace jdk {
 	namespace internal {

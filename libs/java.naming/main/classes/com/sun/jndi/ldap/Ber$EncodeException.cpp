@@ -4,7 +4,6 @@
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
-using $Ber = ::com::sun::jndi::ldap::Ber;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

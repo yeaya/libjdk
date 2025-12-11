@@ -3,10 +3,8 @@
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <jcpp.h>
 
-using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Data = ::javax::xml::crypto::Data;
 
 namespace org {
 	namespace jcp {

@@ -15,12 +15,11 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $OptionArray = $Array<::com::sun::tools::javac::main::Option>;
-using $1OptionArray = $Array<::com::sun::tools::sjavac::options::Option>;
+using $1OptionArray = $Array<::com::sun::tools::javac::main::Option>;
+using $OptionArray = $Array<::com::sun::tools::sjavac::options::Option>;
 using $PathArray = $Array<::java::nio::file::Path>;
 using $CommandLine = ::com::sun::tools::javac::main::CommandLine;
 using $1Option = ::com::sun::tools::javac::main::Option;
-using $Transformer = ::com::sun::tools::sjavac::Transformer;
 using $ArgumentIterator = ::com::sun::tools::sjavac::options::ArgumentIterator;
 using $Option = ::com::sun::tools::sjavac::options::Option;
 using $IOException = ::java::io::IOException;
@@ -29,7 +28,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -100,7 +98,7 @@ void OptionHelper::traverse($StringArray* args) {
 		$var($String, arg, $cast($String, argIter->next()));
 		if ($nc(arg)->startsWith("-"_s)) {
 			{
-				$var($1OptionArray, arr$, $Option::values());
+				$var($OptionArray, arr$, $Option::values());
 				int32_t len$ = $nc(arr$)->length;
 				int32_t i$ = 0;
 				for (; i$ < len$; ++i$) {
@@ -119,7 +117,7 @@ void OptionHelper::traverse($StringArray* args) {
 			}
 			javacArg($$new($StringArray, {arg}));
 			{
-				$var($OptionArray, arr$, $1Option::values());
+				$var($1OptionArray, arr$, $1Option::values());
 				int32_t len$ = arr$->length;
 				int32_t i$ = 0;
 				for (; i$ < len$; ++i$) {

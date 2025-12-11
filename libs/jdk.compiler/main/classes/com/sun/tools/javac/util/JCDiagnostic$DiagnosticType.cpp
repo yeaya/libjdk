@@ -10,7 +10,6 @@
 #undef WARNING
 
 using $JCDiagnostic$DiagnosticTypeArray = $Array<::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType>;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

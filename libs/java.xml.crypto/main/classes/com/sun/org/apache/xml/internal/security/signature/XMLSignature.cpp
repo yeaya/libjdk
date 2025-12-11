@@ -77,7 +77,6 @@
 #undef _TAG_SIGNATUREVALUE
 #undef _TAG_SIGNEDINFO
 
-using $Algorithm = ::com::sun::org::apache::xml::internal::security::algorithms::Algorithm;
 using $SignatureAlgorithm = ::com::sun::org::apache::xml::internal::security::algorithms::SignatureAlgorithm;
 using $Canonicalizer = ::com::sun::org::apache::xml::internal::security::c14n::Canonicalizer;
 using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
@@ -108,11 +107,9 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Key = ::java::security::Key;
 using $Provider = ::java::security::Provider;
 using $PublicKey = ::java::security::PublicKey;
-using $Certificate = ::java::security::cert::Certificate;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $SecretKey = ::javax::crypto::SecretKey;

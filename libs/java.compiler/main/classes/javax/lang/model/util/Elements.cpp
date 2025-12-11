@@ -31,8 +31,6 @@
 #undef EXPLICIT
 #undef RECORD
 
-using $ElementArray = $Array<::javax::lang::model::element::Element>;
-using $Writer = ::java::io::Writer;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -45,7 +43,6 @@ using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $AnnotatedConstruct = ::javax::lang::model::AnnotatedConstruct;
@@ -55,7 +52,6 @@ using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $ModuleElement$Directive = ::javax::lang::model::element::ModuleElement$Directive;
-using $Name = ::javax::lang::model::element::Name;
 using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $RecordComponentElement = ::javax::lang::model::element::RecordComponentElement;
 using $TypeElement = ::javax::lang::model::element::TypeElement;

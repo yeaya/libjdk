@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PooledConnection = ::javax::sql::PooledConnection;
-using $XAResource = ::javax::transaction::xa::XAResource;
 
 namespace javax {
 	namespace sql {

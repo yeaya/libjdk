@@ -40,7 +40,7 @@
 #undef PRIVATE
 
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $1Name = ::com::sun::tools::javac::util::Name;
+using $Name = ::com::sun::tools::javac::util::Name;
 using $PubApi = ::com::sun::tools::sjavac::pubapi::PubApi;
 using $PubApiTypeParam = ::com::sun::tools::sjavac::pubapi::PubApiTypeParam;
 using $PubMethod = ::com::sun::tools::sjavac::pubapi::PubMethod;
@@ -54,25 +54,19 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $IntFunction = ::java::util::function::IntFunction;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $IntStream = ::java::util::stream::IntStream;
 using $Stream = ::java::util::stream::Stream;
 using $Element = ::javax::lang::model::element::Element;
 using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $Modifier = ::javax::lang::model::element::Modifier;
-using $Name = ::javax::lang::model::element::Name;
+using $1Name = ::javax::lang::model::element::Name;
 using $Parameterizable = ::javax::lang::model::element::Parameterizable;
 using $RecordComponentElement = ::javax::lang::model::element::RecordComponentElement;
 using $TypeElement = ::javax::lang::model::element::TypeElement;

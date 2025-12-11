@@ -27,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $KeyStore = ::java::security::KeyStore;
 using $KeyStoreException = ::java::security::KeyStoreException;
-using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 
 namespace com {

@@ -22,7 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
 using $ThreadInfo = ::java::lang::management::ThreadInfo;
-using $ThreadMXBean = ::java::lang::management::ThreadMXBean;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 using $ObjectName = ::javax::management::ObjectName;
@@ -535,7 +534,7 @@ $ThreadArray* ThreadImpl::getThreads() {
 	$init(ThreadImpl);
 	$var($ThreadArray, $ret, nullptr);
 	$prepareNativeStatic(ThreadImpl, getThreads, $ThreadArray*);
-	$assign($ret, $invokeNativeStatic(ThreadImpl, getThreads));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -543,7 +542,7 @@ $ThreadArray* ThreadImpl::getThreads() {
 void ThreadImpl::getThreadInfo1($longs* ids, int32_t maxDepth, $ThreadInfoArray* result) {
 	$init(ThreadImpl);
 	$prepareNativeStatic(ThreadImpl, getThreadInfo1, void, $longs* ids, int32_t maxDepth, $ThreadInfoArray* result);
-	$invokeNativeStatic(ThreadImpl, getThreadInfo1, ids, maxDepth, result);
+	$invokeNativeStatic(ids, maxDepth, result);
 	$finishNativeStatic();
 }
 
@@ -551,7 +550,7 @@ int64_t ThreadImpl::getThreadTotalCpuTime0(int64_t id) {
 	$init(ThreadImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(ThreadImpl, getThreadTotalCpuTime0, int64_t, int64_t id);
-	$ret = $invokeNativeStatic(ThreadImpl, getThreadTotalCpuTime0, id);
+	$ret = $invokeNativeStatic(id);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -559,7 +558,7 @@ int64_t ThreadImpl::getThreadTotalCpuTime0(int64_t id) {
 void ThreadImpl::getThreadTotalCpuTime1($longs* ids, $longs* result) {
 	$init(ThreadImpl);
 	$prepareNativeStatic(ThreadImpl, getThreadTotalCpuTime1, void, $longs* ids, $longs* result);
-	$invokeNativeStatic(ThreadImpl, getThreadTotalCpuTime1, ids, result);
+	$invokeNativeStatic(ids, result);
 	$finishNativeStatic();
 }
 
@@ -567,7 +566,7 @@ int64_t ThreadImpl::getThreadUserCpuTime0(int64_t id) {
 	$init(ThreadImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(ThreadImpl, getThreadUserCpuTime0, int64_t, int64_t id);
-	$ret = $invokeNativeStatic(ThreadImpl, getThreadUserCpuTime0, id);
+	$ret = $invokeNativeStatic(id);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -575,7 +574,7 @@ int64_t ThreadImpl::getThreadUserCpuTime0(int64_t id) {
 void ThreadImpl::getThreadUserCpuTime1($longs* ids, $longs* result) {
 	$init(ThreadImpl);
 	$prepareNativeStatic(ThreadImpl, getThreadUserCpuTime1, void, $longs* ids, $longs* result);
-	$invokeNativeStatic(ThreadImpl, getThreadUserCpuTime1, ids, result);
+	$invokeNativeStatic(ids, result);
 	$finishNativeStatic();
 }
 
@@ -583,7 +582,7 @@ int64_t ThreadImpl::getThreadAllocatedMemory0(int64_t id) {
 	$init(ThreadImpl);
 	int64_t $ret = 0;
 	$prepareNativeStatic(ThreadImpl, getThreadAllocatedMemory0, int64_t, int64_t id);
-	$ret = $invokeNativeStatic(ThreadImpl, getThreadAllocatedMemory0, id);
+	$ret = $invokeNativeStatic(id);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -591,28 +590,28 @@ int64_t ThreadImpl::getThreadAllocatedMemory0(int64_t id) {
 void ThreadImpl::getThreadAllocatedMemory1($longs* ids, $longs* result) {
 	$init(ThreadImpl);
 	$prepareNativeStatic(ThreadImpl, getThreadAllocatedMemory1, void, $longs* ids, $longs* result);
-	$invokeNativeStatic(ThreadImpl, getThreadAllocatedMemory1, ids, result);
+	$invokeNativeStatic(ids, result);
 	$finishNativeStatic();
 }
 
 void ThreadImpl::setThreadCpuTimeEnabled0(bool enable) {
 	$init(ThreadImpl);
 	$prepareNativeStatic(ThreadImpl, setThreadCpuTimeEnabled0, void, bool enable);
-	$invokeNativeStatic(ThreadImpl, setThreadCpuTimeEnabled0, enable);
+	$invokeNativeStatic(enable);
 	$finishNativeStatic();
 }
 
 void ThreadImpl::setThreadAllocatedMemoryEnabled0(bool enable) {
 	$init(ThreadImpl);
 	$prepareNativeStatic(ThreadImpl, setThreadAllocatedMemoryEnabled0, void, bool enable);
-	$invokeNativeStatic(ThreadImpl, setThreadAllocatedMemoryEnabled0, enable);
+	$invokeNativeStatic(enable);
 	$finishNativeStatic();
 }
 
 void ThreadImpl::setThreadContentionMonitoringEnabled0(bool enable) {
 	$init(ThreadImpl);
 	$prepareNativeStatic(ThreadImpl, setThreadContentionMonitoringEnabled0, void, bool enable);
-	$invokeNativeStatic(ThreadImpl, setThreadContentionMonitoringEnabled0, enable);
+	$invokeNativeStatic(enable);
 	$finishNativeStatic();
 }
 
@@ -620,7 +619,7 @@ $ThreadArray* ThreadImpl::findMonitorDeadlockedThreads0() {
 	$init(ThreadImpl);
 	$var($ThreadArray, $ret, nullptr);
 	$prepareNativeStatic(ThreadImpl, findMonitorDeadlockedThreads0, $ThreadArray*);
-	$assign($ret, $invokeNativeStatic(ThreadImpl, findMonitorDeadlockedThreads0));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -629,7 +628,7 @@ $ThreadArray* ThreadImpl::findDeadlockedThreads0() {
 	$init(ThreadImpl);
 	$var($ThreadArray, $ret, nullptr);
 	$prepareNativeStatic(ThreadImpl, findDeadlockedThreads0, $ThreadArray*);
-	$assign($ret, $invokeNativeStatic(ThreadImpl, findDeadlockedThreads0));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -637,7 +636,7 @@ $ThreadArray* ThreadImpl::findDeadlockedThreads0() {
 void ThreadImpl::resetPeakThreadCount0() {
 	$init(ThreadImpl);
 	$prepareNativeStatic(ThreadImpl, resetPeakThreadCount0, void);
-	$invokeNativeStatic(ThreadImpl, resetPeakThreadCount0);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -645,7 +644,7 @@ $ThreadInfoArray* ThreadImpl::dumpThreads0($longs* ids, bool lockedMonitors, boo
 	$init(ThreadImpl);
 	$var($ThreadInfoArray, $ret, nullptr);
 	$prepareNativeStatic(ThreadImpl, dumpThreads0, $ThreadInfoArray*, $longs* ids, bool lockedMonitors, bool lockedSynchronizers, int32_t maxDepth);
-	$assign($ret, $invokeNativeStatic(ThreadImpl, dumpThreads0, ids, lockedMonitors, lockedSynchronizers, maxDepth));
+	$assign($ret, $invokeNativeStaticObject(ids, lockedMonitors, lockedSynchronizers, maxDepth));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -653,7 +652,7 @@ $ThreadInfoArray* ThreadImpl::dumpThreads0($longs* ids, bool lockedMonitors, boo
 void ThreadImpl::resetContentionTimes0(int64_t tid) {
 	$init(ThreadImpl);
 	$prepareNativeStatic(ThreadImpl, resetContentionTimes0, void, int64_t tid);
-	$invokeNativeStatic(ThreadImpl, resetContentionTimes0, tid);
+	$invokeNativeStatic(tid);
 	$finishNativeStatic();
 }
 

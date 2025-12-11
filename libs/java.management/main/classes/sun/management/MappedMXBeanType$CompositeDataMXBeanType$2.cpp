@@ -4,13 +4,11 @@
 #include <sun/management/MappedMXBeanType$CompositeDataMXBeanType.h>
 #include <jcpp.h>
 
-using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $MappedMXBeanType$CompositeDataMXBeanType = ::sun::management::MappedMXBeanType$CompositeDataMXBeanType;
 
 namespace sun {

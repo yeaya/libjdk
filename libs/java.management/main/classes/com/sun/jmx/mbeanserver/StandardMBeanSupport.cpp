@@ -22,7 +22,6 @@ using $MBeanSupport = ::com::sun::jmx::mbeanserver::MBeanSupport;
 using $StandardMBeanIntrospector = ::com::sun::jmx::mbeanserver::StandardMBeanIntrospector;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Descriptor = ::javax::management::Descriptor;
 using $MBeanInfo = ::javax::management::MBeanInfo;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $ObjectName = ::javax::management::ObjectName;

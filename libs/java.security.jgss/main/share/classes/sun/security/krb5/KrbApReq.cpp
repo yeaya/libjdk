@@ -50,7 +50,6 @@
 #undef KU_TICKET
 #undef TKT_OPTS_INVALID
 
-using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $EncryptionKeyArray = $Array<::sun::security::krb5::EncryptionKey>;
 using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
@@ -59,7 +58,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $InetAddress = ::java::net::InetAddress;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
@@ -91,7 +89,6 @@ using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
 using $EType = ::sun::security::krb5::internal::crypto::EType;
 using $KeyUsage = ::sun::security::krb5::internal::crypto::KeyUsage;
 using $AuthTimeWithHash = ::sun::security::krb5::internal::rcache::AuthTimeWithHash;
-using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
 using $DerValue = ::sun::security::util::DerValue;
 
 namespace sun {

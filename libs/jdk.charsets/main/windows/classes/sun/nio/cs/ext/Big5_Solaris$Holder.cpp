@@ -18,7 +18,6 @@ using $Arrays = ::java::util::Arrays;
 using $DoubleByte = ::sun::nio::cs::DoubleByte;
 using $Big5$DecodeHolder = ::sun::nio::cs::ext::Big5$DecodeHolder;
 using $Big5$EncodeHolder = ::sun::nio::cs::ext::Big5$EncodeHolder;
-using $Big5_Solaris = ::sun::nio::cs::ext::Big5_Solaris;
 
 namespace sun {
 	namespace nio {

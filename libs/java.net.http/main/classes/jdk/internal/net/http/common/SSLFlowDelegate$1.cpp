@@ -15,17 +15,13 @@
 #undef NEED_WRAP
 #undef OK
 
-using $SSLEngineResult$HandshakeStatusArray = $Array<::javax::net::ssl::SSLEngineResult$HandshakeStatus>;
-using $SSLEngineResult$StatusArray = $Array<::javax::net::ssl::SSLEngineResult$Status>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $SSLEngineResult$HandshakeStatus = ::javax::net::ssl::SSLEngineResult$HandshakeStatus;
 using $SSLEngineResult$Status = ::javax::net::ssl::SSLEngineResult$Status;
-using $SSLFlowDelegate = ::jdk::internal::net::http::common::SSLFlowDelegate;
 
 namespace jdk {
 	namespace internal {

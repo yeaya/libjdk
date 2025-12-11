@@ -5,9 +5,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <jcpp.h>
 
-using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

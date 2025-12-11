@@ -41,7 +41,6 @@ using $RemoteObject = ::java::rmi::server::RemoteObject;
 using $RemoteObjectInvocationHandler$MethodToHash_Maps = ::java::rmi::server::RemoteObjectInvocationHandler$MethodToHash_Maps;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
 using $Map = ::java::util::Map;
-using $WeakClassHashMap = ::sun::rmi::server::WeakClassHashMap;
 
 namespace java {
 	namespace rmi {

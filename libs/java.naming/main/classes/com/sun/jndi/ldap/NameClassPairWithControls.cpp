@@ -9,8 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NameClassPair = ::javax::naming::NameClassPair;
-using $Control = ::javax::naming::ldap::Control;
-using $HasControls = ::javax::naming::ldap::HasControls;
 
 namespace com {
 	namespace sun {

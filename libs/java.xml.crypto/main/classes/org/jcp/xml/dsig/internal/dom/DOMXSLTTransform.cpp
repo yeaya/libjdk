@@ -16,7 +16,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;

@@ -13,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BasicPermission = ::java::security::BasicPermission;
-using $Permission = ::java::security::Permission;
 
 namespace javax {
 	namespace management {

@@ -9,14 +9,11 @@
 #undef LEVEL
 #undef USEPARENT
 
-using $LogManager$ConfigPropertyArray = $Array<::java::util::logging::LogManager$ConfigProperty>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $LogManager = ::java::util::logging::LogManager;
 using $LogManager$ConfigProperty = ::java::util::logging::LogManager$ConfigProperty;
 
 namespace java {

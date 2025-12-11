@@ -10,15 +10,11 @@
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
-using $ObjectInstance = ::javax::management::ObjectInstance;
 using $ObjectName = ::javax::management::ObjectName;
-using $ClassLoaderRepository = ::javax::management::loading::ClassLoaderRepository;
 
 namespace javax {
 	namespace management {

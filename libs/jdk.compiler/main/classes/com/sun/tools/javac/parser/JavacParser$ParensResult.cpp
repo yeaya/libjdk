@@ -10,7 +10,6 @@
 #undef PARENS
 
 using $JavacParser$ParensResultArray = $Array<::com::sun::tools::javac::parser::JavacParser$ParensResult>;
-using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

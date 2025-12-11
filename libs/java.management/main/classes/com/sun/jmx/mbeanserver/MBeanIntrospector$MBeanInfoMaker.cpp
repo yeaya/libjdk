@@ -23,7 +23,6 @@ using $MBeanNotificationInfoArray = $Array<::javax::management::MBeanNotificatio
 using $MBeanOperationInfoArray = $Array<::javax::management::MBeanOperationInfo>;
 using $DescriptorCache = ::com::sun::jmx::mbeanserver::DescriptorCache;
 using $Introspector = ::com::sun::jmx::mbeanserver::Introspector;
-using $MBeanAnalyzer$MBeanVisitor = ::com::sun::jmx::mbeanserver::MBeanAnalyzer$MBeanVisitor;
 using $MBeanIntrospector = ::com::sun::jmx::mbeanserver::MBeanIntrospector;
 using $Util = ::com::sun::jmx::mbeanserver::Util;
 using $ClassInfo = ::java::lang::ClassInfo;

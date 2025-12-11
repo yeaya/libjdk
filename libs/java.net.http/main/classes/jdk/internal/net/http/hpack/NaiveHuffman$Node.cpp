@@ -11,7 +11,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NaiveHuffman = ::jdk::internal::net::http::hpack::NaiveHuffman;
 
 namespace jdk {
 	namespace internal {

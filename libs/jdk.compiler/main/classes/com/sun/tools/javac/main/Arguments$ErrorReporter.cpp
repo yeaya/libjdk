@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/main/Option.h>
 #include <jcpp.h>
 
-using $Arguments = ::com::sun::tools::javac::main::Arguments;
-using $Option = ::com::sun::tools::javac::main::Option;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

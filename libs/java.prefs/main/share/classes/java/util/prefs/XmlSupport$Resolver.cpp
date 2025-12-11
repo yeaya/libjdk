@@ -12,8 +12,6 @@ using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $XmlSupport = ::java::util::prefs::XmlSupport;
-using $EntityResolver = ::org::xml::sax::EntityResolver;
 using $InputSource = ::org::xml::sax::InputSource;
 using $SAXException = ::org::xml::sax::SAXException;
 

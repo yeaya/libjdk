@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RowSetInternal = ::javax::sql::RowSetInternal;
 
 namespace javax {
 	namespace sql {

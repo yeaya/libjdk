@@ -46,5 +46,4 @@ void java$prefs$test::init() {
 		java$prefs$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

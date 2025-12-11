@@ -10,19 +10,8 @@
 #include <javax/management/relation/RoleResult.h>
 #include <jcpp.h>
 
-using $RoleInfoArray = $Array<::javax::management::relation::RoleInfo>;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $ObjectName = ::javax::management::ObjectName;
-using $RelationType = ::javax::management::relation::RelationType;
-using $Role = ::javax::management::relation::Role;
-using $RoleInfo = ::javax::management::relation::RoleInfo;
-using $RoleList = ::javax::management::relation::RoleList;
-using $RoleResult = ::javax::management::relation::RoleResult;
 
 namespace javax {
 	namespace management {

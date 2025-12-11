@@ -5,10 +5,8 @@
 #include <jcpp.h>
 
 using $BlockTagTree = ::com::sun::source::doctree::BlockTagTree;
-using $InlineTagTree = ::com::sun::source::doctree::InlineTagTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {

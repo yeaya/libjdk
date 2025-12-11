@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::javax::naming::Reference;
 
 namespace javax {
 	namespace naming {

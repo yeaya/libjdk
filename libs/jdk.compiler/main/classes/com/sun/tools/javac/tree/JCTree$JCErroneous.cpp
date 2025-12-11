@@ -16,16 +16,15 @@
 using $ErroneousTree = ::com::sun::source::tree::ErroneousTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -43,7 +42,7 @@ $MethodInfo _JCTree$JCErroneous_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCErroneous::*)($1List*)>(&JCTree$JCErroneous::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)V", $PROTECTED, $method(static_cast<void(JCTree$JCErroneous::*)($List*)>(&JCTree$JCErroneous::init$))},
 	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
 	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
 	{"getErrorTrees", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC},
@@ -99,7 +98,7 @@ void JCTree$JCErroneous::finalize() {
 	this->$JCTree$JCExpression::finalize();
 }
 
-void JCTree$JCErroneous::init$($1List* errs) {
+void JCTree$JCErroneous::init$($List* errs) {
 	$JCTree$JCExpression::init$();
 	$set(this, errs, errs);
 }
@@ -113,7 +112,7 @@ $Tree$Kind* JCTree$JCErroneous::getKind() {
 	return $Tree$Kind::ERRONEOUS;
 }
 
-$List* JCTree$JCErroneous::getErrorTrees() {
+$1List* JCTree$JCErroneous::getErrorTrees() {
 	return this->errs;
 }
 

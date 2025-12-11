@@ -31,8 +31,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $Files = ::java::nio::file::Files;
-using $OpenOption = ::java::nio::file::OpenOption;
-using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 
 namespace com {

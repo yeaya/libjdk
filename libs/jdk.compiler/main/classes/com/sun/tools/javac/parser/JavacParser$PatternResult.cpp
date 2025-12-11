@@ -8,7 +8,6 @@
 #undef PATTERN
 
 using $JavacParser$PatternResultArray = $Array<::com::sun::tools::javac::parser::JavacParser$PatternResult>;
-using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

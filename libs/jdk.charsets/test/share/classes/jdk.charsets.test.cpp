@@ -99,5 +99,4 @@ void jdk$charsets$test::init() {
 		jdk$charsets$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

@@ -43,25 +43,19 @@
 #undef US_ASCII
 
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $URI = ::java::net::URI;
 using $HttpClient = ::java::net::http::HttpClient;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -69,7 +63,6 @@ using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
-using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $BiPredicate = ::java::util::function::BiPredicate;
 using $Supplier = ::java::util::function::Supplier;
@@ -81,7 +74,6 @@ using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
 using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $HttpHeadersBuilder = ::jdk::internal::net::http::common::HttpHeadersBuilder;
 using $Log = ::jdk::internal::net::http::common::Log;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
 namespace jdk {

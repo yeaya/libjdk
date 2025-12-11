@@ -2,7 +2,6 @@
 
 #include <jcpp.h>
 
-using $CaseLabelTree = ::com::sun::source::tree::CaseLabelTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 

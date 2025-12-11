@@ -18,7 +18,6 @@
 #include <javax/lang/model/type/TypeMirror.h>
 #include <jcpp.h>
 
-using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
@@ -27,13 +26,12 @@ using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$Visitor = ::com::sun::tools::javac::code::Symbol$Visitor;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
 using $1Name = ::javax::lang::model::element::Name;
@@ -214,7 +212,7 @@ $Symbol* Symbol$DelegatedSymbol::getUnderlyingSymbol() {
 	return this->other;
 }
 
-$1List* Symbol$DelegatedSymbol::getAnnotationMirrors() {
+$List* Symbol$DelegatedSymbol::getAnnotationMirrors() {
 	return $Symbol::getAnnotationMirrors();
 }
 

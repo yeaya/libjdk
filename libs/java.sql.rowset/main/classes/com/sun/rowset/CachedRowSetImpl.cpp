@@ -177,7 +177,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $RuntimePermission = ::java::lang::RuntimePermission;
@@ -185,7 +184,6 @@ using $SecurityException = ::java::lang::SecurityException;
 using $Short = ::java::lang::Short;
 using $BigDecimal = ::java::math::BigDecimal;
 using $URL = ::java::net::URL;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
@@ -198,7 +196,7 @@ using $Blob = ::java::sql::Blob;
 using $Clob = ::java::sql::Clob;
 using $Connection = ::java::sql::Connection;
 using $DatabaseMetaData = ::java::sql::DatabaseMetaData;
-using $1Date = ::java::sql::Date;
+using $Date = ::java::sql::Date;
 using $NClob = ::java::sql::NClob;
 using $Ref = ::java::sql::Ref;
 using $ResultSet = ::java::sql::ResultSet;
@@ -224,7 +222,7 @@ using $AbstractList = ::java::util::AbstractList;
 using $Arrays = ::java::util::Arrays;
 using $Calendar = ::java::util::Calendar;
 using $Collection = ::java::util::Collection;
-using $Date = ::java::util::Date;
+using $1Date = ::java::util::Date;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
@@ -937,7 +935,7 @@ void CachedRowSetImpl::setBytes(int32_t parameterIndex, $bytes* x) {
 	this->$BaseRowSet::setBytes(parameterIndex, x);
 }
 
-void CachedRowSetImpl::setDate(int32_t parameterIndex, $1Date* x) {
+void CachedRowSetImpl::setDate(int32_t parameterIndex, $Date* x) {
 	this->$BaseRowSet::setDate(parameterIndex, x);
 }
 
@@ -1001,7 +999,7 @@ void CachedRowSetImpl::setArray(int32_t parameterIndex, $1Array* array) {
 	this->$BaseRowSet::setArray(parameterIndex, array);
 }
 
-void CachedRowSetImpl::setDate(int32_t parameterIndex, $1Date* x, $Calendar* cal) {
+void CachedRowSetImpl::setDate(int32_t parameterIndex, $Date* x, $Calendar* cal) {
 	this->$BaseRowSet::setDate(parameterIndex, x, cal);
 }
 
@@ -1827,7 +1825,7 @@ $bytes* CachedRowSetImpl::getBytes(int32_t columnIndex) {
 	return ($cast($bytes, $nc($(getCurrentRow()))->getColumnObject(columnIndex)));
 }
 
-$1Date* CachedRowSetImpl::getDate(int32_t columnIndex) {
+$Date* CachedRowSetImpl::getDate(int32_t columnIndex) {
 	$useLocalCurrentObjectStackCache();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
@@ -1842,15 +1840,15 @@ $1Date* CachedRowSetImpl::getDate(int32_t columnIndex) {
 	case $Types::DATE:
 		{
 			{
-				int64_t sec = $nc(($cast($1Date, value)))->getTime();
-				return $new($1Date, sec);
+				int64_t sec = $nc(($cast($Date, value)))->getTime();
+				return $new($Date, sec);
 			}
 		}
 	case $Types::TIMESTAMP:
 		{
 			{
 				int64_t sec = $nc(($cast($Timestamp, value)))->getTime();
-				return $new($1Date, sec);
+				return $new($Date, sec);
 			}
 		}
 	case $Types::CHAR:
@@ -1862,7 +1860,7 @@ $1Date* CachedRowSetImpl::getDate(int32_t columnIndex) {
 			{
 				try {
 					$var($DateFormat, df, $DateFormat::getDateInstance());
-					return (($cast($1Date, $nc(df)->parse($($nc($of(value))->toString())))));
+					return (($cast($Date, $nc(df)->parse($($nc($of(value))->toString())))));
 				} catch ($ParseException& ex) {
 					$var($String, var$0, $nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.datefail"_s))))->toString());
 					$throwNew($SQLException, $($MessageFormat::format(var$0, $$new($ObjectArray, {
@@ -1972,7 +1970,7 @@ $Timestamp* CachedRowSetImpl::getTimestamp(int32_t columnIndex) {
 	case $Types::DATE:
 		{
 			{
-				int64_t sec = $nc(($cast($1Date, value)))->getTime();
+				int64_t sec = $nc(($cast($Date, value)))->getTime();
 				return $new($Timestamp, sec);
 			}
 		}
@@ -2104,7 +2102,7 @@ $bytes* CachedRowSetImpl::getBytes($String* columnName) {
 	return getBytes(getColIdxByName(columnName));
 }
 
-$1Date* CachedRowSetImpl::getDate($String* columnName) {
+$Date* CachedRowSetImpl::getDate($String* columnName) {
 	return getDate(getColIdxByName(columnName));
 }
 
@@ -2719,7 +2717,7 @@ $Object* CachedRowSetImpl::convertTemporal(Object$* srcObj, int32_t srcType, int
 		case $Types::DATE:
 			{
 				if (srcType == $Types::TIMESTAMP) {
-					return $of($new($1Date, $nc(($cast($Timestamp, srcObj)))->getTime()));
+					return $of($new($Date, $nc(($cast($Timestamp, srcObj)))->getTime()));
 				} else {
 					$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.dtypemismt"_s))))->toString()));
 				}
@@ -2729,7 +2727,7 @@ $Object* CachedRowSetImpl::convertTemporal(Object$* srcObj, int32_t srcType, int
 				if (srcType == $Types::TIME) {
 					return $of($new($Timestamp, $nc(($cast($Time, srcObj)))->getTime()));
 				} else {
-					return $of($new($Timestamp, $nc(($cast($1Date, srcObj)))->getTime()));
+					return $of($new($Timestamp, $nc(($cast($Date, srcObj)))->getTime()));
 				}
 			}
 		case $Types::TIME:
@@ -2891,7 +2889,7 @@ void CachedRowSetImpl::updateBytes(int32_t columnIndex, $bytes* x) {
 	$nc($(getCurrentRow()))->setColumnObject(columnIndex, x);
 }
 
-void CachedRowSetImpl::updateDate(int32_t columnIndex, $1Date* x) {
+void CachedRowSetImpl::updateDate(int32_t columnIndex, $Date* x) {
 	$useLocalCurrentObjectStackCache();
 	checkIndex(columnIndex);
 	checkCursor();
@@ -3036,7 +3034,7 @@ void CachedRowSetImpl::updateBytes($String* columnName, $bytes* x) {
 	updateBytes(getColIdxByName(columnName), x);
 }
 
-void CachedRowSetImpl::updateDate($String* columnName, $1Date* x) {
+void CachedRowSetImpl::updateDate($String* columnName, $Date* x) {
 	updateDate(getColIdxByName(columnName), x);
 }
 
@@ -3290,7 +3288,7 @@ $1Array* CachedRowSetImpl::getArray($String* colName) {
 	return getArray(getColIdxByName(colName));
 }
 
-$1Date* CachedRowSetImpl::getDate(int32_t columnIndex, $Calendar* cal) {
+$Date* CachedRowSetImpl::getDate(int32_t columnIndex, $Calendar* cal) {
 	$useLocalCurrentObjectStackCache();
 	$var($Object, value, nullptr);
 	checkIndex(columnIndex);
@@ -3303,14 +3301,14 @@ $1Date* CachedRowSetImpl::getDate(int32_t columnIndex, $Calendar* cal) {
 	}
 	$assign(value, convertTemporal(value, $nc(this->RowSetMD)->getColumnType(columnIndex), $Types::DATE));
 	$var($Calendar, defaultCal, $Calendar::getInstance());
-	$nc(defaultCal)->setTime($cast($Date, value));
+	$nc(defaultCal)->setTime($cast($1Date, value));
 	$nc(cal)->set($Calendar::YEAR, defaultCal->get($Calendar::YEAR));
 	cal->set($Calendar::MONTH, defaultCal->get($Calendar::MONTH));
 	cal->set($Calendar::DAY_OF_MONTH, defaultCal->get($Calendar::DAY_OF_MONTH));
-	return $new($1Date, $nc($(cal->getTime()))->getTime());
+	return $new($Date, $nc($(cal->getTime()))->getTime());
 }
 
-$1Date* CachedRowSetImpl::getDate($String* columnName, $Calendar* cal) {
+$Date* CachedRowSetImpl::getDate($String* columnName, $Calendar* cal) {
 	return getDate(getColIdxByName(columnName), cal);
 }
 
@@ -3327,7 +3325,7 @@ $Time* CachedRowSetImpl::getTime(int32_t columnIndex, $Calendar* cal) {
 	}
 	$assign(value, convertTemporal(value, $nc(this->RowSetMD)->getColumnType(columnIndex), $Types::TIME));
 	$var($Calendar, defaultCal, $Calendar::getInstance());
-	$nc(defaultCal)->setTime($cast($Date, value));
+	$nc(defaultCal)->setTime($cast($1Date, value));
 	$nc(cal)->set($Calendar::HOUR_OF_DAY, defaultCal->get($Calendar::HOUR_OF_DAY));
 	cal->set($Calendar::MINUTE, defaultCal->get($Calendar::MINUTE));
 	cal->set($Calendar::SECOND, defaultCal->get($Calendar::SECOND));
@@ -3351,7 +3349,7 @@ $Timestamp* CachedRowSetImpl::getTimestamp(int32_t columnIndex, $Calendar* cal) 
 	}
 	$assign(value, convertTemporal(value, $nc(this->RowSetMD)->getColumnType(columnIndex), $Types::TIMESTAMP));
 	$var($Calendar, defaultCal, $Calendar::getInstance());
-	$nc(defaultCal)->setTime($cast($Date, value));
+	$nc(defaultCal)->setTime($cast($1Date, value));
 	$nc(cal)->set($Calendar::YEAR, defaultCal->get($Calendar::YEAR));
 	cal->set($Calendar::MONTH, defaultCal->get($Calendar::MONTH));
 	cal->set($Calendar::DAY_OF_MONTH, defaultCal->get($Calendar::DAY_OF_MONTH));
@@ -4283,12 +4281,12 @@ void CachedRowSetImpl::setClob($String* parameterName, $Reader* reader) {
 	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
 }
 
-void CachedRowSetImpl::setDate($String* parameterName, $1Date* x) {
+void CachedRowSetImpl::setDate($String* parameterName, $Date* x) {
 	$useLocalCurrentObjectStackCache();
 	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
 }
 
-void CachedRowSetImpl::setDate($String* parameterName, $1Date* x, $Calendar* cal) {
+void CachedRowSetImpl::setDate($String* parameterName, $Date* x, $Calendar* cal) {
 	$useLocalCurrentObjectStackCache();
 	$throwNew($SQLFeatureNotSupportedException, $($nc($of($($nc(this->resBundle)->handleGetObject("cachedrowsetimpl.featnotsupp"_s))))->toString()));
 }

@@ -26,7 +26,6 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $Check$NestedCheckContext = ::com::sun::tools::javac::comp::Check$NestedCheckContext;
@@ -39,19 +38,15 @@ using $DeferredAttr$DeferredAttrNode$StructuralStuckChecker = ::com::sun::tools:
 using $DeferredAttr$DeferredStuckPolicy = ::com::sun::tools::javac::comp::DeferredAttr$DeferredStuckPolicy;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {

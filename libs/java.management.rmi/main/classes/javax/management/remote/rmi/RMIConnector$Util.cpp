@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RMIConnector = ::javax::management::remote::rmi::RMIConnector;
 
 namespace javax {
 	namespace management {

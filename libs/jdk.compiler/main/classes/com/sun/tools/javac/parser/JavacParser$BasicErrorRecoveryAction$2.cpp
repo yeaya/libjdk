@@ -9,7 +9,6 @@
 using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $JavacParser$BasicErrorRecoveryAction = ::com::sun::tools::javac::parser::JavacParser$BasicErrorRecoveryAction;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCatch = ::com::sun::tools::javac::tree::JCTree$JCCatch;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

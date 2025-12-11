@@ -5,7 +5,6 @@
 #include <jcpp.h>
 
 using $Infer$GraphSolver$InferenceGraph = ::com::sun::tools::javac::comp::Infer$GraphSolver$InferenceGraph;
-using $Infer$GraphStrategy = ::com::sun::tools::javac::comp::Infer$GraphStrategy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

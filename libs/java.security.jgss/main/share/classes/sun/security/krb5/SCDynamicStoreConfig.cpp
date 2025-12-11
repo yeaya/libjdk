@@ -82,7 +82,7 @@ void SCDynamicStoreConfig::init$() {
 void SCDynamicStoreConfig::installNotificationCallback() {
 	$init(SCDynamicStoreConfig);
 	$prepareNativeStatic(SCDynamicStoreConfig, installNotificationCallback, void);
-	$invokeNativeStatic(SCDynamicStoreConfig, installNotificationCallback);
+	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
@@ -90,7 +90,7 @@ $List* SCDynamicStoreConfig::getKerberosConfig() {
 	$init(SCDynamicStoreConfig);
 	$var($List, $ret, nullptr);
 	$prepareNativeStatic(SCDynamicStoreConfig, getKerberosConfig, $List*);
-	$assign($ret, $invokeNativeStatic(SCDynamicStoreConfig, getKerberosConfig));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }

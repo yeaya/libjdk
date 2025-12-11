@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/main/CommandLine.h>
 #include <jcpp.h>
 
-using $CommandLine = ::com::sun::tools::javac::main::CommandLine;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

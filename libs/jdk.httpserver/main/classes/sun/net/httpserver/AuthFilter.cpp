@@ -21,7 +21,6 @@ using $Authenticator$Success = ::com::sun::net::httpserver::Authenticator$Succes
 using $Filter = ::com::sun::net::httpserver::Filter;
 using $Filter$Chain = ::com::sun::net::httpserver::Filter$Chain;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
-using $HttpPrincipal = ::com::sun::net::httpserver::HttpPrincipal;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

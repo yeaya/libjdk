@@ -25,9 +25,7 @@
 #undef VAR
 
 using $Kinds$KindNameArray = $Array<::com::sun::tools::javac::code::Kinds$KindName>;
-using $Formattable = ::com::sun::tools::javac::api::Formattable;
 using $Messages = ::com::sun::tools::javac::api::Messages;
-using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

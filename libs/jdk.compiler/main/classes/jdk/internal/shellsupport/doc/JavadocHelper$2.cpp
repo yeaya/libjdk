@@ -24,18 +24,13 @@
 #undef RETURN
 #undef THROWS
 
-using $DocTree$KindArray = $Array<::com::sun::source::doctree::DocTree$Kind>;
-using $ElementKindArray = $Array<::javax::lang::model::element::ElementKind>;
-using $DocTree = ::com::sun::source::doctree::DocTree;
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
-using $JavadocHelper = ::jdk::internal::shellsupport::doc::JavadocHelper;
 
 namespace jdk {
 	namespace internal {

@@ -4,11 +4,9 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
-using $DummySecureWebSocketServer$WebSocketChannel = ::DummySecureWebSocketServer$WebSocketChannel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
 
 $MethodInfo _DummySecureWebSocketServer$WebSocketChannel$Reader_MethodInfo_[] = {
 	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},

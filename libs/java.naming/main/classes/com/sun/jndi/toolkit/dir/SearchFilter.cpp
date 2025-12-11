@@ -29,7 +29,6 @@
 #undef OR_TOKEN
 #undef WILDCARD_TOKEN
 
-using $AttrFilter = ::com::sun::jndi::toolkit::dir::AttrFilter;
 using $SearchFilter$AtomicFilter = ::com::sun::jndi::toolkit::dir::SearchFilter$AtomicFilter;
 using $SearchFilter$CompoundFilter = ::com::sun::jndi::toolkit::dir::SearchFilter$CompoundFilter;
 using $SearchFilter$NotFilter = ::com::sun::jndi::toolkit::dir::SearchFilter$NotFilter;
@@ -41,7 +40,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $HexFormat = ::java::util::HexFormat;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;

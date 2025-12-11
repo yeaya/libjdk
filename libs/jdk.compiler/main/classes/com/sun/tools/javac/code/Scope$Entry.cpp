@@ -6,7 +6,6 @@
 #include <java/util/function/Predicate.h>
 #include <jcpp.h>
 
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$ScopeImpl = ::com::sun::tools::javac::code::Scope$ScopeImpl;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $ClassInfo = ::java::lang::ClassInfo;

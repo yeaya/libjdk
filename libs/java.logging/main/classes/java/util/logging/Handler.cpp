@@ -33,7 +33,6 @@ using $Charset = ::java::nio::charset::Charset;
 using $IllegalCharsetNameException = ::java::nio::charset::IllegalCharsetNameException;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Objects = ::java::util::Objects;
 using $ErrorManager = ::java::util::logging::ErrorManager;

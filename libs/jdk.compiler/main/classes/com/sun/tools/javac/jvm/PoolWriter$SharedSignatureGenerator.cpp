@@ -15,7 +15,6 @@
 
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$SignatureGenerator = ::com::sun::tools::javac::code::Types$SignatureGenerator;
@@ -24,9 +23,7 @@ using $PoolWriter$1 = ::com::sun::tools::javac::jvm::PoolWriter$1;
 using $UninitializedType = ::com::sun::tools::javac::jvm::UninitializedType;
 using $ByteBuffer = ::com::sun::tools::javac::util::ByteBuffer;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

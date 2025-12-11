@@ -5,12 +5,10 @@
 #include <java/util/concurrent/Flow$Subscription.h>
 #include <jcpp.h>
 
-using $FlowAdaptersCompileOnly = ::FlowAdaptersCompileOnly;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 
 $MethodInfo _FlowAdaptersCompileOnly$CollectionSubscriber_MethodInfo_[] = {

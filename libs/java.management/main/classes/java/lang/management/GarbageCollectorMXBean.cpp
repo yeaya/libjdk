@@ -4,7 +4,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MemoryManagerMXBean = ::java::lang::management::MemoryManagerMXBean;
 
 namespace java {
 	namespace lang {

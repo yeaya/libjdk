@@ -48,16 +48,13 @@
 #undef COMPILATION
 #undef SOURCE_PATH
 
-using $GraphUtils$DependencyKindArray = $Array<::com::sun::tools::javac::util::GraphUtils$DependencyKind>;
 using $TaskEvent = ::com::sun::source::util::TaskEvent;
 using $TaskEvent$Kind = ::com::sun::source::util::TaskEvent$Kind;
-using $TaskListener = ::com::sun::source::util::TaskListener;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Context = ::com::sun::tools::javac::util::Context;
-using $Dependencies = ::com::sun::tools::javac::util::Dependencies;
 using $Dependencies$GraphDependencies = ::com::sun::tools::javac::util::Dependencies$GraphDependencies;
 using $Dependencies$GraphDependencies$CompletionNode = ::com::sun::tools::javac::util::Dependencies$GraphDependencies$CompletionNode;
 using $Dependencies$GraphDependencies$Node = ::com::sun::tools::javac::util::Dependencies$GraphDependencies$Node;
@@ -69,15 +66,10 @@ using $Util = ::com::sun::tools::sjavac::Util;
 using $JavaFileObjectWithLocation = ::com::sun::tools::sjavac::comp::JavaFileObjectWithLocation;
 using $PubAPIs = ::com::sun::tools::sjavac::comp::PubAPIs;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
@@ -89,7 +81,6 @@ using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $Element = ::javax::lang::model::element::Element;

@@ -8,7 +8,6 @@
 #include <java/net/URLConnection.h>
 #include <jcpp.h>
 
-using $Main$MemoryClassLoader = ::com::sun::tools::javac::launcher::Main$MemoryClassLoader;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $InputStream = ::java::io::InputStream;

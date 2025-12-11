@@ -47,11 +47,9 @@
 
 using $DocCommentTree = ::com::sun::source::doctree::DocCommentTree;
 using $DocTree = ::com::sun::source::doctree::DocTree;
-using $DocTreeScanner = ::com::sun::source::util::DocTreeScanner;
 using $DocTrees = ::com::sun::source::util::DocTrees;
 using $JavacTask = ::com::sun::source::util::JavacTask;
 using $Writer = ::java::io::Writer;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

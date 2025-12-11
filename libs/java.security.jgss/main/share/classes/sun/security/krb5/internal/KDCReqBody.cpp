@@ -24,9 +24,7 @@
 
 using $TicketArray = $Array<::sun::security::krb5::internal::Ticket>;
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -42,7 +40,6 @@ using $KDCOptions = ::sun::security::krb5::internal::KDCOptions;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $Ticket = ::sun::security::krb5::internal::Ticket;
-using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;

@@ -19,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessControlContext = ::java::security::AccessControlContext;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $Vector = ::java::util::Vector;

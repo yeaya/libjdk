@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Remote = ::java::rmi::Remote;
-using $RMIConnection = ::javax::management::remote::rmi::RMIConnection;
 
 namespace javax {
 	namespace management {

@@ -20,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $Format = ::java::text::Format;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;

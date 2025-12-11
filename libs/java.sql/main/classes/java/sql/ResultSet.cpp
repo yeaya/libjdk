@@ -34,34 +34,14 @@
 #undef TYPE_SCROLL_INSENSITIVE
 #undef TYPE_SCROLL_SENSITIVE
 
-using $InputStream = ::java::io::InputStream;
-using $Reader = ::java::io::Reader;
-using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $BigDecimal = ::java::math::BigDecimal;
-using $URL = ::java::net::URL;
-using $1Array = ::java::sql::Array;
-using $Blob = ::java::sql::Blob;
-using $Clob = ::java::sql::Clob;
-using $Date = ::java::sql::Date;
-using $NClob = ::java::sql::NClob;
-using $Ref = ::java::sql::Ref;
-using $ResultSetMetaData = ::java::sql::ResultSetMetaData;
-using $RowId = ::java::sql::RowId;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
 using $SQLType = ::java::sql::SQLType;
-using $SQLWarning = ::java::sql::SQLWarning;
-using $SQLXML = ::java::sql::SQLXML;
-using $Statement = ::java::sql::Statement;
-using $Time = ::java::sql::Time;
-using $Timestamp = ::java::sql::Timestamp;
 using $Wrapper = ::java::sql::Wrapper;
-using $Calendar = ::java::util::Calendar;
-using $Map = ::java::util::Map;
 
 namespace java {
 	namespace sql {

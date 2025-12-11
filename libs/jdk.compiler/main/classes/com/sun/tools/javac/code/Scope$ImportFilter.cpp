@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <jcpp.h>
 
-using $Scope = ::com::sun::tools::javac::code::Scope;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

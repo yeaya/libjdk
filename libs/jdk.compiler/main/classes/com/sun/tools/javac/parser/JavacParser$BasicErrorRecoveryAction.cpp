@@ -10,10 +10,8 @@
 #undef CATCH_CLAUSE
 
 using $JavacParser$BasicErrorRecoveryActionArray = $Array<::com::sun::tools::javac::parser::JavacParser$BasicErrorRecoveryAction>;
-using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $JavacParser$BasicErrorRecoveryAction$1 = ::com::sun::tools::javac::parser::JavacParser$BasicErrorRecoveryAction$1;
 using $JavacParser$BasicErrorRecoveryAction$2 = ::com::sun::tools::javac::parser::JavacParser$BasicErrorRecoveryAction$2;
-using $JavacParser$ErrorRecoveryAction = ::com::sun::tools::javac::parser::JavacParser$ErrorRecoveryAction;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

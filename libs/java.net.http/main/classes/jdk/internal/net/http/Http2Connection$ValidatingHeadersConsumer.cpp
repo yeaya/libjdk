@@ -17,11 +17,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Set = ::java::util::Set;
-using $Http2Connection = ::jdk::internal::net::http::Http2Connection;
 using $Utils = ::jdk::internal::net::http::common::Utils;
-using $DecodingCallback = ::jdk::internal::net::http::hpack::DecodingCallback;
 
 namespace jdk {
 	namespace internal {

@@ -26,35 +26,26 @@
 #undef MEMORY_MANAGER_MXBEAN_DOMAIN_TYPE
 
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $DefaultPlatformMBeanProvider = ::java::lang::management::DefaultPlatformMBeanProvider;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
 using $MemoryManagerMXBean = ::java::lang::management::MemoryManagerMXBean;
-using $PlatformManagedObject = ::java::lang::management::PlatformManagedObject;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $ObjectName = ::javax::management::ObjectName;
 using $ManagementFactoryHelper = ::sun::management::ManagementFactoryHelper;
-using $PlatformMBeanProvider$PlatformComponent = ::sun::management::spi::PlatformMBeanProvider$PlatformComponent;
 
 namespace java {
 	namespace lang {

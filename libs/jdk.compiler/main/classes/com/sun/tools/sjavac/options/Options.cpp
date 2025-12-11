@@ -38,7 +38,6 @@
 
 using $Transformer = ::com::sun::tools::sjavac::Transformer;
 using $Option = ::com::sun::tools::sjavac::options::Option;
-using $OptionHelper = ::com::sun::tools::sjavac::options::OptionHelper;
 using $Options$1StateArgs = ::com::sun::tools::sjavac::options::Options$1StateArgs;
 using $Options$ArgDecoderOptionHelper = ::com::sun::tools::sjavac::options::Options$ArgDecoderOptionHelper;
 using $SourceLocation = ::com::sun::tools::sjavac::options::SourceLocation;

@@ -5,7 +5,6 @@
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
-using $ReferenceNodeSetData = ::com::sun::org::apache::xml::internal::security::signature::reference::ReferenceNodeSetData;
 using $ReferenceSubTreeData$DelayedNodeIterator = ::com::sun::org::apache::xml::internal::security::signature::reference::ReferenceSubTreeData$DelayedNodeIterator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

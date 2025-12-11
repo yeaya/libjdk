@@ -21,7 +21,6 @@
 
 using $ServiceLocator$SrvRecordArray = $Array<::com::sun::jndi::ldap::ServiceLocator$SrvRecord>;
 using $ServiceLocator$SrvRecord = ::com::sun::jndi::ldap::ServiceLocator$SrvRecord;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

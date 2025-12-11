@@ -16,7 +16,6 @@
 #undef NO_PROXY
 
 using $LocalHostCookie$Server = ::LocalHostCookie$Server;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -27,7 +26,6 @@ using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $Proxy = ::java::net::Proxy;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 

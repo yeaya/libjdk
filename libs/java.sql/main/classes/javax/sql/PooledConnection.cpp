@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Connection = ::java::sql::Connection;
-using $ConnectionEventListener = ::javax::sql::ConnectionEventListener;
-using $StatementEventListener = ::javax::sql::StatementEventListener;
 
 namespace javax {
 	namespace sql {

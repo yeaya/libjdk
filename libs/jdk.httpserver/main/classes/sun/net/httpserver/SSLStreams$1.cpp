@@ -9,15 +9,12 @@
 #undef NEED_UNWRAP
 #undef NEED_WRAP
 
-using $SSLEngineResult$HandshakeStatusArray = $Array<::javax::net::ssl::SSLEngineResult$HandshakeStatus>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $SSLEngineResult$HandshakeStatus = ::javax::net::ssl::SSLEngineResult$HandshakeStatus;
-using $SSLStreams = ::sun::net::httpserver::SSLStreams;
 
 namespace sun {
 	namespace net {

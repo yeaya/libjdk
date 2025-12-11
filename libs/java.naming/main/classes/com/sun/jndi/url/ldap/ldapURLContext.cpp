@@ -25,7 +25,6 @@
 
 using $ModificationItemArray = $Array<::javax::naming::directory::ModificationItem>;
 using $LdapURL = ::com::sun::jndi::ldap::LdapURL;
-using $GenericURLContext = ::com::sun::jndi::toolkit::url::GenericURLContext;
 using $GenericURLDirContext = ::com::sun::jndi::toolkit::url::GenericURLDirContext;
 using $ldapURLContextFactory = ::com::sun::jndi::url::ldap::ldapURLContextFactory;
 using $ClassInfo = ::java::lang::ClassInfo;

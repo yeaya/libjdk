@@ -23,9 +23,7 @@
 
 #undef RECORD_PHASE
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$RecordComponent = ::com::sun::tools::javac::code::Symbol$RecordComponent;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $MemberEnter = ::com::sun::tools::javac::comp::MemberEnter;
 using $TypeEnter = ::com::sun::tools::javac::comp::TypeEnter;
@@ -34,7 +32,6 @@ using $TypeEnter$MembersPhase = ::com::sun::tools::javac::comp::TypeEnter$Member
 using $TypeEnter$Phase = ::com::sun::tools::javac::comp::TypeEnter$Phase;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $TreeCopier = ::com::sun::tools::javac::tree::TreeCopier;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;

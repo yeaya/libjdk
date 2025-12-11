@@ -31,7 +31,6 @@ using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$AttributeKind = ::com::sun::tools::javac::jvm::ClassReader$AttributeKind;
 using $ClassReader$AttributeReader = ::com::sun::tools::javac::jvm::ClassReader$AttributeReader;
 using $PoolReader = ::com::sun::tools::javac::jvm::PoolReader;
-using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -8,7 +8,6 @@
 
 using $Reference = ::com::sun::org::apache::xml::internal::security::signature::Reference;
 using $Reference$2$1 = ::com::sun::org::apache::xml::internal::security::signature::Reference$2$1;
-using $ReferenceNodeSetData = ::com::sun::org::apache::xml::internal::security::signature::reference::ReferenceNodeSetData;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Name = ::javax::naming::Name;
-using $ResolveResult = ::javax::naming::spi::ResolveResult;
 
 namespace javax {
 	namespace naming {

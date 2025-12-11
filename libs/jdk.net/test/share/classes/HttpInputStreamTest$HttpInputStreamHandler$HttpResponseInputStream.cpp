@@ -23,7 +23,6 @@
 #undef LAST_LIST
 
 using $HttpInputStreamTest = ::HttpInputStreamTest;
-using $HttpInputStreamTest$HttpInputStreamHandler = ::HttpInputStreamTest$HttpInputStreamHandler;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;
@@ -36,8 +35,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

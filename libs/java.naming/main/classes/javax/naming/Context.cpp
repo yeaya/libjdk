@@ -27,10 +27,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Hashtable = ::java::util::Hashtable;
-using $Name = ::javax::naming::Name;
-using $NameParser = ::javax::naming::NameParser;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 
 namespace javax {
 	namespace naming {

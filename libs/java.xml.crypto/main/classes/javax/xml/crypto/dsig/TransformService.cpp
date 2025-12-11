@@ -21,10 +21,6 @@ using $NoSuchProviderException = ::java::security::NoSuchProviderException;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $Security = ::java::security::Security;
-using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
-using $Transform = ::javax::xml::crypto::dsig::Transform;
-using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParameterSpec;
 
 namespace javax {
 	namespace xml {

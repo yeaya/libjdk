@@ -30,7 +30,6 @@ using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $SSLContext = ::javax::net::ssl::SSLContext;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $HttpConnection$State = ::sun::net::httpserver::HttpConnection$State;

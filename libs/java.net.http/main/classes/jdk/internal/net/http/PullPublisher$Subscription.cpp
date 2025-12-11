@@ -19,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $PullPublisher = ::jdk::internal::net::http::PullPublisher;
 using $PullPublisher$Subscription$PullTask = ::jdk::internal::net::http::PullPublisher$Subscription$PullTask;
 using $Demand = ::jdk::internal::net::http::common::Demand;

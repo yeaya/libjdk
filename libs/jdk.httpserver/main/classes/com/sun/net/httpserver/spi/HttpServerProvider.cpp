@@ -19,8 +19,6 @@
 #include <java/util/ServiceLoader.h>
 #include <jcpp.h>
 
-using $HttpServer = ::com::sun::net::httpserver::HttpServer;
-using $HttpsServer = ::com::sun::net::httpserver::HttpsServer;
 using $HttpServerProvider$1 = ::com::sun::net::httpserver::spi::HttpServerProvider$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -31,11 +29,9 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $AccessController = ::java::security::AccessController;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;

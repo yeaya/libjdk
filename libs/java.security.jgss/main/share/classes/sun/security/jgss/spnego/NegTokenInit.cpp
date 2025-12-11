@@ -20,7 +20,6 @@
 
 using $OidArray = $Array<::org::ietf::jgss::Oid>;
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,7 +27,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GSSException = ::org::ietf::jgss::GSSException;
 using $Oid = ::org::ietf::jgss::Oid;
-using $GSSToken = ::sun::security::jgss::GSSToken;
 using $GSSUtil = ::sun::security::jgss::GSSUtil;
 using $SpNegoToken = ::sun::security::jgss::spnego::SpNegoToken;
 using $BitArray = ::sun::security::util::BitArray;

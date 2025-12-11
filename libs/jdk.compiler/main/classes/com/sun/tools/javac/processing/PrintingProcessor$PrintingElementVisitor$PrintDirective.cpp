@@ -26,7 +26,6 @@
 #include <javax/lang/model/element/TypeElement.h>
 #include <jcpp.h>
 
-using $PrintingProcessor$PrintingElementVisitor = ::com::sun::tools::javac::processing::PrintingProcessor$PrintingElementVisitor;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
@@ -35,25 +34,17 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Function = ::java::util::function::Function;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
-using $ModuleElement$DirectiveVisitor = ::javax::lang::model::element::ModuleElement$DirectiveVisitor;
 using $ModuleElement$ExportsDirective = ::javax::lang::model::element::ModuleElement$ExportsDirective;
 using $ModuleElement$OpensDirective = ::javax::lang::model::element::ModuleElement$OpensDirective;
 using $ModuleElement$ProvidesDirective = ::javax::lang::model::element::ModuleElement$ProvidesDirective;
 using $ModuleElement$RequiresDirective = ::javax::lang::model::element::ModuleElement$RequiresDirective;
 using $ModuleElement$UsesDirective = ::javax::lang::model::element::ModuleElement$UsesDirective;
-using $Name = ::javax::lang::model::element::Name;
 using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
 using $TypeElement = ::javax::lang::model::element::TypeElement;

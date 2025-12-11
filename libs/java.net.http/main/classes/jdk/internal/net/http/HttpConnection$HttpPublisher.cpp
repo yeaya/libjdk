@@ -7,9 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
-using $FlowTube$TubePublisher = ::jdk::internal::net::http::common::FlowTube$TubePublisher;
 
 namespace jdk {
 	namespace internal {

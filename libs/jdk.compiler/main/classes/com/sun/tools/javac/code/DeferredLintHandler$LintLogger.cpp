@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/code/DeferredLintHandler.h>
 #include <jcpp.h>
 
-using $DeferredLintHandler = ::com::sun::tools::javac::code::DeferredLintHandler;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

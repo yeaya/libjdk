@@ -42,7 +42,6 @@ using $ObjID = ::java::rmi::server::ObjID;
 using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;
 using $RMIServerSocketFactory = ::java::rmi::server::RMIServerSocketFactory;
 using $Arrays = ::java::util::Arrays;
-using $List = ::java::util::List;
 using $Channel = ::sun::rmi::transport::Channel;
 using $ConnectionInputStream = ::sun::rmi::transport::ConnectionInputStream;
 using $ConnectionOutputStream = ::sun::rmi::transport::ConnectionOutputStream;
@@ -51,7 +50,6 @@ using $Endpoint = ::sun::rmi::transport::Endpoint;
 using $ObjectEndpoint = ::sun::rmi::transport::ObjectEndpoint;
 using $ObjectTable = ::sun::rmi::transport::ObjectTable;
 using $Target = ::sun::rmi::transport::Target;
-using $Transport = ::sun::rmi::transport::Transport;
 using $TCPEndpoint = ::sun::rmi::transport::tcp::TCPEndpoint;
 
 namespace sun {

@@ -18,14 +18,12 @@
 #undef MTH
 #undef VAR
 
-using $Items$ItemArray = $Array<::com::sun::tools::javac::jvm::Items$Item>;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$DynamicMethodSymbol = ::com::sun::tools::javac::code::Symbol$DynamicMethodSymbol;
 using $Symbol$DynamicVarSymbol = ::com::sun::tools::javac::code::Symbol$DynamicVarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;

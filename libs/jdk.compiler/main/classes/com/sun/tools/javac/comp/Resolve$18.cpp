@@ -19,16 +19,11 @@
 #undef WRONG_MTH
 #undef WRONG_MTHS
 
-using $Kinds$KindArray = $Array<::com::sun::tools::javac::code::Kinds$Kind>;
-using $Kinds$KindNameArray = $Array<::com::sun::tools::javac::code::Kinds$KindName>;
-using $JCTree$TagArray = $Array<::com::sun::tools::javac::tree::JCTree$Tag>;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Kinds$KindName = ::com::sun::tools::javac::code::Kinds$KindName;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

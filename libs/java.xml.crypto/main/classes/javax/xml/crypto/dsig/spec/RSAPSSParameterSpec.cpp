@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
 using $Objects = ::java::util::Objects;
-using $SignatureMethodParameterSpec = ::javax::xml::crypto::dsig::spec::SignatureMethodParameterSpec;
 
 namespace javax {
 	namespace xml {

@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
-using $PushGroup = ::jdk::internal::net::http::PushGroup;
 
 namespace jdk {
 	namespace internal {

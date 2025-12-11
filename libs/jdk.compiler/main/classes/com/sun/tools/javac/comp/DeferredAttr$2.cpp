@@ -23,7 +23,6 @@
 #undef M
 
 using $MemberReferenceTree = ::com::sun::source::tree::MemberReferenceTree;
-using $MemberReferenceTree$ReferenceMode = ::com::sun::source::tree::MemberReferenceTree$ReferenceMode;
 using $NewClassTree = ::com::sun::source::tree::NewClassTree;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$2$1 = ::com::sun::tools::javac::comp::DeferredAttr$2$1;
@@ -39,7 +38,6 @@ using $TreeCopier = ::com::sun::tools::javac::tree::TreeCopier;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $List = ::com::sun::tools::javac::util::List;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -5,9 +5,6 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
-using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
-using $DCTree$DCDocComment = ::com::sun::tools::javac::tree::DCTree$DCDocComment;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

@@ -50,7 +50,6 @@
 #undef GSS_SPNEGO_MECH_OID
 #undef NT_GSS_KRB5_PRINCIPAL
 
-using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -59,7 +58,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Key = ::java::security::Key;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Security = ::java::security::Security;
@@ -81,7 +79,6 @@ using $GSSCredential = ::org::ietf::jgss::GSSCredential;
 using $GSSException = ::org::ietf::jgss::GSSException;
 using $GSSName = ::org::ietf::jgss::GSSName;
 using $Oid = ::org::ietf::jgss::Oid;
-using $HttpCallerInfo = ::sun::net::www::protocol::http::HttpCallerInfo;
 using $NegotiateCallbackHandler = ::sun::net::www::protocol::http::spnego::NegotiateCallbackHandler;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
@@ -92,7 +89,6 @@ using $GSSUtil$1 = ::sun::security::jgss::GSSUtil$1;
 using $HttpCaller = ::sun::security::jgss::HttpCaller;
 using $LoginConfigImpl = ::sun::security::jgss::LoginConfigImpl;
 using $Krb5NameElement = ::sun::security::jgss::krb5::Krb5NameElement;
-using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 using $SpNegoCredElement = ::sun::security::jgss::spnego::SpNegoCredElement;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;

@@ -14,7 +14,6 @@
 #undef _ATT_EC_PREFIXLIST
 #undef _TAG_EC_INCLUSIVENAMESPACES
 
-using $TransformParam = ::com::sun::org::apache::xml::internal::security::transforms::TransformParam;
 using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

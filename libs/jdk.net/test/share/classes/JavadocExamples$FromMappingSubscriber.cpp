@@ -17,7 +17,6 @@
 #include <java/util/function/Supplier.h>
 #include <jcpp.h>
 
-using $JavadocExamples = ::JavadocExamples;
 using $JavadocExamples$ObjectMapper = ::JavadocExamples$ObjectMapper;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
@@ -27,12 +26,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
 using $HttpResponse$BodySubscribers = ::java::net::http::HttpResponse$BodySubscribers;
 using $Function = ::java::util::function::Function;

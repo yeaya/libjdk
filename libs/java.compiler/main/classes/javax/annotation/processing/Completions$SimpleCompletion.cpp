@@ -8,8 +8,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Completion = ::javax::annotation::processing::Completion;
-using $Completions = ::javax::annotation::processing::Completions;
 
 namespace javax {
 	namespace annotation {

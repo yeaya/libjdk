@@ -21,18 +21,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Supplier = ::java::util::function::Supplier;
 using $SocketTube = ::jdk::internal::net::http::SocketTube;
-using $SocketTube$BufferSource = ::jdk::internal::net::http::SocketTube$BufferSource;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
 namespace jdk {

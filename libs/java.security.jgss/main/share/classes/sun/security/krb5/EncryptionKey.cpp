@@ -40,16 +40,13 @@
 #undef TAG_CONTEXT
 
 using $EncryptionKeyArray = $Array<::sun::security::krb5::EncryptionKey>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Cloneable = ::java::lang::Cloneable;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $BigInteger = ::java::math::BigInteger;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Arrays = ::java::util::Arrays;
@@ -73,7 +70,6 @@ using $Des = ::sun::security::krb5::internal::crypto::Des;
 using $Des3 = ::sun::security::krb5::internal::crypto::Des3;
 using $EType = ::sun::security::krb5::internal::crypto::EType;
 using $KeyTab = ::sun::security::krb5::internal::ktab::KeyTab;
-using $KrbDataOutputStream = ::sun::security::krb5::internal::util::KrbDataOutputStream;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;

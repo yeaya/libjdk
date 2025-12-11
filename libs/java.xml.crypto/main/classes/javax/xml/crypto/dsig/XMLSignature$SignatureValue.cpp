@@ -7,9 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
-using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
-using $XMLValidateContext = ::javax::xml::crypto::dsig::XMLValidateContext;
 
 namespace javax {
 	namespace xml {

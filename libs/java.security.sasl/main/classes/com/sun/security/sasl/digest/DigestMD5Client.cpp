@@ -68,15 +68,12 @@ using $SecurityCtx = ::com::sun::security::sasl::digest::SecurityCtx;
 using $AbstractSaslImpl = ::com::sun::security::sasl::util::AbstractSaslImpl;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
@@ -97,7 +94,6 @@ using $TextInputCallback = ::javax::security::auth::callback::TextInputCallback;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
 using $RealmCallback = ::javax::security::sasl::RealmCallback;
 using $RealmChoiceCallback = ::javax::security::sasl::RealmChoiceCallback;
-using $SaslClient = ::javax::security::sasl::SaslClient;
 using $SaslException = ::javax::security::sasl::SaslException;
 
 namespace com {

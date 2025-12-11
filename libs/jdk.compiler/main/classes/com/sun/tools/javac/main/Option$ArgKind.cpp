@@ -9,7 +9,6 @@
 #undef REQUIRED
 
 using $Option$ArgKindArray = $Array<::com::sun::tools::javac::main::Option$ArgKind>;
-using $Option = ::com::sun::tools::javac::main::Option;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

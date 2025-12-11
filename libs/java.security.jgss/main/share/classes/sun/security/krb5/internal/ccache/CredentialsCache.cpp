@@ -10,7 +10,6 @@
 #include <sun/security/krb5/internal/ccache/FileCredentialsCache.h>
 #include <jcpp.h>
 
-using $CredentialsArray = $Array<::sun::security::krb5::internal::ccache::Credentials>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -18,10 +17,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $1Credentials = ::sun::security::krb5::Credentials;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $LoginOptions = ::sun::security::krb5::internal::LoginOptions;
-using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
 using $CredentialsCache$ConfigEntry = ::sun::security::krb5::internal::ccache::CredentialsCache$ConfigEntry;
 using $FileCredentialsCache = ::sun::security::krb5::internal::ccache::FileCredentialsCache;
 

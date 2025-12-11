@@ -48,5 +48,4 @@ void jdk$compiler$test::init() {
 		jdk$compiler$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

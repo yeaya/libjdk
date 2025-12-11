@@ -14,10 +14,8 @@
 #undef SYSTEM_MODULES
 #undef UPGRADE_MODULE_PATH
 
-using $StandardLocationArray = $Array<::javax::tools::StandardLocation>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

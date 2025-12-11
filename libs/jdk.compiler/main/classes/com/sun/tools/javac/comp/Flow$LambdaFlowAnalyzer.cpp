@@ -12,12 +12,9 @@
 #include <com/sun/tools/javac/util/ListBuffer.h>
 #include <jcpp.h>
 
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Flow = ::com::sun::tools::javac::comp::Flow;
-using $Flow$BaseAnalyzer = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer;
 using $Flow$FlowAnalyzer = ::com::sun::tools::javac::comp::Flow$FlowAnalyzer;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $List = ::com::sun::tools::javac::util::List;

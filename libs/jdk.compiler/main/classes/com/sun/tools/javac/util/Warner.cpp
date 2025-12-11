@@ -11,7 +11,6 @@ using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagn
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $EnumSet = ::java::util::EnumSet;
 
 namespace com {

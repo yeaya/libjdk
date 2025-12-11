@@ -18,7 +18,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
-using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParameterSpec;
 using $XPathType = ::javax::xml::crypto::dsig::spec::XPathType;
 
 namespace javax {

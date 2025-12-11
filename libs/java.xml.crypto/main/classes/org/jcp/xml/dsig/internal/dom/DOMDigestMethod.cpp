@@ -40,7 +40,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $AlgorithmMethod = ::javax::xml::crypto::AlgorithmMethod;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $DigestMethod = ::javax::xml::crypto::dsig::DigestMethod;

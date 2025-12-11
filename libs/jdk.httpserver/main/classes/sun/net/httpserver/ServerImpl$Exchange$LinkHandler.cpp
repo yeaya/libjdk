@@ -7,7 +7,6 @@
 
 using $Filter$Chain = ::com::sun::net::httpserver::Filter$Chain;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
-using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

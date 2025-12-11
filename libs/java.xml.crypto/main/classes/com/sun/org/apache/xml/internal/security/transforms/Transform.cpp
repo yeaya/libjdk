@@ -76,7 +76,6 @@ using $TransformXPath = ::com::sun::org::apache::xml::internal::security::transf
 using $TransformXPath2Filter = ::com::sun::org::apache::xml::internal::security::transforms::implementations::TransformXPath2Filter;
 using $TransformXSLT = ::com::sun::org::apache::xml::internal::security::transforms::implementations::TransformXSLT;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $HelperNodeList = ::com::sun::org::apache::xml::internal::security::utils::HelperNodeList;
 using $JavaUtils = ::com::sun::org::apache::xml::internal::security::utils::JavaUtils;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;

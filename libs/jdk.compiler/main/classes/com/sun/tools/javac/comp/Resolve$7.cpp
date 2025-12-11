@@ -11,7 +11,6 @@
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
-using $Resolve$LogResolveHelper = ::com::sun::tools::javac::comp::Resolve$LogResolveHelper;
 using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;

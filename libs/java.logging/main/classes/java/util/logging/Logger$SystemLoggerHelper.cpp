@@ -13,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Logger = ::java::util::logging::Logger;
 using $Logger$SystemLoggerHelper$1 = ::java::util::logging::Logger$SystemLoggerHelper$1;
 
 namespace java {

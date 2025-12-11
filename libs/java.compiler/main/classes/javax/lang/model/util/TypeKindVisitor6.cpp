@@ -13,7 +13,6 @@
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
@@ -21,7 +20,6 @@ using $NoType = ::javax::lang::model::type::NoType;
 using $PrimitiveType = ::javax::lang::model::type::PrimitiveType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
-using $AbstractTypeVisitor6 = ::javax::lang::model::util::AbstractTypeVisitor6;
 using $SimpleTypeVisitor6 = ::javax::lang::model::util::SimpleTypeVisitor6;
 using $TypeKindVisitor6$1 = ::javax::lang::model::util::TypeKindVisitor6$1;
 

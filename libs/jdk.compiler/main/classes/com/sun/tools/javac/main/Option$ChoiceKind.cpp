@@ -8,7 +8,6 @@
 #undef ONEOF
 
 using $Option$ChoiceKindArray = $Array<::com::sun::tools::javac::main::Option$ChoiceKind>;
-using $Option = ::com::sun::tools::javac::main::Option;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

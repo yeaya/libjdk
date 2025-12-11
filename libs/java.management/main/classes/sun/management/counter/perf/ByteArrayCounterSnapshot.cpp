@@ -9,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCounter = ::sun::management::counter::AbstractCounter;
-using $ByteArrayCounter = ::sun::management::counter::ByteArrayCounter;
 using $Units = ::sun::management::counter::Units;
 using $Variability = ::sun::management::counter::Variability;
 

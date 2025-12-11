@@ -53,9 +53,7 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $CRL = ::java::security::cert::CRL;
 using $CRLException = ::java::security::cert::CRLException;
-using $Certificate = ::java::security::cert::Certificate;
 using $CertificateEncodingException = ::java::security::cert::CertificateEncodingException;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $CertificateFactory = ::java::security::cert::CertificateFactory;
@@ -71,18 +69,17 @@ using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
-using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
+using $1DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
 using $X509Data = ::javax::xml::crypto::dsig::keyinfo::X509Data;
 using $X509IssuerSerial = ::javax::xml::crypto::dsig::keyinfo::X509IssuerSerial;
-using $1DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
+using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $DOMX509IssuerSerial = ::org::jcp::xml::dsig::internal::dom::DOMX509IssuerSerial;
 using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
-using $Text = ::org::w3c::dom::Text;
 
 namespace org {
 	namespace jcp {
@@ -132,24 +129,24 @@ $Object* allocate$DOMX509Data($Class* clazz) {
 }
 
 bool DOMX509Data::isFeatureSupported($String* feature) {
-	 return this->$1DOMStructure::isFeatureSupported(feature);
+	 return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMX509Data::clone() {
-	 return this->$1DOMStructure::clone();
+	 return this->$DOMStructure::clone();
 }
 
 $String* DOMX509Data::toString() {
-	 return this->$1DOMStructure::toString();
+	 return this->$DOMStructure::toString();
 }
 
 void DOMX509Data::finalize() {
-	this->$1DOMStructure::finalize();
+	this->$DOMStructure::finalize();
 }
 
 void DOMX509Data::init$($List* content) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	if (content == nullptr) {
 		$throwNew($NullPointerException, "content cannot be null"_s);
 	}
@@ -174,7 +171,7 @@ void DOMX509Data::init$($List* content) {
 
 void DOMX509Data::init$($Element* xdElem) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	$var($List, newContent, $new($ArrayList));
 	$var($Node, firstChild, $nc(xdElem)->getFirstChild());
 	while (firstChild != nullptr) {
@@ -204,7 +201,7 @@ void DOMX509Data::init$($Element* xdElem) {
 							if (var$8 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 								newContent->add($(unmarshalX509CRL(childElem)));
 							} else {
-								newContent->add($$new($DOMStructure, childElem));
+								newContent->add($$new($1DOMStructure, childElem));
 							}
 						}
 					}
@@ -236,7 +233,7 @@ void DOMX509Data::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* c
 				if ($instanceOf($X509IssuerSerial, object)) {
 					$nc(($cast($DOMX509IssuerSerial, object)))->marshal(xdElem, dsPrefix, context);
 				} else {
-					$var($DOMStructure, domContent, $cast($DOMStructure, object));
+					$var($1DOMStructure, domContent, $cast($1DOMStructure, object));
 					$DOMUtils::appendChild(xdElem, $($nc(domContent)->getNode()));
 				}
 			} else if ($instanceOf($bytes, object)) {

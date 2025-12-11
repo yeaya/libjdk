@@ -42,7 +42,6 @@ using $ExcC14NParameterSpec = ::javax::xml::crypto::dsig::spec::ExcC14NParameter
 using $XPathFilter2ParameterSpec = ::javax::xml::crypto::dsig::spec::XPathFilter2ParameterSpec;
 using $XPathFilterParameterSpec = ::javax::xml::crypto::dsig::spec::XPathFilterParameterSpec;
 using $XPathType = ::javax::xml::crypto::dsig::spec::XPathType;
-using $XPathType$Filter = ::javax::xml::crypto::dsig::spec::XPathType$Filter;
 using $XSLTTransformParameterSpec = ::javax::xml::crypto::dsig::spec::XSLTTransformParameterSpec;
 using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;

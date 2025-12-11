@@ -12,7 +12,6 @@
 #undef DEFECTIVE_TOKEN
 #undef TOKEN_ID
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;

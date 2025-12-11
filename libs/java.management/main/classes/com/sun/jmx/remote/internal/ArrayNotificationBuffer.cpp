@@ -79,7 +79,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
@@ -111,7 +110,6 @@ using $NotificationListener = ::javax::management::NotificationListener;
 using $ObjectName = ::javax::management::ObjectName;
 using $QueryExp = ::javax::management::QueryExp;
 using $NotificationResult = ::javax::management::remote::NotificationResult;
-using $TargetedNotification = ::javax::management::remote::TargetedNotification;
 
 namespace com {
 	namespace sun {

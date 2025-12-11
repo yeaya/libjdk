@@ -21,8 +21,6 @@ using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $ConnectionPool = ::jdk::internal::net::http::ConnectionPool;
 using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
-using $FlowTube = ::jdk::internal::net::http::common::FlowTube;
-using $FlowTube$TubePublisher = ::jdk::internal::net::http::common::FlowTube$TubePublisher;
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
 
 namespace jdk {

@@ -12,7 +12,6 @@ using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

@@ -14,21 +14,15 @@
 #include <jcpp.h>
 
 using $Closeable = ::java::io::Closeable;
-using $Flushable = ::java::io::Flushable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Iterator = ::java::util::Iterator;
 using $ServiceLoader = ::java::util::ServiceLoader;
-using $Set = ::java::util::Set;
 using $FileObject = ::javax::tools::FileObject;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
-using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
-using $OptionChecker = ::javax::tools::OptionChecker;
 
 namespace javax {
 	namespace tools {

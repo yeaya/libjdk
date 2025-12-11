@@ -25,26 +25,18 @@
 #undef MODULE_SOURCE_PATH
 
 using $Option = ::com::sun::tools::javac::main::Option;
-using $Option$InvalidValueException = ::com::sun::tools::javac::main::Option$InvalidValueException;
 using $Option$OptionGroup = ::com::sun::tools::javac::main::Option$OptionGroup;
 using $Option$OptionKind = ::com::sun::tools::javac::main::Option$OptionKind;
 using $OptionHelper = ::com::sun::tools::javac::main::OptionHelper;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
-using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;

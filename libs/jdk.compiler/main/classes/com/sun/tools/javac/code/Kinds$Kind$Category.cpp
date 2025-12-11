@@ -11,8 +11,6 @@
 #undef RESOLUTION_TARGET
 
 using $Kinds$Kind$CategoryArray = $Array<::com::sun::tools::javac::code::Kinds$Kind$Category>;
-using $Kinds = ::com::sun::tools::javac::code::Kinds;
-using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

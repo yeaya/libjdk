@@ -10,7 +10,6 @@
 #undef STRING
 
 using $Tokens$Token$TagArray = $Array<::com::sun::tools::javac::parser::Tokens$Token$Tag>;
-using $Tokens$Token = ::com::sun::tools::javac::parser::Tokens$Token;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

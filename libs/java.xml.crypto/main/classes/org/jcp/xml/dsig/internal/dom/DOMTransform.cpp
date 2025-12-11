@@ -36,18 +36,17 @@ using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmPa
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Provider = ::java::security::Provider;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $AlgorithmMethod = ::javax::xml::crypto::AlgorithmMethod;
 using $Data = ::javax::xml::crypto::Data;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
-using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
+using $1DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $Transform = ::javax::xml::crypto::dsig::Transform;
 using $TransformService = ::javax::xml::crypto::dsig::TransformService;
 using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
 using $DOMSignContext = ::javax::xml::crypto::dsig::dom::DOMSignContext;
-using $1DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
+using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
@@ -97,29 +96,29 @@ $Object* allocate$DOMTransform($Class* clazz) {
 }
 
 bool DOMTransform::isFeatureSupported($String* feature) {
-	 return this->$1DOMStructure::isFeatureSupported(feature);
+	 return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMTransform::clone() {
-	 return this->$1DOMStructure::clone();
+	 return this->$DOMStructure::clone();
 }
 
 $String* DOMTransform::toString() {
-	 return this->$1DOMStructure::toString();
+	 return this->$DOMStructure::toString();
 }
 
 void DOMTransform::finalize() {
-	this->$1DOMStructure::finalize();
+	this->$DOMStructure::finalize();
 }
 
 void DOMTransform::init$($TransformService* spi) {
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	$set(this, spi, spi);
 }
 
 void DOMTransform::init$($Element* transElem, $XMLCryptoContext* context, $Provider* provider) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	$var($String, algorithm, $DOMUtils::getAttributeValue(transElem, "Algorithm"_s));
 	if (provider == nullptr) {
 		try {
@@ -139,7 +138,7 @@ void DOMTransform::init$($Element* transElem, $XMLCryptoContext* context, $Provi
 		}
 	}
 	try {
-		$nc(this->spi)->init($$new($DOMStructure, transElem), context);
+		$nc(this->spi)->init($$new($1DOMStructure, transElem), context);
 	} catch ($InvalidAlgorithmParameterException& iape) {
 		$throwNew($MarshalException, static_cast<$Throwable*>(iape));
 	}
@@ -165,7 +164,7 @@ void DOMTransform::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* 
 		$assign(transformElem, $DOMUtils::createElement(ownerDoc, "CanonicalizationMethod"_s, $XMLSignature::XMLNS, dsPrefix));
 	}
 	$DOMUtils::setAttribute(transformElem, "Algorithm"_s, $(getAlgorithm()));
-	$nc(this->spi)->marshalParams($$new($DOMStructure, transformElem), context);
+	$nc(this->spi)->marshalParams($$new($1DOMStructure, transformElem), context);
 	$nc(parent)->appendChild(transformElem);
 }
 

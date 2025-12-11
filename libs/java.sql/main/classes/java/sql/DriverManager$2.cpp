@@ -10,9 +10,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Driver = ::java::sql::Driver;
-using $DriverManager = ::java::sql::DriverManager;
 using $Iterator = ::java::util::Iterator;
 using $ServiceLoader = ::java::util::ServiceLoader;
 

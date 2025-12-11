@@ -4,9 +4,6 @@
 #include <com/sun/source/tree/VariableTree.h>
 #include <jcpp.h>
 
-using $BlockTree = ::com::sun::source::tree::BlockTree;
-using $Tree = ::com::sun::source::tree::Tree;
-using $VariableTree = ::com::sun::source::tree::VariableTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

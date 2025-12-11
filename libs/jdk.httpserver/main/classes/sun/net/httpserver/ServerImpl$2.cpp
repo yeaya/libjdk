@@ -9,15 +9,12 @@
 #undef REQUEST
 #undef RESPONSE
 
-using $HttpConnection$StateArray = $Array<::sun::net::httpserver::HttpConnection$State>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $HttpConnection$State = ::sun::net::httpserver::HttpConnection$State;
-using $ServerImpl = ::sun::net::httpserver::ServerImpl;
 
 namespace sun {
 	namespace net {

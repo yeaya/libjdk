@@ -10,7 +10,6 @@
 #undef LANGUAGE_MODEL
 
 using $DefinedBy$ApiArray = $Array<::com::sun::tools::javac::util::DefinedBy$Api>;
-using $DefinedBy = ::com::sun::tools::javac::util::DefinedBy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

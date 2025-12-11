@@ -15,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CRC32 = ::java::util::zip::CRC32;
 using $ZipEntry = ::java::util::zip::ZipEntry;
-using $Main = ::sun::tools::jar::Main;
 
 namespace sun {
 	namespace tools {

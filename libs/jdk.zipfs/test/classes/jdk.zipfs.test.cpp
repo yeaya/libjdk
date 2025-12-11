@@ -44,5 +44,4 @@ void jdk$zipfs$test::init() {
 		jdk$zipfs$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

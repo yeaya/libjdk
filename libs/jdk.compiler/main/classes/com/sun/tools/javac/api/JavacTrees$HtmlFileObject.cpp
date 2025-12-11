@@ -15,7 +15,6 @@
 #include <javax/tools/JavaFileObject$Kind.h>
 #include <jcpp.h>
 
-using $JavacTrees = ::com::sun::tools::javac::api::JavacTrees;
 using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -30,7 +29,6 @@ using $Modifier = ::javax::lang::model::element::Modifier;
 using $NestingKind = ::javax::lang::model::element::NestingKind;
 using $FileObject = ::javax::tools::FileObject;
 using $ForwardingFileObject = ::javax::tools::ForwardingFileObject;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace com {

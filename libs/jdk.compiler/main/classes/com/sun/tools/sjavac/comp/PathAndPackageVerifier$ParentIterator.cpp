@@ -4,13 +4,11 @@
 #include <java/nio/file/Path.h>
 #include <jcpp.h>
 
-using $PathAndPackageVerifier = ::com::sun::tools::sjavac::comp::PathAndPackageVerifier;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
-using $Iterator = ::java::util::Iterator;
 
 namespace com {
 	namespace sun {

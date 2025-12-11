@@ -18,16 +18,12 @@
 #undef VARDEF
 
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
 using $Analyzer$RedundantLocalVarTypeAnalyzerBase = ::com::sun::tools::javac::comp::Analyzer$RedundantLocalVarTypeAnalyzerBase;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -46,5 +46,4 @@ void java$rmi$test::init() {
 		java$rmi$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

@@ -12,8 +12,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Method = ::java::lang::reflect::Method;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $MappedMXBeanType = ::sun::management::MappedMXBeanType;
 using $MappedMXBeanType$CompositeDataMXBeanType = ::sun::management::MappedMXBeanType$CompositeDataMXBeanType;
 

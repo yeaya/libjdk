@@ -15,13 +15,11 @@
 #undef TYPE_PARAMS
 
 using $JavadocFormatter$SectionsArray = $Array<::jdk::internal::shellsupport::doc::JavadocFormatter$Sections>;
-using $DocTree = ::com::sun::source::doctree::DocTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JavadocFormatter = ::jdk::internal::shellsupport::doc::JavadocFormatter;
 using $JavadocFormatter$Sections$1 = ::jdk::internal::shellsupport::doc::JavadocFormatter$Sections$1;
 using $JavadocFormatter$Sections$2 = ::jdk::internal::shellsupport::doc::JavadocFormatter$Sections$2;
 using $JavadocFormatter$Sections$3 = ::jdk::internal::shellsupport::doc::JavadocFormatter$Sections$3;

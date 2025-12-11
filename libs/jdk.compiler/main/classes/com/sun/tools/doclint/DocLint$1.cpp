@@ -3,13 +3,11 @@
 #include <com/sun/tools/doclint/DocLint$NoDocLint.h>
 #include <jcpp.h>
 
-using $DocLint = ::com::sun::tools::doclint::DocLint;
 using $DocLint$NoDocLint = ::com::sun::tools::doclint::DocLint$NoDocLint;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ServiceLoader$Provider = ::java::util::ServiceLoader$Provider;
 
 namespace com {
 	namespace sun {

@@ -13,7 +13,6 @@
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $SinceTree = ::com::sun::source::doctree::SinceTree;
-using $DCTree = ::com::sun::tools::javac::tree::DCTree;
 using $DCTree$DCBlockTag = ::com::sun::tools::javac::tree::DCTree$DCBlockTag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

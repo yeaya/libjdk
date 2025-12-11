@@ -11,7 +11,6 @@
 #undef WARNING
 
 using $Log$WriterKindArray = $Array<::com::sun::tools::javac::util::Log$WriterKind>;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

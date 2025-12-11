@@ -19,14 +19,10 @@
 #undef NOPOS
 
 using $JavaTokenizer$BasicComment = ::com::sun::tools::javac::parser::JavaTokenizer$BasicComment;
-using $JavadocTokenizer = ::com::sun::tools::javac::parser::JavadocTokenizer;
 using $JavadocTokenizer$OffsetMap = ::com::sun::tools::javac::parser::JavadocTokenizer$OffsetMap;
 using $ScannerFactory = ::com::sun::tools::javac::parser::ScannerFactory;
 using $Tokens$Comment$CommentStyle = ::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle;
-using $UnicodeReader = ::com::sun::tools::javac::parser::UnicodeReader;
-using $UnicodeReader$PositionTrackingReader = ::com::sun::tools::javac::parser::UnicodeReader$PositionTrackingReader;
 using $Position = ::com::sun::tools::javac::util::Position;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

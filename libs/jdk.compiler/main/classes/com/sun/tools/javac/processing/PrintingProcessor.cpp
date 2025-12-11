@@ -18,7 +18,6 @@
 using $PrintingProcessor$PrintingElementVisitor = ::com::sun::tools::javac::processing::PrintingProcessor$PrintingElementVisitor;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Writer = ::java::io::Writer;
 using $Attribute = ::java::lang::Attribute;
@@ -34,8 +33,6 @@ using $AbstractProcessor = ::javax::annotation::processing::AbstractProcessor;
 using $ProcessingEnvironment = ::javax::annotation::processing::ProcessingEnvironment;
 using $RoundEnvironment = ::javax::annotation::processing::RoundEnvironment;
 using $Element = ::javax::lang::model::element::Element;
-using $AbstractElementVisitor6 = ::javax::lang::model::util::AbstractElementVisitor6;
-using $Elements = ::javax::lang::model::util::Elements;
 
 namespace com {
 	namespace sun {

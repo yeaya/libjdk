@@ -3,7 +3,6 @@
 #include <com/sun/jmx/mbeanserver/Repository.h>
 #include <jcpp.h>
 
-using $Repository = ::com::sun::jmx::mbeanserver::Repository;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

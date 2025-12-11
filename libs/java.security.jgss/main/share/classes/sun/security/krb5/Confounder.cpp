@@ -7,7 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecureRandom = ::java::security::SecureRandom;
-using $Random = ::java::util::Random;
 
 namespace sun {
 	namespace security {

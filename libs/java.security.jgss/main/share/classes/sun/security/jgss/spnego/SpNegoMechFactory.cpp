@@ -53,7 +53,6 @@ using $Krb5NameElement = ::sun::security::jgss::krb5::Krb5NameElement;
 using $GSSContextSpi = ::sun::security::jgss::spi::GSSContextSpi;
 using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
-using $MechanismFactory = ::sun::security::jgss::spi::MechanismFactory;
 using $SpNegoContext = ::sun::security::jgss::spnego::SpNegoContext;
 using $SpNegoCredElement = ::sun::security::jgss::spnego::SpNegoCredElement;
 

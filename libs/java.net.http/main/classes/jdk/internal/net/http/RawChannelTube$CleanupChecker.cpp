@@ -12,11 +12,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
-using $RawChannelTube = ::jdk::internal::net::http::RawChannelTube;
 
 namespace jdk {
 	namespace internal {

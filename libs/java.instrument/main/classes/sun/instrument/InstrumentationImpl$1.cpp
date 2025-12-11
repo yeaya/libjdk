@@ -10,8 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $InstrumentationImpl = ::sun::instrument::InstrumentationImpl;
 
 namespace sun {
 	namespace instrument {

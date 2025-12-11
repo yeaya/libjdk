@@ -40,9 +40,7 @@
 #undef INACCESSIBLE_VARARGS
 
 using $Kinds = ::com::sun::tools::javac::code::Kinds;
-using $Kinds$KindName = ::com::sun::tools::javac::code::Kinds$KindName;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
@@ -62,8 +60,6 @@ using $Resolve$MethodCheckDiag = ::com::sun::tools::javac::comp::Resolve$MethodC
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $Resolve$MethodResultInfo = ::com::sun::tools::javac::comp::Resolve$MethodResultInfo;
 using $Resolve$MostSpecificCheck = ::com::sun::tools::javac::comp::Resolve$MostSpecificCheck;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
 using $Warner = ::com::sun::tools::javac::util::Warner;
@@ -73,12 +69,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 
 namespace com {
 	namespace sun {

@@ -14,7 +14,6 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
@@ -22,7 +21,6 @@ using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor;
 using $List = ::com::sun::tools::javac::util::List;
 using $Boolean = ::java::lang::Boolean;

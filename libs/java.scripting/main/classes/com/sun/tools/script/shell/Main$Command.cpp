@@ -3,7 +3,6 @@
 #include <com/sun/tools/script/shell/Main.h>
 #include <jcpp.h>
 
-using $Main = ::com::sun::tools::script::shell::Main;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

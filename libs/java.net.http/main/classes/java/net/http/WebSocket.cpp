@@ -6,13 +6,10 @@
 
 #undef NORMAL_CLOSURE
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 
 namespace java {
 	namespace net {

@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Instant = ::java::time::Instant;
-using $ConnectionPool = ::jdk::internal::net::http::ConnectionPool;
 using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
 
 namespace jdk {

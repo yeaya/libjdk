@@ -12,7 +12,6 @@
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

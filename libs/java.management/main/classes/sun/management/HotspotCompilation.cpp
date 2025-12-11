@@ -27,7 +27,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $1MethodInfo = ::java::lang::MethodInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
@@ -35,10 +35,8 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $TreeMap = ::java::util::TreeMap;
-using $CompilerThreadStat = ::sun::management::CompilerThreadStat;
 using $HotspotCompilation$CompilerThreadInfo = ::sun::management::HotspotCompilation$CompilerThreadInfo;
-using $HotspotCompilationMBean = ::sun::management::HotspotCompilationMBean;
-using $MethodInfo = ::sun::management::MethodInfo;
+using $1MethodInfo = ::sun::management::MethodInfo;
 using $VMManagement = ::sun::management::VMManagement;
 using $Counter = ::sun::management::counter::Counter;
 using $LongCounter = ::sun::management::counter::LongCounter;
@@ -77,7 +75,7 @@ $FieldInfo _HotspotCompilation_FieldInfo_[] = {
 	{}
 };
 
-$1MethodInfo _HotspotCompilation_MethodInfo_[] = {
+$MethodInfo _HotspotCompilation_MethodInfo_[] = {
 	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(static_cast<void(HotspotCompilation::*)($VMManagement*)>(&HotspotCompilation::init$))},
 	{"getBailoutCompileCount", "()J", nullptr, $PUBLIC},
 	{"getCompiledMethodCodeSize", "()J", nullptr, $PUBLIC},
@@ -217,20 +215,20 @@ $List* HotspotCompilation::getCompilerThreadStats() {
 	return list;
 }
 
-$MethodInfo* HotspotCompilation::getLastCompile() {
+$1MethodInfo* HotspotCompilation::getLastCompile() {
 	$var($String, var$0, $nc(this->lastMethod)->stringValue());
 	int64_t var$1 = (int64_t)(int32_t)$nc(this->lastType)->longValue();
-	return $new($MethodInfo, var$0, var$1, (int32_t)$nc(this->lastSize)->longValue());
+	return $new($1MethodInfo, var$0, var$1, (int32_t)$nc(this->lastSize)->longValue());
 }
 
-$MethodInfo* HotspotCompilation::getFailedCompile() {
+$1MethodInfo* HotspotCompilation::getFailedCompile() {
 	$var($String, var$0, $nc(this->lastFailedMethod)->stringValue());
-	return $new($MethodInfo, var$0, (int32_t)$nc(this->lastFailedType)->longValue(), -1);
+	return $new($1MethodInfo, var$0, (int32_t)$nc(this->lastFailedType)->longValue(), -1);
 }
 
-$MethodInfo* HotspotCompilation::getInvalidatedCompile() {
+$1MethodInfo* HotspotCompilation::getInvalidatedCompile() {
 	$var($String, var$0, $nc(this->lastInvalidatedMethod)->stringValue());
-	return $new($MethodInfo, var$0, (int32_t)$nc(this->lastInvalidatedType)->longValue(), -1);
+	return $new($1MethodInfo, var$0, (int32_t)$nc(this->lastInvalidatedType)->longValue(), -1);
 }
 
 $List* HotspotCompilation::getInternalCompilerCounters() {

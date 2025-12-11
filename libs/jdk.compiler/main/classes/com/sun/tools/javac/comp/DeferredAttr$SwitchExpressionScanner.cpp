@@ -24,7 +24,6 @@
 
 using $JCTree$TagArray = $Array<::com::sun::tools::javac::tree::JCTree$Tag>;
 using $EnumArray = $Array<::java::lang::Enum>;
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$FilterScanner = ::com::sun::tools::javac::comp::DeferredAttr$FilterScanner;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -10,7 +10,6 @@
 #undef WILDCARD
 
 using $TypeAnnotationPosition$TypePathEntryKindArray = $Array<::com::sun::tools::javac::code::TypeAnnotationPosition$TypePathEntryKind>;
-using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

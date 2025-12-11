@@ -67,28 +67,23 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $ConnectException = ::java::net::ConnectException;
 using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SocketException = ::java::net::SocketException;
-using $1UnknownHostException = ::java::net::UnknownHostException;
+using $UnknownHostException = ::java::net::UnknownHostException;
 using $1ConnectException = ::java::rmi::ConnectException;
 using $ConnectIOException = ::java::rmi::ConnectIOException;
-using $UnknownHostException = ::java::rmi::UnknownHostException;
+using $1UnknownHostException = ::java::rmi::UnknownHostException;
 using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;
 using $RMIServerSocketFactory = ::java::rmi::server::RMIServerSocketFactory;
 using $RMISocketFactory = ::java::rmi::server::RMISocketFactory;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
@@ -97,7 +92,6 @@ using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
-using $Level = ::java::util::logging::Level;
 using $Log = ::sun::rmi::runtime::Log;
 using $Channel = ::sun::rmi::transport::Channel;
 using $Endpoint = ::sun::rmi::transport::Endpoint;
@@ -679,8 +673,8 @@ $Socket* TCPEndpoint::newSocket() {
 			$assign(clientFactory, chooseFactory());
 		}
 		$assign(socket, $nc(clientFactory)->createSocket(this->host, this->port));
-	} catch ($1UnknownHostException& e) {
-		$throwNew($UnknownHostException, $$str({"Unknown host: "_s, this->host}), e);
+	} catch ($UnknownHostException& e) {
+		$throwNew($1UnknownHostException, $$str({"Unknown host: "_s, this->host}), e);
 	} catch ($ConnectException& e) {
 		$throwNew($1ConnectException, $$str({"Connection refused to host: "_s, this->host}), e);
 	} catch ($IOException& e) {

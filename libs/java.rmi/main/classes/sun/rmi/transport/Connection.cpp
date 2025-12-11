@@ -5,11 +5,8 @@
 #include <sun/rmi/transport/Channel.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Channel = ::sun::rmi::transport::Channel;
 
 namespace sun {
 	namespace rmi {

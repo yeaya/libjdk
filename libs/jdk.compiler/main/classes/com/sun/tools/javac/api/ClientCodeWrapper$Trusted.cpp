@@ -3,13 +3,11 @@
 #include <com/sun/tools/javac/api/ClientCodeWrapper.h>
 #include <jcpp.h>
 
-using $ClientCodeWrapper = ::com::sun::tools::javac::api::ClientCodeWrapper;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Annotation = ::java::lang::annotation::Annotation;
 
 namespace com {
 	namespace sun {

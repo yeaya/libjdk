@@ -4,7 +4,6 @@
 #include <sun/security/krb5/internal/UDPClient.h>
 #include <jcpp.h>
 
-using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TCPClient = ::sun::security::krb5::internal::TCPClient;

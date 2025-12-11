@@ -13,8 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Optional = ::java::util::Optional;
-using $Main = ::sun::tools::jar::Main;
-using $Main$ModuleInfoEntry = ::sun::tools::jar::Main$ModuleInfoEntry;
 
 namespace sun {
 	namespace tools {

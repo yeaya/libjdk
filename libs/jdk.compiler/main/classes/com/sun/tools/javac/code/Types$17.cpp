@@ -10,7 +10,6 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$IntersectionClassType = ::com::sun::tools::javac::code::Type$IntersectionClassType;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$UnaryVisitor = ::com::sun::tools::javac::code::Types$UnaryVisitor;
 using $List = ::com::sun::tools::javac::util::List;

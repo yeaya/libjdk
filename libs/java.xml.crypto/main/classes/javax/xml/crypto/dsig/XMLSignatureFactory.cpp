@@ -40,29 +40,8 @@ using $NoSuchProviderException = ::java::security::NoSuchProviderException;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $Security = ::java::security::Security;
-using $List = ::java::util::List;
-using $Data = ::javax::xml::crypto::Data;
 using $NoSuchMechanismException = ::javax::xml::crypto::NoSuchMechanismException;
-using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
-using $CanonicalizationMethod = ::javax::xml::crypto::dsig::CanonicalizationMethod;
-using $DigestMethod = ::javax::xml::crypto::dsig::DigestMethod;
-using $Manifest = ::javax::xml::crypto::dsig::Manifest;
-using $Reference = ::javax::xml::crypto::dsig::Reference;
-using $SignatureMethod = ::javax::xml::crypto::dsig::SignatureMethod;
-using $SignatureProperties = ::javax::xml::crypto::dsig::SignatureProperties;
-using $SignatureProperty = ::javax::xml::crypto::dsig::SignatureProperty;
-using $SignedInfo = ::javax::xml::crypto::dsig::SignedInfo;
-using $Transform = ::javax::xml::crypto::dsig::Transform;
-using $XMLObject = ::javax::xml::crypto::dsig::XMLObject;
-using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
-using $XMLValidateContext = ::javax::xml::crypto::dsig::XMLValidateContext;
-using $KeyInfo = ::javax::xml::crypto::dsig::keyinfo::KeyInfo;
 using $KeyInfoFactory = ::javax::xml::crypto::dsig::keyinfo::KeyInfoFactory;
-using $C14NMethodParameterSpec = ::javax::xml::crypto::dsig::spec::C14NMethodParameterSpec;
-using $DigestMethodParameterSpec = ::javax::xml::crypto::dsig::spec::DigestMethodParameterSpec;
-using $SignatureMethodParameterSpec = ::javax::xml::crypto::dsig::spec::SignatureMethodParameterSpec;
-using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParameterSpec;
 
 namespace javax {
 	namespace xml {

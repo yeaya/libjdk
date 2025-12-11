@@ -11,7 +11,6 @@
 #undef NO_TREE_UPDATE
 
 using $Attr$CheckModeArray = $Array<::com::sun::tools::javac::comp::Attr$CheckMode>;
-using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$CheckMode$1 = ::com::sun::tools::javac::comp::Attr$CheckMode$1;
 using $Attr$CheckMode$2 = ::com::sun::tools::javac::comp::Attr$CheckMode$2;
 using $ClassInfo = ::java::lang::ClassInfo;

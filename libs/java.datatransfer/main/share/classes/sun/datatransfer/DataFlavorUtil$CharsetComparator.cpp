@@ -25,7 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
-using $Comparator = ::java::util::Comparator;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $DataFlavorUtil = ::sun::datatransfer::DataFlavorUtil;

@@ -14,7 +14,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SubscriberWrapper = ::jdk::internal::net::http::common::SubscriberWrapper;
 
 namespace jdk {
 	namespace internal {

@@ -30,7 +30,6 @@ using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 

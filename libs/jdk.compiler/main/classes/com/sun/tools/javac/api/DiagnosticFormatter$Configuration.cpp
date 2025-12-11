@@ -5,12 +5,9 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
-using $DiagnosticFormatter$Configuration$MultilineLimit = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$MultilineLimit;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {

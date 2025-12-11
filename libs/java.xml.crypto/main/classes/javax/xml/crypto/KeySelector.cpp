@@ -13,12 +13,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Key = ::java::security::Key;
-using $AlgorithmMethod = ::javax::xml::crypto::AlgorithmMethod;
-using $KeySelector$Purpose = ::javax::xml::crypto::KeySelector$Purpose;
 using $KeySelector$SingletonKeySelector = ::javax::xml::crypto::KeySelector$SingletonKeySelector;
-using $KeySelectorResult = ::javax::xml::crypto::KeySelectorResult;
-using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
-using $KeyInfo = ::javax::xml::crypto::dsig::keyinfo::KeyInfo;
 
 namespace javax {
 	namespace xml {

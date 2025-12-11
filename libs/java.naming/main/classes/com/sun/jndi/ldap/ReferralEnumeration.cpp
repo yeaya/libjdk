@@ -3,10 +3,8 @@
 #include <com/sun/jndi/ldap/LdapReferralException.h>
 #include <jcpp.h>
 
-using $LdapReferralException = ::com::sun::jndi::ldap::LdapReferralException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 
 namespace com {
 	namespace sun {

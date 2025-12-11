@@ -26,30 +26,20 @@
 #undef ERR
 #undef VALIDATOR
 
-using $Scope = ::com::sun::source::tree::Scope;
 using $JavacScope$1 = ::com::sun::tools::javac::api::JavacScope$1;
 using $JavacScope$2 = ::com::sun::tools::javac::api::JavacScope$2;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
 using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Predicate = ::java::util::function::Predicate;
 using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $TypeElement = ::javax::lang::model::element::TypeElement;

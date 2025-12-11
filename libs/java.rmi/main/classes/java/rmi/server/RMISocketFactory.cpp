@@ -14,7 +14,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $SocketException = ::java::net::SocketException;
 using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;
 using $RMIFailureHandler = ::java::rmi::server::RMIFailureHandler;
-using $RMIServerSocketFactory = ::java::rmi::server::RMIServerSocketFactory;
 using $TCPDirectSocketFactory = ::sun::rmi::transport::tcp::TCPDirectSocketFactory;
 
 namespace java {

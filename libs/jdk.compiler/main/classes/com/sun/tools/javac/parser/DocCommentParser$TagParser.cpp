@@ -12,11 +12,9 @@
 #undef INLINE
 
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
-using $DocCommentParser = ::com::sun::tools::javac::parser::DocCommentParser;
 using $DocCommentParser$TagParser$Kind = ::com::sun::tools::javac::parser::DocCommentParser$TagParser$Kind;
 using $DCTree = ::com::sun::tools::javac::tree::DCTree;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

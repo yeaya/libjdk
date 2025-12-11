@@ -12,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ByteArrayChannel = ::jdk::nio::zipfs::ByteArrayChannel;
 using $ZipCoder = ::jdk::nio::zipfs::ZipCoder;
 using $ZipFileSystem = ::jdk::nio::zipfs::ZipFileSystem;

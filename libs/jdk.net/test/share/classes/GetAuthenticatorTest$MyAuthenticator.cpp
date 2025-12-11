@@ -5,7 +5,6 @@
 #include <java/net/PasswordAuthentication.h>
 #include <jcpp.h>
 
-using $GetAuthenticatorTest = ::GetAuthenticatorTest;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

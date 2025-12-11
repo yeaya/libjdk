@@ -5,13 +5,8 @@
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
-using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
-using $ModifiersTree = ::com::sun::source::tree::ModifiersTree;
-using $StatementTree = ::com::sun::source::tree::StatementTree;
-using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {

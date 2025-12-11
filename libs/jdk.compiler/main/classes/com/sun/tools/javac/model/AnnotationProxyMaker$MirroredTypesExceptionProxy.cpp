@@ -20,7 +20,6 @@
 #include <sun/reflect/annotation/ExceptionProxy.h>
 #include <jcpp.h>
 
-using $AnnotationProxyMaker = ::com::sun::tools::javac::model::AnnotationProxyMaker;
 using $List = ::com::sun::tools::javac::util::List;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $Serializable = ::java::io::Serializable;
@@ -30,15 +29,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $Collection = ::java::util::Collection;
 using $1List = ::java::util::List;
 using $Function = ::java::util::function::Function;
-using $Collector = ::java::util::stream::Collector;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $MirroredTypesException = ::javax::lang::model::type::MirroredTypesException;

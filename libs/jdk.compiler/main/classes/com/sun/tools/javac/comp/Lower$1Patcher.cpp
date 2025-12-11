@@ -17,7 +17,6 @@ using $JCTree$JCBreak = ::com::sun::tools::javac::tree::JCTree$JCBreak;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCContinue = ::com::sun::tools::javac::tree::JCTree$JCContinue;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCYield = ::com::sun::tools::javac::tree::JCTree$JCYield;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $ClassInfo = ::java::lang::ClassInfo;

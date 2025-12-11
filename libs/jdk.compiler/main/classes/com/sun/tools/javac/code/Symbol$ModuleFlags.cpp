@@ -11,7 +11,6 @@
 #undef SYNTHETIC
 
 using $Symbol$ModuleFlagsArray = $Array<::com::sun::tools::javac::code::Symbol$ModuleFlags>;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

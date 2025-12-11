@@ -22,32 +22,13 @@
 #include <java/util/Calendar.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $BigDecimal = ::java::math::BigDecimal;
-using $URL = ::java::net::URL;
-using $1Array = ::java::sql::Array;
-using $Blob = ::java::sql::Blob;
-using $Clob = ::java::sql::Clob;
-using $Date = ::java::sql::Date;
-using $NClob = ::java::sql::NClob;
-using $ParameterMetaData = ::java::sql::ParameterMetaData;
-using $Ref = ::java::sql::Ref;
-using $ResultSet = ::java::sql::ResultSet;
-using $ResultSetMetaData = ::java::sql::ResultSetMetaData;
-using $RowId = ::java::sql::RowId;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
 using $SQLType = ::java::sql::SQLType;
-using $SQLXML = ::java::sql::SQLXML;
-using $Statement = ::java::sql::Statement;
-using $Time = ::java::sql::Time;
-using $Timestamp = ::java::sql::Timestamp;
-using $Calendar = ::java::util::Calendar;
 
 namespace java {
 	namespace sql {

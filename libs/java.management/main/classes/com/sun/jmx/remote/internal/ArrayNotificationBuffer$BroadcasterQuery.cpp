@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $ObjectName = ::javax::management::ObjectName;
 using $QueryEval = ::javax::management::QueryEval;
-using $QueryExp = ::javax::management::QueryExp;
 
 namespace com {
 	namespace sun {

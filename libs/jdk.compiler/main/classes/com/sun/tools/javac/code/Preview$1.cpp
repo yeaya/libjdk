@@ -8,12 +8,9 @@
 #undef CASE_NULL
 #undef PATTERN_SWITCH
 
-using $Source$FeatureArray = $Array<::com::sun::tools::javac::code::Source$Feature>;
-using $Preview = ::com::sun::tools::javac::code::Preview;
 using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

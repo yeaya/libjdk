@@ -16,8 +16,6 @@
 
 #undef SO_LINGER
 
-using $ALPNFailureTest = ::ALPNFailureTest;
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -27,11 +25,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
-using $SocketOption = ::java::net::SocketOption;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;

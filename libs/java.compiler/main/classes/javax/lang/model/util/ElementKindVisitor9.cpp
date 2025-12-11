@@ -15,7 +15,6 @@ using $Element = ::javax::lang::model::element::Element;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
 using $ElementKindVisitor8 = ::javax::lang::model::util::ElementKindVisitor8;
-using $SimpleElementVisitor6 = ::javax::lang::model::util::SimpleElementVisitor6;
 
 namespace javax {
 	namespace lang {

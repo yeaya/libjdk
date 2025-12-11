@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Comparator = ::java::util::Comparator;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KeyTab = ::sun::security::krb5::internal::ktab::KeyTab;
 

@@ -10,7 +10,6 @@
 
 #undef RECURSIVE
 
-using $Scope$Entry = ::com::sun::tools::javac::code::Scope$Entry;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
 using $Scope$ScopeImpl = ::com::sun::tools::javac::code::Scope$ScopeImpl;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
@@ -19,7 +18,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Predicate = ::java::util::function::Predicate;
 

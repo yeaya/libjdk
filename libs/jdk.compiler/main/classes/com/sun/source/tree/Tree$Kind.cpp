@@ -240,7 +240,6 @@ using $SwitchExpressionTree = ::com::sun::source::tree::SwitchExpressionTree;
 using $SwitchTree = ::com::sun::source::tree::SwitchTree;
 using $SynchronizedTree = ::com::sun::source::tree::SynchronizedTree;
 using $ThrowTree = ::com::sun::source::tree::ThrowTree;
-using $Tree = ::com::sun::source::tree::Tree;
 using $TryTree = ::com::sun::source::tree::TryTree;
 using $TypeCastTree = ::com::sun::source::tree::TypeCastTree;
 using $TypeParameterTree = ::com::sun::source::tree::TypeParameterTree;

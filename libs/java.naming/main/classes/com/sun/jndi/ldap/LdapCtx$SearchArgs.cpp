@@ -5,7 +5,6 @@
 #include <javax/naming/directory/SearchControls.h>
 #include <jcpp.h>
 
-using $LdapCtx = ::com::sun::jndi::ldap::LdapCtx;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

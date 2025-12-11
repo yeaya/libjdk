@@ -45,9 +45,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $Annotation = ::java::lang::annotation::Annotation;
-using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
@@ -63,7 +60,6 @@ using $TreeSet = ::java::util::TreeSet;
 using $ConstructorParameters = ::javax::management::ConstructorParameters;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $CompositeType = ::javax::management::openmbean::CompositeType;
-using $OpenType = ::javax::management::openmbean::OpenType;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 
 namespace com {

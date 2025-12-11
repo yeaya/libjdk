@@ -6,12 +6,8 @@
 #include <java/util/logging/Logger.h>
 #include <jcpp.h>
 
-using $DriverPropertyInfoArray = $Array<::java::sql::DriverPropertyInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Connection = ::java::sql::Connection;
-using $Properties = ::java::util::Properties;
-using $Logger = ::java::util::logging::Logger;
 
 namespace java {
 	namespace sql {

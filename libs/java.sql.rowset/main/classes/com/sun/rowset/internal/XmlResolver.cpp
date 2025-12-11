@@ -4,10 +4,8 @@
 #include <org/xml/sax/InputSource.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EntityResolver = ::org::xml::sax::EntityResolver;
 using $InputSource = ::org::xml::sax::InputSource;
 
 namespace com {

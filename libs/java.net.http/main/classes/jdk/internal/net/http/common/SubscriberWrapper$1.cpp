@@ -9,14 +9,11 @@
 #undef RESCHEDULE
 #undef RETURN
 
-using $SubscriberWrapper$SchedulingActionArray = $Array<::jdk::internal::net::http::common::SubscriberWrapper$SchedulingAction>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
-using $SubscriberWrapper = ::jdk::internal::net::http::common::SubscriberWrapper;
 using $SubscriberWrapper$SchedulingAction = ::jdk::internal::net::http::common::SubscriberWrapper$SchedulingAction;
 
 namespace jdk {

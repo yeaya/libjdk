@@ -33,14 +33,13 @@ using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Element = ::javax::lang::model::element::Element;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
@@ -173,7 +172,7 @@ $String* Type$TypeVar::MemberClass0$::toString() {
 	return ((Type$TypeVar*)(void*)((int8_t*)(void*)this - $offsetof(Type$TypeVar, memberClass0$)))->toString();
 }
 
-$1List* Type$TypeVar::MemberClass0$::getAnnotationMirrors() {
+$List* Type$TypeVar::MemberClass0$::getAnnotationMirrors() {
 	return ((Type$TypeVar*)(void*)((int8_t*)(void*)this - $offsetof(Type$TypeVar, memberClass0$)))->getAnnotationMirrors();
 }
 
@@ -268,7 +267,7 @@ $Object* Type$TypeVar::accept($TypeVisitor* v, Object$* p) {
 	return $of($nc(v)->visitTypeVariable($as($TypeVariable, this), p));
 }
 
-$1List* Type$TypeVar::getAnnotationMirrors() {
+$List* Type$TypeVar::getAnnotationMirrors() {
 	return $Type::getAnnotationMirrors();
 }
 

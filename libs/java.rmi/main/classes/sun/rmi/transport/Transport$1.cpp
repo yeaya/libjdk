@@ -15,7 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Remote = ::java::rmi::Remote;
 using $RemoteCall = ::java::rmi::server::RemoteCall;
 using $AccessControlContext = ::java::security::AccessControlContext;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Dispatcher = ::sun::rmi::server::Dispatcher;
 using $Transport = ::sun::rmi::transport::Transport;
 

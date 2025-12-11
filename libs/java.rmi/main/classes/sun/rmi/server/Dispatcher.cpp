@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Remote = ::java::rmi::Remote;
-using $RemoteCall = ::java::rmi::server::RemoteCall;
 
 namespace sun {
 	namespace rmi {

@@ -14,7 +14,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
@@ -25,7 +24,6 @@ using $Types$23$1 = ::com::sun::tools::javac::code::Types$23$1;
 using $Types$23$2 = ::com::sun::tools::javac::code::Types$23$2;
 using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$MapVisitor = ::com::sun::tools::javac::code::Types$MapVisitor;
-using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

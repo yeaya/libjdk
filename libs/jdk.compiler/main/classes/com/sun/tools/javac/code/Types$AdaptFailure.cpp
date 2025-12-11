@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/code/Types.h>
 #include <jcpp.h>
 
-using $Types = ::com::sun::tools::javac::code::Types;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

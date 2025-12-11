@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Clob = ::java::sql::Clob;
 
 namespace java {
 	namespace sql {

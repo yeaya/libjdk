@@ -14,13 +14,9 @@
 #undef LANGUAGE_VERSION
 #undef NAME
 
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Bindings = ::javax::script::Bindings;
-using $ScriptContext = ::javax::script::ScriptContext;
-using $ScriptEngineFactory = ::javax::script::ScriptEngineFactory;
 
 namespace javax {
 	namespace script {

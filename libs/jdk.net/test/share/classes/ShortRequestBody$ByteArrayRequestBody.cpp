@@ -6,12 +6,10 @@
 #include <java/net/http/HttpRequest$BodyPublishers.h>
 #include <jcpp.h>
 
-using $ShortRequestBody = ::ShortRequestBody;
 using $ShortRequestBody$AbstractDelegateRequestBody = ::ShortRequestBody$AbstractDelegateRequestBody;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
 
 $MethodInfo _ShortRequestBody$ByteArrayRequestBody_MethodInfo_[] = {

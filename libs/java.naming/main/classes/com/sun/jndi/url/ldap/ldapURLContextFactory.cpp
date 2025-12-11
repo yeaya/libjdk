@@ -19,7 +19,6 @@ using $LdapCtxFactory = ::com::sun::jndi::ldap::LdapCtxFactory;
 using $LdapURL = ::com::sun::jndi::ldap::LdapURL;
 using $ComponentDirContext = ::com::sun::jndi::toolkit::ctx::ComponentDirContext;
 using $PartialCompositeDirContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeDirContext;
-using $Uri = ::com::sun::jndi::toolkit::url::Uri;
 using $ldapURLContext = ::com::sun::jndi::url::ldap::ldapURLContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -28,7 +27,6 @@ using $CompositeName = ::javax::naming::CompositeName;
 using $Context = ::javax::naming::Context;
 using $Name = ::javax::naming::Name;
 using $DirContext = ::javax::naming::directory::DirContext;
-using $ObjectFactory = ::javax::naming::spi::ObjectFactory;
 using $ResolveResult = ::javax::naming::spi::ResolveResult;
 
 namespace com {

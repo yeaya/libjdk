@@ -45,14 +45,10 @@
 #undef USR
 #undef VOID
 
-using $TypeTagArray = $Array<::com::sun::tools::javac::code::TypeTag>;
-using $JCTree$TagArray = $Array<::com::sun::tools::javac::tree::JCTree$Tag>;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $Pretty = ::com::sun::tools::javac::tree::Pretty;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

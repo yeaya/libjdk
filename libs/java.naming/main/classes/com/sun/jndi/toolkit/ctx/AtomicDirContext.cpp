@@ -15,7 +15,6 @@
 #undef _ATOMIC
 
 using $ModificationItemArray = $Array<::javax::naming::directory::ModificationItem>;
-using $AtomicContext = ::com::sun::jndi::toolkit::ctx::AtomicContext;
 using $ComponentDirContext = ::com::sun::jndi::toolkit::ctx::ComponentDirContext;
 using $Continuation = ::com::sun::jndi::toolkit::ctx::Continuation;
 using $PartialCompositeContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeContext;

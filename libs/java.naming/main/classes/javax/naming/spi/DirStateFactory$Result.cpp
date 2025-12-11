@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Attributes = ::javax::naming::directory::Attributes;
-using $DirStateFactory = ::javax::naming::spi::DirStateFactory;
 
 namespace javax {
 	namespace naming {

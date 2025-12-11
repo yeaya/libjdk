@@ -21,7 +21,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $NamingException = ::javax::naming::NamingException;

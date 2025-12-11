@@ -12,17 +12,13 @@
 
 using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Record = ::java::lang::Record;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $ObjectMethods = ::java::lang::runtime::ObjectMethods;
 

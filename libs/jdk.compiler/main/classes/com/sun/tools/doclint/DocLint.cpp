@@ -19,20 +19,14 @@
 #undef XMSGS_CUSTOM_PREFIX
 #undef XMSGS_OPTION
 
-using $Plugin = ::com::sun::source::util::Plugin;
 using $DocLint$1 = ::com::sun::tools::doclint::DocLint$1;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Optional = ::java::util::Optional;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $ServiceLoader$Provider = ::java::util::ServiceLoader$Provider;

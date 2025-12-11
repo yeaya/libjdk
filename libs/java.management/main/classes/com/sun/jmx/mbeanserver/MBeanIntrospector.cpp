@@ -35,8 +35,6 @@
 #include <jcpp.h>
 
 using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
-using $MethodArray = $Array<::java::lang::reflect::Method>;
-using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $DescriptorArray = $Array<::javax::management::Descriptor>;
 using $MBeanAttributeInfoArray = $Array<::javax::management::MBeanAttributeInfo>;
 using $MBeanConstructorInfoArray = $Array<::javax::management::MBeanConstructorInfo>;
@@ -56,13 +54,10 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $1Array = ::java::lang::reflect::Array;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
 using $Type = ::java::lang::reflect::Type;
@@ -72,13 +67,10 @@ using $WeakHashMap = ::java::util::WeakHashMap;
 using $Descriptor = ::javax::management::Descriptor;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
 using $InvalidAttributeValueException = ::javax::management::InvalidAttributeValueException;
-using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
 using $MBeanConstructorInfo = ::javax::management::MBeanConstructorInfo;
 using $MBeanException = ::javax::management::MBeanException;
 using $MBeanInfo = ::javax::management::MBeanInfo;
 using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
-using $MBeanOperationInfo = ::javax::management::MBeanOperationInfo;
-using $NotCompliantMBeanException = ::javax::management::NotCompliantMBeanException;
 using $NotificationBroadcaster = ::javax::management::NotificationBroadcaster;
 using $ReflectionException = ::javax::management::ReflectionException;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;

@@ -6,7 +6,6 @@
 #include <java/util/concurrent/Flow$Subscription.h>
 #include <jcpp.h>
 
-using $FlowAdaptersCompileOnly = ::FlowAdaptersCompileOnly;
 using $FlowAdaptersCompileOnly$NumberSubscriber = ::FlowAdaptersCompileOnly$NumberSubscriber;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

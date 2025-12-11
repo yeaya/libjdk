@@ -15,7 +15,6 @@
 
 using $Tokens$TokenArray = $Array<::com::sun::tools::javac::parser::Tokens$Token>;
 using $JavaTokenizer = ::com::sun::tools::javac::parser::JavaTokenizer;
-using $Lexer = ::com::sun::tools::javac::parser::Lexer;
 using $ScannerFactory = ::com::sun::tools::javac::parser::ScannerFactory;
 using $Tokens = ::com::sun::tools::javac::parser::Tokens;
 using $Tokens$Token = ::com::sun::tools::javac::parser::Tokens$Token;

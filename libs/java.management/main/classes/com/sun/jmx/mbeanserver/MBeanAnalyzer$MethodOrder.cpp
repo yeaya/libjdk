@@ -5,14 +5,12 @@
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
-using $MBeanAnalyzer = ::com::sun::jmx::mbeanserver::MBeanAnalyzer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
-using $Comparator = ::java::util::Comparator;
 
 namespace com {
 	namespace sun {

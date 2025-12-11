@@ -7,7 +7,6 @@
 #undef HANDSHAKE_FAILURE
 #undef WSAECONNABORTED
 
-using $HandshakeFailureTest = ::HandshakeFailureTest;
 using $HandshakeFailureTest$ExpectedExceptionTypeArray = $Array<HandshakeFailureTest$ExpectedExceptionType>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;

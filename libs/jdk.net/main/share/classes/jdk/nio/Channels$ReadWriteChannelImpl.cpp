@@ -29,11 +29,9 @@ using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
-using $Channels = ::jdk::nio::Channels;
 using $Channels$SelectableChannelCloser = ::jdk::nio::Channels$SelectableChannelCloser;
 using $IOUtil = ::sun::nio::ch::IOUtil;
 using $Net = ::sun::nio::ch::Net;
-using $SelChImpl = ::sun::nio::ch::SelChImpl;
 using $SelectionKeyImpl = ::sun::nio::ch::SelectionKeyImpl;
 using $SelectorProviderImpl = ::sun::nio::ch::SelectorProviderImpl;
 

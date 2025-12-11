@@ -52,7 +52,6 @@
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $Serializable = ::java::io::Serializable;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -62,11 +61,7 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $StringTokenizer = ::java::util::StringTokenizer;
@@ -270,7 +265,7 @@ $longs* WindowsPreferences::WindowsRegOpenKey(int64_t hKey, $bytes* subKey, int3
 	$init(WindowsPreferences);
 	$var($longs, $ret, nullptr);
 	$prepareNativeStatic(WindowsPreferences, WindowsRegOpenKey, $longs*, int64_t hKey, $bytes* subKey, int32_t securityMask);
-	$assign($ret, $invokeNativeStatic(WindowsPreferences, WindowsRegOpenKey, hKey, subKey, securityMask));
+	$assign($ret, $invokeNativeStaticObject(hKey, subKey, securityMask));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -310,7 +305,7 @@ int32_t WindowsPreferences::WindowsRegCloseKey(int64_t hKey) {
 	$init(WindowsPreferences);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsPreferences, WindowsRegCloseKey, int32_t, int64_t hKey);
-	$ret = $invokeNativeStatic(WindowsPreferences, WindowsRegCloseKey, hKey);
+	$ret = $invokeNativeStatic(hKey);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -319,7 +314,7 @@ $longs* WindowsPreferences::WindowsRegCreateKeyEx(int64_t hKey, $bytes* subKey) 
 	$init(WindowsPreferences);
 	$var($longs, $ret, nullptr);
 	$prepareNativeStatic(WindowsPreferences, WindowsRegCreateKeyEx, $longs*, int64_t hKey, $bytes* subKey);
-	$assign($ret, $invokeNativeStatic(WindowsPreferences, WindowsRegCreateKeyEx, hKey, subKey));
+	$assign($ret, $invokeNativeStaticObject(hKey, subKey));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -351,7 +346,7 @@ int32_t WindowsPreferences::WindowsRegDeleteKey(int64_t hKey, $bytes* subKey) {
 	$init(WindowsPreferences);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsPreferences, WindowsRegDeleteKey, int32_t, int64_t hKey, $bytes* subKey);
-	$ret = $invokeNativeStatic(WindowsPreferences, WindowsRegDeleteKey, hKey, subKey);
+	$ret = $invokeNativeStatic(hKey, subKey);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -360,7 +355,7 @@ int32_t WindowsPreferences::WindowsRegFlushKey(int64_t hKey) {
 	$init(WindowsPreferences);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsPreferences, WindowsRegFlushKey, int32_t, int64_t hKey);
-	$ret = $invokeNativeStatic(WindowsPreferences, WindowsRegFlushKey, hKey);
+	$ret = $invokeNativeStatic(hKey);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -392,7 +387,7 @@ $bytes* WindowsPreferences::WindowsRegQueryValueEx(int64_t hKey, $bytes* valueNa
 	$init(WindowsPreferences);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(WindowsPreferences, WindowsRegQueryValueEx, $bytes*, int64_t hKey, $bytes* valueName);
-	$assign($ret, $invokeNativeStatic(WindowsPreferences, WindowsRegQueryValueEx, hKey, valueName));
+	$assign($ret, $invokeNativeStaticObject(hKey, valueName));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -401,7 +396,7 @@ int32_t WindowsPreferences::WindowsRegSetValueEx(int64_t hKey, $bytes* valueName
 	$init(WindowsPreferences);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsPreferences, WindowsRegSetValueEx, int32_t, int64_t hKey, $bytes* valueName, $bytes* value);
-	$ret = $invokeNativeStatic(WindowsPreferences, WindowsRegSetValueEx, hKey, valueName, value);
+	$ret = $invokeNativeStatic(hKey, valueName, value);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -433,7 +428,7 @@ int32_t WindowsPreferences::WindowsRegDeleteValue(int64_t hKey, $bytes* valueNam
 	$init(WindowsPreferences);
 	int32_t $ret = 0;
 	$prepareNativeStatic(WindowsPreferences, WindowsRegDeleteValue, int32_t, int64_t hKey, $bytes* valueName);
-	$ret = $invokeNativeStatic(WindowsPreferences, WindowsRegDeleteValue, hKey, valueName);
+	$ret = $invokeNativeStatic(hKey, valueName);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -442,7 +437,7 @@ $longs* WindowsPreferences::WindowsRegQueryInfoKey(int64_t hKey) {
 	$init(WindowsPreferences);
 	$var($longs, $ret, nullptr);
 	$prepareNativeStatic(WindowsPreferences, WindowsRegQueryInfoKey, $longs*, int64_t hKey);
-	$assign($ret, $invokeNativeStatic(WindowsPreferences, WindowsRegQueryInfoKey, hKey));
+	$assign($ret, $invokeNativeStaticObject(hKey));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -474,7 +469,7 @@ $bytes* WindowsPreferences::WindowsRegEnumKeyEx(int64_t hKey, int32_t subKeyInde
 	$init(WindowsPreferences);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(WindowsPreferences, WindowsRegEnumKeyEx, $bytes*, int64_t hKey, int32_t subKeyIndex, int32_t maxKeyLength);
-	$assign($ret, $invokeNativeStatic(WindowsPreferences, WindowsRegEnumKeyEx, hKey, subKeyIndex, maxKeyLength));
+	$assign($ret, $invokeNativeStaticObject(hKey, subKeyIndex, maxKeyLength));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -506,7 +501,7 @@ $bytes* WindowsPreferences::WindowsRegEnumValue(int64_t hKey, int32_t valueIndex
 	$init(WindowsPreferences);
 	$var($bytes, $ret, nullptr);
 	$prepareNativeStatic(WindowsPreferences, WindowsRegEnumValue, $bytes*, int64_t hKey, int32_t valueIndex, int32_t maxValueNameLength);
-	$assign($ret, $invokeNativeStatic(WindowsPreferences, WindowsRegEnumValue, hKey, valueIndex, maxValueNameLength));
+	$assign($ret, $invokeNativeStaticObject(hKey, valueIndex, maxValueNameLength));
 	$finishNativeStatic();
 	return $ret;
 }

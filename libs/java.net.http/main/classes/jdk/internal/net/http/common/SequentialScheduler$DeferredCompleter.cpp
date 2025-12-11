@@ -6,7 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
 
 namespace jdk {
 	namespace internal {

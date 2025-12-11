@@ -10,8 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $QuickHuffman = ::jdk::internal::net::http::hpack::QuickHuffman;
-using $QuickHuffman$Node = ::jdk::internal::net::http::hpack::QuickHuffman$Node;
 
 namespace jdk {
 	namespace internal {

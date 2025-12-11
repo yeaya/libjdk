@@ -21,17 +21,14 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
-using $DelegatableDecoder = ::sun::nio::cs::DelegatableDecoder;
 using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
 using $JIS_X_0201 = ::sun::nio::cs::JIS_X_0201;
 using $SingleByte$Decoder = ::sun::nio::cs::SingleByte$Decoder;
-using $EUC_JP = ::sun::nio::cs::ext::EUC_JP;
 using $JIS_X_0208 = ::sun::nio::cs::ext::JIS_X_0208;
 using $JIS_X_0212 = ::sun::nio::cs::ext::JIS_X_0212;
 

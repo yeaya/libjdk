@@ -16,9 +16,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
-using $MemoryManagerMXBean = ::java::lang::management::MemoryManagerMXBean;
 using $MemoryPoolMXBean = ::java::lang::management::MemoryPoolMXBean;
-using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
 using $ObjectName = ::javax::management::ObjectName;
 using $NotificationEmitterSupport = ::sun::management::NotificationEmitterSupport;
 using $Util = ::sun::management::Util;
@@ -124,7 +122,7 @@ $MemoryPoolMXBeanArray* MemoryManagerImpl::getMemoryPools() {
 $MemoryPoolMXBeanArray* MemoryManagerImpl::getMemoryPools0() {
 	$var($MemoryPoolMXBeanArray, $ret, nullptr);
 	$prepareNative(MemoryManagerImpl, getMemoryPools0, $MemoryPoolMXBeanArray*);
-	$assign($ret, $invokeNative(MemoryManagerImpl, getMemoryPools0));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }

@@ -12,7 +12,6 @@
 #undef WARN_INCUBATING
 
 using $Symbol$ModuleResolutionFlagsArray = $Array<::com::sun::tools::javac::code::Symbol$ModuleResolutionFlags>;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

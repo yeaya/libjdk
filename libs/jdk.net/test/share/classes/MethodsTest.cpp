@@ -26,16 +26,12 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $ProxySelector = ::java::net::ProxySelector;
 using $URI = ::java::net::URI;
 using $HttpClient = ::java::net::http::HttpClient;
 using $HttpClient$Builder = ::java::net::http::HttpClient$Builder;
 using $HttpRequest = ::java::net::http::HttpRequest;
-using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
 using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
-using $HttpResponse = ::java::net::http::HttpResponse;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
 
 $FieldInfo _MethodsTest_FieldInfo_[] = {

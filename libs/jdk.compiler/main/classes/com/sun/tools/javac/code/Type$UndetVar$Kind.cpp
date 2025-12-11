@@ -10,8 +10,6 @@
 #undef THROWS
 
 using $Type$UndetVar$KindArray = $Array<::com::sun::tools::javac::code::Type$UndetVar$Kind>;
-using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

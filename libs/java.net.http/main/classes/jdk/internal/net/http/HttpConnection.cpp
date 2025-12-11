@@ -54,7 +54,6 @@
 #undef PROXY_FILTER
 #undef PROXY_TUNNEL_FILTER
 
-using $Closeable = ::java::io::Closeable;
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
@@ -63,22 +62,15 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $HttpClient = ::java::net::http::HttpClient;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
 using $Arrays = ::java::util::Arrays;
-using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $BiPredicate = ::java::util::function::BiPredicate;
 using $Function = ::java::util::function::Function;
@@ -90,10 +82,7 @@ using $AbstractAsyncSSLConnection = ::jdk::internal::net::http::AbstractAsyncSSL
 using $AsyncSSLConnection = ::jdk::internal::net::http::AsyncSSLConnection;
 using $AsyncSSLTunnelConnection = ::jdk::internal::net::http::AsyncSSLTunnelConnection;
 using $ConnectionPool = ::jdk::internal::net::http::ConnectionPool;
-using $ConnectionPool$CacheKey = ::jdk::internal::net::http::ConnectionPool$CacheKey;
-using $Exchange = ::jdk::internal::net::http::Exchange;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
-using $HttpConnection$HttpPublisher = ::jdk::internal::net::http::HttpConnection$HttpPublisher;
 using $HttpConnection$TrailingOperations = ::jdk::internal::net::http::HttpConnection$TrailingOperations;
 using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $PlainHttpConnection = ::jdk::internal::net::http::PlainHttpConnection;

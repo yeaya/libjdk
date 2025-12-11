@@ -10,10 +10,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ExtendedResponse = ::javax::naming::ldap::ExtendedResponse;
-using $HostnameVerifier = ::javax::net::ssl::HostnameVerifier;
-using $SSLSession = ::javax::net::ssl::SSLSession;
-using $SSLSocketFactory = ::javax::net::ssl::SSLSocketFactory;
 
 namespace javax {
 	namespace naming {

@@ -6,12 +6,10 @@
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
 
-using $DefaultMBeanServerInterceptor = ::com::sun::jmx::interceptor::DefaultMBeanServerInterceptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventObject = ::java::util::EventObject;
 using $Notification = ::javax::management::Notification;
 using $NotificationListener = ::javax::management::NotificationListener;
 using $ObjectName = ::javax::management::ObjectName;

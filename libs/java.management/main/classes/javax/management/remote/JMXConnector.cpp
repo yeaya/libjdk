@@ -9,15 +9,9 @@
 
 #undef CREDENTIALS
 
-using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
-using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
-using $NotificationFilter = ::javax::management::NotificationFilter;
-using $NotificationListener = ::javax::management::NotificationListener;
-using $Subject = ::javax::security::auth::Subject;
 
 namespace javax {
 	namespace management {

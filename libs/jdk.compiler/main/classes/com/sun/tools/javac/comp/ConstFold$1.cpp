@@ -13,12 +13,9 @@
 #undef LONG
 #undef SHORT
 
-using $TypeTagArray = $Array<::com::sun::tools::javac::code::TypeTag>;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $ConstFold = ::com::sun::tools::javac::comp::ConstFold;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

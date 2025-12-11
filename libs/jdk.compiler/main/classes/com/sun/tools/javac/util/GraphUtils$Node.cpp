@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/util/GraphUtils.h>
 #include <jcpp.h>
 
-using $GraphUtils = ::com::sun::tools::javac::util::GraphUtils;
-using $GraphUtils$NodeVisitor = ::com::sun::tools::javac::util::GraphUtils$NodeVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

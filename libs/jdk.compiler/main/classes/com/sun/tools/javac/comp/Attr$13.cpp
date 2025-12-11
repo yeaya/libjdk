@@ -51,18 +51,12 @@
 #undef WRONG_MTH
 #undef WRONG_MTHS
 
-using $MemberReferenceTree$ReferenceModeArray = $Array<::com::sun::source::tree::MemberReferenceTree$ReferenceMode>;
-using $Kinds$KindArray = $Array<::com::sun::tools::javac::code::Kinds$Kind>;
-using $TypeTagArray = $Array<::com::sun::tools::javac::code::TypeTag>;
-using $JCTree$TagArray = $Array<::com::sun::tools::javac::tree::JCTree$Tag>;
 using $MemberReferenceTree$ReferenceMode = ::com::sun::source::tree::MemberReferenceTree$ReferenceMode;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

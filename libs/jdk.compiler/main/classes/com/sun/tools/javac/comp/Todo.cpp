@@ -20,17 +20,14 @@
 
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Todo$FileQueue = ::com::sun::tools::javac::comp::Todo$FileQueue;
-using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractQueue = ::java::util::AbstractQueue;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collection = ::java::util::Collection;
 using $Deque = ::java::util::Deque;
 using $HashMap = ::java::util::HashMap;

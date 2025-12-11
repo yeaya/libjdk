@@ -10,7 +10,6 @@
 #undef SYNTHETIC
 
 using $Directive$OpensFlagArray = $Array<::com::sun::tools::javac::code::Directive$OpensFlag>;
-using $Directive = ::com::sun::tools::javac::code::Directive;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

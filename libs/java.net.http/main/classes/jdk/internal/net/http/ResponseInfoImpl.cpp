@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
-using $HttpResponse$ResponseInfo = ::java::net::http::HttpResponse$ResponseInfo;
 using $Response = ::jdk::internal::net::http::Response;
 
 namespace jdk {

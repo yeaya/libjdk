@@ -10,11 +10,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URI = ::java::net::URI;
-using $HttpClient$Version = ::java::net::http::HttpClient$Version;
-using $HttpRequest = ::java::net::http::HttpRequest;
-using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
-using $Duration = ::java::time::Duration;
 
 namespace java {
 	namespace net {

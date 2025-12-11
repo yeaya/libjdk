@@ -9,13 +9,10 @@
 #include <com/sun/tools/javac/code/Types.h>
 #include <jcpp.h>
 
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

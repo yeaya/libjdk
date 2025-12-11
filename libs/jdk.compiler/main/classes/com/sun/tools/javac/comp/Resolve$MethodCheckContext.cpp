@@ -13,7 +13,6 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;

@@ -11,13 +11,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
-using $Filer = ::javax::annotation::processing::Filer;
-using $Messager = ::javax::annotation::processing::Messager;
-using $SourceVersion = ::javax::lang::model::SourceVersion;
-using $Elements = ::javax::lang::model::util::Elements;
-using $Types = ::javax::lang::model::util::Types;
 
 namespace javax {
 	namespace annotation {

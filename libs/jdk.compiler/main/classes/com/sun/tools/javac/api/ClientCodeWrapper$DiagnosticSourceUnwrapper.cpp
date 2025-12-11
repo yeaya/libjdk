@@ -14,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
-using $Diagnostic = ::javax::tools::Diagnostic;
 using $Diagnostic$Kind = ::javax::tools::Diagnostic$Kind;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 

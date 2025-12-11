@@ -16,7 +16,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $BinaryRepresentationWriter = ::jdk::internal::net::http::hpack::BinaryRepresentationWriter;
 using $HeaderTable = ::jdk::internal::net::http::hpack::HeaderTable;
 using $IntegerWriter = ::jdk::internal::net::http::hpack::IntegerWriter;
 using $StringWriter = ::jdk::internal::net::http::hpack::StringWriter;

@@ -69,7 +69,6 @@
 
 using $CRTable = ::com::sun::tools::javac::jvm::CRTable;
 using $CRTable$SourceRange = ::com::sun::tools::javac::jvm::CRTable$SourceRange;
-using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCArrayAccess = ::com::sun::tools::javac::tree::JCTree$JCArrayAccess;
 using $JCTree$JCArrayTypeTree = ::com::sun::tools::javac::tree::JCTree$JCArrayTypeTree;
@@ -82,7 +81,6 @@ using $JCTree$JCBreak = ::com::sun::tools::javac::tree::JCTree$JCBreak;
 using $JCTree$JCCase = ::com::sun::tools::javac::tree::JCTree$JCCase;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCCatch = ::com::sun::tools::javac::tree::JCTree$JCCatch;
-using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCConditional = ::com::sun::tools::javac::tree::JCTree$JCConditional;
 using $JCTree$JCContinue = ::com::sun::tools::javac::tree::JCTree$JCContinue;
 using $JCTree$JCDefaultCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCDefaultCaseLabel;

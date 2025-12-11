@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $HeaderTable = ::jdk::internal::net::http::hpack::HeaderTable;
 
 namespace jdk {
 	namespace internal {

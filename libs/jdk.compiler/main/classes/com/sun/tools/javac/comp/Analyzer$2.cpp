@@ -24,27 +24,20 @@
 
 #undef Q
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
 using $Analyzer$DeferredAnalysisHelper = ::com::sun::tools::javac::comp::Analyzer$DeferredAnalysisHelper;
 using $Analyzer$RewritingContext = ::com::sun::tools::javac::comp::Analyzer$RewritingContext;
 using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayDeque = ::java::util::ArrayDeque;
-using $Collection = ::java::util::Collection;
 using $Deque = ::java::util::Deque;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

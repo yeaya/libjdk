@@ -12,7 +12,6 @@
 #undef ASN1_BAD_ID
 #undef TAG_CONTEXT
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

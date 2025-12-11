@@ -13,17 +13,13 @@
 #undef ASN1_BAD_ID
 #undef TAG_CONTEXT
 
-using $BufferedOutputStream = ::java::io::BufferedOutputStream;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Cloneable = ::java::lang::Cloneable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $CCacheOutputStream = ::sun::security::krb5::internal::ccache::CCacheOutputStream;
-using $KrbDataOutputStream = ::sun::security::krb5::internal::util::KrbDataOutputStream;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;

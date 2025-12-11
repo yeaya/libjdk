@@ -27,7 +27,6 @@ using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$Complet
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$InvalidSymbolError = ::com::sun::tools::javac::comp::Resolve$InvalidSymbolError;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticFlag = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticFlag;

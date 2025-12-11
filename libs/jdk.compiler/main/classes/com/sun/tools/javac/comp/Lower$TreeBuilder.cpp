@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <jcpp.h>
 
-using $Lower = ::com::sun::tools::javac::comp::Lower;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

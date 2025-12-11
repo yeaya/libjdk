@@ -61,7 +61,6 @@ using $Obj = ::com::sun::jndi::ldap::Obj;
 using $SimpleClientId = ::com::sun::jndi::ldap::SimpleClientId;
 using $VersionHelper = ::com::sun::jndi::ldap::VersionHelper;
 using $Pool = ::com::sun::jndi::ldap::pool::Pool;
-using $PooledConnection = ::com::sun::jndi::ldap::pool::PooledConnection;
 using $PooledConnectionFactory = ::com::sun::jndi::ldap::pool::PooledConnectionFactory;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
@@ -74,19 +73,13 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Hashtable = ::java::util::Hashtable;
 using $Locale = ::java::util::Locale;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $CommunicationException = ::javax::naming::CommunicationException;
-using $NamingException = ::javax::naming::NamingException;
 
 namespace com {
 	namespace sun {

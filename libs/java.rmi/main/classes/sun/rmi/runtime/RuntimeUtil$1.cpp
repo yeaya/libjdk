@@ -20,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $Level = ::java::util::logging::Level;
 using $Log = ::sun::rmi::runtime::Log;

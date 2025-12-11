@@ -9,12 +9,9 @@
 #undef ILLEGAL_STATE
 #undef LOG
 
-using $Arguments$ErrorModeArray = $Array<::com::sun::tools::javac::main::Arguments$ErrorMode>;
-using $Arguments = ::com::sun::tools::javac::main::Arguments;
 using $Arguments$ErrorMode = ::com::sun::tools::javac::main::Arguments$ErrorMode;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

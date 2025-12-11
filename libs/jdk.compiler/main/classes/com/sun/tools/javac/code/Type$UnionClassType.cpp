@@ -20,8 +20,6 @@
 #undef UNION
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;

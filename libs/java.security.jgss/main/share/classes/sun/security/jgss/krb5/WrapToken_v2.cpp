@@ -35,7 +35,6 @@ using $Krb5Context = ::sun::security::jgss::krb5::Krb5Context;
 using $Krb5Token = ::sun::security::jgss::krb5::Krb5Token;
 using $MessageToken_v2 = ::sun::security::jgss::krb5::MessageToken_v2;
 using $Confounder = ::sun::security::krb5::Confounder;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 
 namespace sun {
 	namespace security {

@@ -10,14 +10,12 @@
 
 using $ArgumentAttr = ::com::sun::tools::javac::comp::ArgumentAttr;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {

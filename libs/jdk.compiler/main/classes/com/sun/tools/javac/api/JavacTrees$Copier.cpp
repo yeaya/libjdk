@@ -14,7 +14,6 @@
 #undef M
 
 using $ClassTree = ::com::sun::source::tree::ClassTree;
-using $JavacTrees = ::com::sun::tools::javac::api::JavacTrees;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $TreeCopier = ::com::sun::tools::javac::tree::TreeCopier;

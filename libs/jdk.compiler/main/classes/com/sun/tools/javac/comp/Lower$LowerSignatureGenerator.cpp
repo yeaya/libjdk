@@ -6,7 +6,6 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <jcpp.h>
 
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$SignatureGenerator = ::com::sun::tools::javac::code::Types$SignatureGenerator;
 using $Lower = ::com::sun::tools::javac::comp::Lower;
 using $Name = ::com::sun::tools::javac::util::Name;

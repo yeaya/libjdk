@@ -15,10 +15,7 @@
 #undef VARARG_MISMATCH
 
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
-using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$4 = ::com::sun::tools::javac::comp::Resolve$4;
-using $Resolve$AbstractMethodCheck = ::com::sun::tools::javac::comp::Resolve$AbstractMethodCheck;
 using $Resolve$MethodCheckContext = ::com::sun::tools::javac::comp::Resolve$MethodCheckContext;
 using $Resolve$MethodCheckDiag = ::com::sun::tools::javac::comp::Resolve$MethodCheckDiag;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;

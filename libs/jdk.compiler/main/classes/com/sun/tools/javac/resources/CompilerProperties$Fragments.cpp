@@ -19,7 +19,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Kinds$KindName = ::com::sun::tools::javac::code::Kinds$KindName;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $CompilerProperties = ::com::sun::tools::javac::resources::CompilerProperties;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
 using $Name = ::com::sun::tools::javac::util::Name;

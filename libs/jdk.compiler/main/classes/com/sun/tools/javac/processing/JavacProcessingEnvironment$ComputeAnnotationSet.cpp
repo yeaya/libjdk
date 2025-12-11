@@ -17,7 +17,6 @@
 #include <javax/lang/model/util/Elements.h>
 #include <jcpp.h>
 
-using $JavacProcessingEnvironment = ::com::sun::tools::javac::processing::JavacProcessingEnvironment;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -34,7 +33,6 @@ using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
 using $DeclaredType = ::javax::lang::model::type::DeclaredType;
 using $ElementScanner14 = ::javax::lang::model::util::ElementScanner14;
-using $ElementScanner6 = ::javax::lang::model::util::ElementScanner6;
 using $Elements = ::javax::lang::model::util::Elements;
 
 namespace com {

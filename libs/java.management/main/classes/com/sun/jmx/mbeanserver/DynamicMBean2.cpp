@@ -6,9 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DynamicMBean = ::javax::management::DynamicMBean;
-using $MBeanServer = ::javax::management::MBeanServer;
-using $ObjectName = ::javax::management::ObjectName;
 
 namespace com {
 	namespace sun {

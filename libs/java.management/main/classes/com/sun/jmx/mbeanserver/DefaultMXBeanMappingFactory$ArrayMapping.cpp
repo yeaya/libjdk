@@ -10,7 +10,6 @@
 #include <javax/management/openmbean/OpenType.h>
 #include <jcpp.h>
 
-using $DefaultMXBeanMappingFactory = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory;
 using $DefaultMXBeanMappingFactory$NonNullMXBeanMapping = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$NonNullMXBeanMapping;
 using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $ClassInfo = ::java::lang::ClassInfo;

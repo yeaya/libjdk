@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Proxy = ::java::net::Proxy;
 
 namespace jdk {
 	namespace internal {

@@ -18,10 +18,8 @@ using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscri
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Function = ::java::util::function::Function;
-using $ResponseSubscribers = ::jdk::internal::net::http::ResponseSubscribers;
 using $ResponseSubscribers$TrustedSubscriber = ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber;
 
 namespace jdk {

@@ -14,9 +14,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Path = ::java::nio::file::Path;
 using $Iterator = ::java::util::Iterator;
-using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 
 namespace javax {
 	namespace tools {

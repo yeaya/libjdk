@@ -11,7 +11,6 @@
 
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Name$Table = ::com::sun::tools::javac::util::Name$Table;
 using $Names = ::com::sun::tools::javac::util::Names;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -13,7 +13,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$AbstractMethodCheck = ::com::sun::tools::javac::comp::Resolve$AbstractMethodCheck;
-using $Resolve$MethodCheck = ::com::sun::tools::javac::comp::Resolve$MethodCheck;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $Warner = ::com::sun::tools::javac::util::Warner;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -19,7 +19,6 @@
 #undef TAG_APPLICATION
 #undef TAG_CONTEXT
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -34,7 +33,6 @@ using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
 using $TransitedEncoding = ::sun::security::krb5::internal::TransitedEncoding;
-using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;

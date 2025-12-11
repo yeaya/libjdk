@@ -8,11 +8,9 @@
 #undef DEFAULT
 
 using $DefaultMXBeanMappingFactory = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory;
-using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Type = ::java::lang::reflect::Type;
 
 namespace com {
 	namespace sun {

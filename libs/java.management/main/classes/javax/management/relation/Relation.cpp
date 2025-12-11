@@ -9,14 +9,7 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $ObjectName = ::javax::management::ObjectName;
-using $Role = ::javax::management::relation::Role;
-using $RoleList = ::javax::management::relation::RoleList;
-using $RoleResult = ::javax::management::relation::RoleResult;
 
 namespace javax {
 	namespace management {

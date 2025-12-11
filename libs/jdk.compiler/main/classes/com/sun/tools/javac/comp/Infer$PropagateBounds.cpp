@@ -26,7 +26,6 @@ using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$IncorporationAction = ::com::sun::tools::javac::comp::Infer$IncorporationAction;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
@@ -39,7 +38,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {

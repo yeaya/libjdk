@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessControlContext = ::java::security::AccessControlContext;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Subject = ::javax::security::auth::Subject;
 using $Krb5Context = ::sun::security::jgss::krb5::Krb5Context;
 

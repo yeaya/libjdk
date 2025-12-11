@@ -30,7 +30,6 @@
 #include <com/sun/tools/javac/util/Pair.h>
 #include <jcpp.h>
 
-using $AttributeArray = $Array<::com::sun::tools::javac::code::Attribute>;
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Array = ::com::sun::tools::javac::code::Attribute$Array;
 using $Attribute$Class = ::com::sun::tools::javac::code::Attribute$Class;
@@ -42,18 +41,12 @@ using $Attribute$TypeCompound = ::com::sun::tools::javac::code::Attribute$TypeCo
 using $Attribute$UnresolvedClass = ::com::sun::tools::javac::code::Attribute$UnresolvedClass;
 using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
 using $JCTree$JCAssign = ::com::sun::tools::javac::tree::JCTree$JCAssign;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
-using $JCTree$JCErroneous = ::com::sun::tools::javac::tree::JCTree$JCErroneous;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
-using $JCTree$JCLiteral = ::com::sun::tools::javac::tree::JCTree$JCLiteral;
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $List = ::com::sun::tools::javac::util::List;

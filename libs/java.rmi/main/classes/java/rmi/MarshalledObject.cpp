@@ -14,18 +14,14 @@
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $InputStream = ::java::io::InputStream;
-using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MarshalledObject$MarshalledObjectInputStream = ::java::rmi::MarshalledObject$MarshalledObjectInputStream;
 using $MarshalledObject$MarshalledObjectOutputStream = ::java::rmi::MarshalledObject$MarshalledObjectOutputStream;
-using $MarshalInputStream = ::sun::rmi::server::MarshalInputStream;
 
 namespace java {
 	namespace rmi {

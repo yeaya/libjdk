@@ -28,7 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Map = ::java::util::Map;
 using $ReflectionException = ::javax::management::ReflectionException;
 using $RequiredModelMBean = ::javax::management::modelmbean::RequiredModelMBean;

@@ -9,16 +9,10 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
-using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
-using $LineMap = ::com::sun::source::tree::LineMap;
 using $ModuleTree = ::com::sun::source::tree::ModuleTree;
-using $PackageTree = ::com::sun::source::tree::PackageTree;
-using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $List = ::java::util::List;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {

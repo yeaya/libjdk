@@ -12,7 +12,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Filter = ::java::util::logging::Filter;
 using $Formatter = ::java::util::logging::Formatter;
 using $Handler = ::java::util::logging::Handler;

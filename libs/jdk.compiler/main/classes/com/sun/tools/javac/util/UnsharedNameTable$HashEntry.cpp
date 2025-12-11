@@ -5,7 +5,6 @@
 #include <java/lang/ref/WeakReference.h>
 #include <jcpp.h>
 
-using $UnsharedNameTable = ::com::sun::tools::javac::util::UnsharedNameTable;
 using $UnsharedNameTable$NameImpl = ::com::sun::tools::javac::util::UnsharedNameTable$NameImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

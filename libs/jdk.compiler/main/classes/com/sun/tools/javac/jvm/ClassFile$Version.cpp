@@ -8,7 +8,6 @@
 #undef MIN
 
 using $ClassFile$VersionArray = $Array<::com::sun::tools::javac::jvm::ClassFile$Version>;
-using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

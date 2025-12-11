@@ -19,29 +19,12 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $BigDecimal = ::java::math::BigDecimal;
-using $URL = ::java::net::URL;
-using $1Array = ::java::sql::Array;
-using $Blob = ::java::sql::Blob;
-using $Clob = ::java::sql::Clob;
-using $Date = ::java::sql::Date;
-using $NClob = ::java::sql::NClob;
-using $PreparedStatement = ::java::sql::PreparedStatement;
-using $Ref = ::java::sql::Ref;
-using $RowId = ::java::sql::RowId;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
 using $SQLType = ::java::sql::SQLType;
-using $SQLXML = ::java::sql::SQLXML;
-using $Time = ::java::sql::Time;
-using $Timestamp = ::java::sql::Timestamp;
-using $Calendar = ::java::util::Calendar;
-using $Map = ::java::util::Map;
 
 namespace java {
 	namespace sql {

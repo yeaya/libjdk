@@ -5,7 +5,6 @@
 #include <java/nio/file/Path.h>
 #include <jcpp.h>
 
-using $LauncherProperties = ::com::sun::tools::javac::resources::LauncherProperties;
 using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

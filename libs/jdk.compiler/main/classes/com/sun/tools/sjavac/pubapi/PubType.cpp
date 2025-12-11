@@ -5,7 +5,6 @@
 #include <jcpp.h>
 
 using $PubApi = ::com::sun::tools::sjavac::pubapi::PubApi;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

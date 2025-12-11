@@ -21,15 +21,11 @@
 #undef REALM_ILLCHAR
 #undef REALM_NULL
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Cloneable = ::java::lang::Cloneable;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $LinkedList = ::java::util::LinkedList;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;

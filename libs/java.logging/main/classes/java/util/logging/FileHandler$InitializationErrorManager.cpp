@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ErrorManager = ::java::util::logging::ErrorManager;
-using $FileHandler = ::java::util::logging::FileHandler;
 
 namespace java {
 	namespace util {

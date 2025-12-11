@@ -12,7 +12,6 @@
 #include <jcpp.h>
 
 using $OperationArray = $Array<::java::rmi::server::Operation>;
-using $Externalizable = ::java::io::Externalizable;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectOutput = ::java::io::ObjectOutput;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -8,9 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Preferences = ::java::util::prefs::Preferences;
-using $PreferencesFactory = ::java::util::prefs::PreferencesFactory;
 
 namespace java {
 	namespace util {

@@ -7,9 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
-using $XmlSupport = ::java::util::prefs::XmlSupport;
-using $ErrorHandler = ::org::xml::sax::ErrorHandler;
 using $SAXParseException = ::org::xml::sax::SAXParseException;
 
 namespace java {

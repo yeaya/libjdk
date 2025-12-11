@@ -4,7 +4,6 @@
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
-using $ECDSAUtils = ::com::sun::org::apache::xml::internal::security::algorithms::implementations::ECDSAUtils;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -4,11 +4,8 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
-using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {

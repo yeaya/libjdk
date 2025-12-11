@@ -123,16 +123,11 @@
 #undef VOLATILE
 #undef WHILE
 
-using $JavacParser$ParensResultArray = $Array<::com::sun::tools::javac::parser::JavacParser$ParensResult>;
-using $Tokens$TokenKindArray = $Array<::com::sun::tools::javac::parser::Tokens$TokenKind>;
-using $JCTree$TagArray = $Array<::com::sun::tools::javac::tree::JCTree$Tag>;
-using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $JavacParser$ParensResult = ::com::sun::tools::javac::parser::JavacParser$ParensResult;
 using $Tokens$TokenKind = ::com::sun::tools::javac::parser::Tokens$TokenKind;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

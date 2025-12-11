@@ -8,7 +8,6 @@
 #include <jcpp.h>
 
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
-using $ContentSignerParameters = ::com::sun::jarsigner::ContentSignerParameters;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;

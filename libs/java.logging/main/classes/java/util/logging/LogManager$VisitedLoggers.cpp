@@ -14,8 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
-using $Predicate = ::java::util::function::Predicate;
-using $LogManager = ::java::util::logging::LogManager;
 using $Logger = ::java::util::logging::Logger;
 
 namespace java {

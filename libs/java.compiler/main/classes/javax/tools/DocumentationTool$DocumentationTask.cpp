@@ -7,11 +7,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Locale = ::java::util::Locale;
-using $Callable = ::java::util::concurrent::Callable;
-using $DocumentationTool = ::javax::tools::DocumentationTool;
 
 namespace javax {
 	namespace tools {

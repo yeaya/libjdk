@@ -8,7 +8,6 @@
 #include <javax/tools/StandardJavaFileManager.h>
 #include <jcpp.h>
 
-using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
@@ -21,7 +20,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Path = ::java::nio::file::Path;
 using $Iterator = ::java::util::Iterator;
-using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 
 namespace javax {
 	namespace tools {

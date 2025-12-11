@@ -10,7 +10,6 @@
 
 #undef STRING
 
-using $Tokens = ::com::sun::tools::javac::parser::Tokens;
 using $Tokens$Token = ::com::sun::tools::javac::parser::Tokens$Token;
 using $Tokens$Token$Tag = ::com::sun::tools::javac::parser::Tokens$Token$Tag;
 using $Tokens$TokenKind = ::com::sun::tools::javac::parser::Tokens$TokenKind;

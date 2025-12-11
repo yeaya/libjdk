@@ -11,6 +11,12 @@ include_directories("../main/include")
 
 add_subdirectory("classes")
 
+if(JCPP_SUBSYSTEM MATCHES "WINDOWS")
+	set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
+	add_definitions(-DJCPP_SUBSYSTEM_WINDOWS)
+	message(STATUS "set the WINDOWS subsystem for the executable")
+endif()
+
 aux_source_directory("." source_SRCS)
 
 set(local_object ${local_object}
@@ -21,7 +27,7 @@ add_executable(${JCPP_PROJECT_FULL_NAME}-test "${local_object}" "${source_SRCS}"
 
 SET_TARGET_PROPERTIES(${JCPP_PROJECT_FULL_NAME}-test PROPERTIES OUTPUT_NAME "${JCPP_PROJECT_FULL_NAME}-test")
 if(JCPP_OS MATCHES "linux")
-	SET_TARGET_PROPERTIES(${JCPP_PROJECT_FULL_NAME}-test PROPERTIES INSTALL_RPATH "\\\$ORIGIN;\\\$ORIGIN/../lib")
+	SET_TARGET_PROPERTIES(${JCPP_PROJECT_FULL_NAME}-test PROPERTIES INSTALL_RPATH "\$ORIGIN;\$ORIGIN/../lib")
 elseif(JCPP_OS MATCHES "macos")
 	SET_TARGET_PROPERTIES(${JCPP_PROJECT_FULL_NAME}-test PROPERTIES INSTALL_RPATH ".;../lib")
 endif()

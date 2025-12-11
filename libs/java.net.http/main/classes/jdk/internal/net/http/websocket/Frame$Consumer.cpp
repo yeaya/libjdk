@@ -8,9 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Frame = ::jdk::internal::net::http::websocket::Frame;
-using $Frame$Opcode = ::jdk::internal::net::http::websocket::Frame$Opcode;
 
 namespace jdk {
 	namespace internal {

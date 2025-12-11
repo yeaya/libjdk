@@ -8,7 +8,6 @@
 
 using $ClassLoaderUtils = ::com::sun::org::apache::xml::internal::security::utils::ClassLoaderUtils;
 using $JDKXPathFactory = ::com::sun::org::apache::xml::internal::security::utils::JDKXPathFactory;
-using $XPathAPI = ::com::sun::org::apache::xml::internal::security::utils::XPathAPI;
 using $XalanXPathAPI = ::com::sun::org::apache::xml::internal::security::utils::XalanXPathAPI;
 using $XalanXPathFactory = ::com::sun::org::apache::xml::internal::security::utils::XalanXPathFactory;
 using $ClassInfo = ::java::lang::ClassInfo;

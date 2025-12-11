@@ -21,8 +21,6 @@ using $Paths = ::java::nio::file::Paths;
 using $Optional = ::java::util::Optional;
 using $ZipEntry = ::java::util::zip::ZipEntry;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $Main = ::sun::tools::jar::Main;
-using $Main$ModuleInfoEntry = ::sun::tools::jar::Main$ModuleInfoEntry;
 
 namespace sun {
 	namespace tools {

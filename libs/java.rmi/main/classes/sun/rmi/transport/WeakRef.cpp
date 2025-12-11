@@ -13,10 +13,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $Level = ::java::util::logging::Level;
 using $Log = ::sun::rmi::runtime::Log;
 using $DGCImpl = ::sun::rmi::transport::DGCImpl;
 

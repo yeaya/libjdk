@@ -16,7 +16,6 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
-using $Check = ::com::sun::tools::javac::comp::Check;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $Check$NestedCheckContext = ::com::sun::tools::javac::comp::Check$NestedCheckContext;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
@@ -24,7 +23,6 @@ using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::Compi
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
-using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
 using $Warner = ::com::sun::tools::javac::util::Warner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

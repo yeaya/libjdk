@@ -5,12 +5,9 @@
 #include <jdk/internal/net/http/hpack/Huffman.h>
 #include <jcpp.h>
 
-using $Appendable = ::java::lang::Appendable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Huffman = ::jdk::internal::net::http::hpack::Huffman;
 
 namespace jdk {
 	namespace internal {

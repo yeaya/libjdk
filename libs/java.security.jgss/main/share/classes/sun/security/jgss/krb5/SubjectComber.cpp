@@ -25,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Date = ::java::util::Date;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;

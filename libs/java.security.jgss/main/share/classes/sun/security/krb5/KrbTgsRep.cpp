@@ -33,28 +33,21 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
-using $1Credentials = ::sun::security::krb5::Credentials;
+using $Credentials = ::sun::security::krb5::Credentials;
 using $EncryptedData = ::sun::security::krb5::EncryptedData;
-using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $KrbKdcRep = ::sun::security::krb5::KrbKdcRep;
 using $KrbTgsReq = ::sun::security::krb5::KrbTgsReq;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $EncKDCRepPart = ::sun::security::krb5::internal::EncKDCRepPart;
 using $EncTGSRepPart = ::sun::security::krb5::internal::EncTGSRepPart;
-using $HostAddresses = ::sun::security::krb5::internal::HostAddresses;
 using $KDCRep = ::sun::security::krb5::internal::KDCRep;
 using $KDCReq = ::sun::security::krb5::internal::KDCReq;
-using $KDCReqBody = ::sun::security::krb5::internal::KDCReqBody;
 using $KRBError = ::sun::security::krb5::internal::KRBError;
-using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $TGSRep = ::sun::security::krb5::internal::TGSRep;
 using $TGSReq = ::sun::security::krb5::internal::TGSReq;
-using $Ticket = ::sun::security::krb5::internal::Ticket;
-using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
-using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
+using $1Credentials = ::sun::security::krb5::internal::ccache::Credentials;
 using $KeyUsage = ::sun::security::krb5::internal::crypto::KeyUsage;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -137,17 +130,17 @@ void KrbTgsRep::init$($bytes* ibuf, $KrbTgsReq* tgsReq) {
 	if ($nc(rep->cname)->equals($nc($nc(req)->reqBody)->cname)) {
 		$assign(clientAlias, tgsReq->getClientAlias());
 	}
-	$set(this, creds, $new($1Credentials, rep->ticket, rep->cname, clientAlias, enc_part->sname, serverAlias, enc_part->key, enc_part->flags, enc_part->authtime, enc_part->starttime, enc_part->endtime, enc_part->renewTill, enc_part->caddr));
+	$set(this, creds, $new($Credentials, rep->ticket, rep->cname, clientAlias, enc_part->sname, serverAlias, enc_part->key, enc_part->flags, enc_part->authtime, enc_part->starttime, enc_part->endtime, enc_part->renewTill, enc_part->caddr));
 	$set(this, rep, rep);
 	$set(this, secondTicket, tgsReq->getSecondTicket());
 }
 
-$1Credentials* KrbTgsRep::getCreds() {
+$Credentials* KrbTgsRep::getCreds() {
 	return this->creds;
 }
 
-$Credentials* KrbTgsRep::setCredentials() {
-	return $new($Credentials, this->rep, this->secondTicket);
+$1Credentials* KrbTgsRep::setCredentials() {
+	return $new($1Credentials, this->rep, this->secondTicket);
 }
 
 bool KrbTgsRep::isReferralSname($PrincipalName* sname) {

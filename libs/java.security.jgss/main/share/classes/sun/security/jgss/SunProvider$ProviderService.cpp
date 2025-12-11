@@ -23,7 +23,6 @@ using $Provider$Service = ::java::security::Provider$Service;
 using $ProviderException = ::java::security::ProviderException;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $SunProvider = ::sun::security::jgss::SunProvider;
 using $Krb5MechFactory = ::sun::security::jgss::krb5::Krb5MechFactory;
 using $SpNegoMechFactory = ::sun::security::jgss::spnego::SpNegoMechFactory;
 

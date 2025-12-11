@@ -11,13 +11,10 @@
 
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Handler = ::java::util::logging::Handler;
 using $Level = ::java::util::logging::Level;
 using $Log$InternalStreamHandler = ::sun::rmi::runtime::Log$InternalStreamHandler;
 

@@ -14,7 +14,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
@@ -84,7 +83,7 @@ int64_t GC::maxObjectInspectionAge() {
 	$init(GC);
 	int64_t $ret = 0;
 	$prepareNativeStatic(GC, maxObjectInspectionAge, int64_t);
-	$ret = $invokeNativeStatic(GC, maxObjectInspectionAge);
+	$ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }

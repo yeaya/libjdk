@@ -39,16 +39,14 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
-using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
+using $1DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
-using $PGPData = ::javax::xml::crypto::dsig::keyinfo::PGPData;
-using $1DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
+using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
-using $Text = ::org::w3c::dom::Text;
 
 namespace org {
 	namespace jcp {
@@ -96,32 +94,32 @@ $Object* allocate$DOMPGPData($Class* clazz) {
 }
 
 bool DOMPGPData::isFeatureSupported($String* feature) {
-	 return this->$1DOMStructure::isFeatureSupported(feature);
+	 return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 int32_t DOMPGPData::hashCode() {
-	 return this->$1DOMStructure::hashCode();
+	 return this->$DOMStructure::hashCode();
 }
 
 bool DOMPGPData::equals(Object$* arg0) {
-	 return this->$1DOMStructure::equals(arg0);
+	 return this->$DOMStructure::equals(arg0);
 }
 
 $Object* DOMPGPData::clone() {
-	 return this->$1DOMStructure::clone();
+	 return this->$DOMStructure::clone();
 }
 
 $String* DOMPGPData::toString() {
-	 return this->$1DOMStructure::toString();
+	 return this->$DOMStructure::toString();
 }
 
 void DOMPGPData::finalize() {
-	this->$1DOMStructure::finalize();
+	this->$DOMStructure::finalize();
 }
 
 void DOMPGPData::init$($bytes* keyPacket, $List* other) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	if (keyPacket == nullptr) {
 		$throwNew($NullPointerException, "keyPacket cannot be null"_s);
 	}
@@ -146,7 +144,7 @@ void DOMPGPData::init$($bytes* keyPacket, $List* other) {
 
 void DOMPGPData::init$($bytes* keyId, $bytes* keyPacket, $List* other) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	if (keyId == nullptr) {
 		$throwNew($NullPointerException, "keyId cannot be null"_s);
 	}
@@ -176,7 +174,7 @@ void DOMPGPData::init$($bytes* keyId, $bytes* keyPacket, $List* other) {
 
 void DOMPGPData::init$($Element* pdElem) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	$var($bytes, pgpKeyId, nullptr);
 	$var($bytes, pgpKeyPacket, nullptr);
 	$var($List, other, $new($ArrayList));
@@ -197,7 +195,7 @@ void DOMPGPData::init$($Element* pdElem) {
 					$var($String, content, $XMLUtils::getFullTextChildrenFromNode(childElem));
 					$assign(pgpKeyPacket, $XMLUtils::decode(content));
 				} else {
-					other->add($$new($DOMStructure, childElem));
+					other->add($$new($1DOMStructure, childElem));
 				}
 			}
 		}
@@ -240,7 +238,7 @@ void DOMPGPData::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* co
 		for (; $nc(i$)->hasNext();) {
 			$var($XMLStructure, extElem, $cast($XMLStructure, i$->next()));
 			{
-				$DOMUtils::appendChild(pdElem, $($nc(($cast($DOMStructure, extElem)))->getNode()));
+				$DOMUtils::appendChild(pdElem, $($nc(($cast($1DOMStructure, extElem)))->getNode()));
 			}
 		}
 	}

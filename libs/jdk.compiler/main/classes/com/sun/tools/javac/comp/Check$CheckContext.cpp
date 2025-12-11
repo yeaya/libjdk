@@ -9,13 +9,6 @@
 #include <com/sun/tools/javac/util/Warner.h>
 #include <jcpp.h>
 
-using $Type = ::com::sun::tools::javac::code::Type;
-using $Check = ::com::sun::tools::javac::comp::Check;
-using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
-using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $Warner = ::com::sun::tools::javac::util::Warner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

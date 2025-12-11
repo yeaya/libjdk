@@ -18,7 +18,6 @@
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
-using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
 using $DeferredAttr$DeferredType$SpeculativeCache$Entry = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType$SpeculativeCache$Entry;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;

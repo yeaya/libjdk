@@ -15,8 +15,6 @@
 
 #undef BOOLEAN
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$JCPrimitiveType = ::com::sun::tools::javac::code::Type$JCPrimitiveType;
@@ -28,7 +26,6 @@ using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -7,13 +7,7 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
-using $Symbol$BindingSymbol = ::com::sun::tools::javac::code::Symbol$BindingSymbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $TransPatterns = ::com::sun::tools::javac::comp::TransPatterns;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
-using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
-using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

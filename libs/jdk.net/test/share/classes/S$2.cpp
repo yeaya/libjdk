@@ -3,12 +3,10 @@
 #include <S.h>
 #include <jcpp.h>
 
-using $S = ::S;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 
 $MethodInfo _S$2_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(static_cast<void(S$2::*)()>(&S$2::init$))},

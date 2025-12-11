@@ -7,12 +7,8 @@
 
 #undef DGC
 
-using $ObjIDArray = $Array<::java::rmi::server::ObjID>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Remote = ::java::rmi::Remote;
-using $Lease = ::java::rmi::dgc::Lease;
-using $VMID = ::java::rmi::dgc::VMID;
 
 namespace java {
 	namespace rmi {

@@ -13,9 +13,7 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
-using $RMIConnectionImpl = ::javax::management::remote::rmi::RMIConnectionImpl;
 using $RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper = ::javax::management::remote::rmi::RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 

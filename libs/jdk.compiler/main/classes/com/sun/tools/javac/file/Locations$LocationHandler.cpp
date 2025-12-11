@@ -8,14 +8,11 @@
 #include <javax/tools/JavaFileManager$Location.h>
 #include <jcpp.h>
 
-using $Locations = ::com::sun::tools::javac::file::Locations;
-using $Option = ::com::sun::tools::javac::main::Option;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
-using $Collection = ::java::util::Collection;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 
 namespace com {

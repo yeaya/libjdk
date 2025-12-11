@@ -5,7 +5,6 @@
 #include <javax/management/MBeanServer.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InheritableThreadLocal = ::java::lang::InheritableThreadLocal;

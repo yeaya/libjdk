@@ -8,8 +8,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AnnotatedConstruct = ::javax::lang::model::AnnotatedConstruct;
-using $TypeKind = ::javax::lang::model::type::TypeKind;
-using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
 
 namespace javax {
 	namespace lang {

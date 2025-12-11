@@ -28,17 +28,14 @@
 
 #undef BOUND
 
-using $Type$UndetVar$InferenceBoundArray = $Array<::com::sun::tools::javac::code::Type$UndetVar$InferenceBound>;
 using $GraphUtils$DependencyKindArray = $Array<::com::sun::tools::javac::util::GraphUtils$DependencyKind>;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
 using $Infer$DependencyKind = ::com::sun::tools::javac::comp::Infer$DependencyKind;
-using $Infer$GraphSolver = ::com::sun::tools::javac::comp::Infer$GraphSolver;
 using $Infer$GraphSolver$InferenceGraph = ::com::sun::tools::javac::comp::Infer$GraphSolver$InferenceGraph;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $GraphUtils$AbstractNode = ::com::sun::tools::javac::util::GraphUtils$AbstractNode;
 using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $GraphUtils$DottableNode = ::com::sun::tools::javac::util::GraphUtils$DottableNode;
 using $GraphUtils$NodeVisitor = ::com::sun::tools::javac::util::GraphUtils$NodeVisitor;

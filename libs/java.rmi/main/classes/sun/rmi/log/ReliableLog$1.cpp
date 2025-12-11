@@ -9,8 +9,6 @@ using $ClassLoader = ::java::lang::ClassLoader;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ReliableLog = ::sun::rmi::log::ReliableLog;
 
 namespace sun {
 	namespace rmi {

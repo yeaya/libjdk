@@ -25,7 +25,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
-using $UnicastServerRef = ::sun::rmi::server::UnicastServerRef;
 using $UnicastServerRef$HashToMethod_Maps$1 = ::sun::rmi::server::UnicastServerRef$HashToMethod_Maps$1;
 using $Util = ::sun::rmi::server::Util;
 using $WeakClassHashMap = ::sun::rmi::server::WeakClassHashMap;

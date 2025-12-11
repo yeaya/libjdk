@@ -12,7 +12,6 @@ using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
-using $1List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

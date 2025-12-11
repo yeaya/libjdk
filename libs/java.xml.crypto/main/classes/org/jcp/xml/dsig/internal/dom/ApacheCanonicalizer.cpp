@@ -48,7 +48,6 @@ using $InvalidCanonicalizerException = ::com::sun::org::apache::xml::internal::s
 using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
 using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
 using $Transform = ::com::sun::org::apache::xml::internal::security::transforms::Transform;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
@@ -63,7 +62,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $Data = ::javax::xml::crypto::Data;
 using $NodeSetData = ::javax::xml::crypto::NodeSetData;
@@ -74,7 +72,6 @@ using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $TransformException = ::javax::xml::crypto::dsig::TransformException;
 using $TransformService = ::javax::xml::crypto::dsig::TransformService;
-using $C14NMethodParameterSpec = ::javax::xml::crypto::dsig::spec::C14NMethodParameterSpec;
 using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParameterSpec;
 using $ApacheData = ::org::jcp::xml::dsig::internal::dom::ApacheData;
 using $ApacheNodeSetData = ::org::jcp::xml::dsig::internal::dom::ApacheNodeSetData;
@@ -85,7 +82,6 @@ using $Utils = ::org::jcp::xml::dsig::internal::dom::Utils;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
-using $NodeList = ::org::w3c::dom::NodeList;
 
 namespace org {
 	namespace jcp {

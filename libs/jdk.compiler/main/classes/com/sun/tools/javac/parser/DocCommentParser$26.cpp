@@ -16,17 +16,11 @@
 #undef REMOVE_FIRST_SPACE
 #undef RETAIN_ALL
 
-using $DocCommentParser$PhaseArray = $Array<::com::sun::tools::javac::parser::DocCommentParser$Phase>;
-using $DocCommentParser$TagParser$KindArray = $Array<::com::sun::tools::javac::parser::DocCommentParser$TagParser$Kind>;
-using $DocCommentParser$WhitespaceRetentionPolicyArray = $Array<::com::sun::tools::javac::parser::DocCommentParser$WhitespaceRetentionPolicy>;
-using $DocCommentParser = ::com::sun::tools::javac::parser::DocCommentParser;
 using $DocCommentParser$Phase = ::com::sun::tools::javac::parser::DocCommentParser$Phase;
-using $DocCommentParser$TagParser = ::com::sun::tools::javac::parser::DocCommentParser$TagParser;
 using $DocCommentParser$TagParser$Kind = ::com::sun::tools::javac::parser::DocCommentParser$TagParser$Kind;
 using $DocCommentParser$WhitespaceRetentionPolicy = ::com::sun::tools::javac::parser::DocCommentParser$WhitespaceRetentionPolicy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

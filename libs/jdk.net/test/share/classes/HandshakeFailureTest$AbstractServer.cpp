@@ -10,10 +10,8 @@
 #include <java/net/SocketAddress.h>
 #include <jcpp.h>
 
-using $HandshakeFailureTest = ::HandshakeFailureTest;
 using $IOException = ::java::io::IOException;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
-using $AutoCloseable = ::java::lang::AutoCloseable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

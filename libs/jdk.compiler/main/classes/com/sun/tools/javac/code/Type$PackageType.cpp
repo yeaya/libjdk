@@ -20,21 +20,19 @@
 #undef PACKAGE
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $NoType = ::javax::lang::model::type::NoType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
@@ -144,7 +142,7 @@ $Object* Type$PackageType::accept($TypeVisitor* v, Object$* p) {
 	return $of($nc(v)->visitNoType(this, p));
 }
 
-$1List* Type$PackageType::getAnnotationMirrors() {
+$List* Type$PackageType::getAnnotationMirrors() {
 	return $Type::getAnnotationMirrors();
 }
 

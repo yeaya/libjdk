@@ -9,8 +9,6 @@ using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $RMIConnectionImpl = ::javax::management::remote::rmi::RMIConnectionImpl;
 
 namespace javax {
 	namespace management {

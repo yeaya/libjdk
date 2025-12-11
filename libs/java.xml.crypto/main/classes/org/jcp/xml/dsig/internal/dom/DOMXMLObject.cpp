@@ -43,12 +43,12 @@ using $List = ::java::util::List;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
-using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
+using $1DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $XMLObject = ::javax::xml::crypto::dsig::XMLObject;
 using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
 using $DOMManifest = ::org::jcp::xml::dsig::internal::dom::DOMManifest;
 using $DOMSignatureProperties = ::org::jcp::xml::dsig::internal::dom::DOMSignatureProperties;
-using $1DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
+using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $DOMX509Data = ::org::jcp::xml::dsig::internal::dom::DOMX509Data;
 using $Attr = ::org::w3c::dom::Attr;
@@ -104,24 +104,24 @@ $Object* allocate$DOMXMLObject($Class* clazz) {
 }
 
 bool DOMXMLObject::isFeatureSupported($String* feature) {
-	 return this->$1DOMStructure::isFeatureSupported(feature);
+	 return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMXMLObject::clone() {
-	 return this->$1DOMStructure::clone();
+	 return this->$DOMStructure::clone();
 }
 
 $String* DOMXMLObject::toString() {
-	 return this->$1DOMStructure::toString();
+	 return this->$DOMStructure::toString();
 }
 
 void DOMXMLObject::finalize() {
-	this->$1DOMStructure::finalize();
+	this->$DOMStructure::finalize();
 }
 
 void DOMXMLObject::init$($List* content, $String* id, $String* mimeType, $String* encoding) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	if (content == nullptr || $nc(content)->isEmpty()) {
 		$set(this, content, $Collections::emptyList());
 	} else {
@@ -143,7 +143,7 @@ void DOMXMLObject::init$($List* content, $String* id, $String* mimeType, $String
 
 void DOMXMLObject::init$($Element* objElem, $XMLCryptoContext* context, $Provider* provider) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	$set(this, encoding, $DOMUtils::getAttributeValue(objElem, "Encoding"_s));
 	$var($Attr, attr, $nc(objElem)->getAttributeNodeNS(nullptr, "Id"_s));
 	if (attr != nullptr) {
@@ -173,12 +173,12 @@ void DOMXMLObject::init$($Element* objElem, $XMLCryptoContext* context, $Provide
 					if (var$4 && $nc($XMLSignature::XMLNS)->equals(namespace$)) {
 						newContent->add($$new($DOMX509Data, childElem));
 					} else {
-						newContent->add($$new($DOMStructure, firstChild));
+						newContent->add($$new($1DOMStructure, firstChild));
 					}
 				}
 			}
 		} else {
-			newContent->add($$new($DOMStructure, firstChild));
+			newContent->add($$new($1DOMStructure, firstChild));
 		}
 		$assign(firstChild, firstChild->getNextSibling());
 	}
@@ -186,7 +186,7 @@ void DOMXMLObject::init$($Element* objElem, $XMLCryptoContext* context, $Provide
 	for (int32_t idx = 0; idx < $nc(nnm)->getLength(); ++idx) {
 		$var($Node, nsDecl, nnm->item(idx));
 		if ($DOMUtils::isNamespace(nsDecl)) {
-			newContent->add($$new($DOMStructure, nsDecl));
+			newContent->add($$new($1DOMStructure, nsDecl));
 		}
 	}
 	if (newContent->isEmpty()) {
@@ -228,10 +228,10 @@ void DOMXMLObject::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* 
 			for (; $nc(i$)->hasNext();) {
 				$var($XMLStructure, object, $cast($XMLStructure, i$->next()));
 				{
-					if ($instanceOf($1DOMStructure, object)) {
-						$nc(($cast($1DOMStructure, object)))->marshal(objElem, dsPrefix, context);
+					if ($instanceOf($DOMStructure, object)) {
+						$nc(($cast($DOMStructure, object)))->marshal(objElem, dsPrefix, context);
 					} else {
-						$var($DOMStructure, domObject, $cast($DOMStructure, object));
+						$var($1DOMStructure, domObject, $cast($1DOMStructure, object));
 						$DOMUtils::appendChild(objElem, $($nc(domObject)->getNode()));
 					}
 				}

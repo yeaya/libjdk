@@ -16,7 +16,6 @@
 #include <jcpp.h>
 
 using $Scope = ::com::sun::tools::javac::code::Scope;
-using $Scope$CompoundScope = ::com::sun::tools::javac::code::Scope$CompoundScope;
 using $Scope$FilterImportScope = ::com::sun::tools::javac::code::Scope$FilterImportScope;
 using $Scope$ImportFilter = ::com::sun::tools::javac::code::Scope$ImportFilter;
 using $Scope$ImportScope = ::com::sun::tools::javac::code::Scope$ImportScope;

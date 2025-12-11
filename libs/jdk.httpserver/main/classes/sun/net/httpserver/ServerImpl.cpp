@@ -73,7 +73,6 @@ using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -92,12 +91,9 @@ using $BindException = ::java::net::BindException;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $SocketAddress = ::java::net::SocketAddress;
-using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
-using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterruptibleChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractList = ::java::util::AbstractList;
@@ -112,7 +108,6 @@ using $Set = ::java::util::Set;
 using $Timer = ::java::util::Timer;
 using $TimerTask = ::java::util::TimerTask;
 using $Executor = ::java::util::concurrent::Executor;
-using $SSLContext = ::javax::net::ssl::SSLContext;
 using $Code = ::sun::net::httpserver::Code;
 using $ContextList = ::sun::net::httpserver::ContextList;
 using $Event = ::sun::net::httpserver::Event;
@@ -126,7 +121,6 @@ using $ServerImpl$DefaultExecutor = ::sun::net::httpserver::ServerImpl$DefaultEx
 using $ServerImpl$Dispatcher = ::sun::net::httpserver::ServerImpl$Dispatcher;
 using $ServerImpl$ServerTimerTask = ::sun::net::httpserver::ServerImpl$ServerTimerTask;
 using $ServerImpl$ServerTimerTask1 = ::sun::net::httpserver::ServerImpl$ServerTimerTask1;
-using $TimeSource = ::sun::net::httpserver::TimeSource;
 
 namespace sun {
 	namespace net {

@@ -20,26 +20,20 @@
 #include <java/lang/AssertionError.h>
 #include <jcpp.h>
 
-using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Check = ::com::sun::tools::javac::comp::Check;
 using $Check$5 = ::com::sun::tools::javac::comp::Check$5;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
-using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
-using $JCDiagnostic$Warning = ::com::sun::tools::javac::util::JCDiagnostic$Warning;
 using $List = ::com::sun::tools::javac::util::List;
 using $Warner = ::com::sun::tools::javac::util::Warner;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

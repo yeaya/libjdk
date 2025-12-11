@@ -41,7 +41,6 @@
 #undef READY
 
 using $FieldArray = $Array<::java::lang::reflect::Field>;
-using $OidArray = $Array<::org::ietf::jgss::Oid>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
@@ -53,7 +52,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Field = ::java::lang::reflect::Field;
 using $Modifier = ::java::lang::reflect::Modifier;

@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/jvm/ClassWriter.h>
 #include <jcpp.h>
 
-using $ClassWriter = ::com::sun::tools::javac::jvm::ClassWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -28,7 +28,6 @@
 using $ClassLoaderRepositorySupport$LoaderEntryArray = $Array<::com::sun::jmx::mbeanserver::ClassLoaderRepositorySupport$LoaderEntry>;
 using $JmxProperties = ::com::sun::jmx::defaults::JmxProperties;
 using $ClassLoaderRepositorySupport$LoaderEntry = ::com::sun::jmx::mbeanserver::ClassLoaderRepositorySupport$LoaderEntry;
-using $ModifiableClassLoaderRepository = ::com::sun::jmx::mbeanserver::ModifiableClassLoaderRepository;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;

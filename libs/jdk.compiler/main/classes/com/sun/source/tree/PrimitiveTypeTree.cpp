@@ -3,10 +3,8 @@
 #include <javax/lang/model/type/TypeKind.h>
 #include <jcpp.h>
 
-using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $TypeKind = ::javax::lang::model::type::TypeKind;
 
 namespace com {
 	namespace sun {

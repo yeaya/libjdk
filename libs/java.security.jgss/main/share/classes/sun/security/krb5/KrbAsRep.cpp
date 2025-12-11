@@ -37,7 +37,6 @@
 #undef KRB_AP_ERR_BADKEYVER
 #undef KU_ENC_AS_REP_PART
 
-using $EncryptionKeyArray = $Array<::sun::security::krb5::EncryptionKey>;
 using $PADataArray = $Array<::sun::security::krb5::internal::PAData>;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -45,12 +44,11 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Objects = ::java::util::Objects;
 using $KeyTab = ::javax::security::auth::kerberos::KeyTab;
 using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
-using $1Credentials = ::sun::security::krb5::Credentials;
+using $Credentials = ::sun::security::krb5::Credentials;
 using $EncryptedData = ::sun::security::krb5::EncryptedData;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KrbAsReq = ::sun::security::krb5::KrbAsReq;
@@ -61,18 +59,12 @@ using $ASRep = ::sun::security::krb5::internal::ASRep;
 using $ASReq = ::sun::security::krb5::internal::ASReq;
 using $EncASRepPart = ::sun::security::krb5::internal::EncASRepPart;
 using $EncKDCRepPart = ::sun::security::krb5::internal::EncKDCRepPart;
-using $HostAddresses = ::sun::security::krb5::internal::HostAddresses;
 using $KDCRep = ::sun::security::krb5::internal::KDCRep;
 using $KDCReq = ::sun::security::krb5::internal::KDCReq;
-using $KDCReqBody = ::sun::security::krb5::internal::KDCReqBody;
 using $KRBError = ::sun::security::krb5::internal::KRBError;
-using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $PAData = ::sun::security::krb5::internal::PAData;
-using $PAData$SaltAndParams = ::sun::security::krb5::internal::PAData$SaltAndParams;
-using $Ticket = ::sun::security::krb5::internal::Ticket;
-using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
-using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
+using $1Credentials = ::sun::security::krb5::internal::ccache::Credentials;
 using $EType = ::sun::security::krb5::internal::crypto::EType;
 using $KeyUsage = ::sun::security::krb5::internal::crypto::KeyUsage;
 using $DerValue = ::sun::security::util::DerValue;
@@ -188,18 +180,18 @@ void KrbAsRep::decrypt($EncryptionKey* dkey, $KrbAsReq* asReq, $PrincipalName* c
 	if ($nc(clientAlias)->equals($nc(this->rep)->cname)) {
 		$assign(clientAlias, nullptr);
 	}
-	$set(this, creds, $new($1Credentials, $nc(this->rep)->ticket, $nc(this->rep)->cname, clientAlias, enc_part->sname, nullptr, enc_part->key, enc_part->flags, enc_part->authtime, enc_part->starttime, enc_part->endtime, enc_part->renewTill, enc_part->caddr));
+	$set(this, creds, $new($Credentials, $nc(this->rep)->ticket, $nc(this->rep)->cname, clientAlias, enc_part->sname, nullptr, enc_part->key, enc_part->flags, enc_part->authtime, enc_part->starttime, enc_part->endtime, enc_part->renewTill, enc_part->caddr));
 	if (this->DEBUG) {
 		$nc($System::out)->println($$str({">>> KrbAsRep cons in KrbAsReq.getReply "_s, $($nc($nc($nc(req)->reqBody)->cname)->getNameString())}));
 	}
 }
 
-$1Credentials* KrbAsRep::getCreds() {
-	return $cast($1Credentials, $Objects::requireNonNull($of(this->creds), "Creds not available yet."_s));
+$Credentials* KrbAsRep::getCreds() {
+	return $cast($Credentials, $Objects::requireNonNull($of(this->creds), "Creds not available yet."_s));
 }
 
-$Credentials* KrbAsRep::getCCreds() {
-	return $new($Credentials, this->rep);
+$1Credentials* KrbAsRep::getCCreds() {
+	return $new($1Credentials, this->rep);
 }
 
 KrbAsRep::KrbAsRep() {

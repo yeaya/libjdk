@@ -20,7 +20,6 @@
 
 using $JavacTask = ::com::sun::source::util::JavacTask;
 using $IOException = ::java::io::IOException;
-using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -28,10 +27,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $Collection = ::java::util::Collection;
 using $Locale = ::java::util::Locale;
-using $Element = ::javax::lang::model::element::Element;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
 using $JavaCompiler = ::javax::tools::JavaCompiler;
-using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 using $StandardLocation = ::javax::tools::StandardLocation;

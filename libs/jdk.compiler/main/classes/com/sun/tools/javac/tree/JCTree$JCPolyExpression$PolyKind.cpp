@@ -9,8 +9,6 @@
 #undef STANDALONE
 
 using $JCTree$JCPolyExpression$PolyKindArray = $Array<::com::sun::tools::javac::tree::JCTree$JCPolyExpression$PolyKind>;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

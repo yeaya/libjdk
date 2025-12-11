@@ -19,7 +19,6 @@
 
 using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
 using $PathFileObject$CannotCreateUriError = ::com::sun::tools::javac::file::PathFileObject$CannotCreateUriError;
-using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -36,7 +35,6 @@ using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $Modifier = ::javax::lang::model::element::Modifier;
 using $NestingKind = ::javax::lang::model::element::NestingKind;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace com {

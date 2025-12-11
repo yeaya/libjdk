@@ -5,7 +5,6 @@
 #include <javax/management/ObjectName.h>
 #include <jcpp.h>
 
-using $ClassLoaderRepositorySupport = ::com::sun::jmx::mbeanserver::ClassLoaderRepositorySupport;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;

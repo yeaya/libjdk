@@ -23,7 +23,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecurityManager = ::java::lang::SecurityManager;
 using $Provider = ::java::security::Provider;
 using $GSSCredential = ::org::ietf::jgss::GSSCredential;
 using $GSSException = ::org::ietf::jgss::GSSException;

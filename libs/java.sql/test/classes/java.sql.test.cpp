@@ -50,5 +50,4 @@ void java$sql$test::init() {
 		java$sql$test$GetResource
 	};
 	$System::addLibrary(&lib);
-	$System::init();
 }

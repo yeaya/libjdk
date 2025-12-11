@@ -10,8 +10,6 @@
 #undef UNOVERLOADED
 
 using $JCTree$JCMemberReference$OverloadKindArray = $Array<::com::sun::tools::javac::tree::JCTree$JCMemberReference$OverloadKind>;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

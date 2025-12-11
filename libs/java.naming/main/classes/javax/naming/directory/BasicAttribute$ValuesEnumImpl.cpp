@@ -11,7 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $Vector = ::java::util::Vector;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $BasicAttribute = ::javax::naming::directory::BasicAttribute;
 
 namespace javax {

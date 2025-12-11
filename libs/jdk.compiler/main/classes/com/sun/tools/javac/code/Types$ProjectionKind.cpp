@@ -10,7 +10,6 @@
 #undef UPWARDS
 
 using $Types$ProjectionKindArray = $Array<::com::sun::tools::javac::code::Types$ProjectionKind>;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$ProjectionKind$1 = ::com::sun::tools::javac::code::Types$ProjectionKind$1;
 using $Types$ProjectionKind$2 = ::com::sun::tools::javac::code::Types$ProjectionKind$2;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -16,7 +16,6 @@
 #undef DEBUG
 #undef KRB5_KT_VNO_1
 
-using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;

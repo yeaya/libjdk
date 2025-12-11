@@ -28,14 +28,9 @@
 #undef STATIC_INIT
 #undef TYPE_PARAMETER
 
-using $MemberReferenceTree$ReferenceModeArray = $Array<::com::sun::source::tree::MemberReferenceTree$ReferenceMode>;
-using $ElementKindArray = $Array<::javax::lang::model::element::ElementKind>;
-using $MemberReferenceTree = ::com::sun::source::tree::MemberReferenceTree;
 using $MemberReferenceTree$ReferenceMode = ::com::sun::source::tree::MemberReferenceTree$ReferenceMode;
-using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

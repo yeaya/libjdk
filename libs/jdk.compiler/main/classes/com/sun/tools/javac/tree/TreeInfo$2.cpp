@@ -90,12 +90,9 @@
 #undef WHILELOOP
 #undef WILDCARD
 
-using $JCTree$TagArray = $Array<::com::sun::tools::javac::tree::JCTree$Tag>;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

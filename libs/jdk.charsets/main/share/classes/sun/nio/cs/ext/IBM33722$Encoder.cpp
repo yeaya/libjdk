@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $IBM33722 = ::sun::nio::cs::ext::IBM33722;
 using $SimpleEUCEncoder = ::sun::nio::cs::ext::SimpleEUCEncoder;
 
 namespace sun {

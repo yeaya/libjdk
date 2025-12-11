@@ -53,12 +53,10 @@
 #undef UTF_8
 
 using $CredentialsArray = $Array<::sun::security::krb5::internal::ccache::Credentials>;
-using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
@@ -70,10 +68,8 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Process = ::java::lang::Process;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
@@ -102,8 +98,6 @@ using $CredentialsCache$ConfigEntry = ::sun::security::krb5::internal::ccache::C
 using $FileCCacheConstants = ::sun::security::krb5::internal::ccache::FileCCacheConstants;
 using $FileCredentialsCache$1 = ::sun::security::krb5::internal::ccache::FileCredentialsCache$1;
 using $FileCredentialsCache$2 = ::sun::security::krb5::internal::ccache::FileCredentialsCache$2;
-using $Tag = ::sun::security::krb5::internal::ccache::Tag;
-using $KrbDataInputStream = ::sun::security::krb5::internal::util::KrbDataInputStream;
 using $SecurityProperties = ::sun::security::util::SecurityProperties;
 
 namespace sun {

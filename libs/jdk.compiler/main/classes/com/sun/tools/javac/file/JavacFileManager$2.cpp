@@ -7,7 +7,6 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
-using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -15,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Path = ::java::nio::file::Path;
 using $Iterator = ::java::util::Iterator;
 
 namespace com {

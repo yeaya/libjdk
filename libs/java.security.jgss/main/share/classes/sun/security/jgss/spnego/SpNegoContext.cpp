@@ -51,20 +51,17 @@
 #undef UNAVAILABLE
 
 using $OidArray = $Array<::org::ietf::jgss::Oid>;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Provider = ::java::security::Provider;
 using $ChannelBinding = ::org::ietf::jgss::ChannelBinding;
 using $GSSContext = ::org::ietf::jgss::GSSContext;
@@ -78,9 +75,7 @@ using $GSSContextImpl = ::sun::security::jgss::GSSContextImpl;
 using $GSSCredentialImpl = ::sun::security::jgss::GSSCredentialImpl;
 using $GSSManagerImpl = ::sun::security::jgss::GSSManagerImpl;
 using $GSSNameImpl = ::sun::security::jgss::GSSNameImpl;
-using $GSSToken = ::sun::security::jgss::GSSToken;
 using $GSSUtil = ::sun::security::jgss::GSSUtil;
-using $GSSContextSpi = ::sun::security::jgss::spi::GSSContextSpi;
 using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 using $NegTokenInit = ::sun::security::jgss::spnego::NegTokenInit;

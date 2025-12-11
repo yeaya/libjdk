@@ -30,7 +30,6 @@ using $PartialCompositeContext = ::com::sun::jndi::toolkit::ctx::PartialComposit
 using $StringHeadTail = ::com::sun::jndi::toolkit::ctx::StringHeadTail;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Hashtable = ::java::util::Hashtable;
 using $CannotProceedException = ::javax::naming::CannotProceedException;
 using $CompositeName = ::javax::naming::CompositeName;
@@ -45,7 +44,6 @@ using $Attributes = ::javax::naming::directory::Attributes;
 using $DirContext = ::javax::naming::directory::DirContext;
 using $SearchControls = ::javax::naming::directory::SearchControls;
 using $DirectoryManager = ::javax::naming::spi::DirectoryManager;
-using $ResolveResult = ::javax::naming::spi::ResolveResult;
 
 namespace com {
 	namespace sun {

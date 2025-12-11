@@ -47,10 +47,8 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Key = ::java::security::Key;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Provider = ::java::security::Provider;
@@ -75,7 +73,6 @@ using $JavaxSecurityAuthKerberosAccess = ::sun::security::krb5::JavaxSecurityAut
 using $KerberosSecrets = ::sun::security::krb5::KerberosSecrets;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $Ticket = ::sun::security::krb5::internal::Ticket;
 
 namespace sun {
 	namespace security {

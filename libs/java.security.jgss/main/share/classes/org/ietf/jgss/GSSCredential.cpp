@@ -11,14 +11,10 @@
 #undef INITIATE_AND_ACCEPT
 #undef INITIATE_ONLY
 
-using $OidArray = $Array<::org::ietf::jgss::Oid>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GSSName = ::org::ietf::jgss::GSSName;
-using $Oid = ::org::ietf::jgss::Oid;
 
 namespace org {
 	namespace ietf {

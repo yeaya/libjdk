@@ -7,17 +7,10 @@
 #include <java/rmi/server/RemoteObject.h>
 #include <jcpp.h>
 
-using $OperationArray = $Array<::java::rmi::server::Operation>;
-using $Externalizable = ::java::io::Externalizable;
-using $ObjectOutput = ::java::io::ObjectOutput;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Method = ::java::lang::reflect::Method;
-using $Remote = ::java::rmi::Remote;
-using $RemoteCall = ::java::rmi::server::RemoteCall;
-using $RemoteObject = ::java::rmi::server::RemoteObject;
 
 namespace java {
 	namespace rmi {

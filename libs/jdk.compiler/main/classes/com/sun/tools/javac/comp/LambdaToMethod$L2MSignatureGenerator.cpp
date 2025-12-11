@@ -9,7 +9,6 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$SignatureGenerator = ::com::sun::tools::javac::code::Types$SignatureGenerator;
 using $LambdaToMethod = ::com::sun::tools::javac::comp::LambdaToMethod;
 using $Name = ::com::sun::tools::javac::util::Name;

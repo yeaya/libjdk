@@ -13,9 +13,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $SyncFactory = ::javax::sql::rowset::spi::SyncFactory;
-using $SyncProvider = ::javax::sql::rowset::spi::SyncProvider;
 
 namespace com {
 	namespace sun {

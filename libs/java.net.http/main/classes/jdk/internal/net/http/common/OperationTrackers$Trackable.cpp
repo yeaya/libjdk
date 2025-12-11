@@ -7,8 +7,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $OperationTrackers = ::jdk::internal::net::http::common::OperationTrackers;
-using $OperationTrackers$Tracker = ::jdk::internal::net::http::common::OperationTrackers$Tracker;
 
 namespace jdk {
 	namespace internal {

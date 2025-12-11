@@ -6,8 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
-using $PreferenceChangeEvent = ::java::util::prefs::PreferenceChangeEvent;
 
 namespace java {
 	namespace util {

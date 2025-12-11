@@ -24,7 +24,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
@@ -36,7 +35,6 @@ using $JIS_X_0208 = ::sun::nio::cs::JIS_X_0208;
 using $JIS_X_0212 = ::sun::nio::cs::JIS_X_0212;
 using $SingleByte$Encoder = ::sun::nio::cs::SingleByte$Encoder;
 using $Surrogate$Parser = ::sun::nio::cs::Surrogate$Parser;
-using $IBM29626C = ::sun::nio::cs::ext::IBM29626C;
 using $IBM943 = ::sun::nio::cs::ext::IBM943;
 
 namespace sun {

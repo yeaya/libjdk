@@ -4,14 +4,11 @@
 #include <java/security/ProtectionDomain.h>
 #include <jcpp.h>
 
-using $DefaultMBeanServerInterceptor = ::com::sun::jmx::interceptor::DefaultMBeanServerInterceptor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ProtectionDomain = ::java::security::ProtectionDomain;
 
 namespace com {
 	namespace sun {

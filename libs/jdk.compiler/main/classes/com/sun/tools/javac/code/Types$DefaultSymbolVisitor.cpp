@@ -19,7 +19,6 @@ using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymb
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Symbol$Visitor = ::com::sun::tools::javac::code::Symbol$Visitor;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

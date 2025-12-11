@@ -6,9 +6,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NamingException = ::javax::naming::NamingException;
 using $ExtendedResponse = ::javax::naming::ldap::ExtendedResponse;
-using $HasControls = ::javax::naming::ldap::HasControls;
 
 namespace javax {
 	namespace naming {

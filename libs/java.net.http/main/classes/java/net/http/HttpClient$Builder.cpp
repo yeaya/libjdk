@@ -19,17 +19,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Authenticator = ::java::net::Authenticator;
-using $CookieHandler = ::java::net::CookieHandler;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ProxySelector = ::java::net::ProxySelector;
-using $HttpClient = ::java::net::http::HttpClient;
-using $HttpClient$Redirect = ::java::net::http::HttpClient$Redirect;
-using $HttpClient$Version = ::java::net::http::HttpClient$Version;
-using $Duration = ::java::time::Duration;
-using $Executor = ::java::util::concurrent::Executor;
-using $SSLContext = ::javax::net::ssl::SSLContext;
-using $SSLParameters = ::javax::net::ssl::SSLParameters;
 
 namespace java {
 	namespace net {

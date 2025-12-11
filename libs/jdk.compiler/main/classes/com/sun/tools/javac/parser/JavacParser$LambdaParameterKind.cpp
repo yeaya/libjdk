@@ -10,7 +10,6 @@
 #undef VAR
 
 using $JavacParser$LambdaParameterKindArray = $Array<::com::sun::tools::javac::parser::JavacParser$LambdaParameterKind>;
-using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

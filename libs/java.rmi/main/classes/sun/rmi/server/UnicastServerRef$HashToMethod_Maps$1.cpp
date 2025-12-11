@@ -10,7 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $UnicastServerRef$HashToMethod_Maps = ::sun::rmi::server::UnicastServerRef$HashToMethod_Maps;
 
 namespace sun {

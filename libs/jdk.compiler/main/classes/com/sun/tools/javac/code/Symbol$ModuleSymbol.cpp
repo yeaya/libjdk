@@ -50,49 +50,40 @@
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Symbol$ModuleFlags = ::com::sun::tools::javac::code::Symbol$ModuleFlags;
 using $Symbol$ModuleResolutionFlags = ::com::sun::tools::javac::code::Symbol$ModuleResolutionFlags;
-using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ModuleType = ::com::sun::tools::javac::code::Type$ModuleType;
 using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Convert = ::com::sun::tools::javac::util::Convert;
-using $List = ::com::sun::tools::javac::util::List;
-using $1Name = ::com::sun::tools::javac::util::Name;
+using $1List = ::com::sun::tools::javac::util::List;
+using $Name = ::com::sun::tools::javac::util::Name;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
-using $1List = ::java::util::List;
-using $Map = ::java::util::Map;
+using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Predicate = ::java::util::function::Predicate;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
-using $Name = ::javax::lang::model::element::Name;
+using $1Name = ::javax::lang::model::element::Name;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
-using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 
 namespace com {
 	namespace sun {
@@ -167,10 +158,10 @@ $MethodInfo _Symbol$ModuleSymbol_MethodInfo_[] = {
 	{"*getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $SYNTHETIC},
 	{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$ModuleSymbol::*)($1Name*,$Symbol*)>(&Symbol$ModuleSymbol::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$ModuleSymbol::*)($Name*,$Symbol*)>(&Symbol$ModuleSymbol::init$))},
 	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
 	{"completeUsesProvides", "()V", nullptr, $PUBLIC},
-	{"create", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Symbol$ModuleSymbol*(*)($1Name*,$1Name*)>(&Symbol$ModuleSymbol::create))},
+	{"create", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Symbol$ModuleSymbol*(*)($Name*,$Name*)>(&Symbol$ModuleSymbol::create))},
 	{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/lang/model/element/ModuleElement$Directive;>;", $PUBLIC},
 	{"getEnclosedElements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
 	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC},
@@ -214,7 +205,7 @@ $Object* allocate$Symbol$ModuleSymbol($Class* clazz) {
 	return $of($alloc(Symbol$ModuleSymbol));
 }
 
-$1List* Symbol$ModuleSymbol::getAnnotationMirrors() {
+$List* Symbol$ModuleSymbol::getAnnotationMirrors() {
 	 return this->$Symbol$TypeSymbol::getAnnotationMirrors();
 }
 
@@ -262,15 +253,15 @@ $TypeMirror* Symbol$ModuleSymbol::MemberClass0$::asType() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->asType();
 }
 
-$Name* Symbol$ModuleSymbol::MemberClass0$::getQualifiedName() {
+$1Name* Symbol$ModuleSymbol::MemberClass0$::getQualifiedName() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->getQualifiedName();
 }
 
-$Name* Symbol$ModuleSymbol::MemberClass0$::getSimpleName() {
+$1Name* Symbol$ModuleSymbol::MemberClass0$::getSimpleName() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->getSimpleName();
 }
 
-$1List* Symbol$ModuleSymbol::MemberClass0$::getEnclosedElements() {
+$List* Symbol$ModuleSymbol::MemberClass0$::getEnclosedElements() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->getEnclosedElements();
 }
 
@@ -286,7 +277,7 @@ $Element* Symbol$ModuleSymbol::MemberClass0$::getEnclosingElement() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->getEnclosingElement();
 }
 
-$1List* Symbol$ModuleSymbol::MemberClass0$::getDirectives() {
+$List* Symbol$ModuleSymbol::MemberClass0$::getDirectives() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->getDirectives();
 }
 
@@ -306,7 +297,7 @@ int32_t Symbol$ModuleSymbol::MemberClass0$::hashCode() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->hashCode();
 }
 
-$1List* Symbol$ModuleSymbol::MemberClass0$::getAnnotationMirrors() {
+$List* Symbol$ModuleSymbol::MemberClass0$::getAnnotationMirrors() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->getAnnotationMirrors();
 }
 
@@ -334,7 +325,7 @@ void Symbol$ModuleSymbol::MemberClass0$::finalize() {
 	return ((Symbol$ModuleSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$ModuleSymbol, memberClass0$)))->finalize();
 }
 
-Symbol$ModuleSymbol* Symbol$ModuleSymbol::create($1Name* name, $1Name* module_info) {
+Symbol$ModuleSymbol* Symbol$ModuleSymbol::create($Name* name, $Name* module_info) {
 	$init(Symbol$ModuleSymbol);
 	$useLocalCurrentObjectStackCache();
 	$var(Symbol$ModuleSymbol, msym, $new(Symbol$ModuleSymbol, name, nullptr));
@@ -346,10 +337,10 @@ Symbol$ModuleSymbol* Symbol$ModuleSymbol::create($1Name* name, $1Name* module_in
 	return msym;
 }
 
-void Symbol$ModuleSymbol::init$($1Name* name, $Symbol* owner) {
+void Symbol$ModuleSymbol::init$($Name* name, $Symbol* owner) {
 	$init($Kinds$Kind);
 	$Symbol$TypeSymbol::init$($Kinds$Kind::MDL, 0, name, nullptr, owner);
-	$set(this, enclosedPackages, $List::nil());
+	$set(this, enclosedPackages, $1List::nil());
 	$init($Symbol$Completer);
 	$set(this, usesProvidesCompleter, $Symbol$Completer::NULL_COMPLETER);
 	$load($Symbol$ModuleFlags);
@@ -364,7 +355,7 @@ int32_t Symbol$ModuleSymbol::poolTag() {
 	return $ClassFile::CONSTANT_Module;
 }
 
-$Name* Symbol$ModuleSymbol::getSimpleName() {
+$1Name* Symbol$ModuleSymbol::getSimpleName() {
 	return $Convert::shortName(this->name);
 }
 
@@ -390,7 +381,7 @@ $ElementKind* Symbol$ModuleSymbol::getKind() {
 	return $ElementKind::MODULE;
 }
 
-$1List* Symbol$ModuleSymbol::getDirectives() {
+$List* Symbol$ModuleSymbol::getDirectives() {
 	apiComplete();
 	completeUsesProvides();
 	return $Collections::unmodifiableList(this->directives);
@@ -418,9 +409,9 @@ $Object* Symbol$ModuleSymbol::accept($ElementVisitor* v, Object$* p) {
 	return $of($nc(v)->visitModule($as($ModuleElement, this), p));
 }
 
-$1List* Symbol$ModuleSymbol::getEnclosedElements() {
+$List* Symbol$ModuleSymbol::getEnclosedElements() {
 	$useLocalCurrentObjectStackCache();
-	$var($List, list, $List::nil());
+	$var($1List, list, $1List::nil());
 	{
 		$var($Iterator, i$, $nc(this->enclosedPackages)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -444,7 +435,7 @@ void Symbol$ModuleSymbol::reset() {
 	$set(this, visiblePackages, nullptr);
 }
 
-$1Name* Symbol$ModuleSymbol::getQualifiedName() {
+$Name* Symbol$ModuleSymbol::getQualifiedName() {
 	return $Symbol$TypeSymbol::getQualifiedName();
 }
 

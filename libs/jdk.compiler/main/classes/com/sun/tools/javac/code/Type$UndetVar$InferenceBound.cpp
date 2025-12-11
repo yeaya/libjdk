@@ -15,9 +15,7 @@
 #undef UPPER
 
 using $Type$UndetVar$InferenceBoundArray = $Array<::com::sun::tools::javac::code::Type$UndetVar$InferenceBound>;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$5 = ::com::sun::tools::javac::code::Type$5;
-using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound$1 = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound$1;
 using $Type$UndetVar$InferenceBound$2 = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound$2;
 using $Type$UndetVar$InferenceBound$3 = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound$3;

@@ -75,15 +75,10 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
@@ -735,7 +730,7 @@ $ints* FileSystemPreferences::lockFile0($String* fileName, int32_t permission, b
 	$init(FileSystemPreferences);
 	$var($ints, $ret, nullptr);
 	$prepareNativeStatic(FileSystemPreferences, lockFile0, $ints*, $String* fileName, int32_t permission, bool shared);
-	$assign($ret, $invokeNativeStatic(FileSystemPreferences, lockFile0, fileName, permission, shared));
+	$assign($ret, $invokeNativeStaticObject(fileName, permission, shared));
 	$finishNativeStatic();
 	return $ret;
 }
@@ -744,7 +739,7 @@ int32_t FileSystemPreferences::unlockFile0(int32_t lockHandle) {
 	$init(FileSystemPreferences);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileSystemPreferences, unlockFile0, int32_t, int32_t lockHandle);
-	$ret = $invokeNativeStatic(FileSystemPreferences, unlockFile0, lockHandle);
+	$ret = $invokeNativeStatic(lockHandle);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -753,7 +748,7 @@ int32_t FileSystemPreferences::chmod($String* fileName, int32_t permission) {
 	$init(FileSystemPreferences);
 	int32_t $ret = 0;
 	$prepareNativeStatic(FileSystemPreferences, chmod, int32_t, $String* fileName, int32_t permission);
-	$ret = $invokeNativeStatic(FileSystemPreferences, chmod, fileName, permission);
+	$ret = $invokeNativeStatic(fileName, permission);
 	$finishNativeStatic();
 	return $ret;
 }

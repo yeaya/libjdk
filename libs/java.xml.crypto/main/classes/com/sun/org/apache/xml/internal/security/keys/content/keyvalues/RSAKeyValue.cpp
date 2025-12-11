@@ -24,9 +24,7 @@
 #undef _TAG_RSAKEYVALUE
 
 using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
-using $KeyValueContent = ::com::sun::org::apache::xml::internal::security::keys::content::keyvalues::KeyValueContent;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $I18n = ::com::sun::org::apache::xml::internal::security::utils::I18n;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -39,7 +37,6 @@ using $Key = ::java::security::Key;
 using $KeyFactory = ::java::security::KeyFactory;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PublicKey = ::java::security::PublicKey;
-using $RSAKey = ::java::security::interfaces::RSAKey;
 using $RSAPublicKey = ::java::security::interfaces::RSAPublicKey;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
 using $KeySpec = ::java::security::spec::KeySpec;

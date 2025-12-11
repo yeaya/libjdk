@@ -3,8 +3,6 @@
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
-using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
-using $PatternTree = ::com::sun::source::tree::PatternTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;

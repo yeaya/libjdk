@@ -9,10 +9,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
-using $LogManager = ::java::util::logging::LogManager;
-using $Logger = ::java::util::logging::Logger;
-using $LoggingProviderImpl = ::sun::util::logging::internal::LoggingProviderImpl;
 
 namespace sun {
 	namespace util {

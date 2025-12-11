@@ -19,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $MessageStreamConsumer = ::jdk::internal::net::http::websocket::MessageStreamConsumer;
 using $Transport = ::jdk::internal::net::http::websocket::Transport;
 using $WebSocketImpl = ::jdk::internal::net::http::websocket::WebSocketImpl;
 using $WebSocketImpl$State = ::jdk::internal::net::http::websocket::WebSocketImpl$State;

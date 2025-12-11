@@ -10,12 +10,10 @@
 #include <java/util/function/Predicate.h>
 #include <jcpp.h>
 
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$FilterImportScope = ::com::sun::tools::javac::code::Scope$FilterImportScope;
 using $Scope$FilterImportScope$SymbolImporter = ::com::sun::tools::javac::code::Scope$FilterImportScope$SymbolImporter;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;

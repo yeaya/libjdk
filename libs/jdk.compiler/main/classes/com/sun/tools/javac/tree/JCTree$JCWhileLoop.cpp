@@ -20,7 +20,6 @@ using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $WhileLoopTree = ::com::sun::source::tree::WhileLoopTree;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;

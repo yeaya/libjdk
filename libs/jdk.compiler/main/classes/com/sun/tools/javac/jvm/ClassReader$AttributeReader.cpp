@@ -18,14 +18,11 @@
 #undef CLASSFILE
 
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $ClassFile$Version = ::com::sun::tools::javac::jvm::ClassFile$Version;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$AttributeKind = ::com::sun::tools::javac::jvm::ClassReader$AttributeKind;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $JCDiagnostic$Warning = ::com::sun::tools::javac::util::JCDiagnostic$Warning;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;

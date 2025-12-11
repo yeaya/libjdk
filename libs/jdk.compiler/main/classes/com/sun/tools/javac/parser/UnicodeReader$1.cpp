@@ -9,12 +9,9 @@
 #undef BROKEN_ESCAPE
 #undef VALID_ESCAPE
 
-using $UnicodeReader$UnicodeEscapeResultArray = $Array<::com::sun::tools::javac::parser::UnicodeReader$UnicodeEscapeResult>;
-using $UnicodeReader = ::com::sun::tools::javac::parser::UnicodeReader;
 using $UnicodeReader$UnicodeEscapeResult = ::com::sun::tools::javac::parser::UnicodeReader$UnicodeEscapeResult;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;

@@ -10,7 +10,6 @@
 #undef REVERSE
 
 using $JavacFileManager$SortFilesArray = $Array<::com::sun::tools::javac::file::JavacFileManager$SortFiles>;
-using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $JavacFileManager$SortFiles$1 = ::com::sun::tools::javac::file::JavacFileManager$SortFiles$1;
 using $JavacFileManager$SortFiles$2 = ::com::sun::tools::javac::file::JavacFileManager$SortFiles$2;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -18,7 +17,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Comparator = ::java::util::Comparator;
 
 namespace com {
 	namespace sun {

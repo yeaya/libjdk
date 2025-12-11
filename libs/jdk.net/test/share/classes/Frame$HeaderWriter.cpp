@@ -5,7 +5,6 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
-using $Frame = ::Frame;
 using $Frame$Opcode = ::Frame$Opcode;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

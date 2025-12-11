@@ -11,17 +11,7 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Set = ::java::util::Set;
-using $Attribute = ::javax::management::Attribute;
-using $AttributeList = ::javax::management::AttributeList;
-using $MBeanInfo = ::javax::management::MBeanInfo;
-using $NotificationFilter = ::javax::management::NotificationFilter;
-using $NotificationListener = ::javax::management::NotificationListener;
-using $ObjectInstance = ::javax::management::ObjectInstance;
-using $ObjectName = ::javax::management::ObjectName;
-using $QueryExp = ::javax::management::QueryExp;
 
 namespace javax {
 	namespace management {

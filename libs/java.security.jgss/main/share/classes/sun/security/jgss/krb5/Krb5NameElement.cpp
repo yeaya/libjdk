@@ -45,7 +45,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
-using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Permission = ::java::security::Permission;
 using $Provider = ::java::security::Provider;

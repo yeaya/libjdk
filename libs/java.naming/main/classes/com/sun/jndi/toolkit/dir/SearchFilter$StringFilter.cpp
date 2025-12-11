@@ -3,8 +3,6 @@
 #include <com/sun/jndi/toolkit/dir/SearchFilter.h>
 #include <jcpp.h>
 
-using $AttrFilter = ::com::sun::jndi::toolkit::dir::AttrFilter;
-using $SearchFilter = ::com::sun::jndi::toolkit::dir::SearchFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

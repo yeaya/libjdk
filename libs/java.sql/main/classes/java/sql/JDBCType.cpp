@@ -51,7 +51,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SQLType = ::java::sql::SQLType;
 using $Types = ::java::sql::Types;
 
 namespace java {

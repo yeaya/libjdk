@@ -27,7 +27,6 @@ using $Authenticator = ::java::net::Authenticator;
 using $CookieHandler = ::java::net::CookieHandler;
 using $ProxySelector = ::java::net::ProxySelector;
 using $HttpClient = ::java::net::http::HttpClient;
-using $HttpClient$Builder = ::java::net::http::HttpClient$Builder;
 using $HttpClient$Redirect = ::java::net::http::HttpClient$Redirect;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $Duration = ::java::time::Duration;
@@ -35,7 +34,6 @@ using $Objects = ::java::util::Objects;
 using $Executor = ::java::util::concurrent::Executor;
 using $SSLContext = ::javax::net::ssl::SSLContext;
 using $SSLParameters = ::javax::net::ssl::SSLParameters;
-using $HttpClientFacade = ::jdk::internal::net::http::HttpClientFacade;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 

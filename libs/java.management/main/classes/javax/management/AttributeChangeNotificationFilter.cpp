@@ -14,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Vector = ::java::util::Vector;
 using $AttributeChangeNotification = ::javax::management::AttributeChangeNotification;
 using $Notification = ::javax::management::Notification;
-using $NotificationFilter = ::javax::management::NotificationFilter;
 
 namespace javax {
 	namespace management {

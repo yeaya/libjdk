@@ -8,7 +8,6 @@
 #include <jcpp.h>
 
 using $ConvertingMethod = ::com::sun::jmx::mbeanserver::ConvertingMethod;
-using $MXBeanProxy = ::com::sun::jmx::mbeanserver::MXBeanProxy;
 using $MXBeanProxy$Handler = ::com::sun::jmx::mbeanserver::MXBeanProxy$Handler;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -17,7 +17,6 @@ using $Charset = ::java::nio::charset::Charset;
 using $Collections = ::java::util::Collections;
 using $Comparator = ::java::util::Comparator;
 using $NavigableSet = ::java::util::NavigableSet;
-using $Set = ::java::util::Set;
 using $SortedSet = ::java::util::SortedSet;
 using $TreeSet = ::java::util::TreeSet;
 using $DataFlavorUtil = ::sun::datatransfer::DataFlavorUtil;

@@ -4,11 +4,9 @@
 #include <java/util/concurrent/Flow$Subscription.h>
 #include <jcpp.h>
 
-using $LineAdaptersCompileOnly = ::LineAdaptersCompileOnly;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 
 $MethodInfo _LineAdaptersCompileOnly$StringSubscriber_MethodInfo_[] = {

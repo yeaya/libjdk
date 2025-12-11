@@ -8,7 +8,6 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $SystemFlavorMap = ::java::awt::datatransfer::SystemFlavorMap;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

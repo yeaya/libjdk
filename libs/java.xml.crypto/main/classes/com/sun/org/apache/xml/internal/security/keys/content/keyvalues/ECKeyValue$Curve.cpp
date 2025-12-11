@@ -7,7 +7,6 @@
 #include <java/security/spec/EllipticCurve.h>
 #include <jcpp.h>
 
-using $ECKeyValue = ::com::sun::org::apache::xml::internal::security::keys::content::keyvalues::ECKeyValue;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

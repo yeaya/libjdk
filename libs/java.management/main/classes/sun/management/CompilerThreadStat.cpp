@@ -3,12 +3,11 @@
 #include <sun/management/MethodInfo.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $1MethodInfo = ::java::lang::MethodInfo;
-using $MethodInfo = ::sun::management::MethodInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $1MethodInfo = ::sun::management::MethodInfo;
 
 namespace sun {
 	namespace management {
@@ -27,8 +26,8 @@ $FieldInfo _CompilerThreadStat_FieldInfo_[] = {
 	{}
 };
 
-$1MethodInfo _CompilerThreadStat_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;JJLsun/management/MethodInfo;)V", nullptr, 0, $method(static_cast<void(CompilerThreadStat::*)($String*,int64_t,int64_t,$MethodInfo*)>(&CompilerThreadStat::init$))},
+$MethodInfo _CompilerThreadStat_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/String;JJLsun/management/MethodInfo;)V", nullptr, 0, $method(static_cast<void(CompilerThreadStat::*)($String*,int64_t,int64_t,$1MethodInfo*)>(&CompilerThreadStat::init$))},
 	{"getCompileTaskCount", "()J", nullptr, $PUBLIC},
 	{"getCompileTime", "()J", nullptr, $PUBLIC},
 	{"getLastCompiledMethodInfo", "()Lsun/management/MethodInfo;", nullptr, $PUBLIC},
@@ -54,7 +53,7 @@ $Object* allocate$CompilerThreadStat($Class* clazz) {
 	return $of($alloc(CompilerThreadStat));
 }
 
-void CompilerThreadStat::init$($String* name, int64_t taskCount, int64_t time, $MethodInfo* lastMethod) {
+void CompilerThreadStat::init$($String* name, int64_t taskCount, int64_t time, $1MethodInfo* lastMethod) {
 	$set(this, name, name);
 	this->taskCount = taskCount;
 	this->compileTime = time;
@@ -73,7 +72,7 @@ int64_t CompilerThreadStat::getCompileTime() {
 	return this->compileTime;
 }
 
-$MethodInfo* CompilerThreadStat::getLastCompiledMethodInfo() {
+$1MethodInfo* CompilerThreadStat::getLastCompiledMethodInfo() {
 	return this->lastMethod;
 }
 

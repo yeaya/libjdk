@@ -18,12 +18,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Objects = ::java::util::Objects;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
-using $SocketTube = ::jdk::internal::net::http::SocketTube;
-using $BufferSupplier = ::jdk::internal::net::http::common::BufferSupplier;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 

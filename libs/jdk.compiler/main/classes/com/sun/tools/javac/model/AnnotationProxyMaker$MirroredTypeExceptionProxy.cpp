@@ -8,7 +8,6 @@
 #include <sun/reflect/annotation/ExceptionProxy.h>
 #include <jcpp.h>
 
-using $AnnotationProxyMaker = ::com::sun::tools::javac::model::AnnotationProxyMaker;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

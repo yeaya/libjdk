@@ -9,16 +9,8 @@
 #include <java/net/URI.h>
 #include <jcpp.h>
 
-using $Headers = ::com::sun::net::httpserver::Headers;
-using $HttpContext = ::com::sun::net::httpserver::HttpContext;
-using $HttpPrincipal = ::com::sun::net::httpserver::HttpPrincipal;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $URI = ::java::net::URI;
 
 namespace com {
 	namespace sun {

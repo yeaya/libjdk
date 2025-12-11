@@ -5,7 +5,6 @@
 #include <java/net/PasswordAuthentication.h>
 #include <jcpp.h>
 
-using $BasicAuthTest = ::BasicAuthTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

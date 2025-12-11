@@ -46,7 +46,6 @@
 
 using $JCTree$TagArray = $Array<::com::sun::tools::javac::tree::JCTree$Tag>;
 using $EnumArray = $Array<::java::lang::Enum>;
-using $MemberEnter = ::com::sun::tools::javac::comp::MemberEnter;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBinary = ::com::sun::tools::javac::tree::JCTree$JCBinary;
 using $JCTree$JCConditional = ::com::sun::tools::javac::tree::JCTree$JCConditional;
@@ -54,7 +53,6 @@ using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCLiteral = ::com::sun::tools::javac::tree::JCTree$JCLiteral;
-using $JCTree$JCOperatorExpression = ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
 using $JCTree$JCTypeCast = ::com::sun::tools::javac::tree::JCTree$JCTypeCast;
 using $JCTree$JCUnary = ::com::sun::tools::javac::tree::JCTree$JCUnary;

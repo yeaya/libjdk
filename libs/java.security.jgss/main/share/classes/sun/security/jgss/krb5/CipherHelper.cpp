@@ -63,7 +63,6 @@
 #undef ZERO_IV
 #undef ZERO_IV_AES
 
-using $byteArray2 = $Array<int8_t, 2>;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -73,7 +72,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
@@ -86,7 +84,6 @@ using $SecretKey = ::javax::crypto::SecretKey;
 using $IvParameterSpec = ::javax::crypto::spec::IvParameterSpec;
 using $SecretKeySpec = ::javax::crypto::spec::SecretKeySpec;
 using $GSSException = ::org::ietf::jgss::GSSException;
-using $GSSToken = ::sun::security::jgss::GSSToken;
 using $CipherHelper$WrapTokenInputStream = ::sun::security::jgss::krb5::CipherHelper$WrapTokenInputStream;
 using $Krb5Token = ::sun::security::jgss::krb5::Krb5Token;
 using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;

@@ -11,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
-using $LDAPCertStore = ::sun::security::provider::certpath::ldap::LDAPCertStore;
 
 namespace sun {
 	namespace security {

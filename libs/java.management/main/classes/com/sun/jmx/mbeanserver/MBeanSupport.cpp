@@ -22,7 +22,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $Attribute = ::javax::management::Attribute;
 using $AttributeList = ::javax::management::AttributeList;

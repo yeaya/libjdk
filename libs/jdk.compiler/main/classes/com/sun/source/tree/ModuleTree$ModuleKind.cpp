@@ -8,7 +8,6 @@
 #undef STRONG
 
 using $ModuleTree$ModuleKindArray = $Array<::com::sun::source::tree::ModuleTree$ModuleKind>;
-using $ModuleTree = ::com::sun::source::tree::ModuleTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

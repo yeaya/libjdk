@@ -12,13 +12,9 @@
 #undef XPATH2
 #undef XSLT
 
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AlgorithmMethod = ::javax::xml::crypto::AlgorithmMethod;
-using $Data = ::javax::xml::crypto::Data;
-using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 
 namespace javax {

@@ -21,12 +21,10 @@
 
 #undef INTERFACE
 
-using $Items$ItemArray = $Array<::com::sun::tools::javac::jvm::Items$Item>;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
@@ -36,13 +34,8 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $ToIntBiFunction = ::java::util::function::ToIntBiFunction;
 
 namespace com {

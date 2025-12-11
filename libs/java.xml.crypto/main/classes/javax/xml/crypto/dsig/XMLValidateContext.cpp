@@ -3,7 +3,6 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 
 namespace javax {
 	namespace xml {

@@ -11,7 +11,6 @@
 #undef WARN
 
 using $Log$LevelArray = $Array<::com::sun::tools::sjavac::Log$Level>;
-using $Log = ::com::sun::tools::sjavac::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

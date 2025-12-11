@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ResultSet = ::java::sql::ResultSet;
-using $Map = ::java::util::Map;
 
 namespace java {
 	namespace sql {

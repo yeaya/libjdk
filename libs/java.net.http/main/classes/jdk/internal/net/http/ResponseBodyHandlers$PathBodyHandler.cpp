@@ -25,7 +25,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
 using $HttpResponse$ResponseInfo = ::java::net::http::HttpResponse$ResponseInfo;
 using $Path = ::java::nio::file::Path;

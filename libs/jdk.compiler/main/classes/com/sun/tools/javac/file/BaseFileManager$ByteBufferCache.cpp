@@ -4,12 +4,10 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
-using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 
 namespace com {

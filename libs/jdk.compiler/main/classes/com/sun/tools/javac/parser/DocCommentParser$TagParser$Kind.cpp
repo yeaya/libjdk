@@ -10,8 +10,6 @@
 #undef INLINE
 
 using $DocCommentParser$TagParser$KindArray = $Array<::com::sun::tools::javac::parser::DocCommentParser$TagParser$Kind>;
-using $DocCommentParser = ::com::sun::tools::javac::parser::DocCommentParser;
-using $DocCommentParser$TagParser = ::com::sun::tools::javac::parser::DocCommentParser$TagParser;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

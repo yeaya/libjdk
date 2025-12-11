@@ -33,7 +33,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $CompositeName = ::javax::naming::CompositeName;
 using $Context = ::javax::naming::Context;
 using $InvalidNameException = ::javax::naming::InvalidNameException;
@@ -45,7 +44,6 @@ using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
 using $RefAddr = ::javax::naming::RefAddr;
 using $Reference = ::javax::naming::Reference;
-using $ResolveResult = ::javax::naming::spi::ResolveResult;
 
 namespace com {
 	namespace sun {

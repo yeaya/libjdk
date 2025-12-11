@@ -11,10 +11,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $TestSupport = ::jdk::internal::net::http::websocket::TestSupport;
 using $TestSupport$F = ::jdk::internal::net::http::websocket::TestSupport$F;
 
 namespace jdk {

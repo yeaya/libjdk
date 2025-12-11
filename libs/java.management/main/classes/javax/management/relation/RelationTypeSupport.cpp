@@ -57,14 +57,12 @@ using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $InvalidRelationTypeException = ::javax::management::relation::InvalidRelationTypeException;
-using $RelationType = ::javax::management::relation::RelationType;
 using $RoleInfo = ::javax::management::relation::RoleInfo;
 using $RoleInfoNotFoundException = ::javax::management::relation::RoleInfoNotFoundException;
 

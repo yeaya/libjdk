@@ -38,10 +38,10 @@ using $List = ::java::util::List;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
-using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
+using $1DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $SignatureProperty = ::javax::xml::crypto::dsig::SignatureProperty;
 using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
-using $1DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
+using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $Attr = ::org::w3c::dom::Attr;
 using $Document = ::org::w3c::dom::Document;
@@ -92,24 +92,24 @@ $Object* allocate$DOMSignatureProperty($Class* clazz) {
 }
 
 bool DOMSignatureProperty::isFeatureSupported($String* feature) {
-	 return this->$1DOMStructure::isFeatureSupported(feature);
+	 return this->$DOMStructure::isFeatureSupported(feature);
 }
 
 $Object* DOMSignatureProperty::clone() {
-	 return this->$1DOMStructure::clone();
+	 return this->$DOMStructure::clone();
 }
 
 $String* DOMSignatureProperty::toString() {
-	 return this->$1DOMStructure::toString();
+	 return this->$DOMStructure::toString();
 }
 
 void DOMSignatureProperty::finalize() {
-	this->$1DOMStructure::finalize();
+	this->$DOMStructure::finalize();
 }
 
 void DOMSignatureProperty::init$($List* content, $String* target, $String* id) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	if (target == nullptr) {
 		$throwNew($NullPointerException, "target cannot be null"_s);
 	} else if (content == nullptr) {
@@ -134,7 +134,7 @@ void DOMSignatureProperty::init$($List* content, $String* target, $String* id) {
 
 void DOMSignatureProperty::init$($Element* propElem) {
 	$useLocalCurrentObjectStackCache();
-	$1DOMStructure::init$();
+	$DOMStructure::init$();
 	$set(this, target, $DOMUtils::getAttributeValue(propElem, "Target"_s));
 	if (this->target == nullptr) {
 		$throwNew($MarshalException, "target cannot be null"_s);
@@ -149,7 +149,7 @@ void DOMSignatureProperty::init$($Element* propElem) {
 	$var($List, newContent, $new($ArrayList));
 	$var($Node, firstChild, propElem->getFirstChild());
 	while (firstChild != nullptr) {
-		newContent->add($$new($DOMStructure, firstChild));
+		newContent->add($$new($1DOMStructure, firstChild));
 		$assign(firstChild, firstChild->getNextSibling());
 	}
 	if (newContent->isEmpty()) {
@@ -183,7 +183,7 @@ void DOMSignatureProperty::marshal($Node* parent, $String* dsPrefix, $DOMCryptoC
 		for (; $nc(i$)->hasNext();) {
 			$var($XMLStructure, property, $cast($XMLStructure, i$->next()));
 			{
-				$DOMUtils::appendChild(propElem, $($nc(($cast($DOMStructure, property)))->getNode()));
+				$DOMUtils::appendChild(propElem, $($nc(($cast($1DOMStructure, property)))->getNode()));
 			}
 		}
 	}

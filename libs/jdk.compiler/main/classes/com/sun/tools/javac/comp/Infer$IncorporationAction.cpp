@@ -12,11 +12,9 @@
 #undef IS_SUBTYPE
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$IncorporationBinaryOpKind = ::com::sun::tools::javac::comp::Infer$IncorporationBinaryOpKind;
-using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Warner = ::com::sun::tools::javac::util::Warner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

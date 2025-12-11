@@ -17,14 +17,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $ListIterator = ::java::util::ListIterator;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $KrbApErrException = ::sun::security::krb5::internal::KrbApErrException;
-using $AuthTime = ::sun::security::krb5::internal::rcache::AuthTime;
 using $AuthTimeWithHash = ::sun::security::krb5::internal::rcache::AuthTimeWithHash;
 
 namespace sun {

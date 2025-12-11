@@ -24,7 +24,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Socket = ::java::net::Socket;
 using $Formatter = ::java::util::logging::Formatter;
 using $Level = ::java::util::logging::Level;

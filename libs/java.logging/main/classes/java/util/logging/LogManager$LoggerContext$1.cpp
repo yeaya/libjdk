@@ -10,7 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $LogManager = ::java::util::logging::LogManager;
 using $LogManager$LoggerContext = ::java::util::logging::LogManager$LoggerContext;
 using $Logger = ::java::util::logging::Logger;

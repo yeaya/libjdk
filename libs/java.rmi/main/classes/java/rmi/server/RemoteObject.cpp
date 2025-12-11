@@ -19,12 +19,10 @@
 #include <sun/rmi/transport/ObjectTable.h>
 #include <jcpp.h>
 
-using $Externalizable = ::java::io::Externalizable;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutput = ::java::io::ObjectOutput;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $Serializable = ::java::io::Serializable;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -33,7 +31,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $MarshalException = ::java::rmi::MarshalException;
 using $Remote = ::java::rmi::Remote;

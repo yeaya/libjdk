@@ -7,7 +7,6 @@
 #include <com/sun/tools/javac/util/Pair.h>
 #include <jcpp.h>
 
-using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$InapplicableSymbolError = ::com::sun::tools::javac::comp::Resolve$InapplicableSymbolError;
 using $Resolve$InapplicableSymbolsError = ::com::sun::tools::javac::comp::Resolve$InapplicableSymbolsError;
 using $Resolve$MethodResolutionContext = ::com::sun::tools::javac::comp::Resolve$MethodResolutionContext;

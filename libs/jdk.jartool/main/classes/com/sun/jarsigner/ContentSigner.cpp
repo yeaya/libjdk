@@ -3,7 +3,6 @@
 #include <com/sun/jarsigner/ContentSignerParameters.h>
 #include <jcpp.h>
 
-using $ContentSignerParameters = ::com::sun::jarsigner::ContentSignerParameters;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;

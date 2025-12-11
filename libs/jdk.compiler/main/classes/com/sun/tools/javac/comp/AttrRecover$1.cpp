@@ -25,8 +25,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <jcpp.h>
 
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $AttrRecover = ::com::sun::tools::javac::comp::AttrRecover;
 using $AttrRecover$1$1 = ::com::sun::tools::javac::comp::AttrRecover$1$1;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
@@ -48,12 +46,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 
 namespace com {
 	namespace sun {

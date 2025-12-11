@@ -14,7 +14,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Element = ::javax::lang::model::element::Element;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
-using $SimpleElementVisitor6 = ::javax::lang::model::util::SimpleElementVisitor6;
 using $SimpleElementVisitor8 = ::javax::lang::model::util::SimpleElementVisitor8;
 
 namespace javax {

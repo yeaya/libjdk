@@ -13,7 +13,6 @@
 
 #undef PUBLIC
 
-using $Obj = ::com::sun::jndi::ldap::Obj;
 using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectStreamClass = ::java::io::ObjectStreamClass;

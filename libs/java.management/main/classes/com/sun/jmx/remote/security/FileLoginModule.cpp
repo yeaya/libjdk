@@ -45,13 +45,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $AccessControlException = ::java::security::AccessControlException;
 using $AccessController = ::java::security::AccessController;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $Map = ::java::util::Map;
@@ -65,7 +63,6 @@ using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
 using $FailedLoginException = ::javax::security::auth::login::FailedLoginException;
 using $LoginException = ::javax::security::auth::login::LoginException;
-using $LoginModule = ::javax::security::auth::spi::LoginModule;
 
 namespace com {
 	namespace sun {

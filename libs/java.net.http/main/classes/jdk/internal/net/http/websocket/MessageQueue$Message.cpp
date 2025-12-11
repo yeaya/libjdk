@@ -13,13 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $CharBuffer = ::java::nio::CharBuffer;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
-using $BiConsumer = ::java::util::function::BiConsumer;
-using $Supplier = ::java::util::function::Supplier;
-using $MessageQueue = ::jdk::internal::net::http::websocket::MessageQueue;
-using $MessageQueue$Type = ::jdk::internal::net::http::websocket::MessageQueue$Type;
 
 namespace jdk {
 	namespace internal {

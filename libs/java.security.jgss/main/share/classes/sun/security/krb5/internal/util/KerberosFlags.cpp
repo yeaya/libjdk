@@ -9,7 +9,6 @@
 #undef BITS_PER_UNIT
 #undef KRB_FLAGS_MAX
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

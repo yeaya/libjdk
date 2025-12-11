@@ -21,7 +21,6 @@ using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $StandardLocation = ::javax::tools::StandardLocation;
-using $JavadocHelper$OnDemandJavadocHelper = ::jdk::internal::shellsupport::doc::JavadocHelper$OnDemandJavadocHelper;
 using $JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1 = ::jdk::internal::shellsupport::doc::JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1;
 
 namespace jdk {

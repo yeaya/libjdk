@@ -62,7 +62,6 @@ using $TaskListener = ::com::sun::source::util::TaskListener;
 using $DocLint = ::com::sun::tools::doclint::DocLint;
 using $MultiTaskListener = ::com::sun::tools::javac::api::MultiTaskListener;
 using $MissingInfoHandler = ::com::sun::tools::javac::code::MissingInfoHandler;
-using $Type = ::com::sun::tools::javac::code::Type;
 using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
 using $JavacElements = ::com::sun::tools::javac::model::JavacElements;
 using $JavacTypes = ::com::sun::tools::javac::model::JavacTypes;
@@ -72,11 +71,8 @@ using $JavacProcessingEnvironment = ::com::sun::tools::javac::processing::JavacP
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Context = ::com::sun::tools::javac::util::Context;
-using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
-using $JCDiagnostic$Warning = ::com::sun::tools::javac::util::JCDiagnostic$Warning;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $ModuleHelper = ::com::sun::tools::javac::util::ModuleHelper;
 using $Options = ::com::sun::tools::javac::util::Options;
@@ -90,17 +86,13 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
@@ -326,7 +318,7 @@ void BasicJavacTask::initPlugins($Set* pluginOpts) {
 			for (; $nc(i$)->hasNext();) {
 				$var($PlatformDescription$PluginInfo, pluginDesc, $cast($PlatformDescription$PluginInfo, i$->next()));
 				{
-					$var($1List, options, $nc($($nc($($nc($($nc($($nc(pluginDesc)->getOptions()))->entrySet()))->stream()))->map(static_cast<$Function*>($$new(BasicJavacTask$$Lambda$lambda$initPlugins$0)))))->toList());
+					$var($List, options, $nc($($nc($($nc($($nc($($nc(pluginDesc)->getOptions()))->entrySet()))->stream()))->map(static_cast<$Function*>($$new(BasicJavacTask$$Lambda$lambda$initPlugins$0)))))->toList());
 					try {
 						$var($Plugin, var$0, $cast($Plugin, pluginDesc->getPlugin()));
 						initPlugin(var$0, $fcast($StringArray, $($nc(options)->toArray($$new($StringArray, options->size())))));
@@ -353,7 +345,7 @@ void BasicJavacTask::initPlugins($Set* pluginOpts) {
 				{
 					$var($Iterator, i$, pluginsToCall->iterator());
 					for (; $nc(i$)->hasNext();) {
-						$var($List, p, $cast($List, i$->next()));
+						$var($1List, p, $cast($1List, i$->next()));
 						{
 							if ($nc($($nc(plugin)->getName()))->equals($nc(p)->head)) {
 								pluginsToCall->remove(p);
@@ -374,7 +366,7 @@ void BasicJavacTask::initPlugins($Set* pluginOpts) {
 	{
 		$var($Iterator, i$, pluginsToCall->iterator());
 		for (; $nc(i$)->hasNext();) {
-			$var($List, p, $cast($List, i$->next()));
+			$var($1List, p, $cast($1List, i$->next()));
 			{
 				$nc($($Log::instance(this->context)))->error($($CompilerProperties$Errors::PluginNotFound($cast($String, $nc(p)->head))));
 			}
@@ -405,7 +397,7 @@ void BasicJavacTask::initPlugin($Plugin* p, $StringArray* args) {
 	p->init(this, args);
 }
 
-void BasicJavacTask::initDocLint($List* docLintOpts) {
+void BasicJavacTask::initDocLint($1List* docLintOpts) {
 	$useLocalCurrentObjectStackCache();
 	if ($nc(docLintOpts)->isEmpty()) {
 		return;

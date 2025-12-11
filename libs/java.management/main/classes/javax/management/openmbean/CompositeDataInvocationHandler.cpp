@@ -28,7 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Method = ::java::lang::reflect::Method;
 using $Proxy = ::java::lang::reflect::Proxy;
-using $Type = ::java::lang::reflect::Type;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 
 namespace javax {

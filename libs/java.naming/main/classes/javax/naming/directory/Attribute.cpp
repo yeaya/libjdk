@@ -5,14 +5,11 @@
 #include <javax/naming/directory/DirContext.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NamingEnumeration = ::javax::naming::NamingEnumeration;
-using $DirContext = ::javax::naming::directory::DirContext;
 
 namespace javax {
 	namespace naming {

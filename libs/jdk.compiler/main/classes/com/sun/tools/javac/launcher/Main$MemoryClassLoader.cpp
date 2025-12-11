@@ -29,7 +29,6 @@
 
 using $CodeSignerArray = $Array<::java::security::CodeSigner>;
 using $PrincipalArray = $Array<::java::security::Principal>;
-using $Main = ::com::sun::tools::javac::launcher::Main;
 using $Main$MemoryClassLoader$1 = ::com::sun::tools::javac::launcher::Main$MemoryClassLoader$1;
 using $Main$MemoryClassLoader$MemoryURLStreamHandler = ::com::sun::tools::javac::launcher::Main$MemoryClassLoader$MemoryURLStreamHandler;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -43,7 +42,6 @@ using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
 using $Path = ::java::nio::file::Path;
-using $CodeSigner = ::java::security::CodeSigner;
 using $CodeSource = ::java::security::CodeSource;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $ProtectionDomain = ::java::security::ProtectionDomain;

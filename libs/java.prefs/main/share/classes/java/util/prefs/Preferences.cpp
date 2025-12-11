@@ -29,7 +29,6 @@
 #undef MAX_VALUE_LENGTH
 
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -39,7 +38,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
@@ -51,8 +49,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $ServiceLoader = ::java::util::ServiceLoader;
-using $NodeChangeListener = ::java::util::prefs::NodeChangeListener;
-using $PreferenceChangeListener = ::java::util::prefs::PreferenceChangeListener;
 using $Preferences$1 = ::java::util::prefs::Preferences$1;
 using $Preferences$2 = ::java::util::prefs::Preferences$2;
 using $PreferencesFactory = ::java::util::prefs::PreferencesFactory;

@@ -53,12 +53,9 @@
 #undef OK
 #undef SOURCE_PATH
 
-using $JavacTask = ::com::sun::source::util::JavacTask;
 using $TaskListener = ::com::sun::source::util::TaskListener;
-using $BasicJavacTask = ::com::sun::tools::javac::api::BasicJavacTask;
 using $JavacTaskImpl = ::com::sun::tools::javac::api::JavacTaskImpl;
 using $JavacTool = ::com::sun::tools::javac::api::JavacTool;
-using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $Main$Result = ::com::sun::tools::javac::main::Main$Result;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Dependencies$GraphDependencies = ::com::sun::tools::javac::util::Dependencies$GraphDependencies;
@@ -83,7 +80,6 @@ using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Runtime = ::java::lang::Runtime;
 using $URI = ::java::net::URI;
 using $Charset = ::java::nio::charset::Charset;
@@ -94,11 +90,9 @@ using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
 using $ForwardingJavaFileManager = ::javax::tools::ForwardingJavaFileManager;
-using $JavaCompiler = ::javax::tools::JavaCompiler;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;

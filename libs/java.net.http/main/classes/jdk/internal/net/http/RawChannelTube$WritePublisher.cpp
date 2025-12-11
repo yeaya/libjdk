@@ -17,7 +17,6 @@ using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $RawChannelTube = ::jdk::internal::net::http::RawChannelTube;
 using $RawChannelTube$WriteSubscription = ::jdk::internal::net::http::RawChannelTube$WriteSubscription;
-using $FlowTube$TubePublisher = ::jdk::internal::net::http::common::FlowTube$TubePublisher;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 
 namespace jdk {

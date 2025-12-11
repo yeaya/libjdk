@@ -58,7 +58,6 @@ using $Ref = ::java::sql::Ref;
 using $RowId = ::java::sql::RowId;
 using $SQLData = ::java::sql::SQLData;
 using $SQLException = ::java::sql::SQLException;
-using $SQLOutput = ::java::sql::SQLOutput;
 using $SQLXML = ::java::sql::SQLXML;
 using $Struct = ::java::sql::Struct;
 using $Time = ::java::sql::Time;

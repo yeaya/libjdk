@@ -20,7 +20,6 @@ using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
-using $RawChannel$RawEvent = ::jdk::internal::net::http::websocket::RawChannel$RawEvent;
 using $TransportImpl = ::jdk::internal::net::http::websocket::TransportImpl;
 using $TransportImpl$ChannelState = ::jdk::internal::net::http::websocket::TransportImpl$ChannelState;
 

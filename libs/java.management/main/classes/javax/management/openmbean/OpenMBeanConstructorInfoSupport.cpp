@@ -22,8 +22,6 @@ using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $Descriptor = ::javax::management::Descriptor;
 using $MBeanConstructorInfo = ::javax::management::MBeanConstructorInfo;
-using $MBeanFeatureInfo = ::javax::management::MBeanFeatureInfo;
-using $MBeanParameterInfo = ::javax::management::MBeanParameterInfo;
 using $OpenMBeanConstructorInfo = ::javax::management::openmbean::OpenMBeanConstructorInfo;
 
 namespace javax {

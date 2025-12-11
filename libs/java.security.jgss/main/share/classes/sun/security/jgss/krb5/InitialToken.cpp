@@ -42,7 +42,6 @@ using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $ChannelBinding = ::org::ietf::jgss::ChannelBinding;
 using $GSSException = ::org::ietf::jgss::GSSException;
-using $GSSToken = ::sun::security::jgss::GSSToken;
 using $Krb5Token = ::sun::security::jgss::krb5::Krb5Token;
 using $TlsChannelBindingImpl = ::sun::security::jgss::krb5::internal::TlsChannelBindingImpl;
 

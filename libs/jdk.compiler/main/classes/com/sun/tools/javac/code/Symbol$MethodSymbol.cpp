@@ -62,45 +62,34 @@ using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodHandleSymbol = ::com::sun::tools::javac::code::Symbol$MethodHandleSymbol;
 using $Symbol$MethodSymbol$1 = ::com::sun::tools::javac::code::Symbol$MethodSymbol$1;
-using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Symbol$Visitor = ::com::sun::tools::javac::code::Symbol$Visitor;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
-using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $1Name = ::com::sun::tools::javac::util::Name;
+using $Name = ::com::sun::tools::javac::util::Name;
 using $Name$Table = ::com::sun::tools::javac::util::Name$Table;
-using $Names = ::com::sun::tools::javac::util::Names;
-using $Warner = ::com::sun::tools::javac::util::Warner;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Iterator = ::java::util::Iterator;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Predicate = ::java::util::function::Predicate;
 using $AnnotationValue = ::javax::lang::model::element::AnnotationValue;
@@ -108,7 +97,7 @@ using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
 using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
-using $Name = ::javax::lang::model::element::Name;
+using $1Name = ::javax::lang::model::element::Name;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace com {
@@ -168,7 +157,7 @@ $MethodInfo _Symbol$MethodSymbol_MethodInfo_[] = {
 	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
 	{"*getEnclosedElements", "()Ljava/util/List;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$MethodSymbol::*)(int64_t,$1Name*,$Type*,$Symbol*)>(&Symbol$MethodSymbol::init$))},
+	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$MethodSymbol::*)(int64_t,$Name*,$Type*,$Symbol*)>(&Symbol$MethodSymbol::init$))},
 	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
 	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC},
 	{"asHandle", "()Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;", nullptr, $PUBLIC},
@@ -235,7 +224,7 @@ $Object* allocate$Symbol$MethodSymbol($Class* clazz) {
 	return $of($alloc(Symbol$MethodSymbol));
 }
 
-$1List* Symbol$MethodSymbol::getEnclosedElements() {
+$List* Symbol$MethodSymbol::getEnclosedElements() {
 	 return this->$Symbol::getEnclosedElements();
 }
 
@@ -271,7 +260,7 @@ $TypeMirror* Symbol$MethodSymbol::MemberClass0$::asType() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->asType();
 }
 
-$1List* Symbol$MethodSymbol::MemberClass0$::getTypeParameters() {
+$List* Symbol$MethodSymbol::MemberClass0$::getTypeParameters() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->getTypeParameters();
 }
 
@@ -279,7 +268,7 @@ $TypeMirror* Symbol$MethodSymbol::MemberClass0$::getReturnType() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->getReturnType();
 }
 
-$1List* Symbol$MethodSymbol::MemberClass0$::getParameters() {
+$List* Symbol$MethodSymbol::MemberClass0$::getParameters() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->getParameters();
 }
 
@@ -295,7 +284,7 @@ bool Symbol$MethodSymbol::MemberClass0$::isDefault() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->isDefault();
 }
 
-$1List* Symbol$MethodSymbol::MemberClass0$::getThrownTypes() {
+$List* Symbol$MethodSymbol::MemberClass0$::getThrownTypes() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->getThrownTypes();
 }
 
@@ -303,7 +292,7 @@ $AnnotationValue* Symbol$MethodSymbol::MemberClass0$::getDefaultValue() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->getDefaultValue();
 }
 
-$Name* Symbol$MethodSymbol::MemberClass0$::getSimpleName() {
+$1Name* Symbol$MethodSymbol::MemberClass0$::getSimpleName() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->getSimpleName();
 }
 
@@ -319,7 +308,7 @@ $Element* Symbol$MethodSymbol::MemberClass0$::getEnclosingElement() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->getEnclosingElement();
 }
 
-$1List* Symbol$MethodSymbol::MemberClass0$::getEnclosedElements() {
+$List* Symbol$MethodSymbol::MemberClass0$::getEnclosedElements() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->getEnclosedElements();
 }
 
@@ -331,7 +320,7 @@ int32_t Symbol$MethodSymbol::MemberClass0$::hashCode() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->hashCode();
 }
 
-$1List* Symbol$MethodSymbol::MemberClass0$::getAnnotationMirrors() {
+$List* Symbol$MethodSymbol::MemberClass0$::getAnnotationMirrors() {
 	return ((Symbol$MethodSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$MethodSymbol, memberClass0$)))->getAnnotationMirrors();
 }
 
@@ -361,12 +350,12 @@ void Symbol$MethodSymbol::MemberClass0$::finalize() {
 
 $Predicate* Symbol$MethodSymbol::implementation_filter = nullptr;
 
-void Symbol$MethodSymbol::init$(int64_t flags, $1Name* name, $Type* type, $Symbol* owner) {
+void Symbol$MethodSymbol::init$(int64_t flags, $Name* name, $Type* type, $Symbol* owner) {
 	$init($Kinds$Kind);
 	$Symbol::init$($Kinds$Kind::MTH, flags, name, type, owner);
 	$set(this, code, nullptr);
-	$set(this, extraParams, $List::nil());
-	$set(this, capturedLocals, $List::nil());
+	$set(this, extraParams, $1List::nil());
+	$set(this, capturedLocals, $1List::nil());
 	$set(this, params$, nullptr);
 	$set(this, defaultValue, nullptr);
 	$init($TypeTag);
@@ -419,7 +408,7 @@ $Symbol* Symbol$MethodSymbol::implemented($Symbol$TypeSymbol* c, $Types* types) 
 	$useLocalCurrentObjectStackCache();
 	$var($Symbol, impl, nullptr);
 	{
-		$var($List, is, $nc(types)->interfaces($nc(c)->type));
+		$var($1List, is, $nc(types)->interfaces($nc(c)->type));
 		for (; impl == nullptr && $nc(is)->nonEmpty(); $assign(is, $nc(is)->tail)) {
 			$var($Symbol$TypeSymbol, i, $nc(($cast($Type, is->head)))->tsym);
 			$assign(impl, implementedIn(i, types));
@@ -612,7 +601,7 @@ Symbol$MethodSymbol* Symbol$MethodSymbol::implementation($Symbol$TypeSymbol* ori
 	}
 }
 
-$List* Symbol$MethodSymbol::params() {
+$1List* Symbol$MethodSymbol::params() {
 	$useLocalCurrentObjectStackCache();
 	$nc(this->owner)->complete();
 	if (this->params$ == nullptr) {
@@ -623,7 +612,7 @@ $List* Symbol$MethodSymbol::params() {
 			for (; $nc(i$)->hasNext();) {
 				$var($Type, t, $cast($Type, i$->next()));
 				{
-					$var($1Name, paramName, $nc($nc(this->name)->table)->fromString($$str({"arg"_s, $$str(i)})));
+					$var($Name, paramName, $nc($nc(this->name)->table)->fromString($$str({"arg"_s, $$str(i)})));
 					$var($Symbol$VarSymbol, param, $new($Symbol$VarSymbol, 0x0000000200000000, paramName, t, this));
 					newParams->append(param);
 					++i;
@@ -666,7 +655,7 @@ $Attribute* Symbol$MethodSymbol::getDefaultValue() {
 	return this->defaultValue;
 }
 
-$List* Symbol$MethodSymbol::getParameters() {
+$1List* Symbol$MethodSymbol::getParameters() {
 	return params();
 }
 
@@ -696,11 +685,11 @@ $Type* Symbol$MethodSymbol::getReturnType() {
 	return $nc($($cast($Type, asType())))->getReturnType();
 }
 
-$List* Symbol$MethodSymbol::getThrownTypes() {
+$1List* Symbol$MethodSymbol::getThrownTypes() {
 	return $nc($($cast($Type, asType())))->getThrownTypes();
 }
 
-$1List* Symbol$MethodSymbol::getAnnotationMirrors() {
+$List* Symbol$MethodSymbol::getAnnotationMirrors() {
 	return $Symbol::getAnnotationMirrors();
 }
 
@@ -708,7 +697,7 @@ $Element* Symbol$MethodSymbol::getEnclosingElement() {
 	return $Symbol::getEnclosingElement();
 }
 
-$Name* Symbol$MethodSymbol::getSimpleName() {
+$1Name* Symbol$MethodSymbol::getSimpleName() {
 	return $Symbol::getSimpleName();
 }
 
@@ -716,7 +705,7 @@ $TypeMirror* Symbol$MethodSymbol::asType() {
 	return $Symbol::asType();
 }
 
-$List* Symbol$MethodSymbol::getTypeParameters() {
+$1List* Symbol$MethodSymbol::getTypeParameters() {
 	return $Symbol::getTypeParameters();
 }
 

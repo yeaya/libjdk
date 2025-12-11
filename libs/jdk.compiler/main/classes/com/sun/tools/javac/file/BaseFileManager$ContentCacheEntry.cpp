@@ -6,14 +6,12 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
-using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $CharBuffer = ::java::nio::CharBuffer;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {

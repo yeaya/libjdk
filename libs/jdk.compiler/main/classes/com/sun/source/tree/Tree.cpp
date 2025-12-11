@@ -4,8 +4,6 @@
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <jcpp.h>
 
-using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
-using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

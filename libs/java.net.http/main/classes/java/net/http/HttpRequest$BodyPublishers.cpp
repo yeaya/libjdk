@@ -27,7 +27,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;

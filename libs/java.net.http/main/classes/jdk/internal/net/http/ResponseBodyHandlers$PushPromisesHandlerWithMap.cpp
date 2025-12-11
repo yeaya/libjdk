@@ -16,12 +16,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
-using $HttpResponse$PushPromiseHandler = ::java::net::http::HttpResponse$PushPromiseHandler;
-using $Map = ::java::util::Map;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $Function = ::java::util::function::Function;
-using $ResponseBodyHandlers = ::jdk::internal::net::http::ResponseBodyHandlers;
 
 namespace jdk {
 	namespace internal {

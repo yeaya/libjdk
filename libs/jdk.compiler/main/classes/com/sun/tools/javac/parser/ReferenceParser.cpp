@@ -28,7 +28,6 @@ using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
 using $ParserFactory = ::com::sun::tools::javac::parser::ParserFactory;
 using $ReferenceParser$ParseException = ::com::sun::tools::javac::parser::ReferenceParser$ParseException;
 using $ReferenceParser$Reference = ::com::sun::tools::javac::parser::ReferenceParser$Reference;
-using $Tokens$Token = ::com::sun::tools::javac::parser::Tokens$Token;
 using $Tokens$TokenKind = ::com::sun::tools::javac::parser::Tokens$TokenKind;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
@@ -45,7 +44,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $Queue = ::java::util::Queue;
 
 namespace com {

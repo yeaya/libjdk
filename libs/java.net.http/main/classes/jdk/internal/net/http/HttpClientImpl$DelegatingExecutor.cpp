@@ -27,11 +27,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimePermission = ::java::lang::RuntimePermission;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $BasicPermission = ::java::security::BasicPermission;
@@ -40,7 +36,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Executor = ::java::util::concurrent::Executor;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $BooleanSupplier = ::java::util::function::BooleanSupplier;
-using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
 
 namespace jdk {
 	namespace internal {

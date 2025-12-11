@@ -31,7 +31,6 @@ using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

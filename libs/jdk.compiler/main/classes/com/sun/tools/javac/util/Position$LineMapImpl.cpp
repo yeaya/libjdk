@@ -8,7 +8,6 @@
 #undef FIRSTPOS
 
 using $Position = ::com::sun::tools::javac::util::Position;
-using $Position$LineMap = ::com::sun::tools::javac::util::Position$LineMap;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;

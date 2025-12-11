@@ -5,12 +5,9 @@
 #include <sun/tools/jar/Main.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Optional = ::java::util::Optional;
-using $Main = ::sun::tools::jar::Main;
 
 namespace sun {
 	namespace tools {

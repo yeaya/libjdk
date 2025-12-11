@@ -34,7 +34,6 @@ using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 

@@ -6,7 +6,6 @@
 #include <javax/management/openmbean/OpenType.h>
 #include <jcpp.h>
 
-using $DefaultMXBeanMappingFactory = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory;
 using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

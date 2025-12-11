@@ -39,7 +39,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
@@ -65,7 +64,6 @@ using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
-using $Text = ::org::w3c::dom::Text;
 
 namespace org {
 	namespace jcp {

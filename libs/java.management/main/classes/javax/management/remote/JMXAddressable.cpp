@@ -5,7 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JMXServiceURL = ::javax::management::remote::JMXServiceURL;
 
 namespace javax {
 	namespace management {

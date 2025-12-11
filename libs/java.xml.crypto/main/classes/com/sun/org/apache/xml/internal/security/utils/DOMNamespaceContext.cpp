@@ -13,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;
-using $NamespaceContext = ::javax::xml::namespace$::NamespaceContext;
 using $Node = ::org::w3c::dom::Node;
 
 namespace com {

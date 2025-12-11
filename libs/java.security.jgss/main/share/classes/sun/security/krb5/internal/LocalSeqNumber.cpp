@@ -8,7 +8,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Confounder = ::sun::security::krb5::Confounder;
-using $SeqNumber = ::sun::security::krb5::internal::SeqNumber;
 
 namespace sun {
 	namespace security {

@@ -24,7 +24,6 @@
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
 using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
-using $TransformParam = ::com::sun::org::apache::xml::internal::security::transforms::TransformParam;
 using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $HelperNodeList = ::com::sun::org::apache::xml::internal::security::utils::HelperNodeList;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
@@ -37,7 +36,6 @@ using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;
-using $Text = ::org::w3c::dom::Text;
 
 namespace com {
 	namespace sun {

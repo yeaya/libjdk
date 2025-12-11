@@ -33,12 +33,9 @@
 #undef UNKNOWN
 #undef WILDCARD
 
-using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
@@ -49,14 +46,12 @@ using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$25 = ::com::sun::tools::javac::code::Types$25;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$TypeRelation = ::com::sun::tools::javac::code::Types$TypeRelation;
 using $List = ::com::sun::tools::javac::util::List;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

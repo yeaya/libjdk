@@ -17,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $ISO2022$Encoder = ::sun::nio::cs::ext::ISO2022$Encoder;
-using $ISO2022_KR = ::sun::nio::cs::ext::ISO2022_KR;
 using $ISO2022_KR$Holder = ::sun::nio::cs::ext::ISO2022_KR$Holder;
 
 namespace sun {

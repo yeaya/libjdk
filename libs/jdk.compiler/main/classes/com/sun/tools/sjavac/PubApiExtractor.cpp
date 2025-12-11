@@ -37,15 +37,12 @@
 #include <javax/tools/StandardJavaFileManager.h>
 #include <jcpp.h>
 
-using $JavacTask = ::com::sun::source::util::JavacTask;
 using $JavacTool = ::com::sun::tools::javac::api::JavacTool;
 using $ClassFinder = ::com::sun::tools::javac::code::ClassFinder;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
-using $JavacFileManager = ::com::sun::tools::javac::file::JavacFileManager;
 using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Convert = ::com::sun::tools::javac::util::Convert;
@@ -57,7 +54,6 @@ using $Options = ::com::sun::tools::sjavac::options::Options;
 using $PubApi = ::com::sun::tools::sjavac::pubapi::PubApi;
 using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -67,10 +63,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Element = ::javax::lang::model::element::Element;
-using $AbstractElementVisitor6 = ::javax::lang::model::util::AbstractElementVisitor6;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
 using $ForwardingJavaFileManager = ::javax::tools::ForwardingJavaFileManager;
 using $JavaCompiler$CompilationTask = ::javax::tools::JavaCompiler$CompilationTask;

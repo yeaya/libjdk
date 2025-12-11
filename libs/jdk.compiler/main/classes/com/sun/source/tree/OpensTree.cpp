@@ -4,11 +4,8 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $DirectiveTree = ::com::sun::source::tree::DirectiveTree;
-using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {

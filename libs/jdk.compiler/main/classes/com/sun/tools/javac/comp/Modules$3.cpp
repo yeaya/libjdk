@@ -15,7 +15,6 @@
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Modules = ::com::sun::tools::javac::comp::Modules;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

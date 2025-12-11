@@ -7,9 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Connection = ::java::sql::Connection;
-using $ResultSet = ::java::sql::ResultSet;
-using $RowSetMetaData = ::javax::sql::RowSetMetaData;
 
 namespace javax {
 	namespace sql {

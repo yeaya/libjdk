@@ -4,7 +4,6 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-using $Formattable = ::com::sun::tools::javac::api::Formattable;
 using $Messages = ::com::sun::tools::javac::api::Messages;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

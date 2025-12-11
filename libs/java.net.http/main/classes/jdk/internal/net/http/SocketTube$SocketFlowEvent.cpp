@@ -25,17 +25,12 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $Supplier = ::java::util::function::Supplier;
 using $AsyncEvent = ::jdk::internal::net::http::AsyncEvent;
-using $SocketTube = ::jdk::internal::net::http::SocketTube;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 
 namespace jdk {

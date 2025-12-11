@@ -10,7 +10,6 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolver.h>
 #include <jcpp.h>
 
-using $Init = ::com::sun::org::apache::xml::internal::security::Init;
 using $JCEMapper = ::com::sun::org::apache::xml::internal::security::algorithms::JCEMapper;
 using $SignatureAlgorithm = ::com::sun::org::apache::xml::internal::security::algorithms::SignatureAlgorithm;
 using $Canonicalizer = ::com::sun::org::apache::xml::internal::security::c14n::Canonicalizer;
@@ -22,7 +21,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 
 namespace com {
 	namespace sun {

@@ -118,7 +118,7 @@ bool GSSLibStub::init($String* lib, bool debug) {
 	$init(GSSLibStub);
 	bool $ret = false;
 	$prepareNativeStatic(GSSLibStub, init, bool, $String* lib, bool debug);
-	$ret = $invokeNativeStatic(GSSLibStub, init, lib, debug);
+	$ret = $invokeNativeStatic(lib, debug);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -127,7 +127,7 @@ int64_t GSSLibStub::getMechPtr($bytes* oidDerEncoding) {
 	$init(GSSLibStub);
 	int64_t $ret = 0;
 	$prepareNativeStatic(GSSLibStub, getMechPtr, int64_t, $bytes* oidDerEncoding);
-	$ret = $invokeNativeStatic(GSSLibStub, getMechPtr, oidDerEncoding);
+	$ret = $invokeNativeStatic(oidDerEncoding);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -136,7 +136,7 @@ $OidArray* GSSLibStub::indicateMechs() {
 	$init(GSSLibStub);
 	$var($OidArray, $ret, nullptr);
 	$prepareNativeStatic(GSSLibStub, indicateMechs, $OidArray*);
-	$assign($ret, $invokeNativeStatic(GSSLibStub, indicateMechs));
+	$assign($ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -144,21 +144,21 @@ $OidArray* GSSLibStub::indicateMechs() {
 $OidArray* GSSLibStub::inquireNamesForMech() {
 	$var($OidArray, $ret, nullptr);
 	$prepareNative(GSSLibStub, inquireNamesForMech, $OidArray*);
-	$assign($ret, $invokeNative(GSSLibStub, inquireNamesForMech));
+	$assign($ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
 
 void GSSLibStub::releaseName(int64_t pName) {
 	$prepareNative(GSSLibStub, releaseName, void, int64_t pName);
-	$invokeNative(GSSLibStub, releaseName, pName);
+	$invokeNative(pName);
 	$finishNative();
 }
 
 int64_t GSSLibStub::importName($bytes* name, $Oid* type) {
 	int64_t $ret = 0;
 	$prepareNative(GSSLibStub, importName, int64_t, $bytes* name, $Oid* type);
-	$ret = $invokeNative(GSSLibStub, importName, name, type);
+	$ret = $invokeNative(name, type);
 	$finishNative();
 	return $ret;
 }
@@ -166,7 +166,7 @@ int64_t GSSLibStub::importName($bytes* name, $Oid* type) {
 bool GSSLibStub::compareName(int64_t pName1, int64_t pName2) {
 	bool $ret = false;
 	$prepareNative(GSSLibStub, compareName, bool, int64_t pName1, int64_t pName2);
-	$ret = $invokeNative(GSSLibStub, compareName, pName1, pName2);
+	$ret = $invokeNative(pName1, pName2);
 	$finishNative();
 	return $ret;
 }
@@ -174,7 +174,7 @@ bool GSSLibStub::compareName(int64_t pName1, int64_t pName2) {
 int64_t GSSLibStub::canonicalizeName(int64_t pName) {
 	int64_t $ret = 0;
 	$prepareNative(GSSLibStub, canonicalizeName, int64_t, int64_t pName);
-	$ret = $invokeNative(GSSLibStub, canonicalizeName, pName);
+	$ret = $invokeNative(pName);
 	$finishNative();
 	return $ret;
 }
@@ -182,7 +182,7 @@ int64_t GSSLibStub::canonicalizeName(int64_t pName) {
 $bytes* GSSLibStub::exportName(int64_t pName) {
 	$var($bytes, $ret, nullptr);
 	$prepareNative(GSSLibStub, exportName, $bytes*, int64_t pName);
-	$assign($ret, $invokeNative(GSSLibStub, exportName, pName));
+	$assign($ret, $invokeNativeObject(pName));
 	$finishNative();
 	return $ret;
 }
@@ -190,7 +190,7 @@ $bytes* GSSLibStub::exportName(int64_t pName) {
 $ObjectArray* GSSLibStub::displayName(int64_t pName) {
 	$var($ObjectArray, $ret, nullptr);
 	$prepareNative(GSSLibStub, displayName, $ObjectArray*, int64_t pName);
-	$assign($ret, $invokeNative(GSSLibStub, displayName, pName));
+	$assign($ret, $invokeNativeObject(pName));
 	$finishNative();
 	return $ret;
 }
@@ -198,7 +198,7 @@ $ObjectArray* GSSLibStub::displayName(int64_t pName) {
 int64_t GSSLibStub::acquireCred(int64_t pName, int32_t lifetime, int32_t usage) {
 	int64_t $ret = 0;
 	$prepareNative(GSSLibStub, acquireCred, int64_t, int64_t pName, int32_t lifetime, int32_t usage);
-	$ret = $invokeNative(GSSLibStub, acquireCred, pName, lifetime, usage);
+	$ret = $invokeNative(pName, lifetime, usage);
 	$finishNative();
 	return $ret;
 }
@@ -206,7 +206,7 @@ int64_t GSSLibStub::acquireCred(int64_t pName, int32_t lifetime, int32_t usage) 
 int64_t GSSLibStub::releaseCred(int64_t pCred) {
 	int64_t $ret = 0;
 	$prepareNative(GSSLibStub, releaseCred, int64_t, int64_t pCred);
-	$ret = $invokeNative(GSSLibStub, releaseCred, pCred);
+	$ret = $invokeNative(pCred);
 	$finishNative();
 	return $ret;
 }
@@ -214,7 +214,7 @@ int64_t GSSLibStub::releaseCred(int64_t pCred) {
 int64_t GSSLibStub::getCredName(int64_t pCred) {
 	int64_t $ret = 0;
 	$prepareNative(GSSLibStub, getCredName, int64_t, int64_t pCred);
-	$ret = $invokeNative(GSSLibStub, getCredName, pCred);
+	$ret = $invokeNative(pCred);
 	$finishNative();
 	return $ret;
 }
@@ -222,7 +222,7 @@ int64_t GSSLibStub::getCredName(int64_t pCred) {
 int32_t GSSLibStub::getCredTime(int64_t pCred) {
 	int32_t $ret = 0;
 	$prepareNative(GSSLibStub, getCredTime, int32_t, int64_t pCred);
-	$ret = $invokeNative(GSSLibStub, getCredTime, pCred);
+	$ret = $invokeNative(pCred);
 	$finishNative();
 	return $ret;
 }
@@ -230,7 +230,7 @@ int32_t GSSLibStub::getCredTime(int64_t pCred) {
 int32_t GSSLibStub::getCredUsage(int64_t pCred) {
 	int32_t $ret = 0;
 	$prepareNative(GSSLibStub, getCredUsage, int32_t, int64_t pCred);
-	$ret = $invokeNative(GSSLibStub, getCredUsage, pCred);
+	$ret = $invokeNative(pCred);
 	$finishNative();
 	return $ret;
 }
@@ -238,7 +238,7 @@ int32_t GSSLibStub::getCredUsage(int64_t pCred) {
 $NativeGSSContext* GSSLibStub::importContext($bytes* interProcToken) {
 	$var($NativeGSSContext, $ret, nullptr);
 	$prepareNative(GSSLibStub, importContext, $NativeGSSContext*, $bytes* interProcToken);
-	$assign($ret, $invokeNative(GSSLibStub, importContext, interProcToken));
+	$assign($ret, $invokeNativeObject(interProcToken));
 	$finishNative();
 	return $ret;
 }
@@ -246,7 +246,7 @@ $NativeGSSContext* GSSLibStub::importContext($bytes* interProcToken) {
 $bytes* GSSLibStub::initContext(int64_t pCred, int64_t targetName, $ChannelBinding* cb, $bytes* inToken, $NativeGSSContext* context) {
 	$var($bytes, $ret, nullptr);
 	$prepareNative(GSSLibStub, initContext, $bytes*, int64_t pCred, int64_t targetName, $ChannelBinding* cb, $bytes* inToken, $NativeGSSContext* context);
-	$assign($ret, $invokeNative(GSSLibStub, initContext, pCred, targetName, cb, inToken, context));
+	$assign($ret, $invokeNativeObject(pCred, targetName, cb, inToken, context));
 	$finishNative();
 	return $ret;
 }
@@ -254,7 +254,7 @@ $bytes* GSSLibStub::initContext(int64_t pCred, int64_t targetName, $ChannelBindi
 $bytes* GSSLibStub::acceptContext(int64_t pCred, $ChannelBinding* cb, $bytes* inToken, $NativeGSSContext* context) {
 	$var($bytes, $ret, nullptr);
 	$prepareNative(GSSLibStub, acceptContext, $bytes*, int64_t pCred, $ChannelBinding* cb, $bytes* inToken, $NativeGSSContext* context);
-	$assign($ret, $invokeNative(GSSLibStub, acceptContext, pCred, cb, inToken, context));
+	$assign($ret, $invokeNativeObject(pCred, cb, inToken, context));
 	$finishNative();
 	return $ret;
 }
@@ -262,7 +262,7 @@ $bytes* GSSLibStub::acceptContext(int64_t pCred, $ChannelBinding* cb, $bytes* in
 $longs* GSSLibStub::inquireContext(int64_t pContext) {
 	$var($longs, $ret, nullptr);
 	$prepareNative(GSSLibStub, inquireContext, $longs*, int64_t pContext);
-	$assign($ret, $invokeNative(GSSLibStub, inquireContext, pContext));
+	$assign($ret, $invokeNativeObject(pContext));
 	$finishNative();
 	return $ret;
 }
@@ -270,7 +270,7 @@ $longs* GSSLibStub::inquireContext(int64_t pContext) {
 $Oid* GSSLibStub::getContextMech(int64_t pContext) {
 	$var($Oid, $ret, nullptr);
 	$prepareNative(GSSLibStub, getContextMech, $Oid*, int64_t pContext);
-	$assign($ret, $invokeNative(GSSLibStub, getContextMech, pContext));
+	$assign($ret, $invokeNativeObject(pContext));
 	$finishNative();
 	return $ret;
 }
@@ -278,7 +278,7 @@ $Oid* GSSLibStub::getContextMech(int64_t pContext) {
 int64_t GSSLibStub::getContextName(int64_t pContext, bool isSrc) {
 	int64_t $ret = 0;
 	$prepareNative(GSSLibStub, getContextName, int64_t, int64_t pContext, bool isSrc);
-	$ret = $invokeNative(GSSLibStub, getContextName, pContext, isSrc);
+	$ret = $invokeNative(pContext, isSrc);
 	$finishNative();
 	return $ret;
 }
@@ -286,7 +286,7 @@ int64_t GSSLibStub::getContextName(int64_t pContext, bool isSrc) {
 int32_t GSSLibStub::getContextTime(int64_t pContext) {
 	int32_t $ret = 0;
 	$prepareNative(GSSLibStub, getContextTime, int32_t, int64_t pContext);
-	$ret = $invokeNative(GSSLibStub, getContextTime, pContext);
+	$ret = $invokeNative(pContext);
 	$finishNative();
 	return $ret;
 }
@@ -294,7 +294,7 @@ int32_t GSSLibStub::getContextTime(int64_t pContext) {
 int64_t GSSLibStub::deleteContext(int64_t pContext) {
 	int64_t $ret = 0;
 	$prepareNative(GSSLibStub, deleteContext, int64_t, int64_t pContext);
-	$ret = $invokeNative(GSSLibStub, deleteContext, pContext);
+	$ret = $invokeNative(pContext);
 	$finishNative();
 	return $ret;
 }
@@ -302,7 +302,7 @@ int64_t GSSLibStub::deleteContext(int64_t pContext) {
 int32_t GSSLibStub::wrapSizeLimit(int64_t pContext, int32_t flags, int32_t qop, int32_t outSize) {
 	int32_t $ret = 0;
 	$prepareNative(GSSLibStub, wrapSizeLimit, int32_t, int64_t pContext, int32_t flags, int32_t qop, int32_t outSize);
-	$ret = $invokeNative(GSSLibStub, wrapSizeLimit, pContext, flags, qop, outSize);
+	$ret = $invokeNative(pContext, flags, qop, outSize);
 	$finishNative();
 	return $ret;
 }
@@ -310,7 +310,7 @@ int32_t GSSLibStub::wrapSizeLimit(int64_t pContext, int32_t flags, int32_t qop, 
 $bytes* GSSLibStub::exportContext(int64_t pContext) {
 	$var($bytes, $ret, nullptr);
 	$prepareNative(GSSLibStub, exportContext, $bytes*, int64_t pContext);
-	$assign($ret, $invokeNative(GSSLibStub, exportContext, pContext));
+	$assign($ret, $invokeNativeObject(pContext));
 	$finishNative();
 	return $ret;
 }
@@ -318,21 +318,21 @@ $bytes* GSSLibStub::exportContext(int64_t pContext) {
 $bytes* GSSLibStub::getMic(int64_t pContext, int32_t qop, $bytes* msg) {
 	$var($bytes, $ret, nullptr);
 	$prepareNative(GSSLibStub, getMic, $bytes*, int64_t pContext, int32_t qop, $bytes* msg);
-	$assign($ret, $invokeNative(GSSLibStub, getMic, pContext, qop, msg));
+	$assign($ret, $invokeNativeObject(pContext, qop, msg));
 	$finishNative();
 	return $ret;
 }
 
 void GSSLibStub::verifyMic(int64_t pContext, $bytes* token, $bytes* msg, $MessageProp* prop) {
 	$prepareNative(GSSLibStub, verifyMic, void, int64_t pContext, $bytes* token, $bytes* msg, $MessageProp* prop);
-	$invokeNative(GSSLibStub, verifyMic, pContext, token, msg, prop);
+	$invokeNative(pContext, token, msg, prop);
 	$finishNative();
 }
 
 $bytes* GSSLibStub::wrap(int64_t pContext, $bytes* msg, $MessageProp* prop) {
 	$var($bytes, $ret, nullptr);
 	$prepareNative(GSSLibStub, wrap, $bytes*, int64_t pContext, $bytes* msg, $MessageProp* prop);
-	$assign($ret, $invokeNative(GSSLibStub, wrap, pContext, msg, prop));
+	$assign($ret, $invokeNativeObject(pContext, msg, prop));
 	$finishNative();
 	return $ret;
 }
@@ -340,7 +340,7 @@ $bytes* GSSLibStub::wrap(int64_t pContext, $bytes* msg, $MessageProp* prop) {
 $bytes* GSSLibStub::unwrap(int64_t pContext, $bytes* msgToken, $MessageProp* prop) {
 	$var($bytes, $ret, nullptr);
 	$prepareNative(GSSLibStub, unwrap, $bytes*, int64_t pContext, $bytes* msgToken, $MessageProp* prop);
-	$assign($ret, $invokeNative(GSSLibStub, unwrap, pContext, msgToken, prop));
+	$assign($ret, $invokeNativeObject(pContext, msgToken, prop));
 	$finishNative();
 	return $ret;
 }

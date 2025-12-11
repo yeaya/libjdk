@@ -6,7 +6,6 @@
 #include <jcpp.h>
 
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
-using $Analyzer$DeferredAnalysisHelper = ::com::sun::tools::javac::comp::Analyzer$DeferredAnalysisHelper;
 using $Analyzer$RewritingContext = ::com::sun::tools::javac::comp::Analyzer$RewritingContext;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $ClassInfo = ::java::lang::ClassInfo;

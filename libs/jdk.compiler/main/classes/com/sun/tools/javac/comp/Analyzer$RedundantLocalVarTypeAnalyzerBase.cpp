@@ -23,7 +23,6 @@
 #undef LOCAL
 #undef NOPOS
 
-using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
 using $Analyzer$AnalyzerCopier = ::com::sun::tools::javac::comp::Analyzer$AnalyzerCopier;
@@ -31,14 +30,10 @@ using $Analyzer$AnalyzerMode = ::com::sun::tools::javac::comp::Analyzer$Analyzer
 using $Analyzer$StatementAnalyzer = ::com::sun::tools::javac::comp::Analyzer$StatementAnalyzer;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $TreeCopier = ::com::sun::tools::javac::tree::TreeCopier;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $JCDiagnostic$Warning = ::com::sun::tools::javac::util::JCDiagnostic$Warning;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $ClassInfo = ::java::lang::ClassInfo;

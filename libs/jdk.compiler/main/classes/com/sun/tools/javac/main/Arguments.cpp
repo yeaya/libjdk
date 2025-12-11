@@ -166,13 +166,12 @@ using $PlatformDescription = ::com::sun::tools::javac::platform::PlatformDescrip
 using $PlatformUtils = ::com::sun::tools::javac::platform::PlatformUtils;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
-using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $JCDiagnostic$DiagnosticInfo = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticInfo;
 using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $JCDiagnostic$Warning = ::com::sun::tools::javac::util::JCDiagnostic$Warning;
-using $List = ::com::sun::tools::javac::util::List;
+using $1List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Log$PrefixKind = ::com::sun::tools::javac::util::Log$PrefixKind;
@@ -180,9 +179,7 @@ using $Log$WriterKind = ::com::sun::tools::javac::util::Log$WriterKind;
 using $Options = ::com::sun::tools::javac::util::Options;
 using $PropagatedException = ::com::sun::tools::javac::util::PropagatedException;
 using $IOException = ::java::io::IOException;
-using $PrintWriter = ::java::io::PrintWriter;
 using $Serializable = ::java::io::Serializable;
-using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -194,14 +191,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Void = ::java::lang::Void;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
 using $Files = ::java::nio::file::Files;
-using $LinkOption = ::java::nio::file::LinkOption;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $AbstractCollection = ::java::util::AbstractCollection;
@@ -217,7 +208,7 @@ using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $1List = ::java::util::List;
+using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
@@ -226,7 +217,6 @@ using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $Stream = ::java::util::stream::Stream;
 using $SourceVersion = ::javax::lang::model::SourceVersion;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
@@ -715,7 +705,7 @@ bool Arguments::validate() {
 				$init($CompilerProperties$Errors);
 				$nc(this->log)->error($CompilerProperties$Errors::ModulesourcepathMustBeSpecifiedWithDashMOption);
 			} else {
-				$var($1List, modules, $Arrays::asList($($nc($($nc(this->options)->get($Option::MODULE)))->split(","_s))));
+				$var($List, modules, $Arrays::asList($($nc($($nc(this->options)->get($Option::MODULE)))->split(","_s))));
 				try {
 					{
 						$var($Iterator, i$, $nc(modules)->iterator());
@@ -1265,20 +1255,20 @@ $Set* Arguments::getPluginOpts() {
 		for (; i$ < len$; ++i$) {
 			$var($String, plugin, arr$->get(i$));
 			{
-				pluginOpts->add($($List::from($($nc(plugin)->split("\\s+"_s)))));
+				pluginOpts->add($($1List::from($($nc(plugin)->split("\\s+"_s)))));
 			}
 		}
 	}
 	return $Collections::unmodifiableSet(pluginOpts);
 }
 
-$List* Arguments::getDocLintOpts() {
+$1List* Arguments::getDocLintOpts() {
 	$useLocalCurrentObjectStackCache();
 	$init($Option);
 	$var($String, xdoclint, $nc(this->options)->get($Option::XDOCLINT));
 	$var($String, xdoclintCustom, $nc(this->options)->get($Option::XDOCLINT_CUSTOM));
 	if (xdoclint == nullptr && xdoclintCustom == nullptr) {
-		return $List::nil();
+		return $1List::nil();
 	}
 	$var($Set, doclintOpts, $new($LinkedHashSet));
 	if (xdoclint != nullptr) {
@@ -1304,13 +1294,13 @@ $List* Arguments::getDocLintOpts() {
 	}
 	$init($DocLint);
 	if (doclintOpts->equals($($Collections::singleton($$str({$DocLint::XMSGS_CUSTOM_PREFIX, "none"_s}))))) {
-		return $List::nil();
+		return $1List::nil();
 	}
 	$var($String, checkPackages, $nc(this->options)->get($Option::XDOCLINT_PACKAGE));
 	if (checkPackages != nullptr) {
 		doclintOpts->add($$str({$DocLint::XCHECK_PACKAGE, checkPackages}));
 	}
-	return $List::from($fcast($StringArray, $(doclintOpts->toArray($$new($StringArray, doclintOpts->size())))));
+	return $1List::from($fcast($StringArray, $(doclintOpts->toArray($$new($StringArray, doclintOpts->size())))));
 }
 
 bool Arguments::checkDirectory($Option* option) {

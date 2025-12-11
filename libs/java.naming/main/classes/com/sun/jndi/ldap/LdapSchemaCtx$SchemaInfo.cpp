@@ -11,9 +11,7 @@
 
 using $ModificationItemArray = $Array<::javax::naming::directory::ModificationItem>;
 using $LdapCtx = ::com::sun::jndi::ldap::LdapCtx;
-using $LdapSchemaCtx = ::com::sun::jndi::ldap::LdapSchemaCtx;
 using $LdapSchemaParser = ::com::sun::jndi::ldap::LdapSchemaParser;
-using $PartialCompositeDirContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeDirContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

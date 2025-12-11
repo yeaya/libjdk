@@ -4,11 +4,8 @@
 #include <javax/management/MBeanServerDelegate.h>
 #include <jcpp.h>
 
-using $MBeanInstantiator = ::com::sun::jmx::mbeanserver::MBeanInstantiator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MBeanServer = ::javax::management::MBeanServer;
-using $MBeanServerDelegate = ::javax::management::MBeanServerDelegate;
 
 namespace com {
 	namespace sun {

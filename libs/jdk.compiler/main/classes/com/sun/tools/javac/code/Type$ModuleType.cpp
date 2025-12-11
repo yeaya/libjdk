@@ -20,7 +20,6 @@
 #undef MODULE
 
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;

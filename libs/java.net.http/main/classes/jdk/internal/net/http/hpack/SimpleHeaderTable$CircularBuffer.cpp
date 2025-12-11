@@ -16,7 +16,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Utils = ::jdk::internal::net::http::common::Utils;
-using $SimpleHeaderTable = ::jdk::internal::net::http::hpack::SimpleHeaderTable;
 
 namespace jdk {
 	namespace internal {

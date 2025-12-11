@@ -5,8 +5,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URIReference = ::javax::xml::crypto::URIReference;
-using $Node = ::org::w3c::dom::Node;
 
 namespace javax {
 	namespace xml {

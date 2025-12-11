@@ -9,9 +9,6 @@
 
 using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Code$Chain = ::com::sun::tools::javac::jvm::Code$Chain;
-using $Gen = ::com::sun::tools::javac::jvm::Gen;
-using $Gen$GenFinalizer = ::com::sun::tools::javac::jvm::Gen$GenFinalizer;
-using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

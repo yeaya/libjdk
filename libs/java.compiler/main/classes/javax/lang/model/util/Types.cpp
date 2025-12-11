@@ -14,21 +14,8 @@
 #include <javax/lang/model/type/WildcardType.h>
 #include <jcpp.h>
 
-using $TypeMirrorArray = $Array<::javax::lang::model::type::TypeMirror>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Element = ::javax::lang::model::element::Element;
-using $TypeElement = ::javax::lang::model::element::TypeElement;
-using $ArrayType = ::javax::lang::model::type::ArrayType;
-using $DeclaredType = ::javax::lang::model::type::DeclaredType;
-using $ExecutableType = ::javax::lang::model::type::ExecutableType;
-using $NoType = ::javax::lang::model::type::NoType;
-using $NullType = ::javax::lang::model::type::NullType;
-using $PrimitiveType = ::javax::lang::model::type::PrimitiveType;
-using $TypeKind = ::javax::lang::model::type::TypeKind;
-using $TypeMirror = ::javax::lang::model::type::TypeMirror;
-using $WildcardType = ::javax::lang::model::type::WildcardType;
 
 namespace javax {
 	namespace lang {

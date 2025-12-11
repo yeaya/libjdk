@@ -22,13 +22,11 @@
 
 using $B4962064$MyAuthenticator = ::B4962064$MyAuthenticator;
 using $Headers = ::com::sun::net::httpserver::Headers;
-using $HttpContext = ::com::sun::net::httpserver::HttpContext;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $HttpServer = ::com::sun::net::httpserver::HttpServer;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -37,7 +35,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Authenticator = ::java::net::Authenticator;
 using $InetAddress = ::java::net::InetAddress;
@@ -45,7 +42,6 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $Executor = ::java::util::concurrent::Executor;
-using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $Executors = ::java::util::concurrent::Executors;
 
 $FieldInfo _B4962064_FieldInfo_[] = {

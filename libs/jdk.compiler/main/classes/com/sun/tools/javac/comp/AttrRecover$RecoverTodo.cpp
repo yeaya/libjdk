@@ -11,7 +11,6 @@
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
-using $AttrRecover = ::com::sun::tools::javac::comp::AttrRecover;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $ClassInfo = ::java::lang::ClassInfo;

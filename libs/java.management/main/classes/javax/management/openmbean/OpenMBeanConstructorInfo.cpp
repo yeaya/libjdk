@@ -3,7 +3,6 @@
 #include <javax/management/MBeanParameterInfo.h>
 #include <jcpp.h>
 
-using $MBeanParameterInfoArray = $Array<::javax::management::MBeanParameterInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 

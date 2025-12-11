@@ -18,7 +18,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Document = ::org::w3c::dom::Document;
 using $Node = ::org::w3c::dom::Node;
-using $NodeList = ::org::w3c::dom::NodeList;
 
 namespace com {
 	namespace sun {

@@ -28,7 +28,6 @@ using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
-using $OptionChecker = ::javax::tools::OptionChecker;
 
 namespace javax {
 	namespace tools {

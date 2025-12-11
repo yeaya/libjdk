@@ -12,7 +12,6 @@
 #undef RECOVERY
 
 using $Flow$LivenessArray = $Array<::com::sun::tools::javac::comp::Flow$Liveness>;
-using $Flow = ::com::sun::tools::javac::comp::Flow;
 using $Flow$Liveness$1 = ::com::sun::tools::javac::comp::Flow$Liveness$1;
 using $Flow$Liveness$2 = ::com::sun::tools::javac::comp::Flow$Liveness$2;
 using $Flow$Liveness$3 = ::com::sun::tools::javac::comp::Flow$Liveness$3;

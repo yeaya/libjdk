@@ -11,7 +11,6 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $MBeanAnalyzer$MBeanVisitor = ::com::sun::jmx::mbeanserver::MBeanAnalyzer$MBeanVisitor;
 using $MBeanIntrospector = ::com::sun::jmx::mbeanserver::MBeanIntrospector;
 using $PerInterface = ::com::sun::jmx::mbeanserver::PerInterface;
 using $PerInterface$MethodAndSig = ::com::sun::jmx::mbeanserver::PerInterface$MethodAndSig;

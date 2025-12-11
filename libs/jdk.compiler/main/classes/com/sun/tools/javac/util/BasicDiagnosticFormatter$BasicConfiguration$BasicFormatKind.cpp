@@ -9,7 +9,6 @@
 #undef DEFAULT_POS_FORMAT
 
 using $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKindArray = $Array<::com::sun::tools::javac::util::BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind>;
-using $BasicDiagnosticFormatter$BasicConfiguration = ::com::sun::tools::javac::util::BasicDiagnosticFormatter$BasicConfiguration;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

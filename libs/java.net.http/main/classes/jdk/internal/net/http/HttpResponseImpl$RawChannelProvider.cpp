@@ -28,12 +28,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $CallSite = ::java::lang::invoke::CallSite;
-using $LambdaMetafactory = ::java::lang::invoke::LambdaMetafactory;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Supplier = ::java::util::function::Supplier;
 using $Exchange = ::jdk::internal::net::http::Exchange;
 using $ExchangeImpl = ::jdk::internal::net::http::ExchangeImpl;
@@ -44,7 +39,6 @@ using $HttpResponseImpl = ::jdk::internal::net::http::HttpResponseImpl;
 using $RawChannelTube = ::jdk::internal::net::http::RawChannelTube;
 using $Response = ::jdk::internal::net::http::Response;
 using $RawChannel = ::jdk::internal::net::http::websocket::RawChannel;
-using $RawChannel$Provider = ::jdk::internal::net::http::websocket::RawChannel$Provider;
 
 namespace jdk {
 	namespace internal {

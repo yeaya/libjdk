@@ -9,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $ReferralsCache = ::sun::security::krb5::internal::ReferralsCache;
 
 namespace sun {
 	namespace security {

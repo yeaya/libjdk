@@ -4,10 +4,8 @@
 #include <javax/script/CompiledScript.h>
 #include <jcpp.h>
 
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CompiledScript = ::javax::script::CompiledScript;
 
 namespace javax {
 	namespace script {

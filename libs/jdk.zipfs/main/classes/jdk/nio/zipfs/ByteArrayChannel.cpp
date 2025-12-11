@@ -24,7 +24,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $NonWritableChannelException = ::java::nio::channels::NonWritableChannelException;

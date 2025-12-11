@@ -3,7 +3,6 @@
 #include <com/sun/jmx/mbeanserver/MBeanAnalyzer.h>
 #include <jcpp.h>
 
-using $MBeanAnalyzer = ::com::sun::jmx::mbeanserver::MBeanAnalyzer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

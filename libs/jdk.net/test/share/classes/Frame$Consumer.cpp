@@ -5,12 +5,9 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
-using $Frame = ::Frame;
-using $Frame$Opcode = ::Frame$Opcode;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
 
 $MethodInfo _Frame$Consumer_MethodInfo_[] = {
 	{"endFrame", "()V", nullptr, $PUBLIC | $ABSTRACT},

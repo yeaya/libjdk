@@ -13,13 +13,11 @@
 #undef CRT_BRANCH_FALSE
 #undef CRT_BRANCH_TRUE
 
-using $Items$ItemArray = $Array<::com::sun::tools::javac::jvm::Items$Item>;
 using $CRTable = ::com::sun::tools::javac::jvm::CRTable;
 using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Code$Chain = ::com::sun::tools::javac::jvm::Code$Chain;
 using $Items = ::com::sun::tools::javac::jvm::Items;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

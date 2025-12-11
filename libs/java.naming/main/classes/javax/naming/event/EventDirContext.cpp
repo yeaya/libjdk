@@ -8,11 +8,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Name = ::javax::naming::Name;
-using $DirContext = ::javax::naming::directory::DirContext;
-using $SearchControls = ::javax::naming::directory::SearchControls;
 using $EventContext = ::javax::naming::event::EventContext;
-using $NamingListener = ::javax::naming::event::NamingListener;
 
 namespace javax {
 	namespace naming {

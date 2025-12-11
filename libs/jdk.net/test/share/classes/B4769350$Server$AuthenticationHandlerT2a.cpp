@@ -11,7 +11,6 @@ using $B4769350 = ::B4769350;
 using $B4769350$AuthenticationHandler = ::B4769350$AuthenticationHandler;
 using $B4769350$Server = ::B4769350$Server;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
-using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

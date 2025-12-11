@@ -47,7 +47,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $Arrays = ::java::util::Arrays;
 using $KeyTab = ::javax::security::auth::kerberos::KeyTab;
 using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;

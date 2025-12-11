@@ -43,19 +43,15 @@
 #undef TYPEVAR
 
 using $Kinds = ::com::sun::tools::javac::code::Kinds;
-using $Kinds$KindName = ::com::sun::tools::javac::code::Kinds$KindName;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
-using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
@@ -67,7 +63,6 @@ using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::Compi
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
-using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $RichDiagnosticFormatter = ::com::sun::tools::javac::util::RichDiagnosticFormatter;

@@ -11,8 +11,6 @@
 #undef RTS
 
 using $Types$MostSpecificReturnCheckArray = $Array<::com::sun::tools::javac::code::Types$MostSpecificReturnCheck>;
-using $Type = ::com::sun::tools::javac::code::Type;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$MostSpecificReturnCheck$1 = ::com::sun::tools::javac::code::Types$MostSpecificReturnCheck$1;
 using $Types$MostSpecificReturnCheck$2 = ::com::sun::tools::javac::code::Types$MostSpecificReturnCheck$2;
 using $ClassInfo = ::java::lang::ClassInfo;

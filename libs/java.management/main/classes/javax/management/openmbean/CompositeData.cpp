@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
-using $CompositeType = ::javax::management::openmbean::CompositeType;
 
 namespace javax {
 	namespace management {

@@ -23,9 +23,7 @@
 #undef IS_METHOD_PREFIX
 #undef TYPE
 
-using $Introspector = ::com::sun::jmx::mbeanserver::Introspector;
 using $MBeanAnalyzer = ::com::sun::jmx::mbeanserver::MBeanAnalyzer;
-using $MBeanIntrospector = ::com::sun::jmx::mbeanserver::MBeanIntrospector;
 using $StandardMBeanIntrospector = ::com::sun::jmx::mbeanserver::StandardMBeanIntrospector;
 using $Boolean = ::java::lang::Boolean;
 using $Character = ::java::lang::Character;

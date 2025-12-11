@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/jvm/Code.h>
 #include <jcpp.h>
 
-using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Code$State = ::com::sun::tools::javac::jvm::Code$State;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

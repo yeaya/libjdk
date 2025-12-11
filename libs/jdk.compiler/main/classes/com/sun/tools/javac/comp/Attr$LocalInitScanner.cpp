@@ -13,9 +13,7 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$Fragment.h>
 #include <jcpp.h>
 
-using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::CompilerProperties$Fragments;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
@@ -23,7 +21,6 @@ using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$JCTypeCast = ::com::sun::tools::javac::tree::JCTree$JCTypeCast;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
-using $JCDiagnostic$Fragment = ::com::sun::tools::javac::util::JCDiagnostic$Fragment;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

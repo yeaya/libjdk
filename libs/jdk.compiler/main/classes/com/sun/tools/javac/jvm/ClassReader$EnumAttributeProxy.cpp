@@ -11,7 +11,6 @@
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$ProxyVisitor = ::com::sun::tools::javac::jvm::ClassReader$ProxyVisitor;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -14,12 +14,12 @@ using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 using $AnnotationValueVisitor = ::javax::lang::model::element::AnnotationValueVisitor;
 
 namespace com {
@@ -35,7 +35,7 @@ $FieldInfo _Attribute$Array_FieldInfo_[] = {
 
 $MethodInfo _Attribute$Array_MethodInfo_[] = {
 	{"<init>", "(Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Attribute;)V", nullptr, $PUBLIC, $method(static_cast<void(Attribute$Array::*)($Type*,$AttributeArray*)>(&Attribute$Array::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;)V", $PUBLIC, $method(static_cast<void(Attribute$Array::*)($Type*,$1List*)>(&Attribute$Array::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;)V", $PUBLIC, $method(static_cast<void(Attribute$Array::*)($Type*,$List*)>(&Attribute$Array::init$))},
 	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC},
 	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
 	{"getPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC},
@@ -74,7 +74,7 @@ void Attribute$Array::init$($Type* type, $AttributeArray* values) {
 	$set(this, values, values);
 }
 
-void Attribute$Array::init$($Type* type, $1List* values) {
+void Attribute$Array::init$($Type* type, $List* values) {
 	$Attribute::init$(type);
 	$set(this, values, $fcast($AttributeArray, $nc(values)->toArray($$new($AttributeArray, values->size()))));
 }
@@ -108,11 +108,11 @@ $String* Attribute$Array::toString() {
 }
 
 $Object* Attribute$Array::getValue() {
-	return $of($1List::from(this->values));
+	return $of($List::from(this->values));
 }
 
 $Object* Attribute$Array::accept($AnnotationValueVisitor* v, Object$* p) {
-	return $of($nc(v)->visitArray($($cast($List, getValue())), p));
+	return $of($nc(v)->visitArray($($cast($1List, getValue())), p));
 }
 
 $TypeAnnotationPosition* Attribute$Array::getPosition() {

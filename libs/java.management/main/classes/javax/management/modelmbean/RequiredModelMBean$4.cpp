@@ -20,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $RequiredModelMBean = ::javax::management::modelmbean::RequiredModelMBean;
 using $MethodUtil = ::sun::reflect::misc::MethodUtil;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;

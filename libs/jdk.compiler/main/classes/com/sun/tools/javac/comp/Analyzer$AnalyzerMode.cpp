@@ -18,14 +18,12 @@
 using $Analyzer$AnalyzerModeArray = $Array<::com::sun::tools::javac::comp::Analyzer$AnalyzerMode>;
 using $Source = ::com::sun::tools::javac::code::Source;
 using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
-using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractCollection = ::java::util::AbstractCollection;
 using $EnumSet = ::java::util::EnumSet;
 
 namespace com {

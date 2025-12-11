@@ -12,7 +12,6 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
-using $MockListener = ::MockListener;
 using $MockListener$OnBinary = ::MockListener$OnBinary;
 using $MockListener$OnClose = ::MockListener$OnClose;
 using $MockListener$OnError = ::MockListener$OnError;

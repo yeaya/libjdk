@@ -17,7 +17,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $Notification = ::javax::management::Notification;
-using $NotificationFilter = ::javax::management::NotificationFilter;
 
 namespace javax {
 	namespace management {

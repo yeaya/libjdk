@@ -7,13 +7,8 @@
 #include <java/util/function/Supplier.h>
 #include <jcpp.h>
 
-using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
-using $FlavorMap = ::java::awt::datatransfer::FlavorMap;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $Supplier = ::java::util::function::Supplier;
 
 namespace sun {
 	namespace datatransfer {

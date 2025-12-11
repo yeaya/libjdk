@@ -48,7 +48,6 @@ using $Provider = ::java::security::Provider;
 using $SecureRandom = ::java::security::SecureRandom;
 using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
-using $ECKey = ::java::security::interfaces::ECKey;
 using $ECPrivateKey = ::java::security::interfaces::ECPrivateKey;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $ECField = ::java::security::spec::ECField;

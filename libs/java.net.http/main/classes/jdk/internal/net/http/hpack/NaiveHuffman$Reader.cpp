@@ -18,11 +18,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Huffman$Reader = ::jdk::internal::net::http::hpack::Huffman$Reader;
 using $NaiveHuffman = ::jdk::internal::net::http::hpack::NaiveHuffman;
 using $NaiveHuffman$Node = ::jdk::internal::net::http::hpack::NaiveHuffman$Node;
 

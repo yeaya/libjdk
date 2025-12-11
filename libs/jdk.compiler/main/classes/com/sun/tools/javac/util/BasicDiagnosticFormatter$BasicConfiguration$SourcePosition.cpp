@@ -8,7 +8,6 @@
 #undef BOTTOM
 
 using $BasicDiagnosticFormatter$BasicConfiguration$SourcePositionArray = $Array<::com::sun::tools::javac::util::BasicDiagnosticFormatter$BasicConfiguration$SourcePosition>;
-using $BasicDiagnosticFormatter$BasicConfiguration = ::com::sun::tools::javac::util::BasicDiagnosticFormatter$BasicConfiguration;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

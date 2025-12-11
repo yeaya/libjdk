@@ -14,8 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ExecutorService = ::java::util::concurrent::ExecutorService;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $NewThreadAction = ::sun::rmi::runtime::NewThreadAction;
 
 namespace sun {

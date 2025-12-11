@@ -12,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DoubleByte = ::sun::nio::cs::DoubleByte;
-using $JIS_X_0212_MS5022X = ::sun::nio::cs::ext::JIS_X_0212_MS5022X;
 
 namespace sun {
 	namespace nio {

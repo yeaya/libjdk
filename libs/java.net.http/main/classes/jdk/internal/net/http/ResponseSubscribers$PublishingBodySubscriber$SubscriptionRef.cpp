@@ -12,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-using $ResponseSubscribers$PublishingBodySubscriber = ::jdk::internal::net::http::ResponseSubscribers$PublishingBodySubscriber;
 using $ResponseSubscribers$PublishingBodySubscriber$SubscriberRef = ::jdk::internal::net::http::ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;
 
 namespace jdk {

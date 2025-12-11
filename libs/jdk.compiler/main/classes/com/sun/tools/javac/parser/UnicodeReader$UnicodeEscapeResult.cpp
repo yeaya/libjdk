@@ -9,7 +9,6 @@
 #undef VALID_ESCAPE
 
 using $UnicodeReader$UnicodeEscapeResultArray = $Array<::com::sun::tools::javac::parser::UnicodeReader$UnicodeEscapeResult>;
-using $UnicodeReader = ::com::sun::tools::javac::parser::UnicodeReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;

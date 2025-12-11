@@ -12,7 +12,6 @@
 
 using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -21,7 +20,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $SecureRandom = ::java::security::SecureRandom;
-using $Random = ::java::util::Random;
 
 namespace java {
 	namespace rmi {

@@ -9,13 +9,9 @@
 #undef ENGINE_SCOPE
 #undef GLOBAL_SCOPE
 
-using $Reader = ::java::io::Reader;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $Bindings = ::javax::script::Bindings;
 
 namespace javax {
 	namespace script {

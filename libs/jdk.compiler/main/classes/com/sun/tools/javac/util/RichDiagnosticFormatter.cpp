@@ -51,7 +51,6 @@ using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
 using $DiagnosticFormatter$Configuration = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration;
 using $Printer = ::com::sun::tools::javac::code::Printer;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;

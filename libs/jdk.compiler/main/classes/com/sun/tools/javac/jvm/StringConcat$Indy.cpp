@@ -22,7 +22,6 @@
 #undef DOUBLE
 #undef LONG
 
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Gen = ::com::sun::tools::javac::jvm::Gen;
@@ -33,9 +32,7 @@ using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAssignOp = ::com::sun::tools::javac::tree::JCTree$JCAssignOp;
 using $JCTree$JCBinary = ::com::sun::tools::javac::tree::JCTree$JCBinary;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $Context = ::com::sun::tools::javac::util::Context;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;

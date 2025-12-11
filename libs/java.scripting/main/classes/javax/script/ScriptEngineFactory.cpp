@@ -6,8 +6,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
-using $ScriptEngine = ::javax::script::ScriptEngine;
 
 namespace javax {
 	namespace script {

@@ -28,7 +28,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
@@ -40,7 +39,6 @@ using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Function = ::java::util::function::Function;
 using $ResponseSubscribers = ::jdk::internal::net::http::ResponseSubscribers;
-using $ResponseSubscribers$TrustedSubscriber = ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 

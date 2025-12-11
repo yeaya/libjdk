@@ -4,11 +4,8 @@
 #include <sun/management/counter/Variability.h>
 #include <jcpp.h>
 
-using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Units = ::sun::management::counter::Units;
-using $Variability = ::sun::management::counter::Variability;
 
 namespace sun {
 	namespace management {

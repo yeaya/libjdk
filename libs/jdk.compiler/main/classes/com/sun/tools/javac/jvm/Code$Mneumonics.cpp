@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/jvm/Code.h>
 #include <jcpp.h>
 
-using $Code = ::com::sun::tools::javac::jvm::Code;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

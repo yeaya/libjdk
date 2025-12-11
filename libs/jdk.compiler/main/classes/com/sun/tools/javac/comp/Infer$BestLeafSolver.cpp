@@ -27,7 +27,6 @@ using $Infer$GraphSolver$InferenceGraph = ::com::sun::tools::javac::comp::Infer$
 using $Infer$GraphSolver$InferenceGraph$Node = ::com::sun::tools::javac::comp::Infer$GraphSolver$InferenceGraph$Node;
 using $Infer$GraphStrategy$NodeNotFoundException = ::com::sun::tools::javac::comp::Infer$GraphStrategy$NodeNotFoundException;
 using $Infer$LeafSolver = ::com::sun::tools::javac::comp::Infer$LeafSolver;
-using $GraphUtils$AbstractNode = ::com::sun::tools::javac::util::GraphUtils$AbstractNode;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Pair = ::com::sun::tools::javac::util::Pair;

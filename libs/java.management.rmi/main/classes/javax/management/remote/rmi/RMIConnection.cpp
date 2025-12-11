@@ -11,23 +11,9 @@
 #include <javax/security/auth/Subject.h>
 #include <jcpp.h>
 
-using $IntegerArray = $Array<::java::lang::Integer>;
-using $MarshalledObjectArray = $Array<::java::rmi::MarshalledObject>;
-using $ObjectNameArray = $Array<::javax::management::ObjectName>;
-using $SubjectArray = $Array<::javax::security::auth::Subject>;
 using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $MarshalledObject = ::java::rmi::MarshalledObject;
-using $Remote = ::java::rmi::Remote;
-using $Set = ::java::util::Set;
-using $AttributeList = ::javax::management::AttributeList;
-using $MBeanInfo = ::javax::management::MBeanInfo;
-using $ObjectInstance = ::javax::management::ObjectInstance;
-using $ObjectName = ::javax::management::ObjectName;
-using $NotificationResult = ::javax::management::remote::NotificationResult;
-using $Subject = ::javax::security::auth::Subject;
 
 namespace javax {
 	namespace management {

@@ -19,7 +19,6 @@ using $Gen = ::com::sun::tools::javac::jvm::Gen;
 using $Gen$GenContext = ::com::sun::tools::javac::jvm::Gen$GenContext;
 using $Gen$GenFinalizer = ::com::sun::tools::javac::jvm::Gen$GenFinalizer;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCTry = ::com::sun::tools::javac::tree::JCTree$JCTry;
 using $Assert = ::com::sun::tools::javac::util::Assert;

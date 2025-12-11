@@ -34,7 +34,6 @@
 
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -43,8 +42,6 @@ using $DateTimeException = ::java::time::DateTimeException;
 using $Instant = ::java::time::Instant;
 using $LocalDateTime = ::java::time::LocalDateTime;
 using $ZoneId = ::java::time::ZoneId;
-using $ZoneOffset = ::java::time::ZoneOffset;
-using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $ZoneRules = ::java::time::zone::ZoneRules;
 using $Arrays = ::java::util::Arrays;
 using $Date = ::java::util::Date;

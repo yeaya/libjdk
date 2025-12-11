@@ -8,7 +8,6 @@
 using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
