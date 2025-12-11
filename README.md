@@ -115,8 +115,8 @@ libjdk implements high-performance, low-latency automatic memory management:
 ```bash
 git clone --recursive https://github.com/libjdk/libjdk libjdk
 mkdir build
-cmake -S libjdk -B build -DCMAKE_BUILD_TYPE=Release -DINSTALL_TO_REPO=ON -DBUILD_TEST=ON -DJ=5
-cmake --build build --config Release -j 3
+cmake -S libjdk -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_TEST=ON -G Ninja
+cmake --build build --config Release
 ```
 
 ## Project Structure
