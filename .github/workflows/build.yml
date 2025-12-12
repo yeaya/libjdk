@@ -7,15 +7,15 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
     inputs:
-      target:
-        description: 'build target")'
+      build-args:
+        description: 'build args")'
         required: false
-        default: 'ALL_BUILD'
+        default: ''
 
 env:
   GENERATOR: Ninja
   CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DBUILD_TEST=ON -DJ=8
-  BUILD_ARGS: --build ${{github.workspace}}/build --config Release -v -j 2
+  BUILD_ARGS: --build ${{github.workspace}}/build --config Release ${{github.event.inputs.build-args}} -v -j 2
 
 jobs:
   package-source-tar-gz:
@@ -72,7 +72,7 @@ jobs:
 
   build-linux-x86_64:
     runs-on: ubuntu-22.04
-    container: quay.io/pypa/manylinux_2_28_x86_64
+#    container: quay.io/pypa/manylinux_2_28_x86_64
 
     steps:
     - name: Get tag or commit id
@@ -83,8 +83,8 @@ jobs:
 
     - name: Install 3rd
       run: |
-        sudo yum update
-        sudo yum install -y freetype-devel cups-devel libX11-devel libXtst-devel libXt-devel libXrender-devel libXi-devel fontconfig-devel alsa-lib-devel libffi-devel
+        sudo apt update
+        sudo apt install -y libfontconfig-dev libxrandr-dev libfreetype6-dev libcups2-dev libx11-dev libxext-dev libxrender-dev libxtst-dev libxt-dev libasound2-dev libffi-dev
 
     - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
 
@@ -94,7 +94,7 @@ jobs:
       run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Build
-      run: cmake ${{env.BUILD_ARGS}} -t ${{github.event.inputs.target}}
+      run: cmake ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -128,7 +128,7 @@ jobs:
       run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Build
-      run: cmake ${{env.BUILD_ARGS}} -t ${{github.event.inputs.target}}
+      run: cmake ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
