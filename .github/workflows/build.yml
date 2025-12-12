@@ -143,7 +143,7 @@ jobs:
         path: ${{github.workspace}}/libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64.tar.gz
 
   build-macos-x86_64:
-    runs-on: macos-14-large
+    runs-on: macos-15-intel
 
     steps:
     - name: Install libffi
