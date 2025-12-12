@@ -8,10 +8,9 @@ on:
   workflow_dispatch:
 
 env:
-  BUILD_TYPE: Release
   GENERATOR: Ninja
-  CMAKE_CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_TEST=ON
-  BUILD_OPT: --config Release -v
+  CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DBUILD_TEST=ON
+  BUILD_ARGS: --build ${{github.workspace}}/build --config Release -v
 
 jobs:
   package-source-tar-gz:
@@ -30,7 +29,7 @@ jobs:
     - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
+      run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Package source
       run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
@@ -56,7 +55,7 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
+      run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Package source
       run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
@@ -82,10 +81,10 @@ jobs:
     - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
-      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
+      run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
+      run: cmake ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -114,10 +113,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
+      run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
+      run: cmake ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -146,10 +145,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
+      run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
+      run: cmake ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -178,10 +177,10 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
+      run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
+      run: cmake ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -210,10 +209,10 @@ jobs:
       uses: ilammy/msvc-dev-cmd@v1
 
     - name: Configure CMake
-      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
+      run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
+      run: cmake ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -244,10 +243,10 @@ jobs:
         arch: arm64
 
     - name: Configure CMake
-      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
+      run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
+      run: cmake ${{env.BUILD_ARGS}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
