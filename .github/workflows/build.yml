@@ -6,11 +6,16 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
+    inputs:
+      target:
+        description: 'build target")'
+        required: false
+        default: 'ALL_BUILD'
 
 env:
   GENERATOR: Ninja
   CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DBUILD_TEST=ON -DJ=8
-  BUILD_ARGS: --build ${{github.workspace}}/build --config Release -v -j 2
+  BUILD_ARGS: --build ${{github.workspace}}/build --config Release -t ${{github.event.inputs.target}} -v -j 2
 
 jobs:
   package-source-tar-gz:
@@ -76,6 +81,9 @@ jobs:
       with:
         length: 7
 
+    - name: Install 3rd
+      run: sudo yum install -y freetype-devel cups-devel libX11-devel libXtst-devel libXt-devel libXrender-devel libXi-devel fontconfig-devel alsa-lib-devel libffi-devel
+
     - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
 
     - uses: lukka/get-cmake@latest
@@ -98,8 +106,8 @@ jobs:
     runs-on: ubuntu-22.04-arm
 
     steps:
-    - name: Install libffi
-      run: sudo apt install libffi-dev
+    - name: Install 3rd
+      run: sudo apt install -y libfontconfig-dev libxrandr-dev libfreetype6-dev libcups2-dev libx11-dev libxext-dev libxrender-dev libxtst-dev libxt-dev libasound2-dev libffi-dev
 
     - name: Get tag or commit id
       id: get-version-id
