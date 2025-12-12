@@ -9,8 +9,8 @@ on:
 
 env:
   GENERATOR: Ninja
-  CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DBUILD_TEST=ON
-  BUILD_ARGS: --build ${{github.workspace}}/build --config Release -v
+  CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DBUILD_TEST=ON -DJ=8
+  BUILD_ARGS: --build ${{github.workspace}}/build --config Release -v -j 2
 
 jobs:
   package-source-tar-gz:
