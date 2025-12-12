@@ -82,7 +82,9 @@ jobs:
         length: 7
 
     - name: Install 3rd
-      run: sudo yum install -y freetype-devel cups-devel libX11-devel libXtst-devel libXt-devel libXrender-devel libXi-devel fontconfig-devel alsa-lib-devel libffi-devel
+      run: |
+        sudo yum update
+        sudo yum install -y freetype-devel cups-devel libX11-devel libXtst-devel libXt-devel libXrender-devel libXi-devel fontconfig-devel alsa-lib-devel libffi-devel
 
     - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
 
@@ -107,7 +109,9 @@ jobs:
 
     steps:
     - name: Install 3rd
-      run: sudo apt install -y libfontconfig-dev libxrandr-dev libfreetype6-dev libcups2-dev libx11-dev libxext-dev libxrender-dev libxtst-dev libxt-dev libasound2-dev libffi-dev
+      run: |
+        sudo apt update
+        sudo apt install -y libfontconfig-dev libxrandr-dev libfreetype6-dev libcups2-dev libx11-dev libxext-dev libxrender-dev libxtst-dev libxt-dev libasound2-dev libffi-dev
 
     - name: Get tag or commit id
       id: get-version-id
