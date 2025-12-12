@@ -15,7 +15,7 @@ on:
 env:
   GENERATOR: Ninja
   CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DBUILD_TEST=ON -DJ=8
-  BUILD_ARGS: --build ${{github.workspace}}/build --config Release -t ${{github.event.inputs.target}} -v -j 2
+  BUILD_ARGS: --build ${{github.workspace}}/build --config Release -v -j 2
 
 jobs:
   package-source-tar-gz:
@@ -92,7 +92,7 @@ jobs:
       run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Build
-      run: cmake ${{env.BUILD_ARGS}}
+      run: cmake ${{env.BUILD_ARGS}} -t ${{github.event.inputs.target}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
@@ -124,7 +124,7 @@ jobs:
       run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
     - name: Build
-      run: cmake ${{env.BUILD_ARGS}}
+      run: cmake ${{env.BUILD_ARGS}} -t ${{github.event.inputs.target}}
 
     - name: Package
       run: cpack --config ${{github.workspace}}/build/CPackConfig.cmake
