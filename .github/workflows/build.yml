@@ -7,15 +7,19 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
     inputs:
-      build-args:
-        description: 'build args")'
+      configure-arguments:
+        description: 'configure arguments'
+        required: false
+        default: ''
+      make-arguments:
+        description: 'make arguments'
         required: false
         default: ''
 
 env:
   GENERATOR: Ninja
-  CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Release -DBUILD_TEST=ON -DJ=8
-  BUILD_ARGS: --build ${{github.workspace}}/build --config Release ${{github.event.inputs.build-args}} -v -j 2
+  CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build ${{github.event.inputs.make-arguments}} -DJ=8
+  BUILD_ARGS: --build ${{github.workspace}}/build ${{github.event.inputs.make-arguments}} -v -j 2
 
 jobs:
   package-source-tar-gz:
@@ -139,7 +143,7 @@ jobs:
         path: ${{github.workspace}}/libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64.tar.gz
 
   build-macos-x86_64:
-    runs-on: macos-15-intel
+    runs-on: macos-14-large
 
     steps:
     - name: Install libffi
@@ -171,7 +175,7 @@ jobs:
         path: ${{github.workspace}}/libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64.tar.gz
 
   build-macos-aarch64:
-    runs-on: macos-26
+    runs-on: macos-14
 
     steps:
     - name: Install libffi
