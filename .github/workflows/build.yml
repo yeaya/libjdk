@@ -10,9 +10,8 @@ on:
 env:
   BUILD_TYPE: Release
   GENERATOR: Ninja
+  CMAKE_CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_TEST=ON
   BUILD_OPT: --config Release -v
-  JCPP_LOG_LEVEL: debug
-  JCPP_LOG_CONSOLE: enable
 
 jobs:
   package-source-tar-gz:
@@ -83,7 +82,7 @@ jobs:
     - uses: lukka/get-cmake@latest
 
     - name: Configure CMake
-      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_TEST=ON
+      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
@@ -115,7 +114,7 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_TEST=ON
+      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
@@ -147,7 +146,7 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_TEST=ON
+      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
@@ -179,7 +178,7 @@ jobs:
         path: src
 
     - name: Configure CMake
-      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_TEST=ON
+      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
@@ -211,7 +210,7 @@ jobs:
       uses: ilammy/msvc-dev-cmd@v1
 
     - name: Configure CMake
-      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_TEST=ON
+      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
@@ -245,7 +244,7 @@ jobs:
         arch: arm64
 
     - name: Configure CMake
-      run: cmake -G "${{env.GENERATOR}}" -S ${{github.workspace}}/src -B ${{github.workspace}}/build -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_TEST=ON
+      run: cmake ${{env.CMAKE_CONFIG_ARGS}}
 
     - name: Build
       run: cmake --build ${{github.workspace}}/build ${{env.BUILD_OPT}}
@@ -280,37 +279,19 @@ jobs:
         name: libjdk-${{steps.get-version-id.outputs.id}}-linux-x86_64
     - uses: actions/download-artifact@v5
       with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-linux-x86_64.repo
-    - uses: actions/download-artifact@v5
-      with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64
-    - uses: actions/download-artifact@v5
-      with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64.repo
     - uses: actions/download-artifact@v5
       with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64
     - uses: actions/download-artifact@v5
       with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64.repo
-    - uses: actions/download-artifact@v5
-      with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64
-    - uses: actions/download-artifact@v5
-      with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.repo
     - uses: actions/download-artifact@v5
       with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-windows-x86_64
     - uses: actions/download-artifact@v5
       with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-windows-x86_64.repo
-    - uses: actions/download-artifact@v5
-      with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-windows-aarch64
-    - uses: actions/download-artifact@v5
-      with:
-        name: libjdk-${{steps.get-version-id.outputs.id}}-windows-aarch64.repo
     - name: Release
       uses: softprops/action-gh-release@v2
       if: github.ref_type == 'tag'
@@ -319,14 +300,8 @@ jobs:
           libjdk-${{steps.get-version-id.outputs.id}}.tar.gz
           libjdk-${{steps.get-version-id.outputs.id}}.zip
           libjdk-${{steps.get-version-id.outputs.id}}-linux-x86_64.tar.gz
-          libjdk-${{steps.get-version-id.outputs.id}}-linux-x86_64.repo.tar.gz
           libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64.tar.gz
-          libjdk-${{steps.get-version-id.outputs.id}}-linux-aarch64.repo.tar.gz
           libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64.tar.gz
-          libjdk-${{steps.get-version-id.outputs.id}}-macos-x86_64.repo.tar.gz
           libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.tar.gz
-          libjdk-${{steps.get-version-id.outputs.id}}-macos-aarch64.repo.tar.gz
           libjdk-${{steps.get-version-id.outputs.id}}-windows-x86_64.zip
-          libjdk-${{steps.get-version-id.outputs.id}}-windows-x86_64.repo.zip
           libjdk-${{steps.get-version-id.outputs.id}}-windows-aarch64.zip
-          libjdk-${{steps.get-version-id.outputs.id}}-windows-aarch64.repo.zip
