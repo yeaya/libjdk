@@ -11,20 +11,18 @@ on:
         description: 'configure arguments'
         required: false
         default: ''
-      make-arguments:
-        description: 'make arguments'
+      build-arguments:
+        description: 'build arguments'
         required: false
         default: ''
 
 env:
-  GENERATOR: Ninja
-  CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build ${{github.event.inputs.make-arguments}} -DJ=8
+  CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build ${{github.event.inputs.make-arguments}} -G Ninja
   BUILD_ARGS: --build ${{github.workspace}}/build ${{github.event.inputs.make-arguments}} -v -j 2
 
 jobs:
-  package-source-tar-gz:
+  package-source:
     runs-on: ubuntu-22.04
-    container: quay.io/pypa/manylinux_2_28_x86_64
 
     steps:
     - name: Get tag or commit id
@@ -35,39 +33,19 @@ jobs:
 
     - run: git clone --recursive https://github.com/${{github.repository}} ${{github.workspace}}/src
 
-    - uses: lukka/get-cmake@latest
-
     - name: Configure CMake
       run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
 
-    - name: Package source
-      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
+    - name: Package source tar gz
+      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake -G TGZ
 
     - uses: actions/upload-artifact@v4
       with:
         name: libjdk-${{steps.get-version-id.outputs.id}}-source.tar.gz
         path: ${{github.workspace}}/libjdk-${{steps.get-version-id.outputs.id}}.tar.gz
 
-  package-source-zip:
-    runs-on: windows-2025
-
-    steps:
-    - name: Get tag or commit id
-      id: get-version-id
-      uses: iawia002/get-tag-or-commit-id@v1
-      with:
-        length: 7
-
-    - uses: actions/checkout@v4
-      with:
-        submodules: recursive
-        path: src
-
-    - name: Configure CMake
-      run: cmake ${{env.CONFIG_ARGS}} -DPACKAGE_VERSION:STRING=${{steps.get-version-id.outputs.id}}
-
-    - name: Package source
-      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake
+    - name: Package source zip
+      run: cpack --config ${{github.workspace}}/build/CPackSourceConfig.cmake -G ZIP
 
     - uses: actions/upload-artifact@v4
       with:
