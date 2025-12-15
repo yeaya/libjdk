@@ -18,7 +18,7 @@ on:
 
 env:
   CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build ${{github.event.inputs.make-arguments}} -G Ninja
-  BUILD_ARGS: --build ${{github.workspace}}/build ${{github.event.inputs.make-arguments}} -v -j 2
+  BUILD_ARGS: --build ${{github.workspace}}/build ${{github.event.inputs.make-arguments}} -v
 
 jobs:
   package-source:
