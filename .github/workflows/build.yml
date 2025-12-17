@@ -17,8 +17,8 @@ on:
         default: ''
 
 env:
-  CONFIG_ARGS: -S ${{github.workspace}}/src -B ${{github.workspace}}/build ${{github.event.inputs.make-arguments}} -G Ninja
-  BUILD_ARGS: --build ${{github.workspace}}/build ${{github.event.inputs.make-arguments}} -v
+  CONFIG_ARGS: -S ${{github.workspace}}/src -B -DCMAKE_BUILD_TYPE=Release -G Ninja ${{github.workspace}}/build ${{github.event.inputs.make-arguments}}
+  BUILD_ARGS: --build ${{github.workspace}}/build --config Release -v ${{github.event.inputs.make-arguments}}
 
 jobs:
   package-source:
