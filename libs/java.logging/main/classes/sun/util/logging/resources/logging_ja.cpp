@@ -41,39 +41,39 @@ $ObjectArray2* logging_ja::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("ALL"_s),
-			$of(u"\u3059\u3079\u3066"_s)
+			$of(u"すべて"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("CONFIG"_s),
-			$of(u"\u69cb\u6210"_s)
+			$of(u"構成"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINE"_s),
-			$of(u"\u666e\u901a"_s)
+			$of(u"普通"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINER"_s),
-			$of(u"\u8a73\u7d30"_s)
+			$of(u"詳細"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINEST"_s),
-			$of(u"\u6700\u3082\u8a73\u7d30"_s)
+			$of(u"最も詳細"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("INFO"_s),
-			$of(u"\u60c5\u5831"_s)
+			$of(u"情報"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("OFF"_s),
-			$of(u"\u30aa\u30d5"_s)
+			$of(u"オフ"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SEVERE"_s),
-			$of(u"\u91cd\u5927"_s)
+			$of(u"重大"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("WARNING"_s),
-			$of(u"\u8b66\u544a"_s)
+			$of(u"警告"_s)
 		})
 	});
 }

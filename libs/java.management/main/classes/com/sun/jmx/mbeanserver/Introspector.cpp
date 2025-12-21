@@ -214,9 +214,9 @@ void Introspector::checkCompliance($Class* mbeanClass) {
 	}
 	$var($String, var$3, $$str({"MBean class "_s, $($nc(mbeanClass)->getName()), " does not implement DynamicMBean, and neither follows the Standard MBean conventions ("_s}));
 	$var($String, var$2, $$concat(var$3, $($nc(mbeanException)->toString())));
-	$var($String, var$1, $$concat(var$2, ") nor the MXBean conventions ("));
+	$var($String, var$1, $$concat(var$2, ") nor the MXBean conventions ("_s));
 	$var($String, var$0, $$concat(var$1, $($nc(mxbeanException)->toString())));
-	$var($String, msg, $concat(var$0, ")"));
+	$var($String, msg, $concat(var$0, ")"_s));
 	$throwNew($NotCompliantMBeanException, msg);
 }
 

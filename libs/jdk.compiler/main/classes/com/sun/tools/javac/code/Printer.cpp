@@ -286,7 +286,7 @@ $String* Printer::visitForAll($Type$ForAll* t, $Locale* locale) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({$(printAnnotations(t)), "<"_s}));
 	$var($String, var$1, $$concat(var$2, $(visitTypes($nc(t)->tvars, locale))));
-	$var($String, var$0, $$concat(var$1, ">"));
+	$var($String, var$0, $$concat(var$1, ">"_s));
 	return $concat(var$0, $(visit($nc(t)->qtype, locale)));
 }
 
@@ -298,7 +298,7 @@ $String* Printer::visitUndetVar($Type$UndetVar* t, $Locale* locale) {
 	} else {
 		$var($String, var$2, $(printAnnotations(t)));
 		$var($String, var$1, $$concat(var$2, $(visit(t->qtype, locale))));
-		return $concat(var$1, "?");
+		return $concat(var$1, "?"_s);
 	}
 }
 
@@ -488,7 +488,7 @@ $String* Printer::visitMethodSymbol($Symbol$MethodSymbol* s, $Locale* locale) {
 			$var($String, var$1, "("_s);
 			$var($List, var$2, $nc(s->type)->getParameterTypes());
 			$var($String, var$0, $$concat(var$1, $(printMethodArgs(var$2, ((int64_t)(s->flags() & (uint64_t)(int64_t)0x0000000400000000)) != 0, locale))));
-			$plusAssign(ms, $$concat(var$0, ")"));
+			$plusAssign(ms, $$concat(var$0, ")"_s));
 		}
 		return ms;
 	}

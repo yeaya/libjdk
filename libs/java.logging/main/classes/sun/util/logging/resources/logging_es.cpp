@@ -57,11 +57,11 @@ $ObjectArray2* logging_es::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("FINEST"_s),
-			$of(u"M\u00e1s Detallado"_s)
+			$of(u"Más Detallado"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("INFO"_s),
-			$of(u"Informaci\u00f3n"_s)
+			$of(u"Información"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("OFF"_s),

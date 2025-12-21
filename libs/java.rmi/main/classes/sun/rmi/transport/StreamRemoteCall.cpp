@@ -408,7 +408,7 @@ void StreamRemoteCall::exceptionReceivedFromServer($Exception* ex) {
 		$var($TCPEndpoint, ep, $cast($TCPEndpoint, $nc($($nc(this->conn)->getChannel()))->getEndpoint()));
 		$var($String, var$1, $$str({"outbound call received exception: ["_s, $($nc(ep)->getHost()), ":"_s}));
 		$var($String, var$0, $$concat(var$1, $$str(ep->getPort())));
-		$nc($UnicastRef::clientCallLog)->log($Log::BRIEF, $$concat(var$0, "] exception: "), ex);
+		$nc($UnicastRef::clientCallLog)->log($Log::BRIEF, $$concat(var$0, "] exception: "_s), ex);
 	}
 	$throw(ex);
 }

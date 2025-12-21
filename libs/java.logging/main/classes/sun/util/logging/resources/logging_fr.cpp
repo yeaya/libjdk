@@ -49,15 +49,15 @@ $ObjectArray2* logging_fr::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("FINE"_s),
-			$of(u"Pr\u00e9cis"_s)
+			$of(u"Précis"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINER"_s),
-			$of(u"Plus pr\u00e9cis"_s)
+			$of(u"Plus précis"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINEST"_s),
-			$of(u"Le plus pr\u00e9cis"_s)
+			$of(u"Le plus précis"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("INFO"_s),
@@ -65,7 +65,7 @@ $ObjectArray2* logging_fr::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("OFF"_s),
-			$of(u"D\u00e9sactiv\u00e9"_s)
+			$of(u"Désactivé"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SEVERE"_s),

@@ -440,7 +440,7 @@ $StringArray* DescriptorSupport::getFields() {
 					} else {
 						$var($String, var$2, $$str({$cast($String, $(currElement->getKey())), "=("_s}));
 						$var($String, var$1, $$concat(var$2, $($nc($of(currValue))->toString())));
-						responseFields->set(i, $$concat(var$1, ")"));
+						responseFields->set(i, $$concat(var$1, ")"_s));
 					}
 				}
 			}
@@ -637,7 +637,7 @@ bool DescriptorSupport::isValid() {
 								if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
 									$var($String, var$3, $$str({"Field "_s, $cast($String, $(currElement->getKey())), "="_s}));
 									$var($String, var$2, $$concat(var$3, $(currElement->getValue())));
-									$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$concat(var$2, " is not valid"));
+									$nc($JmxProperties::MODELMBEAN_LOGGER)->log($System$Logger$Level::TRACE, $$concat(var$2, " is not valid"_s));
 								}
 								return false;
 							}

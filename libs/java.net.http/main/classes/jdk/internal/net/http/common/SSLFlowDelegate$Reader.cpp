@@ -223,15 +223,15 @@ $String* SSLFlowDelegate$Reader::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$10, $$str({"READER: "_s, $($SubscriberWrapper::toString()), ", readBuf: "_s}));
 	$var($String, var$9, $$concat(var$10, $($nc(this->readBuf)->toString())));
-	$var($String, var$8, $$concat(var$9, ", count: "));
+	$var($String, var$8, $$concat(var$9, ", count: "_s));
 	$var($String, var$7, $$concat(var$8, $($nc(this->count)->toString())));
-	$var($String, var$6, $$concat(var$7, ", scheduler: "));
+	$var($String, var$6, $$concat(var$7, ", scheduler: "_s));
 	$var($String, var$5, $$concat(var$6, ($nc(this->scheduler)->isStopped() ? "stopped"_s : "running"_s)));
-	$var($String, var$4, $$concat(var$5, ", status: "));
+	$var($String, var$4, $$concat(var$5, ", status: "_s));
 	$var($String, var$3, $$concat(var$4, this->lastUnwrapStatus));
-	$var($String, var$2, $$concat(var$3, ", handshakeState: "));
+	$var($String, var$2, $$concat(var$3, ", handshakeState: "_s));
 	$var($String, var$1, $$concat(var$2, $$str($nc(this->this$0->handshakeState)->get())));
-	$var($String, var$0, $$concat(var$1, ", engine: "));
+	$var($String, var$0, $$concat(var$1, ", engine: "_s));
 	return $concat(var$0, $($nc(this->this$0->engine)->getHandshakeStatus()));
 }
 
@@ -344,7 +344,7 @@ void SSLFlowDelegate$Reader::processData() {
 		if ($nc(this->debugr)->on()) {
 			$var($String, var$2, $$str({"processData: readBuf remaining:"_s, $$str($nc(this->readBuf)->remaining()), ", state:"_s}));
 			$var($String, var$1, $$concat(var$2, $($SSLFlowDelegate::states(this->this$0->handshakeState))));
-			$var($String, var$0, $$concat(var$1, ", engine handshake status:"));
+			$var($String, var$0, $$concat(var$1, ", engine handshake status:"_s));
 			$nc(this->debugr)->log($$concat(var$0, $($nc(this->this$0->engine)->getHandshakeStatus())));
 		}
 		int32_t len = 0;

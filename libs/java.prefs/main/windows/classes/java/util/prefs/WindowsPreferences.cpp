@@ -279,7 +279,7 @@ $longs* WindowsPreferences::WindowsRegOpenKey1(int64_t hKey, $bytes* subKey, int
 	} else if (result->get(WindowsPreferences::ERROR_CODE) == WindowsPreferences::ERROR_FILE_NOT_FOUND) {
 		$var($String, var$1, $$str({"Trying to recreate Windows registry node "_s, $(byteArrayToString(subKey)), " at root 0x"_s}));
 		$var($String, var$0, $$concat(var$1, $($Long::toHexString(hKey))));
-		$nc($(logger()))->warning($$concat(var$0, "."));
+		$nc($(logger()))->warning($$concat(var$0, "."_s));
 		int64_t handle = $nc($(WindowsRegCreateKeyEx(hKey, subKey)))->get(WindowsPreferences::NATIVE_HANDLE);
 		WindowsRegCloseKey(handle);
 		return WindowsRegOpenKey(hKey, subKey, securityMask);
@@ -542,9 +542,9 @@ void WindowsPreferences::init$(WindowsPreferences* parent, $String* name) {
 	if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
 		$var($String, var$3, $$str({"Could not create windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$2, $$concat(var$3, $($Long::toHexString(parentNativeHandle))));
-		$var($String, var$1, $$concat(var$2, ". Windows RegCreateKeyEx(...) returned error code "));
+		$var($String, var$1, $$concat(var$2, ". Windows RegCreateKeyEx(...) returned error code "_s));
 		$var($String, var$0, $$concat(var$1, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-		$nc($(logger()))->warning($$concat(var$0, "."));
+		$nc($(logger()))->warning($$concat(var$0, "."_s));
 		this->isBackingStoreAvailable = false;
 		return;
 	}
@@ -561,9 +561,9 @@ void WindowsPreferences::init$(int64_t rootNativeHandle, $bytes* rootDirectory) 
 	if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
 		$var($String, var$3, $$str({"Could not open/create prefs root node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$2, $$concat(var$3, $($Long::toHexString(rootNativeHandle))));
-		$var($String, var$1, $$concat(var$2, ". Windows RegCreateKeyEx(...) returned error code "));
+		$var($String, var$1, $$concat(var$2, ". Windows RegCreateKeyEx(...) returned error code "_s));
 		$var($String, var$0, $$concat(var$1, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-		$nc($(logger()))->warning($$concat(var$0, "."));
+		$nc($(logger()))->warning($$concat(var$0, "."_s));
 		this->isBackingStoreAvailable = false;
 		return;
 	}
@@ -604,14 +604,14 @@ int64_t WindowsPreferences::openKey($bytes* windowsAbsolutePath, int32_t mask1, 
 		if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
 			$var($String, var$3, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(this->windowsAbsolutePath()))), " at root 0x"_s}));
 			$var($String, var$2, $$concat(var$3, $($Long::toHexString(rootNativeHandle()))));
-			$var($String, var$1, $$concat(var$2, ". Windows RegOpenKey(...) returned error code "));
+			$var($String, var$1, $$concat(var$2, ". Windows RegOpenKey(...) returned error code "_s));
 			$var($String, var$0, $$concat(var$1, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-			$nc($(logger()))->warning($$concat(var$0, "."));
+			$nc($(logger()))->warning($$concat(var$0, "."_s));
 			result->set(WindowsPreferences::NATIVE_HANDLE, WindowsPreferences::NULL_NATIVE_HANDLE);
 			if (result->get(WindowsPreferences::ERROR_CODE) == WindowsPreferences::ERROR_ACCESS_DENIED) {
 				$var($String, var$5, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(this->windowsAbsolutePath()))), " at root 0x"_s}));
 				$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-				$throwNew($SecurityException, $$concat(var$4, ": Access denied"));
+				$throwNew($SecurityException, $$concat(var$4, ": Access denied"_s));
 			}
 		}
 		return $nc(result)->get(WindowsPreferences::NATIVE_HANDLE);
@@ -630,9 +630,9 @@ int64_t WindowsPreferences::openKey(int64_t nativeHandle, $bytes* windowsRelativ
 		if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
 			$var($String, var$3, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 			$var($String, var$2, $$concat(var$3, $($Long::toHexString(nativeHandle))));
-			$var($String, var$1, $$concat(var$2, ". Windows RegOpenKey(...) returned error code "));
+			$var($String, var$1, $$concat(var$2, ". Windows RegOpenKey(...) returned error code "_s));
 			$var($String, var$0, $$concat(var$1, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-			$nc($(logger()))->warning($$concat(var$0, "."));
+			$nc($(logger()))->warning($$concat(var$0, "."_s));
 			result->set(WindowsPreferences::NATIVE_HANDLE, WindowsPreferences::NULL_NATIVE_HANDLE);
 		}
 		return $nc(result)->get(WindowsPreferences::NATIVE_HANDLE);
@@ -665,9 +665,9 @@ void WindowsPreferences::closeKey(int64_t nativeHandle) {
 	if (result != WindowsPreferences::ERROR_SUCCESS) {
 		$var($String, var$3, $$str({"Could not close windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$2, $$concat(var$3, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$1, $$concat(var$2, ". Windows RegCloseKey(...) returned error code "));
+		$var($String, var$1, $$concat(var$2, ". Windows RegCloseKey(...) returned error code "_s));
 		$var($String, var$0, $$concat(var$1, $$str(result)));
-		$nc($(logger()))->warning($$concat(var$0, "."));
+		$nc($(logger()))->warning($$concat(var$0, "."_s));
 	}
 }
 
@@ -684,11 +684,11 @@ void WindowsPreferences::putSpi($String* javaName, $String* value) {
 	if (result != WindowsPreferences::ERROR_SUCCESS) {
 		$var($String, var$7, $$str({"Could not assign value to key "_s, $(byteArrayToString($(toWindowsName(javaName)))), " at Windows registry node "_s}));
 		$var($String, var$6, $$concat(var$7, $(byteArrayToString($(windowsAbsolutePath())))));
-		$var($String, var$5, $$concat(var$6, " at root 0x"));
+		$var($String, var$5, $$concat(var$6, " at root 0x"_s));
 		$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$3, $$concat(var$4, ". Windows RegSetValueEx(...) returned error code "));
+		$var($String, var$3, $$concat(var$4, ". Windows RegSetValueEx(...) returned error code "_s));
 		$var($String, var$2, $$concat(var$3, $$str(result)));
-		$nc($(logger()))->warning($$concat(var$2, "."));
+		$nc($(logger()))->warning($$concat(var$2, "."_s));
 		this->isBackingStoreAvailable = false;
 	}
 	closeKey(nativeHandle);
@@ -719,11 +719,11 @@ void WindowsPreferences::removeSpi($String* key) {
 	if (result != WindowsPreferences::ERROR_SUCCESS && result != WindowsPreferences::ERROR_FILE_NOT_FOUND) {
 		$var($String, var$5, $$str({"Could not delete windows registry value "_s, $(byteArrayToString($(windowsAbsolutePath()))), "\\"_s}));
 		$var($String, var$4, $$concat(var$5, $(toWindowsName(key))));
-		$var($String, var$3, $$concat(var$4, " at root 0x"));
+		$var($String, var$3, $$concat(var$4, " at root 0x"_s));
 		$var($String, var$2, $$concat(var$3, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$1, $$concat(var$2, ". Windows RegDeleteValue(...) returned error code "));
+		$var($String, var$1, $$concat(var$2, ". Windows RegDeleteValue(...) returned error code "_s));
 		$var($String, var$0, $$concat(var$1, $$str(result)));
-		$nc($(logger()))->warning($$concat(var$0, "."));
+		$nc($(logger()))->warning($$concat(var$0, "."_s));
 		this->isBackingStoreAvailable = false;
 	}
 	closeKey(nativeHandle);
@@ -735,15 +735,15 @@ $StringArray* WindowsPreferences::keysSpi() {
 	if (nativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
 		$var($String, var$1, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$0, $$concat(var$1, $($Long::toHexString(rootNativeHandle()))));
-		$throwNew($BackingStoreException, $$concat(var$0, "."));
+		$throwNew($BackingStoreException, $$concat(var$0, "."_s));
 	}
 	$var($longs, result, WindowsRegQueryInfoKey1(nativeHandle));
 	if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
 		$var($String, var$5, $$str({"Could not query windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$3, $$concat(var$4, ". Windows RegQueryInfoKeyEx(...) returned error code "));
+		$var($String, var$3, $$concat(var$4, ". Windows RegQueryInfoKeyEx(...) returned error code "_s));
 		$var($String, var$2, $$concat(var$3, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-		$var($String, info, $concat(var$2, "."));
+		$var($String, info, $concat(var$2, "."_s));
 		$nc($(logger()))->warning(info);
 		$throwNew($BackingStoreException, info);
 	}
@@ -759,7 +759,7 @@ $StringArray* WindowsPreferences::keysSpi() {
 		if (windowsName == nullptr) {
 			$var($String, var$7, $$str({"Could not enumerate value #"_s, $$str(i), "  of windows node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 			$var($String, var$6, $$concat(var$7, $($Long::toHexString(rootNativeHandle()))));
-			$var($String, info, $concat(var$6, "."));
+			$var($String, info, $concat(var$6, "."_s));
 			$nc($(logger()))->warning(info);
 			$throwNew($BackingStoreException, info);
 		}
@@ -775,15 +775,15 @@ $StringArray* WindowsPreferences::childrenNamesSpi() {
 	if (nativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
 		$var($String, var$1, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$0, $$concat(var$1, $($Long::toHexString(rootNativeHandle()))));
-		$throwNew($BackingStoreException, $$concat(var$0, "."));
+		$throwNew($BackingStoreException, $$concat(var$0, "."_s));
 	}
 	$var($longs, result, WindowsRegQueryInfoKey1(nativeHandle));
 	if ($nc(result)->get(WindowsPreferences::ERROR_CODE) != WindowsPreferences::ERROR_SUCCESS) {
 		$var($String, var$5, $$str({"Could not query windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$3, $$concat(var$4, ". Windows RegQueryInfoKeyEx(...) returned error code "));
+		$var($String, var$3, $$concat(var$4, ". Windows RegQueryInfoKeyEx(...) returned error code "_s));
 		$var($String, var$2, $$concat(var$3, $$str(result->get(WindowsPreferences::ERROR_CODE))));
-		$var($String, info, $concat(var$2, "."));
+		$var($String, info, $concat(var$2, "."_s));
 		$nc($(logger()))->warning(info);
 		$throwNew($BackingStoreException, info);
 	}
@@ -800,7 +800,7 @@ $StringArray* WindowsPreferences::childrenNamesSpi() {
 		if (windowsName == nullptr) {
 			$var($String, var$7, $$str({"Could not enumerate key #"_s, $$str(i), "  of windows node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 			$var($String, var$6, $$concat(var$7, $($Long::toHexString(rootNativeHandle()))));
-			$var($String, info, $concat(var$6, ". "));
+			$var($String, info, $concat(var$6, ". "_s));
 			$nc($(logger()))->warning(info);
 			$throwNew($BackingStoreException, info);
 		}
@@ -824,15 +824,15 @@ void WindowsPreferences::flush() {
 	if (nativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
 		$var($String, var$1, $$str({"Could not open windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$0, $$concat(var$1, $($Long::toHexString(rootNativeHandle()))));
-		$throwNew($BackingStoreException, $$concat(var$0, "."));
+		$throwNew($BackingStoreException, $$concat(var$0, "."_s));
 	}
 	int32_t result = WindowsRegFlushKey1(nativeHandle);
 	if (result != WindowsPreferences::ERROR_SUCCESS) {
 		$var($String, var$5, $$str({"Could not flush windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$3, $$concat(var$4, ". Windows RegFlushKey(...) returned error code "));
+		$var($String, var$3, $$concat(var$4, ". Windows RegFlushKey(...) returned error code "_s));
 		$var($String, var$2, $$concat(var$3, $$str(result)));
-		$var($String, info, $concat(var$2, "."));
+		$var($String, info, $concat(var$2, "."_s));
 		$nc($(logger()))->warning(info);
 		$throwNew($BackingStoreException, info);
 	}
@@ -856,15 +856,15 @@ void WindowsPreferences::removeNodeSpi() {
 	if (parentNativeHandle == WindowsPreferences::NULL_NATIVE_HANDLE) {
 		$var($String, var$1, $$str({"Could not open parent windows registry node of "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$0, $$concat(var$1, $($Long::toHexString(rootNativeHandle()))));
-		$throwNew($BackingStoreException, $$concat(var$0, "."));
+		$throwNew($BackingStoreException, $$concat(var$0, "."_s));
 	}
 	int32_t result = WindowsRegDeleteKey(parentNativeHandle, $(toWindowsName($(name()))));
 	if (result != WindowsPreferences::ERROR_SUCCESS) {
 		$var($String, var$5, $$str({"Could not delete windows registry node "_s, $(byteArrayToString($(windowsAbsolutePath()))), " at root 0x"_s}));
 		$var($String, var$4, $$concat(var$5, $($Long::toHexString(rootNativeHandle()))));
-		$var($String, var$3, $$concat(var$4, ". Windows RegDeleteKeyEx(...) returned error code "));
+		$var($String, var$3, $$concat(var$4, ". Windows RegDeleteKeyEx(...) returned error code "_s));
 		$var($String, var$2, $$concat(var$3, $$str(result)));
-		$var($String, info, $concat(var$2, "."));
+		$var($String, info, $concat(var$2, "."_s));
 		$nc($(logger()))->warning(info);
 		$throwNew($BackingStoreException, info);
 	}

@@ -591,7 +591,7 @@ $Document* XMLUtils::getOwnerDocument($Node* node) {
 	} catch ($NullPointerException& npe) {
 		$var($String, var$1, $$str({$($I18n::translate("endorsed.jdk1.4.0"_s)), " Original message was \""_s}));
 		$var($String, var$0, $$concat(var$1, $(npe->getMessage())));
-		$throwNew($NullPointerException, $$concat(var$0, "\""));
+		$throwNew($NullPointerException, $$concat(var$0, "\""_s));
 	}
 	$shouldNotReachHere();
 }
@@ -622,7 +622,7 @@ $Document* XMLUtils::getOwnerDocument($Set* xpathNodeSet) {
 	}
 	$var($String, var$1, $$str({$($I18n::translate("endorsed.jdk1.4.0"_s)), " Original message was \""_s}));
 	$var($String, var$0, $$concat(var$1, (npe == nullptr ? ""_s : $($nc(npe)->getMessage()))));
-	$throwNew($NullPointerException, $$concat(var$0, "\""));
+	$throwNew($NullPointerException, $$concat(var$0, "\""_s));
 	$shouldNotReachHere();
 }
 

@@ -3074,12 +3074,12 @@ void Lower::visitMethodDef($JCTree$JCMethodDecl* tree) {
 	if ($nc(tree)->name == $nc(this->names)->init && ((int64_t)($nc(this->currentClass)->flags_field & (uint64_t)(int64_t)16384)) != 0) {
 		$var($String, var$1, $$str({$$str(this->target->syntheticNameChar()), "enum"_s}));
 		$var($String, var$0, $$concat(var$1, $$str(this->target->syntheticNameChar())));
-		$var($JCTree$JCVariableDecl, nameParam, $nc($(make_at($(tree->pos()))))->Param($($nc(this->names)->fromString($$concat(var$0, "name"))), $nc(this->syms)->stringType, tree->sym));
+		$var($JCTree$JCVariableDecl, nameParam, $nc($(make_at($(tree->pos()))))->Param($($nc(this->names)->fromString($$concat(var$0, "name"_s))), $nc(this->syms)->stringType, tree->sym));
 		$nc($nc(nameParam)->mods)->flags |= 4096;
 		$nc(nameParam->sym)->flags_field |= 4096;
 		$var($String, var$3, $$str({$$str(this->target->syntheticNameChar()), "enum"_s}));
 		$var($String, var$2, $$concat(var$3, $$str(this->target->syntheticNameChar())));
-		$var($JCTree$JCVariableDecl, ordParam, $nc(this->make)->Param($($nc(this->names)->fromString($$concat(var$2, "ordinal"))), $nc(this->syms)->intType, tree->sym));
+		$var($JCTree$JCVariableDecl, ordParam, $nc(this->make)->Param($($nc(this->names)->fromString($$concat(var$2, "ordinal"_s))), $nc(this->syms)->intType, tree->sym));
 		$nc($nc(ordParam)->mods)->flags |= 4096;
 		$nc(ordParam->sym)->flags_field |= 4096;
 		$var($Symbol$MethodSymbol, m, tree->sym);

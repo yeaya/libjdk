@@ -209,7 +209,7 @@ void Http1Response$HeadersReader::handle($ByteBuffer* b, $Http1HeaderParser* par
 		if ($nc(this->this$0->debug)->on()) {
 			$var($String, var$1, $$str({"Sending "_s, $$str(b->remaining()), "/"_s}));
 			$var($String, var$0, $$concat(var$1, $$str(b->capacity())));
-			$nc(this->this$0->debug)->log($$concat(var$0, " bytes to header parser"));
+			$nc(this->this$0->debug)->log($$concat(var$0, " bytes to header parser"_s));
 		}
 		if ($nc(parser)->parse(b)) {
 			this->count -= b->remaining();

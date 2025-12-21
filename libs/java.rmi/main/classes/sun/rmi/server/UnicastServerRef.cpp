@@ -635,9 +635,9 @@ void UnicastServerRef::logCall($Remote* obj, Object$* method) {
 		}
 		$var($String, var$3, $$str({"["_s, clientHost, ": "_s, $($nc($of(obj))->getClass()->getName())}));
 		$var($String, var$2, $$concat(var$3, $($nc($($nc(this->ref)->getObjID()))->toString())));
-		$var($String, var$1, $$concat(var$2, ": "));
+		$var($String, var$1, $$concat(var$2, ": "_s));
 		$var($String, var$0, $$concat(var$1, $(method)));
-		$nc(UnicastServerRef::callLog)->log($Log::VERBOSE, $$concat(var$0, "]"));
+		$nc(UnicastServerRef::callLog)->log($Log::VERBOSE, $$concat(var$0, "]"_s));
 	}
 }
 
@@ -658,9 +658,9 @@ void UnicastServerRef::logCallException($Throwable* e) {
 			$nc(log)->println();
 			$var($String, var$3, $$str({"Exception dispatching call to "_s, $($nc(this->ref)->getObjID()), " in thread \""_s}));
 			$var($String, var$2, $$concat(var$3, $($($Thread::currentThread())->getName())));
-			$var($String, var$1, $$concat(var$2, "\" at "));
+			$var($String, var$1, $$concat(var$2, "\" at "_s));
 			$var($String, var$0, $$concat(var$1, $(($new($Date)))));
-			log->println($$concat(var$0, ":"));
+			log->println($$concat(var$0, ":"_s));
 			$nc(e)->printStackTrace(log);
 		}
 	}

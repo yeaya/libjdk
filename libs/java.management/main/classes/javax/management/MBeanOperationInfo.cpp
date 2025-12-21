@@ -201,17 +201,17 @@ $String* MBeanOperationInfo::toString() {
 	}
 	$var($String, var$11, $$str({$($of(this)->getClass()->getName()), "[description="_s}));
 	$var($String, var$10, $$concat(var$11, $(getDescription())));
-	$var($String, var$9, $$concat(var$10, ", name="));
+	$var($String, var$9, $$concat(var$10, ", name="_s));
 	$var($String, var$8, $$concat(var$9, $(getName())));
-	$var($String, var$7, $$concat(var$8, ", returnType="));
+	$var($String, var$7, $$concat(var$8, ", returnType="_s));
 	$var($String, var$6, $$concat(var$7, $(getReturnType())));
-	$var($String, var$5, $$concat(var$6, ", signature="));
+	$var($String, var$5, $$concat(var$6, ", signature="_s));
 	$var($String, var$4, $$concat(var$5, $($Arrays::asList($(fastGetSignature())))));
-	$var($String, var$3, $$concat(var$4, ", impact="));
+	$var($String, var$3, $$concat(var$4, ", impact="_s));
 	$var($String, var$2, $$concat(var$3, impactString));
-	$var($String, var$1, $$concat(var$2, ", descriptor="));
+	$var($String, var$1, $$concat(var$2, ", descriptor="_s));
 	$var($String, var$0, $$concat(var$1, $(getDescriptor())));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 bool MBeanOperationInfo::equals(Object$* o) {

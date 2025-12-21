@@ -140,7 +140,7 @@ TypeDesc* TypeDesc::fromType($TypeMirror* type) {
 	if (td == nullptr) {
 		$var($String, var$1, $$str({"Unhandled type mirror: "_s, type, " ("_s}));
 		$var($String, var$0, $$concat(var$1, $($nc($of(type))->getClass())));
-		$throwNew($AssertionError, $of(($$concat(var$0, ")"))));
+		$throwNew($AssertionError, $of(($$concat(var$0, ")"_s))));
 	}
 	return td;
 }

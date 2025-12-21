@@ -302,9 +302,9 @@ void Stream$RequestSubscriber::trySend() {
 					if (this->remainingContentLength < 0) {
 						$var($String, var$4, $$str({$($nc($(this->this$0->connection()))->getConnectionFlow()), " stream="_s, $$str(this->this$0->streamid), " ["_s}));
 						$var($String, var$3, $$concat(var$4, $($($Thread::currentThread())->getName())));
-						$var($String, var$2, $$concat(var$3, "] Too many bytes in request body. Expected: "));
+						$var($String, var$2, $$concat(var$3, "] Too many bytes in request body. Expected: "_s));
 						$var($String, var$1, $$concat(var$2, $$str(this->contentLength)));
-						$var($String, var$0, $$concat(var$1, ", got: "));
+						$var($String, var$0, $$concat(var$1, ", got: "_s));
 						$var($String, msg, $concat(var$0, $$str((this->contentLength - this->remainingContentLength))));
 						if (!Stream$RequestSubscriber::$assertionsDisabled && !(this->this$0->streamid > 0)) {
 							$throwNew($AssertionError);
@@ -373,11 +373,11 @@ void Stream$RequestSubscriber::complete() {
 		$nc(this->this$0->connection$)->resetStream(this->this$0->streamid, $ResetFrame::PROTOCOL_ERROR);
 		$var($String, var$5, $$str({$($nc($(this->this$0->connection()))->getConnectionFlow()), " stream="_s, $$str(this->this$0->streamid), " ["_s}));
 		$var($String, var$4, $$concat(var$5, $($($Thread::currentThread())->getName())));
-		$var($String, var$3, $$concat(var$4, "] Too few bytes returned by the publisher ("));
+		$var($String, var$3, $$concat(var$4, "] Too few bytes returned by the publisher ("_s));
 		$var($String, var$2, $$concat(var$3, $$str(written)));
-		$var($String, var$1, $$concat(var$2, "/"));
+		$var($String, var$1, $$concat(var$2, "/"_s));
 		$var($String, var$0, $$concat(var$1, $$str(this->contentLength)));
-		$throwNew($IOException, $$concat(var$0, ")"));
+		$throwNew($IOException, $$concat(var$0, ")"_s));
 	}
 	if (!this->this$0->endStreamSent) {
 		this->this$0->endStreamSent = true;

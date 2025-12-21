@@ -106,7 +106,7 @@ void LargeMessageFormat::testFormat() {
 		expected->append("string: hello; "_s);
 		expected->append("date: 09.11.1989; "_s);
 		expected->append("integer: 567.890; "_s);
-		expected->append(u"currency: 1.234,50 \u20ac;\n"_s);
+		expected->append(u"currency: 1.234,50 €;\n"_s);
 	}
 	$var($MessageFormat, format, $new($MessageFormat, $(template$->toString())));
 	$var($String, result, format->format(arguments));

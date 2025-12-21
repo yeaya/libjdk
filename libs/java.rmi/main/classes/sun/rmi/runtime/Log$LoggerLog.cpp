@@ -128,7 +128,7 @@ $String* Log$LoggerLog::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({$($nc($of(this->logger))->toString()), ", level: "_s}));
 	$var($String, var$1, $$concat(var$2, $($nc(this->logger)->getLevel())));
-	$var($String, var$0, $$concat(var$1, ", name: "));
+	$var($String, var$0, $$concat(var$1, ", name: "_s));
 	return $concat(var$0, $($nc(this->logger)->getName()));
 }
 

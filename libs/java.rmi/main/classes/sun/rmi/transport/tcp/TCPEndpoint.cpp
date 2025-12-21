@@ -551,7 +551,7 @@ $String* TCPEndpoint::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"["_s, this->host, ":"_s, $$str(this->port), (this->ssf != nullptr ? $$str({","_s, this->ssf}) : ""_s)}));
 	$var($String, var$0, $$concat(var$1, (this->csf != nullptr ? $$str({","_s, this->csf}) : ""_s)));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 int32_t TCPEndpoint::hashCode() {

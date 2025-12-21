@@ -45,11 +45,11 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.dflag"_s),
-			$of(u"F\u00fcr die Option \"-d, --describe-module\" m\u00fcssen keine Eingabedateien angegeben werden"_s)
+			$of(u"Für die Option \"-d, --describe-module\" müssen keine Eingabedateien angegeben werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.eflag"_s),
-			$of(u"Kennzeichen \"e\" und Manifest mit dem Attribut \"Main-Class\" k\u00f6nnen nicht zusammen angegeben\nwerden."_s)
+			$of(u"Kennzeichen \"e\" und Manifest mit dem Attribut \"Main-Class\" können nicht zusammen angegeben\nwerden."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.file.arg"_s),
@@ -69,7 +69,7 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.cant.open"_s),
-			$of(u"\u00d6ffnen nicht m\u00f6glich: {0}"_s)
+			$of(u"Öffnen nicht möglich: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.create.dir"_s),
@@ -77,27 +77,27 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.create.tempfile"_s),
-			$of(u"Es konnte keine tempor\u00e4re Datei erstellt werden"_s)
+			$of(u"Es konnte keine temporäre Datei erstellt werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.hash.dep"_s),
-			$of(u"Abh\u00e4ngigkeiten bei Hashing-Modul {0}. Modul {1} kann nicht im Modulpfad gefunden werden"_s)
+			$of(u"Abhängigkeiten bei Hashing-Modul {0}. Modul {1} kann nicht im Modulpfad gefunden werden"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.illegal.option"_s),
-			$of(u"Ung\u00fcltige Option: {0}"_s)
+			$of(u"Ungültige Option: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.incorrect.length"_s),
-			$of(u"Falsche L\u00e4nge bei der Verarbeitung: {0}"_s)
+			$of(u"Falsche Länge bei der Verarbeitung: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.invalid.versioned.module.attribute"_s),
-			$of(u"Ung\u00fcltiges Moduldeskriptorattribut {0}"_s)
+			$of(u"Ungültiges Moduldeskriptorattribut {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.missing.arg"_s),
-			$of(u"F\u00fcr die Option {0} ist ein Argument erforderlich"_s)
+			$of(u"Für die Option {0} ist ein Argument erforderlich"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.missing.provider"_s),
@@ -113,11 +113,11 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.multiple.main.operations"_s),
-			$of(u"Es ist nicht m\u00f6glich, mehrere \"-cuxtid\"-Optionen anzugeben"_s)
+			$of(u"Es ist nicht möglich, mehrere \"-cuxtid\"-Optionen anzugeben"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.no.operative.descriptor"_s),
-			$of(u"Kein operativer Deskriptor f\u00fcr Release: {0}"_s)
+			$of(u"Kein operativer Deskriptor für Release: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.no.root.descriptor"_s),
@@ -129,19 +129,19 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.release.unexpected.versioned.entry"_s),
-			$of(u"Unerwarteter versionierte Eintrag {0} f\u00fcr Release {1}"_s)
+			$of(u"Unerwarteter versionierte Eintrag {0} für Release {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.release.value.notnumber"_s),
-			$of(u"Release {0} nicht g\u00fcltig"_s)
+			$of(u"Release {0} nicht gültig"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.release.value.toosmall"_s),
-			$of(u"Release {0} nicht g\u00fcltig, muss >= 9 sein"_s)
+			$of(u"Release {0} nicht gültig, muss >= 9 sein"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.unable.derive.automodule"_s),
-			$of(u"Moduldeskriptor kann nicht abgeleitet werden f\u00fcr: {0}"_s)
+			$of(u"Moduldeskriptor kann nicht abgeleitet werden für: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.unexpected.module-info"_s),
@@ -157,7 +157,7 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.different.api"_s),
-			$of(u"Eintrag {0} enth\u00e4lt eine Klasse mit einer anderen API als in der fr\u00fcheren Version"_s)
+			$of(u"Eintrag {0} enthält eine Klasse mit einer anderen API als in der früheren Version"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.entryname.tooshort"_s),
@@ -165,43 +165,43 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.incompatible.class.version"_s),
-			$of(u"Eintrag {0} weist eine Klassenversion auf, die mit einer fr\u00fcheren Version inkompatibel ist"_s)
+			$of(u"Eintrag {0} weist eine Klassenversion auf, die mit einer früheren Version inkompatibel ist"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.exports.notequal"_s),
-			$of(u"module-info.class in einem versionierten Verzeichnis enth\u00e4lt unterschiedliche \"exports\""_s)
+			$of(u"module-info.class in einem versionierten Verzeichnis enthält unterschiedliche \"exports\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.manclass.notequal"_s),
-			$of(u"{0}: module-info.class in einem versionierten Verzeichnis enth\u00e4lt unterschiedlichen \"main-class\"-Wert"_s)
+			$of(u"{0}: module-info.class in einem versionierten Verzeichnis enthält unterschiedlichen \"main-class\"-Wert"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.name.notequal"_s),
-			$of(u"module-info.class in einem versionierten Verzeichnis enth\u00e4lt falschen Namen"_s)
+			$of(u"module-info.class in einem versionierten Verzeichnis enthält falschen Namen"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.opens.notequal"_s),
-			$of(u"module-info.class in einem versionierten Verzeichnis enth\u00e4lt unterschiedliche \"opens\""_s)
+			$of(u"module-info.class in einem versionierten Verzeichnis enthält unterschiedliche \"opens\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.provides.notequal"_s),
-			$of(u"module-info.class in einem versionierten Verzeichnis enth\u00e4lt unterschiedliche \"provides\""_s)
+			$of(u"module-info.class in einem versionierten Verzeichnis enthält unterschiedliche \"provides\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.requires.added"_s),
-			$of(u"module-info.class in einem versionierten Verzeichnis enth\u00e4lt zus\u00e4tzlichen \"requires\""_s)
+			$of(u"module-info.class in einem versionierten Verzeichnis enthält zusätzlichen \"requires\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.requires.dropped"_s),
-			$of(u"module-info.class in einem versionierten Verzeichnis enth\u00e4lt fehlenden \"requires\""_s)
+			$of(u"module-info.class in einem versionierten Verzeichnis enthält fehlenden \"requires\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.requires.transitive"_s),
-			$of(u"module-info.class in einem versionierten Verzeichnis enth\u00e4lt zus\u00e4tzlichen \"requires transitive\""_s)
+			$of(u"module-info.class in einem versionierten Verzeichnis enthält zusätzlichen \"requires transitive\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.version.notequal"_s),
-			$of(u"{0}: module-info.class in einem versionierten Verzeichnis enth\u00e4lt unterschiedlichen \"version\"-Wert"_s)
+			$of(u"{0}: module-info.class in einem versionierten Verzeichnis enthält unterschiedlichen \"version\"-Wert"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.isolated.nested.class"_s),
@@ -213,15 +213,15 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.jarfile.invalid"_s),
-			$of(u"ung\u00fcltige Multi-Release-JAR-Datei {0} gel\u00f6scht"_s)
+			$of(u"ungültige Multi-Release-JAR-Datei {0} gelöscht"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.names.mismatch"_s),
-			$of(u"Eintrag {0} enth\u00e4lt eine Klasse mit dem internen Namen {1}, Namen stimmen nicht \u00fcberein"_s)
+			$of(u"Eintrag {0} enthält eine Klasse mit dem internen Namen {1}, Namen stimmen nicht überein"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.new.public.class"_s),
-			$of(u"Eintrag {0} enth\u00e4lt eine neue \u00f6ffentliche Klasse, die in Basiseintr\u00e4gen nicht gefunden wird"_s)
+			$of(u"Eintrag {0} enthält eine neue öffentliche Klasse, die in Basiseinträgen nicht gefunden wird"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.version.notnumber"_s),
@@ -233,7 +233,7 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.any"_s),
-			$of(u" In jedem Modus g\u00fcltige Vorgangsmodifikatoren:\n\n  -C DIR                     Zum angegebenen Verzeichnis wechseln und die folgende\n                             Datei aufnehmen"_s)
+			$of(u" In jedem Modus gültige Vorgangsmodifikatoren:\n\n  -C DIR                     Zum angegebenen Verzeichnis wechseln und die folgende\n                             Datei aufnehmen"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.any.file"_s),
@@ -245,7 +245,7 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create"_s),
-			$of(u" Vorgangsmodifikatoren, die nur im Erstellungsmodus g\u00fcltig sind:\n"_s)
+			$of(u" Vorgangsmodifikatoren, die nur im Erstellungsmodus gültig sind:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.normalize"_s),
@@ -253,7 +253,7 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update"_s),
-			$of(u" Vorgangsmodifikatoren, die nur im Erstellungs- und Aktualisierungsmodus g\u00fcltig sind:\n"_s)
+			$of(u" Vorgangsmodifikatoren, die nur im Erstellungs- und Aktualisierungsmodus gültig sind:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.do-not-resolve-by-default"_s),
@@ -261,11 +261,11 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.hash-modules"_s),
-			$of(u"      --hash-modules=PATTERN Berechnet und zeichnet die Hashes von Modulen auf, \n                             die mit einem bestimmten Muster \u00fcbereinstimmen, und direkt oder\n                             indirekt von einem modularen JAR-Archiv abh\u00e4ngen, das erstellt\n                             wird, oder einem nicht-modularen JAR-Archiv, das aktualisiert wird"_s)
+			$of(u"      --hash-modules=PATTERN Berechnet und zeichnet die Hashes von Modulen auf, \n                             die mit einem bestimmten Muster übereinstimmen, und direkt oder\n                             indirekt von einem modularen JAR-Archiv abhängen, das erstellt\n                             wird, oder einem nicht-modularen JAR-Archiv, das aktualisiert wird"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.index"_s),
-			$of(u" Vorgangsmodifikatoren, die nur im Erstellungs-, Aktualisierungs- und Indexgenerierungsmodus g\u00fcltig sind:\n"_s)
+			$of(u" Vorgangsmodifikatoren, die nur im Erstellungs-, Aktualisierungs- und Indexgenerierungsmodus gültig sind:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.index.no-compress"_s),
@@ -273,7 +273,7 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.main-class"_s),
-			$of(u"  -e, --main-class=CLASSNAME Der Anwendungseinstiegspunkt f\u00fcr Standalone-\n                             Anwendungen, die in einem modularen oder ausf\u00fchrbaren\n                             JAR-Archiv geb\u00fcndelt sind"_s)
+			$of(u"  -e, --main-class=CLASSNAME Der Anwendungseinstiegspunkt für Standalone-\n                             Anwendungen, die in einem modularen oder ausführbaren\n                             JAR-Archiv gebündelt sind"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.manifest"_s),
@@ -281,7 +281,7 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.module-path"_s),
-			$of(u"  -p, --module-path         Speicherort von Modulabh\u00e4ngigkeit zur Generierung\n                             von Hash"_s)
+			$of(u"  -p, --module-path         Speicherort von Modulabhängigkeit zur Generierung\n                             von Hash"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.module-version"_s),
@@ -289,11 +289,11 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.no-manifest"_s),
-			$of(u"  -M, --no-manifest          Keine Manifestdatei f\u00fcr die Eintr\u00e4ge erstellen"_s)
+			$of(u"  -M, --no-manifest          Keine Manifestdatei für die Einträge erstellen"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.warn-if-resolved"_s),
-			$of(u"      --warn-if-resolved     Hinweis f\u00fcr ein Tool, eine Warnung auszugeben,\n                             wenn das Modul aufgel\u00f6st wird, entweder \"deprecated\", \"deprecated-for-removal\"\n                             oder \"incubating\""_s)
+			$of(u"      --warn-if-resolved     Hinweis für ein Tool, eine Warnung auszugeben,\n                             wenn das Modul aufgelöst wird, entweder \"deprecated\", \"deprecated-for-removal\"\n                             oder \"incubating\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main"_s),
@@ -313,11 +313,11 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main.generate-index"_s),
-			$of(u"  -i, --generate-index=FILE  Indexinformationen f\u00fcr die angegebenen JAR-\n                             Archive generieren"_s)
+			$of(u"  -i, --generate-index=FILE  Indexinformationen für die angegebenen JAR-\n                             Archive generieren"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main.list"_s),
-			$of(u"  -t, --list                 Das Inhaltsverzeichnis f\u00fcr das Archiv auflisten"_s)
+			$of(u"  -t, --list                 Das Inhaltsverzeichnis für das Archiv auflisten"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main.update"_s),
@@ -329,11 +329,11 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.other.help"_s),
-			$of(u"  -h, --help[:compat]        Gibt diese Meldung oder optional die Kompatibilit\u00e4t, Hilfe an"_s)
+			$of(u"  -h, --help[:compat]        Gibt diese Meldung oder optional die Kompatibilität, Hilfe an"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.other.help-extra"_s),
-			$of(u"      --help-extra           Hilfe zu zus\u00e4tzlichen Optionen"_s)
+			$of(u"      --help-extra           Hilfe zu zusätzlichen Optionen"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.other.version"_s),
@@ -341,12 +341,12 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.postopt"_s),
-			$of(u" Ein Archiv ist ein modulares JAR-Archiv, wenn der Moduldeskriptor \"module-info.class\"\n in der Root der angegebenen Verzeichnisse oder in der Root des JAR-Archivs selbst\n vorhanden ist. Die folgenden Vorg\u00e4nge sind nur g\u00fcltig, wenn Sie ein modulares JAR-Archiv\n erstellen oder ein vorhandenes nicht modulares JAR-Archiv aktualisieren: \"--module-version\",\n \"--hash-modules\" und \"--modulepath\".\n\n Obligatorische oder optionale Argumente zu langen Optionen sind auch f\u00fcr die jeweils\n zugeh\u00f6rigen kurzen Optionen obligatorisch oder optional."_s)
+			$of(u" Ein Archiv ist ein modulares JAR-Archiv, wenn der Moduldeskriptor \"module-info.class\"\n in der Root der angegebenen Verzeichnisse oder in der Root des JAR-Archivs selbst\n vorhanden ist. Die folgenden Vorgänge sind nur gültig, wenn Sie ein modulares JAR-Archiv\n erstellen oder ein vorhandenes nicht modulares JAR-Archiv aktualisieren: \"--module-version\",\n \"--hash-modules\" und \"--modulepath\".\n\n Obligatorische oder optionale Argumente zu langen Optionen sind auch für die jeweils\n zugehörigen kurzen Optionen obligatorisch oder optional."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.preopt"_s),
-			$of(u"Verwendung: jar [OPTION...] [ [--release VERSION] [-C dir] files] ...\njar erstellt ein Archiv f\u00fcr Klassen und Ressourcen und kann individuelle\nKlassen oder Ressourcen aus einem Archiv bearbeiten oder wiederherstellen.\n\n Beispiele:\n # Ein Archiv namens classes.jar mit zwei Klassendateien erstellen:\n jar --create --file classes.jar Foo.class Bar.class\n # Ein Archiv mit einem vorhandenen Manifest mit allen Dateien in foo/ erstellen:\n jar --create --file classes.jar --manifest mymanifest -C foo/ .\n # Ein modulares JAR-Archiv erstellen, dessen Moduldeskriptor sich in\n # classes/module-info.class befindet:\n jar --create --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ classes resources\n # Ein vorhandenes nicht modulares JAR-Archiv in ein modulares JAR-Archiv aktualisieren:\n jar --update --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ module-info.class\n # Multi-Release-JAR-Datei erstellen, wobei einige Dateien im Verzeichnis META-INF/versions/9 gespeichert werden:"
-				"\n jar --create --file mr.jar -C foo classes --release 9 -C foo9 classes\n\nUm den \"jar\"-Befehl zu k\u00fcrzen oder zu vereinfachen, k\u00f6nnen Sie Argumente in einer separaten\nTextdatei angeben und diese mit dem @-Zeichen als Pr\u00e4fix an den \"jar\"-Befehl \u00fcbergeben.\n\n Beispiele:\n # Zus\u00e4tzliche Optionen und Liste der Klassendateien aus der Datei classes.list lesen\n jar --create --file my.jar @classes.list\n"_s)
+			$of(u"Verwendung: jar [OPTION...] [ [--release VERSION] [-C dir] files] ...\njar erstellt ein Archiv für Klassen und Ressourcen und kann individuelle\nKlassen oder Ressourcen aus einem Archiv bearbeiten oder wiederherstellen.\n\n Beispiele:\n # Ein Archiv namens classes.jar mit zwei Klassendateien erstellen:\n jar --create --file classes.jar Foo.class Bar.class\n # Ein Archiv mit einem vorhandenen Manifest mit allen Dateien in foo/ erstellen:\n jar --create --file classes.jar --manifest mymanifest -C foo/ .\n # Ein modulares JAR-Archiv erstellen, dessen Moduldeskriptor sich in\n # classes/module-info.class befindet:\n jar --create --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ classes resources\n # Ein vorhandenes nicht modulares JAR-Archiv in ein modulares JAR-Archiv aktualisieren:\n jar --update --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ module-info.class\n # Multi-Release-JAR-Datei erstellen, wobei einige Dateien im Verzeichnis META-INF/versions/9 gespeichert werden:"
+				"\n jar --create --file mr.jar -C foo classes --release 9 -C foo9 classes\n\nUm den \"jar\"-Befehl zu kürzen oder zu vereinfachen, können Sie Argumente in einer separaten\nTextdatei angeben und diese mit dem @-Zeichen als Präfix an den \"jar\"-Befehl übergeben.\n\n Beispiele:\n # Zusätzliche Optionen und Liste der Klassendateien aus der Datei classes.list lesen\n jar --create --file my.jar @classes.list\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.usage.summary"_s),
@@ -358,15 +358,15 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("out.added.manifest"_s),
-			$of(u"Manifest wurde hinzugef\u00fcgt"_s)
+			$of(u"Manifest wurde hinzugefügt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.added.module-info"_s),
-			$of(u"module-info hinzugef\u00fcgt: {0}"_s)
+			$of(u"module-info hinzugefügt: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.adding"_s),
-			$of(u"{0} wird hinzugef\u00fcgt"_s)
+			$of(u"{0} wird hinzugefügt"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.automodule"_s),
@@ -390,7 +390,7 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("out.inflated"_s),
-			$of(u" vergr\u00f6\u00dfert: {0}"_s)
+			$of(u" vergrößert: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.size"_s),
@@ -410,8 +410,8 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("usage.compat"_s),
-			$of(u"Kompatibilit\u00e4tsschnittstelle:\nVerwendung:  jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] Dateien] ...\nOptionen:\n    -c  Neues Archiv erstellen\n    -t  Inhaltsverzeichnis f\u00fcr Archiv anzeigen\n    -x  Benannte (oder alle) Dateien aus Archiv extrahieren\n    -u  Vorhandenes Archiv aktualisieren\n    -v  Ausgabe im Verbose-Modus aus Standardausgabe generieren\n    -f  Dateinamen f\u00fcr Archiv angeben\n    -m  Manifestinformationen aus angegebener Manifestdatei aufnehmen\n    -n  Pack200-Normalisierung nach Erstellung eines neuen Archivs ausf\u00fchren\n    -e  Anwendungseinstiegspunkt f\u00fcr in ausf\u00fchrbare JAR-Datei \n        geb\u00fcndelte Standalone-Anwendung angeben\n    -0  Nur speichern; keine ZIP-Komprimierung verwenden\n    -P  Komponenten mit vorangestelltem \"/\" (absoluter Pfad) und \"..\" (\u00fcbergeordnetes Verzeichnis) aus Dateinamen beibehalten\n        -M  Keine Manifestdatei f\u00fcr die Eintr\u00e4ge erstellen\n    -i  Indexinformationen f\u00fcr die angegebenen JAR-Dateien erstellen\n    -C  Zum angegebenen Verzeichnis "
-				"wechseln und folgende Datei ber\u00fccksichtigen\nDateien, die Verzeichnisse sind, werden rekursiv verarbeitet.\nDer Name der Manifestdatei, der Name der Archivdatei und der Name des Einstiegspunktes werden\nin derselben Reihenfolge wie die Kennzeichen \"m\", \"f\" und \"e\" angegeben.\n\nBeispiel 1: Zwei Klassendateien in ein Archiv \"classes.jar\" archivieren: \n       jar cvf classes.jar Foo.class Bar.class \nBeispiel 2: Mit der vorhandenen Manifestdatei \"mymanifest\" alle\n           Dateien im Verzeichnis foo/ in \"classes.jar\" archivieren: \n       jar cvfm classes.jar mymanifest -C foo/ .\n"_s)
+			$of(u"Kompatibilitätsschnittstelle:\nVerwendung:  jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] Dateien] ...\nOptionen:\n    -c  Neues Archiv erstellen\n    -t  Inhaltsverzeichnis für Archiv anzeigen\n    -x  Benannte (oder alle) Dateien aus Archiv extrahieren\n    -u  Vorhandenes Archiv aktualisieren\n    -v  Ausgabe im Verbose-Modus aus Standardausgabe generieren\n    -f  Dateinamen für Archiv angeben\n    -m  Manifestinformationen aus angegebener Manifestdatei aufnehmen\n    -n  Pack200-Normalisierung nach Erstellung eines neuen Archivs ausführen\n    -e  Anwendungseinstiegspunkt für in ausführbare JAR-Datei \n        gebündelte Standalone-Anwendung angeben\n    -0  Nur speichern; keine ZIP-Komprimierung verwenden\n    -P  Komponenten mit vorangestelltem \"/\" (absoluter Pfad) und \"..\" (übergeordnetes Verzeichnis) aus Dateinamen beibehalten\n        -M  Keine Manifestdatei für die Einträge erstellen\n    -i  Indexinformationen für die angegebenen JAR-Dateien erstellen\n    -C  Zum angegebenen Verzeichnis "
+				"wechseln und folgende Datei berücksichtigen\nDateien, die Verzeichnisse sind, werden rekursiv verarbeitet.\nDer Name der Manifestdatei, der Name der Archivdatei und der Name des Einstiegspunktes werden\nin derselben Reihenfolge wie die Kennzeichen \"m\", \"f\" und \"e\" angegeben.\n\nBeispiel 1: Zwei Klassendateien in ein Archiv \"classes.jar\" archivieren: \n       jar cvf classes.jar Foo.class Bar.class \nBeispiel 2: Mit der vorhandenen Manifestdatei \"mymanifest\" alle\n           Dateien im Verzeichnis foo/ in \"classes.jar\" archivieren: \n       jar cvfm classes.jar mymanifest -C foo/ .\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warn.release.unexpected.versioned.entry"_s),
@@ -419,11 +419,11 @@ $ObjectArray2* jar_de::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("warn.validator.concealed.public.class"_s),
-			$of(u"Warnung: Eintrag {0} ist eine \u00f6ffentliche Klasse\nin einem verdeckten Package. Wenn Sie diese JAR-Datei in den Classpath einf\u00fcgen, kommt es\nzu nicht kompatiblen \u00f6ffentlichen Schnittstellen"_s)
+			$of(u"Warnung: Eintrag {0} ist eine öffentliche Klasse\nin einem verdeckten Package. Wenn Sie diese JAR-Datei in den Classpath einfügen, kommt es\nzu nicht kompatiblen öffentlichen Schnittstellen"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warn.validator.identical.entry"_s),
-			$of(u"Warnung: Eintrag {0} enth\u00e4lt eine Klasse, die mit\neinem bereits in der JAR-Datei enthaltenen Eintrag identisch ist"_s)
+			$of(u"Warnung: Eintrag {0} enthält eine Klasse, die mit\neinem bereits in der JAR-Datei enthaltenen Eintrag identisch ist"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warn.validator.resources.with.same.name"_s),

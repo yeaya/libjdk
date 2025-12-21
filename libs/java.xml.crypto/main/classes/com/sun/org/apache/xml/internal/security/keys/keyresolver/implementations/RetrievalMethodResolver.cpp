@@ -224,7 +224,7 @@ $X509Certificate* RetrievalMethodResolver::resolveCertificate($Element* e, $Stri
 		if ($nc(RetrievalMethodResolver::LOG)->isDebugEnabled()) {
 			$var($String, var$1, $$str({"Now we have a {"_s, $(e->getNamespaceURI()), "}"_s}));
 			$var($String, var$0, $$concat(var$1, $(e->getLocalName())));
-			$nc(RetrievalMethodResolver::LOG)->debug($$concat(var$0, " Element"));
+			$nc(RetrievalMethodResolver::LOG)->debug($$concat(var$0, " Element"_s));
 		}
 		return $KeyResolver::getX509Certificate(e, baseURI, storage, secureValidation);
 	}
@@ -238,7 +238,7 @@ $PublicKey* RetrievalMethodResolver::resolveKey($Element* e, $String* baseURI, $
 		if ($nc(RetrievalMethodResolver::LOG)->isDebugEnabled()) {
 			$var($String, var$1, $$str({"Now we have a {"_s, $(e->getNamespaceURI()), "}"_s}));
 			$var($String, var$0, $$concat(var$1, $(e->getLocalName())));
-			$nc(RetrievalMethodResolver::LOG)->debug($$concat(var$0, " Element"));
+			$nc(RetrievalMethodResolver::LOG)->debug($$concat(var$0, " Element"_s));
 		}
 		return $KeyResolver::getPublicKey(e, baseURI, storage, secureValidation);
 	}

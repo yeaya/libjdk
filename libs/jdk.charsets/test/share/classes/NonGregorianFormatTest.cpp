@@ -239,7 +239,7 @@ void NonGregorianFormatTest::error($String* fmt, $ObjectArray* args) {
 
 void clinit$NonGregorianFormatTest($Class* class$) {
 	$useLocalCurrentObjectStackCache();
-	$assignStatic(NonGregorianFormatTest::FULL_DATE_FORMAT_JA, u"GGGGyyyy\'\u5e74\'M\'\u6708\'d\'\u65e5\'"_s);
+	$assignStatic(NonGregorianFormatTest::FULL_DATE_FORMAT_JA, u"GGGGyyyy\'年\'M\'月\'d\'日\'"_s);
 	$assignStatic(NonGregorianFormatTest::JAPANESE_EN, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("GGGG yyyy MMMM d"_s),
@@ -358,22 +358,22 @@ void clinit$NonGregorianFormatTest($Class* class$) {
 	$assignStatic(NonGregorianFormatTest::JAPANESE_JA, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u662d\u548c\u5143\u5e7412\u670831\u65e5"_s),
+			$of(u"昭和元年12月31日"_s),
 			$of($$new($Date, 1926 - 1900, 11, 31))
 		}),
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u662d\u548c64\u5e741\u67086\u65e5"_s),
+			$of(u"昭和64年1月6日"_s),
 			$of($$new($Date, 1989 - 1900, 0, 6))
 		}),
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u5e73\u6210\u5143\u5e748\u67089\u65e5"_s),
+			$of(u"平成元年8月9日"_s),
 			$of($$new($Date, 1989 - 1900, 7, 9))
 		}),
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u5e73\u621017\u5e746\u670810\u65e5"_s),
+			$of(u"平成17年6月10日"_s),
 			$of($$new($Date, 2005 - 1900, 5, 10))
 		}),
 		$$new($ObjectArray, {
@@ -405,15 +405,15 @@ void clinit$NonGregorianFormatTest($Class* class$) {
 	$assignStatic(NonGregorianFormatTest::EXCEPTION_JAPANESE_JA, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u662d\u548c\u5143\u5e7412\u670810\u65e5"_s)
+			$of(u"昭和元年12月10日"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u662d\u548c64\u5e741\u670816\u65e5"_s)
+			$of(u"昭和64年1月16日"_s)
 		}),
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u5e73\u6210\u5143\u5e741\u67081\u65e5"_s)
+			$of(u"平成元年1月1日"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("Gyy.MM.dd"_s),
@@ -431,22 +431,22 @@ void clinit$NonGregorianFormatTest($Class* class$) {
 	$assignStatic(NonGregorianFormatTest::BUDDHIST_JA, $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u4ecf\u66a62469\u5e7412\u670831\u65e5"_s),
+			$of(u"仏暦2469年12月31日"_s),
 			$of($$new($Date, 1926 - 1900, 11, 31))
 		}),
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u4ecf\u66a62532\u5e741\u67086\u65e5"_s),
+			$of(u"仏暦2532年1月6日"_s),
 			$of($$new($Date, 1989 - 1900, 0, 6))
 		}),
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u4ecf\u66a62532\u5e748\u67089\u65e5"_s),
+			$of(u"仏暦2532年8月9日"_s),
 			$of($$new($Date, 1989 - 1900, 7, 9))
 		}),
 		$$new($ObjectArray, {
 			$of(NonGregorianFormatTest::FULL_DATE_FORMAT_JA),
-			$of(u"\u4ecf\u66a62548\u5e746\u670810\u65e5"_s),
+			$of(u"仏暦2548年6月10日"_s),
 			$of($$new($Date, 2005 - 1900, 5, 10))
 		}),
 		$$new($ObjectArray, {

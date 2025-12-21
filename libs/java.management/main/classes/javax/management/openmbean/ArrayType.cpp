@@ -409,13 +409,13 @@ $String* ArrayType::toString() {
 	if (this->myToString == nullptr) {
 		$var($String, var$7, $$str({$($of(this)->getClass()->getName()), "(name="_s}));
 		$var($String, var$6, $$concat(var$7, $(getTypeName())));
-		$var($String, var$5, $$concat(var$6, ",dimension="));
+		$var($String, var$5, $$concat(var$6, ",dimension="_s));
 		$var($String, var$4, $$concat(var$5, $$str(this->dimension)));
-		$var($String, var$3, $$concat(var$4, ",elementType="));
+		$var($String, var$3, $$concat(var$4, ",elementType="_s));
 		$var($String, var$2, $$concat(var$3, this->elementType));
-		$var($String, var$1, $$concat(var$2, ",primitiveArray="));
+		$var($String, var$1, $$concat(var$2, ",primitiveArray="_s));
 		$var($String, var$0, $$concat(var$1, $$str(this->primitiveArray)));
-		$set(this, myToString, $concat(var$0, ")"));
+		$set(this, myToString, $concat(var$0, ")"_s));
 	}
 	return this->myToString;
 }

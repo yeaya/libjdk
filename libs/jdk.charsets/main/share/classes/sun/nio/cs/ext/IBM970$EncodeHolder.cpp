@@ -65,7 +65,7 @@ void clinit$IBM970$EncodeHolder($Class* class$) {
 	$assignStatic(IBM970$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
 		$var($String, b2cNR, nullptr);
-		$var($String, c2bNR, u"\ua1a4\u00b7\ua1a9\u00ad\ua1aa\u2015\ua1ad\u223c\ua2a6\uff5e\ua2c1\u2299\ua3dc\u20a9"_s);
+		$var($String, c2bNR, u"ꆤ·ꆩ\u00adꆪ―ꆭ∼ꊦ～ꋁ⊙ꏜ₩"_s);
 		$init($IBM970$DecodeHolder);
 		$DoubleByte$Encoder::initC2B($IBM970$DecodeHolder::b2cStr, $IBM970$DecodeHolder::b2cSBStr, b2cNR, c2bNR, 161, 254, IBM970$EncodeHolder::c2b, IBM970$EncodeHolder::c2bIndex);
 	}

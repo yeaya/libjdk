@@ -211,7 +211,7 @@ void Http1Response$BodyReader::handle($ByteBuffer* b, $ResponseContent$BodyParse
 		if ($nc(this->this$0->debug)->on()) {
 			$var($String, var$1, $$str({"Sending "_s, $$str($nc(b)->remaining()), "/"_s}));
 			$var($String, var$0, $$concat(var$1, $$str(b->capacity())));
-			$nc(this->this$0->debug)->log($$concat(var$0, " bytes to body parser"));
+			$nc(this->this$0->debug)->log($$concat(var$0, " bytes to body parser"_s));
 		}
 		$nc(parser)->accept(b);
 	} catch ($Throwable& t) {

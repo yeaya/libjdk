@@ -500,7 +500,7 @@ void Package::saveArtifacts($StringBuilder* b) {
 			{
 				$var($String, var$1, $$str({"A "_s, $($nc(f)->getPath()), " "_s}));
 				$var($String, var$0, $$concat(var$1, $$str(f->lastModified())));
-				$nc(b)->append($$concat(var$0, "\n"));
+				$nc(b)->append($$concat(var$0, "\n"_s));
 			}
 		}
 	}

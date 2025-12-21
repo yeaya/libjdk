@@ -371,7 +371,7 @@ void TabularDataSupport::checkValueType($CompositeData* value) {
 	if (!$nc($($nc(this->tabularType)->getRowType()))->isValue(value)) {
 		$var($String, var$1, $$str({"Argument value\'s composite type ["_s, $($nc(value)->getCompositeType()), "] is not assignable to this TabularData instance\'s row type ["_s}));
 		$var($String, var$0, $$concat(var$1, $($nc(this->tabularType)->getRowType())));
-		$throwNew($InvalidOpenTypeException, $$concat(var$0, "]."));
+		$throwNew($InvalidOpenTypeException, $$concat(var$0, "]."_s));
 	}
 }
 

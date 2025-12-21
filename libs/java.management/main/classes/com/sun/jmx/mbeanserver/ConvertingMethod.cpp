@@ -113,7 +113,7 @@ ConvertingMethod* ConvertingMethod::from($Method* m) {
 	} catch ($OpenDataException& ode) {
 		$var($String, var$1, $$str({"Method "_s, $($nc($nc(m)->getDeclaringClass())->getName()), "."_s}));
 		$var($String, var$0, $$concat(var$1, $(m->getName())));
-		$var($String, msg, $concat(var$0, " has parameter or return type that cannot be translated into an open type"));
+		$var($String, msg, $concat(var$0, " has parameter or return type that cannot be translated into an open type"_s));
 		$throwNew($IllegalArgumentException, msg, ode);
 	}
 	$shouldNotReachHere();

@@ -290,17 +290,17 @@ $String* MBeanInfo::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$11, $$str({$($of(this)->getClass()->getName()), "[description="_s}));
 	$var($String, var$10, $$concat(var$11, $(getDescription())));
-	$var($String, var$9, $$concat(var$10, ", attributes="));
+	$var($String, var$9, $$concat(var$10, ", attributes="_s));
 	$var($String, var$8, $$concat(var$9, $($Arrays::asList($(fastGetAttributes())))));
-	$var($String, var$7, $$concat(var$8, ", constructors="));
+	$var($String, var$7, $$concat(var$8, ", constructors="_s));
 	$var($String, var$6, $$concat(var$7, $($Arrays::asList($(fastGetConstructors())))));
-	$var($String, var$5, $$concat(var$6, ", operations="));
+	$var($String, var$5, $$concat(var$6, ", operations="_s));
 	$var($String, var$4, $$concat(var$5, $($Arrays::asList($(fastGetOperations())))));
-	$var($String, var$3, $$concat(var$4, ", notifications="));
+	$var($String, var$3, $$concat(var$4, ", notifications="_s));
 	$var($String, var$2, $$concat(var$3, $($Arrays::asList($(fastGetNotifications())))));
-	$var($String, var$1, $$concat(var$2, ", descriptor="));
+	$var($String, var$1, $$concat(var$2, ", descriptor="_s));
 	$var($String, var$0, $$concat(var$1, $(getDescriptor())));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 bool MBeanInfo::equals(Object$* o) {

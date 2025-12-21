@@ -41,11 +41,11 @@ $ObjectArray2* jar_it::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("error.bad.cflag"_s),
-			$of(u"Per il flag \'c\' \u00e8 necessario specificare file manifest o di input."_s)
+			$of(u"Per il flag \'c\' è necessario specificare file manifest o di input."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.dflag"_s),
-			$of(u"Per l\'opzione \'-d, --describe-module\' non \u00e8 necessario specificare alcun file di input"_s)
+			$of(u"Per l\'opzione \'-d, --describe-module\' non è necessario specificare alcun file di input"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.eflag"_s),
@@ -57,7 +57,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.option"_s),
-			$of(u"\u00c8 necessario specificare una delle opzioni -{ctxuid}."_s)
+			$of(u"È necessario specificare una delle opzioni -{ctxuid}."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.reason"_s),
@@ -65,7 +65,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.uflag"_s),
-			$of(u"Per il flag \'u\' \u00e8 necessario specificare il flag \'e\' oppure file manifest o di input."_s)
+			$of(u"Per il flag \'u\' è necessario specificare il flag \'e\' oppure file manifest o di input."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.cant.open"_s),
@@ -113,7 +113,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.multiple.main.operations"_s),
-			$of(u"Impossibile specificare pi\u00f9 di un\'opzione \'-cuxtid\'"_s)
+			$of(u"Impossibile specificare più di un\'opzione \'-cuxtid\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.no.operative.descriptor"_s),
@@ -137,7 +137,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.release.value.toosmall"_s),
-			$of(u"la release {0} non \u00e8 valida: deve essere >= 9"_s)
+			$of(u"la release {0} non è valida: deve essere >= 9"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.unable.derive.automodule"_s),
@@ -161,7 +161,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.entryname.tooshort"_s),
-			$of(u"nome di voce {0} troppo breve. Non \u00e8 una directory"_s)
+			$of(u"nome di voce {0} troppo breve. Non è una directory"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.incompatible.class.version"_s),
@@ -205,7 +205,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.isolated.nested.class"_s),
-			$of(u"la voce {0} \u00e8 una classe nidificata isolata"_s)
+			$of(u"la voce {0} è una classe nidificata isolata"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.jarfile.exception"_s),
@@ -213,7 +213,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.jarfile.invalid"_s),
-			$of(u"file jar {0} con pi\u00f9 release non valido eliminato"_s)
+			$of(u"file jar {0} con più release non valido eliminato"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.names.mismatch"_s),
@@ -233,7 +233,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.any"_s),
-			$of(u" Modificatori di funzionamento validi in qualsiasi modalit\u00e0:\n\n  -C DIR                     Passa alla directory specificata e include il\n                              file seguente"_s)
+			$of(u" Modificatori di funzionamento validi in qualsiasi modalità:\n\n  -C DIR                     Passa alla directory specificata e include il\n                              file seguente"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.any.file"_s),
@@ -245,7 +245,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create"_s),
-			$of(u" Modificatori di funzionamento validi solo nella modalit\u00e0 di creazione:\n"_s)
+			$of(u" Modificatori di funzionamento validi solo nella modalità di creazione:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.normalize"_s),
@@ -253,7 +253,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update"_s),
-			$of(u" Modificatori di funzionamento validi solo nella modalit\u00e0 di creazione e aggiornamento:\n"_s)
+			$of(u" Modificatori di funzionamento validi solo nella modalità di creazione e aggiornamento:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.do-not-resolve-by-default"_s),
@@ -265,7 +265,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.index"_s),
-			$of(u" Modificatori di funzionamento validi solo nella modalit\u00e0 di creazione, aggiornamento e di generazione dell\'indice:\n"_s)
+			$of(u" Modificatori di funzionamento validi solo nella modalità di creazione, aggiornamento e di generazione dell\'indice:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.index.no-compress"_s),
@@ -293,11 +293,11 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.warn-if-resolved"_s),
-			$of(u"      --warn-if-resolved     Suggerimento per uno strumento per l\'emissione di un\'avvertenza se il modulo\n                             viene risolto. Pu\u00f2 essere deprecated, deprecated-for-removal\n                             o incubating"_s)
+			$of(u"      --warn-if-resolved     Suggerimento per uno strumento per l\'emissione di un\'avvertenza se il modulo\n                             viene risolto. Può essere deprecated, deprecated-for-removal\n                             o incubating"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main"_s),
-			$of(u" Modalit\u00e0 di funzionamento principale:\n"_s)
+			$of(u" Modalità di funzionamento principale:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main.create"_s),
@@ -329,7 +329,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.other.help"_s),
-			$of(u"  -h, --help[:compat]        Fornisce questa Guida o facoltativamente la Guida sulla compatibilit\u00e0"_s)
+			$of(u"  -h, --help[:compat]        Fornisce questa Guida o facoltativamente la Guida sulla compatibilità"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.other.help-extra"_s),
@@ -341,12 +341,12 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.postopt"_s),
-			$of(u" Un archivio \u00e8 un file jar modulare se un descrittore di modulo, \'module-info.class\', si trova\n nella directory radice delle directory specificate o nella radice dell\'archivio jar\n stesso. Le operazioni seguenti sono valide solo durante la creazione di un file jar modulare\n o l\'aggiornamento di un file jar non modulare esistente: \'--module-version\',\n \'--hash-modules\' e \'--module-path\'.\n\n Gli argomenti obbligatori o facoltativi per le opzioni lunghe sono obbligatori\n  o facoltativi anche per le opzioni brevi corrispondenti."_s)
+			$of(u" Un archivio è un file jar modulare se un descrittore di modulo, \'module-info.class\', si trova\n nella directory radice delle directory specificate o nella radice dell\'archivio jar\n stesso. Le operazioni seguenti sono valide solo durante la creazione di un file jar modulare\n o l\'aggiornamento di un file jar non modulare esistente: \'--module-version\',\n \'--hash-modules\' e \'--module-path\'.\n\n Gli argomenti obbligatori o facoltativi per le opzioni lunghe sono obbligatori\n  o facoltativi anche per le opzioni brevi corrispondenti."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.preopt"_s),
-			$of(u"Uso: jar [OPTION...] [ [--release VERSION] [-C dir] file] ...\nIl file jar crea un archivio per le classi e le risorse e pu\u00f2 manipolare o\nripristinare le singole classi o risorse da un archivio.\n\n Esempi:\n # Crea un archivio denominato classes.jar con due file di classe:\n jar --create --file classes.jar Foo.class Bar.class\n # Crea un archivio mediante un file manifest esistente, con tutti i file in foo/:\n jar --create --file classes.jar --manifest mymanifest -C foo/ .\n # Crea un archivio jar modulare, in cui il descrittore di modulo si trova in\n # classes/module-info.class:\n jar --create --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ classes resources\n # Aggiorna un file jar non modulare esistente in un file jar modulare:\n jar --update --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ module-info.class\n # Crea un file jar per pi\u00f9 release, posizionando alcuni file nella directory META-INF/versions/9:\n jar --create --file mr.jar -C foo classes --release 9 -C f"
-				"oo9 classes\n\nPer abbreviare o semplificare il comando jar, \u00e8 possibile specificare gli argomenti in un file\ndi testo distinto e passarlo al comando jar con il segno @ come prefisso.\n\n Esempi:\n # Legge le opzioni aggiuntive e la lista di file di classe dal file classes.list\n jar --create --file my.jar @classes.list\n"_s)
+			$of(u"Uso: jar [OPTION...] [ [--release VERSION] [-C dir] file] ...\nIl file jar crea un archivio per le classi e le risorse e può manipolare o\nripristinare le singole classi o risorse da un archivio.\n\n Esempi:\n # Crea un archivio denominato classes.jar con due file di classe:\n jar --create --file classes.jar Foo.class Bar.class\n # Crea un archivio mediante un file manifest esistente, con tutti i file in foo/:\n jar --create --file classes.jar --manifest mymanifest -C foo/ .\n # Crea un archivio jar modulare, in cui il descrittore di modulo si trova in\n # classes/module-info.class:\n jar --create --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ classes resources\n # Aggiorna un file jar non modulare esistente in un file jar modulare:\n jar --update --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ module-info.class\n # Crea un file jar per più release, posizionando alcuni file nella directory META-INF/versions/9:\n jar --create --file mr.jar -C foo classes --release 9 -C f"
+				"oo9 classes\n\nPer abbreviare o semplificare il comando jar, è possibile specificare gli argomenti in un file\ndi testo distinto e passarlo al comando jar con il segno @ come prefisso.\n\n Esempi:\n # Legge le opzioni aggiuntive e la lista di file di classe dal file classes.list\n jar --create --file my.jar @classes.list\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.usage.summary"_s),
@@ -386,7 +386,7 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("out.ignore.entry"_s),
-			$of(u"la voce {0} sar\u00e0 ignorata"_s)
+			$of(u"la voce {0} sarà ignorata"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.inflated"_s),
@@ -410,8 +410,8 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("usage.compat"_s),
-			$of(u"Interfaccia di compatibilit\u00e0:\nUso: jar {ctxui}[vfmn0PMe] [file-jar] [file-manifest] [punto di ingresso] [-C dir] file] ...\nOpzioni:\n    -c  crea un nuovo archivio\n    -t  visualizza l\'indice dell\'archivio\n    -x  estrae i file con nome (o tutti i file) dall\'archivio\n    -u  aggiorna l\'archivio esistente\n    -v  genera output commentato dall\'output standard\n    -f  specifica il nome file dell\'archivio\n    -m  include informazioni manifest dal file manifest specificato\n    -n  esegue la normalizzazione Pack200 dopo la creazione di un nuovo archivio\n    -e  specifica il punto di ingresso per l\'applicazione stand-alone \n        inclusa nel file jar eseguibile\n    -0  solo memorizzazione; senza compressione ZIP\n    -P  conserva i componenti iniziali \'/\' (percorso assoluto) e \\\"..\\\" (directory padre) dai nomi file\n    -M  consente di non creare un file manifest per le voci\n    -i  genera informazioni sull\'indice per i file jar specificati\n    -C  imposta la directory specificata e include il file seguente\nSe un fil"
-				"e \u00e8 una directory, verr\u00e0 elaborato in modo ricorsivo.\nIl nome del file manifest, del file di archivio e del punto di ingresso devono\nessere specificati nello stesso ordine dei flag \'m\', \'f\' ed \'e\'.\n\nEsempio 1: archiviazione di due file di classe in un archivio con il nome classes.jar: \n       jar cvf classes.jar Foo.class Bar.class \nEsempio 2: utilizzo del file manifest esistente \'mymanifest\' e archiviazione di tutti i\n           file della directory foo/ in \'classes.jar\': \n       jar cvfm classes.jar mymanifest -C foo/ .\n"_s)
+			$of(u"Interfaccia di compatibilità:\nUso: jar {ctxui}[vfmn0PMe] [file-jar] [file-manifest] [punto di ingresso] [-C dir] file] ...\nOpzioni:\n    -c  crea un nuovo archivio\n    -t  visualizza l\'indice dell\'archivio\n    -x  estrae i file con nome (o tutti i file) dall\'archivio\n    -u  aggiorna l\'archivio esistente\n    -v  genera output commentato dall\'output standard\n    -f  specifica il nome file dell\'archivio\n    -m  include informazioni manifest dal file manifest specificato\n    -n  esegue la normalizzazione Pack200 dopo la creazione di un nuovo archivio\n    -e  specifica il punto di ingresso per l\'applicazione stand-alone \n        inclusa nel file jar eseguibile\n    -0  solo memorizzazione; senza compressione ZIP\n    -P  conserva i componenti iniziali \'/\' (percorso assoluto) e \\\"..\\\" (directory padre) dai nomi file\n    -M  consente di non creare un file manifest per le voci\n    -i  genera informazioni sull\'indice per i file jar specificati\n    -C  imposta la directory specificata e include il file seguente\nSe un fil"
+				"e è una directory, verrà elaborato in modo ricorsivo.\nIl nome del file manifest, del file di archivio e del punto di ingresso devono\nessere specificati nello stesso ordine dei flag \'m\', \'f\' ed \'e\'.\n\nEsempio 1: archiviazione di due file di classe in un archivio con il nome classes.jar: \n       jar cvf classes.jar Foo.class Bar.class \nEsempio 2: utilizzo del file manifest esistente \'mymanifest\' e archiviazione di tutti i\n           file della directory foo/ in \'classes.jar\': \n       jar cvfm classes.jar mymanifest -C foo/ .\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warn.release.unexpected.versioned.entry"_s),
@@ -419,15 +419,15 @@ $ObjectArray2* jar_it::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("warn.validator.concealed.public.class"_s),
-			$of(u"Avvertenza: la voce {0} \u00e8 una classe pubblica\nin un package nascosto. Il posizionamento di questo file jar nel classpath\ngenerer\u00e0 interfacce pubbliche incompatibili"_s)
+			$of(u"Avvertenza: la voce {0} è una classe pubblica\nin un package nascosto. Il posizionamento di questo file jar nel classpath\ngenererà interfacce pubbliche incompatibili"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warn.validator.identical.entry"_s),
-			$of(u"Avvertenza: la voce {0} contiene una classe\nidentica a una voce gi\u00e0 presente nel file jar"_s)
+			$of(u"Avvertenza: la voce {0} contiene una classe\nidentica a una voce già presente nel file jar"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warn.validator.resources.with.same.name"_s),
-			$of(u"Avvertenza: voce {0}. Pi\u00f9 risorse con lo stesso nome"_s)
+			$of(u"Avvertenza: voce {0}. Più risorse con lo stesso nome"_s)
 		})
 	});
 }

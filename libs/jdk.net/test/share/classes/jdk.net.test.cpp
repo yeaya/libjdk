@@ -82,6 +82,7 @@
 #include <Child.h>
 #include <Concurrent.h>
 #include <Connect.h>
+#include <Connect4URLConnection.h>
 #include <Constructor.h>
 #include <Constructor$Entry.h>
 #include <CookieNegativeMaxAge.h>
@@ -509,6 +510,7 @@
 	$classEntry("Child", ::Child),
 	$classEntry("Concurrent", ::Concurrent),
 	$classEntry("Connect", ::Connect),
+	$classEntry("Connect4URLConnection", ::Connect4URLConnection),
 	$classEntry("Constructor", ::Constructor),
 	$classEntry("Constructor$Entry", ::Constructor$Entry),
 	$classEntry("CookieNegativeMaxAge", ::CookieNegativeMaxAge),

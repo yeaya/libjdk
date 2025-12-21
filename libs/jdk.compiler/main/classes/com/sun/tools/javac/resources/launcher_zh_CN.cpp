@@ -42,63 +42,63 @@ $ObjectArray2* launcher_zh_CN::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("launcher.err.cant.access.main.method"_s),
-			$of(u"\u65e0\u6cd5\u8bbf\u95ee\u7c7b {0} \u4e2d\u7684 main \u65b9\u6cd5"_s)
+			$of(u"无法访问类 {0} 中的 main 方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.cant.find.class"_s),
-			$of(u"\u627e\u4e0d\u5230\u7c7b\uff1a{0}"_s)
+			$of(u"找不到类：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.cant.find.main.method"_s),
-			$of(u"\u5728\u7c7b {0} \u4e2d\u627e\u4e0d\u5230 main(String[]) \u65b9\u6cd5"_s)
+			$of(u"在类 {0} 中找不到 main(String[]) 方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.cant.read.file"_s),
-			$of(u"\u8bfb\u53d6\u6e90\u6587\u4ef6 {0} \u65f6\u51fa\u9519\uff1a{1}"_s)
+			$of(u"读取源文件 {0} 时出错：{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.compilation.failed"_s),
-			$of(u"\u7f16\u8bd1\u5931\u8d25"_s)
+			$of(u"编译失败"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.enable.preview.requires.source"_s),
-			$of(u"--enable-preview \u5fc5\u987b\u4e0e --source \u4e00\u8d77\u4f7f\u7528"_s)
+			$of(u"--enable-preview 必须与 --source 一起使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.file.not.found"_s),
-			$of(u"\u627e\u4e0d\u5230\u6e90\u6587\u4ef6\uff1a{0}"_s)
+			$of(u"找不到源文件：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.invalid.filename"_s),
-			$of(u"\u6e90\u6587\u4ef6\u7684\u8def\u5f84\u65e0\u6548\uff1a{0}"_s)
+			$of(u"源文件的路径无效：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.invalid.value.for.source"_s),
-			$of(u"--source \u9009\u9879\u7684\u503c\u65e0\u6548\uff1a{0}\n"_s)
+			$of(u"--source 选项的值无效：{0}\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.main.not.public.static"_s),
-			$of(u"\'\'main\'\' \u65b9\u6cd5\u672a\u58f0\u660e \'\'public static\'\'"_s)
+			$of(u"\'\'main\'\' 方法未声明 \'\'public static\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.main.not.void"_s),
-			$of(u"\u672a\u4f7f\u7528\u8fd4\u56de\u7c7b\u578b \'\'void\'\' \u58f0\u660e \'\'main\'\' \u65b9\u6cd5"_s)
+			$of(u"未使用返回类型 \'\'void\'\' 声明 \'\'main\'\' 方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.no.args"_s),
-			$of(u"\u65e0\u6e90\u6587\u4ef6\u7684\u8def\u5f84"_s)
+			$of(u"无源文件的路径"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.no.class"_s),
-			$of(u"\u5728\u6e90\u6587\u4ef6\u4e2d\u672a\u58f0\u660e\u7c7b"_s)
+			$of(u"在源文件中未声明类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.err.no.value.for.option"_s),
-			$of(u"\u6ca1\u6709\u4e3a\u9009\u9879 {0} \u6307\u5b9a\u503c"_s)
+			$of(u"没有为选项 {0} 指定值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("launcher.error"_s),
-			$of(u"\u9519\u8bef: "_s)
+			$of(u"错误: "_s)
 		})
 	});
 }

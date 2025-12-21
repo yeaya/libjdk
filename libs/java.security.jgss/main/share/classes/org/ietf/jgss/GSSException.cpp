@@ -171,7 +171,7 @@ $String* GSSException::getMessage() {
 	}
 	$var($String, var$1, $$str({$(getMajorString()), " (Mechanism level: "_s}));
 	$var($String, var$0, $$concat(var$1, $(getMinorString())));
-	return ($concat(var$0, ")"));
+	return ($concat(var$0, ")"_s));
 }
 
 bool GSSException::validateMajor(int32_t major) {

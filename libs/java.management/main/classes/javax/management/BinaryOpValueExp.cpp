@@ -194,7 +194,7 @@ $String* BinaryOpValueExp::toString() {
 	try {
 		$var($String, var$2, $$str({$(parens(this->exp1, true)), " "_s}));
 		$var($String, var$1, $$concat(var$2, $(opString())));
-		$var($String, var$0, $$concat(var$1, " "));
+		$var($String, var$0, $$concat(var$1, " "_s));
 		return $concat(var$0, $(parens(this->exp2, false)));
 	} catch ($BadBinaryOpValueExpException& ex) {
 		return "invalid expression"_s;

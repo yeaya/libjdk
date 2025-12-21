@@ -1186,7 +1186,7 @@ void RequiredModelMBean::setAttribute($Attribute* attribute) {
 					if (!$nc(clazz)->isInstance(attrValue)) {
 						$var($String, var$1, $$str({$(clazz->getName()), " expected, "_s}));
 						$var($String, var$0, $$concat(var$1, $($of(attrValue)->getClass()->getName())));
-						$throwNew($InvalidAttributeValueException, $$concat(var$0, " received."));
+						$throwNew($InvalidAttributeValueException, $$concat(var$0, " received."_s));
 					}
 				} catch ($ClassNotFoundException& x) {
 					if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
@@ -1413,9 +1413,9 @@ void RequiredModelMBean::sendNotification($Notification* ntfyObj) {
 				try {
 					$var($String, var$6, $$str({"LogMsg: "_s, ($(($$new($Date, $nc(ntfyObj)->getTimeStamp()))->toString())), " "_s}));
 					$var($String, var$5, $$concat(var$6, $($nc(ntfyObj)->getType())));
-					$var($String, var$4, $$concat(var$5, " "));
+					$var($String, var$4, $$concat(var$5, " "_s));
 					$var($String, var$3, $$concat(var$4, $(ntfyObj->getMessage())));
-					$var($String, var$2, $$concat(var$3, " Severity = "));
+					$var($String, var$2, $$concat(var$3, " Severity = "_s));
 					writeToLog(logfile, $$concat(var$2, $cast($String, $(ntfyDesc->getFieldValue("severity"_s)))));
 				} catch ($Exception& e) {
 					if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
@@ -1655,13 +1655,13 @@ void RequiredModelMBean::sendAttributeChangeNotification($AttributeChangeNotific
 				try {
 					$var($String, var$13, $$str({"LogMsg: "_s, ($(($$new($Date, ntfyObj->getTimeStamp()))->toString())), " "_s}));
 					$var($String, var$12, $$concat(var$13, $(ntfyObj->getType())));
-					$var($String, var$11, $$concat(var$12, " "));
+					$var($String, var$11, $$concat(var$12, " "_s));
 					$var($String, var$10, $$concat(var$11, $(ntfyObj->getMessage())));
-					$var($String, var$9, $$concat(var$10, " Name = "));
+					$var($String, var$9, $$concat(var$10, " Name = "_s));
 					$var($String, var$8, $$concat(var$9, $(ntfyObj->getAttributeName())));
-					$var($String, var$7, $$concat(var$8, " Old value = "));
+					$var($String, var$7, $$concat(var$8, " Old value = "_s));
 					$var($String, var$6, $$concat(var$7, $(oldv)));
-					$var($String, var$5, $$concat(var$6, " New value = "));
+					$var($String, var$5, $$concat(var$6, " New value = "_s));
 					writeToLog(logfile, $$concat(var$5, $(newv)));
 				} catch ($Exception& e) {
 					if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
@@ -1683,13 +1683,13 @@ void RequiredModelMBean::sendAttributeChangeNotification($AttributeChangeNotific
 				try {
 					$var($String, var$24, $$str({"LogMsg: "_s, ($(($$new($Date, ntfyObj->getTimeStamp()))->toString())), " "_s}));
 					$var($String, var$23, $$concat(var$24, $(ntfyObj->getType())));
-					$var($String, var$22, $$concat(var$23, " "));
+					$var($String, var$22, $$concat(var$23, " "_s));
 					$var($String, var$21, $$concat(var$22, $(ntfyObj->getMessage())));
-					$var($String, var$20, $$concat(var$21, " Name = "));
+					$var($String, var$20, $$concat(var$21, " Name = "_s));
 					$var($String, var$19, $$concat(var$20, $(ntfyObj->getAttributeName())));
-					$var($String, var$18, $$concat(var$19, " Old value = "));
+					$var($String, var$18, $$concat(var$19, " Old value = "_s));
 					$var($String, var$17, $$concat(var$18, $(oldv)));
-					$var($String, var$16, $$concat(var$17, " New value = "));
+					$var($String, var$16, $$concat(var$17, " New value = "_s));
 					writeToLog(logfile, $$concat(var$16, $(newv)));
 				} catch ($Exception& e) {
 					if ($nc($JmxProperties::MODELMBEAN_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {

@@ -737,7 +737,7 @@ $String* JavadocHelper$OnDemandJavadocHelper::elementSignature($Element* el) {
 			{
 				$var($String, var$2, $$str({$(elementSignature($(el->getEnclosingElement()))), "."_s}));
 				$var($String, var$1, $$concat(var$2, $(el->getSimpleName())));
-				$var($String, var$0, $$concat(var$1, ":"));
+				$var($String, var$0, $$concat(var$1, ":"_s));
 				return $concat(var$0, $(el->asType()));
 			}
 		case 6:

@@ -155,7 +155,7 @@ $String* SimpleType::toString() {
 	if (this->myToString == nullptr) {
 		$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "(name="_s}));
 		$var($String, var$0, $$concat(var$1, $(getTypeName())));
-		$set(this, myToString, $concat(var$0, ")"));
+		$set(this, myToString, $concat(var$0, ")"_s));
 	}
 	return this->myToString;
 }

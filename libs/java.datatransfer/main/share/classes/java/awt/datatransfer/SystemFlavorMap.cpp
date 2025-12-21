@@ -558,7 +558,7 @@ $LinkedHashSet* SystemFlavorMap::nativeToFlavorLookup($String* nat) {
 		} catch ($Exception& e) {
 			$var($String, var$2, $$str({"Exception \""_s, $($of(e)->getClass()->getName()), ": "_s}));
 			$var($String, var$1, $$concat(var$2, $(e->getMessage())));
-			$var($String, var$0, $$concat(var$1, "\"while constructing DataFlavor for: "));
+			$var($String, var$0, $$concat(var$1, "\"while constructing DataFlavor for: "_s));
 			$nc($System::err)->println($$concat(var$0, decoded));
 		}
 		if (flavor != nullptr) {

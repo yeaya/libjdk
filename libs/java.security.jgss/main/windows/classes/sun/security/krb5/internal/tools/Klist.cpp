@@ -381,9 +381,9 @@ $String* Klist::format($KerberosTime* kt) {
 	$var($String, date, $nc($($nc(kt)->toDate()))->toString());
 	$var($String, var$4, $$str({$($nc(date)->substring(4, 7)), " "_s}));
 	$var($String, var$3, $$concat(var$4, $(date->substring(8, 10))));
-	$var($String, var$2, $$concat(var$3, ", "));
+	$var($String, var$2, $$concat(var$3, ", "_s));
 	$var($String, var$1, $$concat(var$2, $(date->substring(24))));
-	$var($String, var$0, $$concat(var$1, " "));
+	$var($String, var$0, $$concat(var$1, " "_s));
 	return ($concat(var$0, $(date->substring(11, 19))));
 }
 

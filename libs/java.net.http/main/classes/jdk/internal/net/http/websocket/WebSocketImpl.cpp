@@ -722,7 +722,7 @@ $String* WebSocketImpl::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($WebSocket::toString()), "[uri="_s, this->uri}));
 	$var($String, var$0, $$concat(var$1, (!$nc(this->subprotocol)->isEmpty() ? $$str({", subprotocol="_s, this->subprotocol}) : ""_s)));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 void WebSocketImpl::sendCloseSilently(int32_t statusCode) {

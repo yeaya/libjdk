@@ -282,7 +282,7 @@ $String* ThreadInfo::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({"\""_s, $(getThreadName()), "\""_s, (this->daemon ? " daemon"_s : ""_s), " prio="_s, $$str(this->priority), " Id="_s}));
 	$var($String, var$1, $$concat(var$2, $$str(getThreadId())));
-	$var($String, var$0, $$concat(var$1, " "));
+	$var($String, var$0, $$concat(var$1, " "_s));
 	$var($StringBuilder, sb, $new($StringBuilder, $$concat(var$0, $(getThreadState()))));
 	if (getLockName() != nullptr) {
 		sb->append($$str({" on "_s, $(getLockName())}));

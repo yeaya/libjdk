@@ -64,8 +64,8 @@ void clinit$JIS_X_0208_MS932$EncodeHolder($Class* class$) {
 	$assignStatic(JIS_X_0208_MS932$EncodeHolder::c2b, $new($chars, 25344));
 	$assignStatic(JIS_X_0208_MS932$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
-		$var($String, b2cNR, u"\u224c\uffe2\u225d\u22a5\u2265\u221a\u2269\u222b\u2d70\u2252\u2d71\u2261\u2d77\u2220\u2d7a\u2235\u2d7b\u2229\u2d7c\u222a"_s);
-		$var($String, c2bNR, u"\u2124\u00b8\u2126\u00b7\u2131\u00af\u2263\u00ab\u2264\u00bb\u2574\u3094\u264c\u00b5"_s);
+		$var($String, b2cNR, u"≌￢≝⊥≥√≩∫⵰≒\u2d71≡\u2d77∠\u2d7a∵\u2d7b∩\u2d7c∪"_s);
+		$var($String, c2bNR, u"ℤ¸Ω·ℱ¯≣«≤»╴ゔ♌µ"_s);
 		$init($JIS_X_0208_MS932$DecodeHolder);
 		$DoubleByte$Encoder::initC2B($JIS_X_0208_MS932$DecodeHolder::b2cStr, $JIS_X_0208_MS932$DecodeHolder::b2cSBStr, b2cNR, c2bNR, 33, 126, JIS_X_0208_MS932$EncodeHolder::c2b, JIS_X_0208_MS932$EncodeHolder::c2bIndex);
 	}

@@ -41,39 +41,39 @@ $ObjectArray2* logging_ko::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("ALL"_s),
-			$of(u"\ubaa8\ub450"_s)
+			$of(u"모두"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("CONFIG"_s),
-			$of(u"\uad6c\uc131"_s)
+			$of(u"구성"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINE"_s),
-			$of(u"\ubbf8\uc138"_s)
+			$of(u"미세"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINER"_s),
-			$of(u"\ubcf4\ub2e4 \ubbf8\uc138"_s)
+			$of(u"보다 미세"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINEST"_s),
-			$of(u"\uac00\uc7a5 \ubbf8\uc138"_s)
+			$of(u"가장 미세"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("INFO"_s),
-			$of(u"\uc815\ubcf4"_s)
+			$of(u"정보"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("OFF"_s),
-			$of(u"\ud574\uc81c"_s)
+			$of(u"해제"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SEVERE"_s),
-			$of(u"\uc2ec\uac01"_s)
+			$of(u"심각"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("WARNING"_s),
-			$of(u"\uacbd\uace0"_s)
+			$of(u"경고"_s)
 		})
 	});
 }

@@ -220,7 +220,7 @@ $String* RichDiagnosticFormatter$RichPrinter::visitMethodSymbol($Symbol$MethodSy
 			$var($String, var$1, "("_s);
 			$var($List, var$2, $nc(s->type)->getParameterTypes());
 			$var($String, var$0, $$concat(var$1, $(printMethodArgs(var$2, ((int64_t)(s->flags() & (uint64_t)(int64_t)0x0000000400000000)) != 0, locale))));
-			$plusAssign(ms, $$concat(var$0, ")"));
+			$plusAssign(ms, $$concat(var$0, ")"_s));
 		}
 		return ms;
 	}

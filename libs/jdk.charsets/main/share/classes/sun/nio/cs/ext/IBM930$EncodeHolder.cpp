@@ -65,7 +65,7 @@ void clinit$IBM930$EncodeHolder($Class* class$) {
 	$assignStatic(IBM930$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
 		$var($String, b2cNR, "%\n"_s);
-		$var($String, c2bNR, u"\u0015\u0085\u54d4\u6be1\u5550\u6d00\u52ec\u70ff\u53e8\u841d\u52a1\u841f\u446e\u8f91\u547d\u92ca\u53da\u9b7e\u446e\uf86f\u4260\uff0d\u426a\u00a6\u43a1\u301c\u444a\u2014\u447c\u2016\u4c7d\u9e7c\u4eb3\u9830\u4f5e\u5861\u507f\u91ac\u5190\u56ca\u51f1\u6805\u51fa\u91b1\u5261\u9eb4\u52a1\u881f\u52c9\u840a\u52da\u7e61\u52ec\u4fe0\u5353\u8ec0\u5373\u7e6b\u53da\u9a52\u53e8\u87ec\u53ee\u7130\u53f8\u8523\u5443\u5c5b\u5464\u9dd7\u547d\u5699\u5481\u525d\u54a3\u6414\u54a4\u7626\u54ca\u7c1e\u54cd\u6451\u54d4\u555e\u54fa\u6f51\u5550\u7006\u5553\u79b1\u555f\u9eb5\u55c0\u5c62\u55c1\u985a\u5b72\u6522\u5bfe\u688e\u60f1\u7e48\u61b0\u8141\u66c8\u9839"_s);
+		$var($String, c2bNR, u"\u0015\u0085哔毡啐洀勬烿叨萝务萟䑮辑命鋊叚魾䑮\uf86f䉠－䉪¦䎡〜䑊—䑼‖䱽鹼亳頰佞塡偿醬冐囊凱栅出醱剡麴务蠟勉萊勚繡勬俠卓軀即繫叚驒叨蟬叮焰司蔣呃屛呤鷗命嚙咁剝咣搔咤瘦哊簞响摑哔啞哺潑啐瀆啓禱啟麵嗀屢嗁顚孲攢対梎惱繈憰腁曈頹"_s);
 		$init($IBM930$DecodeHolder);
 		$DoubleByte$Encoder::initC2B($IBM930$DecodeHolder::b2cStr, $IBM930$DecodeHolder::b2cSBStr, b2cNR, c2bNR, 64, 254, IBM930$EncodeHolder::c2b, IBM930$EncodeHolder::c2bIndex);
 	}

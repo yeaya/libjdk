@@ -470,7 +470,7 @@ void UnicastRef::logClientCall(Object$* obj, Object$* method) {
 	$var($String, var$3, $$str({"outbound call: "_s, this->ref, " : "_s}));
 	$var($String, var$2, $$concat(var$3, $($nc($of(obj))->getClass()->getName())));
 	$var($String, var$1, $$concat(var$2, $($nc($($nc(this->ref)->getObjID()))->toString())));
-	$var($String, var$0, $$concat(var$1, ": "));
+	$var($String, var$0, $$concat(var$1, ": "_s));
 	$nc(UnicastRef::clientCallLog)->log($Log::VERBOSE, $$concat(var$0, $(method)));
 }
 

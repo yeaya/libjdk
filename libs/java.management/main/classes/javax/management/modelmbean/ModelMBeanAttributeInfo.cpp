@@ -208,13 +208,13 @@ $String* ModelMBeanAttributeInfo::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$8, $$str({"ModelMBeanAttributeInfo: "_s, $(this->getName()), " ; Description: "_s}));
 	$var($String, var$7, $$concat(var$8, $(this->getDescription())));
-	$var($String, var$6, $$concat(var$7, " ; Types: "));
+	$var($String, var$6, $$concat(var$7, " ; Types: "_s));
 	$var($String, var$5, $$concat(var$6, $(this->getType())));
-	$var($String, var$4, $$concat(var$5, " ; isReadable: "));
+	$var($String, var$4, $$concat(var$5, " ; isReadable: "_s));
 	$var($String, var$3, $$concat(var$4, $$str(this->isReadable())));
-	$var($String, var$2, $$concat(var$3, " ; isWritable: "));
+	$var($String, var$2, $$concat(var$3, " ; isWritable: "_s));
 	$var($String, var$1, $$concat(var$2, $$str(this->isWritable())));
-	$var($String, var$0, $$concat(var$1, " ; Descriptor: "));
+	$var($String, var$0, $$concat(var$1, " ; Descriptor: "_s));
 	return $concat(var$0, $(this->getDescriptor()));
 }
 

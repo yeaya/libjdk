@@ -218,7 +218,7 @@ void SSLFlowDelegate$Writer::incoming($List* buffers, bool complete) {
 	if ($nc(this->debugw)->on()) {
 		$var($String, var$1, $$str({"added "_s, $$str($nc(buffers)->size()), " ("_s}));
 		$var($String, var$0, $$concat(var$1, $$str($Utils::remaining(buffers))));
-		$nc(this->debugw)->log($$concat(var$0, " bytes) to the writeList"));
+		$nc(this->debugw)->log($$concat(var$0, " bytes) to the writeList"_s));
 	}
 	$nc(this->scheduler)->runOrSchedule();
 }
@@ -296,7 +296,7 @@ void SSLFlowDelegate$Writer::processData() {
 		if ($nc(this->debugw)->on()) {
 			$var($String, var$2, $$str({"processData, writeList remaining:"_s, $$str($Utils::synchronizedRemaining(this->writeList)), ", hsTriggered:"_s}));
 			$var($String, var$1, $$concat(var$2, $$str(hsTriggered())));
-			$var($String, var$0, $$concat(var$1, ", needWrap:"));
+			$var($String, var$0, $$concat(var$1, ", needWrap:"_s));
 			$nc(this->debugw)->log($$concat(var$0, $$str(needWrap())));
 		}
 		while (true) {
@@ -480,9 +480,9 @@ $String* SSLFlowDelegate$Writer::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$4, $$str({"WRITER: "_s, $($SubscriberWrapper::toString()), ", writeList size: "_s}));
 	$var($String, var$3, $$concat(var$4, $($Integer::toString($nc(this->writeList)->size()))));
-	$var($String, var$2, $$concat(var$3, ", scheduler: "));
+	$var($String, var$2, $$concat(var$3, ", scheduler: "_s));
 	$var($String, var$1, $$concat(var$2, ($nc(this->scheduler)->isStopped() ? "stopped"_s : "running"_s)));
-	$var($String, var$0, $$concat(var$1, ", status: "));
+	$var($String, var$0, $$concat(var$1, ", status: "_s));
 	return $concat(var$0, this->lastWrappedStatus);
 }
 

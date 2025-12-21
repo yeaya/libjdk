@@ -110,39 +110,39 @@ void CurrencyFormat::testFormatting() {
 			"EUR1,234.56"_s
 		}),
 		$$new($StringArray, {
-			u"\uffe51,235"_s,
+			u"￥1,235"_s,
 			"USD1,234.56"_s,
-			u"\uffe51,235"_s,
+			u"￥1,235"_s,
 			"DEM1,234.56"_s,
 			"EUR1,234.56"_s
 		}),
 		$$new($StringArray, {
-			u"1.234,56 \u20ac"_s,
+			u"1.234,56 €"_s,
 			"1.234,56 USD"_s,
 			"1.235 JPY"_s,
 			"1.234,56 DM"_s,
-			u"1.234,56 \u20ac"_s
+			u"1.234,56 €"_s
 		}),
 		$$new($StringArray, {
-			u"\u20ac 1.234,56"_s,
+			u"€ 1.234,56"_s,
 			"USD 1.234,56"_s,
 			"JPY 1.235"_s,
 			"DEM 1.234,56"_s,
-			u"\u20ac 1.234,56"_s
+			u"€ 1.234,56"_s
 		}),
 		$$new($StringArray, {
-			u"\u20ac 1.234,56"_s,
+			u"€ 1.234,56"_s,
 			"USD 1.234,56"_s,
 			"JPY 1.235"_s,
 			"DEM 1.234,56"_s,
-			u"\u20ac 1.234,56"_s
+			u"€ 1.234,56"_s
 		}),
 		$$new($StringArray, {
-			u"\u20ac 1.234,56"_s,
+			u"€ 1.234,56"_s,
 			"USD 1.234,56"_s,
 			"JPY 1.235"_s,
 			"DEM 1.234,56"_s,
-			u"\u20ac 1.234,56"_s
+			u"€ 1.234,56"_s
 		}),
 		$$new($StringArray, {
 			"SFr. 1\'234.56"_s,
@@ -156,51 +156,51 @@ void CurrencyFormat::testFormatting() {
 		$$new($StringArray, {
 			"$1,234.56"_s,
 			"$1,234.56"_s,
-			u"\u00a51,235"_s,
+			u"¥1,235"_s,
 			"DEM1,234.56"_s,
-			u"\u20ac1,234.56"_s
+			u"€1,234.56"_s
 		}),
 		$$new($StringArray, {
-			u"\uffe51,235"_s,
+			u"￥1,235"_s,
 			"$1,234.56"_s,
-			u"\uffe51,235"_s,
+			u"￥1,235"_s,
 			"DEM1,234.56"_s,
-			u"\u20ac1,234.56"_s
+			u"€1,234.56"_s
 		}),
 		$$new($StringArray, {
-			u"1.234,56\u00a0\u20ac"_s,
-			u"1.234,56\u00a0$"_s,
-			u"1.235\u00a0\u00a5"_s,
-			u"1.234,56\u00a0DM"_s,
-			u"1.234,56\u00a0\u20ac"_s
+			u"1.234,56 €"_s,
+			u"1.234,56 $"_s,
+			u"1.235 ¥"_s,
+			u"1.234,56 DM"_s,
+			u"1.234,56 €"_s
 		}),
 		$$new($StringArray, {
-			u"1.234,56\u00a0\u20ac"_s,
-			u"1.234,56\u00a0USD"_s,
-			u"1.235\u00a0JPY"_s,
-			u"1.234,56\u00a0DEM"_s,
-			u"1.234,56\u00a0\u20ac"_s
+			u"1.234,56 €"_s,
+			u"1.234,56 USD"_s,
+			u"1.235 JPY"_s,
+			u"1.234,56 DEM"_s,
+			u"1.234,56 €"_s
 		}),
 		$$new($StringArray, {
-			u"1.234,56\u00a0\u20ac"_s,
-			u"1.234,56\u00a0USD"_s,
-			u"1.235\u00a0JPY"_s,
-			u"1.234,56\u00a0DEM"_s,
-			u"1.234,56\u00a0\u20ac"_s
+			u"1.234,56 €"_s,
+			u"1.234,56 USD"_s,
+			u"1.235 JPY"_s,
+			u"1.234,56 DEM"_s,
+			u"1.234,56 €"_s
 		}),
 		$$new($StringArray, {
-			u"\u20ac\u00a01.234,56"_s,
-			u"$\u00a01.234,56"_s,
-			u"\u00a5\u00a01.235"_s,
-			u"DM\u00a01.234,56"_s,
-			u"\u20ac\u00a01.234,56"_s
+			u"€ 1.234,56"_s,
+			u"$ 1.234,56"_s,
+			u"¥ 1.235"_s,
+			u"DM 1.234,56"_s,
+			u"€ 1.234,56"_s
 		}),
 		$$new($StringArray, {
-			u"1\u202f234.56\u00a0CHF"_s,
-			u"1\u202f234.56\u00a0$US"_s,
-			u"1\u202f235\u00a0JPY"_s,
-			u"1\u202f234.56\u00a0DEM"_s,
-			u"1\u202f234.56\u00a0\u20ac"_s
+			u"1 234.56 CHF"_s,
+			u"1 234.56 $US"_s,
+			u"1 235 JPY"_s,
+			u"1 234.56 DEM"_s,
+			u"1 234.56 €"_s
 		})
 	}));
 	for (int32_t i = 0; i < locales->length; ++i) {
@@ -221,9 +221,9 @@ void CurrencyFormat::testFormatting() {
 				failed = true;
 				$var($String, var$4, $$str({"FAIL: Locale "_s, locale}));
 				$var($String, var$3, $$concat(var$4, (currency == nullptr ? ", default currency"_s : ($$str({", currency: "_s, currency})))));
-				$var($String, var$2, $$concat(var$3, ", expected: "));
+				$var($String, var$2, $$concat(var$3, ", expected: "_s));
 				$var($String, var$1, $$concat(var$2, expected));
-				$var($String, var$0, $$concat(var$1, ", actual: "));
+				$var($String, var$0, $$concat(var$1, ", actual: "_s));
 				$nc($System::out)->println($$concat(var$0, result));
 			}
 		}

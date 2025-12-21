@@ -180,7 +180,7 @@ void B4962064::main($StringArray* args) {
 		$var($InetAddress, resolved, $InetAddress::getByName($($nc(address)->getHostName())));
 		$var($String, var$2, $$str({"Lookup: "_s, address, " -> \""_s}));
 		$var($String, var$1, $$concat(var$2, $($nc(address)->getHostName())));
-		$var($String, var$0, $$concat(var$1, "\" -> "));
+		$var($String, var$0, $$concat(var$1, "\" -> "_s));
 		$nc($System::out)->println($$concat(var$0, $(resolved)));
 		$assignStatic(B4962064::server, $HttpServer::create($$new($InetSocketAddress, address, 0), 10));
 		$nc(B4962064::server)->createContext("/"_s, b4962064);

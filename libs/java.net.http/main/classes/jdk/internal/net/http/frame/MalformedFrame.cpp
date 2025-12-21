@@ -60,9 +60,9 @@ $String* MalformedFrame::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$4, $$str({$($Http2Frame::toString()), " MalformedFrame, Error: "_s}));
 	$var($String, var$3, $$concat(var$4, $($ErrorFrame::stringForCode(this->errorCode))));
-	$var($String, var$2, $$concat(var$3, " streamid: "));
+	$var($String, var$2, $$concat(var$3, " streamid: "_s));
 	$var($String, var$1, $$concat(var$2, $$str(this->streamid$)));
-	$var($String, var$0, $$concat(var$1, " reason: "));
+	$var($String, var$0, $$concat(var$1, " reason: "_s));
 	return $concat(var$0, this->msg);
 }
 

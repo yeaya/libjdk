@@ -358,7 +358,7 @@ $String* Http2Connection$Http2TubeSubscriber::lambda$onNext$0($List* item) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({"onNext: got "_s, $$str($Utils::remaining(item)), " bytes in "_s}));
 	$var($String, var$0, $$concat(var$1, $$str($nc(item)->size())));
-	return $concat(var$0, " buffers");
+	return $concat(var$0, " buffers"_s);
 }
 
 void clinit$Http2Connection$Http2TubeSubscriber($Class* class$) {

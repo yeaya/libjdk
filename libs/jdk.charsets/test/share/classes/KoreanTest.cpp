@@ -100,39 +100,39 @@ void clinit$KoreanTest($Class* class$) {
 	$useLocalCurrentObjectStackCache();
 	$assignStatic(KoreanTest::compData1, $new($StringArray2, {
 		$$new($StringArray, {
-			u"\uace0\uc591\uc774"_s,
-			u"\u732b"_s,
+			u"고양이"_s,
+			u"猫"_s,
 			"Hangul \"Cat\"(0xACE0 0xC591 0xC774) <---> Chinese Kanji \"Cat\"(0x732B)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30fb"_s,
-			u"\u2025"_s,
+			u"・"_s,
+			u"‥"_s,
 			"Katakana middle dot(0x30FB) <---> Two dot leader(0x2025)"_s
 		}),
 		$$new($StringArray, {
-			u"\u00b1"_s,
-			u"\u2260"_s,
+			u"±"_s,
+			u"≠"_s,
 			"Plus-Minus Sign(0x00B1) <---> Not Equal To(0x2260)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3011"_s,
-			u"\u2260"_s,
+			u"】"_s,
+			u"≠"_s,
 			"Right Black Lenticular Bracket(0x3011) <---> Not Equal To(0x2260)"_s
 		}),
 		$$new($StringArray, {
-			u"\u2260"_s,
-			u"\u2103"_s,
+			u"≠"_s,
+			u"℃"_s,
 			"Not Equal To(0x2260) <---> Degree Celsius(0x2103)"_s
 		}),
 		$$new($StringArray, {
-			u"\u2260"_s,
-			u"\u2606"_s,
+			u"≠"_s,
+			u"☆"_s,
 			"Not Equal To(0x2260) <---> White Star(0x2606)"_s
 		})
 	}));
 	$assignStatic(KoreanTest::compData2, $new($StringArray2, {$$new($StringArray, {
-		u"\u798f"_s,
-		u"\ufa1b"_s,
+		u"福"_s,
+		u"福"_s,
 		"CJK Unified Ideograph \"FUKU\"(0x798F) <---> CJK Compatibility Ideograph \"FUKU\"(0xFA1B)"_s
 	})}));
 }

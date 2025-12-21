@@ -105,7 +105,7 @@ void MappedMXBeanType$MapMXBeanType::init$($ParameterizedType* pt) {
 	$set(this, valueType, getMappedType($nc(argTypes)->get(1)));
 	$var($String, var$1, $$str({"Map<"_s, $($nc(this->keyType)->getName()), ","_s}));
 	$var($String, var$0, $$concat(var$1, $($nc(this->valueType)->getName())));
-	$set(this, typeName, $concat(var$0, ">"));
+	$set(this, typeName, $concat(var$0, ">"_s));
 	$var($OpenTypeArray, mapItemTypes, $new($OpenTypeArray, {
 		$($nc(this->keyType)->getOpenType()),
 		$($nc(this->valueType)->getOpenType())

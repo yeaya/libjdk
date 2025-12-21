@@ -41,39 +41,39 @@ $ObjectArray2* logging_zh_CN::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("ALL"_s),
-			$of(u"\u5168\u90e8"_s)
+			$of(u"全部"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("CONFIG"_s),
-			$of(u"\u914d\u7f6e"_s)
+			$of(u"配置"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINE"_s),
-			$of(u"\u8be6\u7ec6"_s)
+			$of(u"详细"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINER"_s),
-			$of(u"\u8f83\u8be6\u7ec6"_s)
+			$of(u"较详细"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINEST"_s),
-			$of(u"\u975e\u5e38\u8be6\u7ec6"_s)
+			$of(u"非常详细"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("INFO"_s),
-			$of(u"\u4fe1\u606f"_s)
+			$of(u"信息"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("OFF"_s),
-			$of(u"\u7981\u7528"_s)
+			$of(u"禁用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SEVERE"_s),
-			$of(u"\u4e25\u91cd"_s)
+			$of(u"严重"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("WARNING"_s),
-			$of(u"\u8b66\u544a"_s)
+			$of(u"警告"_s)
 		})
 	});
 }

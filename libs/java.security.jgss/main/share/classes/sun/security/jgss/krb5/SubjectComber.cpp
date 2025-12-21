@@ -164,7 +164,7 @@ $Object* SubjectComber::findAux($Subject* subject, $String* serverPrincipal$rena
 								if (SubjectComber::DEBUG) {
 									$var($String, var$2, $$str({"Found ticket for "_s, $($nc(ticket)->getClient()), " to go to "_s}));
 									$var($String, var$1, $$concat(var$2, $(ticket->getServer())));
-									$var($String, var$0, $$concat(var$1, " expiring on "));
+									$var($String, var$0, $$concat(var$1, " expiring on "_s));
 									$nc($System::out)->println($$concat(var$0, $(ticket->getEndTime())));
 								}
 								if (!$nc(ticket)->isCurrent()) {

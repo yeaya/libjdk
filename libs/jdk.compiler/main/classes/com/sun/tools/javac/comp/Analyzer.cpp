@@ -393,7 +393,7 @@ void Analyzer::doAnalysis($Analyzer$RewritingContext* rewriting) {
 			} catch ($Throwable& ex) {
 				$var($String, var$9, $$str({"Analyzer error when processing: "_s, $nc(rewriting)->originalTree, ":"_s}));
 				$var($String, var$8, $$concat(var$9, $(ex->toString())));
-				$var($String, var$7, $$concat(var$8, "\n"));
+				$var($String, var$7, $$concat(var$8, "\n"_s));
 				$Assert::error($$concat(var$7, $cast($String, $($nc($($nc($($Arrays::stream($(ex->getStackTrace()))))->map(static_cast<$Function*>($$new(Analyzer$$Lambda$lambda$doAnalysis$1$1)))))->collect($($Collectors::joining("\n"_s)))))));
 			}
 		} catch ($Throwable& var$10) {

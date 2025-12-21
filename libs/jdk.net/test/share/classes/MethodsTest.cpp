@@ -124,7 +124,7 @@ void MethodsTest::main($StringArray* args) {
 	bad("Bar\r\n"_s);
 	good("Hello#world"_s);
 	good("Qwer#ert"_s);
-	bad(u"m\u00e9thode"_s);
+	bad(u"méthode"_s);
 	for (char16_t c = (char16_t)0; c < 256; ++c) {
 		if (c < 32 || $nc(MethodsTest::FORBIDDEN)->indexOf((int32_t)c) > -1 || c >= 127) {
 			bad($$str({"me"_s, $$str(c), "thod"_s}));

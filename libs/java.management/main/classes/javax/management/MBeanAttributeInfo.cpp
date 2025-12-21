@@ -168,17 +168,17 @@ $String* MBeanAttributeInfo::toString() {
 	}
 	$var($String, var$11, $$str({$($of(this)->getClass()->getName()), "[description="_s}));
 	$var($String, var$10, $$concat(var$11, $(getDescription())));
-	$var($String, var$9, $$concat(var$10, ", name="));
+	$var($String, var$9, $$concat(var$10, ", name="_s));
 	$var($String, var$8, $$concat(var$9, $(getName())));
-	$var($String, var$7, $$concat(var$8, ", type="));
+	$var($String, var$7, $$concat(var$8, ", type="_s));
 	$var($String, var$6, $$concat(var$7, $(getType())));
-	$var($String, var$5, $$concat(var$6, ", "));
+	$var($String, var$5, $$concat(var$6, ", "_s));
 	$var($String, var$4, $$concat(var$5, access));
-	$var($String, var$3, $$concat(var$4, ", "));
+	$var($String, var$3, $$concat(var$4, ", "_s));
 	$var($String, var$2, $$concat(var$3, (isIs() ? "isIs, "_s : ""_s)));
-	$var($String, var$1, $$concat(var$2, "descriptor="));
+	$var($String, var$1, $$concat(var$2, "descriptor="_s));
 	$var($String, var$0, $$concat(var$1, $(getDescriptor())));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 bool MBeanAttributeInfo::equals(Object$* o) {

@@ -41,391 +41,391 @@ $ObjectArray2* jar_zh_TW::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("error.bad.cflag"_s),
-			$of(u"\'c\' \u65d7\u6a19\u8981\u6c42\u6307\u5b9a\u8cc7\u8a0a\u6e05\u55ae\u6216\u8f38\u5165\u6a94\u6848\uff01"_s)
+			$of(u"\'c\' 旗標要求指定資訊清單或輸入檔案！"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.dflag"_s),
-			$of(u"\'-d, --describe-module\' \u9078\u9805\u4e0d\u9700\u8981\u6307\u5b9a\u8f38\u5165\u6a94"_s)
+			$of(u"\'-d, --describe-module\' 選項不需要指定輸入檔"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.eflag"_s),
-			$of(u"\u7121\u6cd5\u540c\u6642\u6307\u5b9a \'e\' \u65d7\u6a19\u548c\u5177\u6709 \'Main-Class\' \u5c6c\u6027\u7684\n\u8cc7\u8a0a\u6e05\u55ae\uff01"_s)
+			$of(u"無法同時指定 \'e\' 旗標和具有 \'Main-Class\' 屬性的\n資訊清單！"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.file.arg"_s),
-			$of(u"\u5256\u6790\u6a94\u6848\u5f15\u6578\u6642\u767c\u751f\u932f\u8aa4"_s)
+			$of(u"剖析檔案引數時發生錯誤"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.option"_s),
-			$of(u"\u5fc5\u9808\u6307\u5b9a -{ctxuid} \u7684\u5176\u4e2d\u4e00\u500b\u9078\u9805\u3002"_s)
+			$of(u"必須指定 -{ctxuid} 的其中一個選項。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.reason"_s),
-			$of(u"\u932f\u8aa4\u539f\u56e0: {0}\uff0c\u5fc5\u9808\u662f deprecated\u3001deprecated-for-removal \u6216 incubating \u5176\u4e2d\u4e4b\u4e00"_s)
+			$of(u"錯誤原因: {0}，必須是 deprecated、deprecated-for-removal 或 incubating 其中之一"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.bad.uflag"_s),
-			$of(u"\'u\' \u65d7\u6a19\u8981\u6c42\u6307\u5b9a\u8cc7\u8a0a\u6e05\u55ae\u3001\'e\' \u65d7\u6a19\u6216\u8f38\u5165\u6a94\u6848\uff01"_s)
+			$of(u"\'u\' 旗標要求指定資訊清單、\'e\' 旗標或輸入檔案！"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.cant.open"_s),
-			$of(u"\u7121\u6cd5\u958b\u555f: {0}"_s)
+			$of(u"無法開啟: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.create.dir"_s),
-			$of(u"{0} : \u7121\u6cd5\u5efa\u7acb\u76ee\u9304"_s)
+			$of(u"{0} : 無法建立目錄"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.create.tempfile"_s),
-			$of(u"\u7121\u6cd5\u5efa\u7acb\u66ab\u5b58\u6a94\u6848"_s)
+			$of(u"無法建立暫存檔案"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.hash.dep"_s),
-			$of(u"\u96dc\u6e4a\u6a21\u7d44 {0} \u76f8\u4f9d\u6027\uff0c\u5728\u6a21\u7d44\u8def\u5f91\u4e0a\u627e\u4e0d\u5230\u6a21\u7d44 {1}"_s)
+			$of(u"雜湊模組 {0} 相依性，在模組路徑上找不到模組 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.illegal.option"_s),
-			$of(u"\u7121\u6548\u7684\u9078\u9805: {0}"_s)
+			$of(u"無效的選項: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.incorrect.length"_s),
-			$of(u"\u8655\u7406 {0} \u6642\u9577\u5ea6\u4e0d\u6b63\u78ba"_s)
+			$of(u"處理 {0} 時長度不正確"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.invalid.versioned.module.attribute"_s),
-			$of(u"\u6a21\u7d44\u63cf\u8ff0\u5340\u5c6c\u6027 {0} \u7121\u6548"_s)
+			$of(u"模組描述區屬性 {0} 無效"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.missing.arg"_s),
-			$of(u"\u9078\u9805 {0} \u9700\u8981\u4e00\u500b\u5f15\u6578"_s)
+			$of(u"選項 {0} 需要一個引數"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.missing.provider"_s),
-			$of(u"\u627e\u4e0d\u5230\u670d\u52d9\u63d0\u4f9b\u8005: {0}"_s)
+			$of(u"找不到服務提供者: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.module.descriptor.not.found"_s),
-			$of(u"\u627e\u4e0d\u5230\u6a21\u7d44\u63cf\u8ff0\u5340"_s)
+			$of(u"找不到模組描述區"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.module.options.without.info"_s),
-			$of(u"--module-version \u6216 --hash-modules \u5176\u4e2d\u4e00\u500b\u6c92\u6709 module-info.class"_s)
+			$of(u"--module-version 或 --hash-modules 其中一個沒有 module-info.class"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.multiple.main.operations"_s),
-			$of(u"\u60a8\u4e0d\u80fd\u6307\u5b9a\u591a\u500b \'-cuxtid\' \u9078\u9805"_s)
+			$of(u"您不能指定多個 \'-cuxtid\' 選項"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.no.operative.descriptor"_s),
-			$of(u"\u6c92\u6709\u4ee5\u4e0b\u7248\u672c\u7684\u64cd\u4f5c\u63cf\u8ff0\u5340: {0}"_s)
+			$of(u"沒有以下版本的操作描述區: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.no.root.descriptor"_s),
-			$of(u"\u6c92\u6709\u6839\u6a21\u7d44\u63cf\u8ff0\u5340\uff0c\u8acb\u6307\u5b9a --release"_s)
+			$of(u"沒有根模組描述區，請指定 --release"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.nosuch.fileordir"_s),
-			$of(u"{0} : \u6c92\u6709\u9019\u985e\u6a94\u6848\u6216\u76ee\u9304"_s)
+			$of(u"{0} : 沒有這類檔案或目錄"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.release.unexpected.versioned.entry"_s),
-			$of(u"\u7248\u672c {1} \u6709\u672a\u9810\u671f\u7684\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u9805\u76ee {0}"_s)
+			$of(u"版本 {1} 有未預期的啟動多版本功能項目 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.release.value.notnumber"_s),
-			$of(u"\u7248\u672c {0} \u7121\u6548"_s)
+			$of(u"版本 {0} 無效"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.release.value.toosmall"_s),
-			$of(u"\u7248\u672c {0} \u7121\u6548\uff0c\u5fc5\u9808\u5927\u65bc\u7b49\u65bc 9"_s)
+			$of(u"版本 {0} 無效，必須大於等於 9"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.unable.derive.automodule"_s),
-			$of(u"\u7121\u6cd5\u884d\u751f {0} \u7684\u6a21\u7d44\u63cf\u8ff0\u5340"_s)
+			$of(u"無法衍生 {0} 的模組描述區"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.unexpected.module-info"_s),
-			$of(u"\u672a\u9810\u671f\u7684\u6a21\u7d44\u63cf\u8ff0\u5340 {0}"_s)
+			$of(u"未預期的模組描述區 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.unrecognized.option"_s),
-			$of(u"\u7121\u6cd5\u8fa8\u8b58\u7684\u9078\u9805 : {0}"_s)
+			$of(u"無法辨識的選項 : {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.bad.entry.name"_s),
-			$of(u"\u9805\u76ee\u540d\u7a31 {0} \u7684\u683c\u5f0f\u932f\u8aa4"_s)
+			$of(u"項目名稱 {0} 的格式錯誤"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.different.api"_s),
-			$of(u"\u9805\u76ee {0} \u7684\u67d0\u500b\u985e\u5225\u542b\u6709\u8207\u8f03\u820a\u7248\u672c\u4e0d\u540c\u7684 API"_s)
+			$of(u"項目 {0} 的某個類別含有與較舊版本不同的 API"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.entryname.tooshort"_s),
-			$of(u"\u9805\u76ee\u540d\u7a31 {0} \u592a\u77ed\uff0c\u7121\u6cd5\u4f5c\u70ba\u76ee\u9304"_s)
+			$of(u"項目名稱 {0} 太短，無法作為目錄"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.incompatible.class.version"_s),
-			$of(u"\u9805\u76ee {0} \u7684\u985e\u5225\u7248\u672c\u8207\u8f03\u820a\u7248\u672c\u4e0d\u76f8\u5bb9"_s)
+			$of(u"項目 {0} 的類別版本與較舊版本不相容"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.exports.notequal"_s),
-			$of(u"\u5df2\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u76ee\u9304\u4e2d\u7684 module-info.class \u5305\u542b\u4e0d\u540c\u7684 \"exports\""_s)
+			$of(u"已啟動多版本功能目錄中的 module-info.class 包含不同的 \"exports\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.manclass.notequal"_s),
-			$of(u"{0}: \u5df2\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u76ee\u9304\u4e2d\u7684 module-info.class \u5305\u542b\u4e0d\u540c\u7684 \"main-class\""_s)
+			$of(u"{0}: 已啟動多版本功能目錄中的 module-info.class 包含不同的 \"main-class\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.name.notequal"_s),
-			$of(u"\u5df2\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u76ee\u9304\u4e2d\u7684 module-info.class \u5305\u542b\u4e0d\u6b63\u78ba\u7684\u540d\u7a31"_s)
+			$of(u"已啟動多版本功能目錄中的 module-info.class 包含不正確的名稱"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.opens.notequal"_s),
-			$of(u"\u5df2\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u76ee\u9304\u4e2d\u7684 module-info.class \u5305\u542b\u4e0d\u540c\u7684 \"opens\""_s)
+			$of(u"已啟動多版本功能目錄中的 module-info.class 包含不同的 \"opens\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.provides.notequal"_s),
-			$of(u"\u5df2\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u76ee\u9304\u4e2d\u7684 module-info.class \u5305\u542b\u4e0d\u540c\u7684 \"provides\""_s)
+			$of(u"已啟動多版本功能目錄中的 module-info.class 包含不同的 \"provides\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.requires.added"_s),
-			$of(u"\u5df2\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u76ee\u9304\u4e2d\u7684 module-info.class \u5305\u542b\u984d\u5916\u7684 \"requires\""_s)
+			$of(u"已啟動多版本功能目錄中的 module-info.class 包含額外的 \"requires\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.requires.dropped"_s),
-			$of(u"\u5df2\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u76ee\u9304\u4e2d\u7684 module-info.class \u5305\u542b\u907a\u6f0f\u7684 \"requires\""_s)
+			$of(u"已啟動多版本功能目錄中的 module-info.class 包含遺漏的 \"requires\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.requires.transitive"_s),
-			$of(u"\u5df2\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u76ee\u9304\u4e2d\u7684 module-info.class \u5305\u542b\u984d\u5916\u7684 \"requires transitive\""_s)
+			$of(u"已啟動多版本功能目錄中的 module-info.class 包含額外的 \"requires transitive\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.info.version.notequal"_s),
-			$of(u"{0}: \u5df2\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u76ee\u9304\u4e2d\u7684 module-info.class \u5305\u542b\u4e0d\u540c\u7684 \"version\""_s)
+			$of(u"{0}: 已啟動多版本功能目錄中的 module-info.class 包含不同的 \"version\""_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.isolated.nested.class"_s),
-			$of(u"\u9805\u76ee {0} \u662f\u5df2\u9694\u96e2\u7684\u5de2\u72c0\u7d50\u69cb\u985e\u5225"_s)
+			$of(u"項目 {0} 是已隔離的巢狀結構類別"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.jarfile.exception"_s),
-			$of(u"\u7121\u6cd5\u9a57\u8b49 {0}: {1}"_s)
+			$of(u"無法驗證 {0}: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.jarfile.invalid"_s),
-			$of(u"\u5df2\u522a\u9664\u7121\u6548\u7684\u591a\u91cd\u7248\u672c jar \u6a94\u6848 {0}"_s)
+			$of(u"已刪除無效的多重版本 jar 檔案 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.names.mismatch"_s),
-			$of(u"\u9805\u76ee {0} \u542b\u6709\u5167\u90e8\u540d\u7a31\u70ba {1} \u7684\u985e\u5225\uff0c\u540d\u7a31\u4e0d\u76f8\u7b26"_s)
+			$of(u"項目 {0} 含有內部名稱為 {1} 的類別，名稱不相符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.new.public.class"_s),
-			$of(u"\u9805\u76ee {0} \u542b\u6709\u5728\u57fa\u6e96\u9805\u76ee\u4e2d\u627e\u4e0d\u5230\u7684\u65b0\u516c\u7528\u985e\u5225"_s)
+			$of(u"項目 {0} 含有在基準項目中找不到的新公用類別"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.validator.version.notnumber"_s),
-			$of(u"\u9805\u76ee\u540d\u7a31 {0} \u6c92\u6709\u7248\u672c\u7de8\u865f"_s)
+			$of(u"項目名稱 {0} 沒有版本編號"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("error.write.file"_s),
-			$of(u"\u5beb\u5165\u73fe\u6709\u7684 jar \u6a94\u6848\u6642\u767c\u751f\u932f\u8aa4"_s)
+			$of(u"寫入現有的 jar 檔案時發生錯誤"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.any"_s),
-			$of(u" \u53ef\u5728\u4efb\u4f55\u6a21\u5f0f\u4e0b\u4f7f\u7528\u7684\u4f5c\u696d\u4fee\u98fe\u689d\u4ef6:\n\n  -C DIR                     \u8b8a\u66f4\u70ba\u6307\u5b9a\u76ee\u9304\u4e26\u5305\u542b\n                             \u4e0b\u5217\u6a94\u6848"_s)
+			$of(u" 可在任何模式下使用的作業修飾條件:\n\n  -C DIR                     變更為指定目錄並包含\n                             下列檔案"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.any.file"_s),
-			$of(u"  -f, --file=FILE            \u5b58\u6a94\u6a94\u6848\u540d\u7a31\u3002\u5982\u679c\u7701\u7565\uff0c\u6703\u6839\u64da\u4f5c\u696d\u4f7f\u7528\n                             stdin \u6216 stdout\n      --release VERSION      \u5c07\u6240\u6709\u4e0b\u5217\u6a94\u6848\u653e\u7f6e\u5728 jar \u7684\u555f\u52d5\u591a\u7248\u672c\n                             \u529f\u80fd\u76ee\u9304\u4e2d (\u4f8b\u5982 META-INF/versions/VERSION/)"_s)
+			$of(u"  -f, --file=FILE            存檔檔案名稱。如果省略，會根據作業使用\n                             stdin 或 stdout\n      --release VERSION      將所有下列檔案放置在 jar 的啟動多版本\n                             功能目錄中 (例如 META-INF/versions/VERSION/)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.any.verbose"_s),
-			$of(u"  -v, --verbose              \u5728\u6a19\u6e96\u8f38\u51fa\u4e2d\u7522\u751f\u8a73\u7d30\u8f38\u51fa"_s)
+			$of(u"  -v, --verbose              在標準輸出中產生詳細輸出"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create"_s),
-			$of(u" \u53ea\u80fd\u5728\u5efa\u7acb\u6a21\u5f0f\u4f7f\u7528\u7684\u4f5c\u696d\u4fee\u98fe\u689d\u4ef6:\n"_s)
+			$of(u" 只能在建立模式使用的作業修飾條件:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.normalize"_s),
-			$of(u"  -n, --normalize            \u5efa\u7acb\u65b0\u7684 jar \u5b58\u6a94\u4e4b\u5f8c\uff0c\u5c07\u5176\u4e2d\u7684\u8cc7\u8a0a\n                             \u6a19\u6e96\u5316"_s)
+			$of(u"  -n, --normalize            建立新的 jar 存檔之後，將其中的資訊\n                             標準化"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update"_s),
-			$of(u" \u53ea\u80fd\u5728\u5efa\u7acb\u548c\u66f4\u65b0\u6a21\u5f0f\u4e0b\u4f7f\u7528\u7684\u4f5c\u696d\u4fee\u98fe\u689d\u4ef6:\n"_s)
+			$of(u" 只能在建立和更新模式下使用的作業修飾條件:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.do-not-resolve-by-default"_s),
-			$of(u"      --do-not-resolve-by-default  \u4e0d\u5305\u62ec\u9810\u8a2d\u7684\u6a21\u7d44\u8a2d\u5b9a\u6839\u76ee\u9304"_s)
+			$of(u"      --do-not-resolve-by-default  不包括預設的模組設定根目錄"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.hash-modules"_s),
-			$of(u"      --hash-modules=PATTERN \u904b\u7b97\u53ca\u8a18\u9304\u8207\u6307\u5b9a\u6a23\u5f0f\n                             \u76f8\u7b26\u7684\u6a21\u7d44\u96dc\u6e4a\uff0c\u9019\u76f4\u63a5\u6216\u9593\u63a5\u5730\n                             \u76f8\u4f9d\u65bc\u6b63\u5728\u5efa\u7acb\u7684\u6a21\u7d44\u5316 jar \u6216\u6b63\u5728\n                             \u66f4\u65b0\u7684\u975e\u6a21\u7d44\u5316 jar"_s)
+			$of(u"      --hash-modules=PATTERN 運算及記錄與指定樣式\n                             相符的模組雜湊，這直接或間接地\n                             相依於正在建立的模組化 jar 或正在\n                             更新的非模組化 jar"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.index"_s),
-			$of(u" \u53ea\u80fd\u5728\u5efa\u7acb\u3001\u66f4\u65b0\u53ca\u7522\u751f\u7d22\u5f15\u6a21\u5f0f\u4e0b\u4f7f\u7528\u7684\u4f5c\u696d\u4fee\u98fe\u689d\u4ef6:\n"_s)
+			$of(u" 只能在建立、更新及產生索引模式下使用的作業修飾條件:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.index.no-compress"_s),
-			$of(u"  -0, --no-compress          \u50c5\u5132\u5b58; \u4e0d\u4f7f\u7528 ZIP \u58d3\u7e2e\u65b9\u5f0f"_s)
+			$of(u"  -0, --no-compress          僅儲存; 不使用 ZIP 壓縮方式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.main-class"_s),
-			$of(u"  -e, --main-class=CLASSNAME \u96a8\u9644\u65bc\u6a21\u7d44\u5316\u6216\u53ef\u57f7\u884c\n                             jar \u5b58\u6a94\u4e2d\u7368\u7acb\u61c9\u7528\u7a0b\u5f0f\u7684\n                             \u61c9\u7528\u7a0b\u5f0f\u9032\u5165\u9ede"_s)
+			$of(u"  -e, --main-class=CLASSNAME 隨附於模組化或可執行\n                             jar 存檔中獨立應用程式的\n                             應用程式進入點"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.manifest"_s),
-			$of(u"  -m, --manifest=FILE        \u5305\u542b\u6307\u5b9a\u8cc7\u8a0a\u6e05\u55ae\u6a94\u6848\u4e2d\u7684\u8cc7\u8a0a\u6e05\u55ae\n                             \u8cc7\u8a0a"_s)
+			$of(u"  -m, --manifest=FILE        包含指定資訊清單檔案中的資訊清單\n                             資訊"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.module-path"_s),
-			$of(u"  -p, --module-path          \u6a21\u7d44\u76f8\u4f9d\u6027\u7684\u4f4d\u7f6e\uff0c\u7528\u65bc\u7522\u751f\n                             \u96dc\u6e4a"_s)
+			$of(u"  -p, --module-path          模組相依性的位置，用於產生\n                             雜湊"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.module-version"_s),
-			$of(u"      --module-version=VERSION    \u5efa\u7acb\u6a21\u7d44\u5316 jar \u6216\u66f4\u65b0\u975e\u6a21\u7d44\u5316 jar \u6642\n                             \u4f7f\u7528\u7684\u6a21\u7d44\u7248\u672c"_s)
+			$of(u"      --module-version=VERSION    建立模組化 jar 或更新非模組化 jar 時\n                             使用的模組版本"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.no-manifest"_s),
-			$of(u"  -M, --no-manifest          \u4e0d\u70ba\u9805\u76ee\u5efa\u7acb\u8cc7\u8a0a\u6e05\u55ae\u6a94\u6848"_s)
+			$of(u"  -M, --no-manifest          不為項目建立資訊清單檔案"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.create.update.warn-if-resolved"_s),
-			$of(u"      --warn-if-resolved     \u82e5\u6a21\u7d44\u5df2\u89e3\u6790\uff0c\u5247\u63d0\u793a\u5de5\u5177\u4ee5\u767c\u51fa\u8b66\u544a\u3002\n                             deprecated\u3001deprecated-for-removal \u6216 incubating \n                             \u5176\u4e2d\u4e4b\u4e00"_s)
+			$of(u"      --warn-if-resolved     若模組已解析，則提示工具以發出警告。\n                             deprecated、deprecated-for-removal 或 incubating \n                             其中之一"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main"_s),
-			$of(u" \u4e3b\u8981\u4f5c\u696d\u6a21\u5f0f:\n"_s)
+			$of(u" 主要作業模式:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main.create"_s),
-			$of(u"  -c, --create               \u5efa\u7acb\u5b58\u6a94"_s)
+			$of(u"  -c, --create               建立存檔"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main.describe-module"_s),
-			$of(u"  -d, --describe-module      \u5217\u5370\u6a21\u7d44\u63cf\u8ff0\u5340\u6216\u81ea\u52d5\u7522\u751f\u7684\u6a21\u7d44\u540d\u7a31"_s)
+			$of(u"  -d, --describe-module      列印模組描述區或自動產生的模組名稱"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main.extract"_s),
-			$of(u"  -x, --extract              \u5f9e\u5b58\u6a94\u4e2d\u64f7\u53d6\u6307\u5b9a (\u6216\u6240\u6709) \u6a94\u6848"_s)
+			$of(u"  -x, --extract              從存檔中擷取指定 (或所有) 檔案"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main.generate-index"_s),
-			$of(u"  -i, --generate-index=FILE  \u70ba\u6307\u5b9a\u7684 jar \u5b58\u6a94\u7522\u751f\u7d22\u5f15\n                             \u8cc7\u8a0a"_s)
+			$of(u"  -i, --generate-index=FILE  為指定的 jar 存檔產生索引\n                             資訊"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main.list"_s),
-			$of(u"  -t, --list                 \u5217\u51fa\u5b58\u6a94\u7684\u76ee\u9304"_s)
+			$of(u"  -t, --list                 列出存檔的目錄"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.main.update"_s),
-			$of(u"  -u, --update               \u66f4\u65b0\u73fe\u6709\u7684 jar \u5b58\u6a94"_s)
+			$of(u"  -u, --update               更新現有的 jar 存檔"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.other"_s),
-			$of(u" \u5176\u4ed6\u9078\u9805:\n"_s)
+			$of(u" 其他選項:\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.other.help"_s),
-			$of(u"  -h, --help[:compat]        \u63d0\u4f9b\u6b64\u8aaa\u660e\u6216\u9078\u64c7\u6027\u986f\u793a\u76f8\u5bb9\u6027\u8aaa\u660e"_s)
+			$of(u"  -h, --help[:compat]        提供此說明或選擇性顯示相容性說明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.other.help-extra"_s),
-			$of(u"      --help-extra           \u63d0\u4f9b\u984d\u5916\u9078\u9805\u7684\u8aaa\u660e"_s)
+			$of(u"      --help-extra           提供額外選項的說明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.opt.other.version"_s),
-			$of(u"      --version              \u5217\u5370\u7a0b\u5f0f\u7248\u672c"_s)
+			$of(u"      --version              列印程式版本"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.postopt"_s),
-			$of(u" \u5982\u679c\u6a21\u7d44\u63cf\u8ff0\u5340 (\'module-info.class\') \u4f4d\u65bc\u6307\u5b9a\u76ee\u9304\u7684\u6839\n \u6216 jar \u5b58\u6a94\u672c\u8eab\u7684\u6839\uff0c\u5247\u5b58\u6a94\u6703\u662f\n \u6a21\u7d44\u5316\u7684 jar\u3002\u4e0b\u5217\u4f5c\u696d\u53ea\u80fd\u5728\u5efa\u7acb\u6a21\u7d44\u5316 jar \u6216\u66f4\u65b0\n \u73fe\u6709\u975e\u6a21\u7d44\u5316 jar \u6642\u9032\u884c: \'--module-version\'\u3001\n \'--hash-modules\' \u548c \'--module-path\'\u3002\n\n \u9577\u9078\u9805\u7684\u5f37\u5236\u6027\u6216\u9078\u64c7\u6027\u5f15\u6578\u4e5f\u6703\u662f\u4efb\u4f55\u5c0d\u61c9\u77ed\u9078\u9805\u7684\n \u5f37\u5236\u6027\u6216\u9078\u64c7\u6027\u5f15\u6578\u3002"_s)
+			$of(u" 如果模組描述區 (\'module-info.class\') 位於指定目錄的根\n 或 jar 存檔本身的根，則存檔會是\n 模組化的 jar。下列作業只能在建立模組化 jar 或更新\n 現有非模組化 jar 時進行: \'--module-version\'、\n \'--hash-modules\' 和 \'--module-path\'。\n\n 長選項的強制性或選擇性引數也會是任何對應短選項的\n 強制性或選擇性引數。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.help.preopt"_s),
-			$of(u"\u7528\u6cd5: jar [OPTION...] [ [--release VERSION] [-C dir] files] ...\njar \u6703\u5efa\u7acb\u4e00\u500b\u985e\u5225\u548c\u8cc7\u6e90\u7684\u5b58\u6a94\uff0c\u800c\u4e14\u53ef\u64cd\u63a7\u6216\n\u5f9e\u5b58\u6a94\u56de\u5fa9\u500b\u5225\u985e\u5225\u6216\u8cc7\u6e90\u3002\n\n \u7bc4\u4f8b:\n # \u5efa\u7acb\u4e00\u500b\u540d\u70ba classes.jar \u7684\u5b58\u6a94\uff0c\u5176\u4e2d\u542b\u6709\u5169\u500b\u985e\u5225\u6a94\u6848:\n jar --create --file classes.jar Foo.class Bar.class\n # \u4f7f\u7528\u73fe\u6709\u7684\u8cc7\u8a0a\u6e05\u55ae\u52a0\u4e0a foo/ \u4e2d\u7684\u6240\u6709\u6a94\u6848\u5efa\u7acb\u4e00\u500b\u5b58\u6a94:\n jar --create --file classes.jar --manifest mymanifest -C foo/ .\n # \u5efa\u7acb\u4e00\u500b\u6a21\u7d44\u5316 jar \u5b58\u6a94\uff0c\u5176\u4e2d\u7684\u6a21\u7d44\u63cf\u8ff0\u5340\u4f4d\u65bc\n # classes/module-info.class:\n jar --create --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ classes resources\n # \u5c07\u73fe\u6709\u7684\u975e\u6a21\u7d44\u5316 jar \u66f4\u65b0\u6210\u6a21\u7d44\u5316 jar:\n jar --update --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ module-info.class\n # \u5efa\u7acb\u591a\u91cd\u7248\u672c\u7684 jar\uff0c\u5c07\u90e8\u5206\u6a94\u6848\u653e\u7f6e\u5728 META-INF/versions/9 \u76ee\u9304\u4e2d:\n jar --create --file mr.jar -C foo classes --release 9 -C foo9 classes\n\n\u82e5\u8981\u7e2e\u77ed\u6216\u7c21\u5316 jar \u547d\u4ee4\uff0c\u53ef\u4ee5\u5728\u500b\u5225\u6587\u5b57\u6a94\u4e2d\u6307\u5b9a\u5f15\u6578\uff0c\n\u7136\u5f8c\u4f7f\u7528 at \u7b26\u865f (@) \u4f5c\u70ba\u524d\u7f6e\u78bc\uff0c\u5c07\u5176\u50b3\u9001\u81f3 jar \u547d\u4ee4\u3002\n\n \u7bc4\u4f8b:\n # \u5f9e classes.list \u6a94\u6848\u8b80\u53d6\u984d\u5916\u7684\u9078\u9805\u548c\u985e\u5225\u6a94\u6848\u6e05\u55ae\n jar --create --file my.jar @classes.list\n"_s)
+			$of(u"用法: jar [OPTION...] [ [--release VERSION] [-C dir] files] ...\njar 會建立一個類別和資源的存檔，而且可操控或\n從存檔回復個別類別或資源。\n\n 範例:\n # 建立一個名為 classes.jar 的存檔，其中含有兩個類別檔案:\n jar --create --file classes.jar Foo.class Bar.class\n # 使用現有的資訊清單加上 foo/ 中的所有檔案建立一個存檔:\n jar --create --file classes.jar --manifest mymanifest -C foo/ .\n # 建立一個模組化 jar 存檔，其中的模組描述區位於\n # classes/module-info.class:\n jar --create --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ classes resources\n # 將現有的非模組化 jar 更新成模組化 jar:\n jar --update --file foo.jar --main-class com.foo.Main --module-version 1.0\n     -C foo/ module-info.class\n # 建立多重版本的 jar，將部分檔案放置在 META-INF/versions/9 目錄中:\n jar --create --file mr.jar -C foo classes --release 9 -C foo9 classes\n\n若要縮短或簡化 jar 命令，可以在個別文字檔中指定引數，\n然後使用 at 符號 (@) 作為前置碼，將其傳送至 jar 命令。\n\n 範例:\n # 從 classes.list 檔案讀取額外的選項和類別檔案清單\n jar --create --file my.jar @classes.list\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.usage.summary"_s),
-			$of(u"\u7528\u6cd5: jar [OPTION...] [ [--release VERSION] [-C dir] files] ..."_s)
+			$of(u"用法: jar [OPTION...] [ [--release VERSION] [-C dir] files] ..."_s)
 		}),
 		$$new($ObjectArray, {
 			$of("main.usage.summary.try"_s),
-			$of(u"\u8acb\u4f7f\u7528 \'jar --help\' \u4ee5\u53d6\u5f97\u66f4\u591a\u7684\u8cc7\u8a0a\u3002"_s)
+			$of(u"請使用 \'jar --help\' 以取得更多的資訊。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.added.manifest"_s),
-			$of(u"\u5df2\u65b0\u589e\u8cc7\u8a0a\u6e05\u55ae"_s)
+			$of(u"已新增資訊清單"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.added.module-info"_s),
-			$of(u"\u5df2\u65b0\u589e module-info: {0}"_s)
+			$of(u"已新增 module-info: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.adding"_s),
-			$of(u"\u65b0\u589e: {0}"_s)
+			$of(u"新增: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.automodule"_s),
-			$of(u"\u627e\u4e0d\u5230\u6a21\u7d44\u63cf\u8ff0\u5340\u3002\u5df2\u81ea\u52d5\u884d\u751f\u6a21\u7d44\u3002"_s)
+			$of(u"找不到模組描述區。已自動衍生模組。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.create"_s),
-			$of(u"  \u5efa\u7acb: {0}"_s)
+			$of(u"  建立: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.deflated"_s),
-			$of(u"(\u58d3\u7e2e {0}%)"_s)
+			$of(u"(壓縮 {0}%)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.extracted"_s),
-			$of(u"\u64f7\u53d6: {0}"_s)
+			$of(u"擷取: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.ignore.entry"_s),
-			$of(u"\u5ffd\u7565\u9805\u76ee {0}"_s)
+			$of(u"忽略項目 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.inflated"_s),
-			$of(u" \u64f4\u5c55: {0}"_s)
+			$of(u" 擴展: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.size"_s),
-			$of(u" (\u8b80={0})(\u5beb={1})"_s)
+			$of(u" (讀={0})(寫={1})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.stored"_s),
-			$of(u"(\u5132\u5b58 0%)"_s)
+			$of(u"(儲存 0%)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.update.manifest"_s),
-			$of(u"\u5df2\u66f4\u65b0\u8cc7\u8a0a\u6e05\u55ae"_s)
+			$of(u"已更新資訊清單"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("out.update.module-info"_s),
-			$of(u"\u5df2\u66f4\u65b0 module-info: {0}"_s)
+			$of(u"已更新 module-info: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("usage.compat"_s),
-			$of(u"\u76f8\u5bb9\u6027\u4ecb\u9762:\n\u7528\u6cd5: jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] files] ...\n\u9078\u9805:\n    -c  \u5efa\u7acb\u65b0\u5b58\u6a94\n    -t  \u5217\u51fa\u5b58\u6a94\u7684\u76ee\u9304\n    -x  \u5f9e\u5b58\u6a94\u4e2d\u64f7\u53d6\u6307\u5b9a (\u6216\u5168\u90e8) \u7684\u6a94\u6848\n    -u  \u66f4\u65b0\u73fe\u6709\u5b58\u6a94\n    -v  \u5728\u6a19\u6e96\u8f38\u51fa\u4e2d\u7522\u751f\u8a73\u7d30\u8f38\u51fa\n    -f  \u6307\u5b9a\u5b58\u6a94\u6a94\u6848\u540d\u7a31\n    -m  \u5305\u542b\u6307\u5b9a\u4e4b\u8cc7\u8a0a\u6e05\u55ae\u6a94\u6848\u4e2d\u7684\u8cc7\u8a0a\u6e05\u55ae\u8cc7\u8a0a\n    -n  \u5728\u5efa\u7acb\u65b0\u5b58\u6a94\u4e4b\u5f8c\u57f7\u884c Pack200 \u6b63\u898f\u5316\n    -e  \u70ba\u96a8\u9644\u65bc\u53ef\u57f7\u884c jar \u6a94\u6848\u4e2d\u7684\u7368\u7acb\u61c9\u7528\u7a0b\u5f0f \n        \u6307\u5b9a\u61c9\u7528\u7a0b\u5f0f\u9032\u5165\u9ede\n    -0  \u50c5\u5132\u5b58; \u4e0d\u4f7f\u7528 ZIP \u58d3\u7e2e\u65b9\u5f0f\n    -P  \u4fdd\u7559\u6a94\u6848\u540d\u7a31\u524d\u9762\u7684 \'/\' (\u7d55\u5c0d\u8def\u5f91) \u548c \"..\" (\u4e0a\u5c64\u76ee\u9304) \u5143\u4ef6\n    -M  \u4e0d\u70ba\u9805\u76ee\u5efa\u7acb\u8cc7\u8a0a\u6e05\u55ae\u6a94\u6848\n    -i  \u70ba\u6307\u5b9a\u7684 jar \u6a94\u6848\u7522\u751f\u7d22\u5f15\u8cc7\u8a0a\n    -C  \u8b8a\u66f4\u81f3\u6307\u5b9a\u7684\u76ee\u9304\u4e26\u5305\u542b\u5f8c\u9762\u6240\u5217\u7684\u6a94\u6848\n\u5982\u679c\u6709\u4efb\u4f55\u6a94\u6848\u662f\u76ee\u9304\uff0c\u5247\u6703\u5c0d\u5176\u9032\u884c\u905e\u8ff4\u8655\u7406\u3002\n\u8cc7\u8a0a\u6e05\u55ae\u6a94\u6848\u540d\u7a31\u3001\u5b58\u6a94\u6a94\u6848\u540d\u7a31\u4ee5\u53ca\u9032\u5165\u9ede\u540d\u7a31\n\u7684\u6307\u5b9a\u9806\u5e8f\u8207\u6307\u5b9a \'m\'\u3001\'f\' \u4ee5\u53ca \'e\' \u65d7\u6a19\u7684\u9806\u5e8f\u76f8\u540c\u3002\n\n\u7bc4\u4f8b 1: \u5c07\u5169\u500b\u985e\u5225\u6a94\u6848\u5b58\u6a94\u81f3\u540d\u70ba classes.jar \u7684\u5b58\u6a94\u4e2d: \n       jar cvf classes.jar Foo.class Bar.class \n\u7bc4\u4f8b 2: \u4f7f\u7528\u73fe\u6709\u7684\u8cc7\u8a0a\u6e05\u55ae\u6a94\u6848 \'mymanifest\' \u4e26\u5c07\n           foo/ \u76ee\u9304\u4e2d\u7684\u6240\u6709\u6a94\u6848\u5b58\u6a94\u81f3 \'classes.jar\': \n       jar cvfm classes.jar mymanifest -C foo/\u3002\n"_s)
+			$of(u"相容性介面:\n用法: jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] files] ...\n選項:\n    -c  建立新存檔\n    -t  列出存檔的目錄\n    -x  從存檔中擷取指定 (或全部) 的檔案\n    -u  更新現有存檔\n    -v  在標準輸出中產生詳細輸出\n    -f  指定存檔檔案名稱\n    -m  包含指定之資訊清單檔案中的資訊清單資訊\n    -n  在建立新存檔之後執行 Pack200 正規化\n    -e  為隨附於可執行 jar 檔案中的獨立應用程式 \n        指定應用程式進入點\n    -0  僅儲存; 不使用 ZIP 壓縮方式\n    -P  保留檔案名稱前面的 \'/\' (絕對路徑) 和 \"..\" (上層目錄) 元件\n    -M  不為項目建立資訊清單檔案\n    -i  為指定的 jar 檔案產生索引資訊\n    -C  變更至指定的目錄並包含後面所列的檔案\n如果有任何檔案是目錄，則會對其進行遞迴處理。\n資訊清單檔案名稱、存檔檔案名稱以及進入點名稱\n的指定順序與指定 \'m\'、\'f\' 以及 \'e\' 旗標的順序相同。\n\n範例 1: 將兩個類別檔案存檔至名為 classes.jar 的存檔中: \n       jar cvf classes.jar Foo.class Bar.class \n範例 2: 使用現有的資訊清單檔案 \'mymanifest\' 並將\n           foo/ 目錄中的所有檔案存檔至 \'classes.jar\': \n       jar cvfm classes.jar mymanifest -C foo/。\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warn.release.unexpected.versioned.entry"_s),
-			$of(u"\u672a\u9810\u671f\u7684\u555f\u52d5\u591a\u7248\u672c\u529f\u80fd\u9805\u76ee {0}"_s)
+			$of(u"未預期的啟動多版本功能項目 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warn.validator.concealed.public.class"_s),
-			$of(u"\u8b66\u544a: \u9805\u76ee {0} \u662f\u96b1\u85cf\u5957\u88dd\u7a0b\u5f0f\u4e2d\u7684\n\u516c\u7528\u985e\u5225\uff0c\u82e5\u5c07\u6b64 jar \u653e\u5728\u985e\u5225\u8def\u5f91\u4e0a\n\u6703\u9020\u6210\u516c\u7528\u4ecb\u9762\u4e0d\u76f8\u5bb9"_s)
+			$of(u"警告: 項目 {0} 是隱藏套裝程式中的\n公用類別，若將此 jar 放在類別路徑上\n會造成公用介面不相容"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warn.validator.identical.entry"_s),
-			$of(u"\u8b66\u544a: \u9805\u76ee {0} \u7684\u67d0\u500b\u985e\u5225\n\u8207 jar \u4e2d\u7684\u73fe\u6709\u9805\u76ee\u76f8\u540c"_s)
+			$of(u"警告: 項目 {0} 的某個類別\n與 jar 中的現有項目相同"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("warn.validator.resources.with.same.name"_s),
-			$of(u"\u8b66\u544a: \u9805\u76ee {0} \u4e2d\u7684\u591a\u500b\u8cc7\u6e90\u540d\u7a31\u76f8\u540c"_s)
+			$of(u"警告: 項目 {0} 中的多個資源名稱相同"_s)
 		})
 	});
 }

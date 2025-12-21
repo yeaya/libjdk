@@ -80,7 +80,7 @@ $String* CompilerThreadStat::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({$(getName()), " compileTasks = "_s}));
 	$var($String, var$1, $$concat(var$2, $$str(getCompileTaskCount())));
-	$var($String, var$0, $$concat(var$1, " compileTime = "));
+	$var($String, var$0, $$concat(var$1, " compileTime = "_s));
 	return $concat(var$0, $$str(getCompileTime()));
 }
 

@@ -139,13 +139,13 @@ $String* MBeanConstructorInfo::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$7, $$str({$($of(this)->getClass()->getName()), "[description="_s}));
 	$var($String, var$6, $$concat(var$7, $(getDescription())));
-	$var($String, var$5, $$concat(var$6, ", name="));
+	$var($String, var$5, $$concat(var$6, ", name="_s));
 	$var($String, var$4, $$concat(var$5, $(getName())));
-	$var($String, var$3, $$concat(var$4, ", signature="));
+	$var($String, var$3, $$concat(var$4, ", signature="_s));
 	$var($String, var$2, $$concat(var$3, $($Arrays::asList($(fastGetSignature())))));
-	$var($String, var$1, $$concat(var$2, ", descriptor="));
+	$var($String, var$1, $$concat(var$2, ", descriptor="_s));
 	$var($String, var$0, $$concat(var$1, $(getDescriptor())));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 bool MBeanConstructorInfo::equals(Object$* o) {

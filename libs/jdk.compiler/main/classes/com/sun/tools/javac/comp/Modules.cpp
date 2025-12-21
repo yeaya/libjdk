@@ -2560,15 +2560,15 @@ $String* Modules::toString($Symbol$ModuleSymbol* msym) {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$9, $$str({$nc(msym)->name, "[kind:"_s, msym->kind, ";locn:"_s}));
 	$var($String, var$8, $$concat(var$9, $(toString(msym->sourceLocation))));
-	$var($String, var$7, $$concat(var$8, ","));
+	$var($String, var$7, $$concat(var$8, ","_s));
 	$var($String, var$6, $$concat(var$7, $(toString(msym->classLocation))));
-	$var($String, var$5, $$concat(var$6, ";info:"));
+	$var($String, var$5, $$concat(var$6, ";info:"_s));
 	$var($String, var$4, $$concat(var$5, $(toString($nc(msym->module_info)->sourcefile))));
-	$var($String, var$3, $$concat(var$4, ","));
+	$var($String, var$3, $$concat(var$4, ","_s));
 	$var($String, var$2, $$concat(var$3, $(toString($nc(msym->module_info)->classfile))));
-	$var($String, var$1, $$concat(var$2, ","));
+	$var($String, var$1, $$concat(var$2, ","_s));
 	$var($String, var$0, $$concat(var$1, $nc(msym->module_info)->completer));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 $String* Modules::toString($JavaFileManager$Location* locn) {

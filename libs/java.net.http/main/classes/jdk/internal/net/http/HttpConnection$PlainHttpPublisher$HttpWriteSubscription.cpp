@@ -121,7 +121,7 @@ void HttpConnection$PlainHttpPublisher$HttpWriteSubscription::flush() {
 			if ($nc($nc(this->this$1->this$0)->debug)->on()) {
 				$var($String, var$3, $$str({"HttpPublisher: sending "_s, $$str($Utils::remaining(elem)), " bytes ("_s}));
 				$var($String, var$2, $$concat(var$3, $$str($nc(elem)->size())));
-				$var($String, var$1, $$concat(var$2, " buffers) to "));
+				$var($String, var$1, $$concat(var$2, " buffers) to "_s));
 				$nc($nc(this->this$1->this$0)->debug)->log($$concat(var$1, $($nc(this->this$1->this$0)->getConnectionFlow())));
 			}
 			$nc(this->this$1->subscriber)->onNext(elem);

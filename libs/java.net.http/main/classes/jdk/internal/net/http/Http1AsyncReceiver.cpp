@@ -613,9 +613,9 @@ bool Http1AsyncReceiver::handlePendingDelegate() {
 		if ($nc(this->debug)->on()) {
 			$var($String, var$6, $$str({"delegate is now "_s, captured, ", demand="_s}));
 			$var($String, var$5, $$concat(var$6, $$str($nc($(subscription->demand()))->get())));
-			$var($String, var$4, $$concat(var$5, ", canRequestMore="));
+			$var($String, var$4, $$concat(var$5, ", canRequestMore="_s));
 			$var($String, var$3, $$concat(var$4, $$str($nc(this->canRequestMore)->get())));
-			$var($String, var$2, $$concat(var$3, ", queue.isEmpty="));
+			$var($String, var$2, $$concat(var$3, ", queue.isEmpty="_s));
 			$nc(this->debug)->log($$concat(var$2, $$str($nc(this->queue)->isEmpty())));
 		}
 		return true;
@@ -801,7 +801,7 @@ $ByteBuffer* Http1AsyncReceiver::drain($ByteBuffer* initial$renamed) {
 	if (!Http1AsyncReceiver::$assertionsDisabled && !(b->capacity() >= remaining + size)) {
 		$var($String, var$3, $$str({"capacity: "_s, $$str(b->capacity()), ", remaining: "_s}));
 		$var($String, var$2, $$concat(var$3, $$str(b->remaining())));
-		$var($String, var$1, $$concat(var$2, ", size: "));
+		$var($String, var$1, $$concat(var$2, ", size: "_s));
 		$throwNew($AssertionError, $of(($$concat(var$1, $$str(size)))));
 	}
 	b->position(limit);
@@ -838,7 +838,7 @@ $ByteBuffer* Http1AsyncReceiver::drain($ByteBuffer* initial$renamed) {
 	if ($nc(this->debug)->on()) {
 		$var($String, var$6, $$str({"Initial buffer now has "_s, $$str(bb->remaining()), " pos="_s}));
 		$var($String, var$5, $$concat(var$6, $$str(bb->position())));
-		$var($String, var$4, $$concat(var$5, " limit="));
+		$var($String, var$4, $$concat(var$5, " limit="_s));
 		$nc(this->debug)->log($$concat(var$4, $$str(bb->limit())));
 	}
 	return b;

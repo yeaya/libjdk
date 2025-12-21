@@ -535,7 +535,7 @@ void HttpRequestImpl::init$($String* method, $InetSocketAddress* authority, $Uti
 	$set(this, userHeaders, $nc(headers)->userHeaders());
 	$var($String, var$1, $$str({"socket://"_s, $($nc(authority)->getHostString()), ":"_s}));
 	$var($String, var$0, $$concat(var$1, $($Integer::toString(authority->getPort()))));
-	$set(this, uri$, $URI::create($$concat(var$0, "/")));
+	$set(this, uri$, $URI::create($$concat(var$0, "/"_s)));
 	$set(this, proxy$, nullptr);
 	$set(this, requestPublisher, nullptr);
 	$set(this, authority$, authority);

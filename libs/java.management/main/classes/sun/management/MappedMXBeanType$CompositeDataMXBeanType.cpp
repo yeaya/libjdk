@@ -200,7 +200,7 @@ $Object* MappedMXBeanType$CompositeDataMXBeanType::toOpenTypeData(Object$* data)
 		} catch ($InvocationTargetException& e) {
 			$var($String, var$1, $$str({"Failed to invoke "_s, $($nc(this->toMethod)->getName()), " to convert "_s}));
 			$var($String, var$0, $$concat(var$1, $($nc(this->javaClass)->getName())));
-			$var($OpenDataException, ode, $new($OpenDataException, $$concat(var$0, " to CompositeData")));
+			$var($OpenDataException, ode, $new($OpenDataException, $$concat(var$0, " to CompositeData"_s)));
 			ode->initCause(e);
 			$throw(ode);
 		}

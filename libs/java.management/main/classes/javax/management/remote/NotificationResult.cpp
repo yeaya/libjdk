@@ -72,7 +72,7 @@ $String* NotificationResult::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({"NotificationResult: earliest="_s, $$str(getEarliestSequenceNumber()), "; next="_s}));
 	$var($String, var$1, $$concat(var$2, $$str(getNextSequenceNumber())));
-	$var($String, var$0, $$concat(var$1, "; nnotifs="));
+	$var($String, var$0, $$concat(var$1, "; nnotifs="_s));
 	return $concat(var$0, $$str($nc($(getTargetedNotifications()))->length));
 }
 

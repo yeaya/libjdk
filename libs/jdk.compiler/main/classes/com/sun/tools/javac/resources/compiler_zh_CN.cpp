@@ -42,1419 +42,1419 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("compiler.err.abstract.cant.be.accessed.directly"_s),
-			$of(u"\u65e0\u6cd5\u76f4\u63a5\u8bbf\u95ee{2}\u4e2d\u7684\u62bd\u8c61{0} {1}"_s)
+			$of(u"无法直接访问{2}中的抽象{0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.abstract.cant.be.instantiated"_s),
-			$of(u"{0}\u662f\u62bd\u8c61\u7684; \u65e0\u6cd5\u5b9e\u4f8b\u5316"_s)
+			$of(u"{0}是抽象的; 无法实例化"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.abstract.meth.cant.have.body"_s),
-			$of(u"\u62bd\u8c61\u65b9\u6cd5\u4e0d\u80fd\u6709\u4e3b\u4f53"_s)
+			$of(u"抽象方法不能有主体"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.add.exports.with.release"_s),
-			$of(u"\u4e0d\u5141\u8bb8\u5728\u4f7f\u7528 --release \u65f6\u4ece\u7cfb\u7edf\u6a21\u5757 {0} \u5bfc\u51fa\u7a0b\u5e8f\u5305:"_s)
+			$of(u"不允许在使用 --release 时从系统模块 {0} 导出程序包:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.add.reads.with.release"_s),
-			$of(u"\u4e0d\u5141\u8bb8\u5728\u4f7f\u7528 --release \u65f6\u4e3a\u7cfb\u7edf\u6a21\u5757 {0} \u6dfb\u52a0\u8bfb\u53d6\u7ef4\u8fb9:"_s)
+			$of(u"不允许在使用 --release 时为系统模块 {0} 添加读取维边:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.addmods.all.module.path.invalid"_s),
-			$of(u"--add-modules ALL-MODULE-PATH \u53ea\u80fd\u5728\u7f16\u8bd1\u672a\u547d\u540d\u6a21\u5757\u6216\u5728\u81ea\u52a8\u6a21\u5757\u7684\u4e0a\u4e0b\u6587\u4e2d\u7f16\u8bd1\u65f6\u4f7f\u7528"_s)
+			$of(u"--add-modules ALL-MODULE-PATH 只能在编译未命名模块或在自动模块的上下文中编译时使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.already.annotated"_s),
-			$of(u"{0} {1}\u5df2\u8fdb\u884c\u6ce8\u91ca"_s)
+			$of(u"{0} {1}已进行注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.already.defined"_s),
-			$of(u"\u5df2\u5728{2} {3}\u4e2d\u5b9a\u4e49\u4e86{0} {1}"_s)
+			$of(u"已在{2} {3}中定义了{0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.already.defined.in.clinit"_s),
-			$of(u"\u5df2\u5728{3} {4}\u7684{2}\u4e2d\u5b9a\u4e49\u4e86{0} {1}"_s)
+			$of(u"已在{3} {4}的{2}中定义了{0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.already.defined.single.import"_s),
-			$of(u"{0}\u7684 single-type-import \u5df2\u5b9a\u4e49\u5177\u6709\u76f8\u540c\u7b80\u540d\u7684\u7c7b\u578b"_s)
+			$of(u"{0}的 single-type-import 已定义具有相同简名的类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.already.defined.static.single.import"_s),
-			$of(u"{0}\u7684\u9759\u6001 single-type-import \u5df2\u5b9a\u4e49\u5177\u6709\u76f8\u540c\u7b80\u540d\u7684\u7c7b\u578b"_s)
+			$of(u"{0}的静态 single-type-import 已定义具有相同简名的类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.already.defined.this.unit"_s),
-			$of(u"\u5df2\u5728\u8be5\u7f16\u8bd1\u5355\u5143\u4e2d\u5b9a\u4e49{0}"_s)
+			$of(u"已在该编译单元中定义{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.annotation.decl.not.allowed.here"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5141\u8bb8\u6ce8\u91ca\u7c7b\u578b\u58f0\u660e"_s)
+			$of(u"此处不允许注释类型声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.annotation.missing.default.value"_s),
-			$of(u"\u5bf9\u4e8e\u5143\u7d20 \'\'{1}\'\', \u6ce8\u91ca @{0} \u7f3a\u5c11\u9ed8\u8ba4\u503c"_s)
+			$of(u"对于元素 \'\'{1}\'\', 注释 @{0} 缺少默认值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.annotation.missing.default.value.1"_s),
-			$of(u"\u5bf9\u4e8e\u5143\u7d20{1}, \u6ce8\u91ca @{0} \u7f3a\u5c11\u9ed8\u8ba4\u503c"_s)
+			$of(u"对于元素{1}, 注释 @{0} 缺少默认值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.annotation.not.valid.for.type"_s),
-			$of(u"\u6ce8\u91ca\u5bf9\u4e8e\u7c7b\u578b{0}\u7684\u5143\u7d20\u65e0\u6548"_s)
+			$of(u"注释对于类型{0}的元素无效"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.annotation.type.not.applicable"_s),
-			$of(u"\u6ce8\u91ca\u7c7b\u578b\u4e0d\u9002\u7528\u4e8e\u8be5\u7c7b\u578b\u7684\u58f0\u660e"_s)
+			$of(u"注释类型不适用于该类型的声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.annotation.type.not.applicable.to.type"_s),
-			$of(u"\u6ce8\u91ca @{0} \u5728\u6b64\u7c7b\u578b\u4e0a\u4e0b\u6587\u4e2d\u4e0d\u9002\u7528"_s)
+			$of(u"注释 @{0} 在此类型上下文中不适用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.annotation.value.must.be.annotation"_s),
-			$of(u"\u6ce8\u91ca\u503c\u5fc5\u987b\u4e3a\u6ce8\u91ca"_s)
+			$of(u"注释值必须为注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.annotation.value.must.be.class.literal"_s),
-			$of(u"\u6ce8\u91ca\u503c\u5fc5\u987b\u4e3a\u7c7b\u6587\u5b57"_s)
+			$of(u"注释值必须为类文字"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.annotation.value.must.be.name.value"_s),
-			$of(u"\u6ce8\u91ca\u503c\u5fc5\u987b\u91c7\u7528 \'\'name=value\'\' \u683c\u5f0f"_s)
+			$of(u"注释值必须采用 \'\'name=value\'\' 格式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.annotation.value.not.allowable.type"_s),
-			$of(u"\u6ce8\u91ca\u503c\u4e0d\u662f\u5141\u8bb8\u7684\u7c7b\u578b"_s)
+			$of(u"注释值不是允许的类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.anon.class.impl.intf.no.args"_s),
-			$of(u"\u533f\u540d\u7c7b\u5b9e\u73b0\u63a5\u53e3; \u4e0d\u80fd\u6709\u53c2\u6570"_s)
+			$of(u"匿名类实现接口; 不能有参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.anon.class.impl.intf.no.qual.for.new"_s),
-			$of(u"\u533f\u540d\u7c7b\u5b9e\u73b0\u63a5\u53e3; \u4e0d\u80fd\u6709\u9650\u5b9a\u7b26 - \u5bf9\u4e8e\u65b0"_s)
+			$of(u"匿名类实现接口; 不能有限定符 - 对于新"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.anon.class.impl.intf.no.typeargs"_s),
-			$of(u"\u533f\u540d\u7c7b\u5b9e\u73b0\u63a5\u53e3; \u4e0d\u80fd\u5177\u6709\u7c7b\u578b\u53c2\u6570"_s)
+			$of(u"匿名类实现接口; 不能具有类型参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.anonymous.diamond.method.does.not.override.superclass"_s),
-			$of(u"\u65b9\u6cd5\u4e0d\u4f1a\u8986\u76d6\u6216\u5b9e\u73b0\u8d85\u7c7b\u578b\u4e2d\u7684\u65b9\u6cd5\n{0}"_s)
+			$of(u"方法不会覆盖或实现超类型中的方法\n{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.array.and.receiver"_s),
-			$of(u"\u63a5\u6536\u65b9\u53c2\u6570\u4e0d\u5141\u8bb8\u4f7f\u7528\u4f20\u7edf\u6570\u7ec4\u8bb0\u53f7"_s)
+			$of(u"接收方参数不允许使用传统数组记号"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.array.and.varargs"_s),
-			$of(u"\u65e0\u6cd5\u5728{2}\u4e2d\u540c\u65f6\u58f0\u660e{0}\u548c{1}"_s)
+			$of(u"无法在{2}中同时声明{0}和{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.array.dimension.missing"_s),
-			$of(u"\u7f3a\u5c11\u6570\u7ec4\u7ef4"_s)
+			$of(u"缺少数组维"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.array.req.but.found"_s),
-			$of(u"\u9700\u8981\u6570\u7ec4, \u4f46\u627e\u5230{0}"_s)
+			$of(u"需要数组, 但找到{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.assert.as.identifier"_s),
-			$of(u"\u4ece\u53d1\u884c\u7248 1.4 \u5f00\u59cb, \'\'assert\'\' \u4e3a\u5173\u952e\u5b57, \u4e0d\u80fd\u7528\u4f5c\u6807\u8bc6\u7b26"_s)
+			$of(u"从发行版 1.4 开始, \'\'assert\'\' 为关键字, 不能用作标识符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.attribute.value.must.be.constant"_s),
-			$of(u"\u5143\u7d20\u503c\u5fc5\u987b\u4e3a\u5e38\u91cf\u8868\u8fbe\u5f0f"_s)
+			$of(u"元素值必须为常量表达式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.bad.functional.intf.anno"_s),
-			$of(u"\u610f\u5916\u7684 @FunctionalInterface \u6ce8\u91ca"_s)
+			$of(u"意外的 @FunctionalInterface 注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.bad.functional.intf.anno.1"_s),
-			$of(u"\u610f\u5916\u7684 @FunctionalInterface \u6ce8\u91ca\n{0}"_s)
+			$of(u"意外的 @FunctionalInterface 注释\n{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.bad.initializer"_s),
-			$of(u"{0}\u7684\u521d\u59cb\u5316\u7a0b\u5e8f\u9519\u8bef"_s)
+			$of(u"{0}的初始化程序错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.bad.name.for.option"_s),
-			$of(u"{0} \u9009\u9879\u7684\u503c\u4e2d\u6709\u9519\u8bef\u7684\u540d\u79f0: \'\'{1}\'\'"_s)
+			$of(u"{0} 选项的值中有错误的名称: \'\'{1}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.bad.value.for.option"_s),
-			$of(u"{0} \u9009\u9879\u7684\u503c\u9519\u8bef: \'\'{1}\'\'"_s)
+			$of(u"{0} 选项的值错误: \'\'{1}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.break.outside.switch.expression"_s),
-			$of(u"\u5c1d\u8bd5\u4ece switch \u8868\u8fbe\u5f0f\u4e2d\u65ad"_s)
+			$of(u"尝试从 switch 表达式中断"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.break.outside.switch.loop"_s),
-			$of(u"\u5728 switch \u6216 loop \u5916\u90e8\u4e2d\u65ad"_s)
+			$of(u"在 switch 或 loop 外部中断"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.call.must.be.first.stmt.in.ctor"_s),
-			$of(u"\u5bf9{0}\u7684\u8c03\u7528\u5fc5\u987b\u662f\u6784\u9020\u5668\u4e2d\u7684\u7b2c\u4e00\u4e2a\u8bed\u53e5"_s)
+			$of(u"对{0}的调用必须是构造器中的第一个语句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.call.to.super.not.allowed.in.enum.ctor"_s),
-			$of(u"\u5728\u679a\u4e3e\u6784\u9020\u5668\u4e2d\u4e0d\u5141\u8bb8\u8c03\u7528\u8d85\u7c7b"_s)
+			$of(u"在枚举构造器中不允许调用超类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cannot.create.array.with.diamond"_s),
-			$of(u"\u65e0\u6cd5\u521b\u5efa\u5177\u6709 \'\'<>\'\' \u7684\u6570\u7ec4"_s)
+			$of(u"无法创建具有 \'\'<>\'\' 的数组"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cannot.create.array.with.type.arguments"_s),
-			$of(u"\u65e0\u6cd5\u521b\u5efa\u5177\u6709\u7c7b\u578b\u53d8\u91cf\u7684\u6570\u7ec4"_s)
+			$of(u"无法创建具有类型变量的数组"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cannot.generate.class"_s),
-			$of(u"\u751f\u6210\u7c7b {0} \u65f6\u51fa\u9519\n({1})"_s)
+			$of(u"生成类 {0} 时出错\n({1})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.access"_s),
-			$of(u"\u65e0\u6cd5\u8bbf\u95ee{0}\n{1}"_s)
+			$of(u"无法访问{0}\n{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.apply.diamond"_s),
-			$of(u"\u65e0\u6cd5\u63a8\u65ad{0}\u7684\u7c7b\u578b\u53c2\u6570"_s)
+			$of(u"无法推断{0}的类型参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.apply.diamond.1"_s),
-			$of(u"\u65e0\u6cd5\u63a8\u65ad{0}\u7684\u7c7b\u578b\u53c2\u6570\n\u539f\u56e0: {1}"_s)
+			$of(u"无法推断{0}的类型参数\n原因: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.apply.symbol"_s),
-			$of(u"\u65e0\u6cd5\u5c06{4} {5}\u4e2d\u7684{0} {1}\u5e94\u7528\u5230\u7ed9\u5b9a\u7c7b\u578b;\n\u9700\u8981: {2}\n\u627e\u5230:    {3}\n\u539f\u56e0: {6}"_s)
+			$of(u"无法将{4} {5}中的{0} {1}应用到给定类型;\n需要: {2}\n找到:    {3}\n原因: {6}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.apply.symbols"_s),
-			$of(u"\u5bf9\u4e8e{1}({2}), \u627e\u4e0d\u5230\u5408\u9002\u7684{0}"_s)
+			$of(u"对于{1}({2}), 找不到合适的{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.assign.val.to.final.var"_s),
-			$of(u"\u65e0\u6cd5\u4e3a\u6700\u7ec8\u53d8\u91cf{0}\u5206\u914d\u503c"_s)
+			$of(u"无法为最终变量{0}分配值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.assign.val.to.this"_s),
-			$of(u"\u65e0\u6cd5\u5206\u914d\u7ed9 \'\'this\'\'"_s)
+			$of(u"无法分配给 \'\'this\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.deref"_s),
-			$of(u"\u65e0\u6cd5\u53d6\u6d88\u5f15\u7528{0}"_s)
+			$of(u"无法取消引用{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.extend.intf.annotation"_s),
-			$of(u"\u5bf9\u4e8e @interfaces, \u4e0d\u5141\u8bb8 \'\'extends\'\'"_s)
+			$of(u"对于 @interfaces, 不允许 \'\'extends\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.infer.local.var.type"_s),
-			$of(u"\u65e0\u6cd5\u63a8\u65ad\u672c\u5730\u53d8\u91cf {0} \u7684\u7c7b\u578b\n({1})"_s)
+			$of(u"无法推断本地变量 {0} 的类型\n({1})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.inherit.diff.arg"_s),
-			$of(u"\u65e0\u6cd5\u4f7f\u7528\u4ee5\u4e0b\u4e0d\u540c\u7684\u53c2\u6570\u7ee7\u627f{0}: <{1}> \u548c <{2}>"_s)
+			$of(u"无法使用以下不同的参数继承{0}: <{1}> 和 <{2}>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.inherit.from.anon"_s),
-			$of(u"\u65e0\u6cd5\u4ece\u533f\u540d\u7c7b\u7ee7\u627f"_s)
+			$of(u"无法从匿名类继承"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.inherit.from.final"_s),
-			$of(u"\u65e0\u6cd5\u4ece\u6700\u7ec8{0}\u8fdb\u884c\u7ee7\u627f"_s)
+			$of(u"无法从最终{0}进行继承"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.inherit.from.sealed"_s),
-			$of(u"\u7c7b\u4e0d\u5f97\u6269\u5c55\u5bc6\u5c01\u7c7b\uff1a{0}\uff08\u56e0\u4e3a\u5b83\u672a\u5217\u5728\u5176 \'\'permits\'\' \u5b50\u53e5\u4e2d\uff09"_s)
+			$of(u"类不得扩展密封类：{0}（因为它未列在其 \'\'permits\'\' 子句中）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.read.file"_s),
-			$of(u"\u65e0\u6cd5\u8bfb\u53d6: {0}"_s)
+			$of(u"无法读取: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.ref.before.ctor.called"_s),
-			$of(u"\u65e0\u6cd5\u5728\u8c03\u7528\u8d85\u7c7b\u578b\u6784\u9020\u5668\u4e4b\u524d\u5f15\u7528{0}"_s)
+			$of(u"无法在调用超类型构造器之前引用{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.ref.non.effectively.final.var"_s),
-			$of(u"\u4ece{1}\u5f15\u7528\u7684\u672c\u5730\u53d8\u91cf\u5fc5\u987b\u662f\u6700\u7ec8\u53d8\u91cf\u6216\u5b9e\u9645\u4e0a\u7684\u6700\u7ec8\u53d8\u91cf"_s)
+			$of(u"从{1}引用的本地变量必须是最终变量或实际上的最终变量"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.resolve"_s),
-			$of(u"\u627e\u4e0d\u5230\u7b26\u53f7\n\u7b26\u53f7: {0} {1}"_s)
+			$of(u"找不到符号\n符号: {0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.resolve.args"_s),
-			$of(u"\u627e\u4e0d\u5230\u7b26\u53f7\n\u7b26\u53f7: {0} {1}({3})"_s)
+			$of(u"找不到符号\n符号: {0} {1}({3})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.resolve.args.params"_s),
-			$of(u"\u627e\u4e0d\u5230\u7b26\u53f7\n\u7b26\u53f7: {0} <{2}>{1}({3})"_s)
+			$of(u"找不到符号\n符号: {0} <{2}>{1}({3})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.resolve.location"_s),
-			$of(u"\u627e\u4e0d\u5230\u7b26\u53f7\n\u7b26\u53f7:   {0} {1}\n\u4f4d\u7f6e: {4}"_s)
+			$of(u"找不到符号\n符号:   {0} {1}\n位置: {4}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.resolve.location.args"_s),
-			$of(u"\u627e\u4e0d\u5230\u7b26\u53f7\n\u7b26\u53f7:   {0} {1}({3})\n\u4f4d\u7f6e: {4}"_s)
+			$of(u"找不到符号\n符号:   {0} {1}({3})\n位置: {4}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.resolve.location.args.params"_s),
-			$of(u"\u627e\u4e0d\u5230\u7b26\u53f7\n\u7b26\u53f7:   {0} <{2}>{1}({3})\n\u4f4d\u7f6e: {4}"_s)
+			$of(u"找不到符号\n符号:   {0} <{2}>{1}({3})\n位置: {4}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.select.static.class.from.param.type"_s),
-			$of(u"\u65e0\u6cd5\u4ece\u53c2\u6570\u5316\u7684\u7c7b\u578b\u4e2d\u9009\u62e9\u9759\u6001\u7c7b"_s)
+			$of(u"无法从参数化的类型中选择静态类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.type.annotate.scoping"_s),
-			$of(u"\u65e0\u6cd5\u4f7f\u7528 type-use \u6ce8\u91ca {0} \u6765\u6ce8\u91ca\u786e\u5b9a\u4f5c\u7528\u57df\u7ed3\u6784"_s)
+			$of(u"无法使用 type-use 注释 {0} 来注释确定作用域结构"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cant.type.annotate.scoping.1"_s),
-			$of(u"\u65e0\u6cd5\u4f7f\u7528 type-use \u6ce8\u91ca {0} \u6765\u6ce8\u91ca\u786e\u5b9a\u4f5c\u7528\u57df\u7ed3\u6784"_s)
+			$of(u"无法使用 type-use 注释 {0} 来注释确定作用域结构"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.catch.without.try"_s),
-			$of(u"\u6709 \'\'catch\'\', \u4f46\u662f\u6ca1\u6709 \'\'try\'\'"_s)
+			$of(u"有 \'\'catch\'\', 但是没有 \'\'try\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.clash.with.pkg.of.same.name"_s),
-			$of(u"{0} {1}\u4e0e\u5e26\u6709\u76f8\u540c\u540d\u79f0\u7684\u7a0b\u5e8f\u5305\u51b2\u7a81"_s)
+			$of(u"{0} {1}与带有相同名称的程序包冲突"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.class.cant.write"_s),
-			$of(u"\u5199\u5165{0}\u65f6\u51fa\u9519: {1}"_s)
+			$of(u"写入{0}时出错: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.class.in.module.cant.extend.sealed.in.diff.module"_s),
-			$of(u"\u6a21\u5757 {1} \u4e2d\u7684\u7c7b {0} \u65e0\u6cd5\u6269\u5c55\u5176\u4ed6\u6a21\u5757\u4e2d\u7684\u5bc6\u5c01\u7c7b"_s)
+			$of(u"模块 {1} 中的类 {0} 无法扩展其他模块中的密封类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.class.in.unnamed.module.cant.extend.sealed.in.diff.package"_s),
-			$of(u"\u672a\u547d\u540d\u6a21\u5757\u4e2d\u7684\u7c7b {0} \u65e0\u6cd5\u6269\u5c55\u5176\u4ed6\u7a0b\u5e8f\u5305\u4e2d\u7684\u5bc6\u5c01\u7c7b"_s)
+			$of(u"未命名模块中的类 {0} 无法扩展其他程序包中的密封类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.class.not.allowed"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5141\u8bb8\u4f7f\u7528\u7c7b, \u63a5\u53e3\u6216\u679a\u4e3e\u58f0\u660e"_s)
+			$of(u"此处不允许使用类, 接口或枚举声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.class.public.should.be.in.file"_s),
-			$of(u"{0} {1} \u662f\u516c\u5171\u7684, \u5e94\u5728\u540d\u4e3a {1}.java \u7684\u6587\u4ef6\u4e2d\u58f0\u660e"_s)
+			$of(u"{0} {1} 是公共的, 应在名为 {1}.java 的文件中声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.concrete.inheritance.conflict"_s),
-			$of(u"{1}\u4e2d\u7684\u65b9\u6cd5{0}\u548c{3}\u4e2d\u7684\u65b9\u6cd5{2}\u662f\u4f7f\u7528\u76f8\u540c\u7684\u7b7e\u540d\u7ee7\u627f\u7684"_s)
+			$of(u"{1}中的方法{0}和{3}中的方法{2}是使用相同的签名继承的"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.conflicting.exports"_s),
-			$of(u"\u91cd\u590d\u6216\u51b2\u7a81\u7684\u5bfc\u51fa\u64cd\u4f5c: {0}"_s)
+			$of(u"重复或冲突的导出操作: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.conflicting.exports.to.module"_s),
-			$of(u"\u91cd\u590d\u6216\u51b2\u7a81\u7684\u5bfc\u51fa\u5230\u6a21\u5757\u64cd\u4f5c: {0}"_s)
+			$of(u"重复或冲突的导出到模块操作: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.conflicting.opens"_s),
-			$of(u"\u91cd\u590d\u6216\u51b2\u7a81\u7684\u6253\u5f00\u64cd\u4f5c: {0}"_s)
+			$of(u"重复或冲突的打开操作: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.conflicting.opens.to.module"_s),
-			$of(u"\u91cd\u590d\u6216\u51b2\u7a81\u7684\u6253\u5f00\u5230\u6a21\u5757\u64cd\u4f5c: {0}"_s)
+			$of(u"重复或冲突的打开到模块操作: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.const.expr.req"_s),
-			$of(u"\u9700\u8981\u5e38\u91cf\u8868\u8fbe\u5f0f"_s)
+			$of(u"需要常量表达式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cont.outside.loop"_s),
-			$of(u"continue \u5728 loop \u5916\u90e8"_s)
+			$of(u"continue 在 loop 外部"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.continue.outside.switch.expression"_s),
-			$of(u"\u5c1d\u8bd5\u4ece switch \u8868\u8fbe\u5f0f\u7ee7\u7eed"_s)
+			$of(u"尝试从 switch 表达式继续"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cyclic.annotation.element"_s),
-			$of(u"\u5143\u7d20 {0} \u7684\u7c7b\u578b\u4e3a\u5faa\u73af"_s)
+			$of(u"元素 {0} 的类型为循环"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cyclic.inheritance"_s),
-			$of(u"\u6d89\u53ca{0}\u7684\u5faa\u73af\u7ee7\u627f"_s)
+			$of(u"涉及{0}的循环继承"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.cyclic.requires"_s),
-			$of(u"\u6d89\u53ca {0} \u7684\u5faa\u73af\u88ab\u4f9d\u8d56\u5bf9\u8c61"_s)
+			$of(u"涉及 {0} 的循环被依赖对象"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.bad.entity"_s),
-			$of(u"HTML \u5b9e\u4f53\u9519\u8bef"_s)
+			$of(u"HTML 实体错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.bad.inline.tag"_s),
-			$of(u"\u5185\u5d4c\u6807\u8bb0\u7684\u7528\u6cd5\u4e0d\u6b63\u786e"_s)
+			$of(u"内嵌标记的用法不正确"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.gt.expected"_s),
-			$of(u"\u9700\u8981 \'\'>\'\'"_s)
+			$of(u"需要 \'\'>\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.identifier.expected"_s),
-			$of(u"\u9700\u8981\u6807\u8bc6\u7b26"_s)
+			$of(u"需要标识符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.malformed.html"_s),
-			$of(u"\u683c\u5f0f\u9519\u8bef\u7684 HTML"_s)
+			$of(u"格式错误的 HTML"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.missing.semicolon"_s),
-			$of(u"\u7f3a\u5c11\u5206\u53f7"_s)
+			$of(u"缺少分号"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.no.content"_s),
-			$of(u"\u65e0\u5185\u5bb9"_s)
+			$of(u"无内容"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.no.tag.name"_s),
-			$of(u"\'@\' \u540e\u6ca1\u6709\u6807\u8bb0\u540d"_s)
+			$of(u"\'@\' 后没有标记名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.ref.bad.parens"_s),
-			$of(u"\u5f15\u7528\u4e2d\u7f3a\u5c11 \'\')\'\'"_s)
+			$of(u"引用中缺少 \'\')\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.ref.syntax.error"_s),
-			$of(u"\u5f15\u7528\u4e2d\u51fa\u73b0\u8bed\u6cd5\u9519\u8bef"_s)
+			$of(u"引用中出现语法错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.ref.unexpected.input"_s),
-			$of(u"\u610f\u5916\u7684\u6587\u672c"_s)
+			$of(u"意外的文本"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.unexpected.content"_s),
-			$of(u"\u610f\u5916\u7684\u5185\u5bb9"_s)
+			$of(u"意外的内容"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.unterminated.inline.tag"_s),
-			$of(u"\u672a\u7ec8\u6b62\u7684\u5185\u5d4c\u6807\u8bb0"_s)
+			$of(u"未终止的内嵌标记"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.unterminated.signature"_s),
-			$of(u"\u672a\u7ec8\u6b62\u7684\u7b7e\u540d"_s)
+			$of(u"未终止的签名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dc.unterminated.string"_s),
-			$of(u"\u672a\u7ec8\u6b62\u7684\u5b57\u7b26\u4e32"_s)
+			$of(u"未终止的字符串"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.default.allowed.in.intf.annotation.member"_s),
-			$of(u"\u6ce8\u91ca\u7c7b\u578b\u58f0\u660e\u4e2d\u4ec5\u5141\u8bb8\u9ed8\u8ba4\u503c"_s)
+			$of(u"注释类型声明中仅允许默认值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.default.overrides.object.member"_s),
-			$of(u"{1} {2} \u4e2d\u7684\u9ed8\u8ba4\u65b9\u6cd5{0}\u8986\u76d6\u4e86 java.lang.Object \u7684\u6210\u5458"_s)
+			$of(u"{1} {2} 中的默认方法{0}覆盖了 java.lang.Object 的成员"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.does.not.override.abstract"_s),
-			$of(u"{0}\u4e0d\u662f\u62bd\u8c61\u7684, \u5e76\u4e14\u672a\u8986\u76d6{2}\u4e2d\u7684\u62bd\u8c61\u65b9\u6cd5{1}"_s)
+			$of(u"{0}不是抽象的, 并且未覆盖{2}中的抽象方法{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.doesnt.exist"_s),
-			$of(u"\u7a0b\u5e8f\u5305{0}\u4e0d\u5b58\u5728"_s)
+			$of(u"程序包{0}不存在"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.dot.class.expected"_s),
-			$of(u"\u9700\u8981 \'\'.class\'\'"_s)
+			$of(u"需要 \'\'.class\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.annotation.invalid.repeated"_s),
-			$of(u"\u6ce8\u91ca{0}\u4e0d\u662f\u6709\u6548\u7684\u53ef\u91cd\u590d\u6ce8\u91ca"_s)
+			$of(u"注释{0}不是有效的可重复注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.annotation.member.value"_s),
-			$of(u"\u6ce8\u91ca@{1}\u4e2d\u7684\u5143\u7d20 \'\'{0}\'\' \u91cd\u590d\u3002"_s)
+			$of(u"注释@{1}中的元素 \'\'{0}\'\' 重复。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.annotation.missing.container"_s),
-			$of(u"{0} \u4e0d\u662f\u53ef\u91cd\u590d\u7684\u6ce8\u91ca\u7c7b\u578b"_s)
+			$of(u"{0} 不是可重复的注释类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.case.label"_s),
-			$of(u"case \u6807\u7b7e\u91cd\u590d"_s)
+			$of(u"case 标签重复"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.class"_s),
-			$of(u"\u7c7b\u91cd\u590d: {0}"_s)
+			$of(u"类重复: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.default.label"_s),
-			$of(u"default \u6807\u7b7e\u91cd\u590d"_s)
+			$of(u"default 标签重复"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.module"_s),
-			$of(u"\u91cd\u590d\u7684\u6a21\u5757: {0}"_s)
+			$of(u"重复的模块: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.module.on.path"_s),
-			$of(u"{1} \u4e2d\u7684 {0} \u4e0a\u5b58\u5728\n\u91cd\u590d\u7684\u6a21\u5757"_s)
+			$of(u"{1} 中的 {0} 上存在\n重复的模块"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.provides"_s),
-			$of(u"\u91cd\u590d\u7684 provides \u6307\u4ee4: \u670d\u52a1 {0}, \u5b9e\u73b0 {1}"_s)
+			$of(u"重复的 provides 指令: 服务 {0}, 实现 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.requires"_s),
-			$of(u"\u91cd\u590d\u7684 requires \u6307\u4ee4: {0}"_s)
+			$of(u"重复的 requires 指令: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.duplicate.uses"_s),
-			$of(u"\u91cd\u590d\u7684 uses \u6307\u4ee4: {0}"_s)
+			$of(u"重复的 uses 指令: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.else.without.if"_s),
-			$of(u"\u6709 \'\'if\'\', \u4f46\u662f\u6ca1\u6709 \'\'else\'\'"_s)
+			$of(u"有 \'\'if\'\', 但是没有 \'\'else\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.empty.A.argument"_s),
-			$of(u"-A \u9700\u8981\u4e00\u4e2a\u53c2\u6570; \u4f7f\u7528 \'\'-Akey\'\' \u6216 \'\'-Akey=value\'\'"_s)
+			$of(u"-A 需要一个参数; 使用 \'\'-Akey\'\' 或 \'\'-Akey=value\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.empty.char.lit"_s),
-			$of(u"\u7a7a\u5b57\u7b26\u6587\u5b57"_s)
+			$of(u"空字符文字"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.encl.class.required"_s),
-			$of(u"\u9700\u8981\u5305\u542b{0}\u7684\u5c01\u95ed\u5b9e\u4f8b"_s)
+			$of(u"需要包含{0}的封闭实例"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.enum.annotation.must.be.enum.constant"_s),
-			$of(u"\u679a\u4e3e\u6ce8\u91ca\u503c\u5fc5\u987b\u662f\u679a\u4e3e\u5e38\u91cf"_s)
+			$of(u"枚举注释值必须是枚举常量"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.enum.as.identifier"_s),
-			$of(u"\u4ece\u53d1\u884c\u7248 5 \u5f00\u59cb, \'\'enum\'\' \u4e3a\u5173\u952e\u5b57, \u4e0d\u80fd\u7528\u4f5c\u6807\u8bc6\u7b26"_s)
+			$of(u"从发行版 5 开始, \'\'enum\'\' 为关键字, 不能用作标识符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.enum.cant.be.instantiated"_s),
-			$of(u"\u65e0\u6cd5\u5b9e\u4f8b\u5316\u679a\u4e3e\u7c7b\u578b"_s)
+			$of(u"无法实例化枚举类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.enum.constant.expected"_s),
-			$of(u"\u6b64\u5904\u9700\u8981\u679a\u4e3e\u5e38\u91cf"_s)
+			$of(u"此处需要枚举常量"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.enum.constant.not.expected"_s),
-			$of(u"\u6b64\u5904\u4e0d\u9700\u8981\u679a\u4e3e\u5e38\u91cf"_s)
+			$of(u"此处不需要枚举常量"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.enum.label.must.be.unqualified.enum"_s),
-			$of(u"\u679a\u4e3e switch case \u6807\u7b7e\u5fc5\u987b\u4e3a\u679a\u4e3e\u5e38\u91cf\u7684\u975e\u9650\u5b9a\u540d\u79f0"_s)
+			$of(u"枚举 switch case 标签必须为枚举常量的非限定名称"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.enum.no.finalize"_s),
-			$of(u"\u679a\u4e3e\u4e0d\u80fd\u6709 finalize \u65b9\u6cd5"_s)
+			$of(u"枚举不能有 finalize 方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.enum.no.subclassing"_s),
-			$of(u"\u7c7b\u65e0\u6cd5\u76f4\u63a5\u6269\u5c55 java.lang.Enum"_s)
+			$of(u"类无法直接扩展 java.lang.Enum"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.enum.types.not.extensible"_s),
-			$of(u"\u679a\u4e3e\u7c7b\u578b\u4e0d\u53ef\u7ee7\u627f"_s)
+			$of(u"枚举类型不可继承"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.error"_s),
-			$of(u"\u9519\u8bef: "_s)
+			$of(u"错误: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.error.reading.file"_s),
-			$of(u"\u8bfb\u53d6{0}\u65f6\u51fa\u9519; {1}"_s)
+			$of(u"读取{0}时出错; {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.error.writing.file"_s),
-			$of(u"\u5199\u5165 {0} \u65f6\u51fa\u9519\uff1b{1}"_s)
+			$of(u"写入 {0} 时出错；{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.except.already.caught"_s),
-			$of(u"\u5df2\u6355\u83b7\u5230\u5f02\u5e38\u9519\u8bef{0}"_s)
+			$of(u"已捕获到异常错误{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.except.never.thrown.in.try"_s),
-			$of(u"\u5728\u76f8\u5e94\u7684 try \u8bed\u53e5\u4e3b\u4f53\u4e2d\u4e0d\u80fd\u629b\u51fa\u5f02\u5e38\u9519\u8bef{0}"_s)
+			$of(u"在相应的 try 语句主体中不能抛出异常错误{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.expected"_s),
-			$of(u"\u9700\u8981{0}"_s)
+			$of(u"需要{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.expected.module"_s),
-			$of(u"\u9884\u671f \'\'module\'\'"_s)
+			$of(u"预期 \'\'module\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.expected.module.or.open"_s),
-			$of(u"\u9700\u8981 \'\'module\'\' \u6216 \'\'open\'\'"_s)
+			$of(u"需要 \'\'module\'\' 或 \'\'open\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.expected.str"_s),
-			$of(u"\u9700\u8981 {0}"_s)
+			$of(u"需要 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.expected2"_s),
-			$of(u"\u9700\u8981{0}\u6216{1}"_s)
+			$of(u"需要{0}或{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.expected3"_s),
-			$of(u"\u9700\u8981{0}, {1}\u6216{2}"_s)
+			$of(u"需要{0}, {1}或{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.expected4"_s),
-			$of(u"\u9700\u8981 {0}\u3001{1}\u3001{2} \u6216 {3}"_s)
+			$of(u"需要 {0}、{1}、{2} 或 {3}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.expression.not.allowable.as.annotation.value"_s),
-			$of(u"\u8868\u8fbe\u5f0f\u4e0d\u5141\u8bb8\u7528\u4f5c\u6ce8\u91ca\u503c"_s)
+			$of(u"表达式不允许用作注释值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.feature.not.supported.in.source"_s),
-			$of(u"-source {1} \u4e2d\u4e0d\u652f\u6301 {0}\n(\u8bf7\u4f7f\u7528 -source {2} \u6216\u66f4\u9ad8\u7248\u672c\u4ee5\u542f\u7528 {0})"_s)
+			$of(u"-source {1} 中不支持 {0}\n(请使用 -source {2} 或更高版本以启用 {0})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.feature.not.supported.in.source.plural"_s),
-			$of(u"-source {1} \u4e2d\u4e0d\u652f\u6301 {0}\n(\u8bf7\u4f7f\u7528 -source {2} \u6216\u66f4\u9ad8\u7248\u672c\u4ee5\u542f\u7528 {0})"_s)
+			$of(u"-source {1} 中不支持 {0}\n(请使用 -source {2} 或更高版本以启用 {0})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.file.not.directory"_s),
-			$of(u"\u4e0d\u662f\u76ee\u5f55\uff1a{0}"_s)
+			$of(u"不是目录：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.file.not.file"_s),
-			$of(u"\u4e0d\u662f\u6587\u4ef6\uff1a{0}"_s)
+			$of(u"不是文件：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.file.not.found"_s),
-			$of(u"\u627e\u4e0d\u5230\u6587\u4ef6: {0}"_s)
+			$of(u"找不到文件: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.file.patched.and.msp"_s),
-			$of(u"\u53ef\u4ece --patch-module \u548c --module-source-path \u8bbf\u95ee\u6587\u4ef6, \u4f46\u8be5\u6587\u4ef6\u5728\u6bcf\u4e2a\u8def\u5f84\u4e2d\u5c5e\u4e8e\u4e0d\u540c\u7684\u6a21\u5757: {0}, {1}"_s)
+			$of(u"可从 --patch-module 和 --module-source-path 访问文件, 但该文件在每个路径中属于不同的模块: {0}, {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.file.sb.on.source.or.patch.path.for.module"_s),
-			$of(u"\u6587\u4ef6\u5e94\u5728\u6e90\u8def\u5f84\u6216\u6a21\u5757\u7684\u8865\u4e01\u7a0b\u5e8f\u8def\u5f84\u4e2d"_s)
+			$of(u"文件应在源路径或模块的补丁程序路径中"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.final.parameter.may.not.be.assigned"_s),
-			$of(u"\u4e0d\u80fd\u5206\u914d\u6700\u7ec8\u53c2\u6570{0}"_s)
+			$of(u"不能分配最终参数{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.finally.without.try"_s),
-			$of(u"\u6709 \'\'finally\'\', \u4f46\u662f\u6ca1\u6709 \'\'try\'\'"_s)
+			$of(u"有 \'\'finally\'\', 但是没有 \'\'try\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.first.statement.must.be.call.to.another.constructor"_s),
-			$of(u"\u6784\u9020\u5668\u4e0d\u662f\u89c4\u8303\u7684\uff0c\u56e0\u6b64\u5b83\u7684\u7b2c\u4e00\u4e2a\u8bed\u53e5\u5fc5\u987b\u8c03\u7528\u7c7b {0} \u7684\u53e6\u4e00\u4e2a\u6784\u9020\u5668"_s)
+			$of(u"构造器不是规范的，因此它的第一个语句必须调用类 {0} 的另一个构造器"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.foreach.not.applicable.to.type"_s),
-			$of(u"for-each \u4e0d\u9002\u7528\u4e8e\u8868\u8fbe\u5f0f\u7c7b\u578b\n\u8981\u6c42: {1}\n\u627e\u5230:    {0}"_s)
+			$of(u"for-each 不适用于表达式类型\n要求: {1}\n找到:    {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.fp.number.too.large"_s),
-			$of(u"\u6d6e\u70b9\u6570\u8fc7\u5927"_s)
+			$of(u"浮点数过大"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.fp.number.too.small"_s),
-			$of(u"\u6d6e\u70b9\u6570\u8fc7\u5c0f"_s)
+			$of(u"浮点数过小"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.generic.array.creation"_s),
-			$of(u"\u521b\u5efa\u6cdb\u578b\u6570\u7ec4"_s)
+			$of(u"创建泛型数组"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.generic.throwable"_s),
-			$of(u"\u6cdb\u578b\u7c7b\u4e0d\u80fd\u6269\u5c55 java.lang.Throwable"_s)
+			$of(u"泛型类不能扩展 java.lang.Throwable"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.icls.cant.have.static.decl"_s),
-			$of(u"\u5185\u90e8\u7c7b{0}\u4e2d\u7684\u9759\u6001\u58f0\u660e\u975e\u6cd5\n\u4fee\u9970\u7b26 \'\'static\'\' \u4ec5\u5141\u8bb8\u5728\u5e38\u91cf\u53d8\u91cf\u58f0\u660e\u4e2d\u4f7f\u7528"_s)
+			$of(u"内部类{0}中的静态声明非法\n修饰符 \'\'static\'\' 仅允许在常量变量声明中使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.argument.for.option"_s),
-			$of(u"{0} \u7684\u53c2\u6570\u975e\u6cd5: {1}"_s)
+			$of(u"{0} 的参数非法: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.array.creation.both.dimension.and.initialization"_s),
-			$of(u"\u540c\u65f6\u4f7f\u7528\u7ef4\u8868\u8fbe\u5f0f\u548c\u521d\u59cb\u5316\u521b\u5efa\u6570\u7ec4\u662f\u975e\u6cd5\u7684"_s)
+			$of(u"同时使用维表达式和初始化创建数组是非法的"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.char"_s),
-			$of(u"\u975e\u6cd5\u5b57\u7b26: \'\'{0}\'\'"_s)
+			$of(u"非法字符: \'\'{0}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.char.for.encoding"_s),
-			$of(u"\u7f16\u7801 {1} \u7684\u4e0d\u53ef\u6620\u5c04\u5b57\u7b26 (0x{0})"_s)
+			$of(u"编码 {1} 的不可映射字符 (0x{0})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.combination.of.modifiers"_s),
-			$of(u"\u975e\u6cd5\u7684\u4fee\u9970\u7b26\u7ec4\u5408: {0}\u548c{1}"_s)
+			$of(u"非法的修饰符组合: {0}和{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.default.super.call"_s),
-			$of(u"\u9ed8\u8ba4\u8d85\u7ea7\u8c03\u7528\u4e2d\u7684\u7c7b\u578b\u9650\u5b9a\u7b26{0}\u9519\u8bef\n{1}"_s)
+			$of(u"默认超级调用中的类型限定符{0}错误\n{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.dot"_s),
-			$of(u"\u975e\u6cd5 \'\'.\'\'"_s)
+			$of(u"非法 \'\'.\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.enum.static.ref"_s),
-			$of(u"\u521d\u59cb\u5316\u7a0b\u5e8f\u4e2d\u5bf9\u9759\u6001\u5b57\u6bb5\u7684\u5f15\u7528\u4e0d\u5408\u6cd5"_s)
+			$of(u"初始化程序中对静态字段的引用不合法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.esc.char"_s),
-			$of(u"\u975e\u6cd5\u8f6c\u4e49\u7b26"_s)
+			$of(u"非法转义符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.forward.ref"_s),
-			$of(u"\u975e\u6cd5\u524d\u5411\u5f15\u7528"_s)
+			$of(u"非法前向引用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.initializer.for.type"_s),
-			$of(u"{0}\u7684\u521d\u59cb\u5316\u7a0b\u5e8f\u4e0d\u5408\u6cd5"_s)
+			$of(u"{0}的初始化程序不合法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.line.end.in.char.lit"_s),
-			$of(u"\u5b57\u7b26\u6587\u5b57\u7684\u884c\u7ed3\u5c3e\u4e0d\u5408\u6cd5"_s)
+			$of(u"字符文字的行结尾不合法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.nonascii.digit"_s),
-			$of(u"\u975e\u6cd5\u7684\u975e ASCII \u6570\u5b57"_s)
+			$of(u"非法的非 ASCII 数字"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.parenthesized.expression"_s),
-			$of(u"\u975e\u6cd5\u7684\u542b\u62ec\u53f7\u8868\u8fbe\u5f0f"_s)
+			$of(u"非法的含括号表达式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.qual.not.icls"_s),
-			$of(u"\u975e\u6cd5\u9650\u5b9a\u7b26; {0}\u4e0d\u662f\u5185\u90e8\u7c7b"_s)
+			$of(u"非法限定符; {0}不是内部类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.record.component.name"_s),
-			$of(u"\u8bb0\u5f55\u7ec4\u4ef6\u540d\u79f0 {0} \u975e\u6cd5"_s)
+			$of(u"记录组件名称 {0} 非法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.ref.to.restricted.type"_s),
-			$of(u"\u5bf9\u53d7\u9650\u5236\u7c7b\u578b \'\'{0}\'\' \u7684\u5f15\u7528\u975e\u6cd5"_s)
+			$of(u"对受限制类型 \'\'{0}\'\' 的引用非法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.self.ref"_s),
-			$of(u"\u521d\u59cb\u5316\u7a0b\u5e8f\u4e2d\u5b58\u5728\u81ea\u5f15\u7528"_s)
+			$of(u"初始化程序中存在自引用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.start.of.expr"_s),
-			$of(u"\u975e\u6cd5\u7684\u8868\u8fbe\u5f0f\u5f00\u59cb"_s)
+			$of(u"非法的表达式开始"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.start.of.stmt"_s),
-			$of(u"\u975e\u6cd5\u7684\u8bed\u53e5\u5f00\u59cb"_s)
+			$of(u"非法的语句开始"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.start.of.type"_s),
-			$of(u"\u975e\u6cd5\u7684\u7c7b\u578b\u5f00\u59cb"_s)
+			$of(u"非法的类型开始"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.static.intf.meth.call"_s),
-			$of(u"\u9759\u6001\u63a5\u53e3\u65b9\u6cd5\u8c03\u7528\u975e\u6cd5\n\u5e94\u5c06\u63a5\u6536\u65b9\u8868\u8fbe\u5f0f\u66ff\u6362\u4e3a\u7c7b\u578b\u9650\u5b9a\u7b26 \'\'{0}\'\'"_s)
+			$of(u"静态接口方法调用非法\n应将接收方表达式替换为类型限定符 \'\'{0}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.text.block.open"_s),
-			$of(u"\u6587\u672c\u5757\u8d77\u59cb\u5206\u9694\u7b26\u5e8f\u5217\u975e\u6cd5\uff0c\u7f3a\u5c11\u884c\u7ec8\u6b62\u7b26"_s)
+			$of(u"文本块起始分隔符序列非法，缺少行终止符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.underscore"_s),
-			$of(u"\u975e\u6cd5\u4e0b\u5212\u7ebf"_s)
+			$of(u"非法下划线"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.illegal.unicode.esc"_s),
-			$of(u"\u975e\u6cd5\u7684 Unicode \u8f6c\u4e49"_s)
+			$of(u"非法的 Unicode 转义"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.import.requires.canonical"_s),
-			$of(u"\u5bfc\u5165\u9700\u8981{0}\u7684\u89c4\u8303\u540d\u79f0"_s)
+			$of(u"导入需要{0}的规范名称"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.improperly.formed.type.inner.raw.param"_s),
-			$of(u"\u7c7b\u578b\u7684\u683c\u5f0f\u4e0d\u6b63\u786e, \u7ed9\u51fa\u4e86\u539f\u59cb\u7c7b\u578b\u7684\u7c7b\u578b\u53c2\u6570"_s)
+			$of(u"类型的格式不正确, 给出了原始类型的类型参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.improperly.formed.type.param.missing"_s),
-			$of(u"\u7c7b\u578b\u7684\u683c\u5f0f\u4e0d\u6b63\u786e, \u7f3a\u5c11\u67d0\u4e9b\u53c2\u6570"_s)
+			$of(u"类型的格式不正确, 缺少某些参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.incomparable.types"_s),
-			$of(u"\u4e0d\u53ef\u6bd4\u8f83\u7684\u7c7b\u578b: {0}\u548c{1}"_s)
+			$of(u"不可比较的类型: {0}和{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.incompatible.thrown.types.in.mref"_s),
-			$of(u"\u51fd\u6570\u8868\u8fbe\u5f0f\u4e2d\u629b\u51fa\u7684\u7c7b\u578b {0} \u4e0d\u517c\u5bb9"_s)
+			$of(u"函数表达式中抛出的类型 {0} 不兼容"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.incorrect.constructor.receiver.name"_s),
-			$of(u"\u63a5\u6536\u65b9\u540d\u79f0\u4e0e\u5916\u90e8\u5c01\u95ed\u7c7b\u7c7b\u578b\u4e0d\u5339\u914d\n\u9700\u8981: {0}\n\u627e\u5230:    {1}"_s)
+			$of(u"接收方名称与外部封闭类类型不匹配\n需要: {0}\n找到:    {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.incorrect.constructor.receiver.type"_s),
-			$of(u"\u63a5\u6536\u65b9\u7c7b\u578b\u4e0e\u5916\u90e8\u5c01\u95ed\u7c7b\u7c7b\u578b\u4e0d\u5339\u914d\n\u9700\u8981: {0}\n\u627e\u5230:    {1}"_s)
+			$of(u"接收方类型与外部封闭类类型不匹配\n需要: {0}\n找到:    {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.incorrect.receiver.name"_s),
-			$of(u"\u63a5\u6536\u65b9\u540d\u79f0\u4e0e\u5c01\u95ed\u7c7b\u7c7b\u578b\u4e0d\u5339\u914d\n\u9700\u8981: {0}\n\u627e\u5230:    {1}"_s)
+			$of(u"接收方名称与封闭类类型不匹配\n需要: {0}\n找到:    {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.incorrect.receiver.type"_s),
-			$of(u"\u63a5\u6536\u65b9\u7c7b\u578b\u4e0e\u5c01\u95ed\u7c7b\u7c7b\u578b\u4e0d\u5339\u914d\n\u9700\u8981: {0}\n\u627e\u5230:    {1}"_s)
+			$of(u"接收方类型与封闭类类型不匹配\n需要: {0}\n找到:    {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.initializer.must.be.able.to.complete.normally"_s),
-			$of(u"\u521d\u59cb\u5316\u7a0b\u5e8f\u5fc5\u987b\u80fd\u591f\u6b63\u5e38\u5b8c\u6210"_s)
+			$of(u"初始化程序必须能够正常完成"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.initializer.not.allowed"_s),
-			$of(u"\u63a5\u53e3\u4e2d\u4e0d\u5141\u8bb8\u6709\u521d\u59cb\u5316\u7a0b\u5e8f"_s)
+			$of(u"接口中不允许有初始化程序"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.instance.initializer.not.allowed.in.records"_s),
-			$of(u"\u8bb0\u5f55\u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528\u5b9e\u4f8b\u521d\u59cb\u5316\u7a0b\u5e8f"_s)
+			$of(u"记录中不允许使用实例初始化程序"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.instanceof.pattern.no.subtype"_s),
-			$of(u"\u6a21\u5f0f\u7c7b\u578b {0} \u662f\u8868\u8fbe\u5f0f\u7c7b\u578b {1} \u7684\u5b50\u7c7b\u578b"_s)
+			$of(u"模式类型 {0} 是表达式类型 {1} 的子类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.instanceof.reifiable.not.safe"_s),
-			$of(u"{0} \u65e0\u6cd5\u5b89\u5168\u5730\u8f6c\u6362\u4e3a {1}"_s)
+			$of(u"{0} 无法安全地转换为 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.int.number.too.large"_s),
-			$of(u"\u6574\u6570\u592a\u5927"_s)
+			$of(u"整数太大"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.intf.annotation.cant.have.type.params"_s),
-			$of(u"\u6ce8\u91ca\u7c7b\u578b {0} \u4e0d\u80fd\u4e3a\u6cdb\u578b"_s)
+			$of(u"注释类型 {0} 不能为泛型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.intf.annotation.member.clash"_s),
-			$of(u"\u6ce8\u91ca\u7c7b\u578b{1}\u58f0\u660e\u4e0e\u65b9\u6cd5 {0} \u540c\u540d\u7684\u5143\u7d20"_s)
+			$of(u"注释类型{1}声明与方法 {0} 同名的元素"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.intf.annotation.members.cant.have.params"_s),
-			$of(u"\u6ce8\u91ca\u7c7b\u578b\u58f0\u660e\u4e2d\u7684\u5143\u7d20\u65e0\u6cd5\u58f0\u660e\u5f62\u53c2"_s)
+			$of(u"注释类型声明中的元素无法声明形参"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.intf.annotation.members.cant.have.type.params"_s),
-			$of(u"\u6ce8\u91ca\u7c7b\u578b\u58f0\u660e\u4e2d\u7684\u5143\u7d20\u4e0d\u80fd\u4e3a\u6cdb\u578b\u65b9\u6cd5"_s)
+			$of(u"注释类型声明中的元素不能为泛型方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.intf.expected.here"_s),
-			$of(u"\u6b64\u5904\u9700\u8981\u63a5\u53e3"_s)
+			$of(u"此处需要接口"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.intf.meth.cant.have.body"_s),
-			$of(u"\u63a5\u53e3\u62bd\u8c61\u65b9\u6cd5\u4e0d\u80fd\u5e26\u6709\u4e3b\u4f53"_s)
+			$of(u"接口抽象方法不能带有主体"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.intf.not.allowed.here"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5141\u8bb8\u4f7f\u7528\u63a5\u53e3"_s)
+			$of(u"此处不允许使用接口"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.A.key"_s),
-			$of(u"\u6ce8\u91ca\u5904\u7406\u7a0b\u5e8f\u9009\u9879 \'\'{0}\'\' \u4e2d\u7684\u5173\u952e\u5b57\u4e0d\u662f\u4ee5\u70b9\u5206\u9694\u7684\u6807\u8bc6\u7b26\u5e8f\u5217"_s)
+			$of(u"注释处理程序选项 \'\'{0}\'\' 中的关键字不是以点分隔的标识符序列"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.accessor.method.in.record"_s),
-			$of(u"\u8bb0\u5f55 {0} \u4e2d\u7684\u5b58\u53d6\u65b9\u6cd5\u65e0\u6548\n({1})"_s)
+			$of(u"记录 {0} 中的存取方法无效\n({1})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.annotation.member.type"_s),
-			$of(u"\u6ce8\u91ca\u7c7b\u578b\u5143\u7d20\u7684\u7c7b\u578b\u65e0\u6548"_s)
+			$of(u"注释类型元素的类型无效"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.binary.number"_s),
-			$of(u"\u4e8c\u8fdb\u5236\u6570\u5b57\u4e2d\u5fc5\u987b\u5305\u542b\u81f3\u5c11\u4e00\u4e2a\u4e8c\u8fdb\u5236\u6570"_s)
+			$of(u"二进制数字中必须包含至少一个二进制数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.canonical.constructor.in.record"_s),
-			$of(u"\u8bb0\u5f55 {1} \u4e2d\u7684 {0} \u6784\u9020\u5668\u65e0\u6548\n({2})"_s)
+			$of(u"记录 {1} 中的 {0} 构造器无效\n({2})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.flag"_s),
-			$of(u"\u65e0\u6548\u7684\u6807\u8bb0: {0}"_s)
+			$of(u"无效的标记: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.hex.number"_s),
-			$of(u"\u5341\u516d\u8fdb\u5236\u6570\u5b57\u5fc5\u987b\u5305\u542b\u81f3\u5c11\u4e00\u4f4d\u5341\u516d\u8fdb\u5236\u6570"_s)
+			$of(u"十六进制数字必须包含至少一位十六进制数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.lambda.parameter.declaration"_s),
-			$of(u"\u65e0\u6548\u7684 lambda \u53c2\u6570\u58f0\u660e\n({0})"_s)
+			$of(u"无效的 lambda 参数声明\n({0})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.meth.decl.ret.type.req"_s),
-			$of(u"\u65b9\u6cd5\u58f0\u660e\u65e0\u6548; \u9700\u8981\u8fd4\u56de\u7c7b\u578b"_s)
+			$of(u"方法声明无效; 需要返回类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.module.directive"_s),
-			$of(u"\u9884\u671f\u4e3a\u6a21\u5757\u6307\u4ee4\u5173\u952e\u5b57\u6216 \'\'}\'\'"_s)
+			$of(u"预期为模块指令关键字或 \'\'}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.module.specifier"_s),
-			$of(u"\u4e0d\u5141\u8bb8\u6a21\u5757\u8bf4\u660e\u7b26: {0}"_s)
+			$of(u"不允许模块说明符: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.mref"_s),
-			$of(u"{0}\u5f15\u7528\u65e0\u6548\n{1}"_s)
+			$of(u"{0}引用无效\n{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.path"_s),
-			$of(u"\u65e0\u6548\u6587\u4ef6\u540d: {0}"_s)
+			$of(u"无效文件名: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.permits.clause"_s),
-			$of(u"\u65e0\u6548\u7684 permits \u5b50\u53e5\n({0})"_s)
+			$of(u"无效的 permits 子句\n({0})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.profile"_s),
-			$of(u"\u65e0\u6548\u7684\u914d\u7f6e\u6587\u4ef6\uff1a{0}"_s)
+			$of(u"无效的配置文件：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation"_s),
-			$of(u"\u6ce8\u91ca\u91cd\u590d: \u4f7f\u7528\u65e0\u6548\u7684 @Repeatable \u6ce8\u91ca\u5bf9{0}\u8fdb\u884c\u4e86\u6ce8\u91ca"_s)
+			$of(u"注释重复: 使用无效的 @Repeatable 注释对{0}进行了注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.elem.nondefault"_s),
-			$of(u"\u5bf9\u4e8e\u5143\u7d20 {1}, \u5305\u542b\u6ce8\u91ca\u7c7b\u578b ({0}) \u6ca1\u6709\u9ed8\u8ba4\u503c"_s)
+			$of(u"对于元素 {1}, 包含注释类型 ({0}) 没有默认值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.incompatible.target"_s),
-			$of(u"\u5305\u542b\u6ce8\u91ca\u7c7b\u578b ({0}) \u9002\u7528\u7684\u76ee\u6807\u591a\u4e8e\u53ef\u91cd\u590d\u6ce8\u91ca\u7c7b\u578b ({1})"_s)
+			$of(u"包含注释类型 ({0}) 适用的目标多于可重复注释类型 ({1})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.invalid.value"_s),
-			$of(u"{0}\u4e0d\u662f\u6709\u6548\u7684 @Repeatable: \u503c\u5143\u7d20\u65e0\u6548"_s)
+			$of(u"{0}不是有效的 @Repeatable: 值元素无效"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.multiple.values"_s),
-			$of(u"{0}\u4e0d\u662f\u6709\u6548\u7684 @Repeatable, \u5df2\u58f0\u660e {1} \u4e2a\u540d\u4e3a \'\'value\'\' \u7684\u5143\u7d20\u65b9\u6cd5"_s)
+			$of(u"{0}不是有效的 @Repeatable, 已声明 {1} 个名为 \'\'value\'\' 的元素方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.no.value"_s),
-			$of(u"{0}\u4e0d\u662f\u6709\u6548\u7684 @Repeatable, \u672a\u58f0\u660e\u4efb\u4f55\u503c\u5143\u7d20\u65b9\u6cd5"_s)
+			$of(u"{0}不是有效的 @Repeatable, 未声明任何值元素方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.not.applicable"_s),
-			$of(u"\u5bb9\u5668{0}\u4e0d\u9002\u7528\u4e8e\u5143\u7d20 {1}"_s)
+			$of(u"容器{0}不适用于元素 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.not.applicable.in.context"_s),
-			$of(u"\u5bb9\u5668{0}\u5728\u6b64\u7c7b\u578b\u4e0a\u4e0b\u6587\u4e2d\u4e0d\u9002\u7528"_s)
+			$of(u"容器{0}在此类型上下文中不适用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.not.documented"_s),
-			$of(u"\u53ef\u91cd\u590d\u6ce8\u91ca\u7c7b\u578b ({1}) \u662f @Documented, \u800c\u5305\u542b\u6ce8\u91ca\u7c7b\u578b ({0}) \u5219\u4e0d\u662f"_s)
+			$of(u"可重复注释类型 ({1}) 是 @Documented, 而包含注释类型 ({0}) 则不是"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.not.inherited"_s),
-			$of(u"\u53ef\u91cd\u590d\u6ce8\u91ca\u7c7b\u578b ({1}) \u662f @Inherited, \u800c\u5305\u542b\u6ce8\u91ca\u7c7b\u578b ({0}) \u5219\u4e0d\u662f"_s)
+			$of(u"可重复注释类型 ({1}) 是 @Inherited, 而包含注释类型 ({0}) 则不是"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.repeated.and.container.present"_s),
-			$of(u"\u5bb9\u5668 {0} \u4e0d\u5f97\u4e0e\u5176\u5305\u542b\u7684\u5143\u7d20\u540c\u65f6\u5b58\u5728"_s)
+			$of(u"容器 {0} 不得与其包含的元素同时存在"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.retention"_s),
-			$of(u"\u5305\u542b\u6ce8\u91ca\u7c7b\u578b ({0}) \u7684\u4fdd\u7559\u671f\u77ed\u4e8e\u53ef\u91cd\u590d\u6ce8\u91ca\u7c7b\u578b ({2}) \u7684\u4fdd\u7559\u671f"_s)
+			$of(u"包含注释类型 ({0}) 的保留期短于可重复注释类型 ({2}) 的保留期"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.repeatable.annotation.value.return"_s),
-			$of(u"\u5305\u542b\u6ce8\u91ca\u7c7b\u578b ({0}) \u5fc5\u987b\u58f0\u660e\u7c7b\u578b{2}\u7684\u540d\u4e3a \'\'value\'\' \u7684\u5143\u7d20"_s)
+			$of(u"包含注释类型 ({0}) 必须声明类型{2}的名为 \'\'value\'\' 的元素"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.source"_s),
-			$of(u"\u65e0\u6548\u7684\u6e90\u53d1\u884c\u7248\uff1a{0}"_s)
+			$of(u"无效的源发行版：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.supertype.record"_s),
-			$of(u"\u7c7b\u65e0\u6cd5\u76f4\u63a5\u6269\u5c55 {0}"_s)
+			$of(u"类无法直接扩展 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.target"_s),
-			$of(u"\u65e0\u6548\u7684\u76ee\u6807\u53d1\u884c\u7248\uff1a{0}"_s)
+			$of(u"无效的目标发行版：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.invalid.yield"_s),
-			$of(u"\u53d7\u9650\u6807\u8bc6\u7b26 \'\'yield\'\' \u7684\u7528\u6cd5\u65e0\u6548\n\uff08\u8981\u8c03\u7528\u79f0\u4e3a yield \u7684\u65b9\u6cd5\uff0c\u8bf7\u901a\u8fc7\u63a5\u6536\u65b9\u6216\u7c7b\u578b\u540d\u79f0\u9650\u5b9a yield\uff09"_s)
+			$of(u"受限标识符 \'\'yield\'\' 的用法无效\n（要调用称为 yield 的方法，请通过接收方或类型名称限定 yield）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.io.exception"_s),
-			$of(u"\u8bfb\u53d6\u6e90\u6587\u4ef6\u65f6\u51fa\u9519: {0}"_s)
+			$of(u"读取源文件时出错: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.is.preview"_s),
-			$of(u"{0} \u662f\u67d0\u9884\u89c8\u529f\u80fd\u4e2d\u7684\u4e00\u4e2a API"_s)
+			$of(u"{0} 是某预览功能中的一个 API"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.label.already.in.use"_s),
-			$of(u"\u6807\u7b7e{0}\u5df2\u4f7f\u7528"_s)
+			$of(u"标签{0}已使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.lambda.body.neither.value.nor.void.compatible"_s),
-			$of(u"lambda \u4e3b\u4f53\u4e0d\u662f\u503c, \u4e5f\u4e0d\u4e0e void \u517c\u5bb9"_s)
+			$of(u"lambda 主体不是值, 也不与 void 兼容"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.limit.code"_s),
-			$of(u"\u4ee3\u7801\u8fc7\u957f"_s)
+			$of(u"代码过长"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.limit.code.too.large.for.try.stmt"_s),
-			$of(u"try \u8bed\u53e5\u7684\u4ee3\u7801\u8fc7\u957f"_s)
+			$of(u"try 语句的代码过长"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.limit.dimensions"_s),
-			$of(u"\u6570\u7ec4\u7c7b\u578b\u7ef4\u8fc7\u591a"_s)
+			$of(u"数组类型维过多"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.limit.locals"_s),
-			$of(u"\u672c\u5730\u53d8\u91cf\u8fc7\u591a"_s)
+			$of(u"本地变量过多"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.limit.parameters"_s),
-			$of(u"\u53c2\u6570\u8fc7\u591a"_s)
+			$of(u"参数过多"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.limit.pool"_s),
-			$of(u"\u5e38\u91cf\u8fc7\u591a"_s)
+			$of(u"常量过多"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.limit.pool.in.class"_s),
-			$of(u"\u7c7b{0}\u4e2d\u7684\u5e38\u91cf\u8fc7\u591a"_s)
+			$of(u"类{0}中的常量过多"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.limit.stack"_s),
-			$of(u"\u4ee3\u7801\u9700\u8981\u8fc7\u591a\u5806\u6808"_s)
+			$of(u"代码需要过多堆栈"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.limit.string"_s),
-			$of(u"\u5e38\u91cf\u5b57\u7b26\u4e32\u8fc7\u957f"_s)
+			$of(u"常量字符串过长"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.limit.string.overflow"_s),
-			$of(u"\u5bf9\u4e8e\u5e38\u91cf\u6c60\u6765\u8bf4, \u5b57\u7b26\u4e32 \"{0}...\" \u7684 UTF8 \u8868\u793a\u8fc7\u957f"_s)
+			$of(u"对于常量池来说, 字符串 \"{0}...\" 的 UTF8 表示过长"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.local.classes.cant.extend.sealed"_s),
-			$of(u"{0} \u7c7b\u4e0d\u5f97\u6269\u5c55\u5bc6\u5c01\u7c7b"_s)
+			$of(u"{0} 类不得扩展密封类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.local.enum"_s),
-			$of(u"\u679a\u4e3e\u7c7b\u578b\u4e0d\u80fd\u4e3a\u672c\u5730\u7c7b\u578b"_s)
+			$of(u"枚举类型不能为本地类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.local.var.accessed.from.icls.needs.final"_s),
-			$of(u"\u4ece\u5185\u90e8\u7c7b\u4e2d\u8bbf\u95ee\u672c\u5730\u53d8\u91cf{0}; \u9700\u8981\u88ab\u58f0\u660e\u4e3a\u6700\u7ec8\u7c7b\u578b"_s)
+			$of(u"从内部类中访问本地变量{0}; 需要被声明为最终类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.locn.bad.module-info"_s),
-			$of(u"\u8bfb\u53d6 {0} \u4e2d\u7684 module-info.class \u65f6\u51fa\u73b0\u95ee\u9898"_s)
+			$of(u"读取 {0} 中的 module-info.class 时出现问题"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.locn.cant.get.module.name.for.jar"_s),
-			$of(u"\u65e0\u6cd5\u786e\u5b9a {0} \u7684\u6a21\u5757\u540d\u79f0"_s)
+			$of(u"无法确定 {0} 的模块名称"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.locn.cant.read.directory"_s),
-			$of(u"\u65e0\u6cd5\u8bfb\u53d6\u76ee\u5f55 {0}"_s)
+			$of(u"无法读取目录 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.locn.cant.read.file"_s),
-			$of(u"\u65e0\u6cd5\u8bfb\u53d6\u6587\u4ef6 {0}"_s)
+			$of(u"无法读取文件 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.locn.invalid.arg.for.xpatch"_s),
-			$of(u"--patch-module \u9009\u9879\u7684\u53c2\u6570\u65e0\u6548: {0}"_s)
+			$of(u"--patch-module 选项的参数无效: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.locn.module-info.not.allowed.on.patch.path"_s),
-			$of(u"\u5728\u8865\u4e01\u7a0b\u5e8f\u8def\u5f84\u4e2d\u4e0d\u5141\u8bb8 module-info.class: {0}"_s)
+			$of(u"在补丁程序路径中不允许 module-info.class: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.malformed.fp.lit"_s),
-			$of(u"\u6d6e\u70b9\u6587\u5b57\u7684\u683c\u5f0f\u9519\u8bef"_s)
+			$of(u"浮点文字的格式错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.match.binding.exists"_s),
-			$of(u"\u5c1d\u8bd5\u91cd\u65b0\u5b9a\u4e49\u73b0\u6709\u7684\u5339\u914d\u7ed1\u5b9a\uff0c\u8fd9\u662f\u975e\u6cd5\u7684"_s)
+			$of(u"尝试重新定义现有的匹配绑定，这是非法的"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.method.does.not.override.superclass"_s),
-			$of(u"\u65b9\u6cd5\u4e0d\u4f1a\u8986\u76d6\u6216\u5b9e\u73b0\u8d85\u7c7b\u578b\u7684\u65b9\u6cd5"_s)
+			$of(u"方法不会覆盖或实现超类型的方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.missing.meth.body.or.decl.abstract"_s),
-			$of(u"\u7f3a\u5c11\u65b9\u6cd5\u4e3b\u4f53, \u6216\u58f0\u660e\u62bd\u8c61"_s)
+			$of(u"缺少方法主体, 或声明抽象"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.missing.ret.stmt"_s),
-			$of(u"\u7f3a\u5c11\u8fd4\u56de\u8bed\u53e5"_s)
+			$of(u"缺少返回语句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.mod.not.allowed.here"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5141\u8bb8\u4f7f\u7528\u4fee\u9970\u7b26{0}"_s)
+			$of(u"此处不允许使用修饰符{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.modifier.not.allowed.here"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5141\u8bb8\u4f7f\u7528\u4fee\u9970\u7b26{0}"_s)
+			$of(u"此处不允许使用修饰符{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.module.decl.sb.in.module-info.java"_s),
-			$of(u"\u6a21\u5757\u58f0\u660e\u5e94\u8be5\u5728\u540d\u4e3a module-info.java \u7684\u6587\u4ef6\u4e2d"_s)
+			$of(u"模块声明应该在名为 module-info.java 的文件中"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.module.name.mismatch"_s),
-			$of(u"\u6a21\u5757\u540d\u79f0 {0} \u4e0e\u9884\u671f\u540d\u79f0 {1} \u4e0d\u5339\u914d"_s)
+			$of(u"模块名称 {0} 与预期名称 {1} 不匹配"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.module.non.zero.opens"_s),
-			$of(u"\u6253\u5f00\u7684\u6a21\u5757 {0} \u5177\u6709\u975e\u96f6 opens_count"_s)
+			$of(u"打开的模块 {0} 具有非零 opens_count"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.module.not.found"_s),
-			$of(u"\u627e\u4e0d\u5230\u6a21\u5757: {0}"_s)
+			$of(u"找不到模块: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.module.not.found.in.module.source.path"_s),
-			$of(u"\u5728\u6a21\u5757\u6e90\u8def\u5f84\u4e2d\u627e\u4e0d\u5230\u6a21\u5757 {0}"_s)
+			$of(u"在模块源路径中找不到模块 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.module.not.found.on.module.source.path"_s),
-			$of(u"\u5728\u6a21\u5757\u6e90\u8def\u5f84\u4e2d\u627e\u4e0d\u5230\u6a21\u5757"_s)
+			$of(u"在模块源路径中找不到模块"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.modulesourcepath.must.be.specified.with.dash.m.option"_s),
-			$of(u"\u5982\u679c\u4f7f\u7528 -m \u9009\u9879, \u5219\u5fc5\u987b\u6307\u5b9a\u6a21\u5757\u6e90\u8def\u5f84"_s)
+			$of(u"如果使用 -m 选项, 则必须指定模块源路径"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.multi-module.outdir.cannot.be.exploded.module"_s),
-			$of(u"\u5728\u591a\u6a21\u5757\u6a21\u5f0f\u4e0b, \u8f93\u51fa\u76ee\u5f55\u4e0d\u80fd\u662f\u5c55\u5f00\u7684\u6a21\u5757: {0}"_s)
+			$of(u"在多模块模式下, 输出目录不能是展开的模块: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.multicatch.parameter.may.not.be.assigned"_s),
-			$of(u"\u53ef\u80fd\u672a\u5206\u914d multi-catch \u53c2\u6570{0}"_s)
+			$of(u"可能未分配 multi-catch 参数{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.multicatch.types.must.be.disjoint"_s),
-			$of(u"multi-catch \u8bed\u53e5\u4e2d\u7684\u66ff\u4ee3\u65e0\u6cd5\u901a\u8fc7\u5b50\u7c7b\u5316\u5173\u8054\n\u66ff\u4ee3{0}\u662f\u66ff\u4ee3{1}\u7684\u5b50\u7c7b"_s)
+			$of(u"multi-catch 语句中的替代无法通过子类化关联\n替代{0}是替代{1}的子类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.multiple.values.for.module.source.path"_s),
-			$of(u"\u4f7f\u7528\u6a21\u5f0f\u53c2\u6570\u591a\u6b21\u6307\u5b9a\u4e86 --module-source-path"_s)
+			$of(u"使用模式参数多次指定了 --module-source-path"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.name.clash.same.erasure"_s),
-			$of(u"\u540d\u79f0\u51b2\u7a81: {0}\u548c{1}\u5177\u6709\u76f8\u540c\u7591\u7b26"_s)
+			$of(u"名称冲突: {0}和{1}具有相同疑符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.name.clash.same.erasure.no.hide"_s),
-			$of(u"\u540d\u79f0\u51b2\u7a81: {1} \u4e2d\u7684 {0} \u548c {3} \u4e2d\u7684 {2} \u5177\u6709\u76f8\u540c\u7591\u7b26, \u4f46\u4e24\u8005\u5747\u4e0d\u9690\u85cf\u5bf9\u65b9"_s)
+			$of(u"名称冲突: {1} 中的 {0} 和 {3} 中的 {2} 具有相同疑符, 但两者均不隐藏对方"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.name.clash.same.erasure.no.override"_s),
-			$of(u"\u540d\u79f0\u51b2\u7a81: {2} \u4e2d\u7684 {0}({1}) \u548c {5} \u4e2d\u7684 {3}({4}) \u5177\u6709\u76f8\u540c\u7591\u7b26, \u4f46\u4e24\u8005\u5747\u4e0d\u8986\u76d6\u5bf9\u65b9"_s)
+			$of(u"名称冲突: {2} 中的 {0}({1}) 和 {5} 中的 {3}({4}) 具有相同疑符, 但两者均不覆盖对方"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.name.clash.same.erasure.no.override.1"_s),
-			$of(u"\u540d\u79f0\u51b2\u7a81: {0} {1} \u7684\u4e24\u79cd\u65b9\u6cd5\u5177\u6709\u76f8\u540c\u7684\u7591\u7b26, \u4f46\u4e24\u8005\u5747\u4e0d\u8986\u76d6\u5bf9\u65b9\n\u7b2c\u4e00\u79cd\u65b9\u6cd5: {4} \u4e2d\u7684 {2}({3})\n\u7b2c\u4e8c\u79cd\u65b9\u6cd5: {7} \u4e2d\u7684 {5}({6})"_s)
+			$of(u"名称冲突: {0} {1} 的两种方法具有相同的疑符, 但两者均不覆盖对方\n第一种方法: {4} 中的 {2}({3})\n第二种方法: {7} 中的 {5}({6})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.name.reserved.for.internal.use"_s),
-			$of(u"{0}\u4e3a\u5185\u90e8\u4f7f\u7528\u4fdd\u7559"_s)
+			$of(u"{0}为内部使用保留"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.native.meth.cant.have.body"_s),
-			$of(u"\u672c\u673a\u65b9\u6cd5\u4e0d\u80fd\u5e26\u6709\u4e3b\u4f53"_s)
+			$of(u"本机方法不能带有主体"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.new.not.allowed.in.annotation"_s),
-			$of(u"\u6ce8\u91ca\u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528 \'\'new\'\'"_s)
+			$of(u"注释中不允许使用 \'\'new\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.annotation.member"_s),
-			$of(u"{1}\u4e2d\u6ca1\u6709\u6ce8\u91ca\u6210\u5458{0}"_s)
+			$of(u"{1}中没有注释成员{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.annotations.on.dot.class"_s),
-			$of(u"\u7c7b\u6587\u5b57\u7c7b\u578b\u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528\u4efb\u4f55\u6ce8\u91ca"_s)
+			$of(u"类文字类型中不允许使用任何注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.encl.instance.of.type.in.scope"_s),
-			$of(u"\u4f5c\u7528\u57df\u4e2d\u6ca1\u6709\u7c7b\u578b\u4e3a{0}\u7684\u5c01\u95ed\u5b9e\u4f8b"_s)
+			$of(u"作用域中没有类型为{0}的封闭实例"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.intf.expected.here"_s),
-			$of(u"\u6b64\u5904\u4e0d\u9700\u8981\u63a5\u53e3"_s)
+			$of(u"此处不需要接口"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.match.entry"_s),
-			$of(u"{0}\u5728{1}\u7684\u6761\u76ee\u4e2d\u6ca1\u6709\u5339\u914d\u9879; \u9700\u8981{2}"_s)
+			$of(u"{0}在{1}的条目中没有匹配项; 需要{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.opens.unless.strong"_s),
-			$of(u"\u53ea\u5141\u8bb8\u5728\u5f3a\u6a21\u5757\u4e2d\u4f7f\u7528 \'\'opens\'\'"_s)
+			$of(u"只允许在强模块中使用 \'\'opens\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.output.dir"_s),
-			$of(u"\u672a\u6307\u5b9a\u7c7b\u8f93\u51fa\u76ee\u5f55"_s)
+			$of(u"未指定类输出目录"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.pkg.in.module-info.java"_s),
-			$of(u"\u6587\u4ef6 module-info.java \u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528\u7a0b\u5e8f\u5305\u58f0\u660e"_s)
+			$of(u"文件 module-info.java 中不允许使用程序包声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.source.files"_s),
-			$of(u"\u65e0\u6e90\u6587\u4ef6"_s)
+			$of(u"无源文件"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.source.files.classes"_s),
-			$of(u"\u65e0\u6e90\u6587\u4ef6\u6216\u7c7b\u540d"_s)
+			$of(u"无源文件或类名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.superclass"_s),
-			$of(u"{0}\u4e0d\u5177\u6709\u8d85\u7c7b\u3002"_s)
+			$of(u"{0}不具有超类。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.switch.expression"_s),
-			$of(u"yield \u5728 switch \u8868\u8fbe\u5f0f\u5916\u90e8"_s)
+			$of(u"yield 在 switch 表达式外部"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.switch.expression.qualify"_s),
-			$of(u"yield \u5728 switch \u8868\u8fbe\u5f0f\u5916\u90e8\n\uff08\u8981\u8c03\u7528\u79f0\u4e3a yield \u7684\u65b9\u6cd5\uff0c\u8bf7\u901a\u8fc7\u63a5\u6536\u65b9\u6216\u7c7b\u578b\u540d\u79f0\u9650\u5b9a yield\uff09"_s)
+			$of(u"yield 在 switch 表达式外部\n（要调用称为 yield 的方法，请通过接收方或类型名称限定 yield）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.value.for.option"_s),
-			$of(u"{0} \u9009\u9879\u6ca1\u6709\u503c"_s)
+			$of(u"{0} 选项没有值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.no.zipfs.for.archive"_s),
-			$of(u"\u6ca1\u6709\u4efb\u4f55\u6587\u4ef6\u7cfb\u7edf\u63d0\u4f9b\u65b9\u53ef\u5904\u7406\u6b64\u6587\u4ef6: {0}"_s)
+			$of(u"没有任何文件系统提供方可处理此文件: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.non-static.cant.be.ref"_s),
-			$of(u"\u65e0\u6cd5\u4ece\u9759\u6001\u4e0a\u4e0b\u6587\u4e2d\u5f15\u7528\u975e\u9759\u6001 {0} {1}"_s)
+			$of(u"无法从静态上下文中引用非静态 {0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.non.sealed.or.sealed.expected"_s),
-			$of(u"\u9700\u8981\u5bc6\u5c01\u6216\u975e\u5bc6\u5c01\u4fee\u9970\u7b26"_s)
+			$of(u"需要密封或非密封修饰符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.non.sealed.sealed.or.final.expected"_s),
-			$of(u"\u9700\u8981\u5bc6\u5c01\u3001\u975e\u5bc6\u5c01\u6216\u6700\u7ec8\u4fee\u9970\u7b26"_s)
+			$of(u"需要密封、非密封或最终修饰符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.non.sealed.with.no.sealed.supertype"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5141\u8bb8\u4f7f\u7528\u975e\u5bc6\u5c01\u4fee\u9970\u7b26\n\uff08\u7c7b {0} \u4e0d\u5177\u6709\u4efb\u4f55\u5bc6\u5c01\u7684\u8d85\u7c7b\u578b\uff09"_s)
+			$of(u"此处不允许使用非密封修饰符\n（类 {0} 不具有任何密封的超类型）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.annotation.type"_s),
-			$of(u"{0}\u4e0d\u662f\u6ce8\u91ca\u7c7b\u578b"_s)
+			$of(u"{0}不是注释类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.def.access.class.intf.cant.access"_s),
-			$of(u"{1}.{0} \u662f\u5728\u4e0d\u53ef\u8bbf\u95ee\u7684\u7c7b\u6216\u63a5\u53e3\u4e2d\u5b9a\u4e49\u7684"_s)
+			$of(u"{1}.{0} 是在不可访问的类或接口中定义的"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.def.access.class.intf.cant.access.reason"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {2} \u4e2d\u7684 {1}.{0} \u4e0d\u53ef\u8bbf\u95ee\n({3})"_s)
+			$of(u"程序包 {2} 中的 {1}.{0} 不可访问\n({3})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.def.access.package.cant.access"_s),
-			$of(u"{0} \u4e0d\u53ef\u89c1\n({2})"_s)
+			$of(u"{0} 不可见\n({2})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.def.public"_s),
-			$of(u"{0} \u5728 {1} \u4e2d\u4e0d\u662f\u516c\u5171\u7684"_s)
+			$of(u"{0} 在 {1} 中不是公共的"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.def.public.cant.access"_s),
-			$of(u"{0}\u5728{1}\u4e2d\u4e0d\u662f\u516c\u5171\u7684; \u65e0\u6cd5\u4ece\u5916\u90e8\u7a0b\u5e8f\u5305\u4e2d\u5bf9\u5176\u8fdb\u884c\u8bbf\u95ee"_s)
+			$of(u"{0}在{1}中不是公共的; 无法从外部程序包中对其进行访问"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.encl.class"_s),
-			$of(u"\u4e0d\u662f\u5c01\u95ed\u7c7b: {0}"_s)
+			$of(u"不是封闭类: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.exhaustive"_s),
-			$of(u"switch \u8868\u8fbe\u5f0f\u4e0d\u5305\u542b\u6240\u6709\u53ef\u80fd\u7684\u8f93\u5165\u503c"_s)
+			$of(u"switch 表达式不包含所有可能的输入值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.in.module.on.module.source.path"_s),
-			$of(u"\u4e0d\u5728\u6a21\u5757\u6e90\u8def\u5f84\u4e0a\u7684\u6a21\u5757\u4e2d"_s)
+			$of(u"不在模块源路径上的模块中"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.in.profile"_s),
-			$of(u"{0}\u5728\u914d\u7f6e\u6587\u4ef6 \'\'{1}\'\' \u4e2d\u4e0d\u53ef\u7528"_s)
+			$of(u"{0}在配置文件 \'\'{1}\'\' 中不可用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.loop.label"_s),
-			$of(u"\u4e0d\u662f loop \u6807\u7b7e: {0}"_s)
+			$of(u"不是 loop 标签: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.stmt"_s),
-			$of(u"\u4e0d\u662f\u8bed\u53e5"_s)
+			$of(u"不是语句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.not.within.bounds"_s),
-			$of(u"\u7c7b\u578b\u53c2\u6570{0}\u4e0d\u5728\u7c7b\u578b\u53d8\u91cf{1}\u7684\u8303\u56f4\u5185"_s)
+			$of(u"类型参数{0}不在类型变量{1}的范围内"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.operator.cant.be.applied"_s),
-			$of(u"\u4e00\u5143\u8fd0\u7b97\u7b26 \'\'{0}\'\' \u7684\u64cd\u4f5c\u6570\u7c7b\u578b{1}\u9519\u8bef"_s)
+			$of(u"一元运算符 \'\'{0}\'\' 的操作数类型{1}错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.operator.cant.be.applied.1"_s),
-			$of(u"\u4e8c\u5143\u8fd0\u7b97\u7b26 \'\'{0}\'\' \u7684\u64cd\u4f5c\u6570\u7c7b\u578b\u9519\u8bef\n\u7b2c\u4e00\u4e2a\u7c7b\u578b:  {1}\n\u7b2c\u4e8c\u4e2a\u7c7b\u578b: {2}"_s)
+			$of(u"二元运算符 \'\'{0}\'\' 的操作数类型错误\n第一个类型:  {1}\n第二个类型: {2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.option.not.allowed.with.target"_s),
-			$of(u"\u76ee\u6807 {1} \u4e0d\u5141\u8bb8\u9009\u9879 {0}"_s)
+			$of(u"目标 {1} 不允许选项 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.option.removed.source"_s),
-			$of(u"\u4e0d\u518d\u652f\u6301\u6e90\u9009\u9879 {0}\u3002\u8bf7\u4f7f\u7528 {1} \u6216\u66f4\u9ad8\u7248\u672c\u3002"_s)
+			$of(u"不再支持源选项 {0}。请使用 {1} 或更高版本。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.option.removed.target"_s),
-			$of(u"\u4e0d\u518d\u652f\u6301\u76ee\u6807\u9009\u9879 {0}\u3002\u8bf7\u4f7f\u7528 {1} \u6216\u66f4\u9ad8\u7248\u672c\u3002"_s)
+			$of(u"不再支持目标选项 {0}。请使用 {1} 或更高版本。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.option.too.many"_s),
-			$of(u"\u9009\u9879 {0} \u53ea\u80fd\u6307\u5b9a\u4e00\u6b21"_s)
+			$of(u"选项 {0} 只能指定一次"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.orphaned"_s),
-			$of(u"\u5b64\u7acb\u7684{0}"_s)
+			$of(u"孤立的{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.output.dir.must.be.specified.with.dash.m.option"_s),
-			$of(u"\u5982\u679c\u4f7f\u7528 -m \u9009\u9879, \u5219\u5fc5\u987b\u6307\u5b9a\u7c7b\u8f93\u51fa\u76ee\u5f55"_s)
+			$of(u"如果使用 -m 选项, 则必须指定类输出目录"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.override.incompatible.ret"_s),
-			$of(u"{0}\n\u8fd4\u56de\u7c7b\u578b{1}\u4e0e{2}\u4e0d\u517c\u5bb9"_s)
+			$of(u"{0}\n返回类型{1}与{2}不兼容"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.override.meth"_s),
-			$of(u"{0}\n\u88ab\u8986\u76d6\u7684\u65b9\u6cd5\u4e3a{1}"_s)
+			$of(u"{0}\n被覆盖的方法为{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.override.meth.doesnt.throw"_s),
-			$of(u"{0}\n\u88ab\u8986\u76d6\u7684\u65b9\u6cd5\u672a\u629b\u51fa{1}"_s)
+			$of(u"{0}\n被覆盖的方法未抛出{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.override.static"_s),
-			$of(u"{0}\n\u8986\u76d6\u7684\u65b9\u6cd5\u4e3a static"_s)
+			$of(u"{0}\n覆盖的方法为 static"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.override.weaker.access"_s),
-			$of(u"{0}\n\u6b63\u5728\u5c1d\u8bd5\u5206\u914d\u66f4\u4f4e\u7684\u8bbf\u95ee\u6743\u9650; \u4ee5\u524d\u4e3a{1}"_s)
+			$of(u"{0}\n正在尝试分配更低的访问权限; 以前为{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.package.clash.from.requires"_s),
-			$of(u"\u6a21\u5757 {0} \u540c\u65f6\u4ece {2} \u548c {3} \u8bfb\u53d6\u7a0b\u5e8f\u5305 {1}"_s)
+			$of(u"模块 {0} 同时从 {2} 和 {3} 读取程序包 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.package.clash.from.requires.in.unnamed"_s),
-			$of(u"\u672a\u547d\u540d\u7684\u6a21\u5757\u540c\u65f6\u4ece {1} \u548c {2} \u8bfb\u53d6\u7a0b\u5e8f\u5305 {0}"_s)
+			$of(u"未命名的模块同时从 {1} 和 {2} 读取程序包 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.package.empty.or.not.found"_s),
-			$of(u"\u7a0b\u5e8f\u5305\u4e3a\u7a7a\u6216\u4e0d\u5b58\u5728: {0}"_s)
+			$of(u"程序包为空或不存在: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.package.in.other.module"_s),
-			$of(u"\u7a0b\u5e8f\u5305\u5df2\u5b58\u5728\u4e8e\u53e6\u4e00\u4e2a\u6a21\u5757\u4e2d: {0}"_s)
+			$of(u"程序包已存在于另一个模块中: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.package.not.visible"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {0} \u4e0d\u53ef\u89c1\n({1})"_s)
+			$of(u"程序包 {0} 不可见\n({1})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.pkg.annotations.sb.in.package-info.java"_s),
-			$of(u"\u7a0b\u5e8f\u5305\u6ce8\u91ca\u5e94\u5728\u6587\u4ef6 package-info.java \u4e2d"_s)
+			$of(u"程序包注释应在文件 package-info.java 中"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.pkg.clashes.with.class.of.same.name"_s),
-			$of(u"\u7a0b\u5e8f\u5305{0}\u4e0e\u5e26\u6709\u76f8\u540c\u540d\u79f0\u7684\u7c7b\u51b2\u7a81"_s)
+			$of(u"程序包{0}与带有相同名称的类冲突"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.plugin.not.found"_s),
-			$of(u"\u627e\u4e0d\u5230\u63d2\u4ef6: {0}"_s)
+			$of(u"找不到插件: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.premature.eof"_s),
-			$of(u"\u8fdb\u884c\u8bed\u6cd5\u5206\u6790\u65f6\u5df2\u5230\u8fbe\u6587\u4ef6\u7ed3\u5c3e"_s)
+			$of(u"进行语法分析时已到达文件结尾"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.preview.feature.disabled"_s),
-			$of(u"{0} \u662f\u9884\u89c8\u529f\u80fd\uff0c\u9ed8\u8ba4\u60c5\u51b5\u4e0b\u7981\u7528\u3002\n\uff08\u8bf7\u4f7f\u7528 --enable-preview \u4ee5\u542f\u7528 {0}\uff09"_s)
+			$of(u"{0} 是预览功能，默认情况下禁用。\n（请使用 --enable-preview 以启用 {0}）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.preview.feature.disabled.classfile"_s),
-			$of(u"{0} \u7684\u7c7b\u6587\u4ef6\u4f7f\u7528 Java SE {1} \u7684\u9884\u89c8\u529f\u80fd\u3002\n\uff08\u8bf7\u4f7f\u7528 --enable-preview \u4ee5\u5141\u8bb8\u52a0\u8f7d\u5305\u542b\u9884\u89c8\u529f\u80fd\u7684\u7c7b\u6587\u4ef6\uff09"_s)
+			$of(u"{0} 的类文件使用 Java SE {1} 的预览功能。\n（请使用 --enable-preview 以允许加载包含预览功能的类文件）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.preview.feature.disabled.plural"_s),
-			$of(u"{0} \u662f\u9884\u89c8\u529f\u80fd\uff0c\u9ed8\u8ba4\u60c5\u51b5\u4e0b\u7981\u7528\u3002\n\uff08\u8bf7\u4f7f\u7528 --enable-preview \u4ee5\u542f\u7528 {0}\uff09"_s)
+			$of(u"{0} 是预览功能，默认情况下禁用。\n（请使用 --enable-preview 以启用 {0}）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.preview.not.latest"_s),
-			$of(u"\u6e90\u53d1\u884c\u7248 {0} \u4e0e --enable-preview \u4e00\u8d77\u4f7f\u7528\u65f6\u65e0\u6548\n\uff08\u4ec5\u53d1\u884c\u7248 {1} \u652f\u6301\u9884\u89c8\u8bed\u8a00\u529f\u80fd\uff09"_s)
+			$of(u"源发行版 {0} 与 --enable-preview 一起使用时无效\n（仅发行版 {1} 支持预览语言功能）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.preview.without.source.or.release"_s),
-			$of(u"--enable-preview \u5fc5\u987b\u4e0e -source \u6216 --release \u4e00\u8d77\u4f7f\u7528"_s)
+			$of(u"--enable-preview 必须与 -source 或 --release 一起使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.prob.found.req"_s),
-			$of(u"\u4e0d\u517c\u5bb9\u7684\u7c7b\u578b: {0}"_s)
+			$of(u"不兼容的类型: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.bad.config.file"_s),
-			$of(u"\u670d\u52a1\u914d\u7f6e\u6587\u4ef6\u4e0d\u6b63\u786e, \u6216\u6784\u9020\u5904\u7406\u7a0b\u5e8f\u5bf9\u8c61{0}\u65f6\u629b\u51fa\u5f02\u5e38\u9519\u8bef"_s)
+			$of(u"服务配置文件不正确, 或构造处理程序对象{0}时抛出异常错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.cant.access"_s),
-			$of(u"\u65e0\u6cd5\u8bbf\u95ee{0}\n{1}\n\u6709\u5173\u8be6\u7ec6\u4fe1\u606f, \u8bf7\u53c2\u9605\u4ee5\u4e0b\u5806\u6808\u8ddf\u8e2a\u3002\n{2}"_s)
+			$of(u"无法访问{0}\n{1}\n有关详细信息, 请参阅以下堆栈跟踪。\n{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.cant.access.1"_s),
-			$of(u"\u65e0\u6cd5\u8bbf\u95ee{0}\n{1}"_s)
+			$of(u"无法访问{0}\n{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.cant.create.loader"_s),
-			$of(u"\u65e0\u6cd5\u4e3a\u6ce8\u91ca\u5904\u7406\u7a0b\u5e8f{0}\u521b\u5efa\u7c7b\u52a0\u8f7d\u5668"_s)
+			$of(u"无法为注释处理程序{0}创建类加载器"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.cant.find.class"_s),
-			$of(u"\u627e\u4e0d\u5230 \'\'{0}\'\' \u7684\u7c7b\u6587\u4ef6\u3002"_s)
+			$of(u"找不到 \'\'{0}\'\' 的类文件。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.cant.load.class"_s),
-			$of(u"\u7531\u4e8e \'\'{0}\'\'\uff0c\u65e0\u6cd5\u52a0\u8f7d\u5904\u7406\u5668\u7c7b\u6587\u4ef6\u3002"_s)
+			$of(u"由于 \'\'{0}\'\'，无法加载处理器类文件。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.messager"_s),
@@ -1462,631 +1462,631 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.no.explicit.annotation.processing.requested"_s),
-			$of(u"\u4ec5\u5f53\u663e\u5f0f\u8bf7\u6c42\u6ce8\u91ca\u5904\u7406\u65f6\u624d\u63a5\u53d7\u7c7b\u540d\u79f0 \'\'{0}\'\'"_s)
+			$of(u"仅当显式请求注释处理时才接受类名称 \'\'{0}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.no.service"_s),
-			$of(u"ServiceLoader \u4e0d\u53ef\u7528, \u4f46\u5b83\u662f\u6ce8\u91ca\u5904\u7406\u6240\u5fc5\u9700\u7684\u3002"_s)
+			$of(u"ServiceLoader 不可用, 但它是注释处理所必需的。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.processor.bad.option.name"_s),
-			$of(u"\u5904\u7406\u7a0b\u5e8f \'\'{1}\'\' \u63d0\u4f9b\u7684\u9009\u9879\u540d\u79f0 \'\'{0}\'\' \u9519\u8bef"_s)
+			$of(u"处理程序 \'\'{1}\'\' 提供的选项名称 \'\'{0}\'\' 错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.processor.cant.instantiate"_s),
-			$of(u"\u65e0\u6cd5\u5b9e\u4f8b\u5316\u5904\u7406\u7a0b\u5e8f \'\'{0}\'\' \u7684\u5b9e\u4f8b"_s)
+			$of(u"无法实例化处理程序 \'\'{0}\'\' 的实例"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.processor.not.found"_s),
-			$of(u"\u627e\u4e0d\u5230\u6ce8\u91ca\u5904\u7406\u7a0b\u5e8f \'\'{0}\'\'"_s)
+			$of(u"找不到注释处理程序 \'\'{0}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.processor.wrong.type"_s),
-			$of(u"\u6ce8\u91ca\u5904\u7406\u7a0b\u5e8f \'\'{0}\'\' \u672a\u5b9e\u73b0 javax.annotation.processing.Processor"_s)
+			$of(u"注释处理程序 \'\'{0}\'\' 未实现 javax.annotation.processing.Processor"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.proc.service.problem"_s),
-			$of(u"\u521b\u5efa\u670d\u52a1\u52a0\u8f7d\u5668\u4ee5\u52a0\u8f7d\u5904\u7406\u7a0b\u5e8f\u65f6\u51fa\u9519\u3002"_s)
+			$of(u"创建服务加载器以加载处理程序时出错。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.processorpath.no.processormodulepath"_s),
-			$of(u"-processorpath \u4e0e --processor-module-path \u7684\u7ec4\u5408\u975e\u6cd5"_s)
+			$of(u"-processorpath 与 --processor-module-path 的组合非法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.profile.bootclasspath.conflict"_s),
-			$of(u"\u6982\u8981\u4fe1\u606f\u548c\u5f15\u5bfc\u7c7b\u8def\u5f84\u9009\u9879\u4e0d\u80fd\u540c\u65f6\u4f7f\u7528"_s)
+			$of(u"概要信息和引导类路径选项不能同时使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.qualified.new.of.static.class"_s),
-			$of(u"\u9650\u5b9a\u7684\u65b0\u9759\u6001\u7c7b"_s)
+			$of(u"限定的新静态类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.receiver.parameter.not.applicable.constructor.toplevel.class"_s),
-			$of(u"\u63a5\u6536\u65b9\u53c2\u6570\u4e0d\u9002\u7528\u4e8e\u9876\u5c42\u7c7b\u7684\u6784\u9020\u5668"_s)
+			$of(u"接收方参数不适用于顶层类的构造器"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.record.cannot.declare.instance.fields"_s),
-			$of(u"\u5b57\u6bb5\u58f0\u660e\u5fc5\u987b\u4e3a\u9759\u6001\n\uff08\u8003\u8651\u5c06\u5b57\u6bb5\u66ff\u6362\u4e3a\u8bb0\u5f55\u7ec4\u4ef6\uff09"_s)
+			$of(u"字段声明必须为静态\n（考虑将字段替换为记录组件）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.record.cant.declare.field.modifiers"_s),
-			$of(u"\u8bb0\u5f55\u7ec4\u4ef6\u4e0d\u80fd\u5177\u6709\u9650\u5b9a\u7b26"_s)
+			$of(u"记录组件不能具有限定符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.record.component.and.old.array.syntax"_s),
-			$of(u"\u8bb0\u5f55\u7ec4\u4ef6\u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528\u4f20\u7edf\u6570\u7ec4\u8bb0\u53f7"_s)
+			$of(u"记录组件中不允许使用传统数组记号"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.record.header.expected"_s),
-			$of(u"\u9700\u8981\u8bb0\u5f55\u6807\u5934"_s)
+			$of(u"需要记录标头"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.recursive.ctor.invocation"_s),
-			$of(u"\u9012\u5f52\u6784\u9020\u5668\u8c03\u7528"_s)
+			$of(u"递归构造器调用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.ref.ambiguous"_s),
-			$of(u"\u5bf9{0}\u7684\u5f15\u7528\u4e0d\u660e\u786e\n{3} \u4e2d\u7684{1} {2} \u548c {6} \u4e2d\u7684{4} {5} \u90fd\u5339\u914d"_s)
+			$of(u"对{0}的引用不明确\n{3} 中的{1} {2} 和 {6} 中的{4} {5} 都匹配"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.release.bootclasspath.conflict"_s),
-			$of(u"\u9009\u9879 {0} \u4e0d\u80fd\u4e0e --release \u4e00\u8d77\u4f7f\u7528"_s)
+			$of(u"选项 {0} 不能与 --release 一起使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.repeated.annotation.target"_s),
-			$of(u"\u6ce8\u91ca\u76ee\u6807\u91cd\u590d"_s)
+			$of(u"注释目标重复"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.repeated.interface"_s),
-			$of(u"\u63a5\u53e3\u91cd\u590d"_s)
+			$of(u"接口重复"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.repeated.modifier"_s),
-			$of(u"\u4fee\u9970\u7b26\u91cd\u590d"_s)
+			$of(u"修饰符重复"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.repeated.provides.for.service"_s),
-			$of(u"\u670d\u52a1 {0} \u6709\u591a\u4e2a \'\'provides\'\'"_s)
+			$of(u"服务 {0} 有多个 \'\'provides\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.repeated.value.for.module.source.path"_s),
-			$of(u"\u4e3a\u6a21\u5757 {0} \u591a\u6b21\u6307\u5b9a\u4e86 --module-source-path"_s)
+			$of(u"为模块 {0} 多次指定了 --module-source-path"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.repeated.value.for.patch.module"_s),
-			$of(u"\u4e3a\u6a21\u5757 {0} \u591a\u6b21\u6307\u5b9a\u4e86 --patch-module"_s)
+			$of(u"为模块 {0} 多次指定了 --patch-module"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.report.access"_s),
-			$of(u"{0} \u5728 {2} \u4e2d\u662f {1} \u8bbf\u95ee\u63a7\u5236"_s)
+			$of(u"{0} 在 {2} 中是 {1} 访问控制"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.req.arg"_s),
-			$of(u"{0} \u9700\u8981\u53c2\u6570"_s)
+			$of(u"{0} 需要参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.restricted.type.not.allowed"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5141\u8bb8\u4f7f\u7528 \'\'{0}\'\'\n\u4ece\u53d1\u884c\u7248 {1} \u5f00\u59cb\uff0c\'\'{0}\'\' \u662f\u53d7\u9650\u7c7b\u578b\u540d\u79f0\uff0c\u4e0d\u80fd\u7528\u4e8e\u7c7b\u578b\u58f0\u660e"_s)
+			$of(u"此处不允许使用 \'\'{0}\'\'\n从发行版 {1} 开始，\'\'{0}\'\' 是受限类型名称，不能用于类型声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.restricted.type.not.allowed.array"_s),
-			$of(u"\'\'{0}\'\' \u4e0d\u5141\u8bb8\u7528\u4f5c\u6570\u7ec4\u7684\u5143\u7d20\u7c7b\u578b"_s)
+			$of(u"\'\'{0}\'\' 不允许用作数组的元素类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.restricted.type.not.allowed.compound"_s),
-			$of(u"\'\'{0}\'\' \u4e0d\u5141\u8bb8\u5728\u590d\u5408\u58f0\u660e\u4e2d\u4f7f\u7528"_s)
+			$of(u"\'\'{0}\'\' 不允许在复合声明中使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.restricted.type.not.allowed.here"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5141\u8bb8\u4f7f\u7528 \'\'{0}\'\'"_s)
+			$of(u"此处不允许使用 \'\'{0}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.ret.outside.meth"_s),
-			$of(u"\u8fd4\u56de\u5916\u90e8\u65b9\u6cd5"_s)
+			$of(u"返回外部方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.return.outside.switch.expression"_s),
-			$of(u"\u5c1d\u8bd5\u4ece switch \u8868\u8fbe\u5f0f\u8fd4\u56de"_s)
+			$of(u"尝试从 switch 表达式返回"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.rule.completes.normally"_s),
-			$of(u"switch \u89c4\u5219\u5b8c\u7ed3\u4f46\u6ca1\u6709\u63d0\u4f9b\u503c\n\uff08switch \u8868\u8fbe\u5f0f\u4e2d\u7684 switch \u89c4\u5219\u5fc5\u987b\u63d0\u4f9b\u503c\u6216\u629b\u51fa\uff09"_s)
+			$of(u"switch 规则完结但没有提供值\n（switch 表达式中的 switch 规则必须提供值或抛出）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.same.binary.name"_s),
-			$of(u"\u7c7b\uff1a{0} \u548c {1} \u5177\u6709\u76f8\u540c\u7684\u4e8c\u8fdb\u5236\u540d\u79f0"_s)
+			$of(u"类：{0} 和 {1} 具有相同的二进制名称"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.sealed.class.must.have.subclasses"_s),
-			$of(u"\u5bc6\u5c01\u7c7b\u5fc5\u987b\u5177\u6709\u5b50\u7c7b"_s)
+			$of(u"密封类必须具有子类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.sealed.or.non.sealed.local.classes.not.allowed"_s),
-			$of(u"\u4e0d\u5141\u8bb8\u4f7f\u7528\u5bc6\u5c01\u6216\u975e\u5bc6\u5c01\u672c\u5730\u7c7b"_s)
+			$of(u"不允许使用密封或非密封本地类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.service.definition.is.enum"_s),
-			$of(u"\u670d\u52a1\u5b9a\u4e49\u662f\u679a\u4e3e: {0}"_s)
+			$of(u"服务定义是枚举: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.service.implementation.doesnt.have.a.no.args.constructor"_s),
-			$of(u"\u670d\u52a1\u5b9e\u73b0\u6ca1\u6709\u9ed8\u8ba4\u7684\u6784\u9020\u5668: {0}"_s)
+			$of(u"服务实现没有默认的构造器: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.service.implementation.is.abstract"_s),
-			$of(u"\u670d\u52a1\u5b9e\u73b0\u662f\u62bd\u8c61\u7c7b: {0}"_s)
+			$of(u"服务实现是抽象类: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.service.implementation.is.inner"_s),
-			$of(u"\u670d\u52a1\u5b9e\u73b0\u662f\u5185\u90e8\u7c7b: {0}"_s)
+			$of(u"服务实现是内部类: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.service.implementation.must.be.subtype.of.service.interface"_s),
-			$of(u"\u670d\u52a1\u5b9e\u73b0\u7c7b\u578b\u5fc5\u987b\u662f\u670d\u52a1\u63a5\u53e3\u7c7b\u578b\u7684\u5b50\u7c7b\u578b, \u6216\u8005\u5177\u6709\u540d\u4e3a \"provider\" \u7684, \u8fd4\u56de\u670d\u52a1\u5b9e\u73b0\u7684\u516c\u5171\u9759\u6001\u65e0\u53c2\u6570\u65b9\u6cd5"_s)
+			$of(u"服务实现类型必须是服务接口类型的子类型, 或者具有名为 \"provider\" 的, 返回服务实现的公共静态无参数方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.service.implementation.no.args.constructor.not.public"_s),
-			$of(u"\u670d\u52a1\u5b9e\u73b0\u7684\u65e0\u53c2\u6570\u6784\u9020\u5668\u4e0d\u662f\u516c\u5171\u6784\u9020\u5668: {0}"_s)
+			$of(u"服务实现的无参数构造器不是公共构造器: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.service.implementation.not.in.right.module"_s),
-			$of(u"\u5fc5\u987b\u5728\u4e0e provides \u6307\u4ee4\u76f8\u540c\u7684\u6a21\u5757\u4e2d\u5b9a\u4e49\u670d\u52a1\u5b9e\u73b0"_s)
+			$of(u"必须在与 provides 指令相同的模块中定义服务实现"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.service.implementation.provider.return.must.be.subtype.of.service.interface"_s),
-			$of(u"\"provider\" \u65b9\u6cd5\u8fd4\u56de\u7c7b\u578b\u5fc5\u987b\u662f\u670d\u52a1\u63a5\u53e3\u7c7b\u578b\u7684\u5b50\u7c7b\u578b"_s)
+			$of(u"\"provider\" 方法返回类型必须是服务接口类型的子类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.signature.doesnt.match.intf"_s),
-			$of(u"\u7b7e\u540d\u4e0e{0}\u4e0d\u5339\u914d; \u4e0d\u517c\u5bb9\u7684\u63a5\u53e3"_s)
+			$of(u"签名与{0}不匹配; 不兼容的接口"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.signature.doesnt.match.supertype"_s),
-			$of(u"\u7b7e\u540d\u4e0e{0}\u4e0d\u5339\u914d; \u4e0d\u517c\u5bb9\u7684\u8d85\u7c7b\u578b"_s)
+			$of(u"签名与{0}不匹配; 不兼容的超类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.source.cant.overwrite.input.file"_s),
-			$of(u"\u5199\u5165\u6e90\u65f6\u51fa\u9519; \u65e0\u6cd5\u8986\u76d6\u8f93\u5165\u6587\u4ef6{0}"_s)
+			$of(u"写入源时出错; 无法覆盖输入文件{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.sourcepath.modulesourcepath.conflict"_s),
-			$of(u"\u65e0\u6cd5\u540c\u65f6\u6307\u5b9a --source-path \u4e0e --module-source-path"_s)
+			$of(u"无法同时指定 --source-path 与 --module-source-path"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.stack.sim.error"_s),
-			$of(u"\u5185\u90e8\u9519\u8bef: {0}\u4e2d\u7684\u5806\u6808 sim \u9519\u8bef"_s)
+			$of(u"内部错误: {0}中的堆栈 sim 错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.static.declaration.not.allowed.in.inner.classes"_s),
-			$of(u"\u5185\u90e8\u7c7b\u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528\u9759\u6001\u58f0\u660e"_s)
+			$of(u"内部类中不允许使用静态声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.static.imp.only.classes.and.interfaces"_s),
-			$of(u"\u4ec5\u4ece\u7c7b\u548c\u63a5\u53e3\u9759\u6001\u5bfc\u5165"_s)
+			$of(u"仅从类和接口静态导入"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.static.methods.cannot.be.annotated.with.override"_s),
-			$of(u"\u4e0d\u80fd\u4f7f\u7528 @Override \u6ce8\u91ca\u9759\u6001\u65b9\u6cd5"_s)
+			$of(u"不能使用 @Override 注释静态方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.string.const.req"_s),
-			$of(u"\u9700\u8981\u5e38\u91cf\u5b57\u7b26\u4e32\u8868\u8fbe\u5f0f"_s)
+			$of(u"需要常量字符串表达式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.switch.case.unexpected.statement"_s),
-			$of(u"case \u4e2d\u5b58\u5728\u610f\u5916\u8bed\u53e5\uff0c\u5e94\u4e3a\u8868\u8fbe\u5f0f\u3001\u5757\u6216\u629b\u51fa\u8bed\u53e5"_s)
+			$of(u"case 中存在意外语句，应为表达式、块或抛出语句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.switch.expression.completes.normally"_s),
-			$of(u"switch \u8868\u8fbe\u5f0f\u5b8c\u7ed3\u4f46\u6ca1\u6709\u63d0\u4f9b\u503c\n\uff08switch \u8868\u8fbe\u5f0f\u5fc5\u987b\u4e3a\u6240\u6709\u53ef\u80fd\u7684\u8f93\u5165\u503c\u63d0\u4f9b\u503c\u6216\u629b\u51fa\uff09"_s)
+			$of(u"switch 表达式完结但没有提供值\n（switch 表达式必须为所有可能的输入值提供值或抛出）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.switch.expression.empty"_s),
-			$of(u"switch \u8868\u8fbe\u5f0f\u4e2d\u6ca1\u6709\u4efb\u4f55 case \u5b50\u53e5"_s)
+			$of(u"switch 表达式中没有任何 case 子句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.switch.expression.no.result.expressions"_s),
-			$of(u"switch \u8868\u8fbe\u5f0f\u6ca1\u6709\u4efb\u4f55\u7ed3\u679c\u8868\u8fbe\u5f0f"_s)
+			$of(u"switch 表达式没有任何结果表达式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.switch.mixing.case.types"_s),
-			$of(u"\u5728 switch \u4e2d\u4f7f\u7528\u4e86\u4e0d\u540c case \u7c7b\u578b"_s)
+			$of(u"在 switch 中使用了不同 case 类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.switch.null.not.allowed"_s),
-			$of(u"case \u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528\u7a7a\u6807\u7b7e"_s)
+			$of(u"case 中不允许使用空标签"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.this.as.identifier"_s),
-			$of(u"\u4ece\u53d1\u884c\u7248 8 \u5f00\u59cb\uff0c\'\'this\'\' \u53ea\u80fd\u4f5c\u4e3a\u63a5\u6536\u65b9\u7c7b\u578b\u7684\u53c2\u6570\u540d\uff0c\n\u8be5\u53c2\u6570\u5fc5\u987b\u4e3a\u7b2c\u4e00\u4e2a\u53c2\u6570\uff0c\u5e76\u4e14\u4e0d\u80fd\u662f lambda \u53c2\u6570"_s)
+			$of(u"从发行版 8 开始，\'\'this\'\' 只能作为接收方类型的参数名，\n该参数必须为第一个参数，并且不能是 lambda 参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.throws.not.allowed.in.intf.annotation"_s),
-			$of(u"@interface \u6210\u5458\u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528 throws \u5b50\u53e5"_s)
+			$of(u"@interface 成员中不允许使用 throws 子句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.too.many.modules"_s),
-			$of(u"\u627e\u5230\u592a\u591a\u7684\u6a21\u5757\u58f0\u660e"_s)
+			$of(u"找到太多的模块声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.too.many.patched.modules"_s),
-			$of(u"\u592a\u591a\u6253\u8865\u4e01\u7684\u6a21\u5757 ({0}), \u8bf7\u4f7f\u7528 --module-source-path"_s)
+			$of(u"太多打补丁的模块 ({0}), 请使用 --module-source-path"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.try.resource.may.not.be.assigned"_s),
-			$of(u"\u53ef\u80fd\u672a\u5206\u914d\u53ef\u81ea\u52a8\u5173\u95ed\u7684\u8d44\u6e90{0}"_s)
+			$of(u"可能未分配可自动关闭的资源{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.try.with.resources.expr.effectively.final.var"_s),
-			$of(u"\u7528\u4f5c try-with-resources \u8d44\u6e90\u7684\u53d8\u91cf {0} \u65e2\u4e0d\u662f\u6700\u7ec8\u53d8\u91cf, \u4e5f\u4e0d\u662f\u5b9e\u9645\u4e0a\u7684\u6700\u7ec8\u53d8\u91cf"_s)
+			$of(u"用作 try-with-resources 资源的变量 {0} 既不是最终变量, 也不是实际上的最终变量"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.try.with.resources.expr.needs.var"_s),
-			$of(u"try-with-resources \u8d44\u6e90\u5fc5\u987b\u662f\u53d8\u91cf\u58f0\u660e, \u6216\u8005\u662f\u6307\u793a\u5bf9\u6700\u7ec8\u53d8\u91cf\u6216\u5b9e\u9645\u4e0a\u7684\u6700\u7ec8\u53d8\u91cf\u7684\u5f15\u7528\u7684\u8868\u8fbe\u5f0f"_s)
+			$of(u"try-with-resources 资源必须是变量声明, 或者是指示对最终变量或实际上的最终变量的引用的表达式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.try.without.catch.finally.or.resource.decls"_s),
-			$of(u"\'\'try\'\' \u4e0d\u5e26\u6709 \'\'catch\'\', \'\'finally\'\' \u6216\u8d44\u6e90\u58f0\u660e"_s)
+			$of(u"\'\'try\'\' 不带有 \'\'catch\'\', \'\'finally\'\' 或资源声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.two.class.loaders.1"_s),
-			$of(u"javac \u5728\u591a\u4e2a\u7c7b\u52a0\u8f7d\u5668\u4e4b\u95f4\u62c6\u5206: \u8bf7\u68c0\u67e5\u914d\u7f6e"_s)
+			$of(u"javac 在多个类加载器之间拆分: 请检查配置"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.two.class.loaders.2"_s),
-			$of(u"javac \u5728\u591a\u4e2a\u7c7b\u52a0\u8f7d\u5668\u4e4b\u95f4\u62c6\u5206:\n\u4e00\u4e2a\u7c7b\u6765\u81ea\u6587\u4ef6: {0}\n\u800c javac \u6765\u81ea {1}"_s)
+			$of(u"javac 在多个类加载器之间拆分:\n一个类来自文件: {0}\n而 javac 来自 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.type.doesnt.take.params"_s),
-			$of(u"\u7c7b\u578b{0}\u4e0d\u5e26\u6709\u53c2\u6570"_s)
+			$of(u"类型{0}不带有参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.type.found.req"_s),
-			$of(u"\u610f\u5916\u7684\u7c7b\u578b\n\u9700\u8981: {1}\n\u627e\u5230:    {0}"_s)
+			$of(u"意外的类型\n需要: {1}\n找到:    {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.type.var.cant.be.deref"_s),
-			$of(u"\u65e0\u6cd5\u4ece\u7c7b\u578b\u53d8\u91cf\u4e2d\u8fdb\u884c\u9009\u62e9"_s)
+			$of(u"无法从类型变量中进行选择"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.type.var.may.not.be.followed.by.other.bounds"_s),
-			$of(u"\u7c7b\u578b\u53d8\u91cf\u540e\u9762\u4e0d\u80fd\u5e26\u6709\u5176\u4ed6\u9650\u5236\u8303\u56f4"_s)
+			$of(u"类型变量后面不能带有其他限制范围"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.type.var.more.than.once"_s),
-			$of(u"\u7c7b\u578b\u53d8\u91cf{0}\u5728{1}\u7684\u7ed3\u679c\u7c7b\u578b\u4e2d\u591a\u6b21\u51fa\u73b0; \u5fc5\u987b\u5bf9\u5176\u8fdb\u884c\u5b9e\u4f8b\u5316"_s)
+			$of(u"类型变量{0}在{1}的结果类型中多次出现; 必须对其进行实例化"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.type.var.more.than.once.in.result"_s),
-			$of(u"\u7c7b\u578b\u53d8\u91cf{0}\u5728{1}\u7684\u7c7b\u578b\u4e2d\u591a\u6b21\u51fa\u73b0; \u5fc5\u987b\u5bf9\u5176\u8fdb\u884c\u5b9e\u4f8b\u5316"_s)
+			$of(u"类型变量{0}在{1}的类型中多次出现; 必须对其进行实例化"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.types.incompatible"_s),
-			$of(u"\u7c7b\u578b {0} \u548c {1} \u4e0d\u517c\u5bb9\uff1b\n{2}"_s)
+			$of(u"类型 {0} 和 {1} 不兼容；\n{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unclosed.char.lit"_s),
-			$of(u"\u672a\u7ed3\u675f\u7684\u5b57\u7b26\u6587\u5b57"_s)
+			$of(u"未结束的字符文字"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unclosed.comment"_s),
-			$of(u"\u672a\u7ed3\u675f\u7684\u6ce8\u91ca"_s)
+			$of(u"未结束的注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unclosed.str.lit"_s),
-			$of(u"\u672a\u7ed3\u675f\u7684\u5b57\u7b26\u4e32\u6587\u5b57"_s)
+			$of(u"未结束的字符串文字"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unclosed.text.block"_s),
-			$of(u"\u6587\u672c\u5757\u672a\u95ed\u5408"_s)
+			$of(u"文本块未闭合"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.undef.label"_s),
-			$of(u"\u672a\u5b9a\u4e49\u7684\u6807\u7b7e: {0}"_s)
+			$of(u"未定义的标签: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.underscore.as.identifier"_s),
-			$of(u"\u4ece\u53d1\u884c\u7248 9 \u5f00\u59cb, \'\'_\'\' \u4e3a\u5173\u952e\u5b57, \u4e0d\u80fd\u7528\u4f5c\u6807\u8bc6\u7b26"_s)
+			$of(u"从发行版 9 开始, \'\'_\'\' 为关键字, 不能用作标识符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.underscore.as.identifier.in.lambda"_s),
-			$of(u"\'\'_\'\' \u7528\u4f5c\u6807\u8bc6\u7b26\n(\u5bf9\u4e8e lambda \u53c2\u6570, \u7981\u6b62\u5c06 \'\'_\'\' \u7528\u4f5c\u6807\u8bc6\u7b26)"_s)
+			$of(u"\'\'_\'\' 用作标识符\n(对于 lambda 参数, 禁止将 \'\'_\'\' 用作标识符)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unexpected.lambda"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5e94\u4e3a lambda \u8868\u8fbe\u5f0f"_s)
+			$of(u"此处不应为 lambda 表达式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unexpected.mref"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5e94\u4e3a\u65b9\u6cd5\u5f15\u7528"_s)
+			$of(u"此处不应为方法引用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unexpected.type"_s),
-			$of(u"\u610f\u5916\u7684\u7c7b\u578b\n\u9700\u8981: {0}\n\u627e\u5230:    {1}"_s)
+			$of(u"意外的类型\n需要: {0}\n找到:    {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unmatched.quote"_s),
-			$of(u"\u73af\u5883\u53d8\u91cf {0} \u4e2d\u7684\u5f15\u53f7\u4e0d\u6210\u5bf9"_s)
+			$of(u"环境变量 {0} 中的引号不成对"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unnamed.pkg.not.allowed.named.modules"_s),
-			$of(u"\u547d\u540d\u6a21\u5757\u4e2d\u4e0d\u5141\u8bb8\u672a\u547d\u540d\u7a0b\u5e8f\u5305"_s)
+			$of(u"命名模块中不允许未命名程序包"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unreachable.stmt"_s),
-			$of(u"\u65e0\u6cd5\u8bbf\u95ee\u7684\u8bed\u53e5"_s)
+			$of(u"无法访问的语句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unreported.exception.default.constructor"_s),
-			$of(u"\u9ed8\u8ba4\u6784\u9020\u5668\u4e2d\u672a\u62a5\u544a\u7684\u5f02\u5e38\u9519\u8bef{0}"_s)
+			$of(u"默认构造器中未报告的异常错误{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unreported.exception.implicit.close"_s),
-			$of(u"\u672a\u62a5\u544a\u7684\u5f02\u5e38\u9519\u8bef{0}; \u5fc5\u987b\u5bf9\u5176\u8fdb\u884c\u6355\u83b7\u6216\u58f0\u660e\u4ee5\u4fbf\u629b\u51fa\n\u5bf9\u8d44\u6e90\u53d8\u91cf \'\'{1}\'\' \u9690\u5f0f\u8c03\u7528 close() \u65f6\u629b\u51fa\u4e86\u5f02\u5e38\u9519\u8bef"_s)
+			$of(u"未报告的异常错误{0}; 必须对其进行捕获或声明以便抛出\n对资源变量 \'\'{1}\'\' 隐式调用 close() 时抛出了异常错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unreported.exception.need.to.catch.or.throw"_s),
-			$of(u"\u672a\u62a5\u544a\u7684\u5f02\u5e38\u9519\u8bef{0}; \u5fc5\u987b\u5bf9\u5176\u8fdb\u884c\u6355\u83b7\u6216\u58f0\u660e\u4ee5\u4fbf\u629b\u51fa"_s)
+			$of(u"未报告的异常错误{0}; 必须对其进行捕获或声明以便抛出"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unsupported.encoding"_s),
-			$of(u"\u4e0d\u652f\u6301\u7684\u7f16\u7801: {0}"_s)
+			$of(u"不支持的编码: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.unsupported.release.version"_s),
-			$of(u"\u4e0d\u652f\u6301\u53d1\u884c\u7248\u672c {0}"_s)
+			$of(u"不支持发行版本 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.var.might.already.be.assigned"_s),
-			$of(u"\u53ef\u80fd\u5df2\u5206\u914d\u53d8\u91cf{0}"_s)
+			$of(u"可能已分配变量{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.var.might.be.assigned.in.loop"_s),
-			$of(u"\u53ef\u80fd\u5728 loop \u4e2d\u5206\u914d\u4e86\u53d8\u91cf{0}"_s)
+			$of(u"可能在 loop 中分配了变量{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.var.might.not.have.been.initialized"_s),
-			$of(u"\u53ef\u80fd\u5c1a\u672a\u521d\u59cb\u5316\u53d8\u91cf{0}"_s)
+			$of(u"可能尚未初始化变量{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.var.not.initialized.in.default.constructor"_s),
-			$of(u"\u53d8\u91cf {0} \u672a\u5728\u9ed8\u8ba4\u6784\u9020\u5668\u4e2d\u521d\u59cb\u5316"_s)
+			$of(u"变量 {0} 未在默认构造器中初始化"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.varargs.and.old.array.syntax"_s),
-			$of(u"variable-arity \u53c2\u6570\u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528\u4f20\u7edf\u6570\u7ec4\u8bb0\u53f7"_s)
+			$of(u"variable-arity 参数中不允许使用传统数组记号"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.varargs.and.receiver"_s),
-			$of(u"\u63a5\u6536\u65b9\u53c2\u6570\u4e0d\u5141\u8bb8\u4f7f\u7528 varargs \u8bb0\u53f7"_s)
+			$of(u"接收方参数不允许使用 varargs 记号"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.varargs.invalid.trustme.anno"_s),
-			$of(u"{0} \u6ce8\u91ca\u65e0\u6548\u3002{1}"_s)
+			$of(u"{0} 注释无效。{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.varargs.must.be.last"_s),
-			$of(u"varargs \u53c2\u6570\u5fc5\u987b\u662f\u6700\u540e\u4e00\u4e2a\u53c2\u6570"_s)
+			$of(u"varargs 参数必须是最后一个参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.variable.not.allowed"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5141\u8bb8\u4f7f\u7528\u53d8\u91cf\u58f0\u660e"_s)
+			$of(u"此处不允许使用变量声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.void.not.allowed.here"_s),
-			$of(u"\u6b64\u5904\u4e0d\u5141\u8bb8\u4f7f\u7528 \'\'\u7a7a\'\' \u7c7b\u578b"_s)
+			$of(u"此处不允许使用 \'\'空\'\' 类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.warnings.and.werror"_s),
-			$of(u"\u53d1\u73b0\u8b66\u544a, \u4f46\u6307\u5b9a\u4e86 -Werror"_s)
+			$of(u"发现警告, 但指定了 -Werror"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.wrong.number.type.args"_s),
-			$of(u"\u7c7b\u578b\u53d8\u91cf\u6570\u76ee\u9519\u8bef; \u9700\u8981{0}"_s)
+			$of(u"类型变量数目错误; 需要{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.err.wrong.receiver"_s),
-			$of(u"\u9519\u8bef\u7684\u63a5\u6536\u65b9\u53c2\u6570\u540d"_s)
+			$of(u"错误的接收方参数名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.accessor.method.cant.throw.exception"_s),
-			$of(u"\u5bf9\u4e8e\u5b58\u53d6\u65b9\u6cd5\u4e0d\u5141\u8bb8\u4f7f\u7528 throws \u5b50\u53e5"_s)
+			$of(u"对于存取方法不允许使用 throws 子句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.accessor.method.must.not.be.generic"_s),
-			$of(u"\u5b58\u53d6\u65b9\u6cd5\u4e0d\u80fd\u4e3a\u6cdb\u578b\u65b9\u6cd5"_s)
+			$of(u"存取方法不能为泛型方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.accessor.method.must.not.be.static"_s),
-			$of(u"\u5b58\u53d6\u65b9\u6cd5\u4e0d\u80fd\u4e3a\u9759\u6001\u65b9\u6cd5"_s)
+			$of(u"存取方法不能为静态方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.accessor.return.type.doesnt.match"_s),
-			$of(u"\u5b58\u53d6\u65b9\u6cd5 {0} \u7684\u8fd4\u56de\u7c7b\u578b\u5fc5\u987b\u4e0e\u8bb0\u5f55\u7ec4\u4ef6 {1} \u7684\u7c7b\u578b\u76f8\u5339\u914d"_s)
+			$of(u"存取方法 {0} 的返回类型必须与记录组件 {1} 的类型相匹配"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.anachronistic.module.info"_s),
-			$of(u"\u5728 {0}.{1} \u7248\u7c7b\u6587\u4ef6\u4e2d\u627e\u5230\u6a21\u5757\u58f0\u660e"_s)
+			$of(u"在 {0}.{1} 版类文件中找到模块声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.anonymous"_s),
-			$of(u"\u533f\u540d"_s)
+			$of(u"匿名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.anonymous.class"_s),
-			$of(u"<\u533f\u540d{0}>"_s)
+			$of(u"<匿名{0}>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.applicable.method.found"_s),
-			$of(u"\u627e\u5230\u7b2c {0} \u4e2a\u9002\u7528\u65b9\u6cd5: {1}"_s)
+			$of(u"找到第 {0} 个适用方法: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.applicable.method.found.1"_s),
-			$of(u"\u627e\u5230\u7b2c {0} \u4e2a\u9002\u7528\u65b9\u6cd5: {1}\n({2})"_s)
+			$of(u"找到第 {0} 个适用方法: {1}\n({2})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.arg.length.mismatch"_s),
-			$of(u"\u5b9e\u9645\u53c2\u6570\u5217\u8868\u548c\u5f62\u5f0f\u53c2\u6570\u5217\u8868\u957f\u5ea6\u4e0d\u540c"_s)
+			$of(u"实际参数列表和形式参数列表长度不同"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.class.file"_s),
-			$of(u"\u7c7b\u6587\u4ef6\u5bf9\u4e8e\u7c7b {0} \u65e0\u6548"_s)
+			$of(u"类文件对于类 {0} 无效"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.class.file.header"_s),
-			$of(u"\u9519\u8bef\u7684\u7c7b\u6587\u4ef6: {0}\n{1}\n\u8bf7\u5220\u9664\u8be5\u6587\u4ef6\u6216\u786e\u4fdd\u8be5\u6587\u4ef6\u4f4d\u4e8e\u6b63\u786e\u7684\u7c7b\u8def\u5f84\u5b50\u76ee\u5f55\u4e2d\u3002"_s)
+			$of(u"错误的类文件: {0}\n{1}\n请删除该文件或确保该文件位于正确的类路径子目录中。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.class.signature"_s),
-			$of(u"\u9519\u8bef\u7684\u7c7b\u7b7e\u540d: {0}"_s)
+			$of(u"错误的类签名: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.const.pool.entry"_s),
-			$of(u"{0} \u4e2d\u9519\u8bef\u7684\u5e38\u91cf\u6c60\u6761\u76ee\n\u9884\u671f\u4e3a\u7d22\u5f15 {2} \u5904\u7684 {1}"_s)
+			$of(u"{0} 中错误的常量池条目\n预期为索引 {2} 处的 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.const.pool.index"_s),
-			$of(u"{0} \u4e2d\u7684\u5e38\u91cf\u6c60\u7d22\u5f15\u9519\u8bef\n\u7d22\u5f15 {1} \u4e0d\u5728\u6c60\u5927\u5c0f {2} \u5185\u3002"_s)
+			$of(u"{0} 中的常量池索引错误\n索引 {1} 不在池大小 {2} 内。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.const.pool.tag"_s),
-			$of(u"\u9519\u8bef\u7684\u5e38\u91cf\u6c60\u6807\u8bb0: {0}"_s)
+			$of(u"错误的常量池标记: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.const.pool.tag.at"_s),
-			$of(u"\u9519\u8bef\u7684\u5e38\u91cf\u6c60\u6807\u8bb0: {0}, \u4f4d\u4e8e{1}"_s)
+			$of(u"错误的常量池标记: {0}, 位于{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.constant.range"_s),
-			$of(u"{1} \u7684\u5e38\u91cf\u503c \'\'{0}\'\' \u8d85\u51fa\u4e86 {2} \u7684\u9884\u671f\u8303\u56f4"_s)
+			$of(u"{1} 的常量值 \'\'{0}\'\' 超出了 {2} 的预期范围"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.constant.value"_s),
-			$of(u"{1} \u7684\u5e38\u91cf\u503c \'\'{0}\'\' \u9519\u8bef, \u9884\u671f\u4e3a {2}"_s)
+			$of(u"{1} 的常量值 \'\'{0}\'\' 错误, 预期为 {2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.constant.value.type"_s),
-			$of(u"\'\'{0}\'\' \u7c7b\u578b\u7684\u53d8\u91cf\u4e0d\u80fd\u5177\u6709\u5e38\u91cf\u503c\uff0c\u4f46\u662f\u4e3a\u5176\u6307\u5b9a\u4e86\u4e00\u4e2a\u5e38\u91cf\u503c"_s)
+			$of(u"\'\'{0}\'\' 类型的变量不能具有常量值，但是为其指定了一个常量值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.enclosing.class"_s),
-			$of(u"{0}\u7684\u5c01\u95ed\u7c7b\u9519\u8bef: {1}"_s)
+			$of(u"{0}的封闭类错误: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.enclosing.method"_s),
-			$of(u"\u7c7b {0} \u7684\u5c01\u95ed\u65b9\u6cd5\u5c5e\u6027\u9519\u8bef"_s)
+			$of(u"类 {0} 的封闭方法属性错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.instance.method.in.unbound.lookup"_s),
-			$of(u"\u5728\u672a\u7ed1\u5b9a\u67e5\u627e\u4e2d\u627e\u5230\u610f\u5916\u7684\u5b9e\u4f8b {0} {1}"_s)
+			$of(u"在未绑定查找中找到意外的实例 {0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.intersection.target.for.functional.expr"_s),
-			$of(u"lambda \u6216\u65b9\u6cd5\u5f15\u7528\u7684\u4ea4\u53c9\u7c7b\u578b\u76ee\u6807\u9519\u8bef\n{0}"_s)
+			$of(u"lambda 或方法引用的交叉类型目标错误\n{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.module-info.name"_s),
-			$of(u"\u9519\u8bef\u7684\u7c7b\u540d"_s)
+			$of(u"错误的类名"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.requires.flag"_s),
-			$of(u"\u9519\u8bef\u7684\u8bf7\u6c42\u6807\u8bb0\uff1a{0}"_s)
+			$of(u"错误的请求标记：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.runtime.invisible.param.annotations"_s),
-			$of(u"\u9519\u8bef\u7684 RuntimeInvisibleParameterAnnotations \u5c5e\u6027: {0}"_s)
+			$of(u"错误的 RuntimeInvisibleParameterAnnotations 属性: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.signature"_s),
-			$of(u"\u9519\u8bef\u7684\u7b7e\u540d: {0}"_s)
+			$of(u"错误的签名: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.source.file.header"_s),
-			$of(u"\u9519\u8bef\u7684\u6e90\u6587\u4ef6: {0}\n{1}\n\u8bf7\u5220\u9664\u8be5\u6587\u4ef6\u6216\u786e\u4fdd\u8be5\u6587\u4ef6\u4f4d\u4e8e\u6b63\u786e\u7684\u6e90\u8def\u5f84\u5b50\u76ee\u5f55\u4e2d\u3002"_s)
+			$of(u"错误的源文件: {0}\n{1}\n请删除该文件或确保该文件位于正确的源路径子目录中。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.static.method.in.bound.lookup"_s),
-			$of(u"\u5728\u7ed1\u5b9a\u67e5\u627e\u4e2d\u627e\u5230\u610f\u5916\u7684\u9759\u6001 {0} {1}"_s)
+			$of(u"在绑定查找中找到意外的静态 {0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.static.method.in.unbound.lookup"_s),
-			$of(u"\u5728\u672a\u7ed1\u5b9a\u67e5\u627e\u4e2d\u627e\u5230\u610f\u5916\u7684\u9759\u6001 {0} {1}"_s)
+			$of(u"在未绑定查找中找到意外的静态 {0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.bad.type.annotation.value"_s),
-			$of(u"\u9519\u8bef\u7684\u7c7b\u578b\u6ce8\u91ca\u76ee\u6807\u7c7b\u578b\u503c: {0}"_s)
+			$of(u"错误的类型注释目标类型值: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.base.membership"_s),
-			$of(u"\u60a8\u7684\u6240\u6709\u57fa\u7c7b\u90fd\u5c5e\u4e8e\u6211\u4eec"_s)
+			$of(u"您的所有基类都属于我们"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.canonical"_s),
-			$of(u"\u89c4\u8303"_s)
+			$of(u"规范"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.canonical.cant.have.return.statement"_s),
-			$of(u"\u7cbe\u7b80\u6784\u9020\u5668\u4e0d\u5f97\u5305\u542b\u8fd4\u56de\u8bed\u53e5"_s)
+			$of(u"精简构造器不得包含返回语句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.canonical.must.not.contain.explicit.constructor.invocation"_s),
-			$of(u"\u89c4\u8303\u6784\u9020\u5668\u4e0d\u5f97\u5305\u542b\u663e\u5f0f\u6784\u9020\u5668\u8c03\u7528"_s)
+			$of(u"规范构造器不得包含显式构造器调用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.canonical.must.not.declare.type.variables"_s),
-			$of(u"\u89c4\u8303\u6784\u9020\u5668\u4e0d\u5f97\u58f0\u660e\u7c7b\u578b\u53d8\u91cf"_s)
+			$of(u"规范构造器不得声明类型变量"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.canonical.must.not.have.stronger.access"_s),
-			$of(u"\u6b63\u5728\u5c1d\u8bd5\u5206\u914d\u66f4\u5f3a\u7684\u8bbf\u95ee\u6743\u9650\uff1b\u4ee5\u524d\u4e3a {0}"_s)
+			$of(u"正在尝试分配更强的访问权限；以前为 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.canonical.with.name.mismatch"_s),
-			$of(u"\u89c4\u8303\u6784\u9020\u5668\u4e2d\u7684\u53c2\u6570\u540d\u79f0\u65e0\u6548"_s)
+			$of(u"规范构造器中的参数名称无效"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.access.inner.cls.constr"_s),
-			$of(u"\u65e0\u6cd5\u8bbf\u95ee\u6784\u9020\u5668 {0}({1})\n\u4f5c\u7528\u57df\u4e2d\u6ca1\u6709\u7c7b\u578b\u4e3a{2}\u7684\u5c01\u95ed\u5b9e\u4f8b"_s)
+			$of(u"无法访问构造器 {0}({1})\n作用域中没有类型为{2}的封闭实例"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.apply.diamond.1"_s),
-			$of(u"\u65e0\u6cd5\u63a8\u65ad{0}\u7684\u7c7b\u578b\u53c2\u6570\n\u539f\u56e0: {1}"_s)
+			$of(u"无法推断{0}的类型参数\n原因: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.apply.symbol"_s),
-			$of(u"\u65e0\u6cd5\u5c06 {4} {5}\u4e2d\u7684 {0} {1}\u5e94\u7528\u5230\u7ed9\u5b9a\u7c7b\u578b\n\u9700\u8981: {2}\n\u627e\u5230:    {3}\n\u539f\u56e0: {6}"_s)
+			$of(u"无法将 {4} {5}中的 {0} {1}应用到给定类型\n需要: {2}\n找到:    {3}\n原因: {6}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.apply.symbols"_s),
-			$of(u"\u5bf9\u4e8e{1}({2}), \u627e\u4e0d\u5230\u5408\u9002\u7684{0}"_s)
+			$of(u"对于{1}({2}), 找不到合适的{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.hide"_s),
-			$of(u"{1} \u4e2d\u7684 {0} \u65e0\u6cd5\u9690\u85cf {3} \u4e2d\u7684 {2}"_s)
+			$of(u"{1} 中的 {0} 无法隐藏 {3} 中的 {2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.implement"_s),
-			$of(u"{1}\u4e2d\u7684{0}\u65e0\u6cd5\u5b9e\u73b0{3}\u4e2d\u7684{2}"_s)
+			$of(u"{1}中的{0}无法实现{3}中的{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.override"_s),
-			$of(u"{1}\u4e2d\u7684{0}\u65e0\u6cd5\u8986\u76d6{3}\u4e2d\u7684{2}"_s)
+			$of(u"{1}中的{0}无法覆盖{3}中的{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.resolve.args"_s),
-			$of(u"\u627e\u4e0d\u5230\u7b26\u53f7\n\u7b26\u53f7: {0} {1}({3})"_s)
+			$of(u"找不到符号\n符号: {0} {1}({3})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.resolve.location.args"_s),
-			$of(u"\u627e\u4e0d\u5230\u7b26\u53f7\n\u7b26\u53f7:   {0} {1}({3})\n\u4f4d\u7f6e: {4}"_s)
+			$of(u"找不到符号\n符号:   {0} {1}({3})\n位置: {4}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.resolve.location.args.params"_s),
-			$of(u"\u627e\u4e0d\u5230\u7b26\u53f7\n\u7b26\u53f7:   {0} <{2}>{1}({3})\n\u4f4d\u7f6e: {4}"_s)
+			$of(u"找不到符号\n符号:   {0} <{2}>{1}({3})\n位置: {4}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.cant.resolve.modules"_s),
-			$of(u"\u65e0\u6cd5\u89e3\u6790\u6a21\u5757"_s)
+			$of(u"无法解析模块"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.captured.type"_s),
@@ -2094,59 +2094,59 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.clashes.with"_s),
-			$of(u"{1}\u4e2d\u7684{0}\u4e0e{3}\u4e2d\u7684{2}\u51b2\u7a81"_s)
+			$of(u"{1}中的{0}与{3}中的{2}冲突"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.class.file.not.found"_s),
-			$of(u"\u627e\u4e0d\u5230{0}\u7684\u7c7b\u6587\u4ef6"_s)
+			$of(u"找不到{0}的类文件"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.class.file.wrong.class"_s),
-			$of(u"\u7c7b\u6587\u4ef6\u5305\u542b\u9519\u8bef\u7684\u7c7b: {0}"_s)
+			$of(u"类文件包含错误的类: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.class.is.not.sealed"_s),
-			$of(u"\u5fc5\u987b\u5bc6\u5c01 {0}"_s)
+			$of(u"必须密封 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.compact"_s),
-			$of(u"\u7cbe\u7b80"_s)
+			$of(u"精简"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.conditional.target.cant.be.void"_s),
-			$of(u"\u6761\u4ef6\u8868\u8fbe\u5f0f\u7684\u76ee\u6807\u7c7b\u578b\u4e0d\u80fd\u4e3a\u7a7a"_s)
+			$of(u"条件表达式的目标类型不能为空"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.count.error"_s),
-			$of(u"{0} \u4e2a\u9519\u8bef"_s)
+			$of(u"{0} 个错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.count.error.plural"_s),
-			$of(u"{0} \u4e2a\u9519\u8bef"_s)
+			$of(u"{0} 个错误"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.count.error.recompile"_s),
-			$of(u"\u4ec5\u663e\u793a\u524d {0} \u4e2a\u9519\u8bef\uff08\u5171 {1} \u4e2a\uff09\uff1b\u82e5\u8981\u67e5\u770b\u66f4\u591a\u9519\u8bef\uff0c\u8bf7\u4f7f\u7528 -Xmaxerrs"_s)
+			$of(u"仅显示前 {0} 个错误（共 {1} 个）；若要查看更多错误，请使用 -Xmaxerrs"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.count.warn"_s),
-			$of(u"{0} \u4e2a\u8b66\u544a"_s)
+			$of(u"{0} 个警告"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.count.warn.plural"_s),
-			$of(u"{0} \u4e2a\u8b66\u544a"_s)
+			$of(u"{0} 个警告"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.count.warn.recompile"_s),
-			$of(u"\u4ec5\u663e\u793a\u524d {0} \u4e2a\u8b66\u544a\uff08\u5171 {1} \u4e2a\uff09\uff1b\u82e5\u8981\u67e5\u770b\u66f4\u591a\u9519\u8bef\uff0c\u8bf7\u4f7f\u7528 -Xmaxwarns"_s)
+			$of(u"仅显示前 {0} 个警告（共 {1} 个）；若要查看更多错误，请使用 -Xmaxwarns"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.descriptor"_s),
-			$of(u"\u63cf\u8ff0\u7b26: {2} {0}({1})"_s)
+			$of(u"描述符: {2} {0}({1})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.descriptor.throws"_s),
-			$of(u"\u63cf\u8ff0\u7b26: {2} {0}({1}) \u629b\u51fa{3}"_s)
+			$of(u"描述符: {2} {0}({1}) 抛出{3}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.diamond"_s),
@@ -2154,31 +2154,31 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.diamond.and.explicit.params"_s),
-			$of(u"\u4e0d\u80fd\u5c06 \'\'<>\'\' \u4e0e\u6784\u9020\u5668\u7684\u663e\u5f0f\u7c7b\u578b\u53c2\u6570\u4e00\u8d77\u4f7f\u7528"_s)
+			$of(u"不能将 \'\'<>\'\' 与构造器的显式类型参数一起使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.diamond.anonymous.methods.implicitly.override"_s),
-			$of(u"(\u7531\u4e8e <>, \u533f\u540d\u7c7b\u4e2d\u58f0\u660e\u7684\u6bcf\u4e2a\u975e\u79c1\u6709\u65b9\u6cd5\u5fc5\u987b\u8986\u76d6\u6216\u5b9e\u73b0\u8d85\u7c7b\u578b\u4e2d\u7684\u65b9\u6cd5)"_s)
+			$of(u"(由于 <>, 匿名类中声明的每个非私有方法必须覆盖或实现超类型中的方法)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.diamond.invalid.arg"_s),
-			$of(u"\u6b64\u4e0a\u4e0b\u6587\u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528\u4e3a{1}\u63a8\u65ad\u7684\u7c7b\u578b\u53c2\u6570{0}\n\u63a8\u65ad\u53c2\u6570\u5728\u7b7e\u540d\u5c5e\u6027\u4e2d\u65e0\u6cd5\u8868\u8fbe"_s)
+			$of(u"此上下文中不允许使用为{1}推断的类型参数{0}\n推断参数在签名属性中无法表达"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.diamond.invalid.args"_s),
-			$of(u"\u6b64\u4e0a\u4e0b\u6587\u4e2d\u4e0d\u5141\u8bb8\u4f7f\u7528\u4e3a{1}\u63a8\u65ad\u7684\u7c7b\u578b\u53c2\u6570{0}\n\u63a8\u65ad\u53c2\u6570\u5728\u7b7e\u540d\u5c5e\u6027\u4e2d\u65e0\u6cd5\u8868\u8fbe"_s)
+			$of(u"此上下文中不允许使用为{1}推断的类型参数{0}\n推断参数在签名属性中无法表达"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.diamond.non.generic"_s),
-			$of(u"\u65e0\u6cd5\u5c06 \'\'<>\'\' \u4e0e\u975e\u6cdb\u578b\u7c7b{0}\u4e00\u8d77\u4f7f\u7528"_s)
+			$of(u"无法将 \'\'<>\'\' 与非泛型类{0}一起使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.doesnt.extend.sealed"_s),
-			$of(u"\u5b50\u7c7b {0} \u5fc5\u987b\u6269\u5c55\u5bc6\u5c01\u7c7b"_s)
+			$of(u"子类 {0} 必须扩展密封类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.eq.bounds"_s),
-			$of(u"\u7b49\u5f0f\u7ea6\u675f\u6761\u4ef6\uff1a{0}"_s)
+			$of(u"等式约束条件：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.exception.message"_s),
@@ -2186,251 +2186,251 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.explicit.param.do.not.conform.to.bounds"_s),
-			$of(u"\u663e\u5f0f\u7c7b\u578b\u53c2\u6570{0}\u4e0d\u7b26\u5408\u58f0\u660e\u7684\u8303\u56f4{1}"_s)
+			$of(u"显式类型参数{0}不符合声明的范围{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.fatal.err.cant.close"_s),
-			$of(u"\u81f4\u547d\u9519\u8bef: \u65e0\u6cd5\u5173\u95ed\u7f16\u8bd1\u5668\u8d44\u6e90"_s)
+			$of(u"致命错误: 无法关闭编译器资源"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.fatal.err.cant.locate.ctor"_s),
-			$of(u"\u81f4\u547d\u9519\u8bef: \u627e\u4e0d\u5230{0}\u7684\u6784\u9020\u5668"_s)
+			$of(u"致命错误: 找不到{0}的构造器"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.fatal.err.cant.locate.field"_s),
-			$of(u"\u81f4\u547d\u9519\u8bef: \u627e\u4e0d\u5230\u5b57\u6bb5{0}"_s)
+			$of(u"致命错误: 找不到字段{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.fatal.err.cant.locate.meth"_s),
-			$of(u"\u81f4\u547d\u9519\u8bef: \u627e\u4e0d\u5230\u65b9\u6cd5{0}"_s)
+			$of(u"致命错误: 找不到方法{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.fatal.err.no.java.lang"_s),
-			$of(u"\u81f4\u547d\u9519\u8bef: \u5728\u7c7b\u8def\u5f84\u6216\u5f15\u5bfc\u7c7b\u8def\u5f84\u4e2d\u627e\u4e0d\u5230\u7a0b\u5e8f\u5305 java.lang"_s)
+			$of(u"致命错误: 在类路径或引导类路径中找不到程序包 java.lang"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.annotations.after.type.params"_s),
-			$of(u"\u5728\u65b9\u6cd5\u7c7b\u578b\u53c2\u6570\u4e4b\u540e\u7684\u6ce8\u91ca"_s)
+			$of(u"在方法类型参数之后的注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.default.methods"_s),
-			$of(u"\u9ed8\u8ba4\u65b9\u6cd5"_s)
+			$of(u"默认方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.diamond"_s),
-			$of(u"diamond \u8fd0\u7b97\u7b26"_s)
+			$of(u"diamond 运算符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.diamond.and.anon.class"_s),
-			$of(u"\'\'<>\'\' \u5177\u6709\u533f\u540d\u7684\u5185\u90e8\u7c7b"_s)
+			$of(u"\'\'<>\'\' 具有匿名的内部类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.intersection.types.in.cast"_s),
-			$of(u"\u4ea4\u53c9\u7c7b\u578b"_s)
+			$of(u"交叉类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.lambda"_s),
-			$of(u"lambda \u8868\u8fbe\u5f0f"_s)
+			$of(u"lambda 表达式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.method.references"_s),
-			$of(u"\u65b9\u6cd5\u5f15\u7528"_s)
+			$of(u"方法引用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.modules"_s),
-			$of(u"\u6a21\u5757"_s)
+			$of(u"模块"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.multiple.case.labels"_s),
-			$of(u"\u591a\u4e2a case \u6807\u7b7e"_s)
+			$of(u"多个 case 标签"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.not.supported.in.source"_s),
-			$of(u"-source {1} \u4e2d\u4e0d\u652f\u6301 {0}\n(\u8bf7\u4f7f\u7528 -source {2} \u6216\u66f4\u9ad8\u7248\u672c\u4ee5\u542f\u7528 {0})"_s)
+			$of(u"-source {1} 中不支持 {0}\n(请使用 -source {2} 或更高版本以启用 {0})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.not.supported.in.source.plural"_s),
-			$of(u"-source {1} \u4e2d\u4e0d\u652f\u6301 {0}\n(\u8bf7\u4f7f\u7528 -source {2} \u6216\u66f4\u9ad8\u7248\u672c\u4ee5\u542f\u7528 {0})"_s)
+			$of(u"-source {1} 中不支持 {0}\n(请使用 -source {2} 或更高版本以启用 {0})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.pattern.matching.instanceof"_s),
-			$of(u"instanceof \u4e2d\u7684\u6a21\u5f0f\u5339\u914d"_s)
+			$of(u"instanceof 中的模式匹配"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.private.intf.methods"_s),
-			$of(u"\u79c1\u6709\u63a5\u53e3\u65b9\u6cd5"_s)
+			$of(u"私有接口方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.records"_s),
-			$of(u"\u8bb0\u5f55"_s)
+			$of(u"记录"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.reifiable.types.instanceof"_s),
-			$of(u"instanceof \u4e2d\u7684\u53ef\u5177\u4f53\u5316\u7c7b\u578b"_s)
+			$of(u"instanceof 中的可具体化类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.repeatable.annotations"_s),
-			$of(u"\u91cd\u590d\u7684\u6ce8\u91ca"_s)
+			$of(u"重复的注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.sealed.classes"_s),
-			$of(u"\u5bc6\u5c01\u7c7b"_s)
+			$of(u"密封类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.static.intf.method.invoke"_s),
-			$of(u"\u9759\u6001\u63a5\u53e3\u65b9\u6cd5\u8c03\u7528"_s)
+			$of(u"静态接口方法调用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.static.intf.methods"_s),
-			$of(u"\u9759\u6001\u63a5\u53e3\u65b9\u6cd5"_s)
+			$of(u"静态接口方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.switch.expressions"_s),
-			$of(u"switch \u8868\u8fbe\u5f0f"_s)
+			$of(u"switch 表达式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.switch.rules"_s),
-			$of(u"switch \u89c4\u5219"_s)
+			$of(u"switch 规则"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.text.blocks"_s),
-			$of(u"\u6587\u672c\u5757"_s)
+			$of(u"文本块"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.type.annotations"_s),
-			$of(u"\u7c7b\u578b\u6ce8\u91ca"_s)
+			$of(u"类型注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.var.in.try.with.resources"_s),
-			$of(u"try-with-resources \u4e2d\u7684\u53d8\u91cf"_s)
+			$of(u"try-with-resources 中的变量"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.feature.var.syntax.in.implicit.lambda"_s),
-			$of(u"\u9690\u5f0f lambda \u4e2d\u7684 var \u8bed\u6cd5"_s)
+			$of(u"隐式 lambda 中的 var 语法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.file.does.not.contain.module"_s),
-			$of(u"\u6587\u4ef6\u4e0d\u5305\u542b\u6a21\u5757\u58f0\u660e"_s)
+			$of(u"文件不包含模块声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.file.does.not.contain.package"_s),
-			$of(u"\u6587\u4ef6\u4e0d\u5305\u542b\u7a0b\u5e8f\u5305{0}"_s)
+			$of(u"文件不包含程序包{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.file.doesnt.contain.class"_s),
-			$of(u"\u6587\u4ef6\u4e0d\u5305\u542b\u7c7b{0}"_s)
+			$of(u"文件不包含类{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.illegal.signature"_s),
-			$of(u"\u7c7b\u578b {1} \u7684\u7b7e\u540d\u5c5e\u6027\u975e\u6cd5"_s)
+			$of(u"类型 {1} 的签名属性非法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.illegal.start.of.class.file"_s),
-			$of(u"\u975e\u6cd5\u7684\u7c7b\u6587\u4ef6\u5f00\u59cb"_s)
+			$of(u"非法的类文件开始"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.implicit.and.explicit.not.allowed"_s),
-			$of(u"\u4e0d\u80fd\u5c06\u9690\u5f0f\u7c7b\u578b\u548c\u663e\u5f0f\u7c7b\u578b\u7684\u53c2\u6570\u6df7\u5408\u4f7f\u7528"_s)
+			$of(u"不能将隐式类型和显式类型的参数混合使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.inaccessible.varargs.type"_s),
-			$of(u"\u5f62\u5f0f varargs \u5143\u7d20\u7c7b\u578b{0}\u65e0\u6cd5\u4ece {1} {2} \u8fdb\u884c\u8bbf\u95ee"_s)
+			$of(u"形式 varargs 元素类型{0}无法从 {1} {2} 进行访问"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.inapplicable.method"_s),
-			$of(u"{0} {1}.{2}\u4e0d\u9002\u7528\n({3})"_s)
+			$of(u"{0} {1}.{2}不适用\n({3})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.abstract.default"_s),
-			$of(u"{0} {1}\u4ece\u7c7b\u578b {4} \u548c {5} \u4e2d\u7ee7\u627f\u4e86{2}({3}) \u7684\u62bd\u8c61\u548c\u9ed8\u8ba4\u503c"_s)
+			$of(u"{0} {1}从类型 {4} 和 {5} 中继承了{2}({3}) 的抽象和默认值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.abstracts"_s),
-			$of(u"\u5728 {0} {1} \u4e2d\u627e\u5230\u591a\u4e2a\u975e\u8986\u76d6\u62bd\u8c61\u65b9\u6cd5"_s)
+			$of(u"在 {0} {1} 中找到多个非覆盖抽象方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.arg.types.in.lambda"_s),
-			$of(u"lambda \u8868\u8fbe\u5f0f\u4e2d\u7684\u53c2\u6570\u7c7b\u578b\u4e0d\u517c\u5bb9"_s)
+			$of(u"lambda 表达式中的参数类型不兼容"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.arg.types.in.mref"_s),
-			$of(u"\u65b9\u6cd5\u5f15\u7528\u4e2d\u7684\u53c2\u6570\u7c7b\u578b\u4e0d\u517c\u5bb9"_s)
+			$of(u"方法引用中的参数类型不兼容"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.bounds"_s),
-			$of(u"\u63a8\u8bba\u53d8\u91cf {0} \u5177\u6709\u4e0d\u517c\u5bb9\u7684\u4e0a\u9650\n{1}\n{2}"_s)
+			$of(u"推论变量 {0} 具有不兼容的上限\n{1}\n{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.descs.in.functional.intf"_s),
-			$of(u"\u5728 {0} {1} \u4e2d\u627e\u5230\u4e0d\u517c\u5bb9\u7684\u51fd\u6570\u63cf\u8ff0\u7b26"_s)
+			$of(u"在 {0} {1} 中找到不兼容的函数描述符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.diff.ret"_s),
-			$of(u"\u4e24\u8005\u90fd\u5b9a\u4e49\u4e86 {0}({1})\uff0c\u4f46\u5374\u5e26\u6709\u4e0d\u76f8\u5173\u7684\u8fd4\u56de\u7c7b\u578b"_s)
+			$of(u"两者都定义了 {0}({1})，但却带有不相关的返回类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.eq.bounds"_s),
-			$of(u"\u63a8\u8bba\u53d8\u91cf{0}\u5177\u6709\u4e0d\u517c\u5bb9\u7684\u7b49\u5f0f\u7ea6\u675f\u6761\u4ef6{1}"_s)
+			$of(u"推论变量{0}具有不兼容的等式约束条件{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.ret.type.in.lambda"_s),
-			$of(u"lambda \u8868\u8fbe\u5f0f\u4e2d\u7684\u8fd4\u56de\u7c7b\u578b\u9519\u8bef\n{0}"_s)
+			$of(u"lambda 表达式中的返回类型错误\n{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.ret.type.in.mref"_s),
-			$of(u"\u65b9\u6cd5\u5f15\u7528\u4e2d\u7684\u8fd4\u56de\u7c7b\u578b\u9519\u8bef\n{0}"_s)
+			$of(u"方法引用中的返回类型错误\n{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.type.in.conditional"_s),
-			$of(u"\u6761\u4ef6\u8868\u8fbe\u5f0f\u4e2d\u7684\u7c7b\u578b\u9519\u8bef\n{0}"_s)
+			$of(u"条件表达式中的类型错误\n{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.type.in.switch.expression"_s),
-			$of(u"switch \u8868\u8fbe\u5f0f\u4e2d\u7684\u7c7b\u578b\u9519\u8bef\n{0}"_s)
+			$of(u"switch 表达式中的类型错误\n{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.unrelated.defaults"_s),
-			$of(u"{0} {1}\u4ece\u7c7b\u578b {4} \u548c {5} \u4e2d\u7ee7\u627f\u4e86{2}({3}) \u7684\u4e0d\u76f8\u5173\u9ed8\u8ba4\u503c"_s)
+			$of(u"{0} {1}从类型 {4} 和 {5} 中继承了{2}({3}) 的不相关默认值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.incompatible.upper.bounds"_s),
-			$of(u"\u63a8\u8bba\u53d8\u91cf {0} \u5177\u6709\u4e0d\u517c\u5bb9\u7684\u4e0a\u9650 {1}"_s)
+			$of(u"推论变量 {0} 具有不兼容的上限 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.inconvertible.types"_s),
-			$of(u"{0}\u65e0\u6cd5\u8f6c\u6362\u4e3a{1}"_s)
+			$of(u"{0}无法转换为{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.infer.arg.length.mismatch"_s),
-			$of(u"\u65e0\u6cd5\u63a8\u65ad\u7c7b\u578b\u53d8\u91cf {0}\n(\u5b9e\u9645\u53c2\u6570\u5217\u8868\u548c\u5f62\u5f0f\u53c2\u6570\u5217\u8868\u957f\u5ea6\u4e0d\u540c)"_s)
+			$of(u"无法推断类型变量 {0}\n(实际参数列表和形式参数列表长度不同)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.infer.no.conforming.assignment.exists"_s),
-			$of(u"\u65e0\u6cd5\u63a8\u65ad\u7c7b\u578b\u53d8\u91cf {0}\n(\u53c2\u6570\u4e0d\u5339\u914d; {1})"_s)
+			$of(u"无法推断类型变量 {0}\n(参数不匹配; {1})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.infer.no.conforming.instance.exists"_s),
-			$of(u"\u4e0d\u5b58\u5728\u7c7b\u578b\u53d8\u91cf{0}\u7684\u5b9e\u4f8b, \u4ee5\u4f7f{1}\u4e0e{2}\u4e00\u81f4"_s)
+			$of(u"不存在类型变量{0}的实例, 以使{1}与{2}一致"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.infer.varargs.argument.mismatch"_s),
-			$of(u"\u65e0\u6cd5\u63a8\u65ad\u7c7b\u578b\u53d8\u91cf {0}\n(varargs \u4e0d\u5339\u914d; {1})"_s)
+			$of(u"无法推断类型变量 {0}\n(varargs 不匹配; {1})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.inferred.do.not.conform.to.eq.bounds"_s),
-			$of(u"\u63a8\u65ad\u7c7b\u578b\u4e0d\u7b26\u5408\u7b49\u5f0f\u7ea6\u675f\u6761\u4ef6\n\u63a8\u65ad: {0}\n\u7b49\u5f0f\u7ea6\u675f\u6761\u4ef6: {1}"_s)
+			$of(u"推断类型不符合等式约束条件\n推断: {0}\n等式约束条件: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.inferred.do.not.conform.to.lower.bounds"_s),
-			$of(u"\u63a8\u65ad\u7c7b\u578b\u4e0d\u7b26\u5408\u4e0b\u9650\n\u63a8\u65ad: {0}\n\u4e0b\u9650: {1}"_s)
+			$of(u"推断类型不符合下限\n推断: {0}\n下限: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.inferred.do.not.conform.to.upper.bounds"_s),
-			$of(u"\u63a8\u65ad\u7c7b\u578b\u4e0d\u7b26\u5408\u4e0a\u9650\n\u63a8\u65ad: {0}\n\u4e0a\u9650: {1}"_s)
+			$of(u"推断类型不符合上限\n推断: {0}\n上限: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.inner.cls"_s),
-			$of(u"\u5185\u90e8\u7c7b"_s)
+			$of(u"内部类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.intersection.type"_s),
@@ -2438,27 +2438,27 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.invalid.default.interface"_s),
-			$of(u"\u5728 {0}.{1} \u7248\u7c7b\u6587\u4ef6\u4e2d\u627e\u5230\u9ed8\u8ba4\u65b9\u6cd5"_s)
+			$of(u"在 {0}.{1} 版类文件中找到默认方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.invalid.generic.lambda.target"_s),
-			$of(u"lambda \u8868\u8fbe\u5f0f\u7684\u51fd\u6570\u63cf\u8ff0\u7b26\u65e0\u6548\n{1} {2} \u4e2d\u7684\u65b9\u6cd5 {0} \u4e3a\u6cdb\u578b\u65b9\u6cd5"_s)
+			$of(u"lambda 表达式的函数描述符无效\n{1} {2} 中的方法 {0} 为泛型方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.invalid.mref"_s),
-			$of(u"{0}\u5f15\u7528\u65e0\u6548\n{1}"_s)
+			$of(u"{0}引用无效\n{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.invalid.static.interface"_s),
-			$of(u"\u5728 {0}.{1} \u7248\u7c7b\u6587\u4ef6\u4e2d\u627e\u5230\u9759\u6001\u65b9\u6cd5"_s)
+			$of(u"在 {0}.{1} 版类文件中找到静态方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.is.a.type.variable"_s),
-			$of(u"\u4e0d\u5f97\u5305\u542b\u7c7b\u578b\u53d8\u91cf\uff1a{0}"_s)
+			$of(u"不得包含类型变量：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.is.duplicated"_s),
-			$of(u"\u4e0d\u5f97\u5305\u542b\u91cd\u590d\u9879\uff1a{0}"_s)
+			$of(u"不得包含重复项：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.annotation"_s),
@@ -2466,103 +2466,103 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.class"_s),
-			$of(u"\u7c7b"_s)
+			$of(u"类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.constructor"_s),
-			$of(u"\u6784\u9020\u5668"_s)
+			$of(u"构造器"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.enum"_s),
-			$of(u"\u679a\u4e3e"_s)
+			$of(u"枚举"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.instance.init"_s),
-			$of(u"\u5b9e\u4f8b\u521d\u59cb\u5316\u7a0b\u5e8f"_s)
+			$of(u"实例初始化程序"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.interface"_s),
-			$of(u"\u63a5\u53e3"_s)
+			$of(u"接口"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.method"_s),
-			$of(u"\u65b9\u6cd5"_s)
+			$of(u"方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.module"_s),
-			$of(u"\u6a21\u5757"_s)
+			$of(u"模块"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.package"_s),
-			$of(u"\u7a0b\u5e8f\u5305"_s)
+			$of(u"程序包"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.record"_s),
-			$of(u"\u8bb0\u5f55"_s)
+			$of(u"记录"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.record.component"_s),
-			$of(u"\u8bb0\u5f55\u7ec4\u4ef6"_s)
+			$of(u"记录组件"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.static"_s),
-			$of(u"\u9759\u6001"_s)
+			$of(u"静态"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.static.init"_s),
-			$of(u"\u9759\u6001\u521d\u59cb\u5316\u7a0b\u5e8f"_s)
+			$of(u"静态初始化程序"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.type.variable"_s),
-			$of(u"\u7c7b\u578b\u53d8\u91cf"_s)
+			$of(u"类型变量"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.type.variable.bound"_s),
-			$of(u"\u7c7b\u578b\u53d8\u91cf\u7684\u9650\u5236\u8303\u56f4"_s)
+			$of(u"类型变量的限制范围"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.value"_s),
-			$of(u"\u503c"_s)
+			$of(u"值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.kindname.variable"_s),
-			$of(u"\u53d8\u91cf"_s)
+			$of(u"变量"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.lambda"_s),
-			$of(u"lambda \u8868\u8fbe\u5f0f"_s)
+			$of(u"lambda 表达式"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.local"_s),
-			$of(u"\u672c\u5730"_s)
+			$of(u"本地"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.local.array.missing.target"_s),
-			$of(u"\u6570\u7ec4\u521d\u59cb\u5316\u7a0b\u5e8f\u9700\u8981\u663e\u5f0f\u76ee\u6807\u7c7b\u578b"_s)
+			$of(u"数组初始化程序需要显式目标类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.local.cant.infer.null"_s),
-			$of(u"\u53d8\u91cf\u521d\u59cb\u5316\u7a0b\u5e8f\u4e3a \'\'null\'\'"_s)
+			$of(u"变量初始化程序为 \'\'null\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.local.cant.infer.void"_s),
-			$of(u"\u53d8\u91cf\u521d\u59cb\u5316\u7a0b\u5e8f\u4e3a \'\'void\'\'"_s)
+			$of(u"变量初始化程序为 \'\'void\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.local.lambda.missing.target"_s),
-			$of(u"lambda \u8868\u8fbe\u5f0f\u9700\u8981\u663e\u5f0f\u76ee\u6807\u7c7b\u578b"_s)
+			$of(u"lambda 表达式需要显式目标类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.local.missing.init"_s),
-			$of(u"\u65e0\u6cd5\u5728\u4e0d\u5e26\u521d\u59cb\u5316\u7a0b\u5e8f\u7684\u53d8\u91cf\u4e0a\u4f7f\u7528 \'\'var\'\'"_s)
+			$of(u"无法在不带初始化程序的变量上使用 \'\'var\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.local.mref.missing.target"_s),
-			$of(u"\u65b9\u6cd5\u5f15\u7528\u9700\u8981\u663e\u5f0f\u76ee\u6807\u7c7b\u578b"_s)
+			$of(u"方法引用需要显式目标类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.local.self.ref"_s),
-			$of(u"\u65e0\u6cd5\u5728\u81ea\u5f15\u7528\u53d8\u91cf\u4e0a\u4f7f\u7528 \'\'var\'\'"_s)
+			$of(u"无法在自引用变量上使用 \'\'var\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.location"_s),
@@ -2570,259 +2570,259 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.location.1"_s),
-			$of(u"\u7c7b\u578b\u4e3a{2}\u7684{0} {1}"_s)
+			$of(u"类型为{2}的{0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.locn.module_path"_s),
-			$of(u"\u5e94\u7528\u7a0b\u5e8f\u6a21\u5757\u8def\u5f84"_s)
+			$of(u"应用程序模块路径"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.locn.module_source_path"_s),
-			$of(u"\u6a21\u5757\u6e90\u8def\u5f84"_s)
+			$of(u"模块源路径"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.locn.system_modules"_s),
-			$of(u"\u7cfb\u7edf\u6a21\u5757"_s)
+			$of(u"系统模块"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.locn.upgrade_module_path"_s),
-			$of(u"\u5347\u7ea7\u6a21\u5757\u8def\u5f84"_s)
+			$of(u"升级模块路径"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.lower.bounds"_s),
-			$of(u"\u4e0b\u9650\uff1a{0}"_s)
+			$of(u"下限：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.malformed.vararg.method"_s),
-			$of(u"\u7c7b\u6587\u4ef6\u5305\u542b\u683c\u5f0f\u9519\u8bef\u7684\u53d8\u91cf\u5143\u6570\u65b9\u6cd5: {0}"_s)
+			$of(u"类文件包含格式错误的变量元数方法: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.method.descriptor.invalid"_s),
-			$of(u"\u65b9\u6cd5\u63cf\u8ff0\u7b26\u5bf9 {0} \u65e0\u6548"_s)
+			$of(u"方法描述符对 {0} 无效"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.method.must.be.public"_s),
-			$of(u"\u5b58\u53d6\u65b9\u6cd5\u5fc5\u987b\u662f\u516c\u5171\u7684"_s)
+			$of(u"存取方法必须是公共的"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.missing.ret.val"_s),
-			$of(u"\u7f3a\u5c11\u8fd4\u56de\u503c"_s)
+			$of(u"缺少返回值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.module.info.definition.expected"_s),
-			$of(u"\u9700\u8981 module-info \u5b9a\u4e49"_s)
+			$of(u"需要 module-info 定义"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.module.info.invalid.super.class"_s),
-			$of(u"\u5e26\u6709\u65e0\u6548\u8d85\u7c7b\u7684 module-info"_s)
+			$of(u"带有无效超类的 module-info"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.module.name.mismatch"_s),
-			$of(u"\u6a21\u5757\u540d\u79f0 {0} \u4e0e\u9884\u671f\u540d\u79f0 {1} \u4e0d\u5339\u914d"_s)
+			$of(u"模块名称 {0} 与预期名称 {1} 不匹配"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.module.non.zero.opens"_s),
-			$of(u"\u6253\u5f00\u7684\u6a21\u5757 {0} \u5177\u6709\u975e\u96f6 opens_count"_s)
+			$of(u"打开的模块 {0} 具有非零 opens_count"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.mref.infer.and.explicit.params"_s),
-			$of(u"\u4e0d\u80fd\u5c06\u539f\u59cb\u6784\u9020\u5668\u5f15\u7528\u4e0e\u6784\u9020\u5668\u7684\u663e\u5f0f\u7c7b\u578b\u53c2\u6570\u4e00\u8d77\u4f7f\u7528"_s)
+			$of(u"不能将原始构造器引用与构造器的显式类型参数一起使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.must.not.be.same.class"_s),
-			$of(u"permits \u5b50\u53e5\u4e2d\u5b58\u5728\u975e\u6cd5\u81ea\u5f15\u7528"_s)
+			$of(u"permits 子句中存在非法自引用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.must.not.be.supertype"_s),
-			$of(u"\u5bf9\u8d85\u7c7b\u578b {0} \u7684\u5f15\u7528\u975e\u6cd5"_s)
+			$of(u"对超类型 {0} 的引用非法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.no.abstracts"_s),
-			$of(u"\u5728 {0} {1} \u4e2d\u627e\u4e0d\u5230\u62bd\u8c61\u65b9\u6cd5"_s)
+			$of(u"在 {0} {1} 中找不到抽象方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.no.args"_s),
-			$of(u"\u6ca1\u6709\u53c2\u6570"_s)
+			$of(u"没有参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.no.conforming.assignment.exists"_s),
-			$of(u"\u53c2\u6570\u4e0d\u5339\u914d; {0}"_s)
+			$of(u"参数不匹配; {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.no.suitable.functional.intf.inst"_s),
-			$of(u"\u65e0\u6cd5\u63a8\u65ad{0}\u7684\u51fd\u6570\u63a5\u53e3\u63cf\u8ff0\u7b26"_s)
+			$of(u"无法推断{0}的函数接口描述符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.no.unique.maximal.instance.exists"_s),
-			$of(u"\u5bf9\u4e8e\u4e0a\u9650\u4e3a{1}\u7684\u7c7b\u578b\u53d8\u91cf{0}, \u4e0d\u5b58\u5728\u552f\u4e00\u6700\u5927\u5b9e\u4f8b"_s)
+			$of(u"对于上限为{1}的类型变量{0}, 不存在唯一最大实例"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.no.unique.minimal.instance.exists"_s),
-			$of(u"\u5bf9\u4e8e\u4e0b\u9650\u4e3a{1}\u7684\u7c7b\u578b\u53d8\u91cf{0}, \u4e0d\u5b58\u5728\u552f\u4e00\u6700\u5c0f\u5b9e\u4f8b"_s)
+			$of(u"对于下限为{1}的类型变量{0}, 不存在唯一最小实例"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.a.functional.intf"_s),
-			$of(u"{0} \u4e0d\u662f\u51fd\u6570\u63a5\u53e3"_s)
+			$of(u"{0} 不是函数接口"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.a.functional.intf.1"_s),
-			$of(u"{0} \u4e0d\u662f\u51fd\u6570\u63a5\u53e3\n{1}"_s)
+			$of(u"{0} 不是函数接口\n{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.an.intf.component"_s),
-			$of(u"\u7ec4\u4ef6\u7c7b\u578b{0}\u4e0d\u662f\u63a5\u53e3"_s)
+			$of(u"组件类型{0}不是接口"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.applicable.method.found"_s),
-			$of(u"\u627e\u5230\u7b2c {0} \u4e2a\u4e0d\u9002\u7528\u7684\u65b9\u6cd5: {1}\n({2})"_s)
+			$of(u"找到第 {0} 个不适用的方法: {1}\n({2})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.access.class.intf.cant.access"_s),
-			$of(u"{1}.{0} \u662f\u5728\u4e0d\u53ef\u8bbf\u95ee\u7684\u7c7b\u6216\u63a5\u53e3\u4e2d\u5b9a\u4e49\u7684"_s)
+			$of(u"{1}.{0} 是在不可访问的类或接口中定义的"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.access.class.intf.cant.access.reason"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {2} \u4e2d\u7684 {1}.{0} \u4e0d\u53ef\u8bbf\u95ee\n({3})"_s)
+			$of(u"程序包 {2} 中的 {1}.{0} 不可访问\n({3})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.access.does.not.read"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {1} \u5df2\u5728\u6a21\u5757 {2} \u4e2d\u58f0\u660e, \u4f46\u6a21\u5757 {0} \u672a\u8bfb\u53d6\u5b83"_s)
+			$of(u"程序包 {1} 已在模块 {2} 中声明, 但模块 {0} 未读取它"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.access.does.not.read.from.unnamed"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {0} \u5df2\u5728\u6a21\u5757 {1} \u4e2d\u58f0\u660e, \u4f46\u8be5\u6a21\u5757\u4e0d\u5728\u6a21\u5757\u56fe\u4e2d"_s)
+			$of(u"程序包 {0} 已在模块 {1} 中声明, 但该模块不在模块图中"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.access.does.not.read.unnamed"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {0} \u5df2\u5728\u672a\u547d\u540d\u6a21\u5757\u4e2d\u58f0\u660e\uff0c\u4f46\u6a21\u5757 {1} \u672a\u8bfb\u53d6\u5b83"_s)
+			$of(u"程序包 {0} 已在未命名模块中声明，但模块 {1} 未读取它"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.access.not.exported"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {0} \u5df2\u5728\u6a21\u5757 {1} \u4e2d\u58f0\u660e, \u4f46\u8be5\u6a21\u5757\u672a\u5bfc\u51fa\u5b83"_s)
+			$of(u"程序包 {0} 已在模块 {1} 中声明, 但该模块未导出它"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.access.not.exported.from.unnamed"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {0} \u5df2\u5728\u6a21\u5757 {1} \u4e2d\u58f0\u660e, \u4f46\u8be5\u6a21\u5757\u672a\u5bfc\u51fa\u5b83"_s)
+			$of(u"程序包 {0} 已在模块 {1} 中声明, 但该模块未导出它"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.access.not.exported.to.module"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {0} \u5df2\u5728\u6a21\u5757 {1} \u4e2d\u58f0\u660e, \u4f46\u8be5\u6a21\u5757\u672a\u5c06\u5b83\u5bfc\u51fa\u5230\u6a21\u5757 {2}"_s)
+			$of(u"程序包 {0} 已在模块 {1} 中声明, 但该模块未将它导出到模块 {2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.access.not.exported.to.module.from.unnamed"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {0} \u5df2\u5728\u6a21\u5757 {1} \u4e2d\u58f0\u660e, \u4f46\u8be5\u6a21\u5757\u672a\u5c06\u5b83\u5bfc\u51fa\u5230\u672a\u547d\u540d\u6a21\u5757"_s)
+			$of(u"程序包 {0} 已在模块 {1} 中声明, 但该模块未将它导出到未命名模块"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.access.package.cant.access"_s),
-			$of(u"{0} \u4e0d\u53ef\u89c1\n({2})"_s)
+			$of(u"{0} 不可见\n({2})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.not.def.public.cant.access"_s),
-			$of(u"{0}\u5728{1}\u4e2d\u4e0d\u662f\u516c\u5171\u7684; \u65e0\u6cd5\u4ece\u5916\u90e8\u7a0b\u5e8f\u5305\u4e2d\u5bf9\u5176\u8fdb\u884c\u8bbf\u95ee"_s)
+			$of(u"{0}在{1}中不是公共的; 无法从外部程序包中对其进行访问"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.overridden.default"_s),
-			$of(u"\u8986\u76d6\u4e86{1}\u4e2d\u7684\u65b9\u6cd5 {0}"_s)
+			$of(u"覆盖了{1}中的方法 {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.package.not.visible"_s),
-			$of(u"\u7a0b\u5e8f\u5305 {0} \u4e0d\u53ef\u89c1\n({1})"_s)
+			$of(u"程序包 {0} 不可见\n({1})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.partial.inst.sig"_s),
-			$of(u"\u90e8\u5206\u5b9e\u4f8b\u5316\u4e3a: {0}"_s)
+			$of(u"部分实例化为: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.possible.loss.of.precision"_s),
-			$of(u"\u4ece{0}\u8f6c\u6362\u5230{1}\u53ef\u80fd\u4f1a\u6709\u635f\u5931"_s)
+			$of(u"从{0}转换到{1}可能会有损失"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.prob.found.req"_s),
-			$of(u"\u4e0d\u517c\u5bb9\u7684\u7c7b\u578b: {0}"_s)
+			$of(u"不兼容的类型: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.redundant.supertype"_s),
-			$of(u"\u5197\u4f59\u63a5\u53e3 {0} \u5df2\u7531 {1} \u6269\u5c55"_s)
+			$of(u"冗余接口 {0} 已由 {1} 扩展"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.ref.ambiguous"_s),
-			$of(u"\u5bf9{0}\u7684\u5f15\u7528\u4e0d\u660e\u786e\n{3} \u4e2d\u7684{1} {2} \u548c {6} \u4e2d\u7684{4} {5} \u90fd\u5339\u914d"_s)
+			$of(u"对{0}的引用不明确\n{3} 中的{1} {2} 和 {6} 中的{4} {5} 都匹配"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.report.access"_s),
-			$of(u"{0} \u5728 {2} \u4e2d\u662f {1} \u8bbf\u95ee\u63a7\u5236"_s)
+			$of(u"{0} 在 {2} 中是 {1} 访问控制"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.resume.abort"_s),
-			$of(u"\u7ee7\u7eed(R), \u653e\u5f03(A)>"_s)
+			$of(u"继续(R), 放弃(A)>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.source.unavailable"_s),
-			$of(u"(\u6e90\u4e0d\u53ef\u7528)"_s)
+			$of(u"(源不可用)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.stat.expr.expected"_s),
-			$of(u"lambda \u4e3b\u4f53\u4e0e void \u51fd\u6570\u63a5\u53e3\u4e0d\u517c\u5bb9\n(\u8bf7\u8003\u8651\u4f7f\u7528\u5757 lambda \u4e3b\u4f53, \u6216\u8005\u6539\u4e3a\u4f7f\u7528\u8bed\u53e5\u8868\u8fbe\u5f0f)"_s)
+			$of(u"lambda 主体与 void 函数接口不兼容\n(请考虑使用块 lambda 主体, 或者改为使用语句表达式)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.static.mref.with.targs"_s),
-			$of(u"\u6709\u5173\u9759\u6001\u65b9\u6cd5\u5f15\u7528\u7684\u53c2\u6570\u5316\u9650\u5b9a\u7b26"_s)
+			$of(u"有关静态方法引用的参数化限定符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.switch.expression.target.cant.be.void"_s),
-			$of(u"switch \u8868\u8fbe\u5f0f\u7684\u76ee\u6807\u7c7b\u578b\u4e0d\u80fd\u4e3a\u7a7a"_s)
+			$of(u"switch 表达式的目标类型不能为空"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.synthetic.name.conflict"_s),
-			$of(u"\u7b26\u53f7{0}\u4e0e{1}\u4e2d\u7684 compiler-synthesized \u7b26\u53f7\u51b2\u7a81"_s)
+			$of(u"符号{0}与{1}中的 compiler-synthesized 符号冲突"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.throws.clause.not.allowed.for.canonical.constructor"_s),
-			$of(u"\u5bf9\u4e8e {0} \u6784\u9020\u5668\uff0c\u4e0d\u5141\u8bb8\u4f7f\u7528 throws \u5b50\u53e5"_s)
+			$of(u"对于 {0} 构造器，不允许使用 throws 子句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.token.bad-symbol"_s),
-			$of(u"<\u9519\u8bef\u7b26\u53f7>"_s)
+			$of(u"<错误符号>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.token.character"_s),
-			$of(u"<\u5b57\u7b26>"_s)
+			$of(u"<字符>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.token.double"_s),
-			$of(u"<\u53cc\u7cbe\u5ea6\u578b>"_s)
+			$of(u"<双精度型>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.token.end-of-input"_s),
-			$of(u"<\u8f93\u5165\u7ed3\u675f>"_s)
+			$of(u"<输入结束>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.token.float"_s),
-			$of(u"<\u6d6e\u70b9\u578b>"_s)
+			$of(u"<浮点型>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.token.identifier"_s),
-			$of(u"<\u6807\u8bc6\u7b26>"_s)
+			$of(u"<标识符>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.token.integer"_s),
-			$of(u"<\u6574\u578b>"_s)
+			$of(u"<整型>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.token.long-integer"_s),
-			$of(u"<\u957f\u6574\u578b>"_s)
+			$of(u"<长整型>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.token.string"_s),
-			$of(u"<\u5b57\u7b26\u4e32>"_s)
+			$of(u"<字符串>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.try.not.applicable.to.type"_s),
-			$of(u"try-with-resources \u4e0d\u9002\u7528\u4e8e\u53d8\u91cf\u7c7b\u578b\n({0})"_s)
+			$of(u"try-with-resources 不适用于变量类型\n({0})"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.captureof"_s),
-			$of(u"capture#{0}, \u5171 {1}"_s)
+			$of(u"capture#{0}, 共 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.captureof.1"_s),
@@ -2830,39 +2830,39 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.must.be.identical.to.corresponding.record.component.type"_s),
-			$of(u"\u7c7b\u578b\u548c\u5143\u6570\u5fc5\u987b\u4e0e\u76f8\u5e94\u8bb0\u5f55\u7ec4\u4ef6\u7684\u7c7b\u578b\u548c\u5143\u6570\u76f8\u5339\u914d"_s)
+			$of(u"类型和元数必须与相应记录组件的类型和元数相匹配"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.none"_s),
-			$of(u"<\u65e0>"_s)
+			$of(u"<无>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.null"_s),
-			$of(u"<\u7a7a\u503c>"_s)
+			$of(u"<空值>"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.parameter"_s),
-			$of(u"\u7c7b\u578b\u53c2\u6570{0}"_s)
+			$of(u"类型参数{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.req.array.or.iterable"_s),
-			$of(u"\u6570\u7ec4\u6216 java.lang.Iterable"_s)
+			$of(u"数组或 java.lang.Iterable"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.req.class"_s),
-			$of(u"\u7c7b"_s)
+			$of(u"类"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.req.class.array"_s),
-			$of(u"\u7c7b\u6216\u6570\u7ec4"_s)
+			$of(u"类或数组"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.req.exact"_s),
-			$of(u"\u4e0d\u5e26\u9650\u5236\u8303\u56f4\u7684\u7c7b\u6216\u63a5\u53e3"_s)
+			$of(u"不带限制范围的类或接口"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.req.ref"_s),
-			$of(u"\u5f15\u7528"_s)
+			$of(u"引用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.type.var"_s),
@@ -2870,271 +2870,271 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unable.to.access.file"_s),
-			$of(u"\u65e0\u6cd5\u8bbf\u95ee\u6587\u4ef6: {0}"_s)
+			$of(u"无法访问文件: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unchecked.assign"_s),
-			$of(u"\u672a\u7ecf\u68c0\u67e5\u7684\u8f6c\u6362"_s)
+			$of(u"未经检查的转换"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unchecked.cast.to.type"_s),
-			$of(u"\u672a\u7ecf\u68c0\u67e5\u7684\u8f6c\u6362"_s)
+			$of(u"未经检查的转换"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unchecked.clash.with"_s),
-			$of(u"{1}\u4e2d\u7684{0}\u8986\u76d6\u4e86{3}\u4e2d\u7684{2}"_s)
+			$of(u"{1}中的{0}覆盖了{3}中的{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unchecked.implement"_s),
-			$of(u"{1}\u4e2d\u7684{0}\u5b9e\u73b0\u4e86{3}\u4e2d\u7684{2}"_s)
+			$of(u"{1}中的{0}实现了{3}中的{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unchecked.override"_s),
-			$of(u"{1}\u4e2d\u7684{0}\u8986\u76d6\u4e86{3}\u4e2d\u7684{2}"_s)
+			$of(u"{1}中的{0}覆盖了{3}中的{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.undecl.type.var"_s),
-			$of(u"\u672a\u58f0\u660e\u7684\u7c7b\u578b\u53d8\u91cf: {0}"_s)
+			$of(u"未声明的类型变量: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unexpected.const.pool.tag.at"_s),
-			$of(u"\u610f\u5916\u7684\u5e38\u91cf\u6c60\u6807\u8bb0\uff1a{0}\uff0c\u4f4d\u4e8e {1}"_s)
+			$of(u"意外的常量池标记：{0}，位于 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unexpected.ret.val"_s),
-			$of(u"\u610f\u5916\u7684\u8fd4\u56de\u503c"_s)
+			$of(u"意外的返回值"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unicode.str.not.supported"_s),
-			$of(u"\u4e0d\u652f\u6301\u7c7b\u6587\u4ef6\u4e2d\u7684 Unicode \u5b57\u7b26\u4e32"_s)
+			$of(u"不支持类文件中的 Unicode 字符串"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unnamed.module"_s),
-			$of(u"\u672a\u547d\u540d\u6a21\u5757"_s)
+			$of(u"未命名模块"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.unnamed.package"_s),
-			$of(u"\u672a\u547d\u540d\u7a0b\u5e8f\u5305"_s)
+			$of(u"未命名程序包"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.upper.bounds"_s),
-			$of(u"\u4e0b\u9650\uff1a{0}"_s)
+			$of(u"下限：{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.user.selected.completion.failure"_s),
-			$of(u"\u6309\u7c7b\u540d\u5217\u51fa\u7684\u7528\u6237\u9009\u62e9\u8f93\u5165\u63d0\u793a\u5931\u8d25"_s)
+			$of(u"按类名列出的用户选择输入提示失败"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.var.and.explicit.not.allowed"_s),
-			$of(u"\u4e0d\u80fd\u5c06 \'\'var\'\' \u548c\u663e\u5f0f\u7c7b\u578b\u7684\u53c2\u6570\u6df7\u5408\u4f7f\u7528"_s)
+			$of(u"不能将 \'\'var\'\' 和显式类型的参数混合使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.var.and.implicit.not.allowed"_s),
-			$of(u"\u4e0d\u80fd\u5c06 \'\'var\'\' \u548c\u9690\u5f0f\u7c7b\u578b\u7684\u53c2\u6570\u6df7\u5408\u4f7f\u7528"_s)
+			$of(u"不能将 \'\'var\'\' 和隐式类型的参数混合使用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.varargs.argument.mismatch"_s),
-			$of(u"varargs \u4e0d\u5339\u914d; {0}"_s)
+			$of(u"varargs 不匹配; {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.varargs.clash.with"_s),
-			$of(u"{1}\u4e2d\u7684{0}\u8986\u76d6\u4e86{3}\u4e2d\u7684{2}"_s)
+			$of(u"{1}中的{0}覆盖了{3}中的{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.varargs.implement"_s),
-			$of(u"{1}\u4e2d\u7684{0}\u5b9e\u73b0\u4e86{3}\u4e2d\u7684{2}"_s)
+			$of(u"{1}中的{0}实现了{3}中的{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.varargs.override"_s),
-			$of(u"{1}\u4e2d\u7684{0}\u8986\u76d6\u4e86{3}\u4e2d\u7684{2}"_s)
+			$of(u"{1}中的{0}覆盖了{3}中的{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.varargs.trustme.on.non.varargs.accessor"_s),
-			$of(u"\u5b58\u53d6\u65b9\u6cd5 {0} \u4e0d\u662f varargs \u65b9\u6cd5\u3002"_s)
+			$of(u"存取方法 {0} 不是 varargs 方法。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.varargs.trustme.on.non.varargs.meth"_s),
-			$of(u"\u65b9\u6cd5 {0} \u4e0d\u662f varargs \u65b9\u6cd5\u3002"_s)
+			$of(u"方法 {0} 不是 varargs 方法。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.varargs.trustme.on.reifiable.varargs"_s),
-			$of(u"Varargs \u5143\u7d20\u7c7b\u578b{0}\u53ef\u5177\u4f53\u5316\u3002"_s)
+			$of(u"Varargs 元素类型{0}可具体化。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.varargs.trustme.on.virtual.varargs"_s),
-			$of(u"\u5b9e\u4f8b\u65b9\u6cd5 {0} \u65e2\u4e0d\u662f\u6700\u7ec8\u7684, \u4e5f\u4e0d\u662f\u79c1\u6709\u7684\u3002"_s)
+			$of(u"实例方法 {0} 既不是最终的, 也不是私有的。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.varargs.trustme.on.virtual.varargs.final.only"_s),
-			$of(u"\u5b9e\u4f8b\u65b9\u6cd5 {0} \u4e0d\u662f\u6700\u7ec8\u7684\u3002"_s)
+			$of(u"实例方法 {0} 不是最终的。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.verbose.checking.attribution"_s),
-			$of(u"[\u6b63\u5728\u68c0\u67e5{0}]"_s)
+			$of(u"[正在检查{0}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.verbose.classpath"_s),
-			$of(u"[\u7c7b\u6587\u4ef6\u7684\u641c\u7d22\u8def\u5f84: {0}]"_s)
+			$of(u"[类文件的搜索路径: {0}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.verbose.loading"_s),
-			$of(u"[\u6b63\u5728\u52a0\u8f7d{0}]"_s)
+			$of(u"[正在加载{0}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.verbose.parsing.done"_s),
-			$of(u"[\u8bed\u6cd5\u5206\u6790\u5df2\u5b8c\u6210, \u7528\u65f6 {0} \u6beb\u79d2]"_s)
+			$of(u"[语法分析已完成, 用时 {0} 毫秒]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.verbose.parsing.started"_s),
-			$of(u"[\u8bed\u6cd5\u5206\u6790\u5f00\u59cb\u65f6\u95f4 {0}]"_s)
+			$of(u"[语法分析开始时间 {0}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.verbose.sourcepath"_s),
-			$of(u"[\u6e90\u6587\u4ef6\u7684\u641c\u7d22\u8def\u5f84: {0}]"_s)
+			$of(u"[源文件的搜索路径: {0}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.verbose.total"_s),
-			$of(u"[\u5171 {0} \u6beb\u79d2]"_s)
+			$of(u"[共 {0} 毫秒]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.verbose.wrote.file"_s),
-			$of(u"[\u5df2\u5199\u5165{0}]"_s)
+			$of(u"[已写入{0}]"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.version.not.available"_s),
-			$of(u"(\u7248\u672c\u4fe1\u606f\u4e0d\u53ef\u7528)"_s)
+			$of(u"(版本信息不可用)"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.captured"_s),
-			$of(u"{0}\u4ece{3}\u7684\u6355\u83b7\u6269\u5c55{1} \u8d85 {2}"_s)
+			$of(u"{0}从{3}的捕获扩展{1} 超 {2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.captured.1"_s),
-			$of(u"{0}\u4ece{3}\u7684\u6355\u83b7\u6269\u5c55{1}"_s)
+			$of(u"{0}从{3}的捕获扩展{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.description.captured"_s),
-			$of(u"\u5176\u4e2d, {0}\u662f\u65b0\u7c7b\u578b\u53d8\u91cf:"_s)
+			$of(u"其中, {0}是新类型变量:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.description.captured.1"_s),
-			$of(u"\u5176\u4e2d, {0}\u662f\u65b0\u7c7b\u578b\u53d8\u91cf:"_s)
+			$of(u"其中, {0}是新类型变量:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.description.intersection"_s),
-			$of(u"\u5176\u4e2d, {0}\u662f\u4ea4\u53c9\u7c7b\u578b:"_s)
+			$of(u"其中, {0}是交叉类型:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.description.intersection.1"_s),
-			$of(u"\u5176\u4e2d, {0}\u662f\u4ea4\u53c9\u7c7b\u578b:"_s)
+			$of(u"其中, {0}是交叉类型:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.description.typevar"_s),
-			$of(u"\u5176\u4e2d, {0}\u662f\u7c7b\u578b\u53d8\u91cf:"_s)
+			$of(u"其中, {0}是类型变量:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.description.typevar.1"_s),
-			$of(u"\u5176\u4e2d, {0}\u662f\u7c7b\u578b\u53d8\u91cf:"_s)
+			$of(u"其中, {0}是类型变量:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.fresh.typevar"_s),
-			$of(u"{0}\u6269\u5c55{1}"_s)
+			$of(u"{0}扩展{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.intersection"_s),
-			$of(u"{0}\u6269\u5c55{1}"_s)
+			$of(u"{0}扩展{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.typevar"_s),
-			$of(u"{0}\u6269\u5c55\u5df2\u5728{2} {3}\u4e2d\u58f0\u660e\u7684{1}"_s)
+			$of(u"{0}扩展已在{2} {3}中声明的{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.where.typevar.1"_s),
-			$of(u"{0}\u5df2\u5728{2} {3}\u4e2d\u58f0\u660e"_s)
+			$of(u"{0}已在{2} {3}中声明"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.wrong.number.type.args"_s),
-			$of(u"\u7c7b\u578b\u53d8\u91cf\u6570\u76ee\u9519\u8bef; \u9700\u8981{0}"_s)
+			$of(u"类型变量数目错误; 需要{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.wrong.version"_s),
-			$of(u"\u7c7b\u6587\u4ef6\u5177\u6709\u9519\u8bef\u7684\u7248\u672c {0}.{1}, \u5e94\u4e3a {2}.{3}"_s)
+			$of(u"类文件具有错误的版本 {0}.{1}, 应为 {2}.{3}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.x.print.processor.info"_s),
-			$of(u"\u5904\u7406\u7a0b\u5e8f{0}\u4e0e{1}\u5339\u914d\u5e76\u8fd4\u56de{2}\u3002"_s)
+			$of(u"处理程序{0}与{1}匹配并返回{2}。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.misc.x.print.rounds"_s),
-			$of(u"\u5faa\u73af {0}:\n\t\u8f93\u5165\u6587\u4ef6: {1}\n\t\u6ce8\u91ca: {2}\n\t\u6700\u540e\u4e00\u4e2a\u5faa\u73af: {3}"_s)
+			$of(u"循环 {0}:\n\t输入文件: {1}\n\t注释: {2}\n\t最后一个循环: {3}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.compressed.diags"_s),
-			$of(u"\u67d0\u4e9b\u6d88\u606f\u5df2\u7ecf\u8fc7\u7b80\u5316; \u8bf7\u4f7f\u7528 -Xdiags:verbose \u91cd\u65b0\u7f16\u8bd1\u4ee5\u83b7\u5f97\u5b8c\u6574\u8f93\u51fa"_s)
+			$of(u"某些消息已经过简化; 请使用 -Xdiags:verbose 重新编译以获得完整输出"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.deferred.method.inst"_s),
-			$of(u"\u65b9\u6cd5 {0} \u7684\u5ef6\u8fdf\u5b9e\u4f8b\u5316\n\u5b9e\u4f8b\u5316\u7b7e\u540d: {1}\n\u76ee\u6807\u7c7b\u578b: {2}"_s)
+			$of(u"方法 {0} 的延迟实例化\n实例化签名: {1}\n目标类型: {2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.deprecated.filename"_s),
-			$of(u"{0}\u4f7f\u7528\u6216\u8986\u76d6\u4e86\u5df2\u8fc7\u65f6\u7684 API\u3002"_s)
+			$of(u"{0}使用或覆盖了已过时的 API。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.deprecated.filename.additional"_s),
-			$of(u"{0}\u8fd8\u4f7f\u7528\u6216\u8986\u76d6\u4e86\u5df2\u8fc7\u65f6\u7684 API\u3002"_s)
+			$of(u"{0}还使用或覆盖了已过时的 API。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.deprecated.plural"_s),
-			$of(u"\u67d0\u4e9b\u8f93\u5165\u6587\u4ef6\u4f7f\u7528\u6216\u8986\u76d6\u4e86\u5df2\u8fc7\u65f6\u7684 API\u3002"_s)
+			$of(u"某些输入文件使用或覆盖了已过时的 API。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.deprecated.plural.additional"_s),
-			$of(u"\u67d0\u4e9b\u8f93\u5165\u6587\u4ef6\u8fd8\u4f7f\u7528\u6216\u8986\u76d6\u4e86\u5df2\u8fc7\u65f6\u7684 API\u3002"_s)
+			$of(u"某些输入文件还使用或覆盖了已过时的 API。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.deprecated.recompile"_s),
-			$of(u"\u6709\u5173\u8be6\u7ec6\u4fe1\u606f, \u8bf7\u4f7f\u7528 -Xlint:deprecation \u91cd\u65b0\u7f16\u8bd1\u3002"_s)
+			$of(u"有关详细信息, 请使用 -Xlint:deprecation 重新编译。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.lambda.stat"_s),
-			$of(u"\u8f6c\u6362 lambda \u8868\u8fbe\u5f0f\n\u66ff\u4ee3 metafactory = {0}\n\u5408\u6210\u65b9\u6cd5 = {1}"_s)
+			$of(u"转换 lambda 表达式\n替代 metafactory = {0}\n合成方法 = {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.mref.stat"_s),
-			$of(u"\u8f6c\u6362\u65b9\u6cd5\u5f15\u7528\n\u66ff\u4ee3 metafactory = {0}\n"_s)
+			$of(u"转换方法引用\n替代 metafactory = {0}\n"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.mref.stat.1"_s),
-			$of(u"\u8f6c\u6362\u65b9\u6cd5\u5f15\u7528\n\u66ff\u4ee3 metafactory = {0}\nbridge \u65b9\u6cd5 = {1}"_s)
+			$of(u"转换方法引用\n替代 metafactory = {0}\nbridge 方法 = {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.multiple.elements"_s),
-			$of(u"\u901a\u8fc7 javax.lang.model.util.Elements.{0} \u5728\u6a21\u5757 \'\'{2}\'\' \u4e2d\u627e\u5230\u4e86\u591a\u4e2a\u540d\u4e3a \'\'{1}\'\' \u7684\u5143\u7d20\u3002"_s)
+			$of(u"通过 javax.lang.model.util.Elements.{0} 在模块 \'\'{2}\'\' 中找到了多个名为 \'\'{1}\'\' 的元素。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.note"_s),
-			$of(u"\u6ce8: "_s)
+			$of(u"注: "_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.preview.filename"_s),
-			$of(u"{0} \u4f7f\u7528\u9884\u89c8\u8bed\u8a00\u529f\u80fd\u3002"_s)
+			$of(u"{0} 使用预览语言功能。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.preview.filename.additional"_s),
-			$of(u"{0} \u8fd8\u4f7f\u7528\u9884\u89c8\u8bed\u8a00\u529f\u80fd\u3002"_s)
+			$of(u"{0} 还使用预览语言功能。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.preview.plural"_s),
-			$of(u"\u67d0\u4e9b\u8f93\u5165\u6587\u4ef6\u4f7f\u7528\u9884\u89c8\u8bed\u8a00\u529f\u80fd\u3002"_s)
+			$of(u"某些输入文件使用预览语言功能。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.preview.plural.additional"_s),
-			$of(u"\u67d0\u4e9b\u8f93\u5165\u6587\u4ef6\u8fd8\u4f7f\u7528\u9884\u89c8\u8bed\u8a00\u529f\u80fd\u3002"_s)
+			$of(u"某些输入文件还使用预览语言功能。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.preview.recompile"_s),
-			$of(u"\u6709\u5173\u8be6\u7ec6\u4fe1\u606f\uff0c\u8bf7\u4f7f\u7528 -Xlint:preview \u91cd\u65b0\u7f16\u8bd1\u3002"_s)
+			$of(u"有关详细信息，请使用 -Xlint:preview 重新编译。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.proc.messager"_s),
@@ -3142,207 +3142,207 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.removal.filename"_s),
-			$of(u"{0} \u4f7f\u7528\u6216\u8986\u76d6\u4e86\u6807\u8bb0\u4e3a\u5f85\u5220\u9664\u7684\u5df2\u8fc7\u65f6 API\u3002"_s)
+			$of(u"{0} 使用或覆盖了标记为待删除的已过时 API。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.removal.filename.additional"_s),
-			$of(u"{0} \u989d\u5916\u4f7f\u7528\u6216\u8986\u76d6\u4e86\u6807\u8bb0\u4e3a\u5f85\u5220\u9664\u7684\u5df2\u8fc7\u65f6 API\u3002"_s)
+			$of(u"{0} 额外使用或覆盖了标记为待删除的已过时 API。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.removal.plural"_s),
-			$of(u"\u67d0\u4e9b\u8f93\u5165\u6587\u4ef6\u4f7f\u7528\u6216\u8986\u76d6\u4e86\u6807\u8bb0\u4e3a\u5f85\u5220\u9664\u7684\u5df2\u8fc7\u65f6 API\u3002"_s)
+			$of(u"某些输入文件使用或覆盖了标记为待删除的已过时 API。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.removal.plural.additional"_s),
-			$of(u"\u67d0\u4e9b\u8f93\u5165\u6587\u4ef6\u989d\u5916\u4f7f\u7528\u6216\u8986\u76d6\u4e86\u6807\u8bb0\u4e3a\u5f85\u5220\u9664\u7684\u5df2\u8fc7\u65f6 API\u3002"_s)
+			$of(u"某些输入文件额外使用或覆盖了标记为待删除的已过时 API。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.removal.recompile"_s),
-			$of(u"\u6709\u5173\u8be6\u7ec6\u4fe1\u606f, \u8bf7\u4f7f\u7528 -Xlint:removal \u91cd\u65b0\u7f16\u8bd1\u3002"_s)
+			$of(u"有关详细信息, 请使用 -Xlint:removal 重新编译。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.unchecked.filename"_s),
-			$of(u"{0}\u4f7f\u7528\u4e86\u672a\u7ecf\u68c0\u67e5\u6216\u4e0d\u5b89\u5168\u7684\u64cd\u4f5c\u3002"_s)
+			$of(u"{0}使用了未经检查或不安全的操作。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.unchecked.filename.additional"_s),
-			$of(u"{0}\u8fd8\u6709\u672a\u7ecf\u68c0\u67e5\u6216\u4e0d\u5b89\u5168\u7684\u64cd\u4f5c\u3002"_s)
+			$of(u"{0}还有未经检查或不安全的操作。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.unchecked.plural"_s),
-			$of(u"\u67d0\u4e9b\u8f93\u5165\u6587\u4ef6\u4f7f\u7528\u4e86\u672a\u7ecf\u68c0\u67e5\u6216\u4e0d\u5b89\u5168\u7684\u64cd\u4f5c\u3002"_s)
+			$of(u"某些输入文件使用了未经检查或不安全的操作。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.unchecked.plural.additional"_s),
-			$of(u"\u67d0\u4e9b\u8f93\u5165\u6587\u4ef6\u8fd8\u4f7f\u7528\u4e86\u672a\u7ecf\u68c0\u67e5\u6216\u4e0d\u5b89\u5168\u7684\u64cd\u4f5c\u3002"_s)
+			$of(u"某些输入文件还使用了未经检查或不安全的操作。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.unchecked.recompile"_s),
-			$of(u"\u6709\u5173\u8be6\u7ec6\u4fe1\u606f, \u8bf7\u4f7f\u7528 -Xlint:unchecked \u91cd\u65b0\u7f16\u8bd1\u3002"_s)
+			$of(u"有关详细信息, 请使用 -Xlint:unchecked 重新编译。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.verbose.l2m.deduplicate"_s),
-			$of(u"\u6b63\u5728\u5bf9 lambda \u51fd\u6570\u5b9e\u73b0\u65b9\u6cd5 {0} \u8fdb\u884c\u91cd\u590d\u6570\u636e\u5220\u9664"_s)
+			$of(u"正在对 lambda 函数实现方法 {0} 进行重复数据删除"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.verbose.resolve.multi"_s),
-			$of(u"\u5c06\u7c7b\u578b {1} \u7684\u65b9\u6cd5 {0} \u89e3\u6790\u4e3a\u5019\u9009\u9879 {2}\n\u9636\u6bb5: {3}\n\u5177\u6709\u5b9e\u9645\u503c: {4}\n\u5177\u6709\u7c7b\u578b\u53c2\u6570: {5}\n\u5019\u9009\u9879:"_s)
+			$of(u"将类型 {1} 的方法 {0} 解析为候选项 {2}\n阶段: {3}\n具有实际值: {4}\n具有类型参数: {5}\n候选项:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.note.verbose.resolve.multi.1"_s),
-			$of(u"\u7c7b\u578b {1} \u7684\u65b9\u6cd5 {0} \u89e3\u6790\u9519\u8bef\n\u9636\u6bb5: {3}\n\u5177\u6709\u5b9e\u9645\u503c: {4}\n\u5177\u6709\u7c7b\u578b\u53c2\u6570: {5}\n\u5019\u9009\u9879:"_s)
+			$of(u"类型 {1} 的方法 {0} 解析错误\n阶段: {3}\n具有实际值: {4}\n具有类型参数: {5}\n候选项:"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.access.to.member.from.serializable.element"_s),
-			$of(u"\u53ef\u4e32\u884c\u5316\u5143\u7d20\u5bf9\u6210\u5458 {0} \u7684\u8bbf\u95ee\u53ef\u4ee5\u7531\u4e0d\u53d7\u4fe1\u4efb\u7684\u4ee3\u7801\u516c\u5f00\u6267\u884c"_s)
+			$of(u"可串行化元素对成员 {0} 的访问可以由不受信任的代码公开执行"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.access.to.member.from.serializable.lambda"_s),
-			$of(u"\u53ef\u4e32\u884c\u5316 lambda \u5bf9\u6210\u5458 {0} \u7684\u8bbf\u95ee\u53ef\u4ee5\u7531\u4e0d\u53d7\u4fe1\u4efb\u7684\u4ee3\u7801\u516c\u5f00\u6267\u884c"_s)
+			$of(u"可串行化 lambda 对成员 {0} 的访问可以由不受信任的代码公开执行"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.addopens.ignored"_s),
-			$of(u"--add-opens \u5728\u7f16\u8bd1\u65f6\u6ca1\u6709\u4efb\u4f55\u6548\u679c"_s)
+			$of(u"--add-opens 在编译时没有任何效果"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.annotation.method.not.found"_s),
-			$of(u"\u65e0\u6cd5\u627e\u5230\u7c7b\u578b \'\'{0}\'\' \u7684\u6ce8\u91ca\u65b9\u6cd5 \'\'{1}()\'\'"_s)
+			$of(u"无法找到类型 \'\'{0}\'\' 的注释方法 \'\'{1}()\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.annotation.method.not.found.reason"_s),
-			$of(u"\u65e0\u6cd5\u627e\u5230\u7c7b\u578b \'\'{0}\'\' \u7684\u6ce8\u91ca\u65b9\u6cd5 \'\'{1}()\'\': {2}"_s)
+			$of(u"无法找到类型 \'\'{0}\'\' 的注释方法 \'\'{1}()\'\': {2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.attempt.to.synchronize.on.instance.of.value.based.class"_s),
-			$of(u"\u5c1d\u8bd5\u5728\u57fa\u4e8e\u503c\u7684\u7c7b\u7684\u5b9e\u4f8b\u4e0a\u540c\u6b65"_s)
+			$of(u"尝试在基于值的类的实例上同步"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.auxiliary.class.accessed.from.outside.of.its.source.file"_s),
-			$of(u"{1} \u4e2d\u7684\u8f85\u52a9\u7c7b{0}\u4e0d\u5e94\u4ece\u5176\u81ea\u8eab\u7684\u6e90\u6587\u4ef6\u4ee5\u5916\u8bbf\u95ee"_s)
+			$of(u"{1} 中的辅助类{0}不应从其自身的源文件以外访问"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.bad.name.for.option"_s),
-			$of(u"{0} \u9009\u9879\u7684\u503c\u4e2d\u6709\u9519\u8bef\u7684\u540d\u79f0: \'\'{1}\'\'"_s)
+			$of(u"{0} 选项的值中有错误的名称: \'\'{1}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.big.major.version"_s),
-			$of(u"{0}: \u4e3b\u7248\u672c {1} \u6bd4 {2} \u65b0, \u6b64\u7f16\u8bd1\u5668\u652f\u6301\u6700\u65b0\u7684\u4e3b\u7248\u672c\u3002\n\u5efa\u8bae\u5347\u7ea7\u6b64\u7f16\u8bd1\u5668\u3002"_s)
+			$of(u"{0}: 主版本 {1} 比 {2} 新, 此编译器支持最新的主版本。\n建议升级此编译器。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.constant.SVUID"_s),
-			$of(u"serialVersionUID \u5728\u7c7b{0}\u4e2d\u5fc5\u987b\u662f\u5e38\u91cf"_s)
+			$of(u"serialVersionUID 在类{0}中必须是常量"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.deprecated.annotation.has.no.effect"_s),
-			$of(u"@Deprecated \u6ce8\u91ca\u5bf9\u6b64 {0} \u58f0\u660e\u6ca1\u6709\u4efb\u4f55\u6548\u679c"_s)
+			$of(u"@Deprecated 注释对此 {0} 声明没有任何效果"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.diamond.redundant.args"_s),
-			$of(u"\u65b0\u8868\u8fbe\u5f0f\u4e2d\u5b58\u5728\u5197\u4f59\u7c7b\u578b\u53c2\u6570 (\u6539\u7528 diamond \u8fd0\u7b97\u7b26)\u3002"_s)
+			$of(u"新表达式中存在冗余类型参数 (改用 diamond 运算符)。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.dir.path.element.not.directory"_s),
-			$of(u"\u9519\u8bef\u7684\u8def\u5f84\u5143\u7d20 \"{0}\": \u4e0d\u662f\u76ee\u5f55"_s)
+			$of(u"错误的路径元素 \"{0}\": 不是目录"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.dir.path.element.not.found"_s),
-			$of(u"\u9519\u8bef\u7684\u8def\u5f84\u5143\u7d20 \"{0}\": \u6ca1\u6709\u8fd9\u79cd\u76ee\u5f55"_s)
+			$of(u"错误的路径元素 \"{0}\": 没有这种目录"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.div.zero"_s),
-			$of(u"\u9664\u6570\u4e3a\u96f6"_s)
+			$of(u"除数为零"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.empty.if"_s),
-			$of(u"if \u4e4b\u540e\u6ca1\u6709\u8bed\u53e5"_s)
+			$of(u"if 之后没有语句"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.file.from.future"_s),
-			$of(u"\u6587\u4ef6 {0} \u7684\u4fee\u6539\u65e5\u671f\u662f\u672a\u6765\u7684\u65e5\u671f"_s)
+			$of(u"文件 {0} 的修改日期是未来的日期"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.finally.cannot.complete"_s),
-			$of(u"finally \u5b50\u53e5\u65e0\u6cd5\u6b63\u5e38\u5b8c\u6210"_s)
+			$of(u"finally 子句无法正常完成"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.forward.ref"_s),
-			$of(u"\u5148\u5f15\u7528\u53d8\u91cf \'\'{0}\'\', \u7136\u540e\u518d\u5bf9\u5176\u521d\u59cb\u5316"_s)
+			$of(u"先引用变量 \'\'{0}\'\', 然后再对其初始化"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.future.attr"_s),
-			$of(u"{1}.{2} \u7248\u7c7b\u6587\u4ef6\u4e2d\u5f15\u5165\u7684 {0} \u5c5e\u6027\u5728 {3}.{4} \u7248\u7c7b\u6587\u4ef6\u4e2d\u88ab\u5ffd\u7565"_s)
+			$of(u"{1}.{2} 版类文件中引入的 {0} 属性在 {3}.{4} 版类文件中被忽略"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.has.been.deprecated"_s),
-			$of(u"{1}\u4e2d\u7684{0}\u5df2\u8fc7\u65f6"_s)
+			$of(u"{1}中的{0}已过时"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.has.been.deprecated.for.removal"_s),
-			$of(u"{1} \u4e2d\u7684 {0} \u5df2\u8fc7\u65f6, \u4e14\u6807\u8bb0\u4e3a\u5f85\u5220\u9664"_s)
+			$of(u"{1} 中的 {0} 已过时, 且标记为待删除"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.has.been.deprecated.for.removal.module"_s),
-			$of(u"\u6a21\u5757 {0} \u5df2\u8fc7\u65f6, \u4e14\u6807\u8bb0\u4e3a\u5f85\u5220\u9664"_s)
+			$of(u"模块 {0} 已过时, 且标记为待删除"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.has.been.deprecated.module"_s),
-			$of(u"\u6a21\u5757 {0} \u5df2\u8fc7\u65f6"_s)
+			$of(u"模块 {0} 已过时"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.illegal.char.for.encoding"_s),
-			$of(u"\u7f16\u7801{0}\u7684\u4e0d\u53ef\u6620\u5c04\u5b57\u7b26"_s)
+			$of(u"编码{0}的不可映射字符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.illegal.ref.to.restricted.type"_s),
-			$of(u"\u5bf9\u53d7\u9650\u5236\u7c7b\u578b \'\'{0}\'\' \u7684\u5f15\u7528\u975e\u6cd5"_s)
+			$of(u"对受限制类型 \'\'{0}\'\' 的引用非法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.improper.SVUID"_s),
-			$of(u"\u5fc5\u987b\u5728\u7c7b{0}\u4e2d\u5c06 serialVersionUID \u58f0\u660e\u4e3a static final"_s)
+			$of(u"必须在类{0}中将 serialVersionUID 声明为 static final"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.inconsistent.white.space.indentation"_s),
-			$of(u"\u7a7a\u683c\u7f29\u8fdb\u4e0d\u4e00\u81f4"_s)
+			$of(u"空格缩进不一致"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.incubating.modules"_s),
-			$of(u"\u4f7f\u7528 incubating \u6a21\u5757: {0}"_s)
+			$of(u"使用 incubating 模块: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.inexact.non-varargs.call"_s),
-			$of(u"\u6700\u540e\u4e00\u4e2a\u53c2\u6570\u4f7f\u7528\u4e86\u4e0d\u51c6\u786e\u7684\u53d8\u91cf\u7c7b\u578b\u7684 varargs \u65b9\u6cd5\u7684\u975e varargs \u8c03\u7528; \n\u5bf9\u4e8e varargs \u8c03\u7528, \u5e94\u4f7f\u7528 {0}\n\u5bf9\u4e8e\u975e varargs \u8c03\u7528, \u5e94\u4f7f\u7528 {1}, \u8fd9\u6837\u4e5f\u53ef\u4ee5\u6291\u5236\u6b64\u8b66\u544a"_s)
+			$of(u"最后一个参数使用了不准确的变量类型的 varargs 方法的非 varargs 调用; \n对于 varargs 调用, 应使用 {0}\n对于非 varargs 调用, 应使用 {1}, 这样也可以抑制此警告"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.invalid.archive.file"_s),
-			$of(u"\u4ee5\u4e0b\u8def\u5f84\u4e2d\u5b58\u5728\u610f\u5916\u7684\u6587\u4ef6: {0}"_s)
+			$of(u"以下路径中存在意外的文件: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.invalid.path"_s),
-			$of(u"\u65e0\u6548\u6587\u4ef6\u540d: {0}"_s)
+			$of(u"无效文件名: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.invalid.yield"_s),
-			$of(u"\'\'yield\'\' \u5728\u672a\u6765\u53d1\u884c\u7248\u4e2d\u53ef\u80fd\u4f1a\u6210\u4e3a\u53d7\u9650\u6807\u8bc6\u7b26\n\uff08\u8981\u8c03\u7528\u79f0\u4e3a yield \u7684\u65b9\u6cd5\uff0c\u8bf7\u901a\u8fc7\u63a5\u6536\u65b9\u6216\u7c7b\u578b\u540d\u79f0\u9650\u5b9a yield\uff09"_s)
+			$of(u"\'\'yield\'\' 在未来发行版中可能会成为受限标识符\n（要调用称为 yield 的方法，请通过接收方或类型名称限定 yield）"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.is.preview"_s),
-			$of(u"{0} \u662f\u67d0\u9884\u89c8\u529f\u80fd\u4e2d\u7684\u4e00\u4e2a API"_s)
+			$of(u"{0} 是某预览功能中的一个 API"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.leaks.not.accessible"_s),
-			$of(u"\u6a21\u5757 {2} \u4e2d\u7684 {0} {1} \u5bf9\u9700\u8981\u8be5\u6a21\u5757\u7684\u5ba2\u6237\u673a\u4e0d\u53ef\u8bbf\u95ee"_s)
+			$of(u"模块 {2} 中的 {0} {1} 对需要该模块的客户机不可访问"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.leaks.not.accessible.not.required.transitive"_s),
-			$of(u"\u672a\u4f7f\u7528 \'\'requires transitive\'\' \u95f4\u63a5\u5bfc\u51fa\u6a21\u5757 {2} \u4e2d\u7684 {0} {1}"_s)
+			$of(u"未使用 \'\'requires transitive\'\' 间接导出模块 {2} 中的 {0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.leaks.not.accessible.unexported"_s),
-			$of(u"\u672a\u5bfc\u51fa\u6a21\u5757 {2} \u4e2d\u7684 {0} {1}"_s)
+			$of(u"未导出模块 {2} 中的 {0} {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.leaks.not.accessible.unexported.qualified"_s),
-			$of(u"\u6a21\u5757 {2} \u4e2d\u7684 {0} {1} \u53ef\u80fd\u5bf9\u9700\u8981\u8be5\u6a21\u5757\u7684\u6240\u6709\u5ba2\u6237\u673a\u90fd\u4e0d\u53ef\u89c1"_s)
+			$of(u"模块 {2} 中的 {0} {1} 可能对需要该模块的所有客户机都不可见"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.lintOption"_s),
@@ -3350,159 +3350,159 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.local.redundant.type"_s),
-			$of(u"\u672c\u5730\u53d8\u91cf\u7684\u5197\u4f59\u7c7b\u578b (\u4f7f\u7528 \'\'var\'\' \u66ff\u6362\u663e\u5f0f\u7c7b\u578b)\u3002"_s)
+			$of(u"本地变量的冗余类型 (使用 \'\'var\'\' 替换显式类型)。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.locn.unknown.file.on.module.path"_s),
-			$of(u"\u6a21\u5757\u8def\u5f84\u4e2d\u7684\u672a\u77e5\u6587\u4ef6: {0}"_s)
+			$of(u"模块路径中的未知文件: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.long.SVUID"_s),
-			$of(u"serialVersionUID \u5728\u7c7b{0}\u4e2d\u5fc5\u987b\u662f long \u7c7b\u578b"_s)
+			$of(u"serialVersionUID 在类{0}中必须是 long 类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.method.redundant.typeargs"_s),
-			$of(u"\u65b9\u6cd5\u8c03\u7528\u4e2d\u5b58\u5728\u5197\u4f59\u7c7b\u578b\u53c2\u6570\u3002"_s)
+			$of(u"方法调用中存在冗余类型参数。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.missing-explicit-ctor"_s),
-			$of(u"\u5bfc\u51fa\u7684\u7a0b\u5e8f\u5305 {1} \u4e2d\u7684\u7c7b {0} \u672a\u58f0\u660e\u663e\u5f0f\u6784\u9020\u5668\uff0c\u56e0\u6b64\u5c06\u5411\u6a21\u5757 {2} \u7684\u5ba2\u6237\u673a\u516c\u5f00\u9ed8\u8ba4\u6784\u9020\u5668"_s)
+			$of(u"导出的程序包 {1} 中的类 {0} 未声明显式构造器，因此将向模块 {2} 的客户机公开默认构造器"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.missing.SVUID"_s),
-			$of(u"\u53ef\u5e8f\u5217\u5316\u7c7b{0}\u6ca1\u6709 serialVersionUID \u7684\u5b9a\u4e49"_s)
+			$of(u"可序列化类{0}没有 serialVersionUID 的定义"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.missing.deprecated.annotation"_s),
-			$of(u"\u672a\u4f7f\u7528 @Deprecated \u5bf9\u5df2\u8fc7\u65f6\u7684\u9879\u76ee\u8fdb\u884c\u6ce8\u91ca"_s)
+			$of(u"未使用 @Deprecated 对已过时的项目进行注释"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.module.for.option.not.found"_s),
-			$of(u"\u627e\u4e0d\u5230 {0} \u9009\u9879\u4e2d\u7684\u6a21\u5757\u540d\u79f0: {1}"_s)
+			$of(u"找不到 {0} 选项中的模块名称: {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.module.not.found"_s),
-			$of(u"\u627e\u4e0d\u5230\u6a21\u5757: {0}"_s)
+			$of(u"找不到模块: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.option.obsolete.source"_s),
-			$of(u"\u6e90\u503c{0}\u5df2\u8fc7\u65f6, \u5c06\u5728\u672a\u6765\u6240\u6709\u53d1\u884c\u7248\u4e2d\u5220\u9664"_s)
+			$of(u"源值{0}已过时, 将在未来所有发行版中删除"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.option.obsolete.suppression"_s),
-			$of(u"\u8981\u9690\u85cf\u6709\u5173\u5df2\u8fc7\u65f6\u9009\u9879\u7684\u8b66\u544a, \u8bf7\u4f7f\u7528 -Xlint:-options\u3002"_s)
+			$of(u"要隐藏有关已过时选项的警告, 请使用 -Xlint:-options。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.option.obsolete.target"_s),
-			$of(u"\u76ee\u6807\u503c{0}\u5df2\u8fc7\u65f6, \u5c06\u5728\u672a\u6765\u6240\u6709\u53d1\u884c\u7248\u4e2d\u5220\u9664"_s)
+			$of(u"目标值{0}已过时, 将在未来所有发行版中删除"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.option.parameters.unsupported"_s),
-			$of(u"\u76ee\u6807\u503c {0} \u4e0d\u652f\u6301 -parameters\u3002\u8bf7\u4f7f\u7528 {1} \u6216\u66f4\u9ad8\u7248\u672c\u3002"_s)
+			$of(u"目标值 {0} 不支持 -parameters。请使用 {1} 或更高版本。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.outdir.is.in.exploded.module"_s),
-			$of(u"\u8f93\u51fa\u76ee\u5f55\u4f4d\u4e8e\u5c55\u5f00\u7684\u6a21\u5757\u4e2d: {0}"_s)
+			$of(u"输出目录位于展开的模块中: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.override.bridge"_s),
-			$of(u"{0}; \u88ab\u8986\u76d6\u7684\u65b9\u6cd5\u4e3a bridge \u65b9\u6cd5"_s)
+			$of(u"{0}; 被覆盖的方法为 bridge 方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.override.equals.but.not.hashcode"_s),
-			$of(u"\u7c7b{0}\u8986\u76d6\u4e86 equals, \u4f46\u8be5\u7c7b\u6216\u4efb\u4f55\u8d85\u7c7b\u90fd\u672a\u8986\u76d6 hashCode \u65b9\u6cd5"_s)
+			$of(u"类{0}覆盖了 equals, 但该类或任何超类都未覆盖 hashCode 方法"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.override.unchecked.ret"_s),
-			$of(u"{0}\n\u8fd4\u56de\u7c7b\u578b\u9700\u8981\u4ece{1}\u5230{2}\u7684\u672a\u7ecf\u68c0\u67e5\u7684\u8f6c\u6362"_s)
+			$of(u"{0}\n返回类型需要从{1}到{2}的未经检查的转换"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.override.unchecked.thrown"_s),
-			$of(u"{0}\n\u88ab\u8986\u76d6\u7684\u65b9\u6cd5\u672a\u629b\u51fa{1}"_s)
+			$of(u"{0}\n被覆盖的方法未抛出{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.override.varargs.extra"_s),
-			$of(u"{0}; \u8986\u76d6\u7684\u65b9\u6cd5\u7f3a\u5c11 \'\'...\'\'"_s)
+			$of(u"{0}; 覆盖的方法缺少 \'\'...\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.override.varargs.missing"_s),
-			$of(u"{0}; \u88ab\u8986\u76d6\u7684\u65b9\u6cd5\u6ca1\u6709 \'\'...\'\'"_s)
+			$of(u"{0}; 被覆盖的方法没有 \'\'...\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.package.empty.or.not.found"_s),
-			$of(u"\u7a0b\u5e8f\u5305\u4e3a\u7a7a\u6216\u4e0d\u5b58\u5728: {0}"_s)
+			$of(u"程序包为空或不存在: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.path.element.not.found"_s),
-			$of(u"\u9519\u8bef\u7684\u8def\u5f84\u5143\u7d20 \"{0}\": \u6ca1\u6709\u8fd9\u79cd\u6587\u4ef6\u6216\u76ee\u5f55"_s)
+			$of(u"错误的路径元素 \"{0}\": 没有这种文件或目录"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.pkg-info.already.seen"_s),
-			$of(u"\u5df2\u627e\u5230\u7a0b\u5e8f\u5305{0}\u7684 package-info.java \u6587\u4ef6"_s)
+			$of(u"已找到程序包{0}的 package-info.java 文件"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.poor.choice.for.module.name"_s),
-			$of(u"\u6a21\u5757\u540d\u79f0\u7ec4\u6210\u90e8\u5206 {0} \u5e94\u907f\u514d\u4ee5\u6570\u5b57\u7ed3\u5c3e"_s)
+			$of(u"模块名称组成部分 {0} 应避免以数字结尾"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.position.overflow"_s),
-			$of(u"\u884c {0} \u5904\u7684\u4f4d\u7f6e\u7f16\u7801\u6ea2\u51fa"_s)
+			$of(u"行 {0} 处的位置编码溢出"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.possible.fall-through.into.case"_s),
-			$of(u"\u53ef\u80fd\u65e0\u6cd5\u5b9e\u73b0 case"_s)
+			$of(u"可能无法实现 case"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.potential.lambda.found"_s),
-			$of(u"\u53ef\u5c06\u6b64\u533f\u540d\u5185\u90e8\u7c7b\u521b\u5efa\u8f6c\u6362\u4e3a lambda \u8868\u8fbe\u5f0f\u3002"_s)
+			$of(u"可将此匿名内部类创建转换为 lambda 表达式。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.potentially.ambiguous.overload"_s),
-			$of(u"{1} \u4e2d\u7684 {0} \u53ef\u80fd\u4e0e {3} \u4e2d\u7684 {2} \u6df7\u6dc6"_s)
+			$of(u"{1} 中的 {0} 可能与 {3} 中的 {2} 混淆"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.preview.feature.use"_s),
-			$of(u"{0} \u662f\u9884\u89c8\u529f\u80fd\uff0c\u53ef\u80fd\u4f1a\u5728\u672a\u6765\u53d1\u884c\u7248\u4e2d\u5220\u9664\u3002"_s)
+			$of(u"{0} 是预览功能，可能会在未来发行版中删除。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.preview.feature.use.classfile"_s),
-			$of(u"{0} \u7684\u7c7b\u6587\u4ef6\u4f7f\u7528 Java SE {1} \u7684\u9884\u89c8\u529f\u80fd\u3002"_s)
+			$of(u"{0} 的类文件使用 Java SE {1} 的预览功能。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.preview.feature.use.plural"_s),
-			$of(u"{0} \u662f\u9884\u89c8\u529f\u80fd\uff0c\u53ef\u80fd\u4f1a\u5728\u672a\u6765\u53d1\u884c\u7248\u4e2d\u5220\u9664\u3002"_s)
+			$of(u"{0} 是预览功能，可能会在未来发行版中删除。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.prob.found.req"_s),
-			$of(u"{0}\n\u9700\u8981: {2}\n\u627e\u5230:    {1}"_s)
+			$of(u"{0}\n需要: {2}\n找到:    {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.annotations.without.processors"_s),
-			$of(u"\u6ca1\u6709\u5904\u7406\u7a0b\u5e8f\u8981\u4f7f\u7528\u4ee5\u4e0b\u4efb\u4f55\u6ce8\u91ca: {0}"_s)
+			$of(u"没有处理程序要使用以下任何注释: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.duplicate.option.name"_s),
-			$of(u"\u6ce8\u91ca\u5904\u7406\u7a0b\u5e8f \'\'{1}\'\' \u8fd4\u56de\u91cd\u590d\u7684\u652f\u6301\u7684\u9009\u9879 \'\'{0}\'\'"_s)
+			$of(u"注释处理程序 \'\'{1}\'\' 返回重复的支持的选项 \'\'{0}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.duplicate.supported.annotation"_s),
-			$of(u"\u6ce8\u91ca\u5904\u7406\u7a0b\u5e8f \'\'{1}\'\' \u8fd4\u56de\u91cd\u590d\u7684\u652f\u6301\u7684\u6ce8\u91ca\u7c7b\u578b \'\'{0}\'\'"_s)
+			$of(u"注释处理程序 \'\'{1}\'\' 返回重复的支持的注释类型 \'\'{0}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.file.create.last.round"_s),
-			$of(u"\u5c06\u4e0d\u5bf9\u5728\u6700\u540e\u4e00\u4e2a\u5faa\u73af\u4e2d\u521b\u5efa\u7684\u7c7b\u578b\u4e3a \'\'{0}\'\' \u7684\u6587\u4ef6\u8fdb\u884c\u6ce8\u91ca\u5904\u7406\u3002"_s)
+			$of(u"将不对在最后一个循环中创建的类型为 \'\'{0}\'\' 的文件进行注释处理。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.file.reopening"_s),
-			$of(u"\u5c1d\u8bd5\u591a\u6b21\u4e3a \'\'{0}\'\' \u521b\u5efa\u6587\u4ef6"_s)
+			$of(u"尝试多次为 \'\'{0}\'\' 创建文件"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.illegal.file.name"_s),
-			$of(u"\u65e0\u6cd5\u521b\u5efa\u5e26\u6709\u975e\u6cd5\u540d\u79f0 \'\'{0}\'\' \u7684\u6587\u4ef6\u3002"_s)
+			$of(u"无法创建带有非法名称 \'\'{0}\'\' 的文件。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.malformed.supported.string"_s),
-			$of(u"\u5904\u7406\u7a0b\u5e8f \'\'{1}\'\' \u4e3a\u652f\u6301\u7684\u6ce8\u91ca\u7c7b\u578b\u8fd4\u56de\u683c\u5f0f\u9519\u8bef\u7684\u5b57\u7b26\u4e32 \'\'{0}\'\'"_s)
+			$of(u"处理程序 \'\'{1}\'\' 为支持的注释类型返回格式错误的字符串 \'\'{0}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.messager"_s),
@@ -3510,187 +3510,187 @@ $ObjectArray2* compiler_zh_CN::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.package.does.not.exist"_s),
-			$of(u"\u7a0b\u5e8f\u5305{0}\u4e0d\u5b58\u5728"_s)
+			$of(u"程序包{0}不存在"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.proc-only.requested.no.procs"_s),
-			$of(u"\u5728\u672a\u8bf7\u6c42\u7f16\u8bd1\u7684\u60c5\u51b5\u4e0b\u8fdb\u884c\u6ce8\u91ca\u5904\u7406, \u4f46\u627e\u4e0d\u5230\u5904\u7406\u7a0b\u5e8f\u3002"_s)
+			$of(u"在未请求编译的情况下进行注释处理, 但找不到处理程序。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.processor.incompatible.source.version"_s),
-			$of(u"\u6765\u81ea\u6ce8\u91ca\u5904\u7406\u7a0b\u5e8f \'\'{1}\'\' \u7684\u53d7\u652f\u6301 source \u7248\u672c \'\'{0}\'\' \u4f4e\u4e8e -source \'\'{2}\'\'"_s)
+			$of(u"来自注释处理程序 \'\'{1}\'\' 的受支持 source 版本 \'\'{0}\'\' 低于 -source \'\'{2}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.redundant.types.with.wildcard"_s),
-			$of(u"\u6ce8\u91ca\u5904\u7406\u7a0b\u5e8f \'\'{0}\'\' \u91cd\u590d\u652f\u6301 \'\'*\'\' \u548c\u5176\u4ed6\u6ce8\u91ca\u7c7b\u578b"_s)
+			$of(u"注释处理程序 \'\'{0}\'\' 重复支持 \'\'*\'\' 和其他注释类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.suspicious.class.name"_s),
-			$of(u"\u6b63\u5728\u4e3a\u540d\u79f0\u4ee5{1}\u7ed3\u5c3e\u7684\u7c7b\u578b\u521b\u5efa\u6587\u4ef6: \'\'{0}\'\'"_s)
+			$of(u"正在为名称以{1}结尾的类型创建文件: \'\'{0}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.type.already.exists"_s),
-			$of(u"\u7c7b\u578b \'\'{0}\'\' \u7684\u6587\u4ef6\u5df2\u7ecf\u5b58\u5728\u4e8e\u6e90\u8def\u5f84\u6216\u7c7b\u8def\u5f84\u4e2d"_s)
+			$of(u"类型 \'\'{0}\'\' 的文件已经存在于源路径或类路径中"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.type.recreate"_s),
-			$of(u"\u5c1d\u8bd5\u591a\u6b21\u521b\u5efa\u7c7b\u578b \'\'{0}\'\' \u7684\u6587\u4ef6"_s)
+			$of(u"尝试多次创建类型 \'\'{0}\'\' 的文件"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.unclosed.type.files"_s),
-			$of(u"\u7c7b\u578b \'\'{0}\'\' \u7684\u6587\u4ef6\u672a\u5173\u95ed; \u5c06\u4e0d\u9488\u5bf9\u8fd9\u4e9b\u7c7b\u578b\u8fdb\u884c\u6ce8\u91ca\u5904\u7406"_s)
+			$of(u"类型 \'\'{0}\'\' 的文件未关闭; 将不针对这些类型进行注释处理"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.unmatched.processor.options"_s),
-			$of(u"\u4ee5\u4e0b\u9009\u9879\u672a\u88ab\u4efb\u4f55\u5904\u7406\u7a0b\u5e8f\u8bc6\u522b: \'\'{0}\'\'"_s)
+			$of(u"以下选项未被任何处理程序识别: \'\'{0}\'\'"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.use.implicit"_s),
-			$of(u"\u6ce8\u91ca\u5904\u7406\u4e0d\u9002\u7528\u4e8e\u9690\u5f0f\u7f16\u8bd1\u7684\u6587\u4ef6\u3002\n\u4f7f\u7528 -implicit \u6307\u5b9a\u7528\u4e8e\u9690\u5f0f\u7f16\u8bd1\u7684\u7b56\u7565\u3002"_s)
+			$of(u"注释处理不适用于隐式编译的文件。\n使用 -implicit 指定用于隐式编译的策略。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.proc.use.proc.or.implicit"_s),
-			$of(u"\u6ce8\u91ca\u5904\u7406\u4e0d\u9002\u7528\u4e8e\u9690\u5f0f\u7f16\u8bd1\u7684\u6587\u4ef6\u3002\n\u4f7f\u7528 -proc:none \u7981\u7528\u6ce8\u91ca\u5904\u7406\u6216\u4f7f\u7528 -implicit \u6307\u5b9a\u7528\u4e8e\u9690\u5f0f\u7f16\u8bd1\u7684\u7b56\u7565\u3002"_s)
+			$of(u"注释处理不适用于隐式编译的文件。\n使用 -proc:none 禁用注释处理或使用 -implicit 指定用于隐式编译的策略。"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.profile.target.conflict"_s),
-			$of(u"\u914d\u7f6e\u6587\u4ef6{0}\u5bf9\u4e8e\u76ee\u6807\u53d1\u884c\u7248 {1} \u65e0\u6548"_s)
+			$of(u"配置文件{0}对于目标发行版 {1} 无效"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.raw.class.use"_s),
-			$of(u"\u627e\u5230\u539f\u59cb\u7c7b\u578b: {0}\n\u7f3a\u5c11\u6cdb\u578b\u7c7b{1}\u7684\u7c7b\u578b\u53c2\u6570"_s)
+			$of(u"找到原始类型: {0}\n缺少泛型类{1}的类型参数"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.redundant.cast"_s),
-			$of(u"\u51fa\u73b0\u5197\u4f59\u7684\u5230{0}\u7684\u8f6c\u6362"_s)
+			$of(u"出现冗余的到{0}的转换"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.requires.automatic"_s),
-			$of(u"\u9700\u8981\u81ea\u52a8\u6a21\u5757\u7684\u6307\u4ee4"_s)
+			$of(u"需要自动模块的指令"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.requires.transitive.automatic"_s),
-			$of(u"\u9700\u8981\u81ea\u52a8\u6a21\u5757\u7684\u8fc7\u6e21\u6307\u4ee4"_s)
+			$of(u"需要自动模块的过渡指令"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.restricted.type.not.allowed"_s),
-			$of(u"\u4ece\u53d1\u884c\u7248 {1} \u5f00\u59cb\uff0c\'\'{0}\'\' \u662f\u53d7\u9650\u7c7b\u578b\u540d\u79f0\uff0c\u4e0d\u80fd\u7528\u4e8e\u7c7b\u578b\u58f0\u660e\uff0c\u4e5f\u4e0d\u80fd\u7528\u4f5c\u6570\u7ec4\u7684\u5143\u7d20\u7c7b\u578b"_s)
+			$of(u"从发行版 {1} 开始，\'\'{0}\'\' 是受限类型名称，不能用于类型声明，也不能用作数组的元素类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.restricted.type.not.allowed.preview"_s),
-			$of(u"\'\'{0}\'\' \u5728\u672a\u6765\u53d1\u884c\u7248\u4e2d\u53ef\u80fd\u4f1a\u6210\u4e3a\u53d7\u9650\u7c7b\u578b\u540d\u79f0\uff0c\u53ef\u80fd\u65e0\u6cd5\u7528\u4e8e\u7c7b\u578b\u58f0\u660e\uff0c\u4e5f\u4e0d\u80fd\u7528\u4f5c\u6570\u7ec4\u7684\u5143\u7d20\u7c7b\u578b"_s)
+			$of(u"\'\'{0}\'\' 在未来发行版中可能会成为受限类型名称，可能无法用于类型声明，也不能用作数组的元素类型"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.self.ref"_s),
-			$of(u"\u53d8\u91cf \'\'{0}\'\' \u7684\u521d\u59cb\u5316\u7a0b\u5e8f\u4e2d\u5b58\u5728\u81ea\u5f15\u7528"_s)
+			$of(u"变量 \'\'{0}\'\' 的初始化程序中存在自引用"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.service.provided.but.not.exported.or.used"_s),
-			$of(u"\u5df2\u63d0\u4f9b\u670d\u52a1\u63a5\u53e3, \u4f46\u672a\u5bfc\u51fa\u6216\u4f7f\u7528\u670d\u52a1\u63a5\u53e3"_s)
+			$of(u"已提供服务接口, 但未导出或使用服务接口"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.source.no.bootclasspath"_s),
-			$of(u"\u672a\u4e0e -source {0} \u4e00\u8d77\u8bbe\u7f6e\u5f15\u5bfc\u7c7b\u8def\u5f84"_s)
+			$of(u"未与 -source {0} 一起设置引导类路径"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.source.no.system.modules.path"_s),
-			$of(u"\u672a\u4e0e -source {0} \u4e00\u8d77\u8bbe\u7f6e\u7cfb\u7edf\u6a21\u5757\u8def\u5f84"_s)
+			$of(u"未与 -source {0} 一起设置系统模块路径"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.source.target.conflict"_s),
-			$of(u"\u6e90\u53d1\u884c\u7248 {0} \u9700\u8981\u76ee\u6807\u53d1\u884c\u7248 {1}"_s)
+			$of(u"源发行版 {0} 需要目标发行版 {1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.static.not.qualified.by.type"_s),
-			$of(u"static {0}\u5e94\u7531\u7c7b\u578b\u540d\u79f0{1}\u800c\u4e0d\u662f\u8868\u8fbe\u5f0f\u9650\u5b9a"_s)
+			$of(u"static {0}应由类型名称{1}而不是表达式限定"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.sun.proprietary"_s),
-			$of(u"{0}\u662f\u5185\u90e8\u4e13\u7528 API, \u53ef\u80fd\u4f1a\u5728\u672a\u6765\u53d1\u884c\u7248\u4e2d\u5220\u9664"_s)
+			$of(u"{0}是内部专用 API, 可能会在未来发行版中删除"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.target.default.source.conflict"_s),
-			$of(u"\u76ee\u6807\u53d1\u884c\u7248 {0} \u4e0e\u9ed8\u8ba4\u7684\u6e90\u53d1\u884c\u7248 {1} \u51b2\u7a81"_s)
+			$of(u"目标发行版 {0} 与默认的源发行版 {1} 冲突"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.trailing.white.space.will.be.removed"_s),
-			$of(u"\u5c06\u5220\u9664\u5c3e\u968f\u7a7a\u683c"_s)
+			$of(u"将删除尾随空格"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.try.explicit.close.call"_s),
-			$of(u"\u5728\u53ef\u81ea\u52a8\u7ed3\u675f\u7684\u8d44\u6e90\u4e0a\u663e\u5f0f\u8c03\u7528 close()"_s)
+			$of(u"在可自动结束的资源上显式调用 close()"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.try.resource.not.referenced"_s),
-			$of(u"\u4e0d\u80fd\u5728\u76f8\u5e94\u7684 try \u8bed\u53e5\u7684\u6b63\u6587\u4e2d\u5f15\u7528\u53ef\u81ea\u52a8\u7ed3\u675f\u7684\u8d44\u6e90{0}"_s)
+			$of(u"不能在相应的 try 语句的正文中引用可自动结束的资源{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.try.resource.throws.interrupted.exc"_s),
-			$of(u"\u53ef\u81ea\u52a8\u5173\u95ed\u7684\u8d44\u6e90{0}\u5305\u542b\u7684\u6210\u5458\u65b9\u6cd5 close() \u53ef\u80fd\u629b\u51fa InterruptedException"_s)
+			$of(u"可自动关闭的资源{0}包含的成员方法 close() 可能抛出 InterruptedException"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unchecked.assign"_s),
-			$of(u"\u672a\u7ecf\u68c0\u67e5\u7684\u5206\u914d: \u5c06{0}\u5206\u914d\u7ed9{1}"_s)
+			$of(u"未经检查的分配: 将{0}分配给{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unchecked.assign.to.var"_s),
-			$of(u"\u5bf9\u4f5c\u4e3a\u539f\u59cb\u7c7b\u578b{1}\u7684\u6210\u5458\u7684\u53d8\u91cf{0}\u7684\u5206\u914d\u672a\u7ecf\u8fc7\u68c0\u67e5"_s)
+			$of(u"对作为原始类型{1}的成员的变量{0}的分配未经过检查"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unchecked.call.mbr.of.raw.type"_s),
-			$of(u"\u5bf9\u4f5c\u4e3a\u539f\u59cb\u7c7b\u578b{1}\u7684\u6210\u5458\u7684{0}\u7684\u8c03\u7528\u672a\u7ecf\u8fc7\u68c0\u67e5"_s)
+			$of(u"对作为原始类型{1}的成员的{0}的调用未经过检查"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unchecked.cast.to.type"_s),
-			$of(u"\u5411\u7c7b\u578b{0}\u7684\u8f6c\u6362\u672a\u7ecf\u8fc7\u68c0\u67e5"_s)
+			$of(u"向类型{0}的转换未经过检查"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unchecked.generic.array.creation"_s),
-			$of(u"\u5bf9\u4e8e\u7c7b\u578b\u4e3a{0}\u7684 varargs \u53c2\u6570, \u6cdb\u578b\u6570\u7ec4\u521b\u5efa\u672a\u7ecf\u8fc7\u68c0\u67e5"_s)
+			$of(u"对于类型为{0}的 varargs 参数, 泛型数组创建未经过检查"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unchecked.meth.invocation.applied"_s),
-			$of(u"\u65b9\u6cd5\u8c03\u7528\u672a\u7ecf\u8fc7\u68c0\u67e5: \u5c06{4} {5}\u4e2d\u7684{0} {1}\u5e94\u7528\u5230\u7ed9\u5b9a\u7684\u7c7b\u578b\n\u9700\u8981: {2}\n\u627e\u5230:    {3}"_s)
+			$of(u"方法调用未经过检查: 将{4} {5}中的{0} {1}应用到给定的类型\n需要: {2}\n找到:    {3}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unchecked.varargs.non.reifiable.type"_s),
-			$of(u"\u53c2\u6570\u5316 vararg \u7c7b\u578b{0}\u7684\u5806\u53ef\u80fd\u5df2\u53d7\u6c61\u67d3"_s)
+			$of(u"参数化 vararg 类型{0}的堆可能已受污染"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.underscore.as.identifier"_s),
-			$of(u"\u4ece\u53d1\u884c\u7248 9 \u5f00\u59cb, \'\'_\'\' \u4e3a\u5173\u952e\u5b57, \u4e0d\u80fd\u7528\u4f5c\u6807\u8bc6\u7b26"_s)
+			$of(u"从发行版 9 开始, \'\'_\'\' 为关键字, 不能用作标识符"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unexpected.archive.file"_s),
-			$of(u"\u4ee5\u4e0b\u6863\u6848\u6587\u4ef6\u5b58\u5728\u610f\u5916\u7684\u6269\u5c55\u540d: {0}"_s)
+			$of(u"以下档案文件存在意外的扩展名: {0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unknown.enum.constant"_s),
-			$of(u"\u672a\u77e5\u7684\u679a\u4e3e\u5e38\u91cf {1}.{2}"_s)
+			$of(u"未知的枚举常量 {1}.{2}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unknown.enum.constant.reason"_s),
-			$of(u"\u672a\u77e5\u7684\u679a\u4e3e\u5e38\u91cf {1}.{2}\n\u539f\u56e0: {3}"_s)
+			$of(u"未知的枚举常量 {1}.{2}\n原因: {3}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unreachable.catch"_s),
-			$of(u"catch \u5b50\u53e5\u65e0\u6cd5\u8bbf\u95ee\n\u5df2\u6355\u83b7\u5230\u629b\u51fa\u7684\u7c7b\u578b{0}"_s)
+			$of(u"catch 子句无法访问\n已捕获到抛出的类型{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.unreachable.catch.1"_s),
-			$of(u"catch \u5b50\u53e5\u65e0\u6cd5\u8bbf\u95ee\n\u5df2\u6355\u83b7\u5230\u629b\u51fa\u7684\u7c7b\u578b{0}"_s)
+			$of(u"catch 子句无法访问\n已捕获到抛出的类型{0}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.varargs.redundant.trustme.anno"_s),
-			$of(u"\u5197\u4f59\u7684 {0} \u6ce8\u91ca\u3002{1}"_s)
+			$of(u"冗余的 {0} 注释。{1}"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.varargs.unsafe.use.varargs.param"_s),
-			$of(u"Varargs \u65b9\u6cd5\u53ef\u80fd\u5bfc\u81f4\u6765\u81ea\u4e0d\u53ef\u5177\u4f53\u5316 varargs \u53c2\u6570 {0} \u7684\u5806\u6c61\u67d3"_s)
+			$of(u"Varargs 方法可能导致来自不可具体化 varargs 参数 {0} 的堆污染"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("compiler.warn.warning"_s),
-			$of(u"\u8b66\u544a: "_s)
+			$of(u"警告: "_s)
 		})
 	});
 }

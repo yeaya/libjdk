@@ -165,7 +165,7 @@ $String* SimpleJavaFileObject::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "["_s}));
 	$var($String, var$0, $$concat(var$1, $(toUri())));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 SimpleJavaFileObject::SimpleJavaFileObject() {

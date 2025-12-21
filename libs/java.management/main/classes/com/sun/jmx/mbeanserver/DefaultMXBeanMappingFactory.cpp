@@ -438,7 +438,7 @@ $MXBeanMapping* DefaultMXBeanMappingFactory::makeCompositeMapping($Class* c, $MX
 				if (old != nullptr) {
 					$var($String, var$4, $$str({"Class "_s, $(c->getName()), " has method name clash: "_s}));
 					$var($String, var$3, $$concat(var$4, $(old->getName())));
-					$var($String, var$2, $$concat(var$3, ", "));
+					$var($String, var$2, $$concat(var$3, ", "_s));
 					$var($String, msg, $concat(var$2, $($nc(method)->getName())));
 					$throwNew($OpenDataException, msg);
 				}
@@ -499,7 +499,7 @@ void DefaultMXBeanMappingFactory::mustBeComparable($Class* collection, $Type* el
 	if (!($instanceOf($Class, element)) || !$Comparable::class$->isAssignableFrom($cast($Class, element))) {
 		$var($String, var$2, $$str({"Parameter class "_s, element, " of "_s}));
 		$var($String, var$1, $$concat(var$2, $($nc(collection)->getName())));
-		$var($String, var$0, $$concat(var$1, " does not implement "));
+		$var($String, var$0, $$concat(var$1, " does not implement "_s));
 		$var($String, msg, $concat(var$0, $($Comparable::class$->getName())));
 		$throwNew($OpenDataException, msg);
 	}

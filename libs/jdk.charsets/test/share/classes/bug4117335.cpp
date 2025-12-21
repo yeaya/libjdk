@@ -102,11 +102,11 @@ bug4117335::bug4117335() {
 }
 
 void clinit$bug4117335($Class* class$) {
-	$assignStatic(bug4117335::bc, u"\u7d00\u5143\u524d"_s);
-	$assignStatic(bug4117335::ad, u"\u897f\u66a6"_s);
-	$assignStatic(bug4117335::jstLong, u"\u65e5\u672c\u6a19\u6e96\u6642"_s);
+	$assignStatic(bug4117335::bc, u"紀元前"_s);
+	$assignStatic(bug4117335::ad, u"西暦"_s);
+	$assignStatic(bug4117335::jstLong, u"日本標準時"_s);
 	$assignStatic(bug4117335::jstShort, "JST"_s);
-	$assignStatic(bug4117335::jdtLong, u"\u65e5\u672c\u590f\u6642\u9593"_s);
+	$assignStatic(bug4117335::jdtLong, u"日本夏時間"_s);
 	$assignStatic(bug4117335::jdtShort, "JDT"_s);
 }
 

@@ -104,11 +104,11 @@ $String* SSLTube$SSLSubscriberWrapper::toString() {
 	$var($SSLFlowDelegate, sslFD, this->this$0->sslDelegate);
 	$var($String, var$5, $$str({"SSLSubscriberWrapper["_s, this->this$0, ", delegate: "_s, (sub == nullptr ? pend : sub), ", getALPN: "_s}));
 	$var($String, var$4, $$concat(var$5, $((sslFD == nullptr ? ($CompletableFuture*)nullptr : $nc(sslFD)->alpn()))));
-	$var($String, var$3, $$concat(var$4, ", onCompleteReceived: "));
+	$var($String, var$3, $$concat(var$4, ", onCompleteReceived: "_s));
 	$var($String, var$2, $$concat(var$3, $$str(this->onCompleteReceived)));
-	$var($String, var$1, $$concat(var$2, ", onError: "));
+	$var($String, var$1, $$concat(var$2, ", onError: "_s));
 	$var($String, var$0, $$concat(var$1, $($nc(this->errorRef)->get())));
-	return $concat(var$0, "]");
+	return $concat(var$0, "]"_s);
 }
 
 void SSLTube$SSLSubscriberWrapper::setDelegate($Flow$Subscriber* delegate) {

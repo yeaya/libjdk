@@ -214,11 +214,11 @@ $String* ModelMBeanOperationInfo::toString() {
 	}
 	$var($String, var$5, $$str({"ModelMBeanOperationInfo: "_s, $(this->getName()), " ; Description: "_s}));
 	$var($String, var$4, $$concat(var$5, $(this->getDescription())));
-	$var($String, var$3, $$concat(var$4, " ; Descriptor: "));
+	$var($String, var$3, $$concat(var$4, " ; Descriptor: "_s));
 	$var($String, var$2, $$concat(var$3, $(this->getDescriptor())));
-	$var($String, var$1, $$concat(var$2, " ; ReturnType: "));
+	$var($String, var$1, $$concat(var$2, " ; ReturnType: "_s));
 	$var($String, var$0, $$concat(var$1, $(this->getReturnType())));
-	$var($String, retStr, $concat(var$0, " ; Signature: "));
+	$var($String, retStr, $concat(var$0, " ; Signature: "_s));
 	$var($MBeanParameterInfoArray, pTypes, this->getSignature());
 	for (int32_t i = 0; i < $nc(pTypes)->length; ++i) {
 		$assign(retStr, $nc(retStr)->concat($$str({$($nc((pTypes->get(i)))->getType()), ", "_s})));

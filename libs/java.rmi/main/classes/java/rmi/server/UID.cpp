@@ -132,7 +132,7 @@ $String* UID::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $$str({$($Integer::toString(this->unique, 16)), ":"_s}));
 	$var($String, var$1, $$concat(var$2, $($Long::toString(this->time, 16))));
-	$var($String, var$0, $$concat(var$1, ":"));
+	$var($String, var$0, $$concat(var$1, ":"_s));
 	return $concat(var$0, $($Integer::toString(this->count, 16)));
 }
 

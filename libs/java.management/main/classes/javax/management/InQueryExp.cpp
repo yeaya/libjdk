@@ -128,7 +128,7 @@ $String* InQueryExp::toString() {
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$1, $$str({this->val, " in ("_s}));
 	$var($String, var$0, $$concat(var$1, $(generateValueList())));
-	return $concat(var$0, ")");
+	return $concat(var$0, ")"_s);
 }
 
 $String* InQueryExp::generateValueList() {

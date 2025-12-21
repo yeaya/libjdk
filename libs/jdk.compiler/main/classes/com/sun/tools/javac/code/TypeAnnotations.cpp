@@ -529,7 +529,7 @@ $TypeAnnotations$AnnotationType* TypeAnnotations::targetToAnnotationType($Attrib
 	} else {
 		$var($String, var$4, $$str({"annotationTargetType(): unrecognized Attribute name "_s, $nc(e->value)->name, " ("_s}));
 		$var($String, var$3, $$concat(var$4, $($nc($of($nc(e->value)->name))->getClass())));
-		$Assert::error($$concat(var$3, ")"));
+		$Assert::error($$concat(var$3, ")"_s));
 		$init($TypeAnnotations$AnnotationType);
 		return $TypeAnnotations$AnnotationType::DECLARATION;
 	}

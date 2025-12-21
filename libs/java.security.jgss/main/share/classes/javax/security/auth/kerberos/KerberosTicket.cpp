@@ -392,33 +392,33 @@ $String* KerberosTicket::toString() {
 	}
 	$var($String, var$28, $$str({"Ticket (hex) = \n"_s, $(($$new($HexDumpEncoder))->encodeBuffer(this->asn1Encoding)), "\nClient Principal = "_s}));
 	$var($String, var$27, $$concat(var$28, $($nc(this->client)->toString())));
-	$var($String, var$26, $$concat(var$27, "\nServer Principal = "));
+	$var($String, var$26, $$concat(var$27, "\nServer Principal = "_s));
 	$var($String, var$25, $$concat(var$26, $($nc(this->server)->toString())));
-	$var($String, var$24, $$concat(var$25, "\nSession Key = "));
+	$var($String, var$24, $$concat(var$25, "\nSession Key = "_s));
 	$var($String, var$23, $$concat(var$24, $($nc(this->sessionKey)->toString())));
-	$var($String, var$22, $$concat(var$23, "\nForwardable Ticket "));
+	$var($String, var$22, $$concat(var$23, "\nForwardable Ticket "_s));
 	$var($String, var$21, $$concat(var$22, $$str($nc(this->flags)->get(KerberosTicket::FORWARDABLE_TICKET_FLAG))));
-	$var($String, var$20, $$concat(var$21, "\nForwarded Ticket "));
+	$var($String, var$20, $$concat(var$21, "\nForwarded Ticket "_s));
 	$var($String, var$19, $$concat(var$20, $$str($nc(this->flags)->get(KerberosTicket::FORWARDED_TICKET_FLAG))));
-	$var($String, var$18, $$concat(var$19, "\nProxiable Ticket "));
+	$var($String, var$18, $$concat(var$19, "\nProxiable Ticket "_s));
 	$var($String, var$17, $$concat(var$18, $$str($nc(this->flags)->get(KerberosTicket::PROXIABLE_TICKET_FLAG))));
-	$var($String, var$16, $$concat(var$17, "\nProxy Ticket "));
+	$var($String, var$16, $$concat(var$17, "\nProxy Ticket "_s));
 	$var($String, var$15, $$concat(var$16, $$str($nc(this->flags)->get(KerberosTicket::PROXY_TICKET_FLAG))));
-	$var($String, var$14, $$concat(var$15, "\nPostdated Ticket "));
+	$var($String, var$14, $$concat(var$15, "\nPostdated Ticket "_s));
 	$var($String, var$13, $$concat(var$14, $$str($nc(this->flags)->get(KerberosTicket::POSTDATED_TICKET_FLAG))));
-	$var($String, var$12, $$concat(var$13, "\nRenewable Ticket "));
+	$var($String, var$12, $$concat(var$13, "\nRenewable Ticket "_s));
 	$var($String, var$11, $$concat(var$12, $$str($nc(this->flags)->get(KerberosTicket::RENEWABLE_TICKET_FLAG))));
-	$var($String, var$10, $$concat(var$11, "\nInitial Ticket "));
+	$var($String, var$10, $$concat(var$11, "\nInitial Ticket "_s));
 	$var($String, var$9, $$concat(var$10, $$str($nc(this->flags)->get(KerberosTicket::INITIAL_TICKET_FLAG))));
-	$var($String, var$8, $$concat(var$9, "\nAuth Time = "));
+	$var($String, var$8, $$concat(var$9, "\nAuth Time = "_s));
 	$var($String, var$7, $$concat(var$8, $($String::valueOf($of(this->authTime)))));
-	$var($String, var$6, $$concat(var$7, "\nStart Time = "));
+	$var($String, var$6, $$concat(var$7, "\nStart Time = "_s));
 	$var($String, var$5, $$concat(var$6, $($String::valueOf($of(this->startTime)))));
-	$var($String, var$4, $$concat(var$5, "\nEnd Time = "));
+	$var($String, var$4, $$concat(var$5, "\nEnd Time = "_s));
 	$var($String, var$3, $$concat(var$4, $($nc(this->endTime)->toString())));
-	$var($String, var$2, $$concat(var$3, "\nRenew Till = "));
+	$var($String, var$2, $$concat(var$3, "\nRenew Till = "_s));
 	$var($String, var$1, $$concat(var$2, $($String::valueOf($of(this->renewTill)))));
-	$var($String, var$0, $$concat(var$1, "\nClient Addresses "));
+	$var($String, var$0, $$concat(var$1, "\nClient Addresses "_s));
 	return ($concat(var$0, (this->clientAddresses == nullptr ? " Null "_s : $$str({$(caddrString->toString()), (this->proxy == nullptr ? ""_s : "\nwith a proxy ticket"_s), "\n"_s}))));
 }
 

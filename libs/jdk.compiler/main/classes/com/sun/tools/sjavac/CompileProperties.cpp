@@ -167,7 +167,7 @@ bool CompileProperties::compile($String* pkgName, $String* pkgNameF, $File* src,
 		$var($String, key, $cast($String, keys->next()));
 		$var($String, var$1, $$str({"            { \""_s, $(escape(key)), "\", \""_s}));
 		$var($String, var$0, $$concat(var$1, $(escape($cast($String, $(p->get(key)))))));
-		data->append($$concat(var$0, "\" },\n"));
+		data->append($$concat(var$0, "\" },\n"_s));
 	}
 	$var($String, destFilename, $str({$($nc(destRoot)->getPath()), $File::separator, pkgNameF, $File::separator, classname, ".java"_s}));
 	$var($File, dest, $new($File, destFilename));

@@ -141,63 +141,63 @@ void clinit$JapaneseTest($Class* class$) {
 	}));
 	$assignStatic(JapaneseTest::compData1, $new($StringArray2, {
 		$$new($StringArray, {
-			u"\u3084"_s,
-			u"\u30e6"_s,
+			u"や"_s,
+			u"ユ"_s,
 			"Hiragana \"YA\"(0x3084) <---> Katakana \"YU\"(0x30E6)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30e6"_s,
-			u"\u3088"_s,
+			u"ユ"_s,
+			u"よ"_s,
 			"Katakana \"YU\"(0x30E6) <---> Hiragana \"YO\"(0x3088)"_s
 		}),
 		$$new($StringArray, {
-			u"\u00b1"_s,
-			u"\u2260"_s,
+			u"±"_s,
+			u"≠"_s,
 			"Plus-Minus Sign(0x00B1) <---> Not Equal To(0x2260)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3011"_s,
-			u"\u2260"_s,
+			u"】"_s,
+			u"≠"_s,
 			"Right Black Lenticular Bracket(0x3011) <---> Not Equal To(0x2260)"_s
 		}),
 		$$new($StringArray, {
-			u"\u2260"_s,
-			u"\u2103"_s,
+			u"≠"_s,
+			u"℃"_s,
 			"Not Equal To(0x2260) <---> Degree Celsius(0x2103)"_s
 		}),
 		$$new($StringArray, {
-			u"\u2260"_s,
-			u"\u2606"_s,
+			u"≠"_s,
+			u"☆"_s,
 			"Not Equal To(0x2260) <---> White Star(0x2606)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30fd"_s,
-			u"\u309e"_s,
+			u"ヽ"_s,
+			u"ゞ"_s,
 			"Katakana Iteration Mark(0x30FD) <---> Hiragana Voiced Iteration Mark(0x309E)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3059\u309d"_s,
-			u"\u3059\u309e"_s,
+			u"すゝ"_s,
+			u"すゞ"_s,
 			"Hiragana \"SU\"(0x3059)Hiragana Iteration Mark(0x309D) <---> Hiragana \"SU\"(0x3059)Hiragana Voiced Iteration Mark(0x309E)"_s
 		}),
 		$$new($StringArray, {
-			u"\u821e"_s,
-			u"\u798f"_s,
+			u"舞"_s,
+			u"福"_s,
 			"CJK Unified Ideograph(0x821E) <---> CJK Unified Ideograph(0x798F)"_s
 		}),
 		$$new($StringArray, {
-			u"\u2260"_s,
-			u"\u225f"_s,
+			u"≠"_s,
+			u"≟"_s,
 			"Not Equal To(0x2260) <---> Questioned Equal To(0x225F)"_s
 		}),
 		$$new($StringArray, {
-			u"\u226e"_s,
-			u"\u2260"_s,
+			u"≮"_s,
+			u"≠"_s,
 			"Not Less-than(0x226E) <---> Not Equal To(0x2260)"_s
 		}),
 		$$new($StringArray, {
-			u"\u226e"_s,
-			u"\u226d"_s,
+			u"≮"_s,
+			u"≭"_s,
 			"Not Less-than(0x226E) <---> Not Equivalent To(0x226D)"_s
 		})
 	}));
@@ -220,28 +220,28 @@ void clinit$JapaneseTest($Class* class$) {
 	}));
 	$assignStatic(JapaneseTest::compData2, $new($StringArray2, {
 		$$new($StringArray, {
-			u"\u3099"_s,
-			u"\u309a"_s,
+			u"゙"_s,
+			u"゚"_s,
 			"Combining Katakana-Hiragana Voiced Sound Mark(0x3099) <---> Combining Katakana-Hiragana Semi-voiced Sound Mark(0x309A)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3053\u3046\u3068\u3046"_s,
-			u"\u3053\u3046\u3068\u3099\u3046"_s,
+			u"こうとう"_s,
+			u"こうどう"_s,
 			"Hiragana \"KOUTOU\"(0x3053 0x3046 0x3068 0x3046) <---> Hiragana \"KOUTO\"(0x3053 0x3046 0x3068)Combining Katakana-Hiragana Voiced Sound Mark(0X3099)\"U\"(0x3046)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3053\u3046\u3068\u3046"_s,
-			u"\u3053\u3046\u3069\u3046"_s,
+			u"こうとう"_s,
+			u"こうどう"_s,
 			"Hiragana \"KOUTOU\"(0x3053 0x3046 0x3068 0x3046) <---> Hiragana \"KOUDOU\"(0x3053 0x3046 0x3069 0x3046)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3053\u3046\u3069\u3046"_s,
-			u"\u3054\u3046\u3068\u3046"_s,
+			u"こうどう"_s,
+			u"ごうとう"_s,
 			"Hiragana \"KOUTOU\"(0x3053 0x3046 0x3069 0x3046) <---> Hiragana \"GOUTOU\"(0x3054 0x3046 0x3068 0x3046)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3054\u3046\u3068\u3046"_s,
-			u"\u3054\u3046\u3069\u3046"_s,
+			u"ごうとう"_s,
+			u"ごうどう"_s,
 			"Hiragana \"GOUTOU\"(0x3054 0x3046 0x3068 0x3046) <---> Hiragana \"GOUDOU\"(0x3054 0x3046 0x3069 0x3046)"_s
 		})
 	}));
@@ -264,78 +264,78 @@ void clinit$JapaneseTest($Class* class$) {
 	}));
 	$assignStatic(JapaneseTest::compData3, $new($StringArray2, {
 		$$new($StringArray, {
-			u"\u3042"_s,
-			u"\u3041"_s,
+			u"あ"_s,
+			u"ぁ"_s,
 			"Hiragana \"A\"(0x3042) <---> Hiragana \"a\"(0x3041)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3041"_s,
-			u"\u30a2"_s,
+			u"ぁ"_s,
+			u"ア"_s,
 			"Hiragana \"a\"(0x3041) <---> Katakana \"A\"(0x30A2)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30a2"_s,
-			u"\u30a1"_s,
+			u"ア"_s,
+			u"ァ"_s,
 			"Katakana \"A\"(0x30A2) <---> Katakana \"a\"(0x30A1)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3094"_s,
-			u"\u30f4"_s,
+			u"ゔ"_s,
+			u"ヴ"_s,
 			"Hiragana \"VU\"(0x3094) <---> Katakana \"VU\"(0x30F4)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3094"_s,
-			u"\u30a6\u3099"_s,
+			u"ゔ"_s,
+			u"ヴ"_s,
 			"Hiragana \"VU\"(0x3094) <---> Katakana \"U\"(0x30A6)Combining Katakana-Hiragana Voiced Sound Mark(0x3099)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3046\u3099"_s,
-			u"\u30f4"_s,
+			u"ゔ"_s,
+			u"ヴ"_s,
 			"Hiragana \"U\"(0x3046)Combining Katakana-Hiragana Voiced Sound Mark(0x3099) <---> Katakana \"VU\"(0x30F4)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3046\u3099"_s,
-			u"\u30a6\u3099"_s,
+			u"ゔ"_s,
+			u"ヴ"_s,
 			"Hiragana \"U\"(0x3046)Combining Katakana-Hiragana Voiced Sound Mark(0x3099) <---> Katakana \"U\"(0x30A6)Combining Katakana-Hiragana Voiced Sound Mark(0x3099)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30ab\u30a2"_s,
-			u"\u30ab\u30fc"_s,
+			u"カア"_s,
+			u"カー"_s,
 			"Katakana \"KAA\"(0x30AB 0x30A2) <---> Katakana \"KA-\"(0x30AB 0x30FC)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30cb\u30a1\u30a2"_s,
-			u"\u30cb\u30a1\u30fc"_s,
+			u"ニァア"_s,
+			u"ニァー"_s,
 			"Katakana \"NyaA\"(0x30CB 0x30A1 0x30A2) <---> Katakana \"Nya-\"(0x30CB 0x30A1 0x30FC)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30b3\u30aa\u30d2\u30a4"_s,
-			u"\u30b3\u30fc\u30d2\u30fc"_s,
+			u"コオヒイ"_s,
+			u"コーヒー"_s,
 			"Katakana \"KOOHII\"(0x30B3 0x30AA 0x30D2 0x30A4) <---> Katakana \"KO-HI-\"(0x30B3 0x30FC 0x30D2 0x30FC)"_s
 		}),
 		$$new($StringArray, {
-			u"\u308a\u3088\u3046"_s,
-			u"\u308a\u3087\u3046"_s,
+			u"りよう"_s,
+			u"りょう"_s,
 			"Hiragana \"RIYOU\"(0x308A 0x3088 0x3046) <---> Hiragana \"Ryou\"(0x308A 0x3087 0x3046)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3081\u3064\u304d"_s,
-			u"\u3081\u3063\u304d"_s,
+			u"めつき"_s,
+			u"めっき"_s,
 			"Hiragana \"METSUKI\"(0x3081 0x3064 0x304D) <---> Hiragana \"MEKKI\"(0x3081 0x3063 0x304D)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3075\u3042\u3093"_s,
-			u"\u30d5\u30a1\u30f3"_s,
+			u"ふあん"_s,
+			u"ファン"_s,
 			"Hiragana \"FUAN\"(0x3075 0x3042 0x3093) <---> Katakana \"FUaN\"(0x30D5 0x30A1 0x30F3)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3075\u3041\u3093"_s,
-			u"\u30d5\u30a2\u30f3"_s,
+			u"ふぁん"_s,
+			u"フアン"_s,
 			"Hiragana \"FUaN\"(0x3075 0x3041 0x3093) <---> Katakana \"FUAN\"(0x30D5 0x30A2 0x30F3)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30d5\u30a2\u30f3"_s,
-			u"\u30d5\u30a1\u30f3"_s,
+			u"フアン"_s,
+			u"ファン"_s,
 			"Katakana \"FUAN\"(0x30D5 0x30A2 0x30F3) <---> Katakana \"FUaN\"(0x30D5 0x30A1 0x30F3)"_s
 		})
 	}));
@@ -358,73 +358,73 @@ void clinit$JapaneseTest($Class* class$) {
 	}));
 	$assignStatic(JapaneseTest::compData4, $new($StringArray2, {
 		$$new($StringArray, {
-			u"\u309e"_s,
-			u"\u309d\u3099"_s,
+			u"ゞ"_s,
+			u"ゞ"_s,
 			"Hiragana Voiced Iteration Mark(0x309E) <---> Hiragana Iteration Mark(0x309D)Combining Katakana-Hiragana Voiced Sound Mark(0x3099)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30fe"_s,
-			u"\u30fd\u3099"_s,
+			u"ヾ"_s,
+			u"ヾ"_s,
 			"Katakana Voiced Iteration Mark(0x30FE) <---> Katakana iteration mark(0x30FD)Combining Katakana-Hiragana Voiced Sound Mark(0x3099)"_s
 		}),
 		$$new($StringArray, {
-			u"\u306f\u3099"_s,
-			u"\u3070"_s,
+			u"ば"_s,
+			u"ば"_s,
 			"Hiragana \"HA\"(0x306F)Combining Katakana-Hiragana Voiced Sound Mark(0x3099) <---> Hiragana \"BA\"(0x3070)"_s
 		}),
 		$$new($StringArray, {
-			u"\u306f\u309a"_s,
-			u"\u3071"_s,
+			u"ぱ"_s,
+			u"ぱ"_s,
 			"Hiragana \"HA\"(0x306F)Combining Katakana-Hiragana Semi-voiced Sound Mark(0x309A) <---> Hiragana \"PA\"(0x3071)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30ef\u3099"_s,
-			u"\u30f7"_s,
+			u"ヷ"_s,
+			u"ヷ"_s,
 			"Katakana \"WA\"(0x306F)Combining Katakana-Hiragana Voiced Sound Mark(0x3099) <---> Katakana \"VA\"(0x30F7)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30f0\u3099"_s,
-			u"\u30f8"_s,
+			u"ヸ"_s,
+			u"ヸ"_s,
 			"Katakana \"WI\"(0x30F0)Combining Katakana-Hiragana Voiced Sound Mark(0x3099) <---> Katakana \"VI\"(0x30F8)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30f1\u3099"_s,
-			u"\u30f9"_s,
+			u"ヹ"_s,
+			u"ヹ"_s,
 			"Katakana \"WE\"(0x30F1)Combining Katakana-Hiragana Voiced Sound Mark(0x3099) <---> Katakana \"VE\"(0x30F9)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30f2\u3099"_s,
-			u"\u30fa"_s,
+			u"ヺ"_s,
+			u"ヺ"_s,
 			"Katakana \"WO\"(0x30F2)Combining Katakana-Hiragana Voiced Sound Mark(0x3099) <---> Katakana \"VO\"(0x30FA)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3046\u3099"_s,
-			u"\u3094"_s,
+			u"ゔ"_s,
+			u"ゔ"_s,
 			"Hiragana \"U\"(0x3046)Combining Katakana-Hiragana Voiced Sound Mark(0x3099) <---> Hiragana \"VU\"(0x3094)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30a6\u3099"_s,
-			u"\u30f4"_s,
+			u"ヴ"_s,
+			u"ヴ"_s,
 			"Katakana \"U\"(0x30A6)Combining Katakana-Hiragana Voiced Sound Mark(0x3099) <---> Katakana \"VU\"(0x30F4)"_s
 		}),
 		$$new($StringArray, {
-			u"\u2260"_s,
-			u"=\u0338"_s,
+			u"≠"_s,
+			u"≠"_s,
 			"Not Equal To(0x2260) <---> Equal(0x003D)Combining Long Solidus Overlay(0x0338)"_s
 		}),
 		$$new($StringArray, {
-			u"\u2262"_s,
-			u"\u2261\u0338"_s,
+			u"≢"_s,
+			u"≢"_s,
 			"Not Identical To(0x2262) <---> Identical To(0x2261)Combining Long Solidus Overlay(0x0338)"_s
 		}),
 		$$new($StringArray, {
-			u"\u226e"_s,
-			u"<\u0338"_s,
+			u"≮"_s,
+			u"≮"_s,
 			"Not Less-than(0x226E) <---> Less-than Sign(0x003C)Combining Long Solidus Overlay(0x0338)"_s
 		}),
 		$$new($StringArray, {
-			u"\u798f"_s,
-			u"\ufa1b"_s,
+			u"福"_s,
+			u"福"_s,
 			"CJK Unified Ideograph \"FUKU\"(0x798F) <---> CJK Compatibility Ideograph \"FUKU\"(0xFA1B)"_s
 		})
 	}));
@@ -446,8 +446,8 @@ void clinit$JapaneseTest($Class* class$) {
 		})
 	}));
 	$assignStatic(JapaneseTest::compData5, $new($StringArray2, {$$new($StringArray, {
-		u"\u226d"_s,
-		u"\u224d\u0338"_s,
+		u"≭"_s,
+		u"≭"_s,
 		"Not Equivalent To(0x226D) <---> Equivalent To(0x224D)Combining Long Solidus Overlay(0x0338)"_s
 	})}));
 	$assignStatic(JapaneseTest::results6, $new($intArray2, {
@@ -469,35 +469,35 @@ void clinit$JapaneseTest($Class* class$) {
 	}));
 	$assignStatic(JapaneseTest::compData6, $new($StringArray2, {
 		$$new($StringArray, {
-			u"\u226d"_s,
-			u"\u226c"_s,
+			u"≭"_s,
+			u"≬"_s,
 			"Not Equivalent To(0x226D) <---> Between(0x226C)"_s
 		}),
 		$$new($StringArray, {
-			u"\u226d"_s,
-			u"\u225f"_s,
+			u"≭"_s,
+			u"≟"_s,
 			"Not Equivalent To(0x226D) <---> Questioned Equal To(0x225F)"_s
 		})
 	}));
 	$assignStatic(JapaneseTest::compData0, $new($StringArray2, {
 		$$new($StringArray, {
-			u"\u307f\u307f"_s,
-			u"\u307f\u309d"_s,
+			u"みみ"_s,
+			u"みゝ"_s,
 			"Hiragana \"MIMI\"(0x307F 0x307F) <---> Hiragana \"MI\"(0x307F)Hiragana Iteration Mark(0x309D)"_s
 		}),
 		$$new($StringArray, {
-			u"\u3044\u3059\u305a"_s,
-			u"\u3044\u3059\u309e"_s,
+			u"いすず"_s,
+			u"いすゞ"_s,
 			"Hiragana \"ISUZU\"(0x3044 0x3059 0x305A) <---> Hiragana \"ISU\"(0x3044 0x3059)Hiragana Voiced Iteration Mark(0x309E)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30df\u30df"_s,
-			u"\u30df\u30fd"_s,
+			u"ミミ"_s,
+			u"ミヽ"_s,
 			"Katakana \"MIMI\"(0x30DF 0x30DF) <---> Katakana \"MI\"(0x30DF)Katakana Iteration Mark(0x30FD)"_s
 		}),
 		$$new($StringArray, {
-			u"\u30a4\u30b9\u30ba"_s,
-			u"\u30a4\u30b9\u30fe"_s,
+			u"イスズ"_s,
+			u"イスヾ"_s,
 			"Katakana \"ISUZU\"(0x30A4 0x30B9 0x30BA) <---> Katakana \"ISU\"(0x30A4 0x30B9)Katakana Voiced Iteration Mark(0x30FE)"_s
 		})
 	}));

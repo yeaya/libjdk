@@ -505,7 +505,7 @@ void Ktab::deleteEntry() {
 			$var($BufferedReader, cis, $new($BufferedReader, $$new($InputStreamReader, $System::in)));
 			$var($String, var$1, $$str({"Are you sure you want to delete service key(s) for "_s, $(pname->toString()), " ("_s, (this->etype == -1 ? "all etypes"_s : ($$str({"etype="_s, $$str(this->etype)}))), ", "_s, (this->vDel == -1 ? "all kvno"_s : (this->vDel == -2 ? "old kvno"_s : ($$str({"kvno="_s, $$str(this->vDel)})))), ") in "_s}));
 			$var($String, var$0, $$concat(var$1, $($nc(this->table)->tabName())));
-			$nc($System::out)->print($$concat(var$0, "? (Y/[N]): "));
+			$nc($System::out)->print($$concat(var$0, "? (Y/[N]): "_s));
 			$nc($System::out)->flush();
 			$assign(answer, cis->readLine());
 			bool var$2 = $nc(answer)->equalsIgnoreCase("Y"_s);

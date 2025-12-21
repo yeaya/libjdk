@@ -286,7 +286,7 @@ void OpenMBeanAttributeInfoSupport::check($OpenMBeanParameterInfo* info) {
 		if (!$nc(openType)->isValue($(info->getDefaultValue()))) {
 			$var($String, var$3, $$str({"Argument defaultValue\'s class [\""_s, $($nc($of($(info->getDefaultValue())))->getClass()->getName()), "\"] does not match the one defined in openType[\""_s}));
 			$var($String, var$2, $$concat(var$3, $(openType->getClassName())));
-			$var($String, msg, $concat(var$2, "\"]"));
+			$var($String, msg, $concat(var$2, "\"]"_s));
 			$throwNew($OpenDataException, msg);
 		}
 	}
@@ -302,14 +302,14 @@ void OpenMBeanAttributeInfoSupport::check($OpenMBeanParameterInfo* info) {
 	if (var$6 && !$nc(openType)->isValue($(info->getMinValue()))) {
 		$var($String, var$8, $$str({"Type of minValue ["_s, $($nc($of($(info->getMinValue())))->getClass()->getName()), "] does not match OpenType ["_s}));
 		$var($String, var$7, $$concat(var$8, $(openType->getClassName())));
-		$var($String, msg, $concat(var$7, "]"));
+		$var($String, msg, $concat(var$7, "]"_s));
 		$throwNew($OpenDataException, msg);
 	}
 	bool var$9 = info->hasMaxValue();
 	if (var$9 && !$nc(openType)->isValue($(info->getMaxValue()))) {
 		$var($String, var$11, $$str({"Type of maxValue ["_s, $($nc($of($(info->getMaxValue())))->getClass()->getName()), "] does not match OpenType ["_s}));
 		$var($String, var$10, $$concat(var$11, $(openType->getClassName())));
-		$var($String, msg, $concat(var$10, "]"));
+		$var($String, msg, $concat(var$10, "]"_s));
 		$throwNew($OpenDataException, msg);
 	}
 	if (info->hasDefaultValue()) {
@@ -341,7 +341,7 @@ void OpenMBeanAttributeInfoSupport::check($OpenMBeanParameterInfo* info) {
 					if (!$nc(openType)->isValue(v)) {
 						$var($String, var$14, $$str({"Element of legalValues ["_s, v, "] is not a valid value for the specified openType ["_s}));
 						$var($String, var$13, $$concat(var$14, $(openType->toString())));
-						$var($String, msg, $concat(var$13, "]"));
+						$var($String, msg, $concat(var$13, "]"_s));
 						$throwNew($OpenDataException, msg);
 					}
 				}
@@ -500,7 +500,7 @@ $Object* OpenMBeanAttributeInfoSupport::convertFromStrings(Object$* x, $OpenType
 	}
 	$var($String, var$2, $$str({"Cannot convert value "_s, x, " of type "_s}));
 	$var($String, var$1, $$concat(var$2, $($nc($of(x))->getClass()->getName())));
-	$var($String, var$0, $$concat(var$1, " to type "));
+	$var($String, var$0, $$concat(var$1, " to type "_s));
 	$var($String, msg, $concat(var$0, $($nc(openType)->getTypeName())));
 	$throwNew($IllegalArgumentException, msg);
 }
@@ -754,18 +754,18 @@ $String* OpenMBeanAttributeInfoSupport::toString($OpenMBeanParameterInfo* info) 
 	$var($Descriptor, d, ($instanceOf($DescriptorRead, info)) ? $nc(($cast($DescriptorRead, info)))->getDescriptor() : ($Descriptor*)nullptr);
 	$var($String, var$12, $$str({$($nc($of(info))->getClass()->getName()), "(name="_s}));
 	$var($String, var$11, $$concat(var$12, $(info->getName())));
-	$var($String, var$10, $$concat(var$11, ",openType="));
+	$var($String, var$10, $$concat(var$11, ",openType="_s));
 	$var($String, var$9, $$concat(var$10, $(info->getOpenType())));
-	$var($String, var$8, $$concat(var$9, ",default="));
+	$var($String, var$8, $$concat(var$9, ",default="_s));
 	$var($String, var$7, $$concat(var$8, $(info->getDefaultValue())));
-	$var($String, var$6, $$concat(var$7, ",minValue="));
+	$var($String, var$6, $$concat(var$7, ",minValue="_s));
 	$var($String, var$5, $$concat(var$6, $(info->getMinValue())));
-	$var($String, var$4, $$concat(var$5, ",maxValue="));
+	$var($String, var$4, $$concat(var$5, ",maxValue="_s));
 	$var($String, var$3, $$concat(var$4, $(info->getMaxValue())));
-	$var($String, var$2, $$concat(var$3, ",legalValues="));
+	$var($String, var$2, $$concat(var$3, ",legalValues="_s));
 	$var($String, var$1, $$concat(var$2, $(info->getLegalValues())));
 	$var($String, var$0, $$concat(var$1, ((d == nullptr) ? ""_s : $$str({",descriptor="_s, d}))));
-	return $concat(var$0, ")");
+	return $concat(var$0, ")"_s);
 }
 
 OpenMBeanAttributeInfoSupport::OpenMBeanAttributeInfoSupport() {

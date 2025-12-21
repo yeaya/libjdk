@@ -113,9 +113,9 @@ void Http1Request$FixedContentSubscriber::onNext($ByteBuffer* item) {
 			cancelSubscription();
 			$var($String, var$4, $$str({$($nc(this->this$0->connection)->getConnectionFlow()), " ["_s}));
 			$var($String, var$3, $$concat(var$4, $($($Thread::currentThread())->getName())));
-			$var($String, var$2, $$concat(var$3, "] Too many bytes in request body. Expected: "));
+			$var($String, var$2, $$concat(var$3, "] Too many bytes in request body. Expected: "_s));
 			$var($String, var$1, $$concat(var$2, $$str(this->this$0->contentLength)));
-			$var($String, var$0, $$concat(var$1, ", got: "));
+			$var($String, var$0, $$concat(var$1, ", got: "_s));
 			$var($String, msg, $concat(var$0, $$str(written)));
 			$nc(this->this$0->http1Exchange)->appendToOutgoing(static_cast<$Throwable*>($$new($IOException, msg)));
 		} else {
@@ -158,11 +158,11 @@ void Http1Request$FixedContentSubscriber::onComplete() {
 			cancelSubscription();
 			$var($String, var$5, $$str({$($nc(this->this$0->connection)->getConnectionFlow()), " ["_s}));
 			$var($String, var$4, $$concat(var$5, $($($Thread::currentThread())->getName())));
-			$var($String, var$3, $$concat(var$4, "] Too few bytes returned by the publisher ("));
+			$var($String, var$3, $$concat(var$4, "] Too few bytes returned by the publisher ("_s));
 			$var($String, var$2, $$concat(var$3, $$str(written)));
-			$var($String, var$1, $$concat(var$2, "/"));
+			$var($String, var$1, $$concat(var$2, "/"_s));
 			$var($String, var$0, $$concat(var$1, $$str(this->this$0->contentLength)));
-			$var($Throwable, t, $new($IOException, $$concat(var$0, ")")));
+			$var($Throwable, t, $new($IOException, $$concat(var$0, ")"_s)));
 			$nc(this->this$0->http1Exchange)->appendToOutgoing(t);
 		} else {
 			$init($Http1Exchange$Http1BodySubscriber);

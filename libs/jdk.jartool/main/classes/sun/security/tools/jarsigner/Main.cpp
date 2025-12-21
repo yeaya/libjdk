@@ -2200,9 +2200,9 @@ void Main::signJar($String* jarName, $String* alias) {
 				if ($instanceOf($SocketTimeoutException, failedCause) || $instanceOf($UnknownHostException, failedCause)) {
 					$var($String, var$5, $($nc(Main::rb)->getString("unable.to.sign.jar."_s)));
 					$var($String, var$4, $$concat(var$5, $($nc(Main::rb)->getString("no.response.from.the.Timestamping.Authority."_s))));
-					$var($String, var$3, $$concat(var$4, "\n  -J-Dhttp.proxyHost=<hostname>\n  -J-Dhttp.proxyPort=<portnumber>\n"));
+					$var($String, var$3, $$concat(var$4, "\n  -J-Dhttp.proxyHost=<hostname>\n  -J-Dhttp.proxyPort=<portnumber>\n"_s));
 					$var($String, var$2, $$concat(var$3, $($nc(Main::rb)->getString("or"_s))));
-					$assign(failedMessage, $concat(var$2, "\n  -J-Dhttps.proxyHost=<hostname> \n  -J-Dhttps.proxyPort=<portnumber> "));
+					$assign(failedMessage, $concat(var$2, "\n  -J-Dhttps.proxyHost=<hostname> \n  -J-Dhttps.proxyPort=<portnumber> "_s));
 				} else {
 					if (failedCause == nullptr) {
 						$assign(failedCause, e);

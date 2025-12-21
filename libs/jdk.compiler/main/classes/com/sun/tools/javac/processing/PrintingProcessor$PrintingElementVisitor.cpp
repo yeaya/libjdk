@@ -1070,7 +1070,7 @@ $String* PrintingProcessor$PrintingElementVisitor::lambda$visitType$0($RecordCom
 	$useLocalCurrentObjectStackCache();
 	$var($String, var$2, $(annotationsToString(recordDes)));
 	$var($String, var$1, $$concat(var$2, $($nc($($nc(recordDes)->asType()))->toString())));
-	$var($String, var$0, $$concat(var$1, " "));
+	$var($String, var$0, $$concat(var$1, " "_s));
 	return $concat(var$0, $(recordDes->getSimpleName()));
 }
 

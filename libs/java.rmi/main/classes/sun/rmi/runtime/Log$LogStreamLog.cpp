@@ -89,7 +89,7 @@ void Log$LogStreamLog::log($Level* messageLevel, $String* message) {
 		$var($StackWalker$StackFrame, sourceFrame, $Log::getSource());
 		$var($String, var$2, $$str({$(unqualifiedName($($nc(sourceFrame)->getClassName()))), "."_s}));
 		$var($String, var$1, $$concat(var$2, $($nc(sourceFrame)->getMethodName())));
-		$var($String, var$0, $$concat(var$1, ": "));
+		$var($String, var$0, $$concat(var$1, ": "_s));
 		$nc(this->stream)->println($$concat(var$0, message));
 	}
 }
@@ -101,7 +101,7 @@ void Log$LogStreamLog::log($Level* level, $String* message, $Throwable* thrown) 
 			$var($StackWalker$StackFrame, sourceFrame, $Log::getSource());
 			$var($String, var$2, $$str({$(unqualifiedName($($nc(sourceFrame)->getClassName()))), "."_s}));
 			$var($String, var$1, $$concat(var$2, $($nc(sourceFrame)->getMethodName())));
-			$var($String, var$0, $$concat(var$1, ": "));
+			$var($String, var$0, $$concat(var$1, ": "_s));
 			$nc(this->stream)->println($$concat(var$0, message));
 			$nc(thrown)->printStackTrace(static_cast<$PrintStream*>(this->stream));
 		}

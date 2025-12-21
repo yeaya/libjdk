@@ -852,7 +852,7 @@ void HttpClientImpl::debugCompleted($String* tag, int64_t startNanos, $HttpReque
 	if ($nc(this->debugelapsed)->on()) {
 		$var($String, var$2, $$str({tag, " elapsed "_s, $$str($div(($System::nanoTime() - startNanos), (int64_t)1000000)), " millis for "_s}));
 		$var($String, var$1, $$concat(var$2, $($nc(req)->method())));
-		$var($String, var$0, $$concat(var$1, " to "));
+		$var($String, var$0, $$concat(var$1, " to "_s));
 		$nc(this->debugelapsed)->log($$concat(var$0, $(req->uri())));
 	}
 }

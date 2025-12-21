@@ -904,7 +904,7 @@ $TypeAnnotationPosition* TypeAnnotations$TypeAnnotationPositions::resolveFrame($
 			{
 				$var($String, var$5, $$str({"Unresolved frame: "_s, frame, " of kind: "_s}));
 				$var($String, var$4, $$concat(var$5, $(frame->getKind())));
-				$var($String, var$3, $$concat(var$4, "\n    Looking for tree: "));
+				$var($String, var$3, $$concat(var$4, "\n    Looking for tree: "_s));
 				$throwNew($AssertionError, $of(($$concat(var$3, $(tree)))));
 			}
 		}

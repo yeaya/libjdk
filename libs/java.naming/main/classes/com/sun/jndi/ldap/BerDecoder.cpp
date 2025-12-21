@@ -224,7 +224,7 @@ $bytes* BerDecoder::parseOctetString(int32_t tag, $ints* rlen) {
 	if ((st = parseByte()) != tag) {
 		$var($String, var$1, $$str({"Encountered ASN.1 tag "_s, $($Integer::toString(st)), " (expected tag "_s}));
 		$var($String, var$0, $$concat(var$1, $($Integer::toString(tag))));
-		$throwNew($Ber$DecodeException, $$concat(var$0, ")"));
+		$throwNew($Ber$DecodeException, $$concat(var$0, ")"_s));
 	}
 	int32_t len = parseLength();
 	if (len > this->bufsize - this->offset) {

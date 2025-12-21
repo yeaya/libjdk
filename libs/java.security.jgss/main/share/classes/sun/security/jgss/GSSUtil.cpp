@@ -320,9 +320,9 @@ $Vector* GSSUtil::searchSubject($GSSNameSpi* name, $Oid* mech, bool initiate, $C
 	$beforeCallerSensitive();
 	$var($String, var$3, $$str({"Search Subject for "_s, $(getMechStr(mech)), (initiate ? " INIT"_s : " ACCEPT"_s), " cred ("_s}));
 	$var($String, var$2, $$concat(var$3, (name == nullptr ? "<<DEF>>"_s : $($nc(name)->toString()))));
-	$var($String, var$1, $$concat(var$2, ", "));
+	$var($String, var$1, $$concat(var$2, ", "_s));
 	$var($String, var$0, $$concat(var$1, $($nc(credCls)->getName())));
-	debug($$concat(var$0, ")"));
+	debug($$concat(var$0, ")"_s));
 	$var($AccessControlContext, acc, $AccessController::getContext());
 	try {
 		$var($Vector, creds, $cast($Vector, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($GSSUtil$1, acc, mech, initiate, credCls, name)))));

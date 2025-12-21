@@ -394,9 +394,9 @@ void Attr$TypeAnnotationsValidator::validateAnnotatedType($JCTree* errtree, $Typ
 									} else {
 										$var($String, var$12, $$str({"Unexpected tree: "_s, enclTr, " with kind: "_s}));
 										$var($String, var$11, $$concat(var$12, $(enclTr->getKind())));
-										$var($String, var$10, $$concat(var$11, " within: "));
+										$var($String, var$10, $$concat(var$11, " within: "_s));
 										$var($String, var$9, $$concat(var$10, $(errtree)));
-										$var($String, var$8, $$concat(var$9, " with kind: "));
+										$var($String, var$8, $$concat(var$9, " with kind: "_s));
 										$Assert::error($$concat(var$8, $($nc(errtree)->getKind())));
 									}
 								}

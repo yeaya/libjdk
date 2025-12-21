@@ -175,7 +175,7 @@ $Object* DefaultMXBeanMappingFactory$CollectionMapping::fromNonNullOpenValue(Obj
 				if (!$nc(valueCollection)->add(value)) {
 					$var($String, var$1, $$str({"Could not add "_s, o, " to "_s}));
 					$var($String, var$0, $$concat(var$1, $($nc(this->collectionClass)->getName())));
-					$var($String, msg, $concat(var$0, " (duplicate set element?)"));
+					$var($String, msg, $concat(var$0, " (duplicate set element?)"_s));
 					$throwNew($InvalidObjectException, msg);
 				}
 			}

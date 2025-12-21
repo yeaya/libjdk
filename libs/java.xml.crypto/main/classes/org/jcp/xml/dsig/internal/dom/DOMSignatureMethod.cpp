@@ -503,7 +503,7 @@ void DOMSignatureMethod::checkKeySize($XMLCryptoContext* context, $Key* key) {
 		if ($Policy::restrictKey($($nc(key)->getAlgorithm()), size)) {
 			$var($String, var$1, $$str({$($nc(key)->getAlgorithm()), " keys less than "_s}));
 			$var($String, var$0, $$concat(var$1, $$str($Policy::minKeySize($(key->getAlgorithm())))));
-			$throwNew($XMLSignatureException, $$concat(var$0, " bits are forbidden when secure validation is enabled"));
+			$throwNew($XMLSignatureException, $$concat(var$0, " bits are forbidden when secure validation is enabled"_s));
 		}
 	}
 }

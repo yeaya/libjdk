@@ -45,7 +45,7 @@ $ObjectArray2* logging_pt_BR::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("CONFIG"_s),
-			$of(u"Configura\u00e7\u00e3o"_s)
+			$of(u"Configuração"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINE"_s),
@@ -61,7 +61,7 @@ $ObjectArray2* logging_pt_BR::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("INFO"_s),
-			$of(u"Informa\u00e7\u00f5es"_s)
+			$of(u"Informações"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("OFF"_s),
@@ -73,7 +73,7 @@ $ObjectArray2* logging_pt_BR::getContents() {
 		}),
 		$$new($ObjectArray, {
 			$of("WARNING"_s),
-			$of(u"Advert\u00eancia"_s)
+			$of(u"Advertência"_s)
 		})
 	});
 }

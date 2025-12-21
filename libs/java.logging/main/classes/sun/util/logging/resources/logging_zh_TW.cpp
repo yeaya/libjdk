@@ -41,39 +41,39 @@ $ObjectArray2* logging_zh_TW::getContents() {
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
 			$of("ALL"_s),
-			$of(u"\u6240\u6709"_s)
+			$of(u"所有"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("CONFIG"_s),
-			$of(u"\u7d44\u614b"_s)
+			$of(u"組態"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINE"_s),
-			$of(u"\u8a73\u7d30"_s)
+			$of(u"詳細"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINER"_s),
-			$of(u"\u8f03\u8a73\u7d30"_s)
+			$of(u"較詳細"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("FINEST"_s),
-			$of(u"\u6700\u8a73\u7d30"_s)
+			$of(u"最詳細"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("INFO"_s),
-			$of(u"\u8cc7\u8a0a"_s)
+			$of(u"資訊"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("OFF"_s),
-			$of(u"\u95dc\u9589"_s)
+			$of(u"關閉"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("SEVERE"_s),
-			$of(u"\u56b4\u91cd"_s)
+			$of(u"嚴重"_s)
 		}),
 		$$new($ObjectArray, {
 			$of("WARNING"_s),
-			$of(u"\u8b66\u544a"_s)
+			$of(u"警告"_s)
 		})
 	});
 }

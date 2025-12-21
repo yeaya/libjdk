@@ -195,7 +195,7 @@ $List* FramesEncoder::encodeFrame($Http2Frame* frame) {
 		{
 			$var($String, var$2, $$str({"Not supported frame "_s, $$str(frame->type()), " ("_s}));
 			$var($String, var$1, $$concat(var$2, $($of(frame)->getClass()->getName())));
-			$throwNew($UnsupportedOperationException, $$concat(var$1, ")"));
+			$throwNew($UnsupportedOperationException, $$concat(var$1, ")"_s));
 		}
 	}
 	return var$0;
