@@ -139,14 +139,14 @@ void HandshakeFailureTest$SSLServer::run() {
 			if (!this->closed) {
 				$nc($System::out)->println($$str({"SSLServer: unexpected "_s, e}));
 				e->printStackTrace($System::out);
-				$throwNew($RuntimeException, e);
+				$throwNew($RuntimeException, $cast($Throwable, e));
 			}
 			break;
 		} catch ($RuntimeException& e) {
 			if (!this->closed) {
 				$nc($System::out)->println($$str({"SSLServer: unexpected "_s, e}));
 				e->printStackTrace($System::out);
-				$throwNew($RuntimeException, e);
+				$throwNew($RuntimeException, $cast($Throwable, e));
 			}
 			break;
 		}

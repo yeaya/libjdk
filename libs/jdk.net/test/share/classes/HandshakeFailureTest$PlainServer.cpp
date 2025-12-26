@@ -127,14 +127,14 @@ void HandshakeFailureTest$PlainServer::run() {
 			if (!this->closed) {
 				$nc($System::out)->println($$str({"PlainServer: unexpected "_s, e}));
 				e->printStackTrace($System::out);
-				$throwNew($RuntimeException, e);
+				$throwNew($RuntimeException, $cast($Throwable, e));
 			}
 			break;
 		} catch ($RuntimeException& e) {
 			if (!this->closed) {
 				$nc($System::out)->println($$str({"PlainServer: unexpected "_s, e}));
 				e->printStackTrace($System::out);
-				$throwNew($RuntimeException, e);
+				$throwNew($RuntimeException, $cast($Throwable, e));
 			}
 			break;
 		}

@@ -22,7 +22,6 @@
 #include <jdk/nio/Channels$ReadWriteChannelImpl.h>
 #include <jdk/nio/Channels$SelectableChannelCloser.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _jdk$net_classes_[] = {
 	$classEntry("jdk.net.ExtendedSocketOptions", ::jdk::net::ExtendedSocketOptions),
