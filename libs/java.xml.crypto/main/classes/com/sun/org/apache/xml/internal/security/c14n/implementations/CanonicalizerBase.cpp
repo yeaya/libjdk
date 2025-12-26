@@ -230,9 +230,9 @@ void CanonicalizerBase::engineCanonicalize($XMLSignatureInput* input, $OutputStr
 			}
 		}
 	} catch ($XMLParserException& ex) {
-		$throwNew($CanonicalizationException, ex);
+		$throwNew($CanonicalizationException, $cast($Exception, ex));
 	} catch ($IOException& ex) {
-		$throwNew($CanonicalizationException, ex);
+		$throwNew($CanonicalizationException, $cast($Exception, ex));
 	}
 }
 

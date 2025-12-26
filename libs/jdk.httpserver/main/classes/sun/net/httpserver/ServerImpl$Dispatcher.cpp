@@ -297,7 +297,7 @@ void ServerImpl$Dispatcher::handle($SocketChannel* chan, $HttpConnection* conn) 
 		this->this$0->closeConnection(conn);
 	} catch ($Throwable& e) {
 		$init($System$Logger$Level);
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (6)"_s, e);
+		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "Dispatcher (6)"_s, $cast($Throwable, e));
 		this->this$0->closeConnection(conn);
 	}
 }

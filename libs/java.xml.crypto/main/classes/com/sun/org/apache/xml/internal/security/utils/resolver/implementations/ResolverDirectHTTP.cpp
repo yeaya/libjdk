@@ -216,11 +216,11 @@ $XMLSignatureInput* ResolverDirectHTTP::engineResolveURI($ResourceResolverContex
 			}
 		}
 	} catch ($URISyntaxException& ex) {
-		$throwNew($ResourceResolverException, ex, $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
+		$throwNew($ResourceResolverException, $cast($Exception, ex), $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
 	} catch ($IOException& ex) {
-		$throwNew($ResourceResolverException, ex, $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
+		$throwNew($ResourceResolverException, $cast($Exception, ex), $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
 	} catch ($IllegalArgumentException& ex) {
-		$throwNew($ResourceResolverException, ex, $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
+		$throwNew($ResourceResolverException, $cast($Exception, ex), $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
 	}
 	$shouldNotReachHere();
 }

@@ -20,7 +20,6 @@
 #include <sun/reflect/ReflectionFactory.h>
 #include <sun/reflect/ReflectionFactory$1.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _jdk$unsupported_classes_[] = {
 	$classEntry("com.sun.nio.file.ExtendedCopyOption", ::com::sun::nio::file::ExtendedCopyOption),

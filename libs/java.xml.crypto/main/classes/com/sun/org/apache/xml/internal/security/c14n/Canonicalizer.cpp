@@ -125,7 +125,7 @@ void Canonicalizer::init$($String* algorithmURI) {
 		$set(this, canonicalizerSpi, $cast($CanonicalizerSpi, $JavaUtils::newInstanceWithEmptyConstructor(implementingClass)));
 	} catch ($Exception& e) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
-		$throwNew($InvalidCanonicalizerException, e, "signature.Canonicalizer.UnknownCanonicalizer"_s, exArgs);
+		$throwNew($InvalidCanonicalizerException, $cast($Exception, e), "signature.Canonicalizer.UnknownCanonicalizer"_s, exArgs);
 	}
 }
 

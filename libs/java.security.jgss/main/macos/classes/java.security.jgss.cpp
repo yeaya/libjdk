@@ -3,7 +3,6 @@
 #include <java.base.h>
 #include <java.logging.h>
 #include <java.naming.h>
-#include <java.security.sasl.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
@@ -275,7 +274,6 @@
 #include <sun/security/krb5/internal/util/KerberosString.h>
 #include <sun/security/krb5/internal/util/KrbDataInputStream.h>
 #include <sun/security/krb5/internal/util/KrbDataOutputStream.h>
-
 
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$security$jgss_classes_[] = {
@@ -628,7 +626,6 @@ void java$security$jgss::init() {
 	::java$base::init();
 	::java$logging::init();
 	::java$naming::init();
-	::java$security$sasl::init();
 	::java::lang::Library lib = {
 		"java.security.jgss", "17.35", "",
 		&_java$security$jgss_ModuleInfo_,

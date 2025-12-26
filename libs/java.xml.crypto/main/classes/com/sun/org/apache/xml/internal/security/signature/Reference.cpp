@@ -460,9 +460,9 @@ $XMLSignatureInput* Reference::getNodesetBeforeFirstCanonicalization() {
 		}
 		return output;
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }
@@ -555,9 +555,9 @@ $bytes* Reference::getReferencedBytes() {
 		$var($XMLSignatureInput, output, this->dereferenceURIandPerformTransforms(nullptr));
 		return $nc(output)->getBytes();
 	} catch ($IOException& ex) {
-		$throwNew($ReferenceNotInitializedException, ex);
+		$throwNew($ReferenceNotInitializedException, $cast($Exception, ex));
 	} catch ($CanonicalizationException& ex) {
-		$throwNew($ReferenceNotInitializedException, ex);
+		$throwNew($ReferenceNotInitializedException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }
@@ -656,9 +656,9 @@ $bytes* Reference::calculateDigest(bool validating) {
 					}
 				}
 			} catch ($XMLSecurityException& ex) {
-				$throwNew($ReferenceNotInitializedException, ex);
+				$throwNew($ReferenceNotInitializedException, $cast($Exception, ex));
 			} catch ($IOException& ex) {
-				$throwNew($ReferenceNotInitializedException, ex);
+				$throwNew($ReferenceNotInitializedException, $cast($Exception, ex));
 			}
 		} catch ($Throwable& var$12) {
 			$assign(var$0, var$12);

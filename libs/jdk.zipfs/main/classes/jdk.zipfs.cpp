@@ -44,7 +44,6 @@
 #include <jdk/nio/zipfs/ZipUtils.h>
 #include <jdk/nio/zipfs/ZipUtils$1.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _jdk$zipfs_classes_[] = {
 	$classEntry("jdk.nio.zipfs.ByteArrayChannel", ::jdk::nio::zipfs::ByteArrayChannel),

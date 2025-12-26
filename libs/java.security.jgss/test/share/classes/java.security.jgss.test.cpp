@@ -4,7 +4,6 @@
 #include <java.base.h>
 #include <java.logging.h>
 #include <java.naming.h>
-#include <java.security.sasl.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
@@ -40,7 +39,6 @@ void java$security$jgss$test::init() {
 	::java$base::init();
 	::java$logging::init();
 	::java$naming::init();
-	::java$security$sasl::init();
 	::java::lang::Library lib = {
 		"java.security.jgss.test", "17.35", "",
 		nullptr,

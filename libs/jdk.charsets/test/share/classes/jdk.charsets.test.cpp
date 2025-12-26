@@ -18,7 +18,6 @@
 #include <TestWrite.h>
 #include <bug4117335.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _jdk$charsets$test_classes_[] = {
 	$classEntry("CharsetContainmentTest", ::CharsetContainmentTest),

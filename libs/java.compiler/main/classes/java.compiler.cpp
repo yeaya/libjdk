@@ -155,7 +155,6 @@
 #include <javax/tools/Tool.h>
 #include <javax/tools/ToolProvider.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$compiler_classes_[] = {
 	$classEntry("javax.annotation.processing.AbstractProcessor", ::javax::annotation::processing::AbstractProcessor),

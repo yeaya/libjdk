@@ -316,7 +316,7 @@ void ServerImpl$Exchange::run() {
 		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (4)"_s, static_cast<$Throwable*>(e4));
 		this->this$0->closeConnection(this->connection);
 	} catch ($Throwable& t) {
-		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (5)"_s, t);
+		$nc(this->this$0->logger)->log($System$Logger$Level::TRACE, "ServerImpl.Exchange (5)"_s, $cast($Throwable, t));
 		$throw(t);
 	}
 }

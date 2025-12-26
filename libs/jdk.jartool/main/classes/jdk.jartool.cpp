@@ -77,7 +77,6 @@
 #include <sun/tools/jar/resources/jar_zh_HK.h>
 #include <sun/tools/jar/resources/jar_zh_TW.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _jdk$jartool_classes_[] = {
 	$classEntry("com.sun.jarsigner.ContentSigner", ::com::sun::jarsigner::ContentSigner),

@@ -163,9 +163,9 @@ $X509Certificate* XMLX509Certificate::getX509Certificate() {
 			}
 		}
 	} catch ($CertificateException& ex) {
-		$throwNew($XMLSecurityException, ex);
+		$throwNew($XMLSecurityException, $cast($Exception, ex));
 	} catch ($IOException& ex) {
-		$throwNew($XMLSecurityException, ex);
+		$throwNew($XMLSecurityException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }

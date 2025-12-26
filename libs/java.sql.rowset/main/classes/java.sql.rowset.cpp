@@ -3,10 +3,8 @@
 #include <java.logging.h>
 #include <java.naming.h>
 #include <java.sql.h>
-#include <java.base.h>
-#include <java.security.sasl.h>
-#include <java.transaction.xa.h>
 #include <java.xml.h>
+#include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
@@ -72,7 +70,6 @@
 #include <javax/sql/rowset/spi/TransactionalWriter.h>
 #include <javax/sql/rowset/spi/XmlReader.h>
 #include <javax/sql/rowset/spi/XmlWriter.h>
-
 
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$sql$rowset_classes_[] = {
@@ -208,10 +205,8 @@ void java$sql$rowset::init() {
 	::java$logging::init();
 	::java$naming::init();
 	::java$sql::init();
-	::java$base::init();
-	::java$security$sasl::init();
-	::java$transaction$xa::init();
 	::java$xml::init();
+	::java$base::init();
 	::java::lang::Library lib = {
 		"java.sql.rowset", "17.35", "",
 		&_java$sql$rowset_ModuleInfo_,

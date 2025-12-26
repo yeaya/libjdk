@@ -79,7 +79,6 @@
 #include <sun/net/httpserver/UnmodifiableHeaders.h>
 #include <sun/net/httpserver/WriteFinishedEvent.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _jdk$httpserver_classes_[] = {
 	$classEntry("com.sun.net.httpserver.Authenticator", ::com::sun::net::httpserver::Authenticator),

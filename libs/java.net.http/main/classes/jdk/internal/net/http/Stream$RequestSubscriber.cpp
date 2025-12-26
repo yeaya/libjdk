@@ -356,7 +356,7 @@ void Stream$RequestSubscriber::trySend() {
 		$nc(this->subscription)->request(1);
 	} catch ($Throwable& ex) {
 		if ($nc(this->this$0->debug)->on()) {
-			$nc(this->this$0->debug)->log("trySend: "_s, ex);
+			$nc(this->this$0->debug)->log("trySend: "_s, $cast($Throwable, ex));
 		}
 		$nc(this->sendScheduler)->stop();
 		$nc(this->subscription)->cancel();

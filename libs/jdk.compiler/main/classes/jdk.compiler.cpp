@@ -1659,7 +1659,6 @@
 #include <sun/tools/serialver/resources/serialver_ja.h>
 #include <sun/tools/serialver/resources/serialver_zh_CN.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _jdk$compiler_classes_[] = {
 	$classEntry("com.sun.source.doctree.AttributeTree", ::com::sun::source::doctree::AttributeTree),

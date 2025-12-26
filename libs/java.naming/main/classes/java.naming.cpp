@@ -2,7 +2,6 @@
 
 #include <java.base.h>
 #include <java.security.sasl.h>
-#include <java.logging.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
@@ -252,7 +251,6 @@
 #include <sun/security/provider/certpath/ldap/LDAPCertStore$Key.h>
 #include <sun/security/provider/certpath/ldap/LDAPCertStoreImpl.h>
 #include <sun/security/provider/certpath/ldap/LDAPCertStoreImpl$LDAPRequest.h>
-
 
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$naming_classes_[] = {
@@ -582,7 +580,6 @@ $bytes* java$naming$GetResource($String* name) {
 void java$naming::init() {
 	::java$base::init();
 	::java$security$sasl::init();
-	::java$logging::init();
 	::java::lang::Library lib = {
 		"java.naming", "17.35", "",
 		&_java$naming_ModuleInfo_,

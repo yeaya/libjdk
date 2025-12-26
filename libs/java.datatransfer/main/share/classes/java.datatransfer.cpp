@@ -34,7 +34,6 @@
 #include <sun/datatransfer/DesktopDatatransferService.h>
 #include <sun/datatransfer/resources/flavormap.properties.resource.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$datatransfer_classes_[] = {
 	$classEntry("java.awt.datatransfer.Clipboard", ::java::awt::datatransfer::Clipboard),

@@ -665,7 +665,7 @@ void HttpClientImpl$SelectorManager::run() {
 					}));
 				}
 				if ($nc(this->debug)->on()) {
-					$nc(this->debug)->log("shutting down"_s, e);
+					$nc(this->debug)->log("shutting down"_s, $cast($Throwable, e));
 				}
 				$init($Utils);
 				if ($Utils::ASSERTIONSENABLED && !$nc(this->debug)->on()) {

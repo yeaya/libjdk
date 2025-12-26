@@ -390,7 +390,7 @@ bool Manifest::getVerificationResult(int32_t index) {
 		try {
 			this->verifyReferences();
 		} catch ($Exception& ex) {
-			$throwNew($XMLSecurityException, ex);
+			$throwNew($XMLSecurityException, $cast($Exception, ex));
 		}
 	}
 	return $nc(($cast($VerifiedReference, $($nc(this->verificationResults)->get(index)))))->isValid();

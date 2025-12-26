@@ -90,7 +90,7 @@ $XMLSignatureInput* ResolverLocalFilesystem::engineResolveURI($ResourceResolverC
 		result->setSourceURI($($nc(uriNew)->toString()));
 		return result;
 	} catch ($Exception& e) {
-		$throwNew($ResourceResolverException, e, $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
+		$throwNew($ResourceResolverException, $cast($Exception, e), $nc(context)->uriToResolve, context->baseUri, "generic.EmptyMessage"_s);
 	}
 	$shouldNotReachHere();
 }

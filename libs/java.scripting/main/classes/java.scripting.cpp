@@ -26,7 +26,6 @@
 #include <javax/script/SimpleBindings.h>
 #include <javax/script/SimpleScriptContext.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$scripting_classes_[] = {
 	$classEntry("com.sun.tools.script.shell.Main", ::com::sun::tools::script::shell::Main),

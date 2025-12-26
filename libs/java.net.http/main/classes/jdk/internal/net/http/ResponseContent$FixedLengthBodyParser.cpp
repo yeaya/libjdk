@@ -244,7 +244,7 @@ void ResponseContent$FixedLengthBodyParser::accept($ByteBuffer* b) {
 		}
 	} catch ($Throwable& t) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Unexpected exception"_s, t);
+			$nc(this->debug)->log("Unexpected exception"_s, $cast($Throwable, t));
 		}
 		$set(this, closedExceptionally, t);
 		if (!completed) {

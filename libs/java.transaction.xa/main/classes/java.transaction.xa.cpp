@@ -12,7 +12,6 @@
 #include <javax/transaction/xa/XAResource.h>
 #include <javax/transaction/xa/Xid.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$transaction$xa_classes_[] = {
 	$classEntry("javax.transaction.xa.XAException", ::javax::transaction::xa::XAException),

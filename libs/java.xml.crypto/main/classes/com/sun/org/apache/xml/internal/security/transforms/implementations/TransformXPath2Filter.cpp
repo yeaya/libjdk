@@ -138,13 +138,13 @@ $XMLSignatureInput* TransformXPath2Filter::enginePerformTransform($XMLSignatureI
 		input->setNodeSet(true);
 		return input;
 	} catch ($TransformerException& ex) {
-		$throwNew($TransformationException, ex);
+		$throwNew($TransformationException, $cast($Exception, ex));
 	} catch ($DOMException& ex) {
-		$throwNew($TransformationException, ex);
+		$throwNew($TransformationException, $cast($Exception, ex));
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($TransformationException, ex);
+		$throwNew($TransformationException, $cast($Exception, ex));
 	} catch ($IOException& ex) {
-		$throwNew($TransformationException, ex);
+		$throwNew($TransformationException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }

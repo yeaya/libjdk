@@ -48,7 +48,6 @@
 #include <java/util/prefs/XmlSupport$EH.h>
 #include <java/util/prefs/XmlSupport$Resolver.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$prefs_classes_[] = {
 	$classEntry("java.util.prefs.AbstractPreferences", ::java::util::prefs::AbstractPreferences),

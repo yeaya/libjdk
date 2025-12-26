@@ -11,7 +11,6 @@
 #include <jcpp.h>
 #include <Javac.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _jdk$compiler$javac_classes_[] = {
 	$classEntry("Javac", ::Javac)

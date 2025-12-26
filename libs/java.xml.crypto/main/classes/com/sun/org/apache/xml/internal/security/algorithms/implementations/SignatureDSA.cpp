@@ -180,9 +180,9 @@ bool SignatureDSA::engineVerify($bytes* signature) {
 		$var($bytes, jcebytes, $JavaUtils::convertDsaXMLDSIGtoASN1(signature, this->size / 8));
 		return $nc(this->signatureAlgorithm)->verify(jcebytes);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }
@@ -198,9 +198,9 @@ $bytes* SignatureDSA::engineSign() {
 		$var($bytes, jcebytes, $nc(this->signatureAlgorithm)->sign());
 		return $JavaUtils::convertDsaASN1toXMLDSIG(jcebytes, this->size / 8);
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }

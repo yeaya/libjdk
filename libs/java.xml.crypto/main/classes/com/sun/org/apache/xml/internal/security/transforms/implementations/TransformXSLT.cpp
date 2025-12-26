@@ -255,9 +255,9 @@ $XMLSignatureInput* TransformXSLT::enginePerformTransform($XMLSignatureInput* in
 		output->setOutputStream(baos);
 		return output;
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($TransformationException, ex);
+		$throwNew($TransformationException, $cast($Exception, ex));
 	} catch ($TransformerException& ex) {
-		$throwNew($TransformationException, ex);
+		$throwNew($TransformationException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }

@@ -493,7 +493,7 @@ void SocketTube$InternalReadPublisher$InternalReadSubscription::read() {
 				}
 			} catch ($Throwable& t) {
 				if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-					$nc($nc(this->this$1->this$0)->debug)->log("Unexpected exception in read loop"_s, t);
+					$nc($nc(this->this$1->this$0)->debug)->log("Unexpected exception in read loop"_s, $cast($Throwable, t));
 				}
 				signalError(t);
 			}

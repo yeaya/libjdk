@@ -569,9 +569,9 @@ void XMLSignature::sign($Key* signingKey) {
 	} catch ($XMLSignatureException& ex) {
 		$throw(ex);
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	}
 }
 

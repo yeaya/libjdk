@@ -20,7 +20,6 @@
 #include <java.transaction.xa.h>
 #include <java.xml.h>
 #include <java.xml.crypto.h>
-#include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
@@ -72,7 +71,6 @@ void java$se$test::init() {
 	::java$transaction$xa::init();
 	::java$xml::init();
 	::java$xml$crypto::init();
-	::java$base::init();
 	::java::lang::Library lib = {
 		"java.se.test", "17.35", "",
 		nullptr,

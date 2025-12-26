@@ -12,7 +12,6 @@
 #include <bug4117335.h>
 #include <jcpp.h>
 
-
 class TestCases : public $Object {
 public:
 	TestCases() {}

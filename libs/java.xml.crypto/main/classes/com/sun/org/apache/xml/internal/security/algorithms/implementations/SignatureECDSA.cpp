@@ -186,9 +186,9 @@ bool SignatureECDSA::engineVerify($bytes* signature) {
 		}
 		return $nc(this->signatureAlgorithm)->verify(jcebytes);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }
@@ -202,9 +202,9 @@ $bytes* SignatureECDSA::engineSign() {
 		$var($bytes, jcebytes, $nc(this->signatureAlgorithm)->sign());
 		return SignatureECDSA::convertASN1toXMLDSIG(jcebytes, this->signIntLen);
 	} catch ($SignatureException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, ex);
+		$throwNew($XMLSignatureException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }

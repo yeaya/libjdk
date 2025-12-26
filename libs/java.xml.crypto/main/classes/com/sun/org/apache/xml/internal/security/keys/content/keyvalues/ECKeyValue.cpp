@@ -256,11 +256,11 @@ $PublicKey* ECKeyValue::getPublicKey() {
 		$var($ECPublicKeySpec, spec, $new($ECPublicKeySpec, ecPoint, ecParams));
 		return $nc($($KeyFactory::getInstance("EC"_s)))->generatePublic(spec);
 	} catch ($NoSuchAlgorithmException& ex) {
-		$throwNew($XMLSecurityException, ex);
+		$throwNew($XMLSecurityException, $cast($Exception, ex));
 	} catch ($InvalidKeySpecException& ex) {
-		$throwNew($XMLSecurityException, ex);
+		$throwNew($XMLSecurityException, $cast($Exception, ex));
 	} catch ($MarshalException& ex) {
-		$throwNew($XMLSecurityException, ex);
+		$throwNew($XMLSecurityException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }

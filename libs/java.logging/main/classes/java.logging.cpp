@@ -75,7 +75,6 @@
 #include <sun/util/logging/resources/logging_zh_HK.h>
 #include <sun/util/logging/resources/logging_zh_TW.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$logging_classes_[] = {
 	$classEntry("java.util.logging.ConsoleHandler", ::java::util::logging::ConsoleHandler),

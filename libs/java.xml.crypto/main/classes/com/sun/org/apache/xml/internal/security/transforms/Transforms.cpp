@@ -234,11 +234,11 @@ $XMLSignatureInput* Transforms::performTransforms($XMLSignatureInput* xmlSignatu
 		}
 		return xmlSignatureInput;
 	} catch ($IOException& ex) {
-		$throwNew($TransformationException, ex);
+		$throwNew($TransformationException, $cast($Exception, ex));
 	} catch ($CanonicalizationException& ex) {
-		$throwNew($TransformationException, ex);
+		$throwNew($TransformationException, $cast($Exception, ex));
 	} catch ($InvalidCanonicalizerException& ex) {
-		$throwNew($TransformationException, ex);
+		$throwNew($TransformationException, $cast($Exception, ex));
 	}
 	$shouldNotReachHere();
 }

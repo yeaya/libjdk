@@ -436,7 +436,7 @@ void XMLSignatureInput::addNodeFilter($NodeFilter* filter) {
 		try {
 			convertToNodes();
 		} catch ($Exception& e) {
-			$throwNew($XMLSecurityRuntimeException, "signature.XMLSignatureInput.nodesetReference"_s, e);
+			$throwNew($XMLSecurityRuntimeException, "signature.XMLSignatureInput.nodesetReference"_s, $cast($Exception, e));
 		}
 	}
 	$nc(this->nodeFilters)->add(filter);

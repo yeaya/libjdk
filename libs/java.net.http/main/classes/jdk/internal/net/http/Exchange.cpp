@@ -1530,7 +1530,7 @@ $CompletableFuture* Exchange::lambda$checkCancelled$1($HttpConnection* connectio
 					$nc(connection)->close();
 				} catch ($Throwable& x) {
 					if ($nc(this->debug)->on()) {
-						$nc(this->debug)->log("Failed to close connection"_s, x);
+						$nc(this->debug)->log("Failed to close connection"_s, $cast($Throwable, x));
 					}
 				}
 				return $MinimalFuture::failedFuture(t);

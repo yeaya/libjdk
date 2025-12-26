@@ -1171,7 +1171,7 @@ void Http1Exchange::requestMoreBody() {
 		$nc(this->bodySubscriber)->request(1);
 	} catch ($Throwable& t) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Subscription::request failed"_s, t);
+			$nc(this->debug)->log("Subscription::request failed"_s, $cast($Throwable, t));
 		}
 		cancelImpl(t);
 		$nc(this->bodySentCF)->completeExceptionally(t);
@@ -1334,7 +1334,7 @@ $CompletionStage* Http1Exchange::lambda$sendHeadersAsync$4($Void* unused) {
 		return cf;
 	} catch ($Throwable& t) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Failed to send headers: %s"_s, t);
+			$nc(this->debug)->log("Failed to send headers: %s"_s, $cast($Throwable, t));
 		}
 		$nc(this->headersSentCF)->completeExceptionally(t);
 		$nc(this->bodySentCF)->completeExceptionally(t);

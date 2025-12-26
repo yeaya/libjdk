@@ -505,7 +505,7 @@ void Http1AsyncReceiver::flush() {
 					$set(this, error, t);
 				}
 				if ($nc(this->debug)->on()) {
-					$nc(this->debug)->log("Unexpected error caught in flush()"_s, t);
+					$nc(this->debug)->log("Unexpected error caught in flush()"_s, $cast($Throwable, t));
 				}
 			}
 		} catch ($Throwable& var$4) {

@@ -312,25 +312,25 @@ $SignatureAlgorithmSpi* SignatureAlgorithm::getSignatureAlgorithmSpi($String* al
 			$of(algorithmURI),
 			$($of(ex->getMessage()))
 		}));
-		$throwNew($XMLSignatureException, ex, "algorithms.NoSuchAlgorithm"_s, exArgs);
+		$throwNew($XMLSignatureException, $cast($Exception, ex), "algorithms.NoSuchAlgorithm"_s, exArgs);
 	} catch ($InstantiationException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
 			$of(algorithmURI),
 			$($of(ex->getMessage()))
 		}));
-		$throwNew($XMLSignatureException, ex, "algorithms.NoSuchAlgorithm"_s, exArgs);
+		$throwNew($XMLSignatureException, $cast($Exception, ex), "algorithms.NoSuchAlgorithm"_s, exArgs);
 	} catch ($InvocationTargetException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
 			$of(algorithmURI),
 			$($of(ex->getMessage()))
 		}));
-		$throwNew($XMLSignatureException, ex, "algorithms.NoSuchAlgorithm"_s, exArgs);
+		$throwNew($XMLSignatureException, $cast($Exception, ex), "algorithms.NoSuchAlgorithm"_s, exArgs);
 	} catch ($NullPointerException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
 			$of(algorithmURI),
 			$($of(ex->getMessage()))
 		}));
-		$throwNew($XMLSignatureException, ex, "algorithms.NoSuchAlgorithm"_s, exArgs);
+		$throwNew($XMLSignatureException, $cast($Exception, ex), "algorithms.NoSuchAlgorithm"_s, exArgs);
 	}
 	$shouldNotReachHere();
 }

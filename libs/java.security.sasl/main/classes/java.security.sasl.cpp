@@ -45,7 +45,6 @@
 #include <javax/security/sasl/SaslServer.h>
 #include <javax/security/sasl/SaslServerFactory.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$security$sasl_classes_[] = {
 	$classEntry("com.sun.security.sasl.ClientFactoryImpl", ::com::sun::security::sasl::ClientFactoryImpl),

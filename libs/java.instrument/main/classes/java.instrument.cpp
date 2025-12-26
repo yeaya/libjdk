@@ -19,7 +19,6 @@
 #include <sun/instrument/TransformerManager.h>
 #include <sun/instrument/TransformerManager$TransformerInfo.h>
 
-
 #define $classEntry(name, clazz) {name, clazz::load$, $getMark(clazz)}
 ::java::lang::ClassEntry _java$instrument_classes_[] = {
 	$classEntry("java.lang.instrument.ClassDefinition", ::java::lang::instrument::ClassDefinition),
