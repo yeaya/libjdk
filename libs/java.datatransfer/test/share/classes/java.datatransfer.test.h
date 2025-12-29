@@ -1,5 +1,7 @@
 #ifndef _java$datatransfer$test_
 #define _java$datatransfer$test_
+//$ dependency java.datatransfer:17.35
+//$ dependency java.base:17.35
 
 #include <java/lang/def.h>
 

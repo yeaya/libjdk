@@ -1,5 +1,7 @@
 #ifndef _java$naming_
 #define _java$naming_
+//$ dependency java.base:17.35
+//$ dependency java.security.sasl:17.35
 
 #include <java/lang/def.h>
 

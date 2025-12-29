@@ -1,5 +1,6 @@
 #ifndef _jdk$jartool_
 #define _jdk$jartool_
+//$ dependency java.base:17.35
 
 #include <java/lang/def.h>
 

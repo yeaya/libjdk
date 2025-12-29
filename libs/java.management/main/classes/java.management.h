@@ -1,5 +1,6 @@
 #ifndef _java$management_
 #define _java$management_
+//$ dependency java.base:17.35
 
 #include <java/lang/def.h>
 

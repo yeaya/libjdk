@@ -1,5 +1,6 @@
 #ifndef _jdk$unsupported_
 #define _jdk$unsupported_
+//$ dependency java.base:17.35
 
 #include <java/lang/def.h>
 
