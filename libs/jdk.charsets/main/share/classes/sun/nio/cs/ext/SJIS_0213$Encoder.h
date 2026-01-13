@@ -4,14 +4,11 @@
 //$ extends java.nio.charset.CharsetEncoder
 
 #include <java/nio/charset/CharsetEncoder.h>
-#include <sun/nio/cs/CharsetMapping.h>
 
 #pragma push_macro("MAX_SINGLEBYTE")
 #undef MAX_SINGLEBYTE
 #pragma push_macro("UNMAPPABLE")
 #undef UNMAPPABLE
-#pragma push_macro("UNMAPPABLE_ENCODING")
-#undef UNMAPPABLE_ENCODING
 
 namespace java {
 	namespace nio {
@@ -56,7 +53,7 @@ public:
 	virtual ::java::nio::charset::CoderResult* implFlush(::java::nio::ByteBuffer* dst) override;
 	virtual void implReset() override;
 	virtual bool isCompositeBase(char16_t ch);
-	static const int32_t UNMAPPABLE = ::sun::nio::cs::CharsetMapping::UNMAPPABLE_ENCODING;
+	static const int32_t UNMAPPABLE = 65533; // CharsetMapping.UNMAPPABLE_ENCODING
 	static const int32_t MAX_SINGLEBYTE = 255;
 	::sun::nio::cs::CharsetMapping$Entry* comp = nullptr;
 	char16_t leftoverBase = 0;
@@ -69,6 +66,5 @@ public:
 
 #pragma pop_macro("MAX_SINGLEBYTE")
 #pragma pop_macro("UNMAPPABLE")
-#pragma pop_macro("UNMAPPABLE_ENCODING")
 
 #endif // _sun_nio_cs_ext_SJIS_0213$Encoder_h_

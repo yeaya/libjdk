@@ -118,9 +118,9 @@ install(TARGETS ${JCPP_PROJECT_NAME}-main
 
 
 if(JCPP_OS MATCHES "windows")
-	jcpp_add_main_app(sun.security.krb5.internal.tools.Kinit "sun.security.krb5.internal.tools.Kinit" "windows/sun.security.krb5.internal.tools.Kinit.cpp")
-	jcpp_add_main_app(sun.security.krb5.internal.tools.Klist "sun.security.krb5.internal.tools.Klist" "windows/sun.security.krb5.internal.tools.Klist.cpp")
-	jcpp_add_main_app(sun.security.krb5.internal.tools.Ktab "sun.security.krb5.internal.tools.Ktab" "windows/sun.security.krb5.internal.tools.Ktab.cpp")
+	jcpp_add_main_app(sun.security.krb5.internal.tools.Kinit-app "sun.security.krb5.internal.tools.Kinit-app" "windows/sun.security.krb5.internal.tools.Kinit.cpp")
+	jcpp_add_main_app(sun.security.krb5.internal.tools.Klist-app "sun.security.krb5.internal.tools.Klist-app" "windows/sun.security.krb5.internal.tools.Klist.cpp")
+	jcpp_add_main_app(sun.security.krb5.internal.tools.Ktab-app "sun.security.krb5.internal.tools.Ktab-app" "windows/sun.security.krb5.internal.tools.Ktab.cpp")
 endif()
 
 install(

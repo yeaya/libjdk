@@ -138,14 +138,14 @@ void TestCases::runCases() {
 #ifdef JCPP_SUBSYSTEM_WINDOWS
 #include <windows.h>
 int WINAPI WinMain(HINSTANCE inst, HINSTANCE previnst, LPSTR cmdline, int cmdshow) {
-	return $System::launchwin(true, ::jdk$unsupported$test::init, []($StringArray* args)->void {
+	return $System::launchwin("-$", ::jdk$unsupported$test::init, []($StringArray* args)->void {
 		$var(TestCases, testcases, $new(TestCases, args));
 		testcases->runCases();
 	});
 }
 #else
 int main(int argc, char** argv) {
-	return $System::launch(argc, argv, true, ::jdk$unsupported$test::init, []($StringArray* args)->void {
+	return $System::launch(argc, argv, "-$", ::jdk$unsupported$test::init, []($StringArray* args)->void {
 		$var(TestCases, testcases, $new(TestCases, args));
 		testcases->runCases();
 	});

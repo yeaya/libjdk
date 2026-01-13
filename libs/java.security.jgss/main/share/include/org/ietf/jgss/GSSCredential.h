@@ -5,7 +5,6 @@
 
 #include <java/lang/Array.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("ACCEPT_ONLY")
 #undef ACCEPT_ONLY
@@ -17,8 +16,6 @@
 #undef INITIATE_AND_ACCEPT
 #pragma push_macro("INITIATE_ONLY")
 #undef INITIATE_ONLY
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 
 namespace org {
 	namespace ietf {
@@ -52,7 +49,7 @@ public:
 	static const int32_t INITIATE_ONLY = 1;
 	static const int32_t ACCEPT_ONLY = 2;
 	static const int32_t DEFAULT_LIFETIME = 0;
-	static const int32_t INDEFINITE_LIFETIME = ::java::lang::Integer::MAX_VALUE;
+	static const int32_t INDEFINITE_LIFETIME = 0x7FFFFFFF; // Integer.MAX_VALUE
 };
 
 		} // jgss
@@ -64,6 +61,5 @@ public:
 #pragma pop_macro("INDEFINITE_LIFETIME")
 #pragma pop_macro("INITIATE_AND_ACCEPT")
 #pragma pop_macro("INITIATE_ONLY")
-#pragma pop_macro("MAX_VALUE")
 
 #endif // _org_ietf_jgss_GSSCredential_h_

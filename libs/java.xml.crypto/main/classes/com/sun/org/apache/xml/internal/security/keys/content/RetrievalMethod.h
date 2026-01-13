@@ -5,7 +5,6 @@
 //$ implements com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent
 
 #include <com/sun/org/apache/xml/internal/security/keys/content/KeyInfoContent.h>
-#include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
 
 #pragma push_macro("TYPE_DSA")

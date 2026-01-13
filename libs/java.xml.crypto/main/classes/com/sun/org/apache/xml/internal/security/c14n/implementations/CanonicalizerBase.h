@@ -4,7 +4,6 @@
 //$ extends com.sun.org.apache.xml.internal.security.c14n.CanonicalizerSpi
 
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizerSpi.h>
-#include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <java/lang/Array.h>
 
 #pragma push_macro("AMP")

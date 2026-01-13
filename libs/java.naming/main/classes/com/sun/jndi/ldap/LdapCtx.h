@@ -4,7 +4,6 @@
 //$ extends com.sun.jndi.toolkit.ctx.ComponentDirContext
 //$ implements javax.naming.event.EventDirContext,javax.naming.ldap.LdapContext
 
-#include <com/sun/jndi/ldap/LdapClient.h>
 #include <com/sun/jndi/toolkit/ctx/ComponentDirContext.h>
 #include <java/lang/Array.h>
 #include <javax/naming/event/EventDirContext.h>
@@ -56,10 +55,6 @@
 #undef ENABLE_POOL
 #pragma push_macro("HARD_CLOSE")
 #undef HARD_CLOSE
-#pragma push_macro("LDAP_REF_IGNORE")
-#undef LDAP_REF_IGNORE
-#pragma push_macro("LDAP_VERSION3_VERSION2")
-#undef LDAP_VERSION3_VERSION2
 #pragma push_macro("MECHS_ALLOWED_BY_SP")
 #undef MECHS_ALLOWED_BY_SP
 #pragma push_macro("NETSCAPE_SCHEMA_BUG")
@@ -98,6 +93,7 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 				class EventSupport;
+				class LdapClient;
 				class LdapResult;
 			}
 		}
@@ -361,9 +357,9 @@ public:
 	static const bool DEFAULT_DELETE_RDN = true;
 	static const bool DEFAULT_TYPES_ONLY = false;
 	static const int32_t DEFAULT_DEREF_ALIASES = 3;
-	static const int32_t DEFAULT_LDAP_VERSION = ::com::sun::jndi::ldap::LdapClient::LDAP_VERSION3_VERSION2;
+	static const int32_t DEFAULT_LDAP_VERSION = 32; // LdapClient.LDAP_VERSION3_VERSION2
 	static const int32_t DEFAULT_BATCH_SIZE = 1;
-	static const int32_t DEFAULT_REFERRAL_MODE = ::com::sun::jndi::ldap::LdapClient::LDAP_REF_IGNORE;
+	static const int32_t DEFAULT_REFERRAL_MODE = 3; // LdapClient.LDAP_REF_IGNORE
 	static const char16_t DEFAULT_REF_SEPARATOR = ((char16_t)35);
 	static $String* DEFAULT_SSL_FACTORY;
 	static const int32_t DEFAULT_REFERRAL_LIMIT = 10;
@@ -461,8 +457,6 @@ public:
 #pragma pop_macro("EMPTY_SCHEMA")
 #pragma pop_macro("ENABLE_POOL")
 #pragma pop_macro("HARD_CLOSE")
-#pragma pop_macro("LDAP_REF_IGNORE")
-#pragma pop_macro("LDAP_VERSION3_VERSION2")
 #pragma pop_macro("MECHS_ALLOWED_BY_SP")
 #pragma pop_macro("NETSCAPE_SCHEMA_BUG")
 #pragma pop_macro("OLD_NETSCAPE_SCHEMA_BUG")

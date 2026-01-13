@@ -77,10 +77,10 @@ install(TARGETS ${JCPP_PROJECT_NAME}-main
 	RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 )
 
-jcpp_add_main_app(com.sun.tools.javac.Main "com.sun.tools.javac.Main" "com.sun.tools.javac.Main.cpp")
-jcpp_add_main_app(com.sun.tools.javac.launcher.Main "com.sun.tools.javac.launcher.Main" "com.sun.tools.javac.launcher.Main.cpp")
-jcpp_add_main_app(com.sun.tools.sjavac.Main "com.sun.tools.sjavac.Main" "com.sun.tools.sjavac.Main.cpp")
-jcpp_add_main_app(sun.tools.serialver.SerialVer "sun.tools.serialver.SerialVer" "sun.tools.serialver.SerialVer.cpp")
+jcpp_add_main_app(com.sun.tools.javac.Main-app "com.sun.tools.javac.Main-app" "com.sun.tools.javac.Main.cpp")
+jcpp_add_main_app(com.sun.tools.javac.launcher.Main-app "com.sun.tools.javac.launcher.Main-app" "com.sun.tools.javac.launcher.Main.cpp")
+jcpp_add_main_app(com.sun.tools.sjavac.Main-app "com.sun.tools.sjavac.Main-app" "com.sun.tools.sjavac.Main.cpp")
+jcpp_add_main_app(sun.tools.serialver.SerialVer-app "sun.tools.serialver.SerialVer-app" "sun.tools.serialver.SerialVer.cpp")
 
 install(
 	DIRECTORY "include/"

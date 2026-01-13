@@ -14,7 +14,7 @@ class $import HttpConnectTimeoutException : public ::java::net::http::HttpTimeou
 public:
 	HttpConnectTimeoutException();
 	void init$($String* message);
-	static const int64_t serialVersionUID = 332; // (int64_t)321 + (int64_t)11
+	static const int64_t serialVersionUID = 332; // 321L + 11L
 	HttpConnectTimeoutException(const HttpConnectTimeoutException& e);
 	virtual void throw$() override;
 	inline HttpConnectTimeoutException* operator ->() {

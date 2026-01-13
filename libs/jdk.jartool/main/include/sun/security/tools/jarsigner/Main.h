@@ -147,8 +147,8 @@ public:
 	static ::java::text::Collator* collator;
 	static $String* NONE;
 	static $String* P11KEYSTORE;
-	static const int64_t SIX_MONTHS = 15552000000; // 180 * 24 * 60 * 60 * (int64_t)1000
-	static const int64_t ONE_YEAR = 31622400000; // 366 * 24 * 60 * 60 * (int64_t)1000
+	static const int64_t SIX_MONTHS = 15552000000; // 180 * 24 * 60 * 60 * 1000L
+	static const int64_t ONE_YEAR = 31622400000; // 366 * 24 * 60 * 60 * 1000L
 	static ::sun::security::util::DisabledAlgorithmConstraints* JAR_DISABLED_CHECK;
 	static ::sun::security::util::DisabledAlgorithmConstraints* CERTPATH_DISABLED_CHECK;
 	static ::sun::security::util::DisabledAlgorithmConstraints* LEGACY_CHECK;

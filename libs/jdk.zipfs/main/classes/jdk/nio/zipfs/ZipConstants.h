@@ -326,7 +326,7 @@ public:
 	static const int32_t EXTID_UNIX = 13;
 	static const int32_t EXTID_EFS = 23;
 	static const int32_t EXTID_EXTT = 21589;
-	static const int64_t END_MAXLEN = 65557; // 0x0000FFFF + ENDHDR
+	static const int64_t END_MAXLEN = 65557; // 65535 + ENDHDR
 	static const int32_t READBLOCKSZ = 128;
 };
 

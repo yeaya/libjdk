@@ -59,7 +59,7 @@ install(TARGETS ${JCPP_PROJECT_NAME}-main
 	RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 )
 
-jcpp_add_main_app(sun.rmi.registry.RegistryImpl "sun.rmi.registry.RegistryImpl" "sun.rmi.registry.RegistryImpl.cpp")
+jcpp_add_main_app(sun.rmi.registry.RegistryImpl-app "sun.rmi.registry.RegistryImpl-app" "sun.rmi.registry.RegistryImpl.cpp")
 
 install(
 	DIRECTORY "include/"

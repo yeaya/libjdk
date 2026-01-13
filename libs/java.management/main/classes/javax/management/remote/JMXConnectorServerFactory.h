@@ -3,7 +3,7 @@
 //$ class javax.management.remote.JMXConnectorServerFactory
 //$ extends java.lang.Object
 
-#include <javax/management/remote/JMXConnectorFactory.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("DEFAULT_CLASS_LOADER")
 #undef DEFAULT_CLASS_LOADER

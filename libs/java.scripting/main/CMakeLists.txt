@@ -46,7 +46,7 @@ install(TARGETS ${JCPP_PROJECT_NAME}-main
 	RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 )
 
-jcpp_add_main_app(com.sun.tools.script.shell.Main "com.sun.tools.script.shell.Main" "com.sun.tools.script.shell.Main.cpp")
+jcpp_add_main_app(com.sun.tools.script.shell.Main-app "com.sun.tools.script.shell.Main-app" "com.sun.tools.script.shell.Main.cpp")
 
 install(
 	DIRECTORY "include/"

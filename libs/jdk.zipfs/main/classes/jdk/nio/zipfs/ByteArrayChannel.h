@@ -4,13 +4,10 @@
 //$ extends java.nio.channels.SeekableByteChannel
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 #include <java/nio/channels/SeekableByteChannel.h>
 
 #pragma push_macro("MAX_ARRAY_SIZE")
 #undef MAX_ARRAY_SIZE
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 
 namespace java {
 	namespace nio {
@@ -60,7 +57,7 @@ public:
 	int32_t last = 0;
 	bool closed = false;
 	bool readonly = false;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // ::java::lang::Integer::MAX_VALUE - 8
+	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
 };
 
 		} // zipfs
@@ -68,6 +65,5 @@ public:
 } // jdk
 
 #pragma pop_macro("MAX_ARRAY_SIZE")
-#pragma pop_macro("MAX_VALUE")
 
 #endif // _jdk_nio_zipfs_ByteArrayChannel_h_

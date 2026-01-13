@@ -3,8 +3,7 @@
 //$ class com.sun.jmx.remote.util.EnvHelp
 //$ extends java.lang.Object
 
-#include <javax/management/remote/JMXConnectorFactory.h>
-#include <javax/management/remote/JMXConnectorServerFactory.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("BUFFER_SIZE_PROPERTY")
 #undef BUFFER_SIZE_PROPERTY

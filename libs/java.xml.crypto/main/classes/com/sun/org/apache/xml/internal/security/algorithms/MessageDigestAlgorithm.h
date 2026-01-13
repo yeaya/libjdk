@@ -4,8 +4,6 @@
 //$ extends com.sun.org.apache.xml.internal.security.algorithms.Algorithm
 
 #include <com/sun/org/apache/xml/internal/security/algorithms/Algorithm.h>
-#include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
-#include <com/sun/org/apache/xml/internal/security/utils/EncryptionConstants.h>
 #include <java/lang/Array.h>
 
 #pragma push_macro("ALGO_ID_DIGEST_NOT_RECOMMENDED_MD5")

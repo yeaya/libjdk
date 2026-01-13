@@ -4,7 +4,6 @@
 //$ extends com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithmSpi
 
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi.h>
-#include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <java/lang/Array.h>
 
 #pragma push_macro("LOG")

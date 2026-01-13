@@ -4,14 +4,11 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("DEFAULT_LIFETIME")
 #undef DEFAULT_LIFETIME
 #pragma push_macro("INDEFINITE_LIFETIME")
 #undef INDEFINITE_LIFETIME
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 
 namespace java {
 	namespace io {
@@ -79,7 +76,7 @@ public:
 	virtual $bytes* wrap($bytes* inBuf, int32_t offset, int32_t len, ::org::ietf::jgss::MessageProp* msgProp) {return nullptr;}
 	virtual void wrap(::java::io::InputStream* inStream, ::java::io::OutputStream* outStream, ::org::ietf::jgss::MessageProp* msgProp) {}
 	static const int32_t DEFAULT_LIFETIME = 0;
-	static const int32_t INDEFINITE_LIFETIME = ::java::lang::Integer::MAX_VALUE;
+	static const int32_t INDEFINITE_LIFETIME = 0x7FFFFFFF; // Integer.MAX_VALUE
 };
 
 		} // jgss
@@ -88,6 +85,5 @@ public:
 
 #pragma pop_macro("DEFAULT_LIFETIME")
 #pragma pop_macro("INDEFINITE_LIFETIME")
-#pragma pop_macro("MAX_VALUE")
 
 #endif // _org_ietf_jgss_GSSContext_h_

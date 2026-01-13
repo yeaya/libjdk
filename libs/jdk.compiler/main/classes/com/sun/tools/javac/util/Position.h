@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("FIRSTCOLUMN")
 #undef FIRSTCOLUMN
@@ -20,12 +19,8 @@
 #undef MAXLINE
 #pragma push_macro("MAXPOS")
 #undef MAXPOS
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("NOPOS")
 #undef NOPOS
-#pragma push_macro("SIZE")
-#undef SIZE
 
 namespace com {
 	namespace sun {
@@ -58,8 +53,8 @@ public:
 	static const int32_t FIRSTCOLUMN = 1;
 	static const int32_t LINESHIFT = 10;
 	static const int32_t MAXCOLUMN = 1023; // (1 << LINESHIFT) - 1
-	static const int32_t MAXLINE = 4194303; // (1 << (::java::lang::Integer::SIZE - LINESHIFT)) - 1
-	static const int32_t MAXPOS = ::java::lang::Integer::MAX_VALUE;
+	static const int32_t MAXLINE = 4194303; // (1 << (Integer.SIZE - LINESHIFT)) - 1
+	static const int32_t MAXPOS = 0x7FFFFFFF; // Integer.MAX_VALUE
 };
 
 				} // util
@@ -75,8 +70,6 @@ public:
 #pragma pop_macro("MAXCOLUMN")
 #pragma pop_macro("MAXLINE")
 #pragma pop_macro("MAXPOS")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("NOPOS")
-#pragma pop_macro("SIZE")
 
 #endif // _com_sun_tools_javac_util_Position_h_

@@ -4,11 +4,8 @@
 //$ extends jdk.internal.net.http.common.BufferSupplier
 
 #include <java/lang/Array.h>
-#include <jdk/internal/net/http/SocketTube.h>
 #include <jdk/internal/net/http/common/BufferSupplier.h>
 
-#pragma push_macro("MAX_BUFFERS")
-#undef MAX_BUFFERS
 #pragma push_macro("POOL_SIZE")
 #undef POOL_SIZE
 
@@ -51,7 +48,7 @@ public:
 	virtual $Object* get() override;
 	virtual void recycle(::java::nio::ByteBuffer* buffer) override;
 	static bool $assertionsDisabled;
-	static const int32_t POOL_SIZE = ::jdk::internal::net::http::SocketTube::MAX_BUFFERS;
+	static const int32_t POOL_SIZE = 3; // SocketTube.MAX_BUFFERS
 	$Array<::java::nio::ByteBuffer>* pool = nullptr;
 	::jdk::internal::net::http::HttpClientImpl* client = nullptr;
 	::jdk::internal::net::http::common::Logger* debug = nullptr;
@@ -64,7 +61,6 @@ public:
 	} // internal
 } // jdk
 
-#pragma pop_macro("MAX_BUFFERS")
 #pragma pop_macro("POOL_SIZE")
 
 #endif // _jdk_internal_net_http_HttpClientImpl$SSLDirectBufferSupplier_h_

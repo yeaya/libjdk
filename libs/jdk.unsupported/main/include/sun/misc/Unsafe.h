@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <jdk/internal/misc/Unsafe.h>
 
 #pragma push_macro("ADDRESS_SIZE")
 #undef ADDRESS_SIZE
@@ -62,6 +61,13 @@ namespace java {
 namespace java {
 	namespace nio {
 		class ByteBuffer;
+	}
+}
+namespace jdk {
+	namespace internal {
+		namespace misc {
+			class Unsafe;
+		}
 	}
 }
 
@@ -164,7 +170,7 @@ public:
 	void unpark(Object$* thread);
 	static ::sun::misc::Unsafe* theUnsafe;
 	static ::jdk::internal::misc::Unsafe* theInternalUnsafe;
-	static const int32_t INVALID_FIELD_OFFSET = jdk::internal::misc::Unsafe::INVALID_FIELD_OFFSET;
+	static const int32_t INVALID_FIELD_OFFSET = -1; // jdk.internal.misc.Unsafe.INVALID_FIELD_OFFSET
 	static int32_t ARRAY_BOOLEAN_BASE_OFFSET;
 	static int32_t ARRAY_BYTE_BASE_OFFSET;
 	static int32_t ARRAY_SHORT_BASE_OFFSET;

@@ -4,7 +4,7 @@
 #include <jcpp.h>
 
 int main(int argc, char** argv) {
-	return $System::launch(argc, argv, true, ::jdk$compiler$javac::init, []($StringArray* args)->void {
+	return $System::launch(argc, argv, "-$", ::jdk$compiler$javac::init, []($StringArray* args)->void {
 		::Javac::main(args);
 	});
 }

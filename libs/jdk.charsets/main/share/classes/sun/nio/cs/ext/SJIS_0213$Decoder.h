@@ -5,12 +5,9 @@
 
 #include <java/lang/Array.h>
 #include <java/nio/charset/CharsetDecoder.h>
-#include <sun/nio/cs/CharsetMapping.h>
 
 #pragma push_macro("UNMAPPABLE")
 #undef UNMAPPABLE
-#pragma push_macro("UNMAPPABLE_DECODING")
-#undef UNMAPPABLE_DECODING
 
 namespace java {
 	namespace nio {
@@ -50,7 +47,7 @@ public:
 	virtual $chars* decodeDoubleEx(int32_t b1, int32_t b2);
 	virtual ::java::nio::charset::CoderResult* decodeLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst) override;
 	virtual char16_t decodeSingle(int32_t b);
-	static const char16_t UNMAPPABLE = ::sun::nio::cs::CharsetMapping::UNMAPPABLE_DECODING;
+	static const char16_t UNMAPPABLE = 65533; // CharsetMapping.UNMAPPABLE_DECODING
 	$chars* cc = nullptr;
 	::sun::nio::cs::CharsetMapping$Entry* comp = nullptr;
 };
@@ -61,6 +58,5 @@ public:
 } // sun
 
 #pragma pop_macro("UNMAPPABLE")
-#pragma pop_macro("UNMAPPABLE_DECODING")
 
 #endif // _sun_nio_cs_ext_SJIS_0213$Decoder_h_

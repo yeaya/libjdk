@@ -45,7 +45,7 @@ install(TARGETS ${JCPP_PROJECT_NAME}-main
 	RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 )
 
-jcpp_add_main_app(jdk.nio.zipfs.ZipInfo "jdk.nio.zipfs.ZipInfo" "jdk.nio.zipfs.ZipInfo.cpp")
+jcpp_add_main_app(jdk.nio.zipfs.ZipInfo-app "jdk.nio.zipfs.ZipInfo-app" "jdk.nio.zipfs.ZipInfo.cpp")
 
 install(
 	DIRECTORY "include/"

@@ -4,7 +4,6 @@
 //$ extends java.lang.Object
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 
 #pragma push_macro("BUFFER")
 #undef BUFFER
@@ -20,8 +19,6 @@
 #undef MAX_CLIENT_STREAM_ID
 #pragma push_macro("MAX_SERVER_STREAM_ID")
 #undef MAX_SERVER_STREAM_ID
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("PREFACE_BYTES")
 #undef PREFACE_BYTES
 
@@ -222,8 +219,8 @@ public:
 	static ::jdk::internal::net::http::common::Logger* DEBUG_LOGGER;
 	::jdk::internal::net::http::common::Logger* debugHpack = nullptr;
 	static ::java::nio::ByteBuffer* EMPTY_TRIGGER;
-	static const int32_t MAX_CLIENT_STREAM_ID = ::java::lang::Integer::MAX_VALUE;
-	static const int32_t MAX_SERVER_STREAM_ID = 0x7FFFFFFE; // ::java::lang::Integer::MAX_VALUE - 1
+	static const int32_t MAX_CLIENT_STREAM_ID = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t MAX_SERVER_STREAM_ID = 0x7FFFFFFE; // Integer.MAX_VALUE - 1
 	static const int32_t BUFFER = 8;
 	bool finalStream$ = false;
 	$volatile(bool) closed = false;
@@ -268,7 +265,6 @@ public:
 #pragma pop_macro("EMPTY_TRIGGER")
 #pragma pop_macro("MAX_CLIENT_STREAM_ID")
 #pragma pop_macro("MAX_SERVER_STREAM_ID")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("PREFACE_BYTES")
 
 #endif // _jdk_internal_net_http_Http2Connection_h_

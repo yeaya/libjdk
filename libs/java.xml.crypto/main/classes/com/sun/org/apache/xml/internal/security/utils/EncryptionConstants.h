@@ -3,7 +3,7 @@
 //$ class com.sun.org.apache.xml.internal.security.utils.EncryptionConstants
 //$ extends java.lang.Object
 
-#include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("ALGO_ID_AUTHENTICATION_XMLSIGNATURE")
 #undef ALGO_ID_AUTHENTICATION_XMLSIGNATURE

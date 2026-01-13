@@ -4,7 +4,6 @@
 //$ extends jdk.internal.net.http.frame.Http2Frame
 
 #include <java/lang/Array.h>
-#include <java/lang/Integer.h>
 #include <jdk/internal/net/http/frame/Http2Frame.h>
 
 #pragma push_macro("ACK")
@@ -35,8 +34,6 @@
 #undef MAX_HEADER_LIST_SIZE
 #pragma push_macro("MAX_PARAM")
 #undef MAX_PARAM
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("TYPE")
 #undef TYPE
 
@@ -83,7 +80,7 @@ public:
 	static const int32_t K = 1024;
 	static const int32_t DEFAULT_HEADER_TABLE_SIZE = 4096; // 4 * K
 	static const int32_t DEFAULT_ENABLE_PUSH = 1;
-	static const int32_t DEFAULT_MAX_CONCURRENT_STREAMS = ::java::lang::Integer::MAX_VALUE;
+	static const int32_t DEFAULT_MAX_CONCURRENT_STREAMS = 0x7FFFFFFF; // Integer.MAX_VALUE
 	static const int32_t DEFAULT_INITIAL_WINDOW_SIZE = 65535; // 64 * K - 1
 	static const int32_t DEFAULT_MAX_FRAME_SIZE = 16384; // 16 * K
 };
@@ -108,7 +105,6 @@ public:
 #pragma pop_macro("MAX_FRAME_SIZE")
 #pragma pop_macro("MAX_HEADER_LIST_SIZE")
 #pragma pop_macro("MAX_PARAM")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("TYPE")
 
 #endif // _jdk_internal_net_http_frame_SettingsFrame_h_

@@ -3,12 +3,10 @@
 //$ class sun.rmi.transport.GC
 //$ extends java.lang.Object
 
-#include <java/lang/Long.h>
+#include <java/lang/Object.h>
 
 #pragma push_macro("GC")
 #undef GC
-#pragma push_macro("MAX_VALUE")
-#undef MAX_VALUE
 #pragma push_macro("NO_TARGET")
 #undef NO_TARGET
 
@@ -38,7 +36,7 @@ public:
 	static int64_t maxObjectInspectionAge();
 	static ::sun::rmi::transport::GC$LatencyRequest* requestLatency(int64_t latency);
 	static void setLatencyTarget(int64_t ms);
-	static const int64_t NO_TARGET = ::java::lang::Long::MAX_VALUE;
+	static const int64_t NO_TARGET = 0x7FFFFFFFFFFFFFFF; // Long.MAX_VALUE
 	static int64_t latencyTarget;
 	static $Thread* daemon;
 	static $Object* lock;
@@ -49,7 +47,6 @@ public:
 } // sun
 
 #pragma pop_macro("GC")
-#pragma pop_macro("MAX_VALUE")
 #pragma pop_macro("NO_TARGET")
 
 #endif // _sun_rmi_transport_GC_h_

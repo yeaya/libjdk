@@ -3,8 +3,6 @@
 //$ class com.sun.org.apache.xml.internal.security.transforms.Transforms
 //$ extends com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy
 
-#include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
-#include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
 #include <java/lang/Array.h>
 

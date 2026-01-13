@@ -45,7 +45,7 @@ public:
 	static $longs* codes;
 	static const int32_t EOS_LENGTH = 30;
 	static const int32_t EOS_LSB = 0x3FFFFFFF;
-	static const int64_t EOS_MSB = -17179869184; // ((int64_t)EOS_LSB) << (64 - EOS_LENGTH)
+	static const int64_t EOS_MSB = -17179869184; // ((long)EOS_LSB) << (64 - EOS_LENGTH)
 	static ::jdk::internal::net::http::hpack::QuickHuffman$Node* root;
 };
 

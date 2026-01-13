@@ -109,7 +109,7 @@ install(TARGETS ${JCPP_PROJECT_NAME}-main
 	RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 )
 
-jcpp_add_main_app(java.util.prefs.Base64 "java.util.prefs.Base64" "share/java.util.prefs.Base64.cpp")
+jcpp_add_main_app(java.util.prefs.Base64-app "java.util.prefs.Base64-app" "share/java.util.prefs.Base64.cpp")
 
 install(
 	DIRECTORY "share/include/"

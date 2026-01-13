@@ -3,7 +3,6 @@
 //$ class com.sun.org.apache.xml.internal.security.signature.XMLSignature
 //$ extends com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy
 
-#include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
 #include <java/lang/Array.h>
 

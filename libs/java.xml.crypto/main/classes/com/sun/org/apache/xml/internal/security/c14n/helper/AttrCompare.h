@@ -4,7 +4,6 @@
 //$ extends java.util.Comparator
 //$ implements java.io.Serializable
 
-#include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <java/io/Serializable.h>
 #include <java/util/Comparator.h>
 

@@ -49,8 +49,8 @@ install(TARGETS ${JCPP_PROJECT_NAME}-main
 	RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 )
 
-jcpp_add_main_app(sun.security.tools.jarsigner.Main "sun.security.tools.jarsigner.Main" "sun.security.tools.jarsigner.Main.cpp")
-jcpp_add_main_app(sun.tools.jar.Main "sun.tools.jar.Main" "sun.tools.jar.Main.cpp")
+jcpp_add_main_app(sun.security.tools.jarsigner.Main-app "sun.security.tools.jarsigner.Main-app" "sun.security.tools.jarsigner.Main.cpp")
+jcpp_add_main_app(sun.tools.jar.Main-app "sun.tools.jar.Main-app" "sun.tools.jar.Main.cpp")
 
 install(
 	DIRECTORY "include/"
