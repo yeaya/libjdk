@@ -22,8 +22,8 @@ namespace com {
 				namespace options {
 
 $MethodInfo _Option$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Option$2::*)($String*,int32_t,$String*,$String*)>(&Option$2::init$))},
-	{"processMatching", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Option$2, init$, void, $String*, int32_t, $String*, $String*)},
+	{"processMatching", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)V", nullptr, $PROTECTED, $virtualMethod(Option$2, processMatching, void, $ArgumentIterator*, $OptionHelper*)},
 	{}
 };
 

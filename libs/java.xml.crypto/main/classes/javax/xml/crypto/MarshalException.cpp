@@ -21,14 +21,14 @@ $FieldInfo _MarshalException_FieldInfo_[] = {
 };
 
 $MethodInfo _MarshalException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MarshalException::*)()>(&MarshalException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MarshalException::*)($String*)>(&MarshalException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(MarshalException::*)($String*,$Throwable*)>(&MarshalException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(MarshalException::*)($Throwable*)>(&MarshalException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"printStackTrace", "()V", nullptr, $PUBLIC},
-	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC},
-	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MarshalException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $Throwable*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(MarshalException, getCause, $Throwable*)},
+	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalException, printStackTrace, void)},
+	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(MarshalException, printStackTrace, void, $PrintStream*)},
+	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(MarshalException, printStackTrace, void, $PrintWriter*)},
 	{}
 };
 

@@ -28,9 +28,9 @@ $MethodInfo _PrivateMLet_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([Ljava/net/URL;Z)V", nullptr, $PUBLIC, $method(static_cast<void(PrivateMLet::*)($URLArray*,bool)>(&PrivateMLet::init$))},
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Z)V", nullptr, $PUBLIC, $method(static_cast<void(PrivateMLet::*)($URLArray*,$ClassLoader*,bool)>(&PrivateMLet::init$))},
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/net/URLStreamHandlerFactory;Z)V", nullptr, $PUBLIC, $method(static_cast<void(PrivateMLet::*)($URLArray*,$ClassLoader*,$URLStreamHandlerFactory*,bool)>(&PrivateMLet::init$))},
+	{"<init>", "([Ljava/net/URL;Z)V", nullptr, $PUBLIC, $method(PrivateMLet, init$, void, $URLArray*, bool)},
+	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Z)V", nullptr, $PUBLIC, $method(PrivateMLet, init$, void, $URLArray*, $ClassLoader*, bool)},
+	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/net/URLStreamHandlerFactory;Z)V", nullptr, $PUBLIC, $method(PrivateMLet, init$, void, $URLArray*, $ClassLoader*, $URLStreamHandlerFactory*, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

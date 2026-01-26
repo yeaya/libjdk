@@ -29,10 +29,10 @@ $FieldInfo _CredentialsUtil$S4U2Type_FieldInfo_[] = {
 };
 
 $MethodInfo _CredentialsUtil$S4U2Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/krb5/internal/CredentialsUtil$S4U2Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CredentialsUtil$S4U2TypeArray*(*)()>(&CredentialsUtil$S4U2Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CredentialsUtil$S4U2Type::*)($String*,int32_t)>(&CredentialsUtil$S4U2Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/krb5/internal/CredentialsUtil$S4U2Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CredentialsUtil$S4U2Type*(*)($String*)>(&CredentialsUtil$S4U2Type::valueOf))},
-	{"values", "()[Lsun/security/krb5/internal/CredentialsUtil$S4U2Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CredentialsUtil$S4U2TypeArray*(*)()>(&CredentialsUtil$S4U2Type::values))},
+	{"$values", "()[Lsun/security/krb5/internal/CredentialsUtil$S4U2Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CredentialsUtil$S4U2Type, $values, $CredentialsUtil$S4U2TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CredentialsUtil$S4U2Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/krb5/internal/CredentialsUtil$S4U2Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(CredentialsUtil$S4U2Type, valueOf, CredentialsUtil$S4U2Type*, $String*)},
+	{"values", "()[Lsun/security/krb5/internal/CredentialsUtil$S4U2Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(CredentialsUtil$S4U2Type, values, $CredentialsUtil$S4U2TypeArray*)},
 	{}
 };
 

@@ -34,10 +34,10 @@ $FieldInfo _DefaultCallbackHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultCallbackHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(DefaultCallbackHandler::*)($String*,Object$*,$String*)>(&DefaultCallbackHandler::init$)), "java.io.IOException"},
-	{"clearPassword", "()V", nullptr, 0, $method(static_cast<void(DefaultCallbackHandler::*)()>(&DefaultCallbackHandler::clearPassword))},
-	{"finalize", "()V", nullptr, $PROTECTED, nullptr, "java.lang.Throwable"},
-	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V", nullptr, 0, $method(DefaultCallbackHandler, init$, void, $String*, Object$*, $String*), "java.io.IOException"},
+	{"clearPassword", "()V", nullptr, 0, $method(DefaultCallbackHandler, clearPassword, void)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultCallbackHandler, finalize, void), "java.lang.Throwable"},
+	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
 	{}
 };
 

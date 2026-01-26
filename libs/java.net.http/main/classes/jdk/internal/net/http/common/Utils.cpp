@@ -225,8 +225,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$static$0::*)()>(&Utils$$Lambda$lambda$static$0::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$0, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$0, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$static$0::classInfo$ = {
@@ -258,8 +258,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$static$1$1::*)()>(&Utils$$Lambda$lambda$static$1$1::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$1$1, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$1$1, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -291,8 +291,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$static$2$2::*)()>(&Utils$$Lambda$lambda$static$2$2::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$2$2, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$2$2, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$static$2$2::classInfo$ = {
@@ -324,8 +324,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$lambda$static$4$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$static$4$3::*)()>(&Utils$$Lambda$lambda$static$4$3::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$4$3, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$4$3, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$static$4$3::classInfo$ = {
@@ -364,8 +364,8 @@ $FieldInfo Utils$$Lambda$equalsIgnoreCase$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Utils$$Lambda$equalsIgnoreCase$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$equalsIgnoreCase$4::*)($String*)>(&Utils$$Lambda$equalsIgnoreCase$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$equalsIgnoreCase$4, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$equalsIgnoreCase$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$equalsIgnoreCase$4::classInfo$ = {
@@ -397,8 +397,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$lambda$static$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$static$5$5::*)()>(&Utils$$Lambda$lambda$static$5$5::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$5$5, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$5$5, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$static$5$5::classInfo$ = {
@@ -430,8 +430,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$lambda$static$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$static$6$6::*)()>(&Utils$$Lambda$lambda$static$6$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$6$6, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$6$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$static$6$6::classInfo$ = {
@@ -463,8 +463,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$lambda$static$10$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$static$10$7::*)()>(&Utils$$Lambda$lambda$static$10$7::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$10$7, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$10$7, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$static$10$7::classInfo$ = {
@@ -496,8 +496,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$lambda$static$11$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$static$11$8::*)()>(&Utils$$Lambda$lambda$static$11$8::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$11$8, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$11$8, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$static$11$8::classInfo$ = {
@@ -529,8 +529,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$lambda$static$12$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$static$12$9::*)()>(&Utils$$Lambda$lambda$static$12$9::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$12$9, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$12$9, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$static$12$9::classInfo$ = {
@@ -569,8 +569,8 @@ $FieldInfo Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpClient;)V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::*)($HttpClient*)>(&Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpClient;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, init$, void, $HttpClient*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$CONTEXT_RESTRICTED$3$10::classInfo$ = {
@@ -615,8 +615,8 @@ $FieldInfo Utils$$Lambda$lambda$wrapForDebug$9$11::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Utils$$Lambda$lambda$wrapForDebug$9$11::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$wrapForDebug$9$11::*)($Logger*,$String*,$CompletableFuture*)>(&Utils$$Lambda$lambda$wrapForDebug$9$11::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$wrapForDebug$9$11, init$, void, $Logger*, $String*, $CompletableFuture*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$wrapForDebug$9$11, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$wrapForDebug$9$11::classInfo$ = {
@@ -658,8 +658,8 @@ $FieldInfo Utils$$Lambda$lambda$getIntegerNetProperty$13$12::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Utils$$Lambda$lambda$getIntegerNetProperty$13$12::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$getIntegerNetProperty$13$12::*)($String*,int32_t)>(&Utils$$Lambda$lambda$getIntegerNetProperty$13$12::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, init$, void, $String*, int32_t)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getIntegerNetProperty$13$12, run, $Object*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$getIntegerNetProperty$13$12::classInfo$ = {
@@ -698,8 +698,8 @@ $FieldInfo Utils$$Lambda$lambda$getNetProperty$14$13::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Utils$$Lambda$lambda$getNetProperty$14$13::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$getNetProperty$14$13::*)($String*)>(&Utils$$Lambda$lambda$getNetProperty$14$13::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getNetProperty$14$13, init$, void, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getNetProperty$14$13, run, $Object*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$getNetProperty$14$13::classInfo$ = {
@@ -741,8 +741,8 @@ $FieldInfo Utils$$Lambda$lambda$getBooleanProperty$15$14::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Utils$$Lambda$lambda$getBooleanProperty$15$14::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$getBooleanProperty$15$14::*)($String*,bool)>(&Utils$$Lambda$lambda$getBooleanProperty$15$14::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getBooleanProperty$15$14, init$, void, $String*, bool)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getBooleanProperty$15$14, run, $Object*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$getBooleanProperty$15$14::classInfo$ = {
@@ -781,8 +781,8 @@ $FieldInfo Utils$$Lambda$lambda$getProperty$16$15::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Utils$$Lambda$lambda$getProperty$16$15::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$getProperty$16$15::*)($String*)>(&Utils$$Lambda$lambda$getProperty$16$15::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getProperty$16$15, init$, void, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getProperty$16$15, run, $Object*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$getProperty$16$15::classInfo$ = {
@@ -824,8 +824,8 @@ $FieldInfo Utils$$Lambda$lambda$getIntegerProperty$17$16::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Utils$$Lambda$lambda$getIntegerProperty$17$16::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$getIntegerProperty$17$16::*)($String*,int32_t)>(&Utils$$Lambda$lambda$getIntegerProperty$17$16::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$getIntegerProperty$17$16, init$, void, $String*, int32_t)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$getIntegerProperty$17$16, run, $Object*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$getIntegerProperty$17$16::classInfo$ = {
@@ -857,8 +857,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$trim$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$trim$17::*)()>(&Utils$$Lambda$trim$17::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$trim$17, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$trim$17, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$trim$17::classInfo$ = {
@@ -890,8 +890,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Utils$$Lambda$lambda$static$7$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Utils$$Lambda$lambda$static$7$18::*)()>(&Utils$$Lambda$lambda$static$7$18::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils$$Lambda$lambda$static$7$18, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Utils$$Lambda$lambda$static$7$18, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Utils$$Lambda$lambda$static$7$18::classInfo$ = {
@@ -945,82 +945,82 @@ $FieldInfo _Utils_FieldInfo_[] = {
 };
 
 $MethodInfo _Utils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Utils::*)()>(&Utils::init$))},
-	{"CONTEXT_RESTRICTED", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $method(static_cast<$BiPredicate*(*)($HttpClient*)>(&Utils::CONTEXT_RESTRICTED))},
-	{"PROXY_TUNNEL_RESTRICTED", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $method(static_cast<$BiPredicate*(*)($HttpClient*)>(&Utils::PROXY_TUNNEL_RESTRICTED))},
-	{"accumulateBuffers", "(Ljava/util/List;Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($List*,$List*)>(&Utils::accumulateBuffers))},
-	{"charsetFrom", "(Ljava/net/http/HttpHeaders;)Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Charset*(*)($HttpHeaders*)>(&Utils::charsetFrom))},
-	{"close", "([Ljava/io/Closeable;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($CloseableArray*)>(&Utils::close))},
-	{"copy", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ByteBuffer*,$ByteBuffer*)>(&Utils::copy))},
-	{"copy", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)($ByteBuffer*)>(&Utils::copy))},
-	{"copyAligned", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)($ByteBuffer*)>(&Utils::copyAligned))},
-	{"copySSLParameters", "(Ljavax/net/ssl/SSLParameters;)Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLParameters*(*)($SSLParameters*)>(&Utils::copySSLParameters))},
-	{"dump", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($ObjectArray*)>(&Utils::dump))},
-	{"encode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Utils::encode))},
-	{"flipToMark", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,int32_t)>(&Utils::flipToMark))},
-	{"getBooleanProperty", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*,bool)>(&Utils::getBooleanProperty))},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)()>(&Utils::getBuffer))},
-	{"getCancelCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Throwable*(*)($Throwable*)>(&Utils::getCancelCause))},
-	{"getCompletionCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Throwable*(*)($Throwable*)>(&Utils::getCompletionCause))},
-	{"getDebugLogger", "(Ljava/util/function/Supplier;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $method(static_cast<$Logger*(*)($Supplier*)>(&Utils::getDebugLogger))},
-	{"getDebugLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $STATIC, $method(static_cast<$Logger*(*)($Supplier*,$System$Logger$Level*)>(&Utils::getDebugLogger))},
-	{"getDebugLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $method(static_cast<$Logger*(*)($Supplier*,bool)>(&Utils::getDebugLogger))},
-	{"getDisallowedHeaders", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)()>(&Utils::getDisallowedHeaders))},
-	{"getHpackLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $method(static_cast<$Logger*(*)($Supplier*,$System$Logger$Level*)>(&Utils::getHpackLogger))},
-	{"getHpackLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $method(static_cast<$Logger*(*)($Supplier*,bool)>(&Utils::getHpackLogger))},
-	{"getIOException", "(Ljava/lang/Throwable;)Ljava/io/IOException;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$IOException*(*)($Throwable*)>(&Utils::getIOException))},
-	{"getIntegerNetProperty", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t)>(&Utils::getIntegerNetProperty))},
-	{"getIntegerProperty", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t)>(&Utils::getIntegerProperty))},
-	{"getNetProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Utils::getNetProperty))},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Utils::getProperty))},
-	{"getServerName", "(Ljava/net/InetSocketAddress;)Ljdk/internal/net/http/common/Utils$ServerName;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Utils$ServerName*(*)($InetSocketAddress*)>(&Utils::getServerName))},
-	{"getWebSocketLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $method(static_cast<$Logger*(*)($Supplier*,$System$Logger$Level*)>(&Utils::getWebSocketLogger))},
-	{"getWebSocketLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $method(static_cast<$Logger*(*)($Supplier*,bool)>(&Utils::getWebSocketLogger))},
-	{"hasRemaining", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($List*)>(&Utils::hasRemaining))},
-	{"hostString", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($HttpRequestImpl*)>(&Utils::hostString))},
-	{"hostnameVerificationDisabledValue", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&Utils::hostnameVerificationDisabledValue))},
-	{"immutableSession", "(Ljavax/net/ssl/SSLSession;)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLSession*(*)($SSLSession*)>(&Utils::immutableSession))},
-	{"isAllowedForProxy", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/function/Predicate;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/function/Predicate<Ljava/lang/String;>;)Z", $PRIVATE | $STATIC | $FINAL, $method(static_cast<bool(*)($String*,$String*,$Set*,$Predicate*)>(&Utils::isAllowedForProxy))},
-	{"isHostnameVerificationDisabled", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&Utils::isHostnameVerificationDisabled))},
-	{"isLoopbackLiteral", "([B)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($bytes*)>(&Utils::isLoopbackLiteral))},
-	{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&Utils::isValidName))},
-	{"isValidValue", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&Utils::isValidValue))},
-	{"lambda$CONTEXT_RESTRICTED$3", "(Ljava/net/http/HttpClient;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($HttpClient*,$String*,$String*)>(&Utils::lambda$CONTEXT_RESTRICTED$3))},
-	{"lambda$getBooleanProperty$15", "(Ljava/lang/String;Z)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)($String*,bool)>(&Utils::lambda$getBooleanProperty$15))},
-	{"lambda$getIntegerNetProperty$13", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($String*,int32_t)>(&Utils::lambda$getIntegerNetProperty$13))},
-	{"lambda$getIntegerProperty$17", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($String*,int32_t)>(&Utils::lambda$getIntegerProperty$17))},
-	{"lambda$getNetProperty$14", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Utils::lambda$getNetProperty$14))},
-	{"lambda$getProperty$16", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Utils::lambda$getProperty$16))},
-	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&Utils::lambda$static$0))},
-	{"lambda$static$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&Utils::lambda$static$1))},
-	{"lambda$static$10", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&Utils::lambda$static$10))},
-	{"lambda$static$11", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&Utils::lambda$static$11))},
-	{"lambda$static$12", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&Utils::lambda$static$12))},
-	{"lambda$static$2", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&Utils::lambda$static$2))},
-	{"lambda$static$4", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&Utils::lambda$static$4))},
-	{"lambda$static$5", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&Utils::lambda$static$5))},
-	{"lambda$static$6", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&Utils::lambda$static$6))},
-	{"lambda$static$7", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&Utils::lambda$static$7))},
-	{"lambda$wrapForDebug$9", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CompletableFuture*(*)($Logger*,$String*,$CompletableFuture*,Object$*,$Throwable*)>(&Utils::lambda$wrapForDebug$9))},
-	{"newIAE", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$IllegalArgumentException*(*)($String*,$ObjectArray*)>(&Utils::newIAE))},
-	{"permissionForProxy", "(Ljava/net/InetSocketAddress;)Ljava/net/URLPermission;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$URLPermission*(*)($InetSocketAddress*)>(&Utils::permissionForProxy))},
-	{"permissionForServer", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/net/URLPermission;", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/net/URLPermission;", $PUBLIC | $STATIC, $method(static_cast<$URLPermission*(*)($URI*,$String*,$Stream*)>(&Utils::permissionForServer))},
-	{"pow2Size", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&Utils::pow2Size))},
-	{"proxyHasDisabledSchemes", "(Z)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(bool)>(&Utils::proxyHasDisabledSchemes))},
-	{"remaining", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($ByteBufferArray*)>(&Utils::remaining))},
-	{"remaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($List*)>(&Utils::remaining))},
-	{"remaining", "(Ljava/util/List;I)I", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;I)I", $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($List*,int32_t)>(&Utils::remaining))},
-	{"remaining", "([Ljava/nio/ByteBuffer;I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ByteBufferArray*,int32_t)>(&Utils::remaining))},
-	{"resolveAddress", "(Ljava/net/InetSocketAddress;)Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InetSocketAddress*(*)($InetSocketAddress*)>(&Utils::resolveAddress))},
-	{"setWebSocketUpgradeHeaders", "(Ljdk/internal/net/http/HttpRequestImpl;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<void(*)($HttpRequestImpl*)>(&Utils::setWebSocketUpgradeHeaders))},
-	{"sliceWithLimitedCapacity", "(Ljava/nio/ByteBuffer;I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)($ByteBuffer*,int32_t)>(&Utils::sliceWithLimitedCapacity))},
-	{"stackTrace", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Throwable*)>(&Utils::stackTrace))},
-	{"stringOf", "(Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/Collection<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Collection*)>(&Utils::stringOf))},
-	{"synchronizedRemaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($List*)>(&Utils::synchronizedRemaining))},
-	{"toConnectException", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Throwable*(*)($Throwable*)>(&Utils::toConnectException))},
-	{"unchecked", "(Ljava/io/IOException;)Ljava/io/UncheckedIOException;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$UncheckedIOException*(*)($IOException*)>(&Utils::unchecked))},
-	{"wrapForDebug", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture<TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$CompletableFuture*(*)($Logger*,$String*,$CompletableFuture*)>(&Utils::wrapForDebug))},
-	{"wrapWithExtraDetail", "(Ljava/lang/Throwable;Ljava/util/function/Supplier;)Ljava/lang/Throwable;", "(Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)Ljava/lang/Throwable;", $PUBLIC | $STATIC, $method(static_cast<$Throwable*(*)($Throwable*,$Supplier*)>(&Utils::wrapWithExtraDetail))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Utils, init$, void)},
+	{"CONTEXT_RESTRICTED", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticMethod(Utils, CONTEXT_RESTRICTED, $BiPredicate*, $HttpClient*)},
+	{"PROXY_TUNNEL_RESTRICTED", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticMethod(Utils, PROXY_TUNNEL_RESTRICTED, $BiPredicate*, $HttpClient*)},
+	{"accumulateBuffers", "(Ljava/util/List;Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $staticMethod(Utils, accumulateBuffers, int64_t, $List*, $List*)},
+	{"charsetFrom", "(Ljava/net/http/HttpHeaders;)Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, charsetFrom, $Charset*, $HttpHeaders*)},
+	{"close", "([Ljava/io/Closeable;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Utils, close, void, $CloseableArray*)},
+	{"copy", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copy, int32_t, $ByteBuffer*, $ByteBuffer*)},
+	{"copy", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copy, $ByteBuffer*, $ByteBuffer*)},
+	{"copyAligned", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copyAligned, $ByteBuffer*, $ByteBuffer*)},
+	{"copySSLParameters", "(Ljavax/net/ssl/SSLParameters;)Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, copySSLParameters, $SSLParameters*, $SSLParameters*)},
+	{"dump", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Utils, dump, $String*, $ObjectArray*)},
+	{"encode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, encode, $String*, $String*)},
+	{"flipToMark", "(Ljava/nio/ByteBuffer;I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, flipToMark, void, $ByteBuffer*, int32_t)},
+	{"getBooleanProperty", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getBooleanProperty, bool, $String*, bool)},
+	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getBuffer, $ByteBuffer*)},
+	{"getCancelCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getCancelCause, $Throwable*, $Throwable*)},
+	{"getCompletionCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getCompletionCause, $Throwable*, $Throwable*)},
+	{"getDebugLogger", "(Ljava/util/function/Supplier;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getDebugLogger, $Logger*, $Supplier*)},
+	{"getDebugLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $STATIC, $staticMethod(Utils, getDebugLogger, $Logger*, $Supplier*, $System$Logger$Level*)},
+	{"getDebugLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getDebugLogger, $Logger*, $Supplier*, bool)},
+	{"getDisallowedHeaders", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(Utils, getDisallowedHeaders, $Set*)},
+	{"getHpackLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getHpackLogger, $Logger*, $Supplier*, $System$Logger$Level*)},
+	{"getHpackLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getHpackLogger, $Logger*, $Supplier*, bool)},
+	{"getIOException", "(Ljava/lang/Throwable;)Ljava/io/IOException;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getIOException, $IOException*, $Throwable*)},
+	{"getIntegerNetProperty", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getIntegerNetProperty, int32_t, $String*, int32_t)},
+	{"getIntegerProperty", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getIntegerProperty, int32_t, $String*, int32_t)},
+	{"getNetProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getNetProperty, $String*, $String*)},
+	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getProperty, $String*, $String*)},
+	{"getServerName", "(Ljava/net/InetSocketAddress;)Ljdk/internal/net/http/common/Utils$ServerName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, getServerName, $Utils$ServerName*, $InetSocketAddress*)},
+	{"getWebSocketLogger", "(Ljava/util/function/Supplier;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/System$Logger$Level;)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getWebSocketLogger, $Logger*, $Supplier*, $System$Logger$Level*)},
+	{"getWebSocketLogger", "(Ljava/util/function/Supplier;Z)Ljdk/internal/net/http/common/Logger;", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Z)Ljdk/internal/net/http/common/Logger;", $PUBLIC | $STATIC, $staticMethod(Utils, getWebSocketLogger, $Logger*, $Supplier*, bool)},
+	{"hasRemaining", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)Z", $PUBLIC | $STATIC, $staticMethod(Utils, hasRemaining, bool, $List*)},
+	{"hostString", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, hostString, $String*, $HttpRequestImpl*)},
+	{"hostnameVerificationDisabledValue", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Utils, hostnameVerificationDisabledValue, bool)},
+	{"immutableSession", "(Ljavax/net/ssl/SSLSession;)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, immutableSession, $SSLSession*, $SSLSession*)},
+	{"isAllowedForProxy", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Ljava/util/function/Predicate;)Z", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/function/Predicate<Ljava/lang/String;>;)Z", $PRIVATE | $STATIC | $FINAL, $staticMethod(Utils, isAllowedForProxy, bool, $String*, $String*, $Set*, $Predicate*)},
+	{"isHostnameVerificationDisabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, isHostnameVerificationDisabled, bool)},
+	{"isLoopbackLiteral", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Utils, isLoopbackLiteral, bool, $bytes*)},
+	{"isValidName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, isValidName, bool, $String*)},
+	{"isValidValue", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, isValidValue, bool, $String*)},
+	{"lambda$CONTEXT_RESTRICTED$3", "(Ljava/net/http/HttpClient;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$CONTEXT_RESTRICTED$3, bool, $HttpClient*, $String*, $String*)},
+	{"lambda$getBooleanProperty$15", "(Ljava/lang/String;Z)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getBooleanProperty$15, $Boolean*, $String*, bool)},
+	{"lambda$getIntegerNetProperty$13", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getIntegerNetProperty$13, $Integer*, $String*, int32_t)},
+	{"lambda$getIntegerProperty$17", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getIntegerProperty$17, $Integer*, $String*, int32_t)},
+	{"lambda$getNetProperty$14", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getNetProperty$14, $String*, $String*)},
+	{"lambda$getProperty$16", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$getProperty$16, $String*, $String*)},
+	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$0, bool, $String*, $String*)},
+	{"lambda$static$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$1, bool, $String*, $String*)},
+	{"lambda$static$10", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$10, bool, $String*, $String*)},
+	{"lambda$static$11", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$11, bool, $String*, $String*)},
+	{"lambda$static$12", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$12, bool, $String*, $String*)},
+	{"lambda$static$2", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$2, bool, $String*, $String*)},
+	{"lambda$static$4", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$4, bool, $String*, $String*)},
+	{"lambda$static$5", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$5, bool, $String*)},
+	{"lambda$static$6", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$6, bool, $String*)},
+	{"lambda$static$7", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$static$7, bool, $String*)},
+	{"lambda$wrapForDebug$9", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Utils, lambda$wrapForDebug$9, $CompletableFuture*, $Logger*, $String*, $CompletableFuture*, Object$*, $Throwable*)},
+	{"newIAE", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/IllegalArgumentException;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Utils, newIAE, $IllegalArgumentException*, $String*, $ObjectArray*)},
+	{"permissionForProxy", "(Ljava/net/InetSocketAddress;)Ljava/net/URLPermission;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, permissionForProxy, $URLPermission*, $InetSocketAddress*)},
+	{"permissionForServer", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/stream/Stream;)Ljava/net/URLPermission;", "(Ljava/net/URI;Ljava/lang/String;Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/net/URLPermission;", $PUBLIC | $STATIC, $staticMethod(Utils, permissionForServer, $URLPermission*, $URI*, $String*, $Stream*)},
+	{"pow2Size", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, pow2Size, int32_t, int32_t)},
+	{"proxyHasDisabledSchemes", "(Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, proxyHasDisabledSchemes, bool, bool)},
+	{"remaining", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int64_t, $ByteBufferArray*)},
+	{"remaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int64_t, $List*)},
+	{"remaining", "(Ljava/util/List;I)I", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;I)I", $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int32_t, $List*, int32_t)},
+	{"remaining", "([Ljava/nio/ByteBuffer;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, remaining, int32_t, $ByteBufferArray*, int32_t)},
+	{"resolveAddress", "(Ljava/net/InetSocketAddress;)Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, resolveAddress, $InetSocketAddress*, $InetSocketAddress*)},
+	{"setWebSocketUpgradeHeaders", "(Ljdk/internal/net/http/HttpRequestImpl;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utils, setWebSocketUpgradeHeaders, void, $HttpRequestImpl*)},
+	{"sliceWithLimitedCapacity", "(Ljava/nio/ByteBuffer;I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, sliceWithLimitedCapacity, $ByteBuffer*, $ByteBuffer*, int32_t)},
+	{"stackTrace", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, stackTrace, $String*, $Throwable*)},
+	{"stringOf", "(Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/Collection<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Utils, stringOf, $String*, $Collection*)},
+	{"synchronizedRemaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PUBLIC | $STATIC, $staticMethod(Utils, synchronizedRemaining, int64_t, $List*)},
+	{"toConnectException", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, toConnectException, $Throwable*, $Throwable*)},
+	{"unchecked", "(Ljava/io/IOException;)Ljava/io/UncheckedIOException;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, unchecked, $UncheckedIOException*, $IOException*)},
+	{"wrapForDebug", "(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/common/Logger;Ljava/lang/String;Ljava/util/concurrent/CompletableFuture<TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $staticMethod(Utils, wrapForDebug, $CompletableFuture*, $Logger*, $String*, $CompletableFuture*)},
+	{"wrapWithExtraDetail", "(Ljava/lang/Throwable;Ljava/util/function/Supplier;)Ljava/lang/Throwable;", "(Ljava/lang/Throwable;Ljava/util/function/Supplier<Ljava/lang/String;>;)Ljava/lang/Throwable;", $PUBLIC | $STATIC, $staticMethod(Utils, wrapWithExtraDetail, $Throwable*, $Throwable*, $Supplier*)},
 	{}
 };
 

@@ -213,8 +213,8 @@ $FieldInfo Stream$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$dbgString::*)(Stream*)>(&Stream$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$dbgString, init$, void, Stream*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$dbgString::classInfo$ = {
@@ -253,8 +253,8 @@ $FieldInfo Stream$$Lambda$schedule$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$schedule$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$schedule$1::*)(Stream*)>(&Stream$$Lambda$schedule$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$schedule$1, init$, void, Stream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$schedule$1, run, void)},
 	{}
 };
 $ClassInfo Stream$$Lambda$schedule$1::classInfo$ = {
@@ -293,8 +293,8 @@ $FieldInfo Stream$$Lambda$cancel$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$cancel$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$cancel$2::*)(Stream*)>(&Stream$$Lambda$cancel$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$cancel$2, init$, void, Stream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$cancel$2, run, void)},
 	{}
 };
 $ClassInfo Stream$$Lambda$cancel$2::classInfo$ = {
@@ -333,8 +333,8 @@ $FieldInfo Stream$$Lambda$onSubscriptionError$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$onSubscriptionError$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$onSubscriptionError$3::*)(Stream*)>(&Stream$$Lambda$onSubscriptionError$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$onSubscriptionError$3, init$, void, Stream*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$onSubscriptionError$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$onSubscriptionError$3::classInfo$ = {
@@ -373,8 +373,8 @@ $FieldInfo Stream$$Lambda$lambda$readBodyAsync$0$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$lambda$readBodyAsync$0$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PushGroup;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$lambda$readBodyAsync$0$4::*)($PushGroup*)>(&Stream$$Lambda$lambda$readBodyAsync$0$4::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PushGroup;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$readBodyAsync$0$4, init$, void, $PushGroup*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$readBodyAsync$0$4, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$lambda$readBodyAsync$0$4::classInfo$ = {
@@ -413,8 +413,8 @@ $FieldInfo Stream$$Lambda$cancelImpl$5::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$cancelImpl$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$cancelImpl$5::*)(Stream*)>(&Stream$$Lambda$cancelImpl$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$cancelImpl$5, init$, void, Stream*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$cancelImpl$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$cancelImpl$5::classInfo$ = {
@@ -453,8 +453,8 @@ $FieldInfo Stream$$Lambda$lambda$sendBodyAsync$1$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$lambda$sendBodyAsync$1$6::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$lambda$sendBodyAsync$1$6::*)(Stream*)>(&Stream$$Lambda$lambda$sendBodyAsync$1$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$sendBodyAsync$1$6, init$, void, Stream*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$sendBodyAsync$1$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$lambda$sendBodyAsync$1$6::classInfo$ = {
@@ -486,8 +486,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Stream$$Lambda$lambda$handleResponse$2$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$lambda$handleResponse$2$7::*)()>(&Stream$$Lambda$lambda$handleResponse$2$7::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$handleResponse$2$7, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$handleResponse$2$7, get, $Object*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$lambda$handleResponse$2$7::classInfo$ = {
@@ -532,8 +532,8 @@ $FieldInfo Stream$$Lambda$lambda$incoming_pushPromise$3$8::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$lambda$incoming_pushPromise$3$8::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;Ljdk/internal/net/http/PushGroup;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$lambda$incoming_pushPromise$3$8::*)($Stream$PushedStream*,$PushGroup*,$CompletableFuture*)>(&Stream$$Lambda$lambda$incoming_pushPromise$3$8::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;Ljdk/internal/net/http/PushGroup;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$incoming_pushPromise$3$8, init$, void, $Stream$PushedStream*, $PushGroup*, $CompletableFuture*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$incoming_pushPromise$3$8, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$lambda$incoming_pushPromise$3$8::classInfo$ = {
@@ -572,8 +572,8 @@ $FieldInfo Stream$$Lambda$lambda$headerFrame$4$9::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$lambda$headerFrame$4$9::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpHeaders;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$lambda$headerFrame$4$9::*)($HttpHeaders*)>(&Stream$$Lambda$lambda$headerFrame$4$9::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpHeaders;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$headerFrame$4$9, init$, void, $HttpHeaders*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$headerFrame$4$9, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$lambda$headerFrame$4$9::classInfo$ = {
@@ -605,8 +605,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Stream$$Lambda$lambda$getResponseAsync$5$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$lambda$getResponseAsync$5$10::*)()>(&Stream$$Lambda$lambda$getResponseAsync$5$10::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$getResponseAsync$5$10, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$getResponseAsync$5$10, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$lambda$getResponseAsync$5$10::classInfo$ = {
@@ -645,8 +645,8 @@ $FieldInfo Stream$$Lambda$lambda$getResponseAsync$6$11::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$lambda$getResponseAsync$6$11::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PushGroup;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$lambda$getResponseAsync$6$11::*)($PushGroup*)>(&Stream$$Lambda$lambda$getResponseAsync$6$11::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PushGroup;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$getResponseAsync$6$11, init$, void, $PushGroup*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$getResponseAsync$6$11, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$lambda$getResponseAsync$6$11::classInfo$ = {
@@ -685,8 +685,8 @@ $FieldInfo Stream$$Lambda$lambda$sendBodyImpl$7$12::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$$Lambda$lambda$sendBodyImpl$7$12::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$$Lambda$lambda$sendBodyImpl$7$12::*)(Stream*)>(&Stream$$Lambda$lambda$sendBodyImpl$7$12::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PUBLIC, $method(Stream$$Lambda$lambda$sendBodyImpl$7$12, init$, void, Stream*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Stream$$Lambda$lambda$sendBodyImpl$7$12, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Stream$$Lambda$lambda$sendBodyImpl$7$12::classInfo$ = {
@@ -744,71 +744,71 @@ $FieldInfo _Stream_FieldInfo_[] = {
 };
 
 $MethodInfo _Stream_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/WindowController;)V", "(Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/Exchange<TT;>;Ljdk/internal/net/http/WindowController;)V", 0, $method(static_cast<void(Stream::*)($Http2Connection*,$Exchange*,$WindowController*)>(&Stream::init$))},
-	{"cancel", "()V", nullptr, 0},
-	{"cancel", "(Ljava/io/IOException;)V", nullptr, 0},
-	{"cancelImpl", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"checkRequestCancelled", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Stream::*)()>(&Stream::checkRequestCancelled))},
-	{"close", "()V", nullptr, 0},
-	{"completeResponse", "(Ljdk/internal/net/http/Response;)V", nullptr, 0},
-	{"completeResponseExceptionally", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"completed", "()V", nullptr, 0},
-	{"connection", "()Ljdk/internal/net/http/HttpConnection;", nullptr, 0},
-	{"connectionClosing", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"consumed", "(Ljdk/internal/net/http/frame/DataFrame;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Stream::*)($DataFrame*)>(&Stream::consumed))},
-	{"createPseudoHeaders", "(Ljava/net/http/HttpRequest;)Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$HttpHeaders*(*)($HttpRequest*)>(&Stream::createPseudoHeaders))},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(Stream::*)()>(&Stream::dbgString))},
-	{"deRegister", "()Z", nullptr, 0},
-	{"drainInputQueue", "()V", nullptr, $PRIVATE, $method(static_cast<void(Stream::*)()>(&Stream::drainInputQueue))},
-	{"endStreamReceived", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Stream::*)()>(&Stream::endStreamReceived))},
-	{"filterHeaders", "(Ljava/net/http/HttpHeaders;)Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE, $method(static_cast<$HttpHeaders*(Stream::*)($HttpHeaders*)>(&Stream::filterHeaders))},
-	{"getCancelCause", "()Ljava/lang/Throwable;", nullptr, $SYNCHRONIZED},
-	{"getDataFrame", "(Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/frame/DataFrame;", nullptr, 0},
-	{"getEmptyEndStreamDataFrame", "()Ljdk/internal/net/http/frame/DataFrame;", nullptr, $PRIVATE, $method(static_cast<$DataFrame*(Stream::*)()>(&Stream::getEmptyEndStreamDataFrame))},
-	{"getRequestPseudoHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, 0},
-	{"getResponseAsync", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", 0},
-	{"handleReset", "(Ljdk/internal/net/http/frame/ResetFrame;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljdk/internal/net/http/frame/ResetFrame;Ljava/util/concurrent/Flow$Subscriber<*>;)V", 0},
-	{"handleResponse", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"hasProxyAuthorization", "(Ljava/net/http/HttpHeaders;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Stream::*)($HttpHeaders*)>(&Stream::hasProxyAuthorization))},
-	{"headerFrame", "(J)Ljdk/internal/net/http/frame/OutgoingHeaders;", "(J)Ljdk/internal/net/http/frame/OutgoingHeaders<Ljdk/internal/net/http/Stream<TT;>;>;", $PRIVATE, $method(static_cast<$OutgoingHeaders*(Stream::*)(int64_t)>(&Stream::headerFrame))},
-	{"ignoreBody", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC},
-	{"incoming", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"incoming_priority", "(Ljdk/internal/net/http/frame/PriorityFrame;)V", nullptr, 0},
-	{"incoming_pushPromise", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Stream$PushedStream;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Stream$PushedStream<TT;>;)V", 0, nullptr, "java.io.IOException"},
-	{"incoming_reset", "(Ljdk/internal/net/http/frame/ResetFrame;)V", nullptr, 0},
-	{"incoming_windowUpdate", "(Ljdk/internal/net/http/frame/WindowUpdateFrame;)V", nullptr, $PRIVATE, $method(static_cast<void(Stream::*)($WindowUpdateFrame*)>(&Stream::incoming_windowUpdate)), "java.io.IOException"},
-	{"isCanceled", "()Z", nullptr, $SYNCHRONIZED},
-	{"lambda$getResponseAsync$5", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/Response;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Response*(*)($Response*)>(&Stream::lambda$getResponseAsync$5))},
-	{"lambda$getResponseAsync$6", "(Ljdk/internal/net/http/PushGroup;Ljdk/internal/net/http/Response;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($PushGroup*,$Response*,$Throwable*)>(&Stream::lambda$getResponseAsync$6))},
-	{"lambda$handleResponse$2", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$IOException*(*)()>(&Stream::lambda$handleResponse$2))},
-	{"lambda$headerFrame$4", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($HttpHeaders*,$String*,$String*)>(&Stream::lambda$headerFrame$4))},
-	{"lambda$incoming_pushPromise$3", "(Ljdk/internal/net/http/Stream$PushedStream;Ljdk/internal/net/http/PushGroup;Ljava/util/concurrent/CompletableFuture;Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Stream$PushedStream*,$PushGroup*,$CompletableFuture*,$HttpResponse*,$Throwable*)>(&Stream::lambda$incoming_pushPromise$3))},
-	{"lambda$readBodyAsync$0", "(Ljdk/internal/net/http/PushGroup;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($PushGroup*,Object$*,$Throwable*)>(&Stream::lambda$readBodyAsync$0))},
-	{"lambda$sendBodyAsync$1", "(Ljava/lang/Void;)Ljdk/internal/net/http/ExchangeImpl;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ExchangeImpl*(Stream::*)($Void*)>(&Stream::lambda$sendBodyAsync$1))},
-	{"lambda$sendBodyImpl$7", "(Ljava/lang/Void;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Stream::*)($Void*,$Throwable*)>(&Stream::lambda$sendBodyImpl$7))},
-	{"markStream", "(I)I", nullptr, 0},
-	{"needsFiltering", "(Ljava/net/http/HttpHeaders;Ljava/util/function/BiPredicate;)Z", "(Ljava/net/http/HttpHeaders;Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;)Z", $PRIVATE, $method(static_cast<bool(Stream::*)($HttpHeaders*,$BiPredicate*)>(&Stream::needsFiltering))},
-	{"nullBody", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", "(Ljava/net/http/HttpResponse<TT;>;Ljava/lang/Throwable;)V", 0},
-	{"onSubscriptionError", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"otherFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"readBodyAsync", "(Ljava/net/http/HttpResponse$BodyHandler;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", 0},
-	{"receiveData", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", 0},
-	{"receiveDataFrame", "(Ljdk/internal/net/http/frame/DataFrame;)V", nullptr, $PRIVATE, $method(static_cast<void(Stream::*)($DataFrame*)>(&Stream::receiveDataFrame))},
-	{"receiveResetFrame", "(Ljdk/internal/net/http/frame/ResetFrame;)V", nullptr, $PRIVATE, $method(static_cast<void(Stream::*)($ResetFrame*)>(&Stream::receiveResetFrame))},
-	{"registerStream", "(IZ)Z", nullptr, 0},
-	{"released", "()V", nullptr, 0},
-	{"requestSent", "()V", nullptr, $SYNCHRONIZED},
-	{"responseReceived", "()V", nullptr, $SYNCHRONIZED},
-	{"rspHeadersConsumer", "()Ljdk/internal/net/http/hpack/DecodingCallback;", nullptr, 0},
-	{"schedule", "()V", nullptr, $PRIVATE, $method(static_cast<void(Stream::*)()>(&Stream::schedule))},
-	{"sendBodyAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", 0},
-	{"sendBodyImpl", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", 0},
-	{"sendCancelStreamFrame", "()V", nullptr, 0},
-	{"sendDataFrame", "(Ljdk/internal/net/http/frame/DataFrame;)V", nullptr, $PRIVATE, $method(static_cast<void(Stream::*)($DataFrame*)>(&Stream::sendDataFrame))},
-	{"sendHeadersAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", 0},
-	{"setEndStreamReceived", "()V", nullptr, 0},
-	{"signalWindowUpdate", "()V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/WindowController;)V", "(Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/Exchange<TT;>;Ljdk/internal/net/http/WindowController;)V", 0, $method(Stream, init$, void, $Http2Connection*, $Exchange*, $WindowController*)},
+	{"cancel", "()V", nullptr, 0, $virtualMethod(Stream, cancel, void)},
+	{"cancel", "(Ljava/io/IOException;)V", nullptr, 0, $virtualMethod(Stream, cancel, void, $IOException*)},
+	{"cancelImpl", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Stream, cancelImpl, void, $Throwable*)},
+	{"checkRequestCancelled", "()Z", nullptr, $PRIVATE, $method(Stream, checkRequestCancelled, bool)},
+	{"close", "()V", nullptr, 0, $virtualMethod(Stream, close, void)},
+	{"completeResponse", "(Ljdk/internal/net/http/Response;)V", nullptr, 0, $virtualMethod(Stream, completeResponse, void, $Response*)},
+	{"completeResponseExceptionally", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Stream, completeResponseExceptionally, void, $Throwable*)},
+	{"completed", "()V", nullptr, 0, $virtualMethod(Stream, completed, void)},
+	{"connection", "()Ljdk/internal/net/http/HttpConnection;", nullptr, 0, $virtualMethod(Stream, connection, $HttpConnection*)},
+	{"connectionClosing", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Stream, connectionClosing, void, $Throwable*)},
+	{"consumed", "(Ljdk/internal/net/http/frame/DataFrame;)Z", nullptr, $PRIVATE, $method(Stream, consumed, bool, $DataFrame*)},
+	{"createPseudoHeaders", "(Ljava/net/http/HttpRequest;)Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $STATIC, $staticMethod(Stream, createPseudoHeaders, $HttpHeaders*, $HttpRequest*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(Stream, dbgString, $String*)},
+	{"deRegister", "()Z", nullptr, 0, $virtualMethod(Stream, deRegister, bool)},
+	{"drainInputQueue", "()V", nullptr, $PRIVATE, $method(Stream, drainInputQueue, void)},
+	{"endStreamReceived", "()Z", nullptr, $PRIVATE, $method(Stream, endStreamReceived, bool)},
+	{"filterHeaders", "(Ljava/net/http/HttpHeaders;)Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE, $method(Stream, filterHeaders, $HttpHeaders*, $HttpHeaders*)},
+	{"getCancelCause", "()Ljava/lang/Throwable;", nullptr, $SYNCHRONIZED, $virtualMethod(Stream, getCancelCause, $Throwable*)},
+	{"getDataFrame", "(Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/frame/DataFrame;", nullptr, 0, $virtualMethod(Stream, getDataFrame, $DataFrame*, $ByteBuffer*)},
+	{"getEmptyEndStreamDataFrame", "()Ljdk/internal/net/http/frame/DataFrame;", nullptr, $PRIVATE, $method(Stream, getEmptyEndStreamDataFrame, $DataFrame*)},
+	{"getRequestPseudoHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(Stream, getRequestPseudoHeaders, $HttpHeaders*)},
+	{"getResponseAsync", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", 0, $virtualMethod(Stream, getResponseAsync, $CompletableFuture*, $Executor*)},
+	{"handleReset", "(Ljdk/internal/net/http/frame/ResetFrame;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljdk/internal/net/http/frame/ResetFrame;Ljava/util/concurrent/Flow$Subscriber<*>;)V", 0, $virtualMethod(Stream, handleReset, void, $ResetFrame*, $Flow$Subscriber*)},
+	{"handleResponse", "()V", nullptr, $PROTECTED, $virtualMethod(Stream, handleResponse, void), "java.io.IOException"},
+	{"hasProxyAuthorization", "(Ljava/net/http/HttpHeaders;)Z", nullptr, $PRIVATE, $method(Stream, hasProxyAuthorization, bool, $HttpHeaders*)},
+	{"headerFrame", "(J)Ljdk/internal/net/http/frame/OutgoingHeaders;", "(J)Ljdk/internal/net/http/frame/OutgoingHeaders<Ljdk/internal/net/http/Stream<TT;>;>;", $PRIVATE, $method(Stream, headerFrame, $OutgoingHeaders*, int64_t)},
+	{"ignoreBody", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(Stream, ignoreBody, $CompletableFuture*)},
+	{"incoming", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, 0, $virtualMethod(Stream, incoming, void, $Http2Frame*), "java.io.IOException"},
+	{"incoming_priority", "(Ljdk/internal/net/http/frame/PriorityFrame;)V", nullptr, 0, $virtualMethod(Stream, incoming_priority, void, $PriorityFrame*)},
+	{"incoming_pushPromise", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Stream$PushedStream;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Stream$PushedStream<TT;>;)V", 0, $virtualMethod(Stream, incoming_pushPromise, void, $HttpRequestImpl*, $Stream$PushedStream*), "java.io.IOException"},
+	{"incoming_reset", "(Ljdk/internal/net/http/frame/ResetFrame;)V", nullptr, 0, $virtualMethod(Stream, incoming_reset, void, $ResetFrame*)},
+	{"incoming_windowUpdate", "(Ljdk/internal/net/http/frame/WindowUpdateFrame;)V", nullptr, $PRIVATE, $method(Stream, incoming_windowUpdate, void, $WindowUpdateFrame*), "java.io.IOException"},
+	{"isCanceled", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(Stream, isCanceled, bool)},
+	{"lambda$getResponseAsync$5", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/Response;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$getResponseAsync$5, $Response*, $Response*)},
+	{"lambda$getResponseAsync$6", "(Ljdk/internal/net/http/PushGroup;Ljdk/internal/net/http/Response;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$getResponseAsync$6, void, $PushGroup*, $Response*, $Throwable*)},
+	{"lambda$handleResponse$2", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$handleResponse$2, $IOException*)},
+	{"lambda$headerFrame$4", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$headerFrame$4, bool, $HttpHeaders*, $String*, $String*)},
+	{"lambda$incoming_pushPromise$3", "(Ljdk/internal/net/http/Stream$PushedStream;Ljdk/internal/net/http/PushGroup;Ljava/util/concurrent/CompletableFuture;Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$incoming_pushPromise$3, void, $Stream$PushedStream*, $PushGroup*, $CompletableFuture*, $HttpResponse*, $Throwable*)},
+	{"lambda$readBodyAsync$0", "(Ljdk/internal/net/http/PushGroup;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream, lambda$readBodyAsync$0, void, $PushGroup*, Object$*, $Throwable*)},
+	{"lambda$sendBodyAsync$1", "(Ljava/lang/Void;)Ljdk/internal/net/http/ExchangeImpl;", nullptr, $PRIVATE | $SYNTHETIC, $method(Stream, lambda$sendBodyAsync$1, $ExchangeImpl*, $Void*)},
+	{"lambda$sendBodyImpl$7", "(Ljava/lang/Void;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Stream, lambda$sendBodyImpl$7, void, $Void*, $Throwable*)},
+	{"markStream", "(I)I", nullptr, 0, $virtualMethod(Stream, markStream, int32_t, int32_t)},
+	{"needsFiltering", "(Ljava/net/http/HttpHeaders;Ljava/util/function/BiPredicate;)Z", "(Ljava/net/http/HttpHeaders;Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;)Z", $PRIVATE, $method(Stream, needsFiltering, bool, $HttpHeaders*, $BiPredicate*)},
+	{"nullBody", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", "(Ljava/net/http/HttpResponse<TT;>;Ljava/lang/Throwable;)V", 0, $virtualMethod(Stream, nullBody, void, $HttpResponse*, $Throwable*)},
+	{"onSubscriptionError", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Stream, onSubscriptionError, void, $Throwable*)},
+	{"otherFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, 0, $virtualMethod(Stream, otherFrame, void, $Http2Frame*), "java.io.IOException"},
+	{"readBodyAsync", "(Ljava/net/http/HttpResponse$BodyHandler;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", 0, $virtualMethod(Stream, readBodyAsync, $CompletableFuture*, $HttpResponse$BodyHandler*, bool, $Executor*)},
+	{"receiveData", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", 0, $virtualMethod(Stream, receiveData, $CompletableFuture*, $HttpResponse$BodySubscriber*, $Executor*)},
+	{"receiveDataFrame", "(Ljdk/internal/net/http/frame/DataFrame;)V", nullptr, $PRIVATE, $method(Stream, receiveDataFrame, void, $DataFrame*)},
+	{"receiveResetFrame", "(Ljdk/internal/net/http/frame/ResetFrame;)V", nullptr, $PRIVATE, $method(Stream, receiveResetFrame, void, $ResetFrame*)},
+	{"registerStream", "(IZ)Z", nullptr, 0, $virtualMethod(Stream, registerStream, bool, int32_t, bool)},
+	{"released", "()V", nullptr, 0, $virtualMethod(Stream, released, void)},
+	{"requestSent", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(Stream, requestSent, void)},
+	{"responseReceived", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(Stream, responseReceived, void)},
+	{"rspHeadersConsumer", "()Ljdk/internal/net/http/hpack/DecodingCallback;", nullptr, 0, $virtualMethod(Stream, rspHeadersConsumer, $DecodingCallback*)},
+	{"schedule", "()V", nullptr, $PRIVATE, $method(Stream, schedule, void)},
+	{"sendBodyAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", 0, $virtualMethod(Stream, sendBodyAsync, $CompletableFuture*)},
+	{"sendBodyImpl", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", 0, $virtualMethod(Stream, sendBodyImpl, $CompletableFuture*)},
+	{"sendCancelStreamFrame", "()V", nullptr, 0, $virtualMethod(Stream, sendCancelStreamFrame, void)},
+	{"sendDataFrame", "(Ljdk/internal/net/http/frame/DataFrame;)V", nullptr, $PRIVATE, $method(Stream, sendDataFrame, void, $DataFrame*)},
+	{"sendHeadersAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", 0, $virtualMethod(Stream, sendHeadersAsync, $CompletableFuture*)},
+	{"setEndStreamReceived", "()V", nullptr, 0, $virtualMethod(Stream, setEndStreamReceived, void)},
+	{"signalWindowUpdate", "()V", nullptr, 0, $virtualMethod(Stream, signalWindowUpdate, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Stream, toString, $String*)},
 	{}
 };
 

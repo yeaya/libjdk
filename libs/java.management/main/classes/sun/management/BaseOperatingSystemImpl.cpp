@@ -30,13 +30,13 @@ $FieldInfo _BaseOperatingSystemImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _BaseOperatingSystemImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, $PROTECTED, $method(static_cast<void(BaseOperatingSystemImpl::*)($VMManagement*)>(&BaseOperatingSystemImpl::init$))},
-	{"getArch", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getAvailableProcessors", "()I", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"getSystemLoadAverage", "()D", nullptr, $PUBLIC},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, $PROTECTED, $method(BaseOperatingSystemImpl, init$, void, $VMManagement*)},
+	{"getArch", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseOperatingSystemImpl, getArch, $String*)},
+	{"getAvailableProcessors", "()I", nullptr, $PUBLIC, $virtualMethod(BaseOperatingSystemImpl, getAvailableProcessors, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseOperatingSystemImpl, getName, $String*)},
+	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(BaseOperatingSystemImpl, getObjectName, $ObjectName*)},
+	{"getSystemLoadAverage", "()D", nullptr, $PUBLIC, $virtualMethod(BaseOperatingSystemImpl, getSystemLoadAverage, double)},
+	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseOperatingSystemImpl, getVersion, $String*)},
 	{}
 };
 

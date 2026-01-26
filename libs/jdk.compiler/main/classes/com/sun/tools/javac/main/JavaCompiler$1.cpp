@@ -34,9 +34,9 @@ $FieldInfo _JavaCompiler$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaCompiler$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(JavaCompiler$1::*)($JavaCompiler*,$Kinds$Kind*,int64_t,$Name*,$Type*,$Symbol*)>(&JavaCompiler$1::init$))},
-	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"exists", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(JavaCompiler$1, init$, void, $JavaCompiler*, $Kinds$Kind*, int64_t, $Name*, $Type*, $Symbol*)},
+	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(JavaCompiler$1, accept, $Object*, $ElementVisitor*, Object$*)},
+	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1, exists, bool)},
 	{}
 };
 

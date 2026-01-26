@@ -74,8 +74,8 @@ $FieldInfo HttpRequest$$Lambda$lambda$newBuilder$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HttpRequest$$Lambda$lambda$newBuilder$1::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpRequest$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpRequest$$Lambda$lambda$newBuilder$1::*)($HttpRequest$Builder*)>(&HttpRequest$$Lambda$lambda$newBuilder$1::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpRequest$Builder;)V", nullptr, $PUBLIC, $method(HttpRequest$$Lambda$lambda$newBuilder$1, init$, void, $HttpRequest$Builder*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpRequest$$Lambda$lambda$newBuilder$1, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo HttpRequest$$Lambda$lambda$newBuilder$1::classInfo$ = {
@@ -114,8 +114,8 @@ $FieldInfo HttpRequest$$Lambda$version$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HttpRequest$$Lambda$version$1::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpRequest$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpRequest$$Lambda$version$1::*)($HttpRequest$Builder*)>(&HttpRequest$$Lambda$version$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpRequest$Builder;)V", nullptr, $PUBLIC, $method(HttpRequest$$Lambda$version$1, init$, void, $HttpRequest$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpRequest$$Lambda$version$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HttpRequest$$Lambda$version$1::classInfo$ = {
@@ -154,8 +154,8 @@ $FieldInfo HttpRequest$$Lambda$timeout$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HttpRequest$$Lambda$timeout$2::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpRequest$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpRequest$$Lambda$timeout$2::*)($HttpRequest$Builder*)>(&HttpRequest$$Lambda$timeout$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpRequest$Builder;)V", nullptr, $PUBLIC, $method(HttpRequest$$Lambda$timeout$2, init$, void, $HttpRequest$Builder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpRequest$$Lambda$timeout$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HttpRequest$$Lambda$timeout$2::classInfo$ = {
@@ -197,8 +197,8 @@ $FieldInfo HttpRequest$$Lambda$lambda$newBuilder$2$3::fieldInfos[3] = {
 	{}
 };
 $MethodInfo HttpRequest$$Lambda$lambda$newBuilder$2$3::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpRequest$Builder;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpRequest$$Lambda$lambda$newBuilder$2$3::*)($HttpRequest$Builder*,$String*)>(&HttpRequest$$Lambda$lambda$newBuilder$2$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpRequest$Builder;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpRequest$$Lambda$lambda$newBuilder$2$3, init$, void, $HttpRequest$Builder*, $String*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpRequest$$Lambda$lambda$newBuilder$2$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HttpRequest$$Lambda$lambda$newBuilder$2$3::classInfo$ = {
@@ -240,8 +240,8 @@ $FieldInfo HttpRequest$$Lambda$lambda$newBuilder$3$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo HttpRequest$$Lambda$lambda$newBuilder$3$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/http/HttpRequest$Builder;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpRequest$$Lambda$lambda$newBuilder$3$4::*)($String*,$HttpRequest$Builder*)>(&HttpRequest$$Lambda$lambda$newBuilder$3$4::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/net/http/HttpRequest$Builder;)V", nullptr, $PUBLIC, $method(HttpRequest$$Lambda$lambda$newBuilder$3$4, init$, void, $String*, $HttpRequest$Builder*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HttpRequest$$Lambda$lambda$newBuilder$3$4, run, void)},
 	{}
 };
 $ClassInfo HttpRequest$$Lambda$lambda$newBuilder$3$4::classInfo$ = {
@@ -283,8 +283,8 @@ $FieldInfo HttpRequest$$Lambda$lambda$newBuilder$0$5::fieldInfos[3] = {
 	{}
 };
 $MethodInfo HttpRequest$$Lambda$lambda$newBuilder$0$5::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpRequest$Builder;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpRequest$$Lambda$lambda$newBuilder$0$5::*)($HttpRequest$Builder*,$String*)>(&HttpRequest$$Lambda$lambda$newBuilder$0$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpRequest$Builder;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpRequest$$Lambda$lambda$newBuilder$0$5, init$, void, $HttpRequest$Builder*, $String*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpRequest$$Lambda$lambda$newBuilder$0$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HttpRequest$$Lambda$lambda$newBuilder$0$5::classInfo$ = {
@@ -302,23 +302,23 @@ $Class* HttpRequest$$Lambda$lambda$newBuilder$0$5::load$($String* name, bool ini
 $Class* HttpRequest$$Lambda$lambda$newBuilder$0$5::class$ = nullptr;
 
 $MethodInfo _HttpRequest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(HttpRequest::*)()>(&HttpRequest::init$))},
-	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC | $ABSTRACT},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"expectContinue", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC | $ABSTRACT},
-	{"lambda$newBuilder$0", "(Ljava/net/http/HttpRequest$Builder;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpRequest$Builder*,$String*,$String*)>(&HttpRequest::lambda$newBuilder$0))},
-	{"lambda$newBuilder$1", "(Ljava/net/http/HttpRequest$Builder;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpRequest$Builder*,$String*,$List*)>(&HttpRequest::lambda$newBuilder$1))},
-	{"lambda$newBuilder$2", "(Ljava/net/http/HttpRequest$Builder;Ljava/lang/String;Ljava/net/http/HttpRequest$BodyPublisher;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpRequest$Builder*,$String*,$HttpRequest$BodyPublisher*)>(&HttpRequest::lambda$newBuilder$2))},
-	{"lambda$newBuilder$3", "(Ljava/lang/String;Ljava/net/http/HttpRequest$Builder;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*,$HttpRequest$Builder*)>(&HttpRequest::lambda$newBuilder$3))},
-	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"newBuilder", "(Ljava/net/URI;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$Builder*(*)($URI*)>(&HttpRequest::newBuilder))},
-	{"newBuilder", "(Ljava/net/http/HttpRequest;Ljava/util/function/BiPredicate;)Ljava/net/http/HttpRequest$Builder;", "(Ljava/net/http/HttpRequest;Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;)Ljava/net/http/HttpRequest$Builder;", $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$Builder*(*)(HttpRequest*,$BiPredicate*)>(&HttpRequest::newBuilder))},
-	{"newBuilder", "()Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$Builder*(*)()>(&HttpRequest::newBuilder))},
-	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC | $ABSTRACT},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(HttpRequest, init$, void)},
+	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpRequest, bodyPublisher, $Optional*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HttpRequest, equals, bool, Object$*)},
+	{"expectContinue", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpRequest, expectContinue, bool)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(HttpRequest, hashCode, int32_t)},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpRequest, headers, $HttpHeaders*)},
+	{"lambda$newBuilder$0", "(Ljava/net/http/HttpRequest$Builder;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequest, lambda$newBuilder$0, void, $HttpRequest$Builder*, $String*, $String*)},
+	{"lambda$newBuilder$1", "(Ljava/net/http/HttpRequest$Builder;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequest, lambda$newBuilder$1, void, $HttpRequest$Builder*, $String*, $List*)},
+	{"lambda$newBuilder$2", "(Ljava/net/http/HttpRequest$Builder;Ljava/lang/String;Ljava/net/http/HttpRequest$BodyPublisher;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequest, lambda$newBuilder$2, void, $HttpRequest$Builder*, $String*, $HttpRequest$BodyPublisher*)},
+	{"lambda$newBuilder$3", "(Ljava/lang/String;Ljava/net/http/HttpRequest$Builder;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpRequest, lambda$newBuilder$3, void, $String*, $HttpRequest$Builder*)},
+	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpRequest, method, $String*)},
+	{"newBuilder", "(Ljava/net/URI;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest, newBuilder, $HttpRequest$Builder*, $URI*)},
+	{"newBuilder", "(Ljava/net/http/HttpRequest;Ljava/util/function/BiPredicate;)Ljava/net/http/HttpRequest$Builder;", "(Ljava/net/http/HttpRequest;Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;)Ljava/net/http/HttpRequest$Builder;", $PUBLIC | $STATIC, $staticMethod(HttpRequest, newBuilder, $HttpRequest$Builder*, HttpRequest*, $BiPredicate*)},
+	{"newBuilder", "()Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest, newBuilder, $HttpRequest$Builder*)},
+	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpRequest, timeout, $Optional*)},
+	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpRequest, uri, $URI*)},
+	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpRequest, version, $Optional*)},
 	{}
 };
 

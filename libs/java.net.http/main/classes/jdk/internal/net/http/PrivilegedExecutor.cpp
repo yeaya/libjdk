@@ -29,8 +29,8 @@ $FieldInfo _PrivilegedExecutor_FieldInfo_[] = {
 };
 
 $MethodInfo _PrivilegedExecutor_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(static_cast<void(PrivilegedExecutor::*)($Executor*,$AccessControlContext*)>(&PrivilegedExecutor::init$))},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(PrivilegedExecutor, init$, void, $Executor*, $AccessControlContext*)},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(PrivilegedExecutor, execute, void, $Runnable*)},
 	{}
 };
 

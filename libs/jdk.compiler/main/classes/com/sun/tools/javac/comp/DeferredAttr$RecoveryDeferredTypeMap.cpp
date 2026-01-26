@@ -69,14 +69,14 @@ $FieldInfo _DeferredAttr$RecoveryDeferredTypeMap_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$RecoveryDeferredTypeMap_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PUBLIC, $method(static_cast<void(DeferredAttr$RecoveryDeferredTypeMap::*)($DeferredAttr*,$DeferredAttr$AttrMode*,$Symbol*,$Resolve$MethodResolutionPhase*)>(&DeferredAttr$RecoveryDeferredTypeMap::init$))},
-	{"map", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PRIVATE, $method(static_cast<$List*(DeferredAttr$RecoveryDeferredTypeMap::*)($List*,$List*)>(&DeferredAttr$RecoveryDeferredTypeMap::map))},
-	{"recover", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(DeferredAttr$RecoveryDeferredTypeMap::*)($DeferredAttr$DeferredType*,$Type*)>(&DeferredAttr$RecoveryDeferredTypeMap::recover))},
-	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED},
-	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PUBLIC, $method(DeferredAttr$RecoveryDeferredTypeMap, init$, void, $DeferredAttr*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*)},
+	{"map", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PRIVATE, $method(DeferredAttr$RecoveryDeferredTypeMap, map, $List*, $List*, $List*)},
+	{"recover", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(DeferredAttr$RecoveryDeferredTypeMap, recover, $Type*, $DeferredAttr$DeferredType*, $Type*)},
+	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(DeferredAttr$RecoveryDeferredTypeMap, typeOf, $Type*, $DeferredAttr$DeferredType*, $Type*)},
+	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$RecoveryDeferredTypeMap, typeOf, $Type*, $DeferredAttr$DeferredType*, Object$*)},
+	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$RecoveryDeferredTypeMap, visitMethodType, $Type*, $Type$MethodType*, $Type*)},
+	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$RecoveryDeferredTypeMap, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$RecoveryDeferredTypeMap, visitType, $Object*, $Type*, Object$*)},
 	{}
 };
 

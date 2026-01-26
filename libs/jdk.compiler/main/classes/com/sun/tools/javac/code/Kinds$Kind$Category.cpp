@@ -33,10 +33,10 @@ $FieldInfo _Kinds$Kind$Category_FieldInfo_[] = {
 };
 
 $MethodInfo _Kinds$Kind$Category_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Kinds$Kind$Category;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Kinds$Kind$CategoryArray*(*)()>(&Kinds$Kind$Category::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Kinds$Kind$Category::*)($String*,int32_t)>(&Kinds$Kind$Category::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Kinds$Kind$Category;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Kinds$Kind$Category*(*)($String*)>(&Kinds$Kind$Category::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Kinds$Kind$Category;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Kinds$Kind$CategoryArray*(*)()>(&Kinds$Kind$Category::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Kinds$Kind$Category;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Kinds$Kind$Category, $values, $Kinds$Kind$CategoryArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Kinds$Kind$Category, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Kinds$Kind$Category;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$Kind$Category, valueOf, Kinds$Kind$Category*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Kinds$Kind$Category;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$Kind$Category, values, $Kinds$Kind$CategoryArray*)},
 	{}
 };
 

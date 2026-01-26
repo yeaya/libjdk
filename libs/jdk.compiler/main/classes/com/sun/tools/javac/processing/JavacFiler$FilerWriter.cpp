@@ -33,8 +33,8 @@ $FieldInfo _JavacFiler$FilerWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacFiler$FilerWriter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/FileObject;)V", nullptr, 0, $method(static_cast<void(JavacFiler$FilerWriter::*)($JavacFiler*,$Symbol$ModuleSymbol*,$String*,$FileObject*)>(&JavacFiler$FilerWriter::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/FileObject;)V", nullptr, 0, $method(JavacFiler$FilerWriter, init$, void, $JavacFiler*, $Symbol$ModuleSymbol*, $String*, $FileObject*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavacFiler$FilerWriter, close, void), "java.io.IOException"},
 	{}
 };
 

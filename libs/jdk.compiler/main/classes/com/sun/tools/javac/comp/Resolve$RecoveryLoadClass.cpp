@@ -6,6 +6,9 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <jcpp.h>
 
+using $Symbol = ::com::sun::tools::javac::code::Symbol;
+using $Env = ::com::sun::tools::javac::comp::Env;
+using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -17,7 +20,7 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Resolve$RecoveryLoadClass_MethodInfo_[] = {
-	{"loadClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC | $ABSTRACT},
+	{"loadClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC | $ABSTRACT, $virtualMethod(Resolve$RecoveryLoadClass, loadClass, $Symbol*, $Env*, $Name*)},
 	{}
 };
 

@@ -25,10 +25,10 @@ $FieldInfo _DocTreePathScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _DocTreePathScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DocTreePathScanner::*)()>(&DocTreePathScanner::init$))},
-	{"getCurrentPath", "()Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC},
-	{"scan", "(Lcom/sun/source/util/DocTreePath;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/util/DocTreePath;TP;)TR;", $PUBLIC},
-	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/doctree/DocTree;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DocTreePathScanner, init$, void)},
+	{"getCurrentPath", "()Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC, $virtualMethod(DocTreePathScanner, getCurrentPath, $DocTreePath*)},
+	{"scan", "(Lcom/sun/source/util/DocTreePath;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/util/DocTreePath;TP;)TR;", $PUBLIC, $virtualMethod(DocTreePathScanner, scan, $Object*, $DocTreePath*, Object$*)},
+	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/doctree/DocTree;TP;)TR;", $PUBLIC, $virtualMethod(DocTreePathScanner, scan, $Object*, $DocTree*, Object$*)},
 	{}
 };
 

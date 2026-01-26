@@ -19,10 +19,10 @@ namespace sun {
 			namespace ext {
 
 $MethodInfo _MS50221_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MS50221::*)()>(&MS50221::init$))},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC},
-	{"doSBKANA", "()Z", nullptr, $PROTECTED},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MS50221, init$, void)},
+	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS50221, contains, bool, $Charset*)},
+	{"doSBKANA", "()Z", nullptr, $PROTECTED, $virtualMethod(MS50221, doSBKANA, bool)},
+	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MS50221, historicalName, $String*)},
 	{}
 };
 

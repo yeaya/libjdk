@@ -24,10 +24,10 @@ $FieldInfo _AbstractRandomTest_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractRandomTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AbstractRandomTest::*)()>(&AbstractRandomTest::init$))},
-	{"getSeed", "()J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)()>(&AbstractRandomTest::getSeed))},
-	{"getSystemSeed", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Long*(*)()>(&AbstractRandomTest::getSystemSeed))},
-	{"randomRange", "(II)I", nullptr, $PROTECTED | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&AbstractRandomTest::randomRange))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractRandomTest, init$, void)},
+	{"getSeed", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractRandomTest, getSeed, int64_t)},
+	{"getSystemSeed", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractRandomTest, getSystemSeed, $Long*)},
+	{"randomRange", "(II)I", nullptr, $PROTECTED | $STATIC, $staticMethod(AbstractRandomTest, randomRange, int32_t, int32_t, int32_t)},
 	{}
 };
 

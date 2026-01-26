@@ -171,7 +171,7 @@ using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $JCDiagnostic$DiagnosticInfo = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticInfo;
 using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $JCDiagnostic$Warning = ::com::sun::tools::javac::util::JCDiagnostic$Warning;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Log$PrefixKind = ::com::sun::tools::javac::util::Log$PrefixKind;
@@ -208,7 +208,7 @@ using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
@@ -252,8 +252,8 @@ $FieldInfo Arguments$$Lambda$lambda$handleReleaseOptions$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Arguments$$Lambda$lambda$handleReleaseOptions$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;)V", nullptr, $PUBLIC, $method(static_cast<void(Arguments$$Lambda$lambda$handleReleaseOptions$0::*)(Arguments*)>(&Arguments$$Lambda$lambda$handleReleaseOptions$0::init$))},
-	{"report", "(Lcom/sun/tools/javac/main/Option;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;)V", nullptr, $PUBLIC, $method(Arguments$$Lambda$lambda$handleReleaseOptions$0, init$, void, Arguments*)},
+	{"report", "(Lcom/sun/tools/javac/main/Option;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$$Lambda$lambda$handleReleaseOptions$0, report, void, $Option*)},
 	{}
 };
 $ClassInfo Arguments$$Lambda$lambda$handleReleaseOptions$0::classInfo$ = {
@@ -304,8 +304,8 @@ $FieldInfo Arguments$$Lambda$lambda$processArgs$1$1::fieldInfos[6] = {
 	{}
 };
 $MethodInfo Arguments$$Lambda$lambda$processArgs$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;Ljava/util/Set;Lcom/sun/tools/javac/main/OptionHelper;ZZ)V", nullptr, $PUBLIC, $method(static_cast<void(Arguments$$Lambda$lambda$processArgs$1$1::*)(Arguments*,$Set*,$OptionHelper*,bool,bool)>(&Arguments$$Lambda$lambda$processArgs$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;Ljava/util/Set;Lcom/sun/tools/javac/main/OptionHelper;ZZ)V", nullptr, $PUBLIC, $method(Arguments$$Lambda$lambda$processArgs$1$1, init$, void, Arguments*, $Set*, $OptionHelper*, bool, bool)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Arguments$$Lambda$lambda$processArgs$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Arguments$$Lambda$lambda$processArgs$1$1::classInfo$ = {
@@ -347,8 +347,8 @@ $FieldInfo Arguments$$Lambda$lambda$validate$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Arguments$$Lambda$lambda$validate$2$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;Lcom/sun/tools/javac/jvm/Target;)V", nullptr, $PUBLIC, $method(static_cast<void(Arguments$$Lambda$lambda$validate$2$2::*)(Arguments*,$Target*)>(&Arguments$$Lambda$lambda$validate$2$2::init$))},
-	{"report", "(Lcom/sun/tools/javac/main/Option;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;Lcom/sun/tools/javac/jvm/Target;)V", nullptr, $PUBLIC, $method(Arguments$$Lambda$lambda$validate$2$2, init$, void, Arguments*, $Target*)},
+	{"report", "(Lcom/sun/tools/javac/main/Option;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$$Lambda$lambda$validate$2$2, report, void, $Option*)},
 	{}
 };
 $ClassInfo Arguments$$Lambda$lambda$validate$2$2::classInfo$ = {
@@ -387,8 +387,8 @@ $FieldInfo Arguments$$Lambda$isSet$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Arguments$$Lambda$isSet$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PUBLIC, $method(static_cast<void(Arguments$$Lambda$isSet$3::*)($Options*)>(&Arguments$$Lambda$isSet$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PUBLIC, $method(Arguments$$Lambda$isSet$3, init$, void, $Options*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Arguments$$Lambda$isSet$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Arguments$$Lambda$isSet$3::classInfo$ = {
@@ -427,8 +427,8 @@ $FieldInfo Arguments$$Lambda$report$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Arguments$$Lambda$report$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Arguments$ErrorReporter;)V", nullptr, $PUBLIC, $method(static_cast<void(Arguments$$Lambda$report$4::*)($Arguments$ErrorReporter*)>(&Arguments$$Lambda$report$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/Arguments$ErrorReporter;)V", nullptr, $PUBLIC, $method(Arguments$$Lambda$report$4, init$, void, $Arguments$ErrorReporter*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$$Lambda$report$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Arguments$$Lambda$report$4::classInfo$ = {
@@ -465,38 +465,38 @@ $FieldInfo _Arguments_FieldInfo_[] = {
 };
 
 $MethodInfo _Arguments_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(Arguments::*)($Context*)>(&Arguments::init$))},
-	{"allowEmpty", "()V", nullptr, $PUBLIC},
-	{"checkDirectory", "(Lcom/sun/tools/javac/main/Option;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Arguments::*)($Option*)>(&Arguments::checkDirectory))},
-	{"checkOptionAllowed", "(ZLcom/sun/tools/javac/main/Arguments$ErrorReporter;[Lcom/sun/tools/javac/main/Option;)V", nullptr, $TRANSIENT},
-	{"doProcessArgs", "(Ljava/lang/Iterable;Ljava/util/Set;Lcom/sun/tools/javac/main/OptionHelper;ZZ)Z", "(Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;Lcom/sun/tools/javac/main/OptionHelper;ZZ)Z", $PRIVATE, $method(static_cast<bool(Arguments::*)($Iterable*,$Set*,$OptionHelper*,bool,bool)>(&Arguments::doProcessArgs))},
-	{"error", "(Lcom/sun/tools/javac/main/Option$InvalidValueException;)V", nullptr, 0},
-	{"getClassNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getDeferredFileManagerOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Lcom/sun/tools/javac/main/Option;Ljava/lang/String;>;", $PUBLIC},
-	{"getDocLintOpts", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getFileManager", "()Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE, $method(static_cast<$JavaFileManager*(Arguments::*)()>(&Arguments::getFileManager))},
-	{"getFileObjects", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileObject;>;", $PUBLIC},
-	{"getPluginOpts", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;>;", $PUBLIC},
-	{"handleReleaseOptions", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<Ljava/lang/Iterable<Ljava/lang/String;>;>;)Z", $PUBLIC},
-	{"init", "(Ljava/lang/String;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<Ljava/lang/String;>;)V", $PUBLIC},
-	{"init", "(Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)V", $PUBLIC},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/main/Arguments;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Arguments*(*)($Context*)>(&Arguments::instance))},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"lambda$handleReleaseOptions$0", "(Lcom/sun/tools/javac/main/Option;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Arguments::*)($Option*)>(&Arguments::lambda$handleReleaseOptions$0))},
-	{"lambda$processArgs$1", "(Ljava/util/Set;Lcom/sun/tools/javac/main/OptionHelper;ZZLjava/lang/Iterable;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Arguments::*)($Set*,$OptionHelper*,bool,bool,$Iterable*)>(&Arguments::lambda$processArgs$1))},
-	{"lambda$validate$2", "(Lcom/sun/tools/javac/jvm/Target;Lcom/sun/tools/javac/main/Option;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Arguments::*)($Target*,$Option*)>(&Arguments::lambda$validate$2))},
-	{"processArgs", "(Ljava/lang/Iterable;Ljava/util/Set;Lcom/sun/tools/javac/main/OptionHelper;ZZ)Z", "(Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;Lcom/sun/tools/javac/main/OptionHelper;ZZ)Z", $PRIVATE, $method(static_cast<bool(Arguments::*)($Iterable*,$Set*,$OptionHelper*,bool,bool)>(&Arguments::processArgs))},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, $PRIVATE, $method(static_cast<void(Arguments::*)($JCDiagnostic$DiagnosticInfo*)>(&Arguments::report))},
-	{"reportDiag", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, 0},
-	{"toList", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/ListBuffer;", "<T:Ljava/lang/Object;>(Ljava/lang/Iterable<+TT;>;)Lcom/sun/tools/javac/util/ListBuffer<TT;>;", 0},
-	{"toSet", "(Ljava/lang/Iterable;)Ljava/util/Set;", "<T:Ljava/lang/Object;>(Ljava/lang/Iterable<+TT;>;)Ljava/util/Set<TT;>;", 0},
-	{"validate", "()Z", nullptr, $PUBLIC},
-	{"validateAddExports", "(Ljavax/lang/model/SourceVersion;)V", nullptr, $PRIVATE, $method(static_cast<void(Arguments::*)($SourceVersion*)>(&Arguments::validateAddExports))},
-	{"validateAddModules", "(Ljavax/lang/model/SourceVersion;)V", nullptr, $PRIVATE, $method(static_cast<void(Arguments::*)($SourceVersion*)>(&Arguments::validateAddModules))},
-	{"validateAddReads", "(Ljavax/lang/model/SourceVersion;)V", nullptr, $PRIVATE, $method(static_cast<void(Arguments::*)($SourceVersion*)>(&Arguments::validateAddReads))},
-	{"validateDefaultModuleForCreatedFiles", "(Ljavax/lang/model/SourceVersion;)V", nullptr, $PRIVATE, $method(static_cast<void(Arguments::*)($SourceVersion*)>(&Arguments::validateDefaultModuleForCreatedFiles))},
-	{"validateLimitModules", "(Ljavax/lang/model/SourceVersion;)V", nullptr, $PRIVATE, $method(static_cast<void(Arguments::*)($SourceVersion*)>(&Arguments::validateLimitModules))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Arguments, init$, void, $Context*)},
+	{"allowEmpty", "()V", nullptr, $PUBLIC, $virtualMethod(Arguments, allowEmpty, void)},
+	{"checkDirectory", "(Lcom/sun/tools/javac/main/Option;)Z", nullptr, $PRIVATE, $method(Arguments, checkDirectory, bool, $Option*)},
+	{"checkOptionAllowed", "(ZLcom/sun/tools/javac/main/Arguments$ErrorReporter;[Lcom/sun/tools/javac/main/Option;)V", nullptr, $TRANSIENT, $virtualMethod(Arguments, checkOptionAllowed, void, bool, $Arguments$ErrorReporter*, $OptionArray*)},
+	{"doProcessArgs", "(Ljava/lang/Iterable;Ljava/util/Set;Lcom/sun/tools/javac/main/OptionHelper;ZZ)Z", "(Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;Lcom/sun/tools/javac/main/OptionHelper;ZZ)Z", $PRIVATE, $method(Arguments, doProcessArgs, bool, $Iterable*, $Set*, $OptionHelper*, bool, bool)},
+	{"error", "(Lcom/sun/tools/javac/main/Option$InvalidValueException;)V", nullptr, 0, $virtualMethod(Arguments, error, void, $Option$InvalidValueException*)},
+	{"getClassNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Arguments, getClassNames, $Set*)},
+	{"getDeferredFileManagerOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Lcom/sun/tools/javac/main/Option;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Arguments, getDeferredFileManagerOptions, $Map*)},
+	{"getDocLintOpts", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Arguments, getDocLintOpts, $List*)},
+	{"getFileManager", "()Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE, $method(Arguments, getFileManager, $JavaFileManager*)},
+	{"getFileObjects", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(Arguments, getFileObjects, $Set*)},
+	{"getPluginOpts", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(Arguments, getPluginOpts, $Set*)},
+	{"handleReleaseOptions", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<Ljava/lang/Iterable<Ljava/lang/String;>;>;)Z", $PUBLIC, $virtualMethod(Arguments, handleReleaseOptions, bool, $Predicate*)},
+	{"init", "(Ljava/lang/String;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Arguments, init, void, $String*, $Iterable*)},
+	{"init", "(Ljava/lang/String;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(Arguments, init, void, $String*, $Iterable*, $Iterable*, $Iterable*)},
+	{"init", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments, init, void, $String*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/main/Arguments;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arguments, instance, Arguments*, $Context*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Arguments, isEmpty, bool)},
+	{"lambda$handleReleaseOptions$0", "(Lcom/sun/tools/javac/main/Option;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Arguments, lambda$handleReleaseOptions$0, void, $Option*)},
+	{"lambda$processArgs$1", "(Ljava/util/Set;Lcom/sun/tools/javac/main/OptionHelper;ZZLjava/lang/Iterable;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Arguments, lambda$processArgs$1, bool, $Set*, $OptionHelper*, bool, bool, $Iterable*)},
+	{"lambda$validate$2", "(Lcom/sun/tools/javac/jvm/Target;Lcom/sun/tools/javac/main/Option;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Arguments, lambda$validate$2, void, $Target*, $Option*)},
+	{"processArgs", "(Ljava/lang/Iterable;Ljava/util/Set;Lcom/sun/tools/javac/main/OptionHelper;ZZ)Z", "(Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;Lcom/sun/tools/javac/main/OptionHelper;ZZ)Z", $PRIVATE, $method(Arguments, processArgs, bool, $Iterable*, $Set*, $OptionHelper*, bool, bool)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, $PRIVATE, $method(Arguments, report, void, $JCDiagnostic$DiagnosticInfo*)},
+	{"reportDiag", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, 0, $virtualMethod(Arguments, reportDiag, void, $JCDiagnostic$DiagnosticInfo*)},
+	{"toList", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/ListBuffer;", "<T:Ljava/lang/Object;>(Ljava/lang/Iterable<+TT;>;)Lcom/sun/tools/javac/util/ListBuffer<TT;>;", 0, $virtualMethod(Arguments, toList, $ListBuffer*, $Iterable*)},
+	{"toSet", "(Ljava/lang/Iterable;)Ljava/util/Set;", "<T:Ljava/lang/Object;>(Ljava/lang/Iterable<+TT;>;)Ljava/util/Set<TT;>;", 0, $virtualMethod(Arguments, toSet, $Set*, $Iterable*)},
+	{"validate", "()Z", nullptr, $PUBLIC, $virtualMethod(Arguments, validate, bool)},
+	{"validateAddExports", "(Ljavax/lang/model/SourceVersion;)V", nullptr, $PRIVATE, $method(Arguments, validateAddExports, void, $SourceVersion*)},
+	{"validateAddModules", "(Ljavax/lang/model/SourceVersion;)V", nullptr, $PRIVATE, $method(Arguments, validateAddModules, void, $SourceVersion*)},
+	{"validateAddReads", "(Ljavax/lang/model/SourceVersion;)V", nullptr, $PRIVATE, $method(Arguments, validateAddReads, void, $SourceVersion*)},
+	{"validateDefaultModuleForCreatedFiles", "(Ljavax/lang/model/SourceVersion;)V", nullptr, $PRIVATE, $method(Arguments, validateDefaultModuleForCreatedFiles, void, $SourceVersion*)},
+	{"validateLimitModules", "(Ljavax/lang/model/SourceVersion;)V", nullptr, $PRIVATE, $method(Arguments, validateLimitModules, void, $SourceVersion*)},
 	{}
 };
 
@@ -705,7 +705,7 @@ bool Arguments::validate() {
 				$init($CompilerProperties$Errors);
 				$nc(this->log)->error($CompilerProperties$Errors::ModulesourcepathMustBeSpecifiedWithDashMOption);
 			} else {
-				$var($List, modules, $Arrays::asList($($nc($($nc(this->options)->get($Option::MODULE)))->split(","_s))));
+				$var($1List, modules, $Arrays::asList($($nc($($nc(this->options)->get($Option::MODULE)))->split(","_s))));
 				try {
 					{
 						$var($Iterator, i$, $nc(modules)->iterator());
@@ -1255,20 +1255,20 @@ $Set* Arguments::getPluginOpts() {
 		for (; i$ < len$; ++i$) {
 			$var($String, plugin, arr$->get(i$));
 			{
-				pluginOpts->add($($1List::from($($nc(plugin)->split("\\s+"_s)))));
+				pluginOpts->add($($List::from($($nc(plugin)->split("\\s+"_s)))));
 			}
 		}
 	}
 	return $Collections::unmodifiableSet(pluginOpts);
 }
 
-$1List* Arguments::getDocLintOpts() {
+$List* Arguments::getDocLintOpts() {
 	$useLocalCurrentObjectStackCache();
 	$init($Option);
 	$var($String, xdoclint, $nc(this->options)->get($Option::XDOCLINT));
 	$var($String, xdoclintCustom, $nc(this->options)->get($Option::XDOCLINT_CUSTOM));
 	if (xdoclint == nullptr && xdoclintCustom == nullptr) {
-		return $1List::nil();
+		return $List::nil();
 	}
 	$var($Set, doclintOpts, $new($LinkedHashSet));
 	if (xdoclint != nullptr) {
@@ -1294,13 +1294,13 @@ $1List* Arguments::getDocLintOpts() {
 	}
 	$init($DocLint);
 	if (doclintOpts->equals($($Collections::singleton($$str({$DocLint::XMSGS_CUSTOM_PREFIX, "none"_s}))))) {
-		return $1List::nil();
+		return $List::nil();
 	}
 	$var($String, checkPackages, $nc(this->options)->get($Option::XDOCLINT_PACKAGE));
 	if (checkPackages != nullptr) {
 		doclintOpts->add($$str({$DocLint::XCHECK_PACKAGE, checkPackages}));
 	}
-	return $1List::from($fcast($StringArray, $(doclintOpts->toArray($$new($StringArray, doclintOpts->size())))));
+	return $List::from($fcast($StringArray, $(doclintOpts->toArray($$new($StringArray, doclintOpts->size())))));
 }
 
 bool Arguments::checkDirectory($Option* option) {

@@ -15,8 +15,8 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _ResponseSubscribers$TrustedSubscriber_MethodInfo_[] = {
-	{"needsExecutor", "()Z", nullptr, $PUBLIC},
-	{"needsExecutor", "(Ljava/net/http/HttpResponse$BodySubscriber;)Z", "(Ljava/net/http/HttpResponse$BodySubscriber<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($HttpResponse$BodySubscriber*)>(&ResponseSubscribers$TrustedSubscriber::needsExecutor))},
+	{"needsExecutor", "()Z", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$TrustedSubscriber, needsExecutor, bool)},
+	{"needsExecutor", "(Ljava/net/http/HttpResponse$BodySubscriber;)Z", "(Ljava/net/http/HttpResponse$BodySubscriber<*>;)Z", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers$TrustedSubscriber, needsExecutor, bool, $HttpResponse$BodySubscriber*)},
 	{}
 };
 

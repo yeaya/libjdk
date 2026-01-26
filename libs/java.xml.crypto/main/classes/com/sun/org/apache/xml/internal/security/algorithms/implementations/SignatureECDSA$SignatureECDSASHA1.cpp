@@ -25,9 +25,9 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _SignatureECDSA$SignatureECDSASHA1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SignatureECDSA$SignatureECDSASHA1::*)()>(&SignatureECDSA$SignatureECDSASHA1::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureECDSA$SignatureECDSASHA1::*)($Provider*)>(&SignatureECDSA$SignatureECDSASHA1::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSASHA1, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSASHA1, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureECDSA$SignatureECDSASHA1, engineGetURI, $String*)},
 	{}
 };
 

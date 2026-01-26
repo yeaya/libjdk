@@ -37,11 +37,11 @@ $FieldInfo _HPACK$Logger$Level_FieldInfo_[] = {
 };
 
 $MethodInfo _HPACK$Logger$Level_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HPACK$Logger$LevelArray*(*)()>(&HPACK$Logger$Level::$values))},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/System$Logger$Level;)V", "(ILjava/lang/System$Logger$Level;)V", $PRIVATE, $method(static_cast<void(HPACK$Logger$Level::*)($String*,int32_t,int32_t,$System$Logger$Level*)>(&HPACK$Logger$Level::init$))},
-	{"implies", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(HPACK$Logger$Level::*)(HPACK$Logger$Level*)>(&HPACK$Logger$Level::implies))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HPACK$Logger$Level*(*)($String*)>(&HPACK$Logger$Level::valueOf))},
-	{"values", "()[Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HPACK$Logger$LevelArray*(*)()>(&HPACK$Logger$Level::values))},
+	{"$values", "()[Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK$Logger$Level, $values, $HPACK$Logger$LevelArray*)},
+	{"<init>", "(Ljava/lang/String;IILjava/lang/System$Logger$Level;)V", "(ILjava/lang/System$Logger$Level;)V", $PRIVATE, $method(HPACK$Logger$Level, init$, void, $String*, int32_t, int32_t, $System$Logger$Level*)},
+	{"implies", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Z", nullptr, $PUBLIC | $FINAL, $method(HPACK$Logger$Level, implies, bool, HPACK$Logger$Level*)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK$Logger$Level, valueOf, HPACK$Logger$Level*, $String*)},
+	{"values", "()[Ljdk/internal/net/http/hpack/HPACK$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK$Logger$Level, values, $HPACK$Logger$LevelArray*)},
 	{}
 };
 

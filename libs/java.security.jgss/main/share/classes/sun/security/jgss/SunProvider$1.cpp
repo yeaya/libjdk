@@ -27,8 +27,8 @@ $FieldInfo _SunProvider$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SunProvider$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/SunProvider;Ljava/security/Provider;)V", "()V", 0, $method(static_cast<void(SunProvider$1::*)($SunProvider*,$Provider*)>(&SunProvider$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/jgss/SunProvider;Ljava/security/Provider;)V", "()V", 0, $method(SunProvider$1, init$, void, $SunProvider*, $Provider*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SunProvider$1, run, $Object*)},
 	{}
 };
 

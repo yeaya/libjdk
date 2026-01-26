@@ -24,8 +24,8 @@ $FieldInfo _RMIConnectionImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnectionImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;)V", nullptr, 0, $method(static_cast<void(RMIConnectionImpl$1::*)($RMIConnectionImpl*)>(&RMIConnectionImpl$1::init$))},
-	{"run", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;)V", nullptr, 0, $method(RMIConnectionImpl$1, init$, void, $RMIConnectionImpl*)},
+	{"run", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl$1, run, $Object*)},
 	{}
 };
 

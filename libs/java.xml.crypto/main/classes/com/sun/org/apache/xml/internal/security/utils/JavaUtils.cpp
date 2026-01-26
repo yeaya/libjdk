@@ -61,14 +61,14 @@ $FieldInfo _JavaUtils_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JavaUtils::*)()>(&JavaUtils::init$))},
-	{"checkRegisterPermission", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&JavaUtils::checkRegisterPermission))},
-	{"convertDsaASN1toXMLDSIG", "([BI)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t)>(&JavaUtils::convertDsaASN1toXMLDSIG)), "java.io.IOException"},
-	{"convertDsaXMLDSIGtoASN1", "([BI)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t)>(&JavaUtils::convertDsaXMLDSIGtoASN1)), "java.io.IOException"},
-	{"getBytesFromFile", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&JavaUtils::getBytesFromFile)), "java.io.FileNotFoundException,java.io.IOException"},
-	{"getBytesFromStream", "(Ljava/io/InputStream;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($InputStream*)>(&JavaUtils::getBytesFromStream)), "java.io.IOException"},
-	{"newInstanceWithEmptyConstructor", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($Class*)>(&JavaUtils::newInstanceWithEmptyConstructor)), "java.lang.InstantiationException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException"},
-	{"writeBytesToFilename", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$bytes*)>(&JavaUtils::writeBytesToFilename))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JavaUtils, init$, void)},
+	{"checkRegisterPermission", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, checkRegisterPermission, void)},
+	{"convertDsaASN1toXMLDSIG", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, convertDsaASN1toXMLDSIG, $bytes*, $bytes*, int32_t), "java.io.IOException"},
+	{"convertDsaXMLDSIGtoASN1", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, convertDsaXMLDSIGtoASN1, $bytes*, $bytes*, int32_t), "java.io.IOException"},
+	{"getBytesFromFile", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, getBytesFromFile, $bytes*, $String*), "java.io.FileNotFoundException,java.io.IOException"},
+	{"getBytesFromStream", "(Ljava/io/InputStream;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, getBytesFromStream, $bytes*, $InputStream*), "java.io.IOException"},
+	{"newInstanceWithEmptyConstructor", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(JavaUtils, newInstanceWithEmptyConstructor, $Object*, $Class*), "java.lang.InstantiationException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException"},
+	{"writeBytesToFilename", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaUtils, writeBytesToFilename, void, $String*, $bytes*)},
 	{}
 };
 

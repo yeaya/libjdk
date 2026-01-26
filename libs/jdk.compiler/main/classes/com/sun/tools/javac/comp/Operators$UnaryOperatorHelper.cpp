@@ -68,8 +68,8 @@ $FieldInfo Operators$UnaryOperatorHelper$$Lambda$lambda$doLookup$0::fieldInfos[3
 	{}
 };
 $MethodInfo Operators$UnaryOperatorHelper$$Lambda$lambda$doLookup$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators$UnaryOperatorHelper;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$UnaryOperatorHelper$$Lambda$lambda$doLookup$0::*)(Operators$UnaryOperatorHelper*,$Type*)>(&Operators$UnaryOperatorHelper$$Lambda$lambda$doLookup$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators$UnaryOperatorHelper;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Operators$UnaryOperatorHelper$$Lambda$lambda$doLookup$0, init$, void, Operators$UnaryOperatorHelper*, $Type*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryOperatorHelper$$Lambda$lambda$doLookup$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Operators$UnaryOperatorHelper$$Lambda$lambda$doLookup$0::classInfo$ = {
@@ -117,8 +117,8 @@ $FieldInfo Operators$UnaryOperatorHelper$$Lambda$lambda$addUnaryOperator$1$1::fi
 	{}
 };
 $MethodInfo Operators$UnaryOperatorHelper$$Lambda$lambda$addUnaryOperator$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators$UnaryOperatorHelper;Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$UnaryOperatorHelper$$Lambda$lambda$addUnaryOperator$1$1::*)(Operators$UnaryOperatorHelper*,$Operators$OperatorType*,$Operators$OperatorType*,$ints*)>(&Operators$UnaryOperatorHelper$$Lambda$lambda$addUnaryOperator$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators$UnaryOperatorHelper;Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)V", nullptr, $PUBLIC, $method(Operators$UnaryOperatorHelper$$Lambda$lambda$addUnaryOperator$1$1, init$, void, Operators$UnaryOperatorHelper*, $Operators$OperatorType*, $Operators$OperatorType*, $ints*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryOperatorHelper$$Lambda$lambda$addUnaryOperator$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo Operators$UnaryOperatorHelper$$Lambda$lambda$addUnaryOperator$1$1::classInfo$ = {
@@ -145,13 +145,13 @@ $MethodInfo _Operators$UnaryOperatorHelper_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Operators$UnaryOperatorHelper::*)($Operators*,$JCTree$Tag*)>(&Operators$UnaryOperatorHelper::init$))},
-	{"addUnaryOperator", "(Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/comp/Operators$UnaryOperatorHelper;", nullptr, $FINAL | $TRANSIENT, $method(static_cast<Operators$UnaryOperatorHelper*(Operators$UnaryOperatorHelper::*)($Operators$OperatorType*,$Operators$OperatorType*,$ints*)>(&Operators$UnaryOperatorHelper::addUnaryOperator))},
-	{"doLookup", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $FINAL, $method(static_cast<$Symbol$OperatorSymbol*(Operators$UnaryOperatorHelper::*)($Type*)>(&Operators$UnaryOperatorHelper::doLookup))},
-	{"isUnaryOperatorApplicable", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0},
-	{"lambda$addUnaryOperator$1", "(Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Symbol$OperatorSymbol*(Operators$UnaryOperatorHelper::*)($Operators$OperatorType*,$Operators$OperatorType*,$ints*)>(&Operators$UnaryOperatorHelper::lambda$addUnaryOperator$1))},
-	{"lambda$doLookup$0", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Operators$UnaryOperatorHelper::*)($Type*,$Symbol$OperatorSymbol*)>(&Operators$UnaryOperatorHelper::lambda$doLookup$0))},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $ABSTRACT},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$UnaryOperatorHelper, init$, void, $Operators*, $JCTree$Tag*)},
+	{"addUnaryOperator", "(Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/comp/Operators$UnaryOperatorHelper;", nullptr, $FINAL | $TRANSIENT, $method(Operators$UnaryOperatorHelper, addUnaryOperator, Operators$UnaryOperatorHelper*, $Operators$OperatorType*, $Operators$OperatorType*, $ints*)},
+	{"doLookup", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $FINAL, $method(Operators$UnaryOperatorHelper, doLookup, $Symbol$OperatorSymbol*, $Type*)},
+	{"isUnaryOperatorApplicable", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Operators$UnaryOperatorHelper, isUnaryOperatorApplicable, bool, $Symbol$OperatorSymbol*, $Type*)},
+	{"lambda$addUnaryOperator$1", "(Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(Operators$UnaryOperatorHelper, lambda$addUnaryOperator$1, $Symbol$OperatorSymbol*, $Operators$OperatorType*, $Operators$OperatorType*, $ints*)},
+	{"lambda$doLookup$0", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Operators$UnaryOperatorHelper, lambda$doLookup$0, bool, $Type*, $Symbol$OperatorSymbol*)},
+	{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $ABSTRACT, $virtualMethod(Operators$UnaryOperatorHelper, resolve, $Symbol$OperatorSymbol*, $Type*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

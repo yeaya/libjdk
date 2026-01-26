@@ -21,7 +21,7 @@ $FieldInfo _Gen$CodeSizeOverflow_FieldInfo_[] = {
 };
 
 $MethodInfo _Gen$CodeSizeOverflow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Gen$CodeSizeOverflow::*)()>(&Gen$CodeSizeOverflow::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Gen$CodeSizeOverflow, init$, void)},
 	{}
 };
 

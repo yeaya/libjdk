@@ -8,9 +8,13 @@
 
 #undef EXPORTER_ATTRIBUTE
 
+using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Remote = ::java::rmi::Remote;
+using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;
+using $RMIServerSocketFactory = ::java::rmi::server::RMIServerSocketFactory;
 
 namespace com {
 	namespace sun {
@@ -25,8 +29,8 @@ $FieldInfo _RMIExporter_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIExporter_MethodInfo_[] = {
-	{"exportObject", "(Ljava/rmi/Remote;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException"},
-	{"unexportObject", "(Ljava/rmi/Remote;Z)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.NoSuchObjectException"},
+	{"exportObject", "(Ljava/rmi/Remote;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIExporter, exportObject, $Remote*, $Remote*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*, $ObjectInputFilter*), "java.rmi.RemoteException"},
+	{"unexportObject", "(Ljava/rmi/Remote;Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIExporter, unexportObject, bool, $Remote*, bool), "java.rmi.NoSuchObjectException"},
 	{}
 };
 

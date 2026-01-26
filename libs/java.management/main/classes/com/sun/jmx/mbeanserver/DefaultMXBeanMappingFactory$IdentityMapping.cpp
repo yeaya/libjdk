@@ -19,10 +19,10 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _DefaultMXBeanMappingFactory$IdentityMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType<*>;)V", 0, $method(static_cast<void(DefaultMXBeanMappingFactory$IdentityMapping::*)($Type*,$OpenType*)>(&DefaultMXBeanMappingFactory$IdentityMapping::init$))},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, nullptr, "java.io.InvalidObjectException"},
-	{"isIdentity", "()Z", nullptr, 0},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, nullptr, "javax.management.openmbean.OpenDataException"},
+	{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType<*>;)V", 0, $method(DefaultMXBeanMappingFactory$IdentityMapping, init$, void, $Type*, $OpenType*)},
+	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$IdentityMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+	{"isIdentity", "()Z", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$IdentityMapping, isIdentity, bool)},
+	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$IdentityMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
 	{}
 };
 

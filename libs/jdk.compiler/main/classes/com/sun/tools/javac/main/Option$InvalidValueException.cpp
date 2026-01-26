@@ -21,8 +21,8 @@ $FieldInfo _Option$InvalidValueException_FieldInfo_[] = {
 };
 
 $MethodInfo _Option$InvalidValueException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Option$InvalidValueException::*)($String*)>(&Option$InvalidValueException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(Option$InvalidValueException::*)($String*,$Throwable*)>(&Option$InvalidValueException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Option$InvalidValueException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Option$InvalidValueException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

@@ -14,8 +14,8 @@ namespace sun {
 		namespace httpserver {
 
 $MethodInfo _ServerImpl$DefaultExecutor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServerImpl$DefaultExecutor::*)()>(&ServerImpl$DefaultExecutor::init$))},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerImpl$DefaultExecutor, init$, void)},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$DefaultExecutor, execute, void, $Runnable*)},
 	{}
 };
 

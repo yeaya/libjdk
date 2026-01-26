@@ -27,8 +27,8 @@ $FieldInfo _ObjectInputStreamWithLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInputStreamWithLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInputStreamWithLoader::*)($InputStream*,$ClassLoader*)>(&ObjectInputStreamWithLoader::init$)), "java.io.IOException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(ObjectInputStreamWithLoader, init$, void, $InputStream*, $ClassLoader*), "java.io.IOException"},
+	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ObjectInputStreamWithLoader, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

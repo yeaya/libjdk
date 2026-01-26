@@ -25,8 +25,8 @@ $FieldInfo _Types$DescriptorCache$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$DescriptorCache$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;I)V", nullptr, $PUBLIC, $method(static_cast<void(Types$DescriptorCache$Entry::*)($Types$DescriptorCache*,$Types$DescriptorCache$FunctionDescriptor*,int32_t)>(&Types$DescriptorCache$Entry::init$))},
-	{"matches", "(I)Z", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;I)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$Entry, init$, void, $Types$DescriptorCache*, $Types$DescriptorCache$FunctionDescriptor*, int32_t)},
+	{"matches", "(I)Z", nullptr, 0, $virtualMethod(Types$DescriptorCache$Entry, matches, bool, int32_t)},
 	{}
 };
 

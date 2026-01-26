@@ -24,8 +24,8 @@ $FieldInfo _S$3_FieldInfo_[] = {
 };
 
 $MethodInfo _S$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Stream;)V", "()V", 0, $method(static_cast<void(S$3::*)($Stream*)>(&S$3::init$))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/stream/Stream;)V", "()V", 0, $method(S$3, init$, void, $Stream*)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC, $virtualMethod(S$3, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

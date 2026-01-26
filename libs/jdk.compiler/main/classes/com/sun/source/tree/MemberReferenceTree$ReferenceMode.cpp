@@ -27,10 +27,10 @@ $FieldInfo _MemberReferenceTree$ReferenceMode_FieldInfo_[] = {
 };
 
 $MethodInfo _MemberReferenceTree$ReferenceMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MemberReferenceTree$ReferenceModeArray*(*)()>(&MemberReferenceTree$ReferenceMode::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(MemberReferenceTree$ReferenceMode::*)($String*,int32_t)>(&MemberReferenceTree$ReferenceMode::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MemberReferenceTree$ReferenceMode*(*)($String*)>(&MemberReferenceTree$ReferenceMode::valueOf))},
-	{"values", "()[Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MemberReferenceTree$ReferenceModeArray*(*)()>(&MemberReferenceTree$ReferenceMode::values))},
+	{"$values", "()[Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemberReferenceTree$ReferenceMode, $values, $MemberReferenceTree$ReferenceModeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MemberReferenceTree$ReferenceMode, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberReferenceTree$ReferenceMode, valueOf, MemberReferenceTree$ReferenceMode*, $String*)},
+	{"values", "()[Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberReferenceTree$ReferenceMode, values, $MemberReferenceTree$ReferenceModeArray*)},
 	{}
 };
 

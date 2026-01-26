@@ -18,8 +18,8 @@ namespace sun {
 			namespace ext {
 
 $MethodInfo _SJIS_0213$Holder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SJIS_0213$Holder$1::*)()>(&SJIS_0213$Holder$1::init$))},
-	{"run", "()Lsun/nio/cs/CharsetMapping;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SJIS_0213$Holder$1, init$, void)},
+	{"run", "()Lsun/nio/cs/CharsetMapping;", nullptr, $PUBLIC, $virtualMethod(SJIS_0213$Holder$1, run, $Object*)},
 	{}
 };
 

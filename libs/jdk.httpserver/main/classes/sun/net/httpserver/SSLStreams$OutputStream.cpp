@@ -49,12 +49,12 @@ $FieldInfo _SSLStreams$OutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLStreams$OutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/SSLStreams;)V", nullptr, 0, $method(static_cast<void(SSLStreams$OutputStream::*)($SSLStreams*)>(&SSLStreams$OutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/SSLStreams;)V", nullptr, 0, $method(SSLStreams$OutputStream, init$, void, $SSLStreams*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, close, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, flush, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, write, void, $bytes*), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

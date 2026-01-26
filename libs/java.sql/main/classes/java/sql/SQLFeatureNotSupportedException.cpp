@@ -17,14 +17,14 @@ $FieldInfo _SQLFeatureNotSupportedException_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLFeatureNotSupportedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SQLFeatureNotSupportedException::*)()>(&SQLFeatureNotSupportedException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLFeatureNotSupportedException::*)($String*)>(&SQLFeatureNotSupportedException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLFeatureNotSupportedException::*)($String*,$String*)>(&SQLFeatureNotSupportedException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(SQLFeatureNotSupportedException::*)($String*,$String*,int32_t)>(&SQLFeatureNotSupportedException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLFeatureNotSupportedException::*)($Throwable*)>(&SQLFeatureNotSupportedException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLFeatureNotSupportedException::*)($String*,$Throwable*)>(&SQLFeatureNotSupportedException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLFeatureNotSupportedException::*)($String*,$String*,$Throwable*)>(&SQLFeatureNotSupportedException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLFeatureNotSupportedException::*)($String*,$String*,int32_t,$Throwable*)>(&SQLFeatureNotSupportedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLFeatureNotSupportedException, init$, void, $String*, $String*, int32_t, $Throwable*)},
 	{}
 };
 

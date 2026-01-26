@@ -86,14 +86,14 @@ $FieldInfo _SjavacServer_FieldInfo_[] = {
 };
 
 $MethodInfo _SjavacServer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SjavacServer::*)($String*)>(&SjavacServer::init$)), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(static_cast<void(SjavacServer::*)($String*,int32_t,int32_t)>(&SjavacServer::init$)), "java.io.FileNotFoundException"},
-	{"addBuildTime", "(J)V", nullptr, $PUBLIC},
-	{"getCookie", "()J", nullptr, 0},
-	{"getPort", "()I", nullptr, 0},
-	{"getPortFile", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/server/PortFile;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$PortFile*(*)($String*)>(&SjavacServer::getPortFile))},
-	{"shutdown", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"startServer", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.InterruptedException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SjavacServer, init$, void, $String*), "java.io.FileNotFoundException"},
+	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(SjavacServer, init$, void, $String*, int32_t, int32_t), "java.io.FileNotFoundException"},
+	{"addBuildTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(SjavacServer, addBuildTime, void, int64_t)},
+	{"getCookie", "()J", nullptr, 0, $virtualMethod(SjavacServer, getCookie, int64_t)},
+	{"getPort", "()I", nullptr, 0, $virtualMethod(SjavacServer, getPort, int32_t)},
+	{"getPortFile", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/server/PortFile;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SjavacServer, getPortFile, $PortFile*, $String*)},
+	{"shutdown", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SjavacServer, shutdown, void, $String*)},
+	{"startServer", "()I", nullptr, $PUBLIC, $virtualMethod(SjavacServer, startServer, int32_t), "java.io.IOException,java.lang.InterruptedException"},
 	{}
 };
 

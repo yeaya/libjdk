@@ -5,6 +5,8 @@
 #include <com/sun/tools/javac/comp/Env.h>
 #include <jcpp.h>
 
+using $Analyzer$RewritingContext = ::com::sun::tools::javac::comp::Analyzer$RewritingContext;
+using $Env = ::com::sun::tools::javac::comp::Env;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -16,8 +18,8 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Analyzer$DeferredAnalysisHelper_MethodInfo_[] = {
-	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC | $ABSTRACT},
-	{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(Analyzer$DeferredAnalysisHelper, flush, void, $Env*)},
+	{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Analyzer$DeferredAnalysisHelper, queue, void, $Analyzer$RewritingContext*)},
 	{}
 };
 

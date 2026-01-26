@@ -26,10 +26,10 @@ $MethodInfo _BaseRow_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BaseRow::*)()>(&BaseRow::init$))},
-	{"getColumnObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getOrigRow", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"setColumnObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BaseRow, init$, void)},
+	{"getColumnObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BaseRow, getColumnObject, $Object*, int32_t), "java.sql.SQLException"},
+	{"getOrigRow", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BaseRow, getOrigRow, $ObjectArray*)},
+	{"setColumnObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BaseRow, setColumnObject, void, int32_t, Object$*), "java.sql.SQLException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

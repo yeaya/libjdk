@@ -1,5 +1,6 @@
 #include <com/sun/net/httpserver/spi/HttpServerProvider.h>
 
+#include <com/sun/net/httpserver/HttpServer.h>
 #include <com/sun/net/httpserver/HttpsServer.h>
 #include <com/sun/net/httpserver/spi/HttpServerProvider$1.h>
 #include <java/lang/ClassLoader.h>
@@ -19,6 +20,8 @@
 #include <java/util/ServiceLoader.h>
 #include <jcpp.h>
 
+using $HttpServer = ::com::sun::net::httpserver::HttpServer;
+using $HttpsServer = ::com::sun::net::httpserver::HttpsServer;
 using $HttpServerProvider$1 = ::com::sun::net::httpserver::spi::HttpServerProvider$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -32,6 +35,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
+using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $AccessController = ::java::security::AccessController;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
@@ -53,12 +57,12 @@ $FieldInfo _HttpServerProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpServerProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(HttpServerProvider::*)()>(&HttpServerProvider::init$))},
-	{"createHttpServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"createHttpsServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpsServer;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"loadProviderAsService", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&HttpServerProvider::loadProviderAsService))},
-	{"loadProviderFromProperty", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&HttpServerProvider::loadProviderFromProperty))},
-	{"provider", "()Lcom/sun/net/httpserver/spi/HttpServerProvider;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpServerProvider*(*)()>(&HttpServerProvider::provider))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(HttpServerProvider, init$, void)},
+	{"createHttpServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServerProvider, createHttpServer, $HttpServer*, $InetSocketAddress*, int32_t), "java.io.IOException"},
+	{"createHttpsServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpsServer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServerProvider, createHttpsServer, $HttpsServer*, $InetSocketAddress*, int32_t), "java.io.IOException"},
+	{"loadProviderAsService", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpServerProvider, loadProviderAsService, bool)},
+	{"loadProviderFromProperty", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpServerProvider, loadProviderFromProperty, bool)},
+	{"provider", "()Lcom/sun/net/httpserver/spi/HttpServerProvider;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpServerProvider, provider, HttpServerProvider*)},
 	{}
 };
 

@@ -24,7 +24,7 @@ $FieldInfo _TreePath$1Result_FieldInfo_[] = {
 };
 
 $MethodInfo _TreePath$1Result_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/util/TreePath;)V", nullptr, 0, $method(static_cast<void(TreePath$1Result::*)($TreePath*)>(&TreePath$1Result::init$))},
+	{"<init>", "(Lcom/sun/source/util/TreePath;)V", nullptr, 0, $method(TreePath$1Result, init$, void, $TreePath*)},
 	{}
 };
 

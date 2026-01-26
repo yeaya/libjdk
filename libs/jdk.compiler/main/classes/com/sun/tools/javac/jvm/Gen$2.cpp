@@ -42,9 +42,9 @@ $FieldInfo _Gen$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Gen$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/jvm/Items$LocalItem;)V", nullptr, 0, $method(static_cast<void(Gen$2::*)($Gen*,$Env*,$Items$LocalItem*)>(&Gen$2::init$))},
-	{"gen", "()V", nullptr, 0},
-	{"genLast", "()V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/jvm/Items$LocalItem;)V", nullptr, 0, $method(Gen$2, init$, void, $Gen*, $Env*, $Items$LocalItem*)},
+	{"gen", "()V", nullptr, 0, $virtualMethod(Gen$2, gen, void)},
+	{"genLast", "()V", nullptr, 0, $virtualMethod(Gen$2, genLast, void)},
 	{}
 };
 

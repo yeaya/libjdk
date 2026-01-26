@@ -23,9 +23,9 @@ $MethodInfo _JCTree$JCStatement_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCTree$JCStatement::*)()>(&JCTree$JCStatement::init$))},
-	{"setPos", "(I)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC},
-	{"setType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCStatement, init$, void)},
+	{"setPos", "(I)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCStatement, setPos, JCTree$JCStatement*, int32_t)},
+	{"setType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCStatement, setType, JCTree$JCStatement*, $Type*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

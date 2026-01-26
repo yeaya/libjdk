@@ -23,8 +23,8 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _RequestPublishers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RequestPublishers::*)()>(&RequestPublishers::init$))},
-	{"concat", "([Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$HttpRequest$BodyPublisher*(*)($HttpRequest$BodyPublisherArray*)>(&RequestPublishers::concat))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RequestPublishers, init$, void)},
+	{"concat", "([Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(RequestPublishers, concat, $HttpRequest$BodyPublisher*, $HttpRequest$BodyPublisherArray*)},
 	{}
 };
 

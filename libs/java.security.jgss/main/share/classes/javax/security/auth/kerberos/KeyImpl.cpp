@@ -54,20 +54,20 @@ $FieldInfo _KeyImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyImpl_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(static_cast<void(KeyImpl::*)($bytes*,int32_t)>(&KeyImpl::init$))},
-	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[CLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyImpl::*)($KerberosPrincipal*,$chars*,$String*)>(&KeyImpl::init$))},
-	{"destroy", "()V", nullptr, $PUBLIC, nullptr, "javax.security.auth.DestroyFailedException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"getAlgorithmName", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(KeyImpl::*)(int32_t)>(&KeyImpl::getAlgorithmName))},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"getKeyType", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(KeyImpl::*)()>(&KeyImpl::getKeyType))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(KeyImpl::*)($ObjectInputStream*)>(&KeyImpl::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(KeyImpl::*)($ObjectOutputStream*)>(&KeyImpl::writeObject)), "java.io.IOException"},
+	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(KeyImpl, init$, void, $bytes*, int32_t)},
+	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[CLjava/lang/String;)V", nullptr, $PUBLIC, $method(KeyImpl, init$, void, $KerberosPrincipal*, $chars*, $String*)},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(KeyImpl, destroy, void), "javax.security.auth.DestroyFailedException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyImpl, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KeyImpl, getAlgorithm, $String*)},
+	{"getAlgorithmName", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(KeyImpl, getAlgorithmName, $String*, int32_t)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(KeyImpl, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KeyImpl, getFormat, $String*)},
+	{"getKeyType", "()I", nullptr, $PUBLIC | $FINAL, $method(KeyImpl, getKeyType, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyImpl, hashCode, int32_t)},
+	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyImpl, isDestroyed, bool)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KeyImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyImpl, toString, $String*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KeyImpl, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

@@ -20,15 +20,15 @@ $FieldInfo _PlaceholderOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _PlaceholderOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(PlaceholderOutputStream::*)($OutputStream*)>(&PlaceholderOutputStream::init$))},
-	{"checkWrap", "()V", nullptr, $PRIVATE, $method(static_cast<void(PlaceholderOutputStream::*)()>(&PlaceholderOutputStream::checkWrap)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isWrapped", "()Z", nullptr, 0},
-	{"setWrappedStream", "(Ljava/io/OutputStream;)V", nullptr, 0},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(PlaceholderOutputStream, init$, void, $OutputStream*)},
+	{"checkWrap", "()V", nullptr, $PRIVATE, $method(PlaceholderOutputStream, checkWrap, void), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, close, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, flush, void), "java.io.IOException"},
+	{"isWrapped", "()Z", nullptr, 0, $virtualMethod(PlaceholderOutputStream, isWrapped, bool)},
+	{"setWrappedStream", "(Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(PlaceholderOutputStream, setWrappedStream, void, $OutputStream*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, write, void, $bytes*), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

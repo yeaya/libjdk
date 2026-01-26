@@ -22,10 +22,10 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMSignatureMethod$AbstractRSASignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$AbstractRSASignatureMethod::*)($AlgorithmParameterSpec*)>(&DOMSignatureMethod$AbstractRSASignatureMethod::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$AbstractRSASignatureMethod::*)($Element*)>(&DOMSignatureMethod$AbstractRSASignatureMethod::init$)), "javax.xml.crypto.MarshalException"},
-	{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, 0},
-	{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, 0},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSASignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSASignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractRSASignatureMethod, postSignFormat, $bytes*, $Key*, $bytes*)},
+	{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractRSASignatureMethod, preVerifyFormat, $bytes*, $Key*, $bytes*)},
 	{}
 };
 

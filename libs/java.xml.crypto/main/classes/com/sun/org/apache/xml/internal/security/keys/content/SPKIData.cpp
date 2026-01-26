@@ -28,8 +28,8 @@ $MethodInfo _SPKIData_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SPKIData::*)($Element*,$String*)>(&SPKIData::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SPKIData, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPKIData, getBaseLocalName, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

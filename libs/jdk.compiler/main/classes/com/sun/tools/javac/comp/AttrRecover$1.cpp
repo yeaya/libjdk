@@ -85,8 +85,8 @@ $FieldInfo AttrRecover$1$$Lambda$lambda$visitReturn$0::fieldInfos[5] = {
 	{}
 };
 $MethodInfo AttrRecover$1$$Lambda$lambda$visitReturn$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/AttrRecover$1;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCErroneous;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $method(static_cast<void(AttrRecover$1$$Lambda$lambda$visitReturn$0::*)(AttrRecover$1*,$JCTree$JCLambda*,$JCTree$JCErroneous*,$JCTree$JCReturn*)>(&AttrRecover$1$$Lambda$lambda$visitReturn$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/AttrRecover$1;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCErroneous;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $method(AttrRecover$1$$Lambda$lambda$visitReturn$0, init$, void, AttrRecover$1*, $JCTree$JCLambda*, $JCTree$JCErroneous*, $JCTree$JCReturn*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AttrRecover$1$$Lambda$lambda$visitReturn$0, run, void)},
 	{}
 };
 $ClassInfo AttrRecover$1$$Lambda$lambda$visitReturn$0::classInfo$ = {
@@ -125,8 +125,8 @@ $FieldInfo AttrRecover$1$$Lambda$lambda$visitReturn$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo AttrRecover$1$$Lambda$lambda$visitReturn$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $method(static_cast<void(AttrRecover$1$$Lambda$lambda$visitReturn$1$1::*)($JCTree$JCReturn*)>(&AttrRecover$1$$Lambda$lambda$visitReturn$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $method(AttrRecover$1$$Lambda$lambda$visitReturn$1$1, init$, void, $JCTree$JCReturn*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AttrRecover$1$$Lambda$lambda$visitReturn$1$1, run, void)},
 	{}
 };
 $ClassInfo AttrRecover$1$$Lambda$lambda$visitReturn$1$1::classInfo$ = {
@@ -152,12 +152,12 @@ $FieldInfo _AttrRecover$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AttrRecover$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/AttrRecover;ZLcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, 0, $method(static_cast<void(AttrRecover$1::*)($AttrRecover*,bool,$ListBuffer*,$JCTree$JCLambda*)>(&AttrRecover$1::init$))},
-	{"lambda$visitReturn$0", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCErroneous;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(AttrRecover$1::*)($JCTree$JCLambda*,$JCTree$JCErroneous*,$JCTree$JCReturn*)>(&AttrRecover$1::lambda$visitReturn$0))},
-	{"lambda$visitReturn$1", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($JCTree$JCReturn*)>(&AttrRecover$1::lambda$visitReturn$1))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/AttrRecover;ZLcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, 0, $method(AttrRecover$1, init$, void, $AttrRecover*, bool, $ListBuffer*, $JCTree$JCLambda*)},
+	{"lambda$visitReturn$0", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCErroneous;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(AttrRecover$1, lambda$visitReturn$0, void, $JCTree$JCLambda*, $JCTree$JCErroneous*, $JCTree$JCReturn*)},
+	{"lambda$visitReturn$1", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AttrRecover$1, lambda$visitReturn$1, void, $JCTree$JCReturn*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(AttrRecover$1, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(AttrRecover$1, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(AttrRecover$1, visitReturn, void, $JCTree$JCReturn*)},
 	{}
 };
 

@@ -36,10 +36,10 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _DefaultMXBeanMappingFactory$MXBeanRefMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;)V", nullptr, 0, $method(static_cast<void(DefaultMXBeanMappingFactory$MXBeanRefMapping::*)($Type*)>(&DefaultMXBeanMappingFactory$MXBeanRefMapping::init$))},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, nullptr, "java.io.InvalidObjectException"},
-	{"lookupNotNull", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MXBeanLookup;", "<T:Ljava/lang/Exception;>(Ljava/lang/Class<TT;>;)Lcom/sun/jmx/mbeanserver/MXBeanLookup;^TT;", $PRIVATE, $method(static_cast<$MXBeanLookup*(DefaultMXBeanMappingFactory$MXBeanRefMapping::*)($Class*)>(&DefaultMXBeanMappingFactory$MXBeanRefMapping::lookupNotNull)), "java.lang.Exception"},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, nullptr, "javax.management.openmbean.OpenDataException"},
+	{"<init>", "(Ljava/lang/reflect/Type;)V", nullptr, 0, $method(DefaultMXBeanMappingFactory$MXBeanRefMapping, init$, void, $Type*)},
+	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$MXBeanRefMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+	{"lookupNotNull", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MXBeanLookup;", "<T:Ljava/lang/Exception;>(Ljava/lang/Class<TT;>;)Lcom/sun/jmx/mbeanserver/MXBeanLookup;^TT;", $PRIVATE, $method(DefaultMXBeanMappingFactory$MXBeanRefMapping, lookupNotNull, $MXBeanLookup*, $Class*), "java.lang.Exception"},
+	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$MXBeanRefMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
 	{}
 };
 

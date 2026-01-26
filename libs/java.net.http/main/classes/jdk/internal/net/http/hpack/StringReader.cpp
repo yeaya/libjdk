@@ -54,10 +54,10 @@ $FieldInfo _StringReader_FieldInfo_[] = {
 };
 
 $MethodInfo _StringReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StringReader::*)()>(&StringReader::init$))},
-	{"isHuffmanEncoded", "()Z", nullptr, 0, $method(static_cast<bool(StringReader::*)()>(&StringReader::isHuffmanEncoded))},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;)Z", nullptr, 0, $method(static_cast<bool(StringReader::*)($ByteBuffer*,$Appendable*)>(&StringReader::read)), "java.io.IOException"},
-	{"reset", "()V", nullptr, 0, $method(static_cast<void(StringReader::*)()>(&StringReader::reset))},
+	{"<init>", "()V", nullptr, 0, $method(StringReader, init$, void)},
+	{"isHuffmanEncoded", "()Z", nullptr, 0, $method(StringReader, isHuffmanEncoded, bool)},
+	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;)Z", nullptr, 0, $method(StringReader, read, bool, $ByteBuffer*, $Appendable*), "java.io.IOException"},
+	{"reset", "()V", nullptr, 0, $method(StringReader, reset, void)},
 	{}
 };
 

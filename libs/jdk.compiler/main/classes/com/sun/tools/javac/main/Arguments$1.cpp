@@ -36,15 +36,15 @@ $FieldInfo _Arguments$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Arguments$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;)V", nullptr, 0, $method(static_cast<void(Arguments$1::*)($Arguments*)>(&Arguments$1::init$))},
-	{"addClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"addFile", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC},
-	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLog", "()Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC},
-	{"getOwnName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;)V", nullptr, 0, $method(Arguments$1, init$, void, $Arguments*)},
+	{"addClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, addClassName, void, $String*)},
+	{"addFile", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, addFile, void, $Path*)},
+	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Arguments$1, get, $String*, $Option*)},
+	{"getLog", "()Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $virtualMethod(Arguments$1, getLog, $Log*)},
+	{"getOwnName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Arguments$1, getOwnName, $String*)},
+	{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Arguments$1, handleFileManagerOption, bool, $Option*, $String*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, put, void, $String*, $String*)},
+	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$1, remove, void, $String*)},
 	{}
 };
 

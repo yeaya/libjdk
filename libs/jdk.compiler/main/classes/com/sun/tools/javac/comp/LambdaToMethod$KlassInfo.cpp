@@ -58,8 +58,8 @@ $FieldInfo _LambdaToMethod$KlassInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaToMethod$KlassInfo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PRIVATE, $method(static_cast<void(LambdaToMethod$KlassInfo::*)($LambdaToMethod*,$JCTree$JCClassDecl*)>(&LambdaToMethod$KlassInfo::init$))},
-	{"addMethod", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(static_cast<void(LambdaToMethod$KlassInfo::*)($JCTree*)>(&LambdaToMethod$KlassInfo::addMethod))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PRIVATE, $method(LambdaToMethod$KlassInfo, init$, void, $LambdaToMethod*, $JCTree$JCClassDecl*)},
+	{"addMethod", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(LambdaToMethod$KlassInfo, addMethod, void, $JCTree*)},
 	{}
 };
 

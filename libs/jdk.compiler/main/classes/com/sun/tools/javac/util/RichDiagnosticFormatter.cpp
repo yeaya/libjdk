@@ -112,22 +112,22 @@ $FieldInfo _RichDiagnosticFormatter_FieldInfo_[] = {
 };
 
 $MethodInfo _RichDiagnosticFormatter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(RichDiagnosticFormatter::*)($Context*)>(&RichDiagnosticFormatter::init$))},
-	{"format", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"format", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"formatMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getConfiguration", "()Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration;", nullptr, $PUBLIC},
-	{"getRichPrinter", "()Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichPrinter;", nullptr, $PROTECTED},
-	{"getWhereClauses", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED},
-	{"indexOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(RichDiagnosticFormatter::*)($Type*,$RichDiagnosticFormatter$WhereClauseKind*)>(&RichDiagnosticFormatter::indexOf))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RichDiagnosticFormatter*(*)($Context*)>(&RichDiagnosticFormatter::instance))},
-	{"preprocessArgument", "(Ljava/lang/Object;)V", nullptr, $PROTECTED},
-	{"preprocessDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PROTECTED},
-	{"preprocessSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PROTECTED},
-	{"preprocessType", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED},
-	{"setRichPrinter", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichPrinter;)V", nullptr, $PROTECTED},
-	{"unique", "(Lcom/sun/tools/javac/code/Type$TypeVar;)Z", nullptr, $PRIVATE, $method(static_cast<bool(RichDiagnosticFormatter::*)($Type$TypeVar*)>(&RichDiagnosticFormatter::unique))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(RichDiagnosticFormatter, init$, void, $Context*)},
+	{"format", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter, format, $String*, $JCDiagnostic*, $Locale*)},
+	{"format", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter, format, $String*, $Diagnostic*, $Locale*)},
+	{"formatMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter, formatMessage, $String*, $JCDiagnostic*, $Locale*)},
+	{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
+	{"getConfiguration", "()Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
+	{"getRichPrinter", "()Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichPrinter;", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, getRichPrinter, $RichDiagnosticFormatter$RichPrinter*)},
+	{"getWhereClauses", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED, $virtualMethod(RichDiagnosticFormatter, getWhereClauses, $List*)},
+	{"indexOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;)I", nullptr, $PRIVATE, $method(RichDiagnosticFormatter, indexOf, int32_t, $Type*, $RichDiagnosticFormatter$WhereClauseKind*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter, instance, RichDiagnosticFormatter*, $Context*)},
+	{"preprocessArgument", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessArgument, void, Object$*)},
+	{"preprocessDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessDiagnostic, void, $JCDiagnostic*)},
+	{"preprocessSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessSymbol, void, $Symbol*)},
+	{"preprocessType", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, preprocessType, void, $Type*)},
+	{"setRichPrinter", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichPrinter;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter, setRichPrinter, void, $RichDiagnosticFormatter$RichPrinter*)},
+	{"unique", "(Lcom/sun/tools/javac/code/Type$TypeVar;)Z", nullptr, $PRIVATE, $method(RichDiagnosticFormatter, unique, bool, $Type$TypeVar*)},
 	{}
 };
 

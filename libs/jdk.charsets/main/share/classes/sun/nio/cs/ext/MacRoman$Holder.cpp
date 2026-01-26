@@ -24,7 +24,7 @@ $FieldInfo _MacRoman$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MacRoman$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacRoman$Holder::*)()>(&MacRoman$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacRoman$Holder, init$, void)},
 	{}
 };
 

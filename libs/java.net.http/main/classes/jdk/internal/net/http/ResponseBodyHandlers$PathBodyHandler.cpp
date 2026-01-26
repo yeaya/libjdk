@@ -51,9 +51,9 @@ $FieldInfo _ResponseBodyHandlers$PathBodyHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseBodyHandlers$PathBodyHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/security/AccessControlContext;Ljava/io/FilePermission;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;Ljava/security/AccessControlContext;Ljava/io/FilePermission;)V", $PRIVATE, $method(static_cast<void(ResponseBodyHandlers$PathBodyHandler::*)($Path*,$List*,$AccessControlContext*,$FilePermission*)>(&ResponseBodyHandlers$PathBodyHandler::init$))},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/nio/file/Path;>;", $PUBLIC},
-	{"create", "(Ljava/nio/file/Path;Ljava/util/List;)Ljdk/internal/net/http/ResponseBodyHandlers$PathBodyHandler;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;)Ljdk/internal/net/http/ResponseBodyHandlers$PathBodyHandler;", $PUBLIC | $STATIC, $method(static_cast<ResponseBodyHandlers$PathBodyHandler*(*)($Path*,$List*)>(&ResponseBodyHandlers$PathBodyHandler::create))},
+	{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/security/AccessControlContext;Ljava/io/FilePermission;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;Ljava/security/AccessControlContext;Ljava/io/FilePermission;)V", $PRIVATE, $method(ResponseBodyHandlers$PathBodyHandler, init$, void, $Path*, $List*, $AccessControlContext*, $FilePermission*)},
+	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ResponseBodyHandlers$PathBodyHandler, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+	{"create", "(Ljava/nio/file/Path;Ljava/util/List;)Ljdk/internal/net/http/ResponseBodyHandlers$PathBodyHandler;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;)Ljdk/internal/net/http/ResponseBodyHandlers$PathBodyHandler;", $PUBLIC | $STATIC, $staticMethod(ResponseBodyHandlers$PathBodyHandler, create, ResponseBodyHandlers$PathBodyHandler*, $Path*, $List*)},
 	{}
 };
 

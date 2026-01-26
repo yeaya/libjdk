@@ -36,13 +36,13 @@ $FieldInfo _HierarchicalName_FieldInfo_[] = {
 };
 
 $MethodInfo _HierarchicalName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HierarchicalName::*)()>(&HierarchicalName::init$))},
-	{"<init>", "(Ljava/util/Enumeration;Ljava/util/Properties;)V", "(Ljava/util/Enumeration<Ljava/lang/String;>;Ljava/util/Properties;)V", 0, $method(static_cast<void(HierarchicalName::*)($Enumeration*,$Properties*)>(&HierarchicalName::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Properties;)V", nullptr, 0, $method(static_cast<void(HierarchicalName::*)($String*,$Properties*)>(&HierarchicalName::init$)), "javax.naming.InvalidNameException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getPrefix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC},
-	{"getSuffix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HierarchicalName, init$, void)},
+	{"<init>", "(Ljava/util/Enumeration;Ljava/util/Properties;)V", "(Ljava/util/Enumeration<Ljava/lang/String;>;Ljava/util/Properties;)V", 0, $method(HierarchicalName, init$, void, $Enumeration*, $Properties*)},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Properties;)V", nullptr, 0, $method(HierarchicalName, init$, void, $String*, $Properties*), "javax.naming.InvalidNameException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, clone, $Object*)},
+	{"getPrefix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, getPrefix, $Name*, int32_t)},
+	{"getSuffix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, getSuffix, $Name*, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, hashCode, int32_t)},
 	{}
 };
 

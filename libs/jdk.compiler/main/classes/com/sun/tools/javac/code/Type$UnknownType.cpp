@@ -33,12 +33,12 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Type$UnknownType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Type$UnknownType::*)()>(&Type$UnknownType::init$))},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$UnknownType;", nullptr, $PUBLIC},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC},
-	{"isPartial", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Type$UnknownType, init$, void)},
+	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$UnknownType, accept, $Object*, $TypeVisitor*, Object$*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$UnknownType;", nullptr, $PUBLIC, $virtualMethod(Type$UnknownType, cloneWithMetadata, Type$UnknownType*, $TypeMetadata*)},
+	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$UnknownType, getAnnotationMirrors, $List*)},
+	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$UnknownType, getTag, $TypeTag*)},
+	{"isPartial", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$UnknownType, isPartial, bool)},
 	{}
 };
 

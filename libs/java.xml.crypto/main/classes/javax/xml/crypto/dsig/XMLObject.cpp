@@ -8,6 +8,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace javax {
 	namespace xml {
@@ -20,10 +21,10 @@ $FieldInfo _XMLObject_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLObject_MethodInfo_[] = {
-	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getContent, $List*)},
+	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getEncoding, $String*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getId, $String*)},
+	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLObject, getMimeType, $String*)},
 	{}
 };
 

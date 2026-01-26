@@ -32,9 +32,9 @@ $FieldInfo _Types$CandidatesCache_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$CandidatesCache_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(static_cast<void(Types$CandidatesCache::*)($Types*)>(&Types$CandidatesCache::init$))},
-	{"get", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC},
-	{"put", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;)V", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Types$CandidatesCache, init$, void, $Types*)},
+	{"get", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(Types$CandidatesCache, get, $List*, $Types$CandidatesCache$Entry*)},
+	{"put", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Types$CandidatesCache$Entry;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;)V", $PUBLIC, $virtualMethod(Types$CandidatesCache, put, void, $Types$CandidatesCache$Entry*, $List*)},
 	{}
 };
 

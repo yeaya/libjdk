@@ -21,8 +21,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
 $MethodInfo _ImmutableHeaders$ImmutableHeadersHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ImmutableHeaders$ImmutableHeadersHandler::*)()>(&ImmutableHeaders$ImmutableHeadersHandler::init$))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(ImmutableHeaders$ImmutableHeadersHandler, init$, void)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(ImmutableHeaders$ImmutableHeadersHandler, handle, void, $HttpExchange*), "java.io.IOException"},
 	{}
 };
 

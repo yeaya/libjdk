@@ -45,15 +45,15 @@ $FieldInfo _ImmutableHttpRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableHttpRequest_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestBuilderImpl;)V", nullptr, 0, $method(static_cast<void(ImmutableHttpRequest::*)($HttpRequestBuilderImpl*)>(&ImmutableHttpRequest::init$))},
-	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC},
-	{"expectContinue", "()Z", nullptr, $PUBLIC},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC},
-	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpRequestBuilderImpl;)V", nullptr, 0, $method(ImmutableHttpRequest, init$, void, $HttpRequestBuilderImpl*)},
+	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(ImmutableHttpRequest, bodyPublisher, $Optional*)},
+	{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, expectContinue, bool)},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, headers, $HttpHeaders*)},
+	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, method, $String*)},
+	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(ImmutableHttpRequest, timeout, $Optional*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, toString, $String*)},
+	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, uri, $URI*)},
+	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(ImmutableHttpRequest, version, $Optional*)},
 	{}
 };
 

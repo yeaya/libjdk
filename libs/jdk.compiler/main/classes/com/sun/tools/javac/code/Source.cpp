@@ -107,15 +107,15 @@ $FieldInfo _Source_FieldInfo_[] = {
 };
 
 $MethodInfo _Source_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SourceArray*(*)()>(&Source::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Source::*)($String*,int32_t,$String*)>(&Source::init$))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Source*(*)($Context*)>(&Source::instance))},
-	{"isSupported", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Source::*)()>(&Source::isSupported))},
-	{"lookup", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Source*(*)($String*)>(&Source::lookup))},
-	{"requiredTarget", "()Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC, $method(static_cast<$Target*(Source::*)()>(&Source::requiredTarget))},
-	{"toSourceVersion", "(Lcom/sun/tools/javac/code/Source;)Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SourceVersion*(*)(Source*)>(&Source::toSourceVersion))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Source*(*)($String*)>(&Source::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SourceArray*(*)()>(&Source::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Source, $values, $SourceArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Source, init$, void, $String*, int32_t, $String*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, instance, Source*, $Context*)},
+	{"isSupported", "()Z", nullptr, $PUBLIC, $method(Source, isSupported, bool)},
+	{"lookup", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, lookup, Source*, $String*)},
+	{"requiredTarget", "()Lcom/sun/tools/javac/jvm/Target;", nullptr, $PUBLIC, $method(Source, requiredTarget, $Target*)},
+	{"toSourceVersion", "(Lcom/sun/tools/javac/code/Source;)Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, toSourceVersion, $SourceVersion*, Source*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, valueOf, Source*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Source;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source, values, $SourceArray*)},
 	{}
 };
 

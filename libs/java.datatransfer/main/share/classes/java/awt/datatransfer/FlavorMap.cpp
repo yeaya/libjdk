@@ -4,16 +4,18 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
+using $DataFlavorArray = $Array<::java::awt::datatransfer::DataFlavor>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
 
 namespace java {
 	namespace awt {
 		namespace datatransfer {
 
 $MethodInfo _FlavorMap_MethodInfo_[] = {
-	{"getFlavorsForNatives", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $ABSTRACT},
-	{"getNativesForFlavors", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map;", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
+	{"getFlavorsForNatives", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $ABSTRACT, $virtualMethod(FlavorMap, getFlavorsForNatives, $Map*, $StringArray*)},
+	{"getNativesForFlavors", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map;", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(FlavorMap, getNativesForFlavors, $Map*, $DataFlavorArray*)},
 	{}
 };
 

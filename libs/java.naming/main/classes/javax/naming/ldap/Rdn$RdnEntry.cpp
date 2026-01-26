@@ -25,15 +25,15 @@ $FieldInfo _Rdn$RdnEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _Rdn$RdnEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Rdn$RdnEntry::*)()>(&Rdn$RdnEntry::init$))},
-	{"compareTo", "(Ljavax/naming/ldap/Rdn$RdnEntry;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getType", "()Ljava/lang/String;", nullptr, 0},
-	{"getValue", "()Ljava/lang/Object;", nullptr, 0},
-	{"getValueComparable", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Rdn$RdnEntry::*)()>(&Rdn$RdnEntry::getValueComparable))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Rdn$RdnEntry, init$, void)},
+	{"compareTo", "(Ljavax/naming/ldap/Rdn$RdnEntry;)I", nullptr, $PUBLIC, $virtualMethod(Rdn$RdnEntry, compareTo, int32_t, Rdn$RdnEntry*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Rdn$RdnEntry, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Rdn$RdnEntry, equals, bool, Object$*)},
+	{"getType", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Rdn$RdnEntry, getType, $String*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(Rdn$RdnEntry, getValue, $Object*)},
+	{"getValueComparable", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rdn$RdnEntry, getValueComparable, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Rdn$RdnEntry, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Rdn$RdnEntry, toString, $String*)},
 	{}
 };
 

@@ -72,7 +72,7 @@ using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::Compiler
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $Context = ::com::sun::tools::javac::util::Context;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $ModuleHelper = ::com::sun::tools::javac::util::ModuleHelper;
 using $Options = ::com::sun::tools::javac::util::Options;
@@ -92,7 +92,7 @@ using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
@@ -126,8 +126,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BasicJavacTask$$Lambda$lambda$initPlugins$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BasicJavacTask$$Lambda$lambda$initPlugins$0::*)()>(&BasicJavacTask$$Lambda$lambda$initPlugins$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicJavacTask$$Lambda$lambda$initPlugins$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BasicJavacTask$$Lambda$lambda$initPlugins$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo BasicJavacTask$$Lambda$lambda$initPlugins$0::classInfo$ = {
@@ -152,28 +152,28 @@ $FieldInfo _BasicJavacTask_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicJavacTask_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;Z)V", nullptr, $PUBLIC, $method(static_cast<void(BasicJavacTask::*)($Context*,bool)>(&BasicJavacTask::init$))},
-	{"addModules", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/lang/String;>;)V", $PUBLIC},
-	{"addTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC},
-	{"analyze", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"call", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
-	{"generate", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC},
-	{"getContext", "()Lcom/sun/tools/javac/util/Context;", nullptr, $PUBLIC},
-	{"getElements", "()Ljavax/lang/model/util/Elements;", nullptr, $PUBLIC},
-	{"getTaskListeners", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lcom/sun/source/util/TaskListener;>;", $PUBLIC},
-	{"getTypeMirror", "(Ljava/lang/Iterable;)Ljavax/lang/model/type/TypeMirror;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;)Ljavax/lang/model/type/TypeMirror;", $PUBLIC},
-	{"getTypes", "()Ljavax/lang/model/util/Types;", nullptr, $PUBLIC},
-	{"initDocLint", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;)V", $PUBLIC},
-	{"initPlugin", "(Lcom/sun/source/util/Plugin;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(BasicJavacTask::*)($Plugin*,$StringArray*)>(&BasicJavacTask::initPlugin))},
-	{"initPlugins", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;>;)V", $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/source/util/JavacTask;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavacTask*(*)($Context*)>(&BasicJavacTask::instance))},
-	{"lambda$initPlugins$0", "(Ljava/util/Map$Entry;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Map$Entry*)>(&BasicJavacTask::lambda$initPlugins$0))},
-	{"parse", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/source/tree/CompilationUnitTree;>;", $PUBLIC},
-	{"removeTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC},
-	{"setParameterNameProvider", "(Lcom/sun/source/util/ParameterNameProvider;)V", nullptr, $PUBLIC},
-	{"setProcessors", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;)V", $PUBLIC},
-	{"setTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;Z)V", nullptr, $PUBLIC, $method(BasicJavacTask, init$, void, $Context*, bool)},
+	{"addModules", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BasicJavacTask, addModules, void, $Iterable*)},
+	{"addTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicJavacTask, addTaskListener, void, $TaskListener*)},
+	{"analyze", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(BasicJavacTask, analyze, $Iterable*)},
+	{"call", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(BasicJavacTask, call, $Object*)},
+	{"generate", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(BasicJavacTask, generate, $Iterable*)},
+	{"getContext", "()Lcom/sun/tools/javac/util/Context;", nullptr, $PUBLIC, $virtualMethod(BasicJavacTask, getContext, $Context*)},
+	{"getElements", "()Ljavax/lang/model/util/Elements;", nullptr, $PUBLIC, $virtualMethod(BasicJavacTask, getElements, $Elements*)},
+	{"getTaskListeners", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lcom/sun/source/util/TaskListener;>;", $PUBLIC, $virtualMethod(BasicJavacTask, getTaskListeners, $Collection*)},
+	{"getTypeMirror", "(Ljava/lang/Iterable;)Ljavax/lang/model/type/TypeMirror;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;)Ljavax/lang/model/type/TypeMirror;", $PUBLIC, $virtualMethod(BasicJavacTask, getTypeMirror, $TypeMirror*, $Iterable*)},
+	{"getTypes", "()Ljavax/lang/model/util/Types;", nullptr, $PUBLIC, $virtualMethod(BasicJavacTask, getTypes, $Types*)},
+	{"initDocLint", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BasicJavacTask, initDocLint, void, $List*)},
+	{"initPlugin", "(Lcom/sun/source/util/Plugin;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(BasicJavacTask, initPlugin, void, $Plugin*, $StringArray*)},
+	{"initPlugins", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/util/List<Ljava/lang/String;>;>;)V", $PUBLIC, $virtualMethod(BasicJavacTask, initPlugins, void, $Set*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/source/util/JavacTask;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicJavacTask, instance, $JavacTask*, $Context*)},
+	{"lambda$initPlugins$0", "(Ljava/util/Map$Entry;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BasicJavacTask, lambda$initPlugins$0, $String*, $Map$Entry*)},
+	{"parse", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/source/tree/CompilationUnitTree;>;", $PUBLIC, $virtualMethod(BasicJavacTask, parse, $Iterable*)},
+	{"removeTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicJavacTask, removeTaskListener, void, $TaskListener*)},
+	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(BasicJavacTask, setLocale, void, $Locale*)},
+	{"setParameterNameProvider", "(Lcom/sun/source/util/ParameterNameProvider;)V", nullptr, $PUBLIC, $virtualMethod(BasicJavacTask, setParameterNameProvider, void, $ParameterNameProvider*)},
+	{"setProcessors", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;)V", $PUBLIC, $virtualMethod(BasicJavacTask, setProcessors, void, $Iterable*)},
+	{"setTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC, $virtualMethod(BasicJavacTask, setTaskListener, void, $TaskListener*)},
 	{}
 };
 
@@ -318,7 +318,7 @@ void BasicJavacTask::initPlugins($Set* pluginOpts) {
 			for (; $nc(i$)->hasNext();) {
 				$var($PlatformDescription$PluginInfo, pluginDesc, $cast($PlatformDescription$PluginInfo, i$->next()));
 				{
-					$var($List, options, $nc($($nc($($nc($($nc($($nc(pluginDesc)->getOptions()))->entrySet()))->stream()))->map(static_cast<$Function*>($$new(BasicJavacTask$$Lambda$lambda$initPlugins$0)))))->toList());
+					$var($1List, options, $nc($($nc($($nc($($nc($($nc(pluginDesc)->getOptions()))->entrySet()))->stream()))->map(static_cast<$Function*>($$new(BasicJavacTask$$Lambda$lambda$initPlugins$0)))))->toList());
 					try {
 						$var($Plugin, var$0, $cast($Plugin, pluginDesc->getPlugin()));
 						initPlugin(var$0, $fcast($StringArray, $($nc(options)->toArray($$new($StringArray, options->size())))));
@@ -345,7 +345,7 @@ void BasicJavacTask::initPlugins($Set* pluginOpts) {
 				{
 					$var($Iterator, i$, pluginsToCall->iterator());
 					for (; $nc(i$)->hasNext();) {
-						$var($1List, p, $cast($1List, i$->next()));
+						$var($List, p, $cast($List, i$->next()));
 						{
 							if ($nc($($nc(plugin)->getName()))->equals($nc(p)->head)) {
 								pluginsToCall->remove(p);
@@ -366,7 +366,7 @@ void BasicJavacTask::initPlugins($Set* pluginOpts) {
 	{
 		$var($Iterator, i$, pluginsToCall->iterator());
 		for (; $nc(i$)->hasNext();) {
-			$var($1List, p, $cast($1List, i$->next()));
+			$var($List, p, $cast($List, i$->next()));
 			{
 				$nc($($Log::instance(this->context)))->error($($CompilerProperties$Errors::PluginNotFound($cast($String, $nc(p)->head))));
 			}
@@ -397,7 +397,7 @@ void BasicJavacTask::initPlugin($Plugin* p, $StringArray* args) {
 	p->init(this, args);
 }
 
-void BasicJavacTask::initDocLint($1List* docLintOpts) {
+void BasicJavacTask::initDocLint($List* docLintOpts) {
 	$useLocalCurrentObjectStackCache();
 	if ($nc(docLintOpts)->isEmpty()) {
 		return;

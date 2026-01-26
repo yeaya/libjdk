@@ -19,8 +19,8 @@ $FieldInfo _KrbApErrException_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbApErrException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(KrbApErrException::*)(int32_t)>(&KrbApErrException::init$))},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbApErrException::*)(int32_t,$String*)>(&KrbApErrException::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(KrbApErrException, init$, void, int32_t)},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(KrbApErrException, init$, void, int32_t, $String*)},
 	{}
 };
 

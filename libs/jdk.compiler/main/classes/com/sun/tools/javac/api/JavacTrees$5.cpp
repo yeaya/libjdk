@@ -37,9 +37,9 @@ $FieldInfo _JavacTrees$5_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTrees$5_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;Lcom/sun/tools/javac/code/Type$ClassType;)V", nullptr, 0, $method(static_cast<void(JavacTrees$5::*)($JavacTrees*,$Type*,$List*,$Symbol$TypeSymbol*,$TypeMetadata*,$Type$ClassType*)>(&JavacTrees$5::init$))},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;Lcom/sun/tools/javac/code/Type$ClassType;)V", nullptr, 0, $method(JavacTrees$5, init$, void, $JavacTrees*, $Type*, $List*, $Symbol$TypeSymbol*, $TypeMetadata*, $Type$ClassType*)},
+	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$5, baseType, $Type*)},
+	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$5, getKind, $TypeKind*)},
 	{}
 };
 

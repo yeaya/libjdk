@@ -85,8 +85,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HeadersTest$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HeadersTest$$Lambda$lambda$static$0::*)()>(&HeadersTest$$Lambda$lambda$static$0::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadersTest$$Lambda$lambda$static$0, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HeadersTest$$Lambda$lambda$static$0, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo HeadersTest$$Lambda$lambda$static$0::classInfo$ = {
@@ -111,20 +111,20 @@ $FieldInfo _HeadersTest_FieldInfo_[] = {
 };
 
 $MethodInfo _HeadersTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HeadersTest::*)()>(&HeadersTest::init$))},
-	{"bad", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&HeadersTest::bad)), "java.lang.Exception"},
-	{"badTimeout", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&HeadersTest::badTimeout)), "java.lang.Exception"},
-	{"badURI", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&HeadersTest::badURI)), "java.lang.Exception"},
-	{"badValue", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&HeadersTest::badValue)), "java.lang.Exception"},
-	{"good", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&HeadersTest::good))},
-	{"goodValue", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&HeadersTest::goodValue))},
-	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&HeadersTest::lambda$static$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HeadersTest::main)), "java.lang.Exception"},
-	{"nullHeaders", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&HeadersTest::nullHeaders)), "java.lang.Exception"},
-	{"nullName", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&HeadersTest::nullName)), "java.lang.Exception"},
-	{"nullTimeout", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&HeadersTest::nullTimeout)), "java.lang.Exception"},
-	{"nullURI", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&HeadersTest::nullURI)), "java.lang.Exception"},
-	{"nullValue", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&HeadersTest::nullValue)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadersTest, init$, void)},
+	{"bad", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, bad, void, $String*), "java.lang.Exception"},
+	{"badTimeout", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, badTimeout, void), "java.lang.Exception"},
+	{"badURI", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, badURI, void), "java.lang.Exception"},
+	{"badValue", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, badValue, void, $String*), "java.lang.Exception"},
+	{"good", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, good, void, $String*)},
+	{"goodValue", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(HeadersTest, goodValue, void, $String*)},
+	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HeadersTest, lambda$static$0, bool, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadersTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"nullHeaders", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullHeaders, void), "java.lang.Exception"},
+	{"nullName", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullName, void), "java.lang.Exception"},
+	{"nullTimeout", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullTimeout, void), "java.lang.Exception"},
+	{"nullURI", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullURI, void), "java.lang.Exception"},
+	{"nullValue", "()V", nullptr, $STATIC, $staticMethod(HeadersTest, nullValue, void), "java.lang.Exception"},
 	{}
 };
 

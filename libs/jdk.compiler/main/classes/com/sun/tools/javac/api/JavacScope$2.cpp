@@ -33,10 +33,10 @@ $FieldInfo _JavacScope$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacScope$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacScope;Lcom/sun/tools/javac/comp/Env;)V", nullptr, 0, $method(static_cast<void(JavacScope$2::*)($JavacScope*,$Env*)>(&JavacScope$2::init$))},
-	{"getEnclosingScope", "()Lcom/sun/tools/javac/api/JavacScope;", nullptr, $PUBLIC},
-	{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"isStarImportScope", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacScope;Lcom/sun/tools/javac/comp/Env;)V", nullptr, 0, $method(JavacScope$2, init$, void, $JavacScope*, $Env*)},
+	{"getEnclosingScope", "()Lcom/sun/tools/javac/api/JavacScope;", nullptr, $PUBLIC, $virtualMethod(JavacScope$2, getEnclosingScope, $JavacScope*)},
+	{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacScope$2, getLocalElements, $Iterable*)},
+	{"isStarImportScope", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacScope$2, isStarImportScope, bool)},
 	{}
 };
 

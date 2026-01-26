@@ -65,8 +65,8 @@ $FieldInfo LogRecord$CallerFinder$$Lambda$lambda$get$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LogRecord$CallerFinder$$Lambda$lambda$get$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/logging/LogRecord$CallerFinder;)V", nullptr, $PUBLIC, $method(static_cast<void(LogRecord$CallerFinder$$Lambda$lambda$get$1::*)(LogRecord$CallerFinder*)>(&LogRecord$CallerFinder$$Lambda$lambda$get$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/LogRecord$CallerFinder;)V", nullptr, $PUBLIC, $method(LogRecord$CallerFinder$$Lambda$lambda$get$1, init$, void, LogRecord$CallerFinder*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogRecord$CallerFinder$$Lambda$lambda$get$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LogRecord$CallerFinder$$Lambda$lambda$get$1::classInfo$ = {
@@ -98,8 +98,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LogRecord$CallerFinder$$Lambda$lambda$static$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LogRecord$CallerFinder$$Lambda$lambda$static$0$1::*)()>(&LogRecord$CallerFinder$$Lambda$lambda$static$0$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LogRecord$CallerFinder$$Lambda$lambda$static$0$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogRecord$CallerFinder$$Lambda$lambda$static$0$1, run, $Object*)},
 	{}
 };
 $ClassInfo LogRecord$CallerFinder$$Lambda$lambda$static$0$1::classInfo$ = {
@@ -123,13 +123,13 @@ $FieldInfo _LogRecord$CallerFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _LogRecord$CallerFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LogRecord$CallerFinder::*)()>(&LogRecord$CallerFinder::init$))},
-	{"get", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/StackWalker$StackFrame;>;", 0, $method(static_cast<$Optional*(LogRecord$CallerFinder::*)()>(&LogRecord$CallerFinder::get))},
-	{"isLoggerImplFrame", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(LogRecord$CallerFinder::*)($String*)>(&LogRecord$CallerFinder::isLoggerImplFrame))},
-	{"lambda$get$1", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Optional*(LogRecord$CallerFinder::*)($Stream*)>(&LogRecord$CallerFinder::lambda$get$1))},
-	{"lambda$static$0", "()Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StackWalker*(*)()>(&LogRecord$CallerFinder::lambda$static$0))},
-	{"test", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PUBLIC, $method(static_cast<bool(LogRecord$CallerFinder::*)($StackWalker$StackFrame*)>(&LogRecord$CallerFinder::test))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(LogRecord$CallerFinder, init$, void)},
+	{"get", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/StackWalker$StackFrame;>;", 0, $method(LogRecord$CallerFinder, get, $Optional*)},
+	{"isLoggerImplFrame", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(LogRecord$CallerFinder, isLoggerImplFrame, bool, $String*)},
+	{"lambda$get$1", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $SYNTHETIC, $method(LogRecord$CallerFinder, lambda$get$1, $Optional*, $Stream*)},
+	{"lambda$static$0", "()Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogRecord$CallerFinder, lambda$static$0, $StackWalker*)},
+	{"test", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PUBLIC, $method(LogRecord$CallerFinder, test, bool, $StackWalker$StackFrame*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LogRecord$CallerFinder, test, bool, Object$*)},
 	{}
 };
 

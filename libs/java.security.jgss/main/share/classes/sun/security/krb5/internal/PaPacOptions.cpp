@@ -43,18 +43,18 @@ $FieldInfo _PaPacOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _PaPacOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PaPacOptions::*)()>(&PaPacOptions::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(PaPacOptions::*)($DerValue*)>(&PaPacOptions::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getBranchAware", "()Z", nullptr, $PUBLIC},
-	{"getClaims", "()Z", nullptr, $PUBLIC},
-	{"getForwardToFullDC", "()Z", nullptr, $PUBLIC},
-	{"getResourceBasedConstrainedDelegation", "()Z", nullptr, $PUBLIC},
-	{"setBranchAware", "(Z)Lsun/security/krb5/internal/PaPacOptions;", nullptr, $PUBLIC},
-	{"setClaims", "(Z)Lsun/security/krb5/internal/PaPacOptions;", nullptr, $PUBLIC},
-	{"setForwardToFullDC", "(Z)Lsun/security/krb5/internal/PaPacOptions;", nullptr, $PUBLIC},
-	{"setResourceBasedConstrainedDelegation", "(Z)Lsun/security/krb5/internal/PaPacOptions;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PaPacOptions, init$, void)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PaPacOptions, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(PaPacOptions, asn1Encode, $bytes*), "java.io.IOException"},
+	{"getBranchAware", "()Z", nullptr, $PUBLIC, $virtualMethod(PaPacOptions, getBranchAware, bool)},
+	{"getClaims", "()Z", nullptr, $PUBLIC, $virtualMethod(PaPacOptions, getClaims, bool)},
+	{"getForwardToFullDC", "()Z", nullptr, $PUBLIC, $virtualMethod(PaPacOptions, getForwardToFullDC, bool)},
+	{"getResourceBasedConstrainedDelegation", "()Z", nullptr, $PUBLIC, $virtualMethod(PaPacOptions, getResourceBasedConstrainedDelegation, bool)},
+	{"setBranchAware", "(Z)Lsun/security/krb5/internal/PaPacOptions;", nullptr, $PUBLIC, $virtualMethod(PaPacOptions, setBranchAware, PaPacOptions*, bool)},
+	{"setClaims", "(Z)Lsun/security/krb5/internal/PaPacOptions;", nullptr, $PUBLIC, $virtualMethod(PaPacOptions, setClaims, PaPacOptions*, bool)},
+	{"setForwardToFullDC", "(Z)Lsun/security/krb5/internal/PaPacOptions;", nullptr, $PUBLIC, $virtualMethod(PaPacOptions, setForwardToFullDC, PaPacOptions*, bool)},
+	{"setResourceBasedConstrainedDelegation", "(Z)Lsun/security/krb5/internal/PaPacOptions;", nullptr, $PUBLIC, $virtualMethod(PaPacOptions, setResourceBasedConstrainedDelegation, PaPacOptions*, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PaPacOptions, toString, $String*)},
 	{}
 };
 

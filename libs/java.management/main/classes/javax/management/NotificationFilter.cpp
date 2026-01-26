@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Notification = ::javax::management::Notification;
 
 namespace javax {
 	namespace management {
 
 $MethodInfo _NotificationFilter_MethodInfo_[] = {
-	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationFilter, isNotificationEnabled, bool, $Notification*)},
 	{}
 };
 

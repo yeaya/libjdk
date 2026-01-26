@@ -26,8 +26,8 @@ $FieldInfo _Resolve$AbstractMethodCheck$SharedInapplicableMethodException_FieldI
 };
 
 $MethodInfo _Resolve$AbstractMethodCheck$SharedInapplicableMethodException_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$AbstractMethodCheck;)V", nullptr, 0, $method(static_cast<void(Resolve$AbstractMethodCheck$SharedInapplicableMethodException::*)($Resolve$AbstractMethodCheck*)>(&Resolve$AbstractMethodCheck$SharedInapplicableMethodException::init$))},
-	{"setMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/comp/Resolve$AbstractMethodCheck$SharedInapplicableMethodException;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$AbstractMethodCheck;)V", nullptr, 0, $method(Resolve$AbstractMethodCheck$SharedInapplicableMethodException, init$, void, $Resolve$AbstractMethodCheck*)},
+	{"setMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/comp/Resolve$AbstractMethodCheck$SharedInapplicableMethodException;", nullptr, 0, $virtualMethod(Resolve$AbstractMethodCheck$SharedInapplicableMethodException, setMessage, Resolve$AbstractMethodCheck$SharedInapplicableMethodException*, $JCDiagnostic*)},
 	{}
 };
 

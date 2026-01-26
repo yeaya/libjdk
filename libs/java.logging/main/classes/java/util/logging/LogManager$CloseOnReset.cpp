@@ -22,11 +22,11 @@ $FieldInfo _LogManager$CloseOnReset_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$CloseOnReset_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager$CloseOnReset::*)($Logger*)>(&LogManager$CloseOnReset::init$))},
-	{"create", "(Ljava/util/logging/Logger;)Ljava/util/logging/LogManager$CloseOnReset;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LogManager$CloseOnReset*(*)($Logger*)>(&LogManager$CloseOnReset::create))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC, $method(static_cast<$Logger*(LogManager$CloseOnReset::*)()>(&LogManager$CloseOnReset::get))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager$CloseOnReset, init$, void, $Logger*)},
+	{"create", "(Ljava/util/logging/Logger;)Ljava/util/logging/LogManager$CloseOnReset;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$CloseOnReset, create, LogManager$CloseOnReset*, $Logger*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LogManager$CloseOnReset, equals, bool, Object$*)},
+	{"get", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC, $method(LogManager$CloseOnReset, get, $Logger*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LogManager$CloseOnReset, hashCode, int32_t)},
 	{}
 };
 

@@ -24,15 +24,15 @@ $FieldInfo _ResolveResult_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolveResult_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ResolveResult::*)()>(&ResolveResult::init$))},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ResolveResult::*)(Object$*,$String*)>(&ResolveResult::init$))},
-	{"<init>", "(Ljava/lang/Object;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $method(static_cast<void(ResolveResult::*)(Object$*,$Name*)>(&ResolveResult::init$))},
-	{"appendRemainingComponent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"appendRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"getRemainingName", "()Ljavax/naming/Name;", nullptr, $PUBLIC},
-	{"getResolvedObj", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"setRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"setResolvedObj", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ResolveResult, init$, void)},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResolveResult, init$, void, Object$*, $String*)},
+	{"<init>", "(Ljava/lang/Object;Ljavax/naming/Name;)V", nullptr, $PUBLIC, $method(ResolveResult, init$, void, Object$*, $Name*)},
+	{"appendRemainingComponent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, appendRemainingComponent, void, $String*)},
+	{"appendRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, appendRemainingName, void, $Name*)},
+	{"getRemainingName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(ResolveResult, getRemainingName, $Name*)},
+	{"getResolvedObj", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResolveResult, getResolvedObj, $Object*)},
+	{"setRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, setRemainingName, void, $Name*)},
+	{"setResolvedObj", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResolveResult, setResolvedObj, void, Object$*)},
 	{}
 };
 

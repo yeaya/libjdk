@@ -15,9 +15,11 @@
 #undef XA_OK
 #undef XA_RDONLY
 
+using $XidArray = $Array<::javax::transaction::xa::Xid>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Xid = ::javax::transaction::xa::Xid;
 
 namespace javax {
 	namespace transaction {
@@ -39,16 +41,16 @@ $FieldInfo _XAResource_FieldInfo_[] = {
 };
 
 $MethodInfo _XAResource_MethodInfo_[] = {
-	{"commit", "(Ljavax/transaction/xa/Xid;Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.transaction.xa.XAException"},
-	{"end", "(Ljavax/transaction/xa/Xid;I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.transaction.xa.XAException"},
-	{"forget", "(Ljavax/transaction/xa/Xid;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.transaction.xa.XAException"},
-	{"getTransactionTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.transaction.xa.XAException"},
-	{"isSameRM", "(Ljavax/transaction/xa/XAResource;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.transaction.xa.XAException"},
-	{"prepare", "(Ljavax/transaction/xa/Xid;)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.transaction.xa.XAException"},
-	{"recover", "(I)[Ljavax/transaction/xa/Xid;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.transaction.xa.XAException"},
-	{"rollback", "(Ljavax/transaction/xa/Xid;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.transaction.xa.XAException"},
-	{"setTransactionTimeout", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.transaction.xa.XAException"},
-	{"start", "(Ljavax/transaction/xa/Xid;I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.transaction.xa.XAException"},
+	{"commit", "(Ljavax/transaction/xa/Xid;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, commit, void, $Xid*, bool), "javax.transaction.xa.XAException"},
+	{"end", "(Ljavax/transaction/xa/Xid;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, end, void, $Xid*, int32_t), "javax.transaction.xa.XAException"},
+	{"forget", "(Ljavax/transaction/xa/Xid;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, forget, void, $Xid*), "javax.transaction.xa.XAException"},
+	{"getTransactionTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, getTransactionTimeout, int32_t), "javax.transaction.xa.XAException"},
+	{"isSameRM", "(Ljavax/transaction/xa/XAResource;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, isSameRM, bool, XAResource*), "javax.transaction.xa.XAException"},
+	{"prepare", "(Ljavax/transaction/xa/Xid;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, prepare, int32_t, $Xid*), "javax.transaction.xa.XAException"},
+	{"recover", "(I)[Ljavax/transaction/xa/Xid;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, recover, $XidArray*, int32_t), "javax.transaction.xa.XAException"},
+	{"rollback", "(Ljavax/transaction/xa/Xid;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, rollback, void, $Xid*), "javax.transaction.xa.XAException"},
+	{"setTransactionTimeout", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, setTransactionTimeout, bool, int32_t), "javax.transaction.xa.XAException"},
+	{"start", "(Ljavax/transaction/xa/Xid;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAResource, start, void, $Xid*, int32_t), "javax.transaction.xa.XAException"},
 	{}
 };
 

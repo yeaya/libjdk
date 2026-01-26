@@ -40,12 +40,12 @@ $FieldInfo _Directive$RequiresFlag_FieldInfo_[] = {
 };
 
 $MethodInfo _Directive$RequiresFlag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Directive$RequiresFlagArray*(*)()>(&Directive$RequiresFlag::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(Directive$RequiresFlag::*)($String*,int32_t,int32_t)>(&Directive$RequiresFlag::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$RequiresFlag;>;)I", $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($Set*)>(&Directive$RequiresFlag::value))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Directive$RequiresFlag*(*)($String*)>(&Directive$RequiresFlag::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Directive$RequiresFlagArray*(*)()>(&Directive$RequiresFlag::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Directive$RequiresFlag, $values, $Directive$RequiresFlagArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Directive$RequiresFlag, init$, void, $String*, int32_t, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Directive$RequiresFlag, toString, $String*)},
+	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$RequiresFlag;>;)I", $PUBLIC | $STATIC, $staticMethod(Directive$RequiresFlag, value, int32_t, $Set*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$RequiresFlag, valueOf, Directive$RequiresFlag*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Directive$RequiresFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$RequiresFlag, values, $Directive$RequiresFlagArray*)},
 	{}
 };
 

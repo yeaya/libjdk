@@ -47,10 +47,10 @@ $FieldInfo _JavacElements$1TS_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacElements$1TS_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", "()V", 0, $method(static_cast<void(JavacElements$1TS::*)($JavacElements*,$JCTree*,$Symbol$MethodSymbol*)>(&JavacElements$1TS::init$))},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC},
-	{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", "()V", 0, $method(JavacElements$1TS, init$, void, $JavacElements*, $JCTree*, $Symbol$MethodSymbol*)},
+	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1TS, scan, void, $JCTree*)},
+	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1TS, visitAnnotation, void, $JCTree$JCAnnotation*)},
+	{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1TS, visitAssign, void, $JCTree$JCAssign*)},
 	{}
 };
 

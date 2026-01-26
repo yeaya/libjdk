@@ -28,7 +28,7 @@ $FieldInfo _MSISO2022JP$CoderHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _MSISO2022JP$CoderHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MSISO2022JP$CoderHolder::*)()>(&MSISO2022JP$CoderHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MSISO2022JP$CoderHolder, init$, void)},
 	{}
 };
 

@@ -60,17 +60,17 @@ $FieldInfo _CksumType_FieldInfo_[] = {
 };
 
 $MethodInfo _CksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CksumType::*)()>(&CksumType::init$))},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"cksumSize", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"cksumType", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"confounderSize", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInstance", "(I)Lsun/security/krb5/internal/crypto/CksumType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CksumType*(*)(int32_t)>(&CksumType::getInstance)), "sun.security.krb5.internal.KdcErrException"},
-	{"isChecksumEqual", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($bytes*,$bytes*)>(&CksumType::isChecksumEqual))},
-	{"isKeyed", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"keySize", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"keyType", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "sun.security.krb5.KrbCryptoException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CksumType, init$, void)},
+	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"cksumSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, cksumSize, int32_t)},
+	{"cksumType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, cksumType, int32_t)},
+	{"confounderSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, confounderSize, int32_t)},
+	{"getInstance", "(I)Lsun/security/krb5/internal/crypto/CksumType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CksumType, getInstance, CksumType*, int32_t), "sun.security.krb5.internal.KdcErrException"},
+	{"isChecksumEqual", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CksumType, isChecksumEqual, bool, $bytes*, $bytes*)},
+	{"isKeyed", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, isKeyed, bool)},
+	{"keySize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, keyType, int32_t)},
+	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
 	{}
 };
 

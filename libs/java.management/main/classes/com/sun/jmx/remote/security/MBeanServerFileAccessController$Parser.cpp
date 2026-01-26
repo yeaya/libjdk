@@ -41,16 +41,16 @@ $FieldInfo _MBeanServerFileAccessController$Parser_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerFileAccessController$Parser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanServerFileAccessController$Parser::*)($String*,$String*)>(&MBeanServerFileAccessController$Parser::init$))},
-	{"next", "()V", nullptr, $PRIVATE, $method(static_cast<void(MBeanServerFileAccessController$Parser::*)()>(&MBeanServerFileAccessController$Parser::next))},
-	{"parseAccess", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $STATIC, $method(static_cast<$MBeanServerFileAccessController$Access*(*)($String*,$String*)>(&MBeanServerFileAccessController$Parser::parseAccess))},
-	{"parseAccess", "()Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $PRIVATE, $method(static_cast<$MBeanServerFileAccessController$Access*(MBeanServerFileAccessController$Parser::*)()>(&MBeanServerFileAccessController$Parser::parseAccess))},
-	{"parseClassName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(MBeanServerFileAccessController$Parser::*)()>(&MBeanServerFileAccessController$Parser::parseClassName))},
-	{"parseCreate", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(MBeanServerFileAccessController$Parser::*)($List*)>(&MBeanServerFileAccessController$Parser::parseCreate))},
-	{"parseReadWrite", "()Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $PRIVATE, $method(static_cast<$MBeanServerFileAccessController$Access*(MBeanServerFileAccessController$Parser::*)()>(&MBeanServerFileAccessController$Parser::parseReadWrite))},
-	{"parseWord", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(MBeanServerFileAccessController$Parser::*)()>(&MBeanServerFileAccessController$Parser::parseWord))},
-	{"skipSpace", "()V", nullptr, $PRIVATE, $method(static_cast<void(MBeanServerFileAccessController$Parser::*)()>(&MBeanServerFileAccessController$Parser::skipSpace))},
-	{"syntax", "(Ljava/lang/String;)Ljava/lang/IllegalArgumentException;", nullptr, $PRIVATE, $method(static_cast<$IllegalArgumentException*(MBeanServerFileAccessController$Parser::*)($String*)>(&MBeanServerFileAccessController$Parser::syntax))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, init$, void, $String*, $String*)},
+	{"next", "()V", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, next, void)},
+	{"parseAccess", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $STATIC, $staticMethod(MBeanServerFileAccessController$Parser, parseAccess, $MBeanServerFileAccessController$Access*, $String*, $String*)},
+	{"parseAccess", "()Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseAccess, $MBeanServerFileAccessController$Access*)},
+	{"parseClassName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseClassName, $String*)},
+	{"parseCreate", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseCreate, void, $List*)},
+	{"parseReadWrite", "()Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseReadWrite, $MBeanServerFileAccessController$Access*)},
+	{"parseWord", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, parseWord, $String*)},
+	{"skipSpace", "()V", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, skipSpace, void)},
+	{"syntax", "(Ljava/lang/String;)Ljava/lang/IllegalArgumentException;", nullptr, $PRIVATE, $method(MBeanServerFileAccessController$Parser, syntax, $IllegalArgumentException*, $String*)},
 	{}
 };
 

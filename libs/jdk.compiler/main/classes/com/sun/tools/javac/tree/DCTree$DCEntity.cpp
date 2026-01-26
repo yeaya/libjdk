@@ -35,10 +35,10 @@ $MethodInfo _DCTree$DCEntity_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/lang/model/element/Name;)V", nullptr, 0, $method(static_cast<void(DCTree$DCEntity::*)($Name*)>(&DCTree$DCEntity::init$))},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC},
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/lang/model/element/Name;)V", nullptr, 0, $method(DCTree$DCEntity, init$, void, $Name*)},
+	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCEntity, accept, $Object*, $DocTreeVisitor*, Object$*)},
+	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCEntity, getKind, $DocTree$Kind*)},
+	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCEntity, getName, $Name*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

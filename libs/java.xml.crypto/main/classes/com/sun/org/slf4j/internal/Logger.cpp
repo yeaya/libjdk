@@ -63,8 +63,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Logger$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Logger$$Lambda$lambda$static$0::*)()>(&Logger$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Logger$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Logger$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo Logger$$Lambda$lambda$static$0::classInfo$ = {
@@ -96,8 +96,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Logger$$Lambda$lambda$log0$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Logger$$Lambda$lambda$log0$1$1::*)()>(&Logger$$Lambda$lambda$log0$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Logger$$Lambda$lambda$log0$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Logger$$Lambda$lambda$log0$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Logger$$Lambda$lambda$log0$1$1::classInfo$ = {
@@ -121,25 +121,25 @@ $FieldInfo _Logger_FieldInfo_[] = {
 };
 
 $MethodInfo _Logger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Logger::*)($String*)>(&Logger::init$))},
-	{"addIndex", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Logger::addIndex))},
-	{"debug", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"debug", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"error", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"isDebugEnabled", "()Z", nullptr, $PUBLIC},
-	{"isTraceEnabled", "()Z", nullptr, $PUBLIC},
-	{"lambda$log0$1", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Optional*(*)($Stream*)>(&Logger::lambda$log0$1))},
-	{"lambda$static$0", "()Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StackWalker*(*)()>(&Logger::lambda$static$0))},
-	{"log0", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Logger::*)($Level*,$String*)>(&Logger::log0))},
-	{"log0", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(static_cast<void(Logger::*)($Level*,$String*,$Throwable*)>(&Logger::log0))},
-	{"log0", "(Ljava/util/logging/Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(Logger::*)($Level*,$String*,$ObjectArray*)>(&Logger::log0))},
-	{"trace", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"warn", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"warn", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"warn", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Logger, init$, void, $String*)},
+	{"addIndex", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Logger, addIndex, $String*, $String*)},
+	{"debug", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, debug, void, $String*)},
+	{"debug", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, debug, void, $String*, $Throwable*)},
+	{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Logger, debug, void, $String*, $ObjectArray*)},
+	{"error", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, error, void, $String*)},
+	{"error", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, error, void, $String*, $Throwable*)},
+	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Logger, error, void, $String*, $ObjectArray*)},
+	{"isDebugEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(Logger, isDebugEnabled, bool)},
+	{"isTraceEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(Logger, isTraceEnabled, bool)},
+	{"lambda$log0$1", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Logger, lambda$log0$1, $Optional*, $Stream*)},
+	{"lambda$static$0", "()Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Logger, lambda$static$0, $StackWalker*)},
+	{"log0", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Logger, log0, void, $Level*, $String*)},
+	{"log0", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(Logger, log0, void, $Level*, $String*, $Throwable*)},
+	{"log0", "(Ljava/util/logging/Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(Logger, log0, void, $Level*, $String*, $ObjectArray*)},
+	{"trace", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, trace, void, $String*)},
+	{"warn", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, warn, void, $String*)},
+	{"warn", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, warn, void, $String*, $Throwable*)},
+	{"warn", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Logger, warn, void, $String*, $ObjectArray*)},
 	{}
 };
 

@@ -45,17 +45,17 @@ $FieldInfo _SJIS_0213$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _SJIS_0213$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(static_cast<void(SJIS_0213$Encoder::*)($Charset*)>(&SJIS_0213$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"encodeChar", "(C)I", nullptr, $PROTECTED},
-	{"encodeComposite", "(CC)I", nullptr, $PROTECTED},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"encodeSurrogate", "(CC)I", nullptr, $PROTECTED},
-	{"implFlush", "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implReset", "()V", nullptr, $PROTECTED},
-	{"isCompositeBase", "(C)Z", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(SJIS_0213$Encoder, init$, void, $Charset*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(SJIS_0213$Encoder, canEncode, bool, char16_t)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeChar", "(C)I", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Encoder, encodeChar, int32_t, char16_t)},
+	{"encodeComposite", "(CC)I", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Encoder, encodeComposite, int32_t, char16_t, char16_t)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeSurrogate", "(CC)I", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Encoder, encodeSurrogate, int32_t, char16_t, char16_t)},
+	{"implFlush", "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Encoder, implFlush, $CoderResult*, $ByteBuffer*)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Encoder, implReset, void)},
+	{"isCompositeBase", "(C)Z", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Encoder, isCompositeBase, bool, char16_t)},
 	{}
 };
 

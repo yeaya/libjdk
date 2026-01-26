@@ -54,9 +54,9 @@ $FieldInfo _SimpleSSLContext_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleSSLContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SimpleSSLContext::*)()>(&SimpleSSLContext::init$)), "java.io.IOException"},
-	{"get", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC},
-	{"init", "(Ljava/io/InputStream;)Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE, $method(static_cast<$SSLContext*(SimpleSSLContext::*)($InputStream*)>(&SimpleSSLContext::init)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleSSLContext, init$, void), "java.io.IOException"},
+	{"get", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(SimpleSSLContext, get, $SSLContext*)},
+	{"init", "(Ljava/io/InputStream;)Ljavax/net/ssl/SSLContext;", nullptr, $PRIVATE, $method(SimpleSSLContext, init, $SSLContext*, $InputStream*), "java.io.IOException"},
 	{}
 };
 

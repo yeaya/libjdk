@@ -68,17 +68,17 @@ $FieldInfo _KinitOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _KinitOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KinitOptions::*)()>(&KinitOptions::init$)), "java.lang.RuntimeException,sun.security.krb5.RealmException"},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KinitOptions::*)($StringArray*)>(&KinitOptions::init$)), "sun.security.krb5.KrbException,java.lang.RuntimeException,java.io.IOException"},
-	{"getAddressOption", "()Z", nullptr, $PUBLIC},
-	{"getDefaultPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, 0},
-	{"getKDCRealm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC},
-	{"getTime", "(I)Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $method(static_cast<$KerberosTime*(KinitOptions::*)(int32_t)>(&KinitOptions::getTime))},
-	{"keytabFileName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"printHelp", "()V", nullptr, 0},
-	{"setKDCRealm", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "sun.security.krb5.RealmException"},
-	{"useKeytabFile", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KinitOptions, init$, void), "java.lang.RuntimeException,sun.security.krb5.RealmException"},
+	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KinitOptions, init$, void, $StringArray*), "sun.security.krb5.KrbException,java.lang.RuntimeException,java.io.IOException"},
+	{"getAddressOption", "()Z", nullptr, $PUBLIC, $virtualMethod(KinitOptions, getAddressOption, bool)},
+	{"getDefaultPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, 0, $virtualMethod(KinitOptions, getDefaultPrincipal, $PrincipalName*)},
+	{"getKDCRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KinitOptions, getKDCRealm, $String*)},
+	{"getPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(KinitOptions, getPrincipal, $PrincipalName*)},
+	{"getTime", "(I)Lsun/security/krb5/internal/KerberosTime;", nullptr, $PRIVATE, $method(KinitOptions, getTime, $KerberosTime*, int32_t)},
+	{"keytabFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KinitOptions, keytabFileName, $String*)},
+	{"printHelp", "()V", nullptr, 0, $virtualMethod(KinitOptions, printHelp, void)},
+	{"setKDCRealm", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KinitOptions, setKDCRealm, void, $String*), "sun.security.krb5.RealmException"},
+	{"useKeytabFile", "()Z", nullptr, $PUBLIC, $virtualMethod(KinitOptions, useKeytabFile, bool)},
 	{}
 };
 

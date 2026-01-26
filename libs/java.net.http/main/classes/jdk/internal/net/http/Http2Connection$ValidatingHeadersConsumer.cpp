@@ -32,10 +32,10 @@ $FieldInfo _Http2Connection$ValidatingHeadersConsumer_FieldInfo_[] = {
 };
 
 $MethodInfo _Http2Connection$ValidatingHeadersConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Http2Connection$ValidatingHeadersConsumer::*)()>(&Http2Connection$ValidatingHeadersConsumer::init$))},
-	{"newException", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/UncheckedIOException;", nullptr, $PRIVATE, $method(static_cast<$UncheckedIOException*(Http2Connection$ValidatingHeadersConsumer::*)($String*,$String*)>(&Http2Connection$ValidatingHeadersConsumer::newException))},
-	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, nullptr, "java.io.UncheckedIOException"},
-	{"reset", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(Http2Connection$ValidatingHeadersConsumer, init$, void)},
+	{"newException", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/UncheckedIOException;", nullptr, $PRIVATE, $method(Http2Connection$ValidatingHeadersConsumer, newException, $UncheckedIOException*, $String*, $String*)},
+	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$ValidatingHeadersConsumer, onDecoded, void, $CharSequence*, $CharSequence*), "java.io.UncheckedIOException"},
+	{"reset", "()V", nullptr, 0, $virtualMethod(Http2Connection$ValidatingHeadersConsumer, reset, void)},
 	{}
 };
 

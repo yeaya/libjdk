@@ -24,7 +24,7 @@ $FieldInfo _JIS_X_0208_MS932$EncodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _JIS_X_0208_MS932$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JIS_X_0208_MS932$EncodeHolder::*)()>(&JIS_X_0208_MS932$EncodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(JIS_X_0208_MS932$EncodeHolder, init$, void)},
 	{}
 };
 

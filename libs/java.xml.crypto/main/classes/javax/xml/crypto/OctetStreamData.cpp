@@ -21,11 +21,11 @@ $FieldInfo _OctetStreamData_FieldInfo_[] = {
 };
 
 $MethodInfo _OctetStreamData_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(OctetStreamData::*)($InputStream*)>(&OctetStreamData::init$))},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(OctetStreamData::*)($InputStream*,$String*,$String*)>(&OctetStreamData::init$))},
-	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getOctetStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(OctetStreamData, init$, void, $InputStream*)},
+	{"<init>", "(Ljava/io/InputStream;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OctetStreamData, init$, void, $InputStream*, $String*, $String*)},
+	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OctetStreamData, getMimeType, $String*)},
+	{"getOctetStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(OctetStreamData, getOctetStream, $InputStream*)},
+	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OctetStreamData, getURI, $String*)},
 	{}
 };
 

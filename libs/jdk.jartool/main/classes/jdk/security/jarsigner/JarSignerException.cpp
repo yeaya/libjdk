@@ -17,7 +17,7 @@ $FieldInfo _JarSignerException_FieldInfo_[] = {
 };
 
 $MethodInfo _JarSignerException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(JarSignerException::*)($String*,$Throwable*)>(&JarSignerException::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(JarSignerException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

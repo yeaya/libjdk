@@ -21,10 +21,10 @@ $FieldInfo _XmlErrorHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _XmlErrorHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XmlErrorHandler::*)()>(&XmlErrorHandler::init$))},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, nullptr, "org.xml.sax.SAXException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, nullptr, "org.xml.sax.SAXException"},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, nullptr, "org.xml.sax.SAXException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XmlErrorHandler, init$, void)},
+	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(XmlErrorHandler, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(XmlErrorHandler, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(XmlErrorHandler, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
 	{}
 };
 

@@ -9,7 +9,7 @@ namespace javax {
 	namespace tools {
 
 $MethodInfo _OptionChecker_MethodInfo_[] = {
-	{"isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionChecker, isSupportedOption, int32_t, $String*)},
 	{}
 };
 

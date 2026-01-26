@@ -63,13 +63,13 @@ $FieldInfo _ElementKind_FieldInfo_[] = {
 };
 
 $MethodInfo _ElementKind_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/element/ElementKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ElementKindArray*(*)()>(&ElementKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ElementKind::*)($String*,int32_t)>(&ElementKind::init$))},
-	{"isClass", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(ElementKind::*)()>(&ElementKind::isClass))},
-	{"isField", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(ElementKind::*)()>(&ElementKind::isField))},
-	{"isInterface", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(ElementKind::*)()>(&ElementKind::isInterface))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ElementKind*(*)($String*)>(&ElementKind::valueOf))},
-	{"values", "()[Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ElementKindArray*(*)()>(&ElementKind::values))},
+	{"$values", "()[Ljavax/lang/model/element/ElementKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ElementKind, $values, $ElementKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ElementKind, init$, void, $String*, int32_t)},
+	{"isClass", "()Z", nullptr, $PUBLIC, $method(ElementKind, isClass, bool)},
+	{"isField", "()Z", nullptr, $PUBLIC, $method(ElementKind, isField, bool)},
+	{"isInterface", "()Z", nullptr, $PUBLIC, $method(ElementKind, isInterface, bool)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementKind, valueOf, ElementKind*, $String*)},
+	{"values", "()[Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ElementKind, values, $ElementKindArray*)},
 	{}
 };
 

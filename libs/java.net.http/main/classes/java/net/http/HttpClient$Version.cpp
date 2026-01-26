@@ -26,10 +26,10 @@ $FieldInfo _HttpClient$Version_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClient$Version_MethodInfo_[] = {
-	{"$values", "()[Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpClient$VersionArray*(*)()>(&HttpClient$Version::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(HttpClient$Version::*)($String*,int32_t)>(&HttpClient$Version::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient$Version*(*)($String*)>(&HttpClient$Version::valueOf))},
-	{"values", "()[Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpClient$VersionArray*(*)()>(&HttpClient$Version::values))},
+	{"$values", "()[Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClient$Version, $values, $HttpClient$VersionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HttpClient$Version, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Version, valueOf, HttpClient$Version*, $String*)},
+	{"values", "()[Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Version, values, $HttpClient$VersionArray*)},
 	{}
 };
 

@@ -5,14 +5,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Predicate = ::javax::sql::rowset::Predicate;
 
 namespace javax {
 	namespace sql {
 		namespace rowset {
 
 $MethodInfo _FilteredRowSet_MethodInfo_[] = {
-	{"getFilter", "()Ljavax/sql/rowset/Predicate;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setFilter", "(Ljavax/sql/rowset/Predicate;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getFilter", "()Ljavax/sql/rowset/Predicate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilteredRowSet, getFilter, $Predicate*)},
+	{"setFilter", "(Ljavax/sql/rowset/Predicate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FilteredRowSet, setFilter, void, $Predicate*), "java.sql.SQLException"},
 	{}
 };
 

@@ -38,9 +38,9 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Scope$StarImportScope_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$StarImportScope::*)($Symbol*)>(&Scope$StarImportScope::init$))},
-	{"importAll", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer;)V", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer<Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;>;)V", $PUBLIC},
-	{"isFilled", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Scope$StarImportScope, init$, void, $Symbol*)},
+	{"importAll", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer;)V", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer<Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;>;)V", $PUBLIC, $virtualMethod(Scope$StarImportScope, importAll, void, $Types*, $Scope*, $Scope$ImportFilter*, $JCTree$JCImport*, $BiConsumer*)},
+	{"isFilled", "()Z", nullptr, $PUBLIC, $virtualMethod(Scope$StarImportScope, isFilled, bool)},
 	{}
 };
 

@@ -20,19 +20,19 @@ $FieldInfo _Sensor_FieldInfo_[] = {
 };
 
 $MethodInfo _Sensor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Sensor::*)($String*)>(&Sensor::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"clear", "(I)V", nullptr, $PUBLIC},
-	{"clearAction", "()V", nullptr, $ABSTRACT},
-	{"getCount", "()J", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isOn", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"trigger", "()V", nullptr, $PUBLIC},
-	{"trigger", "(I)V", nullptr, $PUBLIC},
-	{"trigger", "(ILjava/lang/management/MemoryUsage;)V", nullptr, $PUBLIC},
-	{"triggerAction", "()V", nullptr, $ABSTRACT},
-	{"triggerAction", "(Ljava/lang/management/MemoryUsage;)V", nullptr, $ABSTRACT},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Sensor, init$, void, $String*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Sensor, clear, void)},
+	{"clear", "(I)V", nullptr, $PUBLIC, $virtualMethod(Sensor, clear, void, int32_t)},
+	{"clearAction", "()V", nullptr, $ABSTRACT, $virtualMethod(Sensor, clearAction, void)},
+	{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(Sensor, getCount, int64_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Sensor, getName, $String*)},
+	{"isOn", "()Z", nullptr, $PUBLIC, $virtualMethod(Sensor, isOn, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Sensor, toString, $String*)},
+	{"trigger", "()V", nullptr, $PUBLIC, $virtualMethod(Sensor, trigger, void)},
+	{"trigger", "(I)V", nullptr, $PUBLIC, $virtualMethod(Sensor, trigger, void, int32_t)},
+	{"trigger", "(ILjava/lang/management/MemoryUsage;)V", nullptr, $PUBLIC, $virtualMethod(Sensor, trigger, void, int32_t, $MemoryUsage*)},
+	{"triggerAction", "()V", nullptr, $ABSTRACT, $virtualMethod(Sensor, triggerAction, void)},
+	{"triggerAction", "(Ljava/lang/management/MemoryUsage;)V", nullptr, $ABSTRACT, $virtualMethod(Sensor, triggerAction, void, $MemoryUsage*)},
 	{}
 };
 

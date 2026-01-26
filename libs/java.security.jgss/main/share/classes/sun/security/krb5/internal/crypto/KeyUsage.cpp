@@ -56,8 +56,8 @@ $FieldInfo _KeyUsage_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyUsage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(KeyUsage::*)()>(&KeyUsage::init$))},
-	{"isValid", "(I)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<bool(*)(int32_t)>(&KeyUsage::isValid))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyUsage, init$, void)},
+	{"isValid", "(I)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyUsage, isValid, bool, int32_t)},
 	{}
 };
 

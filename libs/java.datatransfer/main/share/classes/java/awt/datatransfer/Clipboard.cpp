@@ -82,8 +82,8 @@ $FieldInfo Clipboard$$Lambda$lambda$setContents$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Clipboard$$Lambda$lambda$setContents$0::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/datatransfer/Clipboard;Ljava/awt/datatransfer/ClipboardOwner;Ljava/awt/datatransfer/Transferable;)V", nullptr, $PUBLIC, $method(static_cast<void(Clipboard$$Lambda$lambda$setContents$0::*)(Clipboard*,$ClipboardOwner*,$Transferable*)>(&Clipboard$$Lambda$lambda$setContents$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/awt/datatransfer/Clipboard;Ljava/awt/datatransfer/ClipboardOwner;Ljava/awt/datatransfer/Transferable;)V", nullptr, $PUBLIC, $method(Clipboard$$Lambda$lambda$setContents$0, init$, void, Clipboard*, $ClipboardOwner*, $Transferable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Clipboard$$Lambda$lambda$setContents$0, run, void)},
 	{}
 };
 $ClassInfo Clipboard$$Lambda$lambda$setContents$0::classInfo$ = {
@@ -122,8 +122,8 @@ $FieldInfo Clipboard$$Lambda$lambda$fireFlavorsChanged$2$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Clipboard$$Lambda$lambda$fireFlavorsChanged$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/datatransfer/Clipboard;)V", nullptr, $PUBLIC, $method(static_cast<void(Clipboard$$Lambda$lambda$fireFlavorsChanged$2$1::*)(Clipboard*)>(&Clipboard$$Lambda$lambda$fireFlavorsChanged$2$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/awt/datatransfer/Clipboard;)V", nullptr, $PUBLIC, $method(Clipboard$$Lambda$lambda$fireFlavorsChanged$2$1, init$, void, Clipboard*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Clipboard$$Lambda$lambda$fireFlavorsChanged$2$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Clipboard$$Lambda$lambda$fireFlavorsChanged$2$1::classInfo$ = {
@@ -165,8 +165,8 @@ $FieldInfo Clipboard$$Lambda$lambda$fireFlavorsChanged$1$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Clipboard$$Lambda$lambda$fireFlavorsChanged$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/datatransfer/Clipboard;Ljava/awt/datatransfer/FlavorListener;)V", nullptr, $PUBLIC, $method(static_cast<void(Clipboard$$Lambda$lambda$fireFlavorsChanged$1$2::*)(Clipboard*,$FlavorListener*)>(&Clipboard$$Lambda$lambda$fireFlavorsChanged$1$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/awt/datatransfer/Clipboard;Ljava/awt/datatransfer/FlavorListener;)V", nullptr, $PUBLIC, $method(Clipboard$$Lambda$lambda$fireFlavorsChanged$1$2, init$, void, Clipboard*, $FlavorListener*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Clipboard$$Lambda$lambda$fireFlavorsChanged$1$2, run, void)},
 	{}
 };
 $ClassInfo Clipboard$$Lambda$lambda$fireFlavorsChanged$1$2::classInfo$ = {
@@ -193,21 +193,21 @@ $FieldInfo _Clipboard_FieldInfo_[] = {
 };
 
 $MethodInfo _Clipboard_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Clipboard::*)($String*)>(&Clipboard::init$))},
-	{"addFlavorListener", "(Ljava/awt/datatransfer/FlavorListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"fireFlavorsChanged", "()V", nullptr, $PRIVATE, $method(static_cast<void(Clipboard::*)()>(&Clipboard::fireFlavorsChanged))},
-	{"getAvailableDataFlavorSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE, $method(static_cast<$Set*(Clipboard::*)()>(&Clipboard::getAvailableDataFlavorSet))},
-	{"getAvailableDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC},
-	{"getContents", "(Ljava/lang/Object;)Ljava/awt/datatransfer/Transferable;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
-	{"getFlavorListeners", "()[Ljava/awt/datatransfer/FlavorListener;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isDataFlavorAvailable", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC},
-	{"lambda$fireFlavorsChanged$1", "(Ljava/awt/datatransfer/FlavorListener;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Clipboard::*)($FlavorListener*)>(&Clipboard::lambda$fireFlavorsChanged$1))},
-	{"lambda$fireFlavorsChanged$2", "(Ljava/awt/datatransfer/FlavorListener;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Clipboard::*)($FlavorListener*)>(&Clipboard::lambda$fireFlavorsChanged$2))},
-	{"lambda$setContents$0", "(Ljava/awt/datatransfer/ClipboardOwner;Ljava/awt/datatransfer/Transferable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Clipboard::*)($ClipboardOwner*,$Transferable*)>(&Clipboard::lambda$setContents$0))},
-	{"removeFlavorListener", "(Ljava/awt/datatransfer/FlavorListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setContents", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/ClipboardOwner;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Clipboard, init$, void, $String*)},
+	{"addFlavorListener", "(Ljava/awt/datatransfer/FlavorListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Clipboard, addFlavorListener, void, $FlavorListener*)},
+	{"fireFlavorsChanged", "()V", nullptr, $PRIVATE, $method(Clipboard, fireFlavorsChanged, void)},
+	{"getAvailableDataFlavorSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE, $method(Clipboard, getAvailableDataFlavorSet, $Set*)},
+	{"getAvailableDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC, $virtualMethod(Clipboard, getAvailableDataFlavors, $DataFlavorArray*)},
+	{"getContents", "(Ljava/lang/Object;)Ljava/awt/datatransfer/Transferable;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Clipboard, getContents, $Transferable*, Object$*)},
+	{"getData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Clipboard, getData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
+	{"getFlavorListeners", "()[Ljava/awt/datatransfer/FlavorListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Clipboard, getFlavorListeners, $FlavorListenerArray*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Clipboard, getName, $String*)},
+	{"isDataFlavorAvailable", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(Clipboard, isDataFlavorAvailable, bool, $DataFlavor*)},
+	{"lambda$fireFlavorsChanged$1", "(Ljava/awt/datatransfer/FlavorListener;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Clipboard, lambda$fireFlavorsChanged$1, void, $FlavorListener*)},
+	{"lambda$fireFlavorsChanged$2", "(Ljava/awt/datatransfer/FlavorListener;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Clipboard, lambda$fireFlavorsChanged$2, void, $FlavorListener*)},
+	{"lambda$setContents$0", "(Ljava/awt/datatransfer/ClipboardOwner;Ljava/awt/datatransfer/Transferable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Clipboard, lambda$setContents$0, void, $ClipboardOwner*, $Transferable*)},
+	{"removeFlavorListener", "(Ljava/awt/datatransfer/FlavorListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Clipboard, removeFlavorListener, void, $FlavorListener*)},
+	{"setContents", "(Ljava/awt/datatransfer/Transferable;Ljava/awt/datatransfer/ClipboardOwner;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Clipboard, setContents, void, $Transferable*, $ClipboardOwner*)},
 	{}
 };
 

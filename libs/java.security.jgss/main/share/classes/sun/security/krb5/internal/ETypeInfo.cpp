@@ -44,13 +44,13 @@ $FieldInfo _ETypeInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _ETypeInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ETypeInfo::*)()>(&ETypeInfo::init$))},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ETypeInfo::*)(int32_t,$String*)>(&ETypeInfo::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(ETypeInfo::*)($DerValue*)>(&ETypeInfo::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getEType", "()I", nullptr, $PUBLIC},
-	{"getSalt", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ETypeInfo, init$, void)},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(ETypeInfo, init$, void, int32_t, $String*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ETypeInfo, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, clone, $Object*)},
+	{"getEType", "()I", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, getEType, int32_t)},
+	{"getSalt", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ETypeInfo, getSalt, $String*)},
 	{}
 };
 

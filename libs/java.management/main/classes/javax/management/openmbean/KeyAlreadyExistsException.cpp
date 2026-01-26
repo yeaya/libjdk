@@ -17,8 +17,8 @@ $FieldInfo _KeyAlreadyExistsException_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyAlreadyExistsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyAlreadyExistsException::*)()>(&KeyAlreadyExistsException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyAlreadyExistsException::*)($String*)>(&KeyAlreadyExistsException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyAlreadyExistsException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyAlreadyExistsException, init$, void, $String*)},
 	{}
 };
 

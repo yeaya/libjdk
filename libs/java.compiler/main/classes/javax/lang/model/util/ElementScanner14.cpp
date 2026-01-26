@@ -44,12 +44,12 @@ $CompoundAttribute _ElementScanner14_Annotations_[] = {
 };
 
 $MethodInfo _ElementScanner14_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ElementScanner14::*)()>(&ElementScanner14::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(ElementScanner14::*)(Object$*)>(&ElementScanner14::init$))},
-	{"createScanningList", "(Ljavax/lang/model/element/Parameterizable;Ljava/util/List;)Ljava/util/List;", "(Ljavax/lang/model/element/Parameterizable;Ljava/util/List<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<+Ljavax/lang/model/element/Element;>;", $PRIVATE, $method(static_cast<$List*(ElementScanner14::*)($Parameterizable*,$List*)>(&ElementScanner14::createScanningList))},
-	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ExecutableElement;TP;)TR;", $PUBLIC},
-	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/RecordComponentElement;TP;)TR;", $PUBLIC},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeElement;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ElementScanner14, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(ElementScanner14, init$, void, Object$*)},
+	{"createScanningList", "(Ljavax/lang/model/element/Parameterizable;Ljava/util/List;)Ljava/util/List;", "(Ljavax/lang/model/element/Parameterizable;Ljava/util/List<+Ljavax/lang/model/element/Element;>;)Ljava/util/List<+Ljavax/lang/model/element/Element;>;", $PRIVATE, $method(ElementScanner14, createScanningList, $List*, $Parameterizable*, $List*)},
+	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ExecutableElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner14, visitExecutable, $Object*, $ExecutableElement*, Object$*)},
+	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/RecordComponentElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner14, visitRecordComponent, $Object*, $RecordComponentElement*, Object$*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner14, visitType, $Object*, $TypeElement*, Object$*)},
 	{}
 };
 

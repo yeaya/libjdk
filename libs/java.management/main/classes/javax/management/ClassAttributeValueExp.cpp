@@ -41,10 +41,10 @@ $FieldInfo _ClassAttributeValueExp_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassAttributeValueExp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassAttributeValueExp::*)()>(&ClassAttributeValueExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getValue", "(Ljavax/management/ObjectName;)Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassAttributeValueExp, init$, void)},
+	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(ClassAttributeValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"getValue", "(Ljavax/management/ObjectName;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ClassAttributeValueExp, getValue, $Object*, $ObjectName*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassAttributeValueExp, toString, $String*)},
 	{}
 };
 

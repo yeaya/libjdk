@@ -18,7 +18,7 @@ $FieldInfo _RealmChoiceCallback_FieldInfo_[] = {
 };
 
 $MethodInfo _RealmChoiceCallback_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(static_cast<void(RealmChoiceCallback::*)($String*,$StringArray*,int32_t,bool)>(&RealmChoiceCallback::init$))},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(RealmChoiceCallback, init$, void, $String*, $StringArray*, int32_t, bool)},
 	{}
 };
 

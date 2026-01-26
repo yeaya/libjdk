@@ -6,6 +6,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {
@@ -13,9 +15,9 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _StartElementTree_MethodInfo_[] = {
-	{"getAttributes", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSelfClosing", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAttributes", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(StartElementTree, getAttributes, $List*)},
+	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StartElementTree, getName, $Name*)},
+	{"isSelfClosing", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StartElementTree, isSelfClosing, bool)},
 	{}
 };
 

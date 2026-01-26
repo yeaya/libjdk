@@ -40,15 +40,15 @@ $MethodInfo _PerfStringCounter_MethodInfo_[] = {
 	{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
 	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Variability;ILjava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(PerfStringCounter::*)($String*,$Variability*,int32_t,$ByteBuffer*)>(&PerfStringCounter::init$))},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Variability;IILjava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(PerfStringCounter::*)($String*,$Variability*,int32_t,int32_t,$ByteBuffer*)>(&PerfStringCounter::init$))},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getVectorLength", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Variability;ILjava/nio/ByteBuffer;)V", nullptr, 0, $method(PerfStringCounter, init$, void, $String*, $Variability*, int32_t, $ByteBuffer*)},
+	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Variability;IILjava/nio/ByteBuffer;)V", nullptr, 0, $method(PerfStringCounter, init$, void, $String*, $Variability*, int32_t, int32_t, $ByteBuffer*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PerfStringCounter, getValue, $Object*)},
+	{"getVectorLength", "()I", nullptr, $PUBLIC, $virtualMethod(PerfStringCounter, getVectorLength, int32_t)},
 	{"*isInternal", "()Z", nullptr, $PUBLIC},
-	{"isVector", "()Z", nullptr, $PUBLIC},
-	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"isVector", "()Z", nullptr, $PUBLIC, $virtualMethod(PerfStringCounter, isVector, bool)},
+	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfStringCounter, stringValue, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.ObjectStreamException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PerfStringCounter, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

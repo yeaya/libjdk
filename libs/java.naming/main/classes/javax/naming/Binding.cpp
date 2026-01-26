@@ -18,14 +18,14 @@ $FieldInfo _Binding_FieldInfo_[] = {
 };
 
 $MethodInfo _Binding_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Binding::*)($String*,Object$*)>(&Binding::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Binding::*)($String*,Object$*,bool)>(&Binding::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Binding::*)($String*,$String*,Object$*)>(&Binding::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Binding::*)($String*,$String*,Object$*,bool)>(&Binding::init$))},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"setObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Binding, init$, void, $String*, Object$*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(Binding, init$, void, $String*, Object$*, bool)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Binding, init$, void, $String*, $String*, Object$*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(Binding, init$, void, $String*, $String*, Object$*, bool)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Binding, getClassName, $String*)},
+	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Binding, getObject, $Object*)},
+	{"setObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Binding, setObject, void, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Binding, toString, $String*)},
 	{}
 };
 

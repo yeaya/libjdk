@@ -26,12 +26,12 @@ $FieldInfo _UnsharedNameTable$NameImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsharedNameTable$NameImpl_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/UnsharedNameTable;[BI)V", nullptr, 0, $method(static_cast<void(UnsharedNameTable$NameImpl::*)($UnsharedNameTable*,$bytes*,int32_t)>(&UnsharedNameTable$NameImpl::init$))},
-	{"getByteArray", "()[B", nullptr, $PUBLIC},
-	{"getByteAt", "(I)B", nullptr, $PUBLIC},
-	{"getByteLength", "()I", nullptr, $PUBLIC},
-	{"getByteOffset", "()I", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/UnsharedNameTable;[BI)V", nullptr, 0, $method(UnsharedNameTable$NameImpl, init$, void, $UnsharedNameTable*, $bytes*, int32_t)},
+	{"getByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable$NameImpl, getByteArray, $bytes*)},
+	{"getByteAt", "(I)B", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable$NameImpl, getByteAt, int8_t, int32_t)},
+	{"getByteLength", "()I", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable$NameImpl, getByteLength, int32_t)},
+	{"getByteOffset", "()I", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable$NameImpl, getByteOffset, int32_t)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable$NameImpl, getIndex, int32_t)},
 	{}
 };
 

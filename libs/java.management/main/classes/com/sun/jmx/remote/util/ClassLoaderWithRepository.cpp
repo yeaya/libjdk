@@ -26,8 +26,8 @@ $FieldInfo _ClassLoaderWithRepository_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassLoaderWithRepository_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/loading/ClassLoaderRepository;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassLoaderWithRepository::*)($ClassLoaderRepository*,$ClassLoader*)>(&ClassLoaderWithRepository::init$))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljavax/management/loading/ClassLoaderRepository;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(ClassLoaderWithRepository, init$, void, $ClassLoaderRepository*, $ClassLoader*)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaderWithRepository, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
 	{}
 };
 

@@ -27,10 +27,10 @@ $FieldInfo _HierMemDirCtx$HierContextEnumerator_FieldInfo_[] = {
 };
 
 $MethodInfo _HierMemDirCtx$HierContextEnumerator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljavax/naming/Context;I)V", nullptr, $PUBLIC, $method(static_cast<void(HierMemDirCtx$HierContextEnumerator::*)($HierMemDirCtx*,$Context*,int32_t)>(&HierMemDirCtx$HierContextEnumerator::init$)), "javax.naming.NamingException"},
-	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljavax/naming/Context;ILjava/lang/String;Z)V", nullptr, $PROTECTED, $method(static_cast<void(HierMemDirCtx$HierContextEnumerator::*)($HierMemDirCtx*,$Context*,int32_t,$String*,bool)>(&HierMemDirCtx$HierContextEnumerator::init$)), "javax.naming.NamingException"},
-	{"getImmediateChildren", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, nullptr, "javax.naming.NamingException"},
-	{"newEnumerator", "(Ljavax/naming/Context;ILjava/lang/String;Z)Lcom/sun/jndi/toolkit/dir/ContextEnumerator;", nullptr, $PROTECTED, nullptr, "javax.naming.NamingException"},
+	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljavax/naming/Context;I)V", nullptr, $PUBLIC, $method(HierMemDirCtx$HierContextEnumerator, init$, void, $HierMemDirCtx*, $Context*, int32_t), "javax.naming.NamingException"},
+	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljavax/naming/Context;ILjava/lang/String;Z)V", nullptr, $PROTECTED, $method(HierMemDirCtx$HierContextEnumerator, init$, void, $HierMemDirCtx*, $Context*, int32_t, $String*, bool), "javax.naming.NamingException"},
+	{"getImmediateChildren", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(HierMemDirCtx$HierContextEnumerator, getImmediateChildren, $NamingEnumeration*, $Context*), "javax.naming.NamingException"},
+	{"newEnumerator", "(Ljavax/naming/Context;ILjava/lang/String;Z)Lcom/sun/jndi/toolkit/dir/ContextEnumerator;", nullptr, $PROTECTED, $virtualMethod(HierMemDirCtx$HierContextEnumerator, newEnumerator, $ContextEnumerator*, $Context*, int32_t, $String*, bool), "javax.naming.NamingException"},
 	{}
 };
 

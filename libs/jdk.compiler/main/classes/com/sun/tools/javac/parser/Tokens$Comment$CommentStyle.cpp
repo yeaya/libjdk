@@ -31,10 +31,10 @@ $FieldInfo _Tokens$Comment$CommentStyle_FieldInfo_[] = {
 };
 
 $MethodInfo _Tokens$Comment$CommentStyle_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Tokens$Comment$CommentStyleArray*(*)()>(&Tokens$Comment$CommentStyle::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Tokens$Comment$CommentStyle::*)($String*,int32_t)>(&Tokens$Comment$CommentStyle::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Tokens$Comment$CommentStyle*(*)($String*)>(&Tokens$Comment$CommentStyle::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Tokens$Comment$CommentStyleArray*(*)()>(&Tokens$Comment$CommentStyle::values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tokens$Comment$CommentStyle, $values, $Tokens$Comment$CommentStyleArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Tokens$Comment$CommentStyle, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Comment$CommentStyle, valueOf, Tokens$Comment$CommentStyle*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Comment$CommentStyle, values, $Tokens$Comment$CommentStyleArray*)},
 	{}
 };
 

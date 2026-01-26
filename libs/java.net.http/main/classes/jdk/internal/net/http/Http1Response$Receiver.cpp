@@ -17,14 +17,14 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _Http1Response$Receiver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Http1Response$Receiver::*)()>(&Http1Response$Receiver::init$))},
-	{"accept", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/concurrent/CompletableFuture;)Z", "(Ljava/nio/ByteBuffer;TT;Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Response$State;>;)Z", $FINAL, $method(static_cast<bool(Http1Response$Receiver::*)($ByteBuffer*,Object$*,$CompletableFuture*)>(&Http1Response$Receiver::accept))},
-	{"completion", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Response$State;>;", $ABSTRACT},
-	{"handle", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/nio/ByteBuffer;TT;Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Response$State;>;)V", $ABSTRACT},
+	{"<init>", "()V", nullptr, 0, $method(Http1Response$Receiver, init$, void)},
+	{"accept", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/concurrent/CompletableFuture;)Z", "(Ljava/nio/ByteBuffer;TT;Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Response$State;>;)Z", $FINAL, $method(Http1Response$Receiver, accept, bool, $ByteBuffer*, Object$*, $CompletableFuture*)},
+	{"completion", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Response$State;>;", $ABSTRACT, $virtualMethod(Http1Response$Receiver, completion, $CompletableFuture*)},
+	{"handle", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/nio/ByteBuffer;TT;Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Response$State;>;)V", $ABSTRACT, $virtualMethod(Http1Response$Receiver, handle, void, $ByteBuffer*, Object$*, $CompletableFuture*)},
 	{"onReadError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"reset", "()V", nullptr, $ABSTRACT},
-	{"start", "(Ljava/lang/Object;)V", "(TT;)V", $ABSTRACT},
+	{"reset", "()V", nullptr, $ABSTRACT, $virtualMethod(Http1Response$Receiver, reset, void)},
+	{"start", "(Ljava/lang/Object;)V", "(TT;)V", $ABSTRACT, $virtualMethod(Http1Response$Receiver, start, void, Object$*)},
 	{"tryAsyncReceive", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"subscription", "()Ljdk/internal/net/http/AbstractSubscription;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

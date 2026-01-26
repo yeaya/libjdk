@@ -28,9 +28,9 @@ $FieldInfo _Type$UndetVar$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$UndetVar$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, 0, $method(static_cast<void(Type$UndetVar$1::*)($Type$UndetVar*)>(&Type$UndetVar$1::init$))},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, 0, $method(Type$UndetVar$1, init$, void, $Type$UndetVar*)},
+	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$1, visitUndetVar, $Type*, $Type$UndetVar*, $Void*)},
+	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$UndetVar$1, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
 	{}
 };
 

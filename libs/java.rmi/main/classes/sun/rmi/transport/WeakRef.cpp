@@ -29,13 +29,13 @@ $FieldInfo _WeakRef_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(WeakRef::*)(Object$*)>(&WeakRef::init$))},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", $PUBLIC, $method(static_cast<void(WeakRef::*)(Object$*,$ReferenceQueue*)>(&WeakRef::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"pin", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setHashValue", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(WeakRef::*)(Object$*)>(&WeakRef::setHashValue))},
-	{"unpin", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(WeakRef, init$, void, Object$*)},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;)V", $PUBLIC, $method(WeakRef, init$, void, Object$*, $ReferenceQueue*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakRef, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WeakRef, hashCode, int32_t)},
+	{"pin", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WeakRef, pin, void)},
+	{"setHashValue", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(WeakRef, setHashValue, void, Object$*)},
+	{"unpin", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WeakRef, unpin, void)},
 	{}
 };
 

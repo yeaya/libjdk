@@ -83,8 +83,8 @@ $FieldInfo Stream$RequestSubscriber$$Lambda$trySend::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$RequestSubscriber$$Lambda$trySend::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream$RequestSubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$RequestSubscriber$$Lambda$trySend::*)(Stream$RequestSubscriber*)>(&Stream$RequestSubscriber$$Lambda$trySend::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream$RequestSubscriber;)V", nullptr, $PUBLIC, $method(Stream$RequestSubscriber$$Lambda$trySend, init$, void, Stream$RequestSubscriber*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber$$Lambda$trySend, run, void)},
 	{}
 };
 $ClassInfo Stream$RequestSubscriber$$Lambda$trySend::classInfo$ = {
@@ -123,8 +123,8 @@ $FieldInfo Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::fieldInfos[2] = 
 	{}
 };
 $MethodInfo Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::*)($Throwable*)>(&Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, init$, void, $Throwable*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, get, $Object*)},
 	{}
 };
 $ClassInfo Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::classInfo$ = {
@@ -154,16 +154,16 @@ $FieldInfo _Stream$RequestSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _Stream$RequestSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;J)V", nullptr, 0, $method(static_cast<void(Stream$RequestSubscriber::*)($Stream*,int64_t)>(&Stream$RequestSubscriber::init$))},
-	{"complete", "()V", nullptr, $PRIVATE, $method(static_cast<void(Stream$RequestSubscriber::*)()>(&Stream$RequestSubscriber::complete)), "java.io.IOException"},
-	{"lambda$onError$0", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Throwable*)>(&Stream$RequestSubscriber::lambda$onError$0))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onNextImpl", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Stream$RequestSubscriber::*)($ByteBuffer*)>(&Stream$RequestSubscriber::onNextImpl))},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"trySend", "()V", nullptr, 0},
+	{"<init>", "(Ljdk/internal/net/http/Stream;J)V", nullptr, 0, $method(Stream$RequestSubscriber, init$, void, $Stream*, int64_t)},
+	{"complete", "()V", nullptr, $PRIVATE, $method(Stream$RequestSubscriber, complete, void), "java.io.IOException"},
+	{"lambda$onError$0", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream$RequestSubscriber, lambda$onError$0, $String*, $Throwable*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onNext, void, $ByteBuffer*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Stream$RequestSubscriber, onNext, void, Object$*)},
+	{"onNextImpl", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Stream$RequestSubscriber, onNextImpl, void, $ByteBuffer*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onSubscribe, void, $Flow$Subscription*)},
+	{"trySend", "()V", nullptr, 0, $virtualMethod(Stream$RequestSubscriber, trySend, void)},
 	{}
 };
 

@@ -23,20 +23,20 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _DesCbcCrcEType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DesCbcCrcEType::*)()>(&DesCbcCrcEType::init$))},
-	{"blockSize", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"calculateChecksum", "([BI)[B", nullptr, $PROTECTED},
-	{"checksumSize", "()I", nullptr, $PUBLIC},
-	{"checksumType", "()I", nullptr, $PUBLIC},
-	{"confounderSize", "()I", nullptr, $PUBLIC},
-	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"eType", "()I", nullptr, $PUBLIC},
-	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"keySize", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"keyType", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"minimumPadSize", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DesCbcCrcEType, init$, void)},
+	{"blockSize", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DesCbcCrcEType, blockSize, int32_t)},
+	{"calculateChecksum", "([BI)[B", nullptr, $PROTECTED, $virtualMethod(DesCbcCrcEType, calculateChecksum, $bytes*, $bytes*, int32_t)},
+	{"checksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcCrcEType, checksumSize, int32_t)},
+	{"checksumType", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcCrcEType, checksumType, int32_t)},
+	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcCrcEType, confounderSize, int32_t)},
+	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcCrcEType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DesCbcCrcEType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+	{"eType", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcCrcEType, eType, int32_t)},
+	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcCrcEType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DesCbcCrcEType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"keySize", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DesCbcCrcEType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DesCbcCrcEType, keyType, int32_t)},
+	{"minimumPadSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcCrcEType, minimumPadSize, int32_t)},
 	{}
 };
 

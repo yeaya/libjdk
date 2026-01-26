@@ -29,8 +29,8 @@ $FieldInfo _Krb5InitCredential$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Krb5InitCredential$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/security/AccessControlContext;)V", "()V", 0, $method(static_cast<void(Krb5InitCredential$1::*)($GSSCaller*,$String*,$AccessControlContext*)>(&Krb5InitCredential$1::init$))},
-	{"run", "()Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/security/AccessControlContext;)V", "()V", 0, $method(Krb5InitCredential$1, init$, void, $GSSCaller*, $String*, $AccessControlContext*)},
+	{"run", "()Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

@@ -45,10 +45,10 @@ $FieldInfo _MLetObjectInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _MLetObjectInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljavax/management/loading/MLet;)V", nullptr, $PUBLIC, $method(static_cast<void(MLetObjectInputStream::*)($InputStream*,$MLet*)>(&MLetObjectInputStream::init$)), "java.io.IOException,java.io.StreamCorruptedException"},
-	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
-	{"primitiveType", "(C)Ljava/lang/Class;", "(C)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(MLetObjectInputStream::*)(char16_t)>(&MLetObjectInputStream::primitiveType))},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/io/InputStream;Ljavax/management/loading/MLet;)V", nullptr, $PUBLIC, $method(MLetObjectInputStream, init$, void, $InputStream*, $MLet*), "java.io.IOException,java.io.StreamCorruptedException"},
+	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(MLetObjectInputStream, getClassLoader, $ClassLoader*)},
+	{"primitiveType", "(C)Ljava/lang/Class;", "(C)Ljava/lang/Class<*>;", $PRIVATE, $method(MLetObjectInputStream, primitiveType, $Class*, char16_t)},
+	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(MLetObjectInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

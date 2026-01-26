@@ -67,10 +67,10 @@ $FieldInfo _TransportImpl$SendTask_FieldInfo_[] = {
 };
 
 $MethodInfo _TransportImpl$SendTask_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/TransportImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(TransportImpl$SendTask::*)($TransportImpl*)>(&TransportImpl$SendTask::init$))},
-	{"removeAndComplete", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(static_cast<void(TransportImpl$SendTask::*)($Throwable*)>(&TransportImpl$SendTask::removeAndComplete))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"tryCompleteWrite", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(TransportImpl$SendTask::*)()>(&TransportImpl$SendTask::tryCompleteWrite)), "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/net/http/websocket/TransportImpl;)V", nullptr, $PRIVATE, $method(TransportImpl$SendTask, init$, void, $TransportImpl*)},
+	{"removeAndComplete", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(TransportImpl$SendTask, removeAndComplete, void, $Throwable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TransportImpl$SendTask, run, void)},
+	{"tryCompleteWrite", "()Z", nullptr, $PRIVATE, $method(TransportImpl$SendTask, tryCompleteWrite, bool), "java.io.IOException"},
 	{}
 };
 

@@ -33,11 +33,11 @@ $FieldInfo _Attribute$Enum_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute$Enum_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Attribute$Enum::*)($Type*,$Symbol$VarSymbol*)>(&Attribute$Enum::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"getValue", "()Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, $PUBLIC, $method(Attribute$Enum, init$, void, $Type*, $Symbol$VarSymbol*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Enum, accept, void, $Attribute$Visitor*)},
+	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Enum, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+	{"getValue", "()Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC, $virtualMethod(Attribute$Enum, getValue, $Object*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Enum, toString, $String*)},
 	{}
 };
 

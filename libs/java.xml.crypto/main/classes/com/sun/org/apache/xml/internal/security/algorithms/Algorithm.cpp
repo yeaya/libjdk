@@ -26,10 +26,10 @@ namespace com {
 							namespace algorithms {
 
 $MethodInfo _Algorithm_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Algorithm::*)($Document*,$String*)>(&Algorithm::init$))},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Algorithm::*)($Element*,$String*)>(&Algorithm::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getAlgorithmURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setAlgorithmURI", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
+	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Algorithm, init$, void, $Document*, $String*)},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Algorithm, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"getAlgorithmURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Algorithm, getAlgorithmURI, $String*)},
+	{"setAlgorithmURI", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Algorithm, setAlgorithmURI, void, $String*)},
 	{}
 };
 

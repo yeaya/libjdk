@@ -62,11 +62,11 @@ $FieldInfo _ClassFile_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassFile::*)()>(&ClassFile::init$))},
-	{"externalize", "([BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,int32_t)>(&ClassFile::externalize))},
-	{"externalize", "(Lcom/sun/tools/javac/util/Name;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($Name*)>(&ClassFile::externalize))},
-	{"internalize", "([BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,int32_t)>(&ClassFile::internalize))},
-	{"internalize", "(Lcom/sun/tools/javac/util/Name;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($Name*)>(&ClassFile::internalize))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFile, init$, void)},
+	{"externalize", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, externalize, $bytes*, $bytes*, int32_t, int32_t)},
+	{"externalize", "(Lcom/sun/tools/javac/util/Name;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, externalize, $bytes*, $Name*)},
+	{"internalize", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, internalize, $bytes*, $bytes*, int32_t, int32_t)},
+	{"internalize", "(Lcom/sun/tools/javac/util/Name;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile, internalize, $bytes*, $Name*)},
 	{}
 };
 

@@ -18,8 +18,8 @@ $FieldInfo _InstrumentationException_FieldInfo_[] = {
 };
 
 $MethodInfo _InstrumentationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InstrumentationException::*)()>(&InstrumentationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InstrumentationException::*)($String*)>(&InstrumentationException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InstrumentationException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstrumentationException, init$, void, $String*)},
 	{}
 };
 

@@ -6,16 +6,18 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Connection = ::java::sql::Connection;
+using $ShardingKey = ::java::sql::ShardingKey;
 
 namespace java {
 	namespace sql {
 
 $MethodInfo _ConnectionBuilder_MethodInfo_[] = {
-	{"build", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"password", "(Ljava/lang/String;)Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"shardingKey", "(Ljava/sql/ShardingKey;)Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"superShardingKey", "(Ljava/sql/ShardingKey;)Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"user", "(Ljava/lang/String;)Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT},
+	{"build", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConnectionBuilder, build, $Connection*), "java.sql.SQLException"},
+	{"password", "(Ljava/lang/String;)Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConnectionBuilder, password, ConnectionBuilder*, $String*)},
+	{"shardingKey", "(Ljava/sql/ShardingKey;)Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConnectionBuilder, shardingKey, ConnectionBuilder*, $ShardingKey*)},
+	{"superShardingKey", "(Ljava/sql/ShardingKey;)Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConnectionBuilder, superShardingKey, ConnectionBuilder*, $ShardingKey*)},
+	{"user", "(Ljava/lang/String;)Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConnectionBuilder, user, ConnectionBuilder*, $String*)},
 	{}
 };
 

@@ -10,10 +10,10 @@ namespace java {
 		namespace management {
 
 $MethodInfo _BufferPoolMXBean_MethodInfo_[] = {
-	{"getCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMemoryUsed", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTotalCapacity", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getCount, int64_t)},
+	{"getMemoryUsed", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getMemoryUsed, int64_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getName, $String*)},
+	{"getTotalCapacity", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferPoolMXBean, getTotalCapacity, int64_t)},
 	{}
 };
 

@@ -33,9 +33,9 @@ $FieldInfo _Tokens$NumericToken_FieldInfo_[] = {
 };
 
 $MethodInfo _Tokens$NumericToken_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILjava/lang/String;ILcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILjava/lang/String;ILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;)V", $PUBLIC, $method(static_cast<void(Tokens$NumericToken::*)($Tokens$TokenKind*,int32_t,int32_t,$String*,int32_t,$List*)>(&Tokens$NumericToken::init$))},
-	{"checkKind", "()V", nullptr, $PROTECTED},
-	{"radix", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILjava/lang/String;ILcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILjava/lang/String;ILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;)V", $PUBLIC, $method(Tokens$NumericToken, init$, void, $Tokens$TokenKind*, int32_t, int32_t, $String*, int32_t, $List*)},
+	{"checkKind", "()V", nullptr, $PROTECTED, $virtualMethod(Tokens$NumericToken, checkKind, void)},
+	{"radix", "()I", nullptr, $PUBLIC, $virtualMethod(Tokens$NumericToken, radix, int32_t)},
 	{}
 };
 

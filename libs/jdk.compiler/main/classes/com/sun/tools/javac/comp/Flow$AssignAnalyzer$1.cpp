@@ -32,8 +32,8 @@ $FieldInfo _Flow$AssignAnalyzer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$AssignAnalyzer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow$AssignAnalyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;)V", nullptr, 0, $method(static_cast<void(Flow$AssignAnalyzer$1::*)($Flow$AssignAnalyzer*,$JCTree*,$Bits*,$Bits*,$Bits*,$Bits*)>(&Flow$AssignAnalyzer$1::init$))},
-	{"resolveJump", "()V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Flow$AssignAnalyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;)V", nullptr, 0, $method(Flow$AssignAnalyzer$1, init$, void, $Flow$AssignAnalyzer*, $JCTree*, $Bits*, $Bits*, $Bits*, $Bits*)},
+	{"resolveJump", "()V", nullptr, 0, $virtualMethod(Flow$AssignAnalyzer$1, resolveJump, void)},
 	{}
 };
 

@@ -34,9 +34,9 @@ $FieldInfo _Types$DescriptorFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$DescriptorFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(static_cast<void(Types$DescriptorFilter::*)($Types*,$Symbol$TypeSymbol*)>(&Types$DescriptorFilter::init$))},
-	{"test", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(Types$DescriptorFilter, init$, void, $Types*, $Symbol$TypeSymbol*)},
+	{"test", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorFilter, test, bool, $Symbol*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$DescriptorFilter, test, bool, Object$*)},
 	{}
 };
 

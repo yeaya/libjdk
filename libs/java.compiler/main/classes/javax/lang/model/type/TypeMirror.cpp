@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AnnotatedConstruct = ::javax::lang::model::AnnotatedConstruct;
+using $TypeKind = ::javax::lang::model::type::TypeKind;
+using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
 
 namespace javax {
 	namespace lang {
@@ -15,12 +17,12 @@ namespace javax {
 			namespace type {
 
 $MethodInfo _TypeMirror_MethodInfo_[] = {
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT},
+	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeMirror, accept, $Object*, $TypeVisitor*, Object$*)},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeMirror, getKind, $TypeKind*)},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

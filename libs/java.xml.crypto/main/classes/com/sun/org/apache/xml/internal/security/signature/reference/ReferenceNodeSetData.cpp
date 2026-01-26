@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Iterator = ::java::util::Iterator;
 
 namespace com {
 	namespace sun {
@@ -17,7 +18,7 @@ namespace com {
 								namespace reference {
 
 $MethodInfo _ReferenceNodeSetData_MethodInfo_[] = {
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC | $ABSTRACT},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ReferenceNodeSetData, iterator, $Iterator*)},
 	{}
 };
 

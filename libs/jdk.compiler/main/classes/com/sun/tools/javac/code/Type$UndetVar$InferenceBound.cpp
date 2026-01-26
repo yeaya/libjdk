@@ -41,12 +41,12 @@ $FieldInfo _Type$UndetVar$InferenceBound_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$UndetVar$InferenceBound_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type$UndetVar$InferenceBoundArray*(*)()>(&Type$UndetVar$InferenceBound::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Type$UndetVar$InferenceBound::*)($String*,int32_t)>(&Type$UndetVar$InferenceBound::init$))},
-	{"complement", "()Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $ABSTRACT},
-	{"lessThan", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Z", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Type$UndetVar$InferenceBound*(*)($String*)>(&Type$UndetVar$InferenceBound::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Type$UndetVar$InferenceBoundArray*(*)()>(&Type$UndetVar$InferenceBound::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Type$UndetVar$InferenceBound, $values, $Type$UndetVar$InferenceBoundArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Type$UndetVar$InferenceBound, init$, void, $String*, int32_t)},
+	{"complement", "()Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Type$UndetVar$InferenceBound, complement, Type$UndetVar$InferenceBound*)},
+	{"lessThan", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Z", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$InferenceBound, lessThan, bool, Type$UndetVar$InferenceBound*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC, $staticMethod(Type$UndetVar$InferenceBound, valueOf, Type$UndetVar$InferenceBound*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC | $STATIC, $staticMethod(Type$UndetVar$InferenceBound, values, $Type$UndetVar$InferenceBoundArray*)},
 	{}
 };
 

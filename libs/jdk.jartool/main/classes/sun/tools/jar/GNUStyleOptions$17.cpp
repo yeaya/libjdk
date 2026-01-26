@@ -22,9 +22,9 @@ namespace sun {
 		namespace jar {
 
 $MethodInfo _GNUStyleOptions$17_MethodInfo_[] = {
-	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(static_cast<void(GNUStyleOptions$17::*)(bool,$GNUStyleOptions$OptionType*,$StringArray*)>(&GNUStyleOptions$17::init$))},
-	{"isExtra", "()Z", nullptr, 0},
-	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, nullptr, "sun.tools.jar.GNUStyleOptions$BadArgs"},
+	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$17, init$, void, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+	{"isExtra", "()Z", nullptr, 0, $virtualMethod(GNUStyleOptions$17, isExtra, bool)},
+	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(GNUStyleOptions$17, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
 	{}
 };
 

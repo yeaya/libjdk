@@ -30,8 +30,8 @@ $FieldInfo _ArrayNotificationBuffer$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayNotificationBuffer$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;Ljavax/management/ObjectName;Ljavax/management/NotificationListener;)V", "()V", 0, $method(static_cast<void(ArrayNotificationBuffer$2::*)($ArrayNotificationBuffer*,$ObjectName*,$NotificationListener*)>(&ArrayNotificationBuffer$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;Ljavax/management/ObjectName;Ljavax/management/NotificationListener;)V", "()V", 0, $method(ArrayNotificationBuffer$2, init$, void, $ArrayNotificationBuffer*, $ObjectName*, $NotificationListener*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$2, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

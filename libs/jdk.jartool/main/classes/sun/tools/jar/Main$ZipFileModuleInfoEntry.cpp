@@ -33,10 +33,10 @@ $FieldInfo _Main$ZipFileModuleInfoEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$ZipFileModuleInfoEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;)V", nullptr, 0, $method(static_cast<void(Main$ZipFileModuleInfoEntry::*)($ZipFile*,$ZipEntry*)>(&Main$ZipFileModuleInfoEntry::init$))},
-	{"bytes", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uriString", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;)V", nullptr, 0, $method(Main$ZipFileModuleInfoEntry, init$, void, $ZipFile*, $ZipEntry*)},
+	{"bytes", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Main$ZipFileModuleInfoEntry, bytes, $InputStream*), "java.io.IOException"},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$ZipFileModuleInfoEntry, name, $String*)},
+	{"uriString", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Main$ZipFileModuleInfoEntry, uriString, $Optional*)},
 	{}
 };
 

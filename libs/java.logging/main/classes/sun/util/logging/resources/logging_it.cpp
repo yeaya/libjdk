@@ -14,8 +14,8 @@ namespace sun {
 			namespace resources {
 
 $MethodInfo _logging_it_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(logging_it::*)()>(&logging_it::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(logging_it, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(logging_it, getContents, $ObjectArray2*)},
 	{}
 };
 

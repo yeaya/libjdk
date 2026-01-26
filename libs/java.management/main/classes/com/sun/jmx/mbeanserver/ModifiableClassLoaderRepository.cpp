@@ -5,7 +5,9 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
+using $ClassLoader = ::java::lang::ClassLoader;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ObjectName = ::javax::management::ObjectName;
 
 namespace com {
 	namespace sun {
@@ -13,11 +15,11 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _ModifiableClassLoaderRepository_MethodInfo_[] = {
-	{"addClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"addClassLoader", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getClassLoader", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $ABSTRACT},
-	{"removeClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"removeClassLoader", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"addClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModifiableClassLoaderRepository, addClassLoader, void, $ClassLoader*)},
+	{"addClassLoader", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModifiableClassLoaderRepository, addClassLoader, void, $ObjectName*, $ClassLoader*)},
+	{"getClassLoader", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModifiableClassLoaderRepository, getClassLoader, $ClassLoader*, $ObjectName*)},
+	{"removeClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModifiableClassLoaderRepository, removeClassLoader, void, $ClassLoader*)},
+	{"removeClassLoader", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModifiableClassLoaderRepository, removeClassLoader, void, $ObjectName*)},
 	{}
 };
 

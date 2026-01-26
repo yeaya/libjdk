@@ -50,12 +50,12 @@ $FieldInfo _ReferenceSubTreeData$DelayedNodeIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceSubTreeData$DelayedNodeIterator_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, 0, $method(static_cast<void(ReferenceSubTreeData$DelayedNodeIterator::*)($Node*,bool)>(&ReferenceSubTreeData$DelayedNodeIterator::init$))},
-	{"dereferenceSameDocumentURI", "(Lorg/w3c/dom/Node;)Ljava/util/List;", "(Lorg/w3c/dom/Node;)Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(static_cast<$List*(ReferenceSubTreeData$DelayedNodeIterator::*)($Node*)>(&ReferenceSubTreeData$DelayedNodeIterator::dereferenceSameDocumentURI))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"nodeSetMinusCommentNodes", "(Lorg/w3c/dom/Node;Ljava/util/List;Lorg/w3c/dom/Node;)V", "(Lorg/w3c/dom/Node;Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;)V", $PRIVATE, $method(static_cast<void(ReferenceSubTreeData$DelayedNodeIterator::*)($Node*,$List*,$Node*)>(&ReferenceSubTreeData$DelayedNodeIterator::nodeSetMinusCommentNodes))},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, 0, $method(ReferenceSubTreeData$DelayedNodeIterator, init$, void, $Node*, bool)},
+	{"dereferenceSameDocumentURI", "(Lorg/w3c/dom/Node;)Ljava/util/List;", "(Lorg/w3c/dom/Node;)Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(ReferenceSubTreeData$DelayedNodeIterator, dereferenceSameDocumentURI, $List*, $Node*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData$DelayedNodeIterator, hasNext, bool)},
+	{"next", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData$DelayedNodeIterator, next, $Object*)},
+	{"nodeSetMinusCommentNodes", "(Lorg/w3c/dom/Node;Ljava/util/List;Lorg/w3c/dom/Node;)V", "(Lorg/w3c/dom/Node;Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;)V", $PRIVATE, $method(ReferenceSubTreeData$DelayedNodeIterator, nodeSetMinusCommentNodes, void, $Node*, $List*, $Node*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData$DelayedNodeIterator, remove, void)},
 	{}
 };
 

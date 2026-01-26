@@ -24,14 +24,14 @@ $FieldInfo _MemoryUsage_FieldInfo_[] = {
 };
 
 $MethodInfo _MemoryUsage_MethodInfo_[] = {
-	{"<init>", "(JJJJ)V", nullptr, $PUBLIC, $method(static_cast<void(MemoryUsage::*)(int64_t,int64_t,int64_t,int64_t)>(&MemoryUsage::init$))},
-	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PRIVATE, $method(static_cast<void(MemoryUsage::*)($CompositeData*)>(&MemoryUsage::init$))},
-	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MemoryUsage*(*)($CompositeData*)>(&MemoryUsage::from))},
-	{"getCommitted", "()J", nullptr, $PUBLIC},
-	{"getInit", "()J", nullptr, $PUBLIC},
-	{"getMax", "()J", nullptr, $PUBLIC},
-	{"getUsed", "()J", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(JJJJ)V", nullptr, $PUBLIC, $method(MemoryUsage, init$, void, int64_t, int64_t, int64_t, int64_t)},
+	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PRIVATE, $method(MemoryUsage, init$, void, $CompositeData*)},
+	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryUsage, from, MemoryUsage*, $CompositeData*)},
+	{"getCommitted", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getCommitted, int64_t)},
+	{"getInit", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getInit, int64_t)},
+	{"getMax", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getMax, int64_t)},
+	{"getUsed", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, getUsed, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryUsage, toString, $String*)},
 	{}
 };
 

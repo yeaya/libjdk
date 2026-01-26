@@ -30,8 +30,8 @@ $FieldInfo _TreeInfo$1PathFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeInfo$1PathFinder_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", "()V", 0, $method(static_cast<void(TreeInfo$1PathFinder::*)($JCTree*)>(&TreeInfo$1PathFinder::init$))},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", "()V", 0, $method(TreeInfo$1PathFinder, init$, void, $JCTree*)},
+	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1PathFinder, scan, void, $JCTree*)},
 	{}
 };
 

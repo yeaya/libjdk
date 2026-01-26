@@ -23,8 +23,8 @@ $FieldInfo _StreamHandler$1_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamHandler$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/StreamHandler;Ljava/io/OutputStream;)V", "()V", 0, $method(static_cast<void(StreamHandler$1::*)($StreamHandler*,$OutputStream*)>(&StreamHandler$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/StreamHandler;Ljava/io/OutputStream;)V", "()V", 0, $method(StreamHandler$1, init$, void, $StreamHandler*, $OutputStream*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(StreamHandler$1, run, $Object*)},
 	{}
 };
 

@@ -19,7 +19,7 @@ $FieldInfo _WeakClassHashMap$ValueCell_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakClassHashMap$ValueCell_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(WeakClassHashMap$ValueCell::*)()>(&WeakClassHashMap$ValueCell::init$))},
+	{"<init>", "()V", nullptr, 0, $method(WeakClassHashMap$ValueCell, init$, void)},
 	{}
 };
 

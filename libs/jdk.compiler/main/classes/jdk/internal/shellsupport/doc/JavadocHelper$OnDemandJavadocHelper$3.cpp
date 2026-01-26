@@ -44,14 +44,14 @@ $FieldInfo _JavadocHelper$OnDemandJavadocHelper$3_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocHelper$OnDemandJavadocHelper$3_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;Lcom/sun/source/util/Trees;Lcom/sun/source/util/JavacTask;)V", nullptr, 0, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$3::*)($JavadocHelper$OnDemandJavadocHelper*,$Trees*,$JavacTask*)>(&JavadocHelper$OnDemandJavadocHelper$3::init$))},
-	{"handleDeclaration", "()V", nullptr, $PRIVATE, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$3::*)()>(&JavadocHelper$OnDemandJavadocHelper$3::handleDeclaration))},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;Lcom/sun/source/util/Trees;Lcom/sun/source/util/JavacTask;)V", nullptr, 0, $method(JavadocHelper$OnDemandJavadocHelper$3, init$, void, $JavadocHelper$OnDemandJavadocHelper*, $Trees*, $JavacTask*)},
+	{"handleDeclaration", "()V", nullptr, $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper$3, handleDeclaration, void)},
+	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitClass, $Void*, $ClassTree*, $Void*)},
+	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitClass, $Object*, $ClassTree*, Object$*)},
+	{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitMethod, $Void*, $MethodTree*, $Void*)},
+	{"visitMethod", "(Lcom/sun/source/tree/MethodTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitMethod, $Object*, $MethodTree*, Object$*)},
+	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitVariable, $Void*, $VariableTree*, $Void*)},
+	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$3, visitVariable, $Object*, $VariableTree*, Object$*)},
 	{}
 };
 

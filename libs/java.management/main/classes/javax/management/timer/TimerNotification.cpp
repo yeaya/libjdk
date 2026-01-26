@@ -21,9 +21,9 @@ $FieldInfo _TimerNotification_FieldInfo_[] = {
 };
 
 $MethodInfo _TimerNotification_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(static_cast<void(TimerNotification::*)($String*,Object$*,int64_t,int64_t,$String*,$Integer*)>(&TimerNotification::init$))},
-	{"cloneTimerNotification", "()Ljava/lang/Object;", nullptr, 0},
-	{"getNotificationID", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(TimerNotification, init$, void, $String*, Object$*, int64_t, int64_t, $String*, $Integer*)},
+	{"cloneTimerNotification", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(TimerNotification, cloneTimerNotification, $Object*)},
+	{"getNotificationID", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(TimerNotification, getNotificationID, $Integer*)},
 	{}
 };
 

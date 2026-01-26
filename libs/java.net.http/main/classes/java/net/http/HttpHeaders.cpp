@@ -86,8 +86,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpHeaders$$Lambda$valueOf::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpHeaders$$Lambda$valueOf::*)()>(&HttpHeaders$$Lambda$valueOf::init$))},
-	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpHeaders$$Lambda$valueOf, init$, void)},
+	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(HttpHeaders$$Lambda$valueOf, applyAsLong, int64_t, Object$*)},
 	{}
 };
 $ClassInfo HttpHeaders$$Lambda$valueOf::classInfo$ = {
@@ -135,8 +135,8 @@ $FieldInfo HttpHeaders$$Lambda$lambda$headersOf$1$1::fieldInfos[5] = {
 	{}
 };
 $MethodInfo HttpHeaders$$Lambda$lambda$headersOf$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiPredicate;Ljava/util/ArrayList;Ljava/util/TreeMap;Ljava/util/TreeSet;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpHeaders$$Lambda$lambda$headersOf$1$1::*)($BiPredicate*,$ArrayList*,$TreeMap*,$TreeSet*)>(&HttpHeaders$$Lambda$lambda$headersOf$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiPredicate;Ljava/util/ArrayList;Ljava/util/TreeMap;Ljava/util/TreeSet;)V", nullptr, $PUBLIC, $method(HttpHeaders$$Lambda$lambda$headersOf$1$1, init$, void, $BiPredicate*, $ArrayList*, $TreeMap*, $TreeSet*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpHeaders$$Lambda$lambda$headersOf$1$1, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo HttpHeaders$$Lambda$lambda$headersOf$1$1::classInfo$ = {
@@ -181,8 +181,8 @@ $FieldInfo HttpHeaders$$Lambda$lambda$headersOf$0$2::fieldInfos[4] = {
 	{}
 };
 $MethodInfo HttpHeaders$$Lambda$lambda$headersOf$0$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/BiPredicate;Ljava/lang/String;Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpHeaders$$Lambda$lambda$headersOf$0$2::*)($BiPredicate*,$String*,$ArrayList*)>(&HttpHeaders$$Lambda$lambda$headersOf$0$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/BiPredicate;Ljava/lang/String;Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(HttpHeaders$$Lambda$lambda$headersOf$0$2, init$, void, $BiPredicate*, $String*, $ArrayList*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpHeaders$$Lambda$lambda$headersOf$0$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HttpHeaders$$Lambda$lambda$headersOf$0$2::classInfo$ = {
@@ -206,19 +206,19 @@ $FieldInfo _HttpHeaders_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpHeaders_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(static_cast<void(HttpHeaders::*)($Map*)>(&HttpHeaders::init$))},
-	{"allValues", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$List*(HttpHeaders::*)($String*)>(&HttpHeaders::allValues))},
-	{"entryHash", "(Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)I", $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)($Map$Entry*)>(&HttpHeaders::entryHash))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"firstValue", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Optional*(HttpHeaders::*)($String*)>(&HttpHeaders::firstValue))},
-	{"firstValueAsLong", "(Ljava/lang/String;)Ljava/util/OptionalLong;", nullptr, $PUBLIC, $method(static_cast<$OptionalLong*(HttpHeaders::*)($String*)>(&HttpHeaders::firstValueAsLong))},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"headersOf", "(Ljava/util/Map;Ljava/util/function/BiPredicate;)Ljava/net/http/HttpHeaders;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;)Ljava/net/http/HttpHeaders;", $PRIVATE | $STATIC, $method(static_cast<HttpHeaders*(*)($Map*,$BiPredicate*)>(&HttpHeaders::headersOf))},
-	{"lambda$headersOf$0", "(Ljava/util/function/BiPredicate;Ljava/lang/String;Ljava/util/ArrayList;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($BiPredicate*,$String*,$ArrayList*,$String*)>(&HttpHeaders::lambda$headersOf$0))},
-	{"lambda$headersOf$1", "(Ljava/util/function/BiPredicate;Ljava/util/ArrayList;Ljava/util/TreeMap;Ljava/util/TreeSet;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($BiPredicate*,$ArrayList*,$TreeMap*,$TreeSet*,$String*,$List*)>(&HttpHeaders::lambda$headersOf$1))},
-	{"map", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $method(static_cast<$Map*(HttpHeaders::*)()>(&HttpHeaders::map))},
-	{"of", "(Ljava/util/Map;Ljava/util/function/BiPredicate;)Ljava/net/http/HttpHeaders;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;)Ljava/net/http/HttpHeaders;", $PUBLIC | $STATIC, $method(static_cast<HttpHeaders*(*)($Map*,$BiPredicate*)>(&HttpHeaders::of))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)V", $PRIVATE, $method(HttpHeaders, init$, void, $Map*)},
+	{"allValues", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(HttpHeaders, allValues, $List*, $String*)},
+	{"entryHash", "(Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)I", $PRIVATE | $STATIC | $FINAL, $staticMethod(HttpHeaders, entryHash, int32_t, $Map$Entry*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HttpHeaders, equals, bool, Object$*)},
+	{"firstValue", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(HttpHeaders, firstValue, $Optional*, $String*)},
+	{"firstValueAsLong", "(Ljava/lang/String;)Ljava/util/OptionalLong;", nullptr, $PUBLIC, $method(HttpHeaders, firstValueAsLong, $OptionalLong*, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(HttpHeaders, hashCode, int32_t)},
+	{"headersOf", "(Ljava/util/Map;Ljava/util/function/BiPredicate;)Ljava/net/http/HttpHeaders;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;)Ljava/net/http/HttpHeaders;", $PRIVATE | $STATIC, $staticMethod(HttpHeaders, headersOf, HttpHeaders*, $Map*, $BiPredicate*)},
+	{"lambda$headersOf$0", "(Ljava/util/function/BiPredicate;Ljava/lang/String;Ljava/util/ArrayList;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpHeaders, lambda$headersOf$0, void, $BiPredicate*, $String*, $ArrayList*, $String*)},
+	{"lambda$headersOf$1", "(Ljava/util/function/BiPredicate;Ljava/util/ArrayList;Ljava/util/TreeMap;Ljava/util/TreeSet;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpHeaders, lambda$headersOf$1, void, $BiPredicate*, $ArrayList*, $TreeMap*, $TreeSet*, $String*, $List*)},
+	{"map", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $method(HttpHeaders, map, $Map*)},
+	{"of", "(Ljava/util/Map;Ljava/util/function/BiPredicate;)Ljava/net/http/HttpHeaders;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;)Ljava/net/http/HttpHeaders;", $PUBLIC | $STATIC, $staticMethod(HttpHeaders, of, HttpHeaders*, $Map*, $BiPredicate*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpHeaders, toString, $String*)},
 	{}
 };
 

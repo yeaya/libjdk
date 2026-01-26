@@ -30,10 +30,10 @@ $FieldInfo _Dependencies$GraphDependencies$CompletionNode$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _Dependencies$GraphDependencies$CompletionNode$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Dependencies$GraphDependencies$CompletionNode$KindArray*(*)()>(&Dependencies$GraphDependencies$CompletionNode$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Dependencies$GraphDependencies$CompletionNode$Kind::*)($String*,int32_t,$String*)>(&Dependencies$GraphDependencies$CompletionNode$Kind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Dependencies$GraphDependencies$CompletionNode$Kind*(*)($String*)>(&Dependencies$GraphDependencies$CompletionNode$Kind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Dependencies$GraphDependencies$CompletionNode$KindArray*(*)()>(&Dependencies$GraphDependencies$CompletionNode$Kind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dependencies$GraphDependencies$CompletionNode$Kind, $values, $Dependencies$GraphDependencies$CompletionNode$KindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Dependencies$GraphDependencies$CompletionNode$Kind, init$, void, $String*, int32_t, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$GraphDependencies$CompletionNode$Kind, valueOf, Dependencies$GraphDependencies$CompletionNode$Kind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$GraphDependencies$CompletionNode$Kind, values, $Dependencies$GraphDependencies$CompletionNode$KindArray*)},
 	{}
 };
 

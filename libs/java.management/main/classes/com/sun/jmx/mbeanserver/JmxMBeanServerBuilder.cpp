@@ -19,9 +19,9 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _JmxMBeanServerBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JmxMBeanServerBuilder::*)()>(&JmxMBeanServerBuilder::init$))},
-	{"newMBeanServer", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;)Ljavax/management/MBeanServer;", nullptr, $PUBLIC},
-	{"newMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JmxMBeanServerBuilder, init$, void)},
+	{"newMBeanServer", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;)Ljavax/management/MBeanServer;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServerBuilder, newMBeanServer, $MBeanServer*, $String*, $MBeanServer*, $MBeanServerDelegate*)},
+	{"newMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServerBuilder, newMBeanServerDelegate, $MBeanServerDelegate*)},
 	{}
 };
 

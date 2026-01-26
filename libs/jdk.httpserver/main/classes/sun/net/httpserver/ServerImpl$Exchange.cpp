@@ -112,10 +112,10 @@ $FieldInfo _ServerImpl$Exchange_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerImpl$Exchange_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;Ljava/lang/String;Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $method(static_cast<void(ServerImpl$Exchange::*)($ServerImpl*,$SocketChannel*,$String*,$HttpConnection*)>(&ServerImpl$Exchange::init$)), "java.io.IOException"},
-	{"reject", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"sendReply", "(IZLjava/lang/String;)V", nullptr, 0},
+	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;Ljava/lang/String;Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $method(ServerImpl$Exchange, init$, void, $ServerImpl*, $SocketChannel*, $String*, $HttpConnection*), "java.io.IOException"},
+	{"reject", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(ServerImpl$Exchange, reject, void, int32_t, $String*, $String*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$Exchange, run, void)},
+	{"sendReply", "(IZLjava/lang/String;)V", nullptr, 0, $virtualMethod(ServerImpl$Exchange, sendReply, void, int32_t, bool, $String*)},
 	{}
 };
 

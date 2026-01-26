@@ -41,12 +41,12 @@ $FieldInfo _LoaderHandler$Loader_FieldInfo_[] = {
 };
 
 $MethodInfo _LoaderHandler$Loader_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(static_cast<void(LoaderHandler$Loader::*)($URLArray*,$ClassLoader*)>(&LoaderHandler$Loader::init$))},
-	{"checkPermissions", "()V", nullptr, $PRIVATE, $method(static_cast<void(LoaderHandler$Loader::*)()>(&LoaderHandler$Loader::checkPermissions))},
-	{"getClassAnnotation", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(LoaderHandler$Loader, init$, void, $URLArray*, $ClassLoader*)},
+	{"checkPermissions", "()V", nullptr, $PRIVATE, $method(LoaderHandler$Loader, checkPermissions, void)},
+	{"getClassAnnotation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$Loader, getClassAnnotation, $String*)},
+	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(LoaderHandler$Loader, getPermissions, $PermissionCollection*, $CodeSource*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(LoaderHandler$Loader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$Loader, toString, $String*)},
 	{}
 };
 

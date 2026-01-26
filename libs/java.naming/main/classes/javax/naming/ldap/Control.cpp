@@ -20,9 +20,9 @@ $FieldInfo _Control_FieldInfo_[] = {
 };
 
 $MethodInfo _Control_MethodInfo_[] = {
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isCritical", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Control, getEncodedValue, $bytes*)},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Control, getID, $String*)},
+	{"isCritical", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Control, isCritical, bool)},
 	{}
 };
 

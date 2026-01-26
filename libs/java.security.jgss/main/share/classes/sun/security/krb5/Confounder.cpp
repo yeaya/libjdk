@@ -18,10 +18,10 @@ $FieldInfo _Confounder_FieldInfo_[] = {
 };
 
 $MethodInfo _Confounder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Confounder::*)()>(&Confounder::init$))},
-	{"bytes", "(I)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)(int32_t)>(&Confounder::bytes))},
-	{"intValue", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&Confounder::intValue))},
-	{"longValue", "()J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)()>(&Confounder::longValue))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Confounder, init$, void)},
+	{"bytes", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Confounder, bytes, $bytes*, int32_t)},
+	{"intValue", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Confounder, intValue, int32_t)},
+	{"longValue", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(Confounder, longValue, int64_t)},
 	{}
 };
 

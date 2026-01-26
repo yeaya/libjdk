@@ -13,7 +13,7 @@ namespace com {
 			namespace httpserver {
 
 $MethodInfo _Authenticator$Result_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Authenticator$Result::*)()>(&Authenticator$Result::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Authenticator$Result, init$, void)},
 	{}
 };
 

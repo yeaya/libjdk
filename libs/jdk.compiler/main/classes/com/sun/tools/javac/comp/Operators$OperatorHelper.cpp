@@ -66,8 +66,8 @@ $FieldInfo Operators$OperatorHelper$$Lambda$initOperators::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Operators$OperatorHelper$$Lambda$initOperators::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators$OperatorHelper;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorHelper$$Lambda$initOperators::*)(Operators$OperatorHelper*)>(&Operators$OperatorHelper$$Lambda$initOperators::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators$OperatorHelper;)V", nullptr, $PUBLIC, $method(Operators$OperatorHelper$$Lambda$initOperators, init$, void, Operators$OperatorHelper*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorHelper$$Lambda$initOperators, get, $Object*)},
 	{}
 };
 $ClassInfo Operators$OperatorHelper$$Lambda$initOperators::classInfo$ = {
@@ -99,8 +99,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorHelper$$Lambda$get$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorHelper$$Lambda$get$1::*)()>(&Operators$OperatorHelper$$Lambda$get$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorHelper$$Lambda$get$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorHelper$$Lambda$get$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorHelper$$Lambda$get$1::classInfo$ = {
@@ -132,8 +132,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorHelper$$Lambda$lambda$initOperators$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorHelper$$Lambda$lambda$initOperators$0$2::*)()>(&Operators$OperatorHelper$$Lambda$lambda$initOperators$0$2::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorHelper$$Lambda$lambda$initOperators$0$2, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorHelper$$Lambda$lambda$initOperators$0$2, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo Operators$OperatorHelper$$Lambda$lambda$initOperators$0$2::classInfo$ = {
@@ -159,10 +159,10 @@ $FieldInfo _Operators$OperatorHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators$OperatorHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Operators$OperatorHelper::*)($Operators*,$JCTree$Tag*)>(&Operators$OperatorHelper::init$))},
-	{"doLookup", "(Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;>;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", $FINAL, $method(static_cast<$Symbol$OperatorSymbol*(Operators$OperatorHelper::*)($Predicate*)>(&Operators$OperatorHelper::doLookup))},
-	{"initOperators", "()[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE, $method(static_cast<$Symbol$OperatorSymbolArray*(Operators$OperatorHelper::*)()>(&Operators$OperatorHelper::initOperators))},
-	{"lambda$initOperators$0", "(I)[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Symbol$OperatorSymbolArray*(*)(int32_t)>(&Operators$OperatorHelper::lambda$initOperators$0))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$OperatorHelper, init$, void, $Operators*, $JCTree$Tag*)},
+	{"doLookup", "(Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;>;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", $FINAL, $method(Operators$OperatorHelper, doLookup, $Symbol$OperatorSymbol*, $Predicate*)},
+	{"initOperators", "()[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE, $method(Operators$OperatorHelper, initOperators, $Symbol$OperatorSymbolArray*)},
+	{"lambda$initOperators$0", "(I)[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorHelper, lambda$initOperators$0, $Symbol$OperatorSymbolArray*, int32_t)},
 	{}
 };
 

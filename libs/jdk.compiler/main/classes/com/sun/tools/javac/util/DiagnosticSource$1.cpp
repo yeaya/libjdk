@@ -16,8 +16,8 @@ namespace com {
 				namespace util {
 
 $MethodInfo _DiagnosticSource$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DiagnosticSource$1::*)()>(&DiagnosticSource$1::init$))},
-	{"findLine", "(I)Z", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(DiagnosticSource$1, init$, void)},
+	{"findLine", "(I)Z", nullptr, $PROTECTED, $virtualMethod(DiagnosticSource$1, findLine, bool, int32_t)},
 	{}
 };
 

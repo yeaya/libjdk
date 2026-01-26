@@ -22,7 +22,7 @@ $FieldInfo _WriteFinishedEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _WriteFinishedEvent_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;)V", nullptr, 0, $method(static_cast<void(WriteFinishedEvent::*)($ExchangeImpl*)>(&WriteFinishedEvent::init$))},
+	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;)V", nullptr, 0, $method(WriteFinishedEvent, init$, void, $ExchangeImpl*)},
 	{}
 };
 

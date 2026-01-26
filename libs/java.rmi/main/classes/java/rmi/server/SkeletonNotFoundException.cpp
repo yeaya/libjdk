@@ -25,8 +25,8 @@ $FieldInfo _SkeletonNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _SkeletonNotFoundException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SkeletonNotFoundException::*)($String*)>(&SkeletonNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(SkeletonNotFoundException::*)($String*,$Exception*)>(&SkeletonNotFoundException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SkeletonNotFoundException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(SkeletonNotFoundException, init$, void, $String*, $Exception*)},
 	{}
 };
 

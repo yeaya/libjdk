@@ -82,8 +82,8 @@ $FieldInfo Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::fieldInfos[
 	{}
 };
 $MethodInfo Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection$Http2TubeSubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::*)(Http2Connection$Http2TubeSubscriber*)>(&Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection$Http2TubeSubscriber;)V", nullptr, $PUBLIC, $method(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, init$, void, Http2Connection$Http2TubeSubscriber*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber$$Lambda$processQueue, run, void)},
 	{}
 };
 $ClassInfo Http2Connection$Http2TubeSubscriber$$Lambda$processQueue::classInfo$ = {
@@ -122,8 +122,8 @@ $FieldInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::fieldI
 	{}
 };
 $MethodInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::*)($List*)>(&Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, init$, void, $List*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1, get, $Object*)},
 	{}
 };
 $ClassInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onNext$0$1::classInfo$ = {
@@ -162,8 +162,8 @@ $FieldInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::field
 	{}
 };
 $MethodInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::*)($Throwable*)>(&Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, init$, void, $Throwable*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2, get, $Object*)},
 	{}
 };
 $ClassInfo Http2Connection$Http2TubeSubscriber$$Lambda$lambda$onError$1$2::classInfo$ = {
@@ -194,17 +194,17 @@ $FieldInfo _Http2Connection$Http2TubeSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _Http2Connection$Http2TubeSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(static_cast<void(Http2Connection$Http2TubeSubscriber::*)($Http2Connection*,$HttpClientImpl*)>(&Http2Connection$Http2TubeSubscriber::init$))},
-	{"dropSubscription", "()V", nullptr, $PUBLIC},
-	{"lambda$onError$1", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Throwable*)>(&Http2Connection$Http2TubeSubscriber::lambda$onError$1))},
-	{"lambda$onNext$0", "(Ljava/util/List;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($List*)>(&Http2Connection$Http2TubeSubscriber::lambda$onNext$0))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(Http2Connection$Http2TubeSubscriber::*)($List*)>(&Http2Connection$Http2TubeSubscriber::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"processQueue", "()V", nullptr, $FINAL, $method(static_cast<void(Http2Connection$Http2TubeSubscriber::*)()>(&Http2Connection$Http2TubeSubscriber::processQueue))},
-	{"runOrSchedule", "()V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(Http2Connection$Http2TubeSubscriber::*)()>(&Http2Connection$Http2TubeSubscriber::runOrSchedule))},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(Http2Connection$Http2TubeSubscriber, init$, void, $Http2Connection*, $HttpClientImpl*)},
+	{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, dropSubscription, void)},
+	{"lambda$onError$1", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection$Http2TubeSubscriber, lambda$onError$1, $String*, $Throwable*)},
+	{"lambda$onNext$0", "(Ljava/util/List;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection$Http2TubeSubscriber, lambda$onNext$0, $String*, $List*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(Http2Connection$Http2TubeSubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$Http2TubeSubscriber, onSubscribe, void, $Flow$Subscription*)},
+	{"processQueue", "()V", nullptr, $FINAL, $method(Http2Connection$Http2TubeSubscriber, processQueue, void)},
+	{"runOrSchedule", "()V", nullptr, $PRIVATE | $FINAL, $method(Http2Connection$Http2TubeSubscriber, runOrSchedule, void)},
 	{}
 };
 

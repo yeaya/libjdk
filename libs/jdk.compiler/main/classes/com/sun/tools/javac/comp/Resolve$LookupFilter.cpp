@@ -28,9 +28,9 @@ $FieldInfo _Resolve$LookupFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$LookupFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Z)V", nullptr, 0, $method(static_cast<void(Resolve$LookupFilter::*)($Resolve*,bool)>(&Resolve$LookupFilter::init$))},
-	{"test", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Z)V", nullptr, 0, $method(Resolve$LookupFilter, init$, void, $Resolve*, bool)},
+	{"test", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$LookupFilter, test, bool, $Symbol*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$LookupFilter, test, bool, Object$*)},
 	{}
 };
 

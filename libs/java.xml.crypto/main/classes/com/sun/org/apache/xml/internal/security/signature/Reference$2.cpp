@@ -32,8 +32,8 @@ $FieldInfo _Reference$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Reference$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/Reference;Ljava/util/Set;)V", "()V", 0, $method(static_cast<void(Reference$2::*)($Reference*,$Set*)>(&Reference$2::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/Reference;Ljava/util/Set;)V", "()V", 0, $method(Reference$2, init$, void, $Reference*, $Set*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(Reference$2, iterator, $Iterator*)},
 	{}
 };
 

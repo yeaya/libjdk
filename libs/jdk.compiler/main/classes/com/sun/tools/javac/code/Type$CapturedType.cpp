@@ -43,12 +43,12 @@ $FieldInfo _Type$CapturedType_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$CapturedType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$WildcardType;)V", nullptr, $PUBLIC, $method(static_cast<void(Type$CapturedType::*)($Name*,$Symbol*,$Type*,$Type*,$Type$WildcardType*)>(&Type$CapturedType::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(static_cast<void(Type$CapturedType::*)($Symbol$TypeSymbol*,$Type*,$Type*,$Type*,$Type$WildcardType*,$TypeMetadata*)>(&Type$CapturedType::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$CapturedType;", nullptr, $PUBLIC},
-	{"isCaptured", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$WildcardType;)V", nullptr, $PUBLIC, $method(Type$CapturedType, init$, void, $Name*, $Symbol*, $Type*, $Type*, $Type$WildcardType*)},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$CapturedType, init$, void, $Symbol$TypeSymbol*, $Type*, $Type*, $Type*, $Type$WildcardType*, $TypeMetadata*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$CapturedType, accept, $Object*, $Type$Visitor*, Object$*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$CapturedType;", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType, cloneWithMetadata, Type$CapturedType*, $TypeMetadata*)},
+	{"isCaptured", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType, isCaptured, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType, toString, $String*)},
 	{}
 };
 

@@ -23,9 +23,9 @@ $FieldInfo _UnknownDirectiveException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownDirectiveException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/element/ModuleElement$Directive;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(UnknownDirectiveException::*)($ModuleElement$Directive*,Object$*)>(&UnknownDirectiveException::init$))},
-	{"getArgument", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getUnknownDirective", "()Ljavax/lang/model/element/ModuleElement$Directive;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/lang/model/element/ModuleElement$Directive;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UnknownDirectiveException, init$, void, $ModuleElement$Directive*, Object$*)},
+	{"getArgument", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnknownDirectiveException, getArgument, $Object*)},
+	{"getUnknownDirective", "()Ljavax/lang/model/element/ModuleElement$Directive;", nullptr, $PUBLIC, $virtualMethod(UnknownDirectiveException, getUnknownDirective, $ModuleElement$Directive*)},
 	{}
 };
 

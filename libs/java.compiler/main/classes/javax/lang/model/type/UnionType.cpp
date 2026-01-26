@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace javax {
 	namespace lang {
@@ -12,7 +13,7 @@ namespace javax {
 			namespace type {
 
 $MethodInfo _UnionType_MethodInfo_[] = {
-	{"getAlternatives", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT},
+	{"getAlternatives", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT, $virtualMethod(UnionType, getAlternatives, $List*)},
 	{}
 };
 

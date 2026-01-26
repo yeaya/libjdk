@@ -57,12 +57,12 @@ $FieldInfo _SecretKeyResolver_FieldInfo_[] = {
 };
 
 $MethodInfo _SecretKeyResolver_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore;[C)V", nullptr, $PUBLIC, $method(static_cast<void(SecretKeyResolver::*)($KeyStore*,$chars*)>(&SecretKeyResolver::init$))},
-	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED},
-	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED},
-	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+	{"<init>", "(Ljava/security/KeyStore;[C)V", nullptr, $PUBLIC, $method(SecretKeyResolver, init$, void, $KeyStore*, $chars*)},
+	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(SecretKeyResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
+	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(SecretKeyResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool)},
+	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(SecretKeyResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(SecretKeyResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(SecretKeyResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
 	{}
 };
 

@@ -34,10 +34,10 @@ $FieldInfo _Log$WriterKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Log$WriterKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Log$WriterKindArray*(*)()>(&Log$WriterKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Log$WriterKind::*)($String*,int32_t)>(&Log$WriterKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Log$WriterKind*(*)($String*)>(&Log$WriterKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Log$WriterKindArray*(*)()>(&Log$WriterKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log$WriterKind, $values, $Log$WriterKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Log$WriterKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$WriterKind, valueOf, Log$WriterKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$WriterKind, values, $Log$WriterKindArray*)},
 	{}
 };
 

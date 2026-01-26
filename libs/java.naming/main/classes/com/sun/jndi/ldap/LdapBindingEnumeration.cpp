@@ -98,8 +98,8 @@ $FieldInfo LdapBindingEnumeration$$Lambda$lambda$createItem$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LdapBindingEnumeration$$Lambda$lambda$createItem$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(static_cast<void(LdapBindingEnumeration$$Lambda$lambda$createItem$0::*)($Attributes*)>(&LdapBindingEnumeration$$Lambda$lambda$createItem$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(LdapBindingEnumeration$$Lambda$lambda$createItem$0, init$, void, $Attributes*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapBindingEnumeration$$Lambda$lambda$createItem$0, run, $Object*)},
 	{}
 };
 $ClassInfo LdapBindingEnumeration$$Lambda$lambda$createItem$0::classInfo$ = {
@@ -122,10 +122,10 @@ $FieldInfo _LdapBindingEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapBindingEnumeration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(static_cast<void(LdapBindingEnumeration::*)($LdapCtx*,$LdapResult*,$Name*,$Continuation*)>(&LdapBindingEnumeration::init$)), "javax.naming.NamingException"},
-	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/Binding;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)Ljavax/naming/Binding;", $PROTECTED, nullptr, "javax.naming.NamingException"},
-	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED, nullptr, "javax.naming.NamingException"},
-	{"lambda$createItem$0", "(Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($Attributes*)>(&LdapBindingEnumeration::lambda$createItem$0)), "java.lang.Exception"},
+	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(LdapBindingEnumeration, init$, void, $LdapCtx*, $LdapResult*, $Name*, $Continuation*), "javax.naming.NamingException"},
+	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/Binding;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)Ljavax/naming/Binding;", $PROTECTED, $virtualMethod(LdapBindingEnumeration, createItem, $NameClassPair*, $String*, $Attributes*, $Vector*), "javax.naming.NamingException"},
+	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(LdapBindingEnumeration, getReferredResults, $AbstractLdapNamingEnumeration*, $LdapReferralContext*), "javax.naming.NamingException"},
+	{"lambda$createItem$0", "(Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapBindingEnumeration, lambda$createItem$0, $Object*, $Attributes*), "java.lang.Exception"},
 	{}
 };
 

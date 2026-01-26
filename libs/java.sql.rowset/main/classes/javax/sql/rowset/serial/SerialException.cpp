@@ -19,8 +19,8 @@ $FieldInfo _SerialException_FieldInfo_[] = {
 };
 
 $MethodInfo _SerialException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SerialException::*)()>(&SerialException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SerialException::*)($String*)>(&SerialException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SerialException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SerialException, init$, void, $String*)},
 	{}
 };
 

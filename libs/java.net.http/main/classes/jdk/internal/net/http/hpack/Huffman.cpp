@@ -13,7 +13,7 @@ namespace jdk {
 				namespace hpack {
 
 $MethodInfo _Huffman_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Huffman::*)()>(&Huffman::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Huffman, init$, void)},
 	{}
 };
 

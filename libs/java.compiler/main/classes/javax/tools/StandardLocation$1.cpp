@@ -18,9 +18,9 @@ $FieldInfo _StandardLocation$1_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardLocation$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(StandardLocation$1::*)($String*)>(&StandardLocation$1::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isOutputLocation", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(StandardLocation$1, init$, void, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardLocation$1, getName, $String*)},
+	{"isOutputLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardLocation$1, isOutputLocation, bool)},
 	{}
 };
 

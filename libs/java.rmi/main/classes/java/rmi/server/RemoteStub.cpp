@@ -33,9 +33,9 @@ $FieldInfo _RemoteStub_FieldInfo_[] = {
 };
 
 $MethodInfo _RemoteStub_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(RemoteStub::*)()>(&RemoteStub::init$))},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED, $method(static_cast<void(RemoteStub::*)($RemoteRef*)>(&RemoteStub::init$))},
-	{"setRef", "(Ljava/rmi/server/RemoteStub;Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED | $STATIC | $DEPRECATED, $method(static_cast<void(*)(RemoteStub*,$RemoteRef*)>(&RemoteStub::setRef)), nullptr, nullptr, _RemoteStub_MethodAnnotations_setRef2},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(RemoteStub, init$, void)},
+	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED, $method(RemoteStub, init$, void, $RemoteRef*)},
+	{"setRef", "(Ljava/rmi/server/RemoteStub;Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED | $STATIC | $DEPRECATED, $staticMethod(RemoteStub, setRef, void, RemoteStub*, $RemoteRef*), nullptr, nullptr, _RemoteStub_MethodAnnotations_setRef2},
 	{}
 };
 

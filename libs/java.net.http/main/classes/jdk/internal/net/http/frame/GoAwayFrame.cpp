@@ -28,13 +28,13 @@ $FieldInfo _GoAwayFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _GoAwayFrame_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(GoAwayFrame::*)(int32_t,int32_t)>(&GoAwayFrame::init$))},
-	{"<init>", "(II[B)V", nullptr, $PUBLIC, $method(static_cast<void(GoAwayFrame::*)(int32_t,int32_t,$bytes*)>(&GoAwayFrame::init$))},
-	{"getDebugData", "()[B", nullptr, $PUBLIC},
-	{"getLastStream", "()I", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()I", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(GoAwayFrame, init$, void, int32_t, int32_t)},
+	{"<init>", "(II[B)V", nullptr, $PUBLIC, $method(GoAwayFrame, init$, void, int32_t, int32_t, $bytes*)},
+	{"getDebugData", "()[B", nullptr, $PUBLIC, $virtualMethod(GoAwayFrame, getDebugData, $bytes*)},
+	{"getLastStream", "()I", nullptr, $PUBLIC, $virtualMethod(GoAwayFrame, getLastStream, int32_t)},
+	{"length", "()I", nullptr, 0, $virtualMethod(GoAwayFrame, length, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GoAwayFrame, toString, $String*)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(GoAwayFrame, type, int32_t)},
 	{}
 };
 

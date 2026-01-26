@@ -68,11 +68,11 @@ $FieldInfo _TypeKind_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeKind_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/type/TypeKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TypeKindArray*(*)()>(&TypeKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(TypeKind::*)($String*,int32_t)>(&TypeKind::init$))},
-	{"isPrimitive", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(TypeKind::*)()>(&TypeKind::isPrimitive))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeKind*(*)($String*)>(&TypeKind::valueOf))},
-	{"values", "()[Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TypeKindArray*(*)()>(&TypeKind::values))},
+	{"$values", "()[Ljavax/lang/model/type/TypeKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeKind, $values, $TypeKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeKind, init$, void, $String*, int32_t)},
+	{"isPrimitive", "()Z", nullptr, $PUBLIC, $method(TypeKind, isPrimitive, bool)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeKind, valueOf, TypeKind*, $String*)},
+	{"values", "()[Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeKind, values, $TypeKindArray*)},
 	{}
 };
 

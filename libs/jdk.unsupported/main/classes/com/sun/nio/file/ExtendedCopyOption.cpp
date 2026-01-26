@@ -27,15 +27,15 @@ $FieldInfo _ExtendedCopyOption_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedCopyOption_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ExtendedCopyOptionArray*(*)()>(&ExtendedCopyOption::$values))},
+	{"$values", "()[Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedCopyOption, $values, $ExtendedCopyOptionArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;)V", $PRIVATE, $method(static_cast<void(ExtendedCopyOption::*)($String*,int32_t,$FileSystemOption*)>(&ExtendedCopyOption::init$))},
+	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;)V", $PRIVATE, $method(ExtendedCopyOption, init$, void, $String*, int32_t, $FileSystemOption*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ExtendedCopyOption*(*)($String*)>(&ExtendedCopyOption::valueOf))},
-	{"values", "()[Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ExtendedCopyOptionArray*(*)()>(&ExtendedCopyOption::values))},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedCopyOption, valueOf, ExtendedCopyOption*, $String*)},
+	{"values", "()[Lcom/sun/nio/file/ExtendedCopyOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedCopyOption, values, $ExtendedCopyOptionArray*)},
 	{}
 };
 

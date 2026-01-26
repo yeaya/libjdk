@@ -30,13 +30,13 @@ $FieldInfo _Todo$FileQueue_FieldInfo_[] = {
 };
 
 $MethodInfo _Todo$FileQueue_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Todo;)V", nullptr, 0, $method(static_cast<void(Todo$FileQueue::*)($Todo*)>(&Todo$FileQueue::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC},
-	{"offer", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PUBLIC},
-	{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"peek", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC},
-	{"poll", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Todo;)V", nullptr, 0, $method(Todo$FileQueue, init$, void, $Todo*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(Todo$FileQueue, iterator, $Iterator*)},
+	{"offer", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PUBLIC, $virtualMethod(Todo$FileQueue, offer, bool, $Env*)},
+	{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Todo$FileQueue, offer, bool, Object$*)},
+	{"peek", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo$FileQueue, peek, $Object*)},
+	{"poll", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo$FileQueue, poll, $Object*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Todo$FileQueue, size, int32_t)},
 	{}
 };
 

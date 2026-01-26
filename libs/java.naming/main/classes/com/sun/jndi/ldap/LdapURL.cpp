@@ -41,17 +41,17 @@ $FieldInfo _LdapURL_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapURL_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LdapURL::*)($String*)>(&LdapURL::init$)), "javax.naming.NamingException"},
-	{"fromList", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&LdapURL::fromList)), "javax.naming.NamingException"},
-	{"getAttributes", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(LdapURL::*)()>(&LdapURL::getAttributes))},
-	{"getDN", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(LdapURL::*)()>(&LdapURL::getDN))},
-	{"getExtensions", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(LdapURL::*)()>(&LdapURL::getExtensions))},
-	{"getFilter", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(LdapURL::*)()>(&LdapURL::getFilter))},
-	{"getScope", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(LdapURL::*)()>(&LdapURL::getScope))},
-	{"hasQueryComponents", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&LdapURL::hasQueryComponents))},
-	{"parsePathAndQuery", "()V", nullptr, $PRIVATE, $method(static_cast<void(LdapURL::*)()>(&LdapURL::parsePathAndQuery)), "java.net.MalformedURLException,java.io.UnsupportedEncodingException"},
-	{"toUrlString", "(Ljava/lang/String;ILjava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,int32_t,$String*,bool)>(&LdapURL::toUrlString))},
-	{"useSsl", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(LdapURL::*)()>(&LdapURL::useSsl))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LdapURL, init$, void, $String*), "javax.naming.NamingException"},
+	{"fromList", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapURL, fromList, $StringArray*, $String*), "javax.naming.NamingException"},
+	{"getAttributes", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getAttributes, $String*)},
+	{"getDN", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getDN, $String*)},
+	{"getExtensions", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getExtensions, $String*)},
+	{"getFilter", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getFilter, $String*)},
+	{"getScope", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getScope, $String*)},
+	{"hasQueryComponents", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapURL, hasQueryComponents, bool, $String*)},
+	{"parsePathAndQuery", "()V", nullptr, $PRIVATE, $method(LdapURL, parsePathAndQuery, void), "java.net.MalformedURLException,java.io.UnsupportedEncodingException"},
+	{"toUrlString", "(Ljava/lang/String;ILjava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LdapURL, toUrlString, $String*, $String*, int32_t, $String*, bool)},
+	{"useSsl", "()Z", nullptr, $PUBLIC, $method(LdapURL, useSsl, bool)},
 	{}
 };
 

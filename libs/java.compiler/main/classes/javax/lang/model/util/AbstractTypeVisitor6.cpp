@@ -43,12 +43,12 @@ $CompoundAttribute _AbstractTypeVisitor6_MethodAnnotations_init$0[] = {
 };
 
 $MethodInfo _AbstractTypeVisitor6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(AbstractTypeVisitor6::*)()>(&AbstractTypeVisitor6::init$)), nullptr, nullptr, _AbstractTypeVisitor6_MethodAnnotations_init$0},
-	{"visit", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeMirror;TP;)TR;", $PUBLIC | $FINAL},
-	{"visit", "(Ljavax/lang/model/type/TypeMirror;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeMirror;)TR;", $PUBLIC | $FINAL},
-	{"visitIntersection", "(Ljavax/lang/model/type/IntersectionType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/IntersectionType;TP;)TR;", $PUBLIC},
-	{"visitUnion", "(Ljavax/lang/model/type/UnionType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/UnionType;TP;)TR;", $PUBLIC},
-	{"visitUnknown", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeMirror;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(AbstractTypeVisitor6, init$, void), nullptr, nullptr, _AbstractTypeVisitor6_MethodAnnotations_init$0},
+	{"visit", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeMirror;TP;)TR;", $PUBLIC | $FINAL, $virtualMethod(AbstractTypeVisitor6, visit, $Object*, $TypeMirror*, Object$*)},
+	{"visit", "(Ljavax/lang/model/type/TypeMirror;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeMirror;)TR;", $PUBLIC | $FINAL, $virtualMethod(AbstractTypeVisitor6, visit, $Object*, $TypeMirror*)},
+	{"visitIntersection", "(Ljavax/lang/model/type/IntersectionType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/IntersectionType;TP;)TR;", $PUBLIC, $virtualMethod(AbstractTypeVisitor6, visitIntersection, $Object*, $IntersectionType*, Object$*)},
+	{"visitUnion", "(Ljavax/lang/model/type/UnionType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/UnionType;TP;)TR;", $PUBLIC, $virtualMethod(AbstractTypeVisitor6, visitUnion, $Object*, $UnionType*, Object$*)},
+	{"visitUnknown", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeMirror;TP;)TR;", $PUBLIC, $virtualMethod(AbstractTypeVisitor6, visitUnknown, $Object*, $TypeMirror*, Object$*)},
 	{}
 };
 

@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $RowSetInternal = ::javax::sql::RowSetInternal;
 
 namespace javax {
 	namespace sql {
 
 $MethodInfo _RowSetWriter_MethodInfo_[] = {
-	{"writeData", "(Ljavax/sql/RowSetInternal;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"writeData", "(Ljavax/sql/RowSetInternal;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetWriter, writeData, bool, $RowSetInternal*), "java.sql.SQLException"},
 	{}
 };
 

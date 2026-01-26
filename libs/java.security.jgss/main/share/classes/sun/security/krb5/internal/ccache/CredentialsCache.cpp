@@ -10,6 +10,7 @@
 #include <sun/security/krb5/internal/ccache/FileCredentialsCache.h>
 #include <jcpp.h>
 
+using $CredentialsArray = $Array<::sun::security::krb5::internal::ccache::Credentials>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -17,7 +18,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
+using $1Credentials = ::sun::security::krb5::Credentials;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
+using $LoginOptions = ::sun::security::krb5::internal::LoginOptions;
+using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
 using $CredentialsCache$ConfigEntry = ::sun::security::krb5::internal::ccache::CredentialsCache$ConfigEntry;
 using $FileCredentialsCache = ::sun::security::krb5::internal::ccache::FileCredentialsCache;
 
@@ -34,25 +38,25 @@ $FieldInfo _CredentialsCache_FieldInfo_[] = {
 };
 
 $MethodInfo _CredentialsCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CredentialsCache::*)()>(&CredentialsCache::init$))},
-	{"addConfigEntry", "(Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"cacheName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&CredentialsCache::cacheName))},
-	{"create", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CredentialsCache*(*)($PrincipalName*,$String*)>(&CredentialsCache::create))},
-	{"create", "(Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CredentialsCache*(*)($PrincipalName*)>(&CredentialsCache::create))},
-	{"getConfigEntries", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;>;", $PUBLIC | $ABSTRACT},
-	{"getConfigEntry", "(Ljava/lang/String;)Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;", nullptr, $PUBLIC},
-	{"getCreds", "(Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCreds", "(Lsun/security/krb5/internal/LoginOptions;Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCredsList", "()[Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDefaultCreds", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInitialCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInstance", "(Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CredentialsCache*(*)($PrincipalName*)>(&CredentialsCache::getInstance))},
-	{"getInstance", "(Ljava/lang/String;)Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CredentialsCache*(*)($String*)>(&CredentialsCache::getInstance))},
-	{"getInstance", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CredentialsCache*(*)($PrincipalName*,$String*)>(&CredentialsCache::getInstance))},
-	{"getInstance", "()Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CredentialsCache*(*)()>(&CredentialsCache::getInstance))},
-	{"getPrimaryPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC | $ABSTRACT},
-	{"save", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException,sun.security.krb5.KrbException"},
-	{"update", "(Lsun/security/krb5/internal/ccache/Credentials;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CredentialsCache, init$, void)},
+	{"addConfigEntry", "(Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CredentialsCache, addConfigEntry, void, $CredentialsCache$ConfigEntry*)},
+	{"cacheName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CredentialsCache, cacheName, $String*)},
+	{"create", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(CredentialsCache, create, CredentialsCache*, $PrincipalName*, $String*)},
+	{"create", "(Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(CredentialsCache, create, CredentialsCache*, $PrincipalName*)},
+	{"getConfigEntries", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CredentialsCache, getConfigEntries, $List*)},
+	{"getConfigEntry", "(Ljava/lang/String;)Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;", nullptr, $PUBLIC, $virtualMethod(CredentialsCache, getConfigEntry, $CredentialsCache$ConfigEntry*, $String*)},
+	{"getCreds", "(Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CredentialsCache, getCreds, $Credentials*, $PrincipalName*)},
+	{"getCreds", "(Lsun/security/krb5/internal/LoginOptions;Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CredentialsCache, getCreds, $Credentials*, $LoginOptions*, $PrincipalName*)},
+	{"getCredsList", "()[Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CredentialsCache, getCredsList, $CredentialsArray*)},
+	{"getDefaultCreds", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CredentialsCache, getDefaultCreds, $Credentials*)},
+	{"getInitialCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CredentialsCache, getInitialCreds, $1Credentials*)},
+	{"getInstance", "(Lsun/security/krb5/PrincipalName;)Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(CredentialsCache, getInstance, CredentialsCache*, $PrincipalName*)},
+	{"getInstance", "(Ljava/lang/String;)Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(CredentialsCache, getInstance, CredentialsCache*, $String*)},
+	{"getInstance", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;)Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(CredentialsCache, getInstance, CredentialsCache*, $PrincipalName*, $String*)},
+	{"getInstance", "()Lsun/security/krb5/internal/ccache/CredentialsCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(CredentialsCache, getInstance, CredentialsCache*)},
+	{"getPrimaryPrincipal", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CredentialsCache, getPrimaryPrincipal, $PrincipalName*)},
+	{"save", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CredentialsCache, save, void), "java.io.IOException,sun.security.krb5.KrbException"},
+	{"update", "(Lsun/security/krb5/internal/ccache/Credentials;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CredentialsCache, update, void, $Credentials*)},
 	{}
 };
 

@@ -23,10 +23,10 @@ $FieldInfo _MBeanTrustPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanTrustPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanTrustPermission::*)($String*)>(&MBeanTrustPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanTrustPermission::*)($String*,$String*)>(&MBeanTrustPermission::init$))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanTrustPermission::*)($ObjectInputStream*)>(&MBeanTrustPermission::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"validate", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&MBeanTrustPermission::validate))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanTrustPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanTrustPermission, init$, void, $String*, $String*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanTrustPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"validate", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanTrustPermission, validate, void, $String*, $String*)},
 	{}
 };
 

@@ -60,16 +60,16 @@ $FieldInfo _NotificationBroadcasterSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _NotificationBroadcasterSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotificationBroadcasterSupport::*)()>(&NotificationBroadcasterSupport::init$))},
-	{"<init>", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $method(static_cast<void(NotificationBroadcasterSupport::*)($Executor*)>(&NotificationBroadcasterSupport::init$))},
-	{"<init>", "([Ljavax/management/MBeanNotificationInfo;)V", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<void(NotificationBroadcasterSupport::*)($MBeanNotificationInfoArray*)>(&NotificationBroadcasterSupport::init$))},
-	{"<init>", "(Ljava/util/concurrent/Executor;[Ljavax/management/MBeanNotificationInfo;)V", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<void(NotificationBroadcasterSupport::*)($Executor*,$MBeanNotificationInfoArray*)>(&NotificationBroadcasterSupport::init$))},
-	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC},
-	{"handleNotification", "(Ljavax/management/NotificationListener;Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PROTECTED},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, nullptr, "javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "javax.management.ListenerNotFoundException"},
-	{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotificationBroadcasterSupport, init$, void)},
+	{"<init>", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $method(NotificationBroadcasterSupport, init$, void, $Executor*)},
+	{"<init>", "([Ljavax/management/MBeanNotificationInfo;)V", nullptr, $PUBLIC | $TRANSIENT, $method(NotificationBroadcasterSupport, init$, void, $MBeanNotificationInfoArray*)},
+	{"<init>", "(Ljava/util/concurrent/Executor;[Ljavax/management/MBeanNotificationInfo;)V", nullptr, $PUBLIC | $TRANSIENT, $method(NotificationBroadcasterSupport, init$, void, $Executor*, $MBeanNotificationInfoArray*)},
+	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*)},
+	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport, getNotificationInfo, $MBeanNotificationInfoArray*)},
+	{"handleNotification", "(Ljavax/management/NotificationListener;Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(NotificationBroadcasterSupport, handleNotification, void, $NotificationListener*, $Notification*, Object$*)},
+	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
+	{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport, removeNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
+	{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport, sendNotification, void, $Notification*)},
 	{}
 };
 

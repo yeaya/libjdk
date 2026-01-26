@@ -19,10 +19,10 @@ $FieldInfo _ObjectName$Property_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectName$Property_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, 0, $method(static_cast<void(ObjectName$Property::*)(int32_t,int32_t,int32_t)>(&ObjectName$Property::init$))},
-	{"getKeyString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
-	{"getValueString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
-	{"setKeyIndex", "(I)V", nullptr, 0},
+	{"<init>", "(III)V", nullptr, 0, $method(ObjectName$Property, init$, void, int32_t, int32_t, int32_t)},
+	{"getKeyString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(ObjectName$Property, getKeyString, $String*, $String*)},
+	{"getValueString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(ObjectName$Property, getValueString, $String*, $String*)},
+	{"setKeyIndex", "(I)V", nullptr, 0, $virtualMethod(ObjectName$Property, setKeyIndex, void, int32_t)},
 	{}
 };
 

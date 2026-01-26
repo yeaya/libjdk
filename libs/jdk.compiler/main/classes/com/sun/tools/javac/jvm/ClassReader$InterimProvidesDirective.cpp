@@ -25,7 +25,7 @@ $FieldInfo _ClassReader$InterimProvidesDirective_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$InterimProvidesDirective_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;)V", $PUBLIC, $method(static_cast<void(ClassReader$InterimProvidesDirective::*)($Name*,$List*)>(&ClassReader$InterimProvidesDirective::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;)V", $PUBLIC, $method(ClassReader$InterimProvidesDirective, init$, void, $Name*, $List*)},
 	{}
 };
 

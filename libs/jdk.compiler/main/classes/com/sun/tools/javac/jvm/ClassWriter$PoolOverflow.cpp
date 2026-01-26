@@ -21,7 +21,7 @@ $FieldInfo _ClassWriter$PoolOverflow_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassWriter$PoolOverflow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassWriter$PoolOverflow::*)()>(&ClassWriter$PoolOverflow::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassWriter$PoolOverflow, init$, void)},
 	{}
 };
 

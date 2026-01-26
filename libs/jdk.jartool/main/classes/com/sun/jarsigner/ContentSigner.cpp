@@ -3,6 +3,7 @@
 #include <com/sun/jarsigner/ContentSignerParameters.h>
 #include <jcpp.h>
 
+using $ContentSignerParameters = ::com::sun::jarsigner::ContentSignerParameters;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -24,8 +25,8 @@ $CompoundAttribute _ContentSigner_Annotations_[] = {
 };
 
 $MethodInfo _ContentSigner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ContentSigner::*)()>(&ContentSigner::init$))},
-	{"generateSignedData", "(Lcom/sun/jarsigner/ContentSignerParameters;ZZ)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.NoSuchAlgorithmException,java.security.cert.CertificateException,java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ContentSigner, init$, void)},
+	{"generateSignedData", "(Lcom/sun/jarsigner/ContentSignerParameters;ZZ)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ContentSigner, generateSignedData, $bytes*, $ContentSignerParameters*, bool, bool), "java.security.NoSuchAlgorithmException,java.security.cert.CertificateException,java.io.IOException"},
 	{}
 };
 

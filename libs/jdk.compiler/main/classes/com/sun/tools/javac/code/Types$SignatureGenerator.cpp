@@ -65,17 +65,17 @@ $FieldInfo _Types$SignatureGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$SignatureGenerator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PROTECTED, $method(static_cast<void(Types$SignatureGenerator::*)($Types*)>(&Types$SignatureGenerator::init$))},
-	{"append", "(C)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"append", "([B)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"assembleClassSig", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC},
-	{"assembleParamsSig", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC},
-	{"assembleSig", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC},
-	{"assembleSig", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC},
-	{"classReference", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PROTECTED},
-	{"hasTypeVar", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC},
-	{"reportIllegalSignature", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PROTECTED, $method(Types$SignatureGenerator, init$, void, $Types*)},
+	{"append", "(C)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Types$SignatureGenerator, append, void, char16_t)},
+	{"append", "([B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Types$SignatureGenerator, append, void, $bytes*)},
+	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Types$SignatureGenerator, append, void, $Name*)},
+	{"assembleClassSig", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleClassSig, void, $Type*)},
+	{"assembleParamsSig", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleParamsSig, void, $List*)},
+	{"assembleSig", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleSig, void, $Type*)},
+	{"assembleSig", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(Types$SignatureGenerator, assembleSig, void, $List*)},
+	{"classReference", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PROTECTED, $virtualMethod(Types$SignatureGenerator, classReference, void, $Symbol$ClassSymbol*)},
+	{"hasTypeVar", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC, $virtualMethod(Types$SignatureGenerator, hasTypeVar, bool, $List*)},
+	{"reportIllegalSignature", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED, $virtualMethod(Types$SignatureGenerator, reportIllegalSignature, void, $Type*)},
 	{}
 };
 

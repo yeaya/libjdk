@@ -30,12 +30,12 @@ $FieldInfo _StringValueExp_FieldInfo_[] = {
 };
 
 $MethodInfo _StringValueExp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringValueExp::*)()>(&StringValueExp::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringValueExp::*)($String*)>(&StringValueExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _StringValueExp_MethodAnnotations_setMBeanServer4},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringValueExp, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringValueExp, init$, void, $String*)},
+	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(StringValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringValueExp, getValue, $String*)},
+	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(StringValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, _StringValueExp_MethodAnnotations_setMBeanServer4},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringValueExp, toString, $String*)},
 	{}
 };
 

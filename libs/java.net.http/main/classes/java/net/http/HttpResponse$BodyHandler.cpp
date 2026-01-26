@@ -9,6 +9,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
+using $HttpResponse$ResponseInfo = ::java::net::http::HttpResponse$ResponseInfo;
 
 namespace java {
 	namespace net {
@@ -20,7 +22,7 @@ $CompoundAttribute _HttpResponse$BodyHandler_Annotations_[] = {
 };
 
 $MethodInfo _HttpResponse$BodyHandler_MethodInfo_[] = {
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$BodyHandler, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
 	{}
 };
 

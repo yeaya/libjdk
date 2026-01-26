@@ -8,6 +8,11 @@
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <jcpp.h>
 
+using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
+using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
+using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
+using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
+using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -19,7 +24,7 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Resolve$MethodResolutionDiagHelper$DiagnosticRewriter_MethodInfo_[] = {
-	{"rewriteDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC | $ABSTRACT},
+	{"rewriteDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Resolve$MethodResolutionDiagHelper$DiagnosticRewriter, rewriteDiagnostic, $JCDiagnostic*, $JCDiagnostic$Factory*, $JCDiagnostic$DiagnosticPosition*, $DiagnosticSource*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic*)},
 	{}
 };
 

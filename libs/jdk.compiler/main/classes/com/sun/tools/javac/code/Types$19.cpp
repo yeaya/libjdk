@@ -31,8 +31,8 @@ $FieldInfo _Types$19_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$19_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(Types$19::*)($Types*,int64_t,$Name*,$Type*,$Symbol*,$Symbol*)>(&Types$19::init$))},
-	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Types$19, init$, void, $Types*, int64_t, $Name*, $Type*, $Symbol*, $Symbol*)},
+	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Types$19, baseSymbol, $Symbol*)},
 	{}
 };
 

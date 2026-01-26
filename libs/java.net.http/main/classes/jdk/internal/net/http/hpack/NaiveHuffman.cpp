@@ -40,14 +40,14 @@ $FieldInfo _NaiveHuffman_FieldInfo_[] = {
 };
 
 $MethodInfo _NaiveHuffman_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NaiveHuffman::*)()>(&NaiveHuffman::init$))},
-	{"addChar", "(III)V", nullptr, $PRIVATE, $method(static_cast<void(NaiveHuffman::*)(int32_t,int32_t,int32_t)>(&NaiveHuffman::addChar))},
-	{"addEOS", "(III)V", nullptr, $PRIVATE, $method(static_cast<void(NaiveHuffman::*)(int32_t,int32_t,int32_t)>(&NaiveHuffman::addEOS))},
-	{"addLeaf", "(IIIZ)V", nullptr, $PRIVATE, $method(static_cast<void(NaiveHuffman::*)(int32_t,int32_t,int32_t,bool)>(&NaiveHuffman::addLeaf))},
-	{"codeOf", "(C)Ljdk/internal/net/http/hpack/NaiveHuffman$Code;", nullptr, $PRIVATE, $method(static_cast<$NaiveHuffman$Code*(NaiveHuffman::*)(char16_t)>(&NaiveHuffman::codeOf))},
-	{"getRoot", "()Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $method(static_cast<$NaiveHuffman$Node*(NaiveHuffman::*)()>(&NaiveHuffman::getRoot))},
-	{"lengthOf", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(NaiveHuffman::*)($CharSequence*)>(&NaiveHuffman::lengthOf))},
-	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC, $method(static_cast<int32_t(NaiveHuffman::*)($CharSequence*,int32_t,int32_t)>(&NaiveHuffman::lengthOf))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NaiveHuffman, init$, void)},
+	{"addChar", "(III)V", nullptr, $PRIVATE, $method(NaiveHuffman, addChar, void, int32_t, int32_t, int32_t)},
+	{"addEOS", "(III)V", nullptr, $PRIVATE, $method(NaiveHuffman, addEOS, void, int32_t, int32_t, int32_t)},
+	{"addLeaf", "(IIIZ)V", nullptr, $PRIVATE, $method(NaiveHuffman, addLeaf, void, int32_t, int32_t, int32_t, bool)},
+	{"codeOf", "(C)Ljdk/internal/net/http/hpack/NaiveHuffman$Code;", nullptr, $PRIVATE, $method(NaiveHuffman, codeOf, $NaiveHuffman$Code*, char16_t)},
+	{"getRoot", "()Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $method(NaiveHuffman, getRoot, $NaiveHuffman$Node*)},
+	{"lengthOf", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $method(NaiveHuffman, lengthOf, int32_t, $CharSequence*)},
+	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC, $method(NaiveHuffman, lengthOf, int32_t, $CharSequence*, int32_t, int32_t)},
 	{}
 };
 

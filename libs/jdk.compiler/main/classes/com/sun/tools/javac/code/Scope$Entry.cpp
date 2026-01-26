@@ -30,9 +30,9 @@ $FieldInfo _Scope$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _Scope$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope$Entry;Lcom/sun/tools/javac/code/Scope$Entry;Lcom/sun/tools/javac/code/Scope$ScopeImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$Entry::*)($Symbol*,Scope$Entry*,Scope$Entry*,$Scope$ScopeImpl*)>(&Scope$Entry::init$))},
-	{"next", "()Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PUBLIC},
-	{"next", "(Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Scope$Entry;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Lcom/sun/tools/javac/code/Scope$Entry;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope$Entry;Lcom/sun/tools/javac/code/Scope$Entry;Lcom/sun/tools/javac/code/Scope$ScopeImpl;)V", nullptr, $PUBLIC, $method(Scope$Entry, init$, void, $Symbol*, Scope$Entry*, Scope$Entry*, $Scope$ScopeImpl*)},
+	{"next", "()Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PUBLIC, $virtualMethod(Scope$Entry, next, Scope$Entry*)},
+	{"next", "(Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Scope$Entry;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Lcom/sun/tools/javac/code/Scope$Entry;", $PUBLIC, $virtualMethod(Scope$Entry, next, Scope$Entry*, $Predicate*)},
 	{}
 };
 

@@ -45,11 +45,11 @@ $FieldInfo _EventQueue_FieldInfo_[] = {
 };
 
 $MethodInfo _EventQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(EventQueue::*)()>(&EventQueue::init$))},
-	{"dequeue", "()Lcom/sun/jndi/ldap/EventQueue$QueueElement;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<$EventQueue$QueueElement*(EventQueue::*)()>(&EventQueue::dequeue)), "java.lang.InterruptedException"},
-	{"enqueue", "(Ljava/util/EventObject;Ljava/util/Vector;)V", "(Ljava/util/EventObject;Ljava/util/Vector<Ljavax/naming/event/NamingListener;>;)V", $SYNCHRONIZED, $method(static_cast<void(EventQueue::*)($EventObject*,$Vector*)>(&EventQueue::enqueue))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"stop", "()V", nullptr, 0, $method(static_cast<void(EventQueue::*)()>(&EventQueue::stop))},
+	{"<init>", "()V", nullptr, 0, $method(EventQueue, init$, void)},
+	{"dequeue", "()Lcom/sun/jndi/ldap/EventQueue$QueueElement;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventQueue, dequeue, $EventQueue$QueueElement*), "java.lang.InterruptedException"},
+	{"enqueue", "(Ljava/util/EventObject;Ljava/util/Vector;)V", "(Ljava/util/EventObject;Ljava/util/Vector<Ljavax/naming/event/NamingListener;>;)V", $SYNCHRONIZED, $method(EventQueue, enqueue, void, $EventObject*, $Vector*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EventQueue, run, void)},
+	{"stop", "()V", nullptr, 0, $method(EventQueue, stop, void)},
 	{}
 };
 

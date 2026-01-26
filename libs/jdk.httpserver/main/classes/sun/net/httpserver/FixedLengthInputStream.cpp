@@ -28,12 +28,12 @@ $FieldInfo _FixedLengthInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _FixedLengthInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;J)V", nullptr, 0, $method(static_cast<void(FixedLengthInputStream::*)($ExchangeImpl*,$InputStream*,int64_t)>(&FixedLengthInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"readImpl", "([BII)I", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;J)V", nullptr, 0, $method(FixedLengthInputStream, init$, void, $ExchangeImpl*, $InputStream*, int64_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, available, int32_t), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, mark, void, int32_t)},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, markSupported, bool)},
+	{"readImpl", "([BII)I", nullptr, $PROTECTED, $virtualMethod(FixedLengthInputStream, readImpl, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(FixedLengthInputStream, reset, void), "java.io.IOException"},
 	{}
 };
 

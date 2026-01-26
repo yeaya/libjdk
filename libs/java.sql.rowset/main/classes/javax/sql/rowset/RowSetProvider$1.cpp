@@ -15,8 +15,8 @@ namespace javax {
 		namespace rowset {
 
 $MethodInfo _RowSetProvider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RowSetProvider$1::*)()>(&RowSetProvider$1::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(RowSetProvider$1, init$, void)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(RowSetProvider$1, run, $Object*)},
 	{}
 };
 

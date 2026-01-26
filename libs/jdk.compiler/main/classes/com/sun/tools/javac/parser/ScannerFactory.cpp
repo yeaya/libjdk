@@ -50,10 +50,10 @@ $FieldInfo _ScannerFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _ScannerFactory_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(ScannerFactory::*)($Context*)>(&ScannerFactory::init$))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/parser/ScannerFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ScannerFactory*(*)($Context*)>(&ScannerFactory::instance))},
-	{"newScanner", "(Ljava/lang/CharSequence;Z)Lcom/sun/tools/javac/parser/Scanner;", nullptr, $PUBLIC},
-	{"newScanner", "([CIZ)Lcom/sun/tools/javac/parser/Scanner;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ScannerFactory, init$, void, $Context*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/parser/ScannerFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ScannerFactory, instance, ScannerFactory*, $Context*)},
+	{"newScanner", "(Ljava/lang/CharSequence;Z)Lcom/sun/tools/javac/parser/Scanner;", nullptr, $PUBLIC, $virtualMethod(ScannerFactory, newScanner, $Scanner*, $CharSequence*, bool)},
+	{"newScanner", "([CIZ)Lcom/sun/tools/javac/parser/Scanner;", nullptr, $PUBLIC, $virtualMethod(ScannerFactory, newScanner, $Scanner*, $chars*, int32_t, bool)},
 	{}
 };
 

@@ -28,8 +28,8 @@ $FieldInfo _HotspotMemory_FieldInfo_[] = {
 };
 
 $MethodInfo _HotspotMemory_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(static_cast<void(HotspotMemory::*)($VMManagement*)>(&HotspotMemory::init$))},
-	{"getInternalMemoryCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC},
+	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(HotspotMemory, init$, void, $VMManagement*)},
+	{"getInternalMemoryCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC, $virtualMethod(HotspotMemory, getInternalMemoryCounters, $List*)},
 	{}
 };
 

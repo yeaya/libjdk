@@ -17,8 +17,8 @@ $FieldInfo _NotContextException_FieldInfo_[] = {
 };
 
 $MethodInfo _NotContextException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NotContextException::*)($String*)>(&NotContextException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotContextException::*)()>(&NotContextException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotContextException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotContextException, init$, void)},
 	{}
 };
 

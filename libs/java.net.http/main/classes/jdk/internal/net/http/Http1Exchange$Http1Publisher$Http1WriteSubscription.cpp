@@ -33,9 +33,9 @@ $FieldInfo _Http1Exchange$Http1Publisher$Http1WriteSubscription_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Exchange$Http1Publisher$Http1WriteSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Exchange$Http1Publisher;)V", nullptr, 0, $method(static_cast<void(Http1Exchange$Http1Publisher$Http1WriteSubscription::*)($Http1Exchange$Http1Publisher*)>(&Http1Exchange$Http1Publisher$Http1WriteSubscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Exchange$Http1Publisher;)V", nullptr, 0, $method(Http1Exchange$Http1Publisher$Http1WriteSubscription, init$, void, $Http1Exchange$Http1Publisher*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1Publisher$Http1WriteSubscription, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1Publisher$Http1WriteSubscription, request, void, int64_t)},
 	{}
 };
 

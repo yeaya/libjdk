@@ -60,8 +60,8 @@ $FieldInfo Types$TypeMapping$$Lambda$lambda$visit$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Types$TypeMapping$$Lambda$lambda$visit$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeMapping;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Types$TypeMapping$$Lambda$lambda$visit$0::*)(Types$TypeMapping*,Object$*)>(&Types$TypeMapping$$Lambda$lambda$visit$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeMapping;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Types$TypeMapping$$Lambda$lambda$visit$0, init$, void, Types$TypeMapping*, Object$*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Types$TypeMapping$$Lambda$lambda$visit$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Types$TypeMapping$$Lambda$lambda$visit$0::classInfo$ = {
@@ -83,13 +83,13 @@ $MethodInfo _Types$TypeMapping_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Types$TypeMapping::*)()>(&Types$TypeMapping::init$))},
-	{"apply", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"lambda$visit$0", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Type*(Types$TypeMapping::*)(Object$*,$Type*)>(&Types$TypeMapping::lambda$visit$0))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Types$TypeMapping, init$, void)},
+	{"apply", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeMapping, apply, $Type*, $Type*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeMapping, apply, $Object*, Object$*)},
+	{"lambda$visit$0", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$TypeMapping, lambda$visit$0, $Type*, Object$*, $Type*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"visit", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;TS;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$CapturedType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC},
+	{"visit", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;TS;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Types$TypeMapping, visit, $List*, $List*, Object$*)},
+	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$CapturedType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Types$TypeMapping, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
 	{}
 };
 

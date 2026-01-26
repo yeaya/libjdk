@@ -20,8 +20,8 @@ $FieldInfo _HttpCaller_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpCaller_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpCaller::*)($HttpCallerInfo*)>(&HttpCaller::init$))},
-	{"info", "()Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(HttpCaller, init$, void, $HttpCallerInfo*)},
+	{"info", "()Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PUBLIC, $virtualMethod(HttpCaller, info, $HttpCallerInfo*)},
 	{}
 };
 

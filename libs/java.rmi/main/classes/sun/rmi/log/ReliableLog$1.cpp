@@ -15,8 +15,8 @@ namespace sun {
 		namespace log {
 
 $MethodInfo _ReliableLog$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReliableLog$1::*)()>(&ReliableLog$1::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ReliableLog$1, init$, void)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(ReliableLog$1, run, $Object*)},
 	{}
 };
 

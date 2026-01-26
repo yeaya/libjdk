@@ -53,13 +53,13 @@ $FieldInfo _RoleResult_FieldInfo_[] = {
 };
 
 $MethodInfo _RoleResult_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/relation/RoleList;Ljavax/management/relation/RoleUnresolvedList;)V", nullptr, $PUBLIC, $method(static_cast<void(RoleResult::*)($RoleList*,$RoleUnresolvedList*)>(&RoleResult::init$))},
-	{"getRoles", "()Ljavax/management/relation/RoleList;", nullptr, $PUBLIC},
-	{"getRolesUnresolved", "()Ljavax/management/relation/RoleUnresolvedList;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(RoleResult::*)($ObjectInputStream*)>(&RoleResult::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setRoles", "(Ljavax/management/relation/RoleList;)V", nullptr, $PUBLIC},
-	{"setRolesUnresolved", "(Ljavax/management/relation/RoleUnresolvedList;)V", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(RoleResult::*)($ObjectOutputStream*)>(&RoleResult::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljavax/management/relation/RoleList;Ljavax/management/relation/RoleUnresolvedList;)V", nullptr, $PUBLIC, $method(RoleResult, init$, void, $RoleList*, $RoleUnresolvedList*)},
+	{"getRoles", "()Ljavax/management/relation/RoleList;", nullptr, $PUBLIC, $virtualMethod(RoleResult, getRoles, $RoleList*)},
+	{"getRolesUnresolved", "()Ljavax/management/relation/RoleUnresolvedList;", nullptr, $PUBLIC, $virtualMethod(RoleResult, getRolesUnresolved, $RoleUnresolvedList*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RoleResult, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"setRoles", "(Ljavax/management/relation/RoleList;)V", nullptr, $PUBLIC, $virtualMethod(RoleResult, setRoles, void, $RoleList*)},
+	{"setRolesUnresolved", "(Ljavax/management/relation/RoleUnresolvedList;)V", nullptr, $PUBLIC, $virtualMethod(RoleResult, setRolesUnresolved, void, $RoleUnresolvedList*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RoleResult, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

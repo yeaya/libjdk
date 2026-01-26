@@ -22,9 +22,9 @@ namespace sun {
 		namespace runtime {
 
 $MethodInfo _Log$InternalStreamHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(Log$InternalStreamHandler::*)($OutputStream*)>(&Log$InternalStreamHandler::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(Log$InternalStreamHandler, init$, void, $OutputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Log$InternalStreamHandler, close, void)},
+	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $virtualMethod(Log$InternalStreamHandler, publish, void, $LogRecord*)},
 	{}
 };
 

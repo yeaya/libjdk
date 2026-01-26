@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $UnsolicitedNotificationEvent = ::javax::naming::ldap::UnsolicitedNotificationEvent;
 
 namespace javax {
 	namespace naming {
 		namespace ldap {
 
 $MethodInfo _UnsolicitedNotificationListener_MethodInfo_[] = {
-	{"notificationReceived", "(Ljavax/naming/ldap/UnsolicitedNotificationEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"notificationReceived", "(Ljavax/naming/ldap/UnsolicitedNotificationEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnsolicitedNotificationListener, notificationReceived, void, $UnsolicitedNotificationEvent*)},
 	{}
 };
 

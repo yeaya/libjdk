@@ -12,12 +12,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 
 $MethodInfo _LineAdaptersCompileOnly$CharSequenceSubscriber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LineAdaptersCompileOnly$CharSequenceSubscriber::*)()>(&LineAdaptersCompileOnly$CharSequenceSubscriber::init$))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(LineAdaptersCompileOnly$CharSequenceSubscriber, init$, void)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$CharSequenceSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$CharSequenceSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$CharSequenceSubscriber, onNext, void, $CharSequence*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LineAdaptersCompileOnly$CharSequenceSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$CharSequenceSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

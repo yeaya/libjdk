@@ -30,8 +30,8 @@ $FieldInfo _JavacProcessingEnvironment$ImplicitCompleter_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacProcessingEnvironment$ImplicitCompleter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacProcessingEnvironment$ImplicitCompleter::*)($JavacProcessingEnvironment*,$JCTree$JCCompilationUnit*)>(&JavacProcessingEnvironment$ImplicitCompleter::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$ImplicitCompleter, init$, void, $JavacProcessingEnvironment*, $JCTree$JCCompilationUnit*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ImplicitCompleter, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
 	{}
 };
 

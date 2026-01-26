@@ -15,7 +15,7 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _MBeanIntrospector$MBeanInfoMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MBeanIntrospector$MBeanInfoMap::*)()>(&MBeanIntrospector$MBeanInfoMap::init$))},
+	{"<init>", "()V", nullptr, 0, $method(MBeanIntrospector$MBeanInfoMap, init$, void)},
 	{}
 };
 

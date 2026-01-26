@@ -37,12 +37,12 @@ $FieldInfo _DOMSignatureMethod$SHA384withRSAandMGF1_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMSignatureMethod$SHA384withRSAandMGF1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$SHA384withRSAandMGF1::*)($AlgorithmParameterSpec*)>(&DOMSignatureMethod$SHA384withRSAandMGF1::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$SHA384withRSAandMGF1::*)($Element*)>(&DOMSignatureMethod$SHA384withRSAandMGF1::init$)), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0},
-	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$SHA384withRSAandMGF1, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$SHA384withRSAandMGF1, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA384withRSAandMGF1, getAlgorithm, $String*)},
+	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA384withRSAandMGF1, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
+	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA384withRSAandMGF1, getJCAAlgorithm, $String*)},
+	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA384withRSAandMGF1, getPSSParameterSpec, $PSSParameterSpec*)},
 	{}
 };
 

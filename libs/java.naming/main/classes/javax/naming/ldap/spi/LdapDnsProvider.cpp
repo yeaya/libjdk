@@ -18,6 +18,8 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
+using $Map = ::java::util::Map;
+using $Optional = ::java::util::Optional;
 
 namespace javax {
 	namespace naming {
@@ -30,10 +32,10 @@ $FieldInfo _LdapDnsProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapDnsProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(LdapDnsProvider::*)()>(&LdapDnsProvider::init$))},
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(LdapDnsProvider::*)($Void*)>(&LdapDnsProvider::init$))},
-	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Void*(*)()>(&LdapDnsProvider::checkPermission))},
-	{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/Map<**>;)Ljava/util/Optional<Ljavax/naming/ldap/spi/LdapDnsProviderResult;>;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(LdapDnsProvider, init$, void)},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(LdapDnsProvider, init$, void, $Void*)},
+	{"checkPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapDnsProvider, checkPermission, $Void*)},
+	{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/Map<**>;)Ljava/util/Optional<Ljavax/naming/ldap/spi/LdapDnsProviderResult;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LdapDnsProvider, lookupEndpoints, $Optional*, $String*, $Map*), "javax.naming.NamingException"},
 	{}
 };
 

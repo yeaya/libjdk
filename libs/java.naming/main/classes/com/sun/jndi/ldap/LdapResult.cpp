@@ -42,8 +42,8 @@ $FieldInfo _LdapResult_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapResult_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LdapResult::*)()>(&LdapResult::init$))},
-	{"compareToSearchResult", "(Ljava/lang/String;)Z", nullptr, 0, $method(static_cast<bool(LdapResult::*)($String*)>(&LdapResult::compareToSearchResult))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapResult, init$, void)},
+	{"compareToSearchResult", "(Ljava/lang/String;)Z", nullptr, 0, $method(LdapResult, compareToSearchResult, bool, $String*)},
 	{}
 };
 

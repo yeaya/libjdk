@@ -10,6 +10,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HttpRequest = ::java::net::http::HttpRequest;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $Function = ::java::util::function::Function;
 using $ResponseBodyHandlers$PushPromisesHandlerWithMap = ::jdk::internal::net::http::ResponseBodyHandlers$PushPromisesHandlerWithMap;
@@ -19,8 +20,8 @@ namespace java {
 		namespace http {
 
 $MethodInfo _HttpResponse$PushPromiseHandler_MethodInfo_[] = {
-	{"applyPushPromise", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function;)V", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function<Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)V", $PUBLIC | $ABSTRACT},
-	{"of", "(Ljava/util/function/Function;Ljava/util/concurrent/ConcurrentMap;)Ljava/net/http/HttpResponse$PushPromiseHandler;", "<T:Ljava/lang/Object;>(Ljava/util/function/Function<Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;>;Ljava/util/concurrent/ConcurrentMap<Ljava/net/http/HttpRequest;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;", $PUBLIC | $STATIC, $method(static_cast<HttpResponse$PushPromiseHandler*(*)($Function*,$ConcurrentMap*)>(&HttpResponse$PushPromiseHandler::of))},
+	{"applyPushPromise", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function;)V", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function<Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$PushPromiseHandler, applyPushPromise, void, $HttpRequest*, $HttpRequest*, $Function*)},
+	{"of", "(Ljava/util/function/Function;Ljava/util/concurrent/ConcurrentMap;)Ljava/net/http/HttpResponse$PushPromiseHandler;", "<T:Ljava/lang/Object;>(Ljava/util/function/Function<Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;>;Ljava/util/concurrent/ConcurrentMap<Ljava/net/http/HttpRequest;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$PushPromiseHandler, of, HttpResponse$PushPromiseHandler*, $Function*, $ConcurrentMap*)},
 	{}
 };
 

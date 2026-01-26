@@ -20,7 +20,7 @@ $FieldInfo _AnnotationProcessingError_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationProcessingError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(AnnotationProcessingError::*)($Throwable*)>(&AnnotationProcessingError::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(AnnotationProcessingError, init$, void, $Throwable*)},
 	{}
 };
 

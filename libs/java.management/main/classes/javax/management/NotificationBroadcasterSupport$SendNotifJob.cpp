@@ -28,8 +28,8 @@ $FieldInfo _NotificationBroadcasterSupport$SendNotifJob_FieldInfo_[] = {
 };
 
 $MethodInfo _NotificationBroadcasterSupport$SendNotifJob_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/NotificationBroadcasterSupport;Ljavax/management/Notification;Ljavax/management/NotificationBroadcasterSupport$ListenerInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(NotificationBroadcasterSupport$SendNotifJob::*)($NotificationBroadcasterSupport*,$Notification*,$NotificationBroadcasterSupport$ListenerInfo*)>(&NotificationBroadcasterSupport$SendNotifJob::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/NotificationBroadcasterSupport;Ljavax/management/Notification;Ljavax/management/NotificationBroadcasterSupport$ListenerInfo;)V", nullptr, $PUBLIC, $method(NotificationBroadcasterSupport$SendNotifJob, init$, void, $NotificationBroadcasterSupport*, $Notification*, $NotificationBroadcasterSupport$ListenerInfo*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$SendNotifJob, run, void)},
 	{}
 };
 

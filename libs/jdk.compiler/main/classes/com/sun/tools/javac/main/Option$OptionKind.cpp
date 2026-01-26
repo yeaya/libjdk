@@ -30,10 +30,10 @@ $FieldInfo _Option$OptionKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Option$OptionKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Option$OptionKindArray*(*)()>(&Option$OptionKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Option$OptionKind::*)($String*,int32_t)>(&Option$OptionKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Option$OptionKind*(*)($String*)>(&Option$OptionKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Option$OptionKindArray*(*)()>(&Option$OptionKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$OptionKind, $values, $Option$OptionKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Option$OptionKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$OptionKind, valueOf, Option$OptionKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$OptionKind, values, $Option$OptionKindArray*)},
 	{}
 };
 

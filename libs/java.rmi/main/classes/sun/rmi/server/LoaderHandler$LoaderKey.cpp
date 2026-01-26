@@ -25,9 +25,9 @@ $FieldInfo _LoaderHandler$LoaderKey_FieldInfo_[] = {
 };
 
 $MethodInfo _LoaderHandler$LoaderKey_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(LoaderHandler$LoaderKey::*)($URLArray*,$ClassLoader*)>(&LoaderHandler$LoaderKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(LoaderHandler$LoaderKey, init$, void, $URLArray*, $ClassLoader*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$LoaderKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$LoaderKey, hashCode, int32_t)},
 	{}
 };
 

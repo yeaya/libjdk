@@ -34,20 +34,20 @@ $FieldInfo _LdapName$TypeAndValue_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapName$TypeAndValue_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(LdapName$TypeAndValue::*)($String*,$String*,bool)>(&LdapName$TypeAndValue::init$))},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"decodeHexPairs", "([CII)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($chars*,int32_t,int32_t)>(&LdapName$TypeAndValue::decodeHexPairs))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"escapeBinaryValue", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($bytes*)>(&LdapName$TypeAndValue::escapeBinaryValue))},
-	{"escapeStringValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&LdapName$TypeAndValue::escapeStringValue))},
-	{"escapeValue", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(Object$*)>(&LdapName$TypeAndValue::escapeValue))},
-	{"getType", "()Ljava/lang/String;", nullptr, 0},
-	{"getUnescapedValue", "()Ljava/lang/Object;", nullptr, 0},
-	{"getUtf8Octets", "([CII)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($chars*,int32_t,int32_t)>(&LdapName$TypeAndValue::getUtf8Octets))},
-	{"getValueComparable", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LdapName$TypeAndValue::*)()>(&LdapName$TypeAndValue::getValueComparable))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unescapeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($String*)>(&LdapName$TypeAndValue::unescapeValue))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(LdapName$TypeAndValue, init$, void, $String*, $String*, bool)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, compareTo, int32_t, Object$*)},
+	{"decodeHexPairs", "([CII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, decodeHexPairs, $bytes*, $chars*, int32_t, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, equals, bool, Object$*)},
+	{"escapeBinaryValue", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, escapeBinaryValue, $String*, $bytes*)},
+	{"escapeStringValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, escapeStringValue, $String*, $String*)},
+	{"escapeValue", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LdapName$TypeAndValue, escapeValue, $String*, Object$*)},
+	{"getType", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(LdapName$TypeAndValue, getType, $String*)},
+	{"getUnescapedValue", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(LdapName$TypeAndValue, getUnescapedValue, $Object*)},
+	{"getUtf8Octets", "([CII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapName$TypeAndValue, getUtf8Octets, $bytes*, $chars*, int32_t, int32_t)},
+	{"getValueComparable", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapName$TypeAndValue, getValueComparable, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName$TypeAndValue, toString, $String*)},
+	{"unescapeValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(LdapName$TypeAndValue, unescapeValue, $Object*, $String*)},
 	{}
 };
 

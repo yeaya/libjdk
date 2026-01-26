@@ -68,13 +68,13 @@ $FieldInfo _JavacTaskPool$ReusableContext$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTaskPool$ReusableContext$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext;)V", nullptr, 0, $method(static_cast<void(JavacTaskPool$ReusableContext$1::*)($JavacTaskPool$ReusableContext*)>(&JavacTaskPool$ReusableContext$1::init$))},
-	{"isCoreClass", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(static_cast<bool(JavacTaskPool$ReusableContext$1::*)($Symbol*)>(&JavacTaskPool$ReusableContext$1::isCoreClass))},
-	{"scan", "(Lcom/sun/source/tree/Tree;Lcom/sun/tools/javac/code/Symtab;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"scan", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"supertype", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(JavacTaskPool$ReusableContext$1::*)($Symbol*)>(&JavacTaskPool$ReusableContext$1::supertype))},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Lcom/sun/tools/javac/code/Symtab;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext;)V", nullptr, 0, $method(JavacTaskPool$ReusableContext$1, init$, void, $JavacTaskPool$ReusableContext*)},
+	{"isCoreClass", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(JavacTaskPool$ReusableContext$1, isCoreClass, bool, $Symbol*)},
+	{"scan", "(Lcom/sun/source/tree/Tree;Lcom/sun/tools/javac/code/Symtab;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$1, scan, $Void*, $Tree*, $Symtab*)},
+	{"scan", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTaskPool$ReusableContext$1, scan, $Object*, $Tree*, Object$*)},
+	{"supertype", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(JavacTaskPool$ReusableContext$1, supertype, $Type*, $Symbol*)},
+	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Lcom/sun/tools/javac/code/Symtab;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$1, visitClass, $Void*, $ClassTree*, $Symtab*)},
+	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTaskPool$ReusableContext$1, visitClass, $Object*, $ClassTree*, Object$*)},
 	{}
 };
 

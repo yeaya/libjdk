@@ -40,9 +40,9 @@ $FieldInfo _Obj$LoaderInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Obj$LoaderInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(Obj$LoaderInputStream::*)($InputStream*,$ClassLoader*)>(&Obj$LoaderInputStream::init$)), "java.io.IOException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resolveProxyClass", "([Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(Obj$LoaderInputStream, init$, void, $InputStream*, $ClassLoader*), "java.io.IOException"},
+	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Obj$LoaderInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"resolveProxyClass", "([Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Obj$LoaderInputStream, resolveProxyClass, $Class*, $StringArray*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

@@ -65,18 +65,18 @@ $FieldInfo _ExtendedSocketOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedSocketOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ExtendedSocketOptions::*)()>(&ExtendedSocketOptions::init$))},
-	{"getIncomingNapiId", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($FileDescriptor*)>(&ExtendedSocketOptions::getIncomingNapiId)), "java.net.SocketException"},
-	{"getQuickAckOption", "(Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($FileDescriptor*)>(&ExtendedSocketOptions::getQuickAckOption)), "java.net.SocketException"},
-	{"getSoPeerCred", "(Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($FileDescriptor*)>(&ExtendedSocketOptions::getSoPeerCred)), "java.net.SocketException"},
-	{"getTcpKeepAliveIntvl", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($FileDescriptor*)>(&ExtendedSocketOptions::getTcpKeepAliveIntvl)), "java.net.SocketException"},
-	{"getTcpKeepAliveTime", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($FileDescriptor*)>(&ExtendedSocketOptions::getTcpKeepAliveTime)), "java.net.SocketException"},
-	{"getTcpkeepAliveProbes", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($FileDescriptor*)>(&ExtendedSocketOptions::getTcpkeepAliveProbes)), "java.net.SocketException"},
-	{"options", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $STATIC, $method(static_cast<$Set*(*)()>(&ExtendedSocketOptions::options))},
-	{"setQuickAckOption", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FileDescriptor*,bool)>(&ExtendedSocketOptions::setQuickAckOption)), "java.net.SocketException"},
-	{"setTcpKeepAliveIntvl", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FileDescriptor*,int32_t)>(&ExtendedSocketOptions::setTcpKeepAliveIntvl)), "java.net.SocketException"},
-	{"setTcpKeepAliveTime", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FileDescriptor*,int32_t)>(&ExtendedSocketOptions::setTcpKeepAliveTime)), "java.net.SocketException"},
-	{"setTcpkeepAliveProbes", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($FileDescriptor*,int32_t)>(&ExtendedSocketOptions::setTcpkeepAliveProbes)), "java.net.SocketException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedSocketOptions, init$, void)},
+	{"getIncomingNapiId", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getIncomingNapiId, int32_t, $FileDescriptor*), "java.net.SocketException"},
+	{"getQuickAckOption", "(Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getQuickAckOption, $Object*, $FileDescriptor*), "java.net.SocketException"},
+	{"getSoPeerCred", "(Ljava/io/FileDescriptor;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getSoPeerCred, $Object*, $FileDescriptor*), "java.net.SocketException"},
+	{"getTcpKeepAliveIntvl", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getTcpKeepAliveIntvl, int32_t, $FileDescriptor*), "java.net.SocketException"},
+	{"getTcpKeepAliveTime", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getTcpKeepAliveTime, int32_t, $FileDescriptor*), "java.net.SocketException"},
+	{"getTcpkeepAliveProbes", "(Ljava/io/FileDescriptor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, getTcpkeepAliveProbes, int32_t, $FileDescriptor*), "java.net.SocketException"},
+	{"options", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $STATIC, $staticMethod(ExtendedSocketOptions, options, $Set*)},
+	{"setQuickAckOption", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setQuickAckOption, void, $FileDescriptor*, bool), "java.net.SocketException"},
+	{"setTcpKeepAliveIntvl", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setTcpKeepAliveIntvl, void, $FileDescriptor*, int32_t), "java.net.SocketException"},
+	{"setTcpKeepAliveTime", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setTcpKeepAliveTime, void, $FileDescriptor*, int32_t), "java.net.SocketException"},
+	{"setTcpkeepAliveProbes", "(Ljava/io/FileDescriptor;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ExtendedSocketOptions, setTcpkeepAliveProbes, void, $FileDescriptor*, int32_t), "java.net.SocketException"},
 	{}
 };
 

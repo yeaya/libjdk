@@ -39,13 +39,13 @@ $FieldInfo _JavacElements$1Vis_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacElements$1Vis_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;)V", nullptr, 0, $method(static_cast<void(JavacElements$1Vis::*)($JavacElements*)>(&JavacElements$1Vis::init$))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC},
-	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;)V", nullptr, 0, $method(JavacElements$1Vis, init$, void, $JavacElements*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitPackageDef, void, $JCTree$JCPackageDecl*)},
+	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

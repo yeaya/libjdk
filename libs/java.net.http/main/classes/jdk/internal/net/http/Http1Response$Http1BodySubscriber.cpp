@@ -42,16 +42,16 @@ $FieldInfo _Http1Response$Http1BodySubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Response$Http1BodySubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TU;>;)V", 0, $method(static_cast<void(Http1Response$Http1BodySubscriber::*)($HttpResponse$BodySubscriber*)>(&Http1Response$Http1BodySubscriber::init$))},
-	{"complete", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1Response$Http1BodySubscriber::*)($Throwable*)>(&Http1Response$Http1BodySubscriber::complete))},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TU;>;", $PUBLIC},
-	{"needsExecutor", "()Z", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(Http1Response$Http1BodySubscriber::*)($List*)>(&Http1Response$Http1BodySubscriber::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"propagateError", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1Response$Http1BodySubscriber::*)($Throwable*)>(&Http1Response$Http1BodySubscriber::propagateError))},
+	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TU;>;)V", 0, $method(Http1Response$Http1BodySubscriber, init$, void, $HttpResponse$BodySubscriber*)},
+	{"complete", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(Http1Response$Http1BodySubscriber, complete, void, $Throwable*)},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TU;>;", $PUBLIC, $virtualMethod(Http1Response$Http1BodySubscriber, getBody, $CompletionStage*)},
+	{"needsExecutor", "()Z", nullptr, $PUBLIC, $virtualMethod(Http1Response$Http1BodySubscriber, needsExecutor, bool)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Response$Http1BodySubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1Response$Http1BodySubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(Http1Response$Http1BodySubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1Response$Http1BodySubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1Response$Http1BodySubscriber, onSubscribe, void, $Flow$Subscription*)},
+	{"propagateError", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(Http1Response$Http1BodySubscriber, propagateError, void, $Throwable*)},
 	{}
 };
 

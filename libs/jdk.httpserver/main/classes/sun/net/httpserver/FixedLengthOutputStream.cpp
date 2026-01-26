@@ -39,10 +39,10 @@ $FieldInfo _FixedLengthOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _FixedLengthOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/OutputStream;J)V", nullptr, 0, $method(static_cast<void(FixedLengthOutputStream::*)($ExchangeImpl*,$OutputStream*,int64_t)>(&FixedLengthOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/OutputStream;J)V", nullptr, 0, $method(FixedLengthOutputStream, init$, void, $ExchangeImpl*, $OutputStream*, int64_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FixedLengthOutputStream, close, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FixedLengthOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(FixedLengthOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

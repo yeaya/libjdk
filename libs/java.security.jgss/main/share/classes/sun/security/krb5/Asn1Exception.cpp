@@ -18,7 +18,7 @@ $FieldInfo _Asn1Exception_FieldInfo_[] = {
 };
 
 $MethodInfo _Asn1Exception_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Asn1Exception::*)(int32_t)>(&Asn1Exception::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Asn1Exception, init$, void, int32_t)},
 	{}
 };
 

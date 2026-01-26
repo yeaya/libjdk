@@ -83,8 +83,8 @@ $FieldInfo Http1Exchange$Http1Publisher$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1Exchange$Http1Publisher$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Exchange$Http1Publisher;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Exchange$Http1Publisher$$Lambda$dbgString::*)(Http1Exchange$Http1Publisher*)>(&Http1Exchange$Http1Publisher$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Exchange$Http1Publisher;)V", nullptr, $PUBLIC, $method(Http1Exchange$Http1Publisher$$Lambda$dbgString, init$, void, Http1Exchange$Http1Publisher*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1Publisher$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo Http1Exchange$Http1Publisher$$Lambda$dbgString::classInfo$ = {
@@ -115,10 +115,10 @@ $FieldInfo _Http1Exchange$Http1Publisher_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Exchange$Http1Publisher_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Exchange;)V", nullptr, 0, $method(static_cast<void(Http1Exchange$Http1Publisher::*)($Http1Exchange*)>(&Http1Exchange$Http1Publisher::init$))},
-	{"checkRequestCancelled", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Http1Exchange$Http1Publisher::*)()>(&Http1Exchange$Http1Publisher::checkRequestCancelled))},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(Http1Exchange$Http1Publisher::*)()>(&Http1Exchange$Http1Publisher::dbgString))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Exchange;)V", nullptr, 0, $method(Http1Exchange$Http1Publisher, init$, void, $Http1Exchange*)},
+	{"checkRequestCancelled", "()Z", nullptr, $PRIVATE, $method(Http1Exchange$Http1Publisher, checkRequestCancelled, bool)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $method(Http1Exchange$Http1Publisher, dbgString, $String*)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $virtualMethod(Http1Exchange$Http1Publisher, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

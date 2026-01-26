@@ -20,8 +20,8 @@ $FieldInfo _ModuleHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleHelper::*)()>(&ModuleHelper::init$))},
-	{"addExports", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Module*,$Module*)>(&ModuleHelper::addExports))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleHelper, init$, void)},
+	{"addExports", "(Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleHelper, addExports, void, $Module*, $Module*)},
 	{}
 };
 

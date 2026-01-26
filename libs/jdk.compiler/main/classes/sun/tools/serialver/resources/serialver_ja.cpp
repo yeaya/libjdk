@@ -14,8 +14,8 @@ namespace sun {
 			namespace resources {
 
 $MethodInfo _serialver_ja_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(serialver_ja::*)()>(&serialver_ja::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(serialver_ja, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(serialver_ja, getContents, $ObjectArray2*)},
 	{}
 };
 

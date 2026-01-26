@@ -70,8 +70,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MarshalInputStream$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MarshalInputStream$$Lambda$lambda$static$0::*)()>(&MarshalInputStream$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MarshalInputStream$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo MarshalInputStream$$Lambda$lambda$static$0::classInfo$ = {
@@ -98,19 +98,19 @@ $FieldInfo _MarshalInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _MarshalInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(MarshalInputStream::*)($InputStream*)>(&MarshalInputStream::init$)), "java.io.IOException,java.io.StreamCorruptedException"},
-	{"checkSunClass", "(Ljava/lang/String;Ljava/security/AccessControlException;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/security/AccessControlException;)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(MarshalInputStream::*)($String*,$AccessControlException*)>(&MarshalInputStream::checkSunClass)), "java.security.AccessControlException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"done", "()V", nullptr, $PUBLIC},
-	{"getDoneCallback", "(Ljava/lang/Object;)Ljava/lang/Runnable;", nullptr, $PUBLIC},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&MarshalInputStream::lambda$static$0))},
-	{"latestUserDefinedLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ClassLoader*(*)()>(&MarshalInputStream::latestUserDefinedLoader))},
-	{"readLocation", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resolveProxyClass", "([Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setDoneCallback", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
-	{"skipDefaultResolveClass", "()V", nullptr, 0},
-	{"useCodebaseOnly", "()V", nullptr, 0},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(MarshalInputStream, init$, void, $InputStream*), "java.io.IOException,java.io.StreamCorruptedException"},
+	{"checkSunClass", "(Ljava/lang/String;Ljava/security/AccessControlException;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/security/AccessControlException;)Ljava/lang/Class<*>;", $PRIVATE, $method(MarshalInputStream, checkSunClass, $Class*, $String*, $AccessControlException*), "java.security.AccessControlException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, close, void), "java.io.IOException"},
+	{"done", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, done, void)},
+	{"getDoneCallback", "(Ljava/lang/Object;)Ljava/lang/Runnable;", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, getDoneCallback, $Runnable*, Object$*)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MarshalInputStream, lambda$static$0, $String*)},
+	{"latestUserDefinedLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(MarshalInputStream, latestUserDefinedLoader, $ClassLoader*)},
+	{"readLocation", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MarshalInputStream, readLocation, $Object*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(MarshalInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"resolveProxyClass", "([Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(MarshalInputStream, resolveProxyClass, $Class*, $StringArray*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"setDoneCallback", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, setDoneCallback, void, Object$*, $Runnable*)},
+	{"skipDefaultResolveClass", "()V", nullptr, 0, $virtualMethod(MarshalInputStream, skipDefaultResolveClass, void)},
+	{"useCodebaseOnly", "()V", nullptr, 0, $virtualMethod(MarshalInputStream, useCodebaseOnly, void)},
 	{}
 };
 

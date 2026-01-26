@@ -201,8 +201,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::*)()>(&Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::classInfo$ = {
@@ -234,8 +234,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::*)()>(&Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::classInfo$ = {
@@ -267,8 +267,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::*)()>(&Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::classInfo$ = {
@@ -307,8 +307,8 @@ $FieldInfo Flow$AliveAnalyzer$$Lambda$contains$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Flow$AliveAnalyzer$$Lambda$contains$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Flow$AliveAnalyzer$$Lambda$contains$3::*)($Set*)>(&Flow$AliveAnalyzer$$Lambda$contains$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$contains$3, init$, void, $Set*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$contains$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Flow$AliveAnalyzer$$Lambda$contains$3::classInfo$ = {
@@ -350,8 +350,8 @@ $FieldInfo Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow$AliveAnalyzer;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::*)(Flow$AliveAnalyzer*,$Set*)>(&Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Flow$AliveAnalyzer;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, init$, void, Flow$AliveAnalyzer*, $Set*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::classInfo$ = {
@@ -375,43 +375,43 @@ $FieldInfo _Flow$AliveAnalyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$AliveAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(static_cast<void(Flow$AliveAnalyzer::*)($Flow*)>(&Flow$AliveAnalyzer::init$))},
-	{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC},
-	{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC},
-	{"clearPendingExits", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(Flow$AliveAnalyzer::*)(bool)>(&Flow$AliveAnalyzer::clearPendingExits))},
-	{"handleConstantCaseLabel", "(Ljava/util/Set;Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)V", $PRIVATE, $method(static_cast<void(Flow$AliveAnalyzer::*)($Set*,$JCTree$JCCaseLabel*)>(&Flow$AliveAnalyzer::handleConstantCaseLabel))},
-	{"isExhaustive", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set;)Z", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)Z", $PRIVATE, $method(static_cast<bool(Flow$AliveAnalyzer::*)($Type*,$Set*)>(&Flow$AliveAnalyzer::isExhaustive))},
-	{"lambda$isExhaustive$3", "(Ljava/util/Set;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Flow$AliveAnalyzer::*)($Set*,$Type*)>(&Flow$AliveAnalyzer::lambda$isExhaustive$3))},
-	{"lambda$transitiveCovers$2", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*)>(&Flow$AliveAnalyzer::lambda$transitiveCovers$2))},
-	{"lambda$visitSwitch$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($JCTree$JCCase*)>(&Flow$AliveAnalyzer::lambda$visitSwitch$0))},
-	{"lambda$visitSwitch$1", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCCaseLabel*)>(&Flow$AliveAnalyzer::lambda$visitSwitch$1))},
-	{"markDead", "()V", nullptr, 0},
-	{"scanDef", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0},
-	{"scanStat", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0},
-	{"scanStats", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;)V", 0},
-	{"transitiveCovers", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)V", $PRIVATE, $method(static_cast<void(Flow$AliveAnalyzer::*)($Set*)>(&Flow$AliveAnalyzer::transitiveCovers))},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC},
-	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC},
-	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC},
-	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC},
-	{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC},
-	{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC},
-	{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC},
-	{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC},
-	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC},
-	{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC},
-	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
-	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$AliveAnalyzer, init$, void, $Flow*)},
+	{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, analyzeTree, void, $Env*, $TreeMaker*)},
+	{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, analyzeTree, void, $Env*, $JCTree*, $TreeMaker*)},
+	{"clearPendingExits", "(Z)V", nullptr, $PRIVATE, $method(Flow$AliveAnalyzer, clearPendingExits, void, bool)},
+	{"handleConstantCaseLabel", "(Ljava/util/Set;Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)V", $PRIVATE, $method(Flow$AliveAnalyzer, handleConstantCaseLabel, void, $Set*, $JCTree$JCCaseLabel*)},
+	{"isExhaustive", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set;)Z", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)Z", $PRIVATE, $method(Flow$AliveAnalyzer, isExhaustive, bool, $Type*, $Set*)},
+	{"lambda$isExhaustive$3", "(Ljava/util/Set;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Flow$AliveAnalyzer, lambda$isExhaustive$3, bool, $Set*, $Type*)},
+	{"lambda$transitiveCovers$2", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$AliveAnalyzer, lambda$transitiveCovers$2, bool, $Symbol*)},
+	{"lambda$visitSwitch$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$AliveAnalyzer, lambda$visitSwitch$0, $Stream*, $JCTree$JCCase*)},
+	{"lambda$visitSwitch$1", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$AliveAnalyzer, lambda$visitSwitch$1, bool, $JCTree$JCCaseLabel*)},
+	{"markDead", "()V", nullptr, 0, $virtualMethod(Flow$AliveAnalyzer, markDead, void)},
+	{"scanDef", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Flow$AliveAnalyzer, scanDef, void, $JCTree*)},
+	{"scanStat", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Flow$AliveAnalyzer, scanStat, void, $JCTree*)},
+	{"scanStats", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;)V", 0, $virtualMethod(Flow$AliveAnalyzer, scanStats, void, $List*)},
+	{"transitiveCovers", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)V", $PRIVATE, $method(Flow$AliveAnalyzer, transitiveCovers, void, $Set*)},
+	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitApply, void, $JCTree$JCMethodInvocation*)},
+	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitBlock, void, $JCTree$JCBlock*)},
+	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitBreak, void, $JCTree$JCBreak*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitContinue, void, $JCTree$JCContinue*)},
+	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
+	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitForLoop, void, $JCTree$JCForLoop*)},
+	{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
+	{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitIf, void, $JCTree$JCIf*)},
+	{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitLabelled, void, $JCTree$JCLabeledStatement*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitNewClass, void, $JCTree$JCNewClass*)},
+	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitReturn, void, $JCTree$JCReturn*)},
+	{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitSwitch, void, $JCTree$JCSwitch*)},
+	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
+	{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitThrow, void, $JCTree$JCThrow*)},
+	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitTry, void, $JCTree$JCTry*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitVarDef, void, $JCTree$JCVariableDecl*)},
+	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
+	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitYield, void, $JCTree$JCYield*)},
 	{}
 };
 

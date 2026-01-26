@@ -73,8 +73,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo S$$Lambda$lambda$newErroredPublisher$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(S$$Lambda$lambda$newErroredPublisher$0::*)()>(&S$$Lambda$lambda$newErroredPublisher$0::init$))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(S$$Lambda$lambda$newErroredPublisher$0, init$, void)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PUBLIC, $virtualMethod(S$$Lambda$lambda$newErroredPublisher$0, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 $ClassInfo S$$Lambda$lambda$newErroredPublisher$0::classInfo$ = {
@@ -97,19 +97,19 @@ $FieldInfo _S_FieldInfo_[] = {
 };
 
 $MethodInfo _S_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(S::*)()>(&S::init$))},
-	{"arrayOfNRandomBytes", "(I)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)(int32_t)>(&S::arrayOfNRandomBytes))},
-	{"arrayOfNRandomBytes", "(J)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)(int64_t)>(&S::arrayOfNRandomBytes))},
-	{"bufferOfNRandomASCIIBytes", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)(int32_t)>(&S::bufferOfNRandomASCIIBytes))},
-	{"bufferOfNRandomBytes", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)(int32_t)>(&S::bufferOfNRandomBytes))},
-	{"inputStreamOfNReads", "(J)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$InputStream*(*)(int64_t)>(&S::inputStreamOfNReads))},
-	{"lambda$newErroredPublisher$0", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Flow$Subscriber*)>(&S::lambda$newErroredPublisher$0))},
-	{"listOfBuffersFromBufferOfNBytes", "(I)Ljava/util/List;", "(I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)(int32_t)>(&S::listOfBuffersFromBufferOfNBytes))},
-	{"newErroredPublisher", "()Ljava/util/concurrent/Flow$Publisher;", "<T:Ljava/lang/Object;>()Ljava/util/concurrent/Flow$Publisher<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$Flow$Publisher*(*)()>(&S::newErroredPublisher))},
-	{"nonCompliantSubscriber", "()Ljava/util/concurrent/Flow$Subscriber;", "<T:Ljava/lang/Object;>()Ljava/util/concurrent/Flow$Subscriber<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$Flow$Subscriber*(*)()>(&S::nonCompliantSubscriber))},
-	{"publisherOfStream", "(Ljava/util/stream/Stream;)Ljava/util/concurrent/Flow$Publisher;", "<T:Ljava/lang/Object;>(Ljava/util/stream/Stream<+TT;>;)Ljava/util/concurrent/Flow$Publisher<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$Flow$Publisher*(*)($Stream*)>(&S::publisherOfStream))},
-	{"randomIntUpTo", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&S::randomIntUpTo))},
-	{"scatterBuffer", "(Ljava/nio/ByteBuffer;)Ljava/util/List;", "(Ljava/nio/ByteBuffer;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($ByteBuffer*)>(&S::scatterBuffer))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(S, init$, void)},
+	{"arrayOfNRandomBytes", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(S, arrayOfNRandomBytes, $bytes*, int32_t)},
+	{"arrayOfNRandomBytes", "(J)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(S, arrayOfNRandomBytes, $bytes*, int64_t)},
+	{"bufferOfNRandomASCIIBytes", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(S, bufferOfNRandomASCIIBytes, $ByteBuffer*, int32_t)},
+	{"bufferOfNRandomBytes", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(S, bufferOfNRandomBytes, $ByteBuffer*, int32_t)},
+	{"inputStreamOfNReads", "(J)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(S, inputStreamOfNReads, $InputStream*, int64_t)},
+	{"lambda$newErroredPublisher$0", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(S, lambda$newErroredPublisher$0, void, $Flow$Subscriber*)},
+	{"listOfBuffersFromBufferOfNBytes", "(I)Ljava/util/List;", "(I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $staticMethod(S, listOfBuffersFromBufferOfNBytes, $List*, int32_t)},
+	{"newErroredPublisher", "()Ljava/util/concurrent/Flow$Publisher;", "<T:Ljava/lang/Object;>()Ljava/util/concurrent/Flow$Publisher<TT;>;", $PUBLIC | $STATIC, $staticMethod(S, newErroredPublisher, $Flow$Publisher*)},
+	{"nonCompliantSubscriber", "()Ljava/util/concurrent/Flow$Subscriber;", "<T:Ljava/lang/Object;>()Ljava/util/concurrent/Flow$Subscriber<TT;>;", $PUBLIC | $STATIC, $staticMethod(S, nonCompliantSubscriber, $Flow$Subscriber*)},
+	{"publisherOfStream", "(Ljava/util/stream/Stream;)Ljava/util/concurrent/Flow$Publisher;", "<T:Ljava/lang/Object;>(Ljava/util/stream/Stream<+TT;>;)Ljava/util/concurrent/Flow$Publisher<TT;>;", $PUBLIC | $STATIC, $staticMethod(S, publisherOfStream, $Flow$Publisher*, $Stream*)},
+	{"randomIntUpTo", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(S, randomIntUpTo, int32_t, int32_t)},
+	{"scatterBuffer", "(Ljava/nio/ByteBuffer;)Ljava/util/List;", "(Ljava/nio/ByteBuffer;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $staticMethod(S, scatterBuffer, $List*, $ByteBuffer*)},
 	{}
 };
 

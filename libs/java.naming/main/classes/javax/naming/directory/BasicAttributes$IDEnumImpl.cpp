@@ -26,12 +26,12 @@ $FieldInfo _BasicAttributes$IDEnumImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicAttributes$IDEnumImpl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/directory/BasicAttributes;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicAttributes$IDEnumImpl::*)($BasicAttributes*)>(&BasicAttributes$IDEnumImpl::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"hasMore", "()Z", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/naming/directory/BasicAttributes;)V", nullptr, $PUBLIC, $method(BasicAttributes$IDEnumImpl, init$, void, $BasicAttributes*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BasicAttributes$IDEnumImpl, close, void), "javax.naming.NamingException"},
+	{"hasMore", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAttributes$IDEnumImpl, hasMore, bool), "javax.naming.NamingException"},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAttributes$IDEnumImpl, hasMoreElements, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes$IDEnumImpl, next, $Object*), "javax.naming.NamingException"},
+	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes$IDEnumImpl, nextElement, $Object*)},
 	{}
 };
 

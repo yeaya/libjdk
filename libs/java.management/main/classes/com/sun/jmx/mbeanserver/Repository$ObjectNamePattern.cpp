@@ -38,9 +38,9 @@ $FieldInfo _Repository$ObjectNamePattern_FieldInfo_[] = {
 };
 
 $MethodInfo _Repository$ObjectNamePattern_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(static_cast<void(Repository$ObjectNamePattern::*)($ObjectName*)>(&Repository$ObjectNamePattern::init$))},
-	{"<init>", "(ZZLjava/lang/String;Ljava/util/Map;Ljavax/management/ObjectName;)V", "(ZZLjava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljavax/management/ObjectName;)V", 0, $method(static_cast<void(Repository$ObjectNamePattern::*)(bool,bool,$String*,$Map*,$ObjectName*)>(&Repository$ObjectNamePattern::init$))},
-	{"matchKeys", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $method(static_cast<bool(Repository$ObjectNamePattern::*)($ObjectName*)>(&Repository$ObjectNamePattern::matchKeys))},
+	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(Repository$ObjectNamePattern, init$, void, $ObjectName*)},
+	{"<init>", "(ZZLjava/lang/String;Ljava/util/Map;Ljavax/management/ObjectName;)V", "(ZZLjava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljavax/management/ObjectName;)V", 0, $method(Repository$ObjectNamePattern, init$, void, bool, bool, $String*, $Map*, $ObjectName*)},
+	{"matchKeys", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $method(Repository$ObjectNamePattern, matchKeys, bool, $ObjectName*)},
 	{}
 };
 

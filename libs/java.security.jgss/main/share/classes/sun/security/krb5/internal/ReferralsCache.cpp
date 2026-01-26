@@ -48,10 +48,10 @@ $FieldInfo _ReferralsCache_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferralsCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReferralsCache::*)()>(&ReferralsCache::init$))},
-	{"get", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Ljava/lang/String;)Lsun/security/krb5/internal/ReferralsCache$ReferralCacheEntry;", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<$ReferralsCache$ReferralCacheEntry*(*)($PrincipalName*,$PrincipalName*,$String*)>(&ReferralsCache::get))},
-	{"pruneExpired", "(Lsun/security/krb5/internal/ReferralsCache$ReferralCacheKey;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ReferralsCache$ReferralCacheKey*)>(&ReferralsCache::pruneExpired))},
-	{"put", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Ljava/lang/String;Ljava/lang/String;Lsun/security/krb5/Credentials;)V", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($PrincipalName*,$PrincipalName*,$String*,$String*,$Credentials*)>(&ReferralsCache::put))},
+	{"<init>", "()V", nullptr, 0, $method(ReferralsCache, init$, void)},
+	{"get", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Ljava/lang/String;)Lsun/security/krb5/internal/ReferralsCache$ReferralCacheEntry;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(ReferralsCache, get, $ReferralsCache$ReferralCacheEntry*, $PrincipalName*, $PrincipalName*, $String*)},
+	{"pruneExpired", "(Lsun/security/krb5/internal/ReferralsCache$ReferralCacheKey;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReferralsCache, pruneExpired, void, $ReferralsCache$ReferralCacheKey*)},
+	{"put", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Ljava/lang/String;Ljava/lang/String;Lsun/security/krb5/Credentials;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(ReferralsCache, put, void, $PrincipalName*, $PrincipalName*, $String*, $String*, $Credentials*)},
 	{}
 };
 

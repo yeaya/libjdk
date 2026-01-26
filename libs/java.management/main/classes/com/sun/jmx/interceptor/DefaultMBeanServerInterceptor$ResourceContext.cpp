@@ -23,7 +23,7 @@ $FieldInfo _DefaultMBeanServerInterceptor$ResourceContext_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultMBeanServerInterceptor$ResourceContext_MethodInfo_[] = {
-	{"done", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"done", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DefaultMBeanServerInterceptor$ResourceContext, done, void)},
 	{}
 };
 

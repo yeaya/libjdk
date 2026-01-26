@@ -57,20 +57,20 @@ $FieldInfo _TCPConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _TCPConnection_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/net/Socket;Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(TCPConnection::*)($TCPChannel*,$Socket*,$InputStream*,$OutputStream*)>(&TCPConnection::init$))},
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(TCPConnection::*)($TCPChannel*,$InputStream*,$OutputStream*)>(&TCPConnection::init$))},
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/net/Socket;)V", nullptr, 0, $method(static_cast<void(TCPConnection::*)($TCPChannel*,$Socket*)>(&TCPConnection::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"expired", "(J)Z", nullptr, 0},
-	{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isDead", "()Z", nullptr, $PUBLIC},
-	{"isReusable", "()Z", nullptr, $PUBLIC},
-	{"releaseInputStream", "()V", nullptr, $PUBLIC},
-	{"releaseOutputStream", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setExpiration", "(J)V", nullptr, 0},
-	{"setLastUseTime", "(J)V", nullptr, 0},
+	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/net/Socket;Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(TCPConnection, init$, void, $TCPChannel*, $Socket*, $InputStream*, $OutputStream*)},
+	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(TCPConnection, init$, void, $TCPChannel*, $InputStream*, $OutputStream*)},
+	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;Ljava/net/Socket;)V", nullptr, 0, $method(TCPConnection, init$, void, $TCPChannel*, $Socket*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TCPConnection, close, void), "java.io.IOException"},
+	{"expired", "(J)Z", nullptr, 0, $virtualMethod(TCPConnection, expired, bool, int64_t)},
+	{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC, $virtualMethod(TCPConnection, getChannel, $Channel*)},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(TCPConnection, getInputStream, $InputStream*), "java.io.IOException"},
+	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(TCPConnection, getOutputStream, $OutputStream*), "java.io.IOException"},
+	{"isDead", "()Z", nullptr, $PUBLIC, $virtualMethod(TCPConnection, isDead, bool)},
+	{"isReusable", "()Z", nullptr, $PUBLIC, $virtualMethod(TCPConnection, isReusable, bool)},
+	{"releaseInputStream", "()V", nullptr, $PUBLIC, $virtualMethod(TCPConnection, releaseInputStream, void)},
+	{"releaseOutputStream", "()V", nullptr, $PUBLIC, $virtualMethod(TCPConnection, releaseOutputStream, void), "java.io.IOException"},
+	{"setExpiration", "(J)V", nullptr, 0, $virtualMethod(TCPConnection, setExpiration, void, int64_t)},
+	{"setLastUseTime", "(J)V", nullptr, 0, $virtualMethod(TCPConnection, setLastUseTime, void, int64_t)},
 	{}
 };
 

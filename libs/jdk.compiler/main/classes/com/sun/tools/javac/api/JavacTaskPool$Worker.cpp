@@ -4,6 +4,7 @@
 #include <com/sun/tools/javac/api/JavacTaskPool.h>
 #include <jcpp.h>
 
+using $JavacTask = ::com::sun::source::util::JavacTask;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,7 +16,7 @@ namespace com {
 				namespace api {
 
 $MethodInfo _JavacTaskPool$Worker_MethodInfo_[] = {
-	{"withTask", "(Lcom/sun/source/util/JavacTask;)Ljava/lang/Object;", "(Lcom/sun/source/util/JavacTask;)TZ;", $PUBLIC | $ABSTRACT},
+	{"withTask", "(Lcom/sun/source/util/JavacTask;)Ljava/lang/Object;", "(Lcom/sun/source/util/JavacTask;)TZ;", $PUBLIC | $ABSTRACT, $virtualMethod(JavacTaskPool$Worker, withTask, $Object*, $JavacTask*)},
 	{}
 };
 

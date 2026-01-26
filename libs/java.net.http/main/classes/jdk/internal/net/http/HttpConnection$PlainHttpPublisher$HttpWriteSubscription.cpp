@@ -39,12 +39,12 @@ $FieldInfo _HttpConnection$PlainHttpPublisher$HttpWriteSubscription_FieldInfo_[]
 };
 
 $MethodInfo _HttpConnection$PlainHttpPublisher$HttpWriteSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection$PlainHttpPublisher;)V", nullptr, 0, $method(static_cast<void(HttpConnection$PlainHttpPublisher$HttpWriteSubscription::*)($HttpConnection$PlainHttpPublisher*)>(&HttpConnection$PlainHttpPublisher$HttpWriteSubscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"flush", "()V", nullptr, 0, $method(static_cast<void(HttpConnection$PlainHttpPublisher$HttpWriteSubscription::*)()>(&HttpConnection$PlainHttpPublisher$HttpWriteSubscription::flush))},
-	{"isEmpty", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(HttpConnection$PlainHttpPublisher$HttpWriteSubscription::*)()>(&HttpConnection$PlainHttpPublisher$HttpWriteSubscription::isEmpty))},
-	{"poll", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(static_cast<$List*(HttpConnection$PlainHttpPublisher$HttpWriteSubscription::*)()>(&HttpConnection$PlainHttpPublisher$HttpWriteSubscription::poll))},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection$PlainHttpPublisher;)V", nullptr, 0, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, init$, void, $HttpConnection$PlainHttpPublisher*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, cancel, void)},
+	{"flush", "()V", nullptr, 0, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, flush, void)},
+	{"isEmpty", "()Z", nullptr, $PRIVATE, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, isEmpty, bool)},
+	{"poll", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, poll, $List*)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, request, void, int64_t)},
 	{}
 };
 

@@ -50,16 +50,16 @@ $FieldInfo _FingerPrint$ClassAttributes_FieldInfo_[] = {
 };
 
 $MethodInfo _FingerPrint$ClassAttributes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FingerPrint$ClassAttributes::*)()>(&FingerPrint$ClassAttributes::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isPublic", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(FingerPrint$ClassAttributes::*)(int32_t)>(&FingerPrint$ClassAttributes::isPublic))},
-	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC},
-	{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC},
-	{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC},
-	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC},
-	{"visitOuterClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FingerPrint$ClassAttributes, init$, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FingerPrint$ClassAttributes, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FingerPrint$ClassAttributes, hashCode, int32_t)},
+	{"isPublic", "(I)Z", nullptr, $PRIVATE, $method(FingerPrint$ClassAttributes, isPublic, bool, int32_t)},
+	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FingerPrint$ClassAttributes, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
+	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(FingerPrint$ClassAttributes, visitEnd, void)},
+	{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC, $virtualMethod(FingerPrint$ClassAttributes, visitField, $FieldVisitor*, int32_t, $String*, $String*, $String*, Object$*)},
+	{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(FingerPrint$ClassAttributes, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
+	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(FingerPrint$ClassAttributes, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+	{"visitOuterClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FingerPrint$ClassAttributes, visitOuterClass, void, $String*, $String*, $String*)},
 	{}
 };
 

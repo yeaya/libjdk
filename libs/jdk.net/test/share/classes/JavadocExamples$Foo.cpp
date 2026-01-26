@@ -19,8 +19,8 @@ $FieldInfo _JavadocExamples$Foo_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocExamples$Foo_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$Foo::*)($bytes*)>(&JavadocExamples$Foo::init$))},
-	{"asString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(JavadocExamples$Foo, init$, void, $bytes*)},
+	{"asString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$Foo, asString, $String*)},
 	{}
 };
 

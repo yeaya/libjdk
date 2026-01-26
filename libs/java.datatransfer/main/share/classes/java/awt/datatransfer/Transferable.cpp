@@ -3,6 +3,8 @@
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <jcpp.h>
 
+using $DataFlavorArray = $Array<::java::awt::datatransfer::DataFlavor>;
+using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,9 +13,9 @@ namespace java {
 		namespace datatransfer {
 
 $MethodInfo _Transferable_MethodInfo_[] = {
-	{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
-	{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getTransferData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transferable, getTransferData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
+	{"getTransferDataFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transferable, getTransferDataFlavors, $DataFlavorArray*)},
+	{"isDataFlavorSupported", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transferable, isDataFlavorSupported, bool, $DataFlavor*)},
 	{}
 };
 

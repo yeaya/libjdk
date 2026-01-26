@@ -55,8 +55,8 @@ $FieldInfo RequestPublishers$IterablePublisher$$Lambda$iterator::fieldInfos[2] =
 	{}
 };
 $MethodInfo RequestPublishers$IterablePublisher$$Lambda$iterator::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/RequestPublishers$IterablePublisher;)V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$IterablePublisher$$Lambda$iterator::*)(RequestPublishers$IterablePublisher*)>(&RequestPublishers$IterablePublisher$$Lambda$iterator::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/RequestPublishers$IterablePublisher;)V", nullptr, $PUBLIC, $method(RequestPublishers$IterablePublisher$$Lambda$iterator, init$, void, RequestPublishers$IterablePublisher*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$IterablePublisher$$Lambda$iterator, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo RequestPublishers$IterablePublisher$$Lambda$iterator::classInfo$ = {
@@ -80,11 +80,11 @@ $FieldInfo _RequestPublishers$IterablePublisher_FieldInfo_[] = {
 };
 
 $MethodInfo _RequestPublishers$IterablePublisher_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<[B>;)V", $PUBLIC, $method(static_cast<void(RequestPublishers$IterablePublisher::*)($Iterable*)>(&RequestPublishers$IterablePublisher::init$))},
-	{"computeLength", "(Ljava/lang/Iterable;)J", "(Ljava/lang/Iterable<[B>;)J", $STATIC, $method(static_cast<int64_t(*)($Iterable*)>(&RequestPublishers$IterablePublisher::computeLength))},
-	{"contentLength", "()J", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/ByteBuffer;>;", $PUBLIC},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<[B>;)V", $PUBLIC, $method(RequestPublishers$IterablePublisher, init$, void, $Iterable*)},
+	{"computeLength", "(Ljava/lang/Iterable;)J", "(Ljava/lang/Iterable<[B>;)J", $STATIC, $staticMethod(RequestPublishers$IterablePublisher, computeLength, int64_t, $Iterable*)},
+	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$IterablePublisher, contentLength, int64_t)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(RequestPublishers$IterablePublisher, iterator, $Iterator*)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$IterablePublisher, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

@@ -7,7 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Savepoint = ::java::sql::Savepoint;
 using $RowSet = ::javax::sql::RowSet;
+using $RowSetWarning = ::javax::sql::rowset::RowSetWarning;
 
 namespace javax {
 	namespace sql {
@@ -15,17 +17,17 @@ namespace javax {
 
 $MethodInfo _JdbcRowSet_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"commit", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"commit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, commit, void), "java.sql.SQLException"},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getAutoCommit", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getRowSetWarnings", "()Ljavax/sql/rowset/RowSetWarning;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getShowDeleted", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getAutoCommit", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, getAutoCommit, bool), "java.sql.SQLException"},
+	{"getRowSetWarnings", "()Ljavax/sql/rowset/RowSetWarning;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, getRowSetWarnings, $RowSetWarning*), "java.sql.SQLException"},
+	{"getShowDeleted", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, getShowDeleted, bool), "java.sql.SQLException"},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"rollback", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"setAutoCommit", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"setShowDeleted", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"rollback", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, rollback, void), "java.sql.SQLException"},
+	{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, rollback, void, $Savepoint*), "java.sql.SQLException"},
+	{"setAutoCommit", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, setAutoCommit, void, bool), "java.sql.SQLException"},
+	{"setShowDeleted", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JdbcRowSet, setShowDeleted, void, bool), "java.sql.SQLException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

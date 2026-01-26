@@ -25,8 +25,8 @@ $FieldInfo _HttpClientImpl$SingleFacadeFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClientImpl$SingleFacadeFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HttpClientImpl$SingleFacadeFactory::*)()>(&HttpClientImpl$SingleFacadeFactory::init$))},
-	{"createFacade", "(Ljdk/internal/net/http/HttpClientImpl;)Ljdk/internal/net/http/HttpClientFacade;", nullptr, 0, $method(static_cast<$HttpClientFacade*(HttpClientImpl$SingleFacadeFactory::*)($HttpClientImpl*)>(&HttpClientImpl$SingleFacadeFactory::createFacade))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HttpClientImpl$SingleFacadeFactory, init$, void)},
+	{"createFacade", "(Ljdk/internal/net/http/HttpClientImpl;)Ljdk/internal/net/http/HttpClientFacade;", nullptr, 0, $method(HttpClientImpl$SingleFacadeFactory, createFacade, $HttpClientFacade*, $HttpClientImpl*)},
 	{}
 };
 

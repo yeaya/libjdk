@@ -32,8 +32,8 @@ $FieldInfo _NameSpaceSymbEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _NameSpaceSymbEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lorg/w3c/dom/Attr;ZLjava/lang/String;)V", nullptr, 0, $method(static_cast<void(NameSpaceSymbEntry::*)($String*,$Attr*,bool,$String*)>(&NameSpaceSymbEntry::init$))},
-	{"clone", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lorg/w3c/dom/Attr;ZLjava/lang/String;)V", nullptr, 0, $method(NameSpaceSymbEntry, init$, void, $String*, $Attr*, bool, $String*)},
+	{"clone", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbEntry, clone, NameSpaceSymbEntry*)},
 	{}
 };
 

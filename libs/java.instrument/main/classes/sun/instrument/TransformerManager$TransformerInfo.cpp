@@ -22,10 +22,10 @@ $FieldInfo _TransformerManager$TransformerInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _TransformerManager$TransformerInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/instrument/TransformerManager;Ljava/lang/instrument/ClassFileTransformer;)V", nullptr, 0, $method(static_cast<void(TransformerManager$TransformerInfo::*)($TransformerManager*,$ClassFileTransformer*)>(&TransformerManager$TransformerInfo::init$))},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, 0},
-	{"setPrefix", "(Ljava/lang/String;)V", nullptr, 0},
-	{"transformer", "()Ljava/lang/instrument/ClassFileTransformer;", nullptr, 0},
+	{"<init>", "(Lsun/instrument/TransformerManager;Ljava/lang/instrument/ClassFileTransformer;)V", nullptr, 0, $method(TransformerManager$TransformerInfo, init$, void, $TransformerManager*, $ClassFileTransformer*)},
+	{"getPrefix", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TransformerManager$TransformerInfo, getPrefix, $String*)},
+	{"setPrefix", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(TransformerManager$TransformerInfo, setPrefix, void, $String*)},
+	{"transformer", "()Ljava/lang/instrument/ClassFileTransformer;", nullptr, 0, $virtualMethod(TransformerManager$TransformerInfo, transformer, $ClassFileTransformer*)},
 	{}
 };
 

@@ -25,8 +25,8 @@ $FieldInfo _Logger$SystemLoggerHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _Logger$SystemLoggerHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Logger$SystemLoggerHelper::*)()>(&Logger$SystemLoggerHelper::init$))},
-	{"getBooleanProperty", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&Logger$SystemLoggerHelper::getBooleanProperty))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Logger$SystemLoggerHelper, init$, void)},
+	{"getBooleanProperty", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Logger$SystemLoggerHelper, getBooleanProperty, bool, $String*)},
 	{}
 };
 

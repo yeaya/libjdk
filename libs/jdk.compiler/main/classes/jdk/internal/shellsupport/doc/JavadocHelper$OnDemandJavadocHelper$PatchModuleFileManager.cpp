@@ -36,10 +36,10 @@ $FieldInfo _JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager_FieldInfo
 };
 
 $MethodInfo _JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileManager;Ljavax/tools/JavaFileObject;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager::*)($JavaFileManager*,$JavaFileObject*,$String*)>(&JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager::init$))},
-	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC},
-	{"inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljavax/tools/JavaFileManager;Ljavax/tools/JavaFileObject;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, init$, void, $JavaFileManager*, $JavaFileObject*, $String*)},
+	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $JavaFileObject*), "java.io.IOException"},
+	{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, hasLocation, bool, $JavaFileManager$Location*)},
+	{"inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager, inferModuleName, $String*, $JavaFileManager$Location*), "java.io.IOException"},
 	{}
 };
 

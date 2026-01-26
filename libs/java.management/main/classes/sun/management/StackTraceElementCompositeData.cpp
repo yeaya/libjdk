@@ -71,13 +71,13 @@ $FieldInfo _StackTraceElementCompositeData_FieldInfo_[] = {
 };
 
 $MethodInfo _StackTraceElementCompositeData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE, $method(static_cast<void(StackTraceElementCompositeData::*)($StackTraceElement*)>(&StackTraceElementCompositeData::init$))},
-	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StackTraceElement*(*)($CompositeData*)>(&StackTraceElementCompositeData::from))},
-	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED},
-	{"getStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC},
-	{"toCompositeData", "(Ljava/lang/StackTraceElement;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CompositeData*(*)($StackTraceElement*)>(&StackTraceElementCompositeData::toCompositeData))},
-	{"v5CompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $method(static_cast<$CompositeType*(*)()>(&StackTraceElementCompositeData::v5CompositeType))},
-	{"validateCompositeData", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($CompositeData*)>(&StackTraceElementCompositeData::validateCompositeData))},
+	{"<init>", "(Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE, $method(StackTraceElementCompositeData, init$, void, $StackTraceElement*)},
+	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceElementCompositeData, from, $StackTraceElement*, $CompositeData*)},
+	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED, $virtualMethod(StackTraceElementCompositeData, getCompositeData, $CompositeData*)},
+	{"getStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(StackTraceElementCompositeData, getStackTraceElement, $StackTraceElement*)},
+	{"toCompositeData", "(Ljava/lang/StackTraceElement;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceElementCompositeData, toCompositeData, $CompositeData*, $StackTraceElement*)},
+	{"v5CompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(StackTraceElementCompositeData, v5CompositeType, $CompositeType*)},
+	{"validateCompositeData", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceElementCompositeData, validateCompositeData, void, $CompositeData*)},
 	{}
 };
 

@@ -63,14 +63,14 @@ $FieldInfo _Klist_FieldInfo_[] = {
 };
 
 $MethodInfo _Klist_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Klist::*)()>(&Klist::init$))},
-	{"displayCache", "()V", nullptr, 0},
-	{"displayMessage", "(Ljava/lang/String;)V", nullptr, 0},
-	{"displayTab", "()V", nullptr, 0},
-	{"format", "(Lsun/security/krb5/internal/KerberosTime;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Klist::*)($KerberosTime*)>(&Klist::format))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Klist::main))},
-	{"printHelp", "()V", nullptr, 0},
-	{"processArgs", "([Ljava/lang/String;)V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Klist, init$, void)},
+	{"displayCache", "()V", nullptr, 0, $virtualMethod(Klist, displayCache, void)},
+	{"displayMessage", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Klist, displayMessage, void, $String*)},
+	{"displayTab", "()V", nullptr, 0, $virtualMethod(Klist, displayTab, void)},
+	{"format", "(Lsun/security/krb5/internal/KerberosTime;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Klist, format, $String*, $KerberosTime*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Klist, main, void, $StringArray*)},
+	{"printHelp", "()V", nullptr, 0, $virtualMethod(Klist, printHelp, void)},
+	{"processArgs", "([Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Klist, processArgs, void, $StringArray*)},
 	{}
 };
 

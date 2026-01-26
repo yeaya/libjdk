@@ -107,8 +107,8 @@ $FieldInfo StreamRemoteCall$$Lambda$lambda$getInputStream$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo StreamRemoteCall$$Lambda$lambda$getInputStream$0::methodInfos[3] = {
-	{"<init>", "(Lsun/rmi/transport/StreamRemoteCall;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamRemoteCall$$Lambda$lambda$getInputStream$0::*)(StreamRemoteCall*)>(&StreamRemoteCall$$Lambda$lambda$getInputStream$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/StreamRemoteCall;)V", nullptr, $PUBLIC, $method(StreamRemoteCall$$Lambda$lambda$getInputStream$0, init$, void, StreamRemoteCall*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall$$Lambda$lambda$getInputStream$0, run, $Object*)},
 	{}
 };
 $ClassInfo StreamRemoteCall$$Lambda$lambda$getInputStream$0::classInfo$ = {
@@ -136,22 +136,22 @@ $FieldInfo _StreamRemoteCall_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamRemoteCall_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/Connection;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamRemoteCall::*)($Connection*)>(&StreamRemoteCall::init$))},
-	{"<init>", "(Lsun/rmi/transport/Connection;Ljava/rmi/server/ObjID;IJ)V", nullptr, $PUBLIC, $method(static_cast<void(StreamRemoteCall::*)($Connection*,$ObjID*,int32_t,int64_t)>(&StreamRemoteCall::init$)), "java.rmi.RemoteException"},
-	{"discardPendingRefs", "()V", nullptr, $PUBLIC},
-	{"done", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"exceptionReceivedFromServer", "(Ljava/lang/Exception;)V", nullptr, $PROTECTED, nullptr, "java.lang.Exception"},
-	{"executeCall", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"getConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC},
-	{"getInputStream", "()Ljava/io/ObjectInput;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getOutputStream", "()Ljava/io/ObjectOutput;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getOutputStream", "(Z)Ljava/io/ObjectOutput;", nullptr, $PRIVATE, $method(static_cast<$ObjectOutput*(StreamRemoteCall::*)(bool)>(&StreamRemoteCall::getOutputStream)), "java.io.IOException"},
-	{"getResultStream", "(Z)Ljava/io/ObjectOutput;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getServerException", "()Ljava/lang/Exception;", nullptr, $PUBLIC},
-	{"lambda$getInputStream$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(StreamRemoteCall::*)()>(&StreamRemoteCall::lambda$getInputStream$0))},
-	{"releaseInputStream", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"releaseOutputStream", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setObjectInputFilter", "(Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/Connection;)V", nullptr, $PUBLIC, $method(StreamRemoteCall, init$, void, $Connection*)},
+	{"<init>", "(Lsun/rmi/transport/Connection;Ljava/rmi/server/ObjID;IJ)V", nullptr, $PUBLIC, $method(StreamRemoteCall, init$, void, $Connection*, $ObjID*, int32_t, int64_t), "java.rmi.RemoteException"},
+	{"discardPendingRefs", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, discardPendingRefs, void)},
+	{"done", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, done, void), "java.io.IOException"},
+	{"exceptionReceivedFromServer", "(Ljava/lang/Exception;)V", nullptr, $PROTECTED, $virtualMethod(StreamRemoteCall, exceptionReceivedFromServer, void, $Exception*), "java.lang.Exception"},
+	{"executeCall", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, executeCall, void), "java.lang.Exception"},
+	{"getConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getConnection, $Connection*)},
+	{"getInputStream", "()Ljava/io/ObjectInput;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getInputStream, $ObjectInput*), "java.io.IOException"},
+	{"getOutputStream", "()Ljava/io/ObjectOutput;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getOutputStream, $ObjectOutput*), "java.io.IOException"},
+	{"getOutputStream", "(Z)Ljava/io/ObjectOutput;", nullptr, $PRIVATE, $method(StreamRemoteCall, getOutputStream, $ObjectOutput*, bool), "java.io.IOException"},
+	{"getResultStream", "(Z)Ljava/io/ObjectOutput;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getResultStream, $ObjectOutput*, bool), "java.io.IOException"},
+	{"getServerException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, getServerException, $Exception*)},
+	{"lambda$getInputStream$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(StreamRemoteCall, lambda$getInputStream$0, $Void*)},
+	{"releaseInputStream", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, releaseInputStream, void), "java.io.IOException"},
+	{"releaseOutputStream", "()V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, releaseOutputStream, void), "java.io.IOException"},
+	{"setObjectInputFilter", "(Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $virtualMethod(StreamRemoteCall, setObjectInputFilter, void, $ObjectInputFilter*)},
 	{}
 };
 

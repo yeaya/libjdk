@@ -23,10 +23,10 @@ namespace sun {
 			namespace internal {
 
 $MethodInfo _TGSReq_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/internal/KDCReqBody;)V", nullptr, $PUBLIC, $method(static_cast<void(TGSReq::*)($PADataArray*,$KDCReqBody*)>(&TGSReq::init$)), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(TGSReq::*)($bytes*)>(&TGSReq::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(TGSReq::*)($DerValue*)>(&TGSReq::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(TGSReq::*)($DerValue*)>(&TGSReq::init)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
+	{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/internal/KDCReqBody;)V", nullptr, $PUBLIC, $method(TGSReq, init$, void, $PADataArray*, $KDCReqBody*), "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(TGSReq, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(TGSReq, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
+	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(TGSReq, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
 	{}
 };
 

@@ -42,17 +42,17 @@ $FieldInfo _Context_FieldInfo_[] = {
 };
 
 $MethodInfo _Context_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Context::*)()>(&Context::init$))},
-	{"checkState", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Map*)>(&Context::checkState))},
-	{"dump", "()V", nullptr, $PUBLIC},
-	{"get", "(Lcom/sun/tools/javac/util/Context$Key;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Context$Key<TT;>;)TT;", $PUBLIC},
-	{"get", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC},
-	{"key", "(Ljava/lang/Class;)Lcom/sun/tools/javac/util/Context$Key;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Lcom/sun/tools/javac/util/Context$Key<TT;>;", $PROTECTED},
-	{"put", "(Lcom/sun/tools/javac/util/Context$Key;Lcom/sun/tools/javac/util/Context$Factory;)V", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Context$Key<TT;>;Lcom/sun/tools/javac/util/Context$Factory<TT;>;)V", $PUBLIC},
-	{"put", "(Lcom/sun/tools/javac/util/Context$Key;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Context$Key<TT;>;TT;)V", $PUBLIC},
-	{"put", "(Ljava/lang/Class;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;TT;)V", $PUBLIC},
-	{"put", "(Ljava/lang/Class;Lcom/sun/tools/javac/util/Context$Factory;)V", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Lcom/sun/tools/javac/util/Context$Factory<TT;>;)V", $PUBLIC},
-	{"uncheckedCast", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;)TT;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&Context::uncheckedCast))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Context, init$, void)},
+	{"checkState", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PRIVATE | $STATIC, $staticMethod(Context, checkState, void, $Map*)},
+	{"dump", "()V", nullptr, $PUBLIC, $virtualMethod(Context, dump, void)},
+	{"get", "(Lcom/sun/tools/javac/util/Context$Key;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Context$Key<TT;>;)TT;", $PUBLIC, $virtualMethod(Context, get, $Object*, $Context$Key*)},
+	{"get", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(Context, get, $Object*, $Class*)},
+	{"key", "(Ljava/lang/Class;)Lcom/sun/tools/javac/util/Context$Key;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Lcom/sun/tools/javac/util/Context$Key<TT;>;", $PROTECTED, $virtualMethod(Context, key, $Context$Key*, $Class*)},
+	{"put", "(Lcom/sun/tools/javac/util/Context$Key;Lcom/sun/tools/javac/util/Context$Factory;)V", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Context$Key<TT;>;Lcom/sun/tools/javac/util/Context$Factory<TT;>;)V", $PUBLIC, $virtualMethod(Context, put, void, $Context$Key*, $Context$Factory*)},
+	{"put", "(Lcom/sun/tools/javac/util/Context$Key;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Context$Key<TT;>;TT;)V", $PUBLIC, $virtualMethod(Context, put, void, $Context$Key*, Object$*)},
+	{"put", "(Ljava/lang/Class;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;TT;)V", $PUBLIC, $virtualMethod(Context, put, void, $Class*, Object$*)},
+	{"put", "(Ljava/lang/Class;Lcom/sun/tools/javac/util/Context$Factory;)V", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Lcom/sun/tools/javac/util/Context$Factory<TT;>;)V", $PUBLIC, $virtualMethod(Context, put, void, $Class*, $Context$Factory*)},
+	{"uncheckedCast", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;)TT;", $PRIVATE | $STATIC, $staticMethod(Context, uncheckedCast, $Object*, Object$*)},
 	{}
 };
 

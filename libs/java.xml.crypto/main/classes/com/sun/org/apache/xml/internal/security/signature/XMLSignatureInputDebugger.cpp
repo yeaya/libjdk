@@ -88,15 +88,15 @@ $FieldInfo _XMLSignatureInputDebugger_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLSignatureInputDebugger_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLSignatureInputDebugger::*)($XMLSignatureInput*)>(&XMLSignatureInputDebugger::init$))},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/util/Set;)V", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(XMLSignatureInputDebugger::*)($XMLSignatureInput*,$Set*)>(&XMLSignatureInputDebugger::init$))},
-	{"canonicalizeXPathNodeSet", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(static_cast<void(XMLSignatureInputDebugger::*)($Node*)>(&XMLSignatureInputDebugger::canonicalizeXPathNodeSet)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,java.io.IOException"},
-	{"getHTMLRepresentation", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getPositionRelativeToDocumentElement", "(Lorg/w3c/dom/Node;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(XMLSignatureInputDebugger::*)($Node*)>(&XMLSignatureInputDebugger::getPositionRelativeToDocumentElement))},
-	{"outputAttrToWriter", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(XMLSignatureInputDebugger::*)($String*,$String*)>(&XMLSignatureInputDebugger::outputAttrToWriter)), "java.io.IOException"},
-	{"outputCommentToWriter", "(Lorg/w3c/dom/Comment;)V", nullptr, $PRIVATE, $method(static_cast<void(XMLSignatureInputDebugger::*)($Comment*)>(&XMLSignatureInputDebugger::outputCommentToWriter)), "java.io.IOException"},
-	{"outputPItoWriter", "(Lorg/w3c/dom/ProcessingInstruction;)V", nullptr, $PRIVATE, $method(static_cast<void(XMLSignatureInputDebugger::*)($ProcessingInstruction*)>(&XMLSignatureInputDebugger::outputPItoWriter)), "java.io.IOException"},
-	{"outputTextToWriter", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(XMLSignatureInputDebugger::*)($String*)>(&XMLSignatureInputDebugger::outputTextToWriter)), "java.io.IOException"},
+	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PUBLIC, $method(XMLSignatureInputDebugger, init$, void, $XMLSignatureInput*)},
+	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/util/Set;)V", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(XMLSignatureInputDebugger, init$, void, $XMLSignatureInput*, $Set*)},
+	{"canonicalizeXPathNodeSet", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(XMLSignatureInputDebugger, canonicalizeXPathNodeSet, void, $Node*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,java.io.IOException"},
+	{"getHTMLRepresentation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSignatureInputDebugger, getHTMLRepresentation, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"getPositionRelativeToDocumentElement", "(Lorg/w3c/dom/Node;)I", nullptr, $PRIVATE, $method(XMLSignatureInputDebugger, getPositionRelativeToDocumentElement, int32_t, $Node*)},
+	{"outputAttrToWriter", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLSignatureInputDebugger, outputAttrToWriter, void, $String*, $String*), "java.io.IOException"},
+	{"outputCommentToWriter", "(Lorg/w3c/dom/Comment;)V", nullptr, $PRIVATE, $method(XMLSignatureInputDebugger, outputCommentToWriter, void, $Comment*), "java.io.IOException"},
+	{"outputPItoWriter", "(Lorg/w3c/dom/ProcessingInstruction;)V", nullptr, $PRIVATE, $method(XMLSignatureInputDebugger, outputPItoWriter, void, $ProcessingInstruction*), "java.io.IOException"},
+	{"outputTextToWriter", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLSignatureInputDebugger, outputTextToWriter, void, $String*), "java.io.IOException"},
 	{}
 };
 

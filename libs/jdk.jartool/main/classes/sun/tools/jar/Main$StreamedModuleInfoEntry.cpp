@@ -25,10 +25,10 @@ $FieldInfo _Main$StreamedModuleInfoEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$StreamedModuleInfoEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, 0, $method(static_cast<void(Main$StreamedModuleInfoEntry::*)($String*,$bytes*)>(&Main$StreamedModuleInfoEntry::init$))},
-	{"bytes", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uriString", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;[B)V", nullptr, 0, $method(Main$StreamedModuleInfoEntry, init$, void, $String*, $bytes*)},
+	{"bytes", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Main$StreamedModuleInfoEntry, bytes, $InputStream*), "java.io.IOException"},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$StreamedModuleInfoEntry, name, $String*)},
+	{"uriString", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Main$StreamedModuleInfoEntry, uriString, $Optional*)},
 	{}
 };
 

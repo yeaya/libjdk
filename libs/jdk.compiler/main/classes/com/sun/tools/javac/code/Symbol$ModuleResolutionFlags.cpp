@@ -37,11 +37,11 @@ $FieldInfo _Symbol$ModuleResolutionFlags_FieldInfo_[] = {
 };
 
 $MethodInfo _Symbol$ModuleResolutionFlags_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Symbol$ModuleResolutionFlagsArray*(*)()>(&Symbol$ModuleResolutionFlags::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(Symbol$ModuleResolutionFlags::*)($String*,int32_t,int32_t)>(&Symbol$ModuleResolutionFlags::init$))},
-	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;>;)I", $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($Set*)>(&Symbol$ModuleResolutionFlags::value))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Symbol$ModuleResolutionFlags*(*)($String*)>(&Symbol$ModuleResolutionFlags::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Symbol$ModuleResolutionFlagsArray*(*)()>(&Symbol$ModuleResolutionFlags::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symbol$ModuleResolutionFlags, $values, $Symbol$ModuleResolutionFlagsArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Symbol$ModuleResolutionFlags, init$, void, $String*, int32_t, int32_t)},
+	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;>;)I", $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleResolutionFlags, value, int32_t, $Set*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleResolutionFlags, valueOf, Symbol$ModuleResolutionFlags*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleResolutionFlags, values, $Symbol$ModuleResolutionFlagsArray*)},
 	{}
 };
 

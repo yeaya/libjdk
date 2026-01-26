@@ -52,8 +52,8 @@ $FieldInfo _SunNativeProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _SunNativeProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SunNativeProvider::*)()>(&SunNativeProvider::init$))},
-	{"debug", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&SunNativeProvider::debug))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SunNativeProvider, init$, void)},
+	{"debug", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SunNativeProvider, debug, void, $String*)},
 	{}
 };
 

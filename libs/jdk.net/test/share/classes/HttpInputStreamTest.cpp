@@ -73,8 +73,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpInputStreamTest$$Lambda$lambda$getCharset$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpInputStreamTest$$Lambda$lambda$getCharset$0::*)()>(&HttpInputStreamTest$$Lambda$lambda$getCharset$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$lambda$getCharset$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$lambda$getCharset$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo HttpInputStreamTest$$Lambda$lambda$getCharset$0::classInfo$ = {
@@ -106,8 +106,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpInputStreamTest$$Lambda$trim$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpInputStreamTest$$Lambda$trim$1::*)()>(&HttpInputStreamTest$$Lambda$trim$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$trim$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$trim$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo HttpInputStreamTest$$Lambda$trim$1::classInfo$ = {
@@ -139,8 +139,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::*)()>(&HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$lambda$getCharset$1$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo HttpInputStreamTest$$Lambda$lambda$getCharset$1$2::classInfo$ = {
@@ -172,8 +172,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::*)()>(&HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$lambda$getCharset$2$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo HttpInputStreamTest$$Lambda$lambda$getCharset$2$3::classInfo$ = {
@@ -205,8 +205,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpInputStreamTest$$Lambda$forName$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpInputStreamTest$$Lambda$forName$4::*)()>(&HttpInputStreamTest$$Lambda$forName$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$$Lambda$forName$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpInputStreamTest$$Lambda$forName$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo HttpInputStreamTest$$Lambda$forName$4::classInfo$ = {
@@ -230,12 +230,12 @@ $FieldInfo _HttpInputStreamTest_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpInputStreamTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpInputStreamTest::*)()>(&HttpInputStreamTest::init$))},
-	{"getCharset", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional;", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional<Ljava/nio/charset/Charset;>;", $PUBLIC | $STATIC, $method(static_cast<$Optional*(*)($HttpHeaders*)>(&HttpInputStreamTest::getCharset))},
-	{"lambda$getCharset$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&HttpInputStreamTest::lambda$getCharset$0))},
-	{"lambda$getCharset$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&HttpInputStreamTest::lambda$getCharset$1))},
-	{"lambda$getCharset$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&HttpInputStreamTest::lambda$getCharset$2))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HttpInputStreamTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest, init$, void)},
+	{"getCharset", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional;", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional<Ljava/nio/charset/Charset;>;", $PUBLIC | $STATIC, $staticMethod(HttpInputStreamTest, getCharset, $Optional*, $HttpHeaders*)},
+	{"lambda$getCharset$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpInputStreamTest, lambda$getCharset$0, $String*, $String*)},
+	{"lambda$getCharset$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpInputStreamTest, lambda$getCharset$1, bool, $String*)},
+	{"lambda$getCharset$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpInputStreamTest, lambda$getCharset$2, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpInputStreamTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

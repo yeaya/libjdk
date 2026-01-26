@@ -48,8 +48,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$BinaryNumericOperator$$Lambda$isNumeric::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$BinaryNumericOperator$$Lambda$isNumeric::*)()>(&Operators$BinaryNumericOperator$$Lambda$isNumeric::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$BinaryNumericOperator$$Lambda$isNumeric, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryNumericOperator$$Lambda$isNumeric, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Operators$BinaryNumericOperator$$Lambda$isNumeric::classInfo$ = {
@@ -73,11 +73,11 @@ $FieldInfo _Operators$BinaryNumericOperator_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators$BinaryNumericOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Operators$BinaryNumericOperator::*)($Operators*,$JCTree$Tag*)>(&Operators$BinaryNumericOperator::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(static_cast<void(Operators$BinaryNumericOperator::*)($Operators*,$JCTree$Tag*,$Predicate*)>(&Operators$BinaryNumericOperator::init$))},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC},
-	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$BinaryNumericOperator, init$, void, $Operators*, $JCTree$Tag*)},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(Operators$BinaryNumericOperator, init$, void, $Operators*, $JCTree$Tag*, $Predicate*)},
+	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryNumericOperator, resolve, $Symbol$OperatorSymbol*, $Type*, $Type*)},
+	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryNumericOperator, test, bool, $Type*, $Type*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$BinaryNumericOperator, test, bool, Object$*, Object$*)},
 	{}
 };
 

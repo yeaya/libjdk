@@ -55,8 +55,8 @@ $FieldInfo _ImmutableHeaders_FieldInfo_[] = {
 };
 
 $MethodInfo _ImmutableHeaders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ImmutableHeaders::*)()>(&ImmutableHeaders::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ImmutableHeaders::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ImmutableHeaders, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImmutableHeaders, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

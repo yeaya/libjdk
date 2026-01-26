@@ -1,7 +1,9 @@
 #include <com/sun/source/tree/ImportTree.h>
 
+#include <com/sun/source/tree/Tree.h>
 #include <jcpp.h>
 
+using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,8 +13,8 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _ImportTree_MethodInfo_[] = {
-	{"getQualifiedIdentifier", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getQualifiedIdentifier", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImportTree, getQualifiedIdentifier, $Tree*)},
+	{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImportTree, isStatic, bool)},
 	{}
 };
 

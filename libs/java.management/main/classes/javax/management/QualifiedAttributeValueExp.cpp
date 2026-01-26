@@ -37,11 +37,11 @@ $FieldInfo _QualifiedAttributeValueExp_FieldInfo_[] = {
 };
 
 $MethodInfo _QualifiedAttributeValueExp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(QualifiedAttributeValueExp::*)()>(&QualifiedAttributeValueExp::init$)), nullptr, nullptr, _QualifiedAttributeValueExp_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(QualifiedAttributeValueExp::*)($String*,$String*)>(&QualifiedAttributeValueExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getAttrClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(QualifiedAttributeValueExp, init$, void), nullptr, nullptr, _QualifiedAttributeValueExp_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(QualifiedAttributeValueExp, init$, void, $String*, $String*)},
+	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(QualifiedAttributeValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"getAttrClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QualifiedAttributeValueExp, getAttrClassName, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(QualifiedAttributeValueExp, toString, $String*)},
 	{}
 };
 

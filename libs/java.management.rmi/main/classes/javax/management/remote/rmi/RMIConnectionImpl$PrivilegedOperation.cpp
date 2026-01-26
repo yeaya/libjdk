@@ -22,8 +22,8 @@ $FieldInfo _RMIConnectionImpl$PrivilegedOperation_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnectionImpl$PrivilegedOperation_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(RMIConnectionImpl$PrivilegedOperation::*)($RMIConnectionImpl*,int32_t,$ObjectArray*)>(&RMIConnectionImpl$PrivilegedOperation::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(RMIConnectionImpl$PrivilegedOperation, init$, void, $RMIConnectionImpl*, int32_t, $ObjectArray*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl$PrivilegedOperation, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

@@ -24,7 +24,7 @@ $FieldInfo _MacThai$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MacThai$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacThai$Holder::*)()>(&MacThai$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacThai$Holder, init$, void)},
 	{}
 };
 

@@ -21,11 +21,11 @@ namespace com {
 				namespace jvm {
 
 $MethodInfo _PoolConstant$LoadableConstant_MethodInfo_[] = {
-	{"Double", "(D)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PoolConstant$LoadableConstant*(*)(double)>(&PoolConstant$LoadableConstant::Double))},
-	{"Float", "(F)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PoolConstant$LoadableConstant*(*)(float)>(&PoolConstant$LoadableConstant::Float))},
-	{"Int", "(I)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PoolConstant$LoadableConstant*(*)(int32_t)>(&PoolConstant$LoadableConstant::Int))},
-	{"Long", "(J)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PoolConstant$LoadableConstant*(*)(int64_t)>(&PoolConstant$LoadableConstant::Long))},
-	{"String", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PoolConstant$LoadableConstant*(*)($String*)>(&PoolConstant$LoadableConstant::String))},
+	{"Double", "(D)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Double, PoolConstant$LoadableConstant*, double)},
+	{"Float", "(F)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Float, PoolConstant$LoadableConstant*, float)},
+	{"Int", "(I)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Int, PoolConstant$LoadableConstant*, int32_t)},
+	{"Long", "(J)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, Long, PoolConstant$LoadableConstant*, int64_t)},
+	{"String", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $STATIC, $staticMethod(PoolConstant$LoadableConstant, String, PoolConstant$LoadableConstant*, $String*)},
 	{}
 };
 

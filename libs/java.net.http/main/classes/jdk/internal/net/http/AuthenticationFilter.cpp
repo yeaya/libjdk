@@ -109,8 +109,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AuthenticationFilter$$Lambda$lambda$getCredentials$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationFilter$$Lambda$lambda$getCredentials$0::*)()>(&AuthenticationFilter$$Lambda$lambda$getCredentials$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationFilter$$Lambda$lambda$getCredentials$0, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthenticationFilter$$Lambda$lambda$getCredentials$0, get, $Object*)},
 	{}
 };
 $ClassInfo AuthenticationFilter$$Lambda$lambda$getCredentials$0::classInfo$ = {
@@ -140,16 +140,16 @@ $FieldInfo _AuthenticationFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthenticationFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationFilter::*)()>(&AuthenticationFilter::init$))},
-	{"addBasicCredentials", "(Ljdk/internal/net/http/HttpRequestImpl;ZLjava/net/PasswordAuthentication;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($HttpRequestImpl*,bool,$PasswordAuthentication*,bool)>(&AuthenticationFilter::addBasicCredentials))},
-	{"getCache", "(Ljdk/internal/net/http/MultiExchange;)Ljdk/internal/net/http/AuthenticationFilter$Cache;", "(Ljdk/internal/net/http/MultiExchange<*>;)Ljdk/internal/net/http/AuthenticationFilter$Cache;", $STATIC | $SYNCHRONIZED, $method(static_cast<$AuthenticationFilter$Cache*(*)($MultiExchange*)>(&AuthenticationFilter::getCache))},
-	{"getCredentials", "(Ljava/lang/String;ZLjdk/internal/net/http/HttpRequestImpl;)Ljava/net/PasswordAuthentication;", nullptr, $PRIVATE, $method(static_cast<$PasswordAuthentication*(AuthenticationFilter::*)($String*,bool,$HttpRequestImpl*)>(&AuthenticationFilter::getCredentials)), "java.io.IOException"},
-	{"getProxyURI", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/net/URI;", nullptr, $PRIVATE, $method(static_cast<$URI*(AuthenticationFilter::*)($HttpRequestImpl*)>(&AuthenticationFilter::getProxyURI))},
-	{"lambda$getCredentials$0", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$IOException*(*)()>(&AuthenticationFilter::lambda$getCredentials$0))},
-	{"normalize", "(Ljava/net/URI;Z)Ljava/net/URI;", nullptr, $STATIC, $method(static_cast<$URI*(*)($URI*,bool)>(&AuthenticationFilter::normalize))},
-	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toURL", "(Ljava/net/URI;Ljava/lang/String;Z)Ljava/net/URL;", nullptr, $PRIVATE, $method(static_cast<$URL*(AuthenticationFilter::*)($URI*,$String*,bool)>(&AuthenticationFilter::toURL)), "java.net.MalformedURLException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationFilter, init$, void)},
+	{"addBasicCredentials", "(Ljdk/internal/net/http/HttpRequestImpl;ZLjava/net/PasswordAuthentication;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(AuthenticationFilter, addBasicCredentials, void, $HttpRequestImpl*, bool, $PasswordAuthentication*, bool)},
+	{"getCache", "(Ljdk/internal/net/http/MultiExchange;)Ljdk/internal/net/http/AuthenticationFilter$Cache;", "(Ljdk/internal/net/http/MultiExchange<*>;)Ljdk/internal/net/http/AuthenticationFilter$Cache;", $STATIC | $SYNCHRONIZED, $staticMethod(AuthenticationFilter, getCache, $AuthenticationFilter$Cache*, $MultiExchange*)},
+	{"getCredentials", "(Ljava/lang/String;ZLjdk/internal/net/http/HttpRequestImpl;)Ljava/net/PasswordAuthentication;", nullptr, $PRIVATE, $method(AuthenticationFilter, getCredentials, $PasswordAuthentication*, $String*, bool, $HttpRequestImpl*), "java.io.IOException"},
+	{"getProxyURI", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/net/URI;", nullptr, $PRIVATE, $method(AuthenticationFilter, getProxyURI, $URI*, $HttpRequestImpl*)},
+	{"lambda$getCredentials$0", "()Ljava/io/IOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AuthenticationFilter, lambda$getCredentials$0, $IOException*)},
+	{"normalize", "(Ljava/net/URI;Z)Ljava/net/URI;", nullptr, $STATIC, $staticMethod(AuthenticationFilter, normalize, $URI*, $URI*, bool)},
+	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC, $virtualMethod(AuthenticationFilter, request, void, $HttpRequestImpl*, $MultiExchange*), "java.io.IOException"},
+	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC, $virtualMethod(AuthenticationFilter, response, $HttpRequestImpl*, $Response*), "java.io.IOException"},
+	{"toURL", "(Ljava/net/URI;Ljava/lang/String;Z)Ljava/net/URL;", nullptr, $PRIVATE, $method(AuthenticationFilter, toURL, $URL*, $URI*, $String*, bool), "java.net.MalformedURLException"},
 	{}
 };
 

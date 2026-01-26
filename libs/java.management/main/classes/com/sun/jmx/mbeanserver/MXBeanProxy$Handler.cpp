@@ -11,6 +11,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
+using $ObjectName = ::javax::management::ObjectName;
 
 namespace com {
 	namespace sun {
@@ -24,10 +26,10 @@ $FieldInfo _MXBeanProxy$Handler_FieldInfo_[] = {
 };
 
 $MethodInfo _MXBeanProxy$Handler_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, 0, $method(static_cast<void(MXBeanProxy$Handler::*)($String*,$ConvertingMethod*)>(&MXBeanProxy$Handler::init$))},
-	{"getConvertingMethod", "()Lcom/sun/jmx/mbeanserver/ConvertingMethod;", nullptr, 0},
-	{"getName", "()Ljava/lang/String;", nullptr, 0},
-	{"invoke", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, 0, $method(MXBeanProxy$Handler, init$, void, $String*, $ConvertingMethod*)},
+	{"getConvertingMethod", "()Lcom/sun/jmx/mbeanserver/ConvertingMethod;", nullptr, 0, $virtualMethod(MXBeanProxy$Handler, getConvertingMethod, $ConvertingMethod*)},
+	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MXBeanProxy$Handler, getName, $String*)},
+	{"invoke", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(MXBeanProxy$Handler, invoke, $Object*, $MBeanServerConnection*, $ObjectName*, $ObjectArray*), "java.lang.Exception"},
 	{}
 };
 

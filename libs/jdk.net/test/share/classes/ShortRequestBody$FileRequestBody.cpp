@@ -18,7 +18,7 @@ using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 
 $MethodInfo _ShortRequestBody$FileRequestBody_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;I)V", nullptr, 0, $method(static_cast<void(ShortRequestBody$FileRequestBody::*)($Path*,int32_t)>(&ShortRequestBody$FileRequestBody::init$)), "java.io.IOException"},
+	{"<init>", "(Ljava/nio/file/Path;I)V", nullptr, 0, $method(ShortRequestBody$FileRequestBody, init$, void, $Path*, int32_t), "java.io.IOException"},
 	{}
 };
 

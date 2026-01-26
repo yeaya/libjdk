@@ -23,8 +23,8 @@ namespace com {
 					namespace rmi {
 
 $MethodInfo _ClientProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClientProvider::*)()>(&ClientProvider::init$))},
-	{"newJMXConnector", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClientProvider, init$, void)},
+	{"newJMXConnector", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC, $virtualMethod(ClientProvider, newJMXConnector, $JMXConnector*, $JMXServiceURL*, $Map*), "java.io.IOException"},
 	{}
 };
 

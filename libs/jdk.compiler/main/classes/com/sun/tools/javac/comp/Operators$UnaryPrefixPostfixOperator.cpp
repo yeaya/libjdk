@@ -32,8 +32,8 @@ $FieldInfo _Operators$UnaryPrefixPostfixOperator_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators$UnaryPrefixPostfixOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Operators$UnaryPrefixPostfixOperator::*)($Operators*,$JCTree$Tag*)>(&Operators$UnaryPrefixPostfixOperator::init$))},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$UnaryPrefixPostfixOperator, init$, void, $Operators*, $JCTree$Tag*)},
+	{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryPrefixPostfixOperator, resolve, $Symbol$OperatorSymbol*, $Type*)},
 	{}
 };
 

@@ -25,8 +25,8 @@ $FieldInfo _SocketSecurityException_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketSecurityException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketSecurityException::*)($String*)>(&SocketSecurityException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketSecurityException::*)($String*,$Exception*)>(&SocketSecurityException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SocketSecurityException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(SocketSecurityException, init$, void, $String*, $Exception*)},
 	{}
 };
 

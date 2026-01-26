@@ -55,8 +55,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Items$StaticItem$$Lambda$putMember::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Items$StaticItem$$Lambda$putMember::*)()>(&Items$StaticItem$$Lambda$putMember::init$))},
-	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Items$StaticItem$$Lambda$putMember, init$, void)},
+	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Items$StaticItem$$Lambda$putMember, applyAsInt, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Items$StaticItem$$Lambda$putMember::classInfo$ = {
@@ -80,11 +80,11 @@ $FieldInfo _Items$StaticItem_FieldInfo_[] = {
 };
 
 $MethodInfo _Items$StaticItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(Items$StaticItem::*)($Items*,$Symbol*)>(&Items$StaticItem::init$))},
-	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"store", "()V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Items$StaticItem, init$, void, $Items*, $Symbol*)},
+	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$StaticItem, invoke, $Items$Item*)},
+	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$StaticItem, load, $Items$Item*)},
+	{"store", "()V", nullptr, 0, $virtualMethod(Items$StaticItem, store, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$StaticItem, toString, $String*)},
 	{}
 };
 

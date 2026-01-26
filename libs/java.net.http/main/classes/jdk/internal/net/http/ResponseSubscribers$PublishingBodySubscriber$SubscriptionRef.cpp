@@ -26,11 +26,11 @@ $FieldInfo _ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef_FieldIn
 };
 
 $MethodInfo _ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscription;Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;)V", nullptr, 0, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef::*)($Flow$Subscription*,$ResponseSubscribers$PublishingBodySubscriber$SubscriberRef*)>(&ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
-	{"subscribe", "()V", nullptr, 0, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef::*)()>(&ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef::subscribe))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Flow$Subscription;Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;)V", nullptr, 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef, init$, void, $Flow$Subscription*, $ResponseSubscribers$PublishingBodySubscriber$SubscriberRef*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef, request, void, int64_t)},
+	{"subscribe", "()V", nullptr, 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef, subscribe, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$SubscriptionRef, toString, $String*)},
 	{}
 };
 

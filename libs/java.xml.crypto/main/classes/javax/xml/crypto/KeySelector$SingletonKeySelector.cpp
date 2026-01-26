@@ -34,8 +34,8 @@ $FieldInfo _KeySelector$SingletonKeySelector_FieldInfo_[] = {
 };
 
 $MethodInfo _KeySelector$SingletonKeySelector_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Key;)V", nullptr, 0, $method(static_cast<void(KeySelector$SingletonKeySelector::*)($Key*)>(&KeySelector$SingletonKeySelector::init$))},
-	{"select", "(Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljavax/xml/crypto/KeySelector$Purpose;Ljavax/xml/crypto/AlgorithmMethod;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/KeySelectorResult;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.KeySelectorException"},
+	{"<init>", "(Ljava/security/Key;)V", nullptr, 0, $method(KeySelector$SingletonKeySelector, init$, void, $Key*)},
+	{"select", "(Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljavax/xml/crypto/KeySelector$Purpose;Ljavax/xml/crypto/AlgorithmMethod;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/KeySelectorResult;", nullptr, $PUBLIC, $virtualMethod(KeySelector$SingletonKeySelector, select, $KeySelectorResult*, $KeyInfo*, $KeySelector$Purpose*, $AlgorithmMethod*, $XMLCryptoContext*), "javax.xml.crypto.KeySelectorException"},
 	{}
 };
 

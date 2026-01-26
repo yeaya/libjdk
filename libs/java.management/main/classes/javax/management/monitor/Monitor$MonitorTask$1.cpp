@@ -28,8 +28,8 @@ $FieldInfo _Monitor$MonitorTask$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Monitor$MonitorTask$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/monitor/Monitor$MonitorTask;)V", nullptr, 0, $method(static_cast<void(Monitor$MonitorTask$1::*)($Monitor$MonitorTask*)>(&Monitor$MonitorTask$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/monitor/Monitor$MonitorTask;)V", nullptr, 0, $method(Monitor$MonitorTask$1, init$, void, $Monitor$MonitorTask*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Monitor$MonitorTask$1, run, $Object*)},
 	{}
 };
 

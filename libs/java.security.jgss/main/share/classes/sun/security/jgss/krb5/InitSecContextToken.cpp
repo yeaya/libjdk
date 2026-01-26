@@ -69,10 +69,10 @@ $FieldInfo _InitSecContextToken_FieldInfo_[] = {
 };
 
 $MethodInfo _InitSecContextToken_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;)V", nullptr, 0, $method(static_cast<void(InitSecContextToken::*)($Krb5Context*,$Credentials*,$Credentials*)>(&InitSecContextToken::init$)), "sun.security.krb5.KrbException,java.io.IOException,org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/jgss/krb5/Krb5AcceptCredential;Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(InitSecContextToken::*)($Krb5Context*,$Krb5AcceptCredential*,$InputStream*)>(&InitSecContextToken::init$)), "java.io.IOException,org.ietf.jgss.GSSException,sun.security.krb5.KrbException"},
-	{"encode", "()[B", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"getKrbApReq", "()Lsun/security/krb5/KrbApReq;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$KrbApReq*(InitSecContextToken::*)()>(&InitSecContextToken::getKrbApReq))},
+	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;)V", nullptr, 0, $method(InitSecContextToken, init$, void, $Krb5Context*, $Credentials*, $Credentials*), "sun.security.krb5.KrbException,java.io.IOException,org.ietf.jgss.GSSException"},
+	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/jgss/krb5/Krb5AcceptCredential;Ljava/io/InputStream;)V", nullptr, 0, $method(InitSecContextToken, init$, void, $Krb5Context*, $Krb5AcceptCredential*, $InputStream*), "java.io.IOException,org.ietf.jgss.GSSException,sun.security.krb5.KrbException"},
+	{"encode", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(InitSecContextToken, encode, $bytes*), "java.io.IOException"},
+	{"getKrbApReq", "()Lsun/security/krb5/KrbApReq;", nullptr, $PUBLIC | $FINAL, $method(InitSecContextToken, getKrbApReq, $KrbApReq*)},
 	{}
 };
 

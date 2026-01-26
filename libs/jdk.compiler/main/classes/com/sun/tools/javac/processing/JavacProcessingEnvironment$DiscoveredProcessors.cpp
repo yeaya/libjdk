@@ -31,9 +31,9 @@ $FieldInfo _JavacProcessingEnvironment$DiscoveredProcessors_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacProcessingEnvironment$DiscoveredProcessors_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Ljava/util/Iterator;)V", "(Ljava/util/Iterator<+Ljavax/annotation/processing/Processor;>;)V", 0, $method(static_cast<void(JavacProcessingEnvironment$DiscoveredProcessors::*)($JavacProcessingEnvironment*,$Iterator*)>(&JavacProcessingEnvironment$DiscoveredProcessors::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"iterator", "()Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Ljava/util/Iterator;)V", "(Ljava/util/Iterator<+Ljavax/annotation/processing/Processor;>;)V", 0, $method(JavacProcessingEnvironment$DiscoveredProcessors, init$, void, $JavacProcessingEnvironment*, $Iterator*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors, close, void)},
+	{"iterator", "()Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors, iterator, $Iterator*)},
 	{}
 };
 

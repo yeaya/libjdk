@@ -140,8 +140,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitDocComment$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitDocComment$0::*)()>(&JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitDocComment$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitDocComment$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitDocComment$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitDocComment$0::classInfo$ = {
@@ -173,8 +173,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$toString$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$toString$1::*)()>(&JavadocHelper$OnDemandJavadocHelper$1$$Lambda$toString$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$toString$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$toString$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$toString$1::classInfo$ = {
@@ -219,8 +219,8 @@ $FieldInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$
 	{}
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$1$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1;Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$1$2::*)(JavadocHelper$OnDemandJavadocHelper$1*,$JavacTask*,$ExecutableElement*)>(&JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$1$2::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1;Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;)V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$1$2, init$, void, JavadocHelper$OnDemandJavadocHelper$1*, $JavacTask*, $ExecutableElement*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$1$2, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$1$2::classInfo$ = {
@@ -252,8 +252,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$2$3::*)()>(&JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$2$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$2$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$2$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$visitInheritDoc$2$3::classInfo$ = {
@@ -310,8 +310,8 @@ $FieldInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$insertTag$4$4::f
 	{}
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$insertTag$4$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1;Lcom/sun/source/doctree/DocTree;Ljava/util/List;Ljava/util/List;Lcom/sun/source/util/JavacTask;Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$insertTag$4$4::*)(JavadocHelper$OnDemandJavadocHelper$1*,$DocTree*,$List*,$List*,$JavacTask*,$TreePath*,$DocCommentTree*)>(&JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$insertTag$4$4::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1;Lcom/sun/source/doctree/DocTree;Ljava/util/List;Ljava/util/List;Lcom/sun/source/util/JavacTask;Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;)V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$insertTag$4$4, init$, void, JavadocHelper$OnDemandJavadocHelper$1*, $DocTree*, $List*, $List*, $JavacTask*, $TreePath*, $DocCommentTree*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$insertTag$4$4, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$1$$Lambda$lambda$insertTag$4$4::classInfo$ = {
@@ -352,24 +352,24 @@ $FieldInfo _JavadocHelper$OnDemandJavadocHelper$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocHelper$OnDemandJavadocHelper$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;ILcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;[Ljava/io/IOException;Lcom/sun/source/util/DocSourcePositions;Ljava/util/Map;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$1::*)($JavadocHelper$OnDemandJavadocHelper*,int32_t,$JavacTask*,$Element*,$TreePath*,$DocCommentTree*,$IOExceptionArray*,$DocSourcePositions*,$Map*,$String*)>(&JavadocHelper$OnDemandJavadocHelper$1::init$))},
-	{"insertTag", "(Ljava/util/List;Lcom/sun/source/doctree/DocTree;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/source/doctree/DocTree;>;Lcom/sun/source/doctree/DocTree;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$1::*)($List*,$DocTree*,$List*,$List*)>(&JavadocHelper$OnDemandJavadocHelper$1::insertTag))},
-	{"lambda$insertTag$4", "(Lcom/sun/source/doctree/DocTree;Ljava/util/List;Ljava/util/List;Lcom/sun/source/util/JavacTask;Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/DocTree;Lcom/sun/source/doctree/DocTree;)I", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<int32_t(JavadocHelper$OnDemandJavadocHelper$1::*)($DocTree*,$List*,$List*,$JavacTask*,$TreePath*,$DocCommentTree*,$DocTree*,$DocTree*)>(&JavadocHelper$OnDemandJavadocHelper$1::lambda$insertTag$4))},
-	{"lambda$visitDocComment$0", "(Ljavax/lang/model/element/VariableElement;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($VariableElement*)>(&JavadocHelper$OnDemandJavadocHelper$1::lambda$visitDocComment$0))},
-	{"lambda$visitInheritDoc$1", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterator*(JavadocHelper$OnDemandJavadocHelper$1::*)($JavacTask*,$ExecutableElement*)>(&JavadocHelper$OnDemandJavadocHelper$1::lambda$visitInheritDoc$1))},
-	{"lambda$visitInheritDoc$2", "([I)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($ints*)>(&JavadocHelper$OnDemandJavadocHelper$1::lambda$visitInheritDoc$2))},
-	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitDocComment", "(Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitDocComment", "(Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitInheritDoc", "(Lcom/sun/source/doctree/InheritDocTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitInheritDoc", "(Lcom/sun/source/doctree/InheritDocTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitParam", "(Lcom/sun/source/doctree/ParamTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitParam", "(Lcom/sun/source/doctree/ParamTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitReturn", "(Lcom/sun/source/doctree/ReturnTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitReturn", "(Lcom/sun/source/doctree/ReturnTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitThrows", "(Lcom/sun/source/doctree/ThrowsTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitThrows", "(Lcom/sun/source/doctree/ThrowsTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;ILcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;[Ljava/io/IOException;Lcom/sun/source/util/DocSourcePositions;Ljava/util/Map;Ljava/lang/String;)V", nullptr, 0, $method(JavadocHelper$OnDemandJavadocHelper$1, init$, void, $JavadocHelper$OnDemandJavadocHelper*, int32_t, $JavacTask*, $Element*, $TreePath*, $DocCommentTree*, $IOExceptionArray*, $DocSourcePositions*, $Map*, $String*)},
+	{"insertTag", "(Ljava/util/List;Lcom/sun/source/doctree/DocTree;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/source/doctree/DocTree;>;Lcom/sun/source/doctree/DocTree;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper$1, insertTag, void, $List*, $DocTree*, $List*, $List*)},
+	{"lambda$insertTag$4", "(Lcom/sun/source/doctree/DocTree;Ljava/util/List;Ljava/util/List;Lcom/sun/source/util/JavacTask;Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/DocTree;Lcom/sun/source/doctree/DocTree;)I", nullptr, $PRIVATE | $SYNTHETIC, $method(JavadocHelper$OnDemandJavadocHelper$1, lambda$insertTag$4, int32_t, $DocTree*, $List*, $List*, $JavacTask*, $TreePath*, $DocCommentTree*, $DocTree*, $DocTree*)},
+	{"lambda$visitDocComment$0", "(Ljavax/lang/model/element/VariableElement;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocHelper$OnDemandJavadocHelper$1, lambda$visitDocComment$0, $String*, $VariableElement*)},
+	{"lambda$visitInheritDoc$1", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavadocHelper$OnDemandJavadocHelper$1, lambda$visitInheritDoc$1, $Iterator*, $JavacTask*, $ExecutableElement*)},
+	{"lambda$visitInheritDoc$2", "([I)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocHelper$OnDemandJavadocHelper$1, lambda$visitInheritDoc$2, $List*, $ints*)},
+	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, scan, $Void*, $DocTree*, $Void*)},
+	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, scan, $Object*, $DocTree*, Object$*)},
+	{"visitDocComment", "(Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, visitDocComment, $Void*, $DocCommentTree*, $Void*)},
+	{"visitDocComment", "(Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, visitDocComment, $Object*, $DocCommentTree*, Object$*)},
+	{"visitInheritDoc", "(Lcom/sun/source/doctree/InheritDocTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, visitInheritDoc, $Void*, $InheritDocTree*, $Void*)},
+	{"visitInheritDoc", "(Lcom/sun/source/doctree/InheritDocTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, visitInheritDoc, $Object*, $InheritDocTree*, Object$*)},
+	{"visitParam", "(Lcom/sun/source/doctree/ParamTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, visitParam, $Void*, $ParamTree*, $Void*)},
+	{"visitParam", "(Lcom/sun/source/doctree/ParamTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, visitParam, $Object*, $ParamTree*, Object$*)},
+	{"visitReturn", "(Lcom/sun/source/doctree/ReturnTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, visitReturn, $Void*, $ReturnTree*, $Void*)},
+	{"visitReturn", "(Lcom/sun/source/doctree/ReturnTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, visitReturn, $Object*, $ReturnTree*, Object$*)},
+	{"visitThrows", "(Lcom/sun/source/doctree/ThrowsTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, visitThrows, $Void*, $ThrowsTree*, $Void*)},
+	{"visitThrows", "(Lcom/sun/source/doctree/ThrowsTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1, visitThrows, $Object*, $ThrowsTree*, Object$*)},
 	{}
 };
 

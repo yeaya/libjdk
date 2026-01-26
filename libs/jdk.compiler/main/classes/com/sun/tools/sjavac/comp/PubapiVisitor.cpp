@@ -96,8 +96,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubapiVisitor$$Lambda$encodeChar::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubapiVisitor$$Lambda$encodeChar::*)()>(&PubapiVisitor$$Lambda$encodeChar::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubapiVisitor$$Lambda$encodeChar, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubapiVisitor$$Lambda$encodeChar, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo PubapiVisitor$$Lambda$encodeChar::classInfo$ = {
@@ -136,8 +136,8 @@ $FieldInfo PubapiVisitor$$Lambda$lambda$getTypeParameters$0$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PubapiVisitor$$Lambda$lambda$getTypeParameters$0$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/comp/PubapiVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(PubapiVisitor$$Lambda$lambda$getTypeParameters$0$1::*)(PubapiVisitor*)>(&PubapiVisitor$$Lambda$lambda$getTypeParameters$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/comp/PubapiVisitor;)V", nullptr, $PUBLIC, $method(PubapiVisitor$$Lambda$lambda$getTypeParameters$0$1, init$, void, PubapiVisitor*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubapiVisitor$$Lambda$lambda$getTypeParameters$0$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubapiVisitor$$Lambda$lambda$getTypeParameters$0$1::classInfo$ = {
@@ -169,8 +169,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubapiVisitor$$Lambda$asType$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubapiVisitor$$Lambda$asType$2::*)()>(&PubapiVisitor$$Lambda$asType$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubapiVisitor$$Lambda$asType$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubapiVisitor$$Lambda$asType$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubapiVisitor$$Lambda$asType$2::classInfo$ = {
@@ -202,8 +202,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubapiVisitor$$Lambda$fromType$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubapiVisitor$$Lambda$fromType$3::*)()>(&PubapiVisitor$$Lambda$fromType$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubapiVisitor$$Lambda$fromType$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubapiVisitor$$Lambda$fromType$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubapiVisitor$$Lambda$fromType$3::classInfo$ = {
@@ -226,23 +226,23 @@ $FieldInfo _PubapiVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _PubapiVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubapiVisitor::*)()>(&PubapiVisitor::init$))},
-	{"encodeChar", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&PubapiVisitor::encodeChar))},
-	{"getCollectedPubApi", "()Lcom/sun/tools/sjavac/pubapi/PubApi;", nullptr, $PUBLIC},
-	{"getParamTypes", "(Ljavax/lang/model/element/ExecutableElement;)Ljava/util/List;", "(Ljavax/lang/model/element/ExecutableElement;)Ljava/util/List<Ljavax/lang/model/type/TypeMirror;>;", $PRIVATE, $method(static_cast<$List*(PubapiVisitor::*)($ExecutableElement*)>(&PubapiVisitor::getParamTypes))},
-	{"getTypeDescs", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;)Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;", $PRIVATE, $method(static_cast<$List*(PubapiVisitor::*)($List*)>(&PubapiVisitor::getTypeDescs))},
-	{"getTypeParameters", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+Ljavax/lang/model/element/TypeParameterElement;>;)Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;>;", $PRIVATE, $method(static_cast<$List*(PubapiVisitor::*)($List*)>(&PubapiVisitor::getTypeParameters))},
-	{"isAnonymous", "(Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PRIVATE, $method(static_cast<bool(PubapiVisitor::*)($TypeElement*)>(&PubapiVisitor::isAnonymous))},
-	{"isNonPrivate", "(Ljavax/lang/model/element/Element;)Z", nullptr, $PRIVATE, $method(static_cast<bool(PubapiVisitor::*)($Element*)>(&PubapiVisitor::isNonPrivate))},
-	{"lambda$getTypeParameters$0", "(Ljavax/lang/model/element/TypeParameterElement;)Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$PubApiTypeParam*(PubapiVisitor::*)($TypeParameterElement*)>(&PubapiVisitor::lambda$getTypeParameters$0))},
-	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubapiVisitor, init$, void)},
+	{"encodeChar", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PubapiVisitor, encodeChar, $String*, int32_t)},
+	{"getCollectedPubApi", "()Lcom/sun/tools/sjavac/pubapi/PubApi;", nullptr, $PUBLIC, $virtualMethod(PubapiVisitor, getCollectedPubApi, $PubApi*)},
+	{"getParamTypes", "(Ljavax/lang/model/element/ExecutableElement;)Ljava/util/List;", "(Ljavax/lang/model/element/ExecutableElement;)Ljava/util/List<Ljavax/lang/model/type/TypeMirror;>;", $PRIVATE, $method(PubapiVisitor, getParamTypes, $List*, $ExecutableElement*)},
+	{"getTypeDescs", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;)Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;", $PRIVATE, $method(PubapiVisitor, getTypeDescs, $List*, $List*)},
+	{"getTypeParameters", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+Ljavax/lang/model/element/TypeParameterElement;>;)Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;>;", $PRIVATE, $method(PubapiVisitor, getTypeParameters, $List*, $List*)},
+	{"isAnonymous", "(Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PRIVATE, $method(PubapiVisitor, isAnonymous, bool, $TypeElement*)},
+	{"isNonPrivate", "(Ljavax/lang/model/element/Element;)Z", nullptr, $PRIVATE, $method(PubapiVisitor, isNonPrivate, bool, $Element*)},
+	{"lambda$getTypeParameters$0", "(Ljavax/lang/model/element/TypeParameterElement;)Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;", nullptr, $PRIVATE | $SYNTHETIC, $method(PubapiVisitor, lambda$getTypeParameters$0, $PubApiTypeParam*, $TypeParameterElement*)},
+	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PubapiVisitor, visitExecutable, $Void*, $ExecutableElement*, $Void*)},
+	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PubapiVisitor, visitExecutable, $Object*, $ExecutableElement*, Object$*)},
+	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PubapiVisitor, visitRecordComponent, $Void*, $RecordComponentElement*, $Void*)},
+	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PubapiVisitor, visitRecordComponent, $Object*, $RecordComponentElement*, Object$*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PubapiVisitor, visitType, $Void*, $TypeElement*, $Void*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PubapiVisitor, visitType, $Object*, $TypeElement*, Object$*)},
+	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PubapiVisitor, visitVariable, $Void*, $VariableElement*, $Void*)},
+	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PubapiVisitor, visitVariable, $Object*, $VariableElement*, Object$*)},
 	{}
 };
 

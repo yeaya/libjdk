@@ -35,11 +35,11 @@ $FieldInfo _Option$HiddenGroup_FieldInfo_[] = {
 };
 
 $MethodInfo _Option$HiddenGroup_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Option$HiddenGroupArray*(*)()>(&Option$HiddenGroup::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Option$HiddenGroup::*)($String*,int32_t,$String*)>(&Option$HiddenGroup::init$))},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Option$HiddenGroup::*)($OptionHelper*,$String*,$String*)>(&Option$HiddenGroup::process)), "com.sun.tools.javac.main.Option$InvalidValueException"},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Option$HiddenGroup*(*)($String*)>(&Option$HiddenGroup::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Option$HiddenGroupArray*(*)()>(&Option$HiddenGroup::values))},
+	{"$values", "()[Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$HiddenGroup, $values, $Option$HiddenGroupArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Option$HiddenGroup, init$, void, $String*, int32_t, $String*)},
+	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Option$HiddenGroup, process, void, $OptionHelper*, $String*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$HiddenGroup, valueOf, Option$HiddenGroup*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/main/Option$HiddenGroup;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$HiddenGroup, values, $Option$HiddenGroupArray*)},
 	{}
 };
 

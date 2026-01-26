@@ -9,11 +9,13 @@
 #undef STATEMENT
 
 using $CaseTree$CaseKind = ::com::sun::source::tree::CaseTree$CaseKind;
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -30,12 +32,12 @@ $CompoundAttribute _CaseTree_MethodAnnotations_getLabels4[] = {
 };
 
 $MethodInfo _CaseTree_MethodInfo_[] = {
-	{"getBody", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC},
-	{"getCaseKind", "()Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC},
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _CaseTree_MethodAnnotations_getExpression2},
-	{"getExpressions", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT},
-	{"getLabels", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/CaseLabelTree;>;", $PUBLIC | $ABSTRACT, nullptr, nullptr, nullptr, _CaseTree_MethodAnnotations_getLabels4},
-	{"getStatements", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/StatementTree;>;", $PUBLIC | $ABSTRACT},
+	{"getBody", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC, $virtualMethod(CaseTree, getBody, $Tree*)},
+	{"getCaseKind", "()Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC, $virtualMethod(CaseTree, getCaseKind, $CaseTree$CaseKind*)},
+	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(CaseTree, getExpression, $ExpressionTree*), nullptr, nullptr, _CaseTree_MethodAnnotations_getExpression2},
+	{"getExpressions", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CaseTree, getExpressions, $List*)},
+	{"getLabels", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/CaseLabelTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CaseTree, getLabels, $List*), nullptr, nullptr, _CaseTree_MethodAnnotations_getLabels4},
+	{"getStatements", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/StatementTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CaseTree, getStatements, $List*)},
 	{}
 };
 

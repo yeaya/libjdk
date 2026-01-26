@@ -70,11 +70,11 @@ $FieldInfo _DefaultMXBeanMappingFactory$CompositeMapping_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultMXBeanMappingFactory$CompositeMapping_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory;Ljava/lang/Class;Ljavax/management/openmbean/CompositeType;[Ljava/lang/String;[Ljava/lang/reflect/Method;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)V", "(Ljava/lang/Class<*>;Ljavax/management/openmbean/CompositeType;[Ljava/lang/String;[Ljava/lang/reflect/Method;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)V", 0, $method(static_cast<void(DefaultMXBeanMappingFactory$CompositeMapping::*)($DefaultMXBeanMappingFactory*,$Class*,$CompositeType*,$StringArray*,$MethodArray*,$MXBeanMappingFactory*)>(&DefaultMXBeanMappingFactory$CompositeMapping::init$)), "javax.management.openmbean.OpenDataException"},
-	{"checkReconstructible", "()V", nullptr, $PUBLIC, nullptr, "java.io.InvalidObjectException"},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, nullptr, "java.io.InvalidObjectException"},
-	{"makeCompositeBuilder", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(DefaultMXBeanMappingFactory$CompositeMapping::*)()>(&DefaultMXBeanMappingFactory$CompositeMapping::makeCompositeBuilder)), "java.io.InvalidObjectException"},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, nullptr, "javax.management.openmbean.OpenDataException"},
+	{"<init>", "(Lcom/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory;Ljava/lang/Class;Ljavax/management/openmbean/CompositeType;[Ljava/lang/String;[Ljava/lang/reflect/Method;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)V", "(Ljava/lang/Class<*>;Ljavax/management/openmbean/CompositeType;[Ljava/lang/String;[Ljava/lang/reflect/Method;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeMapping, init$, void, $DefaultMXBeanMappingFactory*, $Class*, $CompositeType*, $StringArray*, $MethodArray*, $MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
+	{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMXBeanMappingFactory$CompositeMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
+	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+	{"makeCompositeBuilder", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DefaultMXBeanMappingFactory$CompositeMapping, makeCompositeBuilder, void), "java.io.InvalidObjectException"},
+	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
 	{}
 };
 

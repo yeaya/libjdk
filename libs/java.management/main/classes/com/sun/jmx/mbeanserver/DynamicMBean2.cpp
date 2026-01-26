@@ -6,6 +6,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $MBeanServer = ::javax::management::MBeanServer;
+using $ObjectName = ::javax::management::ObjectName;
 
 namespace com {
 	namespace sun {
@@ -13,10 +15,10 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _DynamicMBean2_MethodInfo_[] = {
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getResource", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"preRegister2", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
-	{"registerFailed", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean2, getClassName, $String*)},
+	{"getResource", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean2, getResource, $Object*)},
+	{"preRegister2", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean2, preRegister2, void, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+	{"registerFailed", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DynamicMBean2, registerFailed, void)},
 	{}
 };
 

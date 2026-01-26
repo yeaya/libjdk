@@ -24,7 +24,7 @@ $FieldInfo _ClassLoaderRepositorySupport$LoaderEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassLoaderRepositorySupport$LoaderEntry_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(ClassLoaderRepositorySupport$LoaderEntry::*)($ObjectName*,$ClassLoader*)>(&ClassLoaderRepositorySupport$LoaderEntry::init$))},
+	{"<init>", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(ClassLoaderRepositorySupport$LoaderEntry, init$, void, $ObjectName*, $ClassLoader*)},
 	{}
 };
 

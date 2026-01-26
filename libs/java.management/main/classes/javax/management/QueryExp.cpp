@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $MBeanServer = ::javax::management::MBeanServer;
+using $ObjectName = ::javax::management::ObjectName;
 
 namespace javax {
 	namespace management {
 
 $MethodInfo _QueryExp_MethodInfo_[] = {
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QueryExp, setMBeanServer, void, $MBeanServer*)},
 	{}
 };
 

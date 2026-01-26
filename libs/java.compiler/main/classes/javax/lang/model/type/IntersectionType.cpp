@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace javax {
 	namespace lang {
@@ -12,7 +13,7 @@ namespace javax {
 			namespace type {
 
 $MethodInfo _IntersectionType_MethodInfo_[] = {
-	{"getBounds", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT},
+	{"getBounds", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT, $virtualMethod(IntersectionType, getBounds, $List*)},
 	{}
 };
 

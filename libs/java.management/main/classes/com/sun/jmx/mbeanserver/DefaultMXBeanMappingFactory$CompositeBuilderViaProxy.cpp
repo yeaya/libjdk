@@ -45,9 +45,9 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(static_cast<void(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy::*)($Class*,$StringArray*)>(&DefaultMXBeanMappingFactory$CompositeBuilderViaProxy::init$))},
-	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0},
-	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL},
+	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, init$, void, $Class*, $StringArray*)},
+	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, applicable, $String*, $MethodArray*)},
+	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaProxy, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*)},
 	{}
 };
 

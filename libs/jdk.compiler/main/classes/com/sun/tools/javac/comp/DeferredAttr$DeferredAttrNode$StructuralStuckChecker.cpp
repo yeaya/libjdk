@@ -167,8 +167,8 @@ $FieldInfo DeferredAttr$DeferredAttrNode$StructuralStuckChecker$$Lambda$lambda$c
 	{}
 };
 $MethodInfo DeferredAttr$DeferredAttrNode$StructuralStuckChecker$$Lambda$lambda$canLambdaBodyCompleteNormally$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode$StructuralStuckChecker;)V", nullptr, $PUBLIC, $method(static_cast<void(DeferredAttr$DeferredAttrNode$StructuralStuckChecker$$Lambda$lambda$canLambdaBodyCompleteNormally$0::*)(DeferredAttr$DeferredAttrNode$StructuralStuckChecker*)>(&DeferredAttr$DeferredAttrNode$StructuralStuckChecker$$Lambda$lambda$canLambdaBodyCompleteNormally$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode$StructuralStuckChecker;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrNode$StructuralStuckChecker$$Lambda$lambda$canLambdaBodyCompleteNormally$0, init$, void, DeferredAttr$DeferredAttrNode$StructuralStuckChecker*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$StructuralStuckChecker$$Lambda$lambda$canLambdaBodyCompleteNormally$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DeferredAttr$DeferredAttrNode$StructuralStuckChecker$$Lambda$lambda$canLambdaBodyCompleteNormally$0::classInfo$ = {
@@ -194,16 +194,16 @@ $FieldInfo _DeferredAttr$DeferredAttrNode$StructuralStuckChecker_FieldInfo_[] = 
 };
 
 $MethodInfo _DeferredAttr$DeferredAttrNode$StructuralStuckChecker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$DeferredAttrNode$StructuralStuckChecker::*)($DeferredAttr$DeferredAttrNode*)>(&DeferredAttr$DeferredAttrNode$StructuralStuckChecker::init$))},
-	{"canLambdaBodyCompleteNormally", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Z", nullptr, 0},
-	{"check", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, $PUBLIC},
-	{"lambda$canLambdaBodyCompleteNormally$0", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$JCTree$JCVariableDecl*(DeferredAttr$DeferredAttrNode$StructuralStuckChecker::*)($JCTree$JCVariableDecl*)>(&DeferredAttr$DeferredAttrNode$StructuralStuckChecker::lambda$canLambdaBodyCompleteNormally$0))},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC},
-	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrNode$StructuralStuckChecker, init$, void, $DeferredAttr$DeferredAttrNode*)},
+	{"canLambdaBodyCompleteNormally", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Z", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrNode$StructuralStuckChecker, canLambdaBodyCompleteNormally, bool, $JCTree$JCLambda*)},
+	{"check", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$StructuralStuckChecker, check, void, $DeferredAttr$DeferredType*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
+	{"lambda$canLambdaBodyCompleteNormally$0", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PRIVATE | $SYNTHETIC, $method(DeferredAttr$DeferredAttrNode$StructuralStuckChecker, lambda$canLambdaBodyCompleteNormally$0, $JCTree$JCVariableDecl*, $JCTree$JCVariableDecl*)},
+	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$StructuralStuckChecker, visitApply, void, $JCTree$JCMethodInvocation*)},
+	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$StructuralStuckChecker, visitConditional, void, $JCTree$JCConditional*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$StructuralStuckChecker, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$StructuralStuckChecker, visitNewClass, void, $JCTree$JCNewClass*)},
+	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$StructuralStuckChecker, visitReference, void, $JCTree$JCMemberReference*)},
+	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$StructuralStuckChecker, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
 	{}
 };
 

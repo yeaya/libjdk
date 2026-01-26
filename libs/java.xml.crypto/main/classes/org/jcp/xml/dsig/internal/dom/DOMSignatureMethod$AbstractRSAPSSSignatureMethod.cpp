@@ -22,6 +22,7 @@ using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Provider = ::java::security::Provider;
 using $Signature = ::java::security::Signature;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
+using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
 using $DOMSignatureMethod$AbstractRSASignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractRSASignatureMethod;
 using $Element = ::org::w3c::dom::Element;
 
@@ -33,10 +34,10 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMSignatureMethod$AbstractRSAPSSSignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$AbstractRSAPSSSignatureMethod::*)($AlgorithmParameterSpec*)>(&DOMSignatureMethod$AbstractRSAPSSSignatureMethod::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$AbstractRSAPSSSignatureMethod::*)($Element*)>(&DOMSignatureMethod$AbstractRSAPSSSignatureMethod::init$)), "javax.xml.crypto.MarshalException"},
-	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, nullptr, "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, getPSSParameterSpec, $PSSParameterSpec*)},
+	{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractRSAPSSSignatureMethod, getSignature, $Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
 	{}
 };
 

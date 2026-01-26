@@ -20,7 +20,7 @@ $FieldInfo _MBeanAnalyzer$AttrMethods_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanAnalyzer$AttrMethods_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MBeanAnalyzer$AttrMethods::*)()>(&MBeanAnalyzer$AttrMethods::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MBeanAnalyzer$AttrMethods, init$, void)},
 	{}
 };
 

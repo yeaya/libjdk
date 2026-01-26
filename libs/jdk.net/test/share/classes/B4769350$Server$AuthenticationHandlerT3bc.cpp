@@ -21,8 +21,8 @@ $FieldInfo _B4769350$Server$AuthenticationHandlerT3bc_FieldInfo_[] = {
 };
 
 $MethodInfo _B4769350$Server$AuthenticationHandlerT3bc_MethodInfo_[] = {
-	{"<init>", "(LB4769350$Server;)V", nullptr, 0, $method(static_cast<void(B4769350$Server$AuthenticationHandlerT3bc::*)($B4769350$Server*)>(&B4769350$Server$AuthenticationHandlerT3bc::init$))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(LB4769350$Server;)V", nullptr, 0, $method(B4769350$Server$AuthenticationHandlerT3bc, init$, void, $B4769350$Server*)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(B4769350$Server$AuthenticationHandlerT3bc, handle, void, $HttpExchange*), "java.io.IOException"},
 	{}
 };
 

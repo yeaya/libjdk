@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HpackDecoderDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HpackDecoderDriver::*)()>(&HpackDecoderDriver::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HpackDecoderDriver, init$, void)},
 	{}
 };
 

@@ -72,8 +72,8 @@ $FieldInfo HttpConnection$PlainHttpPublisher$$Lambda$flushTask::fieldInfos[2] = 
 	{}
 };
 $MethodInfo HttpConnection$PlainHttpPublisher$$Lambda$flushTask::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection$PlainHttpPublisher;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpConnection$PlainHttpPublisher$$Lambda$flushTask::*)(HttpConnection$PlainHttpPublisher*)>(&HttpConnection$PlainHttpPublisher$$Lambda$flushTask::init$))},
-	{"run", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection$PlainHttpPublisher;)V", nullptr, $PUBLIC, $method(HttpConnection$PlainHttpPublisher$$Lambda$flushTask, init$, void, HttpConnection$PlainHttpPublisher*)},
+	{"run", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher$$Lambda$flushTask, run, void, $SequentialScheduler$DeferredCompleter*)},
 	{}
 };
 $ClassInfo HttpConnection$PlainHttpPublisher$$Lambda$flushTask::classInfo$ = {
@@ -105,8 +105,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpConnection$PlainHttpPublisher$$Lambda$remaining$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpConnection$PlainHttpPublisher$$Lambda$remaining$1::*)()>(&HttpConnection$PlainHttpPublisher$$Lambda$remaining$1::init$))},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpConnection$PlainHttpPublisher$$Lambda$remaining$1, init$, void)},
+	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher$$Lambda$remaining$1, applyAsInt, int32_t, Object$*)},
 	{}
 };
 $ClassInfo HttpConnection$PlainHttpPublisher$$Lambda$remaining$1::classInfo$ = {
@@ -135,14 +135,14 @@ $FieldInfo _HttpConnection$PlainHttpPublisher_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpConnection$PlainHttpPublisher_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(static_cast<void(HttpConnection$PlainHttpPublisher::*)($HttpConnection*)>(&HttpConnection$PlainHttpPublisher::init$))},
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(HttpConnection$PlainHttpPublisher::*)($HttpConnection*,Object$*)>(&HttpConnection$PlainHttpPublisher::init$))},
-	{"enqueue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"enqueueUnordered", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"flushTask", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, 0, $method(static_cast<void(HttpConnection$PlainHttpPublisher::*)($SequentialScheduler$DeferredCompleter*)>(&HttpConnection$PlainHttpPublisher::flushTask))},
-	{"signal", "()V", nullptr, 0, $method(static_cast<void(HttpConnection$PlainHttpPublisher::*)()>(&HttpConnection$PlainHttpPublisher::signal))},
-	{"signalEnqueued", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(HttpConnection$PlainHttpPublisher, init$, void, $HttpConnection*)},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljava/lang/Object;)V", nullptr, 0, $method(HttpConnection$PlainHttpPublisher, init$, void, $HttpConnection*, Object$*)},
+	{"enqueue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher, enqueue, void, $List*), "java.io.IOException"},
+	{"enqueueUnordered", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher, enqueueUnordered, void, $List*), "java.io.IOException"},
+	{"flushTask", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, 0, $method(HttpConnection$PlainHttpPublisher, flushTask, void, $SequentialScheduler$DeferredCompleter*)},
+	{"signal", "()V", nullptr, 0, $method(HttpConnection$PlainHttpPublisher, signal, void)},
+	{"signalEnqueued", "()V", nullptr, $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher, signalEnqueued, void), "java.io.IOException"},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

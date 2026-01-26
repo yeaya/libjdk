@@ -284,8 +284,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$static$0::*)()>(&ZipFileSystem$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$static$0::classInfo$ = {
@@ -324,8 +324,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$new$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$new$1$1::*)($Path*)>(&ZipFileSystem$$Lambda$lambda$new$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$new$1$1, init$, void, $Path*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$new$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$new$1$1::classInfo$ = {
@@ -364,8 +364,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$initOwner$2$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$initOwner$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$initOwner$2$2::*)($Path*)>(&ZipFileSystem$$Lambda$lambda$initOwner$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$initOwner$2$2, init$, void, $Path*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$initOwner$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$initOwner$2$2::classInfo$ = {
@@ -397,8 +397,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$initOwner$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$initOwner$3$3::*)()>(&ZipFileSystem$$Lambda$lambda$initOwner$3$3::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$initOwner$3$3, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$initOwner$3$3, run, $Object*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$initOwner$3$3::classInfo$ = {
@@ -437,8 +437,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$initOwner$4$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$initOwner$4$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$initOwner$4$4::*)($String*)>(&ZipFileSystem$$Lambda$lambda$initOwner$4$4::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$initOwner$4$4, init$, void, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$initOwner$4$4, getName, $String*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$initOwner$4$4::classInfo$ = {
@@ -477,8 +477,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$initOwner$5$5::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$initOwner$5$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$initOwner$5$5::*)(Object$*)>(&ZipFileSystem$$Lambda$lambda$initOwner$5$5::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$initOwner$5$5, init$, void, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$initOwner$5$5, getName, $String*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$initOwner$5$5::classInfo$ = {
@@ -517,8 +517,8 @@ $FieldInfo ZipFileSystem$$Lambda$getName$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$getName$6::methodInfos[3] = {
-	{"<init>", "(Ljava/security/Principal;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$getName$6::*)($Principal*)>(&ZipFileSystem$$Lambda$getName$6::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/Principal;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$getName$6, init$, void, $Principal*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$getName$6, getName, $String*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$getName$6::classInfo$ = {
@@ -557,8 +557,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$initGroup$6$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$initGroup$6$7::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/attribute/PosixFileAttributeView;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$initGroup$6$7::*)($PosixFileAttributeView*)>(&ZipFileSystem$$Lambda$lambda$initGroup$6$7::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/attribute/PosixFileAttributeView;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$initGroup$6$7, init$, void, $PosixFileAttributeView*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$initGroup$6$7, run, $Object*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$initGroup$6$7::classInfo$ = {
@@ -597,8 +597,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$getPathMatcher$8$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$getPathMatcher$8$8::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$getPathMatcher$8$8::*)($Pattern*)>(&ZipFileSystem$$Lambda$lambda$getPathMatcher$8$8::init$))},
-	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$getPathMatcher$8$8, init$, void, $Pattern*)},
+	{"matches", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$getPathMatcher$8$8, matches, bool, $Path*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$getPathMatcher$8$8::classInfo$ = {
@@ -637,8 +637,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$close$9$9::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$close$9$9::methodInfos[3] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$close$9$9::*)(ZipFileSystem*)>(&ZipFileSystem$$Lambda$lambda$close$9$9::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$close$9$9, init$, void, ZipFileSystem*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$close$9$9, run, $Object*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$close$9$9::classInfo$ = {
@@ -677,8 +677,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$close$10$10::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$close$10$10::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$close$10$10::*)($Path*)>(&ZipFileSystem$$Lambda$lambda$close$10$10::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$close$10$10, init$, void, $Path*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$close$10$10, run, $Object*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$close$10$10::classInfo$ = {
@@ -720,8 +720,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$createVersionedLinks$12$11::fieldInfos[3
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$createVersionedLinks$12$11::methodInfos[3] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljava/util/HashMap;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$createVersionedLinks$12$11::*)(ZipFileSystem*,$HashMap*)>(&ZipFileSystem$$Lambda$lambda$createVersionedLinks$12$11::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljava/util/HashMap;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$createVersionedLinks$12$11, init$, void, ZipFileSystem*, $HashMap*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$createVersionedLinks$12$11, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$createVersionedLinks$12$11::classInfo$ = {
@@ -760,8 +760,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$createVersionedLinks$13$12::fieldInfos[2
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$createVersionedLinks$13$12::methodInfos[3] = {
-	{"<init>", "(Ljava/util/HashMap;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$createVersionedLinks$13$12::*)($HashMap*)>(&ZipFileSystem$$Lambda$lambda$createVersionedLinks$13$12::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/HashMap;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$createVersionedLinks$13$12, init$, void, $HashMap*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$createVersionedLinks$13$12, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$createVersionedLinks$13$12::classInfo$ = {
@@ -806,8 +806,8 @@ $FieldInfo ZipFileSystem$$Lambda$lambda$createVersionedLinks$11$13::fieldInfos[4
 	{}
 };
 $MethodInfo ZipFileSystem$$Lambda$lambda$createVersionedLinks$11$13::methodInfos[3] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljava/util/HashMap;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PUBLIC, $method(static_cast<void(ZipFileSystem$$Lambda$lambda$createVersionedLinks$11$13::*)(ZipFileSystem*,$HashMap*,$ZipFileSystem$IndexNode*)>(&ZipFileSystem$$Lambda$lambda$createVersionedLinks$11$13::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljava/util/HashMap;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PUBLIC, $method(ZipFileSystem$$Lambda$lambda$createVersionedLinks$11$13, init$, void, ZipFileSystem*, $HashMap*, $ZipFileSystem$IndexNode*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$$Lambda$lambda$createVersionedLinks$11$13, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ZipFileSystem$$Lambda$lambda$createVersionedLinks$11$13::classInfo$ = {
@@ -873,106 +873,106 @@ $FieldInfo _ZipFileSystem_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileSystem_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystemProvider;Ljava/nio/file/Path;Ljava/util/Map;)V", "(Ljdk/nio/zipfs/ZipFileSystemProvider;Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)V", 0, $method(static_cast<void(ZipFileSystem::*)($ZipFileSystemProvider*,$Path*,$Map*)>(&ZipFileSystem::init$)), "java.io.IOException"},
-	{"beginRead", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)()>(&ZipFileSystem::beginRead))},
-	{"beginWrite", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)()>(&ZipFileSystem::beginWrite))},
-	{"buildNodeTree", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)()>(&ZipFileSystem::buildNodeTree))},
-	{"checkAccess", "([B)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"checkEncoding", "([B)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(ZipFileSystem::*)($bytes*)>(&ZipFileSystem::checkEncoding)), "java.util.zip.ZipException"},
-	{"checkOptions", "(Ljava/util/Set;)V", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;)V", $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($Set*)>(&ZipFileSystem::checkOptions))},
-	{"checkParents", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($bytes*)>(&ZipFileSystem::checkParents)), "java.io.IOException"},
-	{"checkUTF8", "([B)V", nullptr, $PRIVATE | $FINAL, $method(static_cast<void(ZipFileSystem::*)($bytes*)>(&ZipFileSystem::checkUTF8)), "java.util.zip.ZipException"},
-	{"checkWritable", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)()>(&ZipFileSystem::checkWritable))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"copyFile", "(Z[B[B[Ljava/nio/file/CopyOption;)V", nullptr, $TRANSIENT, nullptr, "java.io.IOException"},
-	{"copyLOCEntry", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;ZLjava/io/OutputStream;J[B)J", nullptr, $PRIVATE, $method(static_cast<int64_t(ZipFileSystem::*)($ZipFileSystem$Entry*,bool,$OutputStream*,int64_t,$bytes*)>(&ZipFileSystem::copyLOCEntry)), "java.io.IOException"},
-	{"createDirectory", "([B[Ljava/nio/file/attribute/FileAttribute;)V", "([B[Ljava/nio/file/attribute/FileAttribute<*>;)V", $TRANSIENT, nullptr, "java.io.IOException"},
-	{"createTempFileInSameDirectoryAs", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(static_cast<$Path*(ZipFileSystem::*)($Path*)>(&ZipFileSystem::createTempFileInSameDirectoryAs)), "java.io.IOException"},
-	{"createVersionedLinks", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)(int32_t)>(&ZipFileSystem::createVersionedLinks))},
-	{"deleteFile", "([BZ)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"endRead", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)()>(&ZipFileSystem::endRead))},
-	{"endWrite", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)()>(&ZipFileSystem::endWrite))},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)()>(&ZipFileSystem::ensureOpen))},
-	{"exists", "([B)Z", nullptr, 0},
-	{"finalize", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"findEND", "()Ljdk/nio/zipfs/ZipFileSystem$END;", nullptr, $PRIVATE, $method(static_cast<$ZipFileSystem$END*(ZipFileSystem::*)()>(&ZipFileSystem::findEND)), "java.io.IOException"},
-	{"getBytes", "(Ljava/lang/String;)[B", nullptr, $FINAL, $method(static_cast<$bytes*(ZipFileSystem::*)($String*)>(&ZipFileSystem::getBytes))},
-	{"getDefaultCompressionMethod", "(Ljava/util/Map;)I", "(Ljava/util/Map<Ljava/lang/String;*>;)I", $PRIVATE, $method(static_cast<int32_t(ZipFileSystem::*)($Map*)>(&ZipFileSystem::getDefaultCompressionMethod))},
-	{"getDeflater", "()Ljava/util/zip/Deflater;", nullptr, $PRIVATE, $method(static_cast<$Deflater*(ZipFileSystem::*)()>(&ZipFileSystem::getDeflater))},
-	{"getEntry", "([B)Ljdk/nio/zipfs/ZipFileSystem$Entry;", nullptr, $PRIVATE, $method(static_cast<$ZipFileSystem$Entry*(ZipFileSystem::*)($bytes*)>(&ZipFileSystem::getEntry)), "java.io.IOException"},
-	{"getFileAttributes", "([B)Ljdk/nio/zipfs/ZipFileAttributes;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getFileStore", "(Ljdk/nio/zipfs/ZipPath;)Ljava/nio/file/FileStore;", nullptr, 0},
-	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC},
-	{"getInflater", "()Ljava/util/zip/Inflater;", nullptr, $PRIVATE, $method(static_cast<$Inflater*(ZipFileSystem::*)()>(&ZipFileSystem::getInflater))},
-	{"getInode", "([B)Ljdk/nio/zipfs/ZipFileSystem$IndexNode;", nullptr, $PRIVATE, $method(static_cast<$ZipFileSystem$IndexNode*(ZipFileSystem::*)($bytes*)>(&ZipFileSystem::getInode))},
-	{"getInputStream", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(static_cast<$InputStream*(ZipFileSystem::*)($ZipFileSystem$Entry*)>(&ZipFileSystem::getInputStream)), "java.io.IOException"},
-	{"getOrCreateInode", "([BZ)Ljdk/nio/zipfs/ZipFileSystem$IndexNode;", nullptr, $PRIVATE, $method(static_cast<$ZipFileSystem$IndexNode*(ZipFileSystem::*)($bytes*,bool)>(&ZipFileSystem::getOrCreateInode))},
-	{"getOutputStream", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;)Ljava/io/OutputStream;", nullptr, $PRIVATE, $method(static_cast<$OutputStream*(ZipFileSystem::*)($ZipFileSystem$Entry*)>(&ZipFileSystem::getOutputStream)), "java.io.IOException"},
-	{"getParent", "([B)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&ZipFileSystem::getParent))},
-	{"getParentOff", "([B)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*)>(&ZipFileSystem::getParentOff))},
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljdk/nio/zipfs/ZipPath;", nullptr, $PUBLIC | $TRANSIENT},
-	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC},
-	{"getPosixAttributes", "(Ljava/nio/file/Path;)Ljava/nio/file/attribute/PosixFileAttributes;", nullptr, $PRIVATE, $method(static_cast<$PosixFileAttributes*(ZipFileSystem::*)($Path*)>(&ZipFileSystem::getPosixAttributes)), "java.io.IOException"},
-	{"getRootDir", "()Ljdk/nio/zipfs/ZipPath;", nullptr, 0},
-	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC},
-	{"getRootName", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(ZipFileSystem::*)($ZipFileSystem$IndexNode*,$ZipFileSystem$IndexNode*)>(&ZipFileSystem::getRootName))},
-	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getString", "([B)Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(ZipFileSystem::*)($bytes*)>(&ZipFileSystem::getString))},
-	{"getTempPathForEntry", "([B)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(static_cast<$Path*(ZipFileSystem::*)($bytes*)>(&ZipFileSystem::getTempPathForEntry)), "java.io.IOException"},
-	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC},
-	{"getVersion", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)Ljava/lang/Integer;", nullptr, $PRIVATE, $method(static_cast<$Integer*(ZipFileSystem::*)($ZipFileSystem$IndexNode*,$ZipFileSystem$IndexNode*)>(&ZipFileSystem::getVersion))},
-	{"getVersionMap", "(ILjdk/nio/zipfs/ZipFileSystem$IndexNode;)Ljava/util/TreeMap;", "(ILjdk/nio/zipfs/ZipFileSystem$IndexNode;)Ljava/util/TreeMap<Ljava/lang/Integer;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;>;", $PRIVATE, $method(static_cast<$TreeMap*(ZipFileSystem::*)(int32_t,$ZipFileSystem$IndexNode*)>(&ZipFileSystem::getVersionMap))},
-	{"getZipFile", "()Ljava/nio/file/Path;", nullptr, 0},
-	{"initCEN", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(ZipFileSystem::*)()>(&ZipFileSystem::initCEN)), "java.io.IOException"},
-	{"initGroup", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljava/nio/file/attribute/GroupPrincipal;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/attribute/GroupPrincipal;", $PRIVATE, $method(static_cast<$GroupPrincipal*(ZipFileSystem::*)($Path*,$Map*)>(&ZipFileSystem::initGroup)), "java.io.IOException"},
-	{"initOwner", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljava/nio/file/attribute/UserPrincipal;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/attribute/UserPrincipal;", $PRIVATE, $method(static_cast<$UserPrincipal*(ZipFileSystem::*)($Path*,$Map*)>(&ZipFileSystem::initOwner)), "java.io.IOException"},
-	{"initPermissions", "(Ljava/util/Map;)Ljava/util/Set;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PRIVATE, $method(static_cast<$Set*(ZipFileSystem::*)($Map*)>(&ZipFileSystem::initPermissions))},
-	{"initializeReleaseVersion", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($Map*)>(&ZipFileSystem::initializeReleaseVersion)), "java.io.IOException"},
-	{"isDirectory", "([B)Z", nullptr, 0},
-	{"isMultiReleaseJar", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ZipFileSystem::*)()>(&ZipFileSystem::isMultiReleaseJar)), "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"isTrue", "(Ljava/util/Map;Ljava/lang/String;)Z", "(Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Map*,$String*)>(&ZipFileSystem::isTrue))},
-	{"iteratorOf", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter;)Ljava/util/Iterator;", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/util/Iterator<Ljava/nio/file/Path;>;", 0, nullptr, "java.io.IOException"},
-	{"lambda$close$10", "(Ljava/nio/file/Path;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)($Path*)>(&ZipFileSystem::lambda$close$10)), "java.lang.Exception"},
-	{"lambda$close$9", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(ZipFileSystem::*)()>(&ZipFileSystem::lambda$close$9)), "java.lang.Exception"},
-	{"lambda$createVersionedLinks$11", "(Ljava/util/HashMap;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ZipFileSystem::*)($HashMap*,$ZipFileSystem$IndexNode*,$ZipFileSystem$IndexNode*)>(&ZipFileSystem::lambda$createVersionedLinks$11))},
-	{"lambda$createVersionedLinks$12", "(Ljava/util/HashMap;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ZipFileSystem::*)($HashMap*,$ZipFileSystem$IndexNode*)>(&ZipFileSystem::lambda$createVersionedLinks$12))},
-	{"lambda$createVersionedLinks$13", "(Ljava/util/HashMap;[B)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$bytes*(*)($HashMap*,$bytes*)>(&ZipFileSystem::lambda$createVersionedLinks$13))},
-	{"lambda$getPathMatcher$8", "(Ljava/util/regex/Pattern;Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Pattern*,$Path*)>(&ZipFileSystem::lambda$getPathMatcher$8))},
-	{"lambda$initGroup$6", "(Ljava/nio/file/attribute/PosixFileAttributeView;)Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$GroupPrincipal*(*)($PosixFileAttributeView*)>(&ZipFileSystem::lambda$initGroup$6)), "java.lang.Exception"},
-	{"lambda$initOwner$2", "(Ljava/nio/file/Path;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$UserPrincipal*(*)($Path*)>(&ZipFileSystem::lambda$initOwner$2)), "java.lang.Exception"},
-	{"lambda$initOwner$3", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&ZipFileSystem::lambda$initOwner$3))},
-	{"lambda$initOwner$4", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&ZipFileSystem::lambda$initOwner$4))},
-	{"lambda$initOwner$5", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(Object$*)>(&ZipFileSystem::lambda$initOwner$5))},
-	{"lambda$new$1", "(Ljava/nio/file/Path;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)($Path*)>(&ZipFileSystem::lambda$new$1))},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&ZipFileSystem::lambda$static$0))},
-	{"makeParentDirs", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($ZipFileSystem$IndexNode*,$ZipFileSystem$IndexNode*)>(&ZipFileSystem::makeParentDirs))},
-	{"newByteChannel", "([BLjava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "([BLjava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $TRANSIENT, nullptr, "java.io.IOException"},
-	{"newFileChannel", "([BLjava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "([BLjava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $TRANSIENT, nullptr, "java.io.IOException"},
-	{"newInputStream", "([B)Ljava/io/InputStream;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"newOutputStream", "([B[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", nullptr, $TRANSIENT, nullptr, "java.io.IOException"},
-	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC},
-	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC},
-	{"readFullyAt", "([BIJJ)J", nullptr, $FINAL, $method(static_cast<int64_t(ZipFileSystem::*)($bytes*,int32_t,int64_t,int64_t)>(&ZipFileSystem::readFullyAt)), "java.io.IOException"},
-	{"readFullyAt", "(Ljava/nio/ByteBuffer;J)J", nullptr, $PRIVATE, $method(static_cast<int64_t(ZipFileSystem::*)($ByteBuffer*,int64_t)>(&ZipFileSystem::readFullyAt)), "java.io.IOException"},
-	{"releaseDeflater", "(Ljava/util/zip/Deflater;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($Deflater*)>(&ZipFileSystem::releaseDeflater))},
-	{"releaseInflater", "(Ljava/util/zip/Inflater;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($Inflater*)>(&ZipFileSystem::releaseInflater))},
-	{"removeFromTree", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($ZipFileSystem$IndexNode*)>(&ZipFileSystem::removeFromTree))},
-	{"removeTempPathForEntry", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($Path*)>(&ZipFileSystem::removeTempPathForEntry)), "java.io.IOException"},
-	{"setGroup", "([BLjava/nio/file/attribute/GroupPrincipal;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"setOwner", "([BLjava/nio/file/attribute/UserPrincipal;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"setPermissions", "([BLjava/util/Set;)V", "([BLjava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)V", 0, nullptr, "java.io.IOException"},
-	{"setReadOnly", "()V", nullptr, 0},
-	{"setTimes", "([BLjava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"sync", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)()>(&ZipFileSystem::sync)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($ZipFileSystem$Entry*)>(&ZipFileSystem::update))},
-	{"updateDelete", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($ZipFileSystem$IndexNode*)>(&ZipFileSystem::updateDelete))},
-	{"walk", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljava/util/function/Consumer;)V", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljava/util/function/Consumer<Ljdk/nio/zipfs/ZipFileSystem$IndexNode;>;)V", $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($ZipFileSystem$IndexNode*,$Consumer*)>(&ZipFileSystem::walk))},
-	{"writeEntry", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;Ljava/io/OutputStream;)J", nullptr, $PRIVATE, $method(static_cast<int64_t(ZipFileSystem::*)($ZipFileSystem$Entry*,$OutputStream*)>(&ZipFileSystem::writeEntry)), "java.io.IOException"},
-	{"writeTo", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem::*)($ZipFileSystem$Entry*,$OutputStream*)>(&ZipFileSystem::writeTo)), "java.io.IOException"},
+	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystemProvider;Ljava/nio/file/Path;Ljava/util/Map;)V", "(Ljdk/nio/zipfs/ZipFileSystemProvider;Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)V", 0, $method(ZipFileSystem, init$, void, $ZipFileSystemProvider*, $Path*, $Map*), "java.io.IOException"},
+	{"beginRead", "()V", nullptr, $PRIVATE, $method(ZipFileSystem, beginRead, void)},
+	{"beginWrite", "()V", nullptr, $PRIVATE, $method(ZipFileSystem, beginWrite, void)},
+	{"buildNodeTree", "()V", nullptr, $PRIVATE, $method(ZipFileSystem, buildNodeTree, void)},
+	{"checkAccess", "([B)V", nullptr, 0, $virtualMethod(ZipFileSystem, checkAccess, void, $bytes*), "java.io.IOException"},
+	{"checkEncoding", "([B)V", nullptr, $PRIVATE | $FINAL, $method(ZipFileSystem, checkEncoding, void, $bytes*), "java.util.zip.ZipException"},
+	{"checkOptions", "(Ljava/util/Set;)V", "(Ljava/util/Set<+Ljava/nio/file/OpenOption;>;)V", $PRIVATE, $method(ZipFileSystem, checkOptions, void, $Set*)},
+	{"checkParents", "([B)V", nullptr, $PRIVATE, $method(ZipFileSystem, checkParents, void, $bytes*), "java.io.IOException"},
+	{"checkUTF8", "([B)V", nullptr, $PRIVATE | $FINAL, $method(ZipFileSystem, checkUTF8, void, $bytes*), "java.util.zip.ZipException"},
+	{"checkWritable", "()V", nullptr, $PRIVATE, $method(ZipFileSystem, checkWritable, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem, close, void), "java.io.IOException"},
+	{"copyFile", "(Z[B[B[Ljava/nio/file/CopyOption;)V", nullptr, $TRANSIENT, $virtualMethod(ZipFileSystem, copyFile, void, bool, $bytes*, $bytes*, $CopyOptionArray*), "java.io.IOException"},
+	{"copyLOCEntry", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;ZLjava/io/OutputStream;J[B)J", nullptr, $PRIVATE, $method(ZipFileSystem, copyLOCEntry, int64_t, $ZipFileSystem$Entry*, bool, $OutputStream*, int64_t, $bytes*), "java.io.IOException"},
+	{"createDirectory", "([B[Ljava/nio/file/attribute/FileAttribute;)V", "([B[Ljava/nio/file/attribute/FileAttribute<*>;)V", $TRANSIENT, $virtualMethod(ZipFileSystem, createDirectory, void, $bytes*, $FileAttributeArray*), "java.io.IOException"},
+	{"createTempFileInSameDirectoryAs", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(ZipFileSystem, createTempFileInSameDirectoryAs, $Path*, $Path*), "java.io.IOException"},
+	{"createVersionedLinks", "(I)V", nullptr, $PRIVATE, $method(ZipFileSystem, createVersionedLinks, void, int32_t)},
+	{"deleteFile", "([BZ)V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem, deleteFile, void, $bytes*, bool), "java.io.IOException"},
+	{"endRead", "()V", nullptr, $PRIVATE, $method(ZipFileSystem, endRead, void)},
+	{"endWrite", "()V", nullptr, $PRIVATE, $method(ZipFileSystem, endWrite, void)},
+	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(ZipFileSystem, ensureOpen, void)},
+	{"exists", "([B)Z", nullptr, 0, $virtualMethod(ZipFileSystem, exists, bool, $bytes*)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(ZipFileSystem, finalize, void), "java.io.IOException"},
+	{"findEND", "()Ljdk/nio/zipfs/ZipFileSystem$END;", nullptr, $PRIVATE, $method(ZipFileSystem, findEND, $ZipFileSystem$END*), "java.io.IOException"},
+	{"getBytes", "(Ljava/lang/String;)[B", nullptr, $FINAL, $method(ZipFileSystem, getBytes, $bytes*, $String*)},
+	{"getDefaultCompressionMethod", "(Ljava/util/Map;)I", "(Ljava/util/Map<Ljava/lang/String;*>;)I", $PRIVATE, $method(ZipFileSystem, getDefaultCompressionMethod, int32_t, $Map*)},
+	{"getDeflater", "()Ljava/util/zip/Deflater;", nullptr, $PRIVATE, $method(ZipFileSystem, getDeflater, $Deflater*)},
+	{"getEntry", "([B)Ljdk/nio/zipfs/ZipFileSystem$Entry;", nullptr, $PRIVATE, $method(ZipFileSystem, getEntry, $ZipFileSystem$Entry*, $bytes*), "java.io.IOException"},
+	{"getFileAttributes", "([B)Ljdk/nio/zipfs/ZipFileAttributes;", nullptr, 0, $virtualMethod(ZipFileSystem, getFileAttributes, $ZipFileAttributes*, $bytes*), "java.io.IOException"},
+	{"getFileStore", "(Ljdk/nio/zipfs/ZipPath;)Ljava/nio/file/FileStore;", nullptr, 0, $virtualMethod(ZipFileSystem, getFileStore, $FileStore*, $ZipPath*)},
+	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC, $virtualMethod(ZipFileSystem, getFileStores, $Iterable*)},
+	{"getInflater", "()Ljava/util/zip/Inflater;", nullptr, $PRIVATE, $method(ZipFileSystem, getInflater, $Inflater*)},
+	{"getInode", "([B)Ljdk/nio/zipfs/ZipFileSystem$IndexNode;", nullptr, $PRIVATE, $method(ZipFileSystem, getInode, $ZipFileSystem$IndexNode*, $bytes*)},
+	{"getInputStream", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(ZipFileSystem, getInputStream, $InputStream*, $ZipFileSystem$Entry*), "java.io.IOException"},
+	{"getOrCreateInode", "([BZ)Ljdk/nio/zipfs/ZipFileSystem$IndexNode;", nullptr, $PRIVATE, $method(ZipFileSystem, getOrCreateInode, $ZipFileSystem$IndexNode*, $bytes*, bool)},
+	{"getOutputStream", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;)Ljava/io/OutputStream;", nullptr, $PRIVATE, $method(ZipFileSystem, getOutputStream, $OutputStream*, $ZipFileSystem$Entry*), "java.io.IOException"},
+	{"getParent", "([B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipFileSystem, getParent, $bytes*, $bytes*)},
+	{"getParentOff", "([B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipFileSystem, getParentOff, int32_t, $bytes*)},
+	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljdk/nio/zipfs/ZipPath;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystem, getPath, $Path*, $String*, $StringArray*)},
+	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem, getPathMatcher, $PathMatcher*, $String*)},
+	{"getPosixAttributes", "(Ljava/nio/file/Path;)Ljava/nio/file/attribute/PosixFileAttributes;", nullptr, $PRIVATE, $method(ZipFileSystem, getPosixAttributes, $PosixFileAttributes*, $Path*), "java.io.IOException"},
+	{"getRootDir", "()Ljdk/nio/zipfs/ZipPath;", nullptr, 0, $virtualMethod(ZipFileSystem, getRootDir, $ZipPath*)},
+	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ZipFileSystem, getRootDirectories, $Iterable*)},
+	{"getRootName", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)[B", nullptr, $PRIVATE, $method(ZipFileSystem, getRootName, $bytes*, $ZipFileSystem$IndexNode*, $ZipFileSystem$IndexNode*)},
+	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem, getSeparator, $String*)},
+	{"getString", "([B)Ljava/lang/String;", nullptr, $FINAL, $method(ZipFileSystem, getString, $String*, $bytes*)},
+	{"getTempPathForEntry", "([B)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(ZipFileSystem, getTempPathForEntry, $Path*, $bytes*), "java.io.IOException"},
+	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem, getUserPrincipalLookupService, $UserPrincipalLookupService*)},
+	{"getVersion", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)Ljava/lang/Integer;", nullptr, $PRIVATE, $method(ZipFileSystem, getVersion, $Integer*, $ZipFileSystem$IndexNode*, $ZipFileSystem$IndexNode*)},
+	{"getVersionMap", "(ILjdk/nio/zipfs/ZipFileSystem$IndexNode;)Ljava/util/TreeMap;", "(ILjdk/nio/zipfs/ZipFileSystem$IndexNode;)Ljava/util/TreeMap<Ljava/lang/Integer;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;>;", $PRIVATE, $method(ZipFileSystem, getVersionMap, $TreeMap*, int32_t, $ZipFileSystem$IndexNode*)},
+	{"getZipFile", "()Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(ZipFileSystem, getZipFile, $Path*)},
+	{"initCEN", "()[B", nullptr, $PRIVATE, $method(ZipFileSystem, initCEN, $bytes*), "java.io.IOException"},
+	{"initGroup", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljava/nio/file/attribute/GroupPrincipal;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/attribute/GroupPrincipal;", $PRIVATE, $method(ZipFileSystem, initGroup, $GroupPrincipal*, $Path*, $Map*), "java.io.IOException"},
+	{"initOwner", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljava/nio/file/attribute/UserPrincipal;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/attribute/UserPrincipal;", $PRIVATE, $method(ZipFileSystem, initOwner, $UserPrincipal*, $Path*, $Map*), "java.io.IOException"},
+	{"initPermissions", "(Ljava/util/Map;)Ljava/util/Set;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PRIVATE, $method(ZipFileSystem, initPermissions, $Set*, $Map*)},
+	{"initializeReleaseVersion", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PRIVATE, $method(ZipFileSystem, initializeReleaseVersion, void, $Map*), "java.io.IOException"},
+	{"isDirectory", "([B)Z", nullptr, 0, $virtualMethod(ZipFileSystem, isDirectory, bool, $bytes*)},
+	{"isMultiReleaseJar", "()Z", nullptr, $PRIVATE, $method(ZipFileSystem, isMultiReleaseJar, bool), "java.io.IOException"},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem, isOpen, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem, isReadOnly, bool)},
+	{"isTrue", "(Ljava/util/Map;Ljava/lang/String;)Z", "(Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(ZipFileSystem, isTrue, bool, $Map*, $String*)},
+	{"iteratorOf", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter;)Ljava/util/Iterator;", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/util/Iterator<Ljava/nio/file/Path;>;", 0, $virtualMethod(ZipFileSystem, iteratorOf, $Iterator*, $ZipPath*, $DirectoryStream$Filter*), "java.io.IOException"},
+	{"lambda$close$10", "(Ljava/nio/file/Path;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystem, lambda$close$10, $Boolean*, $Path*), "java.lang.Exception"},
+	{"lambda$close$9", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(ZipFileSystem, lambda$close$9, $Void*), "java.lang.Exception"},
+	{"lambda$createVersionedLinks$11", "(Ljava/util/HashMap;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ZipFileSystem, lambda$createVersionedLinks$11, void, $HashMap*, $ZipFileSystem$IndexNode*, $ZipFileSystem$IndexNode*)},
+	{"lambda$createVersionedLinks$12", "(Ljava/util/HashMap;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ZipFileSystem, lambda$createVersionedLinks$12, void, $HashMap*, $ZipFileSystem$IndexNode*)},
+	{"lambda$createVersionedLinks$13", "(Ljava/util/HashMap;[B)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystem, lambda$createVersionedLinks$13, $bytes*, $HashMap*, $bytes*)},
+	{"lambda$getPathMatcher$8", "(Ljava/util/regex/Pattern;Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystem, lambda$getPathMatcher$8, bool, $Pattern*, $Path*)},
+	{"lambda$initGroup$6", "(Ljava/nio/file/attribute/PosixFileAttributeView;)Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystem, lambda$initGroup$6, $GroupPrincipal*, $PosixFileAttributeView*), "java.lang.Exception"},
+	{"lambda$initOwner$2", "(Ljava/nio/file/Path;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystem, lambda$initOwner$2, $UserPrincipal*, $Path*), "java.lang.Exception"},
+	{"lambda$initOwner$3", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystem, lambda$initOwner$3, $String*)},
+	{"lambda$initOwner$4", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystem, lambda$initOwner$4, $String*, $String*)},
+	{"lambda$initOwner$5", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystem, lambda$initOwner$5, $String*, Object$*)},
+	{"lambda$new$1", "(Ljava/nio/file/Path;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystem, lambda$new$1, $Boolean*, $Path*)},
+	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystem, lambda$static$0, $Boolean*)},
+	{"makeParentDirs", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE, $method(ZipFileSystem, makeParentDirs, void, $ZipFileSystem$IndexNode*, $ZipFileSystem$IndexNode*)},
+	{"newByteChannel", "([BLjava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "([BLjava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $TRANSIENT, $virtualMethod(ZipFileSystem, newByteChannel, $SeekableByteChannel*, $bytes*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+	{"newFileChannel", "([BLjava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "([BLjava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $TRANSIENT, $virtualMethod(ZipFileSystem, newFileChannel, $FileChannel*, $bytes*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+	{"newInputStream", "([B)Ljava/io/InputStream;", nullptr, 0, $virtualMethod(ZipFileSystem, newInputStream, $InputStream*, $bytes*), "java.io.IOException"},
+	{"newOutputStream", "([B[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", nullptr, $TRANSIENT, $virtualMethod(ZipFileSystem, newOutputStream, $OutputStream*, $bytes*, $OpenOptionArray*), "java.io.IOException"},
+	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem, newWatchService, $WatchService*)},
+	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem, provider, $FileSystemProvider*)},
+	{"readFullyAt", "([BIJJ)J", nullptr, $FINAL, $method(ZipFileSystem, readFullyAt, int64_t, $bytes*, int32_t, int64_t, int64_t), "java.io.IOException"},
+	{"readFullyAt", "(Ljava/nio/ByteBuffer;J)J", nullptr, $PRIVATE, $method(ZipFileSystem, readFullyAt, int64_t, $ByteBuffer*, int64_t), "java.io.IOException"},
+	{"releaseDeflater", "(Ljava/util/zip/Deflater;)V", nullptr, $PRIVATE, $method(ZipFileSystem, releaseDeflater, void, $Deflater*)},
+	{"releaseInflater", "(Ljava/util/zip/Inflater;)V", nullptr, $PRIVATE, $method(ZipFileSystem, releaseInflater, void, $Inflater*)},
+	{"removeFromTree", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE, $method(ZipFileSystem, removeFromTree, void, $ZipFileSystem$IndexNode*)},
+	{"removeTempPathForEntry", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(ZipFileSystem, removeTempPathForEntry, void, $Path*), "java.io.IOException"},
+	{"setGroup", "([BLjava/nio/file/attribute/GroupPrincipal;)V", nullptr, 0, $virtualMethod(ZipFileSystem, setGroup, void, $bytes*, $GroupPrincipal*), "java.io.IOException"},
+	{"setOwner", "([BLjava/nio/file/attribute/UserPrincipal;)V", nullptr, 0, $virtualMethod(ZipFileSystem, setOwner, void, $bytes*, $UserPrincipal*), "java.io.IOException"},
+	{"setPermissions", "([BLjava/util/Set;)V", "([BLjava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)V", 0, $virtualMethod(ZipFileSystem, setPermissions, void, $bytes*, $Set*), "java.io.IOException"},
+	{"setReadOnly", "()V", nullptr, 0, $virtualMethod(ZipFileSystem, setReadOnly, void)},
+	{"setTimes", "([BLjava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, 0, $virtualMethod(ZipFileSystem, setTimes, void, $bytes*, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
+	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ZipFileSystem, supportedFileAttributeViews, $Set*)},
+	{"sync", "()V", nullptr, $PRIVATE, $method(ZipFileSystem, sync, void), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem, toString, $String*)},
+	{"update", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;)V", nullptr, $PRIVATE, $method(ZipFileSystem, update, void, $ZipFileSystem$Entry*)},
+	{"updateDelete", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE, $method(ZipFileSystem, updateDelete, void, $ZipFileSystem$IndexNode*)},
+	{"walk", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljava/util/function/Consumer;)V", "(Ljdk/nio/zipfs/ZipFileSystem$IndexNode;Ljava/util/function/Consumer<Ljdk/nio/zipfs/ZipFileSystem$IndexNode;>;)V", $PRIVATE, $method(ZipFileSystem, walk, void, $ZipFileSystem$IndexNode*, $Consumer*)},
+	{"writeEntry", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;Ljava/io/OutputStream;)J", nullptr, $PRIVATE, $method(ZipFileSystem, writeEntry, int64_t, $ZipFileSystem$Entry*, $OutputStream*), "java.io.IOException"},
+	{"writeTo", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(ZipFileSystem, writeTo, void, $ZipFileSystem$Entry*, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

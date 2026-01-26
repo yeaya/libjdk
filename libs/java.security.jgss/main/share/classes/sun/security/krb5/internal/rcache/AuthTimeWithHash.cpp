@@ -33,16 +33,16 @@ $FieldInfo _AuthTimeWithHash_FieldInfo_[] = {
 $MethodInfo _AuthTimeWithHash_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AuthTimeWithHash::*)($String*,$String*,int32_t,int32_t,$String*,$String*)>(&AuthTimeWithHash::init$))},
-	{"compareTo", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"encode", "(Z)[B", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isSameIgnoresHash", "(Lsun/security/krb5/internal/rcache/AuthTime;)Z", nullptr, $PUBLIC},
-	{"realAlg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&AuthTimeWithHash::realAlg))},
-	{"sameTimeDiffHash", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthTimeWithHash, init$, void, $String*, $String*, int32_t, int32_t, $String*, $String*)},
+	{"compareTo", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)I", nullptr, $PUBLIC, $virtualMethod(AuthTimeWithHash, compareTo, int32_t, AuthTimeWithHash*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AuthTimeWithHash, compareTo, int32_t, Object$*)},
+	{"encode", "(Z)[B", nullptr, $PUBLIC, $virtualMethod(AuthTimeWithHash, encode, $bytes*, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AuthTimeWithHash, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AuthTimeWithHash, hashCode, int32_t)},
+	{"isSameIgnoresHash", "(Lsun/security/krb5/internal/rcache/AuthTime;)Z", nullptr, $PUBLIC, $virtualMethod(AuthTimeWithHash, isSameIgnoresHash, bool, $AuthTime*)},
+	{"realAlg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthTimeWithHash, realAlg, $String*, $String*)},
+	{"sameTimeDiffHash", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)Z", nullptr, $PUBLIC, $virtualMethod(AuthTimeWithHash, sameTimeDiffHash, bool, AuthTimeWithHash*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthTimeWithHash, toString, $String*)},
 	{}
 };
 

@@ -27,9 +27,9 @@ $FieldInfo _NotificationBroadcasterSupport$ListenerInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _NotificationBroadcasterSupport$ListenerInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(NotificationBroadcasterSupport$ListenerInfo::*)($NotificationListener*,$NotificationFilter*,Object$*)>(&NotificationBroadcasterSupport$ListenerInfo::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, 0, $method(NotificationBroadcasterSupport$ListenerInfo, init$, void, $NotificationListener*, $NotificationFilter*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$ListenerInfo, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$ListenerInfo, hashCode, int32_t)},
 	{}
 };
 

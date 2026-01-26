@@ -157,8 +157,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactory$$Lambda$shouldRegister::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$shouldRegister::*)()>(&ManagementFactory$$Lambda$shouldRegister::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$shouldRegister, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$shouldRegister, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$shouldRegister::classInfo$ = {
@@ -190,8 +190,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$0$1::*)()>(&ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$0$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$0$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$0$1::classInfo$ = {
@@ -223,8 +223,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$1$2::*)()>(&ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$1$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$1$2, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$1$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$lambda$getPlatformMBeanServer$1$2::classInfo$ = {
@@ -263,8 +263,8 @@ $FieldInfo ManagementFactory$$Lambda$lambda$newPlatformMXBeanProxy$2$3::fieldInf
 	{}
 };
 $MethodInfo ManagementFactory$$Lambda$lambda$newPlatformMXBeanProxy$2$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$lambda$newPlatformMXBeanProxy$2$3::*)($Class*)>(&ManagementFactory$$Lambda$lambda$newPlatformMXBeanProxy$2$3::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$lambda$newPlatformMXBeanProxy$2$3, init$, void, $Class*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$lambda$newPlatformMXBeanProxy$2$3, run, $Object*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$lambda$newPlatformMXBeanProxy$2$3::classInfo$ = {
@@ -303,8 +303,8 @@ $FieldInfo ManagementFactory$$Lambda$lambda$getPlatformMXBeans$3$4::fieldInfos[2
 	{}
 };
 $MethodInfo ManagementFactory$$Lambda$lambda$getPlatformMXBeans$3$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$lambda$getPlatformMXBeans$3$4::*)($Class*)>(&ManagementFactory$$Lambda$lambda$getPlatformMXBeans$3$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$lambda$getPlatformMXBeans$3$4, init$, void, $Class*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$lambda$getPlatformMXBeans$3$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$lambda$getPlatformMXBeans$3$4::classInfo$ = {
@@ -336,8 +336,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactory$$Lambda$getCanonicalName$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$getCanonicalName$5::*)()>(&ManagementFactory$$Lambda$getCanonicalName$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$getCanonicalName$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$getCanonicalName$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$getCanonicalName$5::classInfo$ = {
@@ -369,8 +369,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$4$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$4$6::*)()>(&ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$4$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$4$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$4$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$4$6::classInfo$ = {
@@ -402,8 +402,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$5$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$5$7::*)()>(&ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$5$7::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$5$7, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$5$7, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$5$7::classInfo$ = {
@@ -435,8 +435,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$6$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$6$8::*)()>(&ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$6$8::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$6$8, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$6$8, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$lambda$getPlatformManagementInterfaces$6$8::classInfo$ = {
@@ -481,8 +481,8 @@ $FieldInfo ManagementFactory$$Lambda$lambda$addMXBean$7$9::fieldInfos[4] = {
 	{}
 };
 $MethodInfo ManagementFactory$$Lambda$lambda$addMXBean$7$9::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Object;Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$lambda$addMXBean$7$9::*)(Object$*,$MBeanServer*,$ObjectName*)>(&ManagementFactory$$Lambda$lambda$addMXBean$7$9::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$lambda$addMXBean$7$9, init$, void, Object$*, $MBeanServer*, $ObjectName*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$lambda$addMXBean$7$9, run, $Object*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$lambda$addMXBean$7$9::classInfo$ = {
@@ -514,8 +514,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactory$$Lambda$lambda$static$8$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$$Lambda$lambda$static$8$10::*)()>(&ManagementFactory$$Lambda$lambda$static$8$10::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactory$$Lambda$lambda$static$8$10, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$$Lambda$lambda$static$8$10, run, $Object*)},
 	{}
 };
 $ClassInfo ManagementFactory$$Lambda$lambda$static$8$10::classInfo$ = {
@@ -549,36 +549,36 @@ $FieldInfo _ManagementFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _ManagementFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ManagementFactory::*)()>(&ManagementFactory::init$))},
-	{"addMXBean", "(Ljavax/management/MBeanServer;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MBeanServer*,$String*,Object$*)>(&ManagementFactory::addMXBean))},
-	{"getClassLoadingMXBean", "()Ljava/lang/management/ClassLoadingMXBean;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClassLoadingMXBean*(*)()>(&ManagementFactory::getClassLoadingMXBean))},
-	{"getCompilationMXBean", "()Ljava/lang/management/CompilationMXBean;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CompilationMXBean*(*)()>(&ManagementFactory::getCompilationMXBean))},
-	{"getGarbageCollectorMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/GarbageCollectorMXBean;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)()>(&ManagementFactory::getGarbageCollectorMXBeans))},
-	{"getMemoryMXBean", "()Ljava/lang/management/MemoryMXBean;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MemoryMXBean*(*)()>(&ManagementFactory::getMemoryMXBean))},
-	{"getMemoryManagerMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/MemoryManagerMXBean;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)()>(&ManagementFactory::getMemoryManagerMXBeans))},
-	{"getMemoryPoolMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/MemoryPoolMXBean;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)()>(&ManagementFactory::getMemoryPoolMXBeans))},
-	{"getOperatingSystemMXBean", "()Ljava/lang/management/OperatingSystemMXBean;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$OperatingSystemMXBean*(*)()>(&ManagementFactory::getOperatingSystemMXBean))},
-	{"getPlatformMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$MBeanServer*(*)()>(&ManagementFactory::getPlatformMBeanServer))},
-	{"getPlatformMXBean", "(Ljava/lang/Class;)Ljava/lang/management/PlatformManagedObject;", "<T::Ljava/lang/management/PlatformManagedObject;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $method(static_cast<$PlatformManagedObject*(*)($Class*)>(&ManagementFactory::getPlatformMXBean))},
-	{"getPlatformMXBean", "(Ljavax/management/MBeanServerConnection;Ljava/lang/Class;)Ljava/lang/management/PlatformManagedObject;", "<T::Ljava/lang/management/PlatformManagedObject;>(Ljavax/management/MBeanServerConnection;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $method(static_cast<$PlatformManagedObject*(*)($MBeanServerConnection*,$Class*)>(&ManagementFactory::getPlatformMXBean)), "java.io.IOException"},
-	{"getPlatformMXBeans", "(Ljava/lang/Class;)Ljava/util/List;", "<T::Ljava/lang/management/PlatformManagedObject;>(Ljava/lang/Class<TT;>;)Ljava/util/List<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($Class*)>(&ManagementFactory::getPlatformMXBeans))},
-	{"getPlatformMXBeans", "(Ljavax/management/MBeanServerConnection;Ljava/lang/Class;)Ljava/util/List;", "<T::Ljava/lang/management/PlatformManagedObject;>(Ljavax/management/MBeanServerConnection;Ljava/lang/Class<TT;>;)Ljava/util/List<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($MBeanServerConnection*,$Class*)>(&ManagementFactory::getPlatformMXBeans)), "java.io.IOException"},
-	{"getPlatformManagementInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/management/PlatformManagedObject;>;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&ManagementFactory::getPlatformManagementInterfaces))},
-	{"getProxyNames", "(Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;Ljavax/management/MBeanServerConnection;Ljava/lang/Class;)Ljava/util/stream/Stream;", "(Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;Ljavax/management/MBeanServerConnection;Ljava/lang/Class<*>;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Stream*(*)($PlatformMBeanProvider$PlatformComponent*,$MBeanServerConnection*,$Class*)>(&ManagementFactory::getProxyNames)), "java.io.IOException"},
-	{"getRuntimeMXBean", "()Ljava/lang/management/RuntimeMXBean;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RuntimeMXBean*(*)()>(&ManagementFactory::getRuntimeMXBean))},
-	{"getThreadMXBean", "()Ljava/lang/management/ThreadMXBean;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ThreadMXBean*(*)()>(&ManagementFactory::getThreadMXBean))},
-	{"isInstanceOf", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MBeanServerConnection*,$ObjectName*,$String*)>(&ManagementFactory::isInstanceOf)), "javax.management.InstanceNotFoundException,java.io.IOException"},
-	{"lambda$addMXBean$7", "(Ljava/lang/Object;Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)(Object$*,$MBeanServer*,$ObjectName*)>(&ManagementFactory::lambda$addMXBean$7)), "java.lang.Exception"},
-	{"lambda$getPlatformMBeanServer$0", "(Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($PlatformMBeanProvider$PlatformComponent*)>(&ManagementFactory::lambda$getPlatformMBeanServer$0))},
-	{"lambda$getPlatformMBeanServer$1", "(Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map$Entry*)>(&ManagementFactory::lambda$getPlatformMBeanServer$1))},
-	{"lambda$getPlatformMXBeans$3", "(Ljava/lang/Class;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($Class*,$PlatformMBeanProvider$PlatformComponent*)>(&ManagementFactory::lambda$getPlatformMXBeans$3))},
-	{"lambda$getPlatformManagementInterfaces$4", "(Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($PlatformMBeanProvider$PlatformComponent*)>(&ManagementFactory::lambda$getPlatformManagementInterfaces$4))},
-	{"lambda$getPlatformManagementInterfaces$5", "(Ljava/lang/Class;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Class*)>(&ManagementFactory::lambda$getPlatformManagementInterfaces$5))},
-	{"lambda$getPlatformManagementInterfaces$6", "(Ljava/lang/Class;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Class*(*)($Class*)>(&ManagementFactory::lambda$getPlatformManagementInterfaces$6))},
-	{"lambda$newPlatformMXBeanProxy$2", "(Ljava/lang/Class;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ClassLoader*(*)($Class*)>(&ManagementFactory::lambda$newPlatformMXBeanProxy$2))},
-	{"lambda$static$8", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)()>(&ManagementFactory::lambda$static$8))},
-	{"newPlatformMXBeanProxy", "(Ljavax/management/MBeanServerConnection;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/MBeanServerConnection;Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($MBeanServerConnection*,$String*,$Class*)>(&ManagementFactory::newPlatformMXBeanProxy)), "java.io.IOException"},
-	{"platformComponents", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)()>(&ManagementFactory::platformComponents))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ManagementFactory, init$, void)},
+	{"addMXBean", "(Ljavax/management/MBeanServer;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactory, addMXBean, void, $MBeanServer*, $String*, Object$*)},
+	{"getClassLoadingMXBean", "()Ljava/lang/management/ClassLoadingMXBean;", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getClassLoadingMXBean, $ClassLoadingMXBean*)},
+	{"getCompilationMXBean", "()Ljava/lang/management/CompilationMXBean;", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getCompilationMXBean, $CompilationMXBean*)},
+	{"getGarbageCollectorMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/GarbageCollectorMXBean;>;", $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getGarbageCollectorMXBeans, $List*)},
+	{"getMemoryMXBean", "()Ljava/lang/management/MemoryMXBean;", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getMemoryMXBean, $MemoryMXBean*)},
+	{"getMemoryManagerMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/MemoryManagerMXBean;>;", $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getMemoryManagerMXBeans, $List*)},
+	{"getMemoryPoolMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/MemoryPoolMXBean;>;", $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getMemoryPoolMXBeans, $List*)},
+	{"getOperatingSystemMXBean", "()Ljava/lang/management/OperatingSystemMXBean;", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getOperatingSystemMXBean, $OperatingSystemMXBean*)},
+	{"getPlatformMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactory, getPlatformMBeanServer, $MBeanServer*)},
+	{"getPlatformMXBean", "(Ljava/lang/Class;)Ljava/lang/management/PlatformManagedObject;", "<T::Ljava/lang/management/PlatformManagedObject;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getPlatformMXBean, $PlatformManagedObject*, $Class*)},
+	{"getPlatformMXBean", "(Ljavax/management/MBeanServerConnection;Ljava/lang/Class;)Ljava/lang/management/PlatformManagedObject;", "<T::Ljava/lang/management/PlatformManagedObject;>(Ljavax/management/MBeanServerConnection;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getPlatformMXBean, $PlatformManagedObject*, $MBeanServerConnection*, $Class*), "java.io.IOException"},
+	{"getPlatformMXBeans", "(Ljava/lang/Class;)Ljava/util/List;", "<T::Ljava/lang/management/PlatformManagedObject;>(Ljava/lang/Class<TT;>;)Ljava/util/List<TT;>;", $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getPlatformMXBeans, $List*, $Class*)},
+	{"getPlatformMXBeans", "(Ljavax/management/MBeanServerConnection;Ljava/lang/Class;)Ljava/util/List;", "<T::Ljava/lang/management/PlatformManagedObject;>(Ljavax/management/MBeanServerConnection;Ljava/lang/Class<TT;>;)Ljava/util/List<TT;>;", $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getPlatformMXBeans, $List*, $MBeanServerConnection*, $Class*), "java.io.IOException"},
+	{"getPlatformManagementInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/management/PlatformManagedObject;>;>;", $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getPlatformManagementInterfaces, $Set*)},
+	{"getProxyNames", "(Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;Ljavax/management/MBeanServerConnection;Ljava/lang/Class;)Ljava/util/stream/Stream;", "(Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;Ljavax/management/MBeanServerConnection;Ljava/lang/Class<*>;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(ManagementFactory, getProxyNames, $Stream*, $PlatformMBeanProvider$PlatformComponent*, $MBeanServerConnection*, $Class*), "java.io.IOException"},
+	{"getRuntimeMXBean", "()Ljava/lang/management/RuntimeMXBean;", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getRuntimeMXBean, $RuntimeMXBean*)},
+	{"getThreadMXBean", "()Ljava/lang/management/ThreadMXBean;", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactory, getThreadMXBean, $ThreadMXBean*)},
+	{"isInstanceOf", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactory, isInstanceOf, bool, $MBeanServerConnection*, $ObjectName*, $String*), "javax.management.InstanceNotFoundException,java.io.IOException"},
+	{"lambda$addMXBean$7", "(Ljava/lang/Object;Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory, lambda$addMXBean$7, $Void*, Object$*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+	{"lambda$getPlatformMBeanServer$0", "(Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory, lambda$getPlatformMBeanServer$0, $Stream*, $PlatformMBeanProvider$PlatformComponent*)},
+	{"lambda$getPlatformMBeanServer$1", "(Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory, lambda$getPlatformMBeanServer$1, void, $Map$Entry*)},
+	{"lambda$getPlatformMXBeans$3", "(Ljava/lang/Class;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory, lambda$getPlatformMXBeans$3, $Stream*, $Class*, $PlatformMBeanProvider$PlatformComponent*)},
+	{"lambda$getPlatformManagementInterfaces$4", "(Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory, lambda$getPlatformManagementInterfaces$4, $Stream*, $PlatformMBeanProvider$PlatformComponent*)},
+	{"lambda$getPlatformManagementInterfaces$5", "(Ljava/lang/Class;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory, lambda$getPlatformManagementInterfaces$5, bool, $Class*)},
+	{"lambda$getPlatformManagementInterfaces$6", "(Ljava/lang/Class;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory, lambda$getPlatformManagementInterfaces$6, $Class*, $Class*)},
+	{"lambda$newPlatformMXBeanProxy$2", "(Ljava/lang/Class;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory, lambda$newPlatformMXBeanProxy$2, $ClassLoader*, $Class*)},
+	{"lambda$static$8", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory, lambda$static$8, $Void*)},
+	{"newPlatformMXBeanProxy", "(Ljavax/management/MBeanServerConnection;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/MBeanServerConnection;Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $STATIC, $staticMethod(ManagementFactory, newPlatformMXBeanProxy, $Object*, $MBeanServerConnection*, $String*, $Class*), "java.io.IOException"},
+	{"platformComponents", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PRIVATE | $STATIC, $staticMethod(ManagementFactory, platformComponents, $Collection*)},
 	{}
 };
 

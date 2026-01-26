@@ -18,8 +18,8 @@ $FieldInfo _InvalidAttributeIdentifierException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidAttributeIdentifierException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidAttributeIdentifierException::*)($String*)>(&InvalidAttributeIdentifierException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidAttributeIdentifierException::*)()>(&InvalidAttributeIdentifierException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidAttributeIdentifierException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidAttributeIdentifierException, init$, void)},
 	{}
 };
 

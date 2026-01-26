@@ -123,8 +123,8 @@ $FieldInfo Http1AsyncReceiver$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1AsyncReceiver$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1AsyncReceiver$$Lambda$dbgString::*)(Http1AsyncReceiver*)>(&Http1AsyncReceiver$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;)V", nullptr, $PUBLIC, $method(Http1AsyncReceiver$$Lambda$dbgString, init$, void, Http1AsyncReceiver*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo Http1AsyncReceiver$$Lambda$dbgString::classInfo$ = {
@@ -163,8 +163,8 @@ $FieldInfo Http1AsyncReceiver$$Lambda$flush$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1AsyncReceiver$$Lambda$flush$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1AsyncReceiver$$Lambda$flush$1::*)(Http1AsyncReceiver*)>(&Http1AsyncReceiver$$Lambda$flush$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;)V", nullptr, $PUBLIC, $method(Http1AsyncReceiver$$Lambda$flush$1, init$, void, Http1AsyncReceiver*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$$Lambda$flush$1, run, void)},
 	{}
 };
 $ClassInfo Http1AsyncReceiver$$Lambda$flush$1::classInfo$ = {
@@ -206,8 +206,8 @@ $FieldInfo Http1AsyncReceiver$$Lambda$lambda$flush$0$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Http1AsyncReceiver$$Lambda$lambda$flush$0$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;J)V", nullptr, $PUBLIC, $method(static_cast<void(Http1AsyncReceiver$$Lambda$lambda$flush$0$2::*)(Http1AsyncReceiver*,int64_t)>(&Http1AsyncReceiver$$Lambda$lambda$flush$0$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;J)V", nullptr, $PUBLIC, $method(Http1AsyncReceiver$$Lambda$lambda$flush$0$2, init$, void, Http1AsyncReceiver*, int64_t)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$$Lambda$lambda$flush$0$2, get, $Object*)},
 	{}
 };
 $ClassInfo Http1AsyncReceiver$$Lambda$lambda$flush$0$2::classInfo$ = {
@@ -252,8 +252,8 @@ $FieldInfo Http1AsyncReceiver$$Lambda$lambda$checkForErrors$1$3::fieldInfos[4] =
 	{}
 };
 $MethodInfo Http1AsyncReceiver$$Lambda$lambda$checkForErrors$1$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1AsyncReceiver$$Lambda$lambda$checkForErrors$1$3::*)(Http1AsyncReceiver*,$Throwable*,Object$*)>(&Http1AsyncReceiver$$Lambda$lambda$checkForErrors$1$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Http1AsyncReceiver$$Lambda$lambda$checkForErrors$1$3, init$, void, Http1AsyncReceiver*, $Throwable*, Object$*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$$Lambda$lambda$checkForErrors$1$3, get, $Object*)},
 	{}
 };
 $ClassInfo Http1AsyncReceiver$$Lambda$lambda$checkForErrors$1$3::classInfo$ = {
@@ -292,8 +292,8 @@ $FieldInfo Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$2$4::fieldInf
 	{}
 };
 $MethodInfo Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$2$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$2$4::*)(Http1AsyncReceiver*)>(&Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$2$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;)V", nullptr, $PUBLIC, $method(Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$2$4, init$, void, Http1AsyncReceiver*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$2$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$2$4::classInfo$ = {
@@ -335,8 +335,8 @@ $FieldInfo Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$3$5::fieldInf
 	{}
 };
 $MethodInfo Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$3$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;Ljdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegate;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$3$5::*)(Http1AsyncReceiver*,$Http1AsyncReceiver$Http1AsyncDelegate*)>(&Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$3$5::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;Ljdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegate;)V", nullptr, $PUBLIC, $method(Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$3$5, init$, void, Http1AsyncReceiver*, $Http1AsyncReceiver$Http1AsyncDelegate*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$3$5, run, void)},
 	{}
 };
 $ClassInfo Http1AsyncReceiver$$Lambda$lambda$handlePendingDelegate$3$5::classInfo$ = {
@@ -375,29 +375,29 @@ $FieldInfo _Http1AsyncReceiver_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1AsyncReceiver_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljdk/internal/net/http/Http1Exchange;)V", "(Ljava/util/concurrent/Executor;Ljdk/internal/net/http/Http1Exchange<*>;)V", $PUBLIC, $method(static_cast<void(Http1AsyncReceiver::*)($Executor*,$Http1Exchange*)>(&Http1AsyncReceiver::init$))},
-	{"asyncReceive", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1AsyncReceiver::*)($ByteBuffer*)>(&Http1AsyncReceiver::asyncReceive))},
-	{"checkForErrors", "()V", nullptr, $PRIVATE, $method(static_cast<void(Http1AsyncReceiver::*)()>(&Http1AsyncReceiver::checkForErrors))},
-	{"checkRequestMore", "()V", nullptr, $PRIVATE, $method(static_cast<void(Http1AsyncReceiver::*)()>(&Http1AsyncReceiver::checkRequestMore))},
-	{"clear", "()V", nullptr, 0},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0},
-	{"debugQBB", "([Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Http1AsyncReceiver::*)($ByteBufferArray*)>(&Http1AsyncReceiver::debugQBB))},
-	{"describe", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Http1AsyncReceiver::*)()>(&Http1AsyncReceiver::describe))},
-	{"drain", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, 0},
-	{"flush", "()V", nullptr, $PRIVATE, $method(static_cast<void(Http1AsyncReceiver::*)()>(&Http1AsyncReceiver::flush))},
-	{"handlePendingDelegate", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Http1AsyncReceiver::*)()>(&Http1AsyncReceiver::handlePendingDelegate))},
-	{"hasDemand", "(Ljdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegate;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Http1AsyncReceiver::*)($Http1AsyncReceiver$Http1AsyncDelegate*)>(&Http1AsyncReceiver::hasDemand))},
-	{"lambda$checkForErrors$1", "(Ljava/lang/Throwable;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Http1AsyncReceiver::*)($Throwable*,Object$*)>(&Http1AsyncReceiver::lambda$checkForErrors$1))},
-	{"lambda$flush$0", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Http1AsyncReceiver::*)(int64_t)>(&Http1AsyncReceiver::lambda$flush$0))},
-	{"lambda$handlePendingDelegate$2", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Http1AsyncReceiver::*)($Throwable*)>(&Http1AsyncReceiver::lambda$handlePendingDelegate$2))},
-	{"lambda$handlePendingDelegate$3", "(Ljdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegate;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Http1AsyncReceiver::*)($Http1AsyncReceiver$Http1AsyncDelegate*)>(&Http1AsyncReceiver::lambda$handlePendingDelegate$3))},
-	{"onReadError", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"remaining", "()J", nullptr, 0},
-	{"setRetryOnError", "(Z)V", nullptr, $SYNCHRONIZED},
-	{"stop", "()V", nullptr, 0},
-	{"subscribe", "(Ljdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegate;)V", nullptr, 0},
-	{"subscriber", "()Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", nullptr, 0},
-	{"unsubscribe", "(Ljdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegate;)V", nullptr, 0},
+	{"<init>", "(Ljava/util/concurrent/Executor;Ljdk/internal/net/http/Http1Exchange;)V", "(Ljava/util/concurrent/Executor;Ljdk/internal/net/http/Http1Exchange<*>;)V", $PUBLIC, $method(Http1AsyncReceiver, init$, void, $Executor*, $Http1Exchange*)},
+	{"asyncReceive", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1AsyncReceiver, asyncReceive, void, $ByteBuffer*)},
+	{"checkForErrors", "()V", nullptr, $PRIVATE, $method(Http1AsyncReceiver, checkForErrors, void)},
+	{"checkRequestMore", "()V", nullptr, $PRIVATE, $method(Http1AsyncReceiver, checkRequestMore, void)},
+	{"clear", "()V", nullptr, 0, $virtualMethod(Http1AsyncReceiver, clear, void)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Http1AsyncReceiver, dbgString, $String*)},
+	{"debugQBB", "([Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Http1AsyncReceiver, debugQBB, $String*, $ByteBufferArray*)},
+	{"describe", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Http1AsyncReceiver, describe, $String*)},
+	{"drain", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(Http1AsyncReceiver, drain, $ByteBuffer*, $ByteBuffer*)},
+	{"flush", "()V", nullptr, $PRIVATE, $method(Http1AsyncReceiver, flush, void)},
+	{"handlePendingDelegate", "()Z", nullptr, $PRIVATE, $method(Http1AsyncReceiver, handlePendingDelegate, bool)},
+	{"hasDemand", "(Ljdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegate;)Z", nullptr, $PRIVATE, $method(Http1AsyncReceiver, hasDemand, bool, $Http1AsyncReceiver$Http1AsyncDelegate*)},
+	{"lambda$checkForErrors$1", "(Ljava/lang/Throwable;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Http1AsyncReceiver, lambda$checkForErrors$1, $String*, $Throwable*, Object$*)},
+	{"lambda$flush$0", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Http1AsyncReceiver, lambda$flush$0, $String*, int64_t)},
+	{"lambda$handlePendingDelegate$2", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Http1AsyncReceiver, lambda$handlePendingDelegate$2, void, $Throwable*)},
+	{"lambda$handlePendingDelegate$3", "(Ljdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegate;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Http1AsyncReceiver, lambda$handlePendingDelegate$3, void, $Http1AsyncReceiver$Http1AsyncDelegate*)},
+	{"onReadError", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Http1AsyncReceiver, onReadError, void, $Throwable*)},
+	{"remaining", "()J", nullptr, 0, $virtualMethod(Http1AsyncReceiver, remaining, int64_t)},
+	{"setRetryOnError", "(Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(Http1AsyncReceiver, setRetryOnError, void, bool)},
+	{"stop", "()V", nullptr, 0, $virtualMethod(Http1AsyncReceiver, stop, void)},
+	{"subscribe", "(Ljdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegate;)V", nullptr, 0, $virtualMethod(Http1AsyncReceiver, subscribe, void, $Http1AsyncReceiver$Http1AsyncDelegate*)},
+	{"subscriber", "()Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", nullptr, 0, $virtualMethod(Http1AsyncReceiver, subscriber, $FlowTube$TubeSubscriber*)},
+	{"unsubscribe", "(Ljdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegate;)V", nullptr, 0, $virtualMethod(Http1AsyncReceiver, unsubscribe, void, $Http1AsyncReceiver$Http1AsyncDelegate*)},
 	{}
 };
 

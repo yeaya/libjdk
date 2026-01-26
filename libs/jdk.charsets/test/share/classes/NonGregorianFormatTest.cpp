@@ -47,15 +47,15 @@ $FieldInfo _NonGregorianFormatTest_FieldInfo_[] = {
 };
 
 $MethodInfo _NonGregorianFormatTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NonGregorianFormatTest::*)()>(&NonGregorianFormatTest::init$))},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&NonGregorianFormatTest::error))},
-	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&NonGregorianFormatTest::error))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NonGregorianFormatTest::main)), "java.text.ParseException"},
-	{"test", "(Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Locale*)>(&NonGregorianFormatTest::test))},
-	{"testParseExceptions", "(Ljava/util/Locale;[[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Locale*,$ObjectArray2*)>(&NonGregorianFormatTest::testParseExceptions))},
-	{"testRoundTrip", "(Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Locale*)>(&NonGregorianFormatTest::testRoundTrip))},
-	{"testRoundTrip", "(Ljava/text/DateFormat;Ljava/util/Date;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($DateFormat*,$Date*)>(&NonGregorianFormatTest::testRoundTrip))},
-	{"testRoundTripSimple", "(Ljava/util/Locale;[[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Locale*,$ObjectArray2*)>(&NonGregorianFormatTest::testRoundTripSimple))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NonGregorianFormatTest, init$, void)},
+	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, error, void, $String*)},
+	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(NonGregorianFormatTest, error, void, $String*, $ObjectArray*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonGregorianFormatTest, main, void, $StringArray*), "java.text.ParseException"},
+	{"test", "(Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, test, void, $Locale*)},
+	{"testParseExceptions", "(Ljava/util/Locale;[[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testParseExceptions, void, $Locale*, $ObjectArray2*)},
+	{"testRoundTrip", "(Ljava/util/Locale;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testRoundTrip, void, $Locale*)},
+	{"testRoundTrip", "(Ljava/text/DateFormat;Ljava/util/Date;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testRoundTrip, void, $DateFormat*, $Date*)},
+	{"testRoundTripSimple", "(Ljava/util/Locale;[[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NonGregorianFormatTest, testRoundTripSimple, void, $Locale*, $ObjectArray2*)},
 	{}
 };
 

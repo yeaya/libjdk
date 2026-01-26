@@ -10,6 +10,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
+using $Diagnostic$Kind = ::javax::tools::Diagnostic$Kind;
 
 namespace javax {
 	namespace tools {
@@ -20,15 +22,15 @@ $FieldInfo _Diagnostic_FieldInfo_[] = {
 };
 
 $MethodInfo _Diagnostic_MethodInfo_[] = {
-	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getColumnNumber", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEndPosition", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKind", "()Ljavax/tools/Diagnostic$Kind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLineNumber", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMessage", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPosition", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSource", "()Ljava/lang/Object;", "()TS;", $PUBLIC | $ABSTRACT},
-	{"getStartPosition", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Diagnostic, getCode, $String*)},
+	{"getColumnNumber", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Diagnostic, getColumnNumber, int64_t)},
+	{"getEndPosition", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Diagnostic, getEndPosition, int64_t)},
+	{"getKind", "()Ljavax/tools/Diagnostic$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Diagnostic, getKind, $Diagnostic$Kind*)},
+	{"getLineNumber", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Diagnostic, getLineNumber, int64_t)},
+	{"getMessage", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Diagnostic, getMessage, $String*, $Locale*)},
+	{"getPosition", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Diagnostic, getPosition, int64_t)},
+	{"getSource", "()Ljava/lang/Object;", "()TS;", $PUBLIC | $ABSTRACT, $virtualMethod(Diagnostic, getSource, $Object*)},
+	{"getStartPosition", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Diagnostic, getStartPosition, int64_t)},
 	{}
 };
 

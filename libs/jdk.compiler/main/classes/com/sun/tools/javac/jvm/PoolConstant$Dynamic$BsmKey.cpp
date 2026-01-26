@@ -58,8 +58,8 @@ $FieldInfo PoolConstant$Dynamic$BsmKey$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PoolConstant$Dynamic$BsmKey$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(static_cast<void(PoolConstant$Dynamic$BsmKey$$Lambda$lambda$new$0::*)($Types*)>(&PoolConstant$Dynamic$BsmKey$$Lambda$lambda$new$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(PoolConstant$Dynamic$BsmKey$$Lambda$lambda$new$0, init$, void, $Types*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$Dynamic$BsmKey$$Lambda$lambda$new$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PoolConstant$Dynamic$BsmKey$$Lambda$lambda$new$0::classInfo$ = {
@@ -85,10 +85,10 @@ $FieldInfo _PoolConstant$Dynamic$BsmKey_FieldInfo_[] = {
 };
 
 $MethodInfo _PoolConstant$Dynamic$BsmKey_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)V", nullptr, $PRIVATE, $method(static_cast<void(PoolConstant$Dynamic$BsmKey::*)($Types*,$PoolConstant$LoadableConstant*,$PoolConstant$LoadableConstantArray*)>(&PoolConstant$Dynamic$BsmKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"lambda$new$0", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($Types*,$PoolConstant$LoadableConstant*)>(&PoolConstant$Dynamic$BsmKey::lambda$new$0))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)V", nullptr, $PRIVATE, $method(PoolConstant$Dynamic$BsmKey, init$, void, $Types*, $PoolConstant$LoadableConstant*, $PoolConstant$LoadableConstantArray*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PoolConstant$Dynamic$BsmKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PoolConstant$Dynamic$BsmKey, hashCode, int32_t)},
+	{"lambda$new$0", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PoolConstant$Dynamic$BsmKey, lambda$new$0, $Object*, $Types*, $PoolConstant$LoadableConstant*)},
 	{}
 };
 

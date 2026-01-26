@@ -42,14 +42,14 @@ $FieldInfo _Symbol$VarSymbol$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Symbol$VarSymbol$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(Symbol$VarSymbol$1::*)($Symbol$VarSymbol*,int64_t,$Name*,$Type*,$Symbol*,$Symbol*)>(&Symbol$VarSymbol$1::init$))},
-	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"clone", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Symbol$VarSymbol$1, init$, void, $Symbol$VarSymbol*, int64_t, $Name*, $Type*, $Symbol*, $Symbol*)},
+	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, asType, $TypeMirror*)},
+	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol$1, baseSymbol, $Symbol*)},
+	{"clone", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, clone, $Symbol$VarSymbol*, $Symbol*)},
+	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, getAnnotationMirrors, $List*)},
+	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, getEnclosingElement, $Element*)},
+	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol$1, getSimpleName, $1Name*)},
+	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol$1, poolKey, $Object*, $Types*)},
 	{}
 };
 

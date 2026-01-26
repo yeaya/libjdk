@@ -41,11 +41,11 @@ $FieldInfo _ISCII91$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISCII91$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(ISCII91$Encoder::*)($Charset*)>(&ISCII91$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISCII91$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&ISCII91$Encoder::encodeArrayLoop))},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISCII91$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&ISCII91$Encoder::encodeBufferLoop))},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ISCII91$Encoder, init$, void, $Charset*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISCII91$Encoder, canEncode, bool, char16_t)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISCII91$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISCII91$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISCII91$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
 	{}
 };
 

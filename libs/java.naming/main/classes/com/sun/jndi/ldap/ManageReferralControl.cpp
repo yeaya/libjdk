@@ -22,8 +22,8 @@ $FieldInfo _ManageReferralControl_FieldInfo_[] = {
 };
 
 $MethodInfo _ManageReferralControl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManageReferralControl::*)()>(&ManageReferralControl::init$))},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(ManageReferralControl::*)(bool)>(&ManageReferralControl::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManageReferralControl, init$, void)},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(ManageReferralControl, init$, void, bool)},
 	{}
 };
 

@@ -76,8 +76,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JCTree$JCCase$$Lambda$lambda$getExpressions$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCTree$JCCase$$Lambda$lambda$getExpressions$0::*)()>(&JCTree$JCCase$$Lambda$lambda$getExpressions$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCCase$$Lambda$lambda$getExpressions$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCase$$Lambda$lambda$getExpressions$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo JCTree$JCCase$$Lambda$lambda$getExpressions$0::classInfo$ = {
@@ -109,8 +109,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JCTree$JCCase$$Lambda$lambda$getExpressions$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCTree$JCCase$$Lambda$lambda$getExpressions$1$1::*)()>(&JCTree$JCCase$$Lambda$lambda$getExpressions$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCCase$$Lambda$lambda$getExpressions$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCase$$Lambda$lambda$getExpressions$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JCTree$JCCase$$Lambda$lambda$getExpressions$1$1::classInfo$ = {
@@ -148,19 +148,19 @@ $MethodInfo _JCTree$JCCase_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/source/tree/CaseTree$CaseKind;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;)V", "(Lcom/sun/source/tree/CaseTree$CaseKind;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/tree/JCTree;)V", $PROTECTED, $method(static_cast<void(JCTree$JCCase::*)($CaseTree$CaseKind*,$List*,$List*,$JCTree*)>(&JCTree$JCCase::init$))},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
-	{"getBody", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
-	{"getCaseKind", "()Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC},
-	{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _JCTree$JCCase_MethodAnnotations_getExpression5},
-	{"getExpressions", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC},
-	{"getLabels", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;>;", $PUBLIC},
-	{"getStatements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", $PUBLIC},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC},
-	{"lambda$getExpressions$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCCaseLabel*)>(&JCTree$JCCase::lambda$getExpressions$0))},
-	{"lambda$getExpressions$1", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCTree$JCExpression*(*)($JCTree$JCCaseLabel*)>(&JCTree$JCCase::lambda$getExpressions$1))},
+	{"<init>", "(Lcom/sun/source/tree/CaseTree$CaseKind;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;)V", "(Lcom/sun/source/tree/CaseTree$CaseKind;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;Lcom/sun/tools/javac/tree/JCTree;)V", $PROTECTED, $method(JCTree$JCCase, init$, void, $CaseTree$CaseKind*, $List*, $List*, $JCTree*)},
+	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCase, accept, void, $JCTree$Visitor*)},
+	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCCase, accept, $Object*, $TreeVisitor*, Object$*)},
+	{"getBody", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCase, getBody, $JCTree*)},
+	{"getCaseKind", "()Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCase, getCaseKind, $CaseTree$CaseKind*)},
+	{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JCTree$JCCase, getExpression, $ExpressionTree*), nullptr, nullptr, _JCTree$JCCase_MethodAnnotations_getExpression5},
+	{"getExpressions", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(JCTree$JCCase, getExpressions, $1List*)},
+	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCase, getKind, $Tree$Kind*)},
+	{"getLabels", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;>;", $PUBLIC, $virtualMethod(JCTree$JCCase, getLabels, $1List*)},
+	{"getStatements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", $PUBLIC, $virtualMethod(JCTree$JCCase, getStatements, $1List*)},
+	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCase, getTag, $JCTree$Tag*)},
+	{"lambda$getExpressions$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$JCCase, lambda$getExpressions$0, bool, $JCTree$JCCaseLabel*)},
+	{"lambda$getExpressions$1", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$JCCase, lambda$getExpressions$1, $JCTree$JCExpression*, $JCTree$JCCaseLabel*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

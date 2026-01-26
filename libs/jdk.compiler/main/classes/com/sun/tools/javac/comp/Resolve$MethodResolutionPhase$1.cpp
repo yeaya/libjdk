@@ -27,8 +27,8 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Resolve$MethodResolutionPhase$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IZZ)V", nullptr, $PRIVATE, $method(static_cast<void(Resolve$MethodResolutionPhase$1::*)($String*,int32_t,bool,bool)>(&Resolve$MethodResolutionPhase$1::init$))},
-	{"mergeResults", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;IZZ)V", nullptr, $PRIVATE, $method(Resolve$MethodResolutionPhase$1, init$, void, $String*, int32_t, bool, bool)},
+	{"mergeResults", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionPhase$1, mergeResults, $Symbol*, $Symbol*, $Symbol*)},
 	{}
 };
 

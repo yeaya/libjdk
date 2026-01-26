@@ -29,11 +29,11 @@ $FieldInfo _TlsChannelBinding$TlsChannelBindingType_FieldInfo_[] = {
 };
 
 $MethodInfo _TlsChannelBinding$TlsChannelBindingType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TlsChannelBinding$TlsChannelBindingTypeArray*(*)()>(&TlsChannelBinding$TlsChannelBindingType::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(TlsChannelBinding$TlsChannelBindingType::*)($String*,int32_t,$String*)>(&TlsChannelBinding$TlsChannelBindingType::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(TlsChannelBinding$TlsChannelBindingType::*)()>(&TlsChannelBinding$TlsChannelBindingType::getName))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TlsChannelBinding$TlsChannelBindingType*(*)($String*)>(&TlsChannelBinding$TlsChannelBindingType::valueOf))},
-	{"values", "()[Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TlsChannelBinding$TlsChannelBindingTypeArray*(*)()>(&TlsChannelBinding$TlsChannelBindingType::values))},
+	{"$values", "()[Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TlsChannelBinding$TlsChannelBindingType, $values, $TlsChannelBinding$TlsChannelBindingTypeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(TlsChannelBinding$TlsChannelBindingType, init$, void, $String*, int32_t, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(TlsChannelBinding$TlsChannelBindingType, getName, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TlsChannelBinding$TlsChannelBindingType, valueOf, TlsChannelBinding$TlsChannelBindingType*, $String*)},
+	{"values", "()[Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TlsChannelBinding$TlsChannelBindingType, values, $TlsChannelBinding$TlsChannelBindingTypeArray*)},
 	{}
 };
 

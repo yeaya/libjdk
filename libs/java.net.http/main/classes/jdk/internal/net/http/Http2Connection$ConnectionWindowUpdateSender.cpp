@@ -22,8 +22,8 @@ $FieldInfo _Http2Connection$ConnectionWindowUpdateSender_FieldInfo_[] = {
 };
 
 $MethodInfo _Http2Connection$ConnectionWindowUpdateSender_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;I)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$ConnectionWindowUpdateSender::*)($Http2Connection*,int32_t)>(&Http2Connection$ConnectionWindowUpdateSender::init$))},
-	{"getStreamId", "()I", nullptr, 0},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection;I)V", nullptr, $PUBLIC, $method(Http2Connection$ConnectionWindowUpdateSender, init$, void, $Http2Connection*, int32_t)},
+	{"getStreamId", "()I", nullptr, 0, $virtualMethod(Http2Connection$ConnectionWindowUpdateSender, getStreamId, int32_t)},
 	{}
 };
 

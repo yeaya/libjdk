@@ -27,16 +27,16 @@ $FieldInfo _CannotProceedException_FieldInfo_[] = {
 };
 
 $MethodInfo _CannotProceedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CannotProceedException::*)($String*)>(&CannotProceedException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CannotProceedException::*)()>(&CannotProceedException::init$))},
-	{"getAltName", "()Ljavax/naming/Name;", nullptr, $PUBLIC},
-	{"getAltNameCtx", "()Ljavax/naming/Context;", nullptr, $PUBLIC},
-	{"getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<**>;", $PUBLIC},
-	{"getRemainingNewName", "()Ljavax/naming/Name;", nullptr, $PUBLIC},
-	{"setAltName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"setAltNameCtx", "(Ljavax/naming/Context;)V", nullptr, $PUBLIC},
-	{"setEnvironment", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC},
-	{"setRemainingNewName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CannotProceedException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CannotProceedException, init$, void)},
+	{"getAltName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(CannotProceedException, getAltName, $Name*)},
+	{"getAltNameCtx", "()Ljavax/naming/Context;", nullptr, $PUBLIC, $virtualMethod(CannotProceedException, getAltNameCtx, $Context*)},
+	{"getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<**>;", $PUBLIC, $virtualMethod(CannotProceedException, getEnvironment, $Hashtable*)},
+	{"getRemainingNewName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(CannotProceedException, getRemainingNewName, $Name*)},
+	{"setAltName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(CannotProceedException, setAltName, void, $Name*)},
+	{"setAltNameCtx", "(Ljavax/naming/Context;)V", nullptr, $PUBLIC, $virtualMethod(CannotProceedException, setAltNameCtx, void, $Context*)},
+	{"setEnvironment", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $virtualMethod(CannotProceedException, setEnvironment, void, $Hashtable*)},
+	{"setRemainingNewName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(CannotProceedException, setRemainingNewName, void, $Name*)},
 	{}
 };
 

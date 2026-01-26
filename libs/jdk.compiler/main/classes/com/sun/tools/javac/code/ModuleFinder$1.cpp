@@ -30,9 +30,9 @@ $FieldInfo _ModuleFinder$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleFinder$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/ModuleFinder;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", "()V", 0, $method(static_cast<void(ModuleFinder$1::*)($ModuleFinder*,$Symbol$ModuleSymbol*)>(&ModuleFinder$1::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/ModuleFinder;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", "()V", 0, $method(ModuleFinder$1, init$, void, $ModuleFinder*, $Symbol$ModuleSymbol*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$1, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$1, toString, $String*)},
 	{}
 };
 

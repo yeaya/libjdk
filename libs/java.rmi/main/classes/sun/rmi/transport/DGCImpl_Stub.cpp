@@ -97,8 +97,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DGCImpl_Stub$$Lambda$leaseFilter::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCImpl_Stub$$Lambda$leaseFilter::*)()>(&DGCImpl_Stub$$Lambda$leaseFilter::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl_Stub$$Lambda$leaseFilter, init$, void)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Stub$$Lambda$leaseFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
 	{}
 };
 $ClassInfo DGCImpl_Stub$$Lambda$leaseFilter::classInfo$ = {
@@ -128,11 +128,11 @@ $MethodInfo _DGCImpl_Stub_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCImpl_Stub::*)()>(&DGCImpl_Stub::init$))},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(static_cast<void(DGCImpl_Stub::*)($RemoteRef*)>(&DGCImpl_Stub::init$))},
-	{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"leaseFilter", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ObjectInputFilter$Status*(*)($ObjectInputFilter$FilterInfo*)>(&DGCImpl_Stub::leaseFilter))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl_Stub, init$, void)},
+	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(DGCImpl_Stub, init$, void, $RemoteRef*)},
+	{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Stub, clean, void, $ObjIDArray*, int64_t, $VMID*, bool), "java.rmi.RemoteException"},
+	{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Stub, dirty, $Lease*, $ObjIDArray*, int64_t, $Lease*), "java.rmi.RemoteException"},
+	{"leaseFilter", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC, $staticMethod(DGCImpl_Stub, leaseFilter, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

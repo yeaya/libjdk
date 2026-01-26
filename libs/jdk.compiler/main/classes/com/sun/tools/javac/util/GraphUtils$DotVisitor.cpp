@@ -27,14 +27,14 @@ namespace com {
 				namespace util {
 
 $MethodInfo _GraphUtils$DotVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GraphUtils$DotVisitor::*)()>(&GraphUtils$DotVisitor::init$))},
-	{"formatProperties", "(Ljava/util/Properties;)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"visit", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Ljava/lang/StringBuilder;)V", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;TN;TN;Ljava/lang/StringBuilder;)V", $PUBLIC},
-	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Ljava/lang/StringBuilder;)V", "(TN;Ljava/lang/StringBuilder;)V", $PUBLIC},
-	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"wrap", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $method(static_cast<$String*(*)($String*)>(&GraphUtils$DotVisitor::wrap))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GraphUtils$DotVisitor, init$, void)},
+	{"formatProperties", "(Ljava/util/Properties;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(GraphUtils$DotVisitor, formatProperties, $String*, $Properties*)},
+	{"visit", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GraphUtils$DotVisitor, visit, void, $Collection*, Object$*)},
+	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Ljava/lang/StringBuilder;)V", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;TN;TN;Ljava/lang/StringBuilder;)V", $PUBLIC, $virtualMethod(GraphUtils$DotVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$DottableNode*, $GraphUtils$DottableNode*, $StringBuilder*)},
+	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GraphUtils$DotVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$Node*, $GraphUtils$Node*, Object$*)},
+	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Ljava/lang/StringBuilder;)V", "(TN;Ljava/lang/StringBuilder;)V", $PUBLIC, $virtualMethod(GraphUtils$DotVisitor, visitNode, void, $GraphUtils$DottableNode*, $StringBuilder*)},
+	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GraphUtils$DotVisitor, visitNode, void, $GraphUtils$Node*, Object$*)},
+	{"wrap", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphUtils$DotVisitor, wrap, $String*, $String*)},
 	{}
 };
 

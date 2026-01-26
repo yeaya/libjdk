@@ -390,8 +390,8 @@ $FieldInfo _Krb5_FieldInfo_[] = {
 };
 
 $MethodInfo _Krb5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Krb5::*)()>(&Krb5::init$))},
-	{"getErrorMessage", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&Krb5::getErrorMessage))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Krb5, init$, void)},
+	{"getErrorMessage", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5, getErrorMessage, $String*, int32_t)},
 	{}
 };
 

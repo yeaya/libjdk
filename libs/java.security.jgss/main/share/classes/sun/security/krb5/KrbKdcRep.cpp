@@ -56,8 +56,8 @@ namespace sun {
 		namespace krb5 {
 
 $MethodInfo _KrbKdcRep_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KrbKdcRep::*)()>(&KrbKdcRep::init$))},
-	{"check", "(ZLsun/security/krb5/internal/KDCReq;Lsun/security/krb5/internal/KDCRep;Lsun/security/krb5/EncryptionKey;)V", nullptr, $STATIC, $method(static_cast<void(*)(bool,$KDCReq*,$KDCRep*,$EncryptionKey*)>(&KrbKdcRep::check)), "sun.security.krb5.internal.KrbApErrException"},
+	{"<init>", "()V", nullptr, 0, $method(KrbKdcRep, init$, void)},
+	{"check", "(ZLsun/security/krb5/internal/KDCReq;Lsun/security/krb5/internal/KDCRep;Lsun/security/krb5/EncryptionKey;)V", nullptr, $STATIC, $staticMethod(KrbKdcRep, check, void, bool, $KDCReq*, $KDCRep*, $EncryptionKey*), "sun.security.krb5.internal.KrbApErrException"},
 	{}
 };
 

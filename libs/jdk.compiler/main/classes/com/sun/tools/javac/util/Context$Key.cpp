@@ -14,7 +14,7 @@ namespace com {
 				namespace util {
 
 $MethodInfo _Context$Key_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Context$Key::*)()>(&Context$Key::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Context$Key, init$, void)},
 	{}
 };
 

@@ -9,9 +9,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _S$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(S$2::*)()>(&S$2::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(S$2, init$, void)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(S$2, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(S$2, request, void, int64_t)},
 	{}
 };
 

@@ -33,10 +33,10 @@ $FieldInfo _ClientCodeWrapper$WrappedTaskListener_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientCodeWrapper$WrappedTaskListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Lcom/sun/source/util/TaskListener;)V", nullptr, 0, $method(static_cast<void(ClientCodeWrapper$WrappedTaskListener::*)($ClientCodeWrapper*,$TaskListener*)>(&ClientCodeWrapper$WrappedTaskListener::init$))},
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
-	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Lcom/sun/source/util/TaskListener;)V", nullptr, 0, $method(ClientCodeWrapper$WrappedTaskListener, init$, void, $ClientCodeWrapper*, $TaskListener*)},
+	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedTaskListener, finished, void, $TaskEvent*)},
+	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedTaskListener, started, void, $TaskEvent*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedTaskListener, toString, $String*)},
 	{}
 };
 

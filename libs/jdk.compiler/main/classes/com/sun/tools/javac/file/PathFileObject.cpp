@@ -16,6 +16,7 @@
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
 #include <java/lang/CharSequence.h>
+#include <java/lang/Iterable.h>
 #include <java/net/URI.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -66,6 +67,7 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $ByteBuffer = ::java::nio::ByteBuffer;
@@ -102,38 +104,38 @@ $FieldInfo _PathFileObject_FieldInfo_[] = {
 };
 
 $MethodInfo _PathFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;)V", nullptr, $PROTECTED, $method(static_cast<void(PathFileObject::*)($BaseFileManager*,$Path*)>(&PathFileObject::init$))},
-	{"delete", "()Z", nullptr, $PUBLIC},
-	{"ensureParentDirectoriesExist", "()V", nullptr, $PRIVATE, $method(static_cast<void(PathFileObject::*)()>(&PathFileObject::ensureParentDirectoriesExist)), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"forDirectoryPath", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, $STATIC, $method(static_cast<PathFileObject*(*)($BaseFileManager*,$Path*,$Path*,$RelativePath*)>(&PathFileObject::forDirectoryPath))},
-	{"forJRTPath", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PathFileObject*(*)($BaseFileManager*,$Path*)>(&PathFileObject::forJRTPath))},
-	{"forJarPath", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PathFileObject*(*)($BaseFileManager*,$Path*,$Path*)>(&PathFileObject::forJarPath))},
-	{"forSimplePath", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, $STATIC, $method(static_cast<PathFileObject*(*)($BaseFileManager*,$Path*,$Path*)>(&PathFileObject::forSimplePath))},
-	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC},
-	{"getLastModified", "()J", nullptr, $PUBLIC},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC},
-	{"getPath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"getShortName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, $ABSTRACT},
-	{"getSimpleName", "(Ljavax/tools/FileObject;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($FileObject*)>(&PathFileObject::getSimpleName))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $ABSTRACT},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC},
-	{"isPathNameCompatible", "(Ljava/nio/file/Path;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PROTECTED},
-	{"isSameFile", "(Lcom/sun/tools/javac/file/PathFileObject;)Z", nullptr, 0},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"removeExtension", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&PathFileObject::removeExtension))},
-	{"toBinaryName", "(Lcom/sun/tools/javac/file/RelativePath;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $method(static_cast<$String*(*)($RelativePath*)>(&PathFileObject::toBinaryName))},
-	{"toBinaryName", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $method(static_cast<$String*(*)($Path*)>(&PathFileObject::toBinaryName))},
-	{"toBinaryName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&PathFileObject::toBinaryName))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;)V", nullptr, $PROTECTED, $method(PathFileObject, init$, void, $BaseFileManager*, $Path*)},
+	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(PathFileObject, delete$, bool)},
+	{"ensureParentDirectoriesExist", "()V", nullptr, $PRIVATE, $method(PathFileObject, ensureParentDirectoriesExist, void), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PathFileObject, equals, bool, Object$*)},
+	{"forDirectoryPath", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, $STATIC, $staticMethod(PathFileObject, forDirectoryPath, PathFileObject*, $BaseFileManager*, $Path*, $Path*, $RelativePath*)},
+	{"forJRTPath", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(PathFileObject, forJRTPath, PathFileObject*, $BaseFileManager*, $Path*)},
+	{"forJarPath", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, $PUBLIC | $STATIC, $staticMethod(PathFileObject, forJarPath, PathFileObject*, $BaseFileManager*, $Path*, $Path*)},
+	{"forSimplePath", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, $STATIC, $staticMethod(PathFileObject, forSimplePath, PathFileObject*, $BaseFileManager*, $Path*, $Path*)},
+	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, getAccessLevel, $Modifier*)},
+	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, getKind, $JavaFileObject$Kind*)},
+	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(PathFileObject, getLastModified, int64_t)},
+	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, getNestingKind, $NestingKind*)},
+	{"getPath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, getPath, $Path*)},
+	{"getShortName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, getShortName, $String*)},
+	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, $ABSTRACT, $virtualMethod(PathFileObject, getSibling, PathFileObject*, $String*)},
+	{"getSimpleName", "(Ljavax/tools/FileObject;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PathFileObject, getSimpleName, $String*, $FileObject*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PathFileObject, hashCode, int32_t)},
+	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $ABSTRACT, $virtualMethod(PathFileObject, inferBinaryName, $String*, $Iterable*)},
+	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(PathFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+	{"isPathNameCompatible", "(Ljava/nio/file/Path;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PROTECTED, $virtualMethod(PathFileObject, isPathNameCompatible, bool, $Path*, $String*, $JavaFileObject$Kind*)},
+	{"isSameFile", "(Lcom/sun/tools/javac/file/PathFileObject;)Z", nullptr, 0, $virtualMethod(PathFileObject, isSameFile, bool, PathFileObject*)},
+	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, openInputStream, $InputStream*), "java.io.IOException"},
+	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, openReader, $Reader*, bool), "java.io.IOException"},
+	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, openWriter, $Writer*), "java.io.IOException"},
+	{"removeExtension", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PathFileObject, removeExtension, $String*, $String*)},
+	{"toBinaryName", "(Lcom/sun/tools/javac/file/RelativePath;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(PathFileObject, toBinaryName, $String*, $RelativePath*)},
+	{"toBinaryName", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(PathFileObject, toBinaryName, $String*, $Path*)},
+	{"toBinaryName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PathFileObject, toBinaryName, $String*, $String*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, toString, $String*)},
+	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PathFileObject, toUri, $URI*)},
 	{}
 };
 

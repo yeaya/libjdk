@@ -25,9 +25,9 @@ $FieldInfo _MirroredTypeException_FieldInfo_[] = {
 };
 
 $MethodInfo _MirroredTypeException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/type/TypeMirror;)V", nullptr, $PUBLIC, $method(static_cast<void(MirroredTypeException::*)($TypeMirror*)>(&MirroredTypeException::init$))},
-	{"getTypeMirror", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MirroredTypeException::*)($ObjectInputStream*)>(&MirroredTypeException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljavax/lang/model/type/TypeMirror;)V", nullptr, $PUBLIC, $method(MirroredTypeException, init$, void, $TypeMirror*)},
+	{"getTypeMirror", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC, $virtualMethod(MirroredTypeException, getTypeMirror, $TypeMirror*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MirroredTypeException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

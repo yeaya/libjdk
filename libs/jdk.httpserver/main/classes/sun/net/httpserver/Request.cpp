@@ -44,13 +44,13 @@ $FieldInfo _Request_FieldInfo_[] = {
 };
 
 $MethodInfo _Request_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(Request::*)($InputStream*,$OutputStream*)>(&Request::init$)), "java.io.IOException"},
-	{"consume", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(Request::*)(int32_t)>(&Request::consume))},
-	{"headers", "()Lcom/sun/net/httpserver/Headers;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"inputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"outputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"requestLine", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(Request, init$, void, $InputStream*, $OutputStream*), "java.io.IOException"},
+	{"consume", "(I)V", nullptr, $PRIVATE, $method(Request, consume, void, int32_t)},
+	{"headers", "()Lcom/sun/net/httpserver/Headers;", nullptr, 0, $virtualMethod(Request, headers, $Headers*), "java.io.IOException"},
+	{"inputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Request, inputStream, $InputStream*)},
+	{"outputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(Request, outputStream, $OutputStream*)},
+	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Request, readLine, $String*), "java.io.IOException"},
+	{"requestLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Request, requestLine, $String*)},
 	{}
 };
 

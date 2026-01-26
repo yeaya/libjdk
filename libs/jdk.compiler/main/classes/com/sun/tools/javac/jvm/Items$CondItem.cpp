@@ -41,19 +41,19 @@ $FieldInfo _Items$CondItem_FieldInfo_[] = {
 };
 
 $MethodInfo _Items$CondItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;ILcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0, $method(static_cast<void(Items$CondItem::*)($Items*,int32_t,$Code$Chain*,$Code$Chain*)>(&Items$CondItem::init$))},
-	{"drop", "()V", nullptr, 0},
-	{"duplicate", "()V", nullptr, 0},
-	{"isFalse", "()Z", nullptr, 0},
-	{"isTrue", "()Z", nullptr, 0},
-	{"jumpFalse", "()Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0},
-	{"jumpTrue", "()Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0},
-	{"negate", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0},
-	{"stash", "(I)V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"width", "()I", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;ILcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0, $method(Items$CondItem, init$, void, $Items*, int32_t, $Code$Chain*, $Code$Chain*)},
+	{"drop", "()V", nullptr, 0, $virtualMethod(Items$CondItem, drop, void)},
+	{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$CondItem, duplicate, void)},
+	{"isFalse", "()Z", nullptr, 0, $virtualMethod(Items$CondItem, isFalse, bool)},
+	{"isTrue", "()Z", nullptr, 0, $virtualMethod(Items$CondItem, isTrue, bool)},
+	{"jumpFalse", "()Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $virtualMethod(Items$CondItem, jumpFalse, $Code$Chain*)},
+	{"jumpTrue", "()Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $virtualMethod(Items$CondItem, jumpTrue, $Code$Chain*)},
+	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$CondItem, load, $Items$Item*)},
+	{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$CondItem, mkCond, Items$CondItem*)},
+	{"negate", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$CondItem, negate, Items$CondItem*)},
+	{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$CondItem, stash, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$CondItem, toString, $String*)},
+	{"width", "()I", nullptr, 0, $virtualMethod(Items$CondItem, width, int32_t)},
 	{}
 };
 

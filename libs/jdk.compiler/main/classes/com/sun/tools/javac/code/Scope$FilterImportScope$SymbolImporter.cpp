@@ -20,6 +20,7 @@ using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
@@ -41,9 +42,9 @@ $FieldInfo _Scope$FilterImportScope$SymbolImporter_FieldInfo_[] = {
 };
 
 $MethodInfo _Scope$FilterImportScope$SymbolImporter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$FilterImportScope;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$FilterImportScope$SymbolImporter::*)($Scope$FilterImportScope*,bool)>(&Scope$FilterImportScope$SymbolImporter::init$))},
-	{"doLookup", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $ABSTRACT},
-	{"importFrom", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/List<Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;>;)Lcom/sun/tools/javac/util/List<Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;>;", 0},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$FilterImportScope;Z)V", nullptr, $PUBLIC, $method(Scope$FilterImportScope$SymbolImporter, init$, void, $Scope$FilterImportScope*, bool)},
+	{"doLookup", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $ABSTRACT, $virtualMethod(Scope$FilterImportScope$SymbolImporter, doLookup, $Iterable*, $Symbol$TypeSymbol*)},
+	{"importFrom", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/List<Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;>;)Lcom/sun/tools/javac/util/List<Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;>;", 0, $virtualMethod(Scope$FilterImportScope$SymbolImporter, importFrom, $List*, $Symbol$TypeSymbol*, $List*)},
 	{}
 };
 

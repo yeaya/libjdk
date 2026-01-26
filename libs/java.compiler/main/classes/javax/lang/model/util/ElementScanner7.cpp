@@ -52,9 +52,9 @@ $CompoundAttribute _ElementScanner7_MethodAnnotations_init$1[] = {
 };
 
 $MethodInfo _ElementScanner7_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(ElementScanner7::*)()>(&ElementScanner7::init$)), nullptr, nullptr, _ElementScanner7_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(static_cast<void(ElementScanner7::*)(Object$*)>(&ElementScanner7::init$)), nullptr, nullptr, _ElementScanner7_MethodAnnotations_init$1},
-	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(ElementScanner7, init$, void), nullptr, nullptr, _ElementScanner7_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(ElementScanner7, init$, void, Object$*), nullptr, nullptr, _ElementScanner7_MethodAnnotations_init$1},
+	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner7, visitVariable, $Object*, $VariableElement*, Object$*)},
 	{}
 };
 

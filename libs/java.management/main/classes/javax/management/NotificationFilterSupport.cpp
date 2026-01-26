@@ -28,12 +28,12 @@ $FieldInfo _NotificationFilterSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _NotificationFilterSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotificationFilterSupport::*)()>(&NotificationFilterSupport::init$))},
-	{"disableAllTypes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"disableType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"enableType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.IllegalArgumentException"},
-	{"getEnabledTypes", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED},
-	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotificationFilterSupport, init$, void)},
+	{"disableAllTypes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, disableAllTypes, void)},
+	{"disableType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, disableType, void, $String*)},
+	{"enableType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, enableType, void, $String*), "java.lang.IllegalArgumentException"},
+	{"getEnabledTypes", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, getEnabledTypes, $Vector*)},
+	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, isNotificationEnabled, bool, $Notification*)},
 	{}
 };
 

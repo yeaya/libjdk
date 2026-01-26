@@ -34,10 +34,10 @@ $FieldInfo _Operators$BinaryShiftOperator_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators$BinaryShiftOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Operators$BinaryShiftOperator::*)($Operators*,$JCTree$Tag*)>(&Operators$BinaryShiftOperator::init$))},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC},
-	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$BinaryShiftOperator, init$, void, $Operators*, $JCTree$Tag*)},
+	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryShiftOperator, resolve, $Symbol$OperatorSymbol*, $Type*, $Type*)},
+	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryShiftOperator, test, bool, $Type*, $Type*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$BinaryShiftOperator, test, bool, Object$*, Object$*)},
 	{}
 };
 

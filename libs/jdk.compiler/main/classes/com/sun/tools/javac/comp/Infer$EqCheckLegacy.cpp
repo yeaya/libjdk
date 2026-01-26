@@ -60,8 +60,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Infer$EqCheckLegacy$$Lambda$asInstType::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Infer$EqCheckLegacy$$Lambda$asInstType::*)()>(&Infer$EqCheckLegacy$$Lambda$asInstType::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Infer$EqCheckLegacy$$Lambda$asInstType, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Infer$EqCheckLegacy$$Lambda$asInstType, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Infer$EqCheckLegacy$$Lambda$asInstType::classInfo$ = {
@@ -93,8 +93,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Infer$EqCheckLegacy$$Lambda$free$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Infer$EqCheckLegacy$$Lambda$free$1::*)()>(&Infer$EqCheckLegacy$$Lambda$free$1::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Infer$EqCheckLegacy$$Lambda$free$1, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$EqCheckLegacy$$Lambda$free$1, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Infer$EqCheckLegacy$$Lambda$free$1::classInfo$ = {
@@ -117,9 +117,9 @@ $FieldInfo _Infer$EqCheckLegacy_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$EqCheckLegacy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, 0, $method(static_cast<void(Infer$EqCheckLegacy::*)($Infer*,$Type$UndetVar*,$Type*,$Type$UndetVar$InferenceBound*)>(&Infer$EqCheckLegacy::init$))},
-	{"boundsToCheck", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;", 0},
-	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, 0, $method(Infer$EqCheckLegacy, init$, void, $Infer*, $Type$UndetVar*, $Type*, $Type$UndetVar$InferenceBound*)},
+	{"boundsToCheck", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;", 0, $virtualMethod(Infer$EqCheckLegacy, boundsToCheck, $EnumSet*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC, $virtualMethod(Infer$EqCheckLegacy, dup, $Infer$IncorporationAction*, $Type$UndetVar*)},
 	{}
 };
 

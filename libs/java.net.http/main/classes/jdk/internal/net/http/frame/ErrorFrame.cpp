@@ -54,10 +54,10 @@ $FieldInfo _ErrorFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _ErrorFrame_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(static_cast<void(ErrorFrame::*)(int32_t,int32_t,int32_t)>(&ErrorFrame::init$))},
-	{"getErrorCode", "()I", nullptr, $PUBLIC},
-	{"stringForCode", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&ErrorFrame::stringForCode))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(III)V", nullptr, $PUBLIC, $method(ErrorFrame, init$, void, int32_t, int32_t, int32_t)},
+	{"getErrorCode", "()I", nullptr, $PUBLIC, $virtualMethod(ErrorFrame, getErrorCode, int32_t)},
+	{"stringForCode", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ErrorFrame, stringForCode, $String*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ErrorFrame, toString, $String*)},
 	{}
 };
 

@@ -39,12 +39,12 @@ $FieldInfo _AuthTime_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthTime_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(static_cast<void(AuthTime::*)($String*,$String*,int32_t,int32_t)>(&AuthTime::init$))},
-	{"encode", "(Z)[B", nullptr, $PUBLIC},
-	{"encode0", "(Ljava/lang/String;Ljava/lang/String;)[B", nullptr, $PROTECTED},
-	{"readFrom", "(Ljava/nio/channels/SeekableByteChannel;)Lsun/security/krb5/internal/rcache/AuthTime;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AuthTime*(*)($SeekableByteChannel*)>(&AuthTime::readFrom)), "java.io.IOException"},
-	{"readStringWithLength", "(Ljava/nio/channels/SeekableByteChannel;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($SeekableByteChannel*)>(&AuthTime::readStringWithLength)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(AuthTime, init$, void, $String*, $String*, int32_t, int32_t)},
+	{"encode", "(Z)[B", nullptr, $PUBLIC, $virtualMethod(AuthTime, encode, $bytes*, bool)},
+	{"encode0", "(Ljava/lang/String;Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(AuthTime, encode0, $bytes*, $String*, $String*)},
+	{"readFrom", "(Ljava/nio/channels/SeekableByteChannel;)Lsun/security/krb5/internal/rcache/AuthTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthTime, readFrom, AuthTime*, $SeekableByteChannel*), "java.io.IOException"},
+	{"readStringWithLength", "(Ljava/nio/channels/SeekableByteChannel;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AuthTime, readStringWithLength, $String*, $SeekableByteChannel*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthTime, toString, $String*)},
 	{}
 };
 

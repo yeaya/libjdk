@@ -5,18 +5,19 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $MemoryUsage = ::java::lang::management::MemoryUsage;
 
 namespace java {
 	namespace lang {
 		namespace management {
 
 $MethodInfo _MemoryMXBean_MethodInfo_[] = {
-	{"gc", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getHeapMemoryUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNonHeapMemoryUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getObjectPendingFinalizationCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isVerbose", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"setVerbose", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"gc", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryMXBean, gc, void)},
+	{"getHeapMemoryUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryMXBean, getHeapMemoryUsage, $MemoryUsage*)},
+	{"getNonHeapMemoryUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryMXBean, getNonHeapMemoryUsage, $MemoryUsage*)},
+	{"getObjectPendingFinalizationCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryMXBean, getObjectPendingFinalizationCount, int32_t)},
+	{"isVerbose", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryMXBean, isVerbose, bool)},
+	{"setVerbose", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryMXBean, setVerbose, void, bool)},
 	{}
 };
 

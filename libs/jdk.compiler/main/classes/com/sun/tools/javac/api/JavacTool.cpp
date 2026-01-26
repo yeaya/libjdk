@@ -105,15 +105,15 @@ $CompoundAttribute _JavacTool_MethodAnnotations_init$0[] = {
 };
 
 $MethodInfo _JavacTool_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(JavacTool::*)()>(&JavacTool::init$)), nullptr, nullptr, _JavacTool_MethodAnnotations_init$0},
-	{"create", "()Lcom/sun/tools/javac/api/JavacTool;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavacTool*(*)()>(&JavacTool::create))},
-	{"getSourceVersions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/SourceVersion;>;", $PUBLIC},
-	{"getStandardFileManager", "(Ljavax/tools/DiagnosticListener;Ljava/util/Locale;Ljava/nio/charset/Charset;)Lcom/sun/tools/javac/file/JavacFileManager;", "(Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/util/Locale;Ljava/nio/charset/Charset;)Lcom/sun/tools/javac/file/JavacFileManager;", $PUBLIC},
-	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;)Lcom/sun/source/util/JavacTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Lcom/sun/source/util/JavacTask;", $PUBLIC},
-	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lcom/sun/tools/javac/util/Context;)Lcom/sun/source/util/JavacTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;Lcom/sun/tools/javac/util/Context;)Lcom/sun/source/util/JavacTask;", $PUBLIC, $method(static_cast<$JavacTask*(JavacTool::*)($Writer*,$JavaFileManager*,$DiagnosticListener*,$Iterable*,$Iterable*,$Iterable*,$Context*)>(&JavacTool::getTask))},
-	{"isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"run", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/OutputStream;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT},
+	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(JavacTool, init$, void), nullptr, nullptr, _JavacTool_MethodAnnotations_init$0},
+	{"create", "()Lcom/sun/tools/javac/api/JavacTool;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacTool, create, JavacTool*)},
+	{"getSourceVersions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/SourceVersion;>;", $PUBLIC, $virtualMethod(JavacTool, getSourceVersions, $Set*)},
+	{"getStandardFileManager", "(Ljavax/tools/DiagnosticListener;Ljava/util/Locale;Ljava/nio/charset/Charset;)Lcom/sun/tools/javac/file/JavacFileManager;", "(Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/util/Locale;Ljava/nio/charset/Charset;)Lcom/sun/tools/javac/file/JavacFileManager;", $PUBLIC, $virtualMethod(JavacTool, getStandardFileManager, $StandardJavaFileManager*, $DiagnosticListener*, $Locale*, $Charset*)},
+	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;)Lcom/sun/source/util/JavacTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Lcom/sun/source/util/JavacTask;", $PUBLIC, $virtualMethod(JavacTool, getTask, $JavaCompiler$CompilationTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Iterable*, $Iterable*, $Iterable*)},
+	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lcom/sun/tools/javac/util/Context;)Lcom/sun/source/util/JavacTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;Lcom/sun/tools/javac/util/Context;)Lcom/sun/source/util/JavacTask;", $PUBLIC, $method(JavacTool, getTask, $JavacTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Iterable*, $Iterable*, $Iterable*, $Context*)},
+	{"isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(JavacTool, isSupportedOption, int32_t, $String*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacTool, name, $String*)},
+	{"run", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/OutputStream;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacTool, run, int32_t, $InputStream*, $OutputStream*, $OutputStream*, $StringArray*)},
 	{}
 };
 

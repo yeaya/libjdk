@@ -19,7 +19,7 @@ $FieldInfo _ServerError_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Error;)V", nullptr, $PUBLIC, $method(static_cast<void(ServerError::*)($String*,$Error*)>(&ServerError::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Error;)V", nullptr, $PUBLIC, $method(ServerError, init$, void, $String*, $Error*)},
 	{}
 };
 

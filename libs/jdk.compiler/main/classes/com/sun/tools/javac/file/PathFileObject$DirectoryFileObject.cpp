@@ -35,11 +35,11 @@ $FieldInfo _PathFileObject$DirectoryFileObject_FieldInfo_[] = {
 };
 
 $MethodInfo _PathFileObject$DirectoryFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath;)V", nullptr, $PRIVATE, $method(static_cast<void(PathFileObject$DirectoryFileObject::*)($BaseFileManager*,$Path*,$Path*,$RelativePath*)>(&PathFileObject$DirectoryFileObject::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0},
-	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath;)V", nullptr, $PRIVATE, $method(PathFileObject$DirectoryFileObject, init$, void, $BaseFileManager*, $Path*, $Path*, $RelativePath*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$DirectoryFileObject, getName, $String*)},
+	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0, $virtualMethod(PathFileObject$DirectoryFileObject, getSibling, $PathFileObject*, $String*)},
+	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(PathFileObject$DirectoryFileObject, inferBinaryName, $String*, $Iterable*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$DirectoryFileObject, toString, $String*)},
 	{}
 };
 

@@ -22,10 +22,10 @@ namespace com {
 				namespace url {
 
 $MethodInfo _UrlUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UrlUtil::*)()>(&UrlUtil::init$))},
-	{"decode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$String*(*)($String*)>(&UrlUtil::decode)), "java.net.MalformedURLException"},
-	{"decode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$String*(*)($String*,$String*)>(&UrlUtil::decode)), "java.net.MalformedURLException,java.io.UnsupportedEncodingException"},
-	{"encode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$String*(*)($String*,$String*)>(&UrlUtil::encode)), "java.io.UnsupportedEncodingException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UrlUtil, init$, void)},
+	{"decode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UrlUtil, decode, $String*, $String*), "java.net.MalformedURLException"},
+	{"decode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UrlUtil, decode, $String*, $String*, $String*), "java.net.MalformedURLException,java.io.UnsupportedEncodingException"},
+	{"encode", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(UrlUtil, encode, $String*, $String*, $String*), "java.io.UnsupportedEncodingException"},
 	{}
 };
 

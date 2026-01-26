@@ -51,8 +51,8 @@ $FieldInfo _RMIConnector$1_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnector$1_MethodInfo_[] = {
-	{"<init>", "([B)V", "()V", 0, $method(static_cast<void(RMIConnector$1::*)($bytes*)>(&RMIConnector$1::init$))},
-	{"run", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "([B)V", "()V", 0, $method(RMIConnector$1, init$, void, $bytes*)},
+	{"run", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $virtualMethod(RMIConnector$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

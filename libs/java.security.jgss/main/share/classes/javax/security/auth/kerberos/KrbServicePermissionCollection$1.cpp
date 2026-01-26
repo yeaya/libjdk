@@ -26,9 +26,9 @@ $FieldInfo _KrbServicePermissionCollection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbServicePermissionCollection$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/kerberos/KrbServicePermissionCollection;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(KrbServicePermissionCollection$1::*)($KrbServicePermissionCollection*,$String*)>(&KrbServicePermissionCollection$1::init$))},
-	{"apply", "(Ljava/security/Permission;Ljava/security/Permission;)Ljava/security/Permission;", nullptr, $PUBLIC},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljavax/security/auth/kerberos/KrbServicePermissionCollection;Ljava/lang/String;)V", nullptr, 0, $method(KrbServicePermissionCollection$1, init$, void, $KrbServicePermissionCollection*, $String*)},
+	{"apply", "(Ljava/security/Permission;Ljava/security/Permission;)Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(KrbServicePermissionCollection$1, apply, $Permission*, $Permission*, $Permission*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(KrbServicePermissionCollection$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 

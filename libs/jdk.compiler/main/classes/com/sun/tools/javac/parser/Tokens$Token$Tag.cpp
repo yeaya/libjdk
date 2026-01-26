@@ -32,10 +32,10 @@ $FieldInfo _Tokens$Token$Tag_FieldInfo_[] = {
 };
 
 $MethodInfo _Tokens$Token$Tag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Tokens$Token$TagArray*(*)()>(&Tokens$Token$Tag::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Tokens$Token$Tag::*)($String*,int32_t)>(&Tokens$Token$Tag::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Tokens$Token$Tag*(*)($String*)>(&Tokens$Token$Tag::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Tokens$Token$TagArray*(*)()>(&Tokens$Token$Tag::values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tokens$Token$Tag, $values, $Tokens$Token$TagArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Tokens$Token$Tag, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Token$Tag, valueOf, Tokens$Token$Tag*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Token$Tag, values, $Tokens$Token$TagArray*)},
 	{}
 };
 

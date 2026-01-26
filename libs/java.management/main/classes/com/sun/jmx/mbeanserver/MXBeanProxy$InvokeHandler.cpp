@@ -27,8 +27,8 @@ $FieldInfo _MXBeanProxy$InvokeHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _MXBeanProxy$InvokeHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, 0, $method(static_cast<void(MXBeanProxy$InvokeHandler::*)($String*,$StringArray*,$ConvertingMethod*)>(&MXBeanProxy$InvokeHandler::init$))},
-	{"invoke", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, 0, $method(MXBeanProxy$InvokeHandler, init$, void, $String*, $StringArray*, $ConvertingMethod*)},
+	{"invoke", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(MXBeanProxy$InvokeHandler, invoke, $Object*, $MBeanServerConnection*, $ObjectName*, $ObjectArray*), "java.lang.Exception"},
 	{}
 };
 

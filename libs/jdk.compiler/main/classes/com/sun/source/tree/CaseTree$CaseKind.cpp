@@ -27,10 +27,10 @@ $FieldInfo _CaseTree$CaseKind_FieldInfo_[] = {
 };
 
 $MethodInfo _CaseTree$CaseKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CaseTree$CaseKindArray*(*)()>(&CaseTree$CaseKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(CaseTree$CaseKind::*)($String*,int32_t)>(&CaseTree$CaseKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CaseTree$CaseKind*(*)($String*)>(&CaseTree$CaseKind::valueOf))},
-	{"values", "()[Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CaseTree$CaseKindArray*(*)()>(&CaseTree$CaseKind::values))},
+	{"$values", "()[Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CaseTree$CaseKind, $values, $CaseTree$CaseKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CaseTree$CaseKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(CaseTree$CaseKind, valueOf, CaseTree$CaseKind*, $String*)},
+	{"values", "()[Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(CaseTree$CaseKind, values, $CaseTree$CaseKindArray*)},
 	{}
 };
 

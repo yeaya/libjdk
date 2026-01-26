@@ -22,7 +22,7 @@ $FieldInfo _ClassWriter$StringOverflow_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassWriter$StringOverflow_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassWriter$StringOverflow::*)($String*)>(&ClassWriter$StringOverflow::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassWriter$StringOverflow, init$, void, $String*)},
 	{}
 };
 

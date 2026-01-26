@@ -106,12 +106,12 @@ $MethodInfo _JavacTaskPool$ReusableContext_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(static_cast<void(JavacTaskPool$ReusableContext::*)($List*)>(&JavacTaskPool$ReusableContext::init$))},
-	{"clear", "()V", nullptr, 0},
-	{"drop", "(Lcom/sun/tools/javac/util/Context$Key;)V", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Context$Key<TT;>;)V", 0},
-	{"drop", "(Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)V", 0},
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
-	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(JavacTaskPool$ReusableContext, init$, void, $List*)},
+	{"clear", "()V", nullptr, 0, $virtualMethod(JavacTaskPool$ReusableContext, clear, void)},
+	{"drop", "(Lcom/sun/tools/javac/util/Context$Key;)V", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Context$Key<TT;>;)V", 0, $virtualMethod(JavacTaskPool$ReusableContext, drop, void, $Context$Key*)},
+	{"drop", "(Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)V", 0, $virtualMethod(JavacTaskPool$ReusableContext, drop, void, $Class*)},
+	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext, finished, void, $TaskEvent*)},
+	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext, started, void, $TaskEvent*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

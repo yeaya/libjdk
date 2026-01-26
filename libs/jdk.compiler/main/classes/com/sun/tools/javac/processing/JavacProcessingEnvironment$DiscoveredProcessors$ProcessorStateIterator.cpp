@@ -56,11 +56,11 @@ $FieldInfo _JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterat
 };
 
 $MethodInfo _JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;)V", nullptr, 0, $method(static_cast<void(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator::*)($JavacProcessingEnvironment$DiscoveredProcessors*,$JavacProcessingEnvironment$DiscoveredProcessors*)>(&JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$ProcessorState;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"runContributingProcs", "(Ljavax/annotation/processing/RoundEnvironment;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$DiscoveredProcessors;)V", nullptr, 0, $method(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, init$, void, $JavacProcessingEnvironment$DiscoveredProcessors*, $JavacProcessingEnvironment$DiscoveredProcessors*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, hasNext, bool)},
+	{"next", "()Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$ProcessorState;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, remove, void)},
+	{"runContributingProcs", "(Ljavax/annotation/processing/RoundEnvironment;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$DiscoveredProcessors$ProcessorStateIterator, runContributingProcs, void, $RoundEnvironment*)},
 	{}
 };
 

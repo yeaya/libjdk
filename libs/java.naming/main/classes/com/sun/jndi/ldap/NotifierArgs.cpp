@@ -41,13 +41,13 @@ $FieldInfo _NotifierArgs_FieldInfo_[] = {
 };
 
 $MethodInfo _NotifierArgs_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjavax/naming/event/NamingListener;)V", nullptr, 0, $method(static_cast<void(NotifierArgs::*)($String*,int32_t,$NamingListener*)>(&NotifierArgs::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(static_cast<void(NotifierArgs::*)($String*,$String*,$SearchControls*,$NamingListener*)>(&NotifierArgs::init$))},
-	{"checkControls", "(Ljavax/naming/directory/SearchControls;)Z", nullptr, $PRIVATE, $method(static_cast<bool(NotifierArgs::*)($SearchControls*)>(&NotifierArgs::checkControls))},
-	{"checkStringArrays", "([Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($StringArray*,$StringArray*)>(&NotifierArgs::checkStringArrays))},
-	{"controlsCode", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(NotifierArgs::*)()>(&NotifierArgs::controlsCode))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjavax/naming/event/NamingListener;)V", nullptr, 0, $method(NotifierArgs, init$, void, $String*, int32_t, $NamingListener*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NotifierArgs, init$, void, $String*, $String*, $SearchControls*, $NamingListener*)},
+	{"checkControls", "(Ljavax/naming/directory/SearchControls;)Z", nullptr, $PRIVATE, $method(NotifierArgs, checkControls, bool, $SearchControls*)},
+	{"checkStringArrays", "([Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NotifierArgs, checkStringArrays, bool, $StringArray*, $StringArray*)},
+	{"controlsCode", "()I", nullptr, $PRIVATE, $method(NotifierArgs, controlsCode, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NotifierArgs, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NotifierArgs, hashCode, int32_t)},
 	{}
 };
 

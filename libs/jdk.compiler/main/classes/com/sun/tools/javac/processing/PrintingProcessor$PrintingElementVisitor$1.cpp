@@ -29,9 +29,9 @@ $FieldInfo _PrintingProcessor$PrintingElementVisitor$1_FieldInfo_[] = {
 };
 
 $MethodInfo _PrintingProcessor$PrintingElementVisitor$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;)V", nullptr, 0, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$1::*)($PrintingProcessor$PrintingElementVisitor*)>(&PrintingProcessor$PrintingElementVisitor$1::init$))},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Void;)Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;)V", nullptr, 0, $method(PrintingProcessor$PrintingElementVisitor$1, init$, void, $PrintingProcessor$PrintingElementVisitor*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Void;)Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$1, visitType, $NestingKind*, $TypeElement*, $Void*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$1, visitType, $Object*, $TypeElement*, Object$*)},
 	{}
 };
 

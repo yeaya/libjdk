@@ -17,8 +17,8 @@ $FieldInfo _InstanceNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _InstanceNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InstanceNotFoundException::*)()>(&InstanceNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InstanceNotFoundException::*)($String*)>(&InstanceNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InstanceNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstanceNotFoundException, init$, void, $String*)},
 	{}
 };
 

@@ -206,8 +206,8 @@ $FieldInfo TypeEnter$$Lambda$lambda$ensureImportsChecked$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo TypeEnter$$Lambda$lambda$ensureImportsChecked$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/comp/Env;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$$Lambda$lambda$ensureImportsChecked$0::*)(TypeEnter*,$JCTree$JCCompilationUnit*,$Env*)>(&TypeEnter$$Lambda$lambda$ensureImportsChecked$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/comp/Env;)V", nullptr, $PUBLIC, $method(TypeEnter$$Lambda$lambda$ensureImportsChecked$0, init$, void, TypeEnter*, $JCTree$JCCompilationUnit*, $Env*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$$Lambda$lambda$ensureImportsChecked$0, run, void)},
 	{}
 };
 $ClassInfo TypeEnter$$Lambda$lambda$ensureImportsChecked$0::classInfo$ = {
@@ -239,8 +239,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TypeEnter$$Lambda$lambda$complete$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$$Lambda$lambda$complete$1$1::*)()>(&TypeEnter$$Lambda$lambda$complete$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeEnter$$Lambda$lambda$complete$1$1, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$$Lambda$lambda$complete$1$1, run, void)},
 	{}
 };
 $ClassInfo TypeEnter$$Lambda$lambda$complete$1$1::classInfo$ = {
@@ -272,8 +272,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TypeEnter$$Lambda$lambda$lookupMethod$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$$Lambda$lambda$lookupMethod$2$2::*)()>(&TypeEnter$$Lambda$lambda$lookupMethod$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeEnter$$Lambda$lambda$lookupMethod$2$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeEnter$$Lambda$lambda$lookupMethod$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$$Lambda$lambda$lookupMethod$2$2::classInfo$ = {
@@ -312,8 +312,8 @@ $FieldInfo TypeEnter$$Lambda$Ident$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TypeEnter$$Lambda$Ident$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$$Lambda$Ident$3::*)($TreeMaker*)>(&TypeEnter$$Lambda$Ident$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, $PUBLIC, $method(TypeEnter$$Lambda$Ident$3, init$, void, $TreeMaker*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$$Lambda$Ident$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$$Lambda$Ident$3::classInfo$ = {
@@ -345,8 +345,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$3$4::*)()>(&TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$3$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$3$4, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$3$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$3$4::classInfo$ = {
@@ -378,8 +378,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$4$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$4$5::*)()>(&TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$4$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$4$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$4$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$4$5::classInfo$ = {
@@ -418,8 +418,8 @@ $FieldInfo TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$5$6::fieldInfos[2] = 
 	{}
 };
 $MethodInfo TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$5$6::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$5$6::*)($Name*)>(&TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$5$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$5$6, init$, void, $Name*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$5$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$5$6::classInfo$ = {
@@ -461,8 +461,8 @@ $FieldInfo TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$6$7::fieldInfos[3] = 
 	{}
 };
 $MethodInfo TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$6$7::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;J)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$6$7::*)($Symbol*,int64_t)>(&TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$6$7::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;J)V", nullptr, $PUBLIC, $method(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$6$7, init$, void, $Symbol*, int64_t)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$6$7, accept, void, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$$Lambda$lambda$setFlagIfAttributeTrue$6$7::classInfo$ = {
@@ -509,23 +509,23 @@ $FieldInfo _TypeEnter_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(TypeEnter::*)($Context*)>(&TypeEnter::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"defaultConstructor", "(Lcom/sun/tools/javac/tree/TreeMaker;Lcom/sun/tools/javac/comp/TypeEnter$DefaultConstructorHelper;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0},
-	{"ensureImportsChecked", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)V", $PROTECTED},
-	{"finishImports", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Ljava/lang/Runnable;)V", nullptr, 0},
-	{"handleDeprecatedAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/code/Symbol;)V", $PRIVATE, $method(static_cast<void(TypeEnter::*)($List*,$Symbol*)>(&TypeEnter::handleDeprecatedAnnotations))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/TypeEnter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeEnter*(*)($Context*)>(&TypeEnter::instance))},
-	{"lambda$complete$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)()>(&TypeEnter::lambda$complete$1))},
-	{"lambda$ensureImportsChecked$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/comp/Env;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(TypeEnter::*)($JCTree$JCCompilationUnit*,$Env*)>(&TypeEnter::lambda$ensureImportsChecked$0))},
-	{"lambda$lookupMethod$2", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*)>(&TypeEnter::lambda$lookupMethod$2))},
-	{"lambda$setFlagIfAttributeTrue$3", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCExpression*)>(&TypeEnter::lambda$setFlagIfAttributeTrue$3))},
-	{"lambda$setFlagIfAttributeTrue$4", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCAssign;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCTree$JCAssign*(*)($JCTree$JCExpression*)>(&TypeEnter::lambda$setFlagIfAttributeTrue$4))},
-	{"lambda$setFlagIfAttributeTrue$5", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCAssign;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Name*,$JCTree$JCAssign*)>(&TypeEnter::lambda$setFlagIfAttributeTrue$5))},
-	{"lambda$setFlagIfAttributeTrue$6", "(Lcom/sun/tools/javac/code/Symbol;JLcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Symbol*,int64_t,$JCTree$JCAssign*)>(&TypeEnter::lambda$setFlagIfAttributeTrue$6))},
-	{"lookupMethod", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", $PRIVATE, $method(static_cast<$Symbol$MethodSymbol*(TypeEnter::*)($Symbol$TypeSymbol*,$Name*,$List*)>(&TypeEnter::lookupMethod))},
-	{"markDeprecated", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC},
-	{"setFlagIfAttributeTrue", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;J)V", nullptr, $PRIVATE, $method(static_cast<void(TypeEnter::*)($JCTree$JCAnnotation*,$Symbol*,$Name*,int64_t)>(&TypeEnter::setFlagIfAttributeTrue))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(TypeEnter, init$, void, $Context*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"defaultConstructor", "(Lcom/sun/tools/javac/tree/TreeMaker;Lcom/sun/tools/javac/comp/TypeEnter$DefaultConstructorHelper;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(TypeEnter, defaultConstructor, $JCTree*, $TreeMaker*, $TypeEnter$DefaultConstructorHelper*)},
+	{"ensureImportsChecked", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)V", $PROTECTED, $virtualMethod(TypeEnter, ensureImportsChecked, void, $List*)},
+	{"finishImports", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Ljava/lang/Runnable;)V", nullptr, 0, $virtualMethod(TypeEnter, finishImports, void, $JCTree$JCCompilationUnit*, $Runnable*)},
+	{"handleDeprecatedAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/code/Symbol;)V", $PRIVATE, $method(TypeEnter, handleDeprecatedAnnotations, void, $List*, $Symbol*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/TypeEnter;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeEnter, instance, TypeEnter*, $Context*)},
+	{"lambda$complete$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter, lambda$complete$1, void)},
+	{"lambda$ensureImportsChecked$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/comp/Env;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(TypeEnter, lambda$ensureImportsChecked$0, void, $JCTree$JCCompilationUnit*, $Env*)},
+	{"lambda$lookupMethod$2", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter, lambda$lookupMethod$2, bool, $Symbol*)},
+	{"lambda$setFlagIfAttributeTrue$3", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter, lambda$setFlagIfAttributeTrue$3, bool, $JCTree$JCExpression*)},
+	{"lambda$setFlagIfAttributeTrue$4", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCAssign;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter, lambda$setFlagIfAttributeTrue$4, $JCTree$JCAssign*, $JCTree$JCExpression*)},
+	{"lambda$setFlagIfAttributeTrue$5", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCAssign;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter, lambda$setFlagIfAttributeTrue$5, bool, $Name*, $JCTree$JCAssign*)},
+	{"lambda$setFlagIfAttributeTrue$6", "(Lcom/sun/tools/javac/code/Symbol;JLcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter, lambda$setFlagIfAttributeTrue$6, void, $Symbol*, int64_t, $JCTree$JCAssign*)},
+	{"lookupMethod", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", $PRIVATE, $method(TypeEnter, lookupMethod, $Symbol$MethodSymbol*, $Symbol$TypeSymbol*, $Name*, $List*)},
+	{"markDeprecated", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(TypeEnter, markDeprecated, void, $Symbol*, $List*, $Env*)},
+	{"setFlagIfAttributeTrue", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;J)V", nullptr, $PRIVATE, $method(TypeEnter, setFlagIfAttributeTrue, void, $JCTree$JCAnnotation*, $Symbol*, $Name*, int64_t)},
 	{}
 };
 

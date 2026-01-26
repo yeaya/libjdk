@@ -34,8 +34,8 @@ $FieldInfo _CompilationSubResult_FieldInfo_[] = {
 };
 
 $MethodInfo _CompilationSubResult_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Main$Result;)V", nullptr, $PUBLIC, $method(static_cast<void(CompilationSubResult::*)($Main$Result*)>(&CompilationSubResult::init$))},
-	{"setResult", "(Lcom/sun/tools/javac/main/Main$Result;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/Main$Result;)V", nullptr, $PUBLIC, $method(CompilationSubResult, init$, void, $Main$Result*)},
+	{"setResult", "(Lcom/sun/tools/javac/main/Main$Result;)V", nullptr, $PUBLIC, $virtualMethod(CompilationSubResult, setResult, void, $Main$Result*)},
 	{}
 };
 

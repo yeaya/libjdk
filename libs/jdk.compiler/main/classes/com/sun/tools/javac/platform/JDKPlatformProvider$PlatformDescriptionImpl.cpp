@@ -147,8 +147,8 @@ $FieldInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileMan
 	{}
 };
 $MethodInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::*)($Path*)>(&JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, init$, void, $Path*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$0::classInfo$ = {
@@ -180,8 +180,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::*)()>(&JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$1$1::classInfo$ = {
@@ -220,8 +220,8 @@ $FieldInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileMan
 	{}
 };
 $MethodInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;)V", nullptr, $PUBLIC, $method(static_cast<void(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::*)($JavacFileManager*)>(&JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, init$, void, $JavacFileManager*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$2$2::classInfo$ = {
@@ -253,8 +253,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::*)()>(&JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JDKPlatformProvider$PlatformDescriptionImpl$$Lambda$lambda$getFileManager$3$3::classInfo$ = {
@@ -279,19 +279,19 @@ $FieldInfo _JDKPlatformProvider$PlatformDescriptionImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _JDKPlatformProvider$PlatformDescriptionImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(JDKPlatformProvider$PlatformDescriptionImpl::*)($String*)>(&JDKPlatformProvider$PlatformDescriptionImpl::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getAdditionalOptions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getAnnotationProcessors", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Ljavax/annotation/processing/Processor;>;>;", $PUBLIC},
-	{"getFileManager", "()Ljavax/tools/JavaFileManager;", nullptr, $PUBLIC},
-	{"getPlugins", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Lcom/sun/source/util/Plugin;>;>;", $PUBLIC},
-	{"getSourceVersion", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTargetVersion", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"lambda$getFileManager$0", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Path*(*)($Path*,$String*)>(&JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$0))},
-	{"lambda$getFileManager$1", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Path*)>(&JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$1))},
-	{"lambda$getFileManager$2", "(Lcom/sun/tools/javac/file/JavacFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($JavacFileManager*,$Path*)>(&JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$2))},
-	{"lambda$getFileManager$3", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($String*)>(&JDKPlatformProvider$PlatformDescriptionImpl::lambda$getFileManager$3))},
-	{"setModule", "(Ljavax/tools/StandardJavaFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StandardJavaFileManager*,$Path*)>(&JDKPlatformProvider$PlatformDescriptionImpl::setModule))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(JDKPlatformProvider$PlatformDescriptionImpl, init$, void, $String*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, close, void), "java.io.IOException"},
+	{"getAdditionalOptions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getAdditionalOptions, $List*)},
+	{"getAnnotationProcessors", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Ljavax/annotation/processing/Processor;>;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getAnnotationProcessors, $List*)},
+	{"getFileManager", "()Ljavax/tools/JavaFileManager;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getFileManager, $JavaFileManager*)},
+	{"getPlugins", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Lcom/sun/source/util/Plugin;>;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getPlugins, $List*)},
+	{"getSourceVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getSourceVersion, $String*)},
+	{"getTargetVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl, getTargetVersion, $String*)},
+	{"lambda$getFileManager$0", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$0, $Path*, $Path*, $String*)},
+	{"lambda$getFileManager$1", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$1, bool, $Path*)},
+	{"lambda$getFileManager$2", "(Lcom/sun/tools/javac/file/JavacFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$2, void, $JavacFileManager*, $Path*)},
+	{"lambda$getFileManager$3", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, lambda$getFileManager$3, $List*, $String*)},
+	{"setModule", "(Ljavax/tools/StandardJavaFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JDKPlatformProvider$PlatformDescriptionImpl, setModule, void, $StandardJavaFileManager*, $Path*)},
 	{}
 };
 

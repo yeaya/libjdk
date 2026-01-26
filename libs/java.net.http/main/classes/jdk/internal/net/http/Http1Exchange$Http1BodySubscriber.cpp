@@ -44,13 +44,13 @@ $FieldInfo _Http1Exchange$Http1BodySubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Exchange$Http1BodySubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/Logger;)V", nullptr, 0, $method(static_cast<void(Http1Exchange$Http1BodySubscriber::*)($Logger*)>(&Http1Exchange$Http1BodySubscriber::init$))},
-	{"cancelSubscription", "()V", nullptr, $FINAL, $method(static_cast<void(Http1Exchange$Http1BodySubscriber::*)()>(&Http1Exchange$Http1BodySubscriber::cancelSubscription))},
-	{"completeSubscriber", "(Ljdk/internal/net/http/common/Logger;)Ljdk/internal/net/http/Http1Exchange$Http1BodySubscriber;", nullptr, $STATIC, $method(static_cast<Http1Exchange$Http1BodySubscriber*(*)($Logger*)>(&Http1Exchange$Http1BodySubscriber::completeSubscriber))},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $ABSTRACT},
-	{"isSubscribed", "()Z", nullptr, $FINAL, $method(static_cast<bool(Http1Exchange$Http1BodySubscriber::*)()>(&Http1Exchange$Http1BodySubscriber::isSubscribed))},
-	{"request", "(J)V", nullptr, $FINAL, $method(static_cast<void(Http1Exchange$Http1BodySubscriber::*)(int64_t)>(&Http1Exchange$Http1BodySubscriber::request))},
-	{"setSubscription", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $FINAL, $method(static_cast<void(Http1Exchange$Http1BodySubscriber::*)($Flow$Subscription*)>(&Http1Exchange$Http1BodySubscriber::setSubscription))},
+	{"<init>", "(Ljdk/internal/net/http/common/Logger;)V", nullptr, 0, $method(Http1Exchange$Http1BodySubscriber, init$, void, $Logger*)},
+	{"cancelSubscription", "()V", nullptr, $FINAL, $method(Http1Exchange$Http1BodySubscriber, cancelSubscription, void)},
+	{"completeSubscriber", "(Ljdk/internal/net/http/common/Logger;)Ljdk/internal/net/http/Http1Exchange$Http1BodySubscriber;", nullptr, $STATIC, $staticMethod(Http1Exchange$Http1BodySubscriber, completeSubscriber, Http1Exchange$Http1BodySubscriber*, $Logger*)},
+	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(Http1Exchange$Http1BodySubscriber, currentStateMessage, $String*)},
+	{"isSubscribed", "()Z", nullptr, $FINAL, $method(Http1Exchange$Http1BodySubscriber, isSubscribed, bool)},
+	{"request", "(J)V", nullptr, $FINAL, $method(Http1Exchange$Http1BodySubscriber, request, void, int64_t)},
+	{"setSubscription", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $FINAL, $method(Http1Exchange$Http1BodySubscriber, setSubscription, void, $Flow$Subscription*)},
 	{}
 };
 

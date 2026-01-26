@@ -24,7 +24,7 @@ $FieldInfo _Frame_FieldInfo_[] = {
 };
 
 $MethodInfo _Frame_MethodInfo_[] = {
-	{"<init>", "(LFrame$Opcode;Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Frame::*)($Frame$Opcode*,$ByteBuffer*,bool)>(&Frame::init$))},
+	{"<init>", "(LFrame$Opcode;Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $method(Frame, init$, void, $Frame$Opcode*, $ByteBuffer*, bool)},
 	{}
 };
 

@@ -157,11 +157,11 @@ $FieldInfo _Flags$Flag_FieldInfo_[] = {
 };
 
 $MethodInfo _Flags$Flag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Flags$FlagArray*(*)()>(&Flags$Flag::$values))},
-	{"<init>", "(Ljava/lang/String;IJ)V", "(J)V", $PRIVATE, $method(static_cast<void(Flags$Flag::*)($String*,int32_t,int64_t)>(&Flags$Flag::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Flags$Flag*(*)($String*)>(&Flags$Flag::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Flags$FlagArray*(*)()>(&Flags$Flag::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flags$Flag, $values, $Flags$FlagArray*)},
+	{"<init>", "(Ljava/lang/String;IJ)V", "(J)V", $PRIVATE, $method(Flags$Flag, init$, void, $String*, int32_t, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Flags$Flag, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags$Flag, valueOf, Flags$Flag*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Flags$Flag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags$Flag, values, $Flags$FlagArray*)},
 	{}
 };
 

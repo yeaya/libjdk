@@ -34,8 +34,8 @@ $FieldInfo _Main$MemoryClassLoader$MemoryURLStreamHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$MemoryClassLoader$MemoryURLStreamHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/launcher/Main$MemoryClassLoader;)V", nullptr, $PRIVATE, $method(static_cast<void(Main$MemoryClassLoader$MemoryURLStreamHandler::*)($Main$MemoryClassLoader*)>(&Main$MemoryClassLoader$MemoryURLStreamHandler::init$))},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/launcher/Main$MemoryClassLoader;)V", nullptr, $PRIVATE, $method(Main$MemoryClassLoader$MemoryURLStreamHandler, init$, void, $Main$MemoryClassLoader*)},
+	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLStreamHandler, openConnection, $URLConnection*, $URL*)},
 	{}
 };
 

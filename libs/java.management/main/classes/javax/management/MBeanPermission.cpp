@@ -58,21 +58,21 @@ $FieldInfo _MBeanPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanPermission::*)($String*,$String*)>(&MBeanPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanPermission::*)($String*,$String*,$ObjectName*,$String*)>(&MBeanPermission::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getActions", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&MBeanPermission::getActions))},
-	{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&MBeanPermission::getMask))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"initName", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanPermission::*)($String*,$String*,$ObjectName*)>(&MBeanPermission::initName))},
-	{"makeName", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*,$ObjectName*)>(&MBeanPermission::makeName))},
-	{"parseActions", "()V", nullptr, $PRIVATE, $method(static_cast<void(MBeanPermission::*)()>(&MBeanPermission::parseActions))},
-	{"parseName", "()V", nullptr, $PRIVATE, $method(static_cast<void(MBeanPermission::*)()>(&MBeanPermission::parseName))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanPermission::*)($ObjectInputStream*)>(&MBeanPermission::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setClassName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanPermission::*)($String*)>(&MBeanPermission::setClassName))},
-	{"setMember", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanPermission::*)($String*)>(&MBeanPermission::setMember))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanPermission, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanPermission, init$, void, $String*, $String*, $ObjectName*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, equals, bool, Object$*)},
+	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, getActions, $String*)},
+	{"getActions", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanPermission, getActions, $String*, int32_t)},
+	{"getMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanPermission, getMask, int32_t, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, hashCode, int32_t)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanPermission, implies, bool, $Permission*)},
+	{"initName", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;)V", nullptr, $PRIVATE, $method(MBeanPermission, initName, void, $String*, $String*, $ObjectName*)},
+	{"makeName", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanPermission, makeName, $String*, $String*, $String*, $ObjectName*)},
+	{"parseActions", "()V", nullptr, $PRIVATE, $method(MBeanPermission, parseActions, void)},
+	{"parseName", "()V", nullptr, $PRIVATE, $method(MBeanPermission, parseName, void)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"setClassName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MBeanPermission, setClassName, void, $String*)},
+	{"setMember", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(MBeanPermission, setMember, void, $String*)},
 	{}
 };
 

@@ -26,8 +26,8 @@ $FieldInfo _SSLFlowDelegate$Monitor$FinalMonitorable_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLFlowDelegate$Monitor$FinalMonitorable_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitor;Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, 0, $method(static_cast<void(SSLFlowDelegate$Monitor$FinalMonitorable::*)($SSLFlowDelegate$Monitor*,$SSLFlowDelegate$Monitorable*)>(&SSLFlowDelegate$Monitor$FinalMonitorable::init$))},
-	{"getInfo", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitor;Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, 0, $method(SSLFlowDelegate$Monitor$FinalMonitorable, init$, void, $SSLFlowDelegate$Monitor*, $SSLFlowDelegate$Monitorable*)},
+	{"getInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Monitor$FinalMonitorable, getInfo, $String*)},
 	{}
 };
 

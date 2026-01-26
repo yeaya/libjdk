@@ -9,7 +9,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
+using $NestingKind = ::javax::lang::model::element::NestingKind;
 using $Parameterizable = ::javax::lang::model::element::Parameterizable;
+using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace javax {
 	namespace lang {
@@ -27,15 +29,15 @@ $MethodInfo _TypeElement_MethodInfo_[] = {
 	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getEnclosedElements", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInterfaces", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT},
+	{"getInterfaces", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeElement, getInterfaces, $List*)},
 	{"*getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPermittedSubclasses", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC},
+	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeElement, getNestingKind, $NestingKind*)},
+	{"getPermittedSubclasses", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC, $virtualMethod(TypeElement, getPermittedSubclasses, $List*)},
 	{"getQualifiedName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRecordComponents", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/RecordComponentElement;>;", $PUBLIC},
+	{"getRecordComponents", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/RecordComponentElement;>;", $PUBLIC, $virtualMethod(TypeElement, getRecordComponents, $List*)},
 	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSuperclass", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getSuperclass", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeElement, getSuperclass, $TypeMirror*)},
 	{"getTypeParameters", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},

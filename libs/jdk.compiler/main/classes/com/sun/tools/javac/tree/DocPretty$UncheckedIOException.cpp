@@ -25,7 +25,7 @@ $FieldInfo _DocPretty$UncheckedIOException_FieldInfo_[] = {
 };
 
 $MethodInfo _DocPretty$UncheckedIOException_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/IOException;)V", nullptr, 0, $method(static_cast<void(DocPretty$UncheckedIOException::*)($IOException*)>(&DocPretty$UncheckedIOException::init$))},
+	{"<init>", "(Ljava/io/IOException;)V", nullptr, 0, $method(DocPretty$UncheckedIOException, init$, void, $IOException*)},
 	{}
 };
 

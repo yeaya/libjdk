@@ -13,8 +13,11 @@
 #undef IS_SUBTYPE
 
 using $Infer$IncorporationBinaryOpKindArray = $Array<::com::sun::tools::javac::comp::Infer$IncorporationBinaryOpKind>;
+using $Type = ::com::sun::tools::javac::code::Type;
+using $Types = ::com::sun::tools::javac::code::Types;
 using $Infer$IncorporationBinaryOpKind$1 = ::com::sun::tools::javac::comp::Infer$IncorporationBinaryOpKind$1;
 using $Infer$IncorporationBinaryOpKind$2 = ::com::sun::tools::javac::comp::Infer$IncorporationBinaryOpKind$2;
+using $Warner = ::com::sun::tools::javac::util::Warner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,11 +38,11 @@ $FieldInfo _Infer$IncorporationBinaryOpKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$IncorporationBinaryOpKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Infer$IncorporationBinaryOpKindArray*(*)()>(&Infer$IncorporationBinaryOpKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Infer$IncorporationBinaryOpKind::*)($String*,int32_t)>(&Infer$IncorporationBinaryOpKind::init$))},
-	{"apply", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $ABSTRACT},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Infer$IncorporationBinaryOpKind*(*)($String*)>(&Infer$IncorporationBinaryOpKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Infer$IncorporationBinaryOpKindArray*(*)()>(&Infer$IncorporationBinaryOpKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$IncorporationBinaryOpKind, $values, $Infer$IncorporationBinaryOpKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Infer$IncorporationBinaryOpKind, init$, void, $String*, int32_t)},
+	{"apply", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $ABSTRACT, $virtualMethod(Infer$IncorporationBinaryOpKind, apply, bool, $Type*, $Type*, $Warner*, $Types*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$IncorporationBinaryOpKind, valueOf, Infer$IncorporationBinaryOpKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$IncorporationBinaryOpKind, values, $Infer$IncorporationBinaryOpKindArray*)},
 	{}
 };
 

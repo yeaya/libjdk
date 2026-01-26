@@ -30,11 +30,11 @@ $FieldInfo _CompilationImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _CompilationImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(static_cast<void(CompilationImpl::*)($VMManagement*)>(&CompilationImpl::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"getTotalCompilationTime", "()J", nullptr, $PUBLIC},
-	{"isCompilationTimeMonitoringSupported", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(CompilationImpl, init$, void, $VMManagement*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, getName, $String*)},
+	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, getObjectName, $ObjectName*)},
+	{"getTotalCompilationTime", "()J", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, getTotalCompilationTime, int64_t)},
+	{"isCompilationTimeMonitoringSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(CompilationImpl, isCompilationTimeMonitoringSupported, bool)},
 	{}
 };
 

@@ -34,14 +34,14 @@ $FieldInfo _PathFileObject$SimpleFileObject_FieldInfo_[] = {
 };
 
 $MethodInfo _PathFileObject$SimpleFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(static_cast<void(PathFileObject$SimpleFileObject::*)($BaseFileManager*,$Path*,$Path*)>(&PathFileObject$SimpleFileObject::init$))},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getShortName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0},
-	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(PathFileObject$SimpleFileObject, init$, void, $BaseFileManager*, $Path*, $Path*)},
+	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, getKind, $JavaFileObject$Kind*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, getName, $String*)},
+	{"getShortName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, getShortName, $String*)},
+	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0, $virtualMethod(PathFileObject$SimpleFileObject, getSibling, $PathFileObject*, $String*)},
+	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, inferBinaryName, $String*, $Iterable*)},
+	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, toUri, $URI*)},
 	{}
 };
 

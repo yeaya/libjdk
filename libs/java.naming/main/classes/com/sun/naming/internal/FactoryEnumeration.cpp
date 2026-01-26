@@ -37,9 +37,9 @@ $FieldInfo _FactoryEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _FactoryEnumeration_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/ClassLoader;)V", "(Ljava/util/List<Lcom/sun/naming/internal/NamedWeakReference<Ljava/lang/Object;>;>;Ljava/lang/ClassLoader;)V", 0, $method(static_cast<void(FactoryEnumeration::*)($List*,$ClassLoader*)>(&FactoryEnumeration::init$))},
-	{"hasMore", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(FactoryEnumeration::*)()>(&FactoryEnumeration::hasMore))},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(static_cast<$Object*(FactoryEnumeration::*)()>(&FactoryEnumeration::next)), "javax.naming.NamingException"},
+	{"<init>", "(Ljava/util/List;Ljava/lang/ClassLoader;)V", "(Ljava/util/List<Lcom/sun/naming/internal/NamedWeakReference<Ljava/lang/Object;>;>;Ljava/lang/ClassLoader;)V", 0, $method(FactoryEnumeration, init$, void, $List*, $ClassLoader*)},
+	{"hasMore", "()Z", nullptr, $PUBLIC, $method(FactoryEnumeration, hasMore, bool)},
+	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(FactoryEnumeration, next, $Object*), "javax.naming.NamingException"},
 	{}
 };
 

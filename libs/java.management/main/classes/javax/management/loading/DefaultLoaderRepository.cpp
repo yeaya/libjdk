@@ -42,10 +42,10 @@ $CompoundAttribute _DefaultLoaderRepository_Annotations_[] = {
 };
 
 $MethodInfo _DefaultLoaderRepository_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultLoaderRepository::*)()>(&DefaultLoaderRepository::init$))},
-	{"load", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($ClassLoader*,$String*)>(&DefaultLoaderRepository::load)), "java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($String*)>(&DefaultLoaderRepository::loadClass)), "java.lang.ClassNotFoundException"},
-	{"loadClassWithout", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($ClassLoader*,$String*)>(&DefaultLoaderRepository::loadClassWithout)), "java.lang.ClassNotFoundException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultLoaderRepository, init$, void)},
+	{"load", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(DefaultLoaderRepository, load, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(DefaultLoaderRepository, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClassWithout", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(DefaultLoaderRepository, loadClassWithout, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
 	{}
 };
 

@@ -29,9 +29,9 @@ $MethodInfo _DCTree$DCDocRoot_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DCTree$DCDocRoot::*)()>(&DCTree$DCDocRoot::init$))},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DCTree$DCDocRoot, init$, void)},
+	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCDocRoot, accept, $Object*, $DocTreeVisitor*, Object$*)},
+	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCDocRoot, getKind, $DocTree$Kind*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

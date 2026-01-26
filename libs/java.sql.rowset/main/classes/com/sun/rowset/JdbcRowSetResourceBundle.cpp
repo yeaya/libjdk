@@ -39,10 +39,10 @@ $FieldInfo _JdbcRowSetResourceBundle_FieldInfo_[] = {
 };
 
 $MethodInfo _JdbcRowSetResourceBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JdbcRowSetResourceBundle::*)()>(&JdbcRowSetResourceBundle::init$)), "java.io.IOException"},
-	{"getJdbcRowSetResourceBundle", "()Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JdbcRowSetResourceBundle*(*)()>(&JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle)), "java.io.IOException"},
-	{"getKeys", "()Ljava/util/Enumeration;", nullptr, $PUBLIC},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JdbcRowSetResourceBundle, init$, void), "java.io.IOException"},
+	{"getJdbcRowSetResourceBundle", "()Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdbcRowSetResourceBundle, getJdbcRowSetResourceBundle, JdbcRowSetResourceBundle*), "java.io.IOException"},
+	{"getKeys", "()Ljava/util/Enumeration;", nullptr, $PUBLIC, $virtualMethod(JdbcRowSetResourceBundle, getKeys, $Enumeration*)},
+	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JdbcRowSetResourceBundle, handleGetObject, $Object*, $String*)},
 	{}
 };
 

@@ -43,12 +43,12 @@ $FieldInfo _KeyTabEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyTabEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/Realm;Lsun/security/krb5/internal/KerberosTime;II[B)V", nullptr, $PUBLIC, $method(static_cast<void(KeyTabEntry::*)($PrincipalName*,$Realm*,$KerberosTime*,int32_t,int32_t,$bytes*)>(&KeyTabEntry::init$))},
-	{"entryLength", "()I", nullptr, $PUBLIC},
-	{"getKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC},
-	{"getKeyString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getService", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC},
-	{"getTimeStamp", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/Realm;Lsun/security/krb5/internal/KerberosTime;II[B)V", nullptr, $PUBLIC, $method(KeyTabEntry, init$, void, $PrincipalName*, $Realm*, $KerberosTime*, int32_t, int32_t, $bytes*)},
+	{"entryLength", "()I", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, entryLength, int32_t)},
+	{"getKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getKey, $EncryptionKey*)},
+	{"getKeyString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getKeyString, $String*)},
+	{"getService", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getService, $PrincipalName*)},
+	{"getTimeStamp", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, $PUBLIC, $virtualMethod(KeyTabEntry, getTimeStamp, $KerberosTime*)},
 	{}
 };
 

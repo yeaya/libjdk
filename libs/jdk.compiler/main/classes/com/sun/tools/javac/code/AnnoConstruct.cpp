@@ -50,14 +50,14 @@ namespace com {
 
 $MethodInfo _AnnoConstruct_MethodInfo_[] = {
 	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnoConstruct::*)()>(&AnnoConstruct::init$))},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC},
-	{"getAttribute", "(Ljava/lang/Class;)Lcom/sun/tools/javac/code/Attribute$Compound;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)Lcom/sun/tools/javac/code/Attribute$Compound;", $PROTECTED},
-	{"getContainer", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($Class*)>(&AnnoConstruct::getContainer))},
-	{"getInheritedAnnotations", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PROTECTED},
-	{"unpackAttributes", "(Lcom/sun/tools/javac/code/Attribute$Compound;)[Lcom/sun/tools/javac/code/Attribute;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AttributeArray*(*)($Attribute$Compound*)>(&AnnoConstruct::unpackAttributes))},
-	{"unpackContained", "(Lcom/sun/tools/javac/code/Attribute$Compound;)[Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PRIVATE, $method(static_cast<$Attribute$CompoundArray*(AnnoConstruct::*)($Attribute$Compound*)>(&AnnoConstruct::unpackContained))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnoConstruct, init$, void)},
+	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", $PUBLIC, $virtualMethod(AnnoConstruct, getAnnotation, $Annotation*, $Class*)},
+	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PUBLIC, $virtualMethod(AnnoConstruct, getAnnotationsByType, $AnnotationArray*, $Class*)},
+	{"getAttribute", "(Ljava/lang/Class;)Lcom/sun/tools/javac/code/Attribute$Compound;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)Lcom/sun/tools/javac/code/Attribute$Compound;", $PROTECTED, $virtualMethod(AnnoConstruct, getAttribute, $Attribute$Compound*, $Class*)},
+	{"getContainer", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;", $PRIVATE | $STATIC, $staticMethod(AnnoConstruct, getContainer, $Class*, $Class*)},
+	{"getInheritedAnnotations", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)[TA;", $PROTECTED, $virtualMethod(AnnoConstruct, getInheritedAnnotations, $AnnotationArray*, $Class*)},
+	{"unpackAttributes", "(Lcom/sun/tools/javac/code/Attribute$Compound;)[Lcom/sun/tools/javac/code/Attribute;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnoConstruct, unpackAttributes, $AttributeArray*, $Attribute$Compound*)},
+	{"unpackContained", "(Lcom/sun/tools/javac/code/Attribute$Compound;)[Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PRIVATE, $method(AnnoConstruct, unpackContained, $Attribute$CompoundArray*, $Attribute$Compound*)},
 	{}
 };
 

@@ -55,11 +55,11 @@ namespace com {
 				namespace security {
 
 $MethodInfo _SubjectDelegator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SubjectDelegator::*)()>(&SubjectDelegator::init$))},
-	{"checkRemoveCallerContext", "(Ljavax/security/auth/Subject;)Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<bool(*)($Subject*)>(&SubjectDelegator::checkRemoveCallerContext))},
-	{"delegatedContext", "(Ljava/security/AccessControlContext;Ljavax/security/auth/Subject;Z)Ljava/security/AccessControlContext;", nullptr, $PUBLIC, nullptr, "java.lang.SecurityException"},
-	{"getDelegatedAcc", "(Ljavax/security/auth/Subject;Z)Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $method(static_cast<$AccessControlContext*(SubjectDelegator::*)($Subject*,bool)>(&SubjectDelegator::getDelegatedAcc))},
-	{"getSubjectPrincipals", "(Ljavax/security/auth/Subject;)Ljava/util/Collection;", "(Ljavax/security/auth/Subject;)Ljava/util/Collection<Ljava/security/Principal;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)($Subject*)>(&SubjectDelegator::getSubjectPrincipals))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SubjectDelegator, init$, void)},
+	{"checkRemoveCallerContext", "(Ljavax/security/auth/Subject;)Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SubjectDelegator, checkRemoveCallerContext, bool, $Subject*)},
+	{"delegatedContext", "(Ljava/security/AccessControlContext;Ljavax/security/auth/Subject;Z)Ljava/security/AccessControlContext;", nullptr, $PUBLIC, $virtualMethod(SubjectDelegator, delegatedContext, $AccessControlContext*, $AccessControlContext*, $Subject*, bool), "java.lang.SecurityException"},
+	{"getDelegatedAcc", "(Ljavax/security/auth/Subject;Z)Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $method(SubjectDelegator, getDelegatedAcc, $AccessControlContext*, $Subject*, bool)},
+	{"getSubjectPrincipals", "(Ljavax/security/auth/Subject;)Ljava/util/Collection;", "(Ljavax/security/auth/Subject;)Ljava/util/Collection<Ljava/security/Principal;>;", $PRIVATE | $STATIC, $staticMethod(SubjectDelegator, getSubjectPrincipals, $Collection*, $Subject*)},
 	{}
 };
 

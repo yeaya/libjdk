@@ -57,8 +57,8 @@ $FieldInfo HPACK$Logger$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HPACK$Logger$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HPACK$Logger$$Lambda$toString::*)($String*)>(&HPACK$Logger$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HPACK$Logger$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo HPACK$Logger$$Lambda$toString::classInfo$ = {
@@ -84,15 +84,15 @@ $FieldInfo _HPACK$Logger_FieldInfo_[] = {
 };
 
 $MethodInfo _HPACK$Logger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PRIVATE, $method(static_cast<void(HPACK$Logger::*)($String*,$String*,$HPACK$Logger$Level*)>(&HPACK$Logger::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/lang/System$Logger;)V", nullptr, $PRIVATE, $method(static_cast<void(HPACK$Logger::*)($String*,$String*,$HPACK$Logger$Level*,$System$Logger*)>(&HPACK$Logger::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC},
-	{"isLoggable", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Z", nullptr, $PUBLIC},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"log", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/util/function/Supplier;)V", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC},
-	{"subLogger", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/HPACK$Logger;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PRIVATE, $method(HPACK$Logger, init$, void, $String*, $String*, $HPACK$Logger$Level*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/lang/System$Logger;)V", nullptr, $PRIVATE, $method(HPACK$Logger, init$, void, $String*, $String*, $HPACK$Logger$Level*, $System$Logger*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(HPACK$Logger, getName, $String*)},
+	{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, isLoggable, bool, $System$Logger$Level*)},
+	{"isLoggable", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Z", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, isLoggable, bool, $HPACK$Logger$Level*)},
+	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
+	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(HPACK$Logger, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
+	{"log", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/util/function/Supplier;)V", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(HPACK$Logger, log, void, $HPACK$Logger$Level*, $Supplier*)},
+	{"subLogger", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/HPACK$Logger;", nullptr, $PUBLIC, $virtualMethod(HPACK$Logger, subLogger, HPACK$Logger*, $String*)},
 	{}
 };
 

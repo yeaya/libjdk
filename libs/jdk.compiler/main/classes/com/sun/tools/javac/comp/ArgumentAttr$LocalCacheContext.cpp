@@ -28,8 +28,8 @@ $FieldInfo _ArgumentAttr$LocalCacheContext_FieldInfo_[] = {
 };
 
 $MethodInfo _ArgumentAttr$LocalCacheContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;)V", nullptr, $PUBLIC, $method(static_cast<void(ArgumentAttr$LocalCacheContext::*)($ArgumentAttr*)>(&ArgumentAttr$LocalCacheContext::init$))},
-	{"leave", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;)V", nullptr, $PUBLIC, $method(ArgumentAttr$LocalCacheContext, init$, void, $ArgumentAttr*)},
+	{"leave", "()V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$LocalCacheContext, leave, void)},
 	{}
 };
 

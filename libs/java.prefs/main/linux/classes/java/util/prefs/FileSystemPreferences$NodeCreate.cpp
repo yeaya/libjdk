@@ -21,8 +21,8 @@ $FieldInfo _FileSystemPreferences$NodeCreate_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemPreferences$NodeCreate_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences$NodeCreate::*)($FileSystemPreferences*)>(&FileSystemPreferences$NodeCreate::init$))},
-	{"replay", "()V", nullptr, 0},
+	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, $PRIVATE, $method(FileSystemPreferences$NodeCreate, init$, void, $FileSystemPreferences*)},
+	{"replay", "()V", nullptr, 0, $virtualMethod(FileSystemPreferences$NodeCreate, replay, void)},
 	{}
 };
 

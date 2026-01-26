@@ -44,11 +44,11 @@ $FieldInfo _Http1ChunkedTest$Responses_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1ChunkedTest$Responses_MethodInfo_[] = {
-	{"$values", "()[LHttp1ChunkedTest$Responses;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Http1ChunkedTest$ResponsesArray*(*)()>(&Http1ChunkedTest$Responses::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(Http1ChunkedTest$Responses::*)($String*,int32_t,$String*,$List*)>(&Http1ChunkedTest$Responses::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/util/List;J)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;J)V", $PRIVATE, $method(static_cast<void(Http1ChunkedTest$Responses::*)($String*,int32_t,$String*,$List*,int64_t)>(&Http1ChunkedTest$Responses::init$))},
-	{"valueOf", "(Ljava/lang/String;)LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Http1ChunkedTest$Responses*(*)($String*)>(&Http1ChunkedTest$Responses::valueOf))},
-	{"values", "()[LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Http1ChunkedTest$ResponsesArray*(*)()>(&Http1ChunkedTest$Responses::values))},
+	{"$values", "()[LHttp1ChunkedTest$Responses;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1ChunkedTest$Responses, $values, $Http1ChunkedTest$ResponsesArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(Http1ChunkedTest$Responses, init$, void, $String*, int32_t, $String*, $List*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/util/List;J)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;J)V", $PRIVATE, $method(Http1ChunkedTest$Responses, init$, void, $String*, int32_t, $String*, $List*, int64_t)},
+	{"valueOf", "(Ljava/lang/String;)LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1ChunkedTest$Responses, valueOf, Http1ChunkedTest$Responses*, $String*)},
+	{"values", "()[LHttp1ChunkedTest$Responses;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1ChunkedTest$Responses, values, $Http1ChunkedTest$ResponsesArray*)},
 	{}
 };
 

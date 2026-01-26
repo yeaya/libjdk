@@ -33,9 +33,9 @@ $FieldInfo _Http1AsyncReceiver$Http1AsyncDelegateSubscription_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1AsyncReceiver$Http1AsyncDelegateSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(static_cast<void(Http1AsyncReceiver$Http1AsyncDelegateSubscription::*)($SequentialScheduler*,$Runnable*,$Consumer*)>(&Http1AsyncReceiver$Http1AsyncDelegateSubscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(Http1AsyncReceiver$Http1AsyncDelegateSubscription, init$, void, $SequentialScheduler*, $Runnable*, $Consumer*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegateSubscription, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegateSubscription, request, void, int64_t)},
 	{}
 };
 

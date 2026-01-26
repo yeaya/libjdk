@@ -4,6 +4,7 @@
 #include <com/sun/tools/javac/comp/Annotate.h>
 #include <jcpp.h>
 
+using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,7 +16,7 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Annotate$AnnotationTypeCompleter_MethodInfo_[] = {
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Annotate$AnnotationTypeCompleter, complete, void, $Symbol$ClassSymbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
 	{}
 };
 

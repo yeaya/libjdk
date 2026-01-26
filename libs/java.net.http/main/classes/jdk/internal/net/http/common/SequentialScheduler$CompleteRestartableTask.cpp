@@ -16,9 +16,9 @@ namespace jdk {
 				namespace common {
 
 $MethodInfo _SequentialScheduler$CompleteRestartableTask_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SequentialScheduler$CompleteRestartableTask::*)()>(&SequentialScheduler$CompleteRestartableTask::init$))},
-	{"run", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, $PUBLIC | $FINAL},
-	{"run", "()V", nullptr, $PROTECTED | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SequentialScheduler$CompleteRestartableTask, init$, void)},
+	{"run", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SequentialScheduler$CompleteRestartableTask, run, void, $SequentialScheduler$DeferredCompleter*)},
+	{"run", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SequentialScheduler$CompleteRestartableTask, run, void)},
 	{}
 };
 

@@ -21,9 +21,9 @@ $FieldInfo _HeadersTest2_FieldInfo_[] = {
 };
 
 $MethodInfo _HeadersTest2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HeadersTest2::*)()>(&HeadersTest2::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HeadersTest2::main))},
-	{"test", "(ZLjava/util/List;Ljava/util/List;)LHeadersTest2$CompareTest;", "(ZLjava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)LHeadersTest2$CompareTest;", $STATIC, $method(static_cast<$HeadersTest2$CompareTest*(*)(bool,$List*,$List*)>(&HeadersTest2::test))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadersTest2, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadersTest2, main, void, $StringArray*)},
+	{"test", "(ZLjava/util/List;Ljava/util/List;)LHeadersTest2$CompareTest;", "(ZLjava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)LHeadersTest2$CompareTest;", $STATIC, $staticMethod(HeadersTest2, test, $HeadersTest2$CompareTest*, bool, $List*, $List*)},
 	{}
 };
 

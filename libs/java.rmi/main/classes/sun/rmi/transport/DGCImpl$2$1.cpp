@@ -37,8 +37,8 @@ $FieldInfo _DGCImpl$2$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCImpl$2$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/DGCImpl$2;Lsun/rmi/server/UnicastServerRef;Ljava/rmi/Remote;Ljava/rmi/server/ObjID;)V", "()V", 0, $method(static_cast<void(DGCImpl$2$1::*)($DGCImpl$2*,$UnicastServerRef*,$Remote*,$ObjID*)>(&DGCImpl$2$1::init$))},
-	{"run", "()Lsun/rmi/transport/Target;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/DGCImpl$2;Lsun/rmi/server/UnicastServerRef;Ljava/rmi/Remote;Ljava/rmi/server/ObjID;)V", "()V", 0, $method(DGCImpl$2$1, init$, void, $DGCImpl$2*, $UnicastServerRef*, $Remote*, $ObjID*)},
+	{"run", "()Lsun/rmi/transport/Target;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$2$1, run, $Object*)},
 	{}
 };
 

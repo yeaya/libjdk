@@ -27,8 +27,8 @@ $FieldInfo _RemoteObjectInvocationHandler$MethodToHash_Maps$1_FieldInfo_[] = {
 };
 
 $MethodInfo _RemoteObjectInvocationHandler$MethodToHash_Maps$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/server/RemoteObjectInvocationHandler$MethodToHash_Maps;)V", nullptr, 0, $method(static_cast<void(RemoteObjectInvocationHandler$MethodToHash_Maps$1::*)($RemoteObjectInvocationHandler$MethodToHash_Maps*)>(&RemoteObjectInvocationHandler$MethodToHash_Maps$1::init$))},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Long;", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljava/rmi/server/RemoteObjectInvocationHandler$MethodToHash_Maps;)V", nullptr, 0, $method(RemoteObjectInvocationHandler$MethodToHash_Maps$1, init$, void, $RemoteObjectInvocationHandler$MethodToHash_Maps*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Long;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RemoteObjectInvocationHandler$MethodToHash_Maps$1, get, $Object*, Object$*)},
 	{}
 };
 

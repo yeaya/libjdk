@@ -21,9 +21,9 @@ $FieldInfo _WebSocketHandshakeException_FieldInfo_[] = {
 };
 
 $MethodInfo _WebSocketHandshakeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpResponse;)V", "(Ljava/net/http/HttpResponse<*>;)V", $PUBLIC, $method(static_cast<void(WebSocketHandshakeException::*)($HttpResponse*)>(&WebSocketHandshakeException::init$))},
-	{"getResponse", "()Ljava/net/http/HttpResponse;", "()Ljava/net/http/HttpResponse<*>;", $PUBLIC, $method(static_cast<$HttpResponse*(WebSocketHandshakeException::*)()>(&WebSocketHandshakeException::getResponse))},
-	{"initCause", "(Ljava/lang/Throwable;)Ljava/net/http/WebSocketHandshakeException;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpResponse;)V", "(Ljava/net/http/HttpResponse<*>;)V", $PUBLIC, $method(WebSocketHandshakeException, init$, void, $HttpResponse*)},
+	{"getResponse", "()Ljava/net/http/HttpResponse;", "()Ljava/net/http/HttpResponse<*>;", $PUBLIC, $method(WebSocketHandshakeException, getResponse, $HttpResponse*)},
+	{"initCause", "(Ljava/lang/Throwable;)Ljava/net/http/WebSocketHandshakeException;", nullptr, $PUBLIC, $virtualMethod(WebSocketHandshakeException, initCause, WebSocketHandshakeException*, $Throwable*)},
 	{}
 };
 

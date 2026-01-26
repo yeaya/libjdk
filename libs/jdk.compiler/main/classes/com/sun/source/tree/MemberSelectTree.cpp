@@ -1,10 +1,13 @@
 #include <com/sun/source/tree/MemberSelectTree.h>
 
+#include <com/sun/source/tree/ExpressionTree.h>
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {
@@ -12,8 +15,8 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _MemberSelectTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getIdentifier", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberSelectTree, getExpression, $ExpressionTree*)},
+	{"getIdentifier", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemberSelectTree, getIdentifier, $Name*)},
 	{}
 };
 

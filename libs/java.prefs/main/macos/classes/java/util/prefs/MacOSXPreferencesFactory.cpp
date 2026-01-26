@@ -14,9 +14,9 @@ namespace java {
 		namespace prefs {
 
 $MethodInfo _MacOSXPreferencesFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MacOSXPreferencesFactory::*)()>(&MacOSXPreferencesFactory::init$))},
-	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC},
-	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(MacOSXPreferencesFactory, init$, void)},
+	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFactory, systemRoot, $Preferences*)},
+	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFactory, userRoot, $Preferences*)},
 	{}
 };
 

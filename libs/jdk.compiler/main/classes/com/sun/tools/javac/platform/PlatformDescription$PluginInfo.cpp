@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -15,9 +16,9 @@ namespace com {
 				namespace platform {
 
 $MethodInfo _PlatformDescription$PluginInfo_MethodInfo_[] = {
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
-	{"getPlugin", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformDescription$PluginInfo, getName, $String*)},
+	{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformDescription$PluginInfo, getOptions, $Map*)},
+	{"getPlugin", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformDescription$PluginInfo, getPlugin, $Object*)},
 	{}
 };
 

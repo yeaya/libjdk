@@ -29,11 +29,11 @@ $FieldInfo _JavacFileManager$PathAndContainer_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacFileManager$PathAndContainer_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/JavacFileManager$Container;I)V", nullptr, 0, $method(static_cast<void(JavacFileManager$PathAndContainer::*)($Path*,$JavacFileManager$Container*,int32_t)>(&JavacFileManager$PathAndContainer::init$))},
-	{"compareTo", "(Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/JavacFileManager$Container;I)V", nullptr, 0, $method(JavacFileManager$PathAndContainer, init$, void, $Path*, $JavacFileManager$Container*, int32_t)},
+	{"compareTo", "(Lcom/sun/tools/javac/file/JavacFileManager$PathAndContainer;)I", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$PathAndContainer, compareTo, int32_t, JavacFileManager$PathAndContainer*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacFileManager$PathAndContainer, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$PathAndContainer, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$PathAndContainer, hashCode, int32_t)},
 	{}
 };
 

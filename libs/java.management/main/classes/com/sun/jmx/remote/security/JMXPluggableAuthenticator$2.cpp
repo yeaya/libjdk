@@ -25,8 +25,8 @@ $FieldInfo _JMXPluggableAuthenticator$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXPluggableAuthenticator$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/security/JMXPluggableAuthenticator;Ljavax/security/auth/Subject;)V", "()V", 0, $method(static_cast<void(JMXPluggableAuthenticator$2::*)($JMXPluggableAuthenticator*,$Subject*)>(&JMXPluggableAuthenticator$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/remote/security/JMXPluggableAuthenticator;Ljavax/security/auth/Subject;)V", "()V", 0, $method(JMXPluggableAuthenticator$2, init$, void, $JMXPluggableAuthenticator*, $Subject*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$2, run, $Object*)},
 	{}
 };
 

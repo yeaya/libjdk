@@ -29,8 +29,8 @@ $FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$SyntheticMethodNameCounter
 };
 
 $MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$SyntheticMethodNameCounter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;)V", nullptr, $PRIVATE, $method(static_cast<void(LambdaToMethod$LambdaAnalyzerPreprocessor$SyntheticMethodNameCounter::*)($LambdaToMethod$LambdaAnalyzerPreprocessor*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$SyntheticMethodNameCounter::init$))},
-	{"getIndex", "(Ljava/lang/StringBuilder;)I", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;)V", nullptr, $PRIVATE, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$SyntheticMethodNameCounter, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*)},
+	{"getIndex", "(Ljava/lang/StringBuilder;)I", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$SyntheticMethodNameCounter, getIndex, int32_t, $StringBuilder*)},
 	{}
 };
 

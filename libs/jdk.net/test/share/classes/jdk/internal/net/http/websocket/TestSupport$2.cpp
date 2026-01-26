@@ -27,9 +27,9 @@ $FieldInfo _TestSupport$2_FieldInfo_[] = {
 };
 
 $MethodInfo _TestSupport$2_MethodInfo_[] = {
-	{"<init>", "(ILjava/util/Iterator;)V", nullptr, 0, $method(static_cast<void(TestSupport$2::*)(int32_t,$Iterator*)>(&TestSupport$2::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
+	{"<init>", "(ILjava/util/Iterator;)V", nullptr, 0, $method(TestSupport$2, init$, void, int32_t, $Iterator*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(TestSupport$2, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(TestSupport$2, next, $Object*)},
 	{}
 };
 

@@ -59,8 +59,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$0::*)()>(&Operators$OperatorType$$Lambda$lambda$static$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$0::classInfo$ = {
@@ -92,8 +92,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$1$1::*)()>(&Operators$OperatorType$$Lambda$lambda$static$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -125,8 +125,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$2$2::*)()>(&Operators$OperatorType$$Lambda$lambda$static$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$2$2::classInfo$ = {
@@ -158,8 +158,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$3$3::*)()>(&Operators$OperatorType$$Lambda$lambda$static$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$3$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$3$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$3$3::classInfo$ = {
@@ -191,8 +191,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$4$4::*)()>(&Operators$OperatorType$$Lambda$lambda$static$4$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$4$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$4$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$4$4::classInfo$ = {
@@ -224,8 +224,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$5$5::*)()>(&Operators$OperatorType$$Lambda$lambda$static$5$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$5$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$5$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$5$5::classInfo$ = {
@@ -257,8 +257,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$6$6::*)()>(&Operators$OperatorType$$Lambda$lambda$static$6$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$6$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$6$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$6$6::classInfo$ = {
@@ -290,8 +290,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$7$7::*)()>(&Operators$OperatorType$$Lambda$lambda$static$7$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$7$7, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$7$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$7$7::classInfo$ = {
@@ -323,8 +323,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$8$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$8$8::*)()>(&Operators$OperatorType$$Lambda$lambda$static$8$8::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$8$8, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$8$8, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$8$8::classInfo$ = {
@@ -356,8 +356,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$9$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$9$9::*)()>(&Operators$OperatorType$$Lambda$lambda$static$9$9::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$9$9, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$9$9, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$9$9::classInfo$ = {
@@ -389,8 +389,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$OperatorType$$Lambda$lambda$static$10$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$OperatorType$$Lambda$lambda$static$10$10::*)()>(&Operators$OperatorType$$Lambda$lambda$static$10$10::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$OperatorType$$Lambda$lambda$static$10$10, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$OperatorType$$Lambda$lambda$static$10$10, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$OperatorType$$Lambda$lambda$static$10$10::classInfo$ = {
@@ -425,22 +425,22 @@ $FieldInfo _Operators$OperatorType_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators$OperatorType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Operators$OperatorType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Operators$OperatorTypeArray*(*)()>(&Operators$OperatorType::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/util/function/Function;)V", "(Ljava/util/function/Function<Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(static_cast<void(Operators$OperatorType::*)($String*,int32_t,$Function*)>(&Operators$OperatorType::init$))},
-	{"asType", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $method(static_cast<$Type*(Operators$OperatorType::*)($Symtab*)>(&Operators$OperatorType::asType))},
-	{"lambda$static$0", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$0))},
-	{"lambda$static$1", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$1))},
-	{"lambda$static$10", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$10))},
-	{"lambda$static$2", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$2))},
-	{"lambda$static$3", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$3))},
-	{"lambda$static$4", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$4))},
-	{"lambda$static$5", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$5))},
-	{"lambda$static$6", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$6))},
-	{"lambda$static$7", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$7))},
-	{"lambda$static$8", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$8))},
-	{"lambda$static$9", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($Symtab*)>(&Operators$OperatorType::lambda$static$9))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Operators$OperatorType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Operators$OperatorType*(*)($String*)>(&Operators$OperatorType::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Operators$OperatorType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Operators$OperatorTypeArray*(*)()>(&Operators$OperatorType::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Operators$OperatorType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, $values, $Operators$OperatorTypeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/util/function/Function;)V", "(Ljava/util/function/Function<Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(Operators$OperatorType, init$, void, $String*, int32_t, $Function*)},
+	{"asType", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $method(Operators$OperatorType, asType, $Type*, $Symtab*)},
+	{"lambda$static$0", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$0, $Type*, $Symtab*)},
+	{"lambda$static$1", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$1, $Type*, $Symtab*)},
+	{"lambda$static$10", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$10, $Type*, $Symtab*)},
+	{"lambda$static$2", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$2, $Type*, $Symtab*)},
+	{"lambda$static$3", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$3, $Type*, $Symtab*)},
+	{"lambda$static$4", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$4, $Type*, $Symtab*)},
+	{"lambda$static$5", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$5, $Type*, $Symtab*)},
+	{"lambda$static$6", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$6, $Type*, $Symtab*)},
+	{"lambda$static$7", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$7, $Type*, $Symtab*)},
+	{"lambda$static$8", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$8, $Type*, $Symtab*)},
+	{"lambda$static$9", "(Lcom/sun/tools/javac/code/Symtab;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$OperatorType, lambda$static$9, $Type*, $Symtab*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Operators$OperatorType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Operators$OperatorType, valueOf, Operators$OperatorType*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Operators$OperatorType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Operators$OperatorType, values, $Operators$OperatorTypeArray*)},
 	{}
 };
 

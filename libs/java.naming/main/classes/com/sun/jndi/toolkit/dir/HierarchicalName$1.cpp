@@ -17,9 +17,9 @@ namespace com {
 				namespace dir {
 
 $MethodInfo _HierarchicalName$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HierarchicalName$1::*)()>(&HierarchicalName$1::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HierarchicalName$1, init$, void)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(HierarchicalName$1, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName$1, nextElement, $Object*)},
 	{}
 };
 

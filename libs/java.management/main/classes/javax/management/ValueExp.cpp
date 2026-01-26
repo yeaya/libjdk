@@ -7,6 +7,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $MBeanServer = ::javax::management::MBeanServer;
+using $ObjectName = ::javax::management::ObjectName;
 
 namespace javax {
 	namespace management {
@@ -17,8 +19,8 @@ $CompoundAttribute _ValueExp_MethodAnnotations_setMBeanServer1[] = {
 };
 
 $MethodInfo _ValueExp_MethodInfo_[] = {
-	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _ValueExp_MethodAnnotations_setMBeanServer1},
+	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueExp, apply, ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(ValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, _ValueExp_MethodAnnotations_setMBeanServer1},
 	{}
 };
 

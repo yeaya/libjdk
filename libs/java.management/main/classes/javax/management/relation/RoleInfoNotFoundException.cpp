@@ -18,8 +18,8 @@ $FieldInfo _RoleInfoNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _RoleInfoNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RoleInfoNotFoundException::*)()>(&RoleInfoNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RoleInfoNotFoundException::*)($String*)>(&RoleInfoNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RoleInfoNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RoleInfoNotFoundException, init$, void, $String*)},
 	{}
 };
 

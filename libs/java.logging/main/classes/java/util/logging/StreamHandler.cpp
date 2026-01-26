@@ -63,17 +63,17 @@ $FieldInfo _StreamHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StreamHandler::*)()>(&StreamHandler::init$))},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/logging/Formatter;)V", nullptr, $PUBLIC, $method(static_cast<void(StreamHandler::*)($OutputStream*,$Formatter*)>(&StreamHandler::init$))},
-	{"<init>", "(Ljava/util/logging/Level;Ljava/util/logging/Formatter;Ljava/util/logging/Formatter;)V", nullptr, 0, $method(static_cast<void(StreamHandler::*)($Level*,$Formatter*,$Formatter*)>(&StreamHandler::init$))},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.SecurityException"},
-	{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"flushAndClose", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(StreamHandler::*)()>(&StreamHandler::flushAndClose)), "java.lang.SecurityException"},
-	{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.SecurityException,java.io.UnsupportedEncodingException"},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED | $SYNCHRONIZED, nullptr, "java.lang.SecurityException"},
-	{"setOutputStreamPrivileged", "(Ljava/io/OutputStream;)V", nullptr, $FINAL, $method(static_cast<void(StreamHandler::*)($OutputStream*)>(&StreamHandler::setOutputStreamPrivileged))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StreamHandler, init$, void)},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/util/logging/Formatter;)V", nullptr, $PUBLIC, $method(StreamHandler, init$, void, $OutputStream*, $Formatter*)},
+	{"<init>", "(Ljava/util/logging/Level;Ljava/util/logging/Formatter;Ljava/util/logging/Formatter;)V", nullptr, 0, $method(StreamHandler, init$, void, $Level*, $Formatter*, $Formatter*)},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StreamHandler, close, void), "java.lang.SecurityException"},
+	{"flush", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StreamHandler, flush, void)},
+	{"flushAndClose", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StreamHandler, flushAndClose, void), "java.lang.SecurityException"},
+	{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC, $virtualMethod(StreamHandler, isLoggable, bool, $LogRecord*)},
+	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StreamHandler, publish, void, $LogRecord*)},
+	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StreamHandler, setEncoding, void, $String*), "java.lang.SecurityException,java.io.UnsupportedEncodingException"},
+	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(StreamHandler, setOutputStream, void, $OutputStream*), "java.lang.SecurityException"},
+	{"setOutputStreamPrivileged", "(Ljava/io/OutputStream;)V", nullptr, $FINAL, $method(StreamHandler, setOutputStreamPrivileged, void, $OutputStream*)},
 	{}
 };
 

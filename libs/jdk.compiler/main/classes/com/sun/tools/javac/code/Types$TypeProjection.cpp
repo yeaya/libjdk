@@ -95,8 +95,8 @@ $FieldInfo Types$TypeProjection$$Lambda$lambda$visitClassType$0::fieldInfos[3] =
 	{}
 };
 $MethodInfo Types$TypeProjection$$Lambda$lambda$visitClassType$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection;Lcom/sun/tools/javac/code/Types$ProjectionKind;)V", nullptr, $PUBLIC, $method(static_cast<void(Types$TypeProjection$$Lambda$lambda$visitClassType$0::*)(Types$TypeProjection*,$Types$ProjectionKind*)>(&Types$TypeProjection$$Lambda$lambda$visitClassType$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection;Lcom/sun/tools/javac/code/Types$ProjectionKind;)V", nullptr, $PUBLIC, $method(Types$TypeProjection$$Lambda$lambda$visitClassType$0, init$, void, Types$TypeProjection*, $Types$ProjectionKind*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Types$TypeProjection$$Lambda$lambda$visitClassType$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Types$TypeProjection$$Lambda$lambda$visitClassType$0::classInfo$ = {
@@ -121,15 +121,15 @@ $FieldInfo _Types$TypeProjection_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$TypeProjection_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(static_cast<void(Types$TypeProjection::*)($Types*,$List*)>(&Types$TypeProjection::init$))},
-	{"lambda$visitClassType$0", "(Lcom/sun/tools/javac/code/Types$ProjectionKind;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Type*(Types$TypeProjection::*)($Types$ProjectionKind*,$Type*)>(&Types$TypeProjection::lambda$visitClassType$0))},
-	{"mapTypeArgument", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(Types$TypeProjection::*)($Type*,$Type*,$Type*,$Types$ProjectionKind*)>(&Types$TypeProjection::mapTypeArgument))},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(Types$TypeProjection, init$, void, $Types*, $List*)},
+	{"lambda$visitClassType$0", "(Lcom/sun/tools/javac/code/Types$ProjectionKind;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$TypeProjection, lambda$visitClassType$0, $Type*, $Types$ProjectionKind*, $Type*)},
+	{"mapTypeArgument", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Types$TypeProjection, mapTypeArgument, $Type*, $Type*, $Type*, $Type*, $Types$ProjectionKind*)},
+	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeProjection, visitArrayType, $Type*, $Type$ArrayType*, $Types$ProjectionKind*)},
+	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeProjection, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeProjection, visitClassType, $Type*, $Type$ClassType*, $Types$ProjectionKind*)},
+	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeProjection, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeProjection, visitTypeVar, $Type*, $Type$TypeVar*, $Types$ProjectionKind*)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeProjection, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
 	{}
 };
 

@@ -40,9 +40,9 @@ namespace com {
 				namespace main {
 
 $MethodInfo _Option$38_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(static_cast<void(Option$38::*)($String*,int32_t,$String*,$String*,$Option$OptionKind*,$Option$OptionGroup*)>(&Option$38::init$))},
-	{"matches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.main.Option$InvalidValueException"},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$38, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+	{"matches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Option$38, matches, bool, $String*)},
+	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$38, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
 	{}
 };
 

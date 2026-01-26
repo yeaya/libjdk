@@ -29,11 +29,11 @@ $FieldInfo _Elements$Origin_FieldInfo_[] = {
 };
 
 $MethodInfo _Elements$Origin_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/util/Elements$Origin;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Elements$OriginArray*(*)()>(&Elements$Origin::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Elements$Origin::*)($String*,int32_t)>(&Elements$Origin::init$))},
-	{"isDeclared", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Elements$Origin::*)()>(&Elements$Origin::isDeclared))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Elements$Origin*(*)($String*)>(&Elements$Origin::valueOf))},
-	{"values", "()[Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Elements$OriginArray*(*)()>(&Elements$Origin::values))},
+	{"$values", "()[Ljavax/lang/model/util/Elements$Origin;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Elements$Origin, $values, $Elements$OriginArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Elements$Origin, init$, void, $String*, int32_t)},
+	{"isDeclared", "()Z", nullptr, $PUBLIC, $method(Elements$Origin, isDeclared, bool)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC, $staticMethod(Elements$Origin, valueOf, Elements$Origin*, $String*)},
+	{"values", "()[Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC | $STATIC, $staticMethod(Elements$Origin, values, $Elements$OriginArray*)},
 	{}
 };
 

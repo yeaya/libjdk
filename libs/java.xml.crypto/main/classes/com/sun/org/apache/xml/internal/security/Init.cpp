@@ -112,8 +112,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Init$$Lambda$lambda$init$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Init$$Lambda$lambda$init$0::*)()>(&Init$$Lambda$lambda$init$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Init$$Lambda$lambda$init$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Init$$Lambda$lambda$init$0, run, $Object*)},
 	{}
 };
 $ClassInfo Init$$Lambda$lambda$init$0::classInfo$ = {
@@ -138,15 +138,15 @@ $FieldInfo _Init_FieldInfo_[] = {
 };
 
 $MethodInfo _Init_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Init::*)()>(&Init::init$))},
-	{"dynamicInit", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Init::dynamicInit))},
-	{"fileInit", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($InputStream*)>(&Init::fileInit))},
-	{"getResource", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/net/URL;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/net/URL;", $PUBLIC | $STATIC, $method(static_cast<$URL*(*)($String*,$Class*)>(&Init::getResource))},
-	{"getResourceAsStream", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/InputStream;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/io/InputStream;", $PRIVATE | $STATIC, $method(static_cast<$InputStream*(*)($String*,$Class*)>(&Init::getResourceAsStream))},
-	{"getResources", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/List<Ljava/net/URL;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($String*,$Class*)>(&Init::getResources))},
-	{"init", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&Init::init))},
-	{"isInitialized", "()Z", nullptr, $PUBLIC | $STATIC | $FINAL | $SYNCHRONIZED, $method(static_cast<bool(*)()>(&Init::isInitialized))},
-	{"lambda$init$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InputStream*(*)()>(&Init::lambda$init$0))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Init, init$, void)},
+	{"dynamicInit", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Init, dynamicInit, void)},
+	{"fileInit", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Init, fileInit, void, $InputStream*)},
+	{"getResource", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/net/URL;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/net/URL;", $PUBLIC | $STATIC, $staticMethod(Init, getResource, $URL*, $String*, $Class*)},
+	{"getResourceAsStream", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/io/InputStream;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/io/InputStream;", $PRIVATE | $STATIC, $staticMethod(Init, getResourceAsStream, $InputStream*, $String*, $Class*)},
+	{"getResources", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/List<Ljava/net/URL;>;", $PRIVATE | $STATIC, $staticMethod(Init, getResources, $List*, $String*, $Class*)},
+	{"init", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Init, init, void)},
+	{"isInitialized", "()Z", nullptr, $PUBLIC | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(Init, isInitialized, bool)},
+	{"lambda$init$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Init, lambda$init$0, $InputStream*)},
 	{}
 };
 

@@ -34,17 +34,17 @@ $FieldInfo _PlainClient_FieldInfo_[] = {
 };
 
 $MethodInfo _PlainClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, 0, $method(static_cast<void(PlainClient::*)($String*,$String*,$bytes*)>(&PlainClient::init$)), "javax.security.sasl.SaslException"},
-	{"clearPassword", "()V", nullptr, $PRIVATE, $method(static_cast<void(PlainClient::*)()>(&PlainClient::clearPassword))},
-	{"dispose", "()V", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC},
-	{"finalize", "()V", nullptr, $PROTECTED},
-	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"hasInitialResponse", "()Z", nullptr, $PUBLIC},
-	{"isComplete", "()Z", nullptr, $PUBLIC},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, 0, $method(PlainClient, init$, void, $String*, $String*, $bytes*), "javax.security.sasl.SaslException"},
+	{"clearPassword", "()V", nullptr, $PRIVATE, $method(PlainClient, clearPassword, void)},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PlainClient, dispose, void), "javax.security.sasl.SaslException"},
+	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(PlainClient, evaluateChallenge, $bytes*, $bytes*)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(PlainClient, finalize, void)},
+	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PlainClient, getMechanismName, $String*)},
+	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainClient, getNegotiatedProperty, $Object*, $String*)},
+	{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(PlainClient, hasInitialResponse, bool)},
+	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(PlainClient, isComplete, bool)},
+	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(PlainClient, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(PlainClient, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
 	{}
 };
 

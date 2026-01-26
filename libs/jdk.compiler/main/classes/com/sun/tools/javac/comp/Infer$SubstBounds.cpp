@@ -53,10 +53,10 @@ $FieldInfo _Infer$SubstBounds_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$SubstBounds_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, 0, $method(static_cast<void(Infer$SubstBounds::*)($Infer*,$Type$UndetVar*)>(&Infer$SubstBounds::init$))},
-	{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0},
-	{"checkCompatibleUpperBounds", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0},
-	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, 0, $method(Infer$SubstBounds, init$, void, $Infer*, $Type$UndetVar*)},
+	{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Infer$SubstBounds, apply, void, $InferenceContext*, $Warner*)},
+	{"checkCompatibleUpperBounds", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $virtualMethod(Infer$SubstBounds, checkCompatibleUpperBounds, void, $Type$UndetVar*, $InferenceContext*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC, $virtualMethod(Infer$SubstBounds, dup, $Infer$IncorporationAction*, $Type$UndetVar*)},
 	{}
 };
 

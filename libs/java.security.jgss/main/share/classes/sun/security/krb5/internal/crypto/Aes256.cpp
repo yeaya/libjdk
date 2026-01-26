@@ -22,14 +22,14 @@ $FieldInfo _Aes256_FieldInfo_[] = {
 };
 
 $MethodInfo _Aes256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Aes256::*)()>(&Aes256::init$))},
-	{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,int32_t,int32_t)>(&Aes256::calculateChecksum)), "java.security.GeneralSecurityException"},
-	{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&Aes256::decrypt)), "java.security.GeneralSecurityException"},
-	{"decryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&Aes256::decryptRaw)), "java.security.GeneralSecurityException"},
-	{"encrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&Aes256::encrypt)), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&Aes256::encryptRaw)), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"getChecksumLength", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&Aes256::getChecksumLength))},
-	{"stringToKey", "([CLjava/lang/String;[B)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($chars*,$String*,$bytes*)>(&Aes256::stringToKey)), "java.security.GeneralSecurityException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Aes256, init$, void)},
+	{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+	{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+	{"decryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+	{"encrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+	{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+	{"getChecksumLength", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, getChecksumLength, int32_t)},
+	{"stringToKey", "([CLjava/lang/String;[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, stringToKey, $bytes*, $chars*, $String*, $bytes*), "java.security.GeneralSecurityException"},
 	{}
 };
 

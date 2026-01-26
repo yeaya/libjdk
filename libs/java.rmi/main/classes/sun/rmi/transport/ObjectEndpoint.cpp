@@ -27,10 +27,10 @@ $FieldInfo _ObjectEndpoint_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectEndpoint_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/server/ObjID;Lsun/rmi/transport/Transport;)V", nullptr, 0, $method(static_cast<void(ObjectEndpoint::*)($ObjID*,$Transport*)>(&ObjectEndpoint::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/rmi/server/ObjID;Lsun/rmi/transport/Transport;)V", nullptr, 0, $method(ObjectEndpoint, init$, void, $ObjID*, $Transport*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectEndpoint, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectEndpoint, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectEndpoint, toString, $String*)},
 	{}
 };
 

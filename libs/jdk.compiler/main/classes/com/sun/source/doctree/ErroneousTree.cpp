@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Diagnostic = ::javax::tools::Diagnostic;
 
 namespace com {
 	namespace sun {
@@ -12,7 +13,7 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _ErroneousTree_MethodInfo_[] = {
-	{"getDiagnostic", "()Ljavax/tools/Diagnostic;", "()Ljavax/tools/Diagnostic<Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT},
+	{"getDiagnostic", "()Ljavax/tools/Diagnostic;", "()Ljavax/tools/Diagnostic<Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ErroneousTree, getDiagnostic, $Diagnostic*)},
 	{}
 };
 

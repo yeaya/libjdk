@@ -50,9 +50,9 @@ $FieldInfo _RegistryImpl_Skel_FieldInfo_[] = {
 };
 
 $MethodInfo _RegistryImpl_Skel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RegistryImpl_Skel::*)()>(&RegistryImpl_Skel::init$))},
-	{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;IJ)V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"getOperations", "()[Ljava/rmi/server/Operation;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RegistryImpl_Skel, init$, void)},
+	{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;IJ)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Skel, dispatch, void, $Remote*, $RemoteCall*, int32_t, int64_t), "java.lang.Exception"},
+	{"getOperations", "()[Ljava/rmi/server/Operation;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Skel, getOperations, $OperationArray*)},
 	{}
 };
 

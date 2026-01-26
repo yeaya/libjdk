@@ -19,13 +19,13 @@ $FieldInfo _HttpPrincipal_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpPrincipal_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpPrincipal::*)($String*,$String*)>(&HttpPrincipal::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getUsername", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpPrincipal, init$, void, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, equals, bool, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, getName, $String*)},
+	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, getRealm, $String*)},
+	{"getUsername", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, getUsername, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpPrincipal, toString, $String*)},
 	{}
 };
 

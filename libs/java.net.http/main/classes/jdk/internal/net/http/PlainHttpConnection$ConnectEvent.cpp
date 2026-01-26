@@ -80,8 +80,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$0::*)()>(&PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$0, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$0, get, $Object*)},
 	{}
 };
 $ClassInfo PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$0::classInfo$ = {
@@ -113,8 +113,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$1$1::*)()>(&PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$1$1, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$1$1::classInfo$ = {
@@ -156,8 +156,8 @@ $FieldInfo PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$2$2::fieldInfo
 	{}
 };
 $MethodInfo PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection$ConnectEvent;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$2$2::*)(PlainHttpConnection$ConnectEvent*,$Throwable*)>(&PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$2$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection$ConnectEvent;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$2$2, init$, void, PlainHttpConnection$ConnectEvent*, $Throwable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$2$2, run, void)},
 	{}
 };
 $ClassInfo PlainHttpConnection$ConnectEvent$$Lambda$lambda$handle$2$2::classInfo$ = {
@@ -199,8 +199,8 @@ $FieldInfo PlainHttpConnection$ConnectEvent$$Lambda$lambda$abort$3$3::fieldInfos
 	{}
 };
 $MethodInfo PlainHttpConnection$ConnectEvent$$Lambda$lambda$abort$3$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection$ConnectEvent;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(static_cast<void(PlainHttpConnection$ConnectEvent$$Lambda$lambda$abort$3$3::*)(PlainHttpConnection$ConnectEvent*,$IOException*)>(&PlainHttpConnection$ConnectEvent$$Lambda$lambda$abort$3$3::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection$ConnectEvent;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(PlainHttpConnection$ConnectEvent$$Lambda$lambda$abort$3$3, init$, void, PlainHttpConnection$ConnectEvent*, $IOException*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectEvent$$Lambda$lambda$abort$3$3, run, void)},
 	{}
 };
 $ClassInfo PlainHttpConnection$ConnectEvent$$Lambda$lambda$abort$3$3::classInfo$ = {
@@ -226,15 +226,15 @@ $FieldInfo _PlainHttpConnection$ConnectEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _PlainHttpConnection$ConnectEvent_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection;Ljava/util/concurrent/CompletableFuture;Ljdk/internal/net/http/Exchange;)V", "(Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/PlainHttpConnection$ConnectState;>;Ljdk/internal/net/http/Exchange<*>;)V", 0, $method(static_cast<void(PlainHttpConnection$ConnectEvent::*)($PlainHttpConnection*,$CompletableFuture*,$Exchange*)>(&PlainHttpConnection$ConnectEvent::init$))},
-	{"abort", "(Ljava/io/IOException;)V", nullptr, $PUBLIC},
-	{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC},
-	{"handle", "()V", nullptr, $PUBLIC},
-	{"interestOps", "()I", nullptr, $PUBLIC},
-	{"lambda$abort$3", "(Ljava/io/IOException;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(PlainHttpConnection$ConnectEvent::*)($IOException*)>(&PlainHttpConnection$ConnectEvent::lambda$abort$3))},
-	{"lambda$handle$0", "()Ljdk/internal/net/http/PlainHttpConnection$ConnectState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PlainHttpConnection$ConnectState*(*)()>(&PlainHttpConnection$ConnectEvent::lambda$handle$0))},
-	{"lambda$handle$1", "()Ljdk/internal/net/http/PlainHttpConnection$ConnectState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PlainHttpConnection$ConnectState*(*)()>(&PlainHttpConnection$ConnectEvent::lambda$handle$1))},
-	{"lambda$handle$2", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(PlainHttpConnection$ConnectEvent::*)($Throwable*)>(&PlainHttpConnection$ConnectEvent::lambda$handle$2))},
+	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection;Ljava/util/concurrent/CompletableFuture;Ljdk/internal/net/http/Exchange;)V", "(Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/PlainHttpConnection$ConnectState;>;Ljdk/internal/net/http/Exchange<*>;)V", 0, $method(PlainHttpConnection$ConnectEvent, init$, void, $PlainHttpConnection*, $CompletableFuture*, $Exchange*)},
+	{"abort", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectEvent, abort, void, $IOException*)},
+	{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectEvent, channel, $SelectableChannel*)},
+	{"handle", "()V", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectEvent, handle, void)},
+	{"interestOps", "()I", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectEvent, interestOps, int32_t)},
+	{"lambda$abort$3", "(Ljava/io/IOException;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(PlainHttpConnection$ConnectEvent, lambda$abort$3, void, $IOException*)},
+	{"lambda$handle$0", "()Ljdk/internal/net/http/PlainHttpConnection$ConnectState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlainHttpConnection$ConnectEvent, lambda$handle$0, $PlainHttpConnection$ConnectState*)},
+	{"lambda$handle$1", "()Ljdk/internal/net/http/PlainHttpConnection$ConnectState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlainHttpConnection$ConnectEvent, lambda$handle$1, $PlainHttpConnection$ConnectState*)},
+	{"lambda$handle$2", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(PlainHttpConnection$ConnectEvent, lambda$handle$2, void, $Throwable*)},
 	{}
 };
 

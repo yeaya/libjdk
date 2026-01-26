@@ -20,9 +20,9 @@ $FieldInfo _Lease_FieldInfo_[] = {
 };
 
 $MethodInfo _Lease_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/dgc/VMID;J)V", nullptr, $PUBLIC, $method(static_cast<void(Lease::*)($VMID*,int64_t)>(&Lease::init$))},
-	{"getVMID", "()Ljava/rmi/dgc/VMID;", nullptr, $PUBLIC, $method(static_cast<$VMID*(Lease::*)()>(&Lease::getVMID))},
-	{"getValue", "()J", nullptr, $PUBLIC, $method(static_cast<int64_t(Lease::*)()>(&Lease::getValue))},
+	{"<init>", "(Ljava/rmi/dgc/VMID;J)V", nullptr, $PUBLIC, $method(Lease, init$, void, $VMID*, int64_t)},
+	{"getVMID", "()Ljava/rmi/dgc/VMID;", nullptr, $PUBLIC, $method(Lease, getVMID, $VMID*)},
+	{"getValue", "()J", nullptr, $PUBLIC, $method(Lease, getValue, int64_t)},
 	{}
 };
 

@@ -20,10 +20,10 @@ $FieldInfo _RuntimeMBeanException_FieldInfo_[] = {
 };
 
 $MethodInfo _RuntimeMBeanException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/RuntimeException;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeMBeanException::*)($RuntimeException*)>(&RuntimeMBeanException::init$))},
-	{"<init>", "(Ljava/lang/RuntimeException;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeMBeanException::*)($RuntimeException*,$String*)>(&RuntimeMBeanException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getTargetException", "()Ljava/lang/RuntimeException;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/RuntimeException;)V", nullptr, $PUBLIC, $method(RuntimeMBeanException, init$, void, $RuntimeException*)},
+	{"<init>", "(Ljava/lang/RuntimeException;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimeMBeanException, init$, void, $RuntimeException*, $String*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(RuntimeMBeanException, getCause, $Throwable*)},
+	{"getTargetException", "()Ljava/lang/RuntimeException;", nullptr, $PUBLIC, $virtualMethod(RuntimeMBeanException, getTargetException, $RuntimeException*)},
 	{}
 };
 

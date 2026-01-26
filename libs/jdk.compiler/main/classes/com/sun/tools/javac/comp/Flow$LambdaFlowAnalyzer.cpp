@@ -38,9 +38,9 @@ $FieldInfo _Flow$LambdaFlowAnalyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$LambdaFlowAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(static_cast<void(Flow$LambdaFlowAnalyzer::*)($Flow*)>(&Flow$LambdaFlowAnalyzer::init$))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$LambdaFlowAnalyzer, init$, void, $Flow*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaFlowAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaFlowAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
 	{}
 };
 

@@ -36,13 +36,13 @@ $FieldInfo _Resolve$MethodResolutionPhase_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodResolutionPhase_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Resolve$MethodResolutionPhaseArray*(*)()>(&Resolve$MethodResolutionPhase::$values))},
-	{"<init>", "(Ljava/lang/String;IZZ)V", "(ZZ)V", $PRIVATE, $method(static_cast<void(Resolve$MethodResolutionPhase::*)($String*,int32_t,bool,bool)>(&Resolve$MethodResolutionPhase::init$))},
-	{"isBoxingRequired", "()Z", nullptr, $PUBLIC},
-	{"isVarargsRequired", "()Z", nullptr, $PUBLIC},
-	{"mergeResults", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Resolve$MethodResolutionPhase*(*)($String*)>(&Resolve$MethodResolutionPhase::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Resolve$MethodResolutionPhaseArray*(*)()>(&Resolve$MethodResolutionPhase::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$MethodResolutionPhase, $values, $Resolve$MethodResolutionPhaseArray*)},
+	{"<init>", "(Ljava/lang/String;IZZ)V", "(ZZ)V", $PRIVATE, $method(Resolve$MethodResolutionPhase, init$, void, $String*, int32_t, bool, bool)},
+	{"isBoxingRequired", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionPhase, isBoxingRequired, bool)},
+	{"isVarargsRequired", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionPhase, isVarargsRequired, bool)},
+	{"mergeResults", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionPhase, mergeResults, $Symbol*, $Symbol*, $Symbol*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$MethodResolutionPhase, valueOf, Resolve$MethodResolutionPhase*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$MethodResolutionPhase, values, $Resolve$MethodResolutionPhaseArray*)},
 	{}
 };
 

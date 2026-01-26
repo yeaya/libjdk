@@ -82,15 +82,15 @@ $FieldInfo _PerfInstrumentation_FieldInfo_[] = {
 };
 
 $MethodInfo _PerfInstrumentation_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(PerfInstrumentation::*)($ByteBuffer*)>(&PerfInstrumentation::init$))},
-	{"findByPattern", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $SYNCHRONIZED},
-	{"getAllCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $SYNCHRONIZED},
-	{"getMajorVersion", "()I", nullptr, $PUBLIC},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC},
-	{"getModificationTimeStamp", "()J", nullptr, $PUBLIC},
-	{"getNextCounter", "()Lsun/management/counter/Counter;", nullptr, 0},
-	{"hasNext", "()Z", nullptr, 0},
-	{"rewind", "()V", nullptr, 0},
+	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(PerfInstrumentation, init$, void, $ByteBuffer*)},
+	{"findByPattern", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfInstrumentation, findByPattern, $List*, $String*)},
+	{"getAllCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(PerfInstrumentation, getAllCounters, $List*)},
+	{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(PerfInstrumentation, getMajorVersion, int32_t)},
+	{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(PerfInstrumentation, getMinorVersion, int32_t)},
+	{"getModificationTimeStamp", "()J", nullptr, $PUBLIC, $virtualMethod(PerfInstrumentation, getModificationTimeStamp, int64_t)},
+	{"getNextCounter", "()Lsun/management/counter/Counter;", nullptr, 0, $virtualMethod(PerfInstrumentation, getNextCounter, $Counter*)},
+	{"hasNext", "()Z", nullptr, 0, $virtualMethod(PerfInstrumentation, hasNext, bool)},
+	{"rewind", "()V", nullptr, 0, $virtualMethod(PerfInstrumentation, rewind, void)},
 	{}
 };
 

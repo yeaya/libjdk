@@ -32,10 +32,10 @@ $FieldInfo _TransportImpl$ChannelState_FieldInfo_[] = {
 };
 
 $MethodInfo _TransportImpl$ChannelState_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TransportImpl$ChannelStateArray*(*)()>(&TransportImpl$ChannelState::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(TransportImpl$ChannelState::*)($String*,int32_t)>(&TransportImpl$ChannelState::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TransportImpl$ChannelState*(*)($String*)>(&TransportImpl$ChannelState::valueOf))},
-	{"values", "()[Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TransportImpl$ChannelStateArray*(*)()>(&TransportImpl$ChannelState::values))},
+	{"$values", "()[Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransportImpl$ChannelState, $values, $TransportImpl$ChannelStateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TransportImpl$ChannelState, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransportImpl$ChannelState, valueOf, TransportImpl$ChannelState*, $String*)},
+	{"values", "()[Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransportImpl$ChannelState, values, $TransportImpl$ChannelStateArray*)},
 	{}
 };
 

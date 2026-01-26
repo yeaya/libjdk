@@ -18,8 +18,8 @@ $FieldInfo _BasicAuthTest$ClientAuth_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicAuthTest$ClientAuth_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BasicAuthTest$ClientAuth::*)()>(&BasicAuthTest$ClientAuth::init$))},
-	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(BasicAuthTest$ClientAuth, init$, void)},
+	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PROTECTED, $virtualMethod(BasicAuthTest$ClientAuth, getPasswordAuthentication, $PasswordAuthentication*)},
 	{}
 };
 

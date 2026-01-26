@@ -26,7 +26,7 @@ $FieldInfo _Sockets$QuickAck_FieldInfo_[] = {
 };
 
 $MethodInfo _Sockets$QuickAck_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Sockets$QuickAck::*)()>(&Sockets$QuickAck::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Sockets$QuickAck, init$, void)},
 	{}
 };
 

@@ -18,8 +18,8 @@ $FieldInfo _StubNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _StubNotFoundException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StubNotFoundException::*)($String*)>(&StubNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(StubNotFoundException::*)($String*,$Exception*)>(&StubNotFoundException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StubNotFoundException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(StubNotFoundException, init$, void, $String*, $Exception*)},
 	{}
 };
 

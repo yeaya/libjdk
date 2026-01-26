@@ -43,18 +43,18 @@ $FieldInfo _Scanner_FieldInfo_[] = {
 };
 
 $MethodInfo _Scanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Ljava/nio/CharBuffer;)V", nullptr, $PROTECTED, $method(static_cast<void(Scanner::*)($ScannerFactory*,$CharBuffer*)>(&Scanner::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(static_cast<void(Scanner::*)($ScannerFactory*,$chars*,int32_t)>(&Scanner::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Lcom/sun/tools/javac/parser/JavaTokenizer;)V", nullptr, $PROTECTED, $method(static_cast<void(Scanner::*)($ScannerFactory*,$JavaTokenizer*)>(&Scanner::init$))},
-	{"ensureLookahead", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(Scanner::*)(int32_t)>(&Scanner::ensureLookahead))},
-	{"errPos", "()I", nullptr, $PUBLIC},
-	{"errPos", "(I)V", nullptr, $PUBLIC},
-	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC},
-	{"nextToken", "()V", nullptr, $PUBLIC},
-	{"prevToken", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC},
-	{"split", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC},
-	{"token", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC},
-	{"token", "(I)Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Ljava/nio/CharBuffer;)V", nullptr, $PROTECTED, $method(Scanner, init$, void, $ScannerFactory*, $CharBuffer*)},
+	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(Scanner, init$, void, $ScannerFactory*, $chars*, int32_t)},
+	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Lcom/sun/tools/javac/parser/JavaTokenizer;)V", nullptr, $PROTECTED, $method(Scanner, init$, void, $ScannerFactory*, $JavaTokenizer*)},
+	{"ensureLookahead", "(I)V", nullptr, $PRIVATE, $method(Scanner, ensureLookahead, void, int32_t)},
+	{"errPos", "()I", nullptr, $PUBLIC, $virtualMethod(Scanner, errPos, int32_t)},
+	{"errPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(Scanner, errPos, void, int32_t)},
+	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(Scanner, getLineMap, $Position$LineMap*)},
+	{"nextToken", "()V", nullptr, $PUBLIC, $virtualMethod(Scanner, nextToken, void)},
+	{"prevToken", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, prevToken, $Tokens$Token*)},
+	{"split", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, split, $Tokens$Token*)},
+	{"token", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, token, $Tokens$Token*)},
+	{"token", "(I)Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC, $virtualMethod(Scanner, token, $Tokens$Token*, int32_t)},
 	{}
 };
 

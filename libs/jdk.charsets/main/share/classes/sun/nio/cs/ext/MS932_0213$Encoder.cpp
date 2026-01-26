@@ -28,8 +28,8 @@ $FieldInfo _MS932_0213$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _MS932_0213$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(static_cast<void(MS932_0213$Encoder::*)($Charset*)>(&MS932_0213$Encoder::init$))},
-	{"encodeChar", "(C)I", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(MS932_0213$Encoder, init$, void, $Charset*)},
+	{"encodeChar", "(C)I", nullptr, $PROTECTED, $virtualMethod(MS932_0213$Encoder, encodeChar, int32_t, char16_t)},
 	{}
 };
 

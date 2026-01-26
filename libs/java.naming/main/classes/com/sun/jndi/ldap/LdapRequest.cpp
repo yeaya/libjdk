@@ -52,13 +52,13 @@ $FieldInfo _LdapRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapRequest_MethodInfo_[] = {
-	{"<init>", "(IZI)V", nullptr, 0, $method(static_cast<void(LdapRequest::*)(int32_t,bool,int32_t)>(&LdapRequest::init$))},
-	{"addReplyBer", "(Lcom/sun/jndi/ldap/BerDecoder;)Z", nullptr, $SYNCHRONIZED, $method(static_cast<bool(LdapRequest::*)($BerDecoder*)>(&LdapRequest::addReplyBer))},
-	{"cancel", "()V", nullptr, 0, $method(static_cast<void(LdapRequest::*)()>(&LdapRequest::cancel))},
-	{"close", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(LdapRequest::*)()>(&LdapRequest::close))},
-	{"getReplyBer", "(J)Lcom/sun/jndi/ldap/BerDecoder;", nullptr, 0, $method(static_cast<$BerDecoder*(LdapRequest::*)(int64_t)>(&LdapRequest::getReplyBer)), "javax.naming.NamingException,java.lang.InterruptedException"},
-	{"hasSearchCompleted", "()Z", nullptr, 0, $method(static_cast<bool(LdapRequest::*)()>(&LdapRequest::hasSearchCompleted))},
-	{"isClosed", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(LdapRequest::*)()>(&LdapRequest::isClosed))},
+	{"<init>", "(IZI)V", nullptr, 0, $method(LdapRequest, init$, void, int32_t, bool, int32_t)},
+	{"addReplyBer", "(Lcom/sun/jndi/ldap/BerDecoder;)Z", nullptr, $SYNCHRONIZED, $method(LdapRequest, addReplyBer, bool, $BerDecoder*)},
+	{"cancel", "()V", nullptr, 0, $method(LdapRequest, cancel, void)},
+	{"close", "()V", nullptr, $SYNCHRONIZED, $method(LdapRequest, close, void)},
+	{"getReplyBer", "(J)Lcom/sun/jndi/ldap/BerDecoder;", nullptr, 0, $method(LdapRequest, getReplyBer, $BerDecoder*, int64_t), "javax.naming.NamingException,java.lang.InterruptedException"},
+	{"hasSearchCompleted", "()Z", nullptr, 0, $method(LdapRequest, hasSearchCompleted, bool)},
+	{"isClosed", "()Z", nullptr, $PRIVATE, $method(LdapRequest, isClosed, bool)},
 	{}
 };
 

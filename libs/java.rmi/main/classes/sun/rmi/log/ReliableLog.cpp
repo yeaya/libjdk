@@ -82,8 +82,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReliableLog$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReliableLog$$Lambda$lambda$new$0::*)()>(&ReliableLog$$Lambda$lambda$new$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReliableLog$$Lambda$lambda$new$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReliableLog$$Lambda$lambda$new$0, run, $Object*)},
 	{}
 };
 $ClassInfo ReliableLog$$Lambda$lambda$new$0::classInfo$ = {
@@ -115,8 +115,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::*)()>(&ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo ReliableLog$$Lambda$lambda$getLogClassConstructor$1$1::classInfo$ = {
@@ -161,35 +161,35 @@ $FieldInfo _ReliableLog_FieldInfo_[] = {
 };
 
 $MethodInfo _ReliableLog_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/rmi/log/LogHandler;Z)V", nullptr, $PUBLIC, $method(static_cast<void(ReliableLog::*)($String*,$LogHandler*,bool)>(&ReliableLog::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Lsun/rmi/log/LogHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(ReliableLog::*)($String*,$LogHandler*)>(&ReliableLog::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"commitToNewVersion", "()V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)()>(&ReliableLog::commitToNewVersion)), "java.io.IOException"},
-	{"createFirstVersion", "()V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)()>(&ReliableLog::createFirstVersion)), "java.io.IOException"},
-	{"deleteFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)($String*)>(&ReliableLog::deleteFile)), "java.io.IOException"},
-	{"deleteLogFile", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)(int32_t)>(&ReliableLog::deleteLogFile)), "java.io.IOException"},
-	{"deleteNewVersionFile", "()V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)()>(&ReliableLog::deleteNewVersionFile)), "java.io.IOException"},
-	{"deleteSnapshot", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)(int32_t)>(&ReliableLog::deleteSnapshot)), "java.io.IOException"},
-	{"fName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ReliableLog::*)($String*)>(&ReliableLog::fName))},
-	{"getLogClassConstructor", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<+Lsun/rmi/log/ReliableLog$LogFile;>;", $PRIVATE | $STATIC, $method(static_cast<$Constructor*(*)()>(&ReliableLog::getLogClassConstructor))},
-	{"getVersion", "()V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)()>(&ReliableLog::getVersion)), "java.io.IOException"},
-	{"incrVersion", "()V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)()>(&ReliableLog::incrVersion))},
-	{"initializeLogFile", "()V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)()>(&ReliableLog::initializeLogFile)), "java.io.IOException"},
-	{"lambda$getLogClassConstructor$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&ReliableLog::lambda$getLogClassConstructor$1))},
-	{"lambda$new$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&ReliableLog::lambda$new$0))},
-	{"logSize", "()J", nullptr, $PUBLIC},
-	{"openLogFile", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)(bool)>(&ReliableLog::openLogFile)), "java.io.IOException"},
-	{"readVersion", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ReliableLog::*)($String*)>(&ReliableLog::readVersion)), "java.io.IOException"},
-	{"recover", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"recoverUpdates", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(ReliableLog::*)(Object$*)>(&ReliableLog::recoverUpdates)), "java.io.IOException"},
-	{"snapshot", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"snapshotSize", "()J", nullptr, $PUBLIC},
-	{"update", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"update", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"versionName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ReliableLog::*)($String*)>(&ReliableLog::versionName))},
-	{"versionName", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ReliableLog::*)($String*,int32_t)>(&ReliableLog::versionName))},
-	{"writeInt", "(Ljava/io/DataOutput;I)V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)($DataOutput*,int32_t)>(&ReliableLog::writeInt)), "java.io.IOException"},
-	{"writeVersionFile", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(ReliableLog::*)(bool)>(&ReliableLog::writeVersionFile)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Lsun/rmi/log/LogHandler;Z)V", nullptr, $PUBLIC, $method(ReliableLog, init$, void, $String*, $LogHandler*, bool), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Lsun/rmi/log/LogHandler;)V", nullptr, $PUBLIC, $method(ReliableLog, init$, void, $String*, $LogHandler*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, close, void), "java.io.IOException"},
+	{"commitToNewVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, commitToNewVersion, void), "java.io.IOException"},
+	{"createFirstVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, createFirstVersion, void), "java.io.IOException"},
+	{"deleteFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ReliableLog, deleteFile, void, $String*), "java.io.IOException"},
+	{"deleteLogFile", "(I)V", nullptr, $PRIVATE, $method(ReliableLog, deleteLogFile, void, int32_t), "java.io.IOException"},
+	{"deleteNewVersionFile", "()V", nullptr, $PRIVATE, $method(ReliableLog, deleteNewVersionFile, void), "java.io.IOException"},
+	{"deleteSnapshot", "(I)V", nullptr, $PRIVATE, $method(ReliableLog, deleteSnapshot, void, int32_t), "java.io.IOException"},
+	{"fName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ReliableLog, fName, $String*, $String*)},
+	{"getLogClassConstructor", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<+Lsun/rmi/log/ReliableLog$LogFile;>;", $PRIVATE | $STATIC, $staticMethod(ReliableLog, getLogClassConstructor, $Constructor*)},
+	{"getVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, getVersion, void), "java.io.IOException"},
+	{"incrVersion", "()V", nullptr, $PRIVATE, $method(ReliableLog, incrVersion, void)},
+	{"initializeLogFile", "()V", nullptr, $PRIVATE, $method(ReliableLog, initializeLogFile, void), "java.io.IOException"},
+	{"lambda$getLogClassConstructor$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReliableLog, lambda$getLogClassConstructor$1, $String*)},
+	{"lambda$new$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ReliableLog, lambda$new$0, $Boolean*)},
+	{"logSize", "()J", nullptr, $PUBLIC, $virtualMethod(ReliableLog, logSize, int64_t)},
+	{"openLogFile", "(Z)V", nullptr, $PRIVATE, $method(ReliableLog, openLogFile, void, bool), "java.io.IOException"},
+	{"readVersion", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(ReliableLog, readVersion, int32_t, $String*), "java.io.IOException"},
+	{"recover", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, recover, $Object*), "java.io.IOException"},
+	{"recoverUpdates", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(ReliableLog, recoverUpdates, $Object*, Object$*), "java.io.IOException"},
+	{"snapshot", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, snapshot, void, Object$*), "java.io.IOException"},
+	{"snapshotSize", "()J", nullptr, $PUBLIC, $virtualMethod(ReliableLog, snapshotSize, int64_t)},
+	{"update", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, update, void, Object$*), "java.io.IOException"},
+	{"update", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ReliableLog, update, void, Object$*, bool), "java.io.IOException"},
+	{"versionName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ReliableLog, versionName, $String*, $String*)},
+	{"versionName", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(ReliableLog, versionName, $String*, $String*, int32_t)},
+	{"writeInt", "(Ljava/io/DataOutput;I)V", nullptr, $PRIVATE, $method(ReliableLog, writeInt, void, $DataOutput*, int32_t), "java.io.IOException"},
+	{"writeVersionFile", "(Z)V", nullptr, $PRIVATE, $method(ReliableLog, writeVersionFile, void, bool), "java.io.IOException"},
 	{}
 };
 

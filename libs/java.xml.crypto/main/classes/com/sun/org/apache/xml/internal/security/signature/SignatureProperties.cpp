@@ -42,14 +42,14 @@ namespace com {
 							namespace signature {
 
 $MethodInfo _SignatureProperties_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureProperties::*)($Document*)>(&SignatureProperties::init$))},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureProperties::*)($Element*,$String*)>(&SignatureProperties::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addSignatureProperty", "(Lcom/sun/org/apache/xml/internal/security/signature/SignatureProperty;)V", nullptr, $PUBLIC},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLength", "()I", nullptr, $PUBLIC},
-	{"item", "(I)Lcom/sun/org/apache/xml/internal/security/signature/SignatureProperty;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(SignatureProperties, init$, void, $Document*)},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperties, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"addSignatureProperty", "(Lcom/sun/org/apache/xml/internal/security/signature/SignatureProperty;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, addSignatureProperty, void, $SignatureProperty*)},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, getBaseLocalName, $String*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, getId, $String*)},
+	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, getLength, int32_t)},
+	{"item", "(I)Lcom/sun/org/apache/xml/internal/security/signature/SignatureProperty;", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, item, $SignatureProperty*, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperties, setId, void, $String*)},
 	{}
 };
 

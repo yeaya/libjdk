@@ -370,8 +370,8 @@ $FieldInfo JavaCompiler$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavaCompiler$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;)V", nullptr, $PUBLIC, $method(static_cast<void(JavaCompiler$$Lambda$lambda$new$0::*)(JavaCompiler*)>(&JavaCompiler$$Lambda$lambda$new$0::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;)V", nullptr, $PUBLIC, $method(JavaCompiler$$Lambda$lambda$new$0, init$, void, JavaCompiler*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$$Lambda$lambda$new$0, complete, void, $Symbol*)},
 	{}
 };
 $ClassInfo JavaCompiler$$Lambda$lambda$new$0::classInfo$ = {
@@ -410,8 +410,8 @@ $FieldInfo JavaCompiler$$Lambda$findPackageInFile$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavaCompiler$$Lambda$findPackageInFile$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;)V", nullptr, $PUBLIC, $method(static_cast<void(JavaCompiler$$Lambda$findPackageInFile$1::*)(JavaCompiler*)>(&JavaCompiler$$Lambda$findPackageInFile$1::init$))},
-	{"findPackageNameOf", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;)V", nullptr, $PUBLIC, $method(JavaCompiler$$Lambda$findPackageInFile$1, init$, void, JavaCompiler*)},
+	{"findPackageNameOf", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$$Lambda$findPackageInFile$1, findPackageNameOf, $Name*, $JavaFileObject*)},
 	{}
 };
 $ClassInfo JavaCompiler$$Lambda$findPackageInFile$1::classInfo$ = {
@@ -450,8 +450,8 @@ $FieldInfo JavaCompiler$$Lambda$readModuleName$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavaCompiler$$Lambda$readModuleName$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;)V", nullptr, $PUBLIC, $method(static_cast<void(JavaCompiler$$Lambda$readModuleName$2::*)(JavaCompiler*)>(&JavaCompiler$$Lambda$readModuleName$2::init$))},
-	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;)V", nullptr, $PUBLIC, $method(JavaCompiler$$Lambda$readModuleName$2, init$, void, JavaCompiler*)},
+	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$$Lambda$readModuleName$2, readModuleName, $Name*, $JavaFileObject*)},
 	{}
 };
 $ClassInfo JavaCompiler$$Lambda$readModuleName$2::classInfo$ = {
@@ -490,8 +490,8 @@ $FieldInfo JavaCompiler$$Lambda$lambda$readSourceFile$1$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavaCompiler$$Lambda$lambda$readSourceFile$1$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;)V", nullptr, $PUBLIC, $method(static_cast<void(JavaCompiler$$Lambda$lambda$readSourceFile$1$3::*)(JavaCompiler*)>(&JavaCompiler$$Lambda$lambda$readSourceFile$1$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;)V", nullptr, $PUBLIC, $method(JavaCompiler$$Lambda$lambda$readSourceFile$1$3, init$, void, JavaCompiler*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$$Lambda$lambda$readSourceFile$1$3, get, $Object*)},
 	{}
 };
 $ClassInfo JavaCompiler$$Lambda$lambda$readSourceFile$1$3::classInfo$ = {
@@ -530,8 +530,8 @@ $FieldInfo JavaCompiler$$Lambda$lambda$readSourceFile$2$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavaCompiler$$Lambda$lambda$readSourceFile$2$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;)V", nullptr, $PUBLIC, $method(static_cast<void(JavaCompiler$$Lambda$lambda$readSourceFile$2$4::*)(JavaCompiler*)>(&JavaCompiler$$Lambda$lambda$readSourceFile$2$4::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;)V", nullptr, $PUBLIC, $method(JavaCompiler$$Lambda$lambda$readSourceFile$2$4, init$, void, JavaCompiler*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$$Lambda$lambda$readSourceFile$2$4, get, $Object*)},
 	{}
 };
 $ClassInfo JavaCompiler$$Lambda$lambda$readSourceFile$2$4::classInfo$ = {
@@ -563,8 +563,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavaCompiler$$Lambda$lambda$readModuleName$3$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavaCompiler$$Lambda$lambda$readModuleName$3$5::*)()>(&JavaCompiler$$Lambda$lambda$readModuleName$3$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaCompiler$$Lambda$lambda$readModuleName$3$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$$Lambda$lambda$readModuleName$3$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavaCompiler$$Lambda$lambda$readModuleName$3$5::classInfo$ = {
@@ -596,8 +596,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavaCompiler$$Lambda$lambda$findPackageInFile$4$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavaCompiler$$Lambda$lambda$findPackageInFile$4$6::*)()>(&JavaCompiler$$Lambda$lambda$findPackageInFile$4$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaCompiler$$Lambda$lambda$findPackageInFile$4$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$$Lambda$lambda$findPackageInFile$4$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavaCompiler$$Lambda$lambda$findPackageInFile$4$6::classInfo$ = {
@@ -690,72 +690,72 @@ $FieldInfo _JavaCompiler_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaCompiler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(static_cast<void(JavaCompiler::*)($Context*)>(&JavaCompiler::init$))},
-	{"attribute", "(Ljava/util/Queue;)Ljava/util/Queue;", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC},
-	{"attribute", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC},
-	{"checkReusable", "()V", nullptr, $PROTECTED},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"compile", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, nullptr, "java.lang.Throwable"},
-	{"compile", "(Ljava/util/Collection;Ljava/util/Collection;Ljava/lang/Iterable;Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;Ljava/util/Collection<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC},
-	{"continueAfterProcessAnnotations", "()Z", nullptr, $PUBLIC},
-	{"desugar", "(Ljava/util/Queue;)Ljava/util/Queue;", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)Ljava/util/Queue<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;>;>;", $PUBLIC},
-	{"desugar", "(Lcom/sun/tools/javac/comp/Env;Ljava/util/Queue;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Ljava/util/Queue<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;>;>;)V", $PROTECTED},
-	{"elapsed", "(J)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&JavaCompiler::elapsed))},
-	{"enterDone", "()V", nullptr, $PUBLIC},
-	{"enterTrees", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PUBLIC},
-	{"errorCount", "()I", nullptr, $PUBLIC},
-	{"explicitAnnotationProcessingRequested", "()Z", nullptr, 0},
-	{"explicitAnnotationProcessingRequested", "(Lcom/sun/tools/javac/util/Options;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Options*)>(&JavaCompiler::explicitAnnotationProcessingRequested))},
-	{"findPackageInFile", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(static_cast<$Name*(JavaCompiler::*)($JavaFileObject*)>(&JavaCompiler::findPackageInFile))},
-	{"flow", "(Ljava/util/Queue;)Ljava/util/Queue;", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC},
-	{"flow", "(Lcom/sun/tools/javac/comp/Env;)Ljava/util/Queue;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC},
-	{"flow", "(Lcom/sun/tools/javac/comp/Env;Ljava/util/Queue;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)V", $PROTECTED},
-	{"fullVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&JavaCompiler::fullVersion))},
-	{"genCode", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Ljavax/tools/JavaFileObject;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Ljavax/tools/JavaFileObject;", 0, nullptr, "java.io.IOException"},
-	{"generate", "(Ljava/util/Queue;)V", "(Ljava/util/Queue<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;>;>;)V", $PUBLIC},
-	{"generate", "(Ljava/util/Queue;Ljava/util/Queue;)V", "(Ljava/util/Queue<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;>;>;Ljava/util/Queue<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC},
-	{"groupByFile", "(Ljava/util/Queue;)Ljava/util/Map;", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)Ljava/util/Map<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;>;", 0},
-	{"initModules", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PUBLIC},
-	{"initProcessAnnotations", "(Ljava/lang/Iterable;Ljava/util/Collection;Ljava/util/Collection;)V", "(Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;Ljava/util/Collection<+Ljavax/tools/JavaFileObject;>;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/main/JavaCompiler;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavaCompiler*(*)($Context*)>(&JavaCompiler::instance))},
-	{"isEnterDone", "()Z", nullptr, $PUBLIC},
-	{"keepComments", "()Z", nullptr, $PROTECTED},
-	{"lambda$findPackageInFile$4", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Name*(*)($JCTree$JCCompilationUnit*)>(&JavaCompiler::lambda$findPackageInFile$4))},
-	{"lambda$new$0", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(JavaCompiler::*)($Symbol*)>(&JavaCompiler::lambda$new$0)), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"lambda$readModuleName$3", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Name*(*)($JCTree$JCCompilationUnit*)>(&JavaCompiler::lambda$readModuleName$3))},
-	{"lambda$readSourceFile$1", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$JCDiagnostic*(JavaCompiler::*)()>(&JavaCompiler::lambda$readSourceFile$1))},
-	{"lambda$readSourceFile$2", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$JCDiagnostic*(JavaCompiler::*)()>(&JavaCompiler::lambda$readSourceFile$2))},
-	{"newRound", "()V", nullptr, $PUBLIC},
-	{"now", "()J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)()>(&JavaCompiler::now))},
-	{"parse", "(Ljavax/tools/JavaFileObject;Ljava/lang/CharSequence;)Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PROTECTED},
-	{"parse", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _JavaCompiler_MethodAnnotations_parse38},
-	{"parse", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC},
-	{"parseAndGetName", "(Ljavax/tools/JavaFileObject;Ljava/util/function/Function;)Lcom/sun/tools/javac/util/Name;", "(Ljavax/tools/JavaFileObject;Ljava/util/function/Function<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/util/Name;>;)Lcom/sun/tools/javac/util/Name;", $PRIVATE, $method(static_cast<$Name*(JavaCompiler::*)($JavaFileObject*,$Function*)>(&JavaCompiler::parseAndGetName))},
-	{"parseFiles", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PUBLIC},
-	{"parseFiles", "(Ljava/lang/Iterable;Z)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PUBLIC},
-	{"printCount", "(Ljava/lang/String;I)V", nullptr, $PUBLIC},
-	{"printNote", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"printSource", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Ljavax/tools/JavaFileObject;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Ljavax/tools/JavaFileObject;", 0, nullptr, "java.io.IOException"},
-	{"printSuppressedCount", "(IILjava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(JavaCompiler::*)(int32_t,int32_t,$String*)>(&JavaCompiler::printSuppressedCount))},
-	{"processAnnotations", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)V", $PUBLIC},
-	{"processAnnotations", "(Lcom/sun/tools/javac/util/List;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC},
-	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(static_cast<$Name*(JavaCompiler::*)($JavaFileObject*)>(&JavaCompiler::readModuleName))},
-	{"readSource", "(Ljavax/tools/JavaFileObject;)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
-	{"readSourceFile", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(JavaCompiler::*)($Symbol$ClassSymbol*)>(&JavaCompiler::readSourceFile)), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"readSourceFile", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"removeMethodBodies", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, 0},
-	{"reportDeferredDiagnostics", "()V", nullptr, $PUBLIC},
-	{"resolveBinaryNameOrIdent", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"resolveBinaryNameOrIdent", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"resolveIdent", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"setDeferredDiagnosticHandler", "(Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)V", nullptr, $PUBLIC},
-	{"shouldStop", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", nullptr, $PROTECTED},
-	{"stopIfError", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Ljava/util/Queue;)Ljava/util/Queue;", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Ljava/util/Queue<TT;>;)Ljava/util/Queue<TT;>;", $PROTECTED | $FINAL, $method(static_cast<$Queue*(JavaCompiler::*)($CompileStates$CompileState*,$Queue*)>(&JavaCompiler::stopIfError))},
-	{"stopIfError", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Lcom/sun/tools/javac/util/List<TT;>;)Lcom/sun/tools/javac/util/List<TT;>;", $PROTECTED | $FINAL, $method(static_cast<$List*(JavaCompiler::*)($CompileStates$CompileState*,$List*)>(&JavaCompiler::stopIfError))},
-	{"unrecoverableError", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(JavaCompiler::*)()>(&JavaCompiler::unrecoverableError))},
-	{"version", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&JavaCompiler::version))},
-	{"version", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&JavaCompiler::version))},
-	{"warningCount", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(JavaCompiler, init$, void, $Context*)},
+	{"attribute", "(Ljava/util/Queue;)Ljava/util/Queue;", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(JavaCompiler, attribute, $Queue*, $Queue*)},
+	{"attribute", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(JavaCompiler, attribute, $Env*, $Env*)},
+	{"checkReusable", "()V", nullptr, $PROTECTED, $virtualMethod(JavaCompiler, checkReusable, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, close, void)},
+	{"compile", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(JavaCompiler, compile, void, $List*), "java.lang.Throwable"},
+	{"compile", "(Ljava/util/Collection;Ljava/util/Collection;Ljava/lang/Iterable;Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;Ljava/util/Collection<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(JavaCompiler, compile, void, $Collection*, $Collection*, $Iterable*, $Collection*)},
+	{"continueAfterProcessAnnotations", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, continueAfterProcessAnnotations, bool)},
+	{"desugar", "(Ljava/util/Queue;)Ljava/util/Queue;", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)Ljava/util/Queue<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;>;>;", $PUBLIC, $virtualMethod(JavaCompiler, desugar, $Queue*, $Queue*)},
+	{"desugar", "(Lcom/sun/tools/javac/comp/Env;Ljava/util/Queue;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Ljava/util/Queue<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;>;>;)V", $PROTECTED, $virtualMethod(JavaCompiler, desugar, void, $Env*, $Queue*)},
+	{"elapsed", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaCompiler, elapsed, int64_t, int64_t)},
+	{"enterDone", "()V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, enterDone, void)},
+	{"enterTrees", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PUBLIC, $virtualMethod(JavaCompiler, enterTrees, $List*, $List*)},
+	{"errorCount", "()I", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, errorCount, int32_t)},
+	{"explicitAnnotationProcessingRequested", "()Z", nullptr, 0, $virtualMethod(JavaCompiler, explicitAnnotationProcessingRequested, bool)},
+	{"explicitAnnotationProcessingRequested", "(Lcom/sun/tools/javac/util/Options;)Z", nullptr, $STATIC, $staticMethod(JavaCompiler, explicitAnnotationProcessingRequested, bool, $Options*)},
+	{"findPackageInFile", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(JavaCompiler, findPackageInFile, $Name*, $JavaFileObject*)},
+	{"flow", "(Ljava/util/Queue;)Ljava/util/Queue;", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(JavaCompiler, flow, $Queue*, $Queue*)},
+	{"flow", "(Lcom/sun/tools/javac/comp/Env;)Ljava/util/Queue;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(JavaCompiler, flow, $Queue*, $Env*)},
+	{"flow", "(Lcom/sun/tools/javac/comp/Env;Ljava/util/Queue;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)V", $PROTECTED, $virtualMethod(JavaCompiler, flow, void, $Env*, $Queue*)},
+	{"fullVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler, fullVersion, $String*)},
+	{"genCode", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Ljavax/tools/JavaFileObject;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Ljavax/tools/JavaFileObject;", 0, $virtualMethod(JavaCompiler, genCode, $JavaFileObject*, $Env*, $JCTree$JCClassDecl*), "java.io.IOException"},
+	{"generate", "(Ljava/util/Queue;)V", "(Ljava/util/Queue<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;>;>;)V", $PUBLIC, $virtualMethod(JavaCompiler, generate, void, $Queue*)},
+	{"generate", "(Ljava/util/Queue;Ljava/util/Queue;)V", "(Ljava/util/Queue<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;>;>;Ljava/util/Queue<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(JavaCompiler, generate, void, $Queue*, $Queue*)},
+	{"groupByFile", "(Ljava/util/Queue;)Ljava/util/Map;", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)Ljava/util/Map<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;>;", 0, $virtualMethod(JavaCompiler, groupByFile, $Map*, $Queue*)},
+	{"initModules", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PUBLIC, $virtualMethod(JavaCompiler, initModules, $List*, $List*)},
+	{"initProcessAnnotations", "(Ljava/lang/Iterable;Ljava/util/Collection;Ljava/util/Collection;)V", "(Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;Ljava/util/Collection<+Ljavax/tools/JavaFileObject;>;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(JavaCompiler, initProcessAnnotations, void, $Iterable*, $Collection*, $Collection*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/main/JavaCompiler;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler, instance, JavaCompiler*, $Context*)},
+	{"isEnterDone", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, isEnterDone, bool)},
+	{"keepComments", "()Z", nullptr, $PROTECTED, $virtualMethod(JavaCompiler, keepComments, bool)},
+	{"lambda$findPackageInFile$4", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaCompiler, lambda$findPackageInFile$4, $Name*, $JCTree$JCCompilationUnit*)},
+	{"lambda$new$0", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(JavaCompiler, lambda$new$0, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"lambda$readModuleName$3", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaCompiler, lambda$readModuleName$3, $Name*, $JCTree$JCCompilationUnit*)},
+	{"lambda$readSourceFile$1", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavaCompiler, lambda$readSourceFile$1, $JCDiagnostic*)},
+	{"lambda$readSourceFile$2", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavaCompiler, lambda$readSourceFile$2, $JCDiagnostic*)},
+	{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, newRound, void)},
+	{"now", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaCompiler, now, int64_t)},
+	{"parse", "(Ljavax/tools/JavaFileObject;Ljava/lang/CharSequence;)Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PROTECTED, $virtualMethod(JavaCompiler, parse, $JCTree$JCCompilationUnit*, $JavaFileObject*, $CharSequence*)},
+	{"parse", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(JavaCompiler, parse, $JCTree$JCCompilationUnit*, $String*), nullptr, nullptr, _JavaCompiler_MethodAnnotations_parse38},
+	{"parse", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, parse, $JCTree$JCCompilationUnit*, $JavaFileObject*)},
+	{"parseAndGetName", "(Ljavax/tools/JavaFileObject;Ljava/util/function/Function;)Lcom/sun/tools/javac/util/Name;", "(Ljavax/tools/JavaFileObject;Ljava/util/function/Function<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/util/Name;>;)Lcom/sun/tools/javac/util/Name;", $PRIVATE, $method(JavaCompiler, parseAndGetName, $Name*, $JavaFileObject*, $Function*)},
+	{"parseFiles", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PUBLIC, $virtualMethod(JavaCompiler, parseFiles, $List*, $Iterable*)},
+	{"parseFiles", "(Ljava/lang/Iterable;Z)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PUBLIC, $virtualMethod(JavaCompiler, parseFiles, $List*, $Iterable*, bool)},
+	{"printCount", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, printCount, void, $String*, int32_t)},
+	{"printNote", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(JavaCompiler, printNote, void, $String*)},
+	{"printSource", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Ljavax/tools/JavaFileObject;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Ljavax/tools/JavaFileObject;", 0, $virtualMethod(JavaCompiler, printSource, $JavaFileObject*, $Env*, $JCTree$JCClassDecl*), "java.io.IOException"},
+	{"printSuppressedCount", "(IILjava/lang/String;)V", nullptr, $PRIVATE, $method(JavaCompiler, printSuppressedCount, void, int32_t, int32_t, $String*)},
+	{"processAnnotations", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)V", $PUBLIC, $virtualMethod(JavaCompiler, processAnnotations, void, $List*)},
+	{"processAnnotations", "(Lcom/sun/tools/javac/util/List;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(JavaCompiler, processAnnotations, void, $List*, $Collection*)},
+	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(JavaCompiler, readModuleName, $Name*, $JavaFileObject*)},
+	{"readSource", "(Ljavax/tools/JavaFileObject;)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, readSource, $CharSequence*, $JavaFileObject*)},
+	{"readSourceFile", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(JavaCompiler, readSourceFile, void, $Symbol$ClassSymbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"readSourceFile", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, readSourceFile, void, $JCTree$JCCompilationUnit*, $Symbol$ClassSymbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"removeMethodBodies", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, 0, $virtualMethod(JavaCompiler, removeMethodBodies, $JCTree$JCClassDecl*, $JCTree$JCClassDecl*)},
+	{"reportDeferredDiagnostics", "()V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, reportDeferredDiagnostics, void)},
+	{"resolveBinaryNameOrIdent", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, resolveBinaryNameOrIdent, $Symbol*, $String*)},
+	{"resolveBinaryNameOrIdent", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, resolveBinaryNameOrIdent, $Symbol*, $Symbol$ModuleSymbol*, $String*)},
+	{"resolveIdent", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, resolveIdent, $Symbol*, $Symbol$ModuleSymbol*, $String*)},
+	{"setDeferredDiagnosticHandler", "(Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, setDeferredDiagnosticHandler, void, $Log$DeferredDiagnosticHandler*)},
+	{"shouldStop", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", nullptr, $PROTECTED, $virtualMethod(JavaCompiler, shouldStop, bool, $CompileStates$CompileState*)},
+	{"stopIfError", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Ljava/util/Queue;)Ljava/util/Queue;", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Ljava/util/Queue<TT;>;)Ljava/util/Queue<TT;>;", $PROTECTED | $FINAL, $method(JavaCompiler, stopIfError, $Queue*, $CompileStates$CompileState*, $Queue*)},
+	{"stopIfError", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Lcom/sun/tools/javac/util/List<TT;>;)Lcom/sun/tools/javac/util/List<TT;>;", $PROTECTED | $FINAL, $method(JavaCompiler, stopIfError, $List*, $CompileStates$CompileState*, $List*)},
+	{"unrecoverableError", "()Z", nullptr, $PRIVATE, $method(JavaCompiler, unrecoverableError, bool)},
+	{"version", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler, version, $String*)},
+	{"version", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaCompiler, version, $String*, $String*)},
+	{"warningCount", "()I", nullptr, $PUBLIC, $virtualMethod(JavaCompiler, warningCount, int32_t)},
 	{}
 };
 

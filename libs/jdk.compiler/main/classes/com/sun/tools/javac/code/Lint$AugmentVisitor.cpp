@@ -61,17 +61,17 @@ $FieldInfo _Lint$AugmentVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _Lint$AugmentVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(static_cast<void(Lint$AugmentVisitor::*)($Context*)>(&Lint$AugmentVisitor::init$))},
-	{"augment", "(Lcom/sun/tools/javac/code/Lint;Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/code/Lint;", nullptr, 0},
-	{"augment", "(Lcom/sun/tools/javac/code/Lint;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Lint;", "(Lcom/sun/tools/javac/code/Lint;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)Lcom/sun/tools/javac/code/Lint;", 0},
-	{"initSyms", "()V", nullptr, $PRIVATE, $method(static_cast<void(Lint$AugmentVisitor::*)()>(&Lint$AugmentVisitor::initSyms))},
-	{"suppress", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PRIVATE, $method(static_cast<void(Lint$AugmentVisitor::*)($Lint$LintCategory*)>(&Lint$AugmentVisitor::suppress))},
-	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC},
-	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC},
-	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC},
-	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC},
-	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC},
-	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(Lint$AugmentVisitor, init$, void, $Context*)},
+	{"augment", "(Lcom/sun/tools/javac/code/Lint;Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/code/Lint;", nullptr, 0, $virtualMethod(Lint$AugmentVisitor, augment, $Lint*, $Lint*, $Attribute$Compound*)},
+	{"augment", "(Lcom/sun/tools/javac/code/Lint;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Lint;", "(Lcom/sun/tools/javac/code/Lint;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)Lcom/sun/tools/javac/code/Lint;", 0, $virtualMethod(Lint$AugmentVisitor, augment, $Lint*, $Lint*, $List*)},
+	{"initSyms", "()V", nullptr, $PRIVATE, $method(Lint$AugmentVisitor, initSyms, void)},
+	{"suppress", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PRIVATE, $method(Lint$AugmentVisitor, suppress, void, $Lint$LintCategory*)},
+	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(Lint$AugmentVisitor, visitArray, void, $Attribute$Array*)},
+	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(Lint$AugmentVisitor, visitClass, void, $Attribute$Class*)},
+	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(Lint$AugmentVisitor, visitCompound, void, $Attribute$Compound*)},
+	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(Lint$AugmentVisitor, visitConstant, void, $Attribute$Constant*)},
+	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(Lint$AugmentVisitor, visitEnum, void, $Attribute$Enum*)},
+	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(Lint$AugmentVisitor, visitError, void, $Attribute$Error*)},
 	{}
 };
 

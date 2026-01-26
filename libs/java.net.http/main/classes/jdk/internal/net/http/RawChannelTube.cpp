@@ -117,8 +117,8 @@ $FieldInfo RawChannelTube$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo RawChannelTube$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RawChannelTube$$Lambda$toString::*)($String*)>(&RawChannelTube$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RawChannelTube$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RawChannelTube$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo RawChannelTube$$Lambda$toString::classInfo$ = {
@@ -153,16 +153,16 @@ $FieldInfo _RawChannelTube_FieldInfo_[] = {
 };
 
 $MethodInfo _RawChannelTube_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/function/Supplier;)V", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)V", 0, $method(static_cast<void(RawChannelTube::*)($HttpConnection*,$Supplier*)>(&RawChannelTube::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"connectFlows", "()V", nullptr, $PRIVATE, $method(static_cast<void(RawChannelTube::*)()>(&RawChannelTube::connectFlows))},
-	{"copy", "([Ljava/nio/ByteBuffer;II)Ljava/util/List;", "([Ljava/nio/ByteBuffer;II)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($ByteBufferArray*,int32_t,int32_t)>(&RawChannelTube::copy))},
-	{"initialByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, nullptr, "java.lang.IllegalStateException"},
-	{"read", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"registerEvent", "(Ljdk/internal/net/http/websocket/RawChannel$RawEvent;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"shutdownInput", "()V", nullptr, $PUBLIC},
-	{"shutdownOutput", "()V", nullptr, $PUBLIC},
-	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/function/Supplier;)V", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)V", 0, $method(RawChannelTube, init$, void, $HttpConnection*, $Supplier*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube, close, void)},
+	{"connectFlows", "()V", nullptr, $PRIVATE, $method(RawChannelTube, connectFlows, void)},
+	{"copy", "([Ljava/nio/ByteBuffer;II)Ljava/util/List;", "([Ljava/nio/ByteBuffer;II)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $STATIC, $staticMethod(RawChannelTube, copy, $List*, $ByteBufferArray*, int32_t, int32_t)},
+	{"initialByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(RawChannelTube, initialByteBuffer, $ByteBuffer*), "java.lang.IllegalStateException"},
+	{"read", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(RawChannelTube, read, $ByteBuffer*), "java.io.IOException"},
+	{"registerEvent", "(Ljdk/internal/net/http/websocket/RawChannel$RawEvent;)V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube, registerEvent, void, $RawChannel$RawEvent*), "java.io.IOException"},
+	{"shutdownInput", "()V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube, shutdownInput, void)},
+	{"shutdownOutput", "()V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube, shutdownOutput, void)},
+	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC, $virtualMethod(RawChannelTube, write, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

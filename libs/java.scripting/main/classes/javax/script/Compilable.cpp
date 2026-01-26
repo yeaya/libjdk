@@ -4,15 +4,17 @@
 #include <javax/script/CompiledScript.h>
 #include <jcpp.h>
 
+using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $CompiledScript = ::javax::script::CompiledScript;
 
 namespace javax {
 	namespace script {
 
 $MethodInfo _Compilable_MethodInfo_[] = {
-	{"compile", "(Ljava/lang/String;)Ljavax/script/CompiledScript;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.script.ScriptException"},
-	{"compile", "(Ljava/io/Reader;)Ljavax/script/CompiledScript;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.script.ScriptException"},
+	{"compile", "(Ljava/lang/String;)Ljavax/script/CompiledScript;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Compilable, compile, $CompiledScript*, $String*), "javax.script.ScriptException"},
+	{"compile", "(Ljava/io/Reader;)Ljavax/script/CompiledScript;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Compilable, compile, $CompiledScript*, $Reader*), "javax.script.ScriptException"},
 	{}
 };
 

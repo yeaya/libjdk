@@ -17,8 +17,8 @@ $FieldInfo _GetPropertyAction_FieldInfo_[] = {
 };
 
 $MethodInfo _GetPropertyAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(GetPropertyAction::*)($String*)>(&GetPropertyAction::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GetPropertyAction, init$, void, $String*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GetPropertyAction, run, $Object*)},
 	{}
 };
 

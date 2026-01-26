@@ -27,12 +27,12 @@ $FieldInfo _UnsyncBufferedOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsyncBufferedOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsyncBufferedOutputStream::*)($OutputStream*)>(&UnsyncBufferedOutputStream::init$))},
-	{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(UnsyncBufferedOutputStream::*)($OutputStream*,int32_t)>(&UnsyncBufferedOutputStream::init$))},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flushInternal", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnsyncBufferedOutputStream::*)()>(&UnsyncBufferedOutputStream::flushInternal)), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(UnsyncBufferedOutputStream, init$, void, $OutputStream*)},
+	{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(UnsyncBufferedOutputStream, init$, void, $OutputStream*, int32_t)},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(UnsyncBufferedOutputStream, flush, void), "java.io.IOException"},
+	{"flushInternal", "()V", nullptr, $PRIVATE, $method(UnsyncBufferedOutputStream, flushInternal, void), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(UnsyncBufferedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UnsyncBufferedOutputStream, write, void, int32_t), "java.io.IOException"},
 	{}
 };
 

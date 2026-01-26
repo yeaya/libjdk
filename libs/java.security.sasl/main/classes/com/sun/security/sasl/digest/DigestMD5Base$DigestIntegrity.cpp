@@ -68,12 +68,12 @@ $FieldInfo _DigestMD5Base$DigestIntegrity_FieldInfo_[] = {
 };
 
 $MethodInfo _DigestMD5Base$DigestIntegrity_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/security/sasl/digest/DigestMD5Base;Z)V", nullptr, 0, $method(static_cast<void(DigestMD5Base$DigestIntegrity::*)($DigestMD5Base*,bool)>(&DigestMD5Base$DigestIntegrity::init$)), "javax.security.sasl.SaslException"},
-	{"generateIntegrityKeyPair", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(DigestMD5Base$DigestIntegrity::*)(bool)>(&DigestMD5Base$DigestIntegrity::generateIntegrityKeyPair)), "java.io.IOException,java.security.NoSuchAlgorithmException"},
-	{"getHMAC", "([B[B[BII)[B", nullptr, $PROTECTED, nullptr, "javax.security.sasl.SaslException"},
-	{"incrementSeqNum", "()V", nullptr, $PROTECTED},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
+	{"<init>", "(Lcom/sun/security/sasl/digest/DigestMD5Base;Z)V", nullptr, 0, $method(DigestMD5Base$DigestIntegrity, init$, void, $DigestMD5Base*, bool), "javax.security.sasl.SaslException"},
+	{"generateIntegrityKeyPair", "(Z)V", nullptr, $PRIVATE, $method(DigestMD5Base$DigestIntegrity, generateIntegrityKeyPair, void, bool), "java.io.IOException,java.security.NoSuchAlgorithmException"},
+	{"getHMAC", "([B[B[BII)[B", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base$DigestIntegrity, getHMAC, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+	{"incrementSeqNum", "()V", nullptr, $PROTECTED, $virtualMethod(DigestMD5Base$DigestIntegrity, incrementSeqNum, void)},
+	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestIntegrity, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestIntegrity, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
 	{}
 };
 

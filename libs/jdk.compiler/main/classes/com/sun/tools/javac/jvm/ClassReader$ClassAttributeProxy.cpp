@@ -28,9 +28,9 @@ $FieldInfo _ClassReader$ClassAttributeProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$ClassAttributeProxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$ClassAttributeProxy::*)($Type*)>(&ClassReader$ClassAttributeProxy::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(ClassReader$ClassAttributeProxy, init$, void, $Type*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$ClassAttributeProxy, accept, void, $Attribute$Visitor*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$ClassAttributeProxy, toString, $String*)},
 	{}
 };
 

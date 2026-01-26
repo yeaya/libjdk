@@ -71,6 +71,7 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $Arrays = ::java::util::Arrays;
 using $Optional = ::java::util::Optional;
+using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $BiPredicate = ::java::util::function::BiPredicate;
 using $Function = ::java::util::function::Function;
@@ -82,7 +83,10 @@ using $AbstractAsyncSSLConnection = ::jdk::internal::net::http::AbstractAsyncSSL
 using $AsyncSSLConnection = ::jdk::internal::net::http::AsyncSSLConnection;
 using $AsyncSSLTunnelConnection = ::jdk::internal::net::http::AsyncSSLTunnelConnection;
 using $ConnectionPool = ::jdk::internal::net::http::ConnectionPool;
+using $ConnectionPool$CacheKey = ::jdk::internal::net::http::ConnectionPool$CacheKey;
+using $Exchange = ::jdk::internal::net::http::Exchange;
 using $HttpClientImpl = ::jdk::internal::net::http::HttpClientImpl;
+using $HttpConnection$HttpPublisher = ::jdk::internal::net::http::HttpConnection$HttpPublisher;
 using $HttpConnection$TrailingOperations = ::jdk::internal::net::http::HttpConnection$TrailingOperations;
 using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $PlainHttpConnection = ::jdk::internal::net::http::PlainHttpConnection;
@@ -122,8 +126,8 @@ $FieldInfo HttpConnection$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HttpConnection$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpConnection$$Lambda$dbgString::*)(HttpConnection*)>(&HttpConnection$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$dbgString, init$, void, HttpConnection*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo HttpConnection$$Lambda$dbgString::classInfo$ = {
@@ -155,8 +159,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpConnection$$Lambda$lambda$static$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpConnection$$Lambda$lambda$static$0$1::*)()>(&HttpConnection$$Lambda$lambda$static$0$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$lambda$static$0$1, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$lambda$static$0$1, get, $Object*)},
 	{}
 };
 $ClassInfo HttpConnection$$Lambda$lambda$static$0$1::classInfo$ = {
@@ -188,8 +192,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpConnection$$Lambda$lambda$static$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpConnection$$Lambda$lambda$static$1$2::*)()>(&HttpConnection$$Lambda$lambda$static$1$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$lambda$static$1$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$lambda$static$1$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo HttpConnection$$Lambda$lambda$static$1$2::classInfo$ = {
@@ -221,8 +225,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::*)()>(&HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo HttpConnection$$Lambda$lambda$closeOrReturnToCache$2$3::classInfo$ = {
@@ -253,36 +257,36 @@ $FieldInfo _HttpConnection_FieldInfo_[] = {
 
 $MethodInfo _HttpConnection_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(static_cast<void(HttpConnection::*)($InetSocketAddress*,$HttpClientImpl*)>(&HttpConnection::init$))},
-	{"addTrailingOperation", "(Ljava/util/concurrent/CompletionStage;)V", "(Ljava/util/concurrent/CompletionStage<*>;)V", $FINAL, $method(static_cast<void(HttpConnection::*)($CompletionStage*)>(&HttpConnection::addTrailingOperation))},
-	{"address", "()Ljava/net/InetSocketAddress;", nullptr, $FINAL, $method(static_cast<$InetSocketAddress*(HttpConnection::*)()>(&HttpConnection::address))},
-	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, $ABSTRACT},
-	{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, $ABSTRACT},
-	{"checkOpen", "()Z", nullptr, $FINAL, $method(static_cast<bool(HttpConnection::*)()>(&HttpConnection::checkOpen))},
-	{"client", "()Ljdk/internal/net/http/HttpClientImpl;", nullptr, $FINAL, $method(static_cast<$HttpClientImpl*(HttpConnection::*)()>(&HttpConnection::client))},
-	{"closeOrReturnToCache", "(Ljava/net/http/HttpHeaders;)V", nullptr, 0},
-	{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $ABSTRACT},
-	{"connected", "()Z", nullptr, $ABSTRACT},
-	{"contextRestricted", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", 0},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(HttpConnection::*)()>(&HttpConnection::dbgString))},
-	{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $ABSTRACT},
-	{"getConnection", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient$Version;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpConnection*(*)($InetSocketAddress*,$HttpClientImpl*,$HttpRequestImpl*,$HttpClient$Version*)>(&HttpConnection::getConnection))},
-	{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, $ABSTRACT},
-	{"getPlainConnection", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $STATIC, $method(static_cast<HttpConnection*(*)($InetSocketAddress*,$InetSocketAddress*,$HttpRequestImpl*,$HttpClientImpl*)>(&HttpConnection::getPlainConnection))},
-	{"getSSLConnection", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;[Ljava/lang/String;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $STATIC, $method(static_cast<HttpConnection*(*)($InetSocketAddress*,$InetSocketAddress*,$StringArray*,$HttpRequestImpl*,$HttpClientImpl*)>(&HttpConnection::getSSLConnection))},
-	{"hasRequiredHTTP2TLSVersion", "(Ljava/net/http/HttpClient;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<bool(*)($HttpClient*)>(&HttpConnection::hasRequiredHTTP2TLSVersion))},
-	{"headerFilter", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/util/function/BiPredicate;", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", 0},
-	{"isOpen", "()Z", nullptr, $FINAL, $method(static_cast<bool(HttpConnection::*)()>(&HttpConnection::isOpen))},
-	{"isProxied", "()Z", nullptr, $ABSTRACT},
-	{"isSecure", "()Z", nullptr, $ABSTRACT},
-	{"isTunnel", "()Z", nullptr, 0},
-	{"lambda$closeOrReturnToCache$2", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)($String*)>(&HttpConnection::lambda$closeOrReturnToCache$2))},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&HttpConnection::lambda$static$0))},
-	{"lambda$static$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&HttpConnection::lambda$static$1))},
-	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, $ABSTRACT},
-	{"proxyTunnelHeaders", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljdk/internal/net/http/common/Utils$ProxyHeaders;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Utils$ProxyHeaders*(*)($HttpRequestImpl*)>(&HttpConnection::proxyTunnelHeaders))},
-	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(HttpConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*)},
+	{"addTrailingOperation", "(Ljava/util/concurrent/CompletionStage;)V", "(Ljava/util/concurrent/CompletionStage<*>;)V", $FINAL, $method(HttpConnection, addTrailingOperation, void, $CompletionStage*)},
+	{"address", "()Ljava/net/InetSocketAddress;", nullptr, $FINAL, $method(HttpConnection, address, $InetSocketAddress*)},
+	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, cacheKey, $ConnectionPool$CacheKey*)},
+	{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, channel, $SocketChannel*)},
+	{"checkOpen", "()Z", nullptr, $FINAL, $method(HttpConnection, checkOpen, bool)},
+	{"client", "()Ljdk/internal/net/http/HttpClientImpl;", nullptr, $FINAL, $method(HttpConnection, client, $HttpClientImpl*)},
+	{"closeOrReturnToCache", "(Ljava/net/http/HttpHeaders;)V", nullptr, 0, $virtualMethod(HttpConnection, closeOrReturnToCache, void, $HttpHeaders*)},
+	{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection, connectAsync, $CompletableFuture*, $Exchange*)},
+	{"connected", "()Z", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, connected, bool)},
+	{"contextRestricted", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate;", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", 0, $virtualMethod(HttpConnection, contextRestricted, $BiPredicate*, $HttpRequestImpl*, $HttpClient*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(HttpConnection, dbgString, $String*)},
+	{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection, finishConnect, $CompletableFuture*)},
+	{"getConnection", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/HttpRequestImpl;Ljava/net/http/HttpClient$Version;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpConnection, getConnection, HttpConnection*, $InetSocketAddress*, $HttpClientImpl*, $HttpRequestImpl*, $HttpClient$Version*)},
+	{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, getConnectionFlow, $FlowTube*)},
+	{"getPlainConnection", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpConnection, getPlainConnection, HttpConnection*, $InetSocketAddress*, $InetSocketAddress*, $HttpRequestImpl*, $HttpClientImpl*)},
+	{"getSSLConnection", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;[Ljava/lang/String;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpConnection, getSSLConnection, HttpConnection*, $InetSocketAddress*, $InetSocketAddress*, $StringArray*, $HttpRequestImpl*, $HttpClientImpl*)},
+	{"hasRequiredHTTP2TLSVersion", "(Ljava/net/http/HttpClient;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(HttpConnection, hasRequiredHTTP2TLSVersion, bool, $HttpClient*)},
+	{"headerFilter", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/util/function/BiPredicate;", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;", 0, $virtualMethod(HttpConnection, headerFilter, $BiPredicate*, $HttpRequestImpl*)},
+	{"isOpen", "()Z", nullptr, $FINAL, $method(HttpConnection, isOpen, bool)},
+	{"isProxied", "()Z", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, isProxied, bool)},
+	{"isSecure", "()Z", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, isSecure, bool)},
+	{"isTunnel", "()Z", nullptr, 0, $virtualMethod(HttpConnection, isTunnel, bool)},
+	{"lambda$closeOrReturnToCache$2", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection, lambda$closeOrReturnToCache$2, $Boolean*, $String*)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection, lambda$static$0, $String*)},
+	{"lambda$static$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection, lambda$static$1, bool, $String*)},
+	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, proxy, $InetSocketAddress*)},
+	{"proxyTunnelHeaders", "(Ljdk/internal/net/http/HttpRequestImpl;)Ljdk/internal/net/http/common/Utils$ProxyHeaders;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpConnection, proxyTunnelHeaders, $Utils$ProxyHeaders*, $HttpRequestImpl*)},
+	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, $ABSTRACT, $virtualMethod(HttpConnection, publisher, $HttpConnection$HttpPublisher*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpConnection, toString, $String*)},
 	{}
 };
 

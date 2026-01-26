@@ -20,7 +20,7 @@ $FieldInfo _TimerAlarmClockNotification_FieldInfo_[] = {
 };
 
 $MethodInfo _TimerAlarmClockNotification_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/timer/TimerAlarmClock;)V", nullptr, $PUBLIC, $method(static_cast<void(TimerAlarmClockNotification::*)($TimerAlarmClock*)>(&TimerAlarmClockNotification::init$))},
+	{"<init>", "(Ljavax/management/timer/TimerAlarmClock;)V", nullptr, $PUBLIC, $method(TimerAlarmClockNotification, init$, void, $TimerAlarmClock*)},
 	{}
 };
 

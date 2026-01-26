@@ -37,8 +37,8 @@ $FieldInfo _KrbAppMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbAppMessage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KrbAppMessage::*)()>(&KrbAppMessage::init$))},
-	{"check", "(Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Ljava/lang/Integer;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;ZZLsun/security/krb5/PrincipalName;)V", nullptr, 0, nullptr, "sun.security.krb5.internal.KrbApErrException"},
+	{"<init>", "()V", nullptr, 0, $method(KrbAppMessage, init$, void)},
+	{"check", "(Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Ljava/lang/Integer;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;ZZLsun/security/krb5/PrincipalName;)V", nullptr, 0, $virtualMethod(KrbAppMessage, check, void, $KerberosTime*, $Integer*, $Integer*, $HostAddress*, $HostAddress*, $SeqNumber*, $HostAddress*, $HostAddress*, bool, bool, $PrincipalName*), "sun.security.krb5.internal.KrbApErrException"},
 	{}
 };
 

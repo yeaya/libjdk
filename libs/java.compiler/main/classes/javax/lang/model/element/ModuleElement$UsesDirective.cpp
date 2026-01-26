@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TypeElement = ::javax::lang::model::element::TypeElement;
 
 namespace javax {
 	namespace lang {
@@ -14,7 +15,7 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _ModuleElement$UsesDirective_MethodInfo_[] = {
-	{"getService", "()Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getService", "()Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$UsesDirective, getService, $TypeElement*)},
 	{}
 };
 

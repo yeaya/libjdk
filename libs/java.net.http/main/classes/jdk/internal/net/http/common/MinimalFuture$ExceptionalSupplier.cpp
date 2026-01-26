@@ -20,7 +20,7 @@ $CompoundAttribute _MinimalFuture$ExceptionalSupplier_Annotations_[] = {
 };
 
 $MethodInfo _MinimalFuture$ExceptionalSupplier_MethodInfo_[] = {
-	{"get", "()Ljava/lang/Object;", "()TU;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"get", "()Ljava/lang/Object;", "()TU;", $PUBLIC | $ABSTRACT, $virtualMethod(MinimalFuture$ExceptionalSupplier, get, $Object*), "java.lang.Throwable"},
 	{}
 };
 

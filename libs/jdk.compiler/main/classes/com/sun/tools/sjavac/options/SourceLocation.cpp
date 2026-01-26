@@ -35,12 +35,12 @@ $FieldInfo _SourceLocation_FieldInfo_[] = {
 };
 
 $MethodInfo _SourceLocation_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/util/List;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(SourceLocation::*)($Path*,$List*,$List*)>(&SourceLocation::init$))},
-	{"findSourceFiles", "(Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;Lcom/sun/tools/sjavac/Module;ZZ)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;Lcom/sun/tools/sjavac/Module;ZZ)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"getExcludes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getIncludes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getPath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/util/List;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(SourceLocation, init$, void, $Path*, $List*, $List*)},
+	{"findSourceFiles", "(Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;Lcom/sun/tools/sjavac/Module;ZZ)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;Lcom/sun/tools/sjavac/Module;ZZ)V", $PUBLIC, $virtualMethod(SourceLocation, findSourceFiles, void, $Set*, $Map*, $Map*, $Module*, bool, bool), "java.io.IOException"},
+	{"getExcludes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SourceLocation, getExcludes, $List*)},
+	{"getIncludes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SourceLocation, getIncludes, $List*)},
+	{"getPath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(SourceLocation, getPath, $Path*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SourceLocation, toString, $String*)},
 	{}
 };
 

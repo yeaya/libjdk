@@ -50,12 +50,12 @@ $FieldInfo _LockInfoCompositeData_FieldInfo_[] = {
 };
 
 $MethodInfo _LockInfoCompositeData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/management/LockInfo;)V", nullptr, $PRIVATE, $method(static_cast<void(LockInfoCompositeData::*)($LockInfo*)>(&LockInfoCompositeData::init$))},
-	{"compositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $method(static_cast<$CompositeType*(*)()>(&LockInfoCompositeData::compositeType))},
-	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED},
-	{"getLockInfo", "()Ljava/lang/management/LockInfo;", nullptr, $PUBLIC},
-	{"toCompositeData", "(Ljava/lang/management/LockInfo;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CompositeData*(*)($LockInfo*)>(&LockInfoCompositeData::toCompositeData))},
-	{"toLockInfo", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/LockInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LockInfo*(*)($CompositeData*)>(&LockInfoCompositeData::toLockInfo))},
+	{"<init>", "(Ljava/lang/management/LockInfo;)V", nullptr, $PRIVATE, $method(LockInfoCompositeData, init$, void, $LockInfo*)},
+	{"compositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(LockInfoCompositeData, compositeType, $CompositeType*)},
+	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED, $virtualMethod(LockInfoCompositeData, getCompositeData, $CompositeData*)},
+	{"getLockInfo", "()Ljava/lang/management/LockInfo;", nullptr, $PUBLIC, $virtualMethod(LockInfoCompositeData, getLockInfo, $LockInfo*)},
+	{"toCompositeData", "(Ljava/lang/management/LockInfo;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(LockInfoCompositeData, toCompositeData, $CompositeData*, $LockInfo*)},
+	{"toLockInfo", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/LockInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(LockInfoCompositeData, toLockInfo, $LockInfo*, $CompositeData*)},
 	{}
 };
 

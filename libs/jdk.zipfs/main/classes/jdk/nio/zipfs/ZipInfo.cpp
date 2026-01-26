@@ -32,13 +32,13 @@ namespace jdk {
 		namespace zipfs {
 
 $MethodInfo _ZipInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ZipInfo::*)()>(&ZipInfo::init$))},
-	{"locoff", "([BI)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)($bytes*,int32_t)>(&ZipInfo::locoff))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ZipInfo::main)), "java.lang.Throwable"},
-	{"print", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($String*,$ObjectArray*)>(&ZipInfo::print))},
-	{"printCEN", "([BI)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,int32_t)>(&ZipInfo::printCEN))},
-	{"printExtra", "([BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*,int32_t,int32_t)>(&ZipInfo::printExtra))},
-	{"printLOC", "([B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*)>(&ZipInfo::printLOC))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ZipInfo, init$, void)},
+	{"locoff", "([BI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, locoff, int64_t, $bytes*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipInfo, main, void, $StringArray*), "java.lang.Throwable"},
+	{"print", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(ZipInfo, print, void, $String*, $ObjectArray*)},
+	{"printCEN", "([BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, printCEN, void, $bytes*, int32_t)},
+	{"printExtra", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, printExtra, void, $bytes*, int32_t, int32_t)},
+	{"printLOC", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipInfo, printLOC, void, $bytes*)},
 	{}
 };
 

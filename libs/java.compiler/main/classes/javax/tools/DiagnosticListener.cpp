@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Diagnostic = ::javax::tools::Diagnostic;
 
 namespace javax {
 	namespace tools {
 
 $MethodInfo _DiagnosticListener_MethodInfo_[] = {
-	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TS;>;)V", $PUBLIC | $ABSTRACT},
+	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TS;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticListener, report, void, $Diagnostic*)},
 	{}
 };
 

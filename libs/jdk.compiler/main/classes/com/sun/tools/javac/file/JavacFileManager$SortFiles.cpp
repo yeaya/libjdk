@@ -32,15 +32,15 @@ $FieldInfo _JavacFileManager$SortFiles_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacFileManager$SortFiles_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavacFileManager$SortFilesArray*(*)()>(&JavacFileManager$SortFiles::$values))},
+	{"$values", "()[Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager$SortFiles, $values, $JavacFileManager$SortFilesArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JavacFileManager$SortFiles::*)($String*,int32_t)>(&JavacFileManager$SortFiles::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacFileManager$SortFiles, init$, void, $String*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavacFileManager$SortFiles*(*)($String*)>(&JavacFileManager$SortFiles::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavacFileManager$SortFilesArray*(*)()>(&JavacFileManager$SortFiles::values))},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager$SortFiles, valueOf, JavacFileManager$SortFiles*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager$SortFiles, values, $JavacFileManager$SortFilesArray*)},
 	{}
 };
 

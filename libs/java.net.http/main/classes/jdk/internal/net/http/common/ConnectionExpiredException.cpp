@@ -20,7 +20,7 @@ $FieldInfo _ConnectionExpiredException_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionExpiredException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ConnectionExpiredException::*)($Throwable*)>(&ConnectionExpiredException::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ConnectionExpiredException, init$, void, $Throwable*)},
 	{}
 };
 

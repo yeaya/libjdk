@@ -91,15 +91,15 @@ $FieldInfo _Check$4_FieldInfo_[] = {
 };
 
 $MethodInfo _Check$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, 0, $method(static_cast<void(Check$4::*)($Check*,$Env*,$JCTree$JCClassDecl*,$JCTree$JCCompilationUnit*)>(&Check$4::init$))},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, 0, $method(Check$4, init$, void, $Check*, $Env*, $JCTree$JCClassDecl*, $JCTree$JCCompilationUnit*)},
+	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitAnnotation, void, $JCTree$JCAnnotation*)},
+	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitBlock, void, $JCTree$JCBlock*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitIdent, void, $JCTree$JCIdent*)},
+	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitSelect, void, $JCTree$JCFieldAccess*)},
+	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitTypeApply, void, $JCTree$JCTypeApply*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$4, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

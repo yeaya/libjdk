@@ -27,8 +27,8 @@ $FieldInfo _ClientNotifForwarder$NotifFetcher$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientNotifForwarder$NotifFetcher$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ClientNotifForwarder$NotifFetcher;Ljava/lang/ClassLoader;)V", "()V", 0, $method(static_cast<void(ClientNotifForwarder$NotifFetcher$1::*)($ClientNotifForwarder$NotifFetcher*,$ClassLoader*)>(&ClientNotifForwarder$NotifFetcher$1::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ClientNotifForwarder$NotifFetcher;Ljava/lang/ClassLoader;)V", "()V", 0, $method(ClientNotifForwarder$NotifFetcher$1, init$, void, $ClientNotifForwarder$NotifFetcher*, $ClassLoader*)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(ClientNotifForwarder$NotifFetcher$1, run, $Object*)},
 	{}
 };
 

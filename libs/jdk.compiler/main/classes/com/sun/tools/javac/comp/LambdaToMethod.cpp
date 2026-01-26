@@ -261,8 +261,8 @@ $FieldInfo LambdaToMethod$$Lambda$getRawTypeAttributes::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LambdaToMethod$$Lambda$getRawTypeAttributes::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$$Lambda$getRawTypeAttributes::*)($Symbol*)>(&LambdaToMethod$$Lambda$getRawTypeAttributes::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$getRawTypeAttributes, init$, void, $Symbol*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$getRawTypeAttributes, get, $Object*)},
 	{}
 };
 $ClassInfo LambdaToMethod$$Lambda$getRawTypeAttributes::classInfo$ = {
@@ -301,8 +301,8 @@ $FieldInfo LambdaToMethod$$Lambda$setTypeAttributes$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LambdaToMethod$$Lambda$setTypeAttributes$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$$Lambda$setTypeAttributes$1::*)($Symbol*)>(&LambdaToMethod$$Lambda$setTypeAttributes$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$setTypeAttributes$1, init$, void, $Symbol*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$setTypeAttributes$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LambdaToMethod$$Lambda$setTypeAttributes$1::classInfo$ = {
@@ -341,8 +341,8 @@ $FieldInfo LambdaToMethod$$Lambda$getInitTypeAttributes$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LambdaToMethod$$Lambda$getInitTypeAttributes$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$$Lambda$getInitTypeAttributes$2::*)($Symbol*)>(&LambdaToMethod$$Lambda$getInitTypeAttributes$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$getInitTypeAttributes$2, init$, void, $Symbol*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$getInitTypeAttributes$2, get, $Object*)},
 	{}
 };
 $ClassInfo LambdaToMethod$$Lambda$getInitTypeAttributes$2::classInfo$ = {
@@ -381,8 +381,8 @@ $FieldInfo LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::fieldInfos[2] = 
 	{}
 };
 $MethodInfo LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::*)($Symbol*)>(&LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, init$, void, $Symbol*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, get, $Object*)},
 	{}
 };
 $ClassInfo LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::classInfo$ = {
@@ -421,8 +421,8 @@ $FieldInfo LambdaToMethod$$Lambda$setInitTypeAttributes$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LambdaToMethod$$Lambda$setInitTypeAttributes$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$$Lambda$setInitTypeAttributes$4::*)($Symbol*)>(&LambdaToMethod$$Lambda$setInitTypeAttributes$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$setInitTypeAttributes$4, init$, void, $Symbol*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$setInitTypeAttributes$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LambdaToMethod$$Lambda$setInitTypeAttributes$4::classInfo$ = {
@@ -461,8 +461,8 @@ $FieldInfo LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::fieldInfos[2] = 
 	{}
 };
 $MethodInfo LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::*)($Symbol*)>(&LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, init$, void, $Symbol*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::classInfo$ = {
@@ -501,8 +501,8 @@ $FieldInfo LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::fieldInfos[2] = 
 	{}
 };
 $MethodInfo LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::*)($Symbol*)>(&LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, init$, void, $Symbol*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::classInfo$ = {
@@ -541,8 +541,8 @@ $FieldInfo LambdaToMethod$$Lambda$constantType$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LambdaToMethod$$Lambda$constantType$7::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$$Lambda$constantType$7::*)($Types*)>(&LambdaToMethod$$Lambda$constantType$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$constantType$7, init$, void, $Types*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$constantType$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LambdaToMethod$$Lambda$constantType$7::classInfo$ = {
@@ -590,43 +590,43 @@ $FieldInfo _LambdaToMethod_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaToMethod_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(static_cast<void(LambdaToMethod::*)($Context*)>(&LambdaToMethod::init$))},
-	{"addDeserializationCase", "(Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type$MethodType;)V", "(Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;>;Lcom/sun/tools/javac/code/Type$MethodType;)V", $PRIVATE, $method(static_cast<void(LambdaToMethod::*)($Symbol$MethodHandleSymbol*,$Type*,$Symbol$MethodSymbol*,$JCDiagnostic$DiagnosticPosition*,$List*,$Type$MethodType*)>(&LambdaToMethod::addDeserializationCase))},
-	{"apportionTypeAnnotations", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/function/Supplier;Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;Ljava/util/function/Consumer<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;Ljava/util/function/Consumer<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;)V", $PRIVATE, $method(static_cast<void(LambdaToMethod::*)($JCTree$JCLambda*,$Supplier*,$Consumer*,$Consumer*)>(&LambdaToMethod::apportionTypeAnnotations))},
-	{"classSig", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LambdaToMethod::*)($Type*)>(&LambdaToMethod::classSig))},
-	{"convertArgs", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PRIVATE, $method(static_cast<$List*(LambdaToMethod::*)($Symbol*,$List*,$Type*)>(&LambdaToMethod::convertArgs))},
-	{"deserGetter", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCExpression*(LambdaToMethod::*)($String*,$Type*)>(&LambdaToMethod::deserGetter))},
-	{"deserGetter", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(static_cast<$JCTree$JCExpression*(LambdaToMethod::*)($String*,$Type*,$List*,$List*)>(&LambdaToMethod::deserGetter))},
-	{"deserTest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCExpression*(LambdaToMethod::*)($JCTree$JCExpression*,$String*,$String*)>(&LambdaToMethod::deserTest))},
-	{"eqTest", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCExpression*(LambdaToMethod::*)($Type*,$JCTree$JCExpression*,$JCTree$JCExpression*)>(&LambdaToMethod::eqTest))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/LambdaToMethod;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LambdaToMethod*(*)($Context*)>(&LambdaToMethod::instance))},
-	{"isProtectedInSuperClassOfEnclosingClassInOtherPackage", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(static_cast<bool(LambdaToMethod::*)($Symbol*,$Symbol*)>(&LambdaToMethod::isProtectedInSuperClassOfEnclosingClassInOtherPackage))},
-	{"makeDeserializeMethod", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCMethodDecl*(LambdaToMethod::*)($Symbol*)>(&LambdaToMethod::makeDeserializeMethod))},
-	{"makeIndyCall", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;>;Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(static_cast<$JCTree$JCExpression*(LambdaToMethod::*)($JCDiagnostic$DiagnosticPosition*,$Type*,$Name*,$List*,$Type$MethodType*,$List*,$Name*)>(&LambdaToMethod::makeIndyCall))},
-	{"makeLambdaBody", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCBlock*(LambdaToMethod::*)($JCTree$JCLambda*,$JCTree$JCMethodDecl*)>(&LambdaToMethod::makeLambdaBody))},
-	{"makeLambdaExpressionBody", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCBlock*(LambdaToMethod::*)($JCTree$JCExpression*,$JCTree$JCMethodDecl*)>(&LambdaToMethod::makeLambdaExpressionBody))},
-	{"makeLambdaStatementBody", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Z)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCBlock*(LambdaToMethod::*)($JCTree$JCBlock*,$JCTree$JCMethodDecl*,bool)>(&LambdaToMethod::makeLambdaStatementBody))},
-	{"makeMetafactoryIndyCall", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(static_cast<$JCTree$JCExpression*(LambdaToMethod::*)($LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext*,$Symbol$MethodHandleSymbol*,$List*)>(&LambdaToMethod::makeMetafactoryIndyCall))},
-	{"makeNewClass", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", 0},
-	{"makeNewClass", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", 0},
-	{"makePrivateSyntheticMethod", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $method(static_cast<$Symbol$MethodSymbol*(LambdaToMethod::*)(int64_t,$Name*,$Type*,$Symbol*)>(&LambdaToMethod::makePrivateSyntheticMethod))},
-	{"makeSyntheticVar", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PRIVATE, $method(static_cast<$Symbol$VarSymbol*(LambdaToMethod::*)(int64_t,$Name*,$Type*,$Symbol*)>(&LambdaToMethod::makeSyntheticVar))},
-	{"makeThis", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCIdent;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCIdent*(LambdaToMethod::*)($Type*,$Symbol*)>(&LambdaToMethod::makeThis))},
-	{"setVarargsIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(static_cast<void(LambdaToMethod::*)($JCTree*,$Type*)>(&LambdaToMethod::setVarargsIfNeeded))},
-	{"translate", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PUBLIC},
-	{"translate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;)TT;", 0},
-	{"translate", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;)Lcom/sun/tools/javac/util/List;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;)Lcom/sun/tools/javac/util/List<TT;>;", 0},
-	{"translateTopLevelClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC},
-	{"typeSig", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LambdaToMethod::*)($Type*)>(&LambdaToMethod::typeSig))},
-	{"typeSig", "(Lcom/sun/tools/javac/code/Type;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LambdaToMethod::*)($Type*,bool)>(&LambdaToMethod::typeSig))},
-	{"typeToMethodType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PRIVATE, $method(static_cast<$Type$MethodType*(LambdaToMethod::*)($Type*)>(&LambdaToMethod::typeToMethodType))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(LambdaToMethod, init$, void, $Context*)},
+	{"addDeserializationCase", "(Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type$MethodType;)V", "(Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;>;Lcom/sun/tools/javac/code/Type$MethodType;)V", $PRIVATE, $method(LambdaToMethod, addDeserializationCase, void, $Symbol$MethodHandleSymbol*, $Type*, $Symbol$MethodSymbol*, $JCDiagnostic$DiagnosticPosition*, $List*, $Type$MethodType*)},
+	{"apportionTypeAnnotations", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/function/Supplier;Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;Ljava/util/function/Consumer<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;Ljava/util/function/Consumer<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;)V", $PRIVATE, $method(LambdaToMethod, apportionTypeAnnotations, void, $JCTree$JCLambda*, $Supplier*, $Consumer*, $Consumer*)},
+	{"classSig", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LambdaToMethod, classSig, $String*, $Type*)},
+	{"convertArgs", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PRIVATE, $method(LambdaToMethod, convertArgs, $List*, $Symbol*, $List*, $Type*)},
+	{"deserGetter", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod, deserGetter, $JCTree$JCExpression*, $String*, $Type*)},
+	{"deserGetter", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(LambdaToMethod, deserGetter, $JCTree$JCExpression*, $String*, $Type*, $List*, $List*)},
+	{"deserTest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod, deserTest, $JCTree$JCExpression*, $JCTree$JCExpression*, $String*, $String*)},
+	{"eqTest", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod, eqTest, $JCTree$JCExpression*, $Type*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/LambdaToMethod;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaToMethod, instance, LambdaToMethod*, $Context*)},
+	{"isProtectedInSuperClassOfEnclosingClassInOtherPackage", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(LambdaToMethod, isProtectedInSuperClassOfEnclosingClassInOtherPackage, bool, $Symbol*, $Symbol*)},
+	{"makeDeserializeMethod", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PRIVATE, $method(LambdaToMethod, makeDeserializeMethod, $JCTree$JCMethodDecl*, $Symbol*)},
+	{"makeIndyCall", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;>;Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(LambdaToMethod, makeIndyCall, $JCTree$JCExpression*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Name*, $List*, $Type$MethodType*, $List*, $Name*)},
+	{"makeLambdaBody", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(LambdaToMethod, makeLambdaBody, $JCTree$JCBlock*, $JCTree$JCLambda*, $JCTree$JCMethodDecl*)},
+	{"makeLambdaExpressionBody", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(LambdaToMethod, makeLambdaExpressionBody, $JCTree$JCBlock*, $JCTree$JCExpression*, $JCTree$JCMethodDecl*)},
+	{"makeLambdaStatementBody", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Z)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(LambdaToMethod, makeLambdaStatementBody, $JCTree$JCBlock*, $JCTree$JCBlock*, $JCTree$JCMethodDecl*, bool)},
+	{"makeMetafactoryIndyCall", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(LambdaToMethod, makeMetafactoryIndyCall, $JCTree$JCExpression*, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext*, $Symbol$MethodHandleSymbol*, $List*)},
+	{"makeNewClass", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", 0, $virtualMethod(LambdaToMethod, makeNewClass, $JCTree$JCNewClass*, $Type*, $List*, $Symbol*)},
+	{"makeNewClass", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", 0, $virtualMethod(LambdaToMethod, makeNewClass, $JCTree$JCNewClass*, $Type*, $List*)},
+	{"makePrivateSyntheticMethod", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $method(LambdaToMethod, makePrivateSyntheticMethod, $Symbol$MethodSymbol*, int64_t, $Name*, $Type*, $Symbol*)},
+	{"makeSyntheticVar", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PRIVATE, $method(LambdaToMethod, makeSyntheticVar, $Symbol$VarSymbol*, int64_t, $Name*, $Type*, $Symbol*)},
+	{"makeThis", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCIdent;", nullptr, $PRIVATE, $method(LambdaToMethod, makeThis, $JCTree$JCIdent*, $Type*, $Symbol*)},
+	{"setVarargsIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(LambdaToMethod, setVarargsIfNeeded, void, $JCTree*, $Type*)},
+	{"translate", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PUBLIC, $virtualMethod(LambdaToMethod, translate, $JCTree*, $JCTree*)},
+	{"translate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;)TT;", 0, $virtualMethod(LambdaToMethod, translate, $JCTree*, $JCTree*, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext*)},
+	{"translate", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;)Lcom/sun/tools/javac/util/List;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;)Lcom/sun/tools/javac/util/List<TT;>;", 0, $virtualMethod(LambdaToMethod, translate, $List*, $List*, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext*)},
+	{"translateTopLevelClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(LambdaToMethod, translateTopLevelClass, $JCTree*, $Env*, $JCTree*, $TreeMaker*)},
+	{"typeSig", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LambdaToMethod, typeSig, $String*, $Type*)},
+	{"typeSig", "(Lcom/sun/tools/javac/code/Type;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(LambdaToMethod, typeSig, $String*, $Type*, bool)},
+	{"typeToMethodType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PRIVATE, $method(LambdaToMethod, typeToMethodType, $Type$MethodType*, $Type*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitIdent, void, $JCTree$JCIdent*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitNewClass, void, $JCTree$JCNewClass*)},
+	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitReference, void, $JCTree$JCMemberReference*)},
+	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitSelect, void, $JCTree$JCFieldAccess*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

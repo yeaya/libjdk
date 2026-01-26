@@ -17,8 +17,8 @@ $FieldInfo _ServiceUnavailableException_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceUnavailableException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ServiceUnavailableException::*)($String*)>(&ServiceUnavailableException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ServiceUnavailableException::*)()>(&ServiceUnavailableException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceUnavailableException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ServiceUnavailableException, init$, void)},
 	{}
 };
 

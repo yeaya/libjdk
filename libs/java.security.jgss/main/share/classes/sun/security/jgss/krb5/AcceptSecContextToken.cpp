@@ -44,9 +44,9 @@ $FieldInfo _AcceptSecContextToken_FieldInfo_[] = {
 };
 
 $MethodInfo _AcceptSecContextToken_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/KrbApReq;)V", nullptr, $PUBLIC, $method(static_cast<void(AcceptSecContextToken::*)($Krb5Context*,$KrbApReq*)>(&AcceptSecContextToken::init$)), "sun.security.krb5.KrbException,java.io.IOException,org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Credentials;Lsun/security/krb5/KrbApReq;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(AcceptSecContextToken::*)($Krb5Context*,$Credentials*,$KrbApReq*,$InputStream*)>(&AcceptSecContextToken::init$)), "java.io.IOException,org.ietf.jgss.GSSException,sun.security.krb5.KrbException"},
-	{"encode", "()[B", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/KrbApReq;)V", nullptr, $PUBLIC, $method(AcceptSecContextToken, init$, void, $Krb5Context*, $KrbApReq*), "sun.security.krb5.KrbException,java.io.IOException,org.ietf.jgss.GSSException"},
+	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Credentials;Lsun/security/krb5/KrbApReq;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(AcceptSecContextToken, init$, void, $Krb5Context*, $Credentials*, $KrbApReq*, $InputStream*), "java.io.IOException,org.ietf.jgss.GSSException,sun.security.krb5.KrbException"},
+	{"encode", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(AcceptSecContextToken, encode, $bytes*), "java.io.IOException"},
 	{}
 };
 

@@ -34,14 +34,14 @@ $MethodInfo _InQueryExp_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InQueryExp::*)()>(&InQueryExp::init$))},
-	{"<init>", "(Ljavax/management/ValueExp;[Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(static_cast<void(InQueryExp::*)($ValueExp*,$ValueExpArray*)>(&InQueryExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"generateValueList", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(InQueryExp::*)()>(&InQueryExp::generateValueList))},
-	{"getCheckedValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC},
-	{"getExplicitValues", "()[Ljavax/management/ValueExp;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InQueryExp, init$, void)},
+	{"<init>", "(Ljavax/management/ValueExp;[Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(InQueryExp, init$, void, $ValueExp*, $ValueExpArray*)},
+	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(InQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"generateValueList", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(InQueryExp, generateValueList, $String*)},
+	{"getCheckedValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(InQueryExp, getCheckedValue, $ValueExp*)},
+	{"getExplicitValues", "()[Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(InQueryExp, getExplicitValues, $ValueExpArray*)},
 	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InQueryExp, toString, $String*)},
 	{}
 };
 

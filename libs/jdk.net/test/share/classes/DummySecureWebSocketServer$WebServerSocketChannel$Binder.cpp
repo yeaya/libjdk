@@ -7,9 +7,10 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SocketAddress = ::java::net::SocketAddress;
 
 $MethodInfo _DummySecureWebSocketServer$WebServerSocketChannel$Binder_MethodInfo_[] = {
-	{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel$Binder, bind, void, $SocketAddress*), "java.io.IOException"},
 	{}
 };
 

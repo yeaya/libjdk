@@ -36,11 +36,11 @@ $FieldInfo _LambdaToMethod$LambdaSymbolKind_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaToMethod$LambdaSymbolKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LambdaToMethod$LambdaSymbolKindArray*(*)()>(&LambdaToMethod$LambdaSymbolKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(LambdaToMethod$LambdaSymbolKind::*)($String*,int32_t)>(&LambdaToMethod$LambdaSymbolKind::init$))},
-	{"propagateAnnotations", "()Z", nullptr, 0, $method(static_cast<bool(LambdaToMethod$LambdaSymbolKind::*)()>(&LambdaToMethod$LambdaSymbolKind::propagateAnnotations))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LambdaToMethod$LambdaSymbolKind*(*)($String*)>(&LambdaToMethod$LambdaSymbolKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LambdaToMethod$LambdaSymbolKindArray*(*)()>(&LambdaToMethod$LambdaSymbolKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaToMethod$LambdaSymbolKind, $values, $LambdaToMethod$LambdaSymbolKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LambdaToMethod$LambdaSymbolKind, init$, void, $String*, int32_t)},
+	{"propagateAnnotations", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaSymbolKind, propagateAnnotations, bool)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaToMethod$LambdaSymbolKind, valueOf, LambdaToMethod$LambdaSymbolKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaToMethod$LambdaSymbolKind, values, $LambdaToMethod$LambdaSymbolKindArray*)},
 	{}
 };
 

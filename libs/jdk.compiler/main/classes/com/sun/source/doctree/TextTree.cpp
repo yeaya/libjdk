@@ -11,7 +11,7 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _TextTree_MethodInfo_[] = {
-	{"getBody", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getBody", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TextTree, getBody, $String*)},
 	{}
 };
 

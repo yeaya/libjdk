@@ -29,10 +29,10 @@ $FieldInfo _JCTree$JCPolyExpression$PolyKind_FieldInfo_[] = {
 };
 
 $MethodInfo _JCTree$JCPolyExpression$PolyKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCTree$JCPolyExpression$PolyKindArray*(*)()>(&JCTree$JCPolyExpression$PolyKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JCTree$JCPolyExpression$PolyKind::*)($String*,int32_t)>(&JCTree$JCPolyExpression$PolyKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JCTree$JCPolyExpression$PolyKind*(*)($String*)>(&JCTree$JCPolyExpression$PolyKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$JCPolyExpression$PolyKindArray*(*)()>(&JCTree$JCPolyExpression$PolyKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$JCPolyExpression$PolyKind, $values, $JCTree$JCPolyExpression$PolyKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCTree$JCPolyExpression$PolyKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCPolyExpression$PolyKind, valueOf, JCTree$JCPolyExpression$PolyKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCPolyExpression$PolyKind, values, $JCTree$JCPolyExpression$PolyKindArray*)},
 	{}
 };
 

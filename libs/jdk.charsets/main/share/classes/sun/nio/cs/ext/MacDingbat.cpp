@@ -30,11 +30,11 @@ $MethodInfo _MacDingbat_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MacDingbat::*)()>(&MacDingbat::init$))},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MacDingbat, init$, void)},
+	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MacDingbat, contains, bool, $Charset*)},
+	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MacDingbat, historicalName, $String*)},
+	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MacDingbat, newDecoder, $CharsetDecoder*)},
+	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MacDingbat, newEncoder, $CharsetEncoder*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
 	{}
 };

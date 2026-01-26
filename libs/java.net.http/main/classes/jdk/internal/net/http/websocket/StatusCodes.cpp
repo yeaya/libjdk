@@ -26,10 +26,10 @@ $FieldInfo _StatusCodes_FieldInfo_[] = {
 };
 
 $MethodInfo _StatusCodes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(StatusCodes::*)()>(&StatusCodes::init$))},
-	{"isLegal", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&StatusCodes::isLegal))},
-	{"isLegalToReceiveFromServer", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&StatusCodes::isLegalToReceiveFromServer))},
-	{"isLegalToSendFromClient", "(I)Z", nullptr, $STATIC, $method(static_cast<bool(*)(int32_t)>(&StatusCodes::isLegalToSendFromClient))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(StatusCodes, init$, void)},
+	{"isLegal", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StatusCodes, isLegal, bool, int32_t)},
+	{"isLegalToReceiveFromServer", "(I)Z", nullptr, $STATIC, $staticMethod(StatusCodes, isLegalToReceiveFromServer, bool, int32_t)},
+	{"isLegalToSendFromClient", "(I)Z", nullptr, $STATIC, $staticMethod(StatusCodes, isLegalToSendFromClient, bool, int32_t)},
 	{}
 };
 

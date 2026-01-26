@@ -11,6 +11,7 @@
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/ref/WeakReference.h>
+#include <java/rmi/Remote.h>
 #include <java/rmi/server/RemoteServer.h>
 #include <java/rmi/server/ServerNotActiveException.h>
 #include <java/security/Principal.h>
@@ -47,6 +48,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $WeakReference = ::java::lang::ref::WeakReference;
+using $Remote = ::java::rmi::Remote;
 using $RemoteServer = ::java::rmi::server::RemoteServer;
 using $ServerNotActiveException = ::java::rmi::server::ServerNotActiveException;
 using $Principal = ::java::security::Principal;
@@ -86,27 +88,27 @@ $MethodInfo _RMIServerImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(static_cast<void(RMIServerImpl::*)($Map*)>(&RMIServerImpl::init$))},
-	{"clientClosed", "(Ljavax/management/remote/rmi/RMIConnection;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"closeClient", "(Ljavax/management/remote/rmi/RMIConnection;)V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"closeServer", "()V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"doNewClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"dropDeadReferences", "()V", nullptr, $PRIVATE, $method(static_cast<void(RMIServerImpl::*)()>(&RMIServerImpl::dropDeadReferences))},
-	{"export", "()V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getDefaultClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getNotifBuffer", "()Lcom/sun/jmx/remote/internal/NotificationBuffer;", nullptr, $SYNCHRONIZED},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"makeClient", "(Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"makeConnectionId", "(Ljava/lang/String;Ljavax/security/auth/Subject;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<$String*(*)($String*,$Subject*)>(&RMIServerImpl::makeConnectionId))},
-	{"newClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setDefaultClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setRMIConnectorServer", "(Ljavax/management/remote/rmi/RMIConnectorServer;)V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(RMIServerImpl, init$, void, $Map*)},
+	{"clientClosed", "(Ljavax/management/remote/rmi/RMIConnection;)V", nullptr, $PROTECTED, $virtualMethod(RMIServerImpl, clientClosed, void, $RMIConnection*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIServerImpl, close, void), "java.io.IOException"},
+	{"closeClient", "(Ljavax/management/remote/rmi/RMIConnection;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RMIServerImpl, closeClient, void, $RMIConnection*), "java.io.IOException"},
+	{"closeServer", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RMIServerImpl, closeServer, void), "java.io.IOException"},
+	{"doNewClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, 0, $virtualMethod(RMIServerImpl, doNewClient, $RMIConnection*, Object$*), "java.io.IOException"},
+	{"dropDeadReferences", "()V", nullptr, $PRIVATE, $method(RMIServerImpl, dropDeadReferences, void)},
+	{"export", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RMIServerImpl, export$, void), "java.io.IOException"},
+	{"getDefaultClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIServerImpl, getDefaultClassLoader, $ClassLoader*)},
+	{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIServerImpl, getMBeanServer, $MBeanServer*)},
+	{"getNotifBuffer", "()Lcom/sun/jmx/remote/internal/NotificationBuffer;", nullptr, $SYNCHRONIZED, $virtualMethod(RMIServerImpl, getNotifBuffer, $NotificationBuffer*)},
+	{"getProtocol", "()Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RMIServerImpl, getProtocol, $String*)},
+	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RMIServerImpl, getVersion, $String*)},
+	{"makeClient", "(Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(RMIServerImpl, makeClient, $RMIConnection*, $String*, $Subject*), "java.io.IOException"},
+	{"makeConnectionId", "(Ljava/lang/String;Ljavax/security/auth/Subject;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(RMIServerImpl, makeConnectionId, $String*, $String*, $Subject*)},
+	{"newClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PUBLIC, $virtualMethod(RMIServerImpl, newClient, $RMIConnection*, Object$*), "java.io.IOException"},
+	{"setDefaultClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIServerImpl, setDefaultClassLoader, void, $ClassLoader*)},
+	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RMIServerImpl, setMBeanServer, void, $MBeanServer*)},
+	{"setRMIConnectorServer", "(Ljavax/management/remote/rmi/RMIConnectorServer;)V", nullptr, 0, $virtualMethod(RMIServerImpl, setRMIConnectorServer, void, $RMIConnectorServer*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"toStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIServerImpl, toStub, $Remote*), "java.io.IOException"},
 	{}
 };
 

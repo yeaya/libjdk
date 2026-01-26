@@ -131,18 +131,18 @@ $FieldInfo _Source$Feature_FieldInfo_[] = {
 };
 
 $MethodInfo _Source$Feature_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Source$FeatureArray*(*)()>(&Source$Feature::$values))},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;)V", "(Lcom/sun/tools/javac/code/Source;)V", $PRIVATE, $method(static_cast<void(Source$Feature::*)($String*,int32_t,$Source*)>(&Source$Feature::init$))},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", $PRIVATE, $method(static_cast<void(Source$Feature::*)($String*,int32_t,$Source*,$JCDiagnostic$Fragment*,$Source$Feature$DiagKind*)>(&Source$Feature::init$))},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;)V", $PRIVATE, $method(static_cast<void(Source$Feature::*)($String*,int32_t,$Source*,$Source*)>(&Source$Feature::init$))},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", $PRIVATE, $method(static_cast<void(Source$Feature::*)($String*,int32_t,$Source*,$Source*,$JCDiagnostic$Fragment*,$Source$Feature$DiagKind*)>(&Source$Feature::init$))},
-	{"allowedInSource", "(Lcom/sun/tools/javac/code/Source;)Z", nullptr, $PUBLIC, $method(static_cast<bool(Source$Feature::*)($Source*)>(&Source$Feature::allowedInSource))},
-	{"error", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC, $method(static_cast<$JCDiagnostic$Error*(Source$Feature::*)($String*)>(&Source$Feature::error))},
-	{"fragment", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PUBLIC, $method(static_cast<$JCDiagnostic$Fragment*(Source$Feature::*)($String*)>(&Source$Feature::fragment))},
-	{"isPlural", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Source$Feature::*)()>(&Source$Feature::isPlural))},
-	{"nameFragment", "()Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PUBLIC, $method(static_cast<$JCDiagnostic$Fragment*(Source$Feature::*)()>(&Source$Feature::nameFragment))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Source$Feature*(*)($String*)>(&Source$Feature::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Source$FeatureArray*(*)()>(&Source$Feature::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Source$Feature, $values, $Source$FeatureArray*)},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;)V", "(Lcom/sun/tools/javac/code/Source;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*)},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*, $JCDiagnostic$Fragment*, $Source$Feature$DiagKind*)},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*, $Source*)},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;Lcom/sun/tools/javac/code/Source$Feature$DiagKind;)V", $PRIVATE, $method(Source$Feature, init$, void, $String*, int32_t, $Source*, $Source*, $JCDiagnostic$Fragment*, $Source$Feature$DiagKind*)},
+	{"allowedInSource", "(Lcom/sun/tools/javac/code/Source;)Z", nullptr, $PUBLIC, $method(Source$Feature, allowedInSource, bool, $Source*)},
+	{"error", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC, $method(Source$Feature, error, $JCDiagnostic$Error*, $String*)},
+	{"fragment", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PUBLIC, $method(Source$Feature, fragment, $JCDiagnostic$Fragment*, $String*)},
+	{"isPlural", "()Z", nullptr, $PUBLIC, $method(Source$Feature, isPlural, bool)},
+	{"nameFragment", "()Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, $PUBLIC, $method(Source$Feature, nameFragment, $JCDiagnostic$Fragment*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source$Feature, valueOf, Source$Feature*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Source$Feature;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source$Feature, values, $Source$FeatureArray*)},
 	{}
 };
 

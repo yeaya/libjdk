@@ -59,13 +59,13 @@ $FieldInfo _ClassWriter$AttributeWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassWriter$AttributeWriter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $method(static_cast<void(ClassWriter$AttributeWriter::*)($ClassWriter*)>(&ClassWriter$AttributeWriter::init$))},
-	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC},
-	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC},
-	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC},
-	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC},
-	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC},
-	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $method(ClassWriter$AttributeWriter, init$, void, $ClassWriter*)},
+	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitArray, void, $Attribute$Array*)},
+	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitClass, void, $Attribute$Class*)},
+	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitCompound, void, $Attribute$Compound*)},
+	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitConstant, void, $Attribute$Constant*)},
+	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitEnum, void, $Attribute$Enum*)},
+	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$AttributeWriter, visitError, void, $Attribute$Error*)},
 	{}
 };
 

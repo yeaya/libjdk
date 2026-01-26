@@ -22,10 +22,10 @@ $FieldInfo _NaiveHuffman$Code_FieldInfo_[] = {
 };
 
 $MethodInfo _NaiveHuffman$Code_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PRIVATE, $method(static_cast<void(NaiveHuffman$Code::*)(int32_t,int32_t)>(&NaiveHuffman$Code::init$))},
-	{"getCode", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(NaiveHuffman$Code::*)()>(&NaiveHuffman$Code::getCode))},
-	{"getLength", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(NaiveHuffman$Code::*)()>(&NaiveHuffman$Code::getLength))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PRIVATE, $method(NaiveHuffman$Code, init$, void, int32_t, int32_t)},
+	{"getCode", "()I", nullptr, $PUBLIC, $method(NaiveHuffman$Code, getCode, int32_t)},
+	{"getLength", "()I", nullptr, $PUBLIC, $method(NaiveHuffman$Code, getLength, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Code, toString, $String*)},
 	{}
 };
 

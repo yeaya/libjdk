@@ -31,9 +31,9 @@ $FieldInfo _PathAndPackageVerifier$EnclosingPkgIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _PathAndPackageVerifier$EnclosingPkgIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(static_cast<void(PathAndPackageVerifier$EnclosingPkgIterator::*)($JCTree*)>(&PathAndPackageVerifier$EnclosingPkgIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(PathAndPackageVerifier$EnclosingPkgIterator, init$, void, $JCTree*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier$EnclosingPkgIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier$EnclosingPkgIterator, next, $Object*)},
 	{}
 };
 

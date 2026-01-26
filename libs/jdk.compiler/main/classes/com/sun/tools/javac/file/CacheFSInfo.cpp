@@ -60,8 +60,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CacheFSInfo$$Lambda$lambda$preRegister$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CacheFSInfo$$Lambda$lambda$preRegister$0::*)()>(&CacheFSInfo$$Lambda$lambda$preRegister$0::init$))},
-	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CacheFSInfo$$Lambda$lambda$preRegister$0, init$, void)},
+	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CacheFSInfo$$Lambda$lambda$preRegister$0, make, $Object*, $Context*)},
 	{}
 };
 $ClassInfo CacheFSInfo$$Lambda$lambda$preRegister$0::classInfo$ = {
@@ -100,8 +100,8 @@ $FieldInfo CacheFSInfo$$Lambda$lambda$getCanonicalFile$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo CacheFSInfo$$Lambda$lambda$getCanonicalFile$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/CacheFSInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(CacheFSInfo$$Lambda$lambda$getCanonicalFile$1$1::*)(CacheFSInfo*)>(&CacheFSInfo$$Lambda$lambda$getCanonicalFile$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/CacheFSInfo;)V", nullptr, $PUBLIC, $method(CacheFSInfo$$Lambda$lambda$getCanonicalFile$1$1, init$, void, CacheFSInfo*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CacheFSInfo$$Lambda$lambda$getCanonicalFile$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CacheFSInfo$$Lambda$lambda$getCanonicalFile$1$1::classInfo$ = {
@@ -133,8 +133,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CacheFSInfo$$Lambda$isDirectory$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CacheFSInfo$$Lambda$isDirectory$2::*)()>(&CacheFSInfo$$Lambda$isDirectory$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CacheFSInfo$$Lambda$isDirectory$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CacheFSInfo$$Lambda$isDirectory$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CacheFSInfo$$Lambda$isDirectory$2::classInfo$ = {
@@ -166,8 +166,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CacheFSInfo$$Lambda$isRegularFile$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CacheFSInfo$$Lambda$isRegularFile$3::*)()>(&CacheFSInfo$$Lambda$isRegularFile$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CacheFSInfo$$Lambda$isRegularFile$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CacheFSInfo$$Lambda$isRegularFile$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CacheFSInfo$$Lambda$isRegularFile$3::classInfo$ = {
@@ -206,8 +206,8 @@ $FieldInfo CacheFSInfo$$Lambda$maybeReadAttributes$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo CacheFSInfo$$Lambda$maybeReadAttributes$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/CacheFSInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(CacheFSInfo$$Lambda$maybeReadAttributes$4::*)(CacheFSInfo*)>(&CacheFSInfo$$Lambda$maybeReadAttributes$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/CacheFSInfo;)V", nullptr, $PUBLIC, $method(CacheFSInfo$$Lambda$maybeReadAttributes$4, init$, void, CacheFSInfo*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CacheFSInfo$$Lambda$maybeReadAttributes$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo CacheFSInfo$$Lambda$maybeReadAttributes$4::classInfo$ = {
@@ -232,18 +232,18 @@ $FieldInfo _CacheFSInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _CacheFSInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CacheFSInfo::*)()>(&CacheFSInfo::init$))},
-	{"clearCache", "()V", nullptr, $PUBLIC},
-	{"exists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"getAttributes", "(Ljava/nio/file/Path;)Ljava/util/Optional;", "(Ljava/nio/file/Path;)Ljava/util/Optional<Ljava/nio/file/attribute/BasicFileAttributes;>;", $PROTECTED},
-	{"getCanonicalFile", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"getJarClassPath", "(Ljava/nio/file/Path;)Ljava/util/List;", "(Ljava/nio/file/Path;)Ljava/util/List<Ljava/nio/file/Path;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"isDirectory", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"isFile", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"lambda$getCanonicalFile$1", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Path*(CacheFSInfo::*)($Path*)>(&CacheFSInfo::lambda$getCanonicalFile$1))},
-	{"lambda$preRegister$0", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/file/FSInfo;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$FSInfo*(*)($Context*)>(&CacheFSInfo::lambda$preRegister$0))},
-	{"maybeReadAttributes", "(Ljava/nio/file/Path;)Ljava/util/Optional;", "(Ljava/nio/file/Path;)Ljava/util/Optional<Ljava/nio/file/attribute/BasicFileAttributes;>;", $PROTECTED},
-	{"preRegister", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Context*)>(&CacheFSInfo::preRegister))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CacheFSInfo, init$, void)},
+	{"clearCache", "()V", nullptr, $PUBLIC, $virtualMethod(CacheFSInfo, clearCache, void)},
+	{"exists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(CacheFSInfo, exists, bool, $Path*)},
+	{"getAttributes", "(Ljava/nio/file/Path;)Ljava/util/Optional;", "(Ljava/nio/file/Path;)Ljava/util/Optional<Ljava/nio/file/attribute/BasicFileAttributes;>;", $PROTECTED, $virtualMethod(CacheFSInfo, getAttributes, $Optional*, $Path*)},
+	{"getCanonicalFile", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(CacheFSInfo, getCanonicalFile, $Path*, $Path*)},
+	{"getJarClassPath", "(Ljava/nio/file/Path;)Ljava/util/List;", "(Ljava/nio/file/Path;)Ljava/util/List<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(CacheFSInfo, getJarClassPath, $List*, $Path*), "java.io.IOException"},
+	{"isDirectory", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(CacheFSInfo, isDirectory, bool, $Path*)},
+	{"isFile", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(CacheFSInfo, isFile, bool, $Path*)},
+	{"lambda$getCanonicalFile$1", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $SYNTHETIC, $method(CacheFSInfo, lambda$getCanonicalFile$1, $Path*, $Path*)},
+	{"lambda$preRegister$0", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/file/FSInfo;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CacheFSInfo, lambda$preRegister$0, $FSInfo*, $Context*)},
+	{"maybeReadAttributes", "(Ljava/nio/file/Path;)Ljava/util/Optional;", "(Ljava/nio/file/Path;)Ljava/util/Optional<Ljava/nio/file/attribute/BasicFileAttributes;>;", $PROTECTED, $virtualMethod(CacheFSInfo, maybeReadAttributes, $Optional*, $Path*)},
+	{"preRegister", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CacheFSInfo, preRegister, void, $Context*)},
 	{}
 };
 

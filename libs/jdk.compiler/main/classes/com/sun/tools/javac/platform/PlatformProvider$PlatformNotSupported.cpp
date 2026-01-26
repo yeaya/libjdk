@@ -21,7 +21,7 @@ $FieldInfo _PlatformProvider$PlatformNotSupported_FieldInfo_[] = {
 };
 
 $MethodInfo _PlatformProvider$PlatformNotSupported_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PlatformProvider$PlatformNotSupported::*)()>(&PlatformProvider$PlatformNotSupported::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformProvider$PlatformNotSupported, init$, void)},
 	{}
 };
 

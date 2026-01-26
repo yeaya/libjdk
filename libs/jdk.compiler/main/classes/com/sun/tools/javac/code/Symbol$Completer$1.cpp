@@ -16,9 +16,9 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Symbol$Completer$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Symbol$Completer$1::*)()>(&Symbol$Completer$1::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
-	{"isTerminal", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Symbol$Completer$1, init$, void)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symbol$Completer$1, complete, void, $Symbol*)},
+	{"isTerminal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$Completer$1, isTerminal, bool)},
 	{}
 };
 

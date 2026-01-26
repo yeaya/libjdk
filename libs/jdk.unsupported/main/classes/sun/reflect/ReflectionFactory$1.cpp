@@ -13,8 +13,8 @@ namespace sun {
 	namespace reflect {
 
 $MethodInfo _ReflectionFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReflectionFactory$1::*)()>(&ReflectionFactory$1::init$))},
-	{"run", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ReflectionFactory$1, init$, void)},
+	{"run", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory$1, run, $Object*)},
 	{}
 };
 

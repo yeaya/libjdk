@@ -75,8 +75,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Option$14$$Lambda$lambda$help$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Option$14$$Lambda$lambda$help$0::*)()>(&Option$14$$Lambda$lambda$help$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Option$14$$Lambda$lambda$help$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$14$$Lambda$lambda$help$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Option$14$$Lambda$lambda$help$0::classInfo$ = {
@@ -108,8 +108,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Option$14$$Lambda$LinkedHashSet$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Option$14$$Lambda$LinkedHashSet$1::*)()>(&Option$14$$Lambda$LinkedHashSet$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Option$14$$Lambda$LinkedHashSet$1, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$14$$Lambda$LinkedHashSet$1, get, $Object*)},
 	{}
 };
 $ClassInfo Option$14$$Lambda$LinkedHashSet$1::classInfo$ = {
@@ -127,9 +127,9 @@ $Class* Option$14$$Lambda$LinkedHashSet$1::load$($String* name, bool initialize)
 $Class* Option$14$$Lambda$LinkedHashSet$1::class$ = nullptr;
 
 $MethodInfo _Option$14_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(static_cast<void(Option$14::*)($String*,int32_t,$String*,$String*,$String*,$Option$OptionKind*,$Option$OptionGroup*)>(&Option$14::init$))},
-	{"help", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PROTECTED},
-	{"lambda$help$0", "(Lcom/sun/tools/javac/platform/PlatformProvider;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($PlatformProvider*)>(&Option$14::lambda$help$0))},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$14, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+	{"help", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PROTECTED, $virtualMethod(Option$14, help, void, $Log*)},
+	{"lambda$help$0", "(Lcom/sun/tools/javac/platform/PlatformProvider;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$14, lambda$help$0, $Stream*, $PlatformProvider*)},
 	{}
 };
 

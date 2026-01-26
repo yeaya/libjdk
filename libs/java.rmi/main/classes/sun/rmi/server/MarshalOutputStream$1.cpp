@@ -20,8 +20,8 @@ $FieldInfo _MarshalOutputStream$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MarshalOutputStream$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/server/MarshalOutputStream;)V", nullptr, 0, $method(static_cast<void(MarshalOutputStream$1::*)($MarshalOutputStream*)>(&MarshalOutputStream$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/server/MarshalOutputStream;)V", nullptr, 0, $method(MarshalOutputStream$1, init$, void, $MarshalOutputStream*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(MarshalOutputStream$1, run, $Object*)},
 	{}
 };
 

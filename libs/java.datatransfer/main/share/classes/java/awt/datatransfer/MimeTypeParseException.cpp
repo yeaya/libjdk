@@ -17,8 +17,8 @@ $FieldInfo _MimeTypeParseException_FieldInfo_[] = {
 };
 
 $MethodInfo _MimeTypeParseException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MimeTypeParseException::*)()>(&MimeTypeParseException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MimeTypeParseException::*)($String*)>(&MimeTypeParseException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MimeTypeParseException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MimeTypeParseException, init$, void, $String*)},
 	{}
 };
 

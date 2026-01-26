@@ -71,17 +71,17 @@ $FieldInfo _StartTlsResponseImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _StartTlsResponseImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StartTlsResponseImpl::*)()>(&StartTlsResponseImpl::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getDefaultFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE, $method(static_cast<$SSLSocketFactory*(StartTlsResponseImpl::*)()>(&StartTlsResponseImpl::getDefaultFactory)), "java.io.IOException"},
-	{"getPeerPrincipal", "(Ljavax/net/ssl/SSLSession;)Ljava/security/Principal;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Principal*(*)($SSLSession*)>(&StartTlsResponseImpl::getPeerPrincipal)), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"negotiate", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"negotiate", "(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setConnection", "(Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StartTlsResponseImpl::*)($Connection*,$String*)>(&StartTlsResponseImpl::setConnection))},
-	{"setEnabledCipherSuites", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PUBLIC},
-	{"startHandshake", "(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/SSLSocket;", nullptr, $PRIVATE, $method(static_cast<$SSLSocket*(StartTlsResponseImpl::*)($SSLSocketFactory*)>(&StartTlsResponseImpl::startHandshake)), "java.io.IOException"},
-	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PRIVATE, $method(static_cast<bool(StartTlsResponseImpl::*)($String*,$SSLSession*)>(&StartTlsResponseImpl::verify)), "javax.net.ssl.SSLPeerUnverifiedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StartTlsResponseImpl, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, close, void), "java.io.IOException"},
+	{"getDefaultFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE, $method(StartTlsResponseImpl, getDefaultFactory, $SSLSocketFactory*), "java.io.IOException"},
+	{"getPeerPrincipal", "(Ljavax/net/ssl/SSLSession;)Ljava/security/Principal;", nullptr, $PRIVATE | $STATIC, $staticMethod(StartTlsResponseImpl, getPeerPrincipal, $Principal*, $SSLSession*), "javax.net.ssl.SSLPeerUnverifiedException"},
+	{"negotiate", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, negotiate, $SSLSession*), "java.io.IOException"},
+	{"negotiate", "(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, negotiate, $SSLSession*, $SSLSocketFactory*), "java.io.IOException"},
+	{"setConnection", "(Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StartTlsResponseImpl, setConnection, void, $Connection*, $String*)},
+	{"setEnabledCipherSuites", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, setEnabledCipherSuites, void, $StringArray*)},
+	{"setHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, setHostnameVerifier, void, $HostnameVerifier*)},
+	{"startHandshake", "(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/SSLSocket;", nullptr, $PRIVATE, $method(StartTlsResponseImpl, startHandshake, $SSLSocket*, $SSLSocketFactory*), "java.io.IOException"},
+	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PRIVATE, $method(StartTlsResponseImpl, verify, bool, $String*, $SSLSession*), "javax.net.ssl.SSLPeerUnverifiedException"},
 	{}
 };
 

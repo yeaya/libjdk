@@ -18,8 +18,8 @@ $FieldInfo _StringRefAddr_FieldInfo_[] = {
 };
 
 $MethodInfo _StringRefAddr_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringRefAddr::*)($String*,$String*)>(&StringRefAddr::init$))},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringRefAddr, init$, void, $String*, $String*)},
+	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringRefAddr, getContent, $Object*)},
 	{}
 };
 

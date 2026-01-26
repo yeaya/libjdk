@@ -6,6 +6,7 @@
 
 #undef NULL_COMPLETER
 
+using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$Completer$1 = ::com::sun::tools::javac::code::Symbol$Completer$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -24,8 +25,8 @@ $FieldInfo _Symbol$Completer_FieldInfo_[] = {
 };
 
 $MethodInfo _Symbol$Completer_MethodInfo_[] = {
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"isTerminal", "()Z", nullptr, $PUBLIC},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Symbol$Completer, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"isTerminal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$Completer, isTerminal, bool)},
 	{}
 };
 

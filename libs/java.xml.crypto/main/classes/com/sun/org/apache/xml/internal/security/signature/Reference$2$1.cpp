@@ -34,10 +34,10 @@ $FieldInfo _Reference$2$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Reference$2$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/Reference$2;)V", nullptr, 0, $method(static_cast<void(Reference$2$1::*)($Reference$2*)>(&Reference$2$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/Reference$2;)V", nullptr, 0, $method(Reference$2$1, init$, void, $Reference$2*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Reference$2$1, hasNext, bool)},
+	{"next", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(Reference$2$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Reference$2$1, remove, void)},
 	{}
 };
 

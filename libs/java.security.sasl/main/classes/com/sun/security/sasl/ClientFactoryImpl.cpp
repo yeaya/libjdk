@@ -61,10 +61,10 @@ $FieldInfo _ClientFactoryImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClientFactoryImpl::*)()>(&ClientFactoryImpl::init$))},
-	{"createSaslClient", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"getMechanismNames", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;*>;)[Ljava/lang/String;", $PUBLIC},
-	{"getUserInfo", "(Ljava/lang/String;Ljava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$ObjectArray*(ClientFactoryImpl::*)($String*,$String*,$CallbackHandler*)>(&ClientFactoryImpl::getUserInfo)), "javax.security.sasl.SaslException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClientFactoryImpl, init$, void)},
+	{"createSaslClient", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", $PUBLIC, $virtualMethod(ClientFactoryImpl, createSaslClient, $SaslClient*, $StringArray*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+	{"getMechanismNames", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;*>;)[Ljava/lang/String;", $PUBLIC, $virtualMethod(ClientFactoryImpl, getMechanismNames, $StringArray*, $Map*)},
+	{"getUserInfo", "(Ljava/lang/String;Ljava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ClientFactoryImpl, getUserInfo, $ObjectArray*, $String*, $String*, $CallbackHandler*), "javax.security.sasl.SaslException"},
 	{}
 };
 

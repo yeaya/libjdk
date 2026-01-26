@@ -13,6 +13,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $List = ::java::util::List;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
+using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $Node = ::org::w3c::dom::Node;
@@ -25,10 +26,10 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMStructure_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DOMStructure::*)()>(&DOMStructure::init$))},
-	{"equalsContent", "(Ljava/util/List;Ljava/util/List;)Z", "(Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;)Z", $PROTECTED},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.MarshalException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMStructure, init$, void)},
+	{"equalsContent", "(Ljava/util/List;Ljava/util/List;)Z", "(Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;)Z", $PROTECTED, $virtualMethod(DOMStructure, equalsContent, bool, $List*, $List*)},
+	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMStructure, isFeatureSupported, bool, $String*)},
+	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMStructure, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
 	{}
 };
 

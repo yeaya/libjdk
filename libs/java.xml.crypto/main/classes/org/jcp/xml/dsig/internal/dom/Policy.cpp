@@ -70,8 +70,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Policy$$Lambda$lambda$initialize$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Policy$$Lambda$lambda$initialize$0::*)()>(&Policy$$Lambda$lambda$initialize$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Policy$$Lambda$lambda$initialize$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Policy$$Lambda$lambda$initialize$0, run, $Object*)},
 	{}
 };
 $ClassInfo Policy$$Lambda$lambda$initialize$0::classInfo$ = {
@@ -100,22 +100,22 @@ $FieldInfo _Policy_FieldInfo_[] = {
 };
 
 $MethodInfo _Policy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Policy::*)()>(&Policy::init$))},
-	{"disabledAlgs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/URI;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&Policy::disabledAlgs))},
-	{"disabledReferenceUriSchemes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&Policy::disabledReferenceUriSchemes))},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Policy::error))},
-	{"initialize", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Policy::initialize))},
-	{"lambda$initialize$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&Policy::lambda$initialize$0))},
-	{"maxReferences", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&Policy::maxReferences))},
-	{"maxTransforms", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&Policy::maxTransforms))},
-	{"minKeySize", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*)>(&Policy::minKeySize))},
-	{"restrictAlg", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&Policy::restrictAlg))},
-	{"restrictDuplicateIds", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&Policy::restrictDuplicateIds))},
-	{"restrictKey", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*,int32_t)>(&Policy::restrictKey))},
-	{"restrictNumReferences", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Policy::restrictNumReferences))},
-	{"restrictNumTransforms", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&Policy::restrictNumTransforms))},
-	{"restrictReferenceUriScheme", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&Policy::restrictReferenceUriScheme))},
-	{"restrictRetrievalMethodLoops", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&Policy::restrictRetrievalMethodLoops))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Policy, init$, void)},
+	{"disabledAlgs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/URI;>;", $PUBLIC | $STATIC, $staticMethod(Policy, disabledAlgs, $Set*)},
+	{"disabledReferenceUriSchemes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Policy, disabledReferenceUriSchemes, $Set*)},
+	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Policy, error, void, $String*)},
+	{"initialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Policy, initialize, void)},
+	{"lambda$initialize$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Policy, lambda$initialize$0, $String*)},
+	{"maxReferences", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, maxReferences, int32_t)},
+	{"maxTransforms", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, maxTransforms, int32_t)},
+	{"minKeySize", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, minKeySize, int32_t, $String*)},
+	{"restrictAlg", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictAlg, bool, $String*)},
+	{"restrictDuplicateIds", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictDuplicateIds, bool)},
+	{"restrictKey", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictKey, bool, $String*, int32_t)},
+	{"restrictNumReferences", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictNumReferences, bool, int32_t)},
+	{"restrictNumTransforms", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictNumTransforms, bool, int32_t)},
+	{"restrictReferenceUriScheme", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictReferenceUriScheme, bool, $String*)},
+	{"restrictRetrievalMethodLoops", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictRetrievalMethodLoops, bool)},
 	{}
 };
 

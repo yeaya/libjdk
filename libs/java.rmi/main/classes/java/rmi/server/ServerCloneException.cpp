@@ -20,10 +20,10 @@ $FieldInfo _ServerCloneException_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerCloneException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ServerCloneException::*)($String*)>(&ServerCloneException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(ServerCloneException::*)($String*,$Exception*)>(&ServerCloneException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServerCloneException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ServerCloneException, init$, void, $String*, $Exception*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(ServerCloneException, getCause, $Throwable*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerCloneException, getMessage, $String*)},
 	{}
 };
 

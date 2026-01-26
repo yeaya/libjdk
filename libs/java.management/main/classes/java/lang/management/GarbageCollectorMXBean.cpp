@@ -10,8 +10,8 @@ namespace java {
 		namespace management {
 
 $MethodInfo _GarbageCollectorMXBean_MethodInfo_[] = {
-	{"getCollectionCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCollectionTime", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCollectionCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GarbageCollectorMXBean, getCollectionCount, int64_t)},
+	{"getCollectionTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GarbageCollectorMXBean, getCollectionTime, int64_t)},
 	{}
 };
 

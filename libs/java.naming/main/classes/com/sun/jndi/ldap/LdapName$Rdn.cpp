@@ -33,13 +33,13 @@ $FieldInfo _LdapName$Rdn_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapName$Rdn_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LdapName$Rdn::*)()>(&LdapName$Rdn::init$))},
-	{"add", "(Lcom/sun/jndi/ldap/LdapName$TypeAndValue;)V", nullptr, 0},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toAttributes", "()Ljavax/naming/directory/Attributes;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(LdapName$Rdn, init$, void)},
+	{"add", "(Lcom/sun/jndi/ldap/LdapName$TypeAndValue;)V", nullptr, 0, $virtualMethod(LdapName$Rdn, add, void, $LdapName$TypeAndValue*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(LdapName$Rdn, compareTo, int32_t, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName$Rdn, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName$Rdn, hashCode, int32_t)},
+	{"toAttributes", "()Ljavax/naming/directory/Attributes;", nullptr, 0, $virtualMethod(LdapName$Rdn, toAttributes, $Attributes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName$Rdn, toString, $String*)},
 	{}
 };
 

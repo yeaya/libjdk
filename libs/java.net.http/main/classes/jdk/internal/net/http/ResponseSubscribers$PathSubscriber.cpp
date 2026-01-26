@@ -105,8 +105,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::*)()>(&ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$new$0::classInfo$ = {
@@ -145,8 +145,8 @@ $FieldInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::fi
 	{}
 };
 $MethodInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::*)(ResponseSubscribers$PathSubscriber*)>(&ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, init$, void, ResponseSubscribers$PathSubscriber*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$onSubscribe$1$1::classInfo$ = {
@@ -185,8 +185,8 @@ $FieldInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::fieldInf
 	{}
 };
 $MethodInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::*)(ResponseSubscribers$PathSubscriber*)>(&ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, init$, void, ResponseSubscribers$PathSubscriber*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$PathSubscriber$$Lambda$lambda$close$2$2::classInfo$ = {
@@ -219,20 +219,20 @@ $FieldInfo _ResponseSubscribers$PathSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseSubscribers$PathSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", $TRANSIENT, $method(static_cast<void(ResponseSubscribers$PathSubscriber::*)($Path*,$List*,$AccessControlContext*,$FilePermissionArray*)>(&ResponseSubscribers$PathSubscriber::init$))},
-	{"close", "()V", nullptr, $PRIVATE, $method(static_cast<void(ResponseSubscribers$PathSubscriber::*)()>(&ResponseSubscribers$PathSubscriber::close))},
-	{"create", "(Ljava/nio/file/Path;Ljava/util/List;)Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;)Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;", $PUBLIC | $STATIC, $method(static_cast<ResponseSubscribers$PathSubscriber*(*)($Path*,$List*)>(&ResponseSubscribers$PathSubscriber::create))},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/nio/file/Path;>;", $PUBLIC},
-	{"isDefaultFS", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Path*)>(&ResponseSubscribers$PathSubscriber::isDefaultFS))},
-	{"lambda$close$2", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(ResponseSubscribers$PathSubscriber::*)()>(&ResponseSubscribers$PathSubscriber::lambda$close$2))},
-	{"lambda$new$0", "(I)[Ljava/nio/file/OpenOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$OpenOptionArray*(*)(int32_t)>(&ResponseSubscribers$PathSubscriber::lambda$new$0))},
-	{"lambda$onSubscribe$1", "()Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$FileChannel*(ResponseSubscribers$PathSubscriber::*)()>(&ResponseSubscribers$PathSubscriber::lambda$onSubscribe$1)), "java.lang.Exception"},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"pathForSecurityCheck", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$String*(*)($Path*)>(&ResponseSubscribers$PathSubscriber::pathForSecurityCheck))},
+	{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", $TRANSIENT, $method(ResponseSubscribers$PathSubscriber, init$, void, $Path*, $List*, $AccessControlContext*, $FilePermissionArray*)},
+	{"close", "()V", nullptr, $PRIVATE, $method(ResponseSubscribers$PathSubscriber, close, void)},
+	{"create", "(Ljava/nio/file/Path;Ljava/util/List;)Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;)Ljdk/internal/net/http/ResponseSubscribers$PathSubscriber;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers$PathSubscriber, create, ResponseSubscribers$PathSubscriber*, $Path*, $List*)},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, getBody, $CompletionStage*)},
+	{"isDefaultFS", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResponseSubscribers$PathSubscriber, isDefaultFS, bool, $Path*)},
+	{"lambda$close$2", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(ResponseSubscribers$PathSubscriber, lambda$close$2, $Void*)},
+	{"lambda$new$0", "(I)[Ljava/nio/file/OpenOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers$PathSubscriber, lambda$new$0, $OpenOptionArray*, int32_t)},
+	{"lambda$onSubscribe$1", "()Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $SYNTHETIC, $method(ResponseSubscribers$PathSubscriber, lambda$onSubscribe$1, $FileChannel*), "java.lang.Exception"},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PathSubscriber, onSubscribe, void, $Flow$Subscription*)},
+	{"pathForSecurityCheck", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ResponseSubscribers$PathSubscriber, pathForSecurityCheck, $String*, $Path*)},
 	{}
 };
 

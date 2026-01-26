@@ -23,9 +23,9 @@ $FieldInfo _UnsolicitedNotificationEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsolicitedNotificationEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljavax/naming/ldap/UnsolicitedNotification;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsolicitedNotificationEvent::*)(Object$*,$UnsolicitedNotification*)>(&UnsolicitedNotificationEvent::init$))},
-	{"dispatch", "(Ljavax/naming/ldap/UnsolicitedNotificationListener;)V", nullptr, $PUBLIC},
-	{"getNotification", "()Ljavax/naming/ldap/UnsolicitedNotification;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljavax/naming/ldap/UnsolicitedNotification;)V", nullptr, $PUBLIC, $method(UnsolicitedNotificationEvent, init$, void, Object$*, $UnsolicitedNotification*)},
+	{"dispatch", "(Ljavax/naming/ldap/UnsolicitedNotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(UnsolicitedNotificationEvent, dispatch, void, $UnsolicitedNotificationListener*)},
+	{"getNotification", "()Ljavax/naming/ldap/UnsolicitedNotification;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedNotificationEvent, getNotification, $UnsolicitedNotification*)},
 	{}
 };
 

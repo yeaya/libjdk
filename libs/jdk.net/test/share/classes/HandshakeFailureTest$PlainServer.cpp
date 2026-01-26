@@ -32,8 +32,8 @@ $FieldInfo _HandshakeFailureTest$PlainServer_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeFailureTest$PlainServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HandshakeFailureTest$PlainServer::*)()>(&HandshakeFailureTest$PlainServer::init$)), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HandshakeFailureTest$PlainServer, init$, void), "java.io.IOException"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HandshakeFailureTest$PlainServer, run, void)},
 	{}
 };
 

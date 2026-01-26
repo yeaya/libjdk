@@ -14,8 +14,8 @@ namespace com {
 				namespace internal {
 
 $MethodInfo _LoggerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LoggerFactory::*)()>(&LoggerFactory::init$))},
-	{"getLogger", "(Ljava/lang/Class;)Lcom/sun/org/slf4j/internal/Logger;", "(Ljava/lang/Class<*>;)Lcom/sun/org/slf4j/internal/Logger;", $PUBLIC | $STATIC, $method(static_cast<$Logger*(*)($Class*)>(&LoggerFactory::getLogger))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LoggerFactory, init$, void)},
+	{"getLogger", "(Ljava/lang/Class;)Lcom/sun/org/slf4j/internal/Logger;", "(Ljava/lang/Class<*>;)Lcom/sun/org/slf4j/internal/Logger;", $PUBLIC | $STATIC, $staticMethod(LoggerFactory, getLogger, $Logger*, $Class*)},
 	{}
 };
 

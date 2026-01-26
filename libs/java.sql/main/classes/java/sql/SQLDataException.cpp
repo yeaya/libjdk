@@ -17,14 +17,14 @@ $FieldInfo _SQLDataException_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLDataException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SQLDataException::*)()>(&SQLDataException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLDataException::*)($String*)>(&SQLDataException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLDataException::*)($String*,$String*)>(&SQLDataException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(SQLDataException::*)($String*,$String*,int32_t)>(&SQLDataException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLDataException::*)($Throwable*)>(&SQLDataException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLDataException::*)($String*,$Throwable*)>(&SQLDataException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLDataException::*)($String*,$String*,$Throwable*)>(&SQLDataException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLDataException::*)($String*,$String*,int32_t,$Throwable*)>(&SQLDataException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLDataException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLDataException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLDataException, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLDataException, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLDataException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLDataException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLDataException, init$, void, $String*, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLDataException, init$, void, $String*, $String*, int32_t, $Throwable*)},
 	{}
 };
 

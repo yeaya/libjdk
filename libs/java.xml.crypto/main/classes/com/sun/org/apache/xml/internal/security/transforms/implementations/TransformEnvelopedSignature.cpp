@@ -41,10 +41,10 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _TransformEnvelopedSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransformEnvelopedSignature::*)()>(&TransformEnvelopedSignature::init$))},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"searchSignatureElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Node*(*)($Node*)>(&TransformEnvelopedSignature::searchSignatureElement)), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformEnvelopedSignature, init$, void)},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformEnvelopedSignature, engineGetURI, $String*)},
+	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformEnvelopedSignature, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+	{"searchSignatureElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PRIVATE | $STATIC, $staticMethod(TransformEnvelopedSignature, searchSignatureElement, $Node*, $Node*), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
 	{}
 };
 

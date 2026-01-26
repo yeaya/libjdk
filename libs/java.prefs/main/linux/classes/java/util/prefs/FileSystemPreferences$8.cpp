@@ -31,8 +31,8 @@ $FieldInfo _FileSystemPreferences$8_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemPreferences$8_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, 0, $method(static_cast<void(FileSystemPreferences$8::*)($FileSystemPreferences*)>(&FileSystemPreferences$8::init$))},
-	{"run", "()[Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, 0, $method(FileSystemPreferences$8, init$, void, $FileSystemPreferences*)},
+	{"run", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$8, run, $Object*)},
 	{}
 };
 

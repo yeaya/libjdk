@@ -18,7 +18,7 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _AttrContextEnv_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/AttrContext;)V", nullptr, $PUBLIC, $method(static_cast<void(AttrContextEnv::*)($JCTree*,$AttrContext*)>(&AttrContextEnv::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/AttrContext;)V", nullptr, $PUBLIC, $method(AttrContextEnv, init$, void, $JCTree*, $AttrContext*)},
 	{}
 };
 

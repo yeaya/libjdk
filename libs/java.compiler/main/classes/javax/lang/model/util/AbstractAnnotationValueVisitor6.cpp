@@ -39,10 +39,10 @@ $CompoundAttribute _AbstractAnnotationValueVisitor6_MethodAnnotations_init$0[] =
 };
 
 $MethodInfo _AbstractAnnotationValueVisitor6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(AbstractAnnotationValueVisitor6::*)()>(&AbstractAnnotationValueVisitor6::init$)), nullptr, nullptr, _AbstractAnnotationValueVisitor6_MethodAnnotations_init$0},
-	{"visit", "(Ljavax/lang/model/element/AnnotationValue;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/AnnotationValue;TP;)TR;", $PUBLIC | $FINAL},
-	{"visit", "(Ljavax/lang/model/element/AnnotationValue;)Ljava/lang/Object;", "(Ljavax/lang/model/element/AnnotationValue;)TR;", $PUBLIC | $FINAL},
-	{"visitUnknown", "(Ljavax/lang/model/element/AnnotationValue;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/AnnotationValue;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(AbstractAnnotationValueVisitor6, init$, void), nullptr, nullptr, _AbstractAnnotationValueVisitor6_MethodAnnotations_init$0},
+	{"visit", "(Ljavax/lang/model/element/AnnotationValue;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/AnnotationValue;TP;)TR;", $PUBLIC | $FINAL, $virtualMethod(AbstractAnnotationValueVisitor6, visit, $Object*, $AnnotationValue*, Object$*)},
+	{"visit", "(Ljavax/lang/model/element/AnnotationValue;)Ljava/lang/Object;", "(Ljavax/lang/model/element/AnnotationValue;)TR;", $PUBLIC | $FINAL, $virtualMethod(AbstractAnnotationValueVisitor6, visit, $Object*, $AnnotationValue*)},
+	{"visitUnknown", "(Ljavax/lang/model/element/AnnotationValue;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/AnnotationValue;TP;)TR;", $PUBLIC, $virtualMethod(AbstractAnnotationValueVisitor6, visitUnknown, $Object*, $AnnotationValue*, Object$*)},
 	{}
 };
 

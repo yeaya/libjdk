@@ -176,8 +176,8 @@ $FieldInfo ArgumentAttr$$Lambda$lambda$processArg$0::fieldInfos[5] = {
 	{}
 };
 $MethodInfo ArgumentAttr$$Lambda$lambda$processArg$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(ArgumentAttr$$Lambda$lambda$processArg$0::*)(ArgumentAttr*,$JCTree$JCExpression*,$ArgumentAttr$UniquePos*,$Function*)>(&ArgumentAttr$$Lambda$lambda$processArg$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(ArgumentAttr$$Lambda$lambda$processArg$0, init$, void, ArgumentAttr*, $JCTree$JCExpression*, $ArgumentAttr$UniquePos*, $Function*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$$Lambda$lambda$processArg$0, get, $Object*)},
 	{}
 };
 $ClassInfo ArgumentAttr$$Lambda$lambda$processArg$0::classInfo$ = {
@@ -219,8 +219,8 @@ $FieldInfo ArgumentAttr$$Lambda$lambda$visitParens$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ArgumentAttr$$Lambda$lambda$visitParens$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $method(static_cast<void(ArgumentAttr$$Lambda$lambda$visitParens$1$1::*)(ArgumentAttr*,$JCTree$JCParens*)>(&ArgumentAttr$$Lambda$lambda$visitParens$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $method(ArgumentAttr$$Lambda$lambda$visitParens$1$1, init$, void, ArgumentAttr*, $JCTree$JCParens*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$$Lambda$lambda$visitParens$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ArgumentAttr$$Lambda$lambda$visitParens$1$1::classInfo$ = {
@@ -262,8 +262,8 @@ $FieldInfo ArgumentAttr$$Lambda$lambda$visitConditional$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ArgumentAttr$$Lambda$lambda$visitConditional$2$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $method(static_cast<void(ArgumentAttr$$Lambda$lambda$visitConditional$2$2::*)(ArgumentAttr*,$JCTree$JCConditional*)>(&ArgumentAttr$$Lambda$lambda$visitConditional$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $method(ArgumentAttr$$Lambda$lambda$visitConditional$2$2, init$, void, ArgumentAttr*, $JCTree$JCConditional*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$$Lambda$lambda$visitConditional$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ArgumentAttr$$Lambda$lambda$visitConditional$2$2::classInfo$ = {
@@ -305,8 +305,8 @@ $FieldInfo ArgumentAttr$$Lambda$lambda$visitSwitchExpression$3$3::fieldInfos[3] 
 	{}
 };
 $MethodInfo ArgumentAttr$$Lambda$lambda$visitSwitchExpression$3$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $method(static_cast<void(ArgumentAttr$$Lambda$lambda$visitSwitchExpression$3$3::*)(ArgumentAttr*,$JCTree$JCSwitchExpression*)>(&ArgumentAttr$$Lambda$lambda$visitSwitchExpression$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $method(ArgumentAttr$$Lambda$lambda$visitSwitchExpression$3$3, init$, void, ArgumentAttr*, $JCTree$JCSwitchExpression*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$$Lambda$lambda$visitSwitchExpression$3$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ArgumentAttr$$Lambda$lambda$visitSwitchExpression$3$3::classInfo$ = {
@@ -348,8 +348,8 @@ $FieldInfo ArgumentAttr$$Lambda$lambda$visitLambda$4$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ArgumentAttr$$Lambda$lambda$visitLambda$4$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $method(static_cast<void(ArgumentAttr$$Lambda$lambda$visitLambda$4$4::*)(ArgumentAttr*,$JCTree$JCLambda*)>(&ArgumentAttr$$Lambda$lambda$visitLambda$4$4::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $method(ArgumentAttr$$Lambda$lambda$visitLambda$4$4, init$, void, ArgumentAttr*, $JCTree$JCLambda*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$$Lambda$lambda$visitLambda$4$4, get, $Object*)},
 	{}
 };
 $ClassInfo ArgumentAttr$$Lambda$lambda$visitLambda$4$4::classInfo$ = {
@@ -391,8 +391,8 @@ $FieldInfo ArgumentAttr$$Lambda$lambda$visitApply$5$5::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ArgumentAttr$$Lambda$lambda$visitApply$5$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $method(static_cast<void(ArgumentAttr$$Lambda$lambda$visitApply$5$5::*)(ArgumentAttr*,$JCTree$JCMethodInvocation*)>(&ArgumentAttr$$Lambda$lambda$visitApply$5$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $method(ArgumentAttr$$Lambda$lambda$visitApply$5$5, init$, void, ArgumentAttr*, $JCTree$JCMethodInvocation*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$$Lambda$lambda$visitApply$5$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ArgumentAttr$$Lambda$lambda$visitApply$5$5::classInfo$ = {
@@ -434,8 +434,8 @@ $FieldInfo ArgumentAttr$$Lambda$lambda$visitNewClass$6$6::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ArgumentAttr$$Lambda$lambda$visitNewClass$6$6::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $method(static_cast<void(ArgumentAttr$$Lambda$lambda$visitNewClass$6$6::*)(ArgumentAttr*,$JCTree$JCNewClass*)>(&ArgumentAttr$$Lambda$lambda$visitNewClass$6$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $method(ArgumentAttr$$Lambda$lambda$visitNewClass$6$6, init$, void, ArgumentAttr*, $JCTree$JCNewClass*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$$Lambda$lambda$visitNewClass$6$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ArgumentAttr$$Lambda$lambda$visitNewClass$6$6::classInfo$ = {
@@ -466,30 +466,30 @@ $FieldInfo _ArgumentAttr_FieldInfo_[] = {
 };
 
 $MethodInfo _ArgumentAttr_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(ArgumentAttr::*)($Context*)>(&ArgumentAttr::init$))},
-	{"attribArg", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Type;", 0},
-	{"checkSpeculative", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkSpeculative", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ArgumentAttr*(*)($Context*)>(&ArgumentAttr::instance))},
-	{"lambda$processArg$0", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;Ljava/util/function/Function;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ArgumentAttr$ArgumentType*(ArgumentAttr::*)($JCTree$JCExpression*,$ArgumentAttr$UniquePos*,$Function*)>(&ArgumentAttr::lambda$processArg$0))},
-	{"lambda$visitApply$5", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Lcom/sun/tools/javac/comp/ArgumentAttr$ResolvedMethodType;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ArgumentAttr$ResolvedMethodType*(ArgumentAttr::*)($JCTree$JCMethodInvocation*,$JCTree$JCMethodInvocation*)>(&ArgumentAttr::lambda$visitApply$5))},
-	{"lambda$visitConditional$2", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;Lcom/sun/tools/javac/tree/JCTree$JCConditional;)Lcom/sun/tools/javac/comp/ArgumentAttr$ConditionalType;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ArgumentAttr$ConditionalType*(ArgumentAttr::*)($JCTree$JCConditional*,$JCTree$JCConditional*)>(&ArgumentAttr::lambda$visitConditional$2))},
-	{"lambda$visitLambda$4", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Lcom/sun/tools/javac/comp/ArgumentAttr$ExplicitLambdaType;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ArgumentAttr$ExplicitLambdaType*(ArgumentAttr::*)($JCTree$JCLambda*)>(&ArgumentAttr::lambda$visitLambda$4))},
-	{"lambda$visitNewClass$6", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/comp/ArgumentAttr$ResolvedConstructorType;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ArgumentAttr$ResolvedConstructorType*(ArgumentAttr::*)($JCTree$JCNewClass*,$JCTree$JCNewClass*)>(&ArgumentAttr::lambda$visitNewClass$6))},
-	{"lambda$visitParens$1", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;Lcom/sun/tools/javac/tree/JCTree$JCParens;)Lcom/sun/tools/javac/comp/ArgumentAttr$ParensType;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ArgumentAttr$ParensType*(ArgumentAttr::*)($JCTree$JCParens*,$JCTree$JCParens*)>(&ArgumentAttr::lambda$visitParens$1))},
-	{"lambda$visitSwitchExpression$3", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)Lcom/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ArgumentAttr$SwitchExpressionType*(ArgumentAttr::*)($JCTree$JCSwitchExpression*,$JCTree$JCSwitchExpression*)>(&ArgumentAttr::lambda$visitSwitchExpression$3))},
-	{"processArg", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/util/function/Function;)V", "<T:Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z:Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<TT;>;>(TT;Ljava/util/function/Function<TT;TZ;>;)V", 0},
-	{"processArg", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/util/function/Supplier;)V", "<T:Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z:Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<TT;>;>(TT;Ljava/util/function/Supplier<TZ;>;)V", 0},
-	{"setResult", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC},
-	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC},
-	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"withLocalCacheContext", "()Lcom/sun/tools/javac/comp/ArgumentAttr$LocalCacheContext;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ArgumentAttr, init$, void, $Context*)},
+	{"attribArg", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Type;", 0, $virtualMethod(ArgumentAttr, attribArg, $Type*, $JCTree*, $Env*)},
+	{"checkSpeculative", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr, checkSpeculative, $Type*, $JCTree*, $Attr$ResultInfo*)},
+	{"checkSpeculative", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr, checkSpeculative, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Attr$ResultInfo*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $PUBLIC | $STATIC, $staticMethod(ArgumentAttr, instance, ArgumentAttr*, $Context*)},
+	{"lambda$processArg$0", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;Ljava/util/function/Function;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr, lambda$processArg$0, $ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $ArgumentAttr$UniquePos*, $Function*)},
+	{"lambda$visitApply$5", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Lcom/sun/tools/javac/comp/ArgumentAttr$ResolvedMethodType;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr, lambda$visitApply$5, $ArgumentAttr$ResolvedMethodType*, $JCTree$JCMethodInvocation*, $JCTree$JCMethodInvocation*)},
+	{"lambda$visitConditional$2", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;Lcom/sun/tools/javac/tree/JCTree$JCConditional;)Lcom/sun/tools/javac/comp/ArgumentAttr$ConditionalType;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr, lambda$visitConditional$2, $ArgumentAttr$ConditionalType*, $JCTree$JCConditional*, $JCTree$JCConditional*)},
+	{"lambda$visitLambda$4", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Lcom/sun/tools/javac/comp/ArgumentAttr$ExplicitLambdaType;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr, lambda$visitLambda$4, $ArgumentAttr$ExplicitLambdaType*, $JCTree$JCLambda*)},
+	{"lambda$visitNewClass$6", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/comp/ArgumentAttr$ResolvedConstructorType;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr, lambda$visitNewClass$6, $ArgumentAttr$ResolvedConstructorType*, $JCTree$JCNewClass*, $JCTree$JCNewClass*)},
+	{"lambda$visitParens$1", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;Lcom/sun/tools/javac/tree/JCTree$JCParens;)Lcom/sun/tools/javac/comp/ArgumentAttr$ParensType;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr, lambda$visitParens$1, $ArgumentAttr$ParensType*, $JCTree$JCParens*, $JCTree$JCParens*)},
+	{"lambda$visitSwitchExpression$3", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)Lcom/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr, lambda$visitSwitchExpression$3, $ArgumentAttr$SwitchExpressionType*, $JCTree$JCSwitchExpression*, $JCTree$JCSwitchExpression*)},
+	{"processArg", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/util/function/Function;)V", "<T:Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z:Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<TT;>;>(TT;Ljava/util/function/Function<TT;TZ;>;)V", 0, $virtualMethod(ArgumentAttr, processArg, void, $JCTree$JCExpression*, $Function*)},
+	{"processArg", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/util/function/Supplier;)V", "<T:Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z:Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<TT;>;>(TT;Ljava/util/function/Supplier<TZ;>;)V", 0, $virtualMethod(ArgumentAttr, processArg, void, $JCTree$JCExpression*, $Supplier*)},
+	{"setResult", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(ArgumentAttr, setResult, void, $JCTree$JCExpression*, $Type*)},
+	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr, visitApply, void, $JCTree$JCMethodInvocation*)},
+	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr, visitConditional, void, $JCTree$JCConditional*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr, visitNewClass, void, $JCTree$JCNewClass*)},
+	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr, visitParens, void, $JCTree$JCParens*)},
+	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr, visitReference, void, $JCTree$JCMemberReference*)},
+	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
+	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr, visitTree, void, $JCTree*)},
+	{"withLocalCacheContext", "()Lcom/sun/tools/javac/comp/ArgumentAttr$LocalCacheContext;", nullptr, 0, $virtualMethod(ArgumentAttr, withLocalCacheContext, $ArgumentAttr$LocalCacheContext*)},
 	{}
 };
 

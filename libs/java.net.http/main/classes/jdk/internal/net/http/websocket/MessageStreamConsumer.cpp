@@ -4,8 +4,10 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
+using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 
 namespace jdk {
 	namespace internal {
@@ -14,13 +16,13 @@ namespace jdk {
 				namespace websocket {
 
 $MethodInfo _MessageStreamConsumer_MethodInfo_[] = {
-	{"onBinary", "(Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"onClose", "(ILjava/lang/CharSequence;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"onComplete", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"onPing", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"onPong", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"onText", "(Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"onBinary", "(Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageStreamConsumer, onBinary, void, $ByteBuffer*, bool)},
+	{"onClose", "(ILjava/lang/CharSequence;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageStreamConsumer, onClose, void, int32_t, $CharSequence*)},
+	{"onComplete", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageStreamConsumer, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageStreamConsumer, onError, void, $Throwable*)},
+	{"onPing", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageStreamConsumer, onPing, void, $ByteBuffer*)},
+	{"onPong", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageStreamConsumer, onPong, void, $ByteBuffer*)},
+	{"onText", "(Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageStreamConsumer, onText, void, $CharSequence*, bool)},
 	{}
 };
 

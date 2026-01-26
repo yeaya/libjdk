@@ -25,8 +25,8 @@ $FieldInfo _CachedRowSetImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _CachedRowSetImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/rowset/CachedRowSetImpl;)V", nullptr, 0, $method(static_cast<void(CachedRowSetImpl$1::*)($CachedRowSetImpl*)>(&CachedRowSetImpl$1::init$))},
-	{"run", "()Ljavax/sql/rowset/spi/SyncProvider;", nullptr, $PUBLIC, nullptr, "javax.sql.rowset.spi.SyncFactoryException"},
+	{"<init>", "(Lcom/sun/rowset/CachedRowSetImpl;)V", nullptr, 0, $method(CachedRowSetImpl$1, init$, void, $CachedRowSetImpl*)},
+	{"run", "()Ljavax/sql/rowset/spi/SyncProvider;", nullptr, $PUBLIC, $virtualMethod(CachedRowSetImpl$1, run, $Object*), "javax.sql.rowset.spi.SyncFactoryException"},
 	{}
 };
 

@@ -38,13 +38,13 @@ $FieldInfo _PathFileObject$JarFileObject_FieldInfo_[] = {
 };
 
 $MethodInfo _PathFileObject$JarFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(static_cast<void(PathFileObject$JarFileObject::*)($BaseFileManager*,$Path*,$Path*)>(&PathFileObject$JarFileObject::init$))},
-	{"createJarUri", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URI*(*)($Path*,$String*)>(&PathFileObject$JarFileObject::createJarUri))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0},
-	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(PathFileObject$JarFileObject, init$, void, $BaseFileManager*, $Path*, $Path*)},
+	{"createJarUri", "(Ljava/nio/file/Path;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(PathFileObject$JarFileObject, createJarUri, $URI*, $Path*, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, getName, $String*)},
+	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0, $virtualMethod(PathFileObject$JarFileObject, getSibling, $PathFileObject*, $String*)},
+	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, inferBinaryName, $String*, $Iterable*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, toString, $String*)},
+	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JarFileObject, toUri, $URI*)},
 	{}
 };
 

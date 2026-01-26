@@ -10,6 +10,8 @@
 
 using $Filter$1 = ::com::sun::net::httpserver::Filter$1;
 using $Filter$2 = ::com::sun::net::httpserver::Filter$2;
+using $Filter$Chain = ::com::sun::net::httpserver::Filter$Chain;
+using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -22,11 +24,11 @@ namespace com {
 			namespace httpserver {
 
 $MethodInfo _Filter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Filter::*)()>(&Filter::init$))},
-	{"afterHandler", "(Ljava/lang/String;Ljava/util/function/Consumer;)Lcom/sun/net/httpserver/Filter;", "(Ljava/lang/String;Ljava/util/function/Consumer<Lcom/sun/net/httpserver/HttpExchange;>;)Lcom/sun/net/httpserver/Filter;", $PUBLIC | $STATIC, $method(static_cast<Filter*(*)($String*,$Consumer*)>(&Filter::afterHandler))},
-	{"beforeHandler", "(Ljava/lang/String;Ljava/util/function/Consumer;)Lcom/sun/net/httpserver/Filter;", "(Ljava/lang/String;Ljava/util/function/Consumer<Lcom/sun/net/httpserver/HttpExchange;>;)Lcom/sun/net/httpserver/Filter;", $PUBLIC | $STATIC, $method(static_cast<Filter*(*)($String*,$Consumer*)>(&Filter::beforeHandler))},
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Filter, init$, void)},
+	{"afterHandler", "(Ljava/lang/String;Ljava/util/function/Consumer;)Lcom/sun/net/httpserver/Filter;", "(Ljava/lang/String;Ljava/util/function/Consumer<Lcom/sun/net/httpserver/HttpExchange;>;)Lcom/sun/net/httpserver/Filter;", $PUBLIC | $STATIC, $staticMethod(Filter, afterHandler, Filter*, $String*, $Consumer*)},
+	{"beforeHandler", "(Ljava/lang/String;Ljava/util/function/Consumer;)Lcom/sun/net/httpserver/Filter;", "(Ljava/lang/String;Ljava/util/function/Consumer<Lcom/sun/net/httpserver/HttpExchange;>;)Lcom/sun/net/httpserver/Filter;", $PUBLIC | $STATIC, $staticMethod(Filter, beforeHandler, Filter*, $String*, $Consumer*)},
+	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Filter, description, $String*)},
+	{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Filter, doFilter, void, $HttpExchange*, $Filter$Chain*), "java.io.IOException"},
 	{}
 };
 

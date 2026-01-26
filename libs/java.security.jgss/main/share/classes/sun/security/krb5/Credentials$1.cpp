@@ -15,8 +15,8 @@ namespace sun {
 		namespace krb5 {
 
 $MethodInfo _Credentials$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Credentials$1::*)()>(&Credentials$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Credentials$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Credentials$1, run, $Object*)},
 	{}
 };
 

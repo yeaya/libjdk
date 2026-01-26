@@ -73,16 +73,16 @@ $FieldInfo _MBeanServerNotificationFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerNotificationFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerNotificationFilter::*)()>(&MBeanServerNotificationFilter::init$))},
-	{"disableAllObjectNames", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"disableObjectName", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.IllegalArgumentException"},
-	{"enableAllObjectNames", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"enableObjectName", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.IllegalArgumentException"},
-	{"getDisabledObjectNames", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljavax/management/ObjectName;>;", $PUBLIC | $SYNCHRONIZED},
-	{"getEnabledObjectNames", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljavax/management/ObjectName;>;", $PUBLIC | $SYNCHRONIZED},
-	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.IllegalArgumentException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanServerNotificationFilter::*)($ObjectInputStream*)>(&MBeanServerNotificationFilter::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanServerNotificationFilter::*)($ObjectOutputStream*)>(&MBeanServerNotificationFilter::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MBeanServerNotificationFilter, init$, void)},
+	{"disableAllObjectNames", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, disableAllObjectNames, void)},
+	{"disableObjectName", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, disableObjectName, void, $ObjectName*), "java.lang.IllegalArgumentException"},
+	{"enableAllObjectNames", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, enableAllObjectNames, void)},
+	{"enableObjectName", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, enableObjectName, void, $ObjectName*), "java.lang.IllegalArgumentException"},
+	{"getDisabledObjectNames", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljavax/management/ObjectName;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, getDisabledObjectNames, $Vector*)},
+	{"getEnabledObjectNames", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljavax/management/ObjectName;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, getEnabledObjectNames, $Vector*)},
+	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerNotificationFilter, isNotificationEnabled, bool, $Notification*), "java.lang.IllegalArgumentException"},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanServerNotificationFilter, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(MBeanServerNotificationFilter, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

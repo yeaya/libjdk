@@ -8,17 +8,20 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Name = ::javax::naming::Name;
+using $SearchControls = ::javax::naming::directory::SearchControls;
 using $EventContext = ::javax::naming::event::EventContext;
+using $NamingListener = ::javax::naming::event::NamingListener;
 
 namespace javax {
 	namespace naming {
 		namespace event {
 
 $MethodInfo _EventDirContext_MethodInfo_[] = {
-	{"addNamingListener", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"addNamingListener", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventDirContext, addNamingListener, void, $Name*, $String*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
+	{"addNamingListener", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventDirContext, addNamingListener, void, $String*, $String*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
+	{"addNamingListener", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventDirContext, addNamingListener, void, $Name*, $String*, $ObjectArray*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
+	{"addNamingListener", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EventDirContext, addNamingListener, void, $String*, $String*, $ObjectArray*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
 	{"*lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},

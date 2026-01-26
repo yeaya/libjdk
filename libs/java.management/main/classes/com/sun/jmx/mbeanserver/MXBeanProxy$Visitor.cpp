@@ -32,11 +32,11 @@ $FieldInfo _MXBeanProxy$Visitor_FieldInfo_[] = {
 };
 
 $MethodInfo _MXBeanProxy$Visitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/MXBeanProxy;)V", nullptr, $PRIVATE, $method(static_cast<void(MXBeanProxy$Visitor::*)($MXBeanProxy*)>(&MXBeanProxy$Visitor::init$))},
-	{"visitAttribute", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, $PUBLIC},
-	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitOperation", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, $PUBLIC},
-	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/jmx/mbeanserver/MXBeanProxy;)V", nullptr, $PRIVATE, $method(MXBeanProxy$Visitor, init$, void, $MXBeanProxy*)},
+	{"visitAttribute", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, $PUBLIC, $virtualMethod(MXBeanProxy$Visitor, visitAttribute, void, $String*, $ConvertingMethod*, $ConvertingMethod*)},
+	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanProxy$Visitor, visitAttribute, void, $String*, Object$*, Object$*)},
+	{"visitOperation", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, $PUBLIC, $virtualMethod(MXBeanProxy$Visitor, visitOperation, void, $String*, $ConvertingMethod*)},
+	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanProxy$Visitor, visitOperation, void, $String*, Object$*)},
 	{}
 };
 

@@ -31,10 +31,10 @@ $FieldInfo _Flow$SnippetAliveAnalyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$SnippetAliveAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(static_cast<void(Flow$SnippetAliveAnalyzer::*)($Flow*)>(&Flow$SnippetAliveAnalyzer::init$))},
-	{"isAlive", "()Z", nullptr, $PUBLIC},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$SnippetAliveAnalyzer, init$, void, $Flow*)},
+	{"isAlive", "()Z", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetAliveAnalyzer, isAlive, bool)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetAliveAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$SnippetAliveAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
 	{}
 };
 

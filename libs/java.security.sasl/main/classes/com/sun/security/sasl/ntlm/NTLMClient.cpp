@@ -69,15 +69,15 @@ $FieldInfo _NTLMClient_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)V", 0, $method(static_cast<void(NTLMClient::*)($String*,$String*,$String*,$String*,$Map*,$CallbackHandler*)>(&NTLMClient::init$)), "javax.security.sasl.SaslException"},
-	{"dispose", "()V", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"hasInitialResponse", "()Z", nullptr, $PUBLIC},
-	{"isComplete", "()Z", nullptr, $PUBLIC},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)V", 0, $method(NTLMClient, init$, void, $String*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(NTLMClient, dispose, void), "javax.security.sasl.SaslException"},
+	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(NTLMClient, evaluateChallenge, $bytes*, $bytes*), "javax.security.sasl.SaslException"},
+	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NTLMClient, getMechanismName, $String*)},
+	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NTLMClient, getNegotiatedProperty, $Object*, $String*)},
+	{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMClient, hasInitialResponse, bool)},
+	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(NTLMClient, isComplete, bool)},
+	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(NTLMClient, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(NTLMClient, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
 	{}
 };
 

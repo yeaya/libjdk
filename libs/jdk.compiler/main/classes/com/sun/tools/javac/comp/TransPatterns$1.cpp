@@ -36,14 +36,14 @@ $FieldInfo _TransPatterns$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TransPatterns$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;)V", nullptr, 0, $method(static_cast<void(TransPatterns$1::*)($TransPatterns*)>(&TransPatterns$1::init$))},
-	{"bindingDeclared", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0},
-	{"bindingVars", "(I)Lcom/sun/tools/javac/util/List;", "(I)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0},
-	{"decorateExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0},
-	{"decorateStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, 0},
-	{"getBindingFor", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0},
-	{"pop", "()Lcom/sun/tools/javac/comp/TransPatterns$BindingContext;", nullptr, 0},
-	{"tryPrepend", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;)V", nullptr, 0, $method(TransPatterns$1, init$, void, $TransPatterns*)},
+	{"bindingDeclared", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$1, bindingDeclared, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
+	{"bindingVars", "(I)Lcom/sun/tools/javac/util/List;", "(I)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0, $virtualMethod(TransPatterns$1, bindingVars, $List*, int32_t)},
+	{"decorateExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(TransPatterns$1, decorateExpression, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+	{"decorateStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, 0, $virtualMethod(TransPatterns$1, decorateStatement, $JCTree$JCStatement*, $JCTree$JCStatement*)},
+	{"getBindingFor", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$1, getBindingFor, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
+	{"pop", "()Lcom/sun/tools/javac/comp/TransPatterns$BindingContext;", nullptr, 0, $virtualMethod(TransPatterns$1, pop, $TransPatterns$BindingContext*)},
+	{"tryPrepend", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0, $virtualMethod(TransPatterns$1, tryPrepend, bool, $Symbol$BindingSymbol*, $JCTree$JCVariableDecl*)},
 	{}
 };
 

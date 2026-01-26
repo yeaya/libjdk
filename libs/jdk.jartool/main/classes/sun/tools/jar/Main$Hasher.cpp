@@ -85,8 +85,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$Hasher$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$Hasher$$Lambda$lambda$new$0::*)()>(&Main$Hasher$$Lambda$lambda$new$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$Hasher$$Lambda$lambda$new$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$Hasher$$Lambda$lambda$new$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$Hasher$$Lambda$lambda$new$0::classInfo$ = {
@@ -125,8 +125,8 @@ $FieldInfo Main$Hasher$$Lambda$lambda$new$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$Hasher$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main$Hasher;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$Hasher$$Lambda$lambda$new$1$1::*)(Main$Hasher*)>(&Main$Hasher$$Lambda$lambda$new$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Main$Hasher;)V", nullptr, $PUBLIC, $method(Main$Hasher$$Lambda$lambda$new$1$1, init$, void, Main$Hasher*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$Hasher$$Lambda$lambda$new$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$Hasher$$Lambda$lambda$new$1$1::classInfo$ = {
@@ -158,8 +158,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$Hasher$$Lambda$name$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$Hasher$$Lambda$name$2::*)()>(&Main$Hasher$$Lambda$name$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$Hasher$$Lambda$name$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$Hasher$$Lambda$name$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$Hasher$$Lambda$name$2::classInfo$ = {
@@ -201,8 +201,8 @@ $FieldInfo Main$Hasher$$Lambda$lambda$new$2$3::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Main$Hasher$$Lambda$lambda$new$2$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;Ljava/lang/module/ModuleFinder;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$Hasher$$Lambda$lambda$new$2$3::*)($Set*,$ModuleFinder*)>(&Main$Hasher$$Lambda$lambda$new$2$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/lang/module/ModuleFinder;)V", nullptr, $PUBLIC, $method(Main$Hasher$$Lambda$lambda$new$2$3, init$, void, $Set*, $ModuleFinder*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$Hasher$$Lambda$lambda$new$2$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$Hasher$$Lambda$lambda$new$2$3::classInfo$ = {
@@ -228,11 +228,11 @@ $FieldInfo _Main$Hasher_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$Hasher_MethodInfo_[] = {
-	{"<init>", "(Lsun/tools/jar/Main;Ljava/lang/module/ModuleDescriptor;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Main$Hasher::*)($Main*,$ModuleDescriptor*,$String*)>(&Main$Hasher::init$)), "java.io.IOException"},
-	{"computeHashes", "(Ljava/lang/String;)Ljdk/internal/module/ModuleHashes;", nullptr, 0},
-	{"lambda$new$0", "(Ljava/lang/module/ModuleReference;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($ModuleReference*)>(&Main$Hasher::lambda$new$0))},
-	{"lambda$new$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Main$Hasher::*)($String*)>(&Main$Hasher::lambda$new$1))},
-	{"lambda$new$2", "(Ljava/util/Set;Ljava/lang/module/ModuleFinder;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Set*,$ModuleFinder*,$String*)>(&Main$Hasher::lambda$new$2))},
+	{"<init>", "(Lsun/tools/jar/Main;Ljava/lang/module/ModuleDescriptor;Ljava/lang/String;)V", nullptr, 0, $method(Main$Hasher, init$, void, $Main*, $ModuleDescriptor*, $String*), "java.io.IOException"},
+	{"computeHashes", "(Ljava/lang/String;)Ljdk/internal/module/ModuleHashes;", nullptr, 0, $virtualMethod(Main$Hasher, computeHashes, $ModuleHashes*, $String*)},
+	{"lambda$new$0", "(Ljava/lang/module/ModuleReference;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Hasher, lambda$new$0, $String*, $ModuleReference*)},
+	{"lambda$new$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Main$Hasher, lambda$new$1, bool, $String*)},
+	{"lambda$new$2", "(Ljava/util/Set;Ljava/lang/module/ModuleFinder;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Hasher, lambda$new$2, bool, $Set*, $ModuleFinder*, $String*)},
 	{}
 };
 

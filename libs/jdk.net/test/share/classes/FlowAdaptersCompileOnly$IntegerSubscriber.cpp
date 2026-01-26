@@ -15,13 +15,13 @@ using $List = ::java::util::List;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 
 $MethodInfo _FlowAdaptersCompileOnly$IntegerSubscriber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FlowAdaptersCompileOnly$IntegerSubscriber::*)()>(&FlowAdaptersCompileOnly$IntegerSubscriber::init$))},
-	{"getInteger", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FlowAdaptersCompileOnly$IntegerSubscriber, init$, void)},
+	{"getInteger", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IntegerSubscriber, getInteger, $Integer*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IntegerSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IntegerSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IntegerSubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FlowAdaptersCompileOnly$IntegerSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IntegerSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

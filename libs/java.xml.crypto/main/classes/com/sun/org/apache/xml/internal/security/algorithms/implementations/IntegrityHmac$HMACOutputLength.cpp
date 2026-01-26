@@ -36,7 +36,7 @@ $FieldInfo _IntegrityHmac$HMACOutputLength_FieldInfo_[] = {
 };
 
 $MethodInfo _IntegrityHmac$HMACOutputLength_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(IntegrityHmac$HMACOutputLength::*)(int32_t)>(&IntegrityHmac$HMACOutputLength::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntegrityHmac$HMACOutputLength, init$, void, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
 	{}
 };
 

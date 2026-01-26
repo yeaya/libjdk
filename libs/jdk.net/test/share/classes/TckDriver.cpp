@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TckDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TckDriver::*)()>(&TckDriver::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TckDriver, init$, void)},
 	{}
 };
 

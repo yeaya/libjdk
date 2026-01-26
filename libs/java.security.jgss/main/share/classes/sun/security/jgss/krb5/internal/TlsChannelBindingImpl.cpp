@@ -14,7 +14,7 @@ namespace sun {
 				namespace internal {
 
 $MethodInfo _TlsChannelBindingImpl_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(TlsChannelBindingImpl::*)($bytes*)>(&TlsChannelBindingImpl::init$))},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(TlsChannelBindingImpl, init$, void, $bytes*)},
 	{}
 };
 

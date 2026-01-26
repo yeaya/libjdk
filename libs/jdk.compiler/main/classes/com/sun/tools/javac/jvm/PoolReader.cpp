@@ -77,8 +77,8 @@ $FieldInfo PoolReader$$Lambda$sigToType::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PoolReader$$Lambda$sigToType::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;)V", nullptr, $PUBLIC, $method(static_cast<void(PoolReader$$Lambda$sigToType::*)($ClassReader*)>(&PoolReader$$Lambda$sigToType::init$))},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;)V", nullptr, $PUBLIC, $method(PoolReader$$Lambda$sigToType, init$, void, $ClassReader*)},
+	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolReader$$Lambda$sigToType, map, $Object*, $bytes*, int32_t, int32_t)},
 	{}
 };
 $ClassInfo PoolReader$$Lambda$sigToType::classInfo$ = {
@@ -110,8 +110,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PoolReader$$Lambda$internalize$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PoolReader$$Lambda$internalize$1::*)()>(&PoolReader$$Lambda$internalize$1::init$))},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PoolReader$$Lambda$internalize$1, init$, void)},
+	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolReader$$Lambda$internalize$1, map, $Object*, $bytes*, int32_t, int32_t)},
 	{}
 };
 $ClassInfo PoolReader$$Lambda$internalize$1::classInfo$ = {
@@ -144,25 +144,25 @@ $FieldInfo _PoolReader_FieldInfo_[] = {
 };
 
 $MethodInfo _PoolReader_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(PoolReader::*)($ByteBuffer*)>(&PoolReader::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Names;Lcom/sun/tools/javac/code/Symtab;)V", nullptr, 0, $method(static_cast<void(PoolReader::*)($ClassReader*,$Names*,$Symtab*)>(&PoolReader::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/ByteBuffer;Lcom/sun/tools/javac/util/Names;Lcom/sun/tools/javac/code/Symtab;)V", nullptr, 0, $method(static_cast<void(PoolReader::*)($ClassReader*,$ByteBuffer*,$Names*,$Symtab*)>(&PoolReader::init$))},
-	{"getClass", "(I)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, 0},
-	{"getConstant", "(I)Ljava/lang/Object;", nullptr, 0},
-	{"getModule", "(I)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, 0},
-	{"getName", "(I)Lcom/sun/tools/javac/util/Name;", nullptr, 0},
-	{"getNameAndType", "(I)Lcom/sun/tools/javac/jvm/PoolConstant$NameAndType;", nullptr, 0},
-	{"getPackage", "(I)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, 0},
-	{"getType", "(I)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"getUtf8", "(ILcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILcom/sun/tools/javac/util/Name$NameMapper<TZ;>;)TZ;", $PRIVATE, $method(static_cast<$Object*(PoolReader::*)(int32_t,$Name$NameMapper*)>(&PoolReader::getUtf8))},
-	{"hasTag", "(II)Z", nullptr, 0},
-	{"peekClassName", "(ILcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILcom/sun/tools/javac/util/Name$NameMapper<TZ;>;)TZ;", 0},
-	{"peekModuleName", "(ILcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILcom/sun/tools/javac/util/Name$NameMapper<TZ;>;)TZ;", 0},
-	{"peekName", "(ILcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILcom/sun/tools/javac/util/Name$NameMapper<TZ;>;)TZ;", 0},
-	{"peekPackageName", "(ILcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILcom/sun/tools/javac/util/Name$NameMapper<TZ;>;)TZ;", 0},
-	{"readPool", "(Lcom/sun/tools/javac/util/ByteBuffer;I)I", nullptr, 0},
-	{"resolve", "(Lcom/sun/tools/javac/util/ByteBuffer;II)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(PoolReader::*)($ByteBuffer*,int32_t,int32_t)>(&PoolReader::resolve))},
-	{"sizeof", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(PoolReader::*)(int32_t)>(&PoolReader::sizeof$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/ByteBuffer;)V", nullptr, 0, $method(PoolReader, init$, void, $ByteBuffer*)},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Names;Lcom/sun/tools/javac/code/Symtab;)V", nullptr, 0, $method(PoolReader, init$, void, $ClassReader*, $Names*, $Symtab*)},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/ByteBuffer;Lcom/sun/tools/javac/util/Names;Lcom/sun/tools/javac/code/Symtab;)V", nullptr, 0, $method(PoolReader, init$, void, $ClassReader*, $ByteBuffer*, $Names*, $Symtab*)},
+	{"getClass", "(I)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, 0, $virtualMethod(PoolReader, getClass, $Symbol$ClassSymbol*, int32_t)},
+	{"getConstant", "(I)Ljava/lang/Object;", nullptr, 0, $virtualMethod(PoolReader, getConstant, $Object*, int32_t)},
+	{"getModule", "(I)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, 0, $virtualMethod(PoolReader, getModule, $Symbol$ModuleSymbol*, int32_t)},
+	{"getName", "(I)Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(PoolReader, getName, $Name*, int32_t)},
+	{"getNameAndType", "(I)Lcom/sun/tools/javac/jvm/PoolConstant$NameAndType;", nullptr, 0, $virtualMethod(PoolReader, getNameAndType, $PoolConstant$NameAndType*, int32_t)},
+	{"getPackage", "(I)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, 0, $virtualMethod(PoolReader, getPackage, $Symbol$PackageSymbol*, int32_t)},
+	{"getType", "(I)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(PoolReader, getType, $Type*, int32_t)},
+	{"getUtf8", "(ILcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILcom/sun/tools/javac/util/Name$NameMapper<TZ;>;)TZ;", $PRIVATE, $method(PoolReader, getUtf8, $Object*, int32_t, $Name$NameMapper*)},
+	{"hasTag", "(II)Z", nullptr, 0, $virtualMethod(PoolReader, hasTag, bool, int32_t, int32_t)},
+	{"peekClassName", "(ILcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILcom/sun/tools/javac/util/Name$NameMapper<TZ;>;)TZ;", 0, $virtualMethod(PoolReader, peekClassName, $Object*, int32_t, $Name$NameMapper*)},
+	{"peekModuleName", "(ILcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILcom/sun/tools/javac/util/Name$NameMapper<TZ;>;)TZ;", 0, $virtualMethod(PoolReader, peekModuleName, $Object*, int32_t, $Name$NameMapper*)},
+	{"peekName", "(ILcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILcom/sun/tools/javac/util/Name$NameMapper<TZ;>;)TZ;", 0, $virtualMethod(PoolReader, peekName, $Object*, int32_t, $Name$NameMapper*)},
+	{"peekPackageName", "(ILcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILcom/sun/tools/javac/util/Name$NameMapper<TZ;>;)TZ;", 0, $virtualMethod(PoolReader, peekPackageName, $Object*, int32_t, $Name$NameMapper*)},
+	{"readPool", "(Lcom/sun/tools/javac/util/ByteBuffer;I)I", nullptr, 0, $virtualMethod(PoolReader, readPool, int32_t, $ByteBuffer*, int32_t)},
+	{"resolve", "(Lcom/sun/tools/javac/util/ByteBuffer;II)Ljava/lang/Object;", nullptr, $PRIVATE, $method(PoolReader, resolve, $Object*, $ByteBuffer*, int32_t, int32_t)},
+	{"sizeof", "(I)I", nullptr, $PRIVATE, $method(PoolReader, sizeof$, int32_t, int32_t)},
 	{}
 };
 

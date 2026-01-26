@@ -86,13 +86,13 @@ $FieldInfo _RawDiagnosticFormatter_FieldInfo_[] = {
 };
 
 $MethodInfo _RawDiagnosticFormatter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PUBLIC, $method(static_cast<void(RawDiagnosticFormatter::*)($Options*)>(&RawDiagnosticFormatter::init$))},
-	{"formatArgument", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"formatDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"formatMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(RawDiagnosticFormatter::*)($JCDiagnostic*,$Locale*)>(&RawDiagnosticFormatter::formatMessage))},
-	{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"isRaw", "()Z", nullptr, $PUBLIC},
-	{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT},
+	{"<init>", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PUBLIC, $method(RawDiagnosticFormatter, init$, void, $Options*)},
+	{"formatArgument", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RawDiagnosticFormatter, formatArgument, $String*, $JCDiagnostic*, Object$*, $Locale*)},
+	{"formatDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RawDiagnosticFormatter, formatDiagnostic, $String*, $JCDiagnostic*, $Locale*)},
+	{"formatMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(RawDiagnosticFormatter, formatMessage, $String*, $JCDiagnostic*, $Locale*)},
+	{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RawDiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
+	{"isRaw", "()Z", nullptr, $PUBLIC, $virtualMethod(RawDiagnosticFormatter, isRaw, bool)},
+	{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(RawDiagnosticFormatter, localize, $String*, $Locale*, $String*, $ObjectArray*)},
 	{}
 };
 

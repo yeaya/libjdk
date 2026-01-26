@@ -102,11 +102,11 @@ $FieldInfo _DocTree$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _DocTree$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DocTree$KindArray*(*)()>(&DocTree$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DocTree$Kind::*)($String*,int32_t)>(&DocTree$Kind::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(DocTree$Kind::*)($String*,int32_t,$String*)>(&DocTree$Kind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DocTree$Kind*(*)($String*)>(&DocTree$Kind::valueOf))},
-	{"values", "()[Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DocTree$KindArray*(*)()>(&DocTree$Kind::values))},
+	{"$values", "()[Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocTree$Kind, $values, $DocTree$KindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocTree$Kind, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(DocTree$Kind, init$, void, $String*, int32_t, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTree$Kind, valueOf, DocTree$Kind*, $String*)},
+	{"values", "()[Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTree$Kind, values, $DocTree$KindArray*)},
 	{}
 };
 

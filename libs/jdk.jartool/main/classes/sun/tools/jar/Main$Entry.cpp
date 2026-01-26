@@ -22,9 +22,9 @@ $FieldInfo _Main$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(Main$Entry::*)($File*,$String*,bool)>(&Main$Entry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/File;Ljava/lang/String;Z)V", nullptr, 0, $method(Main$Entry, init$, void, $File*, $String*, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$Entry, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Main$Entry, hashCode, int32_t)},
 	{}
 };
 

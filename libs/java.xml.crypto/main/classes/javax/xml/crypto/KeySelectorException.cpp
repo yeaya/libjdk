@@ -21,14 +21,14 @@ $FieldInfo _KeySelectorException_FieldInfo_[] = {
 };
 
 $MethodInfo _KeySelectorException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeySelectorException::*)()>(&KeySelectorException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KeySelectorException::*)($String*)>(&KeySelectorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(KeySelectorException::*)($String*,$Throwable*)>(&KeySelectorException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(KeySelectorException::*)($Throwable*)>(&KeySelectorException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"printStackTrace", "()V", nullptr, $PUBLIC},
-	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC},
-	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeySelectorException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeySelectorException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeySelectorException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeySelectorException, init$, void, $Throwable*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(KeySelectorException, getCause, $Throwable*)},
+	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(KeySelectorException, printStackTrace, void)},
+	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(KeySelectorException, printStackTrace, void, $PrintStream*)},
+	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(KeySelectorException, printStackTrace, void, $PrintWriter*)},
 	{}
 };
 

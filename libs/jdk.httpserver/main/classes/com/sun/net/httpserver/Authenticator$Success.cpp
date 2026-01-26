@@ -23,8 +23,8 @@ $FieldInfo _Authenticator$Success_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator$Success_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/net/httpserver/HttpPrincipal;)V", nullptr, $PUBLIC, $method(static_cast<void(Authenticator$Success::*)($HttpPrincipal*)>(&Authenticator$Success::init$))},
-	{"getPrincipal", "()Lcom/sun/net/httpserver/HttpPrincipal;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/net/httpserver/HttpPrincipal;)V", nullptr, $PUBLIC, $method(Authenticator$Success, init$, void, $HttpPrincipal*)},
+	{"getPrincipal", "()Lcom/sun/net/httpserver/HttpPrincipal;", nullptr, $PUBLIC, $virtualMethod(Authenticator$Success, getPrincipal, $HttpPrincipal*)},
 	{}
 };
 

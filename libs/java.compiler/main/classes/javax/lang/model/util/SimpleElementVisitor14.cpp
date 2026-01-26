@@ -30,9 +30,9 @@ $CompoundAttribute _SimpleElementVisitor14_Annotations_[] = {
 };
 
 $MethodInfo _SimpleElementVisitor14_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SimpleElementVisitor14::*)()>(&SimpleElementVisitor14::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(SimpleElementVisitor14::*)(Object$*)>(&SimpleElementVisitor14::init$))},
-	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/RecordComponentElement;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SimpleElementVisitor14, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(SimpleElementVisitor14, init$, void, Object$*)},
+	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/RecordComponentElement;TP;)TR;", $PUBLIC, $virtualMethod(SimpleElementVisitor14, visitRecordComponent, $Object*, $RecordComponentElement*, Object$*)},
 	{}
 };
 

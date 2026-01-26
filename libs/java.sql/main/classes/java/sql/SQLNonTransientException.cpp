@@ -17,14 +17,14 @@ $FieldInfo _SQLNonTransientException_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLNonTransientException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SQLNonTransientException::*)()>(&SQLNonTransientException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLNonTransientException::*)($String*)>(&SQLNonTransientException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLNonTransientException::*)($String*,$String*)>(&SQLNonTransientException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(SQLNonTransientException::*)($String*,$String*,int32_t)>(&SQLNonTransientException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLNonTransientException::*)($Throwable*)>(&SQLNonTransientException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLNonTransientException::*)($String*,$Throwable*)>(&SQLNonTransientException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLNonTransientException::*)($String*,$String*,$Throwable*)>(&SQLNonTransientException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLNonTransientException::*)($String*,$String*,int32_t,$Throwable*)>(&SQLNonTransientException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLNonTransientException, init$, void, $String*, $String*, int32_t, $Throwable*)},
 	{}
 };
 

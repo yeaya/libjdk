@@ -5,18 +5,20 @@
 #include <sun/tools/jar/Main.h>
 #include <jcpp.h>
 
+using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Optional = ::java::util::Optional;
 
 namespace sun {
 	namespace tools {
 		namespace jar {
 
 $MethodInfo _Main$ModuleInfoEntry_MethodInfo_[] = {
-	{"bytes", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"uriString", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
+	{"bytes", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Main$ModuleInfoEntry, bytes, $InputStream*), "java.io.IOException"},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Main$ModuleInfoEntry, name, $String*)},
+	{"uriString", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Main$ModuleInfoEntry, uriString, $Optional*)},
 	{}
 };
 

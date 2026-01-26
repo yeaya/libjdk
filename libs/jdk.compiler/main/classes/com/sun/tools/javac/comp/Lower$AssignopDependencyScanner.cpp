@@ -39,10 +39,10 @@ $FieldInfo _Lower$AssignopDependencyScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _Lower$AssignopDependencyScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, 0, $method(static_cast<void(Lower$AssignopDependencyScanner::*)($Lower*,$JCTree$JCAssignOp*)>(&Lower$AssignopDependencyScanner::init$))},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, 0, $method(Lower$AssignopDependencyScanner, init$, void, $Lower*, $JCTree$JCAssignOp*)},
+	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Lower$AssignopDependencyScanner, scan, void, $JCTree*)},
+	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Lower$AssignopDependencyScanner, visitAssignop, void, $JCTree$JCAssignOp*)},
+	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Lower$AssignopDependencyScanner, visitUnary, void, $JCTree$JCUnary*)},
 	{}
 };
 

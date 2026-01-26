@@ -35,13 +35,13 @@ $FieldInfo _SymbMap_FieldInfo_[] = {
 };
 
 $MethodInfo _SymbMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SymbMap::*)()>(&SymbMap::init$))},
-	{"clone", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/SymbMap;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"entrySet", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry;>;", 0},
-	{"get", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry;", nullptr, 0},
-	{"index", "(Ljava/lang/Object;)I", nullptr, $PROTECTED},
-	{"put", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry;)V", nullptr, 0},
-	{"rehash", "(I)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(SymbMap, init$, void)},
+	{"clone", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/SymbMap;", nullptr, $PUBLIC, $virtualMethod(SymbMap, clone, SymbMap*), "java.lang.CloneNotSupportedException"},
+	{"entrySet", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry;>;", 0, $virtualMethod(SymbMap, entrySet, $List*)},
+	{"get", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry;", nullptr, 0, $virtualMethod(SymbMap, get, $NameSpaceSymbEntry*, $String*)},
+	{"index", "(Ljava/lang/Object;)I", nullptr, $PROTECTED, $virtualMethod(SymbMap, index, int32_t, Object$*)},
+	{"put", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry;)V", nullptr, 0, $virtualMethod(SymbMap, put, void, $String*, $NameSpaceSymbEntry*)},
+	{"rehash", "(I)V", nullptr, $PROTECTED, $virtualMethod(SymbMap, rehash, void, int32_t)},
 	{}
 };
 

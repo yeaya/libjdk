@@ -23,9 +23,9 @@ $FieldInfo _UnknownTypeException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownTypeException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(UnknownTypeException::*)($TypeMirror*,Object$*)>(&UnknownTypeException::init$))},
-	{"getArgument", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getUnknownType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UnknownTypeException, init$, void, $TypeMirror*, Object$*)},
+	{"getArgument", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnknownTypeException, getArgument, $Object*)},
+	{"getUnknownType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC, $virtualMethod(UnknownTypeException, getUnknownType, $TypeMirror*)},
 	{}
 };
 

@@ -41,12 +41,12 @@ $FieldInfo _IndexNameValueWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _IndexNameValueWriter_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PROTECTED, $method(static_cast<void(IndexNameValueWriter::*)(int32_t,int32_t)>(&IndexNameValueWriter::init$))},
-	{"index", "(I)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0},
-	{"name", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0},
-	{"reset", "()Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, $PUBLIC},
-	{"value", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0},
-	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PROTECTED, $method(IndexNameValueWriter, init$, void, int32_t, int32_t)},
+	{"index", "(I)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0, $virtualMethod(IndexNameValueWriter, index, IndexNameValueWriter*, int32_t)},
+	{"name", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0, $virtualMethod(IndexNameValueWriter, name, IndexNameValueWriter*, $CharSequence*, bool)},
+	{"reset", "()Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, $PUBLIC, $virtualMethod(IndexNameValueWriter, reset, IndexNameValueWriter*)},
+	{"value", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, 0, $virtualMethod(IndexNameValueWriter, value, IndexNameValueWriter*, $CharSequence*, bool)},
+	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(IndexNameValueWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
 	{}
 };
 

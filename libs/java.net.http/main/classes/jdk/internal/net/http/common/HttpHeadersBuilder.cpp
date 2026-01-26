@@ -66,8 +66,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpHeadersBuilder$$Lambda$lambda$addHeader$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpHeadersBuilder$$Lambda$lambda$addHeader$0::*)()>(&HttpHeadersBuilder$$Lambda$lambda$addHeader$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpHeadersBuilder$$Lambda$lambda$addHeader$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpHeadersBuilder$$Lambda$lambda$addHeader$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo HttpHeadersBuilder$$Lambda$lambda$addHeader$0::classInfo$ = {
@@ -90,15 +90,15 @@ $FieldInfo _HttpHeadersBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpHeadersBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpHeadersBuilder::*)()>(&HttpHeadersBuilder::init$))},
-	{"addHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"build", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"lambda$addHeader$0", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($String*)>(&HttpHeadersBuilder::lambda$addHeader$0))},
-	{"map", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC},
-	{"setHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"structuralCopy", "()Ljdk/internal/net/http/common/HttpHeadersBuilder;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpHeadersBuilder, init$, void)},
+	{"addHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpHeadersBuilder, addHeader, void, $String*, $String*)},
+	{"build", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HttpHeadersBuilder, build, $HttpHeaders*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(HttpHeadersBuilder, clear, void)},
+	{"lambda$addHeader$0", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpHeadersBuilder, lambda$addHeader$0, $List*, $String*)},
+	{"map", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(HttpHeadersBuilder, map, $Map*)},
+	{"setHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpHeadersBuilder, setHeader, void, $String*, $String*)},
+	{"structuralCopy", "()Ljdk/internal/net/http/common/HttpHeadersBuilder;", nullptr, $PUBLIC, $virtualMethod(HttpHeadersBuilder, structuralCopy, HttpHeadersBuilder*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpHeadersBuilder, toString, $String*)},
 	{}
 };
 

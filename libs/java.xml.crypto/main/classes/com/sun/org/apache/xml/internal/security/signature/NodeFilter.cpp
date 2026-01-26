@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -16,8 +17,8 @@ namespace com {
 							namespace signature {
 
 $MethodInfo _NodeFilter_MethodInfo_[] = {
-	{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeFilter, isNodeInclude, int32_t, $Node*)},
+	{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeFilter, isNodeIncludeDO, int32_t, $Node*, int32_t)},
 	{}
 };
 

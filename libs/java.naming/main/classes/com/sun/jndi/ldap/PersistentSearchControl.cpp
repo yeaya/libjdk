@@ -41,9 +41,9 @@ $FieldInfo _PersistentSearchControl_FieldInfo_[] = {
 };
 
 $MethodInfo _PersistentSearchControl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PersistentSearchControl::*)()>(&PersistentSearchControl::init$)), "java.io.IOException"},
-	{"<init>", "(IZZZ)V", nullptr, $PUBLIC, $method(static_cast<void(PersistentSearchControl::*)(int32_t,bool,bool,bool)>(&PersistentSearchControl::init$)), "java.io.IOException"},
-	{"setEncodedValue", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(PersistentSearchControl::*)()>(&PersistentSearchControl::setEncodedValue)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PersistentSearchControl, init$, void), "java.io.IOException"},
+	{"<init>", "(IZZZ)V", nullptr, $PUBLIC, $method(PersistentSearchControl, init$, void, int32_t, bool, bool, bool), "java.io.IOException"},
+	{"setEncodedValue", "()[B", nullptr, $PRIVATE, $method(PersistentSearchControl, setEncodedValue, $bytes*), "java.io.IOException"},
 	{}
 };
 

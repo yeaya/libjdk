@@ -55,18 +55,18 @@ $FieldInfo _MockServer$Connection_FieldInfo_[] = {
 };
 
 $MethodInfo _MockServer$Connection_MethodInfo_[] = {
-	{"<init>", "(LMockServer;Ljava/net/Socket;)V", nullptr, 0, $method(static_cast<void(MockServer$Connection::*)($MockServer*,$Socket*)>(&MockServer$Connection::init$)), "java.io.IOException"},
-	{"cleanup", "()V", nullptr, $PRIVATE, $method(static_cast<void(MockServer$Connection::*)()>(&MockServer$Connection::cleanup))},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"nextInput", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"nextInput", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"poll", "()Z", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"send", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"sendHttpResponse", "(ILjava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"sendIncompleteHttpResponseBody", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"sendIncompleteHttpResponseHeaders", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(LMockServer;Ljava/net/Socket;)V", nullptr, 0, $method(MockServer$Connection, init$, void, $MockServer*, $Socket*), "java.io.IOException"},
+	{"cleanup", "()V", nullptr, $PRIVATE, $method(MockServer$Connection, cleanup, void)},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MockServer$Connection, close, void)},
+	{"nextInput", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, nextInput, $String*, int64_t, $TimeUnit*)},
+	{"nextInput", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, nextInput, $String*)},
+	{"poll", "()Z", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, poll, bool)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, run, void)},
+	{"send", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, send, void, $String*), "java.io.IOException"},
+	{"sendHttpResponse", "(ILjava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(MockServer$Connection, sendHttpResponse, void, int32_t, $String*, $StringArray*), "java.io.IOException"},
+	{"sendIncompleteHttpResponseBody", "(I)V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, sendIncompleteHttpResponseBody, void, int32_t), "java.io.IOException"},
+	{"sendIncompleteHttpResponseHeaders", "(I)V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, sendIncompleteHttpResponseHeaders, void, int32_t), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, toString, $String*)},
 	{}
 };
 

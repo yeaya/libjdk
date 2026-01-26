@@ -61,8 +61,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleNameReader$$Lambda$lambda$utf8Mapper$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleNameReader$$Lambda$lambda$utf8Mapper$0::*)()>(&ModuleNameReader$$Lambda$lambda$utf8Mapper$0::init$))},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleNameReader$$Lambda$lambda$utf8Mapper$0, init$, void)},
+	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader$$Lambda$lambda$utf8Mapper$0, map, $Object*, $bytes*, int32_t, int32_t)},
 	{}
 };
 $ClassInfo ModuleNameReader$$Lambda$lambda$utf8Mapper$0::classInfo$ = {
@@ -94,8 +94,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ModuleNameReader$$Lambda$utf2string$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleNameReader$$Lambda$utf2string$1::*)()>(&ModuleNameReader$$Lambda$utf2string$1::init$))},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleNameReader$$Lambda$utf2string$1, init$, void)},
+	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader$$Lambda$utf2string$1, map, $Object*, $bytes*, int32_t, int32_t)},
 	{}
 };
 $ClassInfo ModuleNameReader$$Lambda$utf2string$1::classInfo$ = {
@@ -121,15 +121,15 @@ $FieldInfo _ModuleNameReader_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleNameReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ModuleNameReader::*)()>(&ModuleNameReader::init$))},
-	{"checkZero", "(ILjava/lang/String;)V", nullptr, 0, nullptr, "com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"lambda$utf8Mapper$0", "([BII)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($bytes*,int32_t,int32_t)>(&ModuleNameReader::lambda$utf8Mapper$0))},
-	{"nextChar", "()C", nullptr, 0},
-	{"nextInt", "()I", nullptr, 0},
-	{"readModuleName", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"readModuleName", "(Ljava/io/InputStream;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"utf8Mapper", "(Z)Lcom/sun/tools/javac/util/Name$NameMapper;", "(Z)Lcom/sun/tools/javac/util/Name$NameMapper<Ljava/lang/String;>;", 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleNameReader, init$, void)},
+	{"checkZero", "(ILjava/lang/String;)V", nullptr, 0, $virtualMethod(ModuleNameReader, checkZero, void, int32_t, $String*), "com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+	{"lambda$utf8Mapper$0", "([BII)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleNameReader, lambda$utf8Mapper$0, $String*, $bytes*, int32_t, int32_t)},
+	{"nextChar", "()C", nullptr, 0, $virtualMethod(ModuleNameReader, nextChar, char16_t)},
+	{"nextInt", "()I", nullptr, 0, $virtualMethod(ModuleNameReader, nextInt, int32_t)},
+	{"readModuleName", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader, readModuleName, $String*, $Path*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader, readModuleName, $String*, $JavaFileObject*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+	{"readModuleName", "(Ljava/io/InputStream;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleNameReader, readModuleName, $String*, $InputStream*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+	{"utf8Mapper", "(Z)Lcom/sun/tools/javac/util/Name$NameMapper;", "(Z)Lcom/sun/tools/javac/util/Name$NameMapper<Ljava/lang/String;>;", 0, $virtualMethod(ModuleNameReader, utf8Mapper, $Name$NameMapper*, bool)},
 	{}
 };
 

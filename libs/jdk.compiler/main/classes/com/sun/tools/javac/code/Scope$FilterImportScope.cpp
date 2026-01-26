@@ -91,8 +91,8 @@ $FieldInfo Scope$FilterImportScope$$Lambda$lambda$getSymbols$1::fieldInfos[3] = 
 	{}
 };
 $MethodInfo Scope$FilterImportScope$$Lambda$lambda$getSymbols$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$FilterImportScope;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$FilterImportScope$$Lambda$lambda$getSymbols$1::*)(Scope$FilterImportScope*,$List*)>(&Scope$FilterImportScope$$Lambda$lambda$getSymbols$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$FilterImportScope;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Scope$FilterImportScope$$Lambda$lambda$getSymbols$1, init$, void, Scope$FilterImportScope*, $List*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(Scope$FilterImportScope$$Lambda$lambda$getSymbols$1, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo Scope$FilterImportScope$$Lambda$lambda$getSymbols$1::classInfo$ = {
@@ -134,8 +134,8 @@ $FieldInfo Scope$FilterImportScope$$Lambda$lambda$getSymbolsByName$3$1::fieldInf
 	{}
 };
 $MethodInfo Scope$FilterImportScope$$Lambda$lambda$getSymbolsByName$3$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$FilterImportScope;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$FilterImportScope$$Lambda$lambda$getSymbolsByName$3$1::*)(Scope$FilterImportScope*,$List*)>(&Scope$FilterImportScope$$Lambda$lambda$getSymbolsByName$3$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$FilterImportScope;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Scope$FilterImportScope$$Lambda$lambda$getSymbolsByName$3$1, init$, void, Scope$FilterImportScope*, $List*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(Scope$FilterImportScope$$Lambda$lambda$getSymbolsByName$3$1, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo Scope$FilterImportScope$$Lambda$lambda$getSymbolsByName$3$1::classInfo$ = {
@@ -167,8 +167,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Scope$FilterImportScope$$Lambda$iterator$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Scope$FilterImportScope$$Lambda$iterator$2::*)()>(&Scope$FilterImportScope$$Lambda$iterator$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Scope$FilterImportScope$$Lambda$iterator$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Scope$FilterImportScope$$Lambda$iterator$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Scope$FilterImportScope$$Lambda$iterator$2::classInfo$ = {
@@ -207,8 +207,8 @@ $FieldInfo Scope$FilterImportScope$$Lambda$lambda$getSymbols$0$3::fieldInfos[2] 
 	{}
 };
 $MethodInfo Scope$FilterImportScope$$Lambda$lambda$getSymbols$0$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$FilterImportScope;)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$FilterImportScope$$Lambda$lambda$getSymbols$0$3::*)(Scope$FilterImportScope*)>(&Scope$FilterImportScope$$Lambda$lambda$getSymbols$0$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$FilterImportScope;)V", nullptr, $PUBLIC, $method(Scope$FilterImportScope$$Lambda$lambda$getSymbols$0$3, init$, void, Scope$FilterImportScope*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Scope$FilterImportScope$$Lambda$lambda$getSymbols$0$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Scope$FilterImportScope$$Lambda$lambda$getSymbols$0$3::classInfo$ = {
@@ -236,15 +236,15 @@ $FieldInfo _Scope$FilterImportScope_FieldInfo_[] = {
 };
 
 $MethodInfo _Scope$FilterImportScope_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer;)V", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer<Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;>;)V", $PUBLIC, $method(static_cast<void(Scope$FilterImportScope::*)($Types*,$Scope*,$Name*,$Scope$ImportFilter*,$JCTree$JCImport*,$BiConsumer*)>(&Scope$FilterImportScope::init$))},
-	{"getOrigin", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope;", nullptr, $PUBLIC},
-	{"getSymbols", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
-	{"getSymbolsByName", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
-	{"isStaticallyImported", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC},
-	{"isStaticallyImported", "()Z", nullptr, $PUBLIC},
-	{"lambda$getSymbols$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Scope$FilterImportScope::*)($Symbol*)>(&Scope$FilterImportScope::lambda$getSymbols$0))},
-	{"lambda$getSymbols$1", "(Lcom/sun/tools/javac/util/List;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterator*(Scope$FilterImportScope::*)($List*)>(&Scope$FilterImportScope::lambda$getSymbols$1))},
-	{"lambda$getSymbolsByName$3", "(Lcom/sun/tools/javac/util/List;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterator*(Scope$FilterImportScope::*)($List*)>(&Scope$FilterImportScope::lambda$getSymbolsByName$3))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer;)V", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer<Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;>;)V", $PUBLIC, $method(Scope$FilterImportScope, init$, void, $Types*, $Scope*, $Name*, $Scope$ImportFilter*, $JCTree$JCImport*, $BiConsumer*)},
+	{"getOrigin", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope;", nullptr, $PUBLIC, $virtualMethod(Scope$FilterImportScope, getOrigin, $Scope*, $Symbol*)},
+	{"getSymbols", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Scope$FilterImportScope, getSymbols, $Iterable*, $Predicate*, $Scope$LookupKind*)},
+	{"getSymbolsByName", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Scope$FilterImportScope, getSymbolsByName, $Iterable*, $Name*, $Predicate*, $Scope$LookupKind*)},
+	{"isStaticallyImported", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Scope$FilterImportScope, isStaticallyImported, bool, $Symbol*)},
+	{"isStaticallyImported", "()Z", nullptr, $PUBLIC, $virtualMethod(Scope$FilterImportScope, isStaticallyImported, bool)},
+	{"lambda$getSymbols$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Scope$FilterImportScope, lambda$getSymbols$0, bool, $Symbol*)},
+	{"lambda$getSymbols$1", "(Lcom/sun/tools/javac/util/List;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Scope$FilterImportScope, lambda$getSymbols$1, $Iterator*, $List*)},
+	{"lambda$getSymbolsByName$3", "(Lcom/sun/tools/javac/util/List;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Scope$FilterImportScope, lambda$getSymbolsByName$3, $Iterator*, $List*)},
 	{}
 };
 

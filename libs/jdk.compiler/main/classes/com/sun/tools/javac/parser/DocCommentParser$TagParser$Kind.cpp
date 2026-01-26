@@ -31,10 +31,10 @@ $FieldInfo _DocCommentParser$TagParser$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _DocCommentParser$TagParser$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DocCommentParser$TagParser$KindArray*(*)()>(&DocCommentParser$TagParser$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DocCommentParser$TagParser$Kind::*)($String*,int32_t)>(&DocCommentParser$TagParser$Kind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DocCommentParser$TagParser$Kind*(*)($String*)>(&DocCommentParser$TagParser$Kind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DocCommentParser$TagParser$KindArray*(*)()>(&DocCommentParser$TagParser$Kind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocCommentParser$TagParser$Kind, $values, $DocCommentParser$TagParser$KindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocCommentParser$TagParser$Kind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$TagParser$Kind, valueOf, DocCommentParser$TagParser$Kind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$TagParser$Kind, values, $DocCommentParser$TagParser$KindArray*)},
 	{}
 };
 

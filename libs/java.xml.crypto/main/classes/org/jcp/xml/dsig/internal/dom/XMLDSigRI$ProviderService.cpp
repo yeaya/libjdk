@@ -66,10 +66,10 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _XMLDSigRI$ProviderService_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(XMLDSigRI$ProviderService::*)($Provider*,$String*,$String*,$String*)>(&XMLDSigRI$ProviderService::init$))},
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(XMLDSigRI$ProviderService::*)($Provider*,$String*,$String*,$String*,$StringArray*)>(&XMLDSigRI$ProviderService::init$))},
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(static_cast<void(XMLDSigRI$ProviderService::*)($Provider*,$String*,$String*,$String*,$StringArray*,$Map*)>(&XMLDSigRI$ProviderService::init$))},
-	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(XMLDSigRI$ProviderService, init$, void, $Provider*, $String*, $String*, $String*)},
+	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $method(XMLDSigRI$ProviderService, init$, void, $Provider*, $String*, $String*, $String*, $StringArray*)},
+	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(XMLDSigRI$ProviderService, init$, void, $Provider*, $String*, $String*, $String*, $StringArray*, $Map*)},
+	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLDSigRI$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
 	{}
 };
 

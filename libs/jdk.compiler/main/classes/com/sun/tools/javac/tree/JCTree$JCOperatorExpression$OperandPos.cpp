@@ -29,10 +29,10 @@ $FieldInfo _JCTree$JCOperatorExpression$OperandPos_FieldInfo_[] = {
 };
 
 $MethodInfo _JCTree$JCOperatorExpression$OperandPos_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCTree$JCOperatorExpression$OperandPosArray*(*)()>(&JCTree$JCOperatorExpression$OperandPos::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JCTree$JCOperatorExpression$OperandPos::*)($String*,int32_t)>(&JCTree$JCOperatorExpression$OperandPos::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JCTree$JCOperatorExpression$OperandPos*(*)($String*)>(&JCTree$JCOperatorExpression$OperandPos::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$JCOperatorExpression$OperandPosArray*(*)()>(&JCTree$JCOperatorExpression$OperandPos::values))},
+	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$JCOperatorExpression$OperandPos, $values, $JCTree$JCOperatorExpression$OperandPosArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCTree$JCOperatorExpression$OperandPos, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCOperatorExpression$OperandPos, valueOf, JCTree$JCOperatorExpression$OperandPos*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCOperatorExpression$OperandPos, values, $JCTree$JCOperatorExpression$OperandPosArray*)},
 	{}
 };
 

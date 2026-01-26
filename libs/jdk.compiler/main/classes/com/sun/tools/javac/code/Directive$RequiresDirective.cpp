@@ -48,14 +48,14 @@ $MethodInfo _Directive$RequiresDirective_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Directive$RequiresDirective::*)($Symbol$ModuleSymbol*)>(&Directive$RequiresDirective::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$RequiresFlag;>;)V", $PUBLIC, $method(static_cast<void(Directive$RequiresDirective::*)($Symbol$ModuleSymbol*,$Set*)>(&Directive$RequiresDirective::init$))},
-	{"accept", "(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"getDependency", "()Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC},
-	{"getKind", "()Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC},
-	{"isStatic", "()Z", nullptr, $PUBLIC},
-	{"isTransitive", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Directive$RequiresDirective, init$, void, $Symbol$ModuleSymbol*)},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$RequiresFlag;>;)V", $PUBLIC, $method(Directive$RequiresDirective, init$, void, $Symbol$ModuleSymbol*, $Set*)},
+	{"accept", "(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Directive$RequiresDirective, accept, $Object*, $ModuleElement$DirectiveVisitor*, Object$*)},
+	{"getDependency", "()Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(Directive$RequiresDirective, getDependency, $ModuleElement*)},
+	{"getKind", "()Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC, $virtualMethod(Directive$RequiresDirective, getKind, $ModuleElement$DirectiveKind*)},
+	{"isStatic", "()Z", nullptr, $PUBLIC, $virtualMethod(Directive$RequiresDirective, isStatic, bool)},
+	{"isTransitive", "()Z", nullptr, $PUBLIC, $virtualMethod(Directive$RequiresDirective, isTransitive, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Directive$RequiresDirective, toString, $String*)},
 	{}
 };
 

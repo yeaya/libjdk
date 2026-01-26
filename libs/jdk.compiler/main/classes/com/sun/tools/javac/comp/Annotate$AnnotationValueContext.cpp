@@ -33,8 +33,8 @@ $FieldInfo _Annotate$AnnotationValueContext_FieldInfo_[] = {
 };
 
 $MethodInfo _Annotate$AnnotationValueContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(static_cast<void(Annotate$AnnotationValueContext::*)($Annotate*,$Check$CheckContext*)>(&Annotate$AnnotationValueContext::init$))},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(Annotate$AnnotationValueContext, init$, void, $Annotate*, $Check$CheckContext*)},
+	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationValueContext, compatible, bool, $Type*, $Type*, $Warner*)},
 	{}
 };
 

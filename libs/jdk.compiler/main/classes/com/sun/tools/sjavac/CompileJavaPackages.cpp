@@ -124,8 +124,8 @@ $FieldInfo CompileJavaPackages$$Lambda$lambda$transform$0::fieldInfos[8] = {
 	{}
 };
 $MethodInfo CompileJavaPackages$$Lambda$lambda$transform$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/CompileJavaPackages;Lcom/sun/tools/sjavac/Log;Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/lang/String;Lcom/sun/tools/sjavac/CompileChunk;Ljava/util/Set;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(CompileJavaPackages$$Lambda$lambda$transform$0::*)(CompileJavaPackages*,$Log*,$CompilationService*,$String*,$CompileChunk*,$Set*,Object$*)>(&CompileJavaPackages$$Lambda$lambda$transform$0::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/CompileJavaPackages;Lcom/sun/tools/sjavac/Log;Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/lang/String;Lcom/sun/tools/sjavac/CompileChunk;Ljava/util/Set;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$lambda$transform$0, init$, void, CompileJavaPackages*, $Log*, $CompilationService*, $String*, $CompileChunk*, $Set*, Object$*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$lambda$transform$0, call, $Object*)},
 	{}
 };
 $ClassInfo CompileJavaPackages$$Lambda$lambda$transform$0::classInfo$ = {
@@ -157,8 +157,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CompileJavaPackages$$Lambda$union$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompileJavaPackages$$Lambda$union$1::*)()>(&CompileJavaPackages$$Lambda$union$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$union$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$union$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo CompileJavaPackages$$Lambda$union$1::classInfo$ = {
@@ -190,8 +190,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CompileJavaPackages$$Lambda$mergeTypes$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompileJavaPackages$$Lambda$mergeTypes$2::*)()>(&CompileJavaPackages$$Lambda$mergeTypes$2::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$mergeTypes$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$mergeTypes$2, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo CompileJavaPackages$$Lambda$mergeTypes$2::classInfo$ = {
@@ -223,8 +223,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CompileJavaPackages$$Lambda$info$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompileJavaPackages$$Lambda$info$3::*)()>(&CompileJavaPackages$$Lambda$info$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$info$3, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$info$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo CompileJavaPackages$$Lambda$info$3::classInfo$ = {
@@ -256,8 +256,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo CompileJavaPackages$$Lambda$error$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompileJavaPackages$$Lambda$error$4::*)()>(&CompileJavaPackages$$Lambda$error$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages$$Lambda$error$4, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages$$Lambda$error$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo CompileJavaPackages$$Lambda$error$4::classInfo$ = {
@@ -281,12 +281,12 @@ $FieldInfo _CompileJavaPackages_FieldInfo_[] = {
 };
 
 $MethodInfo _CompileJavaPackages_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompileJavaPackages::*)()>(&CompileJavaPackages::init$))},
-	{"createCompileChunks", "(Ljava/util/Map;Ljava/util/Map;II)[Lcom/sun/tools/sjavac/CompileChunk;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;II)[Lcom/sun/tools/sjavac/CompileChunk;", 0},
-	{"lambda$transform$0", "(Lcom/sun/tools/sjavac/Log;Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/lang/String;Lcom/sun/tools/sjavac/CompileChunk;Ljava/util/Set;Ljava/lang/Object;)Lcom/sun/tools/sjavac/server/CompilationSubResult;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompilationSubResult*(CompileJavaPackages::*)($Log*,$CompilationService*,$String*,$CompileChunk*,$Set*,Object$*)>(&CompileJavaPackages::lambda$transform$0)), "java.lang.Exception"},
-	{"setExtra", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setExtra", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC},
-	{"transform", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;Ljava/net/URI;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;IZI)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Set<Ljava/net/URI;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;IZI)Z", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileJavaPackages, init$, void)},
+	{"createCompileChunks", "(Ljava/util/Map;Ljava/util/Map;II)[Lcom/sun/tools/sjavac/CompileChunk;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;II)[Lcom/sun/tools/sjavac/CompileChunk;", 0, $virtualMethod(CompileJavaPackages, createCompileChunks, $CompileChunkArray*, $Map*, $Map*, int32_t, int32_t)},
+	{"lambda$transform$0", "(Lcom/sun/tools/sjavac/Log;Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/lang/String;Lcom/sun/tools/sjavac/CompileChunk;Ljava/util/Set;Ljava/lang/Object;)Lcom/sun/tools/sjavac/server/CompilationSubResult;", nullptr, $PRIVATE | $SYNTHETIC, $method(CompileJavaPackages, lambda$transform$0, $CompilationSubResult*, $Log*, $CompilationService*, $String*, $CompileChunk*, $Set*, Object$*), "java.lang.Exception"},
+	{"setExtra", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages, setExtra, void, $String*)},
+	{"setExtra", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $virtualMethod(CompileJavaPackages, setExtra, void, $Options*)},
+	{"transform", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;Ljava/net/URI;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;Ljava/util/Map;IZI)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Set<Ljava/net/URI;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;IZI)Z", $PUBLIC, $virtualMethod(CompileJavaPackages, transform, bool, $CompilationService*, $Map*, $Set*, $Map*, $URI*, $Map*, $Map*, $Map*, $Map*, $Map*, int32_t, bool, int32_t)},
 	{}
 };
 

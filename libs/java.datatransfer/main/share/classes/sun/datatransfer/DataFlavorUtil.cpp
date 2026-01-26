@@ -57,21 +57,21 @@ $FieldInfo _DataFlavorUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _DataFlavorUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DataFlavorUtil::*)()>(&DataFlavorUtil::init$))},
-	{"canonicalName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&DataFlavorUtil::canonicalName))},
-	{"compareIndices", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Integer;)I", "<T:Ljava/lang/Object;>(Ljava/util/Map<TT;Ljava/lang/Integer;>;TT;TT;Ljava/lang/Integer;)I", $STATIC, $method(static_cast<int32_t(*)($Map*,Object$*,Object$*,$Integer*)>(&DataFlavorUtil::compareIndices))},
-	{"doesSubtypeSupportCharset", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($DataFlavor*)>(&DataFlavorUtil::doesSubtypeSupportCharset))},
-	{"doesSubtypeSupportCharset", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&DataFlavorUtil::doesSubtypeSupportCharset))},
-	{"getCharsetComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Comparator*(*)()>(&DataFlavorUtil::getCharsetComparator))},
-	{"getDataFlavorComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $STATIC, $method(static_cast<$Comparator*(*)()>(&DataFlavorUtil::getDataFlavorComparator))},
-	{"getDesktopService", "()Lsun/datatransfer/DesktopDatatransferService;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DesktopDatatransferService*(*)()>(&DataFlavorUtil::getDesktopService))},
-	{"getIndexOrderComparator", "(Ljava/util/Map;)Ljava/util/Comparator;", "(Ljava/util/Map<Ljava/lang/Long;Ljava/lang/Integer;>;)Ljava/util/Comparator<Ljava/lang/Long;>;", $PUBLIC | $STATIC, $method(static_cast<$Comparator*(*)($Map*)>(&DataFlavorUtil::getIndexOrderComparator))},
-	{"getTextCharset", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($DataFlavor*)>(&DataFlavorUtil::getTextCharset))},
-	{"getTextFlavorComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $STATIC, $method(static_cast<$Comparator*(*)()>(&DataFlavorUtil::getTextFlavorComparator))},
-	{"isEncodingSupported", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&DataFlavorUtil::isEncodingSupported))},
-	{"isFlavorCharsetTextType", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($DataFlavor*)>(&DataFlavorUtil::isFlavorCharsetTextType))},
-	{"isFlavorNoncharsetTextType", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($DataFlavor*)>(&DataFlavorUtil::isFlavorNoncharsetTextType))},
-	{"standardEncodings", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)()>(&DataFlavorUtil::standardEncodings))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DataFlavorUtil, init$, void)},
+	{"canonicalName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, canonicalName, $String*, $String*)},
+	{"compareIndices", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Integer;)I", "<T:Ljava/lang/Object;>(Ljava/util/Map<TT;Ljava/lang/Integer;>;TT;TT;Ljava/lang/Integer;)I", $STATIC, $staticMethod(DataFlavorUtil, compareIndices, int32_t, $Map*, Object$*, Object$*, $Integer*)},
+	{"doesSubtypeSupportCharset", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, doesSubtypeSupportCharset, bool, $DataFlavor*)},
+	{"doesSubtypeSupportCharset", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, doesSubtypeSupportCharset, bool, $String*, $String*)},
+	{"getCharsetComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(DataFlavorUtil, getCharsetComparator, $Comparator*)},
+	{"getDataFlavorComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, getDataFlavorComparator, $Comparator*)},
+	{"getDesktopService", "()Lsun/datatransfer/DesktopDatatransferService;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, getDesktopService, $DesktopDatatransferService*)},
+	{"getIndexOrderComparator", "(Ljava/util/Map;)Ljava/util/Comparator;", "(Ljava/util/Map<Ljava/lang/Long;Ljava/lang/Integer;>;)Ljava/util/Comparator<Ljava/lang/Long;>;", $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, getIndexOrderComparator, $Comparator*, $Map*)},
+	{"getTextCharset", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, getTextCharset, $String*, $DataFlavor*)},
+	{"getTextFlavorComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, getTextFlavorComparator, $Comparator*)},
+	{"isEncodingSupported", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DataFlavorUtil, isEncodingSupported, bool, $String*)},
+	{"isFlavorCharsetTextType", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, isFlavorCharsetTextType, bool, $DataFlavor*)},
+	{"isFlavorNoncharsetTextType", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, isFlavorNoncharsetTextType, bool, $DataFlavor*)},
+	{"standardEncodings", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil, standardEncodings, $Set*)},
 	{}
 };
 

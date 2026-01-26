@@ -27,13 +27,13 @@ namespace javax {
 		namespace processing {
 
 $MethodInfo _RoundEnvironment_MethodInfo_[] = {
-	{"errorRaised", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getElementsAnnotatedWith", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT},
-	{"getElementsAnnotatedWith", "(Ljava/lang/Class;)Ljava/util/Set;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT},
-	{"getElementsAnnotatedWithAny", "([Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "([Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $TRANSIENT},
-	{"getElementsAnnotatedWithAny", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;>;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"getRootElements", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT},
-	{"processingOver", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"errorRaised", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RoundEnvironment, errorRaised, bool)},
+	{"getElementsAnnotatedWith", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RoundEnvironment, getElementsAnnotatedWith, $Set*, $TypeElement*)},
+	{"getElementsAnnotatedWith", "(Ljava/lang/Class;)Ljava/util/Set;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RoundEnvironment, getElementsAnnotatedWith, $Set*, $Class*)},
+	{"getElementsAnnotatedWithAny", "([Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "([Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $TRANSIENT, $virtualMethod(RoundEnvironment, getElementsAnnotatedWithAny, $Set*, $TypeElementArray*)},
+	{"getElementsAnnotatedWithAny", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;>;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(RoundEnvironment, getElementsAnnotatedWithAny, $Set*, $Set*)},
+	{"getRootElements", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RoundEnvironment, getRootElements, $Set*)},
+	{"processingOver", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RoundEnvironment, processingOver, bool)},
 	{}
 };
 

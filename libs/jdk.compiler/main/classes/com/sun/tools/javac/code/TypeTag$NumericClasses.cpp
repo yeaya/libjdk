@@ -46,7 +46,7 @@ $FieldInfo _TypeTag$NumericClasses_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeTag$NumericClasses_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeTag$NumericClasses::*)()>(&TypeTag$NumericClasses::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeTag$NumericClasses, init$, void)},
 	{}
 };
 

@@ -21,8 +21,8 @@ $FieldInfo _XSLTTransformParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _XSLTTransformParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/crypto/XMLStructure;)V", nullptr, $PUBLIC, $method(static_cast<void(XSLTTransformParameterSpec::*)($XMLStructure*)>(&XSLTTransformParameterSpec::init$))},
-	{"getStylesheet", "()Ljavax/xml/crypto/XMLStructure;", nullptr, $PUBLIC, $method(static_cast<$XMLStructure*(XSLTTransformParameterSpec::*)()>(&XSLTTransformParameterSpec::getStylesheet))},
+	{"<init>", "(Ljavax/xml/crypto/XMLStructure;)V", nullptr, $PUBLIC, $method(XSLTTransformParameterSpec, init$, void, $XMLStructure*)},
+	{"getStylesheet", "()Ljavax/xml/crypto/XMLStructure;", nullptr, $PUBLIC, $method(XSLTTransformParameterSpec, getStylesheet, $XMLStructure*)},
 	{}
 };
 

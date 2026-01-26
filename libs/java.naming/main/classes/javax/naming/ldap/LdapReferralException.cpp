@@ -6,9 +6,12 @@
 #include <javax/naming/ldap/Control.h>
 #include <jcpp.h>
 
+using $ControlArray = $Array<::javax::naming::ldap::Control>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Hashtable = ::java::util::Hashtable;
+using $Context = ::javax::naming::Context;
 using $ReferralException = ::javax::naming::ReferralException;
 
 namespace javax {
@@ -23,9 +26,9 @@ $FieldInfo _LdapReferralException_FieldInfo_[] = {
 $MethodInfo _LdapReferralException_MethodInfo_[] = {
 	{"getReferralContext", "()Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getReferralContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(LdapReferralException::*)($String*)>(&LdapReferralException::init$))},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(LdapReferralException::*)()>(&LdapReferralException::init$))},
-	{"getReferralContext", "(Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(LdapReferralException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(LdapReferralException, init$, void)},
+	{"getReferralContext", "(Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;)Ljavax/naming/Context;", $PUBLIC | $ABSTRACT, $virtualMethod(LdapReferralException, getReferralContext, $Context*, $Hashtable*, $ControlArray*), "javax.naming.NamingException"},
 	{}
 };
 

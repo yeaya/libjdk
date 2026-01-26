@@ -5,9 +5,11 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
+using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {
@@ -16,7 +18,7 @@ namespace com {
 				namespace code {
 
 $MethodInfo _ModuleFinder$ModuleNameFromSourceReader_MethodInfo_[] = {
-	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT},
+	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleFinder$ModuleNameFromSourceReader, readModuleName, $Name*, $JavaFileObject*)},
 	{}
 };
 

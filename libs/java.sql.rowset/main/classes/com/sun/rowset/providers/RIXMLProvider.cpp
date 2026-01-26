@@ -44,20 +44,20 @@ $FieldInfo _RIXMLProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _RIXMLProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RIXMLProvider::*)()>(&RIXMLProvider::init$))},
-	{"getDataSourceLock", "()I", nullptr, $PUBLIC, nullptr, "javax.sql.rowset.spi.SyncProviderException"},
-	{"getProviderGrade", "()I", nullptr, $PUBLIC},
-	{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC},
-	{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getXmlReader", "()Ljavax/sql/rowset/spi/XmlReader;", nullptr, $PUBLIC, $method(static_cast<$XmlReader*(RIXMLProvider::*)()>(&RIXMLProvider::getXmlReader)), "java.sql.SQLException"},
-	{"getXmlWriter", "()Ljavax/sql/rowset/spi/XmlWriter;", nullptr, $PUBLIC, $method(static_cast<$XmlWriter*(RIXMLProvider::*)()>(&RIXMLProvider::getXmlWriter)), "java.sql.SQLException"},
-	{"setDataSourceLock", "(I)V", nullptr, $PUBLIC, nullptr, "javax.sql.rowset.spi.SyncProviderException"},
-	{"setXmlReader", "(Ljavax/sql/rowset/spi/XmlReader;)V", nullptr, $PUBLIC, $method(static_cast<void(RIXMLProvider::*)($XmlReader*)>(&RIXMLProvider::setXmlReader)), "java.sql.SQLException"},
-	{"setXmlWriter", "(Ljavax/sql/rowset/spi/XmlWriter;)V", nullptr, $PUBLIC, $method(static_cast<void(RIXMLProvider::*)($XmlWriter*)>(&RIXMLProvider::setXmlWriter)), "java.sql.SQLException"},
-	{"supportsUpdatableView", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RIXMLProvider, init$, void)},
+	{"getDataSourceLock", "()I", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getDataSourceLock, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+	{"getProviderGrade", "()I", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getProviderGrade, int32_t)},
+	{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getProviderID, $String*)},
+	{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getRowSetReader, $RowSetReader*)},
+	{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getRowSetWriter, $RowSetWriter*)},
+	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getVendor, $String*)},
+	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, getVersion, $String*)},
+	{"getXmlReader", "()Ljavax/sql/rowset/spi/XmlReader;", nullptr, $PUBLIC, $method(RIXMLProvider, getXmlReader, $XmlReader*), "java.sql.SQLException"},
+	{"getXmlWriter", "()Ljavax/sql/rowset/spi/XmlWriter;", nullptr, $PUBLIC, $method(RIXMLProvider, getXmlWriter, $XmlWriter*), "java.sql.SQLException"},
+	{"setDataSourceLock", "(I)V", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, setDataSourceLock, void, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+	{"setXmlReader", "(Ljavax/sql/rowset/spi/XmlReader;)V", nullptr, $PUBLIC, $method(RIXMLProvider, setXmlReader, void, $XmlReader*), "java.sql.SQLException"},
+	{"setXmlWriter", "(Ljavax/sql/rowset/spi/XmlWriter;)V", nullptr, $PUBLIC, $method(RIXMLProvider, setXmlWriter, void, $XmlWriter*), "java.sql.SQLException"},
+	{"supportsUpdatableView", "()I", nullptr, $PUBLIC, $virtualMethod(RIXMLProvider, supportsUpdatableView, int32_t)},
 	{}
 };
 

@@ -35,8 +35,8 @@ namespace java {
 		namespace prefs {
 
 $MethodInfo _AbstractPreferences$EventDispatchThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AbstractPreferences$EventDispatchThread::*)()>(&AbstractPreferences$EventDispatchThread::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AbstractPreferences$EventDispatchThread, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences$EventDispatchThread, run, void)},
 	{}
 };
 

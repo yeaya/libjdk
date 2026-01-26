@@ -25,7 +25,7 @@ $FieldInfo _ProxyAuthenticationRequired_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyAuthenticationRequired_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Response;)V", nullptr, $PUBLIC, $method(static_cast<void(ProxyAuthenticationRequired::*)($Response*)>(&ProxyAuthenticationRequired::init$))},
+	{"<init>", "(Ljdk/internal/net/http/Response;)V", nullptr, $PUBLIC, $method(ProxyAuthenticationRequired, init$, void, $Response*)},
 	{}
 };
 

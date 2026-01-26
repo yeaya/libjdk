@@ -35,9 +35,9 @@ $FieldInfo _Main$Hasher$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$Hasher$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/tools/jar/Main$Hasher;Lsun/tools/jar/Main;Ljava/lang/module/ModuleDescriptor;Ljava/lang/module/ModuleReference;)V", "()V", 0, $method(static_cast<void(Main$Hasher$2::*)($Main$Hasher*,$Main*,$ModuleDescriptor*,$ModuleReference*)>(&Main$Hasher$2::init$))},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Main$Hasher;Lsun/tools/jar/Main;Ljava/lang/module/ModuleDescriptor;Ljava/lang/module/ModuleReference;)V", "()V", 0, $method(Main$Hasher$2, init$, void, $Main$Hasher*, $Main*, $ModuleDescriptor*, $ModuleReference*)},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(Main$Hasher$2, find, $Optional*, $String*)},
+	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(Main$Hasher$2, findAll, $Set*)},
 	{}
 };
 

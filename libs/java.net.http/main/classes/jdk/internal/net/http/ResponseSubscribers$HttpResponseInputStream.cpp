@@ -87,8 +87,8 @@ $FieldInfo ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::fieldIn
 	{}
 };
 $MethodInfo ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::*)($String*)>(&ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$HttpResponseInputStream$$Lambda$toString::classInfo$ = {
@@ -126,19 +126,19 @@ $MethodInfo _ResponseSubscribers$HttpResponseInputStream_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$HttpResponseInputStream::*)()>(&ResponseSubscribers$HttpResponseInputStream::init$))},
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(ResponseSubscribers$HttpResponseInputStream::*)(int32_t)>(&ResponseSubscribers$HttpResponseInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"current", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(ResponseSubscribers$HttpResponseInputStream::*)()>(&ResponseSubscribers$HttpResponseInputStream::current)), "java.io.IOException"},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/io/InputStream;>;", $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseSubscribers$HttpResponseInputStream, init$, void)},
+	{"<init>", "(I)V", nullptr, 0, $method(ResponseSubscribers$HttpResponseInputStream, init$, void, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, close, void), "java.io.IOException"},
+	{"current", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(ResponseSubscribers$HttpResponseInputStream, current, $ByteBuffer*), "java.io.IOException"},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, getBody, $CompletionStage*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, onSubscribe, void, $Flow$Subscription*)},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$HttpResponseInputStream, read, int32_t), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

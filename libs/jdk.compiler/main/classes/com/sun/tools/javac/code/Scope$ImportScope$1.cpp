@@ -28,9 +28,9 @@ $FieldInfo _Scope$ImportScope$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Scope$ImportScope$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ImportScope;)V", nullptr, 0, $method(static_cast<void(Scope$ImportScope$1::*)($Scope$ImportScope*)>(&Scope$ImportScope$1::init$))},
-	{"symbolAdded", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC},
-	{"symbolRemoved", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ImportScope;)V", nullptr, 0, $method(Scope$ImportScope$1, init$, void, $Scope$ImportScope*)},
+	{"symbolAdded", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC, $virtualMethod(Scope$ImportScope$1, symbolAdded, void, $Symbol*, $Scope*)},
+	{"symbolRemoved", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC, $virtualMethod(Scope$ImportScope$1, symbolRemoved, void, $Symbol*, $Scope*)},
 	{}
 };
 

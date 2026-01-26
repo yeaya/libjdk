@@ -4,6 +4,8 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext.h>
 #include <jcpp.h>
 
+using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
+using $ResourceResolverContext = ::com::sun::org::apache::xml::internal::security::utils::resolver::ResourceResolverContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -18,9 +20,9 @@ namespace com {
 								namespace resolver {
 
 $MethodInfo _ResourceResolverSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResourceResolverSpi::*)()>(&ResourceResolverSpi::init$))},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceResolverSpi, init$, void)},
+	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceResolverSpi, engineCanResolveURI, bool, $ResourceResolverContext*)},
+	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceResolverSpi, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
 	{}
 };
 

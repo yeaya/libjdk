@@ -33,11 +33,11 @@ $FieldInfo _Directive$ExportsFlag_FieldInfo_[] = {
 };
 
 $MethodInfo _Directive$ExportsFlag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Directive$ExportsFlagArray*(*)()>(&Directive$ExportsFlag::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(Directive$ExportsFlag::*)($String*,int32_t,int32_t)>(&Directive$ExportsFlag::init$))},
-	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$ExportsFlag;>;)I", $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($Set*)>(&Directive$ExportsFlag::value))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Directive$ExportsFlag*(*)($String*)>(&Directive$ExportsFlag::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Directive$ExportsFlagArray*(*)()>(&Directive$ExportsFlag::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Directive$ExportsFlag, $values, $Directive$ExportsFlagArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Directive$ExportsFlag, init$, void, $String*, int32_t, int32_t)},
+	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$ExportsFlag;>;)I", $PUBLIC | $STATIC, $staticMethod(Directive$ExportsFlag, value, int32_t, $Set*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$ExportsFlag, valueOf, Directive$ExportsFlag*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$ExportsFlag, values, $Directive$ExportsFlagArray*)},
 	{}
 };
 

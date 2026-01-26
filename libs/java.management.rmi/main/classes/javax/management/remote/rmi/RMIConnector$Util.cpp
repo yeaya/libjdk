@@ -13,8 +13,8 @@ namespace javax {
 			namespace rmi {
 
 $MethodInfo _RMIConnector$Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RMIConnector$Util::*)()>(&RMIConnector$Util::init$))},
-	{"cast", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&RMIConnector$Util::cast))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RMIConnector$Util, init$, void)},
+	{"cast", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;)TT;", $PUBLIC | $STATIC, $staticMethod(RMIConnector$Util, cast, $Object*, Object$*)},
 	{}
 };
 

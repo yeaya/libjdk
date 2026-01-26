@@ -9,6 +9,7 @@
 
 using $Symbol$OperatorSymbol = ::com::sun::tools::javac::code::Symbol$OperatorSymbol;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
+using $JCTree$JCOperatorExpression$OperandPos = ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression$OperandPos;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -28,10 +29,10 @@ $FieldInfo _JCTree$JCOperatorExpression_FieldInfo_[] = {
 };
 
 $MethodInfo _JCTree$JCOperatorExpression_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCTree$JCOperatorExpression::*)()>(&JCTree$JCOperatorExpression::init$))},
-	{"getOperand", "(Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOperator", "()Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCOperatorExpression, init$, void)},
+	{"getOperand", "(Lcom/sun/tools/javac/tree/JCTree$JCOperatorExpression$OperandPos;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JCTree$JCOperatorExpression, getOperand, $JCTree$JCExpression*, $JCTree$JCOperatorExpression$OperandPos*)},
+	{"getOperator", "()Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCOperatorExpression, getOperator, $Symbol$OperatorSymbol*)},
+	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCOperatorExpression, getTag, $JCTree$Tag*)},
 	{}
 };
 

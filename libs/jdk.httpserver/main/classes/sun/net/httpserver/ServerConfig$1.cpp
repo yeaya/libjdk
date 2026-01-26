@@ -17,8 +17,8 @@ namespace sun {
 		namespace httpserver {
 
 $MethodInfo _ServerConfig$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ServerConfig$1::*)()>(&ServerConfig$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ServerConfig$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ServerConfig$1, run, $Object*)},
 	{}
 };
 

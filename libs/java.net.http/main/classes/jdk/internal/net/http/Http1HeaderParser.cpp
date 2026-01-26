@@ -96,8 +96,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::*)()>(&Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Http1HeaderParser$$Lambda$lambda$addHeaderFromString$0::classInfo$ = {
@@ -130,25 +130,25 @@ $FieldInfo _Http1HeaderParser_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1HeaderParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Http1HeaderParser::*)()>(&Http1HeaderParser::init$))},
-	{"addHeaderFromString", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1HeaderParser::*)($String*)>(&Http1HeaderParser::addHeaderFromString)), "java.net.ProtocolException"},
-	{"canContinueParsing", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Http1HeaderParser::*)($ByteBuffer*)>(&Http1HeaderParser::canContinueParsing))},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"get", "(Ljava/nio/ByteBuffer;)C", nullptr, $PRIVATE, $method(static_cast<char16_t(Http1HeaderParser::*)($ByteBuffer*)>(&Http1HeaderParser::get))},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, 0},
-	{"lambda$addHeaderFromString$0", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($String*)>(&Http1HeaderParser::lambda$addHeaderFromString$0))},
-	{"maybeEndHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1HeaderParser::*)($ByteBuffer*)>(&Http1HeaderParser::maybeEndHeaders)), "java.net.ProtocolException"},
-	{"maybeStartHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1HeaderParser::*)($ByteBuffer*)>(&Http1HeaderParser::maybeStartHeaders))},
-	{"parse", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, nullptr, "java.net.ProtocolException"},
-	{"protocolException", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/net/ProtocolException;", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<$ProtocolException*(Http1HeaderParser::*)($String*,$ObjectArray*)>(&Http1HeaderParser::protocolException))},
-	{"readResumeHeader", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1HeaderParser::*)($ByteBuffer*)>(&Http1HeaderParser::readResumeHeader))},
-	{"readResumeStatusLine", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1HeaderParser::*)($ByteBuffer*)>(&Http1HeaderParser::readResumeStatusLine))},
-	{"readStatusLineFeed", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1HeaderParser::*)($ByteBuffer*)>(&Http1HeaderParser::readStatusLineFeed)), "java.net.ProtocolException"},
-	{"responseCode", "()I", nullptr, 0},
-	{"resumeOrEndHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1HeaderParser::*)($ByteBuffer*)>(&Http1HeaderParser::resumeOrEndHeaders)), "java.net.ProtocolException"},
-	{"resumeOrLF", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1HeaderParser::*)($ByteBuffer*)>(&Http1HeaderParser::resumeOrLF))},
-	{"resumeOrSecondCR", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1HeaderParser::*)($ByteBuffer*)>(&Http1HeaderParser::resumeOrSecondCR)), "java.net.ProtocolException"},
-	{"statusLine", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(Http1HeaderParser, init$, void)},
+	{"addHeaderFromString", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, addHeaderFromString, void, $String*), "java.net.ProtocolException"},
+	{"canContinueParsing", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(Http1HeaderParser, canContinueParsing, bool, $ByteBuffer*)},
+	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Http1HeaderParser, currentStateMessage, $String*)},
+	{"get", "(Ljava/nio/ByteBuffer;)C", nullptr, $PRIVATE, $method(Http1HeaderParser, get, char16_t, $ByteBuffer*)},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(Http1HeaderParser, headers, $HttpHeaders*)},
+	{"lambda$addHeaderFromString$0", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1HeaderParser, lambda$addHeaderFromString$0, $List*, $String*)},
+	{"maybeEndHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, maybeEndHeaders, void, $ByteBuffer*), "java.net.ProtocolException"},
+	{"maybeStartHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, maybeStartHeaders, void, $ByteBuffer*)},
+	{"parse", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $virtualMethod(Http1HeaderParser, parse, bool, $ByteBuffer*), "java.net.ProtocolException"},
+	{"protocolException", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/net/ProtocolException;", nullptr, $PRIVATE | $TRANSIENT, $method(Http1HeaderParser, protocolException, $ProtocolException*, $String*, $ObjectArray*)},
+	{"readResumeHeader", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, readResumeHeader, void, $ByteBuffer*)},
+	{"readResumeStatusLine", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, readResumeStatusLine, void, $ByteBuffer*)},
+	{"readStatusLineFeed", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, readStatusLineFeed, void, $ByteBuffer*), "java.net.ProtocolException"},
+	{"responseCode", "()I", nullptr, 0, $virtualMethod(Http1HeaderParser, responseCode, int32_t)},
+	{"resumeOrEndHeaders", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, resumeOrEndHeaders, void, $ByteBuffer*), "java.net.ProtocolException"},
+	{"resumeOrLF", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, resumeOrLF, void, $ByteBuffer*)},
+	{"resumeOrSecondCR", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Http1HeaderParser, resumeOrSecondCR, void, $ByteBuffer*), "java.net.ProtocolException"},
+	{"statusLine", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Http1HeaderParser, statusLine, $String*)},
 	{}
 };
 

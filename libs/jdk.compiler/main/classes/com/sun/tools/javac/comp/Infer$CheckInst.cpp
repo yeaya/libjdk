@@ -39,11 +39,11 @@ $FieldInfo _Infer$CheckInst_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$CheckInst_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $TRANSIENT, $method(static_cast<void(Infer$CheckInst::*)($Infer*,$Type$UndetVar*,$Type$UndetVar$InferenceBound*,$Type$UndetVar$InferenceBoundArray*)>(&Infer$CheckInst::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/util/EnumSet;)V", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;)V", 0, $method(static_cast<void(Infer$CheckInst::*)($Infer*,$Type$UndetVar*,$EnumSet*)>(&Infer$CheckInst::init$))},
-	{"boundsToCheck", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;", 0},
-	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC},
-	{"report", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;[Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $TRANSIENT, $method(Infer$CheckInst, init$, void, $Infer*, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type$UndetVar$InferenceBoundArray*)},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/util/EnumSet;)V", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;)V", 0, $method(Infer$CheckInst, init$, void, $Infer*, $Type$UndetVar*, $EnumSet*)},
+	{"boundsToCheck", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;>;", 0, $virtualMethod(Infer$CheckInst, boundsToCheck, $EnumSet*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC, $virtualMethod(Infer$CheckInst, dup, $Infer$IncorporationAction*, $Type$UndetVar*)},
+	{"report", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, 0, $virtualMethod(Infer$CheckInst, report, void, $Type$UndetVar$InferenceBound*, $Type$UndetVar$InferenceBound*)},
 	{}
 };
 

@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _DummySecureWebSocketServer$WebSocketChannel$Closer_MethodInfo_[] = {
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel$Closer, close, void), "java.io.IOException"},
 	{}
 };
 

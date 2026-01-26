@@ -24,7 +24,7 @@ $FieldInfo _Logger$RbAccess_FieldInfo_[] = {
 };
 
 $MethodInfo _Logger$RbAccess_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Logger$RbAccess::*)()>(&Logger$RbAccess::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Logger$RbAccess, init$, void)},
 	{}
 };
 

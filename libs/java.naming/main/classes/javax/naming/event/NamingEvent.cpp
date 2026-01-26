@@ -41,13 +41,13 @@ $FieldInfo _NamingEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _NamingEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/event/EventContext;ILjavax/naming/Binding;Ljavax/naming/Binding;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(NamingEvent::*)($EventContext*,int32_t,$Binding*,$Binding*,Object$*)>(&NamingEvent::init$))},
-	{"dispatch", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC},
-	{"getChangeInfo", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getEventContext", "()Ljavax/naming/event/EventContext;", nullptr, $PUBLIC},
-	{"getNewBinding", "()Ljavax/naming/Binding;", nullptr, $PUBLIC},
-	{"getOldBinding", "()Ljavax/naming/Binding;", nullptr, $PUBLIC},
-	{"getType", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/naming/event/EventContext;ILjavax/naming/Binding;Ljavax/naming/Binding;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(NamingEvent, init$, void, $EventContext*, int32_t, $Binding*, $Binding*, Object$*)},
+	{"dispatch", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(NamingEvent, dispatch, void, $NamingListener*)},
+	{"getChangeInfo", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getChangeInfo, $Object*)},
+	{"getEventContext", "()Ljavax/naming/event/EventContext;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getEventContext, $EventContext*)},
+	{"getNewBinding", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getNewBinding, $Binding*)},
+	{"getOldBinding", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getOldBinding, $Binding*)},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(NamingEvent, getType, int32_t)},
 	{}
 };
 

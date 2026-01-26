@@ -49,10 +49,10 @@ $FieldInfo _Http1HeaderParser$State_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1HeaderParser$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Http1HeaderParser$StateArray*(*)()>(&Http1HeaderParser$State::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Http1HeaderParser$State::*)($String*,int32_t)>(&Http1HeaderParser$State::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Http1HeaderParser$State*(*)($String*)>(&Http1HeaderParser$State::valueOf))},
-	{"values", "()[Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Http1HeaderParser$StateArray*(*)()>(&Http1HeaderParser$State::values))},
+	{"$values", "()[Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1HeaderParser$State, $values, $Http1HeaderParser$StateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Http1HeaderParser$State, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1HeaderParser$State, valueOf, Http1HeaderParser$State*, $String*)},
+	{"values", "()[Ljdk/internal/net/http/Http1HeaderParser$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1HeaderParser$State, values, $Http1HeaderParser$StateArray*)},
 	{}
 };
 

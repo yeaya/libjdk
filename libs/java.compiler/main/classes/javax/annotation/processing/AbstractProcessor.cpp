@@ -67,14 +67,14 @@ $FieldInfo _AbstractProcessor_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractProcessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractProcessor::*)()>(&AbstractProcessor::init$))},
-	{"arrayToSet", "([Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/util/Set;", "([Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(AbstractProcessor::*)($StringArray*,bool,$String*,$String*)>(&AbstractProcessor::arrayToSet))},
-	{"getCompletions", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/ExecutableElement;Ljava/lang/String;)Ljava/lang/Iterable;", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/ExecutableElement;Ljava/lang/String;)Ljava/lang/Iterable<+Ljavax/annotation/processing/Completion;>;", $PUBLIC},
-	{"getSupportedAnnotationTypes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getSupportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"getSupportedSourceVersion", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC},
-	{"init", "(Ljavax/annotation/processing/ProcessingEnvironment;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"isInitialized", "()Z", nullptr, $PROTECTED | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractProcessor, init$, void)},
+	{"arrayToSet", "([Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/util/Set;", "([Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(AbstractProcessor, arrayToSet, $Set*, $StringArray*, bool, $String*, $String*)},
+	{"getCompletions", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/ExecutableElement;Ljava/lang/String;)Ljava/lang/Iterable;", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/ExecutableElement;Ljava/lang/String;)Ljava/lang/Iterable<+Ljavax/annotation/processing/Completion;>;", $PUBLIC, $virtualMethod(AbstractProcessor, getCompletions, $Iterable*, $Element*, $AnnotationMirror*, $ExecutableElement*, $String*)},
+	{"getSupportedAnnotationTypes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AbstractProcessor, getSupportedAnnotationTypes, $Set*)},
+	{"getSupportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(AbstractProcessor, getSupportedOptions, $Set*)},
+	{"getSupportedSourceVersion", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC, $virtualMethod(AbstractProcessor, getSupportedSourceVersion, $SourceVersion*)},
+	{"init", "(Ljavax/annotation/processing/ProcessingEnvironment;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AbstractProcessor, init, void, $ProcessingEnvironment*)},
+	{"isInitialized", "()Z", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AbstractProcessor, isInitialized, bool)},
 	{"process", "(Ljava/util/Set;Ljavax/annotation/processing/RoundEnvironment;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

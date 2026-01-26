@@ -94,8 +94,8 @@ $FieldInfo TestSupport$$Lambda$lambda$cartesianIterator$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TestSupport$$Lambda$lambda$cartesianIterator$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/TestSupport$F2;)V", nullptr, $PUBLIC, $method(static_cast<void(TestSupport$$Lambda$lambda$cartesianIterator$0::*)($TestSupport$F2*)>(&TestSupport$$Lambda$lambda$cartesianIterator$0::init$))},
-	{"apply", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/TestSupport$F2;)V", nullptr, $PUBLIC, $method(TestSupport$$Lambda$lambda$cartesianIterator$0, init$, void, $TestSupport$F2*)},
+	{"apply", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestSupport$$Lambda$lambda$cartesianIterator$0, apply, $Object*, $ObjectArray*)},
 	{}
 };
 $ClassInfo TestSupport$$Lambda$lambda$cartesianIterator$0::classInfo$ = {
@@ -134,8 +134,8 @@ $FieldInfo TestSupport$$Lambda$lambda$cartesianIterator$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TestSupport$$Lambda$lambda$cartesianIterator$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/TestSupport$F3;)V", nullptr, $PUBLIC, $method(static_cast<void(TestSupport$$Lambda$lambda$cartesianIterator$1$1::*)($TestSupport$F3*)>(&TestSupport$$Lambda$lambda$cartesianIterator$1$1::init$))},
-	{"apply", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/TestSupport$F3;)V", nullptr, $PUBLIC, $method(TestSupport$$Lambda$lambda$cartesianIterator$1$1, init$, void, $TestSupport$F3*)},
+	{"apply", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestSupport$$Lambda$lambda$cartesianIterator$1$1, apply, $Object*, $ObjectArray*)},
 	{}
 };
 $ClassInfo TestSupport$$Lambda$lambda$cartesianIterator$1$1::classInfo$ = {
@@ -174,8 +174,8 @@ $FieldInfo TestSupport$$Lambda$lambda$cartesianIterator$2$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TestSupport$$Lambda$lambda$cartesianIterator$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/TestSupport$F4;)V", nullptr, $PUBLIC, $method(static_cast<void(TestSupport$$Lambda$lambda$cartesianIterator$2$2::*)($TestSupport$F4*)>(&TestSupport$$Lambda$lambda$cartesianIterator$2$2::init$))},
-	{"apply", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/TestSupport$F4;)V", nullptr, $PUBLIC, $method(TestSupport$$Lambda$lambda$cartesianIterator$2$2, init$, void, $TestSupport$F4*)},
+	{"apply", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestSupport$$Lambda$lambda$cartesianIterator$2$2, apply, $Object*, $ObjectArray*)},
 	{}
 };
 $ClassInfo TestSupport$$Lambda$lambda$cartesianIterator$2$2::classInfo$ = {
@@ -214,8 +214,8 @@ $FieldInfo TestSupport$$Lambda$lambda$cartesianIterator$3$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TestSupport$$Lambda$lambda$cartesianIterator$3$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/TestSupport$F5;)V", nullptr, $PUBLIC, $method(static_cast<void(TestSupport$$Lambda$lambda$cartesianIterator$3$3::*)($TestSupport$F5*)>(&TestSupport$$Lambda$lambda$cartesianIterator$3$3::init$))},
-	{"apply", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/TestSupport$F5;)V", nullptr, $PUBLIC, $method(TestSupport$$Lambda$lambda$cartesianIterator$3$3, init$, void, $TestSupport$F5*)},
+	{"apply", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestSupport$$Lambda$lambda$cartesianIterator$3$3, apply, $Object*, $ObjectArray*)},
 	{}
 };
 $ClassInfo TestSupport$$Lambda$lambda$cartesianIterator$3$3::classInfo$ = {
@@ -257,8 +257,8 @@ $FieldInfo TestSupport$$Lambda$lambda$forEachBufferPartition$4$4::fieldInfos[3] 
 	{}
 };
 $MethodInfo TestSupport$$Lambda$lambda$forEachBufferPartition$4$4::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(TestSupport$$Lambda$lambda$forEachBufferPartition$4$4::*)($ByteBuffer*,$Consumer*)>(&TestSupport$$Lambda$lambda$forEachBufferPartition$4$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(TestSupport$$Lambda$lambda$forEachBufferPartition$4$4, init$, void, $ByteBuffer*, $Consumer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TestSupport$$Lambda$lambda$forEachBufferPartition$4$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo TestSupport$$Lambda$lambda$forEachBufferPartition$4$4::classInfo$ = {
@@ -297,8 +297,8 @@ $FieldInfo TestSupport$$Lambda$isInstance$5::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TestSupport$$Lambda$isInstance$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(TestSupport$$Lambda$isInstance$5::*)($Class*)>(&TestSupport$$Lambda$isInstance$5::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(TestSupport$$Lambda$isInstance$5, init$, void, $Class*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TestSupport$$Lambda$isInstance$5, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TestSupport$$Lambda$isInstance$5::classInfo$ = {
@@ -340,8 +340,8 @@ $FieldInfo TestSupport$$Lambda$lambda$assertThrows$5$6::fieldInfos[3] = {
 	{}
 };
 $MethodInfo TestSupport$$Lambda$lambda$assertThrows$5$6::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TestSupport$$Lambda$lambda$assertThrows$5$6::*)($Class*,$String*)>(&TestSupport$$Lambda$lambda$assertThrows$5$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TestSupport$$Lambda$lambda$assertThrows$5$6, init$, void, $Class*, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TestSupport$$Lambda$lambda$assertThrows$5$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TestSupport$$Lambda$lambda$assertThrows$5$6::classInfo$ = {
@@ -364,31 +364,31 @@ $CompoundAttribute _TestSupport_MethodAnnotations_iteratorOf14[] = {
 };
 
 $MethodInfo _TestSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TestSupport::*)()>(&TestSupport::init$))},
-	{"assertThrows", "(Ljava/lang/Class;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)Ljava/lang/Throwable;", "<T:Ljava/lang/Throwable;>(Ljava/lang/Class<+TT;>;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Throwable*(*)($Class*,$TestSupport$ThrowingProcedure*)>(&TestSupport::assertThrows))},
-	{"assertThrows", "(Ljava/lang/Class;Ljava/lang/String;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)Ljava/lang/Throwable;", "<T:Ljava/lang/Throwable;>(Ljava/lang/Class<+TT;>;Ljava/lang/String;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)TT;", $STATIC, $method(static_cast<$Throwable*(*)($Class*,$String*,$TestSupport$ThrowingProcedure*)>(&TestSupport::assertThrows))},
-	{"assertThrows", "(Ljava/util/function/Predicate;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)Ljava/lang/Throwable;", "(Ljava/util/function/Predicate<-Ljava/lang/Throwable;>;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)Ljava/lang/Throwable;", $STATIC, $method(static_cast<$Throwable*(*)($Predicate*,$TestSupport$ThrowingProcedure*)>(&TestSupport::assertThrows))},
-	{"cartesianIterator", "(Ljava/util/List;Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F2;)Ljava/util/Iterator;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/List<TA;>;Ljava/util/List<TB;>;Ljdk/internal/net/http/websocket/TestSupport$F2<TA;TB;TR;>;)Ljava/util/Iterator<TR;>;", $STATIC, $method(static_cast<$Iterator*(*)($List*,$List*,$TestSupport$F2*)>(&TestSupport::cartesianIterator))},
-	{"cartesianIterator", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F3;)Ljava/util/Iterator;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;C:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/List<TA;>;Ljava/util/List<TB;>;Ljava/util/List<TC;>;Ljdk/internal/net/http/websocket/TestSupport$F3<TA;TB;TC;TR;>;)Ljava/util/Iterator<TR;>;", $STATIC, $method(static_cast<$Iterator*(*)($List*,$List*,$List*,$TestSupport$F3*)>(&TestSupport::cartesianIterator))},
-	{"cartesianIterator", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F4;)Ljava/util/Iterator;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;C:Ljava/lang/Object;D:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/List<TA;>;Ljava/util/List<TB;>;Ljava/util/List<TC;>;Ljava/util/List<TD;>;Ljdk/internal/net/http/websocket/TestSupport$F4<TA;TB;TC;TD;TR;>;)Ljava/util/Iterator<TR;>;", $STATIC, $method(static_cast<$Iterator*(*)($List*,$List*,$List*,$List*,$TestSupport$F4*)>(&TestSupport::cartesianIterator))},
-	{"cartesianIterator", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F5;)Ljava/util/Iterator;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;C:Ljava/lang/Object;D:Ljava/lang/Object;E:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/List<TA;>;Ljava/util/List<TB;>;Ljava/util/List<TC;>;Ljava/util/List<TD;>;Ljava/util/List<TE;>;Ljdk/internal/net/http/websocket/TestSupport$F5<TA;TB;TC;TD;TE;TR;>;)Ljava/util/Iterator<TR;>;", $STATIC, $method(static_cast<$Iterator*(*)($List*,$List*,$List*,$List*,$List*,$TestSupport$F5*)>(&TestSupport::cartesianIterator))},
-	{"cartesianIterator", "(Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F;)Ljava/util/Iterator;", "<R:Ljava/lang/Object;>(Ljava/util/List<+Ljava/util/List<*>;>;Ljdk/internal/net/http/websocket/TestSupport$F<TR;>;)Ljava/util/Iterator<TR;>;", $STATIC, $method(static_cast<$Iterator*(*)($List*,$TestSupport$F*)>(&TestSupport::cartesianIterator))},
-	{"forEachBufferPartition", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;)V", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer<-Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;>;)V", $STATIC, $method(static_cast<void(*)($ByteBuffer*,$Consumer*)>(&TestSupport::forEachBufferPartition))},
-	{"forEachPartition", "(ILjava/util/function/Consumer;)V", "(ILjava/util/function/Consumer<-Ljava/lang/Iterable<Ljava/lang/Integer;>;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,$Consumer*)>(&TestSupport::forEachPartition))},
-	{"forEachPartition", "(ILjava/util/Stack;Ljava/util/function/Consumer;)V", "(ILjava/util/Stack<Ljava/lang/Integer;>;Ljava/util/function/Consumer<-Ljava/lang/Iterable<Ljava/lang/Integer;>;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,$Stack*,$Consumer*)>(&TestSupport::forEachPartition))},
-	{"forEachPermutation", "(ILjava/util/function/Consumer;)V", "(ILjava/util/function/Consumer<-[I>;)V", $STATIC, $method(static_cast<void(*)(int32_t,$Consumer*)>(&TestSupport::forEachPermutation))},
-	{"fullCopy", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $method(static_cast<$ByteBuffer*(*)($ByteBuffer*)>(&TestSupport::fullCopy))},
-	{"iteratorOf", "([Ljava/lang/Object;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/Iterator<TT;>;", $STATIC | $TRANSIENT, $method(static_cast<$Iterator*(*)($ObjectArray*)>(&TestSupport::iteratorOf)), nullptr, nullptr, _TestSupport_MethodAnnotations_iteratorOf14},
-	{"iteratorOf1", "(Ljava/lang/Object;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/Iterator<TT;>;", $STATIC, $method(static_cast<$Iterator*(*)(Object$*)>(&TestSupport::iteratorOf1))},
-	{"lambda$assertThrows$5", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Class*,$String*,$Throwable*)>(&TestSupport::lambda$assertThrows$5))},
-	{"lambda$cartesianIterator$0", "(Ljdk/internal/net/http/websocket/TestSupport$F2;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($TestSupport$F2*,$ObjectArray*)>(&TestSupport::lambda$cartesianIterator$0))},
-	{"lambda$cartesianIterator$1", "(Ljdk/internal/net/http/websocket/TestSupport$F3;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($TestSupport$F3*,$ObjectArray*)>(&TestSupport::lambda$cartesianIterator$1))},
-	{"lambda$cartesianIterator$2", "(Ljdk/internal/net/http/websocket/TestSupport$F4;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($TestSupport$F4*,$ObjectArray*)>(&TestSupport::lambda$cartesianIterator$2))},
-	{"lambda$cartesianIterator$3", "(Ljdk/internal/net/http/websocket/TestSupport$F5;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($TestSupport$F5*,$ObjectArray*)>(&TestSupport::lambda$cartesianIterator$3))},
-	{"lambda$forEachBufferPartition$4", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;Ljava/lang/Iterable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ByteBuffer*,$Consumer*,$Iterable*)>(&TestSupport::lambda$forEachBufferPartition$4))},
-	{"limit", "(ILjava/util/Iterator;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(ILjava/util/Iterator<+TT;>;)Ljava/util/Iterator<TT;>;", $STATIC, $method(static_cast<$Iterator*(*)(int32_t,$Iterator*)>(&TestSupport::limit))},
-	{"permutations", "(I[ILjava/util/function/Consumer;)V", "(I[ILjava/util/function/Consumer<-[I>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,$ints*,$Consumer*)>(&TestSupport::permutations))},
-	{"swap", "([III)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ints*,int32_t,int32_t)>(&TestSupport::swap))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TestSupport, init$, void)},
+	{"assertThrows", "(Ljava/lang/Class;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)Ljava/lang/Throwable;", "<T:Ljava/lang/Throwable;>(Ljava/lang/Class<+TT;>;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)TT;", $PUBLIC | $STATIC, $staticMethod(TestSupport, assertThrows, $Throwable*, $Class*, $TestSupport$ThrowingProcedure*)},
+	{"assertThrows", "(Ljava/lang/Class;Ljava/lang/String;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)Ljava/lang/Throwable;", "<T:Ljava/lang/Throwable;>(Ljava/lang/Class<+TT;>;Ljava/lang/String;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)TT;", $STATIC, $staticMethod(TestSupport, assertThrows, $Throwable*, $Class*, $String*, $TestSupport$ThrowingProcedure*)},
+	{"assertThrows", "(Ljava/util/function/Predicate;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)Ljava/lang/Throwable;", "(Ljava/util/function/Predicate<-Ljava/lang/Throwable;>;Ljdk/internal/net/http/websocket/TestSupport$ThrowingProcedure;)Ljava/lang/Throwable;", $STATIC, $staticMethod(TestSupport, assertThrows, $Throwable*, $Predicate*, $TestSupport$ThrowingProcedure*)},
+	{"cartesianIterator", "(Ljava/util/List;Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F2;)Ljava/util/Iterator;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/List<TA;>;Ljava/util/List<TB;>;Ljdk/internal/net/http/websocket/TestSupport$F2<TA;TB;TR;>;)Ljava/util/Iterator<TR;>;", $STATIC, $staticMethod(TestSupport, cartesianIterator, $Iterator*, $List*, $List*, $TestSupport$F2*)},
+	{"cartesianIterator", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F3;)Ljava/util/Iterator;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;C:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/List<TA;>;Ljava/util/List<TB;>;Ljava/util/List<TC;>;Ljdk/internal/net/http/websocket/TestSupport$F3<TA;TB;TC;TR;>;)Ljava/util/Iterator<TR;>;", $STATIC, $staticMethod(TestSupport, cartesianIterator, $Iterator*, $List*, $List*, $List*, $TestSupport$F3*)},
+	{"cartesianIterator", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F4;)Ljava/util/Iterator;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;C:Ljava/lang/Object;D:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/List<TA;>;Ljava/util/List<TB;>;Ljava/util/List<TC;>;Ljava/util/List<TD;>;Ljdk/internal/net/http/websocket/TestSupport$F4<TA;TB;TC;TD;TR;>;)Ljava/util/Iterator<TR;>;", $STATIC, $staticMethod(TestSupport, cartesianIterator, $Iterator*, $List*, $List*, $List*, $List*, $TestSupport$F4*)},
+	{"cartesianIterator", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F5;)Ljava/util/Iterator;", "<A:Ljava/lang/Object;B:Ljava/lang/Object;C:Ljava/lang/Object;D:Ljava/lang/Object;E:Ljava/lang/Object;R:Ljava/lang/Object;>(Ljava/util/List<TA;>;Ljava/util/List<TB;>;Ljava/util/List<TC;>;Ljava/util/List<TD;>;Ljava/util/List<TE;>;Ljdk/internal/net/http/websocket/TestSupport$F5<TA;TB;TC;TD;TE;TR;>;)Ljava/util/Iterator<TR;>;", $STATIC, $staticMethod(TestSupport, cartesianIterator, $Iterator*, $List*, $List*, $List*, $List*, $List*, $TestSupport$F5*)},
+	{"cartesianIterator", "(Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F;)Ljava/util/Iterator;", "<R:Ljava/lang/Object;>(Ljava/util/List<+Ljava/util/List<*>;>;Ljdk/internal/net/http/websocket/TestSupport$F<TR;>;)Ljava/util/Iterator<TR;>;", $STATIC, $staticMethod(TestSupport, cartesianIterator, $Iterator*, $List*, $TestSupport$F*)},
+	{"forEachBufferPartition", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;)V", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer<-Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;>;)V", $STATIC, $staticMethod(TestSupport, forEachBufferPartition, void, $ByteBuffer*, $Consumer*)},
+	{"forEachPartition", "(ILjava/util/function/Consumer;)V", "(ILjava/util/function/Consumer<-Ljava/lang/Iterable<Ljava/lang/Integer;>;>;)V", $PRIVATE | $STATIC, $staticMethod(TestSupport, forEachPartition, void, int32_t, $Consumer*)},
+	{"forEachPartition", "(ILjava/util/Stack;Ljava/util/function/Consumer;)V", "(ILjava/util/Stack<Ljava/lang/Integer;>;Ljava/util/function/Consumer<-Ljava/lang/Iterable<Ljava/lang/Integer;>;>;)V", $PRIVATE | $STATIC, $staticMethod(TestSupport, forEachPartition, void, int32_t, $Stack*, $Consumer*)},
+	{"forEachPermutation", "(ILjava/util/function/Consumer;)V", "(ILjava/util/function/Consumer<-[I>;)V", $STATIC, $staticMethod(TestSupport, forEachPermutation, void, int32_t, $Consumer*)},
+	{"fullCopy", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $STATIC, $staticMethod(TestSupport, fullCopy, $ByteBuffer*, $ByteBuffer*)},
+	{"iteratorOf", "([Ljava/lang/Object;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>([TT;)Ljava/util/Iterator<TT;>;", $STATIC | $TRANSIENT, $staticMethod(TestSupport, iteratorOf, $Iterator*, $ObjectArray*), nullptr, nullptr, _TestSupport_MethodAnnotations_iteratorOf14},
+	{"iteratorOf1", "(Ljava/lang/Object;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(TT;)Ljava/util/Iterator<TT;>;", $STATIC, $staticMethod(TestSupport, iteratorOf1, $Iterator*, Object$*)},
+	{"lambda$assertThrows$5", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Throwable;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSupport, lambda$assertThrows$5, bool, $Class*, $String*, $Throwable*)},
+	{"lambda$cartesianIterator$0", "(Ljdk/internal/net/http/websocket/TestSupport$F2;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSupport, lambda$cartesianIterator$0, $Object*, $TestSupport$F2*, $ObjectArray*)},
+	{"lambda$cartesianIterator$1", "(Ljdk/internal/net/http/websocket/TestSupport$F3;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSupport, lambda$cartesianIterator$1, $Object*, $TestSupport$F3*, $ObjectArray*)},
+	{"lambda$cartesianIterator$2", "(Ljdk/internal/net/http/websocket/TestSupport$F4;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSupport, lambda$cartesianIterator$2, $Object*, $TestSupport$F4*, $ObjectArray*)},
+	{"lambda$cartesianIterator$3", "(Ljdk/internal/net/http/websocket/TestSupport$F5;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSupport, lambda$cartesianIterator$3, $Object*, $TestSupport$F5*, $ObjectArray*)},
+	{"lambda$forEachBufferPartition$4", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;Ljava/lang/Iterable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestSupport, lambda$forEachBufferPartition$4, void, $ByteBuffer*, $Consumer*, $Iterable*)},
+	{"limit", "(ILjava/util/Iterator;)Ljava/util/Iterator;", "<T:Ljava/lang/Object;>(ILjava/util/Iterator<+TT;>;)Ljava/util/Iterator<TT;>;", $STATIC, $staticMethod(TestSupport, limit, $Iterator*, int32_t, $Iterator*)},
+	{"permutations", "(I[ILjava/util/function/Consumer;)V", "(I[ILjava/util/function/Consumer<-[I>;)V", $PRIVATE | $STATIC, $staticMethod(TestSupport, permutations, void, int32_t, $ints*, $Consumer*)},
+	{"swap", "([III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestSupport, swap, void, $ints*, int32_t, int32_t)},
 	{}
 };
 

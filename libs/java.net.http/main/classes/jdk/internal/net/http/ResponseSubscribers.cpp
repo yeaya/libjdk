@@ -96,8 +96,8 @@ $FieldInfo ResponseSubscribers$$Lambda$lambda$createLineStream$1::fieldInfos[2] 
 	{}
 };
 $MethodInfo ResponseSubscribers$$Lambda$lambda$createLineStream$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$$Lambda$lambda$createLineStream$1::*)($Charset*)>(&ResponseSubscribers$$Lambda$lambda$createLineStream$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$createLineStream$1, init$, void, $Charset*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$createLineStream$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$$Lambda$lambda$createLineStream$1::classInfo$ = {
@@ -136,8 +136,8 @@ $FieldInfo ResponseSubscribers$$Lambda$completeExceptionally$1::fieldInfos[2] = 
 	{}
 };
 $MethodInfo ResponseSubscribers$$Lambda$completeExceptionally$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$$Lambda$completeExceptionally$1::*)($CompletableFuture*)>(&ResponseSubscribers$$Lambda$completeExceptionally$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$completeExceptionally$1, init$, void, $CompletableFuture*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$completeExceptionally$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$$Lambda$completeExceptionally$1::classInfo$ = {
@@ -182,8 +182,8 @@ $FieldInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::fieldInfos[4] = 
 	{}
 };
 $MethodInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::*)($HttpResponse$BodySubscriber*,$CompletableFuture*,$Consumer*)>(&ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, init$, void, $HttpResponse$BodySubscriber*, $CompletableFuture*, $Consumer*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2, run, void)},
 	{}
 };
 $ClassInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$3$2::classInfo$ = {
@@ -222,8 +222,8 @@ $FieldInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::fieldInfos[2] = 
 	{}
 };
 $MethodInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::*)($CompletableFuture*)>(&ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, init$, void, $CompletableFuture*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$$Lambda$lambda$getBodyAsync$2$3::classInfo$ = {
@@ -262,8 +262,8 @@ $FieldInfo ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::fieldInfos[2
 	{}
 };
 $MethodInfo ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::methodInfos[3] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::*)($InputStream*)>(&ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, init$, void, $InputStream*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$$Lambda$lambda$createLineStream$0$4, run, void)},
 	{}
 };
 $ClassInfo ResponseSubscribers$$Lambda$lambda$createLineStream$0$4::classInfo$ = {
@@ -286,17 +286,17 @@ $FieldInfo _ResponseSubscribers_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseSubscribers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers::*)()>(&ResponseSubscribers::init$))},
-	{"createLineStream", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/stream/Stream<Ljava/lang/String;>;>;", $PUBLIC | $STATIC, $method(static_cast<$HttpResponse$BodySubscriber*(*)()>(&ResponseSubscribers::createLineStream))},
-	{"createLineStream", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/stream/Stream<Ljava/lang/String;>;>;", $PUBLIC | $STATIC, $method(static_cast<$HttpResponse$BodySubscriber*(*)($Charset*)>(&ResponseSubscribers::createLineStream))},
-	{"createPublisher", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;>;", $PUBLIC | $STATIC, $method(static_cast<$HttpResponse$BodySubscriber*(*)()>(&ResponseSubscribers::createPublisher))},
-	{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;)Ljava/util/concurrent/CompletionStage;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;)Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$CompletionStage*(*)($Executor*,$HttpResponse$BodySubscriber*)>(&ResponseSubscribers::getBodyAsync))},
-	{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$CompletableFuture*(*)($Executor*,$HttpResponse$BodySubscriber*,$CompletableFuture*)>(&ResponseSubscribers::getBodyAsync))},
-	{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$CompletableFuture*(*)($Executor*,$HttpResponse$BodySubscriber*,$CompletableFuture*,$Consumer*)>(&ResponseSubscribers::getBodyAsync))},
-	{"lambda$createLineStream$0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($InputStream*)>(&ResponseSubscribers::lambda$createLineStream$0))},
-	{"lambda$createLineStream$1", "(Ljava/nio/charset/Charset;Ljava/io/InputStream;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($Charset*,$InputStream*)>(&ResponseSubscribers::lambda$createLineStream$1))},
-	{"lambda$getBodyAsync$2", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($CompletableFuture*,Object$*,$Throwable*)>(&ResponseSubscribers::lambda$getBodyAsync$2))},
-	{"lambda$getBodyAsync$3", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpResponse$BodySubscriber*,$CompletableFuture*,$Consumer*)>(&ResponseSubscribers::lambda$getBodyAsync$3))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseSubscribers, init$, void)},
+	{"createLineStream", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/stream/Stream<Ljava/lang/String;>;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, createLineStream, $HttpResponse$BodySubscriber*)},
+	{"createLineStream", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/nio/charset/Charset;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/stream/Stream<Ljava/lang/String;>;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, createLineStream, $HttpResponse$BodySubscriber*, $Charset*)},
+	{"createPublisher", "()Ljava/net/http/HttpResponse$BodySubscriber;", "()Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, createPublisher, $HttpResponse$BodySubscriber*)},
+	{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;)Ljava/util/concurrent/CompletionStage;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;)Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, getBodyAsync, $CompletionStage*, $Executor*, $HttpResponse$BodySubscriber*)},
+	{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, getBodyAsync, $CompletableFuture*, $Executor*, $HttpResponse$BodySubscriber*, $CompletableFuture*)},
+	{"getBodyAsync", "(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Executor;Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC | $STATIC, $staticMethod(ResponseSubscribers, getBodyAsync, $CompletableFuture*, $Executor*, $HttpResponse$BodySubscriber*, $CompletableFuture*, $Consumer*)},
+	{"lambda$createLineStream$0", "(Ljava/io/InputStream;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$createLineStream$0, void, $InputStream*)},
+	{"lambda$createLineStream$1", "(Ljava/nio/charset/Charset;Ljava/io/InputStream;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$createLineStream$1, $Stream*, $Charset*, $InputStream*)},
+	{"lambda$getBodyAsync$2", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$getBodyAsync$2, void, $CompletableFuture*, Object$*, $Throwable*)},
+	{"lambda$getBodyAsync$3", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers, lambda$getBodyAsync$3, void, $HttpResponse$BodySubscriber*, $CompletableFuture*, $Consumer*)},
 	{}
 };
 

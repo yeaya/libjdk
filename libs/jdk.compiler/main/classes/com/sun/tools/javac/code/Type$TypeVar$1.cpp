@@ -31,14 +31,14 @@ $FieldInfo _Type$TypeVar$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$TypeVar$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(static_cast<void(Type$TypeVar$1::*)($Type$TypeVar*,$Symbol$TypeSymbol*,$Type*,$Type*,$TypeMetadata*)>(&Type$TypeVar$1::init$))},
-	{"asElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getLowerBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getUpperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"setUpperBound", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$TypeVar$1, init$, void, $Type$TypeVar*, $Symbol$TypeSymbol*, $Type*, $Type*, $TypeMetadata*)},
+	{"asElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$TypeVar$1, asElement, $Symbol$TypeSymbol*)},
+	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$TypeVar$1, baseType, $Type*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$TypeVar$1, cloneWithMetadata, $Type$TypeVar*, $TypeMetadata*)},
+	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$TypeVar$1, getAnnotationMirrors, $List*)},
+	{"getLowerBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$TypeVar$1, getLowerBound, $Type*)},
+	{"getUpperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$TypeVar$1, getUpperBound, $Type*)},
+	{"setUpperBound", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Type$TypeVar$1, setUpperBound, void, $Type*)},
 	{}
 };
 

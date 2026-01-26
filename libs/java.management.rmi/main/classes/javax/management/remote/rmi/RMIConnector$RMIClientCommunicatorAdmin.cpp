@@ -72,12 +72,12 @@ $FieldInfo _RMIConnector$RMIClientCommunicatorAdmin_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnector$RMIClientCommunicatorAdmin_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnector;J)V", nullptr, $PUBLIC, $method(static_cast<void(RMIConnector$RMIClientCommunicatorAdmin::*)($RMIConnector*,int64_t)>(&RMIConnector$RMIClientCommunicatorAdmin::init$))},
-	{"checkConnection", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"doStart", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"doStop", "()V", nullptr, $PROTECTED},
-	{"gotIOException", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reconnectNotificationListeners", "([Lcom/sun/jmx/remote/internal/ClientListenerInfo;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljavax/management/remote/rmi/RMIConnector;J)V", nullptr, $PUBLIC, $method(RMIConnector$RMIClientCommunicatorAdmin, init$, void, $RMIConnector*, int64_t)},
+	{"checkConnection", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, checkConnection, void), "java.io.IOException"},
+	{"doStart", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, doStart, void), "java.io.IOException"},
+	{"doStop", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, doStop, void)},
+	{"gotIOException", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, gotIOException, void, $IOException*), "java.io.IOException"},
+	{"reconnectNotificationListeners", "([Lcom/sun/jmx/remote/internal/ClientListenerInfo;)V", nullptr, $PUBLIC, $virtualMethod(RMIConnector$RMIClientCommunicatorAdmin, reconnectNotificationListeners, void, $ClientListenerInfoArray*), "java.io.IOException"},
 	{}
 };
 

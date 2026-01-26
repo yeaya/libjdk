@@ -36,14 +36,14 @@ $FieldInfo _KeyResolverException_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyResolverException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyResolverException::*)()>(&KeyResolverException::init$))},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyResolverException::*)($Exception*)>(&KeyResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyResolverException::*)($String*)>(&KeyResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyResolverException::*)($String*,$ObjectArray*)>(&KeyResolverException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyResolverException::*)($Exception*,$String*)>(&KeyResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(KeyResolverException::*)($String*,$Exception*)>(&KeyResolverException::init$)), nullptr, nullptr, _KeyResolverException_MethodAnnotations_init$5},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyResolverException::*)($Exception*,$String*,$ObjectArray*)>(&KeyResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(KeyResolverException::*)($String*,$ObjectArray*,$Exception*)>(&KeyResolverException::init$)), nullptr, nullptr, _KeyResolverException_MethodAnnotations_init$7},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyResolverException, init$, void)},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(KeyResolverException, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyResolverException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(KeyResolverException, init$, void, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyResolverException, init$, void, $Exception*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(KeyResolverException, init$, void, $String*, $Exception*), nullptr, nullptr, _KeyResolverException_MethodAnnotations_init$5},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(KeyResolverException, init$, void, $Exception*, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(KeyResolverException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _KeyResolverException_MethodAnnotations_init$7},
 	{}
 };
 

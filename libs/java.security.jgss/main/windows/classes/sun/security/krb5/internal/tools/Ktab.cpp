@@ -71,14 +71,14 @@ $FieldInfo _Ktab_FieldInfo_[] = {
 };
 
 $MethodInfo _Ktab_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Ktab::*)()>(&Ktab::init$))},
-	{"addEntry", "()V", nullptr, 0},
-	{"deleteEntry", "()V", nullptr, 0},
-	{"error", "([Ljava/lang/String;)V", nullptr, $TRANSIENT},
-	{"listKt", "()V", nullptr, 0},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Ktab::main))},
-	{"printHelp", "()V", nullptr, 0},
-	{"processArgs", "([Ljava/lang/String;)V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Ktab, init$, void)},
+	{"addEntry", "()V", nullptr, 0, $virtualMethod(Ktab, addEntry, void)},
+	{"deleteEntry", "()V", nullptr, 0, $virtualMethod(Ktab, deleteEntry, void)},
+	{"error", "([Ljava/lang/String;)V", nullptr, $TRANSIENT, $virtualMethod(Ktab, error, void, $StringArray*)},
+	{"listKt", "()V", nullptr, 0, $virtualMethod(Ktab, listKt, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Ktab, main, void, $StringArray*)},
+	{"printHelp", "()V", nullptr, 0, $virtualMethod(Ktab, printHelp, void)},
+	{"processArgs", "([Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Ktab, processArgs, void, $StringArray*)},
 	{}
 };
 

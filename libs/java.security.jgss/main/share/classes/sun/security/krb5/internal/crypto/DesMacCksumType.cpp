@@ -29,16 +29,16 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _DesMacCksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DesMacCksumType::*)()>(&DesMacCksumType::init$))},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"cksumSize", "()I", nullptr, $PUBLIC},
-	{"cksumType", "()I", nullptr, $PUBLIC},
-	{"confounderSize", "()I", nullptr, $PUBLIC},
-	{"decryptKeyedChecksum", "([B[B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(DesMacCksumType::*)($bytes*,$bytes*)>(&DesMacCksumType::decryptKeyedChecksum)), "sun.security.krb5.KrbCryptoException"},
-	{"isKeyed", "()Z", nullptr, $PUBLIC},
-	{"keySize", "()I", nullptr, $PUBLIC},
-	{"keyType", "()I", nullptr, $PUBLIC},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DesMacCksumType, init$, void)},
+	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, cksumSize, int32_t)},
+	{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, cksumType, int32_t)},
+	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, confounderSize, int32_t)},
+	{"decryptKeyedChecksum", "([B[B)[B", nullptr, $PRIVATE, $method(DesMacCksumType, decryptKeyedChecksum, $bytes*, $bytes*, $bytes*), "sun.security.krb5.KrbCryptoException"},
+	{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, isKeyed, bool)},
+	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, keyType, int32_t)},
+	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
 	{}
 };
 

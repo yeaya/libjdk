@@ -4,8 +4,10 @@
 #include <javax/lang/model/element/VariableElement.h>
 #include <jcpp.h>
 
+using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $VariableElement = ::javax::lang::model::element::VariableElement;
 
 namespace com {
 	namespace sun {
@@ -13,7 +15,7 @@ namespace com {
 			namespace util {
 
 $MethodInfo _ParameterNameProvider_MethodInfo_[] = {
-	{"getParameterName", "(Ljavax/lang/model/element/VariableElement;)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getParameterName", "(Ljavax/lang/model/element/VariableElement;)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterNameProvider, getParameterName, $CharSequence*, $VariableElement*)},
 	{}
 };
 

@@ -22,10 +22,10 @@ namespace com {
 			namespace doclint {
 
 $MethodInfo _DocLint$NoDocLint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DocLint$NoDocLint::*)()>(&DocLint$NoDocLint::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"init", "(Lcom/sun/source/util/JavacTask;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"isValidOption", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DocLint$NoDocLint, init$, void)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocLint$NoDocLint, getName, $String*)},
+	{"init", "(Lcom/sun/source/util/JavacTask;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DocLint$NoDocLint, init, void, $JavacTask*, $StringArray*)},
+	{"isValidOption", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DocLint$NoDocLint, isValidOption, bool, $String*)},
 	{}
 };
 

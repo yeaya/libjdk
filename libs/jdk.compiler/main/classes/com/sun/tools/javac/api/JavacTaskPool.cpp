@@ -101,8 +101,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacTaskPool$$Lambda$ArrayList::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskPool$$Lambda$ArrayList::*)()>(&JavacTaskPool$$Lambda$ArrayList::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTaskPool$$Lambda$ArrayList, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$$Lambda$ArrayList, get, $Object*)},
 	{}
 };
 $ClassInfo JavacTaskPool$$Lambda$ArrayList::classInfo$ = {
@@ -134,8 +134,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacTaskPool$$Lambda$stream$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskPool$$Lambda$stream$1::*)()>(&JavacTaskPool$$Lambda$stream$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTaskPool$$Lambda$stream$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$$Lambda$stream$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavacTaskPool$$Lambda$stream$1::classInfo$ = {
@@ -167,8 +167,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacTaskPool$$Lambda$lambda$getTask$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskPool$$Lambda$lambda$getTask$0$2::*)()>(&JavacTaskPool$$Lambda$lambda$getTask$0$2::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTaskPool$$Lambda$lambda$getTask$0$2, init$, void)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$$Lambda$lambda$getTask$0$2, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo JavacTaskPool$$Lambda$lambda$getTask$0$2::classInfo$ = {
@@ -200,8 +200,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacTaskPool$$Lambda$lambda$getTask$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskPool$$Lambda$lambda$getTask$1$3::*)()>(&JavacTaskPool$$Lambda$lambda$getTask$1$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTaskPool$$Lambda$lambda$getTask$1$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$$Lambda$lambda$getTask$1$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavacTaskPool$$Lambda$lambda$getTask$1$3::classInfo$ = {
@@ -232,12 +232,12 @@ $FieldInfo _JavacTaskPool_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTaskPool_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskPool::*)(int32_t)>(&JavacTaskPool::init$))},
-	{"cacheSize", "()J", nullptr, $PRIVATE, $method(static_cast<int64_t(JavacTaskPool::*)()>(&JavacTaskPool::cacheSize))},
-	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lcom/sun/tools/javac/api/JavacTaskPool$Worker;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;Lcom/sun/tools/javac/api/JavacTaskPool$Worker<TZ;>;)TZ;", $PUBLIC},
-	{"lambda$getTask$0", "(Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext;Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($JavacTaskPool$ReusableContext*,$JavacTaskPool$ReusableContext*)>(&JavacTaskPool::lambda$getTask$0))},
-	{"lambda$getTask$1", "(Ljava/util/List;)Ljava/util/Queue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Queue*(*)($List*)>(&JavacTaskPool::lambda$getTask$1))},
-	{"printStatistics", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JavacTaskPool, init$, void, int32_t)},
+	{"cacheSize", "()J", nullptr, $PRIVATE, $method(JavacTaskPool, cacheSize, int64_t)},
+	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;Lcom/sun/tools/javac/api/JavacTaskPool$Worker;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;Lcom/sun/tools/javac/api/JavacTaskPool$Worker<TZ;>;)TZ;", $PUBLIC, $virtualMethod(JavacTaskPool, getTask, $Object*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Iterable*, $Iterable*, $Iterable*, $JavacTaskPool$Worker*)},
+	{"lambda$getTask$0", "(Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext;Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacTaskPool, lambda$getTask$0, int32_t, $JavacTaskPool$ReusableContext*, $JavacTaskPool$ReusableContext*)},
+	{"lambda$getTask$1", "(Ljava/util/List;)Ljava/util/Queue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacTaskPool, lambda$getTask$1, $Queue*, $List*)},
+	{"printStatistics", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool, printStatistics, void, $PrintStream*)},
 	{}
 };
 

@@ -37,11 +37,11 @@ $FieldInfo _NaiveHuffman$Reader_FieldInfo_[] = {
 };
 
 $MethodInfo _NaiveHuffman$Reader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NaiveHuffman$Reader::*)()>(&NaiveHuffman$Reader::init$))},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;Z)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;ZZ)V", nullptr, 0, $method(static_cast<void(NaiveHuffman$Reader::*)($ByteBuffer*,$Appendable*,bool,bool)>(&NaiveHuffman$Reader::read)), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"resetProbe", "()V", nullptr, $PRIVATE, $method(static_cast<void(NaiveHuffman$Reader::*)()>(&NaiveHuffman$Reader::resetProbe))},
+	{"<init>", "()V", nullptr, 0, $method(NaiveHuffman$Reader, init$, void)},
+	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;Z)V", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Reader, read, void, $ByteBuffer*, $Appendable*, bool), "java.io.IOException"},
+	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;ZZ)V", nullptr, 0, $method(NaiveHuffman$Reader, read, void, $ByteBuffer*, $Appendable*, bool, bool), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Reader, reset, void)},
+	{"resetProbe", "()V", nullptr, $PRIVATE, $method(NaiveHuffman$Reader, resetProbe, void)},
 	{}
 };
 

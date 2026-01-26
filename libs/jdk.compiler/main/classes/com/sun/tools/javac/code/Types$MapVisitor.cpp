@@ -20,9 +20,9 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Types$MapVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Types$MapVisitor::*)()>(&Types$MapVisitor::init$))},
-	{"visit", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Type*(Types$MapVisitor::*)($Type*)>(&Types$MapVisitor::visit))},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Types$MapVisitor, init$, void)},
+	{"visit", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $FINAL, $method(Types$MapVisitor, visit, $Type*, $Type*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Types$MapVisitor, visitType, $Object*, $Type*, Object$*)},
 	{}
 };
 

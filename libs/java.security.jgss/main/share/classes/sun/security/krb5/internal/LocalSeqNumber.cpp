@@ -20,14 +20,14 @@ $FieldInfo _LocalSeqNumber_FieldInfo_[] = {
 };
 
 $MethodInfo _LocalSeqNumber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LocalSeqNumber::*)()>(&LocalSeqNumber::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(LocalSeqNumber::*)(int32_t)>(&LocalSeqNumber::init$))},
-	{"<init>", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(static_cast<void(LocalSeqNumber::*)($Integer*)>(&LocalSeqNumber::init$))},
-	{"current", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"init", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"next", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"randInit", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"step", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LocalSeqNumber, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(LocalSeqNumber, init$, void, int32_t)},
+	{"<init>", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(LocalSeqNumber, init$, void, $Integer*)},
+	{"current", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, current, int32_t)},
+	{"init", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, init, void, int32_t)},
+	{"next", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, next, int32_t)},
+	{"randInit", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, randInit, void)},
+	{"step", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LocalSeqNumber, step, int32_t)},
 	{}
 };
 

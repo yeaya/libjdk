@@ -59,19 +59,19 @@ $FieldInfo _EncryptedData_FieldInfo_[] = {
 };
 
 $MethodInfo _EncryptedData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(EncryptedData::*)()>(&EncryptedData::init$))},
-	{"<init>", "(ILjava/lang/Integer;[B)V", nullptr, $PUBLIC, $method(static_cast<void(EncryptedData::*)(int32_t,$Integer*,$bytes*)>(&EncryptedData::init$))},
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;[BI)V", nullptr, $PUBLIC, $method(static_cast<void(EncryptedData::*)($EncryptionKey*,$bytes*,int32_t)>(&EncryptedData::init$)), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.KrbCryptoException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(EncryptedData::*)($DerValue*)>(&EncryptedData::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"decrypt", "(Lsun/security/krb5/EncryptionKey;I)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decryptedData", "()[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(EncryptedData::*)()>(&EncryptedData::decryptedData)), "sun.security.krb5.internal.KdcErrException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC},
-	{"getEType", "()I", nullptr, $PUBLIC},
-	{"getKeyVersionNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/EncryptedData;", nullptr, $PUBLIC | $STATIC, $method(static_cast<EncryptedData*(*)($DerInputStream*,int8_t,bool)>(&EncryptedData::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"reset", "([B)[B", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(EncryptedData, init$, void)},
+	{"<init>", "(ILjava/lang/Integer;[B)V", nullptr, $PUBLIC, $method(EncryptedData, init$, void, int32_t, $Integer*, $bytes*)},
+	{"<init>", "(Lsun/security/krb5/EncryptionKey;[BI)V", nullptr, $PUBLIC, $method(EncryptedData, init$, void, $EncryptionKey*, $bytes*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.KrbCryptoException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(EncryptedData, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedData, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EncryptedData, clone, $Object*)},
+	{"decrypt", "(Lsun/security/krb5/EncryptionKey;I)[B", nullptr, $PUBLIC, $virtualMethod(EncryptedData, decrypt, $bytes*, $EncryptionKey*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+	{"decryptedData", "()[B", nullptr, $PRIVATE, $method(EncryptedData, decryptedData, $bytes*), "sun.security.krb5.internal.KdcErrException"},
+	{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptedData, getBytes, $bytes*)},
+	{"getEType", "()I", nullptr, $PUBLIC, $virtualMethod(EncryptedData, getEType, int32_t)},
+	{"getKeyVersionNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(EncryptedData, getKeyVersionNumber, $Integer*)},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/EncryptedData;", nullptr, $PUBLIC | $STATIC, $staticMethod(EncryptedData, parse, EncryptedData*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"reset", "([B)[B", nullptr, $PUBLIC, $virtualMethod(EncryptedData, reset, $bytes*, $bytes*)},
 	{}
 };
 

@@ -35,11 +35,11 @@ $FieldInfo _JCTree$TypeBoundKind_FieldInfo_[] = {
 };
 
 $MethodInfo _JCTree$TypeBoundKind_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/BoundKind;)V", nullptr, $PROTECTED, $method(static_cast<void(JCTree$TypeBoundKind::*)($BoundKind*)>(&JCTree$TypeBoundKind::init$))},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/BoundKind;)V", nullptr, $PROTECTED, $method(JCTree$TypeBoundKind, init$, void, $BoundKind*)},
+	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, accept, void, $JCTree$Visitor*)},
+	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, accept, $Object*, $TreeVisitor*, Object$*)},
+	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, getKind, $Tree$Kind*)},
+	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$TypeBoundKind, getTag, $JCTree$Tag*)},
 	{}
 };
 

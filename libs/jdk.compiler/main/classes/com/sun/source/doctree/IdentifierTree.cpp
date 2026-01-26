@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {
@@ -12,7 +13,7 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _IdentifierTree_MethodInfo_[] = {
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IdentifierTree, getName, $Name*)},
 	{}
 };
 

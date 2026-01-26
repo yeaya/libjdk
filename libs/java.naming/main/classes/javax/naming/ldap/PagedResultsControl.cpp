@@ -30,9 +30,9 @@ $FieldInfo _PagedResultsControl_FieldInfo_[] = {
 };
 
 $MethodInfo _PagedResultsControl_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(static_cast<void(PagedResultsControl::*)(int32_t,bool)>(&PagedResultsControl::init$)), "java.io.IOException"},
-	{"<init>", "(I[BZ)V", nullptr, $PUBLIC, $method(static_cast<void(PagedResultsControl::*)(int32_t,$bytes*,bool)>(&PagedResultsControl::init$)), "java.io.IOException"},
-	{"setEncodedValue", "(I[B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(PagedResultsControl::*)(int32_t,$bytes*)>(&PagedResultsControl::setEncodedValue)), "java.io.IOException"},
+	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(PagedResultsControl, init$, void, int32_t, bool), "java.io.IOException"},
+	{"<init>", "(I[BZ)V", nullptr, $PUBLIC, $method(PagedResultsControl, init$, void, int32_t, $bytes*, bool), "java.io.IOException"},
+	{"setEncodedValue", "(I[B)[B", nullptr, $PRIVATE, $method(PagedResultsControl, setEncodedValue, $bytes*, int32_t, $bytes*), "java.io.IOException"},
 	{}
 };
 

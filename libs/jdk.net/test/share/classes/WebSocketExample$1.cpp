@@ -16,7 +16,7 @@ $FieldInfo _WebSocketExample$1_FieldInfo_[] = {
 };
 
 $MethodInfo _WebSocketExample$1_MethodInfo_[] = {
-	{"<init>", "(LWebSocketExample;)V", nullptr, 0, $method(static_cast<void(WebSocketExample$1::*)($WebSocketExample*)>(&WebSocketExample$1::init$))},
+	{"<init>", "(LWebSocketExample;)V", nullptr, 0, $method(WebSocketExample$1, init$, void, $WebSocketExample*)},
 	{}
 };
 

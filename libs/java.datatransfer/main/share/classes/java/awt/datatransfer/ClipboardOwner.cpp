@@ -4,6 +4,8 @@
 #include <java/awt/datatransfer/Transferable.h>
 #include <jcpp.h>
 
+using $Clipboard = ::java::awt::datatransfer::Clipboard;
+using $Transferable = ::java::awt::datatransfer::Transferable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,7 +14,7 @@ namespace java {
 		namespace datatransfer {
 
 $MethodInfo _ClipboardOwner_MethodInfo_[] = {
-	{"lostOwnership", "(Ljava/awt/datatransfer/Clipboard;Ljava/awt/datatransfer/Transferable;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"lostOwnership", "(Ljava/awt/datatransfer/Clipboard;Ljava/awt/datatransfer/Transferable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClipboardOwner, lostOwnership, void, $Clipboard*, $Transferable*)},
 	{}
 };
 

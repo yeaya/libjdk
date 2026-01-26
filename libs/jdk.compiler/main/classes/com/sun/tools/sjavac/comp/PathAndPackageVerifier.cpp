@@ -52,10 +52,10 @@ $FieldInfo _PathAndPackageVerifier_FieldInfo_[] = {
 };
 
 $MethodInfo _PathAndPackageVerifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PathAndPackageVerifier::*)()>(&PathAndPackageVerifier::init$))},
-	{"checkPathAndPackage", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE, $method(static_cast<bool(PathAndPackageVerifier::*)($Path*,$JCTree*)>(&PathAndPackageVerifier::checkPathAndPackage))},
-	{"errorsDiscovered", "()Z", nullptr, $PUBLIC},
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PathAndPackageVerifier, init$, void)},
+	{"checkPathAndPackage", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE, $method(PathAndPackageVerifier, checkPathAndPackage, bool, $Path*, $JCTree*)},
+	{"errorsDiscovered", "()Z", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier, errorsDiscovered, bool)},
+	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier, finished, void, $TaskEvent*)},
 	{}
 };
 

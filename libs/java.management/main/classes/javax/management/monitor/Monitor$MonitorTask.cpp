@@ -64,9 +64,9 @@ $FieldInfo _Monitor$MonitorTask_FieldInfo_[] = {
 };
 
 $MethodInfo _Monitor$MonitorTask_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/monitor/Monitor;)V", nullptr, $PUBLIC, $method(static_cast<void(Monitor$MonitorTask::*)($Monitor*)>(&Monitor$MonitorTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"submit", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<*>;", $PUBLIC},
+	{"<init>", "(Ljavax/management/monitor/Monitor;)V", nullptr, $PUBLIC, $method(Monitor$MonitorTask, init$, void, $Monitor*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Monitor$MonitorTask, run, void)},
+	{"submit", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<*>;", $PUBLIC, $virtualMethod(Monitor$MonitorTask, submit, $Future*)},
 	{}
 };
 

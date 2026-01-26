@@ -152,8 +152,8 @@ $FieldInfo AttrRecover$$Lambda$lambda$doRecovery$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo AttrRecover$$Lambda$lambda$doRecovery$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $method(static_cast<void(AttrRecover$$Lambda$lambda$doRecovery$0::*)($JCTree$JCLambda*,$JCTree$JCReturn*)>(&AttrRecover$$Lambda$lambda$doRecovery$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $method(AttrRecover$$Lambda$lambda$doRecovery$0, init$, void, $JCTree$JCLambda*, $JCTree$JCReturn*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AttrRecover$$Lambda$lambda$doRecovery$0, run, void)},
 	{}
 };
 $ClassInfo AttrRecover$$Lambda$lambda$doRecovery$0::classInfo$ = {
@@ -195,8 +195,8 @@ $FieldInfo AttrRecover$$Lambda$lambda$doRecovery$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo AttrRecover$$Lambda$lambda$doRecovery$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(AttrRecover$$Lambda$lambda$doRecovery$1$1::*)($JCTree$JCMethodInvocation*,$List*)>(&AttrRecover$$Lambda$lambda$doRecovery$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(AttrRecover$$Lambda$lambda$doRecovery$1$1, init$, void, $JCTree$JCMethodInvocation*, $List*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AttrRecover$$Lambda$lambda$doRecovery$1$1, run, void)},
 	{}
 };
 $ClassInfo AttrRecover$$Lambda$lambda$doRecovery$1$1::classInfo$ = {
@@ -228,8 +228,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AttrRecover$$Lambda$run$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AttrRecover$$Lambda$run$2::*)()>(&AttrRecover$$Lambda$run$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AttrRecover$$Lambda$run$2, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AttrRecover$$Lambda$run$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo AttrRecover$$Lambda$run$2::classInfo$ = {
@@ -259,14 +259,14 @@ $FieldInfo _AttrRecover_FieldInfo_[] = {
 };
 
 $MethodInfo _AttrRecover_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(AttrRecover::*)($Context*)>(&AttrRecover::init$))},
-	{"basicMethodInvocationRecovery", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", $PRIVATE, $method(static_cast<$Type*(AttrRecover::*)($JCTree*,$Type*,$Symbol*,$Env*,$Attr$ResultInfo*)>(&AttrRecover::basicMethodInvocationRecovery))},
-	{"doRecovery", "()V", nullptr, $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/AttrRecover;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AttrRecover*(*)($Context*)>(&AttrRecover::instance))},
-	{"lambda$doRecovery$0", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($JCTree$JCLambda*,$JCTree$JCReturn*)>(&AttrRecover::lambda$doRecovery$0))},
-	{"lambda$doRecovery$1", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($JCTree$JCMethodInvocation*,$List*)>(&AttrRecover::lambda$doRecovery$1))},
-	{"recoverMethodInvocation", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", 0},
-	{"wrongMethodSymbolCandidate", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(AttrRecover, init$, void, $Context*)},
+	{"basicMethodInvocationRecovery", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", $PRIVATE, $method(AttrRecover, basicMethodInvocationRecovery, $Type*, $JCTree*, $Type*, $Symbol*, $Env*, $Attr$ResultInfo*)},
+	{"doRecovery", "()V", nullptr, $PUBLIC, $virtualMethod(AttrRecover, doRecovery, void)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/AttrRecover;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttrRecover, instance, AttrRecover*, $Context*)},
+	{"lambda$doRecovery$0", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AttrRecover, lambda$doRecovery$0, void, $JCTree$JCLambda*, $JCTree$JCReturn*)},
+	{"lambda$doRecovery$1", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AttrRecover, lambda$doRecovery$1, void, $JCTree$JCMethodInvocation*, $List*)},
+	{"recoverMethodInvocation", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", 0, $virtualMethod(AttrRecover, recoverMethodInvocation, $Type*, $JCTree*, $Type*, $Symbol*, $Env*, $Attr$ResultInfo*)},
+	{"wrongMethodSymbolCandidate", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $virtualMethod(AttrRecover, wrongMethodSymbolCandidate, void, $Symbol$TypeSymbol*, $Symbol*, $JCDiagnostic*)},
 	{}
 };
 

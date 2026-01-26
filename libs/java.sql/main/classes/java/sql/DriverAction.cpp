@@ -9,7 +9,7 @@ namespace java {
 	namespace sql {
 
 $MethodInfo _DriverAction_MethodInfo_[] = {
-	{"deregister", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"deregister", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DriverAction, deregister, void)},
 	{}
 };
 

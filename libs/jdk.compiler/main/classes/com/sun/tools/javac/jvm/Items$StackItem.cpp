@@ -27,13 +27,13 @@ $FieldInfo _Items$StackItem_FieldInfo_[] = {
 };
 
 $MethodInfo _Items$StackItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;I)V", nullptr, 0, $method(static_cast<void(Items$StackItem::*)($Items*,int32_t)>(&Items$StackItem::init$))},
-	{"drop", "()V", nullptr, 0},
-	{"duplicate", "()V", nullptr, 0},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"stash", "(I)V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"width", "()I", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;I)V", nullptr, 0, $method(Items$StackItem, init$, void, $Items*, int32_t)},
+	{"drop", "()V", nullptr, 0, $virtualMethod(Items$StackItem, drop, void)},
+	{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$StackItem, duplicate, void)},
+	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$StackItem, load, $Items$Item*)},
+	{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$StackItem, stash, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$StackItem, toString, $String*)},
+	{"width", "()I", nullptr, 0, $virtualMethod(Items$StackItem, width, int32_t)},
 	{}
 };
 

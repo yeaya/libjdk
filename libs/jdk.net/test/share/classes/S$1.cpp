@@ -14,11 +14,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 
 $MethodInfo _S$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(S$1::*)()>(&S$1::init$))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(S$1, init$, void)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(S$1, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(S$1, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(S$1, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(S$1, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

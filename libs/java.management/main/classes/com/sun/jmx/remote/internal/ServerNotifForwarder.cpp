@@ -138,20 +138,20 @@ $FieldInfo _ServerNotifForwarder_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerNotifForwarder_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/MBeanServer;Ljava/util/Map;Lcom/sun/jmx/remote/internal/NotificationBuffer;Ljava/lang/String;)V", "(Ljavax/management/MBeanServer;Ljava/util/Map<Ljava/lang/String;*>;Lcom/sun/jmx/remote/internal/NotificationBuffer;Ljava/lang/String;)V", $PUBLIC, $method(static_cast<void(ServerNotifForwarder::*)($MBeanServer*,$Map*,$NotificationBuffer*,$String*)>(&ServerNotifForwarder::init$))},
-	{"addNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationFilter;)Ljava/lang/Integer;", nullptr, $PUBLIC, nullptr, "javax.management.InstanceNotFoundException,java.io.IOException"},
-	{"allowNotificationEmission", "(Ljavax/management/ObjectName;Ljavax/management/remote/TargetedNotification;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ServerNotifForwarder::*)($ObjectName*,$TargetedNotification*)>(&ServerNotifForwarder::allowNotificationEmission))},
-	{"checkMBeanPermission", "(Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(ServerNotifForwarder::*)($ObjectName*,$String*)>(&ServerNotifForwarder::checkMBeanPermission)), "javax.management.InstanceNotFoundException,java.lang.SecurityException"},
-	{"checkMBeanPermission", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($MBeanServer*,$ObjectName*,$String*)>(&ServerNotifForwarder::checkMBeanPermission)), "javax.management.InstanceNotFoundException,java.lang.SecurityException"},
-	{"checkState", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServerNotifForwarder::*)()>(&ServerNotifForwarder::checkState)), "java.io.IOException"},
-	{"extractException", "(Ljava/lang/Exception;)Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Exception*(*)($Exception*)>(&ServerNotifForwarder::extractException))},
-	{"fetchNotifs", "(JJI)Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC},
-	{"getListenerID", "()Ljava/lang/Integer;", nullptr, $PRIVATE, $method(static_cast<$Integer*(ServerNotifForwarder::*)()>(&ServerNotifForwarder::getListenerID))},
-	{"getSubject", "()Ljavax/security/auth/Subject;", nullptr, $PRIVATE, $method(static_cast<$Subject*(ServerNotifForwarder::*)()>(&ServerNotifForwarder::getSubject))},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;[Ljava/lang/Integer;)V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljava/lang/Integer;)V", nullptr, $PUBLIC, nullptr, "javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException,java.io.IOException"},
-	{"snoopOnUnregister", "(Ljavax/management/remote/NotificationResult;)V", nullptr, $PRIVATE, $method(static_cast<void(ServerNotifForwarder::*)($NotificationResult*)>(&ServerNotifForwarder::snoopOnUnregister))},
-	{"terminate", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/MBeanServer;Ljava/util/Map;Lcom/sun/jmx/remote/internal/NotificationBuffer;Ljava/lang/String;)V", "(Ljavax/management/MBeanServer;Ljava/util/Map<Ljava/lang/String;*>;Lcom/sun/jmx/remote/internal/NotificationBuffer;Ljava/lang/String;)V", $PUBLIC, $method(ServerNotifForwarder, init$, void, $MBeanServer*, $Map*, $NotificationBuffer*, $String*)},
+	{"addNotificationListener", "(Ljavax/management/ObjectName;Ljavax/management/NotificationFilter;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder, addNotificationListener, $Integer*, $ObjectName*, $NotificationFilter*), "javax.management.InstanceNotFoundException,java.io.IOException"},
+	{"allowNotificationEmission", "(Ljavax/management/ObjectName;Ljavax/management/remote/TargetedNotification;)Z", nullptr, $PRIVATE, $method(ServerNotifForwarder, allowNotificationEmission, bool, $ObjectName*, $TargetedNotification*)},
+	{"checkMBeanPermission", "(Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(ServerNotifForwarder, checkMBeanPermission, void, $ObjectName*, $String*), "javax.management.InstanceNotFoundException,java.lang.SecurityException"},
+	{"checkMBeanPermission", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ServerNotifForwarder, checkMBeanPermission, void, $MBeanServer*, $ObjectName*, $String*), "javax.management.InstanceNotFoundException,java.lang.SecurityException"},
+	{"checkState", "()V", nullptr, $PRIVATE, $method(ServerNotifForwarder, checkState, void), "java.io.IOException"},
+	{"extractException", "(Ljava/lang/Exception;)Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServerNotifForwarder, extractException, $Exception*, $Exception*)},
+	{"fetchNotifs", "(JJI)Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder, fetchNotifs, $NotificationResult*, int64_t, int64_t, int32_t)},
+	{"getListenerID", "()Ljava/lang/Integer;", nullptr, $PRIVATE, $method(ServerNotifForwarder, getListenerID, $Integer*)},
+	{"getSubject", "()Ljavax/security/auth/Subject;", nullptr, $PRIVATE, $method(ServerNotifForwarder, getSubject, $Subject*)},
+	{"removeNotificationListener", "(Ljavax/management/ObjectName;[Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder, removeNotificationListener, void, $ObjectName*, $IntegerArray*), "java.lang.Exception"},
+	{"removeNotificationListener", "(Ljavax/management/ObjectName;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder, removeNotificationListener, void, $ObjectName*, $Integer*), "javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException,java.io.IOException"},
+	{"snoopOnUnregister", "(Ljavax/management/remote/NotificationResult;)V", nullptr, $PRIVATE, $method(ServerNotifForwarder, snoopOnUnregister, void, $NotificationResult*)},
+	{"terminate", "()V", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder, terminate, void)},
 	{}
 };
 

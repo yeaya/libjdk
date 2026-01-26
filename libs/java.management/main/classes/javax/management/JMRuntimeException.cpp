@@ -16,9 +16,9 @@ $FieldInfo _JMRuntimeException_FieldInfo_[] = {
 };
 
 $MethodInfo _JMRuntimeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JMRuntimeException::*)()>(&JMRuntimeException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JMRuntimeException::*)($String*)>(&JMRuntimeException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(JMRuntimeException::*)($String*,$Throwable*)>(&JMRuntimeException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JMRuntimeException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMRuntimeException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $method(JMRuntimeException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

@@ -19,7 +19,7 @@ $FieldInfo _HKSCS2001Mapping_FieldInfo_[] = {
 };
 
 $MethodInfo _HKSCS2001Mapping_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HKSCS2001Mapping::*)()>(&HKSCS2001Mapping::init$))},
+	{"<init>", "()V", nullptr, 0, $method(HKSCS2001Mapping, init$, void)},
 	{}
 };
 

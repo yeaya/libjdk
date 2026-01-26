@@ -44,8 +44,8 @@ $FieldInfo _GSSUtil$1_FieldInfo_[] = {
 };
 
 $MethodInfo _GSSUtil$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/AccessControlContext;Lorg/ietf/jgss/Oid;ZLjava/lang/Class;Lsun/security/jgss/spi/GSSNameSpi;)V", "()V", 0, $method(static_cast<void(GSSUtil$1::*)($AccessControlContext*,$Oid*,bool,$Class*,$GSSNameSpi*)>(&GSSUtil$1::init$))},
-	{"run", "()Ljava/util/Vector;", "()Ljava/util/Vector<TT;>;", $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Ljava/security/AccessControlContext;Lorg/ietf/jgss/Oid;ZLjava/lang/Class;Lsun/security/jgss/spi/GSSNameSpi;)V", "()V", 0, $method(GSSUtil$1, init$, void, $AccessControlContext*, $Oid*, bool, $Class*, $GSSNameSpi*)},
+	{"run", "()Ljava/util/Vector;", "()Ljava/util/Vector<TT;>;", $PUBLIC, $virtualMethod(GSSUtil$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

@@ -39,11 +39,11 @@ $FieldInfo _NaiveHuffman$Writer_FieldInfo_[] = {
 };
 
 $MethodInfo _NaiveHuffman$Writer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NaiveHuffman$Writer::*)()>(&NaiveHuffman$Writer::init$))},
-	{"from", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/NaiveHuffman$Writer;", nullptr, $PUBLIC},
-	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC},
-	{"reset", "()Ljdk/internal/net/http/hpack/NaiveHuffman$Writer;", nullptr, $PUBLIC},
-	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(NaiveHuffman$Writer, init$, void)},
+	{"from", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/NaiveHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, from, NaiveHuffman$Writer*, $CharSequence*, int32_t, int32_t)},
+	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, lengthOf, int32_t, $CharSequence*, int32_t, int32_t)},
+	{"reset", "()Ljdk/internal/net/http/hpack/NaiveHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, reset, NaiveHuffman$Writer*)},
+	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Writer, write, bool, $ByteBuffer*)},
 	{}
 };
 

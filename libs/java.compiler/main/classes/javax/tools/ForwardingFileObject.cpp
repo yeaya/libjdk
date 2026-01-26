@@ -31,16 +31,16 @@ $FieldInfo _ForwardingFileObject_FieldInfo_[] = {
 };
 
 $MethodInfo _ForwardingFileObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/FileObject;)V", "(TF;)V", $PROTECTED, $method(static_cast<void(ForwardingFileObject::*)($FileObject*)>(&ForwardingFileObject::init$))},
-	{"delete", "()Z", nullptr, $PUBLIC},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getLastModified", "()J", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/tools/FileObject;)V", "(TF;)V", $PROTECTED, $method(ForwardingFileObject, init$, void, $FileObject*)},
+	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, delete$, bool)},
+	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, getLastModified, int64_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, getName, $String*)},
+	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openInputStream, $InputStream*), "java.io.IOException"},
+	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openReader, $Reader*, bool), "java.io.IOException"},
+	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, openWriter, $Writer*), "java.io.IOException"},
+	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ForwardingFileObject, toUri, $URI*)},
 	{}
 };
 

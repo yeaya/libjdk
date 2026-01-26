@@ -23,11 +23,11 @@ namespace com {
 				namespace util {
 
 $MethodInfo _StringUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StringUtils::*)()>(&StringUtils::init$))},
-	{"indexOfIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*,$String*)>(&StringUtils::indexOfIgnoreCase))},
-	{"indexOfIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*,$String*,int32_t)>(&StringUtils::indexOfIgnoreCase))},
-	{"toLowerCase", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&StringUtils::toLowerCase))},
-	{"toUpperCase", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&StringUtils::toUpperCase))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StringUtils, init$, void)},
+	{"indexOfIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUtils, indexOfIgnoreCase, int32_t, $String*, $String*)},
+	{"indexOfIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUtils, indexOfIgnoreCase, int32_t, $String*, $String*, int32_t)},
+	{"toLowerCase", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUtils, toLowerCase, $String*, $String*)},
+	{"toUpperCase", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUtils, toUpperCase, $String*, $String*)},
 	{}
 };
 

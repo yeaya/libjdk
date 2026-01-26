@@ -28,9 +28,9 @@ $FieldInfo _Main$MemoryClassLoader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$MemoryClassLoader$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/launcher/Main$MemoryClassLoader;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(Main$MemoryClassLoader$1::*)($Main$MemoryClassLoader*,$String*)>(&Main$MemoryClassLoader$1::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/launcher/Main$MemoryClassLoader;Ljava/lang/String;)V", "()V", 0, $method(Main$MemoryClassLoader$1, init$, void, $Main$MemoryClassLoader*, $String*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$1, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$1, nextElement, $Object*)},
 	{}
 };
 

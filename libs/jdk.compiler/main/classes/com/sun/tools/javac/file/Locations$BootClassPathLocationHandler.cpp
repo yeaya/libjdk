@@ -82,16 +82,16 @@ $FieldInfo _Locations$BootClassPathLocationHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Locations$BootClassPathLocationHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, 0, $method(static_cast<void(Locations$BootClassPathLocationHandler::*)($Locations*)>(&Locations$BootClassPathLocationHandler::init$))},
-	{"canonicalize", "(Lcom/sun/tools/javac/main/Option;)Lcom/sun/tools/javac/main/Option;", nullptr, $PRIVATE, $method(static_cast<$Option*(Locations$BootClassPathLocationHandler::*)($Option*)>(&Locations$BootClassPathLocationHandler::canonicalize))},
-	{"computePath", "()Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0},
-	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, 0},
-	{"isDefault", "()Z", nullptr, 0},
-	{"lazy", "()V", nullptr, $PRIVATE, $method(static_cast<void(Locations$BootClassPathLocationHandler::*)()>(&Locations$BootClassPathLocationHandler::lazy))},
-	{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0},
-	{"systemClasses", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", $PRIVATE, $method(static_cast<$Collection*(Locations$BootClassPathLocationHandler::*)()>(&Locations$BootClassPathLocationHandler::systemClasses)), "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, 0, $method(Locations$BootClassPathLocationHandler, init$, void, $Locations*)},
+	{"canonicalize", "(Lcom/sun/tools/javac/main/Option;)Lcom/sun/tools/javac/main/Option;", nullptr, $PRIVATE, $method(Locations$BootClassPathLocationHandler, canonicalize, $Option*, $Option*)},
+	{"computePath", "()Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, 0, $virtualMethod(Locations$BootClassPathLocationHandler, computePath, $Locations$SearchPath*), "java.io.IOException"},
+	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, $virtualMethod(Locations$BootClassPathLocationHandler, contains, bool, $Path*), "java.io.IOException"},
+	{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0, $virtualMethod(Locations$BootClassPathLocationHandler, getPaths, $Collection*)},
+	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Locations$BootClassPathLocationHandler, handleOption, bool, $Option*, $String*)},
+	{"isDefault", "()Z", nullptr, 0, $virtualMethod(Locations$BootClassPathLocationHandler, isDefault, bool)},
+	{"lazy", "()V", nullptr, $PRIVATE, $method(Locations$BootClassPathLocationHandler, lazy, void)},
+	{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$BootClassPathLocationHandler, setPaths, void, $Iterable*)},
+	{"systemClasses", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", $PRIVATE, $method(Locations$BootClassPathLocationHandler, systemClasses, $Collection*), "java.io.IOException"},
 	{}
 };
 

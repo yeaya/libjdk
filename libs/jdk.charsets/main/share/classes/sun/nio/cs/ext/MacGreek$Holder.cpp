@@ -24,7 +24,7 @@ $FieldInfo _MacGreek$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MacGreek$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacGreek$Holder::*)()>(&MacGreek$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacGreek$Holder, init$, void)},
 	{}
 };
 

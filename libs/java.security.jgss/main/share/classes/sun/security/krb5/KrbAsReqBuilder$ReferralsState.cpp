@@ -46,13 +46,13 @@ $FieldInfo _KrbAsReqBuilder$ReferralsState_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbAsReqBuilder$ReferralsState_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/KrbAsReqBuilder;)V", nullptr, 0, $method(static_cast<void(KrbAsReqBuilder$ReferralsState::*)($KrbAsReqBuilder*)>(&KrbAsReqBuilder$ReferralsState::init$)), "sun.security.krb5.KrbException"},
-	{"handleError", "(Lsun/security/krb5/KrbException;)Z", nullptr, 0, $method(static_cast<bool(KrbAsReqBuilder$ReferralsState::*)($KrbException*)>(&KrbAsReqBuilder$ReferralsState::handleError)), "sun.security.krb5.RealmException"},
-	{"initStatic", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&KrbAsReqBuilder$ReferralsState::initStatic))},
-	{"isEnabled", "()Z", nullptr, 0, $method(static_cast<bool(KrbAsReqBuilder$ReferralsState::*)()>(&KrbAsReqBuilder$ReferralsState::isEnabled))},
-	{"refreshComm", "()Z", nullptr, 0, $method(static_cast<bool(KrbAsReqBuilder$ReferralsState::*)()>(&KrbAsReqBuilder$ReferralsState::refreshComm))},
-	{"sendCanonicalize", "()Z", nullptr, 0, $method(static_cast<bool(KrbAsReqBuilder$ReferralsState::*)()>(&KrbAsReqBuilder$ReferralsState::sendCanonicalize))},
-	{"updateStatus", "()V", nullptr, $PRIVATE, $method(static_cast<void(KrbAsReqBuilder$ReferralsState::*)()>(&KrbAsReqBuilder$ReferralsState::updateStatus))},
+	{"<init>", "(Lsun/security/krb5/KrbAsReqBuilder;)V", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, init$, void, $KrbAsReqBuilder*), "sun.security.krb5.KrbException"},
+	{"handleError", "(Lsun/security/krb5/KrbException;)Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, handleError, bool, $KrbException*), "sun.security.krb5.RealmException"},
+	{"initStatic", "()V", nullptr, $STATIC, $staticMethod(KrbAsReqBuilder$ReferralsState, initStatic, void)},
+	{"isEnabled", "()Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, isEnabled, bool)},
+	{"refreshComm", "()Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, refreshComm, bool)},
+	{"sendCanonicalize", "()Z", nullptr, 0, $method(KrbAsReqBuilder$ReferralsState, sendCanonicalize, bool)},
+	{"updateStatus", "()V", nullptr, $PRIVATE, $method(KrbAsReqBuilder$ReferralsState, updateStatus, void)},
 	{}
 };
 

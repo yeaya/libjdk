@@ -35,12 +35,12 @@ $FieldInfo _JavacParser$SimpleEndPosTable_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacParser$SimpleEndPosTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, 0, $method(static_cast<void(JavacParser$SimpleEndPosTable::*)($JavacParser*)>(&JavacParser$SimpleEndPosTable::init$))},
-	{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC},
-	{"replaceTree", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC},
-	{"storeEnd", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PUBLIC},
-	{"to", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED},
-	{"toP", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, 0, $method(JavacParser$SimpleEndPosTable, init$, void, $JavacParser*)},
+	{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(JavacParser$SimpleEndPosTable, getEndPos, int32_t, $JCTree*)},
+	{"replaceTree", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC, $virtualMethod(JavacParser$SimpleEndPosTable, replaceTree, int32_t, $JCTree*, $JCTree*)},
+	{"storeEnd", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PUBLIC, $virtualMethod(JavacParser$SimpleEndPosTable, storeEnd, void, $JCTree*, int32_t)},
+	{"to", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED, $virtualMethod(JavacParser$SimpleEndPosTable, to, $JCTree*, $JCTree*)},
+	{"toP", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED, $virtualMethod(JavacParser$SimpleEndPosTable, toP, $JCTree*, $JCTree*)},
 	{}
 };
 

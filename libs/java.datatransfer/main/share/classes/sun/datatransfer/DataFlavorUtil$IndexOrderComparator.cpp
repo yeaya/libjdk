@@ -26,9 +26,9 @@ $FieldInfo _DataFlavorUtil$IndexOrderComparator_FieldInfo_[] = {
 };
 
 $MethodInfo _DataFlavorUtil$IndexOrderComparator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/Long;Ljava/lang/Integer;>;)V", $PUBLIC, $method(static_cast<void(DataFlavorUtil$IndexOrderComparator::*)($Map*)>(&DataFlavorUtil$IndexOrderComparator::init$))},
-	{"compare", "(Ljava/lang/Long;Ljava/lang/Long;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/Long;Ljava/lang/Integer;>;)V", $PUBLIC, $method(DataFlavorUtil$IndexOrderComparator, init$, void, $Map*)},
+	{"compare", "(Ljava/lang/Long;Ljava/lang/Long;)I", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$IndexOrderComparator, compare, int32_t, $Long*, $Long*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DataFlavorUtil$IndexOrderComparator, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

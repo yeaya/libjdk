@@ -27,8 +27,8 @@ $FieldInfo _XPathType$Filter_FieldInfo_[] = {
 };
 
 $MethodInfo _XPathType$Filter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(XPathType$Filter::*)($String*)>(&XPathType$Filter::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XPathType$Filter, init$, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathType$Filter, toString, $String*)},
 	{}
 };
 

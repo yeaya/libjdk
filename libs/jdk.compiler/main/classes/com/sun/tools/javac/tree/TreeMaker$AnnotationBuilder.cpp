@@ -70,18 +70,18 @@ $FieldInfo _TreeMaker$AnnotationBuilder_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMaker$AnnotationBuilder_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, 0, $method(static_cast<void(TreeMaker$AnnotationBuilder::*)($TreeMaker*)>(&TreeMaker$AnnotationBuilder::init$))},
-	{"translate", "(Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0},
-	{"translate", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, 0},
-	{"translate", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, 0},
-	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC},
-	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC},
-	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC},
-	{"visitCompoundInternal", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC},
-	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC},
-	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC},
-	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC},
-	{"visitTypeCompoundInternal", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, 0, $method(TreeMaker$AnnotationBuilder, init$, void, $TreeMaker*)},
+	{"translate", "(Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(TreeMaker$AnnotationBuilder, translate, $JCTree$JCExpression*, $Attribute*)},
+	{"translate", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, 0, $virtualMethod(TreeMaker$AnnotationBuilder, translate, $JCTree$JCAnnotation*, $Attribute$Compound*)},
+	{"translate", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, 0, $virtualMethod(TreeMaker$AnnotationBuilder, translate, $JCTree$JCAnnotation*, $Attribute$TypeCompound*)},
+	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitArray, void, $Attribute$Array*)},
+	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitClass, void, $Attribute$Class*)},
+	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitCompound, void, $Attribute$Compound*)},
+	{"visitCompoundInternal", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitCompoundInternal, $JCTree$JCAnnotation*, $Attribute$Compound*)},
+	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitConstant, void, $Attribute$Constant*)},
+	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitEnum, void, $Attribute$Enum*)},
+	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitError, void, $Attribute$Error*)},
+	{"visitTypeCompoundInternal", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;", nullptr, $PUBLIC, $virtualMethod(TreeMaker$AnnotationBuilder, visitTypeCompoundInternal, $JCTree$JCAnnotation*, $Attribute$TypeCompound*)},
 	{}
 };
 

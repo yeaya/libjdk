@@ -30,8 +30,8 @@ $FieldInfo _HttpLogFormatter_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpLogFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpLogFormatter::*)()>(&HttpLogFormatter::init$))},
-	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpLogFormatter, init$, void)},
+	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpLogFormatter, format, $String*, $LogRecord*)},
 	{}
 };
 

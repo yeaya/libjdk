@@ -29,18 +29,18 @@ $FieldInfo _HttpServerImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpServerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HttpServerImpl::*)()>(&HttpServerImpl::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/net/InetSocketAddress;I)V", nullptr, 0, $method(static_cast<void(HttpServerImpl::*)($InetSocketAddress*,int32_t)>(&HttpServerImpl::init$)), "java.io.IOException"},
-	{"bind", "(Ljava/net/InetSocketAddress;I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createContext", "(Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC},
-	{"createContext", "(Ljava/lang/String;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC},
-	{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC},
-	{"getExecutor", "()Ljava/util/concurrent/Executor;", nullptr, $PUBLIC},
-	{"removeContext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException"},
-	{"removeContext", "(Lcom/sun/net/httpserver/HttpContext;)V", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException"},
-	{"setExecutor", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC},
-	{"start", "()V", nullptr, $PUBLIC},
-	{"stop", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HttpServerImpl, init$, void), "java.io.IOException"},
+	{"<init>", "(Ljava/net/InetSocketAddress;I)V", nullptr, 0, $method(HttpServerImpl, init$, void, $InetSocketAddress*, int32_t), "java.io.IOException"},
+	{"bind", "(Ljava/net/InetSocketAddress;I)V", nullptr, $PUBLIC, $virtualMethod(HttpServerImpl, bind, void, $InetSocketAddress*, int32_t), "java.io.IOException"},
+	{"createContext", "(Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC, $virtualMethod(HttpServerImpl, createContext, $HttpContext*, $String*, $HttpHandler*)},
+	{"createContext", "(Ljava/lang/String;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $PUBLIC, $virtualMethod(HttpServerImpl, createContext, $HttpContext*, $String*)},
+	{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(HttpServerImpl, getAddress, $InetSocketAddress*)},
+	{"getExecutor", "()Ljava/util/concurrent/Executor;", nullptr, $PUBLIC, $virtualMethod(HttpServerImpl, getExecutor, $Executor*)},
+	{"removeContext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpServerImpl, removeContext, void, $String*), "java.lang.IllegalArgumentException"},
+	{"removeContext", "(Lcom/sun/net/httpserver/HttpContext;)V", nullptr, $PUBLIC, $virtualMethod(HttpServerImpl, removeContext, void, $HttpContext*), "java.lang.IllegalArgumentException"},
+	{"setExecutor", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $virtualMethod(HttpServerImpl, setExecutor, void, $Executor*)},
+	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(HttpServerImpl, start, void)},
+	{"stop", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpServerImpl, stop, void, int32_t)},
 	{}
 };
 

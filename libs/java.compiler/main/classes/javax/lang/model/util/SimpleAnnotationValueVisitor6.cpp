@@ -69,22 +69,22 @@ $FieldInfo _SimpleAnnotationValueVisitor6_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleAnnotationValueVisitor6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(SimpleAnnotationValueVisitor6::*)()>(&SimpleAnnotationValueVisitor6::init$)), nullptr, nullptr, _SimpleAnnotationValueVisitor6_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(static_cast<void(SimpleAnnotationValueVisitor6::*)(Object$*)>(&SimpleAnnotationValueVisitor6::init$)), nullptr, nullptr, _SimpleAnnotationValueVisitor6_MethodAnnotations_init$1},
-	{"defaultAction", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TP;)TR;", $PROTECTED},
-	{"visitAnnotation", "(Ljavax/lang/model/element/AnnotationMirror;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/AnnotationMirror;TP;)TR;", $PUBLIC},
-	{"visitArray", "(Ljava/util/List;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/util/List<+Ljavax/lang/model/element/AnnotationValue;>;TP;)TR;", $PUBLIC},
-	{"visitBoolean", "(ZLjava/lang/Object;)Ljava/lang/Object;", "(ZTP;)TR;", $PUBLIC},
-	{"visitByte", "(BLjava/lang/Object;)Ljava/lang/Object;", "(BTP;)TR;", $PUBLIC},
-	{"visitChar", "(CLjava/lang/Object;)Ljava/lang/Object;", "(CTP;)TR;", $PUBLIC},
-	{"visitDouble", "(DLjava/lang/Object;)Ljava/lang/Object;", "(DTP;)TR;", $PUBLIC},
-	{"visitEnumConstant", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC},
-	{"visitFloat", "(FLjava/lang/Object;)Ljava/lang/Object;", "(FTP;)TR;", $PUBLIC},
-	{"visitInt", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITP;)TR;", $PUBLIC},
-	{"visitLong", "(JLjava/lang/Object;)Ljava/lang/Object;", "(JTP;)TR;", $PUBLIC},
-	{"visitShort", "(SLjava/lang/Object;)Ljava/lang/Object;", "(STP;)TR;", $PUBLIC},
-	{"visitString", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/String;TP;)TR;", $PUBLIC},
-	{"visitType", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeMirror;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(SimpleAnnotationValueVisitor6, init$, void), nullptr, nullptr, _SimpleAnnotationValueVisitor6_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(SimpleAnnotationValueVisitor6, init$, void, Object$*), nullptr, nullptr, _SimpleAnnotationValueVisitor6_MethodAnnotations_init$1},
+	{"defaultAction", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TP;)TR;", $PROTECTED, $virtualMethod(SimpleAnnotationValueVisitor6, defaultAction, $Object*, Object$*, Object$*)},
+	{"visitAnnotation", "(Ljavax/lang/model/element/AnnotationMirror;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/AnnotationMirror;TP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitAnnotation, $Object*, $AnnotationMirror*, Object$*)},
+	{"visitArray", "(Ljava/util/List;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/util/List<+Ljavax/lang/model/element/AnnotationValue;>;TP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitArray, $Object*, $List*, Object$*)},
+	{"visitBoolean", "(ZLjava/lang/Object;)Ljava/lang/Object;", "(ZTP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitBoolean, $Object*, bool, Object$*)},
+	{"visitByte", "(BLjava/lang/Object;)Ljava/lang/Object;", "(BTP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitByte, $Object*, int8_t, Object$*)},
+	{"visitChar", "(CLjava/lang/Object;)Ljava/lang/Object;", "(CTP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitChar, $Object*, char16_t, Object$*)},
+	{"visitDouble", "(DLjava/lang/Object;)Ljava/lang/Object;", "(DTP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitDouble, $Object*, double, Object$*)},
+	{"visitEnumConstant", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitEnumConstant, $Object*, $VariableElement*, Object$*)},
+	{"visitFloat", "(FLjava/lang/Object;)Ljava/lang/Object;", "(FTP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitFloat, $Object*, float, Object$*)},
+	{"visitInt", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitInt, $Object*, int32_t, Object$*)},
+	{"visitLong", "(JLjava/lang/Object;)Ljava/lang/Object;", "(JTP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitLong, $Object*, int64_t, Object$*)},
+	{"visitShort", "(SLjava/lang/Object;)Ljava/lang/Object;", "(STP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitShort, $Object*, int16_t, Object$*)},
+	{"visitString", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/String;TP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitString, $Object*, $String*, Object$*)},
+	{"visitType", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeMirror;TP;)TR;", $PUBLIC, $virtualMethod(SimpleAnnotationValueVisitor6, visitType, $Object*, $TypeMirror*, Object$*)},
 	{}
 };
 

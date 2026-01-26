@@ -12,8 +12,8 @@ namespace com {
 				namespace digest {
 
 $MethodInfo _SecurityCtx_MethodInfo_[] = {
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.sasl.SaslException"},
+	{"unwrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SecurityCtx, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+	{"wrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SecurityCtx, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
 	{}
 };
 

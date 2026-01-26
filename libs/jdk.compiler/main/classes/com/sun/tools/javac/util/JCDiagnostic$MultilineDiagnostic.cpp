@@ -34,10 +34,10 @@ $FieldInfo _JCDiagnostic$MultilineDiagnostic_FieldInfo_[] = {
 };
 
 $MethodInfo _JCDiagnostic$MultilineDiagnostic_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $method(static_cast<void(JCDiagnostic$MultilineDiagnostic::*)($JCDiagnostic*,$List*)>(&JCDiagnostic$MultilineDiagnostic::init$))},
-	{"getSource", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getSubdiagnostics", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC},
-	{"isMultiline", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $method(JCDiagnostic$MultilineDiagnostic, init$, void, $JCDiagnostic*, $List*)},
+	{"getSource", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JCDiagnostic$MultilineDiagnostic, getSource, $Object*)},
+	{"getSubdiagnostics", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC, $virtualMethod(JCDiagnostic$MultilineDiagnostic, getSubdiagnostics, $List*)},
+	{"isMultiline", "()Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$MultilineDiagnostic, isMultiline, bool)},
 	{}
 };
 

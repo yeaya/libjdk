@@ -53,18 +53,18 @@ $FieldInfo _ServerConfig_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerConfig_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ServerConfig::*)()>(&ServerConfig::init$))},
-	{"checkLegacyProperties", "(Ljava/lang/System$Logger;)V", nullptr, $STATIC, $method(static_cast<void(*)($System$Logger*)>(&ServerConfig::checkLegacyProperties))},
-	{"debugEnabled", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&ServerConfig::debugEnabled))},
-	{"getClockTick", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ServerConfig::getClockTick))},
-	{"getDrainAmount", "()J", nullptr, $STATIC, $method(static_cast<int64_t(*)()>(&ServerConfig::getDrainAmount))},
-	{"getIdleInterval", "()J", nullptr, $STATIC, $method(static_cast<int64_t(*)()>(&ServerConfig::getIdleInterval))},
-	{"getMaxIdleConnections", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ServerConfig::getMaxIdleConnections))},
-	{"getMaxReqHeaders", "()I", nullptr, $STATIC, $method(static_cast<int32_t(*)()>(&ServerConfig::getMaxReqHeaders))},
-	{"getMaxReqTime", "()J", nullptr, $STATIC, $method(static_cast<int64_t(*)()>(&ServerConfig::getMaxReqTime))},
-	{"getMaxRspTime", "()J", nullptr, $STATIC, $method(static_cast<int64_t(*)()>(&ServerConfig::getMaxRspTime))},
-	{"getTimerMillis", "()J", nullptr, $STATIC, $method(static_cast<int64_t(*)()>(&ServerConfig::getTimerMillis))},
-	{"noDelay", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&ServerConfig::noDelay))},
+	{"<init>", "()V", nullptr, 0, $method(ServerConfig, init$, void)},
+	{"checkLegacyProperties", "(Ljava/lang/System$Logger;)V", nullptr, $STATIC, $staticMethod(ServerConfig, checkLegacyProperties, void, $System$Logger*)},
+	{"debugEnabled", "()Z", nullptr, $STATIC, $staticMethod(ServerConfig, debugEnabled, bool)},
+	{"getClockTick", "()I", nullptr, $STATIC, $staticMethod(ServerConfig, getClockTick, int32_t)},
+	{"getDrainAmount", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getDrainAmount, int64_t)},
+	{"getIdleInterval", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getIdleInterval, int64_t)},
+	{"getMaxIdleConnections", "()I", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxIdleConnections, int32_t)},
+	{"getMaxReqHeaders", "()I", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxReqHeaders, int32_t)},
+	{"getMaxReqTime", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxReqTime, int64_t)},
+	{"getMaxRspTime", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getMaxRspTime, int64_t)},
+	{"getTimerMillis", "()J", nullptr, $STATIC, $staticMethod(ServerConfig, getTimerMillis, int64_t)},
+	{"noDelay", "()Z", nullptr, $STATIC, $staticMethod(ServerConfig, noDelay, bool)},
 	{}
 };
 

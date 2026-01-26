@@ -27,8 +27,8 @@ $FieldInfo _LogManager$Cleaner_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$Cleaner_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager$Cleaner::*)($LogManager*)>(&LogManager$Cleaner::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, $PRIVATE, $method(LogManager$Cleaner, init$, void, $LogManager*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LogManager$Cleaner, run, void)},
 	{}
 };
 

@@ -3,6 +3,7 @@
 #include <com/sun/source/doctree/ReferenceTree.h>
 #include <jcpp.h>
 
+using $ReferenceTree = ::com::sun::source::doctree::ReferenceTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,7 +13,7 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _ValueTree_MethodInfo_[] = {
-	{"getReference", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getReference", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueTree, getReference, $ReferenceTree*)},
 	{}
 };
 

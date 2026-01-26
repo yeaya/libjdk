@@ -242,8 +242,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TransPatterns$$Lambda$lambda$handleSwitch$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$$Lambda$lambda$handleSwitch$0::*)()>(&TransPatterns$$Lambda$lambda$handleSwitch$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransPatterns$$Lambda$lambda$handleSwitch$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TransPatterns$$Lambda$lambda$handleSwitch$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TransPatterns$$Lambda$lambda$handleSwitch$0::classInfo$ = {
@@ -275,8 +275,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TransPatterns$$Lambda$lambda$handleSwitch$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$$Lambda$lambda$handleSwitch$1$1::*)()>(&TransPatterns$$Lambda$lambda$handleSwitch$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransPatterns$$Lambda$lambda$handleSwitch$1$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TransPatterns$$Lambda$lambda$handleSwitch$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TransPatterns$$Lambda$lambda$handleSwitch$1$1::classInfo$ = {
@@ -308,8 +308,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TransPatterns$$Lambda$lambda$handleSwitch$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$$Lambda$lambda$handleSwitch$2$2::*)()>(&TransPatterns$$Lambda$lambda$handleSwitch$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransPatterns$$Lambda$lambda$handleSwitch$2$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TransPatterns$$Lambda$lambda$handleSwitch$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TransPatterns$$Lambda$lambda$handleSwitch$2$2::classInfo$ = {
@@ -351,8 +351,8 @@ $FieldInfo TransPatterns$$Lambda$lambda$handleSwitch$4$3::fieldInfos[3] = {
 	{}
 };
 $MethodInfo TransPatterns$$Lambda$lambda$handleSwitch$4$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$$Lambda$lambda$handleSwitch$4$3::*)(TransPatterns*,$Type*)>(&TransPatterns$$Lambda$lambda$handleSwitch$4$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(TransPatterns$$Lambda$lambda$handleSwitch$4$3, init$, void, TransPatterns*, $Type*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TransPatterns$$Lambda$lambda$handleSwitch$4$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TransPatterns$$Lambda$lambda$handleSwitch$4$3::classInfo$ = {
@@ -384,8 +384,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TransPatterns$$Lambda$lambda$handleSwitch$5$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$$Lambda$lambda$handleSwitch$5$4::*)()>(&TransPatterns$$Lambda$lambda$handleSwitch$5$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransPatterns$$Lambda$lambda$handleSwitch$5$4, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TransPatterns$$Lambda$lambda$handleSwitch$5$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TransPatterns$$Lambda$lambda$handleSwitch$5$4::classInfo$ = {
@@ -417,8 +417,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TransPatterns$$Lambda$lambda$handleSwitch$6$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$$Lambda$lambda$handleSwitch$6$5::*)()>(&TransPatterns$$Lambda$lambda$handleSwitch$6$5::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransPatterns$$Lambda$lambda$handleSwitch$6$5, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TransPatterns$$Lambda$lambda$handleSwitch$6$5, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo TransPatterns$$Lambda$lambda$handleSwitch$6$5::classInfo$ = {
@@ -450,8 +450,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TransPatterns$$Lambda$lambda$handleSwitch$7$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$$Lambda$lambda$handleSwitch$7$6::*)()>(&TransPatterns$$Lambda$lambda$handleSwitch$7$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransPatterns$$Lambda$lambda$handleSwitch$7$6, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TransPatterns$$Lambda$lambda$handleSwitch$7$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TransPatterns$$Lambda$lambda$handleSwitch$7$6::classInfo$ = {
@@ -483,8 +483,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TransPatterns$$Lambda$lambda$handleSwitch$8$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$$Lambda$lambda$handleSwitch$8$7::*)()>(&TransPatterns$$Lambda$lambda$handleSwitch$8$7::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransPatterns$$Lambda$lambda$handleSwitch$8$7, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TransPatterns$$Lambda$lambda$handleSwitch$8$7, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TransPatterns$$Lambda$lambda$handleSwitch$8$7::classInfo$ = {
@@ -523,43 +523,43 @@ $FieldInfo _TransPatterns_FieldInfo_[] = {
 };
 
 $MethodInfo _TransPatterns_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(TransPatterns::*)($Context*)>(&TransPatterns::init$))},
-	{"convert", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0},
-	{"handleSwitch", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;ZZ)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;ZZ)V", $PRIVATE, $method(static_cast<void(TransPatterns::*)($JCTree*,$JCTree$JCExpression*,$List*,bool,bool)>(&TransPatterns::handleSwitch))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/TransPatterns;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TransPatterns*(*)($Context*)>(&TransPatterns::instance))},
-	{"lambda$handleSwitch$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($JCTree$JCCase*)>(&TransPatterns::lambda$handleSwitch$0))},
-	{"lambda$handleSwitch$1", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCCaseLabel*)>(&TransPatterns::lambda$handleSwitch$1))},
-	{"lambda$handleSwitch$2", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCCaseLabel*)>(&TransPatterns::lambda$handleSwitch$2))},
-	{"lambda$handleSwitch$4", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$PoolConstant$LoadableConstant*(TransPatterns::*)($Type*,$JCTree$JCCaseLabel*)>(&TransPatterns::lambda$handleSwitch$4))},
-	{"lambda$handleSwitch$5", "(Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($PoolConstant$LoadableConstant*)>(&TransPatterns::lambda$handleSwitch$5))},
-	{"lambda$handleSwitch$6", "(I)[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PoolConstant$LoadableConstantArray*(*)(int32_t)>(&TransPatterns::lambda$handleSwitch$6))},
-	{"lambda$handleSwitch$7", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCCaseLabel*)>(&TransPatterns::lambda$handleSwitch$7))},
-	{"lambda$handleSwitch$8", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCCaseLabel*)>(&TransPatterns::lambda$handleSwitch$8))},
-	{"makeBinary", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCBinary;", nullptr, 0},
-	{"makeLit", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0},
-	{"makeTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;", nullptr, 0},
-	{"makeUnary", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCUnary;", nullptr, 0},
-	{"principalType", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(TransPatterns::*)($JCTree$JCPattern*)>(&TransPatterns::principalType))},
-	{"toLoadableConstant", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PRIVATE, $method(static_cast<$PoolConstant$LoadableConstant*(TransPatterns::*)($JCTree$JCCaseLabel*,$Type*)>(&TransPatterns::toLoadableConstant))},
-	{"translateTopLevelClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC},
-	{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC},
-	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC},
-	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC},
-	{"visitGuardPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCGuardPattern;)V", nullptr, $PUBLIC},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
-	{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC},
-	{"visitParenthesizedPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCParenthesizedPattern;)V", nullptr, $PUBLIC},
-	{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC},
-	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC},
-	{"visitTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
-	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(TransPatterns, init$, void, $Context*)},
+	{"convert", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(TransPatterns, convert, $JCTree$JCExpression*, $JCTree$JCExpression*, $Type*)},
+	{"handleSwitch", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;ZZ)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;ZZ)V", $PRIVATE, $method(TransPatterns, handleSwitch, void, $JCTree*, $JCTree$JCExpression*, $List*, bool, bool)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/TransPatterns;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransPatterns, instance, TransPatterns*, $Context*)},
+	{"lambda$handleSwitch$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransPatterns, lambda$handleSwitch$0, $Stream*, $JCTree$JCCase*)},
+	{"lambda$handleSwitch$1", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransPatterns, lambda$handleSwitch$1, bool, $JCTree$JCCaseLabel*)},
+	{"lambda$handleSwitch$2", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransPatterns, lambda$handleSwitch$2, bool, $JCTree$JCCaseLabel*)},
+	{"lambda$handleSwitch$4", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PRIVATE | $SYNTHETIC, $method(TransPatterns, lambda$handleSwitch$4, $PoolConstant$LoadableConstant*, $Type*, $JCTree$JCCaseLabel*)},
+	{"lambda$handleSwitch$5", "(Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransPatterns, lambda$handleSwitch$5, bool, $PoolConstant$LoadableConstant*)},
+	{"lambda$handleSwitch$6", "(I)[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransPatterns, lambda$handleSwitch$6, $PoolConstant$LoadableConstantArray*, int32_t)},
+	{"lambda$handleSwitch$7", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransPatterns, lambda$handleSwitch$7, bool, $JCTree$JCCaseLabel*)},
+	{"lambda$handleSwitch$8", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransPatterns, lambda$handleSwitch$8, bool, $JCTree$JCCaseLabel*)},
+	{"makeBinary", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCBinary;", nullptr, 0, $virtualMethod(TransPatterns, makeBinary, $JCTree$JCBinary*, $JCTree$Tag*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+	{"makeLit", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(TransPatterns, makeLit, $JCTree$JCExpression*, $Type*, Object$*)},
+	{"makeTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;", nullptr, 0, $virtualMethod(TransPatterns, makeTypeTest, $JCTree$JCInstanceOf*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+	{"makeUnary", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCUnary;", nullptr, 0, $virtualMethod(TransPatterns, makeUnary, $JCTree$JCUnary*, $JCTree$Tag*, $JCTree$JCExpression*)},
+	{"principalType", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(TransPatterns, principalType, $Type*, $JCTree$JCPattern*)},
+	{"toLoadableConstant", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PRIVATE, $method(TransPatterns, toLoadableConstant, $PoolConstant$LoadableConstant*, $JCTree$JCCaseLabel*, $Type*)},
+	{"translateTopLevelClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(TransPatterns, translateTopLevelClass, $JCTree*, $Env*, $JCTree*, $TreeMaker*)},
+	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitBinary, void, $JCTree$JCBinary*)},
+	{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitBindingPattern, void, $JCTree$JCBindingPattern*)},
+	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitBlock, void, $JCTree$JCBlock*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitConditional, void, $JCTree$JCConditional*)},
+	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
+	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitForLoop, void, $JCTree$JCForLoop*)},
+	{"visitGuardPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCGuardPattern;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitGuardPattern, void, $JCTree$JCGuardPattern*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitIdent, void, $JCTree$JCIdent*)},
+	{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitIf, void, $JCTree$JCIf*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+	{"visitParenthesizedPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCParenthesizedPattern;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitParenthesizedPattern, void, $JCTree$JCParenthesizedPattern*)},
+	{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitSwitch, void, $JCTree$JCSwitch*)},
+	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
+	{"visitTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitTypeTest, void, $JCTree$JCInstanceOf*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitVarDef, void, $JCTree$JCVariableDecl*)},
+	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(TransPatterns, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
 	{}
 };
 

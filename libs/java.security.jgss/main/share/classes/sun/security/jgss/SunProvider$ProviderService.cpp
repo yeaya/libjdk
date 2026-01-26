@@ -31,8 +31,8 @@ namespace sun {
 		namespace jgss {
 
 $MethodInfo _SunProvider$ProviderService_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SunProvider$ProviderService::*)($Provider*,$String*,$String*,$String*)>(&SunProvider$ProviderService::init$))},
-	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(SunProvider$ProviderService, init$, void, $Provider*, $String*, $String*, $String*)},
+	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunProvider$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
 	{}
 };
 

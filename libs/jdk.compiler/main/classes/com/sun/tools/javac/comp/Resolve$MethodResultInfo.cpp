@@ -48,12 +48,12 @@ $FieldInfo _Resolve$MethodResultInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodResultInfo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolve$MethodResultInfo::*)($Resolve*,$Type*,$Check$CheckContext*)>(&Resolve$MethodResultInfo::init$))},
-	{"U", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(Resolve$MethodResultInfo::*)($Type*)>(&Resolve$MethodResultInfo::U))},
-	{"check", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED},
-	{"dup", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Resolve$MethodResultInfo;", nullptr, $PROTECTED},
-	{"dup", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED},
-	{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PUBLIC, $method(Resolve$MethodResultInfo, init$, void, $Resolve*, $Type*, $Check$CheckContext*)},
+	{"U", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Resolve$MethodResultInfo, U, $Type*, $Type*)},
+	{"check", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, check, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Resolve$MethodResultInfo;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, dup, Resolve$MethodResultInfo*, $Type*)},
+	{"dup", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, dup, $Attr$ResultInfo*, $Check$CheckContext*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, dup, $Attr$ResultInfo*, $Type*, $Check$CheckContext*)},
 	{}
 };
 

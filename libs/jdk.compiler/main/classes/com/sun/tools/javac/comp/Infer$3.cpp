@@ -45,8 +45,8 @@ $FieldInfo _Infer$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(static_cast<void(Infer$3::*)($Infer*)>(&Infer$3::init$))},
-	{"getIncorporationActions", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Infer$IncorporationAction;>;", 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(Infer$3, init$, void, $Infer*)},
+	{"getIncorporationActions", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Infer$IncorporationAction;>;", 0, $virtualMethod(Infer$3, getIncorporationActions, $List*, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type*, bool)},
 	{}
 };
 

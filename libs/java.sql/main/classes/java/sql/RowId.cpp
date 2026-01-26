@@ -10,7 +10,7 @@ namespace java {
 
 $MethodInfo _RowId_MethodInfo_[] = {
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getBytes", "()[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"getBytes", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowId, getBytes, $bytes*)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{}

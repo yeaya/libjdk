@@ -5,16 +5,19 @@
 #include <javax/management/NotificationListener.h>
 #include <jcpp.h>
 
+using $MBeanNotificationInfoArray = $Array<::javax::management::MBeanNotificationInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $NotificationFilter = ::javax::management::NotificationFilter;
+using $NotificationListener = ::javax::management::NotificationListener;
 
 namespace javax {
 	namespace management {
 
 $MethodInfo _NotificationBroadcaster_MethodInfo_[] = {
-	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.IllegalArgumentException"},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.ListenerNotFoundException"},
+	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBroadcaster, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "java.lang.IllegalArgumentException"},
+	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBroadcaster, getNotificationInfo, $MBeanNotificationInfoArray*)},
+	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBroadcaster, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
 	{}
 };
 

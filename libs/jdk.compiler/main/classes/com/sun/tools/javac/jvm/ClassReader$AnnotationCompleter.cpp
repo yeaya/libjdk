@@ -59,9 +59,9 @@ $MethodInfo _ClassReader$AnnotationCompleter_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;)V", 0, $method(static_cast<void(ClassReader$AnnotationCompleter::*)($ClassReader*,$Symbol*,$List*)>(&ClassReader$AnnotationCompleter::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;)V", 0, $method(ClassReader$AnnotationCompleter, init$, void, $ClassReader*, $Symbol*, $List*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationCompleter, run, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationCompleter, toString, $String*)},
 	{}
 };
 

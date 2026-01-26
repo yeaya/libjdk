@@ -54,16 +54,16 @@ $FieldInfo _DiagnosticSource_FieldInfo_[] = {
 };
 
 $MethodInfo _DiagnosticSource_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/AbstractLog;)V", nullptr, $PUBLIC, $method(static_cast<void(DiagnosticSource::*)($JavaFileObject*,$AbstractLog*)>(&DiagnosticSource::init$))},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DiagnosticSource::*)()>(&DiagnosticSource::init$))},
-	{"findLine", "(I)Z", nullptr, $PROTECTED},
-	{"getColumnNumber", "(IZ)I", nullptr, $PUBLIC},
-	{"getEndPosTable", "()Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, $PUBLIC},
-	{"getFile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
-	{"getLine", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLineNumber", "(I)I", nullptr, $PUBLIC},
-	{"initBuf", "(Ljavax/tools/JavaFileObject;)[C", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"setEndPosTable", "(Lcom/sun/tools/javac/tree/EndPosTable;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/AbstractLog;)V", nullptr, $PUBLIC, $method(DiagnosticSource, init$, void, $JavaFileObject*, $AbstractLog*)},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DiagnosticSource, init$, void)},
+	{"findLine", "(I)Z", nullptr, $PROTECTED, $virtualMethod(DiagnosticSource, findLine, bool, int32_t)},
+	{"getColumnNumber", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getColumnNumber, int32_t, int32_t, bool)},
+	{"getEndPosTable", "()Lcom/sun/tools/javac/tree/EndPosTable;", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getEndPosTable, $EndPosTable*)},
+	{"getFile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getFile, $JavaFileObject*)},
+	{"getLine", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getLine, $String*, int32_t)},
+	{"getLineNumber", "(I)I", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, getLineNumber, int32_t, int32_t)},
+	{"initBuf", "(Ljavax/tools/JavaFileObject;)[C", nullptr, $PROTECTED, $virtualMethod(DiagnosticSource, initBuf, $chars*, $JavaFileObject*), "java.io.IOException"},
+	{"setEndPosTable", "(Lcom/sun/tools/javac/tree/EndPosTable;)V", nullptr, $PUBLIC, $virtualMethod(DiagnosticSource, setEndPosTable, void, $EndPosTable*)},
 	{}
 };
 

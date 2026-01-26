@@ -4,8 +4,10 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -13,8 +15,8 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _PackageTree_MethodInfo_[] = {
-	{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT},
-	{"getPackageName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PackageTree, getAnnotations, $List*)},
+	{"getPackageName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PackageTree, getPackageName, $ExpressionTree*)},
 	{}
 };
 

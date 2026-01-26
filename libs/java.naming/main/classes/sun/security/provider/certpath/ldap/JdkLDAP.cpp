@@ -65,8 +65,8 @@ $FieldInfo JdkLDAP$$Lambda$lambda$new$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo JdkLDAP$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/provider/certpath/ldap/JdkLDAP;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(static_cast<void(JdkLDAP$$Lambda$lambda$new$0::*)(JdkLDAP*,$Provider*)>(&JdkLDAP$$Lambda$lambda$new$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/provider/certpath/ldap/JdkLDAP;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(JdkLDAP$$Lambda$lambda$new$0, init$, void, JdkLDAP*, $Provider*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JdkLDAP$$Lambda$lambda$new$0, run, $Object*)},
 	{}
 };
 $ClassInfo JdkLDAP$$Lambda$lambda$new$0::classInfo$ = {
@@ -89,8 +89,8 @@ $FieldInfo _JdkLDAP_FieldInfo_[] = {
 };
 
 $MethodInfo _JdkLDAP_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JdkLDAP::*)()>(&JdkLDAP::init$))},
-	{"lambda$new$0", "(Ljava/security/Provider;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(JdkLDAP::*)($Provider*)>(&JdkLDAP::lambda$new$0))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JdkLDAP, init$, void)},
+	{"lambda$new$0", "(Ljava/security/Provider;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(JdkLDAP, lambda$new$0, $Void*, $Provider*)},
 	{}
 };
 

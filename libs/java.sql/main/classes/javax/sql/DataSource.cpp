@@ -8,6 +8,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Connection = ::java::sql::Connection;
 using $ConnectionBuilder = ::java::sql::ConnectionBuilder;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
 using $CommonDataSource = ::javax::sql::CommonDataSource;
@@ -17,11 +18,11 @@ namespace javax {
 
 $MethodInfo _DataSource_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"createConnectionBuilder", "()Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
+	{"createConnectionBuilder", "()Ljava/sql/ConnectionBuilder;", nullptr, $PUBLIC, $virtualMethod(DataSource, createConnectionBuilder, $ConnectionBuilder*), "java.sql.SQLException"},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getConnection", "(Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataSource, getConnection, $Connection*), "java.sql.SQLException"},
+	{"getConnection", "(Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DataSource, getConnection, $Connection*, $String*, $String*), "java.sql.SQLException"},
 	{"getLogWriter", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC | $ABSTRACT},
 	{"setLogWriter", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"setLoginTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT},

@@ -28,8 +28,8 @@ $FieldInfo _Types$Subst$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$Subst$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$Subst;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Types$Subst$2::*)($Types$Subst*,$List*,$Type*)>(&Types$Subst$2::init$))},
-	{"needsStripping", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$Subst;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$Subst$2, init$, void, $Types$Subst*, $List*, $Type*)},
+	{"needsStripping", "()Z", nullptr, $PUBLIC, $virtualMethod(Types$Subst$2, needsStripping, bool)},
 	{}
 };
 

@@ -36,11 +36,11 @@ $FieldInfo _Operators$BinaryEqualityOperator_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators$BinaryEqualityOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Operators$BinaryEqualityOperator::*)($Operators*,$JCTree$Tag*)>(&Operators$BinaryEqualityOperator::init$))},
-	{"getKind", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Operators$ComparisonKind;", nullptr, $PRIVATE, $method(static_cast<$Operators$ComparisonKind*(Operators$BinaryEqualityOperator::*)($Type*,$Type*)>(&Operators$BinaryEqualityOperator::getKind))},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC},
-	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$BinaryEqualityOperator, init$, void, $Operators*, $JCTree$Tag*)},
+	{"getKind", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Operators$ComparisonKind;", nullptr, $PRIVATE, $method(Operators$BinaryEqualityOperator, getKind, $Operators$ComparisonKind*, $Type*, $Type*)},
+	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryEqualityOperator, resolve, $Symbol$OperatorSymbol*, $Type*, $Type*)},
+	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryEqualityOperator, test, bool, $Type*, $Type*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$BinaryEqualityOperator, test, bool, Object$*, Object$*)},
 	{}
 };
 

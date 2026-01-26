@@ -125,8 +125,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Manifest$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Manifest$$Lambda$lambda$static$0::*)()>(&Manifest$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Manifest$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Manifest$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo Manifest$$Lambda$lambda$static$0::classInfo$ = {
@@ -157,31 +157,31 @@ $FieldInfo _Manifest_FieldInfo_[] = {
 };
 
 $MethodInfo _Manifest_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(static_cast<void(Manifest::*)($Document*)>(&Manifest::init$))},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Manifest::*)($Element*,$String*)>(&Manifest::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Manifest::*)($Element*,$String*,bool)>(&Manifest::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addDocument", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"addResourceResolver", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;)V", nullptr, $PUBLIC},
-	{"generateDigestValues", "()V", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLength", "()I", nullptr, $PUBLIC},
-	{"getPerManifestResolvers", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;>;", $PUBLIC},
-	{"getReferencedContentAfterTransformsItem", "(I)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getReferencedContentBeforeTransformsItem", "(I)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getResolverProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC},
-	{"getResolverProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSignedContentItem", "(I)[B", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getSignedContentLength", "()I", nullptr, $PUBLIC},
-	{"getVerificationResult", "(I)Z", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getVerificationResults", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PUBLIC},
-	{"isSecureValidation", "()Z", nullptr, $PUBLIC},
-	{"item", "(I)Lcom/sun/org/apache/xml/internal/security/signature/Reference;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"lambda$static$0", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)()>(&Manifest::lambda$static$0))},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setResolverProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"verifyReferences", "()Z", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"verifyReferences", "(Z)Z", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $Document*)},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"addDocument", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, addDocument, void, $String*, $String*, $Transforms*, $String*, $String*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"addResourceResolver", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, addResourceResolver, void, $ResourceResolverSpi*)},
+	{"generateDigestValues", "()V", nullptr, $PUBLIC, $virtualMethod(Manifest, generateDigestValues, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException"},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Manifest, getBaseLocalName, $String*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Manifest, getId, $String*)},
+	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest, getLength, int32_t)},
+	{"getPerManifestResolvers", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;>;", $PUBLIC, $virtualMethod(Manifest, getPerManifestResolvers, $List*)},
+	{"getReferencedContentAfterTransformsItem", "(I)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Manifest, getReferencedContentAfterTransformsItem, $XMLSignatureInput*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"getReferencedContentBeforeTransformsItem", "(I)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Manifest, getReferencedContentBeforeTransformsItem, $XMLSignatureInput*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"getResolverProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Manifest, getResolverProperties, $Map*)},
+	{"getResolverProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Manifest, getResolverProperty, $String*, $String*)},
+	{"getSignedContentItem", "(I)[B", nullptr, $PUBLIC, $virtualMethod(Manifest, getSignedContentItem, $bytes*, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"getSignedContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest, getSignedContentLength, int32_t)},
+	{"getVerificationResult", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Manifest, getVerificationResult, bool, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"getVerificationResults", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PUBLIC, $virtualMethod(Manifest, getVerificationResults, $List*)},
+	{"isSecureValidation", "()Z", nullptr, $PUBLIC, $virtualMethod(Manifest, isSecureValidation, bool)},
+	{"item", "(I)Lcom/sun/org/apache/xml/internal/security/signature/Reference;", nullptr, $PUBLIC, $virtualMethod(Manifest, item, $Reference*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"lambda$static$0", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Manifest, lambda$static$0, $Integer*)},
+	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, setId, void, $String*)},
+	{"setResolverProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, setResolverProperty, void, $String*, $String*)},
+	{"verifyReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(Manifest, verifyReferences, bool), "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"verifyReferences", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(Manifest, verifyReferences, bool, bool), "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
 	{}
 };
 

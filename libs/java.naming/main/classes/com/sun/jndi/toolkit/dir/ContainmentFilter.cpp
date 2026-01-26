@@ -24,9 +24,9 @@ $FieldInfo _ContainmentFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _ContainmentFilter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(static_cast<void(ContainmentFilter::*)($Attributes*)>(&ContainmentFilter::init$))},
-	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"contains", "(Ljavax/naming/directory/Attributes;Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Attributes*,$Attributes*)>(&ContainmentFilter::contains)), "javax.naming.NamingException"},
+	{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(ContainmentFilter, init$, void, $Attributes*)},
+	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, $virtualMethod(ContainmentFilter, check, bool, $Attributes*), "javax.naming.NamingException"},
+	{"contains", "(Ljavax/naming/directory/Attributes;Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ContainmentFilter, contains, bool, $Attributes*, $Attributes*), "javax.naming.NamingException"},
 	{}
 };
 

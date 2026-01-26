@@ -32,8 +32,8 @@ $FieldInfo _Krb5AcceptCredential$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Krb5AcceptCredential$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/security/AccessControlContext;)V", "()V", 0, $method(static_cast<void(Krb5AcceptCredential$1::*)($GSSCaller*,$String*,$AccessControlContext*)>(&Krb5AcceptCredential$1::init$))},
-	{"run", "()Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/security/AccessControlContext;)V", "()V", 0, $method(Krb5AcceptCredential$1, init$, void, $GSSCaller*, $String*, $AccessControlContext*)},
+	{"run", "()Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential$1, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

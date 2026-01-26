@@ -50,9 +50,9 @@ $FieldInfo _RequestHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _RequestHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/Socket;Lcom/sun/tools/sjavac/server/Sjavac;)V", nullptr, $PUBLIC, $method(static_cast<void(RequestHandler::*)($Socket*,$Sjavac*)>(&RequestHandler::init$))},
-	{"checkInternalErrorLog", "()V", nullptr, $PRIVATE, $method(static_cast<void(RequestHandler::*)()>(&RequestHandler::checkInternalErrorLog))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/Socket;Lcom/sun/tools/sjavac/server/Sjavac;)V", nullptr, $PUBLIC, $method(RequestHandler, init$, void, $Socket*, $Sjavac*)},
+	{"checkInternalErrorLog", "()V", nullptr, $PRIVATE, $method(RequestHandler, checkInternalErrorLog, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RequestHandler, run, void)},
 	{}
 };
 

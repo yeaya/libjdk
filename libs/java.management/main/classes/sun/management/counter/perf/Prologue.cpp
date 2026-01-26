@@ -48,17 +48,17 @@ $FieldInfo _Prologue_FieldInfo_[] = {
 };
 
 $MethodInfo _Prologue_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(Prologue::*)($ByteBuffer*)>(&Prologue::init$))},
-	{"getByteOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC},
-	{"getEntryOffset", "()I", nullptr, $PUBLIC},
-	{"getMagic", "()I", nullptr, $PUBLIC},
-	{"getMajorVersion", "()I", nullptr, $PUBLIC},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC},
-	{"getModificationTimeStamp", "()J", nullptr, $PUBLIC},
-	{"getNumEntries", "()I", nullptr, $PUBLIC},
-	{"getOverflow", "()I", nullptr, $PUBLIC},
-	{"getUsed", "()I", nullptr, $PUBLIC},
-	{"isAccessible", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Prologue, init$, void, $ByteBuffer*)},
+	{"getByteOrder", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(Prologue, getByteOrder, $ByteOrder*)},
+	{"getEntryOffset", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getEntryOffset, int32_t)},
+	{"getMagic", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getMagic, int32_t)},
+	{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getMajorVersion, int32_t)},
+	{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getMinorVersion, int32_t)},
+	{"getModificationTimeStamp", "()J", nullptr, $PUBLIC, $virtualMethod(Prologue, getModificationTimeStamp, int64_t)},
+	{"getNumEntries", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getNumEntries, int32_t)},
+	{"getOverflow", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getOverflow, int32_t)},
+	{"getUsed", "()I", nullptr, $PUBLIC, $virtualMethod(Prologue, getUsed, int32_t)},
+	{"isAccessible", "()Z", nullptr, $PUBLIC, $virtualMethod(Prologue, isAccessible, bool)},
 	{}
 };
 

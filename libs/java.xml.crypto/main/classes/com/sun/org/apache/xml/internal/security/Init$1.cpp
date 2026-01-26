@@ -31,8 +31,8 @@ namespace com {
 						namespace security {
 
 $MethodInfo _Init$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Init$1::*)()>(&Init$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "()V", nullptr, 0, $method(Init$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Init$1, run, $Object*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
 	{}
 };
 

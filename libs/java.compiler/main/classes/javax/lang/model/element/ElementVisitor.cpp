@@ -14,9 +14,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::javax::lang::model::element::Element;
+using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
+using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
 using $RecordComponentElement = ::javax::lang::model::element::RecordComponentElement;
+using $TypeElement = ::javax::lang::model::element::TypeElement;
+using $TypeParameterElement = ::javax::lang::model::element::TypeParameterElement;
+using $VariableElement = ::javax::lang::model::element::VariableElement;
 
 namespace javax {
 	namespace lang {
@@ -24,16 +29,16 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _ElementVisitor_MethodInfo_[] = {
-	{"visit", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visit", "(Ljavax/lang/model/element/Element;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;)TR;", $PUBLIC},
-	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ExecutableElement;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement;TP;)TR;", $PUBLIC},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/PackageElement;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/RecordComponentElement;TP;)TR;", $PUBLIC},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeElement;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitTypeParameter", "(Ljavax/lang/model/element/TypeParameterElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeParameterElement;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitUnknown", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC | $ABSTRACT},
+	{"visit", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ElementVisitor, visit, $Object*, $Element*, Object$*)},
+	{"visit", "(Ljavax/lang/model/element/Element;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;)TR;", $PUBLIC, $virtualMethod(ElementVisitor, visit, $Object*, $Element*)},
+	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ExecutableElement;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ElementVisitor, visitExecutable, $Object*, $ExecutableElement*, Object$*)},
+	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementVisitor, visitModule, $Object*, $ModuleElement*, Object$*)},
+	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/PackageElement;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ElementVisitor, visitPackage, $Object*, $PackageElement*, Object$*)},
+	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/RecordComponentElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementVisitor, visitRecordComponent, $Object*, $RecordComponentElement*, Object$*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeElement;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ElementVisitor, visitType, $Object*, $TypeElement*, Object$*)},
+	{"visitTypeParameter", "(Ljavax/lang/model/element/TypeParameterElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeParameterElement;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ElementVisitor, visitTypeParameter, $Object*, $TypeParameterElement*, Object$*)},
+	{"visitUnknown", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ElementVisitor, visitUnknown, $Object*, $Element*, Object$*)},
+	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ElementVisitor, visitVariable, $Object*, $VariableElement*, Object$*)},
 	{}
 };
 

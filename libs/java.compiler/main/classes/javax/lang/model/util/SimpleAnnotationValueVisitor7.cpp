@@ -45,8 +45,8 @@ $CompoundAttribute _SimpleAnnotationValueVisitor7_MethodAnnotations_init$1[] = {
 };
 
 $MethodInfo _SimpleAnnotationValueVisitor7_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(SimpleAnnotationValueVisitor7::*)()>(&SimpleAnnotationValueVisitor7::init$)), nullptr, nullptr, _SimpleAnnotationValueVisitor7_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(static_cast<void(SimpleAnnotationValueVisitor7::*)(Object$*)>(&SimpleAnnotationValueVisitor7::init$)), nullptr, nullptr, _SimpleAnnotationValueVisitor7_MethodAnnotations_init$1},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(SimpleAnnotationValueVisitor7, init$, void), nullptr, nullptr, _SimpleAnnotationValueVisitor7_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(SimpleAnnotationValueVisitor7, init$, void, Object$*), nullptr, nullptr, _SimpleAnnotationValueVisitor7_MethodAnnotations_init$1},
 	{}
 };
 

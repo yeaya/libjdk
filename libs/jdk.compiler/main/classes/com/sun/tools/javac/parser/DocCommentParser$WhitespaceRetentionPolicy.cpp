@@ -30,10 +30,10 @@ $FieldInfo _DocCommentParser$WhitespaceRetentionPolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _DocCommentParser$WhitespaceRetentionPolicy_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DocCommentParser$WhitespaceRetentionPolicyArray*(*)()>(&DocCommentParser$WhitespaceRetentionPolicy::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DocCommentParser$WhitespaceRetentionPolicy::*)($String*,int32_t)>(&DocCommentParser$WhitespaceRetentionPolicy::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DocCommentParser$WhitespaceRetentionPolicy*(*)($String*)>(&DocCommentParser$WhitespaceRetentionPolicy::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DocCommentParser$WhitespaceRetentionPolicyArray*(*)()>(&DocCommentParser$WhitespaceRetentionPolicy::values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocCommentParser$WhitespaceRetentionPolicy, $values, $DocCommentParser$WhitespaceRetentionPolicyArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocCommentParser$WhitespaceRetentionPolicy, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$WhitespaceRetentionPolicy, valueOf, DocCommentParser$WhitespaceRetentionPolicy*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$WhitespaceRetentionPolicy, values, $DocCommentParser$WhitespaceRetentionPolicyArray*)},
 	{}
 };
 

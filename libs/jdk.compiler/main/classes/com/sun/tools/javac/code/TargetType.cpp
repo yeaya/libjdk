@@ -76,15 +76,15 @@ $FieldInfo _TargetType_FieldInfo_[] = {
 };
 
 $MethodInfo _TargetType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TargetTypeArray*(*)()>(&TargetType::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(TargetType::*)($String*,int32_t,int32_t)>(&TargetType::init$))},
-	{"<init>", "(Ljava/lang/String;IIZ)V", "(IZ)V", $PRIVATE, $method(static_cast<void(TargetType::*)($String*,int32_t,int32_t,bool)>(&TargetType::init$))},
-	{"fromTargetTypeValue", "(I)Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TargetType*(*)(int32_t)>(&TargetType::fromTargetTypeValue))},
-	{"isLocal", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(TargetType::*)()>(&TargetType::isLocal))},
-	{"isValidTargetTypeValue", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&TargetType::isValidTargetTypeValue))},
-	{"targetTypeValue", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(TargetType::*)()>(&TargetType::targetTypeValue))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TargetType*(*)($String*)>(&TargetType::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TargetTypeArray*(*)()>(&TargetType::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TargetType, $values, $TargetTypeArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(TargetType, init$, void, $String*, int32_t, int32_t)},
+	{"<init>", "(Ljava/lang/String;IIZ)V", "(IZ)V", $PRIVATE, $method(TargetType, init$, void, $String*, int32_t, int32_t, bool)},
+	{"fromTargetTypeValue", "(I)Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, fromTargetTypeValue, TargetType*, int32_t)},
+	{"isLocal", "()Z", nullptr, $PUBLIC, $method(TargetType, isLocal, bool)},
+	{"isValidTargetTypeValue", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, isValidTargetTypeValue, bool, int32_t)},
+	{"targetTypeValue", "()I", nullptr, $PUBLIC, $method(TargetType, targetTypeValue, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, valueOf, TargetType*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/TargetType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TargetType, values, $TargetTypeArray*)},
 	{}
 };
 

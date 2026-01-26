@@ -18,8 +18,8 @@ namespace sun {
 		namespace jar {
 
 $MethodInfo _GNUStyleOptions$11_MethodInfo_[] = {
-	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(static_cast<void(GNUStyleOptions$11::*)(bool,$GNUStyleOptions$OptionType*,$StringArray*)>(&GNUStyleOptions$11::init$))},
-	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0},
+	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$11, init$, void, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(GNUStyleOptions$11, process, void, $Main*, $String*, $String*)},
 	{}
 };
 

@@ -29,8 +29,8 @@ $FieldInfo _ArgumentAttr$ExplicitLambdaType$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ArgumentAttr$ExplicitLambdaType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$ExplicitLambdaType;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(static_cast<void(ArgumentAttr$ExplicitLambdaType$1::*)($ArgumentAttr$ExplicitLambdaType*,$ListBuffer*)>(&ArgumentAttr$ExplicitLambdaType$1::init$))},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$ExplicitLambdaType;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(ArgumentAttr$ExplicitLambdaType$1, init$, void, $ArgumentAttr$ExplicitLambdaType*, $ListBuffer*)},
+	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$ExplicitLambdaType$1, visitReturn, void, $JCTree$JCReturn*)},
 	{}
 };
 

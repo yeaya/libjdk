@@ -13,14 +13,19 @@
 #include <jcpp.h>
 
 using $ParameterNameProvider = ::com::sun::source::util::ParameterNameProvider;
+using $TaskListener = ::com::sun::source::util::TaskListener;
 using $BasicJavacTask = ::com::sun::tools::javac::api::BasicJavacTask;
 using $JavacProcessingEnvironment = ::com::sun::tools::javac::processing::JavacProcessingEnvironment;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ProcessingEnvironment = ::javax::annotation::processing::ProcessingEnvironment;
+using $TypeMirror = ::javax::lang::model::type::TypeMirror;
+using $Elements = ::javax::lang::model::util::Elements;
+using $Types = ::javax::lang::model::util::Types;
 
 namespace com {
 	namespace sun {
@@ -28,18 +33,18 @@ namespace com {
 			namespace util {
 
 $MethodInfo _JavacTask_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacTask::*)()>(&JavacTask::init$))},
-	{"addTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"analyze", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"generate", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getElements", "()Ljavax/lang/model/util/Elements;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTypeMirror", "(Ljava/lang/Iterable;)Ljavax/lang/model/type/TypeMirror;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;)Ljavax/lang/model/type/TypeMirror;", $PUBLIC | $ABSTRACT},
-	{"getTypes", "()Ljavax/lang/model/util/Types;", nullptr, $PUBLIC | $ABSTRACT},
-	{"instance", "(Ljavax/annotation/processing/ProcessingEnvironment;)Lcom/sun/source/util/JavacTask;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavacTask*(*)($ProcessingEnvironment*)>(&JavacTask::instance))},
-	{"parse", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/source/tree/CompilationUnitTree;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"removeTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setParameterNameProvider", "(Lcom/sun/source/util/ParameterNameProvider;)V", nullptr, $PUBLIC},
-	{"setTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTask, init$, void)},
+	{"addTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacTask, addTaskListener, void, $TaskListener*)},
+	{"analyze", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT, $virtualMethod(JavacTask, analyze, $Iterable*), "java.io.IOException"},
+	{"generate", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, $virtualMethod(JavacTask, generate, $Iterable*), "java.io.IOException"},
+	{"getElements", "()Ljavax/lang/model/util/Elements;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacTask, getElements, $Elements*)},
+	{"getTypeMirror", "(Ljava/lang/Iterable;)Ljavax/lang/model/type/TypeMirror;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;)Ljavax/lang/model/type/TypeMirror;", $PUBLIC | $ABSTRACT, $virtualMethod(JavacTask, getTypeMirror, $TypeMirror*, $Iterable*)},
+	{"getTypes", "()Ljavax/lang/model/util/Types;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacTask, getTypes, $Types*)},
+	{"instance", "(Ljavax/annotation/processing/ProcessingEnvironment;)Lcom/sun/source/util/JavacTask;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacTask, instance, JavacTask*, $ProcessingEnvironment*)},
+	{"parse", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/source/tree/CompilationUnitTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(JavacTask, parse, $Iterable*), "java.io.IOException"},
+	{"removeTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacTask, removeTaskListener, void, $TaskListener*)},
+	{"setParameterNameProvider", "(Lcom/sun/source/util/ParameterNameProvider;)V", nullptr, $PUBLIC, $virtualMethod(JavacTask, setParameterNameProvider, void, $ParameterNameProvider*)},
+	{"setTaskListener", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacTask, setTaskListener, void, $TaskListener*)},
 	{}
 };
 

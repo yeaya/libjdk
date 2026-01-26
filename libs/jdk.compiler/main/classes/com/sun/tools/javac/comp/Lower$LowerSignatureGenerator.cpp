@@ -27,11 +27,11 @@ $FieldInfo _Lower$LowerSignatureGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _Lower$LowerSignatureGenerator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;)V", nullptr, 0, $method(static_cast<void(Lower$LowerSignatureGenerator::*)($Lower*)>(&Lower$LowerSignatureGenerator::init$))},
-	{"append", "(C)V", nullptr, $PROTECTED},
-	{"append", "([B)V", nullptr, $PROTECTED},
-	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;)V", nullptr, 0, $method(Lower$LowerSignatureGenerator, init$, void, $Lower*)},
+	{"append", "(C)V", nullptr, $PROTECTED, $virtualMethod(Lower$LowerSignatureGenerator, append, void, char16_t)},
+	{"append", "([B)V", nullptr, $PROTECTED, $virtualMethod(Lower$LowerSignatureGenerator, append, void, $bytes*)},
+	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED, $virtualMethod(Lower$LowerSignatureGenerator, append, void, $Name*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Lower$LowerSignatureGenerator, toString, $String*)},
 	{}
 };
 

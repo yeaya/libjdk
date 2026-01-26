@@ -34,11 +34,11 @@ $FieldInfo _Items$LocalItem_FieldInfo_[] = {
 };
 
 $MethodInfo _Items$LocalItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Type;I)V", nullptr, 0, $method(static_cast<void(Items$LocalItem::*)($Items*,$Type*,int32_t)>(&Items$LocalItem::init$))},
-	{"incr", "(I)V", nullptr, 0},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"store", "()V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Type;I)V", nullptr, 0, $method(Items$LocalItem, init$, void, $Items*, $Type*, int32_t)},
+	{"incr", "(I)V", nullptr, 0, $virtualMethod(Items$LocalItem, incr, void, int32_t)},
+	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$LocalItem, load, $Items$Item*)},
+	{"store", "()V", nullptr, 0, $virtualMethod(Items$LocalItem, store, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$LocalItem, toString, $String*)},
 	{}
 };
 

@@ -44,12 +44,12 @@ $MethodInfo _DCTree$DCAttribute_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/lang/model/element/Name;Lcom/sun/source/doctree/AttributeTree$ValueKind;Ljava/util/List;)V", "(Ljavax/lang/model/element/Name;Lcom/sun/source/doctree/AttributeTree$ValueKind;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(static_cast<void(DCTree$DCAttribute::*)($Name*,$AttributeTree$ValueKind*,$List*)>(&DCTree$DCAttribute::init$))},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC},
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC},
-	{"getValueKind", "()Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/lang/model/element/Name;Lcom/sun/source/doctree/AttributeTree$ValueKind;Ljava/util/List;)V", "(Ljavax/lang/model/element/Name;Lcom/sun/source/doctree/AttributeTree$ValueKind;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCAttribute, init$, void, $Name*, $AttributeTree$ValueKind*, $List*)},
+	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCAttribute, accept, $Object*, $DocTreeVisitor*, Object$*)},
+	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCAttribute, getKind, $DocTree$Kind*)},
+	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCAttribute, getName, $Name*)},
+	{"getValue", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC, $virtualMethod(DCTree$DCAttribute, getValue, $List*)},
+	{"getValueKind", "()Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCAttribute, getValueKind, $AttributeTree$ValueKind*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

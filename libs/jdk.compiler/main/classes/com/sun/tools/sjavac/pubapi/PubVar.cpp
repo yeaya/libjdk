@@ -28,12 +28,12 @@ $FieldInfo _PubVar_FieldInfo_[] = {
 };
 
 $MethodInfo _PubVar_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(static_cast<void(PubVar::*)($Set*,$TypeDesc*,$String*,$String*)>(&PubVar::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getConstValue", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC},
-	{"getIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(PubVar, init$, void, $Set*, $TypeDesc*, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PubVar, equals, bool, Object$*)},
+	{"getConstValue", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PubVar, getConstValue, $Optional*)},
+	{"getIdentifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubVar, getIdentifier, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PubVar, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubVar, toString, $String*)},
 	{}
 };
 

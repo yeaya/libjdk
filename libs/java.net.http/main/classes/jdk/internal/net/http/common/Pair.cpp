@@ -19,9 +19,9 @@ $FieldInfo _Pair_FieldInfo_[] = {
 };
 
 $MethodInfo _Pair_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TU;)V", $PUBLIC, $method(static_cast<void(Pair::*)(Object$*,Object$*)>(&Pair::init$))},
-	{"pair", "(Ljava/lang/Object;Ljava/lang/Object;)Ljdk/internal/net/http/common/Pair;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>(TT;TU;)Ljdk/internal/net/http/common/Pair<TT;TU;>;", $PUBLIC | $STATIC, $method(static_cast<Pair*(*)(Object$*,Object$*)>(&Pair::pair))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TU;)V", $PUBLIC, $method(Pair, init$, void, Object$*, Object$*)},
+	{"pair", "(Ljava/lang/Object;Ljava/lang/Object;)Ljdk/internal/net/http/common/Pair;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>(TT;TU;)Ljdk/internal/net/http/common/Pair<TT;TU;>;", $PUBLIC | $STATIC, $staticMethod(Pair, pair, Pair*, Object$*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pair, toString, $String*)},
 	{}
 };
 

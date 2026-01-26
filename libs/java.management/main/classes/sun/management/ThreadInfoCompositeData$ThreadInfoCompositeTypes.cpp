@@ -76,8 +76,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::*)()>(&ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$stream::classInfo$ = {
@@ -109,8 +109,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::*)()>(&ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ThreadInfoCompositeData$ThreadInfoCompositeTypes$$Lambda$lambda$initV6CompositeType$0$1::classInfo$ = {
@@ -133,13 +133,13 @@ $FieldInfo _ThreadInfoCompositeData$ThreadInfoCompositeTypes_FieldInfo_[] = {
 };
 
 $MethodInfo _ThreadInfoCompositeData$ThreadInfoCompositeTypes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ThreadInfoCompositeData$ThreadInfoCompositeTypes::*)()>(&ThreadInfoCompositeData$ThreadInfoCompositeTypes::init$))},
-	{"initCompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $method(static_cast<$CompositeType*(*)()>(&ThreadInfoCompositeData$ThreadInfoCompositeTypes::initCompositeType))},
-	{"initCompositeTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Integer;Ljavax/management/openmbean/CompositeType;>;", $STATIC, $method(static_cast<$Map*(*)()>(&ThreadInfoCompositeData$ThreadInfoCompositeTypes::initCompositeTypes))},
-	{"initV5CompositeType", "(Ljavax/management/openmbean/CompositeType;)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $method(static_cast<$CompositeType*(*)($CompositeType*)>(&ThreadInfoCompositeData$ThreadInfoCompositeTypes::initV5CompositeType))},
-	{"initV6CompositeType", "(Ljavax/management/openmbean/CompositeType;)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $method(static_cast<$CompositeType*(*)($CompositeType*)>(&ThreadInfoCompositeData$ThreadInfoCompositeTypes::initV6CompositeType))},
-	{"lambda$initV6CompositeType$0", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StringArray*(*)(int32_t)>(&ThreadInfoCompositeData$ThreadInfoCompositeTypes::lambda$initV6CompositeType$0))},
-	{"ofVersion", "(I)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $method(static_cast<$CompositeType*(*)(int32_t)>(&ThreadInfoCompositeData$ThreadInfoCompositeTypes::ofVersion))},
+	{"<init>", "()V", nullptr, 0, $method(ThreadInfoCompositeData$ThreadInfoCompositeTypes, init$, void)},
+	{"initCompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initCompositeType, $CompositeType*)},
+	{"initCompositeTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Integer;Ljavax/management/openmbean/CompositeType;>;", $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initCompositeTypes, $Map*)},
+	{"initV5CompositeType", "(Ljavax/management/openmbean/CompositeType;)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initV5CompositeType, $CompositeType*, $CompositeType*)},
+	{"initV6CompositeType", "(Ljavax/management/openmbean/CompositeType;)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, initV6CompositeType, $CompositeType*, $CompositeType*)},
+	{"lambda$initV6CompositeType$0", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, lambda$initV6CompositeType$0, $StringArray*, int32_t)},
+	{"ofVersion", "(I)Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(ThreadInfoCompositeData$ThreadInfoCompositeTypes, ofVersion, $CompositeType*, int32_t)},
 	{}
 };
 

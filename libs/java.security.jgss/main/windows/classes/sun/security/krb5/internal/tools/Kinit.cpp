@@ -60,11 +60,11 @@ $FieldInfo _Kinit_FieldInfo_[] = {
 };
 
 $MethodInfo _Kinit_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Kinit::*)($StringArray*)>(&Kinit::init$)), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
-	{"acquire", "()V", nullptr, $PRIVATE, $method(static_cast<void(Kinit::*)()>(&Kinit::acquire)), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Kinit::main))},
-	{"renew", "()V", nullptr, $PRIVATE, $method(static_cast<void(Kinit::*)()>(&Kinit::renew)), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
-	{"setOptions", "(IILsun/security/krb5/internal/KDCOptions;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,int32_t,$KDCOptions*)>(&Kinit::setOptions))},
+	{"<init>", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Kinit, init$, void, $StringArray*), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
+	{"acquire", "()V", nullptr, $PRIVATE, $method(Kinit, acquire, void), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinit, main, void, $StringArray*)},
+	{"renew", "()V", nullptr, $PRIVATE, $method(Kinit, renew, void), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
+	{"setOptions", "(IILsun/security/krb5/internal/KDCOptions;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Kinit, setOptions, void, int32_t, int32_t, $KDCOptions*)},
 	{}
 };
 

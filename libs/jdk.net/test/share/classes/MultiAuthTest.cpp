@@ -73,10 +73,10 @@ $FieldInfo _MultiAuthTest_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiAuthTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MultiAuthTest::*)()>(&MultiAuthTest::init$))},
-	{"createServer", "(Ljava/util/concurrent/ExecutorService;Lcom/sun/net/httpserver/BasicAuthenticator;)Lcom/sun/net/httpserver/HttpServer;", nullptr, $STATIC, $method(static_cast<$HttpServer*(*)($ExecutorService*,$BasicAuthenticator*)>(&MultiAuthTest::createServer)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MultiAuthTest::main)), "java.lang.Exception"},
-	{"test", "(Ljava/net/http/HttpClient;LMultiAuthTest$ClientAuth;Ljava/net/URI;ILjava/lang/Class;)V", "(Ljava/net/http/HttpClient;LMultiAuthTest$ClientAuth;Ljava/net/URI;ILjava/lang/Class<+Ljava/lang/Exception;>;)V", $STATIC, $method(static_cast<void(*)($HttpClient*,$MultiAuthTest$ClientAuth*,$URI*,int32_t,$Class*)>(&MultiAuthTest::test)), "java.io.IOException,java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiAuthTest, init$, void)},
+	{"createServer", "(Ljava/util/concurrent/ExecutorService;Lcom/sun/net/httpserver/BasicAuthenticator;)Lcom/sun/net/httpserver/HttpServer;", nullptr, $STATIC, $staticMethod(MultiAuthTest, createServer, $HttpServer*, $ExecutorService*, $BasicAuthenticator*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiAuthTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/net/http/HttpClient;LMultiAuthTest$ClientAuth;Ljava/net/URI;ILjava/lang/Class;)V", "(Ljava/net/http/HttpClient;LMultiAuthTest$ClientAuth;Ljava/net/URI;ILjava/lang/Class<+Ljava/lang/Exception;>;)V", $STATIC, $staticMethod(MultiAuthTest, test, void, $HttpClient*, $MultiAuthTest$ClientAuth*, $URI*, int32_t, $Class*), "java.io.IOException,java.lang.InterruptedException"},
 	{}
 };
 

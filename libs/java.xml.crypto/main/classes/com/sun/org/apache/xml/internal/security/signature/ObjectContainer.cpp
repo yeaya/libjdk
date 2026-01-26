@@ -31,16 +31,16 @@ namespace com {
 							namespace signature {
 
 $MethodInfo _ObjectContainer_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectContainer::*)($Document*)>(&ObjectContainer::init$))},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectContainer::*)($Element*,$String*)>(&ObjectContainer::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setMimeType", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(ObjectContainer, init$, void, $Document*)},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectContainer, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, appendChild, $Node*, $Node*)},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getBaseLocalName, $String*)},
+	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getEncoding, $String*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getId, $String*)},
+	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, getMimeType, $String*)},
+	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, setEncoding, void, $String*)},
+	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, setId, void, $String*)},
+	{"setMimeType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ObjectContainer, setMimeType, void, $String*)},
 	{}
 };
 

@@ -52,13 +52,13 @@ $FieldInfo _JavacFiler$FilerOutputFileObject_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacFiler$FilerOutputFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/FileObject;)V", nullptr, 0, $method(static_cast<void(JavacFiler$FilerOutputFileObject::*)($JavacFiler*,$Symbol$ModuleSymbol*,$String*,$FileObject*)>(&JavacFiler$FilerOutputFileObject::init$))},
-	{"delete", "()Z", nullptr, $PUBLIC},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/FileObject;)V", nullptr, 0, $method(JavacFiler$FilerOutputFileObject, init$, void, $JavacFiler*, $Symbol$ModuleSymbol*, $String*, $FileObject*)},
+	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputFileObject, delete$, bool)},
+	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputFileObject, openInputStream, $InputStream*), "java.io.IOException"},
+	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavacFiler$FilerOutputFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputFileObject, openReader, $Reader*, bool), "java.io.IOException"},
+	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavacFiler$FilerOutputFileObject, openWriter, $Writer*), "java.io.IOException"},
 	{}
 };
 

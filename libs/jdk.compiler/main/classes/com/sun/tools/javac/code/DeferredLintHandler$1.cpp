@@ -20,11 +20,11 @@ namespace com {
 				namespace code {
 
 $MethodInfo _DeferredLintHandler$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DeferredLintHandler$1::*)()>(&DeferredLintHandler$1::init$))},
-	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC},
-	{"getPreferredPosition", "()I", nullptr, $PUBLIC},
-	{"getStartPosition", "()I", nullptr, $PUBLIC},
-	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DeferredLintHandler$1, init$, void)},
+	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getEndPosition, int32_t, $EndPosTable*)},
+	{"getPreferredPosition", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getPreferredPosition, int32_t)},
+	{"getStartPosition", "()I", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getStartPosition, int32_t)},
+	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler$1, getTree, $JCTree*)},
 	{}
 };
 

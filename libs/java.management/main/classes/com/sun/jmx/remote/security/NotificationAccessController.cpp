@@ -7,6 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Notification = ::javax::management::Notification;
+using $ObjectName = ::javax::management::ObjectName;
+using $Subject = ::javax::security::auth::Subject;
 
 namespace com {
 	namespace sun {
@@ -15,9 +18,9 @@ namespace com {
 				namespace security {
 
 $MethodInfo _NotificationAccessController_MethodInfo_[] = {
-	{"addNotificationListener", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.SecurityException"},
-	{"fetchNotification", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/Notification;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.SecurityException"},
-	{"removeNotificationListener", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.SecurityException"},
+	{"addNotificationListener", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationAccessController, addNotificationListener, void, $String*, $ObjectName*, $Subject*), "java.lang.SecurityException"},
+	{"fetchNotification", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/Notification;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationAccessController, fetchNotification, void, $String*, $ObjectName*, $Notification*, $Subject*), "java.lang.SecurityException"},
+	{"removeNotificationListener", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationAccessController, removeNotificationListener, void, $String*, $ObjectName*, $Subject*), "java.lang.SecurityException"},
 	{}
 };
 

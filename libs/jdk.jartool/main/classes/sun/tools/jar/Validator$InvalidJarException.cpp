@@ -19,7 +19,7 @@ $FieldInfo _Validator$InvalidJarException_FieldInfo_[] = {
 };
 
 $MethodInfo _Validator$InvalidJarException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Validator$InvalidJarException::*)($String*)>(&Validator$InvalidJarException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Validator$InvalidJarException, init$, void, $String*)},
 	{}
 };
 

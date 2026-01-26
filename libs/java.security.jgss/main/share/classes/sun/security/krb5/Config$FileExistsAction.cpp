@@ -21,8 +21,8 @@ $FieldInfo _Config$FileExistsAction_FieldInfo_[] = {
 };
 
 $MethodInfo _Config$FileExistsAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Config$FileExistsAction::*)($String*)>(&Config$FileExistsAction::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Config$FileExistsAction, init$, void, $String*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Config$FileExistsAction, run, $Object*)},
 	{}
 };
 

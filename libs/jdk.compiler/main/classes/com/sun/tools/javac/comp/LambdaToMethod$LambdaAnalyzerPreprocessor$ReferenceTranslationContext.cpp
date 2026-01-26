@@ -60,16 +60,16 @@ $FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContex
 };
 
 $MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, 0, $method(static_cast<void(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::*)($LambdaToMethod$LambdaAnalyzerPreprocessor*,$JCTree$JCMemberReference*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::init$))},
-	{"bridgedRefSig", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $method(static_cast<$Type*(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::bridgedRefSig))},
-	{"generatedRefSig", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $method(static_cast<$Type*(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::generatedRefSig))},
-	{"interfaceParameterIsIntersectionOrUnionType", "()Z", nullptr, 0, $method(static_cast<bool(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::interfaceParameterIsIntersectionOrUnionType))},
-	{"isArrayOp", "()Z", nullptr, 0, $method(static_cast<bool(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::isArrayOp))},
-	{"isIntersectionOrUnionType", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $method(static_cast<bool(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::*)($Type*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::isIntersectionOrUnionType))},
-	{"isPrivateInOtherClass", "()Z", nullptr, 0, $method(static_cast<bool(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::isPrivateInOtherClass))},
-	{"needsConversionToLambda", "()Z", nullptr, $FINAL, $method(static_cast<bool(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::needsConversionToLambda))},
-	{"needsVarArgsConversion", "()Z", nullptr, 0, $method(static_cast<bool(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::needsVarArgsConversion))},
-	{"receiverAccessible", "()Z", nullptr, 0, $method(static_cast<bool(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext::receiverAccessible))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $JCTree$JCMemberReference*)},
+	{"bridgedRefSig", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, bridgedRefSig, $Type*)},
+	{"generatedRefSig", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, generatedRefSig, $Type*)},
+	{"interfaceParameterIsIntersectionOrUnionType", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, interfaceParameterIsIntersectionOrUnionType, bool)},
+	{"isArrayOp", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isArrayOp, bool)},
+	{"isIntersectionOrUnionType", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isIntersectionOrUnionType, bool, $Type*)},
+	{"isPrivateInOtherClass", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, isPrivateInOtherClass, bool)},
+	{"needsConversionToLambda", "()Z", nullptr, $FINAL, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, needsConversionToLambda, bool)},
+	{"needsVarArgsConversion", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, needsVarArgsConversion, bool)},
+	{"receiverAccessible", "()Z", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, receiverAccessible, bool)},
 	{}
 };
 

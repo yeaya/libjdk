@@ -82,8 +82,8 @@ $FieldInfo LoggingProviderImpl$$Lambda$lambda$demandJULLoggerFor$0::fieldInfos[4
 	{}
 };
 $MethodInfo LoggingProviderImpl$$Lambda$lambda$demandJULLoggerFor$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(static_cast<void(LoggingProviderImpl$$Lambda$lambda$demandJULLoggerFor$0::*)($LogManager*,$String*,$Module*)>(&LoggingProviderImpl$$Lambda$lambda$demandJULLoggerFor$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(LoggingProviderImpl$$Lambda$lambda$demandJULLoggerFor$0, init$, void, $LogManager*, $String*, $Module*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoggingProviderImpl$$Lambda$lambda$demandJULLoggerFor$0, run, $Object*)},
 	{}
 };
 $ClassInfo LoggingProviderImpl$$Lambda$lambda$demandJULLoggerFor$0::classInfo$ = {
@@ -108,12 +108,12 @@ $FieldInfo _LoggingProviderImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _LoggingProviderImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LoggingProviderImpl::*)()>(&LoggingProviderImpl::init$))},
-	{"demandJULLoggerFor", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Logger*(*)($String*,$Module*)>(&LoggingProviderImpl::demandJULLoggerFor))},
-	{"demandLoggerFor", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PROTECTED},
-	{"getLogManagerAccess", "()Lsun/util/logging/internal/LoggingProviderImpl$LogManagerAccess;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LoggingProviderImpl$LogManagerAccess*(*)()>(&LoggingProviderImpl::getLogManagerAccess))},
-	{"lambda$demandJULLoggerFor$0", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Logger*(*)($LogManager*,$String*,$Module*)>(&LoggingProviderImpl::lambda$demandJULLoggerFor$0))},
-	{"setLogManagerAccess", "(Lsun/util/logging/internal/LoggingProviderImpl$LogManagerAccess;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($LoggingProviderImpl$LogManagerAccess*)>(&LoggingProviderImpl::setLogManagerAccess))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LoggingProviderImpl, init$, void)},
+	{"demandJULLoggerFor", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggingProviderImpl, demandJULLoggerFor, $Logger*, $String*, $Module*)},
+	{"demandLoggerFor", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/lang/System$Logger;", nullptr, $PROTECTED, $virtualMethod(LoggingProviderImpl, demandLoggerFor, $System$Logger*, $String*, $Module*)},
+	{"getLogManagerAccess", "()Lsun/util/logging/internal/LoggingProviderImpl$LogManagerAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggingProviderImpl, getLogManagerAccess, $LoggingProviderImpl$LogManagerAccess*)},
+	{"lambda$demandJULLoggerFor$0", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoggingProviderImpl, lambda$demandJULLoggerFor$0, $Logger*, $LogManager*, $String*, $Module*)},
+	{"setLogManagerAccess", "(Lsun/util/logging/internal/LoggingProviderImpl$LogManagerAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggingProviderImpl, setLogManagerAccess, void, $LoggingProviderImpl$LogManagerAccess*)},
 	{}
 };
 

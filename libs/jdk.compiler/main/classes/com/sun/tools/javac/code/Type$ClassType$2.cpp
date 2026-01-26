@@ -33,14 +33,14 @@ $FieldInfo _Type$ClassType$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$ClassType$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(Type$ClassType$2::*)($Type$ClassType*,$Type*,$List*,$Symbol$TypeSymbol*,$TypeMetadata*,Object$*)>(&Type$ClassType$2::init$))},
-	{"asElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"constValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getEnclosingType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getTypeArguments", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;Ljava/lang/Object;)V", nullptr, 0, $method(Type$ClassType$2, init$, void, $Type$ClassType*, $Type*, $List*, $Symbol$TypeSymbol*, $TypeMetadata*, Object$*)},
+	{"asElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ClassType$2, asElement, $Symbol$TypeSymbol*)},
+	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ClassType$2, baseType, $Type*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ClassType$2, cloneWithMetadata, $Type$ClassType*, $TypeMetadata*)},
+	{"constValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Type$ClassType$2, constValue, $Object*)},
+	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ClassType$2, getAnnotationMirrors, $1List*)},
+	{"getEnclosingType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ClassType$2, getEnclosingType, $Type*)},
+	{"getTypeArguments", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ClassType$2, getTypeArguments, $List*)},
 	{}
 };
 

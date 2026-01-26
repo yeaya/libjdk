@@ -43,8 +43,8 @@ $FieldInfo _RoleStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _RoleStatus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(RoleStatus::*)()>(&RoleStatus::init$)), nullptr, nullptr, _RoleStatus_MethodAnnotations_init$0},
-	{"isRoleStatus", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&RoleStatus::isRoleStatus))},
+	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(RoleStatus, init$, void), nullptr, nullptr, _RoleStatus_MethodAnnotations_init$0},
+	{"isRoleStatus", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(RoleStatus, isRoleStatus, bool, int32_t)},
 	{}
 };
 

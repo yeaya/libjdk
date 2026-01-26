@@ -18,11 +18,11 @@ $FieldInfo _RemoteException_FieldInfo_[] = {
 };
 
 $MethodInfo _RemoteException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RemoteException::*)()>(&RemoteException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RemoteException::*)($String*)>(&RemoteException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(RemoteException::*)($String*,$Throwable*)>(&RemoteException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RemoteException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RemoteException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RemoteException, init$, void, $String*, $Throwable*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(RemoteException, getCause, $Throwable*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RemoteException, getMessage, $String*)},
 	{}
 };
 

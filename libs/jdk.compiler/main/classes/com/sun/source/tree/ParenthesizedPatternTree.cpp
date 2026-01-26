@@ -1,7 +1,9 @@
 #include <com/sun/source/tree/ParenthesizedPatternTree.h>
 
+#include <com/sun/source/tree/PatternTree.h>
 #include <jcpp.h>
 
+using $PatternTree = ::com::sun::source::tree::PatternTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -16,7 +18,7 @@ $CompoundAttribute _ParenthesizedPatternTree_Annotations_[] = {
 };
 
 $MethodInfo _ParenthesizedPatternTree_MethodInfo_[] = {
-	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParenthesizedPatternTree, getPattern, $PatternTree*)},
 	{}
 };
 

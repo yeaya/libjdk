@@ -35,11 +35,11 @@ $FieldInfo _Iterators$CompoundIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _Iterators$CompoundIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;Ljava/util/function/Function;)V", "(Ljava/lang/Iterable<TI;>;Ljava/util/function/Function<TI;Ljava/util/Iterator<TO;>;>;)V", $PUBLIC, $method(static_cast<void(Iterators$CompoundIterator::*)($Iterable*,$Function*)>(&Iterators$CompoundIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TO;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"update", "()V", nullptr, $PRIVATE, $method(static_cast<void(Iterators$CompoundIterator::*)()>(&Iterators$CompoundIterator::update))},
+	{"<init>", "(Ljava/lang/Iterable;Ljava/util/function/Function;)V", "(Ljava/lang/Iterable<TI;>;Ljava/util/function/Function<TI;Ljava/util/Iterator<TO;>;>;)V", $PUBLIC, $method(Iterators$CompoundIterator, init$, void, $Iterable*, $Function*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Iterators$CompoundIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TO;", $PUBLIC, $virtualMethod(Iterators$CompoundIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Iterators$CompoundIterator, remove, void)},
+	{"update", "()V", nullptr, $PRIVATE, $method(Iterators$CompoundIterator, update, void)},
 	{}
 };
 

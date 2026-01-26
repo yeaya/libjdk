@@ -47,10 +47,10 @@ $FieldInfo _NewThreadAction_FieldInfo_[] = {
 };
 
 $MethodInfo _NewThreadAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(NewThreadAction::*)($ThreadGroup*,$Runnable*,$String*,bool)>(&NewThreadAction::init$))},
-	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(NewThreadAction::*)($Runnable*,$String*,bool)>(&NewThreadAction::init$))},
-	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(static_cast<void(NewThreadAction::*)($Runnable*,$String*,bool,bool)>(&NewThreadAction::init$))},
-	{"run", "()Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;Z)V", nullptr, 0, $method(NewThreadAction, init$, void, $ThreadGroup*, $Runnable*, $String*, bool)},
+	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(NewThreadAction, init$, void, $Runnable*, $String*, bool)},
+	{"<init>", "(Ljava/lang/Runnable;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(NewThreadAction, init$, void, $Runnable*, $String*, bool, bool)},
+	{"run", "()Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(NewThreadAction, run, $Object*)},
 	{}
 };
 

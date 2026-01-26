@@ -20,9 +20,9 @@ $FieldInfo _FingerPrint$Field_FieldInfo_[] = {
 };
 
 $MethodInfo _FingerPrint$Field_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(FingerPrint$Field::*)(int32_t,$String*,$String*)>(&FingerPrint$Field::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(FingerPrint$Field, init$, void, int32_t, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FingerPrint$Field, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FingerPrint$Field, hashCode, int32_t)},
 	{}
 };
 

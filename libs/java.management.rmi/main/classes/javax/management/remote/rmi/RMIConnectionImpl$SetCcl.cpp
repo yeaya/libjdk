@@ -21,8 +21,8 @@ $FieldInfo _RMIConnectionImpl$SetCcl_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnectionImpl$SetCcl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(RMIConnectionImpl$SetCcl::*)($ClassLoader*)>(&RMIConnectionImpl$SetCcl::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(RMIConnectionImpl$SetCcl, init$, void, $ClassLoader*)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl$SetCcl, run, $Object*)},
 	{}
 };
 

@@ -107,8 +107,8 @@ $FieldInfo SSLFlowDelegate$Writer$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SSLFlowDelegate$Writer$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Writer;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLFlowDelegate$Writer$$Lambda$dbgString::*)(SSLFlowDelegate$Writer*)>(&SSLFlowDelegate$Writer$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Writer;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$Writer$$Lambda$dbgString, init$, void, SSLFlowDelegate$Writer*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Writer$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo SSLFlowDelegate$Writer$$Lambda$dbgString::classInfo$ = {
@@ -139,22 +139,22 @@ $FieldInfo _SSLFlowDelegate$Writer_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLFlowDelegate$Writer_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, 0, $method(static_cast<void(SSLFlowDelegate$Writer::*)($SSLFlowDelegate*)>(&SSLFlowDelegate$Writer::init$))},
-	{"closing", "()Z", nullptr, $PUBLIC},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"hsTriggered", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(SSLFlowDelegate$Writer::*)()>(&SSLFlowDelegate$Writer::hsTriggered))},
-	{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PROTECTED},
-	{"isCompleting", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(SSLFlowDelegate$Writer::*)()>(&SSLFlowDelegate$Writer::isCompleting))},
-	{"needWrap", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(SSLFlowDelegate$Writer::*)()>(&SSLFlowDelegate$Writer::needWrap))},
-	{"onSubscribe", "()V", nullptr, $PROTECTED},
-	{"processData", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLFlowDelegate$Writer::*)()>(&SSLFlowDelegate$Writer::processData))},
-	{"schedule", "()V", nullptr, 0},
-	{"sendResultBytes", "(Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;)V", nullptr, $PRIVATE, $method(static_cast<void(SSLFlowDelegate$Writer::*)($SSLFlowDelegate$EngineResult*)>(&SSLFlowDelegate$Writer::sendResultBytes))},
-	{"stop", "()V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"triggerWrite", "()V", nullptr, 0},
-	{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED},
-	{"wrapBuffers", "([Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;", nullptr, 0, nullptr, "javax.net.ssl.SSLException"},
+	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, 0, $method(SSLFlowDelegate$Writer, init$, void, $SSLFlowDelegate*)},
+	{"closing", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Writer, closing, bool)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SSLFlowDelegate$Writer, dbgString, $String*)},
+	{"hsTriggered", "()Z", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, hsTriggered, bool)},
+	{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PROTECTED, $virtualMethod(SSLFlowDelegate$Writer, incoming, void, $List*, bool)},
+	{"isCompleting", "()Z", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, isCompleting, bool)},
+	{"needWrap", "()Z", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, needWrap, bool)},
+	{"onSubscribe", "()V", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Writer, onSubscribe, void)},
+	{"processData", "()V", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, processData, void)},
+	{"schedule", "()V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, schedule, void)},
+	{"sendResultBytes", "(Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;)V", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, sendResultBytes, void, $SSLFlowDelegate$EngineResult*)},
+	{"stop", "()V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, stop, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Writer, toString, $String*)},
+	{"triggerWrite", "()V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, triggerWrite, void)},
+	{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Writer, upstreamWindowUpdate, int64_t, int64_t, int64_t)},
+	{"wrapBuffers", "([Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, wrapBuffers, $SSLFlowDelegate$EngineResult*, $ByteBufferArray*), "javax.net.ssl.SSLException"},
 	{}
 };
 

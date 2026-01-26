@@ -41,10 +41,10 @@ $FieldInfo _JMXConnectorFactory$ProviderFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXConnectorFactory$ProviderFinder_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory;Ljavax/management/remote/JMXServiceURL;)V", "(Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory<TP;TC;>;Ljavax/management/remote/JMXServiceURL;)V", 0, $method(static_cast<void(JMXConnectorFactory$ProviderFinder::*)($JMXConnectorFactory$ConnectorFactory*,$JMXServiceURL*)>(&JMXConnectorFactory$ProviderFinder::init$))},
-	{"get", "()Ljava/lang/Object;", "()TC;", 0, $method(static_cast<$Object*(JMXConnectorFactory$ProviderFinder::*)()>(&JMXConnectorFactory$ProviderFinder::get)), "java.io.IOException"},
-	{"test", "(Ljava/util/ServiceLoader$Provider;)Z", "(Ljava/util/ServiceLoader$Provider<TP;>;)Z", $PUBLIC, $method(static_cast<bool(JMXConnectorFactory$ProviderFinder::*)($ServiceLoader$Provider*)>(&JMXConnectorFactory$ProviderFinder::test))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory;Ljavax/management/remote/JMXServiceURL;)V", "(Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory<TP;TC;>;Ljavax/management/remote/JMXServiceURL;)V", 0, $method(JMXConnectorFactory$ProviderFinder, init$, void, $JMXConnectorFactory$ConnectorFactory*, $JMXServiceURL*)},
+	{"get", "()Ljava/lang/Object;", "()TC;", 0, $method(JMXConnectorFactory$ProviderFinder, get, $Object*), "java.io.IOException"},
+	{"test", "(Ljava/util/ServiceLoader$Provider;)Z", "(Ljava/util/ServiceLoader$Provider<TP;>;)Z", $PUBLIC, $method(JMXConnectorFactory$ProviderFinder, test, bool, $ServiceLoader$Provider*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JMXConnectorFactory$ProviderFinder, test, bool, Object$*)},
 	{}
 };
 

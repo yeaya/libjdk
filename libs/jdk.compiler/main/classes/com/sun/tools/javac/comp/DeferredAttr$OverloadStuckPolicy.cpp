@@ -39,10 +39,10 @@ $FieldInfo _DeferredAttr$OverloadStuckPolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$OverloadStuckPolicy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;)V", nullptr, $PUBLIC, $method(static_cast<void(DeferredAttr$OverloadStuckPolicy::*)($DeferredAttr*,$Attr$ResultInfo*,$DeferredAttr$DeferredType*)>(&DeferredAttr$OverloadStuckPolicy::init$))},
-	{"isStuck", "()Z", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;)V", nullptr, $PUBLIC, $method(DeferredAttr$OverloadStuckPolicy, init$, void, $DeferredAttr*, $Attr$ResultInfo*, $DeferredAttr$DeferredType*)},
+	{"isStuck", "()Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$OverloadStuckPolicy, isStuck, bool)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$OverloadStuckPolicy, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$OverloadStuckPolicy, visitReference, void, $JCTree$JCMemberReference*)},
 	{}
 };
 

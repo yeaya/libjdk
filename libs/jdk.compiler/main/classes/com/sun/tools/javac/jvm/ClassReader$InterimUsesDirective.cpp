@@ -22,7 +22,7 @@ $FieldInfo _ClassReader$InterimUsesDirective_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$InterimUsesDirective_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$InterimUsesDirective::*)($Name*)>(&ClassReader$InterimUsesDirective::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(ClassReader$InterimUsesDirective, init$, void, $Name*)},
 	{}
 };
 

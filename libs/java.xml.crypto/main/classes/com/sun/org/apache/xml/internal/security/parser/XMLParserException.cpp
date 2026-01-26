@@ -24,11 +24,11 @@ $FieldInfo _XMLParserException_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLParserException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLParserException::*)()>(&XMLParserException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLParserException::*)($String*)>(&XMLParserException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLParserException::*)($String*,$ObjectArray*)>(&XMLParserException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLParserException::*)($Exception*,$String*)>(&XMLParserException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLParserException::*)($Exception*,$String*,$ObjectArray*)>(&XMLParserException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLParserException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $Exception*, $String*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $Exception*, $String*, $ObjectArray*)},
 	{}
 };
 

@@ -7,6 +7,7 @@
 #include <jcpp.h>
 
 using $HttpServer = ::com::sun::net::httpserver::HttpServer;
+using $HttpsConfigurator = ::com::sun::net::httpserver::HttpsConfigurator;
 using $HttpServerProvider = ::com::sun::net::httpserver::spi::HttpServerProvider;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -18,11 +19,11 @@ namespace com {
 			namespace httpserver {
 
 $MethodInfo _HttpsServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(HttpsServer::*)()>(&HttpsServer::init$))},
-	{"create", "()Lcom/sun/net/httpserver/HttpsServer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpsServer*(*)()>(&HttpsServer::create)), "java.io.IOException"},
-	{"create", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpsServer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpsServer*(*)($InetSocketAddress*,int32_t)>(&HttpsServer::create)), "java.io.IOException"},
-	{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setHttpsConfigurator", "(Lcom/sun/net/httpserver/HttpsConfigurator;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(HttpsServer, init$, void)},
+	{"create", "()Lcom/sun/net/httpserver/HttpsServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpsServer, create, HttpsServer*), "java.io.IOException"},
+	{"create", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpsServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpsServer, create, HttpsServer*, $InetSocketAddress*, int32_t), "java.io.IOException"},
+	{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpsServer, getHttpsConfigurator, $HttpsConfigurator*)},
+	{"setHttpsConfigurator", "(Lcom/sun/net/httpserver/HttpsConfigurator;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpsServer, setHttpsConfigurator, void, $HttpsConfigurator*)},
 	{}
 };
 

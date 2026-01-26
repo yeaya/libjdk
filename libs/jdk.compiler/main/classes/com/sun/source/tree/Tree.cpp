@@ -4,6 +4,8 @@
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <jcpp.h>
 
+using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
+using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -14,8 +16,8 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _Tree_MethodInfo_[] = {
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC | $ABSTRACT},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Tree, accept, $Object*, $TreeVisitor*, Object$*)},
+	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tree, getKind, $Tree$Kind*)},
 	{}
 };
 

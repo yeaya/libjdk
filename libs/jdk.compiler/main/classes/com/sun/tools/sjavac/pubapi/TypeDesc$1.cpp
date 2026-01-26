@@ -64,19 +64,19 @@ namespace com {
 				namespace pubapi {
 
 $MethodInfo _TypeDesc$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TypeDesc$1::*)()>(&TypeDesc$1::init$))},
-	{"visitArray", "(Ljavax/lang/model/type/ArrayType;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC},
-	{"visitArray", "(Ljavax/lang/model/type/ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitDeclared", "(Ljavax/lang/model/type/DeclaredType;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC},
-	{"visitDeclared", "(Ljavax/lang/model/type/DeclaredType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitError", "(Ljavax/lang/model/type/ErrorType;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC},
-	{"visitError", "(Ljavax/lang/model/type/ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitNoType", "(Ljavax/lang/model/type/NoType;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC},
-	{"visitNoType", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitPrimitive", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC},
-	{"visitPrimitive", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitTypeVariable", "(Ljavax/lang/model/type/TypeVariable;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC},
-	{"visitTypeVariable", "(Ljavax/lang/model/type/TypeVariable;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(TypeDesc$1, init$, void)},
+	{"visitArray", "(Ljavax/lang/model/type/ArrayType;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC, $virtualMethod(TypeDesc$1, visitArray, $TypeDesc*, $ArrayType*, $Void*)},
+	{"visitArray", "(Ljavax/lang/model/type/ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeDesc$1, visitArray, $Object*, $ArrayType*, Object$*)},
+	{"visitDeclared", "(Ljavax/lang/model/type/DeclaredType;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC, $virtualMethod(TypeDesc$1, visitDeclared, $TypeDesc*, $DeclaredType*, $Void*)},
+	{"visitDeclared", "(Ljavax/lang/model/type/DeclaredType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeDesc$1, visitDeclared, $Object*, $DeclaredType*, Object$*)},
+	{"visitError", "(Ljavax/lang/model/type/ErrorType;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC, $virtualMethod(TypeDesc$1, visitError, $TypeDesc*, $ErrorType*, $Void*)},
+	{"visitError", "(Ljavax/lang/model/type/ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeDesc$1, visitError, $Object*, $ErrorType*, Object$*)},
+	{"visitNoType", "(Ljavax/lang/model/type/NoType;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC, $virtualMethod(TypeDesc$1, visitNoType, $TypeDesc*, $NoType*, $Void*)},
+	{"visitNoType", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeDesc$1, visitNoType, $Object*, $NoType*, Object$*)},
+	{"visitPrimitive", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC, $virtualMethod(TypeDesc$1, visitPrimitive, $TypeDesc*, $PrimitiveType*, $Void*)},
+	{"visitPrimitive", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeDesc$1, visitPrimitive, $Object*, $PrimitiveType*, Object$*)},
+	{"visitTypeVariable", "(Ljavax/lang/model/type/TypeVariable;Ljava/lang/Void;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC, $virtualMethod(TypeDesc$1, visitTypeVariable, $TypeDesc*, $TypeVariable*, $Void*)},
+	{"visitTypeVariable", "(Ljavax/lang/model/type/TypeVariable;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TypeDesc$1, visitTypeVariable, $Object*, $TypeVariable*, Object$*)},
 	{}
 };
 

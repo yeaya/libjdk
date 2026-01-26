@@ -26,15 +26,15 @@ $FieldInfo _Base64_FieldInfo_[] = {
 };
 
 $MethodInfo _Base64_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Base64::*)()>(&Base64::init$))},
-	{"altBase64ToByteArray", "(Ljava/lang/String;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($String*)>(&Base64::altBase64ToByteArray))},
-	{"base64ToByteArray", "(Ljava/lang/String;)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($String*)>(&Base64::base64ToByteArray))},
-	{"base64ToByteArray", "(Ljava/lang/String;Z)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($String*,bool)>(&Base64::base64ToByteArray))},
-	{"base64toInt", "(C[B)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(char16_t,$bytes*)>(&Base64::base64toInt))},
-	{"byteArrayToAltBase64", "([B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($bytes*)>(&Base64::byteArrayToAltBase64))},
-	{"byteArrayToBase64", "([B)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($bytes*)>(&Base64::byteArrayToBase64))},
-	{"byteArrayToBase64", "([BZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($bytes*,bool)>(&Base64::byteArrayToBase64))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Base64::main))},
+	{"<init>", "()V", nullptr, 0, $method(Base64, init$, void)},
+	{"altBase64ToByteArray", "(Ljava/lang/String;)[B", nullptr, $STATIC, $staticMethod(Base64, altBase64ToByteArray, $bytes*, $String*)},
+	{"base64ToByteArray", "(Ljava/lang/String;)[B", nullptr, $STATIC, $staticMethod(Base64, base64ToByteArray, $bytes*, $String*)},
+	{"base64ToByteArray", "(Ljava/lang/String;Z)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Base64, base64ToByteArray, $bytes*, $String*, bool)},
+	{"base64toInt", "(C[B)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Base64, base64toInt, int32_t, char16_t, $bytes*)},
+	{"byteArrayToAltBase64", "([B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Base64, byteArrayToAltBase64, $String*, $bytes*)},
+	{"byteArrayToBase64", "([B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Base64, byteArrayToBase64, $String*, $bytes*)},
+	{"byteArrayToBase64", "([BZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Base64, byteArrayToBase64, $String*, $bytes*, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Base64, main, void, $StringArray*)},
 	{}
 };
 

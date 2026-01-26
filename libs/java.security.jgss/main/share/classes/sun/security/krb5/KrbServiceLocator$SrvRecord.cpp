@@ -25,9 +25,9 @@ $FieldInfo _KrbServiceLocator$SrvRecord_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbServiceLocator$SrvRecord_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(KrbServiceLocator$SrvRecord::*)($String*)>(&KrbServiceLocator$SrvRecord::init$)), "java.lang.Exception"},
-	{"compareTo", "(Lsun/security/krb5/KrbServiceLocator$SrvRecord;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(KrbServiceLocator$SrvRecord, init$, void, $String*), "java.lang.Exception"},
+	{"compareTo", "(Lsun/security/krb5/KrbServiceLocator$SrvRecord;)I", nullptr, $PUBLIC, $virtualMethod(KrbServiceLocator$SrvRecord, compareTo, int32_t, KrbServiceLocator$SrvRecord*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(KrbServiceLocator$SrvRecord, compareTo, int32_t, Object$*)},
 	{}
 };
 

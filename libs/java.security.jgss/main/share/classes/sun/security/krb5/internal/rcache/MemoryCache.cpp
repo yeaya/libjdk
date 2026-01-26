@@ -60,8 +60,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MemoryCache$$Lambda$lambda$checkAndStore$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MemoryCache$$Lambda$lambda$checkAndStore$0::*)()>(&MemoryCache$$Lambda$lambda$checkAndStore$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MemoryCache$$Lambda$lambda$checkAndStore$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MemoryCache$$Lambda$lambda$checkAndStore$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MemoryCache$$Lambda$lambda$checkAndStore$0::classInfo$ = {
@@ -86,10 +86,10 @@ $FieldInfo _MemoryCache_FieldInfo_[] = {
 };
 
 $MethodInfo _MemoryCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MemoryCache::*)()>(&MemoryCache::init$))},
-	{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "sun.security.krb5.internal.KrbApErrException"},
-	{"lambda$checkAndStore$0", "(Ljava/lang/String;)Lsun/security/krb5/internal/rcache/AuthList;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AuthList*(*)($String*)>(&MemoryCache::lambda$checkAndStore$0))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MemoryCache, init$, void)},
+	{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCache, checkAndStore, void, $KerberosTime*, $AuthTimeWithHash*), "sun.security.krb5.internal.KrbApErrException"},
+	{"lambda$checkAndStore$0", "(Ljava/lang/String;)Lsun/security/krb5/internal/rcache/AuthList;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemoryCache, lambda$checkAndStore$0, $AuthList*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryCache, toString, $String*)},
 	{}
 };
 

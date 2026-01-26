@@ -61,10 +61,10 @@ $FieldInfo _ParserFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _ParserFactory_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(ParserFactory::*)($Context*)>(&ParserFactory::init$))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/parser/ParserFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ParserFactory*(*)($Context*)>(&ParserFactory::instance))},
-	{"newParser", "(Ljava/lang/CharSequence;ZZZ)Lcom/sun/tools/javac/parser/JavacParser;", nullptr, $PUBLIC},
-	{"newParser", "(Ljava/lang/CharSequence;ZZZZ)Lcom/sun/tools/javac/parser/JavacParser;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ParserFactory, init$, void, $Context*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/parser/ParserFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParserFactory, instance, ParserFactory*, $Context*)},
+	{"newParser", "(Ljava/lang/CharSequence;ZZZ)Lcom/sun/tools/javac/parser/JavacParser;", nullptr, $PUBLIC, $virtualMethod(ParserFactory, newParser, $JavacParser*, $CharSequence*, bool, bool, bool)},
+	{"newParser", "(Ljava/lang/CharSequence;ZZZZ)Lcom/sun/tools/javac/parser/JavacParser;", nullptr, $PUBLIC, $virtualMethod(ParserFactory, newParser, $JavacParser*, $CharSequence*, bool, bool, bool, bool)},
 	{}
 };
 

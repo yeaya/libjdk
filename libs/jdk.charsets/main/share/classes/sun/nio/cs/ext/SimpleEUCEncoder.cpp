@@ -43,12 +43,12 @@ $FieldInfo _SimpleEUCEncoder_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleEUCEncoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(static_cast<void(SimpleEUCEncoder::*)($Charset*)>(&SimpleEUCEncoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encode", "(C)B", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(SimpleEUCEncoder::*)($CharBuffer*,$ByteBuffer*)>(&SimpleEUCEncoder::encodeArrayLoop))},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(SimpleEUCEncoder::*)($CharBuffer*,$ByteBuffer*)>(&SimpleEUCEncoder::encodeBufferLoop))},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(SimpleEUCEncoder, init$, void, $Charset*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(SimpleEUCEncoder, canEncode, bool, char16_t)},
+	{"encode", "(C)B", nullptr, $PUBLIC, $virtualMethod(SimpleEUCEncoder, encode, int8_t, char16_t)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SimpleEUCEncoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SimpleEUCEncoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(SimpleEUCEncoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
 	{}
 };
 

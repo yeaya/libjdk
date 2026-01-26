@@ -28,8 +28,8 @@ $FieldInfo _ServerNotifForwarder$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerNotifForwarder$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ServerNotifForwarder;Ljavax/management/ObjectName;)V", "()V", 0, $method(static_cast<void(ServerNotifForwarder$1::*)($ServerNotifForwarder*,$ObjectName*)>(&ServerNotifForwarder$1::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, nullptr, "javax.management.InstanceNotFoundException"},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ServerNotifForwarder;Ljavax/management/ObjectName;)V", "()V", 0, $method(ServerNotifForwarder$1, init$, void, $ServerNotifForwarder*, $ObjectName*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder$1, run, $Object*), "javax.management.InstanceNotFoundException"},
 	{}
 };
 

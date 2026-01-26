@@ -10,7 +10,9 @@
 
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
 using $Analyzer$AnalyzerMode = ::com::sun::tools::javac::comp::Analyzer$AnalyzerMode;
+using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -31,11 +33,11 @@ $FieldInfo _Analyzer$StatementAnalyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$StatementAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/comp/Analyzer$AnalyzerMode;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Analyzer$StatementAnalyzer::*)($Analyzer*,$Analyzer$AnalyzerMode*,$JCTree$Tag*)>(&Analyzer$StatementAnalyzer::init$))},
-	{"isEnabled", "()Z", nullptr, 0},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", "(TS;)Z", $ABSTRACT},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", "(TS;TT;Z)V", $ABSTRACT},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", "(TS;)Lcom/sun/tools/javac/util/List<TT;>;", $ABSTRACT},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/comp/Analyzer$AnalyzerMode;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Analyzer$StatementAnalyzer, init$, void, $Analyzer*, $Analyzer$AnalyzerMode*, $JCTree$Tag*)},
+	{"isEnabled", "()Z", nullptr, 0, $virtualMethod(Analyzer$StatementAnalyzer, isEnabled, bool)},
+	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", "(TS;)Z", $ABSTRACT, $virtualMethod(Analyzer$StatementAnalyzer, match, bool, $JCTree*)},
+	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", "(TS;TT;Z)V", $ABSTRACT, $virtualMethod(Analyzer$StatementAnalyzer, process, void, $JCTree*, $JCTree*, bool)},
+	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", "(TS;)Lcom/sun/tools/javac/util/List<TT;>;", $ABSTRACT, $virtualMethod(Analyzer$StatementAnalyzer, rewrite, $List*, $JCTree*)},
 	{}
 };
 

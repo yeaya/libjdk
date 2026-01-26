@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Hashtable = ::java::util::Hashtable;
+using $Context = ::javax::naming::Context;
 using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
@@ -19,13 +21,13 @@ $FieldInfo _ReferralException_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferralException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(ReferralException::*)($String*)>(&ReferralException::init$))},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ReferralException::*)()>(&ReferralException::init$))},
-	{"getReferralContext", "()Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getReferralContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getReferralInfo", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"retryReferral", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"skipReferral", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ReferralException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ReferralException, init$, void)},
+	{"getReferralContext", "()Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferralException, getReferralContext, $Context*), "javax.naming.NamingException"},
+	{"getReferralContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC | $ABSTRACT, $virtualMethod(ReferralException, getReferralContext, $Context*, $Hashtable*), "javax.naming.NamingException"},
+	{"getReferralInfo", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferralException, getReferralInfo, $Object*)},
+	{"retryReferral", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferralException, retryReferral, void)},
+	{"skipReferral", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferralException, skipReferral, bool)},
 	{}
 };
 

@@ -44,11 +44,11 @@ $FieldInfo _Resolve$5_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$5_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Type;)V", "()V", 0, $method(static_cast<void(Resolve$5::*)($Resolve*,$Type*)>(&Resolve$5::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
-	{"symbolFor", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Type;)V", "()V", 0, $method(Resolve$5, init$, void, $Resolve*, $Type*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$5, hasNext, bool)},
+	{"next", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$5, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Resolve$5, remove, void)},
+	{"symbolFor", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, 0, $virtualMethod(Resolve$5, symbolFor, $Symbol$TypeSymbol*, $Type*)},
 	{}
 };
 

@@ -18,7 +18,7 @@ namespace jdk {
 				namespace hpack {
 
 $MethodInfo _HPACK$RootLogger_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PROTECTED, $method(static_cast<void(HPACK$RootLogger::*)($HPACK$Logger$Level*)>(&HPACK$RootLogger::init$))},
+	{"<init>", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PROTECTED, $method(HPACK$RootLogger, init$, void, $HPACK$Logger$Level*)},
 	{}
 };
 

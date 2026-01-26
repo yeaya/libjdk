@@ -29,15 +29,15 @@ $FieldInfo _LauncherProperties$Errors_FieldInfo_[] = {
 };
 
 $MethodInfo _LauncherProperties$Errors_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherProperties$Errors::*)()>(&LauncherProperties$Errors::init$))},
-	{"CantAccessMainMethod", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$Error*(*)($String*)>(&LauncherProperties$Errors::CantAccessMainMethod))},
-	{"CantFindClass", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$Error*(*)($String*)>(&LauncherProperties$Errors::CantFindClass))},
-	{"CantFindMainMethod", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$Error*(*)($String*)>(&LauncherProperties$Errors::CantFindMainMethod))},
-	{"CantReadFile", "(Ljava/nio/file/Path;Ljava/lang/Object;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$Error*(*)($Path*,Object$*)>(&LauncherProperties$Errors::CantReadFile))},
-	{"FileNotFound", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$Error*(*)($Path*)>(&LauncherProperties$Errors::FileNotFound))},
-	{"InvalidFilename", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$Error*(*)($String*)>(&LauncherProperties$Errors::InvalidFilename))},
-	{"InvalidValueForSource", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$Error*(*)($String*)>(&LauncherProperties$Errors::InvalidValueForSource))},
-	{"NoValueForOption", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$Error*(*)($String*)>(&LauncherProperties$Errors::NoValueForOption))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherProperties$Errors, init$, void)},
+	{"CantAccessMainMethod", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherProperties$Errors, CantAccessMainMethod, $JCDiagnostic$Error*, $String*)},
+	{"CantFindClass", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherProperties$Errors, CantFindClass, $JCDiagnostic$Error*, $String*)},
+	{"CantFindMainMethod", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherProperties$Errors, CantFindMainMethod, $JCDiagnostic$Error*, $String*)},
+	{"CantReadFile", "(Ljava/nio/file/Path;Ljava/lang/Object;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherProperties$Errors, CantReadFile, $JCDiagnostic$Error*, $Path*, Object$*)},
+	{"FileNotFound", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherProperties$Errors, FileNotFound, $JCDiagnostic$Error*, $Path*)},
+	{"InvalidFilename", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherProperties$Errors, InvalidFilename, $JCDiagnostic$Error*, $String*)},
+	{"InvalidValueForSource", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherProperties$Errors, InvalidValueForSource, $JCDiagnostic$Error*, $String*)},
+	{"NoValueForOption", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC | $STATIC, $staticMethod(LauncherProperties$Errors, NoValueForOption, $JCDiagnostic$Error*, $String*)},
 	{}
 };
 

@@ -26,8 +26,8 @@ $FieldInfo _RegistryImpl$4_FieldInfo_[] = {
 };
 
 $MethodInfo _RegistryImpl$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetAddress;)V", "()V", 0, $method(static_cast<void(RegistryImpl$4::*)($InetAddress*)>(&RegistryImpl$4::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/net/InetAddress;)V", "()V", 0, $method(RegistryImpl$4, init$, void, $InetAddress*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$4, run, $Object*), "java.io.IOException"},
 	{}
 };
 

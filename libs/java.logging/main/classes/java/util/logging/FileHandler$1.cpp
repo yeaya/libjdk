@@ -20,8 +20,8 @@ $FieldInfo _FileHandler$1_FieldInfo_[] = {
 };
 
 $MethodInfo _FileHandler$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/FileHandler;)V", nullptr, 0, $method(static_cast<void(FileHandler$1::*)($FileHandler*)>(&FileHandler$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/FileHandler;)V", nullptr, 0, $method(FileHandler$1, init$, void, $FileHandler*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FileHandler$1, run, $Object*)},
 	{}
 };
 

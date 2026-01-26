@@ -15,9 +15,9 @@ $FieldInfo _ProxyServer$Credentials_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyServer$Credentials_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(ProxyServer$Credentials::*)($String*,$String*)>(&ProxyServer$Credentials::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"password", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ProxyServer$Credentials, init$, void, $String*, $String*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Credentials, name, $String*)},
+	{"password", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProxyServer$Credentials, password, $String*)},
 	{}
 };
 

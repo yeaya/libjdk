@@ -1,9 +1,13 @@
 #include <com/sun/source/tree/InstanceOfTree.h>
 
+#include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/PatternTree.h>
 #include <com/sun/source/tree/Tree.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
+using $PatternTree = ::com::sun::source::tree::PatternTree;
+using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -13,9 +17,9 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _InstanceOfTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstanceOfTree, getExpression, $ExpressionTree*)},
+	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstanceOfTree, getPattern, $PatternTree*)},
+	{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstanceOfTree, getType, $Tree*)},
 	{}
 };
 

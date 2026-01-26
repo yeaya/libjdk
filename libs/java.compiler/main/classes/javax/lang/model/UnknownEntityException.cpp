@@ -17,7 +17,7 @@ $FieldInfo _UnknownEntityException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownEntityException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(UnknownEntityException::*)($String*)>(&UnknownEntityException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(UnknownEntityException, init$, void, $String*)},
 	{}
 };
 

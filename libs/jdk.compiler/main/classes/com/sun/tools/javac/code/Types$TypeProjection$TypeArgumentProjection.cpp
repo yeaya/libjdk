@@ -54,12 +54,12 @@ $FieldInfo _Types$TypeProjection$TypeArgumentProjection_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$TypeProjection$TypeArgumentProjection_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Types$TypeProjection$TypeArgumentProjection::*)($Types$TypeProjection*,$Type*,$Type*)>(&Types$TypeProjection$TypeArgumentProjection::init$))},
-	{"makeWildcard", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(Types$TypeProjection$TypeArgumentProjection::*)($Type*,$BoundKind*)>(&Types$TypeProjection$TypeArgumentProjection::makeWildcard))},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$TypeProjection$TypeArgumentProjection, init$, void, $Types$TypeProjection*, $Type*, $Type*)},
+	{"makeWildcard", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Types$TypeProjection$TypeArgumentProjection, makeWildcard, $Type*, $Type*, $BoundKind*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitType, $Type*, $Type*, $Types$ProjectionKind*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitType, $Object*, $Type*, Object$*)},
+	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Types$ProjectionKind;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitWildcardType, $Type*, $Type$WildcardType*, $Types$ProjectionKind*)},
+	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$TypeProjection$TypeArgumentProjection, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
 	{}
 };
 

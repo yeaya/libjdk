@@ -27,8 +27,8 @@ $FieldInfo _DeferredAttr$DeferredAttrDiagHandler$PosScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$DeferredAttrDiagHandler$PosScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$DeferredAttrDiagHandler$PosScanner::*)($JCDiagnostic$DiagnosticPosition*)>(&DeferredAttr$DeferredAttrDiagHandler$PosScanner::init$))},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrDiagHandler$PosScanner, init$, void, $JCDiagnostic$DiagnosticPosition*)},
+	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrDiagHandler$PosScanner, scan, void, $JCTree*)},
 	{}
 };
 

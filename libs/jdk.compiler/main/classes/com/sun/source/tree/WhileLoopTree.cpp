@@ -1,8 +1,11 @@
 #include <com/sun/source/tree/WhileLoopTree.h>
 
 #include <com/sun/source/tree/ExpressionTree.h>
+#include <com/sun/source/tree/StatementTree.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
+using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,8 +15,8 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _WhileLoopTree_MethodInfo_[] = {
-	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WhileLoopTree, getCondition, $ExpressionTree*)},
+	{"getStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WhileLoopTree, getStatement, $StatementTree*)},
 	{}
 };
 

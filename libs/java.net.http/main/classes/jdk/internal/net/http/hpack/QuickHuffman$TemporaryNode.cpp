@@ -26,18 +26,18 @@ $FieldInfo _QuickHuffman$TemporaryNode_FieldInfo_[] = {
 };
 
 $MethodInfo _QuickHuffman$TemporaryNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(QuickHuffman$TemporaryNode::*)()>(&QuickHuffman$TemporaryNode::init$))},
-	{"ensureChildrenExist", "()V", nullptr, $PRIVATE, $method(static_cast<void(QuickHuffman$TemporaryNode::*)()>(&QuickHuffman$TemporaryNode::ensureChildrenExist))},
-	{"getChild", "(I)Ljdk/internal/net/http/hpack/QuickHuffman$TemporaryNode;", nullptr, $PUBLIC},
-	{"getChildren", "()[Ljdk/internal/net/http/hpack/QuickHuffman$Node;", nullptr, $PUBLIC},
-	{"getLength", "()I", nullptr, $PUBLIC},
-	{"getOrCreateChild", "(I)Ljdk/internal/net/http/hpack/QuickHuffman$TemporaryNode;", nullptr, $PUBLIC},
-	{"getSymbol", "()C", nullptr, $PUBLIC},
-	{"isEOSPath", "()Z", nullptr, $PUBLIC},
-	{"isLeaf", "()Z", nullptr, $PUBLIC},
-	{"setEOSPath", "(Z)V", nullptr, $PUBLIC},
-	{"setLength", "(I)V", nullptr, $PUBLIC},
-	{"setSymbol", "(C)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(QuickHuffman$TemporaryNode, init$, void)},
+	{"ensureChildrenExist", "()V", nullptr, $PRIVATE, $method(QuickHuffman$TemporaryNode, ensureChildrenExist, void)},
+	{"getChild", "(I)Ljdk/internal/net/http/hpack/QuickHuffman$TemporaryNode;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$TemporaryNode, getChild, QuickHuffman$TemporaryNode*, int32_t)},
+	{"getChildren", "()[Ljdk/internal/net/http/hpack/QuickHuffman$Node;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$TemporaryNode, getChildren, $QuickHuffman$NodeArray*)},
+	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$TemporaryNode, getLength, int32_t)},
+	{"getOrCreateChild", "(I)Ljdk/internal/net/http/hpack/QuickHuffman$TemporaryNode;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$TemporaryNode, getOrCreateChild, QuickHuffman$TemporaryNode*, int32_t)},
+	{"getSymbol", "()C", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$TemporaryNode, getSymbol, char16_t)},
+	{"isEOSPath", "()Z", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$TemporaryNode, isEOSPath, bool)},
+	{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$TemporaryNode, isLeaf, bool)},
+	{"setEOSPath", "(Z)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$TemporaryNode, setEOSPath, void, bool)},
+	{"setLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$TemporaryNode, setLength, void, int32_t)},
+	{"setSymbol", "(C)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$TemporaryNode, setSymbol, void, char16_t)},
 	{}
 };
 

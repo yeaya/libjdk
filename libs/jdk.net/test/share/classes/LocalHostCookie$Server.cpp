@@ -28,10 +28,10 @@ $FieldInfo _LocalHostCookie$Server_FieldInfo_[] = {
 };
 
 $MethodInfo _LocalHostCookie$Server_MethodInfo_[] = {
-	{"<init>", "(LLocalHostCookie;)V", nullptr, 0, $method(static_cast<void(LocalHostCookie$Server::*)($LocalHostCookie*)>(&LocalHostCookie$Server::init$))},
-	{"getPort", "()I", nullptr, $PUBLIC},
-	{"startServer", "()V", nullptr, $PUBLIC},
-	{"stopServer", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LLocalHostCookie;)V", nullptr, 0, $method(LocalHostCookie$Server, init$, void, $LocalHostCookie*)},
+	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(LocalHostCookie$Server, getPort, int32_t)},
+	{"startServer", "()V", nullptr, $PUBLIC, $virtualMethod(LocalHostCookie$Server, startServer, void)},
+	{"stopServer", "()V", nullptr, $PUBLIC, $virtualMethod(LocalHostCookie$Server, stopServer, void)},
 	{}
 };
 

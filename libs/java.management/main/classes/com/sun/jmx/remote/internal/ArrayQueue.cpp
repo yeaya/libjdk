@@ -26,13 +26,13 @@ $FieldInfo _ArrayQueue_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayQueue_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ArrayQueue::*)(int32_t)>(&ArrayQueue::init$))},
-	{"add", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC},
-	{"get", "(I)Ljava/lang/Object;", "(I)TT;", $PUBLIC},
-	{"newArray", "(I)[Ljava/lang/Object;", "(I)[TT;", $PRIVATE, $method(static_cast<$ObjectArray*(ArrayQueue::*)(int32_t)>(&ArrayQueue::newArray))},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TT;", $PUBLIC},
-	{"resize", "(I)V", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ArrayQueue, init$, void, int32_t)},
+	{"add", "(Ljava/lang/Object;)Z", "(TT;)Z", $PUBLIC, $virtualMethod(ArrayQueue, add, bool, Object$*)},
+	{"get", "(I)Ljava/lang/Object;", "(I)TT;", $PUBLIC, $virtualMethod(ArrayQueue, get, $Object*, int32_t)},
+	{"newArray", "(I)[Ljava/lang/Object;", "(I)[TT;", $PRIVATE, $method(ArrayQueue, newArray, $ObjectArray*, int32_t)},
+	{"remove", "(I)Ljava/lang/Object;", "(I)TT;", $PUBLIC, $virtualMethod(ArrayQueue, remove, $Object*, int32_t)},
+	{"resize", "(I)V", nullptr, $PUBLIC, $virtualMethod(ArrayQueue, resize, void, int32_t)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayQueue, size, int32_t)},
 	{}
 };
 

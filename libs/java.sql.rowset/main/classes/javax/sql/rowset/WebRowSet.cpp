@@ -10,9 +10,14 @@
 #undef PUBLIC_XML_SCHEMA
 #undef SCHEMA_SYSTEM_ID
 
+using $InputStream = ::java::io::InputStream;
+using $OutputStream = ::java::io::OutputStream;
+using $Reader = ::java::io::Reader;
+using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ResultSet = ::java::sql::ResultSet;
 
 namespace javax {
 	namespace sql {
@@ -25,12 +30,12 @@ $FieldInfo _WebRowSet_FieldInfo_[] = {
 };
 
 $MethodInfo _WebRowSet_MethodInfo_[] = {
-	{"readXml", "(Ljava/io/Reader;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"readXml", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException,java.io.IOException"},
-	{"writeXml", "(Ljava/sql/ResultSet;Ljava/io/Writer;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeXml", "(Ljava/sql/ResultSet;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException,java.io.IOException"},
-	{"writeXml", "(Ljava/io/Writer;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeXml", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException,java.io.IOException"},
+	{"readXml", "(Ljava/io/Reader;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebRowSet, readXml, void, $Reader*), "java.sql.SQLException"},
+	{"readXml", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebRowSet, readXml, void, $InputStream*), "java.sql.SQLException,java.io.IOException"},
+	{"writeXml", "(Ljava/sql/ResultSet;Ljava/io/Writer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebRowSet, writeXml, void, $ResultSet*, $Writer*), "java.sql.SQLException"},
+	{"writeXml", "(Ljava/sql/ResultSet;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebRowSet, writeXml, void, $ResultSet*, $OutputStream*), "java.sql.SQLException,java.io.IOException"},
+	{"writeXml", "(Ljava/io/Writer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebRowSet, writeXml, void, $Writer*), "java.sql.SQLException"},
+	{"writeXml", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebRowSet, writeXml, void, $OutputStream*), "java.sql.SQLException,java.io.IOException"},
 	{}
 };
 

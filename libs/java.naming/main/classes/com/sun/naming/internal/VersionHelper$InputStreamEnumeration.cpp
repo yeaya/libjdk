@@ -58,8 +58,8 @@ $FieldInfo VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0:
 	{}
 };
 $MethodInfo VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/naming/internal/VersionHelper$InputStreamEnumeration;)V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::*)(VersionHelper$InputStreamEnumeration*)>(&VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/naming/internal/VersionHelper$InputStreamEnumeration;)V", nullptr, $PUBLIC, $method(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, init$, void, VersionHelper$InputStreamEnumeration*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::classInfo$ = {
@@ -84,14 +84,14 @@ $FieldInfo _VersionHelper$InputStreamEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _VersionHelper$InputStreamEnumeration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/naming/internal/VersionHelper;Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljava/net/URL;>;)V", 0, $method(static_cast<void(VersionHelper$InputStreamEnumeration::*)($VersionHelper*,$Enumeration*)>(&VersionHelper$InputStreamEnumeration::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"getNextElement", "()Ljava/io/InputStream;", nullptr, $PRIVATE, $method(static_cast<$InputStream*(VersionHelper$InputStreamEnumeration::*)()>(&VersionHelper$InputStreamEnumeration::getNextElement))},
-	{"hasMore", "()Z", nullptr, $PUBLIC},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"lambda$getNextElement$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$InputStream*(VersionHelper$InputStreamEnumeration::*)()>(&VersionHelper$InputStreamEnumeration::lambda$getNextElement$0))},
-	{"next", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/naming/internal/VersionHelper;Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljava/net/URL;>;)V", 0, $method(VersionHelper$InputStreamEnumeration, init$, void, $VersionHelper*, $Enumeration*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, close, void)},
+	{"getNextElement", "()Ljava/io/InputStream;", nullptr, $PRIVATE, $method(VersionHelper$InputStreamEnumeration, getNextElement, $InputStream*)},
+	{"hasMore", "()Z", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, hasMore, bool)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, hasMoreElements, bool)},
+	{"lambda$getNextElement$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNTHETIC, $method(VersionHelper$InputStreamEnumeration, lambda$getNextElement$0, $InputStream*)},
+	{"next", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, next, $Object*)},
+	{"nextElement", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, nextElement, $Object*)},
 	{}
 };
 

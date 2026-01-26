@@ -45,14 +45,14 @@ $FieldInfo _JavadocFormatter$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocFormatter$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, 0, $method(static_cast<void(JavadocFormatter$2::*)($Map*)>(&JavadocFormatter$2::init$))},
-	{"closeTable", "()V", nullptr, $PRIVATE, $method(static_cast<void(JavadocFormatter$2::*)()>(&JavadocFormatter$2::closeTable))},
-	{"visitDocComment", "(Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitDocComment", "(Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitEndElement", "(Lcom/sun/source/doctree/EndElementTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitEndElement", "(Lcom/sun/source/doctree/EndElementTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitStartElement", "(Lcom/sun/source/doctree/StartElementTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitStartElement", "(Lcom/sun/source/doctree/StartElementTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, 0, $method(JavadocFormatter$2, init$, void, $Map*)},
+	{"closeTable", "()V", nullptr, $PRIVATE, $method(JavadocFormatter$2, closeTable, void)},
+	{"visitDocComment", "(Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$2, visitDocComment, $Void*, $DocCommentTree*, $Void*)},
+	{"visitDocComment", "(Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocFormatter$2, visitDocComment, $Object*, $DocCommentTree*, Object$*)},
+	{"visitEndElement", "(Lcom/sun/source/doctree/EndElementTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$2, visitEndElement, $Void*, $EndElementTree*, $Void*)},
+	{"visitEndElement", "(Lcom/sun/source/doctree/EndElementTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocFormatter$2, visitEndElement, $Object*, $EndElementTree*, Object$*)},
+	{"visitStartElement", "(Lcom/sun/source/doctree/StartElementTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$2, visitStartElement, $Void*, $StartElementTree*, $Void*)},
+	{"visitStartElement", "(Lcom/sun/source/doctree/StartElementTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocFormatter$2, visitStartElement, $Object*, $StartElementTree*, Object$*)},
 	{}
 };
 

@@ -25,10 +25,10 @@ $FieldInfo _NamingExceptionEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _NamingExceptionEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/event/EventContext;Ljavax/naming/NamingException;)V", nullptr, $PUBLIC, $method(static_cast<void(NamingExceptionEvent::*)($EventContext*,$NamingException*)>(&NamingExceptionEvent::init$))},
-	{"dispatch", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC},
-	{"getEventContext", "()Ljavax/naming/event/EventContext;", nullptr, $PUBLIC},
-	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/naming/event/EventContext;Ljavax/naming/NamingException;)V", nullptr, $PUBLIC, $method(NamingExceptionEvent, init$, void, $EventContext*, $NamingException*)},
+	{"dispatch", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(NamingExceptionEvent, dispatch, void, $NamingListener*)},
+	{"getEventContext", "()Ljavax/naming/event/EventContext;", nullptr, $PUBLIC, $virtualMethod(NamingExceptionEvent, getEventContext, $EventContext*)},
+	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC, $virtualMethod(NamingExceptionEvent, getException, $NamingException*)},
 	{}
 };
 

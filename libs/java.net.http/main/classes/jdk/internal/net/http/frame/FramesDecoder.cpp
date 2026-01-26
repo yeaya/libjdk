@@ -112,8 +112,8 @@ $FieldInfo FramesDecoder$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo FramesDecoder$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FramesDecoder$$Lambda$toString::*)($String*)>(&FramesDecoder$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FramesDecoder$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FramesDecoder$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo FramesDecoder$$Lambda$toString::classInfo$ = {
@@ -151,31 +151,31 @@ $FieldInfo _FramesDecoder_FieldInfo_[] = {
 };
 
 $MethodInfo _FramesDecoder_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/frame/FramesDecoder$FrameProcessor;)V", nullptr, $PUBLIC, $method(static_cast<void(FramesDecoder::*)($FramesDecoder$FrameProcessor*)>(&FramesDecoder::init$))},
-	{"<init>", "(Ljdk/internal/net/http/frame/FramesDecoder$FrameProcessor;I)V", nullptr, $PUBLIC, $method(static_cast<void(FramesDecoder::*)($FramesDecoder$FrameProcessor*,int32_t)>(&FramesDecoder::init$))},
-	{"close", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"decode", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"frameProcessed", "()V", nullptr, $PRIVATE, $method(static_cast<void(FramesDecoder::*)()>(&FramesDecoder::frameProcessed))},
-	{"getBuffers", "(ZI)Ljava/util/List;", "(ZI)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(static_cast<$List*(FramesDecoder::*)(bool,int32_t)>(&FramesDecoder::getBuffers))},
-	{"getByte", "()I", nullptr, $PUBLIC},
-	{"getBytes", "(I)[B", nullptr, $PUBLIC},
-	{"getInt", "()I", nullptr, $PUBLIC},
-	{"getShort", "()I", nullptr, $PUBLIC},
-	{"nextBuffer", "()V", nullptr, $PRIVATE, $method(static_cast<void(FramesDecoder::*)()>(&FramesDecoder::nextBuffer))},
-	{"nextFrame", "()Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)()>(&FramesDecoder::nextFrame)), "java.io.IOException"},
-	{"parseContinuationFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)(int32_t,int32_t,int32_t)>(&FramesDecoder::parseContinuationFrame))},
-	{"parseDataFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)(int32_t,int32_t,int32_t)>(&FramesDecoder::parseDataFrame))},
-	{"parseFrameBody", "()Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)()>(&FramesDecoder::parseFrameBody)), "java.io.IOException"},
-	{"parseFrameHeader", "()V", nullptr, $PRIVATE, $method(static_cast<void(FramesDecoder::*)()>(&FramesDecoder::parseFrameHeader)), "java.io.IOException"},
-	{"parseGoAwayFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)(int32_t,int32_t,int32_t)>(&FramesDecoder::parseGoAwayFrame))},
-	{"parseHeadersFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)(int32_t,int32_t,int32_t)>(&FramesDecoder::parseHeadersFrame))},
-	{"parsePingFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)(int32_t,int32_t,int32_t)>(&FramesDecoder::parsePingFrame))},
-	{"parsePriorityFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)(int32_t,int32_t,int32_t)>(&FramesDecoder::parsePriorityFrame))},
-	{"parsePushPromiseFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)(int32_t,int32_t,int32_t)>(&FramesDecoder::parsePushPromiseFrame))},
-	{"parseResetFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)(int32_t,int32_t,int32_t)>(&FramesDecoder::parseResetFrame))},
-	{"parseSettingsFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)(int32_t,int32_t,int32_t)>(&FramesDecoder::parseSettingsFrame))},
-	{"parseWindowUpdateFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(static_cast<$Http2Frame*(FramesDecoder::*)(int32_t,int32_t,int32_t)>(&FramesDecoder::parseWindowUpdateFrame))},
-	{"skipBytes", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/frame/FramesDecoder$FrameProcessor;)V", nullptr, $PUBLIC, $method(FramesDecoder, init$, void, $FramesDecoder$FrameProcessor*)},
+	{"<init>", "(Ljdk/internal/net/http/frame/FramesDecoder$FrameProcessor;I)V", nullptr, $PUBLIC, $method(FramesDecoder, init$, void, $FramesDecoder$FrameProcessor*, int32_t)},
+	{"close", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, close, void, $String*)},
+	{"decode", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, decode, void, $ByteBuffer*), "java.io.IOException"},
+	{"frameProcessed", "()V", nullptr, $PRIVATE, $method(FramesDecoder, frameProcessed, void)},
+	{"getBuffers", "(ZI)Ljava/util/List;", "(ZI)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(FramesDecoder, getBuffers, $List*, bool, int32_t)},
+	{"getByte", "()I", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getByte, int32_t)},
+	{"getBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getBytes, $bytes*, int32_t)},
+	{"getInt", "()I", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getInt, int32_t)},
+	{"getShort", "()I", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getShort, int32_t)},
+	{"nextBuffer", "()V", nullptr, $PRIVATE, $method(FramesDecoder, nextBuffer, void)},
+	{"nextFrame", "()Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, nextFrame, $Http2Frame*), "java.io.IOException"},
+	{"parseContinuationFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseContinuationFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+	{"parseDataFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseDataFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+	{"parseFrameBody", "()Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseFrameBody, $Http2Frame*), "java.io.IOException"},
+	{"parseFrameHeader", "()V", nullptr, $PRIVATE, $method(FramesDecoder, parseFrameHeader, void), "java.io.IOException"},
+	{"parseGoAwayFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseGoAwayFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+	{"parseHeadersFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseHeadersFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+	{"parsePingFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parsePingFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+	{"parsePriorityFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parsePriorityFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+	{"parsePushPromiseFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parsePushPromiseFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+	{"parseResetFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseResetFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+	{"parseSettingsFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseSettingsFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+	{"parseWindowUpdateFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseWindowUpdateFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+	{"skipBytes", "(I)V", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, skipBytes, void, int32_t)},
 	{}
 };
 

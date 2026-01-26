@@ -24,11 +24,11 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMHMACSignatureMethod$SHA1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMHMACSignatureMethod$SHA1::*)($AlgorithmParameterSpec*)>(&DOMHMACSignatureMethod$SHA1::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMHMACSignatureMethod$SHA1::*)($Element*)>(&DOMHMACSignatureMethod$SHA1::init$)), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDigestLength", "()I", nullptr, 0},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMHMACSignatureMethod$SHA1, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMHMACSignatureMethod$SHA1, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMHMACSignatureMethod$SHA1, getAlgorithm, $String*)},
+	{"getDigestLength", "()I", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod$SHA1, getDigestLength, int32_t)},
+	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod$SHA1, getJCAAlgorithm, $String*)},
 	{}
 };
 

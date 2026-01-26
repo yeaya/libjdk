@@ -68,18 +68,18 @@ $FieldInfo _MBeanServerInvocationHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerInvocationHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerInvocationHandler::*)($MBeanServerConnection*,$ObjectName*)>(&MBeanServerInvocationHandler::init$))},
-	{"<init>", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Z)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerInvocationHandler::*)($MBeanServerConnection*,$ObjectName*,bool)>(&MBeanServerInvocationHandler::init$))},
-	{"doLocally", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(MBeanServerInvocationHandler::*)(Object$*,$Method*,$ObjectArray*)>(&MBeanServerInvocationHandler::doLocally))},
-	{"findMXBeanProxy", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MXBeanProxy;", "(Ljava/lang/Class<*>;)Lcom/sun/jmx/mbeanserver/MXBeanProxy;", $PRIVATE | $STATIC, $method(static_cast<$MXBeanProxy*(*)($Class*)>(&MBeanServerInvocationHandler::findMXBeanProxy))},
-	{"getMBeanServerConnection", "()Ljavax/management/MBeanServerConnection;", nullptr, $PUBLIC},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
-	{"invokeBroadcasterMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(MBeanServerInvocationHandler::*)(Object$*,$Method*,$ObjectArray*)>(&MBeanServerInvocationHandler::invokeBroadcasterMethod)), "java.lang.Exception"},
-	{"isLocal", "(Ljava/lang/Object;Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(Object$*,$Method*)>(&MBeanServerInvocationHandler::isLocal))},
-	{"isMXBean", "()Z", nullptr, $PUBLIC},
-	{"newProxyInstance", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/Class;Z)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/Class<TT;>;Z)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($MBeanServerConnection*,$ObjectName*,$Class*,bool)>(&MBeanServerInvocationHandler::newProxyInstance))},
-	{"shouldDoLocally", "(Ljava/lang/Object;Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE, $method(static_cast<bool(MBeanServerInvocationHandler::*)(Object$*,$Method*)>(&MBeanServerInvocationHandler::shouldDoLocally))},
+	{"<init>", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(MBeanServerInvocationHandler, init$, void, $MBeanServerConnection*, $ObjectName*)},
+	{"<init>", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Z)V", nullptr, $PUBLIC, $method(MBeanServerInvocationHandler, init$, void, $MBeanServerConnection*, $ObjectName*, bool)},
+	{"doLocally", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(MBeanServerInvocationHandler, doLocally, $Object*, Object$*, $Method*, $ObjectArray*)},
+	{"findMXBeanProxy", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MXBeanProxy;", "(Ljava/lang/Class<*>;)Lcom/sun/jmx/mbeanserver/MXBeanProxy;", $PRIVATE | $STATIC, $staticMethod(MBeanServerInvocationHandler, findMXBeanProxy, $MXBeanProxy*, $Class*)},
+	{"getMBeanServerConnection", "()Ljavax/management/MBeanServerConnection;", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, getMBeanServerConnection, $MBeanServerConnection*)},
+	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, getObjectName, $ObjectName*)},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
+	{"invokeBroadcasterMethod", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(MBeanServerInvocationHandler, invokeBroadcasterMethod, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Exception"},
+	{"isLocal", "(Ljava/lang/Object;Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerInvocationHandler, isLocal, bool, Object$*, $Method*)},
+	{"isMXBean", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanServerInvocationHandler, isMXBean, bool)},
+	{"newProxyInstance", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/Class;Z)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/Class<TT;>;Z)TT;", $PUBLIC | $STATIC, $staticMethod(MBeanServerInvocationHandler, newProxyInstance, $Object*, $MBeanServerConnection*, $ObjectName*, $Class*, bool)},
+	{"shouldDoLocally", "(Ljava/lang/Object;Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE, $method(MBeanServerInvocationHandler, shouldDoLocally, bool, Object$*, $Method*)},
 	{}
 };
 

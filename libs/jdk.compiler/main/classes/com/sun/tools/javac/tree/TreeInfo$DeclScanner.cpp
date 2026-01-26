@@ -52,15 +52,15 @@ $FieldInfo _TreeInfo$DeclScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeInfo$DeclScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(TreeInfo$DeclScanner::*)($Symbol*)>(&TreeInfo$DeclScanner::init$))},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC},
-	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC},
-	{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(TreeInfo$DeclScanner, init$, void, $Symbol*)},
+	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, scan, void, $JCTree*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitPackageDef, void, $JCTree$JCPackageDecl*)},
+	{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitTopLevel, void, $JCTree$JCCompilationUnit*)},
+	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$DeclScanner, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

@@ -1,17 +1,19 @@
 #include <javax/management/remote/MBeanServerForwarder.h>
 
+#include <javax/management/MBeanServer.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $MBeanServer = ::javax::management::MBeanServer;
 
 namespace javax {
 	namespace management {
 		namespace remote {
 
 $MethodInfo _MBeanServerForwarder_MethodInfo_[] = {
-	{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerForwarder, getMBeanServer, $MBeanServer*)},
+	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerForwarder, setMBeanServer, void, $MBeanServer*)},
 	{}
 };
 

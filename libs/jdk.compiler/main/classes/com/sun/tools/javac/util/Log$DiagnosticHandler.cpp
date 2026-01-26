@@ -4,6 +4,7 @@
 #include <com/sun/tools/javac/util/Log.h>
 #include <jcpp.h>
 
+using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -22,9 +23,9 @@ $FieldInfo _Log$DiagnosticHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Log$DiagnosticHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Log$DiagnosticHandler::*)()>(&Log$DiagnosticHandler::init$))},
-	{"install", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PROTECTED},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Log$DiagnosticHandler, init$, void)},
+	{"install", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PROTECTED, $virtualMethod(Log$DiagnosticHandler, install, void, $Log*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log$DiagnosticHandler, report, void, $JCDiagnostic*)},
 	{}
 };
 

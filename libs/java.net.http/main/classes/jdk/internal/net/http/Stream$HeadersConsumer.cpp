@@ -31,9 +31,9 @@ $FieldInfo _Stream$HeadersConsumer_FieldInfo_[] = {
 };
 
 $MethodInfo _Stream$HeadersConsumer_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PRIVATE, $method(static_cast<void(Stream$HeadersConsumer::*)($Stream*)>(&Stream$HeadersConsumer::init$))},
-	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, nullptr, "java.io.UncheckedIOException"},
-	{"reset", "()V", nullptr, 0},
+	{"<init>", "(Ljdk/internal/net/http/Stream;)V", nullptr, $PRIVATE, $method(Stream$HeadersConsumer, init$, void, $Stream*)},
+	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(Stream$HeadersConsumer, onDecoded, void, $CharSequence*, $CharSequence*), "java.io.UncheckedIOException"},
+	{"reset", "()V", nullptr, 0, $virtualMethod(Stream$HeadersConsumer, reset, void)},
 	{}
 };
 

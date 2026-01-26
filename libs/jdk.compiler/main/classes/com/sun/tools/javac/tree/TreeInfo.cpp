@@ -303,8 +303,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeInfo$$Lambda$lambda$recordFields$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$$Lambda$lambda$recordFields$0::*)()>(&TreeInfo$$Lambda$lambda$recordFields$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFields$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFields$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$$Lambda$lambda$recordFields$0::classInfo$ = {
@@ -336,8 +336,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeInfo$$Lambda$lambda$recordFields$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$$Lambda$lambda$recordFields$1$1::*)()>(&TreeInfo$$Lambda$lambda$recordFields$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFields$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFields$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$$Lambda$lambda$recordFields$1$1::classInfo$ = {
@@ -369,8 +369,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeInfo$$Lambda$lambda$recordFields$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$$Lambda$lambda$recordFields$2$2::*)()>(&TreeInfo$$Lambda$lambda$recordFields$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFields$2$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFields$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$$Lambda$lambda$recordFields$2$2::classInfo$ = {
@@ -402,8 +402,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::*)()>(&TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$recordFieldTypes$3$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$$Lambda$lambda$recordFieldTypes$3$3::classInfo$ = {
@@ -442,8 +442,8 @@ $FieldInfo TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::*)($Symbol*)>(&TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, init$, void, $Symbol*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$$Lambda$lambda$diagnosticPositionFor$4$4::classInfo$ = {
@@ -475,8 +475,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::*)()>(&TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$$Lambda$lambda$diagnosticPositionFor$5$5::classInfo$ = {
@@ -508,8 +508,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::*)()>(&TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$$Lambda$lambda$isErrorEnumSwitch$6$6::classInfo$ = {
@@ -541,8 +541,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::*)()>(&TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$$Lambda$lambda$isErrorEnumSwitch$7$7::classInfo$ = {
@@ -582,86 +582,86 @@ $FieldInfo _TreeInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo::*)()>(&TreeInfo::init$))},
-	{"args", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($JCTree*)>(&TreeInfo::args))},
-	{"calledMethodName", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Name*(*)($JCTree*)>(&TreeInfo::calledMethodName))},
-	{"containsTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::containsTypeAnnotation))},
-	{"declarationFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree*(*)($Symbol*,$JCTree*)>(&TreeInfo::declarationFor))},
-	{"diagEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$DiagnosticPosition*(*)($JCTree*)>(&TreeInfo::diagEndPos))},
-	{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$DiagnosticPosition*(*)($Symbol*,$JCTree*)>(&TreeInfo::diagnosticPositionFor))},
-	{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$DiagnosticPosition*(*)($Symbol*,$JCTree*,bool)>(&TreeInfo::diagnosticPositionFor))},
-	{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$DiagnosticPosition*(*)($Symbol*,$List*)>(&TreeInfo::diagnosticPositionFor))},
-	{"endPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($JCTree*)>(&TreeInfo::endPos))},
-	{"finalizerPos", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeInfo$PosKind;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($JCTree*,$TreeInfo$PosKind*)>(&TreeInfo::finalizerPos))},
-	{"firstConstructorCall", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$JCMethodInvocation*(*)($JCTree*)>(&TreeInfo::firstConstructorCall))},
-	{"firstFlag", "(J)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)(int64_t)>(&TreeInfo::firstFlag))},
-	{"firstStatPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($JCTree*)>(&TreeInfo::firstStatPos))},
-	{"flagNames", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int64_t)>(&TreeInfo::flagNames))},
-	{"flags", "(Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($JCTree*)>(&TreeInfo::flags))},
-	{"fullName", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Name*(*)($JCTree*)>(&TreeInfo::fullName))},
-	{"getCommentText", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Env*,$JCTree*)>(&TreeInfo::getCommentText))},
-	{"getCommentTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", $PUBLIC | $STATIC, $method(static_cast<$DCTree$DCDocComment*(*)($Env*,$JCTree*)>(&TreeInfo::getCommentTree))},
-	{"getConstructorInvocationName", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", $PUBLIC | $STATIC, $method(static_cast<$Name*(*)($List*,$Names*)>(&TreeInfo::getConstructorInvocationName))},
-	{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($JCTree*,$EndPosTable*)>(&TreeInfo::getEndPos))},
-	{"getModifiers", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$JCModifiers*(*)($JCTree*)>(&TreeInfo::getModifiers))},
-	{"getModule", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$JCModuleDecl*(*)($JCTree$JCCompilationUnit*)>(&TreeInfo::getModule))},
-	{"getStartPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($JCTree*)>(&TreeInfo::getStartPos))},
-	{"hasConstructors", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($List*)>(&TreeInfo::hasConstructors))},
-	{"innermostType", "(Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree*(*)($JCTree*,bool)>(&TreeInfo::innermostType))},
-	{"isCanonicalConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isCanonicalConstructor))},
-	{"isCompactConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isCompactConstructor))},
-	{"isConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isConstructor))},
-	{"isDeclaration", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isDeclaration))},
-	{"isDiamond", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isDiamond))},
-	{"isEnumInit", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isEnumInit))},
-	{"isErrorEnumSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree$JCExpression*,$List*)>(&TreeInfo::isErrorEnumSwitch))},
-	{"isExpressionStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree$JCExpression*)>(&TreeInfo::isExpressionStatement))},
-	{"isIdentOrThisDotIdent", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isIdentOrThisDotIdent))},
-	{"isInAnnotation", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Z", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Env*,$JCTree*)>(&TreeInfo::isInAnnotation))},
-	{"isInitialConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isInitialConstructor))},
-	{"isModuleInfo", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree$JCCompilationUnit*)>(&TreeInfo::isModuleInfo))},
-	{"isMultiCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree$JCCatch*)>(&TreeInfo::isMultiCatch))},
-	{"isNull", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isNull))},
-	{"isPackageInfo", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree$JCCompilationUnit*)>(&TreeInfo::isPackageInfo))},
-	{"isReceiverParam", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isReceiverParam))},
-	{"isSelfCall", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isSelfCall))},
-	{"isStatement", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isStatement))},
-	{"isStaticSelector", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Names;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*,$Names*)>(&TreeInfo::isStaticSelector))},
-	{"isStaticSym", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isStaticSym))},
-	{"isSuperCall", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isSuperCall))},
-	{"isSyntheticInit", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isSyntheticInit))},
-	{"isThisQualifier", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::isThisQualifier))},
-	{"lambda$diagnosticPositionFor$4", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCDiagnostic$DiagnosticPosition*(*)($Symbol*,$JCTree*)>(&TreeInfo::lambda$diagnosticPositionFor$4))},
-	{"lambda$diagnosticPositionFor$5", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCDiagnostic$DiagnosticPosition*)>(&TreeInfo::lambda$diagnosticPositionFor$5))},
-	{"lambda$isErrorEnumSwitch$6", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($JCTree$JCCase*)>(&TreeInfo::lambda$isErrorEnumSwitch$6))},
-	{"lambda$isErrorEnumSwitch$7", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCCaseLabel*)>(&TreeInfo::lambda$isErrorEnumSwitch$7))},
-	{"lambda$recordFieldTypes$3", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($JCTree$JCVariableDecl*)>(&TreeInfo::lambda$recordFieldTypes$3))},
-	{"lambda$recordFields$0", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::lambda$recordFields$0))},
-	{"lambda$recordFields$1", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCTree$JCVariableDecl*(*)($JCTree*)>(&TreeInfo::lambda$recordFields$1))},
-	{"lambda$recordFields$2", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCVariableDecl*)>(&TreeInfo::lambda$recordFields$2))},
-	{"name", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Name*(*)($JCTree*)>(&TreeInfo::name))},
-	{"nonstaticSelect", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($JCTree*)>(&TreeInfo::nonstaticSelect))},
-	{"opPrec", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($JCTree$Tag*)>(&TreeInfo::opPrec))},
-	{"pathFor", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($JCTree*,$JCTree$JCCompilationUnit*)>(&TreeInfo::pathFor))},
-	{"positionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($Symbol*,$JCTree*)>(&TreeInfo::positionFor))},
-	{"primaryPatternTree", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$JCBindingPattern*(*)($JCTree$JCPattern*)>(&TreeInfo::primaryPatternTree))},
-	{"primaryPatternType", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/tree/TreeInfo$PatternPrimaryType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TreeInfo$PatternPrimaryType*(*)($JCTree$JCPattern*)>(&TreeInfo::primaryPatternType))},
-	{"recordFieldTypes", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($JCTree$JCClassDecl*)>(&TreeInfo::recordFieldTypes))},
-	{"recordFields", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($JCTree$JCClassDecl*)>(&TreeInfo::recordFields))},
-	{"referencedStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree*(*)($JCTree$JCLabeledStatement*)>(&TreeInfo::referencedStatement))},
-	{"scopeFor", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC | $STATIC, $method(static_cast<$Env*(*)($JCTree*,$JCTree$JCCompilationUnit*)>(&TreeInfo::scopeFor))},
-	{"scopeFor", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC | $STATIC, $method(static_cast<$Env*(*)($List*)>(&TreeInfo::scopeFor))},
-	{"setPolyKind", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($JCTree*,$JCTree$JCPolyExpression$PolyKind*)>(&TreeInfo::setPolyKind))},
-	{"setSymbol", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($JCTree*,$Symbol*)>(&TreeInfo::setSymbol))},
-	{"setVarargsElement", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($JCTree*,$Type*)>(&TreeInfo::setVarargsElement))},
-	{"skipParens", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$JCExpression*(*)($JCTree$JCExpression*)>(&TreeInfo::skipParens))},
-	{"skipParens", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree*(*)($JCTree*)>(&TreeInfo::skipParens))},
-	{"symbol", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Symbol*(*)($JCTree*)>(&TreeInfo::symbol))},
-	{"symbolFor", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Symbol*(*)($JCTree*)>(&TreeInfo::symbolFor))},
-	{"symbolForImpl", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Symbol*(*)($JCTree*)>(&TreeInfo::symbolForImpl))},
-	{"tagToKind", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/source/tree/Tree$Kind;", nullptr, $STATIC, $method(static_cast<$Tree$Kind*(*)($JCTree$Tag*)>(&TreeInfo::tagToKind))},
-	{"typeIn", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$JCExpression*(*)($JCTree$JCExpression*)>(&TreeInfo::typeIn))},
-	{"types", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($List*)>(&TreeInfo::types))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo, init$, void)},
+	{"args", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, args, $List*, $JCTree*)},
+	{"calledMethodName", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, calledMethodName, $Name*, $JCTree*)},
+	{"containsTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, containsTypeAnnotation, bool, $JCTree*)},
+	{"declarationFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, declarationFor, $JCTree*, $Symbol*, $JCTree*)},
+	{"diagEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagEndPos, $JCDiagnostic$DiagnosticPosition*, $JCTree*)},
+	{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagnosticPositionFor, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $JCTree*)},
+	{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagnosticPositionFor, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $JCTree*, bool)},
+	{"diagnosticPositionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, diagnosticPositionFor, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $List*)},
+	{"endPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, endPos, int32_t, $JCTree*)},
+	{"finalizerPos", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeInfo$PosKind;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, finalizerPos, int32_t, $JCTree*, $TreeInfo$PosKind*)},
+	{"firstConstructorCall", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, firstConstructorCall, $JCTree$JCMethodInvocation*, $JCTree*)},
+	{"firstFlag", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, firstFlag, int64_t, int64_t)},
+	{"firstStatPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, firstStatPos, int32_t, $JCTree*)},
+	{"flagNames", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, flagNames, $String*, int64_t)},
+	{"flags", "(Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, flags, int64_t, $JCTree*)},
+	{"fullName", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, fullName, $Name*, $JCTree*)},
+	{"getCommentText", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, getCommentText, $String*, $Env*, $JCTree*)},
+	{"getCommentTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, getCommentTree, $DCTree$DCDocComment*, $Env*, $JCTree*)},
+	{"getConstructorInvocationName", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, getConstructorInvocationName, $Name*, $List*, $Names*)},
+	{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getEndPos, int32_t, $JCTree*, $EndPosTable*)},
+	{"getModifiers", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCModifiers;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getModifiers, $JCTree$JCModifiers*, $JCTree*)},
+	{"getModule", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getModule, $JCTree$JCModuleDecl*, $JCTree$JCCompilationUnit*)},
+	{"getStartPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, getStartPos, int32_t, $JCTree*)},
+	{"hasConstructors", "(Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Z", $PUBLIC | $STATIC, $staticMethod(TreeInfo, hasConstructors, bool, $List*)},
+	{"innermostType", "(Lcom/sun/tools/javac/tree/JCTree;Z)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, innermostType, $JCTree*, $JCTree*, bool)},
+	{"isCanonicalConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isCanonicalConstructor, bool, $JCTree*)},
+	{"isCompactConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isCompactConstructor, bool, $JCTree*)},
+	{"isConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isConstructor, bool, $JCTree*)},
+	{"isDeclaration", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isDeclaration, bool, $JCTree*)},
+	{"isDiamond", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isDiamond, bool, $JCTree*)},
+	{"isEnumInit", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isEnumInit, bool, $JCTree*)},
+	{"isErrorEnumSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)Z", $PUBLIC | $STATIC, $staticMethod(TreeInfo, isErrorEnumSwitch, bool, $JCTree$JCExpression*, $List*)},
+	{"isExpressionStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isExpressionStatement, bool, $JCTree$JCExpression*)},
+	{"isIdentOrThisDotIdent", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isIdentOrThisDotIdent, bool, $JCTree*)},
+	{"isInAnnotation", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;)Z", "(Lcom/sun/tools/javac/comp/Env<*>;Lcom/sun/tools/javac/tree/JCTree;)Z", $PUBLIC | $STATIC, $staticMethod(TreeInfo, isInAnnotation, bool, $Env*, $JCTree*)},
+	{"isInitialConstructor", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isInitialConstructor, bool, $JCTree*)},
+	{"isModuleInfo", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isModuleInfo, bool, $JCTree$JCCompilationUnit*)},
+	{"isMultiCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isMultiCatch, bool, $JCTree$JCCatch*)},
+	{"isNull", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isNull, bool, $JCTree*)},
+	{"isPackageInfo", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isPackageInfo, bool, $JCTree$JCCompilationUnit*)},
+	{"isReceiverParam", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isReceiverParam, bool, $JCTree*)},
+	{"isSelfCall", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isSelfCall, bool, $JCTree*)},
+	{"isStatement", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isStatement, bool, $JCTree*)},
+	{"isStaticSelector", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Names;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isStaticSelector, bool, $JCTree*, $Names*)},
+	{"isStaticSym", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TreeInfo, isStaticSym, bool, $JCTree*)},
+	{"isSuperCall", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isSuperCall, bool, $JCTree*)},
+	{"isSyntheticInit", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isSyntheticInit, bool, $JCTree*)},
+	{"isThisQualifier", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, isThisQualifier, bool, $JCTree*)},
+	{"lambda$diagnosticPositionFor$4", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$diagnosticPositionFor$4, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $JCTree*)},
+	{"lambda$diagnosticPositionFor$5", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$diagnosticPositionFor$5, bool, $JCDiagnostic$DiagnosticPosition*)},
+	{"lambda$isErrorEnumSwitch$6", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$isErrorEnumSwitch$6, $Stream*, $JCTree$JCCase*)},
+	{"lambda$isErrorEnumSwitch$7", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$isErrorEnumSwitch$7, bool, $JCTree$JCCaseLabel*)},
+	{"lambda$recordFieldTypes$3", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFieldTypes$3, $Type*, $JCTree$JCVariableDecl*)},
+	{"lambda$recordFields$0", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFields$0, bool, $JCTree*)},
+	{"lambda$recordFields$1", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFields$1, $JCTree$JCVariableDecl*, $JCTree*)},
+	{"lambda$recordFields$2", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo, lambda$recordFields$2, bool, $JCTree$JCVariableDecl*)},
+	{"name", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, name, $Name*, $JCTree*)},
+	{"nonstaticSelect", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, nonstaticSelect, bool, $JCTree*)},
+	{"opPrec", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, opPrec, int32_t, $JCTree$Tag*)},
+	{"pathFor", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, pathFor, $List*, $JCTree*, $JCTree$JCCompilationUnit*)},
+	{"positionFor", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, positionFor, int32_t, $Symbol*, $JCTree*)},
+	{"primaryPatternTree", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, primaryPatternTree, $JCTree$JCBindingPattern*, $JCTree$JCPattern*)},
+	{"primaryPatternType", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;)Lcom/sun/tools/javac/tree/TreeInfo$PatternPrimaryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, primaryPatternType, $TreeInfo$PatternPrimaryType*, $JCTree$JCPattern*)},
+	{"recordFieldTypes", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, recordFieldTypes, $List*, $JCTree$JCClassDecl*)},
+	{"recordFields", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, recordFields, $List*, $JCTree$JCClassDecl*)},
+	{"referencedStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, referencedStatement, $JCTree*, $JCTree$JCLabeledStatement*)},
+	{"scopeFor", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, scopeFor, $Env*, $JCTree*, $JCTree$JCCompilationUnit*)},
+	{"scopeFor", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, scopeFor, $Env*, $List*)},
+	{"setPolyKind", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCPolyExpression$PolyKind;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, setPolyKind, void, $JCTree*, $JCTree$JCPolyExpression$PolyKind*)},
+	{"setSymbol", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, setSymbol, void, $JCTree*, $Symbol*)},
+	{"setVarargsElement", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, setVarargsElement, void, $JCTree*, $Type*)},
+	{"skipParens", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, skipParens, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+	{"skipParens", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, skipParens, $JCTree*, $JCTree*)},
+	{"symbol", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, symbol, $Symbol*, $JCTree*)},
+	{"symbolFor", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, symbolFor, $Symbol*, $JCTree*)},
+	{"symbolForImpl", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE | $STATIC, $staticMethod(TreeInfo, symbolForImpl, $Symbol*, $JCTree*)},
+	{"tagToKind", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/source/tree/Tree$Kind;", nullptr, $STATIC, $staticMethod(TreeInfo, tagToKind, $Tree$Kind*, $JCTree$Tag*)},
+	{"typeIn", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo, typeIn, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+	{"types", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $STATIC, $staticMethod(TreeInfo, types, $List*, $List*)},
 	{}
 };
 

@@ -6,15 +6,17 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $RoleInfo = ::javax::management::relation::RoleInfo;
 
 namespace javax {
 	namespace management {
 		namespace relation {
 
 $MethodInfo _RelationType_MethodInfo_[] = {
-	{"getRelationTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRoleInfo", "(Ljava/lang/String;)Ljavax/management/relation/RoleInfo;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.IllegalArgumentException,javax.management.relation.RoleInfoNotFoundException"},
-	{"getRoleInfos", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/relation/RoleInfo;>;", $PUBLIC | $ABSTRACT},
+	{"getRelationTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelationType, getRelationTypeName, $String*)},
+	{"getRoleInfo", "(Ljava/lang/String;)Ljavax/management/relation/RoleInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelationType, getRoleInfo, $RoleInfo*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RoleInfoNotFoundException"},
+	{"getRoleInfos", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/relation/RoleInfo;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RelationType, getRoleInfos, $List*)},
 	{}
 };
 

@@ -7,6 +7,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Number = ::java::lang::Number;
+using $ObjectName = ::javax::management::ObjectName;
 
 namespace javax {
 	namespace management {
@@ -23,19 +25,19 @@ $CompoundAttribute _GaugeMonitorMBean_MethodAnnotations_getDerivedGaugeTimeStamp
 };
 
 $MethodInfo _GaugeMonitorMBean_MethodInfo_[] = {
-	{"getDerivedGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _GaugeMonitorMBean_MethodAnnotations_getDerivedGauge0},
-	{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _GaugeMonitorMBean_MethodAnnotations_getDerivedGaugeTimeStamp2},
-	{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDifferenceMode", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getHighThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLowThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNotifyHigh", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNotifyLow", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"setDifferenceMode", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setNotifyHigh", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setNotifyLow", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setThresholds", "(Ljava/lang/Number;Ljava/lang/Number;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.IllegalArgumentException"},
+	{"getDerivedGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(GaugeMonitorMBean, getDerivedGauge, $Number*), nullptr, nullptr, _GaugeMonitorMBean_MethodAnnotations_getDerivedGauge0},
+	{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, getDerivedGauge, $Number*, $ObjectName*)},
+	{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(GaugeMonitorMBean, getDerivedGaugeTimeStamp, int64_t), nullptr, nullptr, _GaugeMonitorMBean_MethodAnnotations_getDerivedGaugeTimeStamp2},
+	{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, getDerivedGaugeTimeStamp, int64_t, $ObjectName*)},
+	{"getDifferenceMode", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, getDifferenceMode, bool)},
+	{"getHighThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, getHighThreshold, $Number*)},
+	{"getLowThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, getLowThreshold, $Number*)},
+	{"getNotifyHigh", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, getNotifyHigh, bool)},
+	{"getNotifyLow", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, getNotifyLow, bool)},
+	{"setDifferenceMode", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, setDifferenceMode, void, bool)},
+	{"setNotifyHigh", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, setNotifyHigh, void, bool)},
+	{"setNotifyLow", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, setNotifyLow, void, bool)},
+	{"setThresholds", "(Ljava/lang/Number;Ljava/lang/Number;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GaugeMonitorMBean, setThresholds, void, $Number*, $Number*), "java.lang.IllegalArgumentException"},
 	{}
 };
 

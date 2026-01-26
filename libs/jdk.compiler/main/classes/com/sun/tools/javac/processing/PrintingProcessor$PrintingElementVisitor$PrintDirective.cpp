@@ -70,8 +70,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrintingProcessor$PrintingElementVisitor$PrintDirective$$Lambda$getQualifiedName::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$PrintDirective$$Lambda$getQualifiedName::*)()>(&PrintingProcessor$PrintingElementVisitor$PrintDirective$$Lambda$getQualifiedName::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrintingProcessor$PrintingElementVisitor$PrintDirective$$Lambda$getQualifiedName, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective$$Lambda$getQualifiedName, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PrintingProcessor$PrintingElementVisitor$PrintDirective$$Lambda$getQualifiedName::classInfo$ = {
@@ -94,19 +94,19 @@ $FieldInfo _PrintingProcessor$PrintingElementVisitor$PrintDirective_FieldInfo_[]
 };
 
 $MethodInfo _PrintingProcessor$PrintingElementVisitor$PrintDirective_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, 0, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$PrintDirective::*)($PrintWriter*)>(&PrintingProcessor$PrintingElementVisitor$PrintDirective::init$))},
-	{"printModuleList", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljavax/lang/model/element/ModuleElement;>;)V", $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$PrintDirective::*)($List*)>(&PrintingProcessor$PrintingElementVisitor$PrintDirective::printModuleList))},
-	{"printNameableList", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljavax/lang/model/element/QualifiedNameable;>;)V", $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$PrintDirective::*)($List*)>(&PrintingProcessor$PrintingElementVisitor$PrintDirective::printNameableList))},
-	{"visitExports", "(Ljavax/lang/model/element/ModuleElement$ExportsDirective;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitExports", "(Ljavax/lang/model/element/ModuleElement$ExportsDirective;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitOpens", "(Ljavax/lang/model/element/ModuleElement$OpensDirective;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitOpens", "(Ljavax/lang/model/element/ModuleElement$OpensDirective;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitProvides", "(Ljavax/lang/model/element/ModuleElement$ProvidesDirective;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitProvides", "(Ljavax/lang/model/element/ModuleElement$ProvidesDirective;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitRequires", "(Ljavax/lang/model/element/ModuleElement$RequiresDirective;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitRequires", "(Ljavax/lang/model/element/ModuleElement$RequiresDirective;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitUses", "(Ljavax/lang/model/element/ModuleElement$UsesDirective;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitUses", "(Ljavax/lang/model/element/ModuleElement$UsesDirective;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, 0, $method(PrintingProcessor$PrintingElementVisitor$PrintDirective, init$, void, $PrintWriter*)},
+	{"printModuleList", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljavax/lang/model/element/ModuleElement;>;)V", $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor$PrintDirective, printModuleList, void, $List*)},
+	{"printNameableList", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljavax/lang/model/element/QualifiedNameable;>;)V", $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor$PrintDirective, printNameableList, void, $List*)},
+	{"visitExports", "(Ljavax/lang/model/element/ModuleElement$ExportsDirective;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective, visitExports, $Void*, $ModuleElement$ExportsDirective*, $Void*)},
+	{"visitExports", "(Ljavax/lang/model/element/ModuleElement$ExportsDirective;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective, visitExports, $Object*, $ModuleElement$ExportsDirective*, Object$*)},
+	{"visitOpens", "(Ljavax/lang/model/element/ModuleElement$OpensDirective;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective, visitOpens, $Void*, $ModuleElement$OpensDirective*, $Void*)},
+	{"visitOpens", "(Ljavax/lang/model/element/ModuleElement$OpensDirective;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective, visitOpens, $Object*, $ModuleElement$OpensDirective*, Object$*)},
+	{"visitProvides", "(Ljavax/lang/model/element/ModuleElement$ProvidesDirective;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective, visitProvides, $Void*, $ModuleElement$ProvidesDirective*, $Void*)},
+	{"visitProvides", "(Ljavax/lang/model/element/ModuleElement$ProvidesDirective;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective, visitProvides, $Object*, $ModuleElement$ProvidesDirective*, Object$*)},
+	{"visitRequires", "(Ljavax/lang/model/element/ModuleElement$RequiresDirective;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective, visitRequires, $Void*, $ModuleElement$RequiresDirective*, $Void*)},
+	{"visitRequires", "(Ljavax/lang/model/element/ModuleElement$RequiresDirective;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective, visitRequires, $Object*, $ModuleElement$RequiresDirective*, Object$*)},
+	{"visitUses", "(Ljavax/lang/model/element/ModuleElement$UsesDirective;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective, visitUses, $Void*, $ModuleElement$UsesDirective*, $Void*)},
+	{"visitUses", "(Ljavax/lang/model/element/ModuleElement$UsesDirective;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$PrintDirective, visitUses, $Object*, $ModuleElement$UsesDirective*, Object$*)},
 	{}
 };
 

@@ -34,13 +34,13 @@ $FieldInfo _Attribute$Array_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute$Array_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Attribute;)V", nullptr, $PUBLIC, $method(static_cast<void(Attribute$Array::*)($Type*,$AttributeArray*)>(&Attribute$Array::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;)V", $PUBLIC, $method(static_cast<void(Attribute$Array::*)($Type*,$List*)>(&Attribute$Array::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"getPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC},
-	{"getValue", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Attribute;)V", nullptr, $PUBLIC, $method(Attribute$Array, init$, void, $Type*, $AttributeArray*)},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;)V", $PUBLIC, $method(Attribute$Array, init$, void, $Type*, $List*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Array, accept, void, $Attribute$Visitor*)},
+	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Array, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+	{"getPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC, $virtualMethod(Attribute$Array, getPosition, $TypeAnnotationPosition*)},
+	{"getValue", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;", $PUBLIC, $virtualMethod(Attribute$Array, getValue, $Object*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Array, toString, $String*)},
 	{}
 };
 

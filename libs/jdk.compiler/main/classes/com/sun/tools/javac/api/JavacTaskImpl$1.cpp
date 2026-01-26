@@ -32,8 +32,8 @@ $FieldInfo _JavacTaskImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTaskImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(static_cast<void(JavacTaskImpl$1::*)($JavacTaskImpl*,$ListBuffer*)>(&JavacTaskImpl$1::init$))},
-	{"process", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(JavacTaskImpl$1, init$, void, $JavacTaskImpl*, $ListBuffer*)},
+	{"process", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(JavacTaskImpl$1, process, void, $Env*)},
 	{}
 };
 

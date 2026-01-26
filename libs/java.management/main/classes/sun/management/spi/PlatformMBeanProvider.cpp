@@ -15,16 +15,17 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
 using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
+using $List = ::java::util::List;
 
 namespace sun {
 	namespace management {
 		namespace spi {
 
 $MethodInfo _PlatformMBeanProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(PlatformMBeanProvider::*)()>(&PlatformMBeanProvider::init$))},
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(PlatformMBeanProvider::*)($Void*)>(&PlatformMBeanProvider::init$))},
-	{"checkSubclassPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Void*(*)()>(&PlatformMBeanProvider::checkSubclassPermission))},
-	{"getPlatformComponentList", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(PlatformMBeanProvider, init$, void)},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(PlatformMBeanProvider, init$, void, $Void*)},
+	{"checkSubclassPermission", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(PlatformMBeanProvider, checkSubclassPermission, $Void*)},
+	{"getPlatformComponentList", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformMBeanProvider, getPlatformComponentList, $List*)},
 	{}
 };
 

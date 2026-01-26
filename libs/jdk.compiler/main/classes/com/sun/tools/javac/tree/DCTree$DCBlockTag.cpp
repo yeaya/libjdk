@@ -23,8 +23,8 @@ $MethodInfo _DCTree$DCBlockTag_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DCTree$DCBlockTag::*)()>(&DCTree$DCBlockTag::init$))},
-	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DCTree$DCBlockTag, init$, void)},
+	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCBlockTag, getTagName, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

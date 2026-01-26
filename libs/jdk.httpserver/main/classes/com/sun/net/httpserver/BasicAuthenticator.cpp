@@ -48,12 +48,12 @@ $FieldInfo _BasicAuthenticator_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicAuthenticator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicAuthenticator::*)($String*)>(&BasicAuthenticator::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicAuthenticator::*)($String*,$Charset*)>(&BasicAuthenticator::init$))},
-	{"authenticate", "(Lcom/sun/net/httpserver/HttpExchange;)Lcom/sun/net/httpserver/Authenticator$Result;", nullptr, $PUBLIC},
-	{"checkCredentials", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setAuthHeader", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PRIVATE, $method(static_cast<void(BasicAuthenticator::*)($HttpExchange*)>(&BasicAuthenticator::setAuthHeader))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicAuthenticator, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(BasicAuthenticator, init$, void, $String*, $Charset*)},
+	{"authenticate", "(Lcom/sun/net/httpserver/HttpExchange;)Lcom/sun/net/httpserver/Authenticator$Result;", nullptr, $PUBLIC, $virtualMethod(BasicAuthenticator, authenticate, $Authenticator$Result*, $HttpExchange*)},
+	{"checkCredentials", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicAuthenticator, checkCredentials, bool, $String*, $String*)},
+	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicAuthenticator, getRealm, $String*)},
+	{"setAuthHeader", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PRIVATE, $method(BasicAuthenticator, setAuthHeader, void, $HttpExchange*)},
 	{}
 };
 

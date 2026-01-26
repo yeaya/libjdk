@@ -17,8 +17,8 @@ $FieldInfo _NameNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _NameNotFoundException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NameNotFoundException::*)($String*)>(&NameNotFoundException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NameNotFoundException::*)()>(&NameNotFoundException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NameNotFoundException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NameNotFoundException, init$, void)},
 	{}
 };
 

@@ -37,8 +37,8 @@ $FieldInfo _RegistryImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _RegistryImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/registry/RegistryImpl;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)V", "()V", 0, $method(static_cast<void(RegistryImpl$1::*)($RegistryImpl*,int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*,$ObjectInputFilter*)>(&RegistryImpl$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
+	{"<init>", "(Lsun/rmi/registry/RegistryImpl;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)V", "()V", 0, $method(RegistryImpl$1, init$, void, $RegistryImpl*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*, $ObjectInputFilter*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$1, run, $Object*), "java.rmi.RemoteException"},
 	{}
 };
 

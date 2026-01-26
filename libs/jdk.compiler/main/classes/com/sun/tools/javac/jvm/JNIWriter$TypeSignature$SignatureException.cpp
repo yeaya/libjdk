@@ -21,7 +21,7 @@ $FieldInfo _JNIWriter$TypeSignature$SignatureException_FieldInfo_[] = {
 };
 
 $MethodInfo _JNIWriter$TypeSignature$SignatureException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(JNIWriter$TypeSignature$SignatureException::*)($String*)>(&JNIWriter$TypeSignature$SignatureException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(JNIWriter$TypeSignature$SignatureException, init$, void, $String*)},
 	{}
 };
 

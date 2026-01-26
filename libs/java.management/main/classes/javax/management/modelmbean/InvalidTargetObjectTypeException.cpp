@@ -42,11 +42,11 @@ $FieldInfo _InvalidTargetObjectTypeException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidTargetObjectTypeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidTargetObjectTypeException::*)()>(&InvalidTargetObjectTypeException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidTargetObjectTypeException::*)($String*)>(&InvalidTargetObjectTypeException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidTargetObjectTypeException::*)($Exception*,$String*)>(&InvalidTargetObjectTypeException::init$))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(InvalidTargetObjectTypeException::*)($ObjectInputStream*)>(&InvalidTargetObjectTypeException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(InvalidTargetObjectTypeException::*)($ObjectOutputStream*)>(&InvalidTargetObjectTypeException::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidTargetObjectTypeException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidTargetObjectTypeException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidTargetObjectTypeException, init$, void, $Exception*, $String*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InvalidTargetObjectTypeException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(InvalidTargetObjectTypeException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

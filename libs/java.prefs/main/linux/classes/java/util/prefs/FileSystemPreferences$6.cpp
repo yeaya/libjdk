@@ -43,8 +43,8 @@ $FieldInfo _FileSystemPreferences$6_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemPreferences$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, 0, $method(static_cast<void(FileSystemPreferences$6::*)($FileSystemPreferences*)>(&FileSystemPreferences$6::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.util.prefs.BackingStoreException"},
+	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, 0, $method(FileSystemPreferences$6, init$, void, $FileSystemPreferences*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$6, run, $Object*), "java.util.prefs.BackingStoreException"},
 	{}
 };
 

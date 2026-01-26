@@ -18,7 +18,7 @@ $FieldInfo _HttpTimeoutException_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpTimeoutException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpTimeoutException::*)($String*)>(&HttpTimeoutException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpTimeoutException, init$, void, $String*)},
 	{}
 };
 

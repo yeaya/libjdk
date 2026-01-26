@@ -55,12 +55,12 @@ $FieldInfo _Annotate$AnnotationTypeVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _Annotate$AnnotationTypeVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/comp/TypeEnvs;)V", nullptr, $PUBLIC, $method(static_cast<void(Annotate$AnnotationTypeVisitor::*)($Annotate*,$Attr*,$Check*,$Symtab*,$TypeEnvs*)>(&Annotate$AnnotationTypeVisitor::init$))},
-	{"getRepeatable", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC},
-	{"getTarget", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC},
-	{"scanAnnotationType", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/comp/TypeEnvs;)V", nullptr, $PUBLIC, $method(Annotate$AnnotationTypeVisitor, init$, void, $Annotate*, $Attr*, $Check*, $Symtab*, $TypeEnvs*)},
+	{"getRepeatable", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeVisitor, getRepeatable, $Attribute$Compound*)},
+	{"getTarget", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeVisitor, getTarget, $Attribute$Compound*)},
+	{"scanAnnotationType", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeVisitor, scanAnnotationType, void, $JCTree$JCClassDecl*)},
+	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeVisitor, visitAnnotation, void, $JCTree$JCAnnotation*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeVisitor, visitClassDef, void, $JCTree$JCClassDecl*)},
 	{}
 };
 

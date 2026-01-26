@@ -25,12 +25,12 @@ $FieldInfo _ManagementFactoryHelper$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ManagementFactoryHelper$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/misc/VM$BufferPool;)V", "()V", 0, $method(static_cast<void(ManagementFactoryHelper$1::*)($VM$BufferPool*)>(&ManagementFactoryHelper$1::init$))},
-	{"getCount", "()J", nullptr, $PUBLIC},
-	{"getMemoryUsed", "()J", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"getTotalCapacity", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/misc/VM$BufferPool;)V", "()V", 0, $method(ManagementFactoryHelper$1, init$, void, $VM$BufferPool*)},
+	{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getCount, int64_t)},
+	{"getMemoryUsed", "()J", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getMemoryUsed, int64_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getName, $String*)},
+	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getObjectName, $ObjectName*)},
+	{"getTotalCapacity", "()J", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getTotalCapacity, int64_t)},
 	{}
 };
 

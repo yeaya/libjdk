@@ -17,8 +17,8 @@ $FieldInfo _PartialResultException_FieldInfo_[] = {
 };
 
 $MethodInfo _PartialResultException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PartialResultException::*)($String*)>(&PartialResultException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PartialResultException::*)()>(&PartialResultException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PartialResultException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PartialResultException, init$, void)},
 	{}
 };
 

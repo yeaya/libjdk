@@ -19,7 +19,7 @@ $FieldInfo _CheckFailedException_FieldInfo_[] = {
 };
 
 $MethodInfo _CheckFailedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(CheckFailedException::*)($String*)>(&CheckFailedException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CheckFailedException, init$, void, $String*)},
 	{}
 };
 

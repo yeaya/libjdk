@@ -20,7 +20,7 @@ $FieldInfo _Code$Mneumonics_FieldInfo_[] = {
 };
 
 $MethodInfo _Code$Mneumonics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Code$Mneumonics::*)()>(&Code$Mneumonics::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Code$Mneumonics, init$, void)},
 	{}
 };
 

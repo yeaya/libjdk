@@ -78,8 +78,8 @@ $FieldInfo ResponseTimerEvent$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ResponseTimerEvent$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseTimerEvent$$Lambda$toString::*)($String*)>(&ResponseTimerEvent$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResponseTimerEvent$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseTimerEvent$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo ResponseTimerEvent$$Lambda$toString::classInfo$ = {
@@ -103,12 +103,12 @@ $FieldInfo _ResponseTimerEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseTimerEvent_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/MultiExchange<*>;)V", $PRIVATE, $method(static_cast<void(ResponseTimerEvent::*)($MultiExchange*)>(&ResponseTimerEvent::init$))},
-	{"compareTo", "(Ljdk/internal/net/http/TimeoutEvent;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"deadline", "()Ljava/time/Instant;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"handle", "()V", nullptr, $PUBLIC},
-	{"of", "(Ljdk/internal/net/http/MultiExchange;)Ljdk/internal/net/http/ResponseTimerEvent;", "(Ljdk/internal/net/http/MultiExchange<*>;)Ljdk/internal/net/http/ResponseTimerEvent;", $STATIC, $method(static_cast<ResponseTimerEvent*(*)($MultiExchange*)>(&ResponseTimerEvent::of))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/MultiExchange<*>;)V", $PRIVATE, $method(ResponseTimerEvent, init$, void, $MultiExchange*)},
+	{"compareTo", "(Ljdk/internal/net/http/TimeoutEvent;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseTimerEvent, compareTo, int32_t, $TimeoutEvent*)},
+	{"deadline", "()Ljava/time/Instant;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseTimerEvent, deadline, $Instant*)},
+	{"handle", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseTimerEvent, handle, void)},
+	{"of", "(Ljdk/internal/net/http/MultiExchange;)Ljdk/internal/net/http/ResponseTimerEvent;", "(Ljdk/internal/net/http/MultiExchange<*>;)Ljdk/internal/net/http/ResponseTimerEvent;", $STATIC, $staticMethod(ResponseTimerEvent, of, ResponseTimerEvent*, $MultiExchange*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseTimerEvent, toString, $String*)},
 	{}
 };
 

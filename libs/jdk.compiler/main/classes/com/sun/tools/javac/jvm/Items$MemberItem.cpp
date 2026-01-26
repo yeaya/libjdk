@@ -59,8 +59,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Items$MemberItem$$Lambda$putMember::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Items$MemberItem$$Lambda$putMember::*)()>(&Items$MemberItem$$Lambda$putMember::init$))},
-	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Items$MemberItem$$Lambda$putMember, init$, void)},
+	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Items$MemberItem$$Lambda$putMember, applyAsInt, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Items$MemberItem$$Lambda$putMember::classInfo$ = {
@@ -85,15 +85,15 @@ $FieldInfo _Items$MemberItem_FieldInfo_[] = {
 };
 
 $MethodInfo _Items$MemberItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Symbol;Z)V", nullptr, 0, $method(static_cast<void(Items$MemberItem::*)($Items*,$Symbol*,bool)>(&Items$MemberItem::init$))},
-	{"drop", "()V", nullptr, 0},
-	{"duplicate", "()V", nullptr, 0},
-	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"stash", "(I)V", nullptr, 0},
-	{"store", "()V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"width", "()I", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Symbol;Z)V", nullptr, 0, $method(Items$MemberItem, init$, void, $Items*, $Symbol*, bool)},
+	{"drop", "()V", nullptr, 0, $virtualMethod(Items$MemberItem, drop, void)},
+	{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$MemberItem, duplicate, void)},
+	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$MemberItem, invoke, $Items$Item*)},
+	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$MemberItem, load, $Items$Item*)},
+	{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$MemberItem, stash, void, int32_t)},
+	{"store", "()V", nullptr, 0, $virtualMethod(Items$MemberItem, store, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$MemberItem, toString, $String*)},
+	{"width", "()I", nullptr, 0, $virtualMethod(Items$MemberItem, width, int32_t)},
 	{}
 };
 

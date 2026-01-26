@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Notification = ::javax::management::Notification;
 
 namespace javax {
 	namespace management {
 
 $MethodInfo _NotificationListener_MethodInfo_[] = {
-	{"handleNotification", "(Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"handleNotification", "(Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationListener, handleNotification, void, $Notification*, Object$*)},
 	{}
 };
 

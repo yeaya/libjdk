@@ -32,10 +32,10 @@ $FieldInfo _SmartWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _SmartWriter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileObject;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SmartWriter::*)($JavaFileObject*,$String*,$String*)>(&SmartWriter::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/tools/JavaFileObject;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SmartWriter, init$, void, $JavaFileObject*, $String*, $String*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SmartWriter, close, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SmartWriter, flush, void), "java.io.IOException"},
+	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SmartWriter, write, void, $chars*, int32_t, int32_t)},
 	{}
 };
 

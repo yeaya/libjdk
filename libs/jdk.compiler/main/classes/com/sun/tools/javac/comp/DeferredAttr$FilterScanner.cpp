@@ -53,8 +53,8 @@ $FieldInfo DeferredAttr$FilterScanner$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo DeferredAttr$FilterScanner$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(DeferredAttr$FilterScanner$$Lambda$lambda$new$0::*)($Set*)>(&DeferredAttr$FilterScanner$$Lambda$lambda$new$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, init$, void, $Set*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$FilterScanner$$Lambda$lambda$new$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DeferredAttr$FilterScanner$$Lambda$lambda$new$0::classInfo$ = {
@@ -77,10 +77,10 @@ $FieldInfo _DeferredAttr$FilterScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$FilterScanner_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/tree/JCTree$Tag;>;)V", 0, $method(static_cast<void(DeferredAttr$FilterScanner::*)($Set*)>(&DeferredAttr$FilterScanner::init$))},
-	{"lambda$new$0", "(Ljava/util/Set;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Set*,$JCTree*)>(&DeferredAttr$FilterScanner::lambda$new$0))},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"skip", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0},
+	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/tree/JCTree$Tag;>;)V", 0, $method(DeferredAttr$FilterScanner, init$, void, $Set*)},
+	{"lambda$new$0", "(Ljava/util/Set;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredAttr$FilterScanner, lambda$new$0, bool, $Set*, $JCTree*)},
+	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$FilterScanner, scan, void, $JCTree*)},
+	{"skip", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(DeferredAttr$FilterScanner, skip, void, $JCTree*)},
 	{}
 };
 

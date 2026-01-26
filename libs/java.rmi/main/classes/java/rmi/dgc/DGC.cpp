@@ -7,16 +7,19 @@
 
 #undef DGC
 
+using $ObjIDArray = $Array<::java::rmi::server::ObjID>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Lease = ::java::rmi::dgc::Lease;
+using $VMID = ::java::rmi::dgc::VMID;
 
 namespace java {
 	namespace rmi {
 		namespace dgc {
 
 $MethodInfo _DGC_MethodInfo_[] = {
-	{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException"},
-	{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException"},
+	{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DGC, clean, void, $ObjIDArray*, int64_t, $VMID*, bool), "java.rmi.RemoteException"},
+	{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DGC, dirty, $Lease*, $ObjIDArray*, int64_t, $Lease*), "java.rmi.RemoteException"},
 	{}
 };
 

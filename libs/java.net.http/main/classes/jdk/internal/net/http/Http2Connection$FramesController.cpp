@@ -67,8 +67,8 @@ $FieldInfo Http2Connection$FramesController$$Lambda$lambda$processReceivedData$0
 	{}
 };
 $MethodInfo Http2Connection$FramesController$$Lambda$lambda$processReceivedData$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$FramesController$$Lambda$lambda$processReceivedData$0::*)($List*)>(&Http2Connection$FramesController$$Lambda$lambda$processReceivedData$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(Http2Connection$FramesController$$Lambda$lambda$processReceivedData$0, init$, void, $List*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$FramesController$$Lambda$lambda$processReceivedData$0, get, $Object*)},
 	{}
 };
 $ClassInfo Http2Connection$FramesController$$Lambda$lambda$processReceivedData$0::classInfo$ = {
@@ -94,10 +94,10 @@ $FieldInfo _Http2Connection$FramesController_FieldInfo_[] = {
 };
 
 $MethodInfo _Http2Connection$FramesController_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection$FramesController::*)($Http2Connection*)>(&Http2Connection$FramesController::init$))},
-	{"lambda$processReceivedData$0", "(Ljava/util/List;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($List*)>(&Http2Connection$FramesController::lambda$processReceivedData$0))},
-	{"markPrefaceSent", "()V", nullptr, 0, $method(static_cast<void(Http2Connection$FramesController::*)()>(&Http2Connection$FramesController::markPrefaceSent))},
-	{"processReceivedData", "(Ljdk/internal/net/http/frame/FramesDecoder;Ljava/nio/ByteBuffer;)Z", nullptr, 0, $method(static_cast<bool(Http2Connection$FramesController::*)($FramesDecoder*,$ByteBuffer*)>(&Http2Connection$FramesController::processReceivedData)), "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, $PRIVATE, $method(Http2Connection$FramesController, init$, void, $Http2Connection*)},
+	{"lambda$processReceivedData$0", "(Ljava/util/List;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection$FramesController, lambda$processReceivedData$0, $String*, $List*)},
+	{"markPrefaceSent", "()V", nullptr, 0, $method(Http2Connection$FramesController, markPrefaceSent, void)},
+	{"processReceivedData", "(Ljdk/internal/net/http/frame/FramesDecoder;Ljava/nio/ByteBuffer;)Z", nullptr, 0, $method(Http2Connection$FramesController, processReceivedData, bool, $FramesDecoder*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

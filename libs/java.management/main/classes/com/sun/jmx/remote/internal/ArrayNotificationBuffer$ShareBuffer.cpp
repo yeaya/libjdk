@@ -28,10 +28,10 @@ $FieldInfo _ArrayNotificationBuffer$ShareBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayNotificationBuffer$ShareBuffer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;I)V", nullptr, 0, $method(static_cast<void(ArrayNotificationBuffer$ShareBuffer::*)($ArrayNotificationBuffer*,int32_t)>(&ArrayNotificationBuffer$ShareBuffer::init$))},
-	{"dispose", "()V", nullptr, $PUBLIC},
-	{"fetchNotifications", "(Lcom/sun/jmx/remote/internal/NotificationBufferFilter;JJI)Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"getSize", "()I", nullptr, 0},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;I)V", nullptr, 0, $method(ArrayNotificationBuffer$ShareBuffer, init$, void, $ArrayNotificationBuffer*, int32_t)},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$ShareBuffer, dispose, void)},
+	{"fetchNotifications", "(Lcom/sun/jmx/remote/internal/NotificationBufferFilter;JJI)Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$ShareBuffer, fetchNotifications, $NotificationResult*, $NotificationBufferFilter*, int64_t, int64_t, int32_t), "java.lang.InterruptedException"},
+	{"getSize", "()I", nullptr, 0, $virtualMethod(ArrayNotificationBuffer$ShareBuffer, getSize, int32_t)},
 	{}
 };
 

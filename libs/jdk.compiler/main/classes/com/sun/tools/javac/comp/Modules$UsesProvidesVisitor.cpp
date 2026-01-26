@@ -171,8 +171,8 @@ $FieldInfo Modules$UsesProvidesVisitor$$Lambda$lambda$visitModuleDef$0::fieldInf
 	{}
 };
 $MethodInfo Modules$UsesProvidesVisitor$$Lambda$lambda$visitModuleDef$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules$UsesProvidesVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$UsesProvidesVisitor$$Lambda$lambda$visitModuleDef$0::*)(Modules$UsesProvidesVisitor*)>(&Modules$UsesProvidesVisitor$$Lambda$lambda$visitModuleDef$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules$UsesProvidesVisitor;)V", nullptr, $PUBLIC, $method(Modules$UsesProvidesVisitor$$Lambda$lambda$visitModuleDef$0, init$, void, Modules$UsesProvidesVisitor*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$UsesProvidesVisitor$$Lambda$lambda$visitModuleDef$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$UsesProvidesVisitor$$Lambda$lambda$visitModuleDef$0::classInfo$ = {
@@ -204,8 +204,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$UsesProvidesVisitor$$Lambda$lambda$factoryMethod$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$UsesProvidesVisitor$$Lambda$lambda$factoryMethod$1$1::*)()>(&Modules$UsesProvidesVisitor$$Lambda$lambda$factoryMethod$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$UsesProvidesVisitor$$Lambda$lambda$factoryMethod$1$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$UsesProvidesVisitor$$Lambda$lambda$factoryMethod$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$UsesProvidesVisitor$$Lambda$lambda$factoryMethod$1$1::classInfo$ = {
@@ -237,8 +237,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$UsesProvidesVisitor$$Lambda$lambda$visitProvides$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$UsesProvidesVisitor$$Lambda$lambda$visitProvides$2$2::*)()>(&Modules$UsesProvidesVisitor$$Lambda$lambda$visitProvides$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$UsesProvidesVisitor$$Lambda$lambda$visitProvides$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$UsesProvidesVisitor$$Lambda$lambda$visitProvides$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Modules$UsesProvidesVisitor$$Lambda$lambda$visitProvides$2$2::classInfo$ = {
@@ -266,19 +266,19 @@ $FieldInfo _Modules$UsesProvidesVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _Modules$UsesProvidesVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $method(static_cast<void(Modules$UsesProvidesVisitor::*)($Modules*,$Symbol$ModuleSymbol*,$Env*)>(&Modules$UsesProvidesVisitor::init$))},
-	{"checkForCorrectness", "()V", nullptr, $PRIVATE, $method(static_cast<void(Modules$UsesProvidesVisitor::*)()>(&Modules$UsesProvidesVisitor::checkForCorrectness))},
-	{"factoryMethod", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0},
-	{"lambda$factoryMethod$1", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*)>(&Modules$UsesProvidesVisitor::lambda$factoryMethod$1))},
-	{"lambda$visitModuleDef$0", "(Lcom/sun/tools/javac/tree/JCTree$JCDirective;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Modules$UsesProvidesVisitor::*)($JCTree$JCDirective*)>(&Modules$UsesProvidesVisitor::lambda$visitModuleDef$0))},
-	{"lambda$visitProvides$2", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Set*(*)($Symbol$ClassSymbol*)>(&Modules$UsesProvidesVisitor::lambda$visitProvides$2))},
-	{"noArgsConstructor", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0},
-	{"visitExports", "(Lcom/sun/tools/javac/tree/JCTree$JCExports;)V", nullptr, $PUBLIC},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC},
-	{"visitOpens", "(Lcom/sun/tools/javac/tree/JCTree$JCOpens;)V", nullptr, $PUBLIC},
-	{"visitProvides", "(Lcom/sun/tools/javac/tree/JCTree$JCProvides;)V", nullptr, $PUBLIC},
-	{"visitRequires", "(Lcom/sun/tools/javac/tree/JCTree$JCRequires;)V", nullptr, $PUBLIC},
-	{"visitUses", "(Lcom/sun/tools/javac/tree/JCTree$JCUses;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $method(Modules$UsesProvidesVisitor, init$, void, $Modules*, $Symbol$ModuleSymbol*, $Env*)},
+	{"checkForCorrectness", "()V", nullptr, $PRIVATE, $method(Modules$UsesProvidesVisitor, checkForCorrectness, void)},
+	{"factoryMethod", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0, $virtualMethod(Modules$UsesProvidesVisitor, factoryMethod, $Symbol$MethodSymbol*, $Symbol$ClassSymbol*)},
+	{"lambda$factoryMethod$1", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules$UsesProvidesVisitor, lambda$factoryMethod$1, bool, $Symbol*)},
+	{"lambda$visitModuleDef$0", "(Lcom/sun/tools/javac/tree/JCTree$JCDirective;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Modules$UsesProvidesVisitor, lambda$visitModuleDef$0, void, $JCTree$JCDirective*)},
+	{"lambda$visitProvides$2", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules$UsesProvidesVisitor, lambda$visitProvides$2, $Set*, $Symbol$ClassSymbol*)},
+	{"noArgsConstructor", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0, $virtualMethod(Modules$UsesProvidesVisitor, noArgsConstructor, $Symbol$MethodSymbol*, $Symbol$ClassSymbol*)},
+	{"visitExports", "(Lcom/sun/tools/javac/tree/JCTree$JCExports;)V", nullptr, $PUBLIC, $virtualMethod(Modules$UsesProvidesVisitor, visitExports, void, $JCTree$JCExports*)},
+	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Modules$UsesProvidesVisitor, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+	{"visitOpens", "(Lcom/sun/tools/javac/tree/JCTree$JCOpens;)V", nullptr, $PUBLIC, $virtualMethod(Modules$UsesProvidesVisitor, visitOpens, void, $JCTree$JCOpens*)},
+	{"visitProvides", "(Lcom/sun/tools/javac/tree/JCTree$JCProvides;)V", nullptr, $PUBLIC, $virtualMethod(Modules$UsesProvidesVisitor, visitProvides, void, $JCTree$JCProvides*)},
+	{"visitRequires", "(Lcom/sun/tools/javac/tree/JCTree$JCRequires;)V", nullptr, $PUBLIC, $virtualMethod(Modules$UsesProvidesVisitor, visitRequires, void, $JCTree$JCRequires*)},
+	{"visitUses", "(Lcom/sun/tools/javac/tree/JCTree$JCUses;)V", nullptr, $PUBLIC, $virtualMethod(Modules$UsesProvidesVisitor, visitUses, void, $JCTree$JCUses*)},
 	{}
 };
 

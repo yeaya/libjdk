@@ -33,10 +33,10 @@ $FieldInfo _DefinedBy$Api_FieldInfo_[] = {
 };
 
 $MethodInfo _DefinedBy$Api_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/DefinedBy$Api;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DefinedBy$ApiArray*(*)()>(&DefinedBy$Api::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(DefinedBy$Api::*)($String*,int32_t,$String*)>(&DefinedBy$Api::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/DefinedBy$Api;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DefinedBy$Api*(*)($String*)>(&DefinedBy$Api::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/DefinedBy$Api;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DefinedBy$ApiArray*(*)()>(&DefinedBy$Api::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/DefinedBy$Api;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DefinedBy$Api, $values, $DefinedBy$ApiArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(DefinedBy$Api, init$, void, $String*, int32_t, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/DefinedBy$Api;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefinedBy$Api, valueOf, DefinedBy$Api*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/DefinedBy$Api;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefinedBy$Api, values, $DefinedBy$ApiArray*)},
 	{}
 };
 

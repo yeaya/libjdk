@@ -1,7 +1,9 @@
 #include <com/sun/source/tree/ConditionalExpressionTree.h>
 
+#include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,9 +13,9 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _ConditionalExpressionTree_MethodInfo_[] = {
-	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getFalseExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTrueExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConditionalExpressionTree, getCondition, $ExpressionTree*)},
+	{"getFalseExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConditionalExpressionTree, getFalseExpression, $ExpressionTree*)},
+	{"getTrueExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConditionalExpressionTree, getTrueExpression, $ExpressionTree*)},
 	{}
 };
 

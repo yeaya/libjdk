@@ -32,10 +32,10 @@ $FieldInfo _MBeanServerFileAccessController$AccessType_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerFileAccessController$AccessType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MBeanServerFileAccessController$AccessTypeArray*(*)()>(&MBeanServerFileAccessController$AccessType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(MBeanServerFileAccessController$AccessType::*)($String*,int32_t)>(&MBeanServerFileAccessController$AccessType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MBeanServerFileAccessController$AccessType*(*)($String*)>(&MBeanServerFileAccessController$AccessType::valueOf))},
-	{"values", "()[Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MBeanServerFileAccessController$AccessTypeArray*(*)()>(&MBeanServerFileAccessController$AccessType::values))},
+	{"$values", "()[Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MBeanServerFileAccessController$AccessType, $values, $MBeanServerFileAccessController$AccessTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MBeanServerFileAccessController$AccessType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFileAccessController$AccessType, valueOf, MBeanServerFileAccessController$AccessType*, $String*)},
+	{"values", "()[Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFileAccessController$AccessType, values, $MBeanServerFileAccessController$AccessTypeArray*)},
 	{}
 };
 

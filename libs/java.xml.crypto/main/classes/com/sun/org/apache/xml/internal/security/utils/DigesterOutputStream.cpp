@@ -32,11 +32,11 @@ $FieldInfo _DigesterOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _DigesterOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm;)V", nullptr, $PUBLIC, $method(static_cast<void(DigesterOutputStream::*)($MessageDigestAlgorithm*)>(&DigesterOutputStream::init$))},
-	{"getDigestValue", "()[B", nullptr, $PUBLIC},
-	{"write", "([B)V", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC},
-	{"write", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm;)V", nullptr, $PUBLIC, $method(DigesterOutputStream, init$, void, $MessageDigestAlgorithm*)},
+	{"getDigestValue", "()[B", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, getDigestValue, $bytes*)},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, write, void, $bytes*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, write, void, int32_t)},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(DigesterOutputStream, write, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

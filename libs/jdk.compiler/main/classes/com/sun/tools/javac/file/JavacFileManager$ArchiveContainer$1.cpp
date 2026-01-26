@@ -41,9 +41,9 @@ $FieldInfo _JavacFileManager$ArchiveContainer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacFileManager$ArchiveContainer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager$ArchiveContainer;Lcom/sun/tools/javac/file/JavacFileManager;Ljava/nio/file/Path;)V", nullptr, 0, $method(static_cast<void(JavacFileManager$ArchiveContainer$1::*)($JavacFileManager$ArchiveContainer*,$JavacFileManager*,$Path*)>(&JavacFileManager$ArchiveContainer$1::init$))},
-	{"preVisitDirectory", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC},
-	{"preVisitDirectory", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager$ArchiveContainer;Lcom/sun/tools/javac/file/JavacFileManager;Ljava/nio/file/Path;)V", nullptr, 0, $method(JavacFileManager$ArchiveContainer$1, init$, void, $JavacFileManager$ArchiveContainer*, $JavacFileManager*, $Path*)},
+	{"preVisitDirectory", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$ArchiveContainer$1, preVisitDirectory, $FileVisitResult*, $Path*, $BasicFileAttributes*)},
+	{"preVisitDirectory", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacFileManager$ArchiveContainer$1, preVisitDirectory, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
 	{}
 };
 

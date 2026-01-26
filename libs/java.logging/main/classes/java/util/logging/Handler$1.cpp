@@ -31,8 +31,8 @@ $FieldInfo _Handler$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Handler$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/Handler;Ljava/util/logging/Level;Ljava/util/logging/Filter;Ljava/util/logging/Formatter;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(Handler$1::*)($Handler*,$Level*,$Filter*,$Formatter*,$String*)>(&Handler$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/Handler;Ljava/util/logging/Level;Ljava/util/logging/Filter;Ljava/util/logging/Formatter;Ljava/lang/String;)V", "()V", 0, $method(Handler$1, init$, void, $Handler*, $Level*, $Filter*, $Formatter*, $String*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Handler$1, run, $Object*)},
 	{}
 };
 

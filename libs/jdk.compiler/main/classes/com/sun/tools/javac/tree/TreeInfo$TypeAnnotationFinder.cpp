@@ -30,9 +30,9 @@ $FieldInfo _TreeInfo$TypeAnnotationFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeInfo$TypeAnnotationFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TreeInfo$TypeAnnotationFinder::*)()>(&TreeInfo$TypeAnnotationFinder::init$))},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TreeInfo$TypeAnnotationFinder, init$, void)},
+	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$TypeAnnotationFinder, scan, void, $JCTree*)},
+	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$TypeAnnotationFinder, visitAnnotation, void, $JCTree$JCAnnotation*)},
 	{}
 };
 

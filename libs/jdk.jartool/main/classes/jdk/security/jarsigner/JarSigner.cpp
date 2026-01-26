@@ -208,8 +208,8 @@ $FieldInfo JarSigner$$Lambda$lambda$sign0$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JarSigner$$Lambda$lambda$sign0$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/security/jarsigner/JarSigner;)V", nullptr, $PUBLIC, $method(static_cast<void(JarSigner$$Lambda$lambda$sign0$0::*)(JarSigner*)>(&JarSigner$$Lambda$lambda$sign0$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/security/jarsigner/JarSigner;)V", nullptr, $PUBLIC, $method(JarSigner$$Lambda$lambda$sign0$0, init$, void, JarSigner*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JarSigner$$Lambda$lambda$sign0$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JarSigner$$Lambda$lambda$sign0$0::classInfo$ = {
@@ -271,22 +271,22 @@ $FieldInfo _JarSigner_FieldInfo_[] = {
 };
 
 $MethodInfo _JarSigner_MethodInfo_[] = {
-	{"<init>", "(Ljdk/security/jarsigner/JarSigner$Builder;)V", nullptr, $PRIVATE, $method(static_cast<void(JarSigner::*)($JarSigner$Builder*)>(&JarSigner::init$))},
-	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(JarSigner::*)()>(&JarSigner::getDigestAlgorithm))},
-	{"getDigestAttributes", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;)Ljava/util/jar/Attributes;", nullptr, $PRIVATE, $method(static_cast<$Attributes*(JarSigner::*)($ZipEntry*,$ZipFile*,$MessageDigestArray*)>(&JarSigner::getDigestAttributes)), "java.io.IOException"},
-	{"getDigests", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$StringArray*(JarSigner::*)($ZipEntry*,$ZipFile*,$MessageDigestArray*)>(&JarSigner::getDigests)), "java.io.IOException"},
-	{"getManifestFile", "(Ljava/util/zip/ZipFile;)Ljava/util/zip/ZipEntry;", nullptr, $PRIVATE, $method(static_cast<$ZipEntry*(JarSigner::*)($ZipFile*)>(&JarSigner::getManifestFile))},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(JarSigner::*)($String*)>(&JarSigner::getProperty))},
-	{"getSignatureAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(JarSigner::*)()>(&JarSigner::getSignatureAlgorithm))},
-	{"getSignerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(JarSigner::*)()>(&JarSigner::getSignerName))},
-	{"getTsa", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(static_cast<$URI*(JarSigner::*)()>(&JarSigner::getTsa))},
-	{"lambda$sign0$0", "([B)Lsun/security/pkcs/PKCS9Attributes;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$PKCS9Attributes*(JarSigner::*)($bytes*)>(&JarSigner::lambda$sign0$0))},
-	{"loadSigningMechanism", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/jarsigner/ContentSigner;", nullptr, $PRIVATE, $method(static_cast<$ContentSigner*(JarSigner::*)($String*,$String*)>(&JarSigner::loadSigningMechanism))},
-	{"sign", "(Ljava/util/zip/ZipFile;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(JarSigner::*)($ZipFile*,$OutputStream*)>(&JarSigner::sign))},
-	{"sign0", "(Ljava/util/zip/ZipFile;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(JarSigner::*)($ZipFile*,$OutputStream*)>(&JarSigner::sign0)), "java.io.IOException,java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.SignatureException,java.security.InvalidKeyException,java.security.spec.InvalidParameterSpecException"},
-	{"updateDigests", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(static_cast<void(JarSigner::*)($ZipEntry*,$ZipFile*,$MessageDigestArray*,$Manifest*)>(&JarSigner::updateDigests)), "java.io.IOException"},
-	{"writeBytes", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(JarSigner::*)($ZipFile*,$ZipEntry*,$ZipOutputStream*)>(&JarSigner::writeBytes)), "java.io.IOException"},
-	{"writeEntry", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipOutputStream;Ljava/util/zip/ZipEntry;)V", nullptr, $PRIVATE, $method(static_cast<void(JarSigner::*)($ZipFile*,$ZipOutputStream*,$ZipEntry*)>(&JarSigner::writeEntry)), "java.io.IOException"},
+	{"<init>", "(Ljdk/security/jarsigner/JarSigner$Builder;)V", nullptr, $PRIVATE, $method(JarSigner, init$, void, $JarSigner$Builder*)},
+	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getDigestAlgorithm, $String*)},
+	{"getDigestAttributes", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;)Ljava/util/jar/Attributes;", nullptr, $PRIVATE, $method(JarSigner, getDigestAttributes, $Attributes*, $ZipEntry*, $ZipFile*, $MessageDigestArray*), "java.io.IOException"},
+	{"getDigests", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(JarSigner, getDigests, $StringArray*, $ZipEntry*, $ZipFile*, $MessageDigestArray*), "java.io.IOException"},
+	{"getManifestFile", "(Ljava/util/zip/ZipFile;)Ljava/util/zip/ZipEntry;", nullptr, $PRIVATE, $method(JarSigner, getManifestFile, $ZipEntry*, $ZipFile*)},
+	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getProperty, $String*, $String*)},
+	{"getSignatureAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getSignatureAlgorithm, $String*)},
+	{"getSignerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(JarSigner, getSignerName, $String*)},
+	{"getTsa", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(JarSigner, getTsa, $URI*)},
+	{"lambda$sign0$0", "([B)Lsun/security/pkcs/PKCS9Attributes;", nullptr, $PRIVATE | $SYNTHETIC, $method(JarSigner, lambda$sign0$0, $PKCS9Attributes*, $bytes*)},
+	{"loadSigningMechanism", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/jarsigner/ContentSigner;", nullptr, $PRIVATE, $method(JarSigner, loadSigningMechanism, $ContentSigner*, $String*, $String*)},
+	{"sign", "(Ljava/util/zip/ZipFile;Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(JarSigner, sign, void, $ZipFile*, $OutputStream*)},
+	{"sign0", "(Ljava/util/zip/ZipFile;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(JarSigner, sign0, void, $ZipFile*, $OutputStream*), "java.io.IOException,java.security.cert.CertificateException,java.security.NoSuchAlgorithmException,java.security.SignatureException,java.security.InvalidKeyException,java.security.spec.InvalidParameterSpecException"},
+	{"updateDigests", "(Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipFile;[Ljava/security/MessageDigest;Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(JarSigner, updateDigests, void, $ZipEntry*, $ZipFile*, $MessageDigestArray*, $Manifest*), "java.io.IOException"},
+	{"writeBytes", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;Ljava/util/zip/ZipOutputStream;)V", nullptr, $PRIVATE, $method(JarSigner, writeBytes, void, $ZipFile*, $ZipEntry*, $ZipOutputStream*), "java.io.IOException"},
+	{"writeEntry", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipOutputStream;Ljava/util/zip/ZipEntry;)V", nullptr, $PRIVATE, $method(JarSigner, writeEntry, void, $ZipFile*, $ZipOutputStream*, $ZipEntry*), "java.io.IOException"},
 	{}
 };
 

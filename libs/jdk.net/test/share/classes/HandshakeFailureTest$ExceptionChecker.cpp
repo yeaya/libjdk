@@ -23,9 +23,9 @@ $FieldInfo _HandshakeFailureTest$ExceptionChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeFailureTest$ExceptionChecker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HandshakeFailureTest$ExceptionChecker::*)()>(&HandshakeFailureTest$ExceptionChecker::init$))},
-	{"check", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(HandshakeFailureTest$ExceptionChecker::*)($Throwable*)>(&HandshakeFailureTest$ExceptionChecker::check))},
-	{"check", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(HandshakeFailureTest$ExceptionChecker::*)(int32_t)>(&HandshakeFailureTest$ExceptionChecker::check))},
+	{"<init>", "()V", nullptr, 0, $method(HandshakeFailureTest$ExceptionChecker, init$, void)},
+	{"check", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(HandshakeFailureTest$ExceptionChecker, check, void, $Throwable*)},
+	{"check", "(I)V", nullptr, $PUBLIC, $method(HandshakeFailureTest$ExceptionChecker, check, void, int32_t)},
 	{}
 };
 

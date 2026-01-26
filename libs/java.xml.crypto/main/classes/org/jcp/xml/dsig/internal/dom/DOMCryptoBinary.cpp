@@ -42,10 +42,10 @@ $FieldInfo _DOMCryptoBinary_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMCryptoBinary_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(DOMCryptoBinary::*)($BigInteger*)>(&DOMCryptoBinary::init$))},
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(static_cast<void(DOMCryptoBinary::*)($Node*)>(&DOMCryptoBinary::init$)), "javax.xml.crypto.MarshalException"},
-	{"getBigNum", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(static_cast<$BigInteger*(DOMCryptoBinary::*)()>(&DOMCryptoBinary::getBigNum))},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.MarshalException"},
+	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DOMCryptoBinary, init$, void, $BigInteger*)},
+	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMCryptoBinary, init$, void, $Node*), "javax.xml.crypto.MarshalException"},
+	{"getBigNum", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(DOMCryptoBinary, getBigNum, $BigInteger*)},
+	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoBinary, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
 	{}
 };
 

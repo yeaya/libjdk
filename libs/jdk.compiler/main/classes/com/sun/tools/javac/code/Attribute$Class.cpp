@@ -38,12 +38,12 @@ $FieldInfo _Attribute$Class_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute$Class_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Attribute$Class::*)($Types*,$Type*)>(&Attribute$Class::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"getValue", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"makeClassType", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $STATIC, $method(static_cast<$Type*(*)($Types*,$Type*)>(&Attribute$Class::makeClassType))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attribute$Class, init$, void, $Types*, $Type*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Class, accept, void, $Attribute$Visitor*)},
+	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Class, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+	{"getValue", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Attribute$Class, getValue, $Object*)},
+	{"makeClassType", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $STATIC, $staticMethod(Attribute$Class, makeClassType, $Type*, $Types*, $Type*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Class, toString, $String*)},
 	{}
 };
 

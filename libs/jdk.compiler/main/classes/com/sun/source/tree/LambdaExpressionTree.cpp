@@ -5,9 +5,12 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
+using $LambdaExpressionTree$BodyKind = ::com::sun::source::tree::LambdaExpressionTree$BodyKind;
+using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -15,9 +18,9 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _LambdaExpressionTree_MethodInfo_[] = {
-	{"getBody", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getBodyKind", "()Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getParameters", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/VariableTree;>;", $PUBLIC | $ABSTRACT},
+	{"getBody", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LambdaExpressionTree, getBody, $Tree*)},
+	{"getBodyKind", "()Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LambdaExpressionTree, getBodyKind, $LambdaExpressionTree$BodyKind*)},
+	{"getParameters", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/VariableTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LambdaExpressionTree, getParameters, $List*)},
 	{}
 };
 

@@ -52,14 +52,14 @@ $FieldInfo _B4769350_FieldInfo_[] = {
 };
 
 $MethodInfo _B4769350_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B4769350::*)()>(&B4769350::init$))},
-	{"authority", "(I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int32_t)>(&B4769350::authority))},
-	{"doProxyTests", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$B4769350$Server*)>(&B4769350::doProxyTests)), "java.lang.Exception"},
-	{"doServerTests", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$B4769350$Server*)>(&B4769350::doServerTests)), "java.lang.Exception"},
-	{"except", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$B4769350$Server*)>(&B4769350::except))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B4769350::main)), "java.lang.Exception"},
-	{"read", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $method(static_cast<void(*)($InputStream*)>(&B4769350::read)), "java.io.IOException"},
-	{"runTest", "(Z)V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B4769350, init$, void)},
+	{"authority", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(B4769350, authority, $String*, int32_t)},
+	{"doProxyTests", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $STATIC, $staticMethod(B4769350, doProxyTests, void, $String*, $B4769350$Server*), "java.lang.Exception"},
+	{"doServerTests", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $STATIC, $staticMethod(B4769350, doServerTests, void, $String*, $B4769350$Server*), "java.lang.Exception"},
+	{"except", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B4769350, except, void, $String*, $B4769350$Server*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B4769350, main, void, $StringArray*), "java.lang.Exception"},
+	{"read", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(B4769350, read, void, $InputStream*), "java.io.IOException"},
+	{"runTest", "(Z)V", nullptr, $PUBLIC, $virtualMethod(B4769350, runTest, void, bool), "java.lang.Exception"},
 	{}
 };
 

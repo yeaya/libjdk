@@ -84,12 +84,12 @@ $FieldInfo _ServerImpl$Dispatcher_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerImpl$Dispatcher_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(static_cast<void(ServerImpl$Dispatcher::*)($ServerImpl*)>(&ServerImpl$Dispatcher::init$))},
-	{"handle", "(Ljava/nio/channels/SocketChannel;Lsun/net/httpserver/HttpConnection;)V", nullptr, $PUBLIC},
-	{"handleEvent", "(Lsun/net/httpserver/Event;)V", nullptr, $PRIVATE, $method(static_cast<void(ServerImpl$Dispatcher::*)($Event*)>(&ServerImpl$Dispatcher::handleEvent))},
-	{"handleException", "(Ljava/nio/channels/SelectionKey;Ljava/lang/Exception;)V", nullptr, $PRIVATE, $method(static_cast<void(ServerImpl$Dispatcher::*)($SelectionKey*,$Exception*)>(&ServerImpl$Dispatcher::handleException))},
-	{"reRegister", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(ServerImpl$Dispatcher, init$, void, $ServerImpl*)},
+	{"handle", "(Ljava/nio/channels/SocketChannel;Lsun/net/httpserver/HttpConnection;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$Dispatcher, handle, void, $SocketChannel*, $HttpConnection*)},
+	{"handleEvent", "(Lsun/net/httpserver/Event;)V", nullptr, $PRIVATE, $method(ServerImpl$Dispatcher, handleEvent, void, $Event*)},
+	{"handleException", "(Ljava/nio/channels/SelectionKey;Ljava/lang/Exception;)V", nullptr, $PRIVATE, $method(ServerImpl$Dispatcher, handleException, void, $SelectionKey*, $Exception*)},
+	{"reRegister", "(Lsun/net/httpserver/HttpConnection;)V", nullptr, 0, $virtualMethod(ServerImpl$Dispatcher, reRegister, void, $HttpConnection*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$Dispatcher, run, void)},
 	{}
 };
 

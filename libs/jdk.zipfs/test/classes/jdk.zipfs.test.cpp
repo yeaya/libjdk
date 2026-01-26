@@ -8,15 +8,17 @@
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
 
-void jdk$zipfs$test$PreloadClass(void* eventData) {
+void jdk$zipfs$test$PreloadClass() {
+}
+
+void jdk$zipfs$test$PreinitClass() {
 }
 
 void jdk$zipfs$test$LibEventAction(int32_t eventType, void* eventData) {
 	if (eventType == JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS) {
-		jdk$zipfs$test$PreloadClass(eventData);
-	}
-	if (eventType == JCPP_LIB_EVENT_TYPE_THREAD_START) {
-		$onLibThreadStart(eventData);
+		jdk$zipfs$test$PreloadClass();
+	} else if (eventType == JCPP_LIB_EVENT_TYPE_PREINIT_CLASS) {
+		jdk$zipfs$test$PreinitClass();
 	}
 }
 
@@ -45,3 +47,9 @@ void jdk$zipfs$test::init() {
 	};
 	$System::addLibrary(&lib);
 }
+
+#ifdef JCPP_SHARED_BUILD
+extern "C" $export void JCPP_OnLoad() {
+	jdk$zipfs$test::init();
+}
+#endif

@@ -8,6 +8,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Remote = ::java::rmi::Remote;
+using $RemoteStub = ::java::rmi::server::RemoteStub;
 
 namespace java {
 	namespace rmi {
@@ -29,8 +31,8 @@ $FieldInfo _ServerRef_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerRef_MethodInfo_[] = {
-	{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;)Ljava/rmi/server/RemoteStub;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException"},
-	{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.server.ServerNotActiveException"},
+	{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;)Ljava/rmi/server/RemoteStub;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerRef, exportObject, $RemoteStub*, $Remote*, Object$*), "java.rmi.RemoteException"},
+	{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ServerRef, getClientHost, $String*), "java.rmi.server.ServerNotActiveException"},
 	{}
 };
 

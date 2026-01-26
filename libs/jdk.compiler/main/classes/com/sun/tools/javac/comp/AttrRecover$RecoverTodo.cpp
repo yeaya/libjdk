@@ -35,7 +35,7 @@ $FieldInfo _AttrRecover$RecoverTodo_FieldInfo_[] = {
 };
 
 $MethodInfo _AttrRecover$RecoverTodo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", $PUBLIC, $method(static_cast<void(AttrRecover$RecoverTodo::*)($JCTree*,$Type*,$Symbol*,$Symbol*,$Env*,$Attr$ResultInfo*)>(&AttrRecover$RecoverTodo::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", $PUBLIC, $method(AttrRecover$RecoverTodo, init$, void, $JCTree*, $Type*, $Symbol*, $Symbol*, $Env*, $Attr$ResultInfo*)},
 	{}
 };
 

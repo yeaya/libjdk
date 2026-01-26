@@ -13,9 +13,9 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _Http1Response$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Http1Response$1::*)()>(&Http1Response$1::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Http1Response$1, init$, void)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Response$1, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(Http1Response$1, request, void, int64_t)},
 	{}
 };
 

@@ -87,20 +87,20 @@ $FieldInfo _MBeanServerFileAccessController_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerFileAccessController_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerFileAccessController::*)($String*)>(&MBeanServerFileAccessController::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerFileAccessController::*)($String*,$MBeanServer*)>(&MBeanServerFileAccessController::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerFileAccessController::*)($Properties*)>(&MBeanServerFileAccessController::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/util/Properties;Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerFileAccessController::*)($Properties*,$MBeanServer*)>(&MBeanServerFileAccessController::init$)), "java.io.IOException"},
-	{"checkAccess", "(Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(MBeanServerFileAccessController::*)($MBeanServerFileAccessController$AccessType*,$String*)>(&MBeanServerFileAccessController::checkAccess))},
-	{"checkCreate", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"checkCreateAccess", "(Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MBeanServerFileAccessController$Access*,$String*)>(&MBeanServerFileAccessController::checkCreateAccess))},
-	{"checkRead", "()V", nullptr, $PUBLIC},
-	{"checkUnregister", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC},
-	{"checkWrite", "()V", nullptr, $PUBLIC},
-	{"classNameMatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&MBeanServerFileAccessController::classNameMatch))},
-	{"parseProperties", "(Ljava/util/Properties;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanServerFileAccessController::*)($Properties*)>(&MBeanServerFileAccessController::parseProperties))},
-	{"propertiesFromFile", "(Ljava/lang/String;)Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Properties*(*)($String*)>(&MBeanServerFileAccessController::propertiesFromFile)), "java.io.IOException"},
-	{"refresh", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanServerFileAccessController, init$, void, $String*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $method(MBeanServerFileAccessController, init$, void, $String*, $MBeanServer*), "java.io.IOException"},
+	{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(MBeanServerFileAccessController, init$, void, $Properties*), "java.io.IOException"},
+	{"<init>", "(Ljava/util/Properties;Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $method(MBeanServerFileAccessController, init$, void, $Properties*, $MBeanServer*), "java.io.IOException"},
+	{"checkAccess", "(Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$AccessType;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(MBeanServerFileAccessController, checkAccess, void, $MBeanServerFileAccessController$AccessType*, $String*)},
+	{"checkCreate", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MBeanServerFileAccessController, checkCreate, void, $String*)},
+	{"checkCreateAccess", "(Lcom/sun/jmx/remote/security/MBeanServerFileAccessController$Access;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerFileAccessController, checkCreateAccess, bool, $MBeanServerFileAccessController$Access*, $String*)},
+	{"checkRead", "()V", nullptr, $PUBLIC, $virtualMethod(MBeanServerFileAccessController, checkRead, void)},
+	{"checkUnregister", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(MBeanServerFileAccessController, checkUnregister, void, $ObjectName*)},
+	{"checkWrite", "()V", nullptr, $PUBLIC, $virtualMethod(MBeanServerFileAccessController, checkWrite, void)},
+	{"classNameMatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerFileAccessController, classNameMatch, bool, $String*, $String*)},
+	{"parseProperties", "(Ljava/util/Properties;)V", nullptr, $PRIVATE, $method(MBeanServerFileAccessController, parseProperties, void, $Properties*)},
+	{"propertiesFromFile", "(Ljava/lang/String;)Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerFileAccessController, propertiesFromFile, $Properties*, $String*), "java.io.IOException"},
+	{"refresh", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerFileAccessController, refresh, void), "java.io.IOException"},
 	{}
 };
 

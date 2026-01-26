@@ -32,10 +32,10 @@ $FieldInfo _ZipFileSystem$EntryOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileSystem$EntryOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(ZipFileSystem$EntryOutputStream::*)($ZipFileSystem*,$ZipFileSystem$Entry*,$OutputStream*)>(&ZipFileSystem$EntryOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;Ljava/io/OutputStream;)V", nullptr, 0, $method(ZipFileSystem$EntryOutputStream, init$, void, $ZipFileSystem*, $ZipFileSystem$Entry*, $OutputStream*)},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipFileSystem$EntryOutputStream, close, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipFileSystem$EntryOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipFileSystem$EntryOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

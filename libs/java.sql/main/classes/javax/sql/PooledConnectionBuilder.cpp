@@ -6,16 +6,18 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ShardingKey = ::java::sql::ShardingKey;
+using $PooledConnection = ::javax::sql::PooledConnection;
 
 namespace javax {
 	namespace sql {
 
 $MethodInfo _PooledConnectionBuilder_MethodInfo_[] = {
-	{"build", "()Ljavax/sql/PooledConnection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"password", "(Ljava/lang/String;)Ljavax/sql/PooledConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"shardingKey", "(Ljava/sql/ShardingKey;)Ljavax/sql/PooledConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"superShardingKey", "(Ljava/sql/ShardingKey;)Ljavax/sql/PooledConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"user", "(Ljava/lang/String;)Ljavax/sql/PooledConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT},
+	{"build", "()Ljavax/sql/PooledConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnectionBuilder, build, $PooledConnection*), "java.sql.SQLException"},
+	{"password", "(Ljava/lang/String;)Ljavax/sql/PooledConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnectionBuilder, password, PooledConnectionBuilder*, $String*)},
+	{"shardingKey", "(Ljava/sql/ShardingKey;)Ljavax/sql/PooledConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnectionBuilder, shardingKey, PooledConnectionBuilder*, $ShardingKey*)},
+	{"superShardingKey", "(Ljava/sql/ShardingKey;)Ljavax/sql/PooledConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnectionBuilder, superShardingKey, PooledConnectionBuilder*, $ShardingKey*)},
+	{"user", "(Ljava/lang/String;)Ljavax/sql/PooledConnectionBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnectionBuilder, user, PooledConnectionBuilder*, $String*)},
 	{}
 };
 

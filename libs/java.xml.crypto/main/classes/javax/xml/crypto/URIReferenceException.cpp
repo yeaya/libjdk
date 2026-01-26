@@ -25,16 +25,16 @@ $FieldInfo _URIReferenceException_FieldInfo_[] = {
 };
 
 $MethodInfo _URIReferenceException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(URIReferenceException::*)()>(&URIReferenceException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(URIReferenceException::*)($String*)>(&URIReferenceException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(URIReferenceException::*)($String*,$Throwable*)>(&URIReferenceException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Ljavax/xml/crypto/URIReference;)V", nullptr, $PUBLIC, $method(static_cast<void(URIReferenceException::*)($String*,$Throwable*,$URIReference*)>(&URIReferenceException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(URIReferenceException::*)($Throwable*)>(&URIReferenceException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getURIReference", "()Ljavax/xml/crypto/URIReference;", nullptr, $PUBLIC},
-	{"printStackTrace", "()V", nullptr, $PUBLIC},
-	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC},
-	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;Ljavax/xml/crypto/URIReference;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $String*, $Throwable*, $URIReference*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(URIReferenceException, init$, void, $Throwable*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, getCause, $Throwable*)},
+	{"getURIReference", "()Ljavax/xml/crypto/URIReference;", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, getURIReference, $URIReference*)},
+	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, printStackTrace, void)},
+	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, printStackTrace, void, $PrintStream*)},
+	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(URIReferenceException, printStackTrace, void, $PrintWriter*)},
 	{}
 };
 

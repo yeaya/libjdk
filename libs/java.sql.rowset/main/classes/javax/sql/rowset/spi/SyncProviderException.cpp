@@ -25,11 +25,11 @@ $FieldInfo _SyncProviderException_FieldInfo_[] = {
 };
 
 $MethodInfo _SyncProviderException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SyncProviderException::*)()>(&SyncProviderException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SyncProviderException::*)($String*)>(&SyncProviderException::init$))},
-	{"<init>", "(Ljavax/sql/rowset/spi/SyncResolver;)V", nullptr, $PUBLIC, $method(static_cast<void(SyncProviderException::*)($SyncResolver*)>(&SyncProviderException::init$))},
-	{"getSyncResolver", "()Ljavax/sql/rowset/spi/SyncResolver;", nullptr, $PUBLIC},
-	{"setSyncResolver", "(Ljavax/sql/rowset/spi/SyncResolver;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SyncProviderException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyncProviderException, init$, void, $String*)},
+	{"<init>", "(Ljavax/sql/rowset/spi/SyncResolver;)V", nullptr, $PUBLIC, $method(SyncProviderException, init$, void, $SyncResolver*)},
+	{"getSyncResolver", "()Ljavax/sql/rowset/spi/SyncResolver;", nullptr, $PUBLIC, $virtualMethod(SyncProviderException, getSyncResolver, $SyncResolver*)},
+	{"setSyncResolver", "(Ljavax/sql/rowset/spi/SyncResolver;)V", nullptr, $PUBLIC, $virtualMethod(SyncProviderException, setSyncResolver, void, $SyncResolver*)},
 	{}
 };
 

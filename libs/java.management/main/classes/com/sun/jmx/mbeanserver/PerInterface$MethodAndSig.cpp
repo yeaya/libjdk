@@ -22,7 +22,7 @@ $FieldInfo _PerInterface$MethodAndSig_FieldInfo_[] = {
 };
 
 $MethodInfo _PerInterface$MethodAndSig_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/PerInterface;)V", nullptr, $PRIVATE, $method(static_cast<void(PerInterface$MethodAndSig::*)($PerInterface*)>(&PerInterface$MethodAndSig::init$))},
+	{"<init>", "(Lcom/sun/jmx/mbeanserver/PerInterface;)V", nullptr, $PRIVATE, $method(PerInterface$MethodAndSig, init$, void, $PerInterface*)},
 	{}
 };
 

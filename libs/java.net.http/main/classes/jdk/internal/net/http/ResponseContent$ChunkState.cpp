@@ -29,10 +29,10 @@ $FieldInfo _ResponseContent$ChunkState_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseContent$ChunkState_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ResponseContent$ChunkStateArray*(*)()>(&ResponseContent$ChunkState::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ResponseContent$ChunkState::*)($String*,int32_t)>(&ResponseContent$ChunkState::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ResponseContent$ChunkState*(*)($String*)>(&ResponseContent$ChunkState::valueOf))},
-	{"values", "()[Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ResponseContent$ChunkStateArray*(*)()>(&ResponseContent$ChunkState::values))},
+	{"$values", "()[Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseContent$ChunkState, $values, $ResponseContent$ChunkStateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ResponseContent$ChunkState, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResponseContent$ChunkState, valueOf, ResponseContent$ChunkState*, $String*)},
+	{"values", "()[Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResponseContent$ChunkState, values, $ResponseContent$ChunkStateArray*)},
 	{}
 };
 

@@ -22,9 +22,9 @@ $FieldInfo _LdapDnsProviderResult_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapDnsProviderResult_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(LdapDnsProviderResult::*)($String*,$List*)>(&LdapDnsProviderResult::init$))},
-	{"getDomainName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(LdapDnsProviderResult::*)()>(&LdapDnsProviderResult::getDomainName))},
-	{"getEndpoints", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$List*(LdapDnsProviderResult::*)()>(&LdapDnsProviderResult::getEndpoints))},
+	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(LdapDnsProviderResult, init$, void, $String*, $List*)},
+	{"getDomainName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapDnsProviderResult, getDomainName, $String*)},
+	{"getEndpoints", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(LdapDnsProviderResult, getEndpoints, $List*)},
 	{}
 };
 

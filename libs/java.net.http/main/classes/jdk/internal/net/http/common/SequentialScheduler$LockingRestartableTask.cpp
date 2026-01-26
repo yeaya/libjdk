@@ -33,8 +33,8 @@ $FieldInfo _SequentialScheduler$LockingRestartableTask_FieldInfo_[] = {
 };
 
 $MethodInfo _SequentialScheduler$LockingRestartableTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(static_cast<void(SequentialScheduler$LockingRestartableTask::*)($Runnable*)>(&SequentialScheduler$LockingRestartableTask::init$))},
-	{"run", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SequentialScheduler$LockingRestartableTask, init$, void, $Runnable*)},
+	{"run", "()V", nullptr, $PROTECTED, $virtualMethod(SequentialScheduler$LockingRestartableTask, run, void)},
 	{}
 };
 

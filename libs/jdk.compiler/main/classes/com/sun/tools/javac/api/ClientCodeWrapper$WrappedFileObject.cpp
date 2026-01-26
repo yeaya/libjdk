@@ -43,17 +43,17 @@ $FieldInfo _ClientCodeWrapper$WrappedFileObject_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientCodeWrapper$WrappedFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/FileObject;)V", nullptr, 0, $method(static_cast<void(ClientCodeWrapper$WrappedFileObject::*)($ClientCodeWrapper*,$FileObject*)>(&ClientCodeWrapper$WrappedFileObject::init$))},
-	{"delete", "()Z", nullptr, $PUBLIC},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getLastModified", "()J", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/FileObject;)V", nullptr, 0, $method(ClientCodeWrapper$WrappedFileObject, init$, void, $ClientCodeWrapper*, $FileObject*)},
+	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, delete$, bool)},
+	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, getLastModified, int64_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, getName, $String*)},
+	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openInputStream, $InputStream*), "java.io.IOException"},
+	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openReader, $Reader*, bool), "java.io.IOException"},
+	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, openWriter, $Writer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, toString, $String*)},
+	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedFileObject, toUri, $URI*)},
 	{}
 };
 

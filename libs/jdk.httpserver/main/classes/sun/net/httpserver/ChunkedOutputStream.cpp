@@ -49,12 +49,12 @@ $FieldInfo _ChunkedOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ChunkedOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(ChunkedOutputStream::*)($ExchangeImpl*,$OutputStream*)>(&ChunkedOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"writeChunk", "()V", nullptr, $PRIVATE, $method(static_cast<void(ChunkedOutputStream::*)()>(&ChunkedOutputStream::writeChunk)), "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/OutputStream;)V", nullptr, 0, $method(ChunkedOutputStream, init$, void, $ExchangeImpl*, $OutputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, close, void), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, flush, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ChunkedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"writeChunk", "()V", nullptr, $PRIVATE, $method(ChunkedOutputStream, writeChunk, void), "java.io.IOException"},
 	{}
 };
 

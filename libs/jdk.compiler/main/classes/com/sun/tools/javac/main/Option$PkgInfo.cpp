@@ -36,11 +36,11 @@ $FieldInfo _Option$PkgInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Option$PkgInfo_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Option$PkgInfo;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Option$PkgInfoArray*(*)()>(&Option$PkgInfo::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Option$PkgInfo::*)($String*,int32_t)>(&Option$PkgInfo::init$))},
-	{"get", "(Lcom/sun/tools/javac/util/Options;)Lcom/sun/tools/javac/main/Option$PkgInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Option$PkgInfo*(*)($Options*)>(&Option$PkgInfo::get))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$PkgInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Option$PkgInfo*(*)($String*)>(&Option$PkgInfo::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/main/Option$PkgInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Option$PkgInfoArray*(*)()>(&Option$PkgInfo::values))},
+	{"$values", "()[Lcom/sun/tools/javac/main/Option$PkgInfo;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$PkgInfo, $values, $Option$PkgInfoArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Option$PkgInfo, init$, void, $String*, int32_t)},
+	{"get", "(Lcom/sun/tools/javac/util/Options;)Lcom/sun/tools/javac/main/Option$PkgInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$PkgInfo, get, Option$PkgInfo*, $Options*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option$PkgInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$PkgInfo, valueOf, Option$PkgInfo*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/main/Option$PkgInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option$PkgInfo, values, $Option$PkgInfoArray*)},
 	{}
 };
 

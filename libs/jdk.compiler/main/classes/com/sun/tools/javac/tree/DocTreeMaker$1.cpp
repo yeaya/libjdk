@@ -29,11 +29,11 @@ $FieldInfo _DocTreeMaker$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DocTreeMaker$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/DocTreeMaker;)V", nullptr, 0, $method(static_cast<void(DocTreeMaker$1::*)($DocTreeMaker*)>(&DocTreeMaker$1::init$))},
-	{"getSourcePos", "(I)I", nullptr, $PUBLIC},
-	{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/DocTreeMaker;)V", nullptr, 0, $method(DocTreeMaker$1, init$, void, $DocTreeMaker*)},
+	{"getSourcePos", "(I)I", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker$1, getSourcePos, int32_t, int32_t)},
+	{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker$1, getStyle, $Tokens$Comment$CommentStyle*)},
+	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker$1, getText, $String*)},
+	{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker$1, isDeprecated, bool)},
 	{}
 };
 

@@ -19,7 +19,7 @@ $FieldInfo _LoggingPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _LoggingPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LoggingPermission::*)($String*,$String*)>(&LoggingPermission::init$)), "java.lang.IllegalArgumentException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LoggingPermission, init$, void, $String*, $String*), "java.lang.IllegalArgumentException"},
 	{}
 };
 

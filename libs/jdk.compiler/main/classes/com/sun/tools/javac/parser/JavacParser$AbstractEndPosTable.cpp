@@ -8,6 +8,7 @@
 #undef NOPOS
 
 using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
+using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -27,11 +28,11 @@ $FieldInfo _JavacParser$AbstractEndPosTable_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacParser$AbstractEndPosTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacParser$AbstractEndPosTable::*)($JavacParser*)>(&JavacParser$AbstractEndPosTable::init$))},
-	{"setErrorEndPos", "(I)V", nullptr, $PUBLIC},
-	{"setParser", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, $PUBLIC},
-	{"to", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED | $ABSTRACT},
-	{"toP", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED | $ABSTRACT},
+	{"<init>", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, $PUBLIC, $method(JavacParser$AbstractEndPosTable, init$, void, $JavacParser*)},
+	{"setErrorEndPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(JavacParser$AbstractEndPosTable, setErrorEndPos, void, int32_t)},
+	{"setParser", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, $PUBLIC, $virtualMethod(JavacParser$AbstractEndPosTable, setParser, void, $JavacParser*)},
+	{"to", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(JavacParser$AbstractEndPosTable, to, $JCTree*, $JCTree*)},
+	{"toP", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(JavacParser$AbstractEndPosTable, toP, $JCTree*, $JCTree*)},
 	{}
 };
 

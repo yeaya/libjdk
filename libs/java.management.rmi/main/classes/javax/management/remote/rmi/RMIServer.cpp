@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $RMIConnection = ::javax::management::remote::rmi::RMIConnection;
 
 namespace javax {
 	namespace management {
@@ -12,8 +13,8 @@ namespace javax {
 			namespace rmi {
 
 $MethodInfo _RMIServer_MethodInfo_[] = {
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException"},
-	{"newClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIServer, getVersion, $String*), "java.rmi.RemoteException"},
+	{"newClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIServer, newClient, $RMIConnection*, Object$*), "java.io.IOException"},
 	{}
 };
 

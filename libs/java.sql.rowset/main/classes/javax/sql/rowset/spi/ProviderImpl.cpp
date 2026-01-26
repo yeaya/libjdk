@@ -32,22 +32,22 @@ $FieldInfo _ProviderImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ProviderImpl::*)()>(&ProviderImpl::init$))},
-	{"getClassname", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDataSourceLock", "()I", nullptr, $PUBLIC, nullptr, "javax.sql.rowset.spi.SyncProviderException"},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"getProviderGrade", "()I", nullptr, $PUBLIC},
-	{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC},
-	{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setClassname", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setDataSourceLock", "(I)V", nullptr, $PUBLIC, nullptr, "javax.sql.rowset.spi.SyncProviderException"},
-	{"setIndex", "(I)V", nullptr, $PUBLIC},
-	{"setVendor", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"supportsUpdatableView", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ProviderImpl, init$, void)},
+	{"getClassname", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getClassname, $String*)},
+	{"getDataSourceLock", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getDataSourceLock, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getIndex, int32_t)},
+	{"getProviderGrade", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getProviderGrade, int32_t)},
+	{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getProviderID, $String*)},
+	{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getRowSetReader, $RowSetReader*)},
+	{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getRowSetWriter, $RowSetWriter*)},
+	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getVendor, $String*)},
+	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, getVersion, $String*)},
+	{"setClassname", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setClassname, void, $String*)},
+	{"setDataSourceLock", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setDataSourceLock, void, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+	{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setIndex, void, int32_t)},
+	{"setVendor", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setVendor, void, $String*)},
+	{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, setVersion, void, $String*)},
+	{"supportsUpdatableView", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderImpl, supportsUpdatableView, int32_t)},
 	{}
 };
 

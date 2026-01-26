@@ -21,8 +21,8 @@ $FieldInfo _MacOSXPreferencesFile$SyncTask_FieldInfo_[] = {
 };
 
 $MethodInfo _MacOSXPreferencesFile$SyncTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/MacOSXPreferencesFile;)V", nullptr, $PRIVATE, $method(static_cast<void(MacOSXPreferencesFile$SyncTask::*)($MacOSXPreferencesFile*)>(&MacOSXPreferencesFile$SyncTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/prefs/MacOSXPreferencesFile;)V", nullptr, $PRIVATE, $method(MacOSXPreferencesFile$SyncTask, init$, void, $MacOSXPreferencesFile*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$SyncTask, run, void)},
 	{}
 };
 

@@ -29,7 +29,7 @@ $FieldInfo _SkeletonMismatchException_FieldInfo_[] = {
 };
 
 $MethodInfo _SkeletonMismatchException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(SkeletonMismatchException::*)($String*)>(&SkeletonMismatchException::init$)), nullptr, nullptr, _SkeletonMismatchException_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(SkeletonMismatchException, init$, void, $String*), nullptr, nullptr, _SkeletonMismatchException_MethodAnnotations_init$0},
 	{}
 };
 

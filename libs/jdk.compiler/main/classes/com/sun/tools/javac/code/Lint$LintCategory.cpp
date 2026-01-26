@@ -91,12 +91,12 @@ $FieldInfo _Lint$LintCategory_FieldInfo_[] = {
 };
 
 $MethodInfo _Lint$LintCategory_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Lint$LintCategoryArray*(*)()>(&Lint$LintCategory::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Lint$LintCategory::*)($String*,int32_t,$String*)>(&Lint$LintCategory::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(static_cast<void(Lint$LintCategory::*)($String*,int32_t,$String*,bool)>(&Lint$LintCategory::init$))},
-	{"get", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $STATIC, $method(static_cast<Lint$LintCategory*(*)($String*)>(&Lint$LintCategory::get))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Lint$LintCategory*(*)($String*)>(&Lint$LintCategory::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Lint$LintCategoryArray*(*)()>(&Lint$LintCategory::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Lint$LintCategory, $values, $Lint$LintCategoryArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Lint$LintCategory, init$, void, $String*, int32_t, $String*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(Lint$LintCategory, init$, void, $String*, int32_t, $String*, bool)},
+	{"get", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $STATIC, $staticMethod(Lint$LintCategory, get, Lint$LintCategory*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC, $staticMethod(Lint$LintCategory, valueOf, Lint$LintCategory*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PUBLIC | $STATIC, $staticMethod(Lint$LintCategory, values, $Lint$LintCategoryArray*)},
 	{}
 };
 

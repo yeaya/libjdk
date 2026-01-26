@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Hashtable = ::java::util::Hashtable;
+using $ObjectFactory = ::javax::naming::spi::ObjectFactory;
 
 namespace javax {
 	namespace naming {
 		namespace spi {
 
 $MethodInfo _ObjectFactoryBuilder_MethodInfo_[] = {
-	{"createObjectFactory", "(Ljava/lang/Object;Ljava/util/Hashtable;)Ljavax/naming/spi/ObjectFactory;", "(Ljava/lang/Object;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/ObjectFactory;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"createObjectFactory", "(Ljava/lang/Object;Ljava/util/Hashtable;)Ljavax/naming/spi/ObjectFactory;", "(Ljava/lang/Object;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/ObjectFactory;", $PUBLIC | $ABSTRACT, $virtualMethod(ObjectFactoryBuilder, createObjectFactory, $ObjectFactory*, Object$*, $Hashtable*), "javax.naming.NamingException"},
 	{}
 };
 

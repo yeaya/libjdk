@@ -48,12 +48,12 @@ $MethodInfo _KeyTabInputStream_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyTabInputStream::*)($InputStream*)>(&KeyTabInputStream::init$))},
-	{"readEntry", "(II)Lsun/security/krb5/internal/ktab/KeyTabEntry;", nullptr, 0, nullptr, "java.io.IOException,sun.security.krb5.RealmException"},
-	{"readEntryLength", "()I", nullptr, 0, nullptr, "java.io.IOException"},
-	{"readKey", "(I)[B", nullptr, 0, nullptr, "java.io.IOException"},
-	{"readName", "()Ljava/lang/String;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"readTimeStamp", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(KeyTabInputStream, init$, void, $InputStream*)},
+	{"readEntry", "(II)Lsun/security/krb5/internal/ktab/KeyTabEntry;", nullptr, 0, $virtualMethod(KeyTabInputStream, readEntry, $KeyTabEntry*, int32_t, int32_t), "java.io.IOException,sun.security.krb5.RealmException"},
+	{"readEntryLength", "()I", nullptr, 0, $virtualMethod(KeyTabInputStream, readEntryLength, int32_t), "java.io.IOException"},
+	{"readKey", "(I)[B", nullptr, 0, $virtualMethod(KeyTabInputStream, readKey, $bytes*, int32_t), "java.io.IOException"},
+	{"readName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(KeyTabInputStream, readName, $String*), "java.io.IOException"},
+	{"readTimeStamp", "()Lsun/security/krb5/internal/KerberosTime;", nullptr, 0, $virtualMethod(KeyTabInputStream, readTimeStamp, $KerberosTime*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

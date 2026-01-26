@@ -48,7 +48,7 @@ using $Objects = ::java::util::Objects;
 using $KeyTab = ::javax::security::auth::kerberos::KeyTab;
 using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
-using $Credentials = ::sun::security::krb5::Credentials;
+using $1Credentials = ::sun::security::krb5::Credentials;
 using $EncryptedData = ::sun::security::krb5::EncryptedData;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $KrbAsReq = ::sun::security::krb5::KrbAsReq;
@@ -64,7 +64,7 @@ using $KDCReq = ::sun::security::krb5::internal::KDCReq;
 using $KRBError = ::sun::security::krb5::internal::KRBError;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $PAData = ::sun::security::krb5::internal::PAData;
-using $1Credentials = ::sun::security::krb5::internal::ccache::Credentials;
+using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
 using $EType = ::sun::security::krb5::internal::crypto::EType;
 using $KeyUsage = ::sun::security::krb5::internal::crypto::KeyUsage;
 using $DerValue = ::sun::security::util::DerValue;
@@ -81,13 +81,13 @@ $FieldInfo _KrbAsRep_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbAsRep_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(static_cast<void(KrbAsRep::*)($bytes*)>(&KrbAsRep::init$)), "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"decrypt", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/KrbAsReq;Lsun/security/krb5/PrincipalName;)V", nullptr, $PRIVATE, $method(static_cast<void(KrbAsRep::*)($EncryptionKey*,$KrbAsReq*,$PrincipalName*)>(&KrbAsRep::decrypt)), "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"decryptUsingKeyTab", "(Ljavax/security/auth/kerberos/KeyTab;Lsun/security/krb5/KrbAsReq;Lsun/security/krb5/PrincipalName;)V", nullptr, 0, nullptr, "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"decryptUsingPassword", "([CLsun/security/krb5/KrbAsReq;Lsun/security/krb5/PrincipalName;)V", nullptr, 0, nullptr, "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"getCCreds", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, 0},
-	{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, 0},
-	{"getPA", "()[Lsun/security/krb5/internal/PAData;", nullptr, 0},
+	{"<init>", "([B)V", nullptr, 0, $method(KrbAsRep, init$, void, $bytes*), "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"decrypt", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/KrbAsReq;Lsun/security/krb5/PrincipalName;)V", nullptr, $PRIVATE, $method(KrbAsRep, decrypt, void, $EncryptionKey*, $KrbAsReq*, $PrincipalName*), "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"decryptUsingKeyTab", "(Ljavax/security/auth/kerberos/KeyTab;Lsun/security/krb5/KrbAsReq;Lsun/security/krb5/PrincipalName;)V", nullptr, 0, $virtualMethod(KrbAsRep, decryptUsingKeyTab, void, $KeyTab*, $KrbAsReq*, $PrincipalName*), "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"decryptUsingPassword", "([CLsun/security/krb5/KrbAsReq;Lsun/security/krb5/PrincipalName;)V", nullptr, 0, $virtualMethod(KrbAsRep, decryptUsingPassword, void, $chars*, $KrbAsReq*, $PrincipalName*), "sun.security.krb5.KrbException,sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"getCCreds", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, 0, $virtualMethod(KrbAsRep, getCCreds, $Credentials*)},
+	{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, 0, $virtualMethod(KrbAsRep, getCreds, $1Credentials*)},
+	{"getPA", "()[Lsun/security/krb5/internal/PAData;", nullptr, 0, $virtualMethod(KrbAsRep, getPA, $PADataArray*)},
 	{}
 };
 
@@ -180,18 +180,18 @@ void KrbAsRep::decrypt($EncryptionKey* dkey, $KrbAsReq* asReq, $PrincipalName* c
 	if ($nc(clientAlias)->equals($nc(this->rep)->cname)) {
 		$assign(clientAlias, nullptr);
 	}
-	$set(this, creds, $new($Credentials, $nc(this->rep)->ticket, $nc(this->rep)->cname, clientAlias, enc_part->sname, nullptr, enc_part->key, enc_part->flags, enc_part->authtime, enc_part->starttime, enc_part->endtime, enc_part->renewTill, enc_part->caddr));
+	$set(this, creds, $new($1Credentials, $nc(this->rep)->ticket, $nc(this->rep)->cname, clientAlias, enc_part->sname, nullptr, enc_part->key, enc_part->flags, enc_part->authtime, enc_part->starttime, enc_part->endtime, enc_part->renewTill, enc_part->caddr));
 	if (this->DEBUG) {
 		$nc($System::out)->println($$str({">>> KrbAsRep cons in KrbAsReq.getReply "_s, $($nc($nc($nc(req)->reqBody)->cname)->getNameString())}));
 	}
 }
 
-$Credentials* KrbAsRep::getCreds() {
-	return $cast($Credentials, $Objects::requireNonNull($of(this->creds), "Creds not available yet."_s));
+$1Credentials* KrbAsRep::getCreds() {
+	return $cast($1Credentials, $Objects::requireNonNull($of(this->creds), "Creds not available yet."_s));
 }
 
-$1Credentials* KrbAsRep::getCCreds() {
-	return $new($1Credentials, this->rep);
+$Credentials* KrbAsRep::getCCreds() {
+	return $new($Credentials, this->rep);
 }
 
 KrbAsRep::KrbAsRep() {

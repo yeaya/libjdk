@@ -52,10 +52,10 @@ $FieldInfo _Frame$Reader_FieldInfo_[] = {
 };
 
 $MethodInfo _Frame$Reader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Frame$Reader::*)()>(&Frame$Reader::init$))},
-	{"negativePayload", "(J)Ljdk/internal/net/http/websocket/FailWebSocketException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FailWebSocketException*(*)(int64_t)>(&Frame$Reader::negativePayload))},
-	{"notMinimalEncoding", "(J)Ljdk/internal/net/http/websocket/FailWebSocketException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$FailWebSocketException*(*)(int64_t)>(&Frame$Reader::notMinimalEncoding))},
-	{"readFrame", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/websocket/Frame$Consumer;)V", nullptr, 0, $method(static_cast<void(Frame$Reader::*)($ByteBuffer*,$Frame$Consumer*)>(&Frame$Reader::readFrame))},
+	{"<init>", "()V", nullptr, 0, $method(Frame$Reader, init$, void)},
+	{"negativePayload", "(J)Ljdk/internal/net/http/websocket/FailWebSocketException;", nullptr, $PRIVATE | $STATIC, $staticMethod(Frame$Reader, negativePayload, $FailWebSocketException*, int64_t)},
+	{"notMinimalEncoding", "(J)Ljdk/internal/net/http/websocket/FailWebSocketException;", nullptr, $PRIVATE | $STATIC, $staticMethod(Frame$Reader, notMinimalEncoding, $FailWebSocketException*, int64_t)},
+	{"readFrame", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/websocket/Frame$Consumer;)V", nullptr, 0, $method(Frame$Reader, readFrame, void, $ByteBuffer*, $Frame$Consumer*)},
 	{}
 };
 

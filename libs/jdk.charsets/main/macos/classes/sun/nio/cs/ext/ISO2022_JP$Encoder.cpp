@@ -50,16 +50,16 @@ $FieldInfo _ISO2022_JP$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO2022_JP$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(ISO2022_JP$Encoder::*)($Charset*)>(&ISO2022_JP$Encoder::init$))},
-	{"<init>", "(Ljava/nio/charset/Charset;Lsun/nio/cs/DoubleByte$Encoder;Lsun/nio/cs/DoubleByte$Encoder;Z)V", nullptr, 0, $method(static_cast<void(ISO2022_JP$Encoder::*)($Charset*,$DoubleByte$Encoder*,$DoubleByte$Encoder*,bool)>(&ISO2022_JP$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISO2022_JP$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&ISO2022_JP$Encoder::encodeArrayLoop))},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISO2022_JP$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&ISO2022_JP$Encoder::encodeBufferLoop))},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"encodeSingle", "(C)I", nullptr, $PROTECTED},
-	{"implFlush", "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implReplaceWith", "([B)V", nullptr, $PROTECTED},
-	{"implReset", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ISO2022_JP$Encoder, init$, void, $Charset*)},
+	{"<init>", "(Ljava/nio/charset/Charset;Lsun/nio/cs/DoubleByte$Encoder;Lsun/nio/cs/DoubleByte$Encoder;Z)V", nullptr, 0, $method(ISO2022_JP$Encoder, init$, void, $Charset*, $DoubleByte$Encoder*, $DoubleByte$Encoder*, bool)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_JP$Encoder, canEncode, bool, char16_t)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_JP$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_JP$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022_JP$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeSingle", "(C)I", nullptr, $PROTECTED, $virtualMethod(ISO2022_JP$Encoder, encodeSingle, int32_t, char16_t)},
+	{"implFlush", "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022_JP$Encoder, implFlush, $CoderResult*, $ByteBuffer*)},
+	{"implReplaceWith", "([B)V", nullptr, $PROTECTED, $virtualMethod(ISO2022_JP$Encoder, implReplaceWith, void, $bytes*)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(ISO2022_JP$Encoder, implReset, void)},
 	{}
 };
 

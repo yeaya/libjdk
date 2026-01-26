@@ -19,8 +19,17 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Authenticator = ::java::net::Authenticator;
+using $CookieHandler = ::java::net::CookieHandler;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ProxySelector = ::java::net::ProxySelector;
+using $HttpClient = ::java::net::http::HttpClient;
+using $HttpClient$Redirect = ::java::net::http::HttpClient$Redirect;
+using $HttpClient$Version = ::java::net::http::HttpClient$Version;
+using $Duration = ::java::time::Duration;
+using $Executor = ::java::util::concurrent::Executor;
+using $SSLContext = ::javax::net::ssl::SSLContext;
+using $SSLParameters = ::javax::net::ssl::SSLParameters;
 
 namespace java {
 	namespace net {
@@ -32,17 +41,17 @@ $FieldInfo _HttpClient$Builder_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClient$Builder_MethodInfo_[] = {
-	{"authenticator", "(Ljava/net/Authenticator;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"build", "()Ljava/net/http/HttpClient;", nullptr, $PUBLIC | $ABSTRACT},
-	{"connectTimeout", "(Ljava/time/Duration;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"cookieHandler", "(Ljava/net/CookieHandler;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"executor", "(Ljava/util/concurrent/Executor;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"followRedirects", "(Ljava/net/http/HttpClient$Redirect;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"priority", "(I)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"proxy", "(Ljava/net/ProxySelector;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"sslContext", "(Ljavax/net/ssl/SSLContext;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"sslParameters", "(Ljavax/net/ssl/SSLParameters;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT},
-	{"version", "(Ljava/net/http/HttpClient$Version;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT},
+	{"authenticator", "(Ljava/net/Authenticator;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, authenticator, HttpClient$Builder*, $Authenticator*)},
+	{"build", "()Ljava/net/http/HttpClient;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, build, $HttpClient*)},
+	{"connectTimeout", "(Ljava/time/Duration;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, connectTimeout, HttpClient$Builder*, $Duration*)},
+	{"cookieHandler", "(Ljava/net/CookieHandler;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, cookieHandler, HttpClient$Builder*, $CookieHandler*)},
+	{"executor", "(Ljava/util/concurrent/Executor;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, executor, HttpClient$Builder*, $Executor*)},
+	{"followRedirects", "(Ljava/net/http/HttpClient$Redirect;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, followRedirects, HttpClient$Builder*, $HttpClient$Redirect*)},
+	{"priority", "(I)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, priority, HttpClient$Builder*, int32_t)},
+	{"proxy", "(Ljava/net/ProxySelector;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, proxy, HttpClient$Builder*, $ProxySelector*)},
+	{"sslContext", "(Ljavax/net/ssl/SSLContext;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, sslContext, HttpClient$Builder*, $SSLContext*)},
+	{"sslParameters", "(Ljavax/net/ssl/SSLParameters;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, sslParameters, HttpClient$Builder*, $SSLParameters*)},
+	{"version", "(Ljava/net/http/HttpClient$Version;)Ljava/net/http/HttpClient$Builder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpClient$Builder, version, HttpClient$Builder*, $HttpClient$Version*)},
 	{}
 };
 

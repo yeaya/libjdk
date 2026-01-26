@@ -14,7 +14,7 @@ namespace jdk {
 				namespace websocket {
 
 $MethodInfo _TestSupport$ThrowingProcedure_MethodInfo_[] = {
-	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"run", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestSupport$ThrowingProcedure, run, void), "java.lang.Throwable"},
 	{}
 };
 

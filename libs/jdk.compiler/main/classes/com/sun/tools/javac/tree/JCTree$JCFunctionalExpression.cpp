@@ -30,8 +30,8 @@ $FieldInfo _JCTree$JCFunctionalExpression_FieldInfo_[] = {
 };
 
 $MethodInfo _JCTree$JCFunctionalExpression_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCTree$JCFunctionalExpression::*)()>(&JCTree$JCFunctionalExpression::init$))},
-	{"getDescriptorType", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCFunctionalExpression, init$, void)},
+	{"getDescriptorType", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCFunctionalExpression, getDescriptorType, $Type*, $Types*)},
 	{}
 };
 

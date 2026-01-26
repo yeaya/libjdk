@@ -24,9 +24,9 @@ $FieldInfo _Main$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, 0, $method(static_cast<void(Main$1::*)($Main*)>(&Main$1::init$))},
-	{"add", "(Ljava/util/zip/ZipEntry;)Z", nullptr, $PUBLIC},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, 0, $method(Main$1, init$, void, $Main*)},
+	{"add", "(Ljava/util/zip/ZipEntry;)Z", nullptr, $PUBLIC, $virtualMethod(Main$1, add, bool, $ZipEntry*)},
+	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Main$1, add, bool, Object$*)},
 	{}
 };
 

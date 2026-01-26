@@ -31,10 +31,10 @@ $FieldInfo _JavacFiler$FilerInputFileObject_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacFiler$FilerInputFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Ljavax/tools/FileObject;)V", nullptr, 0, $method(static_cast<void(JavacFiler$FilerInputFileObject::*)($JavacFiler*,$FileObject*)>(&JavacFiler$FilerInputFileObject::init$))},
-	{"delete", "()Z", nullptr, $PUBLIC},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Ljavax/tools/FileObject;)V", nullptr, 0, $method(JavacFiler$FilerInputFileObject, init$, void, $JavacFiler*, $FileObject*)},
+	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerInputFileObject, delete$, bool)},
+	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerInputFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerInputFileObject, openWriter, $Writer*), "java.io.IOException"},
 	{}
 };
 

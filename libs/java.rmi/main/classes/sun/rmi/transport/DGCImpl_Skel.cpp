@@ -51,9 +51,9 @@ $FieldInfo _DGCImpl_Skel_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCImpl_Skel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCImpl_Skel::*)()>(&DGCImpl_Skel::init$))},
-	{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;IJ)V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"getOperations", "()[Ljava/rmi/server/Operation;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl_Skel, init$, void)},
+	{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;IJ)V", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Skel, dispatch, void, $Remote*, $RemoteCall*, int32_t, int64_t), "java.lang.Exception"},
+	{"getOperations", "()[Ljava/rmi/server/Operation;", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Skel, getOperations, $OperationArray*)},
 	{}
 };
 

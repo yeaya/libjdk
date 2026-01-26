@@ -100,8 +100,8 @@ $FieldInfo Stream$PushedStream$$Lambda$lambda$sendBodyAsync$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$PushedStream$$Lambda$lambda$sendBodyAsync$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$PushedStream$$Lambda$lambda$sendBodyAsync$0::*)(Stream$PushedStream*)>(&Stream$PushedStream$$Lambda$lambda$sendBodyAsync$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;)V", nullptr, $PUBLIC, $method(Stream$PushedStream$$Lambda$lambda$sendBodyAsync$0, init$, void, Stream$PushedStream*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Stream$PushedStream$$Lambda$lambda$sendBodyAsync$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Stream$PushedStream$$Lambda$lambda$sendBodyAsync$0::classInfo$ = {
@@ -140,8 +140,8 @@ $FieldInfo Stream$PushedStream$$Lambda$lambda$getResponseAsync$2$1::fieldInfos[2
 	{}
 };
 $MethodInfo Stream$PushedStream$$Lambda$lambda$getResponseAsync$2$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$PushedStream$$Lambda$lambda$getResponseAsync$2$1::*)(Stream$PushedStream*)>(&Stream$PushedStream$$Lambda$lambda$getResponseAsync$2$1::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;)V", nullptr, $PUBLIC, $method(Stream$PushedStream$$Lambda$lambda$getResponseAsync$2$1, init$, void, Stream$PushedStream*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Stream$PushedStream$$Lambda$lambda$getResponseAsync$2$1, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Stream$PushedStream$$Lambda$lambda$getResponseAsync$2$1::classInfo$ = {
@@ -173,8 +173,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Stream$PushedStream$$Lambda$lambda$getResponseAsync$3$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Stream$PushedStream$$Lambda$lambda$getResponseAsync$3$2::*)()>(&Stream$PushedStream$$Lambda$lambda$getResponseAsync$3$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Stream$PushedStream$$Lambda$lambda$getResponseAsync$3$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$PushedStream$$Lambda$lambda$getResponseAsync$3$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Stream$PushedStream$$Lambda$lambda$getResponseAsync$3$2::classInfo$ = {
@@ -213,8 +213,8 @@ $FieldInfo Stream$PushedStream$$Lambda$lambda$readBodyAsync$4$3::fieldInfos[2] =
 	{}
 };
 $MethodInfo Stream$PushedStream$$Lambda$lambda$readBodyAsync$4$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$PushedStream$$Lambda$lambda$readBodyAsync$4$3::*)(Stream$PushedStream*)>(&Stream$PushedStream$$Lambda$lambda$readBodyAsync$4$3::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;)V", nullptr, $PUBLIC, $method(Stream$PushedStream$$Lambda$lambda$readBodyAsync$4$3, init$, void, Stream$PushedStream*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Stream$PushedStream$$Lambda$lambda$readBodyAsync$4$3, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Stream$PushedStream$$Lambda$lambda$readBodyAsync$4$3::classInfo$ = {
@@ -253,8 +253,8 @@ $FieldInfo Stream$PushedStream$$Lambda$toString$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Stream$PushedStream$$Lambda$toString$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Response;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$PushedStream$$Lambda$toString$4::*)($Response*)>(&Stream$PushedStream$$Lambda$toString$4::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Response;)V", nullptr, $PUBLIC, $method(Stream$PushedStream$$Lambda$toString$4, init$, void, $Response*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$PushedStream$$Lambda$toString$4, get, $Object*)},
 	{}
 };
 $ClassInfo Stream$PushedStream$$Lambda$toString$4::classInfo$ = {
@@ -293,8 +293,8 @@ $FieldInfo Stream$PushedStream$$Lambda$lambda$completeResponse$5$5::fieldInfos[2
 	{}
 };
 $MethodInfo Stream$PushedStream$$Lambda$lambda$completeResponse$5$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$PushedStream$$Lambda$lambda$completeResponse$5$5::*)(Stream$PushedStream*)>(&Stream$PushedStream$$Lambda$lambda$completeResponse$5$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;)V", nullptr, $PUBLIC, $method(Stream$PushedStream$$Lambda$lambda$completeResponse$5$5, init$, void, Stream$PushedStream*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$PushedStream$$Lambda$lambda$completeResponse$5$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Stream$PushedStream$$Lambda$lambda$completeResponse$5$5::classInfo$ = {
@@ -336,8 +336,8 @@ $FieldInfo Stream$PushedStream$$Lambda$lambda$completeResponse$6$6::fieldInfos[3
 	{}
 };
 $MethodInfo Stream$PushedStream$$Lambda$lambda$completeResponse$6$6::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;Ljdk/internal/net/http/Response;)V", nullptr, $PUBLIC, $method(static_cast<void(Stream$PushedStream$$Lambda$lambda$completeResponse$6$6::*)(Stream$PushedStream*,$Response*)>(&Stream$PushedStream$$Lambda$lambda$completeResponse$6$6::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Stream$PushedStream;Ljdk/internal/net/http/Response;)V", nullptr, $PUBLIC, $method(Stream$PushedStream$$Lambda$lambda$completeResponse$6$6, init$, void, Stream$PushedStream*, $Response*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Stream$PushedStream$$Lambda$lambda$completeResponse$6$6, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Stream$PushedStream$$Lambda$lambda$completeResponse$6$6::classInfo$ = {
@@ -369,8 +369,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Stream$PushedStream$$Lambda$lambda$completeResponse$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Stream$PushedStream$$Lambda$lambda$completeResponse$7$7::*)()>(&Stream$PushedStream$$Lambda$lambda$completeResponse$7$7::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Stream$PushedStream$$Lambda$lambda$completeResponse$7$7, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$PushedStream$$Lambda$lambda$completeResponse$7$7, get, $Object*)},
 	{}
 };
 $ClassInfo Stream$PushedStream$$Lambda$lambda$completeResponse$7$7::classInfo$ = {
@@ -397,24 +397,24 @@ $FieldInfo _Stream$PushedStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Stream$PushedStream_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/PushGroup;Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/Exchange;)V", "(Ljdk/internal/net/http/PushGroup<TT;>;Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/Exchange<TT;>;)V", 0, $method(static_cast<void(Stream$PushedStream::*)($PushGroup*,$Http2Connection*,$Exchange*)>(&Stream$PushedStream::init$))},
-	{"completeResponse", "(Ljdk/internal/net/http/Response;)V", nullptr, 0},
-	{"completeResponseExceptionally", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"getPushHandler", "()Ljava/net/http/HttpResponse$BodyHandler;", "()Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $SYNCHRONIZED},
-	{"getResponseAsync", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", 0},
-	{"handleResponse", "()V", nullptr, $PROTECTED},
-	{"lambda$completeResponse$5", "(Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletionStage*(Stream$PushedStream::*)($Void*)>(&Stream$PushedStream::lambda$completeResponse$5))},
-	{"lambda$completeResponse$6", "(Ljdk/internal/net/http/Response;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Stream$PushedStream::*)($Response*,Object$*,$Throwable*)>(&Stream$PushedStream::lambda$completeResponse$6))},
-	{"lambda$completeResponse$7", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)()>(&Stream$PushedStream::lambda$completeResponse$7))},
-	{"lambda$getResponseAsync$2", "(Ljdk/internal/net/http/Response;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Stream$PushedStream::*)($Response*,$Throwable*)>(&Stream$PushedStream::lambda$getResponseAsync$2))},
-	{"lambda$getResponseAsync$3", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/Response;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Response*(*)($Response*)>(&Stream$PushedStream::lambda$getResponseAsync$3))},
-	{"lambda$readBodyAsync$4", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Stream$PushedStream::*)(Object$*,$Throwable*)>(&Stream$PushedStream::lambda$readBodyAsync$4))},
-	{"lambda$sendBodyAsync$0", "(Ljdk/internal/net/http/ExchangeImpl;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Stream$PushedStream::*)($ExchangeImpl*,$Throwable*)>(&Stream$PushedStream::lambda$sendBodyAsync$0))},
-	{"readBodyAsync", "(Ljava/net/http/HttpResponse$BodyHandler;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", 0},
-	{"responseCF", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", 0},
-	{"sendBodyAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", 0},
-	{"sendHeadersAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", 0},
-	{"setPushHandler", "(Ljava/net/http/HttpResponse$BodyHandler;)V", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;)V", $SYNCHRONIZED},
+	{"<init>", "(Ljdk/internal/net/http/PushGroup;Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/Exchange;)V", "(Ljdk/internal/net/http/PushGroup<TT;>;Ljdk/internal/net/http/Http2Connection;Ljdk/internal/net/http/Exchange<TT;>;)V", 0, $method(Stream$PushedStream, init$, void, $PushGroup*, $Http2Connection*, $Exchange*)},
+	{"completeResponse", "(Ljdk/internal/net/http/Response;)V", nullptr, 0, $virtualMethod(Stream$PushedStream, completeResponse, void, $Response*)},
+	{"completeResponseExceptionally", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Stream$PushedStream, completeResponseExceptionally, void, $Throwable*)},
+	{"getPushHandler", "()Ljava/net/http/HttpResponse$BodyHandler;", "()Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $SYNCHRONIZED, $virtualMethod(Stream$PushedStream, getPushHandler, $HttpResponse$BodyHandler*)},
+	{"getResponseAsync", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", 0, $virtualMethod(Stream$PushedStream, getResponseAsync, $CompletableFuture*, $Executor*)},
+	{"handleResponse", "()V", nullptr, $PROTECTED, $virtualMethod(Stream$PushedStream, handleResponse, void)},
+	{"lambda$completeResponse$5", "(Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(Stream$PushedStream, lambda$completeResponse$5, $CompletionStage*, $Void*)},
+	{"lambda$completeResponse$6", "(Ljdk/internal/net/http/Response;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Stream$PushedStream, lambda$completeResponse$6, void, $Response*, Object$*, $Throwable*)},
+	{"lambda$completeResponse$7", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream$PushedStream, lambda$completeResponse$7, $Void*)},
+	{"lambda$getResponseAsync$2", "(Ljdk/internal/net/http/Response;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Stream$PushedStream, lambda$getResponseAsync$2, void, $Response*, $Throwable*)},
+	{"lambda$getResponseAsync$3", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/Response;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream$PushedStream, lambda$getResponseAsync$3, $Response*, $Response*)},
+	{"lambda$readBodyAsync$4", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Stream$PushedStream, lambda$readBodyAsync$4, void, Object$*, $Throwable*)},
+	{"lambda$sendBodyAsync$0", "(Ljdk/internal/net/http/ExchangeImpl;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Stream$PushedStream, lambda$sendBodyAsync$0, void, $ExchangeImpl*, $Throwable*)},
+	{"readBodyAsync", "(Ljava/net/http/HttpResponse$BodyHandler;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", 0, $virtualMethod(Stream$PushedStream, readBodyAsync, $CompletableFuture*, $HttpResponse$BodyHandler*, bool, $Executor*)},
+	{"responseCF", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", 0, $virtualMethod(Stream$PushedStream, responseCF, $CompletableFuture*)},
+	{"sendBodyAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", 0, $virtualMethod(Stream$PushedStream, sendBodyAsync, $CompletableFuture*)},
+	{"sendHeadersAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", 0, $virtualMethod(Stream$PushedStream, sendHeadersAsync, $CompletableFuture*)},
+	{"setPushHandler", "(Ljava/net/http/HttpResponse$BodyHandler;)V", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;)V", $SYNCHRONIZED, $virtualMethod(Stream$PushedStream, setPushHandler, void, $HttpResponse$BodyHandler*)},
 	{}
 };
 

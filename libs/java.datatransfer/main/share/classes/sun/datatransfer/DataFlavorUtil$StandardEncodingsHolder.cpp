@@ -30,8 +30,8 @@ $FieldInfo _DataFlavorUtil$StandardEncodingsHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _DataFlavorUtil$StandardEncodingsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DataFlavorUtil$StandardEncodingsHolder::*)()>(&DataFlavorUtil$StandardEncodingsHolder::init$))},
-	{"load", "()Ljava/util/SortedSet;", "()Ljava/util/SortedSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$SortedSet*(*)()>(&DataFlavorUtil$StandardEncodingsHolder::load))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DataFlavorUtil$StandardEncodingsHolder, init$, void)},
+	{"load", "()Ljava/util/SortedSet;", "()Ljava/util/SortedSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(DataFlavorUtil$StandardEncodingsHolder, load, $SortedSet*)},
 	{}
 };
 

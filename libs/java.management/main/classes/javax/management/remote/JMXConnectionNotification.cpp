@@ -32,9 +32,9 @@ $FieldInfo _JMXConnectionNotification_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXConnectionNotification_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;JLjava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(JMXConnectionNotification::*)($String*,Object$*,$String*,int64_t,$String*,Object$*)>(&JMXConnectionNotification::init$))},
-	{"getConnectionId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"nonNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&JMXConnectionNotification::nonNull))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;JLjava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JMXConnectionNotification, init$, void, $String*, Object$*, $String*, int64_t, $String*, Object$*)},
+	{"getConnectionId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXConnectionNotification, getConnectionId, $String*)},
+	{"nonNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXConnectionNotification, nonNull, $Object*, Object$*)},
 	{}
 };
 

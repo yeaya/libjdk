@@ -97,8 +97,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Dependencies$GraphDependencies$$Lambda$GraphDependencies::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Dependencies$GraphDependencies$$Lambda$GraphDependencies::*)()>(&Dependencies$GraphDependencies$$Lambda$GraphDependencies::init$))},
-	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Dependencies$GraphDependencies$$Lambda$GraphDependencies, init$, void)},
+	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$$Lambda$GraphDependencies, make, $Object*, $Context*)},
 	{}
 };
 $ClassInfo Dependencies$GraphDependencies$$Lambda$GraphDependencies::classInfo$ = {
@@ -128,15 +128,15 @@ $MethodInfo _Dependencies$GraphDependencies_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(static_cast<void(Dependencies$GraphDependencies::*)($Context*)>(&Dependencies$GraphDependencies::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"getNodes", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;>;", $PUBLIC},
-	{"isTerminal", "()Z", nullptr, $PUBLIC},
-	{"pop", "()V", nullptr, $PUBLIC},
-	{"preRegister", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Context*)>(&Dependencies$GraphDependencies::preRegister))},
-	{"push", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;)V", nullptr, $PUBLIC},
-	{"push", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;)Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(Dependencies$GraphDependencies, init$, void, $Context*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies, close, void), "java.io.IOException"},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"getNodes", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;>;", $PUBLIC, $virtualMethod(Dependencies$GraphDependencies, getNodes, $Collection*)},
+	{"isTerminal", "()Z", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies, isTerminal, bool)},
+	{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies, pop, void)},
+	{"preRegister", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$GraphDependencies, preRegister, void, $Context*)},
+	{"push", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies, push, void, $Symbol$ClassSymbol*, $Dependencies$CompletionCause*)},
+	{"push", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;)Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;", nullptr, $PROTECTED, $virtualMethod(Dependencies$GraphDependencies, push, $Dependencies$GraphDependencies$Node*, $Dependencies$GraphDependencies$Node*, $Dependencies$CompletionCause*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

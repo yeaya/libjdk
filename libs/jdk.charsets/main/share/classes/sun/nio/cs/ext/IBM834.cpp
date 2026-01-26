@@ -32,10 +32,10 @@ namespace sun {
 			namespace ext {
 
 $MethodInfo _IBM834_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IBM834::*)()>(&IBM834::init$))},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IBM834, init$, void)},
+	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(IBM834, contains, bool, $Charset*)},
+	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(IBM834, newDecoder, $CharsetDecoder*)},
+	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(IBM834, newEncoder, $CharsetEncoder*)},
 	{}
 };
 

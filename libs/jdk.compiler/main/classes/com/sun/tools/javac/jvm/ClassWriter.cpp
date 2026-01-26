@@ -261,8 +261,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassWriter$$Lambda$lambda$writeModuleAttribute$0::*)()>(&ClassWriter$$Lambda$lambda$writeModuleAttribute$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassWriter$$Lambda$lambda$writeModuleAttribute$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassWriter$$Lambda$lambda$writeModuleAttribute$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$0::classInfo$ = {
@@ -301,8 +301,8 @@ $FieldInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::fieldInfos[2] = 
 	{}
 };
 $MethodInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::*)(ClassWriter*)>(&ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, $PUBLIC, $method(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, init$, void, ClassWriter*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::classInfo$ = {
@@ -341,8 +341,8 @@ $FieldInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::fieldInfos[2] = 
 	{}
 };
 $MethodInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::*)(ClassWriter*)>(&ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, $PUBLIC, $method(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, init$, void, ClassWriter*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::classInfo$ = {
@@ -396,54 +396,54 @@ $FieldInfo _ClassWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassWriter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(ClassWriter::*)($Context*)>(&ClassWriter::init$))},
-	{"addExtraAttributes", "(Ljava/util/function/ToIntFunction;)V", "(Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/code/Symbol;>;)V", $PUBLIC},
-	{"adjustFlags", "(J)I", nullptr, 0},
-	{"beginAttrs", "()I", nullptr, 0},
-	{"endAttr", "(I)V", nullptr, $PUBLIC},
-	{"endAttrs", "(II)V", nullptr, 0},
-	{"flagNames", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int64_t)>(&ClassWriter::flagNames))},
-	{"getLastModified", "(Ljavax/tools/FileObject;)J", nullptr, 0},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/ClassWriter;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClassWriter*(*)($Context*)>(&ClassWriter::instance))},
-	{"lambda$writeModuleAttribute$0", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Set*(*)($Symbol$ClassSymbol*)>(&ClassWriter::lambda$writeModuleAttribute$0))},
-	{"lambda$writeModuleAttribute$1", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ClassWriter::*)($Symbol$ClassSymbol*)>(&ClassWriter::lambda$writeModuleAttribute$1))},
-	{"lambda$writeModuleAttribute$2", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Set;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ClassWriter::*)($Symbol$ClassSymbol*,$Set*)>(&ClassWriter::lambda$writeModuleAttribute$2))},
-	{"listNested", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)V", $PRIVATE, $method(static_cast<void(ClassWriter::*)($Symbol*,$ListBuffer*)>(&ClassWriter::listNested))},
-	{"needsLocalVariableTypeEntry", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ClassWriter::*)($Type*)>(&ClassWriter::needsLocalVariableTypeEntry))},
-	{"putChar", "(Lcom/sun/tools/javac/util/ByteBuffer;II)V", nullptr, 0},
-	{"putInt", "(Lcom/sun/tools/javac/util/ByteBuffer;II)V", nullptr, 0},
-	{"writeAttr", "(Lcom/sun/tools/javac/util/Name;)I", nullptr, $PUBLIC},
-	{"writeBootstrapMethods", "()V", nullptr, 0},
-	{"writeClass", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, nullptr, "java.io.IOException,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow,com.sun.tools.javac.jvm.ClassWriter$StringOverflow"},
-	{"writeClassFile", "(Ljava/io/OutputStream;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow,com.sun.tools.javac.jvm.ClassWriter$StringOverflow"},
-	{"writeCode", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0},
-	{"writeCompoundAttribute", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, 0},
-	{"writeEnclosingMethodAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0},
-	{"writeEnclosingMethodAttribute", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, $PROTECTED},
-	{"writeExtraAttributes", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, $PROTECTED},
-	{"writeExtraClassAttributes", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, $PROTECTED},
-	{"writeField", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, 0},
-	{"writeFields", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0},
-	{"writeFlagAttrs", "(J)I", nullptr, 0},
-	{"writeInnerClasses", "()V", nullptr, 0},
-	{"writeJavaAnnotations", "(Lcom/sun/tools/javac/util/List;)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)I", 0},
-	{"writeMemberAttrs", "(Lcom/sun/tools/javac/code/Symbol;Z)I", nullptr, 0},
-	{"writeMethod", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0},
-	{"writeMethodParametersAttr", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)I", nullptr, 0},
-	{"writeMethods", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0},
-	{"writeModuleAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0},
-	{"writeNestHostIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0},
-	{"writeNestMembersIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0},
-	{"writeParamAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$VarSymbol;>;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", $PRIVATE, $method(static_cast<void(ClassWriter::*)($List*,$Attribute$RetentionPolicy*)>(&ClassWriter::writeParamAnnotations))},
-	{"writeParamAnnotations", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassWriter::*)($Symbol$MethodSymbol*,$Attribute$RetentionPolicy*)>(&ClassWriter::writeParamAnnotations))},
-	{"writeParameterAttrs", "(Lcom/sun/tools/javac/util/List;)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$VarSymbol;>;)I", 0},
-	{"writePermittedSubclassesIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0},
-	{"writePosition", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, 0},
-	{"writeRecordAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0},
-	{"writeStackMap", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0},
-	{"writeStackMapType", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"writeTypeAnnotation", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)V", nullptr, 0},
-	{"writeTypeAnnotations", "(Lcom/sun/tools/javac/util/List;Z)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;Z)I", 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ClassWriter, init$, void, $Context*)},
+	{"addExtraAttributes", "(Ljava/util/function/ToIntFunction;)V", "(Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/code/Symbol;>;)V", $PUBLIC, $virtualMethod(ClassWriter, addExtraAttributes, void, $ToIntFunction*)},
+	{"adjustFlags", "(J)I", nullptr, 0, $virtualMethod(ClassWriter, adjustFlags, int32_t, int64_t)},
+	{"beginAttrs", "()I", nullptr, 0, $virtualMethod(ClassWriter, beginAttrs, int32_t)},
+	{"endAttr", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter, endAttr, void, int32_t)},
+	{"endAttrs", "(II)V", nullptr, 0, $virtualMethod(ClassWriter, endAttrs, void, int32_t, int32_t)},
+	{"flagNames", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassWriter, flagNames, $String*, int64_t)},
+	{"getLastModified", "(Ljavax/tools/FileObject;)J", nullptr, 0, $virtualMethod(ClassWriter, getLastModified, int64_t, $FileObject*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/ClassWriter;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassWriter, instance, ClassWriter*, $Context*)},
+	{"lambda$writeModuleAttribute$0", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassWriter, lambda$writeModuleAttribute$0, $Set*, $Symbol$ClassSymbol*)},
+	{"lambda$writeModuleAttribute$1", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassWriter, lambda$writeModuleAttribute$1, void, $Symbol$ClassSymbol*)},
+	{"lambda$writeModuleAttribute$2", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Set;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassWriter, lambda$writeModuleAttribute$2, void, $Symbol$ClassSymbol*, $Set*)},
+	{"listNested", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)V", $PRIVATE, $method(ClassWriter, listNested, void, $Symbol*, $ListBuffer*)},
+	{"needsLocalVariableTypeEntry", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(ClassWriter, needsLocalVariableTypeEntry, bool, $Type*)},
+	{"putChar", "(Lcom/sun/tools/javac/util/ByteBuffer;II)V", nullptr, 0, $virtualMethod(ClassWriter, putChar, void, $ByteBuffer*, int32_t, int32_t)},
+	{"putInt", "(Lcom/sun/tools/javac/util/ByteBuffer;II)V", nullptr, 0, $virtualMethod(ClassWriter, putInt, void, $ByteBuffer*, int32_t, int32_t)},
+	{"writeAttr", "(Lcom/sun/tools/javac/util/Name;)I", nullptr, $PUBLIC, $virtualMethod(ClassWriter, writeAttr, int32_t, $Name*)},
+	{"writeBootstrapMethods", "()V", nullptr, 0, $virtualMethod(ClassWriter, writeBootstrapMethods, void)},
+	{"writeClass", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(ClassWriter, writeClass, $JavaFileObject*, $Symbol$ClassSymbol*), "java.io.IOException,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow,com.sun.tools.javac.jvm.ClassWriter$StringOverflow"},
+	{"writeClassFile", "(Ljava/io/OutputStream;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter, writeClassFile, void, $OutputStream*, $Symbol$ClassSymbol*), "java.io.IOException,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow,com.sun.tools.javac.jvm.ClassWriter$StringOverflow"},
+	{"writeCode", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0, $virtualMethod(ClassWriter, writeCode, void, $Code*)},
+	{"writeCompoundAttribute", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, 0, $virtualMethod(ClassWriter, writeCompoundAttribute, void, $Attribute$Compound*)},
+	{"writeEnclosingMethodAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeEnclosingMethodAttribute, int32_t, $Symbol$ClassSymbol*)},
+	{"writeEnclosingMethodAttribute", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, $PROTECTED, $virtualMethod(ClassWriter, writeEnclosingMethodAttribute, int32_t, $Name*, $Symbol$ClassSymbol*)},
+	{"writeExtraAttributes", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, $PROTECTED, $virtualMethod(ClassWriter, writeExtraAttributes, int32_t, $Symbol*)},
+	{"writeExtraClassAttributes", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, $PROTECTED, $virtualMethod(ClassWriter, writeExtraClassAttributes, int32_t, $Symbol$ClassSymbol*)},
+	{"writeField", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, 0, $virtualMethod(ClassWriter, writeField, void, $Symbol$VarSymbol*)},
+	{"writeFields", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(ClassWriter, writeFields, void, $Scope*)},
+	{"writeFlagAttrs", "(J)I", nullptr, 0, $virtualMethod(ClassWriter, writeFlagAttrs, int32_t, int64_t)},
+	{"writeInnerClasses", "()V", nullptr, 0, $virtualMethod(ClassWriter, writeInnerClasses, void)},
+	{"writeJavaAnnotations", "(Lcom/sun/tools/javac/util/List;)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)I", 0, $virtualMethod(ClassWriter, writeJavaAnnotations, int32_t, $List*)},
+	{"writeMemberAttrs", "(Lcom/sun/tools/javac/code/Symbol;Z)I", nullptr, 0, $virtualMethod(ClassWriter, writeMemberAttrs, int32_t, $Symbol*, bool)},
+	{"writeMethod", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(ClassWriter, writeMethod, void, $Symbol$MethodSymbol*)},
+	{"writeMethodParametersAttr", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeMethodParametersAttr, int32_t, $Symbol$MethodSymbol*)},
+	{"writeMethods", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(ClassWriter, writeMethods, void, $Scope*)},
+	{"writeModuleAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeModuleAttribute, int32_t, $Symbol$ClassSymbol*)},
+	{"writeNestHostIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeNestHostIfNeeded, int32_t, $Symbol$ClassSymbol*)},
+	{"writeNestMembersIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeNestMembersIfNeeded, int32_t, $Symbol$ClassSymbol*)},
+	{"writeParamAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$VarSymbol;>;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", $PRIVATE, $method(ClassWriter, writeParamAnnotations, void, $List*, $Attribute$RetentionPolicy*)},
+	{"writeParamAnnotations", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", nullptr, $PRIVATE, $method(ClassWriter, writeParamAnnotations, void, $Symbol$MethodSymbol*, $Attribute$RetentionPolicy*)},
+	{"writeParameterAttrs", "(Lcom/sun/tools/javac/util/List;)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$VarSymbol;>;)I", 0, $virtualMethod(ClassWriter, writeParameterAttrs, int32_t, $List*)},
+	{"writePermittedSubclassesIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writePermittedSubclassesIfNeeded, int32_t, $Symbol$ClassSymbol*)},
+	{"writePosition", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, 0, $virtualMethod(ClassWriter, writePosition, void, $TypeAnnotationPosition*)},
+	{"writeRecordAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeRecordAttribute, int32_t, $Symbol$ClassSymbol*)},
+	{"writeStackMap", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0, $virtualMethod(ClassWriter, writeStackMap, void, $Code*)},
+	{"writeStackMapType", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(ClassWriter, writeStackMapType, void, $Type*)},
+	{"writeTypeAnnotation", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)V", nullptr, 0, $virtualMethod(ClassWriter, writeTypeAnnotation, void, $Attribute$TypeCompound*)},
+	{"writeTypeAnnotations", "(Lcom/sun/tools/javac/util/List;Z)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;Z)I", 0, $virtualMethod(ClassWriter, writeTypeAnnotations, int32_t, $List*, bool)},
 	{}
 };
 

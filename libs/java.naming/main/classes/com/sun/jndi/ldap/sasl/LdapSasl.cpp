@@ -87,9 +87,9 @@ $FieldInfo _LdapSasl_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapSasl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LdapSasl::*)()>(&LdapSasl::init$))},
-	{"getSaslMechanismNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&LdapSasl::getSaslMechanismNames))},
-	{"saslBind", "(Lcom/sun/jndi/ldap/LdapClient;Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;)Lcom/sun/jndi/ldap/LdapResult;", "(Lcom/sun/jndi/ldap/LdapClient;Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;)Lcom/sun/jndi/ldap/LdapResult;", $PUBLIC | $STATIC, $method(static_cast<$LdapResult*(*)($LdapClient*,$Connection*,$String*,$String*,Object$*,$String*,$Hashtable*,$ControlArray*)>(&LdapSasl::saslBind)), "java.io.IOException,javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LdapSasl, init$, void)},
+	{"getSaslMechanismNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapSasl, getSaslMechanismNames, $StringArray*, $String*)},
+	{"saslBind", "(Lcom/sun/jndi/ldap/LdapClient;Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;)Lcom/sun/jndi/ldap/LdapResult;", "(Lcom/sun/jndi/ldap/LdapClient;Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;)Lcom/sun/jndi/ldap/LdapResult;", $PUBLIC | $STATIC, $staticMethod(LdapSasl, saslBind, $LdapResult*, $LdapClient*, $Connection*, $String*, $String*, Object$*, $String*, $Hashtable*, $ControlArray*), "java.io.IOException,javax.naming.NamingException"},
 	{}
 };
 

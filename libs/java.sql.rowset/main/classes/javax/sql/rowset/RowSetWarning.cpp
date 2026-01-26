@@ -20,12 +20,12 @@ $FieldInfo _RowSetWarning_FieldInfo_[] = {
 };
 
 $MethodInfo _RowSetWarning_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RowSetWarning::*)($String*)>(&RowSetWarning::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RowSetWarning::*)()>(&RowSetWarning::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RowSetWarning::*)($String*,$String*)>(&RowSetWarning::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(RowSetWarning::*)($String*,$String*,int32_t)>(&RowSetWarning::init$))},
-	{"getNextWarning", "()Ljavax/sql/rowset/RowSetWarning;", nullptr, $PUBLIC},
-	{"setNextWarning", "(Ljavax/sql/rowset/RowSetWarning;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RowSetWarning, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RowSetWarning, init$, void)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RowSetWarning, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(RowSetWarning, init$, void, $String*, $String*, int32_t)},
+	{"getNextWarning", "()Ljavax/sql/rowset/RowSetWarning;", nullptr, $PUBLIC, $virtualMethod(RowSetWarning, getNextWarning, RowSetWarning*)},
+	{"setNextWarning", "(Ljavax/sql/rowset/RowSetWarning;)V", nullptr, $PUBLIC, $virtualMethod(RowSetWarning, setNextWarning, void, RowSetWarning*)},
 	{}
 };
 

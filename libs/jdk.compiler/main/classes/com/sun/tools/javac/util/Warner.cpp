@@ -28,15 +28,15 @@ $FieldInfo _Warner_FieldInfo_[] = {
 };
 
 $MethodInfo _Warner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(static_cast<void(Warner::*)($JCDiagnostic$DiagnosticPosition*)>(&Warner::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Warner::*)()>(&Warner::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"hasLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC},
-	{"hasNonSilentLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC},
-	{"hasSilentLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC},
-	{"pos", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC},
-	{"silentWarn", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC},
-	{"warn", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Warner, init$, void, $JCDiagnostic$DiagnosticPosition*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Warner, init$, void)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Warner, clear, void)},
+	{"hasLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Warner, hasLint, bool, $Lint$LintCategory*)},
+	{"hasNonSilentLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Warner, hasNonSilentLint, bool, $Lint$LintCategory*)},
+	{"hasSilentLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Warner, hasSilentLint, bool, $Lint$LintCategory*)},
+	{"pos", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(Warner, pos, $JCDiagnostic$DiagnosticPosition*)},
+	{"silentWarn", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $virtualMethod(Warner, silentWarn, void, $Lint$LintCategory*)},
+	{"warn", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $virtualMethod(Warner, warn, void, $Lint$LintCategory*)},
 	{}
 };
 

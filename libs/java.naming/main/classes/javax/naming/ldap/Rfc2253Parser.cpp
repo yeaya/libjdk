@@ -30,19 +30,19 @@ $FieldInfo _Rfc2253Parser_FieldInfo_[] = {
 };
 
 $MethodInfo _Rfc2253Parser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Rfc2253Parser::*)($String*)>(&Rfc2253Parser::init$))},
-	{"atTerminator", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Rfc2253Parser::*)()>(&Rfc2253Parser::atTerminator))},
-	{"consumeWhitespace", "()V", nullptr, $PRIVATE, $method(static_cast<void(Rfc2253Parser::*)()>(&Rfc2253Parser::consumeWhitespace))},
-	{"doParse", "(Ljavax/naming/ldap/Rdn;)Ljavax/naming/ldap/Rdn;", nullptr, $PRIVATE, $method(static_cast<$Rdn*(Rfc2253Parser::*)($Rdn*)>(&Rfc2253Parser::doParse)), "javax.naming.InvalidNameException"},
-	{"isWhitespace", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&Rfc2253Parser::isWhitespace))},
-	{"parseAttrType", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Rfc2253Parser::*)()>(&Rfc2253Parser::parseAttrType)), "javax.naming.InvalidNameException"},
-	{"parseAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Rfc2253Parser::*)()>(&Rfc2253Parser::parseAttrValue)), "javax.naming.InvalidNameException"},
-	{"parseBinaryAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Rfc2253Parser::*)()>(&Rfc2253Parser::parseBinaryAttrValue)), "javax.naming.InvalidNameException"},
-	{"parseDn", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/naming/ldap/Rdn;>;", 0, $method(static_cast<$List*(Rfc2253Parser::*)()>(&Rfc2253Parser::parseDn)), "javax.naming.InvalidNameException"},
-	{"parseQuotedAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Rfc2253Parser::*)()>(&Rfc2253Parser::parseQuotedAttrValue)), "javax.naming.InvalidNameException"},
-	{"parseRdn", "()Ljavax/naming/ldap/Rdn;", nullptr, 0, $method(static_cast<$Rdn*(Rfc2253Parser::*)()>(&Rfc2253Parser::parseRdn)), "javax.naming.InvalidNameException"},
-	{"parseRdn", "(Ljavax/naming/ldap/Rdn;)Ljavax/naming/ldap/Rdn;", nullptr, 0, $method(static_cast<$Rdn*(Rfc2253Parser::*)($Rdn*)>(&Rfc2253Parser::parseRdn)), "javax.naming.InvalidNameException"},
-	{"parseStringAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Rfc2253Parser::*)()>(&Rfc2253Parser::parseStringAttrValue)), "javax.naming.InvalidNameException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Rfc2253Parser, init$, void, $String*)},
+	{"atTerminator", "()Z", nullptr, $PRIVATE, $method(Rfc2253Parser, atTerminator, bool)},
+	{"consumeWhitespace", "()V", nullptr, $PRIVATE, $method(Rfc2253Parser, consumeWhitespace, void)},
+	{"doParse", "(Ljavax/naming/ldap/Rdn;)Ljavax/naming/ldap/Rdn;", nullptr, $PRIVATE, $method(Rfc2253Parser, doParse, $Rdn*, $Rdn*), "javax.naming.InvalidNameException"},
+	{"isWhitespace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Rfc2253Parser, isWhitespace, bool, char16_t)},
+	{"parseAttrType", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseAttrType, $String*), "javax.naming.InvalidNameException"},
+	{"parseAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseAttrValue, $String*), "javax.naming.InvalidNameException"},
+	{"parseBinaryAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseBinaryAttrValue, $String*), "javax.naming.InvalidNameException"},
+	{"parseDn", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/naming/ldap/Rdn;>;", 0, $method(Rfc2253Parser, parseDn, $List*), "javax.naming.InvalidNameException"},
+	{"parseQuotedAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseQuotedAttrValue, $String*), "javax.naming.InvalidNameException"},
+	{"parseRdn", "()Ljavax/naming/ldap/Rdn;", nullptr, 0, $method(Rfc2253Parser, parseRdn, $Rdn*), "javax.naming.InvalidNameException"},
+	{"parseRdn", "(Ljavax/naming/ldap/Rdn;)Ljavax/naming/ldap/Rdn;", nullptr, 0, $method(Rfc2253Parser, parseRdn, $Rdn*, $Rdn*), "javax.naming.InvalidNameException"},
+	{"parseStringAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Rfc2253Parser, parseStringAttrValue, $String*), "javax.naming.InvalidNameException"},
 	{}
 };
 

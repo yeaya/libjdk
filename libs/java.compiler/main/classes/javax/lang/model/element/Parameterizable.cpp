@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace javax {
 	namespace lang {
@@ -12,7 +13,7 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _Parameterizable_MethodInfo_[] = {
-	{"getTypeParameters", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/TypeParameterElement;>;", $PUBLIC | $ABSTRACT},
+	{"getTypeParameters", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/TypeParameterElement;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Parameterizable, getTypeParameters, $List*)},
 	{}
 };
 

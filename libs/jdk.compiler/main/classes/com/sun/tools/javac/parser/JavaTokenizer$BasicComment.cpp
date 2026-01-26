@@ -35,12 +35,12 @@ $MethodInfo _JavaTokenizer$BasicComment_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(static_cast<void(JavaTokenizer$BasicComment::*)($Tokens$Comment$CommentStyle*,$ScannerFactory*,$chars*,int32_t)>(&JavaTokenizer$BasicComment::init$))},
-	{"getSourcePos", "(I)I", nullptr, $PUBLIC},
-	{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC},
-	{"scanDocComment", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(JavaTokenizer$BasicComment, init$, void, $Tokens$Comment$CommentStyle*, $ScannerFactory*, $chars*, int32_t)},
+	{"getSourcePos", "(I)I", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, getSourcePos, int32_t, int32_t)},
+	{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, getStyle, $Tokens$Comment$CommentStyle*)},
+	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, getText, $String*)},
+	{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, isDeprecated, bool)},
+	{"scanDocComment", "()V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer$BasicComment, scanDocComment, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

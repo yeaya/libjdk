@@ -34,8 +34,8 @@ $FieldInfo _ArrayNotificationBuffer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayNotificationBuffer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", "()V", 0, $method(static_cast<void(ArrayNotificationBuffer$1::*)($ArrayNotificationBuffer*,$ObjectName*,$NotificationListener*,$NotificationFilter*,Object$*)>(&ArrayNotificationBuffer$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "javax.management.InstanceNotFoundException"},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", "()V", 0, $method(ArrayNotificationBuffer$1, init$, void, $ArrayNotificationBuffer*, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$1, run, $Object*), "javax.management.InstanceNotFoundException"},
 	{}
 };
 

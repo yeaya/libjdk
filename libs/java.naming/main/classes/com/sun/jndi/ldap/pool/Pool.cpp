@@ -71,15 +71,15 @@ $FieldInfo _Pool_FieldInfo_[] = {
 };
 
 $MethodInfo _Pool_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(static_cast<void(Pool::*)(int32_t,int32_t,int32_t)>(&Pool::init$))},
-	{"d", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Pool::*)($String*,int32_t)>(&Pool::d))},
-	{"d", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(Pool::*)($String*,Object$*)>(&Pool::d))},
-	{"expire", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(Pool::*)(int64_t)>(&Pool::expire))},
-	{"expungeStaleConnections", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&Pool::expungeStaleConnections))},
-	{"getConnections", "(Ljava/lang/Object;)Lcom/sun/jndi/ldap/pool/Connections;", nullptr, $PRIVATE, $method(static_cast<$Connections*(Pool::*)(Object$*)>(&Pool::getConnections))},
-	{"getPooledConnection", "(Ljava/lang/Object;JLcom/sun/jndi/ldap/pool/PooledConnectionFactory;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PUBLIC, $method(static_cast<$PooledConnection*(Pool::*)(Object$*,int64_t,$PooledConnectionFactory*)>(&Pool::getPooledConnection)), "javax.naming.NamingException"},
-	{"showStats", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(static_cast<void(Pool::*)($PrintStream*)>(&Pool::showStats))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(III)V", nullptr, $PUBLIC, $method(Pool, init$, void, int32_t, int32_t, int32_t)},
+	{"d", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Pool, d, void, $String*, int32_t)},
+	{"d", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Pool, d, void, $String*, Object$*)},
+	{"expire", "(J)V", nullptr, $PUBLIC, $method(Pool, expire, void, int64_t)},
+	{"expungeStaleConnections", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pool, expungeStaleConnections, void)},
+	{"getConnections", "(Ljava/lang/Object;)Lcom/sun/jndi/ldap/pool/Connections;", nullptr, $PRIVATE, $method(Pool, getConnections, $Connections*, Object$*)},
+	{"getPooledConnection", "(Ljava/lang/Object;JLcom/sun/jndi/ldap/pool/PooledConnectionFactory;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PUBLIC, $method(Pool, getPooledConnection, $PooledConnection*, Object$*, int64_t, $PooledConnectionFactory*), "javax.naming.NamingException"},
+	{"showStats", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(Pool, showStats, void, $PrintStream*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pool, toString, $String*)},
 	{}
 };
 

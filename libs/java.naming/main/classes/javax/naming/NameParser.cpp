@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Name = ::javax::naming::Name;
 
 namespace javax {
 	namespace naming {
 
 $MethodInfo _NameParser_MethodInfo_[] = {
-	{"parse", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"parse", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NameParser, parse, $Name*, $String*), "javax.naming.NamingException"},
 	{}
 };
 

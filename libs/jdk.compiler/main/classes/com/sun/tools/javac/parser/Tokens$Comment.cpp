@@ -4,6 +4,7 @@
 #include <com/sun/tools/javac/parser/Tokens.h>
 #include <jcpp.h>
 
+using $Tokens$Comment$CommentStyle = ::com::sun::tools::javac::parser::Tokens$Comment$CommentStyle;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,10 +16,10 @@ namespace com {
 				namespace parser {
 
 $MethodInfo _Tokens$Comment_MethodInfo_[] = {
-	{"getSourcePos", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getSourcePos", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, getSourcePos, int32_t, int32_t)},
+	{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, getStyle, $Tokens$Comment$CommentStyle*)},
+	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, getText, $String*)},
+	{"isDeprecated", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tokens$Comment, isDeprecated, bool)},
 	{}
 };
 

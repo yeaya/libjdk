@@ -12,12 +12,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 
 $MethodInfo _FlowAdaptersCompileOnly$IterableSubscriber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FlowAdaptersCompileOnly$IterableSubscriber::*)()>(&FlowAdaptersCompileOnly$IterableSubscriber::init$))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FlowAdaptersCompileOnly$IterableSubscriber, init$, void)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onNext, void, $Iterable*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

@@ -30,11 +30,11 @@ $FieldInfo _Type$ErrorType$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$ErrorType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(static_cast<void(Type$ErrorType$1::*)($Type$ErrorType*,$Type*,$Symbol$TypeSymbol*,$TypeMetadata*)>(&Type$ErrorType$1::init$))},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ClassType;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getEnclosingType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getTypeArguments", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$ErrorType$1, init$, void, $Type$ErrorType*, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ErrorType$1, baseType, $Type*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ClassType;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ErrorType$1, cloneWithMetadata, $Type$ErrorType*, $TypeMetadata*)},
+	{"getEnclosingType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ErrorType$1, getEnclosingType, $Type*)},
+	{"getTypeArguments", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ErrorType$1, getTypeArguments, $List*)},
 	{}
 };
 

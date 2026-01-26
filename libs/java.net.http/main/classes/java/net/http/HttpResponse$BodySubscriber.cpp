@@ -7,13 +7,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $CompletionStage = ::java::util::concurrent::CompletionStage;
 
 namespace java {
 	namespace net {
 		namespace http {
 
 $MethodInfo _HttpResponse$BodySubscriber_MethodInfo_[] = {
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC | $ABSTRACT},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$BodySubscriber, getBody, $CompletionStage*)},
 	{}
 };
 

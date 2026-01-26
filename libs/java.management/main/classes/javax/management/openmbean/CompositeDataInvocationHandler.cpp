@@ -42,11 +42,11 @@ $FieldInfo _CompositeDataInvocationHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _CompositeDataInvocationHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC, $method(static_cast<void(CompositeDataInvocationHandler::*)($CompositeData*)>(&CompositeDataInvocationHandler::init$))},
-	{"<init>", "(Ljavax/management/openmbean/CompositeData;Lcom/sun/jmx/mbeanserver/MXBeanLookup;)V", nullptr, 0, $method(static_cast<void(CompositeDataInvocationHandler::*)($CompositeData*,$MXBeanLookup*)>(&CompositeDataInvocationHandler::init$))},
-	{"equals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(static_cast<bool(CompositeDataInvocationHandler::*)(Object$*,Object$*)>(&CompositeDataInvocationHandler::equals))},
-	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
+	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC, $method(CompositeDataInvocationHandler, init$, void, $CompositeData*)},
+	{"<init>", "(Ljavax/management/openmbean/CompositeData;Lcom/sun/jmx/mbeanserver/MXBeanLookup;)V", nullptr, 0, $method(CompositeDataInvocationHandler, init$, void, $CompositeData*, $MXBeanLookup*)},
+	{"equals", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(CompositeDataInvocationHandler, equals, bool, Object$*, Object$*)},
+	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC, $virtualMethod(CompositeDataInvocationHandler, getCompositeData, $CompositeData*)},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompositeDataInvocationHandler, invoke, $Object*, Object$*, $Method*, $ObjectArray*), "java.lang.Throwable"},
 	{}
 };
 

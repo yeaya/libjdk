@@ -30,18 +30,18 @@ $FieldInfo _MLetContent_FieldInfo_[] = {
 };
 
 $MethodInfo _MLetContent_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Ljava/util/Map;Ljava/util/List;Ljava/util/List;)V", "(Ljava/net/URL;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(MLetContent::*)($URL*,$Map*,$List*,$List*)>(&MLetContent::init$))},
-	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC},
-	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCodeBase", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getDocumentBase", "()Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getJarFiles", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(MLetContent::*)($String*)>(&MLetContent::getParameter))},
-	{"getParameterTypes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getParameterValues", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getSerializedObject", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URL;Ljava/util/Map;Ljava/util/List;Ljava/util/List;)V", "(Ljava/net/URL;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(MLetContent, init$, void, $URL*, $Map*, $List*, $List*)},
+	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetContent, getAttributes, $Map*)},
+	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getCode, $String*)},
+	{"getCodeBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getCodeBase, $URL*)},
+	{"getDocumentBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getDocumentBase, $URL*)},
+	{"getJarFiles", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getJarFiles, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getName, $String*)},
+	{"getParameter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MLetContent, getParameter, $String*, $String*)},
+	{"getParameterTypes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetContent, getParameterTypes, $List*)},
+	{"getParameterValues", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetContent, getParameterValues, $List*)},
+	{"getSerializedObject", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getSerializedObject, $String*)},
+	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetContent, getVersion, $String*)},
 	{}
 };
 

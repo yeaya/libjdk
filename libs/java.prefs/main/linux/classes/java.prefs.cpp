@@ -94,31 +94,31 @@ const char* _java$prefs_packages_[] = {
 	"java.util.prefs"
 };
 
-void java$prefs$PreloadClass(void* eventData) {
-	::java::lang::PreloadClassEvent* event = (::java::lang::PreloadClassEvent*)eventData;
+void java$prefs$PreloadClass() {
 	int32_t length = $lengthOf(_java$prefs_classes_);
-	for (int i = 0; i < length; i++) {
+	for (int32_t i = 0; i < length; i++) {
 		::java::lang::ClassEntry* classEntry = &_java$prefs_classes_[i];
-		if (event->preinit) {
-			if ($hasFlag(classEntry->mark, $PREINIT)) {
-				classEntry->loader(nullptr, true);
-				continue;
-			}
+		if ($hasFlag(classEntry->mark, $PRELOAD) || $hasFlag(classEntry->mark, $PREINIT)) {
+			classEntry->loader(nullptr, false);
 		}
-		if (event->preload) {
-			if ($hasFlag(classEntry->mark, $PRELOAD) || $hasFlag(classEntry->mark, $PREINIT)) {
-				classEntry->loader(nullptr, false);
-			}
+	}
+}
+
+void java$prefs$PreinitClass() {
+	int32_t length = $lengthOf(_java$prefs_classes_);
+	for (int32_t i = 0; i < length; i++) {
+		::java::lang::ClassEntry* classEntry = &_java$prefs_classes_[i];
+		if ($hasFlag(classEntry->mark, $PREINIT)) {
+			classEntry->loader(nullptr, true);
 		}
 	}
 }
 
 void java$prefs$LibEventAction(int32_t eventType, void* eventData) {
 	if (eventType == JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS) {
-		java$prefs$PreloadClass(eventData);
-	}
-	if (eventType == JCPP_LIB_EVENT_TYPE_THREAD_START) {
-		$onLibThreadStart(eventData);
+		java$prefs$PreloadClass();
+	} else if (eventType == JCPP_LIB_EVENT_TYPE_PREINIT_CLASS) {
+		java$prefs$PreinitClass();
 	}
 }
 
@@ -166,3 +166,9 @@ void java$prefs::init() {
 	};
 	$System::addLibrary(&lib);
 }
+
+#ifdef JCPP_SHARED_BUILD
+extern "C" $export void JCPP_OnLoad() {
+	java$prefs::init();
+}
+#endif

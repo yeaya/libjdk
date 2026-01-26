@@ -58,12 +58,12 @@ $FieldInfo _ReferenceParser_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;)V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceParser::*)($ParserFactory*)>(&ReferenceParser::init$))},
-	{"parse", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/ReferenceParser$Reference;", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
-	{"parseMember", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(static_cast<$Name*(ReferenceParser::*)($String*)>(&ReferenceParser::parseMember)), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
-	{"parseModule", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCExpression*(ReferenceParser::*)($String*)>(&ReferenceParser::parseModule)), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
-	{"parseParams", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE, $method(static_cast<$List*(ReferenceParser::*)($String*)>(&ReferenceParser::parseParams)), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
-	{"parseType", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PRIVATE, $method(static_cast<$JCTree*(ReferenceParser::*)($String*)>(&ReferenceParser::parseType)), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
+	{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;)V", nullptr, $PUBLIC, $method(ReferenceParser, init$, void, $ParserFactory*)},
+	{"parse", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/ReferenceParser$Reference;", nullptr, $PUBLIC, $virtualMethod(ReferenceParser, parse, $ReferenceParser$Reference*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
+	{"parseMember", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(ReferenceParser, parseMember, $Name*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
+	{"parseModule", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(ReferenceParser, parseModule, $JCTree$JCExpression*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
+	{"parseParams", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE, $method(ReferenceParser, parseParams, $List*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
+	{"parseType", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PRIVATE, $method(ReferenceParser, parseType, $JCTree*, $String*), "com.sun.tools.javac.parser.ReferenceParser$ParseException"},
 	{}
 };
 

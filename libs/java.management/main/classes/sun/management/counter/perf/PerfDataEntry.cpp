@@ -62,16 +62,16 @@ $FieldInfo _PerfDataEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _PerfDataEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(PerfDataEntry::*)($ByteBuffer*)>(&PerfDataEntry::init$))},
-	{"byteData", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC},
-	{"flags", "()I", nullptr, $PUBLIC},
-	{"longData", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"type", "()Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC},
-	{"units", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
-	{"variability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
-	{"vectorLength", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(PerfDataEntry, init$, void, $ByteBuffer*)},
+	{"byteData", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, byteData, $ByteBuffer*)},
+	{"flags", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, flags, int32_t)},
+	{"longData", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, longData, $LongBuffer*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, name, $String*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, size, int32_t)},
+	{"type", "()Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, type, $PerfDataType*)},
+	{"units", "()Lsun/management/counter/Units;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, units, $Units*)},
+	{"variability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, variability, $Variability*)},
+	{"vectorLength", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, vectorLength, int32_t)},
 	{}
 };
 

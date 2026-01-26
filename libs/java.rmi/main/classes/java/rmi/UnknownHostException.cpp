@@ -18,8 +18,8 @@ $FieldInfo _UnknownHostException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownHostException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnknownHostException::*)($String*)>(&UnknownHostException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(UnknownHostException::*)($String*,$Exception*)>(&UnknownHostException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownHostException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(UnknownHostException, init$, void, $String*, $Exception*)},
 	{}
 };
 

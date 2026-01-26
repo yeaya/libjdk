@@ -27,15 +27,15 @@ $FieldInfo _ExternalClient_FieldInfo_[] = {
 };
 
 $MethodInfo _ExternalClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ExternalClient::*)($String*)>(&ExternalClient::init$))},
-	{"dispose", "()V", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC},
-	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"hasInitialResponse", "()Z", nullptr, $PUBLIC},
-	{"isComplete", "()Z", nullptr, $PUBLIC},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ExternalClient, init$, void, $String*)},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ExternalClient, dispose, void), "javax.security.sasl.SaslException"},
+	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC, $virtualMethod(ExternalClient, evaluateChallenge, $bytes*, $bytes*)},
+	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExternalClient, getMechanismName, $String*)},
+	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExternalClient, getNegotiatedProperty, $Object*, $String*)},
+	{"hasInitialResponse", "()Z", nullptr, $PUBLIC, $virtualMethod(ExternalClient, hasInitialResponse, bool)},
+	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(ExternalClient, isComplete, bool)},
+	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(ExternalClient, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(ExternalClient, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
 	{}
 };
 

@@ -21,16 +21,16 @@ $FieldInfo _TokenTracker$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _TokenTracker$Entry_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/TokenTracker;I)V", nullptr, 0, $method(static_cast<void(TokenTracker$Entry::*)($TokenTracker*,int32_t)>(&TokenTracker$Entry::init$))},
-	{"append", "(I)V", nullptr, $FINAL, $method(static_cast<void(TokenTracker$Entry::*)(int32_t)>(&TokenTracker$Entry::append))},
-	{"compareTo", "(I)I", nullptr, $FINAL, $method(static_cast<int32_t(TokenTracker$Entry::*)(int32_t)>(&TokenTracker$Entry::compareTo))},
-	{"contains", "(I)Z", nullptr, $FINAL, $method(static_cast<bool(TokenTracker$Entry::*)(int32_t)>(&TokenTracker$Entry::contains))},
-	{"getEnd", "()I", nullptr, $FINAL, $method(static_cast<int32_t(TokenTracker$Entry::*)()>(&TokenTracker$Entry::getEnd))},
-	{"getStart", "()I", nullptr, $FINAL, $method(static_cast<int32_t(TokenTracker$Entry::*)()>(&TokenTracker$Entry::getStart))},
-	{"setEnd", "(I)V", nullptr, $FINAL, $method(static_cast<void(TokenTracker$Entry::*)(int32_t)>(&TokenTracker$Entry::setEnd))},
-	{"setInterval", "(II)V", nullptr, $FINAL, $method(static_cast<void(TokenTracker$Entry::*)(int32_t,int32_t)>(&TokenTracker$Entry::setInterval))},
-	{"setStart", "(I)V", nullptr, $FINAL, $method(static_cast<void(TokenTracker$Entry::*)(int32_t)>(&TokenTracker$Entry::setStart))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/jgss/TokenTracker;I)V", nullptr, 0, $method(TokenTracker$Entry, init$, void, $TokenTracker*, int32_t)},
+	{"append", "(I)V", nullptr, $FINAL, $method(TokenTracker$Entry, append, void, int32_t)},
+	{"compareTo", "(I)I", nullptr, $FINAL, $method(TokenTracker$Entry, compareTo, int32_t, int32_t)},
+	{"contains", "(I)Z", nullptr, $FINAL, $method(TokenTracker$Entry, contains, bool, int32_t)},
+	{"getEnd", "()I", nullptr, $FINAL, $method(TokenTracker$Entry, getEnd, int32_t)},
+	{"getStart", "()I", nullptr, $FINAL, $method(TokenTracker$Entry, getStart, int32_t)},
+	{"setEnd", "(I)V", nullptr, $FINAL, $method(TokenTracker$Entry, setEnd, void, int32_t)},
+	{"setInterval", "(II)V", nullptr, $FINAL, $method(TokenTracker$Entry, setInterval, void, int32_t, int32_t)},
+	{"setStart", "(I)V", nullptr, $FINAL, $method(TokenTracker$Entry, setStart, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TokenTracker$Entry, toString, $String*)},
 	{}
 };
 

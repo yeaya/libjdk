@@ -7,13 +7,14 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 
 namespace jdk {
 	namespace nio {
 
 $MethodInfo _Channels$SelectableChannelCloser_MethodInfo_[] = {
-	{"implCloseChannel", "(Ljava/nio/channels/SelectableChannel;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"implReleaseChannel", "(Ljava/nio/channels/SelectableChannel;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"implCloseChannel", "(Ljava/nio/channels/SelectableChannel;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channels$SelectableChannelCloser, implCloseChannel, void, $SelectableChannel*), "java.io.IOException"},
+	{"implReleaseChannel", "(Ljava/nio/channels/SelectableChannel;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channels$SelectableChannelCloser, implReleaseChannel, void, $SelectableChannel*), "java.io.IOException"},
 	{}
 };
 

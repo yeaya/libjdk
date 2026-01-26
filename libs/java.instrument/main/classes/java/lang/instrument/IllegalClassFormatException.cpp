@@ -17,8 +17,8 @@ $FieldInfo _IllegalClassFormatException_FieldInfo_[] = {
 };
 
 $MethodInfo _IllegalClassFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IllegalClassFormatException::*)()>(&IllegalClassFormatException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IllegalClassFormatException::*)($String*)>(&IllegalClassFormatException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalClassFormatException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalClassFormatException, init$, void, $String*)},
 	{}
 };
 

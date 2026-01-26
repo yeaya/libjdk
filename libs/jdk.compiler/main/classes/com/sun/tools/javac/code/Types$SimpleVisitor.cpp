@@ -25,10 +25,10 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Types$SimpleVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Types$SimpleVisitor::*)()>(&Types$SimpleVisitor::init$))},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$CapturedType;TS;)TR;", $PUBLIC},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ForAll;TS;)TR;", $PUBLIC},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$UndetVar;TS;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Types$SimpleVisitor, init$, void)},
+	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$CapturedType;TS;)TR;", $PUBLIC, $virtualMethod(Types$SimpleVisitor, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ForAll;TS;)TR;", $PUBLIC, $virtualMethod(Types$SimpleVisitor, visitForAll, $Object*, $Type$ForAll*, Object$*)},
+	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$UndetVar;TS;)TR;", $PUBLIC, $virtualMethod(Types$SimpleVisitor, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
 	{}
 };
 

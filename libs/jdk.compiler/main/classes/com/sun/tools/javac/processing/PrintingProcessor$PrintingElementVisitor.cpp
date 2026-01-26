@@ -174,8 +174,8 @@ $FieldInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$0::
 	{}
 };
 $MethodInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$0::*)(PrintingProcessor$PrintingElementVisitor*)>(&PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;)V", nullptr, $PUBLIC, $method(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$0, init$, void, PrintingProcessor$PrintingElementVisitor*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$0::classInfo$ = {
@@ -214,8 +214,8 @@ $FieldInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$1$1
 	{}
 };
 $MethodInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$1$1::*)(PrintingProcessor$PrintingElementVisitor*)>(&PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;)V", nullptr, $PUBLIC, $method(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$1$1, init$, void, PrintingProcessor$PrintingElementVisitor*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$visitType$1$1::classInfo$ = {
@@ -247,8 +247,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrintingProcessor$PrintingElementVisitor$$Lambda$toString$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$$Lambda$toString$2::*)()>(&PrintingProcessor$PrintingElementVisitor$$Lambda$toString$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrintingProcessor$PrintingElementVisitor$$Lambda$toString$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$$Lambda$toString$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PrintingProcessor$PrintingElementVisitor$$Lambda$toString$2::classInfo$ = {
@@ -287,8 +287,8 @@ $FieldInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printFormalTy
 	{}
 };
 $MethodInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printFormalTypeParameters$2$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printFormalTypeParameters$2$3::*)(PrintingProcessor$PrintingElementVisitor*)>(&PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printFormalTypeParameters$2$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;)V", nullptr, $PUBLIC, $method(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printFormalTypeParameters$2$3, init$, void, PrintingProcessor$PrintingElementVisitor*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printFormalTypeParameters$2$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printFormalTypeParameters$2$3::classInfo$ = {
@@ -320,8 +320,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrintingProcessor$PrintingElementVisitor$$Lambda$toString$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$$Lambda$toString$4::*)()>(&PrintingProcessor$PrintingElementVisitor$$Lambda$toString$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrintingProcessor$PrintingElementVisitor$$Lambda$toString$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$$Lambda$toString$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PrintingProcessor$PrintingElementVisitor$$Lambda$toString$4::classInfo$ = {
@@ -353,8 +353,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrintingProcessor$PrintingElementVisitor$$Lambda$toString$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$$Lambda$toString$5::*)()>(&PrintingProcessor$PrintingElementVisitor$$Lambda$toString$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrintingProcessor$PrintingElementVisitor$$Lambda$toString$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$$Lambda$toString$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PrintingProcessor$PrintingElementVisitor$$Lambda$toString$5::classInfo$ = {
@@ -386,8 +386,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printPermittedSubclasses$3$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printPermittedSubclasses$3$6::*)()>(&PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printPermittedSubclasses$3$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printPermittedSubclasses$3$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printPermittedSubclasses$3$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PrintingProcessor$PrintingElementVisitor$$Lambda$lambda$printPermittedSubclasses$3$6::classInfo$ = {
@@ -413,40 +413,40 @@ $FieldInfo _PrintingProcessor$PrintingElementVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _PrintingProcessor$PrintingElementVisitor_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;Ljavax/lang/model/util/Elements;)V", nullptr, $PUBLIC, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)($Writer*,$Elements*)>(&PrintingProcessor$PrintingElementVisitor::init$))},
-	{"annotationsToString", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(PrintingProcessor$PrintingElementVisitor::*)($Element*)>(&PrintingProcessor$PrintingElementVisitor::annotationsToString))},
-	{"defaultAction", "(Ljavax/lang/model/element/Element;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PROTECTED},
-	{"defaultAction", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
-	{"flush", "()V", nullptr, $PUBLIC},
-	{"indent", "()V", nullptr, $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)()>(&PrintingProcessor$PrintingElementVisitor::indent))},
-	{"lambda$printFormalTypeParameters$2", "(Ljavax/lang/model/element/TypeParameterElement;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(PrintingProcessor$PrintingElementVisitor::*)($TypeParameterElement*)>(&PrintingProcessor$PrintingElementVisitor::lambda$printFormalTypeParameters$2))},
-	{"lambda$printPermittedSubclasses$3", "(Ljavax/lang/model/type/TypeMirror;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($TypeMirror*)>(&PrintingProcessor$PrintingElementVisitor::lambda$printPermittedSubclasses$3))},
-	{"lambda$visitType$0", "(Ljavax/lang/model/element/RecordComponentElement;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(PrintingProcessor$PrintingElementVisitor::*)($RecordComponentElement*)>(&PrintingProcessor$PrintingElementVisitor::lambda$visitType$0))},
-	{"lambda$visitType$1", "(Ljavax/lang/model/element/Element;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(PrintingProcessor$PrintingElementVisitor::*)($Element*)>(&PrintingProcessor$PrintingElementVisitor::lambda$visitType$1))},
-	{"printAnnotations", "(Ljavax/lang/model/element/Element;)V", nullptr, $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)($Element*)>(&PrintingProcessor$PrintingElementVisitor::printAnnotations))},
-	{"printDirective", "(Ljavax/lang/model/element/ModuleElement$Directive;)V", nullptr, $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)($ModuleElement$Directive*)>(&PrintingProcessor$PrintingElementVisitor::printDirective))},
-	{"printDocComment", "(Ljavax/lang/model/element/Element;)V", nullptr, $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)($Element*)>(&PrintingProcessor$PrintingElementVisitor::printDocComment))},
-	{"printFormalTypeParameters", "(Ljavax/lang/model/element/Parameterizable;Z)V", nullptr, $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)($Parameterizable*,bool)>(&PrintingProcessor$PrintingElementVisitor::printFormalTypeParameters))},
-	{"printInterfaces", "(Ljavax/lang/model/element/TypeElement;)V", nullptr, $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)($TypeElement*)>(&PrintingProcessor$PrintingElementVisitor::printInterfaces))},
-	{"printModifiers", "(Ljavax/lang/model/element/Element;)V", nullptr, $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)($Element*)>(&PrintingProcessor$PrintingElementVisitor::printModifiers))},
-	{"printParameters", "(Ljavax/lang/model/element/ExecutableElement;)V", nullptr, $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)($ExecutableElement*)>(&PrintingProcessor$PrintingElementVisitor::printParameters))},
-	{"printPermittedSubclasses", "(Ljavax/lang/model/element/TypeElement;)V", nullptr, $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)($TypeElement*)>(&PrintingProcessor$PrintingElementVisitor::printPermittedSubclasses))},
-	{"printThrows", "(Ljavax/lang/model/element/ExecutableElement;)V", nullptr, $PRIVATE, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor::*)($ExecutableElement*)>(&PrintingProcessor$PrintingElementVisitor::printThrows))},
-	{"printedContainerAnnotation", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)Z", nullptr, $PRIVATE, $method(static_cast<bool(PrintingProcessor$PrintingElementVisitor::*)($Element*,$AnnotationMirror*)>(&PrintingProcessor$PrintingElementVisitor::printedContainerAnnotation))},
-	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC},
-	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC},
-	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitTypeParameter", "(Ljavax/lang/model/element/TypeParameterElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC},
-	{"visitTypeParameter", "(Ljavax/lang/model/element/TypeParameterElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC},
-	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/io/Writer;Ljavax/lang/model/util/Elements;)V", nullptr, $PUBLIC, $method(PrintingProcessor$PrintingElementVisitor, init$, void, $Writer*, $Elements*)},
+	{"annotationsToString", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, annotationsToString, $String*, $Element*)},
+	{"defaultAction", "(Ljavax/lang/model/element/Element;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PROTECTED, $virtualMethod(PrintingProcessor$PrintingElementVisitor, defaultAction, PrintingProcessor$PrintingElementVisitor*, $Element*, $Boolean*)},
+	{"defaultAction", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, defaultAction, $Object*, $Element*, Object$*)},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, flush, void)},
+	{"indent", "()V", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, indent, void)},
+	{"lambda$printFormalTypeParameters$2", "(Ljavax/lang/model/element/TypeParameterElement;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(PrintingProcessor$PrintingElementVisitor, lambda$printFormalTypeParameters$2, $String*, $TypeParameterElement*)},
+	{"lambda$printPermittedSubclasses$3", "(Ljavax/lang/model/type/TypeMirror;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PrintingProcessor$PrintingElementVisitor, lambda$printPermittedSubclasses$3, $String*, $TypeMirror*)},
+	{"lambda$visitType$0", "(Ljavax/lang/model/element/RecordComponentElement;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(PrintingProcessor$PrintingElementVisitor, lambda$visitType$0, $String*, $RecordComponentElement*)},
+	{"lambda$visitType$1", "(Ljavax/lang/model/element/Element;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(PrintingProcessor$PrintingElementVisitor, lambda$visitType$1, bool, $Element*)},
+	{"printAnnotations", "(Ljavax/lang/model/element/Element;)V", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, printAnnotations, void, $Element*)},
+	{"printDirective", "(Ljavax/lang/model/element/ModuleElement$Directive;)V", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, printDirective, void, $ModuleElement$Directive*)},
+	{"printDocComment", "(Ljavax/lang/model/element/Element;)V", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, printDocComment, void, $Element*)},
+	{"printFormalTypeParameters", "(Ljavax/lang/model/element/Parameterizable;Z)V", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, printFormalTypeParameters, void, $Parameterizable*, bool)},
+	{"printInterfaces", "(Ljavax/lang/model/element/TypeElement;)V", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, printInterfaces, void, $TypeElement*)},
+	{"printModifiers", "(Ljavax/lang/model/element/Element;)V", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, printModifiers, void, $Element*)},
+	{"printParameters", "(Ljavax/lang/model/element/ExecutableElement;)V", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, printParameters, void, $ExecutableElement*)},
+	{"printPermittedSubclasses", "(Ljavax/lang/model/element/TypeElement;)V", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, printPermittedSubclasses, void, $TypeElement*)},
+	{"printThrows", "(Ljavax/lang/model/element/ExecutableElement;)V", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, printThrows, void, $ExecutableElement*)},
+	{"printedContainerAnnotation", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)Z", nullptr, $PRIVATE, $method(PrintingProcessor$PrintingElementVisitor, printedContainerAnnotation, bool, $Element*, $AnnotationMirror*)},
+	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitExecutable, PrintingProcessor$PrintingElementVisitor*, $ExecutableElement*, $Boolean*)},
+	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitExecutable, $Object*, $ExecutableElement*, Object$*)},
+	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitModule, PrintingProcessor$PrintingElementVisitor*, $ModuleElement*, $Boolean*)},
+	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitModule, $Object*, $ModuleElement*, Object$*)},
+	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitPackage, PrintingProcessor$PrintingElementVisitor*, $PackageElement*, $Boolean*)},
+	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitPackage, $Object*, $PackageElement*, Object$*)},
+	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitRecordComponent, PrintingProcessor$PrintingElementVisitor*, $RecordComponentElement*, $Boolean*)},
+	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitRecordComponent, $Object*, $RecordComponentElement*, Object$*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitType, PrintingProcessor$PrintingElementVisitor*, $TypeElement*, $Boolean*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitType, $Object*, $TypeElement*, Object$*)},
+	{"visitTypeParameter", "(Ljavax/lang/model/element/TypeParameterElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitTypeParameter, PrintingProcessor$PrintingElementVisitor*, $TypeParameterElement*, $Boolean*)},
+	{"visitTypeParameter", "(Ljavax/lang/model/element/TypeParameterElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitTypeParameter, $Object*, $TypeParameterElement*, Object$*)},
+	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Boolean;)Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitVariable, PrintingProcessor$PrintingElementVisitor*, $VariableElement*, $Boolean*)},
+	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor, visitVariable, $Object*, $VariableElement*, Object$*)},
 	{}
 };
 

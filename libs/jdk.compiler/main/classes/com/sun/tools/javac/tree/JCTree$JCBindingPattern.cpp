@@ -43,12 +43,12 @@ $MethodInfo _JCTree$JCBindingPattern_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PROTECTED, $method(static_cast<void(JCTree$JCBindingPattern::*)($JCTree$JCVariableDecl*)>(&JCTree$JCBindingPattern::init$))},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC},
-	{"getVariable", "()Lcom/sun/source/tree/VariableTree;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PROTECTED, $method(JCTree$JCBindingPattern, init$, void, $JCTree$JCVariableDecl*)},
+	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBindingPattern, accept, void, $JCTree$Visitor*)},
+	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCBindingPattern, accept, $Object*, $TreeVisitor*, Object$*)},
+	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBindingPattern, getKind, $Tree$Kind*)},
+	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBindingPattern, getTag, $JCTree$Tag*)},
+	{"getVariable", "()Lcom/sun/source/tree/VariableTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBindingPattern, getVariable, $VariableTree*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

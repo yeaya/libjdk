@@ -29,10 +29,10 @@ $FieldInfo _Source$Feature$DiagKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Source$Feature$DiagKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Source$Feature$DiagKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Source$Feature$DiagKindArray*(*)()>(&Source$Feature$DiagKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Source$Feature$DiagKind::*)($String*,int32_t)>(&Source$Feature$DiagKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source$Feature$DiagKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Source$Feature$DiagKind*(*)($String*)>(&Source$Feature$DiagKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Source$Feature$DiagKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Source$Feature$DiagKindArray*(*)()>(&Source$Feature$DiagKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Source$Feature$DiagKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Source$Feature$DiagKind, $values, $Source$Feature$DiagKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Source$Feature$DiagKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Source$Feature$DiagKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source$Feature$DiagKind, valueOf, Source$Feature$DiagKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Source$Feature$DiagKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Source$Feature$DiagKind, values, $Source$Feature$DiagKindArray*)},
 	{}
 };
 

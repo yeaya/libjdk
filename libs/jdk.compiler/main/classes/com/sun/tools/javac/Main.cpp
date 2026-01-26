@@ -29,10 +29,10 @@ $CompoundAttribute _Main_MethodAnnotations_init$0[] = {
 };
 
 $MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(Main::*)()>(&Main::init$)), nullptr, nullptr, _Main_MethodAnnotations_init$0},
-	{"compile", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($StringArray*)>(&Main::compile))},
-	{"compile", "([Ljava/lang/String;Ljava/io/PrintWriter;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($StringArray*,$PrintWriter*)>(&Main::compile))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Main::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(Main, init$, void), nullptr, nullptr, _Main_MethodAnnotations_init$0},
+	{"compile", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, compile, int32_t, $StringArray*)},
+	{"compile", "([Ljava/lang/String;Ljava/io/PrintWriter;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, compile, int32_t, $StringArray*, $PrintWriter*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

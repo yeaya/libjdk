@@ -91,22 +91,22 @@ $FieldInfo _Attr$PostAttrAnalyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$PostAttrAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(static_cast<void(Attr$PostAttrAnalyzer::*)($Attr*)>(&Attr$PostAttrAnalyzer::init$))},
-	{"dummyMethodType", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(Attr$PostAttrAnalyzer::*)($JCTree$JCMethodDecl*)>(&Attr$PostAttrAnalyzer::dummyMethodType))},
-	{"dummyMethodType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(Attr$PostAttrAnalyzer::*)()>(&Attr$PostAttrAnalyzer::dummyMethodType))},
-	{"initTypeIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(static_cast<void(Attr$PostAttrAnalyzer::*)($JCTree*)>(&Attr$PostAttrAnalyzer::initTypeIfNeeded))},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC},
-	{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$PostAttrAnalyzer, init$, void, $Attr*)},
+	{"dummyMethodType", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Attr$PostAttrAnalyzer, dummyMethodType, $Type*, $JCTree$JCMethodDecl*)},
+	{"dummyMethodType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Attr$PostAttrAnalyzer, dummyMethodType, $Type*)},
+	{"initTypeIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(Attr$PostAttrAnalyzer, initTypeIfNeeded, void, $JCTree*)},
+	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, scan, void, $JCTree*)},
+	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitAssignop, void, $JCTree$JCAssignOp*)},
+	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitBinary, void, $JCTree$JCBinary*)},
+	{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitBindingPattern, void, $JCTree$JCBindingPattern*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitIdent, void, $JCTree$JCIdent*)},
+	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitNewClass, void, $JCTree$JCNewClass*)},
+	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitReference, void, $JCTree$JCMemberReference*)},
+	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitSelect, void, $JCTree$JCFieldAccess*)},
+	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitUnary, void, $JCTree$JCUnary*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

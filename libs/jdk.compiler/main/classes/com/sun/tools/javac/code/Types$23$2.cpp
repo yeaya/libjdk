@@ -31,8 +31,8 @@ $FieldInfo _Types$23$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$23$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$23;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$ForAll;)V", nullptr, 0, $method(static_cast<void(Types$23$2::*)($Types$23*,$List*,$Type*,$Type$ForAll*)>(&Types$23$2::init$))},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$23;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$ForAll;)V", nullptr, 0, $method(Types$23$2, init$, void, $Types$23*, $List*, $Type*, $Type$ForAll*)},
+	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$23$2, baseType, $Type*)},
 	{}
 };
 

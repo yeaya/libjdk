@@ -41,15 +41,15 @@ $FieldInfo _MBeanNotificationInfo_FieldInfo_[] = {
 
 $MethodInfo _MBeanNotificationInfo_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanNotificationInfo::*)($StringArray*,$String*,$String*)>(&MBeanNotificationInfo::init$))},
-	{"<init>", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanNotificationInfo::*)($StringArray*,$String*,$String*,$Descriptor*)>(&MBeanNotificationInfo::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"fastGetNotifTypes", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$StringArray*(MBeanNotificationInfo::*)()>(&MBeanNotificationInfo::fastGetNotifTypes))},
-	{"getNotifTypes", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanNotificationInfo::*)($ObjectInputStream*)>(&MBeanNotificationInfo::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanNotificationInfo, init$, void, $StringArray*, $String*, $String*)},
+	{"<init>", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanNotificationInfo, init$, void, $StringArray*, $String*, $String*, $Descriptor*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanNotificationInfo, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanNotificationInfo, equals, bool, Object$*)},
+	{"fastGetNotifTypes", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(MBeanNotificationInfo, fastGetNotifTypes, $StringArray*)},
+	{"getNotifTypes", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanNotificationInfo, getNotifTypes, $StringArray*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanNotificationInfo, hashCode, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanNotificationInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanNotificationInfo, toString, $String*)},
 	{}
 };
 

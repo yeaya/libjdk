@@ -92,8 +92,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ScriptEngineManager$$Lambda$getEngineName::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ScriptEngineManager$$Lambda$getEngineName::*)()>(&ScriptEngineManager$$Lambda$getEngineName::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ScriptEngineManager$$Lambda$getEngineName, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager$$Lambda$getEngineName, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ScriptEngineManager$$Lambda$getEngineName::classInfo$ = {
@@ -135,8 +135,8 @@ $FieldInfo ScriptEngineManager$$Lambda$lambda$initEngines$0$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ScriptEngineManager$$Lambda$lambda$initEngines$0$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/script/ScriptEngineManager;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(ScriptEngineManager$$Lambda$lambda$initEngines$0$1::*)(ScriptEngineManager*,$ClassLoader*)>(&ScriptEngineManager$$Lambda$lambda$initEngines$0$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/script/ScriptEngineManager;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(ScriptEngineManager$$Lambda$lambda$initEngines$0$1, init$, void, ScriptEngineManager*, $ClassLoader*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager$$Lambda$lambda$initEngines$0$1, run, $Object*)},
 	{}
 };
 $ClassInfo ScriptEngineManager$$Lambda$lambda$initEngines$0$1::classInfo$ = {
@@ -168,8 +168,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ScriptEngineManager$$Lambda$getNames$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ScriptEngineManager$$Lambda$getNames$2::*)()>(&ScriptEngineManager$$Lambda$getNames$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ScriptEngineManager$$Lambda$getNames$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager$$Lambda$getNames$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ScriptEngineManager$$Lambda$getNames$2::classInfo$ = {
@@ -201,8 +201,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ScriptEngineManager$$Lambda$getExtensions$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ScriptEngineManager$$Lambda$getExtensions$3::*)()>(&ScriptEngineManager$$Lambda$getExtensions$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ScriptEngineManager$$Lambda$getExtensions$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager$$Lambda$getExtensions$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ScriptEngineManager$$Lambda$getExtensions$3::classInfo$ = {
@@ -234,8 +234,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ScriptEngineManager$$Lambda$getMimeTypes$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ScriptEngineManager$$Lambda$getMimeTypes$4::*)()>(&ScriptEngineManager$$Lambda$getMimeTypes$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ScriptEngineManager$$Lambda$getMimeTypes$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager$$Lambda$getMimeTypes$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ScriptEngineManager$$Lambda$getMimeTypes$4::classInfo$ = {
@@ -277,8 +277,8 @@ $FieldInfo ScriptEngineManager$$Lambda$lambda$getEngineBy$1$5::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ScriptEngineManager$$Lambda$lambda$getEngineBy$1$5::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ScriptEngineManager$$Lambda$lambda$getEngineBy$1$5::*)($Function*,$String*)>(&ScriptEngineManager$$Lambda$lambda$getEngineBy$1$5::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ScriptEngineManager$$Lambda$lambda$getEngineBy$1$5, init$, void, $Function*, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager$$Lambda$lambda$getEngineBy$1$5, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ScriptEngineManager$$Lambda$lambda$getEngineBy$1$5::classInfo$ = {
@@ -317,8 +317,8 @@ $FieldInfo ScriptEngineManager$$Lambda$lambda$getEngineBy$2$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ScriptEngineManager$$Lambda$lambda$getEngineBy$2$6::methodInfos[3] = {
-	{"<init>", "(Ljavax/script/ScriptEngineManager;)V", nullptr, $PUBLIC, $method(static_cast<void(ScriptEngineManager$$Lambda$lambda$getEngineBy$2$6::*)(ScriptEngineManager*)>(&ScriptEngineManager$$Lambda$lambda$getEngineBy$2$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/script/ScriptEngineManager;)V", nullptr, $PUBLIC, $method(ScriptEngineManager$$Lambda$lambda$getEngineBy$2$6, init$, void, ScriptEngineManager*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager$$Lambda$lambda$getEngineBy$2$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ScriptEngineManager$$Lambda$lambda$getEngineBy$2$6::classInfo$ = {
@@ -350,8 +350,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ScriptEngineManager$$Lambda$nonNull$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ScriptEngineManager$$Lambda$nonNull$7::*)()>(&ScriptEngineManager$$Lambda$nonNull$7::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ScriptEngineManager$$Lambda$nonNull$7, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager$$Lambda$nonNull$7, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ScriptEngineManager$$Lambda$nonNull$7::classInfo$ = {
@@ -380,28 +380,28 @@ $FieldInfo _ScriptEngineManager_FieldInfo_[] = {
 };
 
 $MethodInfo _ScriptEngineManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ScriptEngineManager::*)()>(&ScriptEngineManager::init$))},
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(ScriptEngineManager::*)($ClassLoader*)>(&ScriptEngineManager::init$))},
-	{"associateFactory", "(Ljava/util/Map;Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)V", "(Ljava/util/Map<Ljava/lang/String;Ljavax/script/ScriptEngineFactory;>;Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Map*,$String*,$ScriptEngineFactory*)>(&ScriptEngineManager::associateFactory))},
-	{"debugPrint", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Throwable*)>(&ScriptEngineManager::debugPrint))},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getBindings", "()Ljavax/script/Bindings;", nullptr, $PUBLIC},
-	{"getEngineBy", "(Ljava/lang/String;Ljava/util/Map;Ljava/util/function/Function;)Ljavax/script/ScriptEngine;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljavax/script/ScriptEngineFactory;>;Ljava/util/function/Function<Ljavax/script/ScriptEngineFactory;Ljava/util/List<Ljava/lang/String;>;>;)Ljavax/script/ScriptEngine;", $PRIVATE, $method(static_cast<$ScriptEngine*(ScriptEngineManager::*)($String*,$Map*,$Function*)>(&ScriptEngineManager::getEngineBy))},
-	{"getEngineByExtension", "(Ljava/lang/String;)Ljavax/script/ScriptEngine;", nullptr, $PUBLIC},
-	{"getEngineByMimeType", "(Ljava/lang/String;)Ljavax/script/ScriptEngine;", nullptr, $PUBLIC},
-	{"getEngineByName", "(Ljava/lang/String;)Ljavax/script/ScriptEngine;", nullptr, $PUBLIC},
-	{"getEngineFactories", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/script/ScriptEngineFactory;>;", $PUBLIC},
-	{"getServiceLoader", "(Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader;", "(Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader<Ljavax/script/ScriptEngineFactory;>;", $PRIVATE, $method(static_cast<$ServiceLoader*(ScriptEngineManager::*)($ClassLoader*)>(&ScriptEngineManager::getServiceLoader))},
-	{"initEngines", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(static_cast<void(ScriptEngineManager::*)($ClassLoader*)>(&ScriptEngineManager::initEngines))},
-	{"lambda$getEngineBy$1", "(Ljava/util/function/Function;Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Function*,$String*,$ScriptEngineFactory*)>(&ScriptEngineManager::lambda$getEngineBy$1))},
-	{"lambda$getEngineBy$2", "(Ljavax/script/ScriptEngineFactory;)Ljavax/script/ScriptEngine;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ScriptEngine*(ScriptEngineManager::*)($ScriptEngineFactory*)>(&ScriptEngineManager::lambda$getEngineBy$2))},
-	{"lambda$initEngines$0", "(Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$ServiceLoader*(ScriptEngineManager::*)($ClassLoader*)>(&ScriptEngineManager::lambda$initEngines$0))},
-	{"put", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"registerEngineExtension", "(Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)V", nullptr, $PUBLIC},
-	{"registerEngineMimeType", "(Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)V", nullptr, $PUBLIC},
-	{"registerEngineName", "(Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)V", nullptr, $PUBLIC},
-	{"reportException", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$Throwable*)>(&ScriptEngineManager::reportException))},
-	{"setBindings", "(Ljavax/script/Bindings;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ScriptEngineManager, init$, void)},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(ScriptEngineManager, init$, void, $ClassLoader*)},
+	{"associateFactory", "(Ljava/util/Map;Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)V", "(Ljava/util/Map<Ljava/lang/String;Ljavax/script/ScriptEngineFactory;>;Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)V", $PRIVATE | $STATIC, $staticMethod(ScriptEngineManager, associateFactory, void, $Map*, $String*, $ScriptEngineFactory*)},
+	{"debugPrint", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScriptEngineManager, debugPrint, void, $Throwable*)},
+	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager, get, $Object*, $String*)},
+	{"getBindings", "()Ljavax/script/Bindings;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager, getBindings, $Bindings*)},
+	{"getEngineBy", "(Ljava/lang/String;Ljava/util/Map;Ljava/util/function/Function;)Ljavax/script/ScriptEngine;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljavax/script/ScriptEngineFactory;>;Ljava/util/function/Function<Ljavax/script/ScriptEngineFactory;Ljava/util/List<Ljava/lang/String;>;>;)Ljavax/script/ScriptEngine;", $PRIVATE, $method(ScriptEngineManager, getEngineBy, $ScriptEngine*, $String*, $Map*, $Function*)},
+	{"getEngineByExtension", "(Ljava/lang/String;)Ljavax/script/ScriptEngine;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager, getEngineByExtension, $ScriptEngine*, $String*)},
+	{"getEngineByMimeType", "(Ljava/lang/String;)Ljavax/script/ScriptEngine;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager, getEngineByMimeType, $ScriptEngine*, $String*)},
+	{"getEngineByName", "(Ljava/lang/String;)Ljavax/script/ScriptEngine;", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager, getEngineByName, $ScriptEngine*, $String*)},
+	{"getEngineFactories", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/script/ScriptEngineFactory;>;", $PUBLIC, $virtualMethod(ScriptEngineManager, getEngineFactories, $List*)},
+	{"getServiceLoader", "(Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader;", "(Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader<Ljavax/script/ScriptEngineFactory;>;", $PRIVATE, $method(ScriptEngineManager, getServiceLoader, $ServiceLoader*, $ClassLoader*)},
+	{"initEngines", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(ScriptEngineManager, initEngines, void, $ClassLoader*)},
+	{"lambda$getEngineBy$1", "(Ljava/util/function/Function;Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ScriptEngineManager, lambda$getEngineBy$1, bool, $Function*, $String*, $ScriptEngineFactory*)},
+	{"lambda$getEngineBy$2", "(Ljavax/script/ScriptEngineFactory;)Ljavax/script/ScriptEngine;", nullptr, $PRIVATE | $SYNTHETIC, $method(ScriptEngineManager, lambda$getEngineBy$2, $ScriptEngine*, $ScriptEngineFactory*)},
+	{"lambda$initEngines$0", "(Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader;", nullptr, $PRIVATE | $SYNTHETIC, $method(ScriptEngineManager, lambda$initEngines$0, $ServiceLoader*, $ClassLoader*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager, put, void, $String*, Object$*)},
+	{"registerEngineExtension", "(Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)V", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager, registerEngineExtension, void, $String*, $ScriptEngineFactory*)},
+	{"registerEngineMimeType", "(Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)V", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager, registerEngineMimeType, void, $String*, $ScriptEngineFactory*)},
+	{"registerEngineName", "(Ljava/lang/String;Ljavax/script/ScriptEngineFactory;)V", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager, registerEngineName, void, $String*, $ScriptEngineFactory*)},
+	{"reportException", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScriptEngineManager, reportException, void, $String*, $Throwable*)},
+	{"setBindings", "(Ljavax/script/Bindings;)V", nullptr, $PUBLIC, $virtualMethod(ScriptEngineManager, setBindings, void, $Bindings*)},
 	{}
 };
 

@@ -40,13 +40,13 @@ $FieldInfo _Resolve$MethodCheckContext_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodCheckContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;ZLcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolve$MethodCheckContext::*)($Resolve*,bool,$DeferredAttr$DeferredAttrContext*,$Warner*)>(&Resolve$MethodCheckContext::init$))},
-	{"checkWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC},
-	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC},
-	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;ZLcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PUBLIC, $method(Resolve$MethodCheckContext, init$, void, $Resolve*, bool, $DeferredAttr$DeferredAttrContext*, $Warner*)},
+	{"checkWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodCheckContext, checkWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodCheckContext, compatible, bool, $Type*, $Type*, $Warner*)},
+	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodCheckContext, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
+	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodCheckContext, inferenceContext, $InferenceContext*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodCheckContext, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodCheckContext, toString, $String*)},
 	{}
 };
 

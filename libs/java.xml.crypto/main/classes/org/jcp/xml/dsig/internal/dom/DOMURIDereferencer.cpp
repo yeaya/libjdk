@@ -67,8 +67,8 @@ $FieldInfo _DOMURIDereferencer_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMURIDereferencer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DOMURIDereferencer::*)()>(&DOMURIDereferencer::init$))},
-	{"dereference", "(Ljavax/xml/crypto/URIReference;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.URIReferenceException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DOMURIDereferencer, init$, void)},
+	{"dereference", "(Ljavax/xml/crypto/URIReference;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMURIDereferencer, dereference, $Data*, $URIReference*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
 	{}
 };
 

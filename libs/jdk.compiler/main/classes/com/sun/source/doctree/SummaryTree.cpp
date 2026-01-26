@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -12,7 +13,7 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _SummaryTree_MethodInfo_[] = {
-	{"getSummary", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT},
+	{"getSummary", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SummaryTree, getSummary, $List*)},
 	{}
 };
 

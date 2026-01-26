@@ -33,10 +33,10 @@ $FieldInfo _DOMSignatureMethod$AbstractP1363FormatSignatureMethod_FieldInfo_[] =
 };
 
 $MethodInfo _DOMSignatureMethod$AbstractP1363FormatSignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$AbstractP1363FormatSignatureMethod::*)($AlgorithmParameterSpec*)>(&DOMSignatureMethod$AbstractP1363FormatSignatureMethod::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$AbstractP1363FormatSignatureMethod::*)($Element*)>(&DOMSignatureMethod$AbstractP1363FormatSignatureMethod::init$)), "javax.xml.crypto.MarshalException"},
-	{"getJCAFallbackAlgorithm", "()Ljava/lang/String;", nullptr, $ABSTRACT},
-	{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, nullptr, "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"getJCAFallbackAlgorithm", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, getJCAFallbackAlgorithm, $String*)},
+	{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, getSignature, $Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
 	{}
 };
 

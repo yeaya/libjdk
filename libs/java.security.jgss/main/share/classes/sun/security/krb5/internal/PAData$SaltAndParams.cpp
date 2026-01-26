@@ -20,7 +20,7 @@ $FieldInfo _PAData$SaltAndParams_FieldInfo_[] = {
 };
 
 $MethodInfo _PAData$SaltAndParams_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(static_cast<void(PAData$SaltAndParams::*)($String*,$bytes*)>(&PAData$SaltAndParams::init$))},
+	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(PAData$SaltAndParams, init$, void, $String*, $bytes*)},
 	{}
 };
 

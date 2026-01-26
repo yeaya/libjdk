@@ -29,10 +29,10 @@ $FieldInfo _SpNegoToken$NegoResult_FieldInfo_[] = {
 };
 
 $MethodInfo _SpNegoToken$NegoResult_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SpNegoToken$NegoResultArray*(*)()>(&SpNegoToken$NegoResult::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(SpNegoToken$NegoResult::*)($String*,int32_t)>(&SpNegoToken$NegoResult::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SpNegoToken$NegoResult*(*)($String*)>(&SpNegoToken$NegoResult::valueOf))},
-	{"values", "()[Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SpNegoToken$NegoResultArray*(*)()>(&SpNegoToken$NegoResult::values))},
+	{"$values", "()[Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SpNegoToken$NegoResult, $values, $SpNegoToken$NegoResultArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SpNegoToken$NegoResult, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpNegoToken$NegoResult, valueOf, SpNegoToken$NegoResult*, $String*)},
+	{"values", "()[Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpNegoToken$NegoResult, values, $SpNegoToken$NegoResultArray*)},
 	{}
 };
 

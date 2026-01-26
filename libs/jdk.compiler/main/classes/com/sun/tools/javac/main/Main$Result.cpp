@@ -35,11 +35,11 @@ $FieldInfo _Main$Result_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$Result_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Main$ResultArray*(*)()>(&Main$Result::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(Main$Result::*)($String*,int32_t,int32_t)>(&Main$Result::init$))},
-	{"isOK", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Main$Result::*)()>(&Main$Result::isOK))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Main$Result*(*)($String*)>(&Main$Result::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Main$ResultArray*(*)()>(&Main$Result::values))},
+	{"$values", "()[Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main$Result, $values, $Main$ResultArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Main$Result, init$, void, $String*, int32_t, int32_t)},
+	{"isOK", "()Z", nullptr, $PUBLIC, $method(Main$Result, isOK, bool)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Result, valueOf, Main$Result*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $STATIC, $staticMethod(Main$Result, values, $Main$ResultArray*)},
 	{}
 };
 

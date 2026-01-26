@@ -25,12 +25,12 @@ $FieldInfo _AttributeChangeNotificationFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributeChangeNotificationFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AttributeChangeNotificationFilter::*)()>(&AttributeChangeNotificationFilter::init$))},
-	{"disableAllAttributes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"disableAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"enableAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.IllegalArgumentException"},
-	{"getEnabledAttributes", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED},
-	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeChangeNotificationFilter, init$, void)},
+	{"disableAllAttributes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, disableAllAttributes, void)},
+	{"disableAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, disableAttribute, void, $String*)},
+	{"enableAttribute", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, enableAttribute, void, $String*), "java.lang.IllegalArgumentException"},
+	{"getEnabledAttributes", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, getEnabledAttributes, $Vector*)},
+	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AttributeChangeNotificationFilter, isNotificationEnabled, bool, $Notification*)},
 	{}
 };
 

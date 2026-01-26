@@ -17,7 +17,7 @@ $FieldInfo _InvalidApplicationException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidApplicationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidApplicationException::*)(Object$*)>(&InvalidApplicationException::init$))},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidApplicationException, init$, void, Object$*)},
 	{}
 };
 

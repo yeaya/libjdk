@@ -18,8 +18,8 @@ $FieldInfo _MonitorSettingException_FieldInfo_[] = {
 };
 
 $MethodInfo _MonitorSettingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MonitorSettingException::*)()>(&MonitorSettingException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MonitorSettingException::*)($String*)>(&MonitorSettingException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MonitorSettingException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MonitorSettingException, init$, void, $String*)},
 	{}
 };
 

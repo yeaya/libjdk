@@ -54,21 +54,21 @@ $FieldInfo _NameSpaceSymbTable_FieldInfo_[] = {
 };
 
 $MethodInfo _NameSpaceSymbTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NameSpaceSymbTable::*)()>(&NameSpaceSymbTable::init$))},
-	{"addMapping", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/Attr;)Z", nullptr, $PUBLIC},
-	{"addMappingAndRender", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"getLevel", "()I", nullptr, $PUBLIC},
-	{"getMapping", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC},
-	{"getMappingWithoutRendered", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC},
-	{"getUnrenderedNodes", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Lorg/w3c/dom/Attr;>;)V", $PUBLIC},
-	{"needsClone", "()V", nullptr, $FINAL, $method(static_cast<void(NameSpaceSymbTable::*)()>(&NameSpaceSymbTable::needsClone))},
-	{"outputNodePop", "()V", nullptr, $PUBLIC},
-	{"outputNodePush", "()V", nullptr, $PUBLIC},
-	{"pop", "()V", nullptr, $PUBLIC},
-	{"push", "()V", nullptr, $PUBLIC},
-	{"removeMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"removeMappingIfNotRender", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"removeMappingIfRender", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NameSpaceSymbTable, init$, void)},
+	{"addMapping", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/Attr;)Z", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, addMapping, bool, $String*, $String*, $Attr*)},
+	{"addMappingAndRender", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, addMappingAndRender, $Node*, $String*, $String*, $Attr*)},
+	{"getLevel", "()I", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, getLevel, int32_t)},
+	{"getMapping", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, getMapping, $Attr*, $String*)},
+	{"getMappingWithoutRendered", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, getMappingWithoutRendered, $Attr*, $String*)},
+	{"getUnrenderedNodes", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Lorg/w3c/dom/Attr;>;)V", $PUBLIC, $virtualMethod(NameSpaceSymbTable, getUnrenderedNodes, void, $Collection*)},
+	{"needsClone", "()V", nullptr, $FINAL, $method(NameSpaceSymbTable, needsClone, void)},
+	{"outputNodePop", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, outputNodePop, void)},
+	{"outputNodePush", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, outputNodePush, void)},
+	{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, pop, void)},
+	{"push", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, push, void)},
+	{"removeMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, removeMapping, void, $String*)},
+	{"removeMappingIfNotRender", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, removeMappingIfNotRender, void, $String*)},
+	{"removeMappingIfRender", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, removeMappingIfRender, bool, $String*)},
 	{}
 };
 

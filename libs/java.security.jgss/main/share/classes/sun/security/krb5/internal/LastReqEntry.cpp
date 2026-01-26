@@ -35,11 +35,11 @@ $FieldInfo _LastReqEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _LastReqEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LastReqEntry::*)()>(&LastReqEntry::init$))},
-	{"<init>", "(ILsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC, $method(static_cast<void(LastReqEntry::*)(int32_t,$KerberosTime*)>(&LastReqEntry::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(LastReqEntry::*)($DerValue*)>(&LastReqEntry::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LastReqEntry, init$, void)},
+	{"<init>", "(ILsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC, $method(LastReqEntry, init$, void, int32_t, $KerberosTime*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(LastReqEntry, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(LastReqEntry, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LastReqEntry, clone, $Object*)},
 	{}
 };
 

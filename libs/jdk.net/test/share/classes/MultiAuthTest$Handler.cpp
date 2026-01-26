@@ -27,8 +27,8 @@ $FieldInfo _MultiAuthTest$Handler_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiAuthTest$Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MultiAuthTest$Handler::*)()>(&MultiAuthTest$Handler::init$))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(MultiAuthTest$Handler, init$, void)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(MultiAuthTest$Handler, handle, void, $HttpExchange*), "java.io.IOException"},
 	{}
 };
 

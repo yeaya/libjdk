@@ -45,9 +45,9 @@ $FieldInfo _Main$MemoryFileManager_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$MemoryFileManager_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;Ljavax/tools/JavaFileManager;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljavax/tools/JavaFileManager;)V", 0, $method(static_cast<void(Main$MemoryFileManager::*)($Map*,$JavaFileManager*)>(&Main$MemoryFileManager::init$))},
-	{"createInMemoryClassFile", "(Ljava/lang/String;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(static_cast<$JavaFileObject*(Main$MemoryFileManager::*)($String*)>(&Main$MemoryFileManager::createInMemoryClassFile))},
-	{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/Map;Ljavax/tools/JavaFileManager;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljavax/tools/JavaFileManager;)V", 0, $method(Main$MemoryFileManager, init$, void, $Map*, $JavaFileManager*)},
+	{"createInMemoryClassFile", "(Ljava/lang/String;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(Main$MemoryFileManager, createInMemoryClassFile, $JavaFileObject*, $String*)},
+	{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryFileManager, getJavaFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*, $FileObject*), "java.io.IOException"},
 	{}
 };
 

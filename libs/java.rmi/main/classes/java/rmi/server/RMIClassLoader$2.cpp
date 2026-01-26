@@ -19,11 +19,11 @@ namespace java {
 		namespace server {
 
 $MethodInfo _RMIClassLoader$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RMIClassLoader$2::*)()>(&RMIClassLoader$2::init$))},
-	{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC},
-	{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, nullptr, "java.net.MalformedURLException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC, nullptr, "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC, nullptr, "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+	{"<init>", "()V", nullptr, 0, $method(RMIClassLoader$2, init$, void)},
+	{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(RMIClassLoader$2, getClassAnnotation, $String*, $Class*)},
+	{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(RMIClassLoader$2, getClassLoader, $ClassLoader*, $String*), "java.net.MalformedURLException"},
+	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RMIClassLoader$2, loadClass, $Class*, $String*, $String*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+	{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RMIClassLoader$2, loadProxyClass, $Class*, $String*, $StringArray*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
 	{}
 };
 

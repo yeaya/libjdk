@@ -4,6 +4,7 @@
 #include <com/sun/tools/javac/main/Option.h>
 #include <jcpp.h>
 
+using $Option = ::com::sun::tools::javac::main::Option;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,7 +16,7 @@ namespace com {
 				namespace main {
 
 $MethodInfo _Arguments$ErrorReporter_MethodInfo_[] = {
-	{"report", "(Lcom/sun/tools/javac/main/Option;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"report", "(Lcom/sun/tools/javac/main/Option;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Arguments$ErrorReporter, report, void, $Option*)},
 	{}
 };
 

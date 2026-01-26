@@ -4,17 +4,19 @@
 #include <java/lang/reflect/Method.h>
 #include <jcpp.h>
 
+using $ObjectStreamClass = ::java::io::ObjectStreamClass;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Method = ::java::lang::reflect::Method;
 
 namespace sun {
 	namespace rmi {
 		namespace server {
 
 $MethodInfo _DeserializationChecker_MethodInfo_[] = {
-	{"check", "(Ljava/lang/reflect/Method;Ljava/io/ObjectStreamClass;II)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"checkProxyClass", "(Ljava/lang/reflect/Method;[Ljava/lang/String;II)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"end", "(I)V", nullptr, $PUBLIC},
+	{"check", "(Ljava/lang/reflect/Method;Ljava/io/ObjectStreamClass;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeserializationChecker, check, void, $Method*, $ObjectStreamClass*, int32_t, int32_t)},
+	{"checkProxyClass", "(Ljava/lang/reflect/Method;[Ljava/lang/String;II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeserializationChecker, checkProxyClass, void, $Method*, $StringArray*, int32_t, int32_t)},
+	{"end", "(I)V", nullptr, $PUBLIC, $virtualMethod(DeserializationChecker, end, void, int32_t)},
 	{}
 };
 

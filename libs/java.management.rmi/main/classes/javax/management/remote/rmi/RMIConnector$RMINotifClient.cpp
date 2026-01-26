@@ -67,12 +67,12 @@ $FieldInfo _RMIConnector$RMINotifClient_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnector$RMINotifClient_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnector;Ljava/lang/ClassLoader;Ljava/util/Map;)V", "(Ljava/lang/ClassLoader;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(static_cast<void(RMIConnector$RMINotifClient::*)($RMIConnector*,$ClassLoader*,$Map*)>(&RMIConnector$RMINotifClient::init$))},
-	{"addListenerForMBeanRemovedNotif", "()Ljava/lang/Integer;", nullptr, $PROTECTED, nullptr, "java.io.IOException,javax.management.InstanceNotFoundException"},
-	{"fetchNotifs", "(JIJ)Ljavax/management/remote/NotificationResult;", nullptr, $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"lostNotifs", "(Ljava/lang/String;J)V", nullptr, $PROTECTED},
-	{"removeListenerForMBeanRemovedNotif", "(Ljava/lang/Integer;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
-	{"rethrowDeserializationException", "(Ljava/io/IOException;)V", nullptr, $PRIVATE, $method(static_cast<void(RMIConnector$RMINotifClient::*)($IOException*)>(&RMIConnector$RMINotifClient::rethrowDeserializationException)), "java.lang.ClassNotFoundException,java.io.IOException"},
+	{"<init>", "(Ljavax/management/remote/rmi/RMIConnector;Ljava/lang/ClassLoader;Ljava/util/Map;)V", "(Ljava/lang/ClassLoader;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(RMIConnector$RMINotifClient, init$, void, $RMIConnector*, $ClassLoader*, $Map*)},
+	{"addListenerForMBeanRemovedNotif", "()Ljava/lang/Integer;", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, addListenerForMBeanRemovedNotif, $Integer*), "java.io.IOException,javax.management.InstanceNotFoundException"},
+	{"fetchNotifs", "(JIJ)Ljavax/management/remote/NotificationResult;", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, fetchNotifs, $NotificationResult*, int64_t, int32_t, int64_t), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"lostNotifs", "(Ljava/lang/String;J)V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, lostNotifs, void, $String*, int64_t)},
+	{"removeListenerForMBeanRemovedNotif", "(Ljava/lang/Integer;)V", nullptr, $PROTECTED, $virtualMethod(RMIConnector$RMINotifClient, removeListenerForMBeanRemovedNotif, void, $Integer*), "java.io.IOException,javax.management.InstanceNotFoundException,javax.management.ListenerNotFoundException"},
+	{"rethrowDeserializationException", "(Ljava/io/IOException;)V", nullptr, $PRIVATE, $method(RMIConnector$RMINotifClient, rethrowDeserializationException, void, $IOException*), "java.lang.ClassNotFoundException,java.io.IOException"},
 	{}
 };
 

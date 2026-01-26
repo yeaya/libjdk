@@ -80,17 +80,17 @@ $FieldInfo _DOMKeyValue$EC_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMKeyValue$EC_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/interfaces/ECPublicKey;)V", nullptr, 0, $method(static_cast<void(DOMKeyValue$EC::*)($ECPublicKey*)>(&DOMKeyValue$EC::init$)), "java.security.KeyException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMKeyValue$EC::*)($Element*)>(&DOMKeyValue$EC::init$)), "javax.xml.crypto.MarshalException"},
-	{"decodePoint", "([BLjava/security/spec/EllipticCurve;)Ljava/security/spec/ECPoint;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ECPoint*(*)($bytes*,$EllipticCurve*)>(&DOMKeyValue$EC::decodePoint)), "java.io.IOException"},
-	{"encodePoint", "(Ljava/security/spec/ECPoint;Ljava/security/spec/EllipticCurve;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($ECPoint*,$EllipticCurve*)>(&DOMKeyValue$EC::encodePoint))},
-	{"getCurveOid", "(Ljava/security/spec/ECParameterSpec;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($ECParameterSpec*)>(&DOMKeyValue$EC::getCurveOid))},
-	{"getECParameterSpec", "(Ljava/lang/String;)Ljava/security/spec/ECParameterSpec;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ECParameterSpec*(*)($String*)>(&DOMKeyValue$EC::getECParameterSpec))},
-	{"initializeCurve", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Lorg/jcp/xml/dsig/internal/dom/DOMKeyValue$EC$Curve;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$DOMKeyValue$EC$Curve*(*)($String*,$String*,$String*,$String*,$String*,$String*,$String*,$String*,int32_t)>(&DOMKeyValue$EC::initializeCurve))},
-	{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, nullptr, "javax.xml.crypto.MarshalException"},
-	{"matchCurve", "(Ljava/security/spec/ECParameterSpec;Lorg/jcp/xml/dsig/internal/dom/DOMKeyValue$EC$Curve;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ECParameterSpec*,$DOMKeyValue$EC$Curve*)>(&DOMKeyValue$EC::matchCurve))},
-	{"trimZeroes", "([B)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&DOMKeyValue$EC::trimZeroes))},
-	{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/interfaces/ECPublicKey;", nullptr, 0, nullptr, "javax.xml.crypto.MarshalException"},
+	{"<init>", "(Ljava/security/interfaces/ECPublicKey;)V", nullptr, 0, $method(DOMKeyValue$EC, init$, void, $ECPublicKey*), "java.security.KeyException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMKeyValue$EC, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"decodePoint", "([BLjava/security/spec/EllipticCurve;)Ljava/security/spec/ECPoint;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMKeyValue$EC, decodePoint, $ECPoint*, $bytes*, $EllipticCurve*), "java.io.IOException"},
+	{"encodePoint", "(Ljava/security/spec/ECPoint;Ljava/security/spec/EllipticCurve;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMKeyValue$EC, encodePoint, $bytes*, $ECPoint*, $EllipticCurve*)},
+	{"getCurveOid", "(Ljava/security/spec/ECParameterSpec;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMKeyValue$EC, getCurveOid, $String*, $ECParameterSpec*)},
+	{"getECParameterSpec", "(Ljava/lang/String;)Ljava/security/spec/ECParameterSpec;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMKeyValue$EC, getECParameterSpec, $ECParameterSpec*, $String*)},
+	{"initializeCurve", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Lorg/jcp/xml/dsig/internal/dom/DOMKeyValue$EC$Curve;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMKeyValue$EC, initializeCurve, $DOMKeyValue$EC$Curve*, $String*, $String*, $String*, $String*, $String*, $String*, $String*, $String*, int32_t)},
+	{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, $virtualMethod(DOMKeyValue$EC, marshalPublicKey, void, $Node*, $Document*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+	{"matchCurve", "(Ljava/security/spec/ECParameterSpec;Lorg/jcp/xml/dsig/internal/dom/DOMKeyValue$EC$Curve;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMKeyValue$EC, matchCurve, bool, $ECParameterSpec*, $DOMKeyValue$EC$Curve*)},
+	{"trimZeroes", "([B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMKeyValue$EC, trimZeroes, $bytes*, $bytes*)},
+	{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/interfaces/ECPublicKey;", nullptr, 0, $virtualMethod(DOMKeyValue$EC, unmarshalKeyValue, $PublicKey*, $Element*), "javax.xml.crypto.MarshalException"},
 	{}
 };
 

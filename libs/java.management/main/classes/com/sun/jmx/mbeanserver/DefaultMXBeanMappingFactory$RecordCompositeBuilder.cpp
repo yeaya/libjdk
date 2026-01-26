@@ -34,16 +34,16 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _DefaultMXBeanMappingFactory$RecordCompositeBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(static_cast<void(DefaultMXBeanMappingFactory$RecordCompositeBuilder::*)($Class*,$StringArray*)>(&DefaultMXBeanMappingFactory$RecordCompositeBuilder::init$))},
-	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, nullptr, "java.io.InvalidObjectException"},
-	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, 0, nullptr, "java.io.InvalidObjectException"},
-	{"getConstPropValues", "(Ljava/lang/reflect/Constructor;)[Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)[Ljava/lang/String;", 0},
-	{"matchingMechanism", "(Ljava/lang/reflect/Constructor;)Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)Ljava/lang/String;", 0},
-	{"referenceMechannism", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
-	{"reportConstructorsAmbiguousFor", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/String;", 0},
-	{"reportMultipleConstructorsFoundFor", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $TRANSIENT},
-	{"reportNoConstructor", "()Ljava/lang/String;", nullptr, 0},
-	{"reportNoConstructorFoundFor", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/String;", 0},
+	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$RecordCompositeBuilder, init$, void, $Class*, $StringArray*)},
+	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, applicable, $String*, $MethodArray*), "java.io.InvalidObjectException"},
+	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*), "java.io.InvalidObjectException"},
+	{"getConstPropValues", "(Ljava/lang/reflect/Constructor;)[Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)[Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, getConstPropValues, $StringArray*, $Constructor*)},
+	{"matchingMechanism", "(Ljava/lang/reflect/Constructor;)Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, matchingMechanism, $String*, $Constructor*)},
+	{"referenceMechannism", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, referenceMechannism, $String*, $String*)},
+	{"reportConstructorsAmbiguousFor", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportConstructorsAmbiguousFor, $String*, $Set*)},
+	{"reportMultipleConstructorsFoundFor", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $TRANSIENT, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportMultipleConstructorsFoundFor, $String*, $StringArray*)},
+	{"reportNoConstructor", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportNoConstructor, $String*)},
+	{"reportNoConstructorFoundFor", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportNoConstructorFoundFor, $String*, $Set*)},
 	{}
 };
 

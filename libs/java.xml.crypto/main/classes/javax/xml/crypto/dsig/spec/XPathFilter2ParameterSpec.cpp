@@ -32,8 +32,8 @@ $FieldInfo _XPathFilter2ParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _XPathFilter2ParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/xml/crypto/dsig/spec/XPathType;>;)V", $PUBLIC, $method(static_cast<void(XPathFilter2ParameterSpec::*)($List*)>(&XPathFilter2ParameterSpec::init$))},
-	{"getXPathList", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/spec/XPathType;>;", $PUBLIC, $method(static_cast<$List*(XPathFilter2ParameterSpec::*)()>(&XPathFilter2ParameterSpec::getXPathList))},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/xml/crypto/dsig/spec/XPathType;>;)V", $PUBLIC, $method(XPathFilter2ParameterSpec, init$, void, $List*)},
+	{"getXPathList", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/spec/XPathType;>;", $PUBLIC, $method(XPathFilter2ParameterSpec, getXPathList, $List*)},
 	{}
 };
 

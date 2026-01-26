@@ -23,9 +23,9 @@ $FieldInfo _HttpInputStreamTest$HttpInputStreamHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpInputStreamTest$HttpInputStreamHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpInputStreamTest$HttpInputStreamHandler::*)()>(&HttpInputStreamTest$HttpInputStreamHandler::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(HttpInputStreamTest$HttpInputStreamHandler::*)(int32_t)>(&HttpInputStreamTest$HttpInputStreamHandler::init$))},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/io/InputStream;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpInputStreamTest$HttpInputStreamHandler, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(HttpInputStreamTest$HttpInputStreamHandler, init$, void, int32_t)},
+	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/io/InputStream;>;", $PUBLIC, $virtualMethod(HttpInputStreamTest$HttpInputStreamHandler, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
 	{}
 };
 

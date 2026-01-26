@@ -31,9 +31,9 @@ $FieldInfo _TestSupport$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TestSupport$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F;)V", nullptr, 0, $method(static_cast<void(TestSupport$1::*)($List*,$TestSupport$F*)>(&TestSupport$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TR;", $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F;)V", nullptr, 0, $method(TestSupport$1, init$, void, $List*, $TestSupport$F*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(TestSupport$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TR;", $PUBLIC, $virtualMethod(TestSupport$1, next, $Object*)},
 	{}
 };
 

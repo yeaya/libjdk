@@ -36,11 +36,11 @@ $FieldInfo _MessageToken_v2$MessageTokenHeader_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageToken_v2$MessageTokenHeader_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/MessageToken_v2;IZ)V", nullptr, $PUBLIC, $method(static_cast<void(MessageToken_v2$MessageTokenHeader::*)($MessageToken_v2*,int32_t,bool)>(&MessageToken_v2$MessageTokenHeader::init$)), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/MessageToken_v2;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;I)V", nullptr, $PUBLIC, $method(static_cast<void(MessageToken_v2$MessageTokenHeader::*)($MessageToken_v2*,$InputStream*,$MessageProp*,int32_t)>(&MessageToken_v2$MessageTokenHeader::init$)), "java.io.IOException,org.ietf.jgss.GSSException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(MessageToken_v2$MessageTokenHeader::*)($OutputStream*)>(&MessageToken_v2$MessageTokenHeader::encode)), "java.io.IOException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(static_cast<$bytes*(MessageToken_v2$MessageTokenHeader::*)()>(&MessageToken_v2$MessageTokenHeader::getBytes))},
-	{"getTokenId", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(MessageToken_v2$MessageTokenHeader::*)()>(&MessageToken_v2$MessageTokenHeader::getTokenId))},
+	{"<init>", "(Lsun/security/jgss/krb5/MessageToken_v2;IZ)V", nullptr, $PUBLIC, $method(MessageToken_v2$MessageTokenHeader, init$, void, $MessageToken_v2*, int32_t, bool), "org.ietf.jgss.GSSException"},
+	{"<init>", "(Lsun/security/jgss/krb5/MessageToken_v2;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;I)V", nullptr, $PUBLIC, $method(MessageToken_v2$MessageTokenHeader, init$, void, $MessageToken_v2*, $InputStream*, $MessageProp*, int32_t), "java.io.IOException,org.ietf.jgss.GSSException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2$MessageTokenHeader, encode, void, $OutputStream*), "java.io.IOException"},
+	{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2$MessageTokenHeader, getBytes, $bytes*)},
+	{"getTokenId", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2$MessageTokenHeader, getTokenId, int32_t)},
 	{}
 };
 

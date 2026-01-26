@@ -104,8 +104,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RMIJRMPServerImpl$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RMIJRMPServerImpl$$Lambda$lambda$new$0::*)()>(&RMIJRMPServerImpl$$Lambda$lambda$new$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RMIJRMPServerImpl$$Lambda$lambda$new$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RMIJRMPServerImpl$$Lambda$lambda$new$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo RMIJRMPServerImpl$$Lambda$lambda$new$0::classInfo$ = {
@@ -137,8 +137,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RMIJRMPServerImpl$$Lambda$checkPackageAccess$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RMIJRMPServerImpl$$Lambda$checkPackageAccess$1::*)()>(&RMIJRMPServerImpl$$Lambda$checkPackageAccess$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RMIJRMPServerImpl$$Lambda$checkPackageAccess$1, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RMIJRMPServerImpl$$Lambda$checkPackageAccess$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo RMIJRMPServerImpl$$Lambda$checkPackageAccess$1::classInfo$ = {
@@ -177,8 +177,8 @@ $FieldInfo RMIJRMPServerImpl$$Lambda$newClientCheckInput$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo RMIJRMPServerImpl$$Lambda$newClientCheckInput$2::methodInfos[3] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIJRMPServerImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(RMIJRMPServerImpl$$Lambda$newClientCheckInput$2::*)(RMIJRMPServerImpl*)>(&RMIJRMPServerImpl$$Lambda$newClientCheckInput$2::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/remote/rmi/RMIJRMPServerImpl;)V", nullptr, $PUBLIC, $method(RMIJRMPServerImpl$$Lambda$newClientCheckInput$2, init$, void, RMIJRMPServerImpl*)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(RMIJRMPServerImpl$$Lambda$newClientCheckInput$2, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
 	{}
 };
 $ClassInfo RMIJRMPServerImpl$$Lambda$newClientCheckInput$2::classInfo$ = {
@@ -207,17 +207,17 @@ $FieldInfo _RMIJRMPServerImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIJRMPServerImpl_MethodInfo_[] = {
-	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/util/Map;)V", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(static_cast<void(RMIJRMPServerImpl::*)(int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*,$Map*)>(&RMIJRMPServerImpl::init$)), "java.io.IOException"},
-	{"closeClient", "(Ljavax/management/remote/rmi/RMIConnection;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"closeServer", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"export", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"export", "(Ljava/rmi/Remote;Ljava/io/ObjectInputFilter;)V", nullptr, $PRIVATE, $method(static_cast<void(RMIJRMPServerImpl::*)($Remote*,$ObjectInputFilter*)>(&RMIJRMPServerImpl::export$)), "java.rmi.RemoteException"},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"lambda$new$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&RMIJRMPServerImpl::lambda$new$0))},
-	{"makeClient", "(Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"newClientCheckInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, 0},
-	{"toStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"unexport", "(Ljava/rmi/Remote;Z)V", nullptr, $PRIVATE, $method(static_cast<void(RMIJRMPServerImpl::*)($Remote*,bool)>(&RMIJRMPServerImpl::unexport)), "java.rmi.NoSuchObjectException"},
+	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/util/Map;)V", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(RMIJRMPServerImpl, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*, $Map*), "java.io.IOException"},
+	{"closeClient", "(Ljavax/management/remote/rmi/RMIConnection;)V", nullptr, $PROTECTED, $virtualMethod(RMIJRMPServerImpl, closeClient, void, $RMIConnection*), "java.io.IOException"},
+	{"closeServer", "()V", nullptr, $PROTECTED, $virtualMethod(RMIJRMPServerImpl, closeServer, void), "java.io.IOException"},
+	{"export", "()V", nullptr, $PROTECTED, $virtualMethod(RMIJRMPServerImpl, export$, void), "java.io.IOException"},
+	{"export", "(Ljava/rmi/Remote;Ljava/io/ObjectInputFilter;)V", nullptr, $PRIVATE, $method(RMIJRMPServerImpl, export$, void, $Remote*, $ObjectInputFilter*), "java.rmi.RemoteException"},
+	{"getProtocol", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RMIJRMPServerImpl, getProtocol, $String*)},
+	{"lambda$new$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RMIJRMPServerImpl, lambda$new$0, bool, $String*)},
+	{"makeClient", "(Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PROTECTED, $virtualMethod(RMIJRMPServerImpl, makeClient, $RMIConnection*, $String*, $Subject*), "java.io.IOException"},
+	{"newClientCheckInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, 0, $virtualMethod(RMIJRMPServerImpl, newClientCheckInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+	{"toStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(RMIJRMPServerImpl, toStub, $Remote*), "java.io.IOException"},
+	{"unexport", "(Ljava/rmi/Remote;Z)V", nullptr, $PRIVATE, $method(RMIJRMPServerImpl, unexport, void, $Remote*, bool), "java.rmi.NoSuchObjectException"},
 	{}
 };
 

@@ -32,9 +32,9 @@ $FieldInfo _ExcC14NParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _ExcC14NParameterSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExcC14NParameterSpec::*)()>(&ExcC14NParameterSpec::init$))},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ExcC14NParameterSpec::*)($List*)>(&ExcC14NParameterSpec::init$))},
-	{"getPrefixList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$List*(ExcC14NParameterSpec::*)()>(&ExcC14NParameterSpec::getPrefixList))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExcC14NParameterSpec, init$, void)},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ExcC14NParameterSpec, init$, void, $List*)},
+	{"getPrefixList", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(ExcC14NParameterSpec, getPrefixList, $List*)},
 	{}
 };
 

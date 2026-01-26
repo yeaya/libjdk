@@ -24,8 +24,8 @@ using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $ConcurrentLinkedQueue = ::java::util::concurrent::ConcurrentLinkedQueue;
 
 $MethodInfo _PlainProxyConnectionTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(PlainProxyConnectionTest$1::*)()>(&PlainProxyConnectionTest$1::init$))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(PlainProxyConnectionTest$1, init$, void)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(PlainProxyConnectionTest$1, handle, void, $HttpExchange*), "java.io.IOException"},
 	{}
 };
 

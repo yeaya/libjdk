@@ -33,11 +33,11 @@ $FieldInfo _SimpleHeaderTable$CircularBuffer_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleHeaderTable$CircularBuffer_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(SimpleHeaderTable$CircularBuffer::*)(int32_t)>(&SimpleHeaderTable$CircularBuffer::init$))},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(static_cast<void(SimpleHeaderTable$CircularBuffer::*)(Object$*)>(&SimpleHeaderTable$CircularBuffer::add))},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", 0, $method(static_cast<$Object*(SimpleHeaderTable$CircularBuffer::*)(int32_t)>(&SimpleHeaderTable$CircularBuffer::get))},
-	{"remove", "()Ljava/lang/Object;", "()TE;", 0, $method(static_cast<$Object*(SimpleHeaderTable$CircularBuffer::*)()>(&SimpleHeaderTable$CircularBuffer::remove))},
-	{"resize", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable$CircularBuffer::*)(int32_t)>(&SimpleHeaderTable$CircularBuffer::resize))},
+	{"<init>", "(I)V", nullptr, 0, $method(SimpleHeaderTable$CircularBuffer, init$, void, int32_t)},
+	{"add", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(SimpleHeaderTable$CircularBuffer, add, void, Object$*)},
+	{"get", "(I)Ljava/lang/Object;", "(I)TE;", 0, $method(SimpleHeaderTable$CircularBuffer, get, $Object*, int32_t)},
+	{"remove", "()Ljava/lang/Object;", "()TE;", 0, $method(SimpleHeaderTable$CircularBuffer, remove, $Object*)},
+	{"resize", "(I)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$CircularBuffer, resize, void, int32_t)},
 	{}
 };
 

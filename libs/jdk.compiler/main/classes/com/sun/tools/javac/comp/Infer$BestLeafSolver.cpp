@@ -60,9 +60,9 @@ $FieldInfo _Infer$BestLeafSolver_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$BestLeafSolver_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(static_cast<void(Infer$BestLeafSolver::*)($Infer*,$List*)>(&Infer$BestLeafSolver::init$))},
-	{"computeTreeToLeafs", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)Lcom/sun/tools/javac/util/Pair;", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;Ljava/lang/Integer;>;", 0},
-	{"pickNode", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(Infer$BestLeafSolver, init$, void, $Infer*, $List*)},
+	{"computeTreeToLeafs", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)Lcom/sun/tools/javac/util/Pair;", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;>;Ljava/lang/Integer;>;", 0, $virtualMethod(Infer$BestLeafSolver, computeTreeToLeafs, $Pair*, $Infer$GraphSolver$InferenceGraph$Node*)},
+	{"pickNode", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;", nullptr, $PUBLIC, $virtualMethod(Infer$BestLeafSolver, pickNode, $Infer$GraphSolver$InferenceGraph$Node*, $Infer$GraphSolver$InferenceGraph*)},
 	{}
 };
 

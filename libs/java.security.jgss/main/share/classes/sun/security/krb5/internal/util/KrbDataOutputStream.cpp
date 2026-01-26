@@ -16,10 +16,10 @@ namespace sun {
 				namespace util {
 
 $MethodInfo _KrbDataOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbDataOutputStream::*)($OutputStream*)>(&KrbDataOutputStream::init$))},
-	{"write16", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write32", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write8", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(KrbDataOutputStream, init$, void, $OutputStream*)},
+	{"write16", "(I)V", nullptr, $PUBLIC, $virtualMethod(KrbDataOutputStream, write16, void, int32_t), "java.io.IOException"},
+	{"write32", "(I)V", nullptr, $PUBLIC, $virtualMethod(KrbDataOutputStream, write32, void, int32_t), "java.io.IOException"},
+	{"write8", "(I)V", nullptr, $PUBLIC, $virtualMethod(KrbDataOutputStream, write8, void, int32_t), "java.io.IOException"},
 	{}
 };
 

@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Node = ::org::w3c::dom::Node;
 
 namespace javax {
 	namespace xml {
@@ -12,7 +13,7 @@ namespace javax {
 			namespace dom {
 
 $MethodInfo _DOMURIReference_MethodInfo_[] = {
-	{"getHere", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getHere", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMURIReference, getHere, $Node*)},
 	{}
 };
 

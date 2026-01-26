@@ -21,9 +21,9 @@ $FieldInfo _ResponseSubscribers$PublishingBodySubscriber$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseSubscribers$PublishingBodySubscriber$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;)V", nullptr, 0, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber$1::*)($ResponseSubscribers$PublishingBodySubscriber*)>(&ResponseSubscribers$PublishingBodySubscriber$1::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;)V", nullptr, 0, $method(ResponseSubscribers$PublishingBodySubscriber$1, init$, void, $ResponseSubscribers$PublishingBodySubscriber*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$1, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$1, request, void, int64_t)},
 	{}
 };
 

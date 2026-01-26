@@ -25,10 +25,10 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _IntegrityHmac$IntegrityHmacSHA384_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntegrityHmac$IntegrityHmacSHA384::*)()>(&IntegrityHmac$IntegrityHmacSHA384::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(static_cast<void(IntegrityHmac$IntegrityHmacSHA384::*)($Provider*)>(&IntegrityHmac$IntegrityHmacSHA384::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDigestLength", "()I", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacSHA384, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(IntegrityHmac$IntegrityHmacSHA384, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntegrityHmac$IntegrityHmacSHA384, engineGetURI, $String*)},
+	{"getDigestLength", "()I", nullptr, 0, $virtualMethod(IntegrityHmac$IntegrityHmacSHA384, getDigestLength, int32_t)},
 	{}
 };
 

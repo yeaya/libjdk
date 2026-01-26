@@ -39,11 +39,11 @@ $FieldInfo _Dependencies$GraphDependencies$DependenciesMode_FieldInfo_[] = {
 };
 
 $MethodInfo _Dependencies$GraphDependencies$DependenciesMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$DependenciesMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Dependencies$GraphDependencies$DependenciesModeArray*(*)()>(&Dependencies$GraphDependencies$DependenciesMode::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Dependencies$GraphDependencies$DependenciesMode::*)($String*,int32_t,$String*)>(&Dependencies$GraphDependencies$DependenciesMode::init$))},
-	{"getDependenciesModes", "([Ljava/lang/String;)Ljava/util/EnumSet;", "([Ljava/lang/String;)Ljava/util/EnumSet<Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$DependenciesMode;>;", $STATIC, $method(static_cast<$EnumSet*(*)($StringArray*)>(&Dependencies$GraphDependencies$DependenciesMode::getDependenciesModes))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$DependenciesMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Dependencies$GraphDependencies$DependenciesMode*(*)($String*)>(&Dependencies$GraphDependencies$DependenciesMode::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$DependenciesMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Dependencies$GraphDependencies$DependenciesModeArray*(*)()>(&Dependencies$GraphDependencies$DependenciesMode::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$DependenciesMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dependencies$GraphDependencies$DependenciesMode, $values, $Dependencies$GraphDependencies$DependenciesModeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Dependencies$GraphDependencies$DependenciesMode, init$, void, $String*, int32_t, $String*)},
+	{"getDependenciesModes", "([Ljava/lang/String;)Ljava/util/EnumSet;", "([Ljava/lang/String;)Ljava/util/EnumSet<Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$DependenciesMode;>;", $STATIC, $staticMethod(Dependencies$GraphDependencies$DependenciesMode, getDependenciesModes, $EnumSet*, $StringArray*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$DependenciesMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$GraphDependencies$DependenciesMode, valueOf, Dependencies$GraphDependencies$DependenciesMode*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$DependenciesMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$GraphDependencies$DependenciesMode, values, $Dependencies$GraphDependencies$DependenciesModeArray*)},
 	{}
 };
 

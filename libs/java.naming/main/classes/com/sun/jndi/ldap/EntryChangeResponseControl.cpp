@@ -39,10 +39,10 @@ $FieldInfo _EntryChangeResponseControl_FieldInfo_[] = {
 };
 
 $MethodInfo _EntryChangeResponseControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(static_cast<void(EntryChangeResponseControl::*)($String*,bool,$bytes*)>(&EntryChangeResponseControl::init$)), "java.io.IOException"},
-	{"getChangeNumber", "()J", nullptr, $PUBLIC, $method(static_cast<int64_t(EntryChangeResponseControl::*)()>(&EntryChangeResponseControl::getChangeNumber))},
-	{"getChangeType", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(EntryChangeResponseControl::*)()>(&EntryChangeResponseControl::getChangeType))},
-	{"getPreviousDN", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(EntryChangeResponseControl::*)()>(&EntryChangeResponseControl::getPreviousDN))},
+	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(EntryChangeResponseControl, init$, void, $String*, bool, $bytes*), "java.io.IOException"},
+	{"getChangeNumber", "()J", nullptr, $PUBLIC, $method(EntryChangeResponseControl, getChangeNumber, int64_t)},
+	{"getChangeType", "()I", nullptr, $PUBLIC, $method(EntryChangeResponseControl, getChangeType, int32_t)},
+	{"getPreviousDN", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(EntryChangeResponseControl, getPreviousDN, $String*)},
 	{}
 };
 

@@ -59,12 +59,12 @@ $FieldInfo _JavacProcessingEnvironment$NameProcessIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacProcessingEnvironment$NameProcessIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/ClassLoader;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(static_cast<void(JavacProcessingEnvironment$NameProcessIterator::*)($String*,$ClassLoader*,$Log*)>(&JavacProcessingEnvironment$NameProcessIterator::init$))},
-	{"ensureReadable", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment$NameProcessIterator::*)($Class*)>(&JavacProcessingEnvironment$NameProcessIterator::ensureReadable))},
-	{"getNextProcessor", "(Ljava/lang/String;)Ljavax/annotation/processing/Processor;", nullptr, $PRIVATE, $method(static_cast<$Processor*(JavacProcessingEnvironment$NameProcessIterator::*)($String*)>(&JavacProcessingEnvironment$NameProcessIterator::getNextProcessor))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljavax/annotation/processing/Processor;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/ClassLoader;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(JavacProcessingEnvironment$NameProcessIterator, init$, void, $String*, $ClassLoader*, $Log*)},
+	{"ensureReadable", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(JavacProcessingEnvironment$NameProcessIterator, ensureReadable, void, $Class*)},
+	{"getNextProcessor", "(Ljava/lang/String;)Ljavax/annotation/processing/Processor;", nullptr, $PRIVATE, $method(JavacProcessingEnvironment$NameProcessIterator, getNextProcessor, $Processor*, $String*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$NameProcessIterator, hasNext, bool)},
+	{"next", "()Ljavax/annotation/processing/Processor;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$NameProcessIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$NameProcessIterator, remove, void)},
 	{}
 };
 

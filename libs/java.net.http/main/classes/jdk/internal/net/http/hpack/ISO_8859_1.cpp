@@ -13,7 +13,7 @@ namespace jdk {
 				namespace hpack {
 
 $MethodInfo _ISO_8859_1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ISO_8859_1::*)()>(&ISO_8859_1::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ISO_8859_1, init$, void)},
 	{}
 };
 

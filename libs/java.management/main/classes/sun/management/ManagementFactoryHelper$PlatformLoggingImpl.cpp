@@ -31,13 +31,13 @@ $FieldInfo _ManagementFactoryHelper$PlatformLoggingImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ManagementFactoryHelper$PlatformLoggingImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/ManagementFactoryHelper$LoggingMXBeanAccess;)V", nullptr, $PRIVATE, $method(static_cast<void(ManagementFactoryHelper$PlatformLoggingImpl::*)($ManagementFactoryHelper$LoggingMXBeanAccess*)>(&ManagementFactoryHelper$PlatformLoggingImpl::init$))},
-	{"getInstance", "()Lsun/management/ManagementFactoryHelper$PlatformLoggingImpl;", nullptr, $PRIVATE | $STATIC, $method(static_cast<ManagementFactoryHelper$PlatformLoggingImpl*(*)()>(&ManagementFactoryHelper$PlatformLoggingImpl::getInstance))},
-	{"getLoggerLevel", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLoggerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"getParentLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setLoggerLevel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/management/ManagementFactoryHelper$LoggingMXBeanAccess;)V", nullptr, $PRIVATE, $method(ManagementFactoryHelper$PlatformLoggingImpl, init$, void, $ManagementFactoryHelper$LoggingMXBeanAccess*)},
+	{"getInstance", "()Lsun/management/ManagementFactoryHelper$PlatformLoggingImpl;", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactoryHelper$PlatformLoggingImpl, getInstance, ManagementFactoryHelper$PlatformLoggingImpl*)},
+	{"getLoggerLevel", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$PlatformLoggingImpl, getLoggerLevel, $String*, $String*)},
+	{"getLoggerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ManagementFactoryHelper$PlatformLoggingImpl, getLoggerNames, $List*)},
+	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$PlatformLoggingImpl, getObjectName, $ObjectName*)},
+	{"getParentLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$PlatformLoggingImpl, getParentLoggerName, $String*, $String*)},
+	{"setLoggerLevel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$PlatformLoggingImpl, setLoggerLevel, void, $String*, $String*)},
 	{}
 };
 

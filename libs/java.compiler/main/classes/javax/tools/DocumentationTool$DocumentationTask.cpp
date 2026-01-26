@@ -7,15 +7,17 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
 
 namespace javax {
 	namespace tools {
 
 $MethodInfo _DocumentationTool$DocumentationTask_MethodInfo_[] = {
-	{"addModules", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT},
+	{"addModules", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(DocumentationTool$DocumentationTask, addModules, void, $Iterable*)},
 	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocumentationTool$DocumentationTask, setLocale, void, $Locale*)},
 	{}
 };
 

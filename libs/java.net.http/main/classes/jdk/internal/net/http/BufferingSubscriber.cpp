@@ -81,8 +81,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BufferingSubscriber$$Lambda$remaining::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BufferingSubscriber$$Lambda$remaining::*)()>(&BufferingSubscriber$$Lambda$remaining::init$))},
-	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BufferingSubscriber$$Lambda$remaining, init$, void)},
+	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber$$Lambda$remaining, applyAsLong, int64_t, Object$*)},
 	{}
 };
 $ClassInfo BufferingSubscriber$$Lambda$remaining::classInfo$ = {
@@ -114,8 +114,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::*)()>(&BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo BufferingSubscriber$$Lambda$lambda$fromInternalBuffers$0$1::classInfo$ = {
@@ -152,18 +152,18 @@ $FieldInfo _BufferingSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _BufferingSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;I)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;I)V", $PUBLIC, $method(static_cast<void(BufferingSubscriber::*)($HttpResponse$BodySubscriber*,int32_t)>(&BufferingSubscriber::init$))},
-	{"fromInternalBuffers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(static_cast<$List*(BufferingSubscriber::*)()>(&BufferingSubscriber::fromInternalBuffers))},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC},
-	{"hasEnoughAccumulatedBytes", "()Z", nullptr, $PRIVATE | $FINAL, $method(static_cast<bool(BufferingSubscriber::*)()>(&BufferingSubscriber::hasEnoughAccumulatedBytes))},
-	{"lambda$fromInternalBuffers$0", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ByteBuffer*)>(&BufferingSubscriber::lambda$fromInternalBuffers$0))},
-	{"needsExecutor", "()Z", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"remaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PRIVATE | $STATIC | $FINAL, $method(static_cast<int64_t(*)($List*)>(&BufferingSubscriber::remaining))},
+	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;I)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;I)V", $PUBLIC, $method(BufferingSubscriber, init$, void, $HttpResponse$BodySubscriber*, int32_t)},
+	{"fromInternalBuffers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(BufferingSubscriber, fromInternalBuffers, $List*)},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC, $virtualMethod(BufferingSubscriber, getBody, $CompletionStage*)},
+	{"hasEnoughAccumulatedBytes", "()Z", nullptr, $PRIVATE | $FINAL, $method(BufferingSubscriber, hasEnoughAccumulatedBytes, bool)},
+	{"lambda$fromInternalBuffers$0", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BufferingSubscriber, lambda$fromInternalBuffers$0, bool, $ByteBuffer*)},
+	{"needsExecutor", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, needsExecutor, bool)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(BufferingSubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BufferingSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber, onSubscribe, void, $Flow$Subscription*)},
+	{"remaining", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PRIVATE | $STATIC | $FINAL, $staticMethod(BufferingSubscriber, remaining, int64_t, $List*)},
 	{}
 };
 

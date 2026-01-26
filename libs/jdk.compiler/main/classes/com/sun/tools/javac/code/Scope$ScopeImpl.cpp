@@ -84,8 +84,8 @@ $FieldInfo Scope$ScopeImpl$$Lambda$lambda$remove$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Scope$ScopeImpl$$Lambda$lambda$remove$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$ScopeImpl$$Lambda$lambda$remove$0::*)($Symbol*)>(&Scope$ScopeImpl$$Lambda$lambda$remove$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Scope$ScopeImpl$$Lambda$lambda$remove$0, init$, void, $Symbol*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl$$Lambda$lambda$remove$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Scope$ScopeImpl$$Lambda$lambda$remove$0::classInfo$ = {
@@ -130,8 +130,8 @@ $FieldInfo Scope$ScopeImpl$$Lambda$lambda$getSymbols$1$1::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Scope$ScopeImpl$$Lambda$lambda$getSymbols$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Scope$LookupKind;Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$ScopeImpl$$Lambda$lambda$getSymbols$1$1::*)(Scope$ScopeImpl*,$Scope$LookupKind*,$Predicate*)>(&Scope$ScopeImpl$$Lambda$lambda$getSymbols$1$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Scope$LookupKind;Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(Scope$ScopeImpl$$Lambda$lambda$getSymbols$1$1, init$, void, Scope$ScopeImpl*, $Scope$LookupKind*, $Predicate*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl$$Lambda$lambda$getSymbols$1$1, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo Scope$ScopeImpl$$Lambda$lambda$getSymbols$1$1::classInfo$ = {
@@ -179,8 +179,8 @@ $FieldInfo Scope$ScopeImpl$$Lambda$lambda$getSymbolsByName$2$2::fieldInfos[5] = 
 	{}
 };
 $MethodInfo Scope$ScopeImpl$$Lambda$lambda$getSymbolsByName$2$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$ScopeImpl$$Lambda$lambda$getSymbolsByName$2$2::*)(Scope$ScopeImpl*,$Name*,$Predicate*,$Scope$LookupKind*)>(&Scope$ScopeImpl$$Lambda$lambda$getSymbolsByName$2$2::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)V", nullptr, $PUBLIC, $method(Scope$ScopeImpl$$Lambda$lambda$getSymbolsByName$2$2, init$, void, Scope$ScopeImpl*, $Name*, $Predicate*, $Scope$LookupKind*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl$$Lambda$lambda$getSymbolsByName$2$2, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo Scope$ScopeImpl$$Lambda$lambda$getSymbolsByName$2$2::classInfo$ = {
@@ -211,30 +211,30 @@ $FieldInfo _Scope$ScopeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _Scope$ScopeImpl_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Symbol;[Lcom/sun/tools/javac/code/Scope$Entry;)V", nullptr, $PRIVATE, $method(static_cast<void(Scope$ScopeImpl::*)(Scope$ScopeImpl*,$Symbol*,$Scope$EntryArray*)>(&Scope$ScopeImpl::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Symbol;[Lcom/sun/tools/javac/code/Scope$Entry;I)V", nullptr, $PRIVATE, $method(static_cast<void(Scope$ScopeImpl::*)(Scope$ScopeImpl*,$Symbol*,$Scope$EntryArray*,int32_t)>(&Scope$ScopeImpl::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$ScopeImpl::*)($Symbol*)>(&Scope$ScopeImpl::init$))},
-	{"anyMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Z", $PUBLIC},
-	{"dble", "()V", nullptr, $PRIVATE, $method(static_cast<void(Scope$ScopeImpl::*)()>(&Scope$ScopeImpl::dble))},
-	{"dup", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC},
-	{"dupUnshared", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC},
-	{"enter", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
-	{"enterIfAbsent", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
-	{"findFirst", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC},
-	{"getIndex", "(Lcom/sun/tools/javac/util/Name;)I", nullptr, 0},
-	{"getOrigin", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope;", nullptr, $PUBLIC},
-	{"getSymbols", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
-	{"getSymbolsByName", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
-	{"includes", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC},
-	{"isStaticallyImported", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC},
-	{"lambda$getSymbols$1", "(Lcom/sun/tools/javac/code/Scope$LookupKind;Ljava/util/function/Predicate;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterator*(Scope$ScopeImpl::*)($Scope$LookupKind*,$Predicate*)>(&Scope$ScopeImpl::lambda$getSymbols$1))},
-	{"lambda$getSymbolsByName$2", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterator*(Scope$ScopeImpl::*)($Name*,$Predicate*,$Scope$LookupKind*)>(&Scope$ScopeImpl::lambda$getSymbolsByName$2))},
-	{"lambda$remove$0", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*,$Symbol*)>(&Scope$ScopeImpl::lambda$remove$0))},
-	{"leave", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC},
-	{"lookup", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PROTECTED},
-	{"lookup", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Scope$Entry;", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Lcom/sun/tools/javac/code/Scope$Entry;", $PROTECTED},
-	{"remove", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Symbol;[Lcom/sun/tools/javac/code/Scope$Entry;)V", nullptr, $PRIVATE, $method(Scope$ScopeImpl, init$, void, Scope$ScopeImpl*, $Symbol*, $Scope$EntryArray*)},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Symbol;[Lcom/sun/tools/javac/code/Scope$Entry;I)V", nullptr, $PRIVATE, $method(Scope$ScopeImpl, init$, void, Scope$ScopeImpl*, $Symbol*, $Scope$EntryArray*, int32_t)},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Scope$ScopeImpl, init$, void, $Symbol*)},
+	{"anyMatch", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Z", $PUBLIC, $virtualMethod(Scope$ScopeImpl, anyMatch, bool, $Predicate*)},
+	{"dble", "()V", nullptr, $PRIVATE, $method(Scope$ScopeImpl, dble, void)},
+	{"dup", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl, dup, $Scope$WriteableScope*, $Symbol*)},
+	{"dupUnshared", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl, dupUnshared, $Scope$WriteableScope*, $Symbol*)},
+	{"enter", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl, enter, void, $Symbol*)},
+	{"enterIfAbsent", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl, enterIfAbsent, void, $Symbol*)},
+	{"findFirst", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC, $virtualMethod(Scope$ScopeImpl, findFirst, $Symbol*, $Name*, $Predicate*)},
+	{"getIndex", "(Lcom/sun/tools/javac/util/Name;)I", nullptr, 0, $virtualMethod(Scope$ScopeImpl, getIndex, int32_t, $Name*)},
+	{"getOrigin", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Scope;", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl, getOrigin, $Scope*, $Symbol*)},
+	{"getSymbols", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Scope$ScopeImpl, getSymbols, $Iterable*, $Predicate*, $Scope$LookupKind*)},
+	{"getSymbolsByName", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Scope$ScopeImpl, getSymbolsByName, $Iterable*, $Name*, $Predicate*, $Scope$LookupKind*)},
+	{"includes", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl, includes, bool, $Symbol*)},
+	{"isStaticallyImported", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl, isStaticallyImported, bool, $Symbol*)},
+	{"lambda$getSymbols$1", "(Lcom/sun/tools/javac/code/Scope$LookupKind;Ljava/util/function/Predicate;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Scope$ScopeImpl, lambda$getSymbols$1, $Iterator*, $Scope$LookupKind*, $Predicate*)},
+	{"lambda$getSymbolsByName$2", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Scope$ScopeImpl, lambda$getSymbolsByName$2, $Iterator*, $Name*, $Predicate*, $Scope$LookupKind*)},
+	{"lambda$remove$0", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Scope$ScopeImpl, lambda$remove$0, bool, $Symbol*, $Symbol*)},
+	{"leave", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl, leave, $Scope$WriteableScope*)},
+	{"lookup", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Scope$Entry;", nullptr, $PROTECTED, $virtualMethod(Scope$ScopeImpl, lookup, $Scope$Entry*, $Name*)},
+	{"lookup", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Scope$Entry;", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Lcom/sun/tools/javac/code/Scope$Entry;", $PROTECTED, $virtualMethod(Scope$ScopeImpl, lookup, $Scope$Entry*, $Name*, $Predicate*)},
+	{"remove", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl, remove, void, $Symbol*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl, toString, $String*)},
 	{}
 };
 

@@ -4,6 +4,7 @@
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <jcpp.h>
 
+using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,7 +16,7 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Lower$TreeBuilder_MethodInfo_[] = {
-	{"build", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT},
+	{"build", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lower$TreeBuilder, build, $JCTree$JCExpression*, $JCTree$JCExpression*)},
 	{}
 };
 

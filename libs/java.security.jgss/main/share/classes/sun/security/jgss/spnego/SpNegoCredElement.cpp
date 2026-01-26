@@ -32,18 +32,18 @@ $FieldInfo _SpNegoCredElement_FieldInfo_[] = {
 };
 
 $MethodInfo _SpNegoCredElement_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/spi/GSSCredentialSpi;)V", nullptr, $PUBLIC, $method(static_cast<void(SpNegoCredElement::*)($GSSCredentialSpi*)>(&SpNegoCredElement::init$)), "org.ietf.jgss.GSSException"},
-	{"dispose", "()V", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getAcceptLifetime", "()I", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getInitLifetime", "()I", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getInternalCred", "()Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC},
-	{"getInternalMech", "()Lorg/ietf/jgss/Oid;", nullptr, 0},
-	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC},
-	{"getName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC},
-	{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
+	{"<init>", "(Lsun/security/jgss/spi/GSSCredentialSpi;)V", nullptr, $PUBLIC, $method(SpNegoCredElement, init$, void, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(SpNegoCredElement, dispose, void), "org.ietf.jgss.GSSException"},
+	{"getAcceptLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(SpNegoCredElement, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
+	{"getInitLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(SpNegoCredElement, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
+	{"getInternalCred", "()Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoCredElement, getInternalCred, $GSSCredentialSpi*)},
+	{"getInternalMech", "()Lorg/ietf/jgss/Oid;", nullptr, 0, $virtualMethod(SpNegoCredElement, getInternalMech, $Oid*)},
+	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(SpNegoCredElement, getMechanism, $Oid*)},
+	{"getName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoCredElement, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(SpNegoCredElement, getProvider, $Provider*)},
+	{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoCredElement, impersonate, $GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+	{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(SpNegoCredElement, isAcceptorCredential, bool), "org.ietf.jgss.GSSException"},
+	{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(SpNegoCredElement, isInitiatorCredential, bool), "org.ietf.jgss.GSSException"},
 	{}
 };
 

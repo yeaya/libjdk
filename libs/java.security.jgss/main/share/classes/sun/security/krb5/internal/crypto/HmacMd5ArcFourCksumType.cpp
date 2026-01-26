@@ -28,15 +28,15 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _HmacMd5ArcFourCksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HmacMd5ArcFourCksumType::*)()>(&HmacMd5ArcFourCksumType::init$))},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"cksumSize", "()I", nullptr, $PUBLIC},
-	{"cksumType", "()I", nullptr, $PUBLIC},
-	{"confounderSize", "()I", nullptr, $PUBLIC},
-	{"isKeyed", "()Z", nullptr, $PUBLIC},
-	{"keySize", "()I", nullptr, $PUBLIC},
-	{"keyType", "()I", nullptr, $PUBLIC},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HmacMd5ArcFourCksumType, init$, void)},
+	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(HmacMd5ArcFourCksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(HmacMd5ArcFourCksumType, cksumSize, int32_t)},
+	{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(HmacMd5ArcFourCksumType, cksumType, int32_t)},
+	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(HmacMd5ArcFourCksumType, confounderSize, int32_t)},
+	{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(HmacMd5ArcFourCksumType, isKeyed, bool)},
+	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(HmacMd5ArcFourCksumType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(HmacMd5ArcFourCksumType, keyType, int32_t)},
+	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(HmacMd5ArcFourCksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
 	{}
 };
 

@@ -64,11 +64,11 @@ $FieldInfo _Attr$IdentAttributer_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$IdentAttributer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, $PRIVATE, $method(static_cast<void(Attr$IdentAttributer::*)($Attr*)>(&Attr$IdentAttributer::init$))},
-	{"visitIdentifier", "(Lcom/sun/source/tree/IdentifierTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/source/tree/IdentifierTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC},
-	{"visitIdentifier", "(Lcom/sun/source/tree/IdentifierTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitMemberSelect", "(Lcom/sun/source/tree/MemberSelectTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/source/tree/MemberSelectTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC},
-	{"visitMemberSelect", "(Lcom/sun/source/tree/MemberSelectTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, $PRIVATE, $method(Attr$IdentAttributer, init$, void, $Attr*)},
+	{"visitIdentifier", "(Lcom/sun/source/tree/IdentifierTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/source/tree/IdentifierTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC, $virtualMethod(Attr$IdentAttributer, visitIdentifier, $Symbol*, $IdentifierTree*, $Env*)},
+	{"visitIdentifier", "(Lcom/sun/source/tree/IdentifierTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Attr$IdentAttributer, visitIdentifier, $Object*, $IdentifierTree*, Object$*)},
+	{"visitMemberSelect", "(Lcom/sun/source/tree/MemberSelectTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/source/tree/MemberSelectTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC, $virtualMethod(Attr$IdentAttributer, visitMemberSelect, $Symbol*, $MemberSelectTree*, $Env*)},
+	{"visitMemberSelect", "(Lcom/sun/source/tree/MemberSelectTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Attr$IdentAttributer, visitMemberSelect, $Object*, $MemberSelectTree*, Object$*)},
 	{}
 };
 

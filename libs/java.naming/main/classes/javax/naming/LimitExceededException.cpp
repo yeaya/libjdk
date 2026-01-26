@@ -17,8 +17,8 @@ $FieldInfo _LimitExceededException_FieldInfo_[] = {
 };
 
 $MethodInfo _LimitExceededException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LimitExceededException::*)()>(&LimitExceededException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LimitExceededException::*)($String*)>(&LimitExceededException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LimitExceededException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LimitExceededException, init$, void, $String*)},
 	{}
 };
 

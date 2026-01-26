@@ -29,9 +29,9 @@ $FieldInfo _WeakClassHashMap_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakClassHashMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(WeakClassHashMap::*)()>(&WeakClassHashMap::init$))},
-	{"computeValue", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)TV;", $PROTECTED | $ABSTRACT},
-	{"get", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)TV;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(WeakClassHashMap, init$, void)},
+	{"computeValue", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)TV;", $PROTECTED | $ABSTRACT, $virtualMethod(WeakClassHashMap, computeValue, $Object*, $Class*)},
+	{"get", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;)TV;", $PUBLIC, $virtualMethod(WeakClassHashMap, get, $Object*, $Class*)},
 	{}
 };
 

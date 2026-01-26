@@ -59,10 +59,10 @@ $FieldInfo _NegotiatorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _NegotiatorImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(NegotiatorImpl::*)($HttpCallerInfo*)>(&NegotiatorImpl::init$)), "java.io.IOException"},
-	{"firstToken", "()[B", nullptr, $PUBLIC},
-	{"init", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PRIVATE, $method(static_cast<void(NegotiatorImpl::*)($HttpCallerInfo*)>(&NegotiatorImpl::init)), "org.ietf.jgss.GSSException"},
-	{"nextToken", "([B)[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(NegotiatorImpl, init$, void, $HttpCallerInfo*), "java.io.IOException"},
+	{"firstToken", "()[B", nullptr, $PUBLIC, $virtualMethod(NegotiatorImpl, firstToken, $bytes*)},
+	{"init", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PRIVATE, $method(NegotiatorImpl, init, void, $HttpCallerInfo*), "org.ietf.jgss.GSSException"},
+	{"nextToken", "([B)[B", nullptr, $PUBLIC, $virtualMethod(NegotiatorImpl, nextToken, $bytes*, $bytes*), "java.io.IOException"},
 	{}
 };
 

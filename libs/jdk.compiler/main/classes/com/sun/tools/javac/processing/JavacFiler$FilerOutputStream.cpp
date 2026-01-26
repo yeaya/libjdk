@@ -35,9 +35,9 @@ $FieldInfo _JavacFiler$FilerOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacFiler$FilerOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/FileObject;)V", nullptr, 0, $method(static_cast<void(JavacFiler$FilerOutputStream::*)($JavacFiler*,$Symbol$ModuleSymbol*,$String*,$FileObject*)>(&JavacFiler$FilerOutputStream::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacFiler;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljavax/tools/FileObject;)V", nullptr, 0, $method(JavacFiler$FilerOutputStream, init$, void, $JavacFiler*, $Symbol$ModuleSymbol*, $String*, $FileObject*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavacFiler$FilerOutputStream, close, void), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(JavacFiler$FilerOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

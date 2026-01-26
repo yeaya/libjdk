@@ -47,13 +47,13 @@ $FieldInfo _JavadocTokenizer$JavadocComment_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocTokenizer$JavadocComment_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, 0, $method(static_cast<void(JavadocTokenizer$JavadocComment::*)($Tokens$Comment$CommentStyle*,$ScannerFactory*,$chars*,int32_t)>(&JavadocTokenizer$JavadocComment::init$))},
-	{"getSourcePos", "(I)I", nullptr, $PUBLIC},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"put", "(C)V", nullptr, $PROTECTED},
-	{"put", "()V", nullptr, $PROTECTED},
-	{"putCodePoint", "(I)V", nullptr, $PROTECTED},
-	{"scanDocComment", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, 0, $method(JavadocTokenizer$JavadocComment, init$, void, $Tokens$Comment$CommentStyle*, $ScannerFactory*, $chars*, int32_t)},
+	{"getSourcePos", "(I)I", nullptr, $PUBLIC, $virtualMethod(JavadocTokenizer$JavadocComment, getSourcePos, int32_t, int32_t)},
+	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocTokenizer$JavadocComment, getText, $String*)},
+	{"put", "(C)V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, put, void, char16_t)},
+	{"put", "()V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, put, void)},
+	{"putCodePoint", "(I)V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, putCodePoint, void, int32_t)},
+	{"scanDocComment", "()V", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer$JavadocComment, scanDocComment, void)},
 	{}
 };
 

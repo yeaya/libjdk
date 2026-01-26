@@ -32,12 +32,12 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _StandardMBeanSupport_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)V", $PUBLIC, $method(static_cast<void(StandardMBeanSupport::*)(Object$*,$Class*)>(&StandardMBeanSupport::init$)), "javax.management.NotCompliantMBeanException"},
-	{"getCookie", "()Ljava/lang/Object;", nullptr, 0},
-	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC},
-	{"getMBeanIntrospector", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector<Ljava/lang/reflect/Method;>;", 0},
-	{"register", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC},
-	{"unregister", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)V", $PUBLIC, $method(StandardMBeanSupport, init$, void, Object$*, $Class*), "javax.management.NotCompliantMBeanException"},
+	{"getCookie", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(StandardMBeanSupport, getCookie, $Object*)},
+	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(StandardMBeanSupport, getMBeanInfo, $MBeanInfo*)},
+	{"getMBeanIntrospector", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector<Ljava/lang/reflect/Method;>;", 0, $virtualMethod(StandardMBeanSupport, getMBeanIntrospector, $MBeanIntrospector*)},
+	{"register", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(StandardMBeanSupport, register$, void, $MBeanServer*, $ObjectName*)},
+	{"unregister", "()V", nullptr, $PUBLIC, $virtualMethod(StandardMBeanSupport, unregister, void)},
 	{}
 };
 

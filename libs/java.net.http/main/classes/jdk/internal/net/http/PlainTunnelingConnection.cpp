@@ -106,8 +106,8 @@ $FieldInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$0::fieldInfos[2]
 	{}
 };
 $MethodInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainTunnelingConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(PlainTunnelingConnection$$Lambda$lambda$connectAsync$0::*)(PlainTunnelingConnection*)>(&PlainTunnelingConnection$$Lambda$lambda$connectAsync$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainTunnelingConnection;)V", nullptr, $PUBLIC, $method(PlainTunnelingConnection$$Lambda$lambda$connectAsync$0, init$, void, PlainTunnelingConnection*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainTunnelingConnection$$Lambda$lambda$connectAsync$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$0::classInfo$ = {
@@ -146,8 +146,8 @@ $FieldInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$4$1::fieldInfos[
 	{}
 };
 $MethodInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$4$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainTunnelingConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(PlainTunnelingConnection$$Lambda$lambda$connectAsync$4$1::*)(PlainTunnelingConnection*)>(&PlainTunnelingConnection$$Lambda$lambda$connectAsync$4$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainTunnelingConnection;)V", nullptr, $PUBLIC, $method(PlainTunnelingConnection$$Lambda$lambda$connectAsync$4$1, init$, void, PlainTunnelingConnection*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainTunnelingConnection$$Lambda$lambda$connectAsync$4$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$4$1::classInfo$ = {
@@ -189,8 +189,8 @@ $FieldInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$2$2::fieldInfos[
 	{}
 };
 $MethodInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainTunnelingConnection;Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(static_cast<void(PlainTunnelingConnection$$Lambda$lambda$connectAsync$2$2::*)(PlainTunnelingConnection*,$Exchange*)>(&PlainTunnelingConnection$$Lambda$lambda$connectAsync$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainTunnelingConnection;Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(PlainTunnelingConnection$$Lambda$lambda$connectAsync$2$2, init$, void, PlainTunnelingConnection*, $Exchange*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainTunnelingConnection$$Lambda$lambda$connectAsync$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$2$2::classInfo$ = {
@@ -229,8 +229,8 @@ $FieldInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$3$3::fieldInfos[
 	{}
 };
 $MethodInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$3$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainTunnelingConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(PlainTunnelingConnection$$Lambda$lambda$connectAsync$3$3::*)(PlainTunnelingConnection*)>(&PlainTunnelingConnection$$Lambda$lambda$connectAsync$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainTunnelingConnection;)V", nullptr, $PUBLIC, $method(PlainTunnelingConnection$$Lambda$lambda$connectAsync$3$3, init$, void, PlainTunnelingConnection*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainTunnelingConnection$$Lambda$lambda$connectAsync$3$3, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$3$3::classInfo$ = {
@@ -275,8 +275,8 @@ $FieldInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$1$4::fieldInfos[
 	{}
 };
 $MethodInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$1$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainTunnelingConnection;Ljdk/internal/net/http/Response;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(static_cast<void(PlainTunnelingConnection$$Lambda$lambda$connectAsync$1$4::*)(PlainTunnelingConnection*,$Response*,$CompletableFuture*)>(&PlainTunnelingConnection$$Lambda$lambda$connectAsync$1$4::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainTunnelingConnection;Ljdk/internal/net/http/Response;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(PlainTunnelingConnection$$Lambda$lambda$connectAsync$1$4, init$, void, PlainTunnelingConnection*, $Response*, $CompletableFuture*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainTunnelingConnection$$Lambda$lambda$connectAsync$1$4, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo PlainTunnelingConnection$$Lambda$lambda$connectAsync$1$4::classInfo$ = {
@@ -303,24 +303,24 @@ $FieldInfo _PlainTunnelingConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _PlainTunnelingConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/common/Utils$ProxyHeaders;)V", nullptr, $PROTECTED, $method(static_cast<void(PlainTunnelingConnection::*)($InetSocketAddress*,$InetSocketAddress*,$HttpClientImpl*,$Utils$ProxyHeaders*)>(&PlainTunnelingConnection::init$))},
-	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0},
-	{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, 0},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC},
-	{"connected", "()Z", nullptr, 0},
-	{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC},
-	{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, 0},
-	{"isProxied", "()Z", nullptr, 0},
-	{"isSecure", "()Z", nullptr, 0},
-	{"isTunnel", "()Z", nullptr, 0},
-	{"lambda$connectAsync$0", "(Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletionStage*(PlainTunnelingConnection::*)($Void*)>(&PlainTunnelingConnection::lambda$connectAsync$0))},
-	{"lambda$connectAsync$1", "(Ljdk/internal/net/http/Response;Ljava/util/concurrent/CompletableFuture;Ljava/lang/Void;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletableFuture*(PlainTunnelingConnection::*)($Response*,$CompletableFuture*,$Void*,$Throwable*)>(&PlainTunnelingConnection::lambda$connectAsync$1))},
-	{"lambda$connectAsync$2", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/Response;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletionStage*(PlainTunnelingConnection::*)($Exchange*,$Response*)>(&PlainTunnelingConnection::lambda$connectAsync$2))},
-	{"lambda$connectAsync$3", "(Ljava/lang/Void;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletableFuture*(PlainTunnelingConnection::*)($Void*,$Throwable*)>(&PlainTunnelingConnection::lambda$connectAsync$3))},
-	{"lambda$connectAsync$4", "(Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletionStage*(PlainTunnelingConnection::*)($Void*)>(&PlainTunnelingConnection::lambda$connectAsync$4))},
-	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0},
-	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, 0},
+	{"<init>", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/common/Utils$ProxyHeaders;)V", nullptr, $PROTECTED, $method(PlainTunnelingConnection, init$, void, $InetSocketAddress*, $InetSocketAddress*, $HttpClientImpl*, $Utils$ProxyHeaders*)},
+	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0, $virtualMethod(PlainTunnelingConnection, cacheKey, $ConnectionPool$CacheKey*)},
+	{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, 0, $virtualMethod(PlainTunnelingConnection, channel, $SocketChannel*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PlainTunnelingConnection, close, void)},
+	{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(PlainTunnelingConnection, connectAsync, $CompletableFuture*, $Exchange*)},
+	{"connected", "()Z", nullptr, 0, $virtualMethod(PlainTunnelingConnection, connected, bool)},
+	{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(PlainTunnelingConnection, finishConnect, $CompletableFuture*)},
+	{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, 0, $virtualMethod(PlainTunnelingConnection, getConnectionFlow, $FlowTube*)},
+	{"isProxied", "()Z", nullptr, 0, $virtualMethod(PlainTunnelingConnection, isProxied, bool)},
+	{"isSecure", "()Z", nullptr, 0, $virtualMethod(PlainTunnelingConnection, isSecure, bool)},
+	{"isTunnel", "()Z", nullptr, 0, $virtualMethod(PlainTunnelingConnection, isTunnel, bool)},
+	{"lambda$connectAsync$0", "(Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(PlainTunnelingConnection, lambda$connectAsync$0, $CompletionStage*, $Void*)},
+	{"lambda$connectAsync$1", "(Ljdk/internal/net/http/Response;Ljava/util/concurrent/CompletableFuture;Ljava/lang/Void;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(PlainTunnelingConnection, lambda$connectAsync$1, $CompletableFuture*, $Response*, $CompletableFuture*, $Void*, $Throwable*)},
+	{"lambda$connectAsync$2", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/Response;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(PlainTunnelingConnection, lambda$connectAsync$2, $CompletionStage*, $Exchange*, $Response*)},
+	{"lambda$connectAsync$3", "(Ljava/lang/Void;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(PlainTunnelingConnection, lambda$connectAsync$3, $CompletableFuture*, $Void*, $Throwable*)},
+	{"lambda$connectAsync$4", "(Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(PlainTunnelingConnection, lambda$connectAsync$4, $CompletionStage*, $Void*)},
+	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(PlainTunnelingConnection, proxy, $InetSocketAddress*)},
+	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, 0, $virtualMethod(PlainTunnelingConnection, publisher, $HttpConnection$HttpPublisher*)},
 	{}
 };
 

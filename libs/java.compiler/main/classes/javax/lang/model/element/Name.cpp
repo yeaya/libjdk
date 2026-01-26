@@ -13,7 +13,7 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _Name_MethodInfo_[] = {
-	{"contentEquals", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"contentEquals", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, contentEquals, bool, $CharSequence*)},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{}

@@ -36,10 +36,10 @@ $FieldInfo _Infer$LegacyInferenceSteps_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$LegacyInferenceSteps_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Infer$LegacyInferenceStepsArray*(*)()>(&Infer$LegacyInferenceSteps::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/util/EnumSet;)V", "(Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)V", $PRIVATE, $method(static_cast<void(Infer$LegacyInferenceSteps::*)($String*,int32_t,$EnumSet*)>(&Infer$LegacyInferenceSteps::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Infer$LegacyInferenceSteps*(*)($String*)>(&Infer$LegacyInferenceSteps::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Infer$LegacyInferenceStepsArray*(*)()>(&Infer$LegacyInferenceSteps::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$LegacyInferenceSteps, $values, $Infer$LegacyInferenceStepsArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/util/EnumSet;)V", "(Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)V", $PRIVATE, $method(Infer$LegacyInferenceSteps, init$, void, $String*, int32_t, $EnumSet*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$LegacyInferenceSteps, valueOf, Infer$LegacyInferenceSteps*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Infer$LegacyInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$LegacyInferenceSteps, values, $Infer$LegacyInferenceStepsArray*)},
 	{}
 };
 

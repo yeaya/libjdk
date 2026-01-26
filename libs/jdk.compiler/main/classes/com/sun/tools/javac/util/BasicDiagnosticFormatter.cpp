@@ -81,15 +81,15 @@ namespace com {
 				namespace util {
 
 $MethodInfo _BasicDiagnosticFormatter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Options;Lcom/sun/tools/javac/util/JavacMessages;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicDiagnosticFormatter::*)($Options*,$JavacMessages*)>(&BasicDiagnosticFormatter::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/util/JavacMessages;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicDiagnosticFormatter::*)($JavacMessages*)>(&BasicDiagnosticFormatter::init$))},
-	{"addSourceLineIfNeeded", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"formatDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"formatMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"formatMeta", "(CLcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"getConfiguration", "()Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration;", nullptr, $PUBLIC},
-	{"selectFormat", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(BasicDiagnosticFormatter::*)($JCDiagnostic*)>(&BasicDiagnosticFormatter::selectFormat))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Options;Lcom/sun/tools/javac/util/JavacMessages;)V", nullptr, $PUBLIC, $method(BasicDiagnosticFormatter, init$, void, $Options*, $JavacMessages*)},
+	{"<init>", "(Lcom/sun/tools/javac/util/JavacMessages;)V", nullptr, $PUBLIC, $method(BasicDiagnosticFormatter, init$, void, $JavacMessages*)},
+	{"addSourceLineIfNeeded", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicDiagnosticFormatter, addSourceLineIfNeeded, $String*, $JCDiagnostic*, $String*)},
+	{"formatDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter, formatDiagnostic, $String*, $JCDiagnostic*, $Locale*)},
+	{"formatMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter, formatMessage, $String*, $JCDiagnostic*, $Locale*)},
+	{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicDiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
+	{"formatMeta", "(CLcom/sun/tools/javac/util/JCDiagnostic;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicDiagnosticFormatter, formatMeta, $String*, char16_t, $JCDiagnostic*, $Locale*)},
+	{"getConfiguration", "()Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
+	{"selectFormat", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicDiagnosticFormatter, selectFormat, $String*, $JCDiagnostic*)},
 	{}
 };
 

@@ -25,8 +25,8 @@ $FieldInfo _JmxMBeanServer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JmxMBeanServer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/JmxMBeanServer;Lcom/sun/jmx/mbeanserver/MBeanInstantiator;)V", "()V", 0, $method(static_cast<void(JmxMBeanServer$1::*)($JmxMBeanServer*,$MBeanInstantiator*)>(&JmxMBeanServer$1::init$))},
-	{"run", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/mbeanserver/JmxMBeanServer;Lcom/sun/jmx/mbeanserver/MBeanInstantiator;)V", "()V", 0, $method(JmxMBeanServer$1, init$, void, $JmxMBeanServer*, $MBeanInstantiator*)},
+	{"run", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer$1, run, $Object*)},
 	{}
 };
 

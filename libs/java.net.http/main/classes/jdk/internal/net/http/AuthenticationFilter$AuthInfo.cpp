@@ -34,9 +34,9 @@ $FieldInfo _AuthenticationFilter$AuthInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthenticationFilter$AuthInfo_MethodInfo_[] = {
-	{"<init>", "(ZLjava/lang/String;Ljava/net/PasswordAuthentication;Z)V", nullptr, 0, $method(static_cast<void(AuthenticationFilter$AuthInfo::*)(bool,$String*,$PasswordAuthentication*,bool)>(&AuthenticationFilter$AuthInfo::init$))},
-	{"<init>", "(ZLjava/lang/String;Ljava/net/PasswordAuthentication;Ljdk/internal/net/http/AuthenticationFilter$CacheEntry;Z)V", nullptr, 0, $method(static_cast<void(AuthenticationFilter$AuthInfo::*)(bool,$String*,$PasswordAuthentication*,$AuthenticationFilter$CacheEntry*,bool)>(&AuthenticationFilter$AuthInfo::init$))},
-	{"retryWithCredentials", "(Ljava/net/PasswordAuthentication;Z)Ljdk/internal/net/http/AuthenticationFilter$AuthInfo;", nullptr, 0},
+	{"<init>", "(ZLjava/lang/String;Ljava/net/PasswordAuthentication;Z)V", nullptr, 0, $method(AuthenticationFilter$AuthInfo, init$, void, bool, $String*, $PasswordAuthentication*, bool)},
+	{"<init>", "(ZLjava/lang/String;Ljava/net/PasswordAuthentication;Ljdk/internal/net/http/AuthenticationFilter$CacheEntry;Z)V", nullptr, 0, $method(AuthenticationFilter$AuthInfo, init$, void, bool, $String*, $PasswordAuthentication*, $AuthenticationFilter$CacheEntry*, bool)},
+	{"retryWithCredentials", "(Ljava/net/PasswordAuthentication;Z)Ljdk/internal/net/http/AuthenticationFilter$AuthInfo;", nullptr, 0, $virtualMethod(AuthenticationFilter$AuthInfo, retryWithCredentials, AuthenticationFilter$AuthInfo*, $PasswordAuthentication*, bool)},
 	{}
 };
 

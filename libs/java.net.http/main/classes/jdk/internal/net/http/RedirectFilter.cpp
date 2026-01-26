@@ -72,8 +72,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RedirectFilter$$Lambda$create::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RedirectFilter$$Lambda$create::*)()>(&RedirectFilter$$Lambda$create::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RedirectFilter$$Lambda$create, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RedirectFilter$$Lambda$create, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo RedirectFilter$$Lambda$create::classInfo$ = {
@@ -105,8 +105,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::*)()>(&RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1, get, $Object*)},
 	{}
 };
 $ClassInfo RedirectFilter$$Lambda$lambda$getRedirectedURI$0$1::classInfo$ = {
@@ -137,15 +137,15 @@ $FieldInfo _RedirectFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _RedirectFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RedirectFilter::*)()>(&RedirectFilter::init$))},
-	{"canRedirect", "(Ljava/net/URI;)Z", nullptr, $PRIVATE, $method(static_cast<bool(RedirectFilter::*)($URI*)>(&RedirectFilter::canRedirect))},
-	{"getRedirectedURI", "(Ljava/net/http/HttpHeaders;)Ljava/net/URI;", nullptr, $PRIVATE, $method(static_cast<$URI*(RedirectFilter::*)($HttpHeaders*)>(&RedirectFilter::getRedirectedURI))},
-	{"handleResponse", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PRIVATE, $method(static_cast<$HttpRequestImpl*(RedirectFilter::*)($Response*)>(&RedirectFilter::handleResponse))},
-	{"isRedirecting", "(I)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int32_t)>(&RedirectFilter::isRedirecting))},
-	{"lambda$getRedirectedURI$0", "()Ljava/io/UncheckedIOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$UncheckedIOException*(*)()>(&RedirectFilter::lambda$getRedirectedURI$0))},
-	{"redirectedMethod", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t,$String*)>(&RedirectFilter::redirectedMethod))},
-	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RedirectFilter, init$, void)},
+	{"canRedirect", "(Ljava/net/URI;)Z", nullptr, $PRIVATE, $method(RedirectFilter, canRedirect, bool, $URI*)},
+	{"getRedirectedURI", "(Ljava/net/http/HttpHeaders;)Ljava/net/URI;", nullptr, $PRIVATE, $method(RedirectFilter, getRedirectedURI, $URI*, $HttpHeaders*)},
+	{"handleResponse", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PRIVATE, $method(RedirectFilter, handleResponse, $HttpRequestImpl*, $Response*)},
+	{"isRedirecting", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RedirectFilter, isRedirecting, bool, int32_t)},
+	{"lambda$getRedirectedURI$0", "()Ljava/io/UncheckedIOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RedirectFilter, lambda$getRedirectedURI$0, $UncheckedIOException*)},
+	{"redirectedMethod", "(ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RedirectFilter, redirectedMethod, $String*, int32_t, $String*)},
+	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC | $SYNCHRONIZED, $virtualMethod(RedirectFilter, request, void, $HttpRequestImpl*, $MultiExchange*), "java.io.IOException"},
+	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RedirectFilter, response, $HttpRequestImpl*, $Response*), "java.io.IOException"},
 	{}
 };
 

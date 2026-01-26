@@ -23,9 +23,9 @@ $FieldInfo _UnknownElementException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownElementException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(UnknownElementException::*)($Element*,Object$*)>(&UnknownElementException::init$))},
-	{"getArgument", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getUnknownElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UnknownElementException, init$, void, $Element*, Object$*)},
+	{"getArgument", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnknownElementException, getArgument, $Object*)},
+	{"getUnknownElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC, $virtualMethod(UnknownElementException, getUnknownElement, $Element*)},
 	{}
 };
 

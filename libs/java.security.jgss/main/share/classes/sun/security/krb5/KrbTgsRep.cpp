@@ -63,10 +63,10 @@ $FieldInfo _KrbTgsRep_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbTgsRep_MethodInfo_[] = {
-	{"<init>", "([BLsun/security/krb5/KrbTgsReq;)V", nullptr, 0, $method(static_cast<void(KrbTgsRep::*)($bytes*,$KrbTgsReq*)>(&KrbTgsRep::init$)), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC},
-	{"isReferralSname", "(Lsun/security/krb5/PrincipalName;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($PrincipalName*)>(&KrbTgsRep::isReferralSname))},
-	{"setCredentials", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, 0},
+	{"<init>", "([BLsun/security/krb5/KrbTgsReq;)V", nullptr, 0, $method(KrbTgsRep, init$, void, $bytes*, $KrbTgsReq*), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(KrbTgsRep, getCreds, $Credentials*)},
+	{"isReferralSname", "(Lsun/security/krb5/PrincipalName;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(KrbTgsRep, isReferralSname, bool, $PrincipalName*)},
+	{"setCredentials", "()Lsun/security/krb5/internal/ccache/Credentials;", nullptr, 0, $virtualMethod(KrbTgsRep, setCredentials, $1Credentials*)},
 	{}
 };
 

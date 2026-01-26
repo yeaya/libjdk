@@ -22,8 +22,8 @@ $FieldInfo _ClassReader$ParameterAnnotations_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$ParameterAnnotations_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ClassReader$ParameterAnnotations::*)()>(&ClassReader$ParameterAnnotations::init$))},
-	{"add", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;)V", 0},
+	{"<init>", "()V", nullptr, 0, $method(ClassReader$ParameterAnnotations, init$, void)},
+	{"add", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;)V", 0, $virtualMethod(ClassReader$ParameterAnnotations, add, void, $List*)},
 	{}
 };
 

@@ -8,13 +8,17 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
+using $MBeanServer = ::javax::management::MBeanServer;
+using $JMXConnectorServer = ::javax::management::remote::JMXConnectorServer;
+using $JMXServiceURL = ::javax::management::remote::JMXServiceURL;
 
 namespace javax {
 	namespace management {
 		namespace remote {
 
 $MethodInfo _JMXConnectorServerProvider_MethodInfo_[] = {
-	{"newJMXConnectorServer", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"newJMXConnectorServer", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;)Ljavax/management/remote/JMXConnectorServer;", $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnectorServerProvider, newJMXConnectorServer, $JMXConnectorServer*, $JMXServiceURL*, $Map*, $MBeanServer*), "java.io.IOException"},
 	{}
 };
 

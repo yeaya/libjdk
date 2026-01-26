@@ -26,8 +26,8 @@ $FieldInfo _DOMReference$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMReference$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "()V", 0, $method(static_cast<void(DOMReference$1::*)($Set*)>(&DOMReference$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", "()V", 0, $method(DOMReference$1, init$, void, $Set*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(DOMReference$1, iterator, $Iterator*)},
 	{}
 };
 

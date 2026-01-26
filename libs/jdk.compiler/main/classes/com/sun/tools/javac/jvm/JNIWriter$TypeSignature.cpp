@@ -59,11 +59,11 @@ $FieldInfo _JNIWriter$TypeSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _JNIWriter$TypeSignature_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(static_cast<void(JNIWriter$TypeSignature::*)($Types*)>(&JNIWriter$TypeSignature::init$))},
-	{"getJvmSignature", "(Lcom/sun/tools/javac/code/Type;Z)Ljava/lang/StringBuilder;", nullptr, 0},
-	{"getParameterSignature", "(Lcom/sun/tools/javac/code/Type;Z)Ljava/lang/StringBuilder;", nullptr, 0, nullptr, "com.sun.tools.javac.jvm.JNIWriter$TypeSignature$SignatureException"},
-	{"getReturnSignature", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/StringBuilder;", nullptr, 0, nullptr, "com.sun.tools.javac.jvm.JNIWriter$TypeSignature$SignatureException"},
-	{"getSignature", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/StringBuilder;", nullptr, 0, nullptr, "com.sun.tools.javac.jvm.JNIWriter$TypeSignature$SignatureException"},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(JNIWriter$TypeSignature, init$, void, $Types*)},
+	{"getJvmSignature", "(Lcom/sun/tools/javac/code/Type;Z)Ljava/lang/StringBuilder;", nullptr, 0, $virtualMethod(JNIWriter$TypeSignature, getJvmSignature, $StringBuilder*, $Type*, bool)},
+	{"getParameterSignature", "(Lcom/sun/tools/javac/code/Type;Z)Ljava/lang/StringBuilder;", nullptr, 0, $virtualMethod(JNIWriter$TypeSignature, getParameterSignature, $StringBuilder*, $Type*, bool), "com.sun.tools.javac.jvm.JNIWriter$TypeSignature$SignatureException"},
+	{"getReturnSignature", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/StringBuilder;", nullptr, 0, $virtualMethod(JNIWriter$TypeSignature, getReturnSignature, $StringBuilder*, $Type*), "com.sun.tools.javac.jvm.JNIWriter$TypeSignature$SignatureException"},
+	{"getSignature", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/StringBuilder;", nullptr, 0, $virtualMethod(JNIWriter$TypeSignature, getSignature, $StringBuilder*, $Type*), "com.sun.tools.javac.jvm.JNIWriter$TypeSignature$SignatureException"},
 	{}
 };
 

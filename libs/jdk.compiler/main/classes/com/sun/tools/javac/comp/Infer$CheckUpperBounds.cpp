@@ -79,8 +79,8 @@ $FieldInfo Infer$CheckUpperBounds$$Lambda$isSameType::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Infer$CheckUpperBounds$$Lambda$isSameType::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(static_cast<void(Infer$CheckUpperBounds$$Lambda$isSameType::*)($Types*)>(&Infer$CheckUpperBounds$$Lambda$isSameType::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Infer$CheckUpperBounds$$Lambda$isSameType, init$, void, $Types*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$CheckUpperBounds$$Lambda$isSameType, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Infer$CheckUpperBounds$$Lambda$isSameType::classInfo$ = {
@@ -103,9 +103,9 @@ $FieldInfo _Infer$CheckUpperBounds_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$CheckUpperBounds_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Infer$CheckUpperBounds::*)($Infer*,$Type$UndetVar*,$Type*)>(&Infer$CheckUpperBounds::init$))},
-	{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0},
-	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Infer$CheckUpperBounds, init$, void, $Infer*, $Type$UndetVar*, $Type*)},
+	{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Infer$CheckUpperBounds, apply, void, $InferenceContext*, $Warner*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC, $virtualMethod(Infer$CheckUpperBounds, dup, $Infer$IncorporationAction*, $Type$UndetVar*)},
 	{}
 };
 

@@ -45,11 +45,11 @@ $FieldInfo _Gen$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Gen$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCTry;Lcom/sun/tools/javac/comp/Env;)V", nullptr, 0, $method(static_cast<void(Gen$3::*)($Gen*,$Env*,$JCTree$JCTry*,$Env*)>(&Gen$3::init$))},
-	{"afterBody", "()V", nullptr, 0},
-	{"gen", "()V", nullptr, 0},
-	{"genLast", "()V", nullptr, 0},
-	{"hasFinalizer", "()Z", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCTry;Lcom/sun/tools/javac/comp/Env;)V", nullptr, 0, $method(Gen$3, init$, void, $Gen*, $Env*, $JCTree$JCTry*, $Env*)},
+	{"afterBody", "()V", nullptr, 0, $virtualMethod(Gen$3, afterBody, void)},
+	{"gen", "()V", nullptr, 0, $virtualMethod(Gen$3, gen, void)},
+	{"genLast", "()V", nullptr, 0, $virtualMethod(Gen$3, genLast, void)},
+	{"hasFinalizer", "()Z", nullptr, 0, $virtualMethod(Gen$3, hasFinalizer, bool)},
 	{}
 };
 

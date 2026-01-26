@@ -38,11 +38,11 @@ $FieldInfo _Operators$BinaryStringOperator_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators$BinaryStringOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Operators$BinaryStringOperator::*)($Operators*,$JCTree$Tag*)>(&Operators$BinaryStringOperator::init$))},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC},
-	{"stringPromotion", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(Operators$BinaryStringOperator::*)($Type*)>(&Operators$BinaryStringOperator::stringPromotion))},
-	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$BinaryStringOperator, init$, void, $Operators*, $JCTree$Tag*)},
+	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryStringOperator, resolve, $Symbol$OperatorSymbol*, $Type*, $Type*)},
+	{"stringPromotion", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Operators$BinaryStringOperator, stringPromotion, $Type*, $Type*)},
+	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryStringOperator, test, bool, $Type*, $Type*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$BinaryStringOperator, test, bool, Object$*, Object$*)},
 	{}
 };
 

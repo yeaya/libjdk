@@ -34,9 +34,9 @@ $FieldInfo _DefaultMXBeanMappingFactory$EnumMapping_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultMXBeanMappingFactory$EnumMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;)V", 0, $method(static_cast<void(DefaultMXBeanMappingFactory$EnumMapping::*)($Class*)>(&DefaultMXBeanMappingFactory$EnumMapping::init$))},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Enum;", "(Ljava/lang/Object;)TT;", $FINAL, nullptr, "java.io.InvalidObjectException"},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL},
+	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;)V", 0, $method(DefaultMXBeanMappingFactory$EnumMapping, init$, void, $Class*)},
+	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Enum;", "(Ljava/lang/Object;)TT;", $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$EnumMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$EnumMapping, toNonNullOpenValue, $Object*, Object$*)},
 	{}
 };
 

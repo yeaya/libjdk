@@ -14,8 +14,8 @@ namespace sun {
 		namespace transport {
 
 $MethodInfo _ObjectTable$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ObjectTable$1::*)()>(&ObjectTable$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ObjectTable$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ObjectTable$1, run, $Object*)},
 	{}
 };
 

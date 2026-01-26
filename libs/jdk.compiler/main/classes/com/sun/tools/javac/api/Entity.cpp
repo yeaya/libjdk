@@ -30,10 +30,10 @@ $FieldInfo _Entity_FieldInfo_[] = {
 };
 
 $MethodInfo _Entity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Entity::*)()>(&Entity::init$))},
-	{"getCharacters", "(Lcom/sun/source/doctree/EntityTree;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($EntityTree*)>(&Entity::getCharacters))},
-	{"put", "(Ljava/lang/String;C)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,char16_t)>(&Entity::put))},
-	{"put", "(Ljava/lang/String;CC)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,char16_t,char16_t)>(&Entity::put))},
+	{"<init>", "()V", nullptr, 0, $method(Entity, init$, void)},
+	{"getCharacters", "(Lcom/sun/source/doctree/EntityTree;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Entity, getCharacters, $String*, $EntityTree*)},
+	{"put", "(Ljava/lang/String;C)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Entity, put, void, $String*, char16_t)},
+	{"put", "(Ljava/lang/String;CC)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Entity, put, void, $String*, char16_t, char16_t)},
 	{}
 };
 

@@ -19,9 +19,9 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Flow$Liveness$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Flow$Liveness$3::*)($String*,int32_t)>(&Flow$Liveness$3::init$))},
-	{"and", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC},
-	{"or", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Flow$Liveness$3, init$, void, $String*, int32_t)},
+	{"and", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness$3, and$, $Flow$Liveness*, $Flow$Liveness*)},
+	{"or", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness$3, or$, $Flow$Liveness*, $Flow$Liveness*)},
 	{}
 };
 

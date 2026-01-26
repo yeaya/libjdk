@@ -59,8 +59,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DeferredCompletionFailureHandler$2$$Lambda$lambda$uninstall$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DeferredCompletionFailureHandler$2$$Lambda$lambda$uninstall$0::*)()>(&DeferredCompletionFailureHandler$2$$Lambda$lambda$uninstall$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DeferredCompletionFailureHandler$2$$Lambda$lambda$uninstall$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$2$$Lambda$lambda$uninstall$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo DeferredCompletionFailureHandler$2$$Lambda$lambda$uninstall$0::classInfo$ = {
@@ -84,13 +84,13 @@ $FieldInfo _DeferredCompletionFailureHandler$2_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredCompletionFailureHandler$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", nullptr, 0, $method(static_cast<void(DeferredCompletionFailureHandler$2::*)($DeferredCompletionFailureHandler*)>(&DeferredCompletionFailureHandler$2::init$))},
-	{"classSymbolCompleteFailed", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC},
-	{"classSymbolRemoved", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC},
-	{"handleAPICompletionFailure", "(Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PUBLIC},
-	{"install", "()V", nullptr, $PUBLIC},
-	{"lambda$uninstall$0", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$FlipSymbolDescription;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($DeferredCompletionFailureHandler$FlipSymbolDescription*)>(&DeferredCompletionFailureHandler$2::lambda$uninstall$0))},
-	{"uninstall", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", nullptr, 0, $method(DeferredCompletionFailureHandler$2, init$, void, $DeferredCompletionFailureHandler*)},
+	{"classSymbolCompleteFailed", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$2, classSymbolCompleteFailed, void, $Symbol$ClassSymbol*, $Symbol$Completer*)},
+	{"classSymbolRemoved", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$2, classSymbolRemoved, void, $Symbol$ClassSymbol*)},
+	{"handleAPICompletionFailure", "(Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$2, handleAPICompletionFailure, void, $Symbol$CompletionFailure*)},
+	{"install", "()V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$2, install, void)},
+	{"lambda$uninstall$0", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$FlipSymbolDescription;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredCompletionFailureHandler$2, lambda$uninstall$0, void, $DeferredCompletionFailureHandler$FlipSymbolDescription*)},
+	{"uninstall", "()V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$2, uninstall, void)},
 	{}
 };
 

@@ -61,15 +61,15 @@ $FieldInfo _EventSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _EventSupport_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;)V", nullptr, 0, $method(static_cast<void(EventSupport::*)($LdapCtx*)>(&EventSupport::init$))},
-	{"addNamingListener", "(Ljava/lang/String;ILjavax/naming/event/NamingListener;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(EventSupport::*)($String*,int32_t,$NamingListener*)>(&EventSupport::addNamingListener)), "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(EventSupport::*)($String*,$String*,$SearchControls*,$NamingListener*)>(&EventSupport::addNamingListener)), "javax.naming.NamingException"},
-	{"cleanup", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(EventSupport::*)()>(&EventSupport::cleanup))},
-	{"fireUnsolicited", "(Ljava/lang/Object;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(EventSupport::*)(Object$*)>(&EventSupport::fireUnsolicited))},
-	{"hasUnsolicited", "()Z", nullptr, $SYNCHRONIZED, $method(static_cast<bool(EventSupport::*)()>(&EventSupport::hasUnsolicited))},
-	{"queueEvent", "(Ljava/util/EventObject;Ljava/util/Vector;)V", "(Ljava/util/EventObject;Ljava/util/Vector<+Ljavax/naming/event/NamingListener;>;)V", $SYNCHRONIZED, $method(static_cast<void(EventSupport::*)($EventObject*,$Vector*)>(&EventSupport::queueEvent))},
-	{"removeDeadNotifier", "(Lcom/sun/jndi/ldap/NotifierArgs;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(EventSupport::*)($NotifierArgs*)>(&EventSupport::removeDeadNotifier))},
-	{"removeNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(EventSupport::*)($NamingListener*)>(&EventSupport::removeNamingListener))},
+	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;)V", nullptr, 0, $method(EventSupport, init$, void, $LdapCtx*)},
+	{"addNamingListener", "(Ljava/lang/String;ILjavax/naming/event/NamingListener;)V", nullptr, $SYNCHRONIZED, $method(EventSupport, addNamingListener, void, $String*, int32_t, $NamingListener*), "javax.naming.NamingException"},
+	{"addNamingListener", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $SYNCHRONIZED, $method(EventSupport, addNamingListener, void, $String*, $String*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
+	{"cleanup", "()V", nullptr, $SYNCHRONIZED, $method(EventSupport, cleanup, void)},
+	{"fireUnsolicited", "(Ljava/lang/Object;)V", nullptr, $SYNCHRONIZED, $method(EventSupport, fireUnsolicited, void, Object$*)},
+	{"hasUnsolicited", "()Z", nullptr, $SYNCHRONIZED, $method(EventSupport, hasUnsolicited, bool)},
+	{"queueEvent", "(Ljava/util/EventObject;Ljava/util/Vector;)V", "(Ljava/util/EventObject;Ljava/util/Vector<+Ljavax/naming/event/NamingListener;>;)V", $SYNCHRONIZED, $method(EventSupport, queueEvent, void, $EventObject*, $Vector*)},
+	{"removeDeadNotifier", "(Lcom/sun/jndi/ldap/NotifierArgs;)V", nullptr, $SYNCHRONIZED, $method(EventSupport, removeDeadNotifier, void, $NotifierArgs*)},
+	{"removeNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, $SYNCHRONIZED, $method(EventSupport, removeNamingListener, void, $NamingListener*)},
 	{}
 };
 

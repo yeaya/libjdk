@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ObjectName = ::javax::management::ObjectName;
 
 namespace java {
 	namespace lang {
 		namespace management {
 
 $MethodInfo _PlatformManagedObject_MethodInfo_[] = {
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformManagedObject, getObjectName, $ObjectName*)},
 	{}
 };
 

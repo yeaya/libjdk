@@ -7,6 +7,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $JavaFileManager = ::javax::tools::JavaFileManager;
 
 namespace com {
 	namespace sun {
@@ -16,12 +18,12 @@ namespace com {
 
 $MethodInfo _PlatformDescription_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAdditionalOptions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
-	{"getAnnotationProcessors", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Ljavax/annotation/processing/Processor;>;>;", $PUBLIC | $ABSTRACT},
-	{"getFileManager", "()Ljavax/tools/JavaFileManager;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPlugins", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Lcom/sun/source/util/Plugin;>;>;", $PUBLIC | $ABSTRACT},
-	{"getSourceVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTargetVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAdditionalOptions", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformDescription, getAdditionalOptions, $List*)},
+	{"getAnnotationProcessors", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Ljavax/annotation/processing/Processor;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformDescription, getAnnotationProcessors, $List*)},
+	{"getFileManager", "()Ljavax/tools/JavaFileManager;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformDescription, getFileManager, $JavaFileManager*)},
+	{"getPlugins", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/platform/PlatformDescription$PluginInfo<Lcom/sun/source/util/Plugin;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformDescription, getPlugins, $List*)},
+	{"getSourceVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformDescription, getSourceVersion, $String*)},
+	{"getTargetVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformDescription, getTargetVersion, $String*)},
 	{}
 };
 

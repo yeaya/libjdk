@@ -59,14 +59,14 @@ $FieldInfo _ISO2022_KR$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO2022_KR$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(ISO2022_KR$Decoder::*)($Charset*)>(&ISO2022_KR$Decoder::init$))},
-	{"decode", "(BBB)C", nullptr, $PRIVATE, $method(static_cast<char16_t(ISO2022_KR$Decoder::*)(int8_t,int8_t,int8_t)>(&ISO2022_KR$Decoder::decode))},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISO2022_KR$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&ISO2022_KR$Decoder::decodeArrayLoop))},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISO2022_KR$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&ISO2022_KR$Decoder::decodeBufferLoop))},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"findDesig", "([BII)Z", nullptr, $PRIVATE, $method(static_cast<bool(ISO2022_KR$Decoder::*)($bytes*,int32_t,int32_t)>(&ISO2022_KR$Decoder::findDesig))},
-	{"findDesigBuf", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ISO2022_KR$Decoder::*)($ByteBuffer*)>(&ISO2022_KR$Decoder::findDesigBuf))},
-	{"implReset", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, init$, void, $Charset*)},
+	{"decode", "(BBB)C", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, decode, char16_t, int8_t, int8_t, int8_t)},
+	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022_KR$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"findDesig", "([BII)Z", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, findDesig, bool, $bytes*, int32_t, int32_t)},
+	{"findDesigBuf", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(ISO2022_KR$Decoder, findDesigBuf, bool, $ByteBuffer*)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(ISO2022_KR$Decoder, implReset, void)},
 	{}
 };
 

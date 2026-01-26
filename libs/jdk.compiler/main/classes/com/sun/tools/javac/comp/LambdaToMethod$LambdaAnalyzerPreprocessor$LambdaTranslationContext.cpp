@@ -166,8 +166,8 @@ $FieldInfo LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$L
 	{}
 };
 $MethodInfo LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$0::*)(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext*,$JCTree$JCIdent*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$0, init$, void, LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext*, $JCTree$JCIdent*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$0::classInfo$ = {
@@ -199,8 +199,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$1$1::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$1$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$$Lambda$lambda$translate$1$1::classInfo$ = {
@@ -230,20 +230,20 @@ $FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext_F
 };
 
 $MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, 0, $method(static_cast<void(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::*)($LambdaToMethod$LambdaAnalyzerPreprocessor*,$JCTree$JCLambda*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::init$))},
-	{"addSymbol", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;)V", nullptr, 0},
-	{"complete", "()V", nullptr, 0},
-	{"generatedLambdaSig", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"getSymbolMap", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;)Ljava/util/Map;", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;)Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;>;", 0},
-	{"lambda$translate$0", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::*)($JCTree$JCIdent*,$Symbol*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::lambda$translate$0))},
-	{"lambda$translate$1", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Symbol*(*)($Symbol*,$Symbol*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::lambda$translate$1))},
-	{"lambdaName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(static_cast<$Name*(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::lambdaName))},
-	{"serializedLambdaDisambiguation", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::serializedLambdaDisambiguation))},
-	{"serializedLambdaName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(static_cast<$Name*(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::*)()>(&LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext::serializedLambdaName))},
-	{"translate", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;)Lcom/sun/tools/javac/code/Symbol;", nullptr, 0},
-	{"translate", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0},
-	{"translate", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
-	{"translate", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $JCTree$JCLambda*)},
+	{"addSymbol", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;)V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, addSymbol, void, $Symbol*, $LambdaToMethod$LambdaSymbolKind*)},
+	{"complete", "()V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, complete, void)},
+	{"generatedLambdaSig", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, generatedLambdaSig, $Type*)},
+	{"getSymbolMap", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;)Ljava/util/Map;", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;)Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;>;", 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, getSymbolMap, $Map*, $LambdaToMethod$LambdaSymbolKind*)},
+	{"lambda$translate$0", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, lambda$translate$0, bool, $JCTree$JCIdent*, $Symbol*)},
+	{"lambda$translate$1", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, lambda$translate$1, $Symbol*, $Symbol*, $Symbol*)},
+	{"lambdaName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, lambdaName, $Name*)},
+	{"serializedLambdaDisambiguation", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, serializedLambdaDisambiguation, $String*)},
+	{"serializedLambdaName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, serializedLambdaName, $Name*)},
+	{"translate", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind;)Lcom/sun/tools/javac/code/Symbol;", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, translate, $Symbol*, $Symbol*, $LambdaToMethod$LambdaSymbolKind*)},
+	{"translate", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, translate, $JCTree*, $JCTree$JCIdent*)},
+	{"translate", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, translate, $JCTree*, $JCTree$JCFieldAccess*)},
+	{"translate", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, translate, $JCTree$JCNewClass*, $JCTree$JCNewClass*)},
 	{}
 };
 

@@ -26,7 +26,7 @@ $FieldInfo _EventQueue$QueueElement_FieldInfo_[] = {
 };
 
 $MethodInfo _EventQueue$QueueElement_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EventObject;Ljava/util/Vector;)V", "(Ljava/util/EventObject;Ljava/util/Vector<Ljavax/naming/event/NamingListener;>;)V", 0, $method(static_cast<void(EventQueue$QueueElement::*)($EventObject*,$Vector*)>(&EventQueue$QueueElement::init$))},
+	{"<init>", "(Ljava/util/EventObject;Ljava/util/Vector;)V", "(Ljava/util/EventObject;Ljava/util/Vector<Ljavax/naming/event/NamingListener;>;)V", 0, $method(EventQueue$QueueElement, init$, void, $EventObject*, $Vector*)},
 	{}
 };
 

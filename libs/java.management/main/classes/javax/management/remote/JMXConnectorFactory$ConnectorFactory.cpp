@@ -18,7 +18,7 @@ $CompoundAttribute _JMXConnectorFactory$ConnectorFactory_Annotations_[] = {
 };
 
 $MethodInfo _JMXConnectorFactory$ConnectorFactory_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TP;)TC;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TP;)TC;", $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnectorFactory$ConnectorFactory, apply, $Object*, Object$*), "java.lang.Exception"},
 	{}
 };
 

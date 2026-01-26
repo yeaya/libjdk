@@ -26,13 +26,13 @@ $FieldInfo _NotificationResult_FieldInfo_[] = {
 };
 
 $MethodInfo _NotificationResult_MethodInfo_[] = {
-	{"<init>", "(JJ[Ljavax/management/remote/TargetedNotification;)V", nullptr, $PUBLIC, $method(static_cast<void(NotificationResult::*)(int64_t,int64_t,$TargetedNotificationArray*)>(&NotificationResult::init$))},
-	{"getEarliestSequenceNumber", "()J", nullptr, $PUBLIC},
-	{"getNextSequenceNumber", "()J", nullptr, $PUBLIC},
-	{"getTargetedNotifications", "()[Ljavax/management/remote/TargetedNotification;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(NotificationResult::*)($ObjectInputStream*)>(&NotificationResult::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validate", "([Ljavax/management/remote/TargetedNotification;JJ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($TargetedNotificationArray*,int64_t,int64_t)>(&NotificationResult::validate)), "java.lang.IllegalArgumentException"},
+	{"<init>", "(JJ[Ljavax/management/remote/TargetedNotification;)V", nullptr, $PUBLIC, $method(NotificationResult, init$, void, int64_t, int64_t, $TargetedNotificationArray*)},
+	{"getEarliestSequenceNumber", "()J", nullptr, $PUBLIC, $virtualMethod(NotificationResult, getEarliestSequenceNumber, int64_t)},
+	{"getNextSequenceNumber", "()J", nullptr, $PUBLIC, $virtualMethod(NotificationResult, getNextSequenceNumber, int64_t)},
+	{"getTargetedNotifications", "()[Ljavax/management/remote/TargetedNotification;", nullptr, $PUBLIC, $virtualMethod(NotificationResult, getTargetedNotifications, $TargetedNotificationArray*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(NotificationResult, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NotificationResult, toString, $String*)},
+	{"validate", "([Ljavax/management/remote/TargetedNotification;JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NotificationResult, validate, void, $TargetedNotificationArray*, int64_t, int64_t), "java.lang.IllegalArgumentException"},
 	{}
 };
 

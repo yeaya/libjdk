@@ -52,8 +52,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo UtfHelpper$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UtfHelpper$$Lambda$lambda$static$0::*)()>(&UtfHelpper$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UtfHelpper$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UtfHelpper$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo UtfHelpper$$Lambda$lambda$static$0::classInfo$ = {
@@ -76,12 +76,12 @@ $FieldInfo _UtfHelpper_FieldInfo_[] = {
 };
 
 $MethodInfo _UtfHelpper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(UtfHelpper::*)()>(&UtfHelpper::init$))},
-	{"getStringInUtf8", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&UtfHelpper::getStringInUtf8))},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&UtfHelpper::lambda$static$0))},
-	{"writeByte", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map<Ljava/lang/String;[B>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$OutputStream*,$Map*)>(&UtfHelpper::writeByte)), "java.io.IOException"},
-	{"writeCodePointToUtf8", "(ILjava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int32_t,$OutputStream*)>(&UtfHelpper::writeCodePointToUtf8)), "java.io.IOException"},
-	{"writeStringToUtf8", "(Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$OutputStream*)>(&UtfHelpper::writeStringToUtf8)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(UtfHelpper, init$, void)},
+	{"getStringInUtf8", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(UtfHelpper, getStringInUtf8, $bytes*, $String*)},
+	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UtfHelpper, lambda$static$0, $Boolean*)},
+	{"writeByte", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map<Ljava/lang/String;[B>;)V", $PUBLIC | $STATIC, $staticMethod(UtfHelpper, writeByte, void, $String*, $OutputStream*, $Map*), "java.io.IOException"},
+	{"writeCodePointToUtf8", "(ILjava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UtfHelpper, writeCodePointToUtf8, void, int32_t, $OutputStream*), "java.io.IOException"},
+	{"writeStringToUtf8", "(Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UtfHelpper, writeStringToUtf8, void, $String*, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

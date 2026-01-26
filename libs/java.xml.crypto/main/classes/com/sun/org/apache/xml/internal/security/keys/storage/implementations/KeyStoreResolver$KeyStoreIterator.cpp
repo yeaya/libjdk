@@ -51,10 +51,10 @@ $FieldInfo _KeyStoreResolver$KeyStoreIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStoreResolver$KeyStoreIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyStoreResolver$KeyStoreIterator::*)($KeyStore*)>(&KeyStoreResolver$KeyStoreIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $method(KeyStoreResolver$KeyStoreIterator, init$, void, $KeyStore*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreResolver$KeyStoreIterator, hasNext, bool)},
+	{"next", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(KeyStoreResolver$KeyStoreIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(KeyStoreResolver$KeyStoreIterator, remove, void)},
 	{}
 };
 

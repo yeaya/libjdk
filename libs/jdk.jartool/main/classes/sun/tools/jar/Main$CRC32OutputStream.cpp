@@ -27,10 +27,10 @@ $FieldInfo _Main$CRC32OutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$CRC32OutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Main$CRC32OutputStream::*)()>(&Main$CRC32OutputStream::init$))},
-	{"updateEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(Main$CRC32OutputStream, init$, void)},
+	{"updateEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, $PUBLIC, $virtualMethod(Main$CRC32OutputStream, updateEntry, void, $ZipEntry*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Main$CRC32OutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Main$CRC32OutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

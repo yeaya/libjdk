@@ -39,12 +39,12 @@ $FieldInfo _DOMSignatureMethod$SHA1withRSAandMGF1_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMSignatureMethod$SHA1withRSAandMGF1_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$SHA1withRSAandMGF1::*)($AlgorithmParameterSpec*)>(&DOMSignatureMethod$SHA1withRSAandMGF1::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$SHA1withRSAandMGF1::*)($Element*)>(&DOMSignatureMethod$SHA1withRSAandMGF1::init$)), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0},
-	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withRSAandMGF1, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withRSAandMGF1, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getAlgorithm, $String*)},
+	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
+	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getJCAAlgorithm, $String*)},
+	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA1withRSAandMGF1, getPSSParameterSpec, $PSSParameterSpec*)},
 	{}
 };
 

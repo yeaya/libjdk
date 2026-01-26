@@ -57,14 +57,14 @@ $FieldInfo _SequentialScheduler_FieldInfo_[] = {
 };
 
 $MethodInfo _SequentialScheduler_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler$RestartableTask;)V", nullptr, $PUBLIC, $method(static_cast<void(SequentialScheduler::*)($SequentialScheduler$RestartableTask*)>(&SequentialScheduler::init$))},
-	{"isStopped", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(SequentialScheduler::*)()>(&SequentialScheduler::isStopped))},
-	{"lockingScheduler", "(Ljava/lang/Runnable;)Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SequentialScheduler*(*)($Runnable*)>(&SequentialScheduler::lockingScheduler))},
-	{"runOrSchedule", "()V", nullptr, $PUBLIC, $method(static_cast<void(SequentialScheduler::*)()>(&SequentialScheduler::runOrSchedule))},
-	{"runOrSchedule", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $method(static_cast<void(SequentialScheduler::*)($Executor*)>(&SequentialScheduler::runOrSchedule))},
-	{"runOrSchedule", "(Ljdk/internal/net/http/common/SequentialScheduler$SchedulableTask;Ljava/util/concurrent/Executor;)V", nullptr, $PRIVATE, $method(static_cast<void(SequentialScheduler::*)($SequentialScheduler$SchedulableTask*,$Executor*)>(&SequentialScheduler::runOrSchedule))},
-	{"stop", "()V", nullptr, $PUBLIC, $method(static_cast<void(SequentialScheduler::*)()>(&SequentialScheduler::stop))},
-	{"synchronizedScheduler", "(Ljava/lang/Runnable;)Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SequentialScheduler*(*)($Runnable*)>(&SequentialScheduler::synchronizedScheduler))},
+	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler$RestartableTask;)V", nullptr, $PUBLIC, $method(SequentialScheduler, init$, void, $SequentialScheduler$RestartableTask*)},
+	{"isStopped", "()Z", nullptr, $PUBLIC, $method(SequentialScheduler, isStopped, bool)},
+	{"lockingScheduler", "(Ljava/lang/Runnable;)Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PUBLIC | $STATIC, $staticMethod(SequentialScheduler, lockingScheduler, SequentialScheduler*, $Runnable*)},
+	{"runOrSchedule", "()V", nullptr, $PUBLIC, $method(SequentialScheduler, runOrSchedule, void)},
+	{"runOrSchedule", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC, $method(SequentialScheduler, runOrSchedule, void, $Executor*)},
+	{"runOrSchedule", "(Ljdk/internal/net/http/common/SequentialScheduler$SchedulableTask;Ljava/util/concurrent/Executor;)V", nullptr, $PRIVATE, $method(SequentialScheduler, runOrSchedule, void, $SequentialScheduler$SchedulableTask*, $Executor*)},
+	{"stop", "()V", nullptr, $PUBLIC, $method(SequentialScheduler, stop, void)},
+	{"synchronizedScheduler", "(Ljava/lang/Runnable;)Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PUBLIC | $STATIC, $staticMethod(SequentialScheduler, synchronizedScheduler, SequentialScheduler*, $Runnable*)},
 	{}
 };
 

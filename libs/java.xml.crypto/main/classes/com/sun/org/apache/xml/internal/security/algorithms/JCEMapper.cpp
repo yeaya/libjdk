@@ -76,18 +76,18 @@ $FieldInfo _JCEMapper_FieldInfo_[] = {
 };
 
 $MethodInfo _JCEMapper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCEMapper::*)()>(&JCEMapper::init$))},
-	{"getAlgorithm", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$JCEMapper$Algorithm*(*)($String*)>(&JCEMapper::getAlgorithm))},
-	{"getAlgorithmClassFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&JCEMapper::getAlgorithmClassFromURI))},
-	{"getIVLengthFromURI", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*)>(&JCEMapper::getIVLengthFromURI))},
-	{"getJCEKeyAlgorithmFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&JCEMapper::getJCEKeyAlgorithmFromURI))},
-	{"getJCEProviderFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&JCEMapper::getJCEProviderFromURI))},
-	{"getKeyLengthFromURI", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*)>(&JCEMapper::getKeyLengthFromURI))},
-	{"getProviderId", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&JCEMapper::getProviderId))},
-	{"register", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$JCEMapper$Algorithm*)>(&JCEMapper::register$))},
-	{"registerDefaultAlgorithms", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&JCEMapper::registerDefaultAlgorithms))},
-	{"setProviderId", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&JCEMapper::setProviderId))},
-	{"translateURItoJCEID", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&JCEMapper::translateURItoJCEID))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCEMapper, init$, void)},
+	{"getAlgorithm", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm;", nullptr, $PRIVATE | $STATIC, $staticMethod(JCEMapper, getAlgorithm, $JCEMapper$Algorithm*, $String*)},
+	{"getAlgorithmClassFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getAlgorithmClassFromURI, $String*, $String*)},
+	{"getIVLengthFromURI", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getIVLengthFromURI, int32_t, $String*)},
+	{"getJCEKeyAlgorithmFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getJCEKeyAlgorithmFromURI, $String*, $String*)},
+	{"getJCEProviderFromURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getJCEProviderFromURI, $String*, $String*)},
+	{"getKeyLengthFromURI", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getKeyLengthFromURI, int32_t, $String*)},
+	{"getProviderId", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, getProviderId, $String*)},
+	{"register", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/algorithms/JCEMapper$Algorithm;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, register$, void, $String*, $JCEMapper$Algorithm*)},
+	{"registerDefaultAlgorithms", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, registerDefaultAlgorithms, void)},
+	{"setProviderId", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, setProviderId, void, $String*)},
+	{"translateURItoJCEID", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCEMapper, translateURItoJCEID, $String*, $String*)},
 	{}
 };
 

@@ -60,14 +60,14 @@ $MethodInfo _RegistryImpl_Stub_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RegistryImpl_Stub::*)()>(&RegistryImpl_Stub::init$))},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(static_cast<void(RegistryImpl_Stub::*)($RemoteRef*)>(&RegistryImpl_Stub::init$))},
-	{"bind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, nullptr, "java.rmi.AccessException,java.rmi.AlreadyBoundException,java.rmi.RemoteException"},
-	{"list", "()[Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.rmi.AccessException,java.rmi.RemoteException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/rmi/Remote;", nullptr, $PUBLIC, nullptr, "java.rmi.AccessException,java.rmi.NotBoundException,java.rmi.RemoteException"},
-	{"rebind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, nullptr, "java.rmi.AccessException,java.rmi.RemoteException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RegistryImpl_Stub, init$, void)},
+	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(RegistryImpl_Stub, init$, void, $RemoteRef*)},
+	{"bind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, bind, void, $String*, $Remote*), "java.rmi.AccessException,java.rmi.AlreadyBoundException,java.rmi.RemoteException"},
+	{"list", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, list, $StringArray*), "java.rmi.AccessException,java.rmi.RemoteException"},
+	{"lookup", "(Ljava/lang/String;)Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, lookup, $Remote*, $String*), "java.rmi.AccessException,java.rmi.NotBoundException,java.rmi.RemoteException"},
+	{"rebind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, rebind, void, $String*, $Remote*), "java.rmi.AccessException,java.rmi.RemoteException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.rmi.AccessException,java.rmi.NotBoundException,java.rmi.RemoteException"},
+	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, unbind, void, $String*), "java.rmi.AccessException,java.rmi.NotBoundException,java.rmi.RemoteException"},
 	{}
 };
 

@@ -85,17 +85,17 @@ $FieldInfo _RelationTypeSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _RelationTypeSupport_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljavax/management/relation/RoleInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(RelationTypeSupport::*)($String*,$RoleInfoArray*)>(&RelationTypeSupport::init$)), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(RelationTypeSupport::*)($String*)>(&RelationTypeSupport::init$))},
-	{"addRoleInfo", "(Ljavax/management/relation/RoleInfo;)V", nullptr, $PROTECTED, nullptr, "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
-	{"checkRoleInfos", "([Ljavax/management/relation/RoleInfo;)V", nullptr, $STATIC, $method(static_cast<void(*)($RoleInfoArray*)>(&RelationTypeSupport::checkRoleInfos)), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
-	{"getRelationTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRoleInfo", "(Ljava/lang/String;)Ljavax/management/relation/RoleInfo;", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException,javax.management.relation.RoleInfoNotFoundException"},
-	{"getRoleInfos", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/relation/RoleInfo;>;", $PUBLIC},
-	{"initMembers", "(Ljava/lang/String;[Ljavax/management/relation/RoleInfo;)V", nullptr, $PRIVATE, $method(static_cast<void(RelationTypeSupport::*)($String*,$RoleInfoArray*)>(&RelationTypeSupport::initMembers)), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(RelationTypeSupport::*)($ObjectInputStream*)>(&RelationTypeSupport::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setRelationServiceFlag", "(Z)V", nullptr, 0},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(RelationTypeSupport::*)($ObjectOutputStream*)>(&RelationTypeSupport::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;[Ljavax/management/relation/RoleInfo;)V", nullptr, $PUBLIC, $method(RelationTypeSupport, init$, void, $String*, $RoleInfoArray*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(RelationTypeSupport, init$, void, $String*)},
+	{"addRoleInfo", "(Ljavax/management/relation/RoleInfo;)V", nullptr, $PROTECTED, $virtualMethod(RelationTypeSupport, addRoleInfo, void, $RoleInfo*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
+	{"checkRoleInfos", "([Ljavax/management/relation/RoleInfo;)V", nullptr, $STATIC, $staticMethod(RelationTypeSupport, checkRoleInfos, void, $RoleInfoArray*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
+	{"getRelationTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelationTypeSupport, getRelationTypeName, $String*)},
+	{"getRoleInfo", "(Ljava/lang/String;)Ljavax/management/relation/RoleInfo;", nullptr, $PUBLIC, $virtualMethod(RelationTypeSupport, getRoleInfo, $RoleInfo*, $String*), "java.lang.IllegalArgumentException,javax.management.relation.RoleInfoNotFoundException"},
+	{"getRoleInfos", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/relation/RoleInfo;>;", $PUBLIC, $virtualMethod(RelationTypeSupport, getRoleInfos, $List*)},
+	{"initMembers", "(Ljava/lang/String;[Ljavax/management/relation/RoleInfo;)V", nullptr, $PRIVATE, $method(RelationTypeSupport, initMembers, void, $String*, $RoleInfoArray*), "java.lang.IllegalArgumentException,javax.management.relation.InvalidRelationTypeException"},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RelationTypeSupport, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"setRelationServiceFlag", "(Z)V", nullptr, 0, $virtualMethod(RelationTypeSupport, setRelationServiceFlag, void, bool)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RelationTypeSupport, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

@@ -49,8 +49,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$go$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$go$0::*)()>(&Main$$Lambda$lambda$go$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$go$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$go$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$go$0::classInfo$ = {
@@ -68,10 +68,10 @@ $Class* Main$$Lambda$lambda$go$0::load$($String* name, bool initialize) {
 $Class* Main$$Lambda$lambda$go$0::class$ = nullptr;
 
 $MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main::*)()>(&Main::init$))},
-	{"go", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($StringArray*)>(&Main::go))},
-	{"lambda$go$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&Main::lambda$go$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&Main::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main, init$, void)},
+	{"go", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, go, int32_t, $StringArray*)},
+	{"lambda$go$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$go$0, bool, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Main, main, void, $StringArray*)},
 	{}
 };
 

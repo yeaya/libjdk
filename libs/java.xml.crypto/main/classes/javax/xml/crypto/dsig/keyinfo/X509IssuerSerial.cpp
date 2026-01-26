@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $BigInteger = ::java::math::BigInteger;
 
 namespace javax {
 	namespace xml {
@@ -13,8 +14,8 @@ namespace javax {
 				namespace keyinfo {
 
 $MethodInfo _X509IssuerSerial_MethodInfo_[] = {
-	{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509IssuerSerial, getIssuerName, $String*)},
+	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509IssuerSerial, getSerialNumber, $BigInteger*)},
 	{}
 };
 

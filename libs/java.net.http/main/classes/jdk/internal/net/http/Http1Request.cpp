@@ -96,8 +96,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Http1Request$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Http1Request$$Lambda$lambda$static$0::*)()>(&Http1Request$$Lambda$lambda$static$0::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Http1Request$$Lambda$lambda$static$0, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Http1Request$$Lambda$lambda$static$0, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Http1Request$$Lambda$lambda$static$0::classInfo$ = {
@@ -136,8 +136,8 @@ $FieldInfo Http1Request$$Lambda$toString$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1Request$$Lambda$toString$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Request$$Lambda$toString$1::*)(Object$*)>(&Http1Request$$Lambda$toString$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Http1Request$$Lambda$toString$1, init$, void, Object$*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1Request$$Lambda$toString$1, get, $Object*)},
 	{}
 };
 $ClassInfo Http1Request$$Lambda$toString$1::classInfo$ = {
@@ -176,8 +176,8 @@ $FieldInfo Http1Request$$Lambda$lambda$collectHeaders0$1$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1Request$$Lambda$lambda$collectHeaders0$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpHeaders;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Request$$Lambda$lambda$collectHeaders0$1$2::*)($HttpHeaders*)>(&Http1Request$$Lambda$lambda$collectHeaders0$1$2::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpHeaders;)V", nullptr, $PUBLIC, $method(Http1Request$$Lambda$lambda$collectHeaders0$1$2, init$, void, $HttpHeaders*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Http1Request$$Lambda$lambda$collectHeaders0$1$2, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Http1Request$$Lambda$lambda$collectHeaders0$1$2::classInfo$ = {
@@ -213,22 +213,22 @@ $FieldInfo _Http1Request_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Request_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http1Exchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http1Exchange<*>;)V", 0, $method(static_cast<void(Http1Request::*)($HttpRequestImpl*,$Http1Exchange*)>(&Http1Request::init$)), "java.io.IOException"},
-	{"authorityString", "(Ljava/net/InetSocketAddress;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Http1Request::*)($InetSocketAddress*)>(&Http1Request::authorityString))},
-	{"collectCookies", "(Ljava/lang/StringBuilder;Ljava/net/http/HttpHeaders;Ljava/net/http/HttpHeaders;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1Request::*)($StringBuilder*,$HttpHeaders*,$HttpHeaders*)>(&Http1Request::collectCookies))},
-	{"collectHeaders0", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC},
-	{"collectHeaders1", "(Ljava/lang/StringBuilder;Ljava/net/http/HttpHeaders;Ljava/util/function/BiPredicate;)V", "(Ljava/lang/StringBuilder;Ljava/net/http/HttpHeaders;Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(Http1Request::*)($StringBuilder*,$HttpHeaders*,$BiPredicate*)>(&Http1Request::collectHeaders1))},
-	{"continueRequest", "()Ljdk/internal/net/http/Http1Exchange$Http1BodySubscriber;", nullptr, 0},
-	{"finished", "()Z", nullptr, $SYNCHRONIZED},
-	{"getHeader", "(I)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ByteBuffer*(*)(int32_t)>(&Http1Request::getHeader))},
-	{"getPathAndQuery", "(Ljava/net/URI;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Http1Request::*)($URI*)>(&Http1Request::getPathAndQuery))},
-	{"headers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", 0},
-	{"hostString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Http1Request::*)()>(&Http1Request::hostString))},
-	{"lambda$collectHeaders0$1", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($HttpHeaders*,$String*,$String*)>(&Http1Request::lambda$collectHeaders0$1))},
-	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&Http1Request::lambda$static$0))},
-	{"logHeaders", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1Request::*)($String*)>(&Http1Request::logHeaders))},
-	{"requestURI", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Http1Request::*)()>(&Http1Request::requestURI))},
-	{"setFinished", "()V", nullptr, $SYNCHRONIZED},
+	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http1Exchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http1Exchange<*>;)V", 0, $method(Http1Request, init$, void, $HttpRequestImpl*, $Http1Exchange*), "java.io.IOException"},
+	{"authorityString", "(Ljava/net/InetSocketAddress;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Http1Request, authorityString, $String*, $InetSocketAddress*)},
+	{"collectCookies", "(Ljava/lang/StringBuilder;Ljava/net/http/HttpHeaders;Ljava/net/http/HttpHeaders;)V", nullptr, $PRIVATE, $method(Http1Request, collectCookies, void, $StringBuilder*, $HttpHeaders*, $HttpHeaders*)},
+	{"collectHeaders0", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $virtualMethod(Http1Request, collectHeaders0, void, $StringBuilder*)},
+	{"collectHeaders1", "(Ljava/lang/StringBuilder;Ljava/net/http/HttpHeaders;Ljava/util/function/BiPredicate;)V", "(Ljava/lang/StringBuilder;Ljava/net/http/HttpHeaders;Ljava/util/function/BiPredicate<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(Http1Request, collectHeaders1, void, $StringBuilder*, $HttpHeaders*, $BiPredicate*)},
+	{"continueRequest", "()Ljdk/internal/net/http/Http1Exchange$Http1BodySubscriber;", nullptr, 0, $virtualMethod(Http1Request, continueRequest, $Http1Exchange$Http1BodySubscriber*)},
+	{"finished", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(Http1Request, finished, bool)},
+	{"getHeader", "(I)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(Http1Request, getHeader, $ByteBuffer*, int32_t)},
+	{"getPathAndQuery", "(Ljava/net/URI;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Http1Request, getPathAndQuery, $String*, $URI*)},
+	{"headers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", 0, $virtualMethod(Http1Request, headers, $List*)},
+	{"hostString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Http1Request, hostString, $String*)},
+	{"lambda$collectHeaders0$1", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1Request, lambda$collectHeaders0$1, bool, $HttpHeaders*, $String*, $String*)},
+	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1Request, lambda$static$0, bool, $String*, $String*)},
+	{"logHeaders", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Http1Request, logHeaders, void, $String*)},
+	{"requestURI", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Http1Request, requestURI, $String*)},
+	{"setFinished", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(Http1Request, setFinished, void)},
 	{}
 };
 

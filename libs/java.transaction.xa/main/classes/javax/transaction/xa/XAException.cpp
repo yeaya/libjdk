@@ -69,9 +69,9 @@ $FieldInfo _XAException_FieldInfo_[] = {
 };
 
 $MethodInfo _XAException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XAException::*)()>(&XAException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XAException::*)($String*)>(&XAException::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(XAException::*)(int32_t)>(&XAException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XAException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XAException, init$, void, $String*)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(XAException, init$, void, int32_t)},
 	{}
 };
 

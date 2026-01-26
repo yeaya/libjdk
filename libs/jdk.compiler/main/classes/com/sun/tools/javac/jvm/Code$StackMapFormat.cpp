@@ -37,11 +37,11 @@ $FieldInfo _Code$StackMapFormat_FieldInfo_[] = {
 };
 
 $MethodInfo _Code$StackMapFormat_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Code$StackMapFormatArray*(*)()>(&Code$StackMapFormat::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Code$StackMapFormat::*)($String*,int32_t)>(&Code$StackMapFormat::init$))},
-	{"getAttributeName", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", nullptr, 0},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Code$StackMapFormat*(*)($String*)>(&Code$StackMapFormat::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Code$StackMapFormatArray*(*)()>(&Code$StackMapFormat::values))},
+	{"$values", "()[Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code$StackMapFormat, $values, $Code$StackMapFormatArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Code$StackMapFormat, init$, void, $String*, int32_t)},
+	{"getAttributeName", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(Code$StackMapFormat, getAttributeName, $Name*, $Names*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(Code$StackMapFormat, valueOf, Code$StackMapFormat*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, $PUBLIC | $STATIC, $staticMethod(Code$StackMapFormat, values, $Code$StackMapFormatArray*)},
 	{}
 };
 

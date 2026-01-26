@@ -24,8 +24,8 @@ $FieldInfo _ServerImpl$Exchange$LinkHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerImpl$Exchange$LinkHandler_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl$Exchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, 0, $method(static_cast<void(ServerImpl$Exchange$LinkHandler::*)($ServerImpl$Exchange*,$Filter$Chain*)>(&ServerImpl$Exchange$LinkHandler::init$))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/ServerImpl$Exchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, 0, $method(ServerImpl$Exchange$LinkHandler, init$, void, $ServerImpl$Exchange*, $Filter$Chain*)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$Exchange$LinkHandler, handle, void, $HttpExchange*), "java.io.IOException"},
 	{}
 };
 

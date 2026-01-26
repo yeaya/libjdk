@@ -64,9 +64,9 @@ $FieldInfo _JavacTaskImpl$Filter_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTaskImpl$Filter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;)V", nullptr, 0, $method(static_cast<void(JavacTaskImpl$Filter::*)($JavacTaskImpl*)>(&JavacTaskImpl$Filter::init$))},
-	{"process", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $ABSTRACT},
-	{"run", "(Ljava/util/Queue;Ljava/lang/Iterable;)V", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)V", 0},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;)V", nullptr, 0, $method(JavacTaskImpl$Filter, init$, void, $JavacTaskImpl*)},
+	{"process", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $ABSTRACT, $virtualMethod(JavacTaskImpl$Filter, process, void, $Env*)},
+	{"run", "(Ljava/util/Queue;Ljava/lang/Iterable;)V", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)V", 0, $virtualMethod(JavacTaskImpl$Filter, run, void, $Queue*, $Iterable*)},
 	{}
 };
 

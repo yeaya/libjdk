@@ -17,8 +17,8 @@ $FieldInfo _ContextNotEmptyException_FieldInfo_[] = {
 };
 
 $MethodInfo _ContextNotEmptyException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ContextNotEmptyException::*)($String*)>(&ContextNotEmptyException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ContextNotEmptyException::*)()>(&ContextNotEmptyException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ContextNotEmptyException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextNotEmptyException, init$, void)},
 	{}
 };
 

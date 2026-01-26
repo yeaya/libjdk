@@ -16,8 +16,8 @@ $FieldInfo _JMException_FieldInfo_[] = {
 };
 
 $MethodInfo _JMException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JMException::*)()>(&JMException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JMException::*)($String*)>(&JMException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JMException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMException, init$, void, $String*)},
 	{}
 };
 

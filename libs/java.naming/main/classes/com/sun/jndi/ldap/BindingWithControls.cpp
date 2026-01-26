@@ -26,8 +26,8 @@ $MethodInfo _BindingWithControls_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;[Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $method(static_cast<void(BindingWithControls::*)($String*,Object$*,$ControlArray*)>(&BindingWithControls::init$))},
-	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;[Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $method(BindingWithControls, init$, void, $String*, Object$*, $ControlArray*)},
+	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(BindingWithControls, getControls, $ControlArray*), "javax.naming.NamingException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

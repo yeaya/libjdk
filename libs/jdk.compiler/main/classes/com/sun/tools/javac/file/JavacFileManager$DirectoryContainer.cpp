@@ -71,12 +71,12 @@ $FieldInfo _JavacFileManager$DirectoryContainer_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacFileManager$DirectoryContainer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacFileManager$DirectoryContainer::*)($JavacFileManager*,$Path*)>(&JavacFileManager$DirectoryContainer::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getFileObject", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"indexedDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $PUBLIC},
-	{"list", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set;ZLcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;ZLcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"maintainsDirectoryIndex", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/JavacFileManager;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(JavacFileManager$DirectoryContainer, init$, void, $JavacFileManager*, $Path*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$DirectoryContainer, close, void), "java.io.IOException"},
+	{"getFileObject", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$DirectoryContainer, getFileObject, $JavaFileObject*, $Path*, $RelativePath$RelativeFile*), "java.io.IOException"},
+	{"indexedDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $PUBLIC, $virtualMethod(JavacFileManager$DirectoryContainer, indexedDirectories, $Iterable*)},
+	{"list", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set;ZLcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;ZLcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(JavacFileManager$DirectoryContainer, list, void, $Path*, $RelativePath$RelativeDirectory*, $Set*, bool, $ListBuffer*), "java.io.IOException"},
+	{"maintainsDirectoryIndex", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$DirectoryContainer, maintainsDirectoryIndex, bool)},
 	{}
 };
 

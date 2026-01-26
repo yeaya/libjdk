@@ -42,11 +42,11 @@ $FieldInfo _Analyzer$TreeRewriter_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$TreeRewriter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(static_cast<void(Analyzer$TreeRewriter::*)($Analyzer*,$Analyzer$RewritingContext*,$JCTree*)>(&Analyzer$TreeRewriter::init$))},
-	{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", "<Z:Lcom/sun/tools/javac/tree/JCTree;>(TZ;Ljava/lang/Void;)TZ;", $PUBLIC},
-	{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(Analyzer$TreeRewriter, init$, void, $Analyzer*, $Analyzer$RewritingContext*, $JCTree*)},
+	{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", "<Z:Lcom/sun/tools/javac/tree/JCTree;>(TZ;Ljava/lang/Void;)TZ;", $PUBLIC, $virtualMethod(Analyzer$TreeRewriter, copy, $JCTree*, $JCTree*, $Void*)},
+	{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$TreeRewriter, copy, $JCTree*, $JCTree*, Object$*)},
+	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(Analyzer$TreeRewriter, visitVariable, $JCTree*, $VariableTree*, $Void*)},
+	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$TreeRewriter, visitVariable, $Object*, $VariableTree*, Object$*)},
 	{}
 };
 

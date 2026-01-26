@@ -32,9 +32,9 @@ $FieldInfo _RequestPublishers$EmptyPublisher_FieldInfo_[] = {
 };
 
 $MethodInfo _RequestPublishers$EmptyPublisher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$EmptyPublisher::*)()>(&RequestPublishers$EmptyPublisher::init$))},
-	{"contentLength", "()J", nullptr, $PUBLIC},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPublishers$EmptyPublisher, init$, void)},
+	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$EmptyPublisher, contentLength, int64_t)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$EmptyPublisher, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

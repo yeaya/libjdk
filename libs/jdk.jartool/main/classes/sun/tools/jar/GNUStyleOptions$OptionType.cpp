@@ -35,10 +35,10 @@ $FieldInfo _GNUStyleOptions$OptionType_FieldInfo_[] = {
 };
 
 $MethodInfo _GNUStyleOptions$OptionType_MethodInfo_[] = {
-	{"$values", "()[Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$GNUStyleOptions$OptionTypeArray*(*)()>(&GNUStyleOptions$OptionType::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(GNUStyleOptions$OptionType::*)($String*,int32_t,$String*)>(&GNUStyleOptions$OptionType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<GNUStyleOptions$OptionType*(*)($String*)>(&GNUStyleOptions$OptionType::valueOf))},
-	{"values", "()[Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$GNUStyleOptions$OptionTypeArray*(*)()>(&GNUStyleOptions$OptionType::values))},
+	{"$values", "()[Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GNUStyleOptions$OptionType, $values, $GNUStyleOptions$OptionTypeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(GNUStyleOptions$OptionType, init$, void, $String*, int32_t, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GNUStyleOptions$OptionType, valueOf, GNUStyleOptions$OptionType*, $String*)},
+	{"values", "()[Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GNUStyleOptions$OptionType, values, $GNUStyleOptions$OptionTypeArray*)},
 	{}
 };
 

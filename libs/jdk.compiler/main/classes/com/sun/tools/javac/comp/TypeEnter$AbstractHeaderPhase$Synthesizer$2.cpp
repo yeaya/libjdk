@@ -31,8 +31,8 @@ $FieldInfo _TypeEnter$AbstractHeaderPhase$Synthesizer$2_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$AbstractHeaderPhase$Synthesizer$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase$Synthesizer;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(static_cast<void(TypeEnter$AbstractHeaderPhase$Synthesizer$2::*)($TypeEnter$AbstractHeaderPhase$Synthesizer*,$Type*,$Symbol$TypeSymbol*)>(&TypeEnter$AbstractHeaderPhase$Synthesizer$2::init$))},
-	{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase$Synthesizer;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(TypeEnter$AbstractHeaderPhase$Synthesizer$2, init$, void, $TypeEnter$AbstractHeaderPhase$Synthesizer*, $Type*, $Symbol$TypeSymbol*)},
+	{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$Synthesizer$2, getTypeArguments, $List*)},
 	{}
 };
 

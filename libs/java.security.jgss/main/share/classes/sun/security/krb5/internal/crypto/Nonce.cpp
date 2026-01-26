@@ -14,8 +14,8 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _Nonce_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Nonce::*)()>(&Nonce::init$))},
-	{"value", "()I", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<int32_t(*)()>(&Nonce::value))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Nonce, init$, void)},
+	{"value", "()I", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Nonce, value, int32_t)},
 	{}
 };
 

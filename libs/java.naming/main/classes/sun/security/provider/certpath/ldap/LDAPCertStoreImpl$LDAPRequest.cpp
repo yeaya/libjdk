@@ -78,13 +78,13 @@ $FieldInfo _LDAPCertStoreImpl$LDAPRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _LDAPCertStoreImpl$LDAPRequest_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(LDAPCertStoreImpl$LDAPRequest::*)($LDAPCertStoreImpl*,$String*)>(&LDAPCertStoreImpl$LDAPRequest::init$)), "java.security.cert.CertStoreException"},
-	{"addRequestedAttribute", "(Ljava/lang/String;)V", nullptr, 0},
-	{"cacheAttribute", "(Ljava/lang/String;[[B)V", nullptr, $PRIVATE, $method(static_cast<void(LDAPCertStoreImpl$LDAPRequest::*)($String*,$byteArray2*)>(&LDAPCertStoreImpl$LDAPRequest::cacheAttribute))},
-	{"checkName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LDAPCertStoreImpl$LDAPRequest::*)($String*)>(&LDAPCertStoreImpl$LDAPRequest::checkName)), "java.security.cert.CertStoreException"},
-	{"getAttributeValues", "(Ljavax/naming/directory/Attribute;)[[B", nullptr, $PRIVATE, $method(static_cast<$byteArray2*(LDAPCertStoreImpl$LDAPRequest::*)($Attribute*)>(&LDAPCertStoreImpl$LDAPRequest::getAttributeValues)), "javax.naming.NamingException"},
-	{"getValueMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;[[B>;", $PRIVATE, $method(static_cast<$Map*(LDAPCertStoreImpl$LDAPRequest::*)()>(&LDAPCertStoreImpl$LDAPRequest::getValueMap)), "javax.naming.NamingException"},
-	{"getValues", "(Ljava/lang/String;)[[B", nullptr, 0, nullptr, "javax.naming.NamingException"},
+	{"<init>", "(Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;Ljava/lang/String;)V", nullptr, 0, $method(LDAPCertStoreImpl$LDAPRequest, init$, void, $LDAPCertStoreImpl*, $String*), "java.security.cert.CertStoreException"},
+	{"addRequestedAttribute", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(LDAPCertStoreImpl$LDAPRequest, addRequestedAttribute, void, $String*)},
+	{"cacheAttribute", "(Ljava/lang/String;[[B)V", nullptr, $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, cacheAttribute, void, $String*, $byteArray2*)},
+	{"checkName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, checkName, $String*, $String*), "java.security.cert.CertStoreException"},
+	{"getAttributeValues", "(Ljavax/naming/directory/Attribute;)[[B", nullptr, $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, getAttributeValues, $byteArray2*, $Attribute*), "javax.naming.NamingException"},
+	{"getValueMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;[[B>;", $PRIVATE, $method(LDAPCertStoreImpl$LDAPRequest, getValueMap, $Map*), "javax.naming.NamingException"},
+	{"getValues", "(Ljava/lang/String;)[[B", nullptr, 0, $virtualMethod(LDAPCertStoreImpl$LDAPRequest, getValues, $byteArray2*, $String*), "javax.naming.NamingException"},
 	{}
 };
 

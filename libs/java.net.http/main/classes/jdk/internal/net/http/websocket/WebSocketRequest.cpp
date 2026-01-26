@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Proxy = ::java::net::Proxy;
 
 namespace jdk {
 	namespace internal {
@@ -13,9 +14,9 @@ namespace jdk {
 				namespace websocket {
 
 $MethodInfo _WebSocketRequest_MethodInfo_[] = {
-	{"isWebSocket", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setProxy", "(Ljava/net/Proxy;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setSystemHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"isWebSocket", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebSocketRequest, isWebSocket, void, bool)},
+	{"setProxy", "(Ljava/net/Proxy;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebSocketRequest, setProxy, void, $Proxy*)},
+	{"setSystemHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebSocketRequest, setSystemHeader, void, $String*, $String*)},
 	{}
 };
 

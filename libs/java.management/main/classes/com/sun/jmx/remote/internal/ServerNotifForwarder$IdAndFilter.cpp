@@ -24,11 +24,11 @@ $FieldInfo _ServerNotifForwarder$IdAndFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerNotifForwarder$IdAndFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Integer;Ljavax/management/NotificationFilter;)V", nullptr, 0, $method(static_cast<void(ServerNotifForwarder$IdAndFilter::*)($Integer*,$NotificationFilter*)>(&ServerNotifForwarder$IdAndFilter::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getFilter", "()Ljavax/management/NotificationFilter;", nullptr, 0},
-	{"getId", "()Ljava/lang/Integer;", nullptr, 0},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Integer;Ljavax/management/NotificationFilter;)V", nullptr, 0, $method(ServerNotifForwarder$IdAndFilter, init$, void, $Integer*, $NotificationFilter*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder$IdAndFilter, equals, bool, Object$*)},
+	{"getFilter", "()Ljavax/management/NotificationFilter;", nullptr, 0, $virtualMethod(ServerNotifForwarder$IdAndFilter, getFilter, $NotificationFilter*)},
+	{"getId", "()Ljava/lang/Integer;", nullptr, 0, $virtualMethod(ServerNotifForwarder$IdAndFilter, getId, $Integer*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder$IdAndFilter, hashCode, int32_t)},
 	{}
 };
 

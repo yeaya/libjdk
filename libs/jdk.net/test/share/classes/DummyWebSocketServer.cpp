@@ -167,8 +167,8 @@ $FieldInfo DummyWebSocketServer$$Lambda$lambda$new$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo DummyWebSocketServer$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(LDummyWebSocketServer;Ljava/util/function/BiFunction;LDummyWebSocketServer$Credentials;)V", nullptr, $PUBLIC, $method(static_cast<void(DummyWebSocketServer$$Lambda$lambda$new$0::*)(DummyWebSocketServer*,$BiFunction*,$DummyWebSocketServer$Credentials*)>(&DummyWebSocketServer$$Lambda$lambda$new$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LDummyWebSocketServer;Ljava/util/function/BiFunction;LDummyWebSocketServer$Credentials;)V", nullptr, $PUBLIC, $method(DummyWebSocketServer$$Lambda$lambda$new$0, init$, void, DummyWebSocketServer*, $BiFunction*, $DummyWebSocketServer$Credentials*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer$$Lambda$lambda$new$0, run, void)},
 	{}
 };
 $ClassInfo DummyWebSocketServer$$Lambda$lambda$new$0::classInfo$ = {
@@ -210,8 +210,8 @@ $FieldInfo DummyWebSocketServer$$Lambda$lambda$serve$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo DummyWebSocketServer$$Lambda$lambda$serve$1$1::methodInfos[3] = {
-	{"<init>", "(LDummyWebSocketServer;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(static_cast<void(DummyWebSocketServer$$Lambda$lambda$serve$1$1::*)(DummyWebSocketServer*,$SocketChannel*)>(&DummyWebSocketServer$$Lambda$lambda$serve$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LDummyWebSocketServer;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(DummyWebSocketServer$$Lambda$lambda$serve$1$1, init$, void, DummyWebSocketServer*, $SocketChannel*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer$$Lambda$lambda$serve$1$1, run, void)},
 	{}
 };
 $ClassInfo DummyWebSocketServer$$Lambda$lambda$serve$1$1::classInfo$ = {
@@ -253,8 +253,8 @@ $FieldInfo DummyWebSocketServer$$Lambda$lambda$serve$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo DummyWebSocketServer$$Lambda$lambda$serve$2$2::methodInfos[3] = {
-	{"<init>", "(LDummyWebSocketServer;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(static_cast<void(DummyWebSocketServer$$Lambda$lambda$serve$2$2::*)(DummyWebSocketServer*,$SocketChannel*)>(&DummyWebSocketServer$$Lambda$lambda$serve$2$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LDummyWebSocketServer;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(DummyWebSocketServer$$Lambda$lambda$serve$2$2, init$, void, DummyWebSocketServer*, $SocketChannel*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer$$Lambda$lambda$serve$2$2, run, void)},
 	{}
 };
 $ClassInfo DummyWebSocketServer$$Lambda$lambda$serve$2$2::classInfo$ = {
@@ -286,8 +286,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DummyWebSocketServer$$Lambda$lambda$defaultMapping$4$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DummyWebSocketServer$$Lambda$lambda$defaultMapping$4$3::*)()>(&DummyWebSocketServer$$Lambda$lambda$defaultMapping$4$3::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DummyWebSocketServer$$Lambda$lambda$defaultMapping$4$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer$$Lambda$lambda$defaultMapping$4$3, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo DummyWebSocketServer$$Lambda$lambda$defaultMapping$4$3::classInfo$ = {
@@ -319,8 +319,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DummyWebSocketServer$$Lambda$lambda$defaultMapping$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DummyWebSocketServer$$Lambda$lambda$defaultMapping$3$4::*)()>(&DummyWebSocketServer$$Lambda$lambda$defaultMapping$3$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DummyWebSocketServer$$Lambda$lambda$defaultMapping$3$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer$$Lambda$lambda$defaultMapping$3$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DummyWebSocketServer$$Lambda$lambda$defaultMapping$3$4::classInfo$ = {
@@ -350,29 +350,29 @@ $FieldInfo _DummyWebSocketServer_FieldInfo_[] = {
 };
 
 $MethodInfo _DummyWebSocketServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DummyWebSocketServer::*)()>(&DummyWebSocketServer::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DummyWebSocketServer::*)($String*,$String*)>(&DummyWebSocketServer::init$))},
-	{"<init>", "(Ljava/util/function/BiFunction;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/function/BiFunction<Ljava/util/List<Ljava/lang/String;>;LDummyWebSocketServer$Credentials;Ljava/util/List<Ljava/lang/String;>;>;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(static_cast<void(DummyWebSocketServer::*)($BiFunction*,$String*,$String*)>(&DummyWebSocketServer::init$))},
-	{"authorized", "(LDummyWebSocketServer$Credentials;Ljava/util/Map;)Z", "(LDummyWebSocketServer$Credentials;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($DummyWebSocketServer$Credentials*,$Map*)>(&DummyWebSocketServer::authorized))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"close", "([Ljava/lang/AutoCloseable;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<void(*)($AutoCloseableArray*)>(&DummyWebSocketServer::close))},
-	{"closeChannel", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PROTECTED},
-	{"defaultMapping", "()Ljava/util/function/BiFunction;", "()Ljava/util/function/BiFunction<Ljava/util/List<Ljava/lang/String;>;LDummyWebSocketServer$Credentials;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $method(static_cast<$BiFunction*(*)()>(&DummyWebSocketServer::defaultMapping))},
-	{"expectHeader", "(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", $PROTECTED | $STATIC, $method(static_cast<$String*(*)($Map*,$String*,$String*)>(&DummyWebSocketServer::expectHeader))},
-	{"getURI", "()Ljava/net/URI;", nullptr, 0},
-	{"lambda$defaultMapping$3", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($String*)>(&DummyWebSocketServer::lambda$defaultMapping$3))},
-	{"lambda$defaultMapping$4", "(Ljava/util/List;LDummyWebSocketServer$Credentials;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($List*,$DummyWebSocketServer$Credentials*)>(&DummyWebSocketServer::lambda$defaultMapping$4))},
-	{"lambda$new$0", "(Ljava/util/function/BiFunction;LDummyWebSocketServer$Credentials;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(DummyWebSocketServer::*)($BiFunction*,$DummyWebSocketServer$Credentials*)>(&DummyWebSocketServer::lambda$new$0))},
-	{"lambda$serve$1", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(DummyWebSocketServer::*)($SocketChannel*)>(&DummyWebSocketServer::lambda$serve$1))},
-	{"lambda$serve$2", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(DummyWebSocketServer::*)($SocketChannel*)>(&DummyWebSocketServer::lambda$serve$2))},
-	{"open", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"read", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, nullptr, "java.lang.InterruptedException"},
-	{"readRequest", "(Ljava/nio/channels/SocketChannel;Ljava/lang/StringBuilder;)Z", nullptr, $PRIVATE, $method(static_cast<bool(DummyWebSocketServer::*)($SocketChannel*,$StringBuilder*)>(&DummyWebSocketServer::readRequest)), "java.io.IOException"},
-	{"serve", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(DummyWebSocketServer::*)($SocketChannel*)>(&DummyWebSocketServer::serve)), "java.lang.InterruptedException"},
-	{"setReceiveBufferSize", "(I)V", nullptr, $PUBLIC},
-	{"write", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"writeResponse", "(Ljava/nio/channels/SocketChannel;Ljava/util/List;)V", "(Ljava/nio/channels/SocketChannel;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(DummyWebSocketServer::*)($SocketChannel*,$List*)>(&DummyWebSocketServer::writeResponse)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DummyWebSocketServer, init$, void)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DummyWebSocketServer, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/util/function/BiFunction;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/function/BiFunction<Ljava/util/List<Ljava/lang/String;>;LDummyWebSocketServer$Credentials;Ljava/util/List<Ljava/lang/String;>;>;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(DummyWebSocketServer, init$, void, $BiFunction*, $String*, $String*)},
+	{"authorized", "(LDummyWebSocketServer$Credentials;Ljava/util/Map;)Z", "(LDummyWebSocketServer$Credentials;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Z", $PRIVATE | $STATIC, $staticMethod(DummyWebSocketServer, authorized, bool, $DummyWebSocketServer$Credentials*, $Map*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer, close, void)},
+	{"close", "([Ljava/lang/AutoCloseable;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(DummyWebSocketServer, close, void, $AutoCloseableArray*)},
+	{"closeChannel", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PROTECTED, $virtualMethod(DummyWebSocketServer, closeChannel, void, $SocketChannel*)},
+	{"defaultMapping", "()Ljava/util/function/BiFunction;", "()Ljava/util/function/BiFunction<Ljava/util/List<Ljava/lang/String;>;LDummyWebSocketServer$Credentials;Ljava/util/List<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticMethod(DummyWebSocketServer, defaultMapping, $BiFunction*)},
+	{"expectHeader", "(Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", $PROTECTED | $STATIC, $staticMethod(DummyWebSocketServer, expectHeader, $String*, $Map*, $String*, $String*)},
+	{"getURI", "()Ljava/net/URI;", nullptr, 0, $virtualMethod(DummyWebSocketServer, getURI, $URI*)},
+	{"lambda$defaultMapping$3", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DummyWebSocketServer, lambda$defaultMapping$3, $List*, $String*)},
+	{"lambda$defaultMapping$4", "(Ljava/util/List;LDummyWebSocketServer$Credentials;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DummyWebSocketServer, lambda$defaultMapping$4, $List*, $List*, $DummyWebSocketServer$Credentials*)},
+	{"lambda$new$0", "(Ljava/util/function/BiFunction;LDummyWebSocketServer$Credentials;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(DummyWebSocketServer, lambda$new$0, void, $BiFunction*, $DummyWebSocketServer$Credentials*)},
+	{"lambda$serve$1", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(DummyWebSocketServer, lambda$serve$1, void, $SocketChannel*)},
+	{"lambda$serve$2", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(DummyWebSocketServer, lambda$serve$2, void, $SocketChannel*)},
+	{"open", "()V", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer, open, void), "java.io.IOException"},
+	{"read", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PROTECTED, $virtualMethod(DummyWebSocketServer, read, void, $SocketChannel*), "java.io.IOException"},
+	{"read", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer, read, $ByteBuffer*), "java.lang.InterruptedException"},
+	{"readRequest", "(Ljava/nio/channels/SocketChannel;Ljava/lang/StringBuilder;)Z", nullptr, $PRIVATE, $method(DummyWebSocketServer, readRequest, bool, $SocketChannel*, $StringBuilder*), "java.io.IOException"},
+	{"serve", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PROTECTED | $FINAL, $method(DummyWebSocketServer, serve, void, $SocketChannel*), "java.lang.InterruptedException"},
+	{"setReceiveBufferSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer, setReceiveBufferSize, void, int32_t)},
+	{"write", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $PROTECTED, $virtualMethod(DummyWebSocketServer, write, void, $SocketChannel*), "java.io.IOException"},
+	{"writeResponse", "(Ljava/nio/channels/SocketChannel;Ljava/util/List;)V", "(Ljava/nio/channels/SocketChannel;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(DummyWebSocketServer, writeResponse, void, $SocketChannel*, $List*), "java.io.IOException"},
 	{}
 };
 

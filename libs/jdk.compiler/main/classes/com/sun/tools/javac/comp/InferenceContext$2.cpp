@@ -29,8 +29,8 @@ $FieldInfo _InferenceContext$2_FieldInfo_[] = {
 };
 
 $MethodInfo _InferenceContext$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(static_cast<void(InferenceContext$2::*)($InferenceContext*,$Infer*,$List*,$List*)>(&InferenceContext$2::init$))},
-	{"done", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(InferenceContext$2, init$, void, $InferenceContext*, $Infer*, $List*, $List*)},
+	{"done", "()Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$2, done, bool)},
 	{}
 };
 

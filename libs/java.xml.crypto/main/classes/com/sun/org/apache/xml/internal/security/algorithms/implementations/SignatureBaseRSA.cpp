@@ -57,21 +57,21 @@ $FieldInfo _SignatureBaseRSA_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureBaseRSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SignatureBaseRSA::*)()>(&SignatureBaseRSA::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureBaseRSA::*)($Provider*)>(&SignatureBaseRSA::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"engineGetJCEProviderName", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"engineInitSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitSign", "(Ljava/security/Key;)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitVerify", "(Ljava/security/Key;)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSetHMACOutputLength", "(I)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "([B)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineGetJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineGetJCEAlgorithmString, $String*)},
+	{"engineGetJCEProviderName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineGetJCEProviderName, $String*)},
+	{"engineInitSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineInitSign", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineInitSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineInitVerify", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineInitVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineSetHMACOutputLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineSetHMACOutputLength, void, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineSign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineUpdate", "([B)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineUpdate, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineUpdate, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineUpdate, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA, engineVerify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
 	{}
 };
 

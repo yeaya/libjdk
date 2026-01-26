@@ -41,9 +41,9 @@ $FieldInfo _SocketTube$InternalReadPublisher_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketTube$InternalReadPublisher_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube;)V", nullptr, $PRIVATE, $method(static_cast<void(SocketTube$InternalReadPublisher::*)($SocketTube*)>(&SocketTube$InternalReadPublisher::init$))},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(SocketTube$InternalReadPublisher::*)($Throwable*)>(&SocketTube$InternalReadPublisher::signalError))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube;)V", nullptr, $PRIVATE, $method(SocketTube$InternalReadPublisher, init$, void, $SocketTube*)},
+	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(SocketTube$InternalReadPublisher, signalError, void, $Throwable*)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

@@ -87,15 +87,15 @@ $FieldInfo _DflCache$Storage_FieldInfo_[] = {
 };
 
 $MethodInfo _DflCache$Storage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DflCache$Storage::*)()>(&DflCache$Storage::init$))},
-	{"append", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PRIVATE, $method(static_cast<void(DflCache$Storage::*)($AuthTimeWithHash*)>(&DflCache$Storage::append)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"create", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*)>(&DflCache$Storage::create)), "java.io.IOException"},
-	{"createNoClose", "(Ljava/nio/file/Path;)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SeekableByteChannel*(*)($Path*)>(&DflCache$Storage::createNoClose)), "java.io.IOException"},
-	{"expunge", "(Ljava/nio/file/Path;Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*,$KerberosTime*)>(&DflCache$Storage::expunge)), "java.io.IOException"},
-	{"loadAndCheck", "(Ljava/nio/file/Path;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;Lsun/security/krb5/internal/KerberosTime;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(DflCache$Storage::*)($Path*,$AuthTimeWithHash*,$KerberosTime*)>(&DflCache$Storage::loadAndCheck)), "java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
-	{"makeMine", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Path*)>(&DflCache$Storage::makeMine)), "java.io.IOException"},
-	{"readHeader", "(Ljava/nio/channels/SeekableByteChannel;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($SeekableByteChannel*)>(&DflCache$Storage::readHeader)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DflCache$Storage, init$, void)},
+	{"append", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PRIVATE, $method(DflCache$Storage, append, void, $AuthTimeWithHash*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DflCache$Storage, close, void), "java.io.IOException"},
+	{"create", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, create, void, $Path*), "java.io.IOException"},
+	{"createNoClose", "(Ljava/nio/file/Path;)Ljava/nio/channels/SeekableByteChannel;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, createNoClose, $SeekableByteChannel*, $Path*), "java.io.IOException"},
+	{"expunge", "(Ljava/nio/file/Path;Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, expunge, void, $Path*, $KerberosTime*), "java.io.IOException"},
+	{"loadAndCheck", "(Ljava/nio/file/Path;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;Lsun/security/krb5/internal/KerberosTime;)I", nullptr, $PRIVATE, $method(DflCache$Storage, loadAndCheck, int32_t, $Path*, $AuthTimeWithHash*, $KerberosTime*), "java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
+	{"makeMine", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, makeMine, void, $Path*), "java.io.IOException"},
+	{"readHeader", "(Ljava/nio/channels/SeekableByteChannel;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache$Storage, readHeader, int32_t, $SeekableByteChannel*), "java.io.IOException"},
 	{}
 };
 

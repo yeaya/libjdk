@@ -21,17 +21,17 @@ $FieldInfo _NameClassPair_FieldInfo_[] = {
 };
 
 $MethodInfo _NameClassPair_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NameClassPair::*)($String*,$String*)>(&NameClassPair::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(NameClassPair::*)($String*,$String*,bool)>(&NameClassPair::init$))},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isRelative", "()Z", nullptr, $PUBLIC},
-	{"setClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setNameInNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setRelative", "(Z)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NameClassPair, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(NameClassPair, init$, void, $String*, $String*, bool)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameClassPair, getClassName, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameClassPair, getName, $String*)},
+	{"getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameClassPair, getNameInNamespace, $String*)},
+	{"isRelative", "()Z", nullptr, $PUBLIC, $virtualMethod(NameClassPair, isRelative, bool)},
+	{"setClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameClassPair, setClassName, void, $String*)},
+	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameClassPair, setName, void, $String*)},
+	{"setNameInNamespace", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameClassPair, setNameInNamespace, void, $String*)},
+	{"setRelative", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NameClassPair, setRelative, void, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameClassPair, toString, $String*)},
 	{}
 };
 

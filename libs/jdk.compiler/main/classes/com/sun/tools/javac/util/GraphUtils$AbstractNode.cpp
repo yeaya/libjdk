@@ -18,6 +18,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
+using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 
 namespace com {
@@ -32,11 +33,11 @@ $FieldInfo _GraphUtils$AbstractNode_FieldInfo_[] = {
 };
 
 $MethodInfo _GraphUtils$AbstractNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TD;)V", $PUBLIC, $method(static_cast<void(GraphUtils$AbstractNode::*)(Object$*)>(&GraphUtils$AbstractNode::init$))},
-	{"accept", "(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor;Ljava/lang/Object;)V", "<A:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor<TD;TN;TA;>;TA;)V", $PUBLIC},
-	{"getDependenciesByKind", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection<+TN;>;", $PUBLIC | $ABSTRACT},
-	{"getSupportedDependencyKinds", "()[Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", "(TD;)V", $PUBLIC, $method(GraphUtils$AbstractNode, init$, void, Object$*)},
+	{"accept", "(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor;Ljava/lang/Object;)V", "<A:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor<TD;TN;TA;>;TA;)V", $PUBLIC, $virtualMethod(GraphUtils$AbstractNode, accept, void, $GraphUtils$NodeVisitor*, Object$*)},
+	{"getDependenciesByKind", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection<+TN;>;", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$AbstractNode, getDependenciesByKind, $Collection*, $GraphUtils$DependencyKind*)},
+	{"getSupportedDependencyKinds", "()[Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$AbstractNode, getSupportedDependencyKinds, $GraphUtils$DependencyKindArray*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GraphUtils$AbstractNode, toString, $String*)},
 	{}
 };
 

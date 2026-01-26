@@ -25,8 +25,8 @@ $FieldInfo _LdapEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)V", nullptr, 0, $method(static_cast<void(LdapEntry::*)($String*,$Attributes*)>(&LdapEntry::init$))},
-	{"<init>", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)V", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)V", 0, $method(static_cast<void(LdapEntry::*)($String*,$Attributes*,$Vector*)>(&LdapEntry::init$))},
+	{"<init>", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)V", nullptr, 0, $method(LdapEntry, init$, void, $String*, $Attributes*)},
+	{"<init>", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)V", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)V", 0, $method(LdapEntry, init$, void, $String*, $Attributes*, $Vector*)},
 	{}
 };
 

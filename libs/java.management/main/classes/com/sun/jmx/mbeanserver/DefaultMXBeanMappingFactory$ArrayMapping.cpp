@@ -34,10 +34,10 @@ $FieldInfo _DefaultMXBeanMappingFactory$ArrayMapping_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultMXBeanMappingFactory$ArrayMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType;Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType<*>;Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", 0, $method(static_cast<void(DefaultMXBeanMappingFactory$ArrayMapping::*)($Type*,$ArrayType*,$Class*,$MXBeanMapping*)>(&DefaultMXBeanMappingFactory$ArrayMapping::init$))},
-	{"checkReconstructible", "()V", nullptr, $PUBLIC, nullptr, "java.io.InvalidObjectException"},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, nullptr, "java.io.InvalidObjectException"},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, nullptr, "javax.management.openmbean.OpenDataException"},
+	{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType;Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType<*>;Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", 0, $method(DefaultMXBeanMappingFactory$ArrayMapping, init$, void, $Type*, $ArrayType*, $Class*, $MXBeanMapping*)},
+	{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMXBeanMappingFactory$ArrayMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
+	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$ArrayMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$ArrayMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
 	{}
 };
 

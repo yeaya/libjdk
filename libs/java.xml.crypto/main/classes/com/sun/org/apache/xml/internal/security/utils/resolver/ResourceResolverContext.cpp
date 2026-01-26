@@ -32,9 +32,9 @@ $FieldInfo _ResourceResolverContext_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceResolverContext_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Attr;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(ResourceResolverContext::*)($Attr*,$String*,bool)>(&ResourceResolverContext::init$))},
-	{"<init>", "(Lorg/w3c/dom/Attr;Ljava/lang/String;ZLjava/util/Map;)V", "(Lorg/w3c/dom/Attr;Ljava/lang/String;ZLjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ResourceResolverContext::*)($Attr*,$String*,bool,$Map*)>(&ResourceResolverContext::init$))},
-	{"getProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Attr;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(ResourceResolverContext, init$, void, $Attr*, $String*, bool)},
+	{"<init>", "(Lorg/w3c/dom/Attr;Ljava/lang/String;ZLjava/util/Map;)V", "(Lorg/w3c/dom/Attr;Ljava/lang/String;ZLjava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(ResourceResolverContext, init$, void, $Attr*, $String*, bool, $Map*)},
+	{"getProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResourceResolverContext, getProperties, $Map*)},
 	{}
 };
 

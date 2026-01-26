@@ -40,14 +40,14 @@ $FieldInfo _Util_FieldInfo_[] = {
 };
 
 $MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Util::*)()>(&Util::init$))},
-	{"checkAccess", "(Ljava/lang/management/ManagementPermission;)V", nullptr, $STATIC, $method(static_cast<void(*)($ManagementPermission*)>(&Util::checkAccess)), "java.lang.SecurityException"},
-	{"checkControlAccess", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Util::checkControlAccess)), "java.lang.SecurityException"},
-	{"checkMonitorAccess", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Util::checkMonitorAccess)), "java.lang.SecurityException"},
-	{"newException", "(Ljava/lang/Exception;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $method(static_cast<$RuntimeException*(*)($Exception*)>(&Util::newException))},
-	{"newObjectName", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ObjectName*(*)($String*,$String*)>(&Util::newObjectName))},
-	{"newObjectName", "(Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ObjectName*(*)($String*)>(&Util::newObjectName))},
-	{"toStringArray", "(Ljava/util/List;)[Ljava/lang/String;", "(Ljava/util/List<Ljava/lang/String;>;)[Ljava/lang/String;", $STATIC, $method(static_cast<$StringArray*(*)($List*)>(&Util::toStringArray))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Util, init$, void)},
+	{"checkAccess", "(Ljava/lang/management/ManagementPermission;)V", nullptr, $STATIC, $staticMethod(Util, checkAccess, void, $ManagementPermission*), "java.lang.SecurityException"},
+	{"checkControlAccess", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, checkControlAccess, void), "java.lang.SecurityException"},
+	{"checkMonitorAccess", "()V", nullptr, $STATIC, $staticMethod(Util, checkMonitorAccess, void), "java.lang.SecurityException"},
+	{"newException", "(Ljava/lang/Exception;)Ljava/lang/RuntimeException;", nullptr, $STATIC, $staticMethod(Util, newException, $RuntimeException*, $Exception*)},
+	{"newObjectName", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, newObjectName, $ObjectName*, $String*, $String*)},
+	{"newObjectName", "(Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, newObjectName, $ObjectName*, $String*)},
+	{"toStringArray", "(Ljava/util/List;)[Ljava/lang/String;", "(Ljava/util/List<Ljava/lang/String;>;)[Ljava/lang/String;", $STATIC, $staticMethod(Util, toStringArray, $StringArray*, $List*)},
 	{}
 };
 

@@ -52,10 +52,10 @@ $MethodInfo _ShortRequestBody$Server_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ShortRequestBody$Server::*)()>(&ShortRequestBody$Server::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"getPort", "()I", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ShortRequestBody$Server, init$, void), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$Server, close, void)},
+	{"getPort", "()I", nullptr, 0, $virtualMethod(ShortRequestBody$Server, getPort, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$Server, run, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

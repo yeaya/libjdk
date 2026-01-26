@@ -37,11 +37,11 @@ $FieldInfo _HotspotThread_FieldInfo_[] = {
 };
 
 $MethodInfo _HotspotThread_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(static_cast<void(HotspotThread::*)($VMManagement*)>(&HotspotThread::init$))},
-	{"getInternalThreadCount", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"getInternalThreadCpuTimes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;", $PUBLIC},
-	{"getInternalThreadTimes0", "([Ljava/lang/String;[J)I", nullptr, $PUBLIC | $NATIVE},
-	{"getInternalThreadingCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC},
+	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(HotspotThread, init$, void, $VMManagement*)},
+	{"getInternalThreadCount", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(HotspotThread, getInternalThreadCount, int32_t)},
+	{"getInternalThreadCpuTimes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;", $PUBLIC, $virtualMethod(HotspotThread, getInternalThreadCpuTimes, $Map*)},
+	{"getInternalThreadTimes0", "([Ljava/lang/String;[J)I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(HotspotThread, getInternalThreadTimes0, int32_t, $StringArray*, $longs*)},
+	{"getInternalThreadingCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC, $virtualMethod(HotspotThread, getInternalThreadingCounters, $List*)},
 	{}
 };
 

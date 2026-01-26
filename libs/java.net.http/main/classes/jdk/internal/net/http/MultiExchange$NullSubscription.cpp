@@ -13,9 +13,9 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _MultiExchange$NullSubscription_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MultiExchange$NullSubscription::*)()>(&MultiExchange$NullSubscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(MultiExchange$NullSubscription, init$, void)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(MultiExchange$NullSubscription, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(MultiExchange$NullSubscription, request, void, int64_t)},
 	{}
 };
 

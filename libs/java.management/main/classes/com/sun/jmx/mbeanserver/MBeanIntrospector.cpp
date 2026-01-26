@@ -35,6 +35,7 @@
 #include <jcpp.h>
 
 using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
+using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $DescriptorArray = $Array<::javax::management::Descriptor>;
 using $MBeanAttributeInfoArray = $Array<::javax::management::MBeanAttributeInfo>;
 using $MBeanConstructorInfoArray = $Array<::javax::management::MBeanConstructorInfo>;
@@ -67,10 +68,12 @@ using $WeakHashMap = ::java::util::WeakHashMap;
 using $Descriptor = ::javax::management::Descriptor;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
 using $InvalidAttributeValueException = ::javax::management::InvalidAttributeValueException;
+using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
 using $MBeanConstructorInfo = ::javax::management::MBeanConstructorInfo;
 using $MBeanException = ::javax::management::MBeanException;
 using $MBeanInfo = ::javax::management::MBeanInfo;
 using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
+using $MBeanOperationInfo = ::javax::management::MBeanOperationInfo;
 using $NotificationBroadcaster = ::javax::management::NotificationBroadcaster;
 using $ReflectionException = ::javax::management::ReflectionException;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
@@ -81,36 +84,36 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _MBeanIntrospector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MBeanIntrospector::*)()>(&MBeanIntrospector::init$))},
-	{"checkMethod", "(Ljava/lang/Object;)V", "(TM;)V", $ABSTRACT},
-	{"consistent", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "(TM;TM;)Z", $FINAL, $method(static_cast<bool(MBeanIntrospector::*)(Object$*,Object$*)>(&MBeanIntrospector::consistent))},
-	{"findConstructors", "(Ljava/lang/Class;)[Ljavax/management/MBeanConstructorInfo;", "(Ljava/lang/Class<*>;)[Ljavax/management/MBeanConstructorInfo;", $PRIVATE | $STATIC, $method(static_cast<$MBeanConstructorInfoArray*(*)($Class*)>(&MBeanIntrospector::findConstructors))},
-	{"findNotifications", "(Ljava/lang/Object;)[Ljavax/management/MBeanNotificationInfo;", nullptr, $STATIC, $method(static_cast<$MBeanNotificationInfoArray*(*)(Object$*)>(&MBeanIntrospector::findNotifications))},
-	{"getAnalyzer", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;", "(Ljava/lang/Class<*>;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<TM;>;", $ABSTRACT, nullptr, "javax.management.NotCompliantMBeanException"},
-	{"getBasicMBeanDescriptor", "()Ljavax/management/Descriptor;", nullptr, $ABSTRACT},
-	{"getClassMBeanInfo", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/PerInterface;)Ljavax/management/MBeanInfo;", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/PerInterface<TM;>;)Ljavax/management/MBeanInfo;", $FINAL, $method(static_cast<$MBeanInfo*(MBeanIntrospector::*)($Class*,$PerInterface*)>(&MBeanIntrospector::getClassMBeanInfo))},
-	{"getGenericParameterTypes", "(Ljava/lang/Object;)[Ljava/lang/reflect/Type;", "(TM;)[Ljava/lang/reflect/Type;", $ABSTRACT},
-	{"getGenericReturnType", "(Ljava/lang/Object;)Ljava/lang/reflect/Type;", "(TM;)Ljava/lang/reflect/Type;", $ABSTRACT},
-	{"getMBeanAttributeInfo", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/management/MBeanAttributeInfo;", "(Ljava/lang/String;TM;TM;)Ljavax/management/MBeanAttributeInfo;", $ABSTRACT},
-	{"getMBeanDescriptor", "(Ljava/lang/Class;)Ljavax/management/Descriptor;", "(Ljava/lang/Class<*>;)Ljavax/management/Descriptor;", $ABSTRACT},
-	{"getMBeanInfo", "(Ljava/lang/Object;Lcom/sun/jmx/mbeanserver/PerInterface;)Ljavax/management/MBeanInfo;", "(Ljava/lang/Object;Lcom/sun/jmx/mbeanserver/PerInterface<TM;>;)Ljavax/management/MBeanInfo;", $FINAL, $method(static_cast<$MBeanInfo*(MBeanIntrospector::*)(Object$*,$PerInterface*)>(&MBeanIntrospector::getMBeanInfo))},
-	{"getMBeanInfoMap", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$MBeanInfoMap;", nullptr, $ABSTRACT},
-	{"getMBeanOperationInfo", "(Ljava/lang/String;Ljava/lang/Object;)Ljavax/management/MBeanOperationInfo;", "(Ljava/lang/String;TM;)Ljavax/management/MBeanOperationInfo;", $ABSTRACT},
-	{"getMethods", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $FINAL, $method(static_cast<$List*(MBeanIntrospector::*)($Class*)>(&MBeanIntrospector::getMethods))},
-	{"getName", "(Ljava/lang/Object;)Ljava/lang/String;", "(TM;)Ljava/lang/String;", $ABSTRACT},
-	{"getPerInterface", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/PerInterface;", "(Ljava/lang/Class<*>;)Lcom/sun/jmx/mbeanserver/PerInterface<TM;>;", $FINAL, $method(static_cast<$PerInterface*(MBeanIntrospector::*)($Class*)>(&MBeanIntrospector::getPerInterface)), "javax.management.NotCompliantMBeanException"},
-	{"getPerInterfaceMap", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap<TM;>;", $ABSTRACT},
-	{"getSignature", "(Ljava/lang/Object;)[Ljava/lang/String;", "(TM;)[Ljava/lang/String;", $ABSTRACT},
-	{"invokeM", "(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TM;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", $FINAL, $method(static_cast<$Object*(MBeanIntrospector::*)(Object$*,Object$*,$ObjectArray*,Object$*)>(&MBeanIntrospector::invokeM)), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"invokeM2", "(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TM;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", $ABSTRACT, nullptr, "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException,javax.management.MBeanException"},
-	{"invokeSetter", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", $FINAL, $method(static_cast<void(MBeanIntrospector::*)($String*,Object$*,Object$*,Object$*,Object$*)>(&MBeanIntrospector::invokeSetter)), "javax.management.MBeanException,javax.management.ReflectionException,javax.management.InvalidAttributeValueException"},
-	{"isMXBean", "()Z", nullptr, $ABSTRACT},
-	{"isValidParameter", "(Ljava/lang/reflect/Method;Ljava/lang/Object;I)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Method*,Object$*,int32_t)>(&MBeanIntrospector::isValidParameter))},
-	{"mFrom", "(Ljava/lang/reflect/Method;)Ljava/lang/Object;", "(Ljava/lang/reflect/Method;)TM;", $ABSTRACT},
-	{"makeInterfaceMBeanInfo", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;)Ljavax/management/MBeanInfo;", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<TM;>;)Ljavax/management/MBeanInfo;", $PRIVATE, $method(static_cast<$MBeanInfo*(MBeanIntrospector::*)($Class*,$MBeanAnalyzer*)>(&MBeanIntrospector::makeInterfaceMBeanInfo))},
-	{"maybeInvalidParameter", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;Ljava/lang/Object;Ljava/lang/Object;)V", $PRIVATE, $method(static_cast<void(MBeanIntrospector::*)($String*,Object$*,Object$*,Object$*)>(&MBeanIntrospector::maybeInvalidParameter)), "javax.management.InvalidAttributeValueException"},
-	{"unwrapInvocationTargetException", "(Ljava/lang/reflect/InvocationTargetException;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($InvocationTargetException*)>(&MBeanIntrospector::unwrapInvocationTargetException)), "javax.management.MBeanException"},
-	{"validParameter", "(Ljava/lang/Object;Ljava/lang/Object;ILjava/lang/Object;)Z", "(TM;Ljava/lang/Object;ILjava/lang/Object;)Z", $ABSTRACT},
+	{"<init>", "()V", nullptr, 0, $method(MBeanIntrospector, init$, void)},
+	{"checkMethod", "(Ljava/lang/Object;)V", "(TM;)V", $ABSTRACT, $virtualMethod(MBeanIntrospector, checkMethod, void, Object$*)},
+	{"consistent", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "(TM;TM;)Z", $FINAL, $method(MBeanIntrospector, consistent, bool, Object$*, Object$*)},
+	{"findConstructors", "(Ljava/lang/Class;)[Ljavax/management/MBeanConstructorInfo;", "(Ljava/lang/Class<*>;)[Ljavax/management/MBeanConstructorInfo;", $PRIVATE | $STATIC, $staticMethod(MBeanIntrospector, findConstructors, $MBeanConstructorInfoArray*, $Class*)},
+	{"findNotifications", "(Ljava/lang/Object;)[Ljavax/management/MBeanNotificationInfo;", nullptr, $STATIC, $staticMethod(MBeanIntrospector, findNotifications, $MBeanNotificationInfoArray*, Object$*)},
+	{"getAnalyzer", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;", "(Ljava/lang/Class<*>;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<TM;>;", $ABSTRACT, $virtualMethod(MBeanIntrospector, getAnalyzer, $MBeanAnalyzer*, $Class*), "javax.management.NotCompliantMBeanException"},
+	{"getBasicMBeanDescriptor", "()Ljavax/management/Descriptor;", nullptr, $ABSTRACT, $virtualMethod(MBeanIntrospector, getBasicMBeanDescriptor, $Descriptor*)},
+	{"getClassMBeanInfo", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/PerInterface;)Ljavax/management/MBeanInfo;", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/PerInterface<TM;>;)Ljavax/management/MBeanInfo;", $FINAL, $method(MBeanIntrospector, getClassMBeanInfo, $MBeanInfo*, $Class*, $PerInterface*)},
+	{"getGenericParameterTypes", "(Ljava/lang/Object;)[Ljava/lang/reflect/Type;", "(TM;)[Ljava/lang/reflect/Type;", $ABSTRACT, $virtualMethod(MBeanIntrospector, getGenericParameterTypes, $TypeArray*, Object$*)},
+	{"getGenericReturnType", "(Ljava/lang/Object;)Ljava/lang/reflect/Type;", "(TM;)Ljava/lang/reflect/Type;", $ABSTRACT, $virtualMethod(MBeanIntrospector, getGenericReturnType, $Type*, Object$*)},
+	{"getMBeanAttributeInfo", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/management/MBeanAttributeInfo;", "(Ljava/lang/String;TM;TM;)Ljavax/management/MBeanAttributeInfo;", $ABSTRACT, $virtualMethod(MBeanIntrospector, getMBeanAttributeInfo, $MBeanAttributeInfo*, $String*, Object$*, Object$*)},
+	{"getMBeanDescriptor", "(Ljava/lang/Class;)Ljavax/management/Descriptor;", "(Ljava/lang/Class<*>;)Ljavax/management/Descriptor;", $ABSTRACT, $virtualMethod(MBeanIntrospector, getMBeanDescriptor, $Descriptor*, $Class*)},
+	{"getMBeanInfo", "(Ljava/lang/Object;Lcom/sun/jmx/mbeanserver/PerInterface;)Ljavax/management/MBeanInfo;", "(Ljava/lang/Object;Lcom/sun/jmx/mbeanserver/PerInterface<TM;>;)Ljavax/management/MBeanInfo;", $FINAL, $method(MBeanIntrospector, getMBeanInfo, $MBeanInfo*, Object$*, $PerInterface*)},
+	{"getMBeanInfoMap", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$MBeanInfoMap;", nullptr, $ABSTRACT, $virtualMethod(MBeanIntrospector, getMBeanInfoMap, $MBeanIntrospector$MBeanInfoMap*)},
+	{"getMBeanOperationInfo", "(Ljava/lang/String;Ljava/lang/Object;)Ljavax/management/MBeanOperationInfo;", "(Ljava/lang/String;TM;)Ljavax/management/MBeanOperationInfo;", $ABSTRACT, $virtualMethod(MBeanIntrospector, getMBeanOperationInfo, $MBeanOperationInfo*, $String*, Object$*)},
+	{"getMethods", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $FINAL, $method(MBeanIntrospector, getMethods, $List*, $Class*)},
+	{"getName", "(Ljava/lang/Object;)Ljava/lang/String;", "(TM;)Ljava/lang/String;", $ABSTRACT, $virtualMethod(MBeanIntrospector, getName, $String*, Object$*)},
+	{"getPerInterface", "(Ljava/lang/Class;)Lcom/sun/jmx/mbeanserver/PerInterface;", "(Ljava/lang/Class<*>;)Lcom/sun/jmx/mbeanserver/PerInterface<TM;>;", $FINAL, $method(MBeanIntrospector, getPerInterface, $PerInterface*, $Class*), "javax.management.NotCompliantMBeanException"},
+	{"getPerInterfaceMap", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector$PerInterfaceMap<TM;>;", $ABSTRACT, $virtualMethod(MBeanIntrospector, getPerInterfaceMap, $MBeanIntrospector$PerInterfaceMap*)},
+	{"getSignature", "(Ljava/lang/Object;)[Ljava/lang/String;", "(TM;)[Ljava/lang/String;", $ABSTRACT, $virtualMethod(MBeanIntrospector, getSignature, $StringArray*, Object$*)},
+	{"invokeM", "(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TM;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", $FINAL, $method(MBeanIntrospector, invokeM, $Object*, Object$*, Object$*, $ObjectArray*, Object$*), "javax.management.MBeanException,javax.management.ReflectionException"},
+	{"invokeM2", "(Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TM;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", $ABSTRACT, $virtualMethod(MBeanIntrospector, invokeM2, $Object*, Object$*, Object$*, $ObjectArray*, Object$*), "java.lang.reflect.InvocationTargetException,java.lang.IllegalAccessException,javax.management.MBeanException"},
+	{"invokeSetter", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", $FINAL, $method(MBeanIntrospector, invokeSetter, void, $String*, Object$*, Object$*, Object$*, Object$*), "javax.management.MBeanException,javax.management.ReflectionException,javax.management.InvalidAttributeValueException"},
+	{"isMXBean", "()Z", nullptr, $ABSTRACT, $virtualMethod(MBeanIntrospector, isMXBean, bool)},
+	{"isValidParameter", "(Ljava/lang/reflect/Method;Ljava/lang/Object;I)Z", nullptr, $STATIC, $staticMethod(MBeanIntrospector, isValidParameter, bool, $Method*, Object$*, int32_t)},
+	{"mFrom", "(Ljava/lang/reflect/Method;)Ljava/lang/Object;", "(Ljava/lang/reflect/Method;)TM;", $ABSTRACT, $virtualMethod(MBeanIntrospector, mFrom, $Object*, $Method*)},
+	{"makeInterfaceMBeanInfo", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;)Ljavax/management/MBeanInfo;", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<TM;>;)Ljavax/management/MBeanInfo;", $PRIVATE, $method(MBeanIntrospector, makeInterfaceMBeanInfo, $MBeanInfo*, $Class*, $MBeanAnalyzer*)},
+	{"maybeInvalidParameter", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;Ljava/lang/Object;Ljava/lang/Object;)V", $PRIVATE, $method(MBeanIntrospector, maybeInvalidParameter, void, $String*, Object$*, Object$*, Object$*), "javax.management.InvalidAttributeValueException"},
+	{"unwrapInvocationTargetException", "(Ljava/lang/reflect/InvocationTargetException;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanIntrospector, unwrapInvocationTargetException, void, $InvocationTargetException*), "javax.management.MBeanException"},
+	{"validParameter", "(Ljava/lang/Object;Ljava/lang/Object;ILjava/lang/Object;)Z", "(TM;Ljava/lang/Object;ILjava/lang/Object;)Z", $ABSTRACT, $virtualMethod(MBeanIntrospector, validParameter, bool, Object$*, Object$*, int32_t, Object$*)},
 	{}
 };
 

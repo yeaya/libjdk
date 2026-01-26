@@ -74,8 +74,8 @@ $FieldInfo ResponseContent$FixedLengthBodyParser$$Lambda$dbgString::fieldInfos[2
 	{}
 };
 $MethodInfo ResponseContent$FixedLengthBodyParser$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseContent$FixedLengthBodyParser;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseContent$FixedLengthBodyParser$$Lambda$dbgString::*)(ResponseContent$FixedLengthBodyParser*)>(&ResponseContent$FixedLengthBodyParser$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseContent$FixedLengthBodyParser;)V", nullptr, $PUBLIC, $method(ResponseContent$FixedLengthBodyParser$$Lambda$dbgString, init$, void, ResponseContent$FixedLengthBodyParser*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$FixedLengthBodyParser$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo ResponseContent$FixedLengthBodyParser$$Lambda$dbgString::classInfo$ = {
@@ -106,12 +106,12 @@ $FieldInfo _ResponseContent$FixedLengthBodyParser_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseContent$FixedLengthBodyParser_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseContent;JLjava/util/function/Consumer;)V", "(JLjava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(static_cast<void(ResponseContent$FixedLengthBodyParser::*)($ResponseContent*,int64_t,$Consumer*)>(&ResponseContent$FixedLengthBodyParser::init$))},
-	{"accept", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0},
-	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseContent;JLjava/util/function/Consumer;)V", "(JLjava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(ResponseContent$FixedLengthBodyParser, init$, void, $ResponseContent*, int64_t, $Consumer*)},
+	{"accept", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$FixedLengthBodyParser, accept, void, $ByteBuffer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseContent$FixedLengthBodyParser, accept, void, Object$*)},
+	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$FixedLengthBodyParser, currentStateMessage, $String*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ResponseContent$FixedLengthBodyParser, dbgString, $String*)},
+	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$FixedLengthBodyParser, onSubscribe, void, $AbstractSubscription*)},
 	{}
 };
 

@@ -49,13 +49,13 @@ $FieldInfo _KDCReq_FieldInfo_[] = {
 };
 
 $MethodInfo _KDCReq_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/internal/KDCReqBody;I)V", nullptr, $PUBLIC, $method(static_cast<void(KDCReq::*)($PADataArray*,$KDCReqBody*,int32_t)>(&KDCReq::init$)), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KDCReq::*)()>(&KDCReq::init$))},
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(static_cast<void(KDCReq::*)($bytes*,int32_t)>(&KDCReq::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
-	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(static_cast<void(KDCReq::*)($DerValue*,int32_t)>(&KDCReq::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1EncodeReqBody", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;I)V", nullptr, $PROTECTED, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
+	{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/internal/KDCReqBody;I)V", nullptr, $PUBLIC, $method(KDCReq, init$, void, $PADataArray*, $KDCReqBody*, int32_t), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KDCReq, init$, void)},
+	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(KDCReq, init$, void, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
+	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(KDCReq, init$, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KDCReq, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1EncodeReqBody", "()[B", nullptr, $PUBLIC, $virtualMethod(KDCReq, asn1EncodeReqBody, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"init", "(Lsun/security/util/DerValue;I)V", nullptr, $PROTECTED, $virtualMethod(KDCReq, init, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.KrbException"},
 	{}
 };
 

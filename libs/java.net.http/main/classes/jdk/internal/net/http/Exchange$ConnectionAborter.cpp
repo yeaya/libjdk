@@ -22,10 +22,10 @@ $FieldInfo _Exchange$ConnectionAborter_FieldInfo_[] = {
 };
 
 $MethodInfo _Exchange$ConnectionAborter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Exchange$ConnectionAborter::*)()>(&Exchange$ConnectionAborter::init$))},
-	{"closeConnection", "()V", nullptr, 0, $method(static_cast<void(Exchange$ConnectionAborter::*)()>(&Exchange$ConnectionAborter::closeConnection))},
-	{"connection", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(static_cast<void(Exchange$ConnectionAborter::*)($HttpConnection*)>(&Exchange$ConnectionAborter::connection))},
-	{"disable", "()V", nullptr, 0, $method(static_cast<void(Exchange$ConnectionAborter::*)()>(&Exchange$ConnectionAborter::disable))},
+	{"<init>", "()V", nullptr, 0, $method(Exchange$ConnectionAborter, init$, void)},
+	{"closeConnection", "()V", nullptr, 0, $method(Exchange$ConnectionAborter, closeConnection, void)},
+	{"connection", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(Exchange$ConnectionAborter, connection, void, $HttpConnection*)},
+	{"disable", "()V", nullptr, 0, $method(Exchange$ConnectionAborter, disable, void)},
 	{}
 };
 

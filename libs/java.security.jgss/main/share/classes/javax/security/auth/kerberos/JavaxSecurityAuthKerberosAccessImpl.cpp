@@ -19,14 +19,14 @@ namespace javax {
 			namespace kerberos {
 
 $MethodInfo _JavaxSecurityAuthKerberosAccessImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JavaxSecurityAuthKerberosAccessImpl::*)()>(&JavaxSecurityAuthKerberosAccessImpl::init$))},
-	{"kerberosTicketGetClientAlias", "(Ljavax/security/auth/kerberos/KerberosTicket;)Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC},
-	{"kerberosTicketGetProxy", "(Ljavax/security/auth/kerberos/KerberosTicket;)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PUBLIC},
-	{"kerberosTicketGetServerAlias", "(Ljavax/security/auth/kerberos/KerberosTicket;)Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC},
-	{"kerberosTicketSetClientAlias", "(Ljavax/security/auth/kerberos/KerberosTicket;Ljavax/security/auth/kerberos/KerberosPrincipal;)V", nullptr, $PUBLIC},
-	{"kerberosTicketSetProxy", "(Ljavax/security/auth/kerberos/KerberosTicket;Ljavax/security/auth/kerberos/KerberosTicket;)V", nullptr, $PUBLIC},
-	{"kerberosTicketSetServerAlias", "(Ljavax/security/auth/kerberos/KerberosTicket;Ljavax/security/auth/kerberos/KerberosPrincipal;)V", nullptr, $PUBLIC},
-	{"keyTabTakeSnapshot", "(Ljavax/security/auth/kerberos/KeyTab;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(JavaxSecurityAuthKerberosAccessImpl, init$, void)},
+	{"kerberosTicketGetClientAlias", "(Ljavax/security/auth/kerberos/KerberosTicket;)Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC, $virtualMethod(JavaxSecurityAuthKerberosAccessImpl, kerberosTicketGetClientAlias, $KerberosPrincipal*, $KerberosTicket*)},
+	{"kerberosTicketGetProxy", "(Ljavax/security/auth/kerberos/KerberosTicket;)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PUBLIC, $virtualMethod(JavaxSecurityAuthKerberosAccessImpl, kerberosTicketGetProxy, $KerberosTicket*, $KerberosTicket*)},
+	{"kerberosTicketGetServerAlias", "(Ljavax/security/auth/kerberos/KerberosTicket;)Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC, $virtualMethod(JavaxSecurityAuthKerberosAccessImpl, kerberosTicketGetServerAlias, $KerberosPrincipal*, $KerberosTicket*)},
+	{"kerberosTicketSetClientAlias", "(Ljavax/security/auth/kerberos/KerberosTicket;Ljavax/security/auth/kerberos/KerberosPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(JavaxSecurityAuthKerberosAccessImpl, kerberosTicketSetClientAlias, void, $KerberosTicket*, $KerberosPrincipal*)},
+	{"kerberosTicketSetProxy", "(Ljavax/security/auth/kerberos/KerberosTicket;Ljavax/security/auth/kerberos/KerberosTicket;)V", nullptr, $PUBLIC, $virtualMethod(JavaxSecurityAuthKerberosAccessImpl, kerberosTicketSetProxy, void, $KerberosTicket*, $KerberosTicket*)},
+	{"kerberosTicketSetServerAlias", "(Ljavax/security/auth/kerberos/KerberosTicket;Ljavax/security/auth/kerberos/KerberosPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(JavaxSecurityAuthKerberosAccessImpl, kerberosTicketSetServerAlias, void, $KerberosTicket*, $KerberosPrincipal*)},
+	{"keyTabTakeSnapshot", "(Ljavax/security/auth/kerberos/KeyTab;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC, $virtualMethod(JavaxSecurityAuthKerberosAccessImpl, keyTabTakeSnapshot, $KeyTab*, $1KeyTab*)},
 	{}
 };
 

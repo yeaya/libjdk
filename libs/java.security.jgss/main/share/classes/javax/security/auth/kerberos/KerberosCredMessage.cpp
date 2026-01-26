@@ -33,15 +33,15 @@ $FieldInfo _KerberosCredMessage_FieldInfo_[] = {
 };
 
 $MethodInfo _KerberosCredMessage_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;[B)V", nullptr, $PUBLIC, $method(static_cast<void(KerberosCredMessage::*)($KerberosPrincipal*,$KerberosPrincipal*,$bytes*)>(&KerberosCredMessage::init$))},
-	{"destroy", "()V", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(KerberosCredMessage::*)()>(&KerberosCredMessage::getEncoded))},
-	{"getRecipient", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC, $method(static_cast<$KerberosPrincipal*(KerberosCredMessage::*)()>(&KerberosCredMessage::getRecipient))},
-	{"getSender", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC, $method(static_cast<$KerberosPrincipal*(KerberosCredMessage::*)()>(&KerberosCredMessage::getSender))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;[B)V", nullptr, $PUBLIC, $method(KerberosCredMessage, init$, void, $KerberosPrincipal*, $KerberosPrincipal*, $bytes*)},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(KerberosCredMessage, destroy, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosCredMessage, equals, bool, Object$*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(KerberosCredMessage, getEncoded, $bytes*)},
+	{"getRecipient", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC, $method(KerberosCredMessage, getRecipient, $KerberosPrincipal*)},
+	{"getSender", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC, $method(KerberosCredMessage, getSender, $KerberosPrincipal*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosCredMessage, hashCode, int32_t)},
+	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosCredMessage, isDestroyed, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosCredMessage, toString, $String*)},
 	{}
 };
 

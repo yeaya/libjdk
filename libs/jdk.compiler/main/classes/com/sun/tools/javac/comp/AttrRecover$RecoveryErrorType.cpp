@@ -26,7 +26,7 @@ $FieldInfo _AttrRecover$RecoveryErrorType_FieldInfo_[] = {
 };
 
 $MethodInfo _AttrRecover$RecoveryErrorType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(AttrRecover$RecoveryErrorType::*)($Type$ErrorType*,$Symbol*)>(&AttrRecover$RecoveryErrorType::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$ErrorType;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(AttrRecover$RecoveryErrorType, init$, void, $Type$ErrorType*, $Symbol*)},
 	{}
 };
 

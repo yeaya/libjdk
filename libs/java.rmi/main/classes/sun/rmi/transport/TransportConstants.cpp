@@ -29,7 +29,7 @@ $FieldInfo _TransportConstants_FieldInfo_[] = {
 };
 
 $MethodInfo _TransportConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransportConstants::*)()>(&TransportConstants::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransportConstants, init$, void)},
 	{}
 };
 

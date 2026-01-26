@@ -39,10 +39,10 @@ $FieldInfo _ConnectionAcceptor_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionAcceptor_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;)V", nullptr, $PUBLIC, $method(static_cast<void(ConnectionAcceptor::*)($TCPTransport*)>(&ConnectionAcceptor::init$))},
-	{"accept", "(Lsun/rmi/transport/Connection;)V", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"startNewAcceptor", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;)V", nullptr, $PUBLIC, $method(ConnectionAcceptor, init$, void, $TCPTransport*)},
+	{"accept", "(Lsun/rmi/transport/Connection;)V", nullptr, $PUBLIC, $virtualMethod(ConnectionAcceptor, accept, void, $Connection*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ConnectionAcceptor, run, void)},
+	{"startNewAcceptor", "()V", nullptr, $PUBLIC, $virtualMethod(ConnectionAcceptor, startNewAcceptor, void)},
 	{}
 };
 

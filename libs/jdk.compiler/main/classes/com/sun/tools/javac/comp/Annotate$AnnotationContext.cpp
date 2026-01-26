@@ -31,7 +31,7 @@ $FieldInfo _Annotate$AnnotationContext_FieldInfo_[] = {
 };
 
 $MethodInfo _Annotate$AnnotationContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Ljava/util/Map;Ljava/util/Map;Z)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/ListBuffer<TT;>;>;Ljava/util/Map<TT;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;Z)V", $PUBLIC, $method(static_cast<void(Annotate$AnnotationContext::*)($Annotate*,$Env*,$Map*,$Map*,bool)>(&Annotate$AnnotationContext::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Ljava/util/Map;Ljava/util/Map;Z)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/ListBuffer<TT;>;>;Ljava/util/Map<TT;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;Z)V", $PUBLIC, $method(Annotate$AnnotationContext, init$, void, $Annotate*, $Env*, $Map*, $Map*, bool)},
 	{}
 };
 

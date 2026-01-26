@@ -15,8 +15,8 @@ namespace javax {
 			namespace rmi {
 
 $MethodInfo _RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper::*)($ClassLoader*)>(&RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper::init$))},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper, init$, void, $ClassLoader*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
 	{}
 };
 

@@ -43,12 +43,12 @@ $FieldInfo _SerialVer_FieldInfo_[] = {
 };
 
 $MethodInfo _SerialVer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SerialVer::*)()>(&SerialVer::init$))},
-	{"initializeLoader", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&SerialVer::initializeLoader)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&SerialVer::main))},
-	{"resolveClass", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&SerialVer::resolveClass)), "java.lang.ClassNotFoundException"},
-	{"serialSyntax", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&SerialVer::serialSyntax)), "java.lang.ClassNotFoundException"},
-	{"usage", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&SerialVer::usage))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SerialVer, init$, void)},
+	{"initializeLoader", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SerialVer, initializeLoader, void, $String*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SerialVer, main, void, $StringArray*)},
+	{"resolveClass", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SerialVer, resolveClass, $String*, $String*), "java.lang.ClassNotFoundException"},
+	{"serialSyntax", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SerialVer, serialSyntax, $String*, $String*), "java.lang.ClassNotFoundException"},
+	{"usage", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(SerialVer, usage, void)},
 	{}
 };
 

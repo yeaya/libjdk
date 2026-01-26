@@ -30,15 +30,15 @@ namespace com {
 							namespace signature {
 
 $MethodInfo _SignatureProperty_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureProperty::*)($Document*,$String*)>(&SignatureProperty::init$))},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureProperty::*)($Document*,$String*,$String*)>(&SignatureProperty::init$))},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureProperty::*)($Element*,$String*)>(&SignatureProperty::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setTarget", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperty, init$, void, $Document*, $String*)},
+	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperty, init$, void, $Document*, $String*, $String*)},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperty, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, appendChild, $Node*, $Node*)},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, getBaseLocalName, $String*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, getId, $String*)},
+	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, getTarget, $String*)},
+	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, setId, void, $String*)},
+	{"setTarget", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, setTarget, void, $String*)},
 	{}
 };
 

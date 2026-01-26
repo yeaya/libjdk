@@ -25,9 +25,9 @@ $FieldInfo _Types$TypePair_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$TypePair_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Types$TypePair::*)($Types*,$Type*,$Type*)>(&Types$TypePair::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$TypePair, init$, void, $Types*, $Type*, $Type*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$TypePair, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Types$TypePair, hashCode, int32_t)},
 	{}
 };
 

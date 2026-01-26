@@ -9,6 +9,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
+using $List = ::java::util::List;
 
 namespace jdk {
 	namespace internal {
@@ -16,9 +17,9 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _SocketTube$BufferSource_MethodInfo_[] = {
-	{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $ABSTRACT},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"returnUnused", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
+	{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SocketTube$BufferSource, append, $List*, $List*, $ByteBuffer*, int32_t)},
+	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketTube$BufferSource, getBuffer, $ByteBuffer*)},
+	{"returnUnused", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$BufferSource, returnUnused, void, $ByteBuffer*)},
 	{}
 };
 

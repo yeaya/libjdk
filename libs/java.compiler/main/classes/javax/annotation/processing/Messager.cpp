@@ -7,18 +7,23 @@
 #include <javax/tools/Diagnostic$Kind.h>
 #include <jcpp.h>
 
+using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $AnnotationMirror = ::javax::lang::model::element::AnnotationMirror;
+using $AnnotationValue = ::javax::lang::model::element::AnnotationValue;
+using $Element = ::javax::lang::model::element::Element;
+using $Diagnostic$Kind = ::javax::tools::Diagnostic$Kind;
 
 namespace javax {
 	namespace annotation {
 		namespace processing {
 
 $MethodInfo _Messager_MethodInfo_[] = {
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*)},
+	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*)},
+	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*)},
+	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
 	{}
 };
 

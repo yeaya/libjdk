@@ -25,8 +25,8 @@ $FieldInfo _DGCClient$EndpointEntry$RefEntry$PhantomLiveRef_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCClient$EndpointEntry$RefEntry$PhantomLiveRef_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(static_cast<void(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef::*)($DGCClient$EndpointEntry$RefEntry*,$LiveRef*)>(&DGCClient$EndpointEntry$RefEntry$PhantomLiveRef::init$))},
-	{"getRefEntry", "()Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, init$, void, $DGCClient$EndpointEntry$RefEntry*, $LiveRef*)},
+	{"getRefEntry", "()Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RefEntry$PhantomLiveRef, getRefEntry, $DGCClient$EndpointEntry$RefEntry*)},
 	{}
 };
 

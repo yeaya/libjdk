@@ -45,9 +45,9 @@ $MethodInfo _ALPNFailureTest$ReadOnlyServer_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, 0, $method(static_cast<void(ALPNFailureTest$ReadOnlyServer::*)($ServerSocket*)>(&ALPNFailureTest$ReadOnlyServer::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, 0, $method(ALPNFailureTest$ReadOnlyServer, init$, void, $ServerSocket*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ALPNFailureTest$ReadOnlyServer, close, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ALPNFailureTest$ReadOnlyServer, run, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

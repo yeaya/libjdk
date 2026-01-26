@@ -23,8 +23,8 @@ $FieldInfo _SSLFlowDelegate$Writer$WriterDownstreamPusher_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLFlowDelegate$Writer$WriterDownstreamPusher_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Writer;)V", nullptr, 0, $method(static_cast<void(SSLFlowDelegate$Writer$WriterDownstreamPusher::*)($SSLFlowDelegate$Writer*)>(&SSLFlowDelegate$Writer$WriterDownstreamPusher::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Writer;)V", nullptr, 0, $method(SSLFlowDelegate$Writer$WriterDownstreamPusher, init$, void, $SSLFlowDelegate$Writer*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Writer$WriterDownstreamPusher, run, void)},
 	{}
 };
 

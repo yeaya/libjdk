@@ -29,8 +29,8 @@ $FieldInfo _RequiredModelMBean$6_FieldInfo_[] = {
 };
 
 $MethodInfo _RequiredModelMBean$6_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/modelmbean/RequiredModelMBean;Ljava/lang/String;[Ljava/lang/ClassNotFoundException;)V", "()V", 0, $method(static_cast<void(RequiredModelMBean$6::*)($RequiredModelMBean*,$String*,$ClassNotFoundExceptionArray*)>(&RequiredModelMBean$6::init$))},
-	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "(Ljavax/management/modelmbean/RequiredModelMBean;Ljava/lang/String;[Ljava/lang/ClassNotFoundException;)V", "()V", 0, $method(RequiredModelMBean$6, init$, void, $RequiredModelMBean*, $String*, $ClassNotFoundExceptionArray*)},
+	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RequiredModelMBean$6, run, $Object*)},
 	{}
 };
 

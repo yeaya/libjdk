@@ -18,7 +18,7 @@ $CompoundAttribute _Cancelable_Annotations_[] = {
 };
 
 $MethodInfo _Cancelable_MethodInfo_[] = {
-	{"cancel", "(Z)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"cancel", "(Z)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Cancelable, cancel, bool, bool)},
 	{}
 };
 

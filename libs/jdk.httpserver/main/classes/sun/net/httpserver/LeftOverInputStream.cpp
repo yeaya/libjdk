@@ -35,15 +35,15 @@ $FieldInfo _LeftOverInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _LeftOverInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(LeftOverInputStream::*)($ExchangeImpl*,$InputStream*)>(&LeftOverInputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"drain", "(J)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isClosed", "()Z", nullptr, $PUBLIC},
-	{"isDataBuffered", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isEOF", "()Z", nullptr, $PUBLIC},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"readImpl", "([BII)I", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(LeftOverInputStream, init$, void, $ExchangeImpl*, $InputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, close, void), "java.io.IOException"},
+	{"drain", "(J)Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, drain, bool, int64_t), "java.io.IOException"},
+	{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, isClosed, bool)},
+	{"isDataBuffered", "()Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, isDataBuffered, bool), "java.io.IOException"},
+	{"isEOF", "()Z", nullptr, $PUBLIC, $virtualMethod(LeftOverInputStream, isEOF, bool)},
+	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LeftOverInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LeftOverInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"readImpl", "([BII)I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LeftOverInputStream, readImpl, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

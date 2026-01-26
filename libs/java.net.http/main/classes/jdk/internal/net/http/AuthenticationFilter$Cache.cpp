@@ -29,12 +29,12 @@ $FieldInfo _AuthenticationFilter$Cache_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthenticationFilter$Cache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AuthenticationFilter$Cache::*)()>(&AuthenticationFilter$Cache::init$))},
-	{"equalsIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&AuthenticationFilter$Cache::equalsIgnoreCase))},
-	{"get", "(Ljava/net/URI;Z)Ljdk/internal/net/http/AuthenticationFilter$CacheEntry;", nullptr, $SYNCHRONIZED, $method(static_cast<$AuthenticationFilter$CacheEntry*(AuthenticationFilter$Cache::*)($URI*,bool)>(&AuthenticationFilter$Cache::get))},
-	{"remove", "(Ljava/lang/String;Ljava/net/URI;Z)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(AuthenticationFilter$Cache::*)($String*,$URI*,bool)>(&AuthenticationFilter$Cache::remove))},
-	{"remove", "(Ljdk/internal/net/http/AuthenticationFilter$CacheEntry;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(AuthenticationFilter$Cache::*)($AuthenticationFilter$CacheEntry*)>(&AuthenticationFilter$Cache::remove))},
-	{"store", "(Ljava/lang/String;Ljava/net/URI;ZLjava/net/PasswordAuthentication;Z)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(AuthenticationFilter$Cache::*)($String*,$URI*,bool,$PasswordAuthentication*,bool)>(&AuthenticationFilter$Cache::store))},
+	{"<init>", "()V", nullptr, 0, $method(AuthenticationFilter$Cache, init$, void)},
+	{"equalsIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AuthenticationFilter$Cache, equalsIgnoreCase, bool, $String*, $String*)},
+	{"get", "(Ljava/net/URI;Z)Ljdk/internal/net/http/AuthenticationFilter$CacheEntry;", nullptr, $SYNCHRONIZED, $method(AuthenticationFilter$Cache, get, $AuthenticationFilter$CacheEntry*, $URI*, bool)},
+	{"remove", "(Ljava/lang/String;Ljava/net/URI;Z)V", nullptr, $SYNCHRONIZED, $method(AuthenticationFilter$Cache, remove, void, $String*, $URI*, bool)},
+	{"remove", "(Ljdk/internal/net/http/AuthenticationFilter$CacheEntry;)V", nullptr, $SYNCHRONIZED, $method(AuthenticationFilter$Cache, remove, void, $AuthenticationFilter$CacheEntry*)},
+	{"store", "(Ljava/lang/String;Ljava/net/URI;ZLjava/net/PasswordAuthentication;Z)V", nullptr, $SYNCHRONIZED, $method(AuthenticationFilter$Cache, store, void, $String*, $URI*, bool, $PasswordAuthentication*, bool)},
 	{}
 };
 

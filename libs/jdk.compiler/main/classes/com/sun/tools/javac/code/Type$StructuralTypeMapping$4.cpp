@@ -30,8 +30,8 @@ $FieldInfo _Type$StructuralTypeMapping$4_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$StructuralTypeMapping$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$StructuralTypeMapping;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(static_cast<void(Type$StructuralTypeMapping$4::*)($Type$StructuralTypeMapping*,$List*,$Type*,$List*,$Symbol$TypeSymbol*)>(&Type$StructuralTypeMapping$4::init$))},
-	{"needsStripping", "()Z", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$StructuralTypeMapping;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(Type$StructuralTypeMapping$4, init$, void, $Type$StructuralTypeMapping*, $List*, $Type*, $List*, $Symbol$TypeSymbol*)},
+	{"needsStripping", "()Z", nullptr, $PROTECTED, $virtualMethod(Type$StructuralTypeMapping$4, needsStripping, bool)},
 	{}
 };
 

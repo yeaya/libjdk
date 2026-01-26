@@ -103,8 +103,8 @@ $FieldInfo Decoder$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$new$0::*)(int32_t)>(&Decoder$$Lambda$lambda$new$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$new$0, init$, void, int32_t)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$new$0, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$new$0::classInfo$ = {
@@ -143,8 +143,8 @@ $FieldInfo Decoder$$Lambda$lambda$new$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$new$1$1::*)(Decoder*)>(&Decoder$$Lambda$lambda$new$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$new$1$1, init$, void, Decoder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$new$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$new$1$1::classInfo$ = {
@@ -183,8 +183,8 @@ $FieldInfo Decoder$$Lambda$lambda$setMaxCapacity$2$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$setMaxCapacity$2$2::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$setMaxCapacity$2$2::*)(int32_t)>(&Decoder$$Lambda$lambda$setMaxCapacity$2$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$setMaxCapacity$2$2, init$, void, int32_t)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$setMaxCapacity$2$2, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$setMaxCapacity$2$2::classInfo$ = {
@@ -226,8 +226,8 @@ $FieldInfo Decoder$$Lambda$lambda$decode$3$3::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$decode$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$decode$3$3::*)($ByteBuffer*,bool)>(&Decoder$$Lambda$lambda$decode$3$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$decode$3$3, init$, void, $ByteBuffer*, bool)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$decode$3$3, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$decode$3$3::classInfo$ = {
@@ -266,8 +266,8 @@ $FieldInfo Decoder$$Lambda$lambda$decode$4$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$decode$4$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$decode$4$4::*)(Decoder*)>(&Decoder$$Lambda$lambda$decode$4$4::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$decode$4$4, init$, void, Decoder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$decode$4$4, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$decode$4$4::classInfo$ = {
@@ -309,8 +309,8 @@ $FieldInfo Decoder$$Lambda$lambda$resumeReady$5$5::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$resumeReady$5$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder$State;I)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$resumeReady$5$5::*)($Decoder$State*,int32_t)>(&Decoder$$Lambda$lambda$resumeReady$5$5::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder$State;I)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$resumeReady$5$5, init$, void, $Decoder$State*, int32_t)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$resumeReady$5$5, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$resumeReady$5$5::classInfo$ = {
@@ -349,8 +349,8 @@ $FieldInfo Decoder$$Lambda$lambda$resumeIndexed$6$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$resumeIndexed$6$6::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$resumeIndexed$6$6::*)(Decoder*)>(&Decoder$$Lambda$lambda$resumeIndexed$6$6::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$resumeIndexed$6$6, init$, void, Decoder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$resumeIndexed$6$6, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$resumeIndexed$6$6::classInfo$ = {
@@ -389,8 +389,8 @@ $FieldInfo Decoder$$Lambda$lambda$resumeLiteral$7$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$resumeLiteral$7$7::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$resumeLiteral$7$7::*)(Decoder*)>(&Decoder$$Lambda$lambda$resumeLiteral$7$7::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$resumeLiteral$7$7, init$, void, Decoder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$resumeLiteral$7$7, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$resumeLiteral$7$7::classInfo$ = {
@@ -429,8 +429,8 @@ $FieldInfo Decoder$$Lambda$lambda$resumeLiteral$8$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$resumeLiteral$8$8::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$resumeLiteral$8$8::*)(Decoder*)>(&Decoder$$Lambda$lambda$resumeLiteral$8$8::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$resumeLiteral$8$8, init$, void, Decoder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$resumeLiteral$8$8, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$resumeLiteral$8$8::classInfo$ = {
@@ -469,8 +469,8 @@ $FieldInfo Decoder$$Lambda$lambda$resumeLiteralWithIndexing$9$9::fieldInfos[2] =
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$resumeLiteralWithIndexing$9$9::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$resumeLiteralWithIndexing$9$9::*)(Decoder*)>(&Decoder$$Lambda$lambda$resumeLiteralWithIndexing$9$9::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$resumeLiteralWithIndexing$9$9, init$, void, Decoder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$resumeLiteralWithIndexing$9$9, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$resumeLiteralWithIndexing$9$9::classInfo$ = {
@@ -512,8 +512,8 @@ $FieldInfo Decoder$$Lambda$lambda$resumeLiteralWithIndexing$10$10::fieldInfos[3]
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$resumeLiteralWithIndexing$10$10::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$resumeLiteralWithIndexing$10$10::*)(Decoder*,$String*)>(&Decoder$$Lambda$lambda$resumeLiteralWithIndexing$10$10::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$resumeLiteralWithIndexing$10$10, init$, void, Decoder*, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$resumeLiteralWithIndexing$10$10, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$resumeLiteralWithIndexing$10$10::classInfo$ = {
@@ -552,8 +552,8 @@ $FieldInfo Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$11$11::fieldInfos[2]
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$11$11::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$11$11::*)(Decoder*)>(&Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$11$11::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$11$11, init$, void, Decoder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$11$11, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$11$11::classInfo$ = {
@@ -592,8 +592,8 @@ $FieldInfo Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$12$12::fieldInfos[2]
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$12$12::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$12$12::*)(Decoder*)>(&Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$12$12::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$12$12, init$, void, Decoder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$12$12, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$resumeLiteralNeverIndexed$12$12::classInfo$ = {
@@ -632,8 +632,8 @@ $FieldInfo Decoder$$Lambda$lambda$resumeSizeUpdate$13$13::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Decoder$$Lambda$lambda$resumeSizeUpdate$13$13::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder$$Lambda$lambda$resumeSizeUpdate$13$13::*)(Decoder*)>(&Decoder$$Lambda$lambda$resumeSizeUpdate$13$13::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/Decoder;)V", nullptr, $PUBLIC, $method(Decoder$$Lambda$lambda$resumeSizeUpdate$13$13, init$, void, Decoder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Decoder$$Lambda$lambda$resumeSizeUpdate$13$13, get, $Object*)},
 	{}
 };
 $ClassInfo Decoder$$Lambda$lambda$resumeSizeUpdate$13$13::classInfo$ = {
@@ -672,35 +672,35 @@ $FieldInfo _Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _Decoder_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder::*)(int32_t)>(&Decoder::init$))},
-	{"cleanUpAfterReading", "()V", nullptr, $PRIVATE, $method(static_cast<void(Decoder::*)()>(&Decoder::cleanUpAfterReading))},
-	{"completeReading", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Decoder::*)($ByteBuffer*)>(&Decoder::completeReading)), "java.io.IOException"},
-	{"decode", "(Ljava/nio/ByteBuffer;ZLjdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder::*)($ByteBuffer*,bool,$DecodingCallback*)>(&Decoder::decode)), "java.io.IOException"},
-	{"getHeaderFieldAt", "(I)Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;", nullptr, $PRIVATE, $method(static_cast<$SimpleHeaderTable$HeaderField*(Decoder::*)(int32_t)>(&Decoder::getHeaderFieldAt)), "java.io.IOException"},
-	{"getTable", "()Ljdk/internal/net/http/hpack/SimpleHeaderTable;", nullptr, 0, $method(static_cast<$SimpleHeaderTable*(Decoder::*)()>(&Decoder::getTable))},
-	{"lambda$decode$3", "(Ljava/nio/ByteBuffer;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($ByteBuffer*,bool)>(&Decoder::lambda$decode$3))},
-	{"lambda$decode$4", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Decoder::*)()>(&Decoder::lambda$decode$4))},
-	{"lambda$new$0", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(int32_t)>(&Decoder::lambda$new$0))},
-	{"lambda$new$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Decoder::*)()>(&Decoder::lambda$new$1))},
-	{"lambda$resumeIndexed$6", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Decoder::*)()>(&Decoder::lambda$resumeIndexed$6))},
-	{"lambda$resumeLiteral$7", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Decoder::*)()>(&Decoder::lambda$resumeLiteral$7))},
-	{"lambda$resumeLiteral$8", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Decoder::*)()>(&Decoder::lambda$resumeLiteral$8))},
-	{"lambda$resumeLiteralNeverIndexed$11", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Decoder::*)()>(&Decoder::lambda$resumeLiteralNeverIndexed$11))},
-	{"lambda$resumeLiteralNeverIndexed$12", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Decoder::*)()>(&Decoder::lambda$resumeLiteralNeverIndexed$12))},
-	{"lambda$resumeLiteralWithIndexing$10", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Decoder::*)($String*)>(&Decoder::lambda$resumeLiteralWithIndexing$10))},
-	{"lambda$resumeLiteralWithIndexing$9", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Decoder::*)()>(&Decoder::lambda$resumeLiteralWithIndexing$9))},
-	{"lambda$resumeReady$5", "(Ljdk/internal/net/http/hpack/Decoder$State;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Decoder$State*,int32_t)>(&Decoder::lambda$resumeReady$5))},
-	{"lambda$resumeSizeUpdate$13", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Decoder::*)()>(&Decoder::lambda$resumeSizeUpdate$13))},
-	{"lambda$setMaxCapacity$2", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(int32_t)>(&Decoder::lambda$setMaxCapacity$2))},
-	{"proceed", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(static_cast<void(Decoder::*)($ByteBuffer*,$DecodingCallback*)>(&Decoder::proceed)), "java.io.IOException"},
-	{"resumeIndexed", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(static_cast<void(Decoder::*)($ByteBuffer*,$DecodingCallback*)>(&Decoder::resumeIndexed)), "java.io.IOException"},
-	{"resumeLiteral", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(static_cast<void(Decoder::*)($ByteBuffer*,$DecodingCallback*)>(&Decoder::resumeLiteral)), "java.io.IOException"},
-	{"resumeLiteralNeverIndexed", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(static_cast<void(Decoder::*)($ByteBuffer*,$DecodingCallback*)>(&Decoder::resumeLiteralNeverIndexed)), "java.io.IOException"},
-	{"resumeLiteralWithIndexing", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(static_cast<void(Decoder::*)($ByteBuffer*,$DecodingCallback*)>(&Decoder::resumeLiteralWithIndexing)), "java.io.IOException"},
-	{"resumeReady", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Decoder::*)($ByteBuffer*)>(&Decoder::resumeReady))},
-	{"resumeSizeUpdate", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(static_cast<void(Decoder::*)($ByteBuffer*,$DecodingCallback*)>(&Decoder::resumeSizeUpdate)), "java.io.IOException"},
-	{"setMaxCapacity", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Decoder::*)(int32_t)>(&Decoder::setMaxCapacity))},
-	{"setMaxCapacity0", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(Decoder::*)(int32_t)>(&Decoder::setMaxCapacity0))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Decoder, init$, void, int32_t)},
+	{"cleanUpAfterReading", "()V", nullptr, $PRIVATE, $method(Decoder, cleanUpAfterReading, void)},
+	{"completeReading", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(Decoder, completeReading, bool, $ByteBuffer*), "java.io.IOException"},
+	{"decode", "(Ljava/nio/ByteBuffer;ZLjdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PUBLIC, $method(Decoder, decode, void, $ByteBuffer*, bool, $DecodingCallback*), "java.io.IOException"},
+	{"getHeaderFieldAt", "(I)Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;", nullptr, $PRIVATE, $method(Decoder, getHeaderFieldAt, $SimpleHeaderTable$HeaderField*, int32_t), "java.io.IOException"},
+	{"getTable", "()Ljdk/internal/net/http/hpack/SimpleHeaderTable;", nullptr, 0, $method(Decoder, getTable, $SimpleHeaderTable*)},
+	{"lambda$decode$3", "(Ljava/nio/ByteBuffer;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Decoder, lambda$decode$3, $String*, $ByteBuffer*, bool)},
+	{"lambda$decode$4", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Decoder, lambda$decode$4, $String*)},
+	{"lambda$new$0", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Decoder, lambda$new$0, $String*, int32_t)},
+	{"lambda$new$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Decoder, lambda$new$1, $String*)},
+	{"lambda$resumeIndexed$6", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Decoder, lambda$resumeIndexed$6, $String*)},
+	{"lambda$resumeLiteral$7", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Decoder, lambda$resumeLiteral$7, $String*)},
+	{"lambda$resumeLiteral$8", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Decoder, lambda$resumeLiteral$8, $String*)},
+	{"lambda$resumeLiteralNeverIndexed$11", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Decoder, lambda$resumeLiteralNeverIndexed$11, $String*)},
+	{"lambda$resumeLiteralNeverIndexed$12", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Decoder, lambda$resumeLiteralNeverIndexed$12, $String*)},
+	{"lambda$resumeLiteralWithIndexing$10", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Decoder, lambda$resumeLiteralWithIndexing$10, $String*, $String*)},
+	{"lambda$resumeLiteralWithIndexing$9", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Decoder, lambda$resumeLiteralWithIndexing$9, $String*)},
+	{"lambda$resumeReady$5", "(Ljdk/internal/net/http/hpack/Decoder$State;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Decoder, lambda$resumeReady$5, $String*, $Decoder$State*, int32_t)},
+	{"lambda$resumeSizeUpdate$13", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Decoder, lambda$resumeSizeUpdate$13, $String*)},
+	{"lambda$setMaxCapacity$2", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Decoder, lambda$setMaxCapacity$2, $String*, int32_t)},
+	{"proceed", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(Decoder, proceed, void, $ByteBuffer*, $DecodingCallback*), "java.io.IOException"},
+	{"resumeIndexed", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(Decoder, resumeIndexed, void, $ByteBuffer*, $DecodingCallback*), "java.io.IOException"},
+	{"resumeLiteral", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(Decoder, resumeLiteral, void, $ByteBuffer*, $DecodingCallback*), "java.io.IOException"},
+	{"resumeLiteralNeverIndexed", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(Decoder, resumeLiteralNeverIndexed, void, $ByteBuffer*, $DecodingCallback*), "java.io.IOException"},
+	{"resumeLiteralWithIndexing", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(Decoder, resumeLiteralWithIndexing, void, $ByteBuffer*, $DecodingCallback*), "java.io.IOException"},
+	{"resumeReady", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Decoder, resumeReady, void, $ByteBuffer*)},
+	{"resumeSizeUpdate", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(Decoder, resumeSizeUpdate, void, $ByteBuffer*, $DecodingCallback*), "java.io.IOException"},
+	{"setMaxCapacity", "(I)V", nullptr, $PUBLIC, $method(Decoder, setMaxCapacity, void, int32_t)},
+	{"setMaxCapacity0", "(I)V", nullptr, $PRIVATE, $method(Decoder, setMaxCapacity0, void, int32_t)},
 	{}
 };
 

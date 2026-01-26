@@ -9,8 +9,8 @@ namespace javax {
 	namespace management {
 
 $MethodInfo _PersistentMBean_MethodInfo_[] = {
-	{"load", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.InstanceNotFoundException"},
-	{"store", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.InstanceNotFoundException"},
+	{"load", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PersistentMBean, load, void), "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.InstanceNotFoundException"},
+	{"store", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PersistentMBean, store, void), "javax.management.MBeanException,javax.management.RuntimeOperationsException,javax.management.InstanceNotFoundException"},
 	{}
 };
 

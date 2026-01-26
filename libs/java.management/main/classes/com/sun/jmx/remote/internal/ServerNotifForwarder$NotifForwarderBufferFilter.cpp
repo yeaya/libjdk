@@ -40,8 +40,8 @@ $FieldInfo _ServerNotifForwarder$NotifForwarderBufferFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerNotifForwarder$NotifForwarderBufferFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ServerNotifForwarder;)V", nullptr, 0, $method(static_cast<void(ServerNotifForwarder$NotifForwarderBufferFilter::*)($ServerNotifForwarder*)>(&ServerNotifForwarder$NotifForwarderBufferFilter::init$))},
-	{"apply", "(Ljava/util/List;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", "(Ljava/util/List<Ljavax/management/remote/TargetedNotification;>;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ServerNotifForwarder;)V", nullptr, 0, $method(ServerNotifForwarder$NotifForwarderBufferFilter, init$, void, $ServerNotifForwarder*)},
+	{"apply", "(Ljava/util/List;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", "(Ljava/util/List<Ljavax/management/remote/TargetedNotification;>;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", $PUBLIC, $virtualMethod(ServerNotifForwarder$NotifForwarderBufferFilter, apply, void, $List*, $ObjectName*, $Notification*)},
 	{}
 };
 

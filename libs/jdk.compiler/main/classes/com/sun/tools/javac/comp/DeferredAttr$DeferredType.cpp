@@ -84,15 +84,15 @@ $FieldInfo _DeferredAttr$DeferredType_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$DeferredType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(static_cast<void(DeferredAttr$DeferredType::*)($DeferredAttr*,$JCTree$JCExpression*,$Env*)>(&DeferredAttr$DeferredType::init$))},
-	{"check", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"check", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(DeferredAttr$DeferredType::*)($Attr$ResultInfo*,$DeferredAttr$DeferredStuckPolicy*)>(&DeferredAttr$DeferredType::check))},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;", nullptr, $PUBLIC},
-	{"complete", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC},
-	{"speculativeTree", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0},
-	{"speculativeType", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(DeferredAttr$DeferredType, init$, void, $DeferredAttr*, $JCTree$JCExpression*, $Env*)},
+	{"check", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(DeferredAttr$DeferredType, check, $Type*, $Attr$ResultInfo*)},
+	{"check", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(DeferredAttr$DeferredType, check, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredStuckPolicy*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredType, cloneWithMetadata, DeferredAttr$DeferredType*, $TypeMetadata*)},
+	{"complete", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredType, complete, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
+	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredType, getTag, $TypeTag*)},
+	{"speculativeTree", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(DeferredAttr$DeferredType, speculativeTree, $JCTree*, $DeferredAttr$DeferredAttrContext*)},
+	{"speculativeType", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(DeferredAttr$DeferredType, speculativeType, $Type*, $Symbol*, $Resolve$MethodResolutionPhase*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredType, toString, $String*)},
 	{}
 };
 

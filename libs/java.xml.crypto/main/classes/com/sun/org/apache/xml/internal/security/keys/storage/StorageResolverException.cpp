@@ -36,14 +36,14 @@ $FieldInfo _StorageResolverException_FieldInfo_[] = {
 };
 
 $MethodInfo _StorageResolverException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StorageResolverException::*)()>(&StorageResolverException::init$))},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(StorageResolverException::*)($Exception*)>(&StorageResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StorageResolverException::*)($String*)>(&StorageResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StorageResolverException::*)($String*,$ObjectArray*)>(&StorageResolverException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StorageResolverException::*)($Exception*,$String*)>(&StorageResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(StorageResolverException::*)($String*,$Exception*)>(&StorageResolverException::init$)), nullptr, nullptr, _StorageResolverException_MethodAnnotations_init$5},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(StorageResolverException::*)($Exception*,$String*,$ObjectArray*)>(&StorageResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(StorageResolverException::*)($String*,$ObjectArray*,$Exception*)>(&StorageResolverException::init$)), nullptr, nullptr, _StorageResolverException_MethodAnnotations_init$7},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StorageResolverException, init$, void)},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(StorageResolverException, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StorageResolverException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StorageResolverException, init$, void, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StorageResolverException, init$, void, $Exception*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(StorageResolverException, init$, void, $String*, $Exception*), nullptr, nullptr, _StorageResolverException_MethodAnnotations_init$5},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(StorageResolverException, init$, void, $Exception*, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(StorageResolverException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _StorageResolverException_MethodAnnotations_init$7},
 	{}
 };
 

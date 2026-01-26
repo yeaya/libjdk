@@ -16,8 +16,8 @@ namespace sun {
 		namespace runtime {
 
 $MethodInfo _NewThreadAction$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NewThreadAction$2::*)()>(&NewThreadAction$2::init$))},
-	{"run", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(NewThreadAction$2, init$, void)},
+	{"run", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $virtualMethod(NewThreadAction$2, run, $Object*)},
 	{}
 };
 

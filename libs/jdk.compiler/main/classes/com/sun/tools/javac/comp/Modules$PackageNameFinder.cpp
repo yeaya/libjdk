@@ -5,9 +5,11 @@
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
 
+using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
 	namespace sun {
@@ -16,7 +18,7 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Modules$PackageNameFinder_MethodInfo_[] = {
-	{"findPackageNameOf", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT},
+	{"findPackageNameOf", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Modules$PackageNameFinder, findPackageNameOf, $Name*, $JavaFileObject*)},
 	{}
 };
 

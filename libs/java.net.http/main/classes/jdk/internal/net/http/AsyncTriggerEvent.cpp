@@ -30,12 +30,12 @@ $FieldInfo _AsyncTriggerEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _AsyncTriggerEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Consumer;Ljava/lang/Runnable;)V", "(Ljava/util/function/Consumer<-Ljava/io/IOException;>;Ljava/lang/Runnable;)V", 0, $method(static_cast<void(AsyncTriggerEvent::*)($Consumer*,$Runnable*)>(&AsyncTriggerEvent::init$))},
-	{"abort", "(Ljava/io/IOException;)V", nullptr, $PUBLIC},
-	{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC},
-	{"handle", "()V", nullptr, $PUBLIC},
-	{"interestOps", "()I", nullptr, $PUBLIC},
-	{"repeating", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;Ljava/lang/Runnable;)V", "(Ljava/util/function/Consumer<-Ljava/io/IOException;>;Ljava/lang/Runnable;)V", 0, $method(AsyncTriggerEvent, init$, void, $Consumer*, $Runnable*)},
+	{"abort", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(AsyncTriggerEvent, abort, void, $IOException*)},
+	{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC, $virtualMethod(AsyncTriggerEvent, channel, $SelectableChannel*)},
+	{"handle", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncTriggerEvent, handle, void)},
+	{"interestOps", "()I", nullptr, $PUBLIC, $virtualMethod(AsyncTriggerEvent, interestOps, int32_t)},
+	{"repeating", "()Z", nullptr, $PUBLIC, $virtualMethod(AsyncTriggerEvent, repeating, bool)},
 	{}
 };
 

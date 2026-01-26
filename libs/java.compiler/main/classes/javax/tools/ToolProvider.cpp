@@ -67,8 +67,8 @@ $FieldInfo ToolProvider$$Lambda$lambda$matches$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ToolProvider$$Lambda$lambda$matches$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ToolProvider$$Lambda$lambda$matches$0::*)(Object$*,$String*)>(&ToolProvider$$Lambda$lambda$matches$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToolProvider$$Lambda$lambda$matches$0, init$, void, Object$*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ToolProvider$$Lambda$lambda$matches$0, run, $Object*)},
 	{}
 };
 $ClassInfo ToolProvider$$Lambda$lambda$matches$0::classInfo$ = {
@@ -104,13 +104,13 @@ $FieldInfo _ToolProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _ToolProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ToolProvider::*)()>(&ToolProvider::init$))},
-	{"getSystemDocumentationTool", "()Ljavax/tools/DocumentationTool;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DocumentationTool*(*)()>(&ToolProvider::getSystemDocumentationTool))},
-	{"getSystemJavaCompiler", "()Ljavax/tools/JavaCompiler;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavaCompiler*(*)()>(&ToolProvider::getSystemJavaCompiler))},
-	{"getSystemTool", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/String;)TT;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($Class*,$String*,$String*)>(&ToolProvider::getSystemTool))},
-	{"getSystemToolClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<$ClassLoader*(*)()>(&ToolProvider::getSystemToolClassLoader)), nullptr, nullptr, _ToolProvider_MethodAnnotations_getSystemToolClassLoader4},
-	{"lambda$matches$0", "(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)(Object$*,$String*)>(&ToolProvider::lambda$matches$0))},
-	{"matches", "(Ljava/lang/Object;Ljava/lang/String;)Z", "<T:Ljava/lang/Object;>(TT;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)(Object$*,$String*)>(&ToolProvider::matches))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ToolProvider, init$, void)},
+	{"getSystemDocumentationTool", "()Ljavax/tools/DocumentationTool;", nullptr, $PUBLIC | $STATIC, $staticMethod(ToolProvider, getSystemDocumentationTool, $DocumentationTool*)},
+	{"getSystemJavaCompiler", "()Ljavax/tools/JavaCompiler;", nullptr, $PUBLIC | $STATIC, $staticMethod(ToolProvider, getSystemJavaCompiler, $JavaCompiler*)},
+	{"getSystemTool", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/String;Ljava/lang/String;)TT;", $PRIVATE | $STATIC, $staticMethod(ToolProvider, getSystemTool, $Object*, $Class*, $String*, $String*)},
+	{"getSystemToolClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(ToolProvider, getSystemToolClassLoader, $ClassLoader*), nullptr, nullptr, _ToolProvider_MethodAnnotations_getSystemToolClassLoader4},
+	{"lambda$matches$0", "(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ToolProvider, lambda$matches$0, $Boolean*, Object$*, $String*)},
+	{"matches", "(Ljava/lang/Object;Ljava/lang/String;)Z", "<T:Ljava/lang/Object;>(TT;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(ToolProvider, matches, bool, Object$*, $String*)},
 	{}
 };
 

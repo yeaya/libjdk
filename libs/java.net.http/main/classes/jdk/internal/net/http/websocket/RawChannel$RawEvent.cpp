@@ -14,8 +14,8 @@ namespace jdk {
 				namespace websocket {
 
 $MethodInfo _RawChannel$RawEvent_MethodInfo_[] = {
-	{"handle", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"interestOps", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"handle", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel$RawEvent, handle, void)},
+	{"interestOps", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel$RawEvent, interestOps, int32_t)},
 	{}
 };
 

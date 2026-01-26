@@ -31,8 +31,8 @@ $FieldInfo _IdleResetSjavac$1_FieldInfo_[] = {
 };
 
 $MethodInfo _IdleResetSjavac$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/server/IdleResetSjavac;)V", nullptr, 0, $method(static_cast<void(IdleResetSjavac$1::*)($IdleResetSjavac*)>(&IdleResetSjavac$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/server/IdleResetSjavac;)V", nullptr, 0, $method(IdleResetSjavac$1, init$, void, $IdleResetSjavac*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(IdleResetSjavac$1, run, void)},
 	{}
 };
 

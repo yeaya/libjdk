@@ -32,8 +32,8 @@ $FieldInfo _Transport$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Transport$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/Transport;Ljava/security/AccessControlContext;Lsun/rmi/server/Dispatcher;Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;)V", "()V", 0, $method(static_cast<void(Transport$1::*)($Transport*,$AccessControlContext*,$Dispatcher*,$Remote*,$RemoteCall*)>(&Transport$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/rmi/transport/Transport;Ljava/security/AccessControlContext;Lsun/rmi/server/Dispatcher;Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;)V", "()V", 0, $method(Transport$1, init$, void, $Transport*, $AccessControlContext*, $Dispatcher*, $Remote*, $RemoteCall*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Transport$1, run, $Object*), "java.io.IOException"},
 	{}
 };
 

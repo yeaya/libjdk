@@ -48,11 +48,11 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _TransformC14NExclusive_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransformC14NExclusive::*)()>(&TransformC14NExclusive::init$))},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"getCanonicalizer", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315Excl;", nullptr, $PROTECTED},
-	{"length", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(TransformC14NExclusive::*)($Element*,$String*,$String*)>(&TransformC14NExclusive::length))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformC14NExclusive, init$, void)},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformC14NExclusive, engineGetURI, $String*)},
+	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformC14NExclusive, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+	{"getCanonicalizer", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315Excl;", nullptr, $PROTECTED, $virtualMethod(TransformC14NExclusive, getCanonicalizer, $Canonicalizer20010315Excl*)},
+	{"length", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(TransformC14NExclusive, length, int32_t, $Element*, $String*, $String*)},
 	{}
 };
 

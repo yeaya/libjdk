@@ -30,10 +30,10 @@ $FieldInfo _ZipFileStore$ZipFileStoreAttributes_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileStore$ZipFileStoreAttributes_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileStore;)V", nullptr, 0, $method(static_cast<void(ZipFileStore$ZipFileStoreAttributes::*)($ZipFileStore*)>(&ZipFileStore$ZipFileStoreAttributes::init$)), "java.io.IOException"},
-	{"totalSpace", "()J", nullptr, 0},
-	{"unallocatedSpace", "()J", nullptr, 0, nullptr, "java.io.IOException"},
-	{"usableSpace", "()J", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/nio/zipfs/ZipFileStore;)V", nullptr, 0, $method(ZipFileStore$ZipFileStoreAttributes, init$, void, $ZipFileStore*), "java.io.IOException"},
+	{"totalSpace", "()J", nullptr, 0, $virtualMethod(ZipFileStore$ZipFileStoreAttributes, totalSpace, int64_t)},
+	{"unallocatedSpace", "()J", nullptr, 0, $virtualMethod(ZipFileStore$ZipFileStoreAttributes, unallocatedSpace, int64_t), "java.io.IOException"},
+	{"usableSpace", "()J", nullptr, 0, $virtualMethod(ZipFileStore$ZipFileStoreAttributes, usableSpace, int64_t), "java.io.IOException"},
 	{}
 };
 

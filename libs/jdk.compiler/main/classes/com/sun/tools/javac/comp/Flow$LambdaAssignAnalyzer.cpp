@@ -46,11 +46,11 @@ $FieldInfo _Flow$LambdaAssignAnalyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$LambdaAssignAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(static_cast<void(Flow$LambdaAssignAnalyzer::*)($Flow*,$Env*)>(&Flow$LambdaAssignAnalyzer::init$))},
-	{"trackable", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Z", nullptr, $PROTECTED},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Flow$LambdaAssignAnalyzer, init$, void, $Flow*, $Env*)},
+	{"trackable", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Z", nullptr, $PROTECTED, $virtualMethod(Flow$LambdaAssignAnalyzer, trackable, bool, $Symbol$VarSymbol*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAssignAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAssignAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAssignAnalyzer, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

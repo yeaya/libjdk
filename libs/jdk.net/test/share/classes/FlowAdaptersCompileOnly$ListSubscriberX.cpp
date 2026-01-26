@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _FlowAdaptersCompileOnly$ListSubscriberX_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FlowAdaptersCompileOnly$ListSubscriberX::*)()>(&FlowAdaptersCompileOnly$ListSubscriberX::init$))},
-	{"getIntegerX", "()I", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(FlowAdaptersCompileOnly$ListSubscriberX, init$, void)},
+	{"getIntegerX", "()I", nullptr, 0, $virtualMethod(FlowAdaptersCompileOnly$ListSubscriberX, getIntegerX, int32_t)},
 	{}
 };
 

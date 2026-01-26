@@ -21,8 +21,8 @@ $FieldInfo _MultiAuthTest$ClientAuth_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiAuthTest$ClientAuth_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MultiAuthTest$ClientAuth::*)()>(&MultiAuthTest$ClientAuth::init$))},
-	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(MultiAuthTest$ClientAuth, init$, void)},
+	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PROTECTED, $virtualMethod(MultiAuthTest$ClientAuth, getPasswordAuthentication, $PasswordAuthentication*)},
 	{}
 };
 

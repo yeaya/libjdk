@@ -217,13 +217,13 @@ $FieldInfo _Flags_FieldInfo_[] = {
 };
 
 $MethodInfo _Flags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Flags::*)()>(&Flags::init$))},
-	{"asFlagSet", "(J)Ljava/util/EnumSet;", "(J)Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Flags$Flag;>;", $PUBLIC | $STATIC, $method(static_cast<$EnumSet*(*)(int64_t)>(&Flags::asFlagSet))},
-	{"asModifierSet", "(J)Ljava/util/Set;", "(J)Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)(int64_t)>(&Flags::asModifierSet))},
-	{"isConstant", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Symbol$VarSymbol*)>(&Flags::isConstant))},
-	{"isEnum", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Symbol*)>(&Flags::isEnum))},
-	{"isStatic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Symbol*)>(&Flags::isStatic))},
-	{"toString", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int64_t)>(&Flags::toString))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Flags, init$, void)},
+	{"asFlagSet", "(J)Ljava/util/EnumSet;", "(J)Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Flags$Flag;>;", $PUBLIC | $STATIC, $staticMethod(Flags, asFlagSet, $EnumSet*, int64_t)},
+	{"asModifierSet", "(J)Ljava/util/Set;", "(J)Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC | $STATIC, $staticMethod(Flags, asModifierSet, $Set*, int64_t)},
+	{"isConstant", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, isConstant, bool, $Symbol$VarSymbol*)},
+	{"isEnum", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, isEnum, bool, $Symbol*)},
+	{"isStatic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, isStatic, bool, $Symbol*)},
+	{"toString", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flags, toString, $String*, int64_t)},
 	{}
 };
 

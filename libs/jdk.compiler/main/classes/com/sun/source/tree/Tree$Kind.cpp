@@ -396,11 +396,11 @@ $FieldInfo _Tree$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _Tree$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/tree/Tree$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Tree$KindArray*(*)()>(&Tree$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/Class;)V", "(Ljava/lang/Class<+Lcom/sun/source/tree/Tree;>;)V", $PRIVATE, $method(static_cast<void(Tree$Kind::*)($String*,int32_t,$Class*)>(&Tree$Kind::init$))},
-	{"asInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Lcom/sun/source/tree/Tree;>;", $PUBLIC, $method(static_cast<$Class*(Tree$Kind::*)()>(&Tree$Kind::asInterface))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Tree$Kind*(*)($String*)>(&Tree$Kind::valueOf))},
-	{"values", "()[Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Tree$KindArray*(*)()>(&Tree$Kind::values))},
+	{"$values", "()[Lcom/sun/source/tree/Tree$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tree$Kind, $values, $Tree$KindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/Class;)V", "(Ljava/lang/Class<+Lcom/sun/source/tree/Tree;>;)V", $PRIVATE, $method(Tree$Kind, init$, void, $String*, int32_t, $Class*)},
+	{"asInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Lcom/sun/source/tree/Tree;>;", $PUBLIC, $method(Tree$Kind, asInterface, $Class*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tree$Kind, valueOf, Tree$Kind*, $String*)},
+	{"values", "()[Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tree$Kind, values, $Tree$KindArray*)},
 	{}
 };
 

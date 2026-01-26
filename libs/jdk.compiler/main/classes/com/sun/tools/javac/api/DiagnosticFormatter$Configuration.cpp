@@ -5,9 +5,11 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
+using $DiagnosticFormatter$Configuration$MultilineLimit = ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$MultilineLimit;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
@@ -16,10 +18,10 @@ namespace com {
 				namespace api {
 
 $MethodInfo _DiagnosticFormatter$Configuration_MethodInfo_[] = {
-	{"getMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getVisible", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;", $PUBLIC | $ABSTRACT},
-	{"setMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setVisible", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC | $ABSTRACT},
+	{"getMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter$Configuration, getMultilineLimit, int32_t, $DiagnosticFormatter$Configuration$MultilineLimit*)},
+	{"getVisible", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter$Configuration, getVisible, $Set*)},
+	{"setMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter$Configuration, setMultilineLimit, void, $DiagnosticFormatter$Configuration$MultilineLimit*, int32_t)},
+	{"setVisible", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(DiagnosticFormatter$Configuration, setVisible, void, $Set*)},
 	{}
 };
 

@@ -34,11 +34,11 @@ $MethodInfo _HotspotInternal_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HotspotInternal::*)()>(&HotspotInternal::init$))},
-	{"postDeregister", "()V", nullptr, $PUBLIC},
-	{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC},
-	{"preDeregister", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HotspotInternal, init$, void)},
+	{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, postDeregister, void)},
+	{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, postRegister, void, $Boolean*)},
+	{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, preDeregister, void), "java.lang.Exception"},
+	{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(HotspotInternal, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -32,7 +32,7 @@ $FieldInfo _XmlAttrStack$XmlsStackElement_FieldInfo_[] = {
 };
 
 $MethodInfo _XmlAttrStack$XmlsStackElement_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(XmlAttrStack$XmlsStackElement::*)()>(&XmlAttrStack$XmlsStackElement::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(XmlAttrStack$XmlsStackElement, init$, void)},
 	{}
 };
 

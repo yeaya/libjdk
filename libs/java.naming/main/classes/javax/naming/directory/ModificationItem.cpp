@@ -27,10 +27,10 @@ $FieldInfo _ModificationItem_FieldInfo_[] = {
 };
 
 $MethodInfo _ModificationItem_MethodInfo_[] = {
-	{"<init>", "(ILjavax/naming/directory/Attribute;)V", nullptr, $PUBLIC, $method(static_cast<void(ModificationItem::*)(int32_t,$Attribute*)>(&ModificationItem::init$))},
-	{"getAttribute", "()Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC},
-	{"getModificationOp", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILjavax/naming/directory/Attribute;)V", nullptr, $PUBLIC, $method(ModificationItem, init$, void, int32_t, $Attribute*)},
+	{"getAttribute", "()Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(ModificationItem, getAttribute, $Attribute*)},
+	{"getModificationOp", "()I", nullptr, $PUBLIC, $virtualMethod(ModificationItem, getModificationOp, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModificationItem, toString, $String*)},
 	{}
 };
 

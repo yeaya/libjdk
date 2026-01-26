@@ -32,8 +32,8 @@ $FieldInfo _DeferredAttr$DeferredType$SpeculativeCache$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$DeferredType$SpeculativeCache$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType$SpeculativeCache;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(DeferredAttr$DeferredType$SpeculativeCache$Entry::*)($DeferredAttr$DeferredType$SpeculativeCache*,$JCTree*,$Attr$ResultInfo*)>(&DeferredAttr$DeferredType$SpeculativeCache$Entry::init$))},
-	{"matches", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Z", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType$SpeculativeCache;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredType$SpeculativeCache$Entry, init$, void, $DeferredAttr$DeferredType$SpeculativeCache*, $JCTree*, $Attr$ResultInfo*)},
+	{"matches", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Z", nullptr, 0, $virtualMethod(DeferredAttr$DeferredType$SpeculativeCache$Entry, matches, bool, $Resolve$MethodResolutionPhase*)},
 	{}
 };
 

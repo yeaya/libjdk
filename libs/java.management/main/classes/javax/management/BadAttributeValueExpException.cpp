@@ -21,9 +21,9 @@ $FieldInfo _BadAttributeValueExpException_FieldInfo_[] = {
 };
 
 $MethodInfo _BadAttributeValueExpException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(BadAttributeValueExpException::*)(Object$*)>(&BadAttributeValueExpException::init$))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(BadAttributeValueExpException::*)($ObjectInputStream*)>(&BadAttributeValueExpException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BadAttributeValueExpException, init$, void, Object$*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(BadAttributeValueExpException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BadAttributeValueExpException, toString, $String*)},
 	{}
 };
 

@@ -86,8 +86,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ObjectTable$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjectTable$$Lambda$lambda$static$0::*)()>(&ObjectTable$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectTable$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectTable$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo ObjectTable$$Lambda$lambda$static$0::classInfo$ = {
@@ -118,18 +118,18 @@ $FieldInfo _ObjectTable_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ObjectTable::*)()>(&ObjectTable::init$))},
-	{"decrementKeepAliveCount", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ObjectTable::decrementKeepAliveCount))},
-	{"getStub", "(Ljava/rmi/Remote;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Remote*(*)($Remote*)>(&ObjectTable::getStub)), "java.rmi.NoSuchObjectException"},
-	{"getTarget", "(Lsun/rmi/transport/ObjectEndpoint;)Lsun/rmi/transport/Target;", nullptr, $STATIC, $method(static_cast<$Target*(*)($ObjectEndpoint*)>(&ObjectTable::getTarget))},
-	{"getTarget", "(Ljava/rmi/Remote;)Lsun/rmi/transport/Target;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Target*(*)($Remote*)>(&ObjectTable::getTarget))},
-	{"incrementKeepAliveCount", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ObjectTable::incrementKeepAliveCount))},
-	{"lambda$static$0", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)()>(&ObjectTable::lambda$static$0))},
-	{"putTarget", "(Lsun/rmi/transport/Target;)V", nullptr, $STATIC, $method(static_cast<void(*)($Target*)>(&ObjectTable::putTarget)), "java.rmi.server.ExportException"},
-	{"referenced", "(Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;)V", nullptr, $STATIC, $method(static_cast<void(*)($ObjID*,int64_t,$VMID*)>(&ObjectTable::referenced))},
-	{"removeTarget", "(Lsun/rmi/transport/Target;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Target*)>(&ObjectTable::removeTarget))},
-	{"unexportObject", "(Ljava/rmi/Remote;Z)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Remote*,bool)>(&ObjectTable::unexportObject)), "java.rmi.NoSuchObjectException"},
-	{"unreferenced", "(Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($ObjID*,int64_t,$VMID*,bool)>(&ObjectTable::unreferenced))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectTable, init$, void)},
+	{"decrementKeepAliveCount", "()V", nullptr, $STATIC, $staticMethod(ObjectTable, decrementKeepAliveCount, void)},
+	{"getStub", "(Ljava/rmi/Remote;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectTable, getStub, $Remote*, $Remote*), "java.rmi.NoSuchObjectException"},
+	{"getTarget", "(Lsun/rmi/transport/ObjectEndpoint;)Lsun/rmi/transport/Target;", nullptr, $STATIC, $staticMethod(ObjectTable, getTarget, $Target*, $ObjectEndpoint*)},
+	{"getTarget", "(Ljava/rmi/Remote;)Lsun/rmi/transport/Target;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectTable, getTarget, $Target*, $Remote*)},
+	{"incrementKeepAliveCount", "()V", nullptr, $STATIC, $staticMethod(ObjectTable, incrementKeepAliveCount, void)},
+	{"lambda$static$0", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectTable, lambda$static$0, $Long*)},
+	{"putTarget", "(Lsun/rmi/transport/Target;)V", nullptr, $STATIC, $staticMethod(ObjectTable, putTarget, void, $Target*), "java.rmi.server.ExportException"},
+	{"referenced", "(Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;)V", nullptr, $STATIC, $staticMethod(ObjectTable, referenced, void, $ObjID*, int64_t, $VMID*)},
+	{"removeTarget", "(Lsun/rmi/transport/Target;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectTable, removeTarget, void, $Target*)},
+	{"unexportObject", "(Ljava/rmi/Remote;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectTable, unexportObject, bool, $Remote*, bool), "java.rmi.NoSuchObjectException"},
+	{"unreferenced", "(Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $STATIC, $staticMethod(ObjectTable, unreferenced, void, $ObjID*, int64_t, $VMID*, bool)},
 	{}
 };
 

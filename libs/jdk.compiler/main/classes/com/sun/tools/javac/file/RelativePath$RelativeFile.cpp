@@ -26,15 +26,15 @@ namespace com {
 				namespace file {
 
 $MethodInfo _RelativePath$RelativeFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RelativePath$RelativeFile::*)($String*)>(&RelativePath$RelativeFile::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RelativePath$RelativeFile::*)($RelativePath$RelativeDirectory*,$String*)>(&RelativePath$RelativeFile::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Lcom/sun/tools/javac/file/RelativePath;)V", nullptr, 0, $method(static_cast<void(RelativePath$RelativeFile::*)($RelativePath$RelativeDirectory*,$RelativePath*)>(&RelativePath$RelativeFile::init$))},
-	{"basename", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"dirname", "()Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $PUBLIC},
-	{"forClass", "(Ljava/lang/CharSequence;Ljavax/tools/JavaFileObject$Kind;)Lcom/sun/tools/javac/file/RelativePath$RelativeFile;", nullptr, $STATIC, $method(static_cast<RelativePath$RelativeFile*(*)($CharSequence*,$JavaFileObject$Kind*)>(&RelativePath$RelativeFile::forClass))},
-	{"getZipEntry", "(Ljava/util/zip/ZipFile;)Ljava/util/zip/ZipEntry;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelativePath$RelativeFile, init$, void, $String*)},
+	{"<init>", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelativePath$RelativeFile, init$, void, $RelativePath$RelativeDirectory*, $String*)},
+	{"<init>", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Lcom/sun/tools/javac/file/RelativePath;)V", nullptr, 0, $method(RelativePath$RelativeFile, init$, void, $RelativePath$RelativeDirectory*, $RelativePath*)},
+	{"basename", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeFile, basename, $String*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RelativePath$RelativeFile, compareTo, int32_t, Object$*)},
+	{"dirname", "()Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeFile, dirname, $RelativePath$RelativeDirectory*)},
+	{"forClass", "(Ljava/lang/CharSequence;Ljavax/tools/JavaFileObject$Kind;)Lcom/sun/tools/javac/file/RelativePath$RelativeFile;", nullptr, $STATIC, $staticMethod(RelativePath$RelativeFile, forClass, RelativePath$RelativeFile*, $CharSequence*, $JavaFileObject$Kind*)},
+	{"getZipEntry", "(Ljava/util/zip/ZipFile;)Ljava/util/zip/ZipEntry;", nullptr, 0, $virtualMethod(RelativePath$RelativeFile, getZipEntry, $ZipEntry*, $ZipFile*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeFile, toString, $String*)},
 	{}
 };
 

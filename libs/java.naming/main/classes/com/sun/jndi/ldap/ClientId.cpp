@@ -53,15 +53,15 @@ $FieldInfo _ClientId_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientId_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ClientId::*)(int32_t,$String*,int32_t,$String*,$ControlArray*,$OutputStream*,$String*)>(&ClientId::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"equalsControls", "([Ljavax/naming/ldap/Control;[Ljavax/naming/ldap/Control;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ControlArray*,$ControlArray*)>(&ClientId::equalsControls))},
-	{"equalsSockFactory", "(Lcom/sun/jndi/ldap/ClientId;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ClientId::*)(ClientId*)>(&ClientId::equalsSockFactory))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"hashCodeControls", "([Ljavax/naming/ldap/Control;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($ControlArray*)>(&ClientId::hashCodeControls))},
-	{"invokeComparator", "(Lcom/sun/jndi/ldap/ClientId;Lcom/sun/jndi/ldap/ClientId;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ClientId::*)(ClientId*,ClientId*)>(&ClientId::invokeComparator))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toStringControls", "([Ljavax/naming/ldap/Control;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($ControlArray*)>(&ClientId::toStringControls))},
+	{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, 0, $method(ClientId, init$, void, int32_t, $String*, int32_t, $String*, $ControlArray*, $OutputStream*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ClientId, equals, bool, Object$*)},
+	{"equalsControls", "([Ljavax/naming/ldap/Control;[Ljavax/naming/ldap/Control;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ClientId, equalsControls, bool, $ControlArray*, $ControlArray*)},
+	{"equalsSockFactory", "(Lcom/sun/jndi/ldap/ClientId;)Z", nullptr, $PRIVATE, $method(ClientId, equalsSockFactory, bool, ClientId*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ClientId, hashCode, int32_t)},
+	{"hashCodeControls", "([Ljavax/naming/ldap/Control;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ClientId, hashCodeControls, int32_t, $ControlArray*)},
+	{"invokeComparator", "(Lcom/sun/jndi/ldap/ClientId;Lcom/sun/jndi/ldap/ClientId;)Z", nullptr, $PRIVATE, $method(ClientId, invokeComparator, bool, ClientId*, ClientId*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientId, toString, $String*)},
+	{"toStringControls", "([Ljavax/naming/ldap/Control;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ClientId, toStringControls, $String*, $ControlArray*)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _MappedMXBeanType$CompositeDataMXBeanType$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MappedMXBeanType$CompositeDataMXBeanType$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/MappedMXBeanType$CompositeDataMXBeanType;)V", nullptr, 0, $method(static_cast<void(MappedMXBeanType$CompositeDataMXBeanType$1::*)($MappedMXBeanType$CompositeDataMXBeanType*)>(&MappedMXBeanType$CompositeDataMXBeanType$1::init$))},
-	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, nullptr, "java.lang.NoSuchMethodException"},
+	{"<init>", "(Lsun/management/MappedMXBeanType$CompositeDataMXBeanType;)V", nullptr, 0, $method(MappedMXBeanType$CompositeDataMXBeanType$1, init$, void, $MappedMXBeanType$CompositeDataMXBeanType*)},
+	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$CompositeDataMXBeanType$1, run, $Object*), "java.lang.NoSuchMethodException"},
 	{}
 };
 

@@ -100,8 +100,8 @@ $FieldInfo Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForMo
 	{}
 };
 $MethodInfo Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations$ModulePathLocationHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$0::*)(Locations$ModulePathLocationHandler*)>(&Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$0::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/Locations$ModulePathLocationHandler;)V", nullptr, $PUBLIC, $method(Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$0, init$, void, Locations$ModulePathLocationHandler*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$0, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$0::classInfo$ = {
@@ -143,8 +143,8 @@ $FieldInfo Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForMo
 	{}
 };
 $MethodInfo Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Iterable;Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(static_cast<void(Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$1$1::*)($Iterable*,$Iterable*)>(&Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$1$1::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Iterable;Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$1$1, init$, void, $Iterable*, $Iterable*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$1$1, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo Locations$ModulePathLocationHandler$$Lambda$lambda$listLocationsForModules$1$1::classInfo$ = {
@@ -176,8 +176,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Locations$ModulePathLocationHandler$$Lambda$iterator$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Locations$ModulePathLocationHandler$$Lambda$iterator$2::*)()>(&Locations$ModulePathLocationHandler$$Lambda$iterator$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Locations$ModulePathLocationHandler$$Lambda$iterator$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locations$ModulePathLocationHandler$$Lambda$iterator$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Locations$ModulePathLocationHandler$$Lambda$iterator$2::classInfo$ = {
@@ -201,20 +201,20 @@ $FieldInfo _Locations$ModulePathLocationHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Locations$ModulePathLocationHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations;Ljavax/tools/JavaFileManager$Location;[Lcom/sun/tools/javac/main/Option;)V", nullptr, $TRANSIENT, $method(static_cast<void(Locations$ModulePathLocationHandler::*)($Locations*,$JavaFileManager$Location*,$OptionArray*)>(&Locations$ModulePathLocationHandler::init$))},
-	{"checkPaths", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/util/List<Ljava/nio/file/Path;>;", $PRIVATE, $method(static_cast<$List*(Locations$ModulePathLocationHandler::*)($Iterable*)>(&Locations$ModulePathLocationHandler::checkPaths)), "java.io.IOException"},
-	{"checkValidModulePathEntry", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(static_cast<void(Locations$ModulePathLocationHandler::*)($Path*)>(&Locations$ModulePathLocationHandler::checkValidModulePathEntry))},
-	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getLocationForModule", "(Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC},
-	{"getLocationForModule", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC},
-	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"initModuleLocations", "()V", nullptr, $PRIVATE, $method(static_cast<void(Locations$ModulePathLocationHandler::*)()>(&Locations$ModulePathLocationHandler::initModuleLocations))},
-	{"isModuleName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Locations$ModulePathLocationHandler::*)($String*)>(&Locations$ModulePathLocationHandler::isModuleName))},
-	{"lambda$listLocationsForModules$0", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterator*(Locations$ModulePathLocationHandler::*)()>(&Locations$ModulePathLocationHandler::lambda$listLocationsForModules$0))},
-	{"lambda$listLocationsForModules$1", "(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Iterator*(*)($Iterable*,$Iterable*)>(&Locations$ModulePathLocationHandler::lambda$listLocationsForModules$1))},
-	{"listLocationsForModules", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", 0},
-	{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0},
-	{"setPathsForModule", "(Ljava/lang/String;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/file/Locations;Ljavax/tools/JavaFileManager$Location;[Lcom/sun/tools/javac/main/Option;)V", nullptr, $TRANSIENT, $method(Locations$ModulePathLocationHandler, init$, void, $Locations*, $JavaFileManager$Location*, $OptionArray*)},
+	{"checkPaths", "(Ljava/lang/Iterable;)Ljava/util/List;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/util/List<Ljava/nio/file/Path;>;", $PRIVATE, $method(Locations$ModulePathLocationHandler, checkPaths, $List*, $Iterable*), "java.io.IOException"},
+	{"checkValidModulePathEntry", "(Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(Locations$ModulePathLocationHandler, checkValidModulePathEntry, void, $Path*)},
+	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, $virtualMethod(Locations$ModulePathLocationHandler, contains, bool, $Path*), "java.io.IOException"},
+	{"getLocationForModule", "(Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(Locations$ModulePathLocationHandler, getLocationForModule, $JavaFileManager$Location*, $String*)},
+	{"getLocationForModule", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(Locations$ModulePathLocationHandler, getLocationForModule, $JavaFileManager$Location*, $Path*)},
+	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Locations$ModulePathLocationHandler, handleOption, bool, $Option*, $String*)},
+	{"initModuleLocations", "()V", nullptr, $PRIVATE, $method(Locations$ModulePathLocationHandler, initModuleLocations, void)},
+	{"isModuleName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Locations$ModulePathLocationHandler, isModuleName, bool, $String*)},
+	{"lambda$listLocationsForModules$0", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Locations$ModulePathLocationHandler, lambda$listLocationsForModules$0, $Iterator*)},
+	{"lambda$listLocationsForModules$1", "(Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locations$ModulePathLocationHandler, lambda$listLocationsForModules$1, $Iterator*, $Iterable*, $Iterable*)},
+	{"listLocationsForModules", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", 0, $virtualMethod(Locations$ModulePathLocationHandler, listLocationsForModules, $Iterable*)},
+	{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$ModulePathLocationHandler, setPaths, void, $Iterable*)},
+	{"setPathsForModule", "(Ljava/lang/String;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$ModulePathLocationHandler, setPathsForModule, void, $String*, $Iterable*), "java.io.IOException"},
 	{}
 };
 

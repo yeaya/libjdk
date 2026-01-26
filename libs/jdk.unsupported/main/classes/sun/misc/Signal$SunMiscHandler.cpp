@@ -30,10 +30,10 @@ $FieldInfo _Signal$SunMiscHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Signal$SunMiscHandler_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/misc/Signal;Ljdk/internal/misc/Signal$Handler;)V", nullptr, 0, $method(static_cast<void(Signal$SunMiscHandler::*)($Signal*,$Signal$Handler*)>(&Signal$SunMiscHandler::init$))},
-	{"handle", "(Lsun/misc/Signal;)V", nullptr, $PUBLIC},
-	{"of", "(Ljdk/internal/misc/Signal;Ljdk/internal/misc/Signal$Handler;)Lsun/misc/SignalHandler;", nullptr, $STATIC, $method(static_cast<$SignalHandler*(*)($Signal*,$Signal$Handler*)>(&Signal$SunMiscHandler::of))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/misc/Signal;Ljdk/internal/misc/Signal$Handler;)V", nullptr, 0, $method(Signal$SunMiscHandler, init$, void, $Signal*, $Signal$Handler*)},
+	{"handle", "(Lsun/misc/Signal;)V", nullptr, $PUBLIC, $virtualMethod(Signal$SunMiscHandler, handle, void, $1Signal*)},
+	{"of", "(Ljdk/internal/misc/Signal;Ljdk/internal/misc/Signal$Handler;)Lsun/misc/SignalHandler;", nullptr, $STATIC, $staticMethod(Signal$SunMiscHandler, of, $SignalHandler*, $Signal*, $Signal$Handler*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signal$SunMiscHandler, toString, $String*)},
 	{}
 };
 

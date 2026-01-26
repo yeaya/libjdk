@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Registry = ::java::rmi::registry::Registry;
 
 namespace java {
 	namespace rmi {
@@ -27,8 +28,8 @@ $CompoundAttribute _RegistryHandler_MethodAnnotations_registryStub1[] = {
 };
 
 $MethodInfo _RegistryHandler_MethodInfo_[] = {
-	{"registryImpl", "(I)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.rmi.RemoteException", nullptr, _RegistryHandler_MethodAnnotations_registryImpl0},
-	{"registryStub", "(Ljava/lang/String;I)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.rmi.RemoteException,java.rmi.UnknownHostException", nullptr, _RegistryHandler_MethodAnnotations_registryStub1},
+	{"registryImpl", "(I)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RegistryHandler, registryImpl, $Registry*, int32_t), "java.rmi.RemoteException", nullptr, _RegistryHandler_MethodAnnotations_registryImpl0},
+	{"registryStub", "(Ljava/lang/String;I)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RegistryHandler, registryStub, $Registry*, $String*, int32_t), "java.rmi.RemoteException,java.rmi.UnknownHostException", nullptr, _RegistryHandler_MethodAnnotations_registryStub1},
 	{}
 };
 

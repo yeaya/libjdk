@@ -25,8 +25,8 @@ $FieldInfo _FlowTube$AbstractTubePublisher$TubePublisherWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _FlowTube$AbstractTubePublisher$TubePublisherWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Publisher;)V", "(Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $method(static_cast<void(FlowTube$AbstractTubePublisher$TubePublisherWrapper::*)($Flow$Publisher*)>(&FlowTube$AbstractTubePublisher$TubePublisherWrapper::init$))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Flow$Publisher;)V", "(Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $method(FlowTube$AbstractTubePublisher$TubePublisherWrapper, init$, void, $Flow$Publisher*)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $virtualMethod(FlowTube$AbstractTubePublisher$TubePublisherWrapper, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

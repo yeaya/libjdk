@@ -18,8 +18,8 @@ namespace com {
 				namespace jvm {
 
 $MethodInfo _Profile$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Profile$1::*)($String*,int32_t)>(&Profile$1::init$))},
-	{"isValid", "(Lcom/sun/tools/javac/jvm/Target;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Profile$1, init$, void, $String*, int32_t)},
+	{"isValid", "(Lcom/sun/tools/javac/jvm/Target;)Z", nullptr, $PUBLIC, $virtualMethod(Profile$1, isValid, bool, $Target*)},
 	{}
 };
 

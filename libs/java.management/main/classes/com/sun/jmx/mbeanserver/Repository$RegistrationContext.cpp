@@ -13,8 +13,8 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _Repository$RegistrationContext_MethodInfo_[] = {
-	{"registering", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"unregistered", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"registering", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Repository$RegistrationContext, registering, void)},
+	{"unregistered", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Repository$RegistrationContext, unregistered, void)},
 	{}
 };
 

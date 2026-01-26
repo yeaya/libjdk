@@ -5,14 +5,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $NodeChangeEvent = ::java::util::prefs::NodeChangeEvent;
 
 namespace java {
 	namespace util {
 		namespace prefs {
 
 $MethodInfo _NodeChangeListener_MethodInfo_[] = {
-	{"childAdded", "(Ljava/util/prefs/NodeChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"childRemoved", "(Ljava/util/prefs/NodeChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"childAdded", "(Ljava/util/prefs/NodeChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeChangeListener, childAdded, void, $NodeChangeEvent*)},
+	{"childRemoved", "(Ljava/util/prefs/NodeChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeChangeListener, childRemoved, void, $NodeChangeEvent*)},
 	{}
 };
 

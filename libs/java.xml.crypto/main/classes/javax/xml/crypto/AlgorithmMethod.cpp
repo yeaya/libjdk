@@ -5,14 +5,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 
 namespace javax {
 	namespace xml {
 		namespace crypto {
 
 $MethodInfo _AlgorithmMethod_MethodInfo_[] = {
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmMethod, getAlgorithm, $String*)},
+	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AlgorithmMethod, getParameterSpec, $AlgorithmParameterSpec*)},
 	{}
 };
 

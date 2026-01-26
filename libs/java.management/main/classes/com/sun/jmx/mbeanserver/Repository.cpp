@@ -92,22 +92,22 @@ $FieldInfo _Repository_FieldInfo_[] = {
 };
 
 $MethodInfo _Repository_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Repository::*)($String*)>(&Repository::init$))},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Repository::*)($String*,bool)>(&Repository::init$))},
-	{"addAllMatching", "(Ljava/util/Map;Ljava/util/Set;Lcom/sun/jmx/mbeanserver/Repository$ObjectNamePattern;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/jmx/mbeanserver/NamedObject;>;Ljava/util/Set<Lcom/sun/jmx/mbeanserver/NamedObject;>;Lcom/sun/jmx/mbeanserver/Repository$ObjectNamePattern;)V", $PRIVATE, $method(static_cast<void(Repository::*)($Map*,$Set*,$Repository$ObjectNamePattern*)>(&Repository::addAllMatching))},
-	{"addMBean", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PUBLIC, nullptr, "javax.management.InstanceAlreadyExistsException"},
-	{"addMoiToTb", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/Map;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Lcom/sun/jmx/mbeanserver/NamedObject;>;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", $PRIVATE, $method(static_cast<void(Repository::*)($DynamicMBean*,$ObjectName*,$String*,$Map*,$Repository$RegistrationContext*)>(&Repository::addMoiToTb))},
-	{"addNewDomMoi", "(Ljavax/management/DynamicMBean;Ljava/lang/String;Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PRIVATE, $method(static_cast<void(Repository::*)($DynamicMBean*,$String*,$ObjectName*,$Repository$RegistrationContext*)>(&Repository::addNewDomMoi))},
-	{"contains", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC},
-	{"getCount", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
-	{"getDefaultDomain", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDomains", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"query", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set;", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set<Lcom/sun/jmx/mbeanserver/NamedObject;>;", $PUBLIC},
-	{"registering", "(Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PRIVATE, $method(static_cast<void(Repository::*)($Repository$RegistrationContext*)>(&Repository::registering))},
-	{"remove", "(Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PUBLIC, nullptr, "javax.management.InstanceNotFoundException"},
-	{"retrieve", "(Ljavax/management/ObjectName;)Ljavax/management/DynamicMBean;", nullptr, $PUBLIC},
-	{"retrieveNamedObject", "(Ljavax/management/ObjectName;)Lcom/sun/jmx/mbeanserver/NamedObject;", nullptr, $PRIVATE, $method(static_cast<$NamedObject*(Repository::*)($ObjectName*)>(&Repository::retrieveNamedObject))},
-	{"unregistering", "(Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;Ljavax/management/ObjectName;)V", nullptr, $PRIVATE, $method(static_cast<void(Repository::*)($Repository$RegistrationContext*,$ObjectName*)>(&Repository::unregistering))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Repository, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Repository, init$, void, $String*, bool)},
+	{"addAllMatching", "(Ljava/util/Map;Ljava/util/Set;Lcom/sun/jmx/mbeanserver/Repository$ObjectNamePattern;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/jmx/mbeanserver/NamedObject;>;Ljava/util/Set<Lcom/sun/jmx/mbeanserver/NamedObject;>;Lcom/sun/jmx/mbeanserver/Repository$ObjectNamePattern;)V", $PRIVATE, $method(Repository, addAllMatching, void, $Map*, $Set*, $Repository$ObjectNamePattern*)},
+	{"addMBean", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PUBLIC, $virtualMethod(Repository, addMBean, void, $DynamicMBean*, $ObjectName*, $Repository$RegistrationContext*), "javax.management.InstanceAlreadyExistsException"},
+	{"addMoiToTb", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/Map;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Lcom/sun/jmx/mbeanserver/NamedObject;>;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", $PRIVATE, $method(Repository, addMoiToTb, void, $DynamicMBean*, $ObjectName*, $String*, $Map*, $Repository$RegistrationContext*)},
+	{"addNewDomMoi", "(Ljavax/management/DynamicMBean;Ljava/lang/String;Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PRIVATE, $method(Repository, addNewDomMoi, void, $DynamicMBean*, $String*, $ObjectName*, $Repository$RegistrationContext*)},
+	{"contains", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(Repository, contains, bool, $ObjectName*)},
+	{"getCount", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Repository, getCount, $Integer*)},
+	{"getDefaultDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Repository, getDefaultDomain, $String*)},
+	{"getDomains", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Repository, getDomains, $StringArray*)},
+	{"query", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set;", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set<Lcom/sun/jmx/mbeanserver/NamedObject;>;", $PUBLIC, $virtualMethod(Repository, query, $Set*, $ObjectName*, $QueryExp*)},
+	{"registering", "(Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PRIVATE, $method(Repository, registering, void, $Repository$RegistrationContext*)},
+	{"remove", "(Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PUBLIC, $virtualMethod(Repository, remove, void, $ObjectName*, $Repository$RegistrationContext*), "javax.management.InstanceNotFoundException"},
+	{"retrieve", "(Ljavax/management/ObjectName;)Ljavax/management/DynamicMBean;", nullptr, $PUBLIC, $virtualMethod(Repository, retrieve, $DynamicMBean*, $ObjectName*)},
+	{"retrieveNamedObject", "(Ljavax/management/ObjectName;)Lcom/sun/jmx/mbeanserver/NamedObject;", nullptr, $PRIVATE, $method(Repository, retrieveNamedObject, $NamedObject*, $ObjectName*)},
+	{"unregistering", "(Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;Ljavax/management/ObjectName;)V", nullptr, $PRIVATE, $method(Repository, unregistering, void, $Repository$RegistrationContext*, $ObjectName*)},
 	{}
 };
 

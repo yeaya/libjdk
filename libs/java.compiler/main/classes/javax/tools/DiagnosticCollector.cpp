@@ -27,9 +27,9 @@ $FieldInfo _DiagnosticCollector_FieldInfo_[] = {
 };
 
 $MethodInfo _DiagnosticCollector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DiagnosticCollector::*)()>(&DiagnosticCollector::init$))},
-	{"getDiagnostics", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/tools/Diagnostic<+TS;>;>;", $PUBLIC, $method(static_cast<$List*(DiagnosticCollector::*)()>(&DiagnosticCollector::getDiagnostics))},
-	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TS;>;)V", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DiagnosticCollector, init$, void)},
+	{"getDiagnostics", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/tools/Diagnostic<+TS;>;>;", $PUBLIC, $method(DiagnosticCollector, getDiagnostics, $List*)},
+	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TS;>;)V", $PUBLIC, $virtualMethod(DiagnosticCollector, report, void, $Diagnostic*)},
 	{}
 };
 

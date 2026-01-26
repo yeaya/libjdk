@@ -65,10 +65,10 @@ $FieldInfo _KDCReqBody_FieldInfo_[] = {
 };
 
 $MethodInfo _KDCReqBody_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;I[ILsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/EncryptedData;[Lsun/security/krb5/internal/Ticket;)V", nullptr, $PUBLIC, $method(static_cast<void(KDCReqBody::*)($KDCOptions*,$PrincipalName*,$PrincipalName*,$KerberosTime*,$KerberosTime*,$KerberosTime*,int32_t,$ints*,$HostAddresses*,$EncryptedData*,$TicketArray*)>(&KDCReqBody::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(static_cast<void(KDCReqBody::*)($DerValue*,int32_t)>(&KDCReqBody::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.KrbException,java.io.IOException"},
-	{"asn1Encode", "(I)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"getNonce", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;I[ILsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/EncryptedData;[Lsun/security/krb5/internal/Ticket;)V", nullptr, $PUBLIC, $method(KDCReqBody, init$, void, $KDCOptions*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, int32_t, $ints*, $HostAddresses*, $EncryptedData*, $TicketArray*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(KDCReqBody, init$, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.KrbException,java.io.IOException"},
+	{"asn1Encode", "(I)[B", nullptr, $PUBLIC, $virtualMethod(KDCReqBody, asn1Encode, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"getNonce", "()I", nullptr, $PUBLIC, $virtualMethod(KDCReqBody, getNonce, int32_t)},
 	{}
 };
 

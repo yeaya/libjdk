@@ -17,7 +17,7 @@ $FieldInfo _HttpError_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpError::*)($String*)>(&HttpError::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpError, init$, void, $String*)},
 	{}
 };
 

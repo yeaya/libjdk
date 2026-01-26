@@ -33,15 +33,15 @@ $FieldInfo _Provider_FieldInfo_[] = {
 };
 
 $MethodInfo _Provider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Provider::*)()>(&Provider::init$))},
-	{"access$000", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(Provider*,$Provider$Service*)>(&Provider::access$000))},
-	{"access$100", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(Provider*,$Provider$Service*)>(&Provider::access$100))},
-	{"access$200", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(Provider*,$Provider$Service*)>(&Provider::access$200))},
-	{"access$300", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(Provider*,$Provider$Service*)>(&Provider::access$300))},
-	{"access$400", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(Provider*,$Provider$Service*)>(&Provider::access$400))},
-	{"access$500", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(Provider*,$Provider$Service*)>(&Provider::access$500))},
-	{"access$600", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(Provider*,$Provider$Service*)>(&Provider::access$600))},
-	{"access$700", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(Provider*,$Provider$Service*)>(&Provider::access$700))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Provider, init$, void)},
+	{"access$000", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$000, void, Provider*, $Provider$Service*)},
+	{"access$100", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$100, void, Provider*, $Provider$Service*)},
+	{"access$200", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$200, void, Provider*, $Provider$Service*)},
+	{"access$300", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$300, void, Provider*, $Provider$Service*)},
+	{"access$400", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$400, void, Provider*, $Provider$Service*)},
+	{"access$500", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$500, void, Provider*, $Provider$Service*)},
+	{"access$600", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$600, void, Provider*, $Provider$Service*)},
+	{"access$700", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$700, void, Provider*, $Provider$Service*)},
 	{}
 };
 

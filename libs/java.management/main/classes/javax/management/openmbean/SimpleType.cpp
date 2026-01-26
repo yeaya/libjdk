@@ -77,12 +77,12 @@ $FieldInfo _SimpleType_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;)V", $PRIVATE, $method(static_cast<void(SimpleType::*)($Class*)>(&SimpleType::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(static_cast<$Object*(SimpleType::*)()>(&SimpleType::readResolve)), "java.io.ObjectStreamException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<TT;>;)V", $PRIVATE, $method(SimpleType, init$, void, $Class*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleType, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleType, hashCode, int32_t)},
+	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleType, isValue, bool, Object$*)},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(SimpleType, readResolve, $Object*), "java.io.ObjectStreamException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleType, toString, $String*)},
 	{}
 };
 

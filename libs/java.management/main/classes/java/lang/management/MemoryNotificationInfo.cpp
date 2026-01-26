@@ -30,12 +30,12 @@ $FieldInfo _MemoryNotificationInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _MemoryNotificationInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/management/MemoryUsage;J)V", nullptr, $PUBLIC, $method(static_cast<void(MemoryNotificationInfo::*)($String*,$MemoryUsage*,int64_t)>(&MemoryNotificationInfo::init$))},
-	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, 0, $method(static_cast<void(MemoryNotificationInfo::*)($CompositeData*)>(&MemoryNotificationInfo::init$))},
-	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MemoryNotificationInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MemoryNotificationInfo*(*)($CompositeData*)>(&MemoryNotificationInfo::from))},
-	{"getCount", "()J", nullptr, $PUBLIC},
-	{"getPoolName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/management/MemoryUsage;J)V", nullptr, $PUBLIC, $method(MemoryNotificationInfo, init$, void, $String*, $MemoryUsage*, int64_t)},
+	{"<init>", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, 0, $method(MemoryNotificationInfo, init$, void, $CompositeData*)},
+	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MemoryNotificationInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryNotificationInfo, from, MemoryNotificationInfo*, $CompositeData*)},
+	{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryNotificationInfo, getCount, int64_t)},
+	{"getPoolName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryNotificationInfo, getPoolName, $String*)},
+	{"getUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC, $virtualMethod(MemoryNotificationInfo, getUsage, $MemoryUsage*)},
 	{}
 };
 

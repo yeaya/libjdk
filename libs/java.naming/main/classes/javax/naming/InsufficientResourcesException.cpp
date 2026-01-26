@@ -17,8 +17,8 @@ $FieldInfo _InsufficientResourcesException_FieldInfo_[] = {
 };
 
 $MethodInfo _InsufficientResourcesException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InsufficientResourcesException::*)($String*)>(&InsufficientResourcesException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InsufficientResourcesException::*)()>(&InsufficientResourcesException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InsufficientResourcesException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InsufficientResourcesException, init$, void)},
 	{}
 };
 

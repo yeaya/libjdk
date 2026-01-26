@@ -26,10 +26,10 @@ namespace com {
 							namespace utils {
 
 $MethodInfo _SignatureElementProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SignatureElementProxy::*)()>(&SignatureElementProxy::init$))},
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureElementProxy::*)($Document*)>(&SignatureElementProxy::init$))},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureElementProxy::*)($Element*,$String*)>(&SignatureElementProxy::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SignatureElementProxy, init$, void)},
+	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(SignatureElementProxy, init$, void, $Document*)},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureElementProxy, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureElementProxy, getBaseNamespace, $String*)},
 	{}
 };
 

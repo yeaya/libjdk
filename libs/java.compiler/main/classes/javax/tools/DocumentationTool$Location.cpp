@@ -29,17 +29,17 @@ $FieldInfo _DocumentationTool$Location_FieldInfo_[] = {
 };
 
 $MethodInfo _DocumentationTool$Location_MethodInfo_[] = {
-	{"$values", "()[Ljavax/tools/DocumentationTool$Location;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DocumentationTool$LocationArray*(*)()>(&DocumentationTool$Location::$values))},
+	{"$values", "()[Ljavax/tools/DocumentationTool$Location;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocumentationTool$Location, $values, $DocumentationTool$LocationArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DocumentationTool$Location::*)($String*,int32_t)>(&DocumentationTool$Location::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isOutputLocation", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocumentationTool$Location, init$, void, $String*, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentationTool$Location, getName, $String*)},
+	{"isOutputLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(DocumentationTool$Location, isOutputLocation, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/tools/DocumentationTool$Location;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DocumentationTool$Location*(*)($String*)>(&DocumentationTool$Location::valueOf))},
-	{"values", "()[Ljavax/tools/DocumentationTool$Location;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DocumentationTool$LocationArray*(*)()>(&DocumentationTool$Location::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/tools/DocumentationTool$Location;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocumentationTool$Location, valueOf, DocumentationTool$Location*, $String*)},
+	{"values", "()[Ljavax/tools/DocumentationTool$Location;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocumentationTool$Location, values, $DocumentationTool$LocationArray*)},
 	{}
 };
 

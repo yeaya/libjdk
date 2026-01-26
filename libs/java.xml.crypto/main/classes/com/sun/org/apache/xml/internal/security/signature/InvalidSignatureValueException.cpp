@@ -35,13 +35,13 @@ $FieldInfo _InvalidSignatureValueException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidSignatureValueException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidSignatureValueException::*)()>(&InvalidSignatureValueException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidSignatureValueException::*)($String*)>(&InvalidSignatureValueException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidSignatureValueException::*)($String*,$ObjectArray*)>(&InvalidSignatureValueException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidSignatureValueException::*)($Exception*,$String*)>(&InvalidSignatureValueException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(InvalidSignatureValueException::*)($String*,$Exception*)>(&InvalidSignatureValueException::init$)), nullptr, nullptr, _InvalidSignatureValueException_MethodAnnotations_init$4},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidSignatureValueException::*)($Exception*,$String*,$ObjectArray*)>(&InvalidSignatureValueException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(InvalidSignatureValueException::*)($String*,$ObjectArray*,$Exception*)>(&InvalidSignatureValueException::init$)), nullptr, nullptr, _InvalidSignatureValueException_MethodAnnotations_init$6},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $Exception*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(InvalidSignatureValueException, init$, void, $String*, $Exception*), nullptr, nullptr, _InvalidSignatureValueException_MethodAnnotations_init$4},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidSignatureValueException, init$, void, $Exception*, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(InvalidSignatureValueException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _InvalidSignatureValueException_MethodAnnotations_init$6},
 	{}
 };
 

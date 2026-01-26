@@ -21,9 +21,9 @@ $FieldInfo _SimpleHeaderTable$HeaderField_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleHeaderTable$HeaderField_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable$HeaderField::*)($String*)>(&SimpleHeaderTable$HeaderField::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable$HeaderField::*)($String*,$String*)>(&SimpleHeaderTable$HeaderField::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$HeaderField, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$HeaderField, init$, void, $String*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable$HeaderField, toString, $String*)},
 	{}
 };
 

@@ -27,10 +27,10 @@ $FieldInfo _TypeMetadata$Entry$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeMetadata$Entry$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TypeMetadata$Entry$KindArray*(*)()>(&TypeMetadata$Entry$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(TypeMetadata$Entry$Kind::*)($String*,int32_t)>(&TypeMetadata$Entry$Kind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeMetadata$Entry$Kind*(*)($String*)>(&TypeMetadata$Entry$Kind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TypeMetadata$Entry$KindArray*(*)()>(&TypeMetadata$Entry$Kind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeMetadata$Entry$Kind, $values, $TypeMetadata$Entry$KindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeMetadata$Entry$Kind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeMetadata$Entry$Kind, valueOf, TypeMetadata$Entry$Kind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeMetadata$Entry$Kind, values, $TypeMetadata$Entry$KindArray*)},
 	{}
 };
 

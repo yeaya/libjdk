@@ -14,7 +14,7 @@ namespace jdk {
 				namespace hpack {
 
 $MethodInfo _LiteralNeverIndexedWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LiteralNeverIndexedWriter::*)()>(&LiteralNeverIndexedWriter::init$))},
+	{"<init>", "()V", nullptr, 0, $method(LiteralNeverIndexedWriter, init$, void)},
 	{}
 };
 

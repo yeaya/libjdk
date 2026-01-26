@@ -133,8 +133,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Util$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Util$$Lambda$lambda$static$0::*)()>(&Util$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Util$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Util$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo Util$$Lambda$lambda$static$0::classInfo$ = {
@@ -166,8 +166,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Util$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Util$$Lambda$lambda$static$1$1::*)()>(&Util$$Lambda$lambda$static$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Util$$Lambda$lambda$static$1$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Util$$Lambda$lambda$static$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo Util$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -194,21 +194,21 @@ $FieldInfo _Util_FieldInfo_[] = {
 };
 
 $MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Util::*)()>(&Util::init$))},
-	{"checkMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Method*)>(&Util::checkMethod))},
-	{"computeMethodHash", "(Ljava/lang/reflect/Method;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($Method*)>(&Util::computeMethodHash))},
-	{"createProxy", "(Ljava/lang/Class;Ljava/rmi/server/RemoteRef;Z)Ljava/rmi/Remote;", "(Ljava/lang/Class<*>;Ljava/rmi/server/RemoteRef;Z)Ljava/rmi/Remote;", $PUBLIC | $STATIC, $method(static_cast<$Remote*(*)($Class*,$RemoteRef*,bool)>(&Util::createProxy)), "java.rmi.StubNotFoundException"},
-	{"createSkeleton", "(Ljava/rmi/Remote;)Ljava/rmi/server/Skeleton;", nullptr, $STATIC, $method(static_cast<$Skeleton*(*)($Remote*)>(&Util::createSkeleton)), "java.rmi.server.SkeletonNotFoundException"},
-	{"createStub", "(Ljava/lang/Class;Ljava/rmi/server/RemoteRef;)Ljava/rmi/server/RemoteStub;", "(Ljava/lang/Class<*>;Ljava/rmi/server/RemoteRef;)Ljava/rmi/server/RemoteStub;", $PRIVATE | $STATIC, $method(static_cast<$RemoteStub*(*)($Class*,$RemoteRef*)>(&Util::createStub)), "java.rmi.StubNotFoundException"},
-	{"getMethodNameAndDescriptor", "(Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Method*)>(&Util::getMethodNameAndDescriptor))},
-	{"getRemoteClass", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($Class*)>(&Util::getRemoteClass)), "java.lang.ClassNotFoundException"},
-	{"getRemoteInterfaces", "(Ljava/lang/Class;)[Ljava/lang/Class;", "(Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$ClassArray*(*)($Class*)>(&Util::getRemoteInterfaces))},
-	{"getRemoteInterfaces", "(Ljava/util/ArrayList;Ljava/lang/Class;)V", "(Ljava/util/ArrayList<Ljava/lang/Class<*>;>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($ArrayList*,$Class*)>(&Util::getRemoteInterfaces))},
-	{"getTypeDescriptor", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Class*)>(&Util::getTypeDescriptor))},
-	{"getUnqualifiedName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Class*)>(&Util::getUnqualifiedName))},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&Util::lambda$static$0))},
-	{"lambda$static$1", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&Util::lambda$static$1))},
-	{"stubClassExists", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*)>(&Util::stubClassExists))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Util, init$, void)},
+	{"checkMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, checkMethod, void, $Method*)},
+	{"computeMethodHash", "(Ljava/lang/reflect/Method;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, computeMethodHash, int64_t, $Method*)},
+	{"createProxy", "(Ljava/lang/Class;Ljava/rmi/server/RemoteRef;Z)Ljava/rmi/Remote;", "(Ljava/lang/Class<*>;Ljava/rmi/server/RemoteRef;Z)Ljava/rmi/Remote;", $PUBLIC | $STATIC, $staticMethod(Util, createProxy, $Remote*, $Class*, $RemoteRef*, bool), "java.rmi.StubNotFoundException"},
+	{"createSkeleton", "(Ljava/rmi/Remote;)Ljava/rmi/server/Skeleton;", nullptr, $STATIC, $staticMethod(Util, createSkeleton, $Skeleton*, $Remote*), "java.rmi.server.SkeletonNotFoundException"},
+	{"createStub", "(Ljava/lang/Class;Ljava/rmi/server/RemoteRef;)Ljava/rmi/server/RemoteStub;", "(Ljava/lang/Class<*>;Ljava/rmi/server/RemoteRef;)Ljava/rmi/server/RemoteStub;", $PRIVATE | $STATIC, $staticMethod(Util, createStub, $RemoteStub*, $Class*, $RemoteRef*), "java.rmi.StubNotFoundException"},
+	{"getMethodNameAndDescriptor", "(Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, getMethodNameAndDescriptor, $String*, $Method*)},
+	{"getRemoteClass", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Util, getRemoteClass, $Class*, $Class*), "java.lang.ClassNotFoundException"},
+	{"getRemoteInterfaces", "(Ljava/lang/Class;)[Ljava/lang/Class;", "(Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Util, getRemoteInterfaces, $ClassArray*, $Class*)},
+	{"getRemoteInterfaces", "(Ljava/util/ArrayList;Ljava/lang/Class;)V", "(Ljava/util/ArrayList<Ljava/lang/Class<*>;>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Util, getRemoteInterfaces, void, $ArrayList*, $Class*)},
+	{"getTypeDescriptor", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(Util, getTypeDescriptor, $String*, $Class*)},
+	{"getUnqualifiedName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Util, getUnqualifiedName, $String*, $Class*)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Util, lambda$static$0, $String*)},
+	{"lambda$static$1", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Util, lambda$static$1, $Boolean*)},
+	{"stubClassExists", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Util, stubClassExists, bool, $Class*)},
 	{}
 };
 

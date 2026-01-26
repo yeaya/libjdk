@@ -16,9 +16,9 @@ namespace com {
 				namespace util {
 
 $MethodInfo _EnvHelp$SinkOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(EnvHelp$SinkOutputStream::*)()>(&EnvHelp$SinkOutputStream::init$))},
-	{"write", "([BII)V", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(EnvHelp$SinkOutputStream, init$, void)},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(EnvHelp$SinkOutputStream, write, void, $bytes*, int32_t, int32_t)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(EnvHelp$SinkOutputStream, write, void, int32_t)},
 	{}
 };
 

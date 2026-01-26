@@ -21,7 +21,7 @@ $FieldInfo _Types$AdaptFailure_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$AdaptFailure_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Types$AdaptFailure::*)()>(&Types$AdaptFailure::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Types$AdaptFailure, init$, void)},
 	{}
 };
 

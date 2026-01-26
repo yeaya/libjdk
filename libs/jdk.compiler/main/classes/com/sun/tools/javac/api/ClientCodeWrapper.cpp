@@ -76,21 +76,21 @@ $FieldInfo _ClientCodeWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientCodeWrapper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(ClientCodeWrapper::*)($Context*)>(&ClientCodeWrapper::init$))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClientCodeWrapper*(*)($Context*)>(&ClientCodeWrapper::instance))},
-	{"isTrusted", "(Ljava/lang/Object;)Z", nullptr, $PROTECTED},
-	{"unwrap", "(Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, 0},
-	{"unwrap", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, 0},
-	{"unwrap", "(Lcom/sun/source/util/TaskListener;)Lcom/sun/source/util/TaskListener;", nullptr, 0},
-	{"unwrap", "(Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/Collection<+Lcom/sun/source/util/TaskListener;>;)Ljava/util/Collection<Lcom/sun/source/util/TaskListener;>;", 0},
-	{"unwrap", "(Ljavax/tools/Diagnostic;)Ljavax/tools/Diagnostic;", "<T:Ljava/lang/Object;>(Ljavax/tools/Diagnostic<TT;>;)Ljavax/tools/Diagnostic<TT;>;", $PRIVATE, $method(static_cast<$Diagnostic*(ClientCodeWrapper::*)($Diagnostic*)>(&ClientCodeWrapper::unwrap))},
-	{"wrap", "(Ljavax/tools/JavaFileManager;)Ljavax/tools/JavaFileManager;", nullptr, $PUBLIC},
-	{"wrap", "(Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC},
-	{"wrap", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
-	{"wrap", "(Ljavax/tools/DiagnosticListener;)Ljavax/tools/DiagnosticListener;", "<T:Ljava/lang/Object;>(Ljavax/tools/DiagnosticListener<TT;>;)Ljavax/tools/DiagnosticListener<TT;>;", $PUBLIC},
-	{"wrap", "(Lcom/sun/source/util/TaskListener;)Lcom/sun/source/util/TaskListener;", nullptr, 0},
-	{"wrapJavaFileObjects", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC},
-	{"wrappedToString", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/String;", $PRIVATE, $method(static_cast<$String*(ClientCodeWrapper::*)($Class*,Object$*)>(&ClientCodeWrapper::wrappedToString))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ClientCodeWrapper, init$, void, $Context*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/api/ClientCodeWrapper;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientCodeWrapper, instance, ClientCodeWrapper*, $Context*)},
+	{"isTrusted", "(Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(ClientCodeWrapper, isTrusted, bool, Object$*)},
+	{"unwrap", "(Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, 0, $virtualMethod(ClientCodeWrapper, unwrap, $FileObject*, $FileObject*)},
+	{"unwrap", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, 0, $virtualMethod(ClientCodeWrapper, unwrap, $JavaFileObject*, $JavaFileObject*)},
+	{"unwrap", "(Lcom/sun/source/util/TaskListener;)Lcom/sun/source/util/TaskListener;", nullptr, 0, $virtualMethod(ClientCodeWrapper, unwrap, $TaskListener*, $TaskListener*)},
+	{"unwrap", "(Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/Collection<+Lcom/sun/source/util/TaskListener;>;)Ljava/util/Collection<Lcom/sun/source/util/TaskListener;>;", 0, $virtualMethod(ClientCodeWrapper, unwrap, $Collection*, $Collection*)},
+	{"unwrap", "(Ljavax/tools/Diagnostic;)Ljavax/tools/Diagnostic;", "<T:Ljava/lang/Object;>(Ljavax/tools/Diagnostic<TT;>;)Ljavax/tools/Diagnostic<TT;>;", $PRIVATE, $method(ClientCodeWrapper, unwrap, $Diagnostic*, $Diagnostic*)},
+	{"wrap", "(Ljavax/tools/JavaFileManager;)Ljavax/tools/JavaFileManager;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper, wrap, $JavaFileManager*, $JavaFileManager*)},
+	{"wrap", "(Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper, wrap, $FileObject*, $FileObject*)},
+	{"wrap", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper, wrap, $JavaFileObject*, $JavaFileObject*)},
+	{"wrap", "(Ljavax/tools/DiagnosticListener;)Ljavax/tools/DiagnosticListener;", "<T:Ljava/lang/Object;>(Ljavax/tools/DiagnosticListener<TT;>;)Ljavax/tools/DiagnosticListener<TT;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper, wrap, $DiagnosticListener*, $DiagnosticListener*)},
+	{"wrap", "(Lcom/sun/source/util/TaskListener;)Lcom/sun/source/util/TaskListener;", nullptr, 0, $virtualMethod(ClientCodeWrapper, wrap, $TaskListener*, $TaskListener*)},
+	{"wrapJavaFileObjects", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(ClientCodeWrapper, wrapJavaFileObjects, $Iterable*, $Iterable*)},
+	{"wrappedToString", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/String;", $PRIVATE, $method(ClientCodeWrapper, wrappedToString, $String*, $Class*, Object$*)},
 	{}
 };
 

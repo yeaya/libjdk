@@ -17,8 +17,8 @@ $FieldInfo _NoPermissionException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoPermissionException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoPermissionException::*)($String*)>(&NoPermissionException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoPermissionException::*)()>(&NoPermissionException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoPermissionException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoPermissionException, init$, void)},
 	{}
 };
 

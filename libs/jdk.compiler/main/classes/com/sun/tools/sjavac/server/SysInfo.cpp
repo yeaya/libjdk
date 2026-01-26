@@ -20,7 +20,7 @@ $FieldInfo _SysInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _SysInfo_MethodInfo_[] = {
-	{"<init>", "(IJ)V", nullptr, $PUBLIC, $method(static_cast<void(SysInfo::*)(int32_t,int64_t)>(&SysInfo::init$))},
+	{"<init>", "(IJ)V", nullptr, $PUBLIC, $method(SysInfo, init$, void, int32_t, int64_t)},
 	{}
 };
 

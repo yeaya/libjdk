@@ -4,12 +4,13 @@
 #include <DummySecureWebSocketServer$WebSocketChannel.h>
 #include <jcpp.h>
 
+using $DummySecureWebSocketServer$WebSocketChannel = ::DummySecureWebSocketServer$WebSocketChannel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _DummySecureWebSocketServer$WebServerSocketChannel$Accepter_MethodInfo_[] = {
-	{"accept", "()LDummySecureWebSocketServer$WebSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"accept", "()LDummySecureWebSocketServer$WebSocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel$Accepter, accept, $DummySecureWebSocketServer$WebSocketChannel*), "java.io.IOException"},
 	{}
 };
 

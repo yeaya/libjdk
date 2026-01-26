@@ -27,11 +27,11 @@ namespace com {
 				namespace util {
 
 $MethodInfo _Dependencies$GraphDependencies$PruneVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Dependencies$GraphDependencies$PruneVisitor::*)()>(&Dependencies$GraphDependencies$PruneVisitor::init$))},
-	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Ljava/lang/Void;)V", nullptr, $PUBLIC},
-	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitNode", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Ljava/lang/Void;)V", nullptr, $PUBLIC},
-	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Dependencies$GraphDependencies$PruneVisitor, init$, void)},
+	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$PruneVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $Dependencies$GraphDependencies$Node*, $Dependencies$GraphDependencies$Node*, $Void*)},
+	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Dependencies$GraphDependencies$PruneVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$Node*, $GraphUtils$Node*, Object$*)},
+	{"visitNode", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;Ljava/lang/Void;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$PruneVisitor, visitNode, void, $Dependencies$GraphDependencies$Node*, $Void*)},
+	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Dependencies$GraphDependencies$PruneVisitor, visitNode, void, $GraphUtils$Node*, Object$*)},
 	{}
 };
 

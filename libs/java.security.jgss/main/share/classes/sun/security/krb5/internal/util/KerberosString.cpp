@@ -33,10 +33,10 @@ $FieldInfo _KerberosString_FieldInfo_[] = {
 };
 
 $MethodInfo _KerberosString_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KerberosString::*)($String*)>(&KerberosString::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(KerberosString::*)($DerValue*)>(&KerberosString::init$)), "java.io.IOException"},
-	{"toDerValue", "()Lsun/security/util/DerValue;", nullptr, $PUBLIC, $method(static_cast<$DerValue*(KerberosString::*)()>(&KerberosString::toDerValue))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosString, init$, void, $String*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KerberosString, init$, void, $DerValue*), "java.io.IOException"},
+	{"toDerValue", "()Lsun/security/util/DerValue;", nullptr, $PUBLIC, $method(KerberosString, toDerValue, $DerValue*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosString, toString, $String*)},
 	{}
 };
 

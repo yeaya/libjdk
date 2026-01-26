@@ -21,8 +21,8 @@ $FieldInfo _SSLFlowDelegate$Reader$ReaderDownstreamPusher_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLFlowDelegate$Reader$ReaderDownstreamPusher_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Reader;)V", nullptr, $PRIVATE, $method(static_cast<void(SSLFlowDelegate$Reader$ReaderDownstreamPusher::*)($SSLFlowDelegate$Reader*)>(&SSLFlowDelegate$Reader$ReaderDownstreamPusher::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Reader;)V", nullptr, $PRIVATE, $method(SSLFlowDelegate$Reader$ReaderDownstreamPusher, init$, void, $SSLFlowDelegate$Reader*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader$ReaderDownstreamPusher, run, void)},
 	{}
 };
 

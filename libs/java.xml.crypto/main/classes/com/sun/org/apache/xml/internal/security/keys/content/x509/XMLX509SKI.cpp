@@ -54,14 +54,14 @@ $FieldInfo _XMLX509SKI_FieldInfo_[] = {
 $MethodInfo _XMLX509SKI_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lorg/w3c/dom/Document;[B)V", nullptr, $PUBLIC, $method(static_cast<void(XMLX509SKI::*)($Document*,$bytes*)>(&XMLX509SKI::init$))},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLX509SKI::*)($Document*,$X509Certificate*)>(&XMLX509SKI::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLX509SKI::*)($Element*,$String*)>(&XMLX509SKI::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSKIBytes", "()[B", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getSKIBytesFromCert", "(Ljava/security/cert/X509Certificate;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($X509Certificate*)>(&XMLX509SKI::getSKIBytesFromCert)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Document;[B)V", nullptr, $PUBLIC, $method(XMLX509SKI, init$, void, $Document*, $bytes*)},
+	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLX509SKI, init$, void, $Document*, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509SKI, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, equals, bool, Object$*)},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, getBaseLocalName, $String*)},
+	{"getSKIBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, getSKIBytes, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"getSKIBytesFromCert", "(Ljava/security/cert/X509Certificate;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLX509SKI, getSKIBytesFromCert, $bytes*, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509SKI, hashCode, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

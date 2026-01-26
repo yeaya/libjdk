@@ -57,12 +57,12 @@ $FieldInfo _MandatoryWarningHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _MandatoryWarningHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/code/Source;ZZLjava/lang/String;Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $method(static_cast<void(MandatoryWarningHandler::*)($Log*,$Source*,bool,bool,$String*,$Lint$LintCategory*)>(&MandatoryWarningHandler::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"logMandatoryNote", "(Ljavax/tools/JavaFileObject;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(MandatoryWarningHandler::*)($JavaFileObject*,$String*,$ObjectArray*)>(&MandatoryWarningHandler::logMandatoryNote))},
-	{"logMandatoryWarning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PRIVATE, $method(static_cast<void(MandatoryWarningHandler::*)($JCDiagnostic$DiagnosticPosition*,$JCDiagnostic$Warning*)>(&MandatoryWarningHandler::logMandatoryWarning))},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"reportDeferredDiagnostic", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/code/Source;ZZLjava/lang/String;Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $method(MandatoryWarningHandler, init$, void, $Log*, $Source*, bool, bool, $String*, $Lint$LintCategory*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(MandatoryWarningHandler, clear, void)},
+	{"logMandatoryNote", "(Ljavax/tools/JavaFileObject;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(MandatoryWarningHandler, logMandatoryNote, void, $JavaFileObject*, $String*, $ObjectArray*)},
+	{"logMandatoryWarning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PRIVATE, $method(MandatoryWarningHandler, logMandatoryWarning, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(MandatoryWarningHandler, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+	{"reportDeferredDiagnostic", "()V", nullptr, $PUBLIC, $virtualMethod(MandatoryWarningHandler, reportDeferredDiagnostic, void)},
 	{}
 };
 

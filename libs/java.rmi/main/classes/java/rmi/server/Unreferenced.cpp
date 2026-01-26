@@ -10,7 +10,7 @@ namespace java {
 		namespace server {
 
 $MethodInfo _Unreferenced_MethodInfo_[] = {
-	{"unreferenced", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"unreferenced", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Unreferenced, unreferenced, void)},
 	{}
 };
 

@@ -23,8 +23,8 @@ namespace jdk {
 			namespace doc {
 
 $MethodInfo _JavadocFormatter$Sections$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(JavadocFormatter$Sections$2::*)($String*,int32_t)>(&JavadocFormatter$Sections$2::init$))},
-	{"matches", "(Lcom/sun/source/doctree/DocTree;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(JavadocFormatter$Sections$2, init$, void, $String*, int32_t)},
+	{"matches", "(Lcom/sun/source/doctree/DocTree;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$Sections$2, matches, bool, $DocTree*)},
 	{}
 };
 

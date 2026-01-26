@@ -34,7 +34,7 @@ $CompoundAttribute _DescriptorKey_Annotations_[] = {
 };
 
 $MethodInfo _DescriptorKey_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DescriptorKey, value, $String*)},
 	{}
 };
 

@@ -29,8 +29,8 @@ $FieldInfo _Util$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Util$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)V", "()V", 0, $method(static_cast<void(Util$1::*)($ClassLoader*,$ClassArray*,$InvocationHandler*)>(&Util$1::init$))},
-	{"run", "()Ljava/rmi/Remote;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)V", "()V", 0, $method(Util$1, init$, void, $ClassLoader*, $ClassArray*, $InvocationHandler*)},
+	{"run", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(Util$1, run, $Object*)},
 	{}
 };
 

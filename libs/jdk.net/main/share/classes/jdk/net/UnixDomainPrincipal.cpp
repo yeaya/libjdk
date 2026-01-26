@@ -34,12 +34,12 @@ $FieldInfo _UnixDomainPrincipal_FieldInfo_[] = {
 };
 
 $MethodInfo _UnixDomainPrincipal_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/attribute/UserPrincipal;Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC, $method(static_cast<void(UnixDomainPrincipal::*)($UserPrincipal*,$GroupPrincipal*)>(&UnixDomainPrincipal::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"group", "()Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC, $method(static_cast<$GroupPrincipal*(UnixDomainPrincipal::*)()>(&UnixDomainPrincipal::group))},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"user", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $method(static_cast<$UserPrincipal*(UnixDomainPrincipal::*)()>(&UnixDomainPrincipal::user))},
+	{"<init>", "(Ljava/nio/file/attribute/UserPrincipal;Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC, $method(UnixDomainPrincipal, init$, void, $UserPrincipal*, $GroupPrincipal*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixDomainPrincipal, equals, bool, Object$*)},
+	{"group", "()Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC, $method(UnixDomainPrincipal, group, $GroupPrincipal*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixDomainPrincipal, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(UnixDomainPrincipal, toString, $String*)},
+	{"user", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $method(UnixDomainPrincipal, user, $UserPrincipal*)},
 	{}
 };
 

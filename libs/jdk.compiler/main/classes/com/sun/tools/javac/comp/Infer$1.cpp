@@ -45,9 +45,9 @@ $FieldInfo _Infer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(static_cast<void(Infer$1::*)($Infer*)>(&Infer$1::init$))},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(Infer$1, init$, void, $Infer*)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Infer$1, visitTypeVar, $Type*, $Type$TypeVar*, $Void*)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$1, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
 	{}
 };
 

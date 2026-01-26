@@ -30,10 +30,10 @@ $FieldInfo _UnicodeReader$UnicodeEscapeResult_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicodeReader$UnicodeEscapeResult_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$UnicodeReader$UnicodeEscapeResultArray*(*)()>(&UnicodeReader$UnicodeEscapeResult::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(UnicodeReader$UnicodeEscapeResult::*)($String*,int32_t)>(&UnicodeReader$UnicodeEscapeResult::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<UnicodeReader$UnicodeEscapeResult*(*)($String*)>(&UnicodeReader$UnicodeEscapeResult::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$UnicodeReader$UnicodeEscapeResultArray*(*)()>(&UnicodeReader$UnicodeEscapeResult::values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicodeReader$UnicodeEscapeResult, $values, $UnicodeReader$UnicodeEscapeResultArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnicodeReader$UnicodeEscapeResult, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeReader$UnicodeEscapeResult, valueOf, UnicodeReader$UnicodeEscapeResult*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/UnicodeReader$UnicodeEscapeResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeReader$UnicodeEscapeResult, values, $UnicodeReader$UnicodeEscapeResultArray*)},
 	{}
 };
 

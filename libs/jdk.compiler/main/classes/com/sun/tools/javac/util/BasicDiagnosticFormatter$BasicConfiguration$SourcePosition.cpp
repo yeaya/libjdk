@@ -28,10 +28,10 @@ $FieldInfo _BasicDiagnosticFormatter$BasicConfiguration$SourcePosition_FieldInfo
 };
 
 $MethodInfo _BasicDiagnosticFormatter$BasicConfiguration$SourcePosition_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$BasicDiagnosticFormatter$BasicConfiguration$SourcePositionArray*(*)()>(&BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::*)($String*,int32_t)>(&BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC, $method(static_cast<BasicDiagnosticFormatter$BasicConfiguration$SourcePosition*(*)($String*)>(&BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$BasicDiagnosticFormatter$BasicConfiguration$SourcePositionArray*(*)()>(&BasicDiagnosticFormatter$BasicConfiguration$SourcePosition::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, $values, $BasicDiagnosticFormatter$BasicConfiguration$SourcePositionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, valueOf, BasicDiagnosticFormatter$BasicConfiguration$SourcePosition*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$SourcePosition, values, $BasicDiagnosticFormatter$BasicConfiguration$SourcePositionArray*)},
 	{}
 };
 

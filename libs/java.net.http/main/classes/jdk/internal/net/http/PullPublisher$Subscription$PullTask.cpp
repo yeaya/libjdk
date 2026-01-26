@@ -30,8 +30,8 @@ $FieldInfo _PullPublisher$Subscription$PullTask_FieldInfo_[] = {
 };
 
 $MethodInfo _PullPublisher$Subscription$PullTask_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/PullPublisher$Subscription;)V", nullptr, 0, $method(static_cast<void(PullPublisher$Subscription$PullTask::*)($PullPublisher$Subscription*)>(&PullPublisher$Subscription$PullTask::init$))},
-	{"run", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljdk/internal/net/http/PullPublisher$Subscription;)V", nullptr, 0, $method(PullPublisher$Subscription$PullTask, init$, void, $PullPublisher$Subscription*)},
+	{"run", "()V", nullptr, $PROTECTED, $virtualMethod(PullPublisher$Subscription$PullTask, run, void)},
 	{}
 };
 

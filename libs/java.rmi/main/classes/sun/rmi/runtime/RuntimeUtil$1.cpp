@@ -37,8 +37,8 @@ $FieldInfo _RuntimeUtil$1_FieldInfo_[] = {
 };
 
 $MethodInfo _RuntimeUtil$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/runtime/RuntimeUtil;)V", nullptr, 0, $method(static_cast<void(RuntimeUtil$1::*)($RuntimeUtil*)>(&RuntimeUtil$1::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/runtime/RuntimeUtil;)V", nullptr, 0, $method(RuntimeUtil$1, init$, void, $RuntimeUtil*)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(RuntimeUtil$1, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

@@ -22,16 +22,16 @@ $FieldInfo _ArcFourHmac_FieldInfo_[] = {
 };
 
 $MethodInfo _ArcFourHmac_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ArcFourHmac::*)()>(&ArcFourHmac::init$))},
-	{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,int32_t,int32_t)>(&ArcFourHmac::calculateChecksum)), "java.security.GeneralSecurityException"},
-	{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&ArcFourHmac::decrypt)), "java.security.GeneralSecurityException"},
-	{"decryptRaw", "([BI[B[BII[B)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t,$bytes*)>(&ArcFourHmac::decryptRaw)), "java.security.GeneralSecurityException"},
-	{"decryptSeq", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&ArcFourHmac::decryptSeq)), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&ArcFourHmac::encrypt)), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&ArcFourHmac::encryptRaw)), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encryptSeq", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&ArcFourHmac::encryptSeq)), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"getChecksumLength", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&ArcFourHmac::getChecksumLength))},
-	{"stringToKey", "([C)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($chars*)>(&ArcFourHmac::stringToKey)), "java.security.GeneralSecurityException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ArcFourHmac, init$, void)},
+	{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArcFourHmac, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+	{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArcFourHmac, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+	{"decryptRaw", "([BI[B[BII[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArcFourHmac, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t, $bytes*), "java.security.GeneralSecurityException"},
+	{"decryptSeq", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArcFourHmac, decryptSeq, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+	{"encrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArcFourHmac, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+	{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArcFourHmac, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+	{"encryptSeq", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArcFourHmac, encryptSeq, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+	{"getChecksumLength", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArcFourHmac, getChecksumLength, int32_t)},
+	{"stringToKey", "([C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArcFourHmac, stringToKey, $bytes*, $chars*), "java.security.GeneralSecurityException"},
 	{}
 };
 

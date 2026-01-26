@@ -60,11 +60,11 @@ $MethodInfo _RSAKeyValue_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAKeyValue::*)($Element*,$String*)>(&RSAKeyValue::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAKeyValue::*)($Document*,$BigInteger*,$BigInteger*)>(&RSAKeyValue::init$))},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/Key;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAKeyValue::*)($Document*,$Key*)>(&RSAKeyValue::init$)), "java.lang.IllegalArgumentException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RSAKeyValue, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "(Lorg/w3c/dom/Document;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(RSAKeyValue, init$, void, $Document*, $BigInteger*, $BigInteger*)},
+	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/Key;)V", nullptr, $PUBLIC, $method(RSAKeyValue, init$, void, $Document*, $Key*), "java.lang.IllegalArgumentException"},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAKeyValue, getBaseLocalName, $String*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(RSAKeyValue, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

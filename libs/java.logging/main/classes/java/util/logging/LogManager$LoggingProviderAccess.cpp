@@ -42,9 +42,9 @@ $MethodInfo _LogManager$LoggingProviderAccess_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LogManager$LoggingProviderAccess::*)()>(&LogManager$LoggingProviderAccess::init$))},
-	{"demandLoggerFor", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PUBLIC},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LogManager$LoggingProviderAccess, init$, void)},
+	{"demandLoggerFor", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PUBLIC, $virtualMethod(LogManager$LoggingProviderAccess, demandLoggerFor, $Logger*, $LogManager*, $String*, $Module*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LogManager$LoggingProviderAccess, run, $Object*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

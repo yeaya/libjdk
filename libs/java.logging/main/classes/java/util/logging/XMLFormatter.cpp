@@ -59,13 +59,13 @@ $FieldInfo _XMLFormatter_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLFormatter::*)()>(&XMLFormatter::init$))},
-	{"a2", "(Ljava/lang/StringBuilder;I)V", nullptr, $PRIVATE, $method(static_cast<void(XMLFormatter::*)($StringBuilder*,int32_t)>(&XMLFormatter::a2))},
-	{"appendISO8601", "(Ljava/lang/StringBuilder;J)V", nullptr, $PRIVATE, $method(static_cast<void(XMLFormatter::*)($StringBuilder*,int64_t)>(&XMLFormatter::appendISO8601))},
-	{"escape", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(XMLFormatter::*)($StringBuilder*,$String*)>(&XMLFormatter::escape))},
-	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHead", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTail", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLFormatter, init$, void)},
+	{"a2", "(Ljava/lang/StringBuilder;I)V", nullptr, $PRIVATE, $method(XMLFormatter, a2, void, $StringBuilder*, int32_t)},
+	{"appendISO8601", "(Ljava/lang/StringBuilder;J)V", nullptr, $PRIVATE, $method(XMLFormatter, appendISO8601, void, $StringBuilder*, int64_t)},
+	{"escape", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XMLFormatter, escape, void, $StringBuilder*, $String*)},
+	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLFormatter, format, $String*, $LogRecord*)},
+	{"getHead", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLFormatter, getHead, $String*, $Handler*)},
+	{"getTail", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLFormatter, getTail, $String*, $Handler*)},
 	{}
 };
 

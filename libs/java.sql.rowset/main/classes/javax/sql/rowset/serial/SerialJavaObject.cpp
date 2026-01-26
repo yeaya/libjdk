@@ -72,17 +72,17 @@ $FieldInfo _SerialJavaObject_FieldInfo_[] = {
 
 $MethodInfo _SerialJavaObject_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(SerialJavaObject::*)(Object$*)>(&SerialJavaObject::init$)), "javax.sql.rowset.serial.SerialException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getFields", "()[Ljava/lang/reflect/Field;", nullptr, $PUBLIC, nullptr, "javax.sql.rowset.serial.SerialException", nullptr, _SerialJavaObject_MethodAnnotations_getFields3},
-	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "javax.sql.rowset.serial.SerialException"},
-	{"hasStaticFields", "([Ljava/lang/reflect/Field;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($FieldArray*)>(&SerialJavaObject::hasStaticFields))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(SerialJavaObject::*)($ObjectInputStream*)>(&SerialJavaObject::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setWarning", "(Ljavax/sql/rowset/RowSetWarning;)V", nullptr, $PRIVATE, $method(static_cast<void(SerialJavaObject::*)($RowSetWarning*)>(&SerialJavaObject::setWarning))},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(SerialJavaObject, init$, void, Object$*), "javax.sql.rowset.serial.SerialException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, equals, bool, Object$*)},
+	{"getFields", "()[Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, getFields, $FieldArray*), "javax.sql.rowset.serial.SerialException", nullptr, _SerialJavaObject_MethodAnnotations_getFields3},
+	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, getObject, $Object*), "javax.sql.rowset.serial.SerialException"},
+	{"hasStaticFields", "([Ljava/lang/reflect/Field;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SerialJavaObject, hasStaticFields, bool, $FieldArray*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialJavaObject, hashCode, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialJavaObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"setWarning", "(Ljavax/sql/rowset/RowSetWarning;)V", nullptr, $PRIVATE, $method(SerialJavaObject, setWarning, void, $RowSetWarning*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(SerialJavaObject::*)($ObjectOutputStream*)>(&SerialJavaObject::writeObject)), "java.io.IOException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialJavaObject, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

@@ -71,8 +71,8 @@ $FieldInfo ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::fieldInfos
 	{}
 };
 $MethodInfo ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseContent$UnknownLengthBodyParser;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::*)(ResponseContent$UnknownLengthBodyParser*)>(&ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseContent$UnknownLengthBodyParser;)V", nullptr, $PUBLIC, $method(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, init$, void, ResponseContent$UnknownLengthBodyParser*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::classInfo$ = {
@@ -102,13 +102,13 @@ $FieldInfo _ResponseContent$UnknownLengthBodyParser_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseContent$UnknownLengthBodyParser_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseContent;Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(static_cast<void(ResponseContent$UnknownLengthBodyParser::*)($ResponseContent*,$Consumer*)>(&ResponseContent$UnknownLengthBodyParser::init$))},
-	{"accept", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"complete", "()V", nullptr, $PUBLIC},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0},
-	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseContent;Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(ResponseContent$UnknownLengthBodyParser, init$, void, $ResponseContent*, $Consumer*)},
+	{"accept", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, accept, void, $ByteBuffer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, accept, void, Object$*)},
+	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, complete, void)},
+	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, currentStateMessage, $String*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ResponseContent$UnknownLengthBodyParser, dbgString, $String*)},
+	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, onSubscribe, void, $AbstractSubscription*)},
 	{}
 };
 

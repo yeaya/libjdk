@@ -59,14 +59,14 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMExcC14NMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DOMExcC14NMethod::*)()>(&DOMExcC14NMethod::init$))},
-	{"getParameterSpecPrefixList", "(Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;)Ljava/util/List;", "(Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$List*(DOMExcC14NMethod::*)($ExcC14NParameterSpec*)>(&DOMExcC14NMethod::getParameterSpecPrefixList))},
-	{"getParamsNSURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(DOMExcC14NMethod::*)()>(&DOMExcC14NMethod::getParamsNSURI))},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.MarshalException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.dsig.TransformException"},
-	{"unmarshalParams", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(static_cast<void(DOMExcC14NMethod::*)($Element*)>(&DOMExcC14NMethod::unmarshalParams))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMExcC14NMethod, init$, void)},
+	{"getParameterSpecPrefixList", "(Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;)Ljava/util/List;", "(Ljavax/xml/crypto/dsig/spec/ExcC14NParameterSpec;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(DOMExcC14NMethod, getParameterSpecPrefixList, $List*, $ExcC14NParameterSpec*)},
+	{"getParamsNSURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(DOMExcC14NMethod, getParamsNSURI, $String*)},
+	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMExcC14NMethod, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+	{"unmarshalParams", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(DOMExcC14NMethod, unmarshalParams, void, $Element*)},
 	{}
 };
 

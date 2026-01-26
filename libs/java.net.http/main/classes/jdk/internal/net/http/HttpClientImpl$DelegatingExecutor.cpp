@@ -64,8 +64,8 @@ $FieldInfo HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::fieldInf
 	{}
 };
 $MethodInfo HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::*)($ExecutorService*)>(&HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/ExecutorService;)V", nullptr, $PUBLIC, $method(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, init$, void, $ExecutorService*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0, run, $Object*)},
 	{}
 };
 $ClassInfo HttpClientImpl$DelegatingExecutor$$Lambda$lambda$shutdown$0::classInfo$ = {
@@ -89,11 +89,11 @@ $FieldInfo _HttpClientImpl$DelegatingExecutor_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClientImpl$DelegatingExecutor_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/BooleanSupplier;Ljava/util/concurrent/Executor;)V", nullptr, 0, $method(static_cast<void(HttpClientImpl$DelegatingExecutor::*)($BooleanSupplier*,$Executor*)>(&HttpClientImpl$DelegatingExecutor::init$))},
-	{"delegate", "()Ljava/util/concurrent/Executor;", nullptr, 0, $method(static_cast<$Executor*(HttpClientImpl$DelegatingExecutor::*)()>(&HttpClientImpl$DelegatingExecutor::delegate))},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
-	{"lambda$shutdown$0", "(Ljava/util/concurrent/ExecutorService;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($ExecutorService*)>(&HttpClientImpl$DelegatingExecutor::lambda$shutdown$0))},
-	{"shutdown", "()V", nullptr, $PRIVATE, $method(static_cast<void(HttpClientImpl$DelegatingExecutor::*)()>(&HttpClientImpl$DelegatingExecutor::shutdown))},
+	{"<init>", "(Ljava/util/function/BooleanSupplier;Ljava/util/concurrent/Executor;)V", nullptr, 0, $method(HttpClientImpl$DelegatingExecutor, init$, void, $BooleanSupplier*, $Executor*)},
+	{"delegate", "()Ljava/util/concurrent/Executor;", nullptr, 0, $method(HttpClientImpl$DelegatingExecutor, delegate, $Executor*)},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$DelegatingExecutor, execute, void, $Runnable*)},
+	{"lambda$shutdown$0", "(Ljava/util/concurrent/ExecutorService;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$DelegatingExecutor, lambda$shutdown$0, $Object*, $ExecutorService*)},
+	{"shutdown", "()V", nullptr, $PRIVATE, $method(HttpClientImpl$DelegatingExecutor, shutdown, void)},
 	{}
 };
 

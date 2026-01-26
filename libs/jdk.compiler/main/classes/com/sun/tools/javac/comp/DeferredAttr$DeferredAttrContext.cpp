@@ -109,8 +109,8 @@ $FieldInfo DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::fi
 	{}
 };
 $MethodInfo DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, $PUBLIC, $method(static_cast<void(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::*)(DeferredAttr$DeferredAttrContext*)>(&DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, init$, void, DeferredAttr$DeferredAttrContext*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DeferredAttr$DeferredAttrContext$$Lambda$lambda$buildStuckGraph$0::classInfo$ = {
@@ -149,8 +149,8 @@ $FieldInfo DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::fieldInfos[2] = 
 	{}
 };
 $MethodInfo DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)V", nullptr, $PUBLIC, $method(static_cast<void(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::*)($Infer$GraphSolver$InferenceGraph*)>(&DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, init$, void, $Infer$GraphSolver$InferenceGraph*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$$Lambda$findNode$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DeferredAttr$DeferredAttrContext$$Lambda$findNode$1::classInfo$ = {
@@ -189,8 +189,8 @@ $FieldInfo DeferredAttr$DeferredAttrContext$$Lambda$contains$2::fieldInfos[2] = 
 	{}
 };
 $MethodInfo DeferredAttr$DeferredAttrContext$$Lambda$contains$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(DeferredAttr$DeferredAttrContext$$Lambda$contains$2::*)($Set*)>(&DeferredAttr$DeferredAttrContext$$Lambda$contains$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, init$, void, $Set*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$$Lambda$contains$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DeferredAttr$DeferredAttrContext$$Lambda$contains$2::classInfo$ = {
@@ -220,14 +220,14 @@ $FieldInfo _DeferredAttr$DeferredAttrContext_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$DeferredAttrContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$DeferredAttrContext::*)($DeferredAttr*,$DeferredAttr$AttrMode*,$Symbol*,$Resolve$MethodResolutionPhase*,$InferenceContext*,DeferredAttr$DeferredAttrContext*,$Warner*)>(&DeferredAttr$DeferredAttrContext::init$))},
-	{"addDeferredAttrNode", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)V", nullptr, 0},
-	{"buildStuckGraph", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", 0},
-	{"canInfluence", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;)Z", nullptr, 0},
-	{"complete", "()V", nullptr, 0},
-	{"insideOverloadPhase", "()Z", nullptr, $PUBLIC},
-	{"lambda$buildStuckGraph$0", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$DeferredAttr$DeferredAttrContext$StuckNode*(DeferredAttr$DeferredAttrContext::*)($DeferredAttr$DeferredAttrNode*)>(&DeferredAttr$DeferredAttrContext::lambda$buildStuckGraph$0))},
-	{"pickDeferredNode", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrContext, init$, void, $DeferredAttr*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*, $InferenceContext*, DeferredAttr$DeferredAttrContext*, $Warner*)},
+	{"addDeferredAttrNode", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)V", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, addDeferredAttrNode, void, $DeferredAttr$DeferredType*, $Attr$ResultInfo*, $DeferredAttr$DeferredStuckPolicy*)},
+	{"buildStuckGraph", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", 0, $virtualMethod(DeferredAttr$DeferredAttrContext, buildStuckGraph, $List*)},
+	{"canInfluence", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;)Z", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, canInfluence, bool, $Infer$GraphSolver$InferenceGraph*, $DeferredAttr$DeferredAttrContext$StuckNode*, $DeferredAttr$DeferredAttrContext$StuckNode*)},
+	{"complete", "()V", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, complete, void)},
+	{"insideOverloadPhase", "()Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext, insideOverloadPhase, bool)},
+	{"lambda$buildStuckGraph$0", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;", nullptr, $PRIVATE | $SYNTHETIC, $method(DeferredAttr$DeferredAttrContext, lambda$buildStuckGraph$0, $DeferredAttr$DeferredAttrContext$StuckNode*, $DeferredAttr$DeferredAttrNode*)},
+	{"pickDeferredNode", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrContext, pickDeferredNode, $DeferredAttr$DeferredAttrNode*)},
 	{}
 };
 

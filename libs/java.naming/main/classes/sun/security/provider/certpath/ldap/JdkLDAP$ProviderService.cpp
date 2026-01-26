@@ -37,8 +37,8 @@ namespace sun {
 				namespace ldap {
 
 $MethodInfo _JdkLDAP$ProviderService_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(static_cast<void(JdkLDAP$ProviderService::*)($Provider*,$String*,$String*,$String*,$List*,$HashMap*)>(&JdkLDAP$ProviderService::init$))},
-	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(JdkLDAP$ProviderService, init$, void, $Provider*, $String*, $String*, $String*, $List*, $HashMap*)},
+	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JdkLDAP$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
 	{}
 };
 

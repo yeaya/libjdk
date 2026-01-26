@@ -31,9 +31,9 @@ $FieldInfo _DeferredAttr$DeferredAttrNode$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$DeferredAttrNode$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$DeferredAttrNode$1::*)($DeferredAttr$DeferredAttrNode*,$Check$CheckContext*,$DeferredAttr$DeferredAttrContext*)>(&DeferredAttr$DeferredAttrNode$1::init$))},
-	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC},
-	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrNode$1, init$, void, $DeferredAttr$DeferredAttrNode*, $Check$CheckContext*, $DeferredAttr$DeferredAttrContext*)},
+	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$1, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
+	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$1, inferenceContext, $InferenceContext*)},
 	{}
 };
 

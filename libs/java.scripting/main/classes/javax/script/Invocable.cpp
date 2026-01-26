@@ -9,10 +9,10 @@ namespace javax {
 	namespace script {
 
 $MethodInfo _Invocable_MethodInfo_[] = {
-	{"getInterface", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $ABSTRACT},
-	{"getInterface", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $ABSTRACT},
-	{"invokeFunction", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "javax.script.ScriptException,java.lang.NoSuchMethodException"},
-	{"invokeMethod", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, nullptr, "javax.script.ScriptException,java.lang.NoSuchMethodException"},
+	{"getInterface", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(Invocable, getInterface, $Object*, $Class*)},
+	{"getInterface", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(Invocable, getInterface, $Object*, Object$*, $Class*)},
+	{"invokeFunction", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Invocable, invokeFunction, $Object*, $String*, $ObjectArray*), "javax.script.ScriptException,java.lang.NoSuchMethodException"},
+	{"invokeMethod", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Invocable, invokeMethod, $Object*, Object$*, $String*, $ObjectArray*), "javax.script.ScriptException,java.lang.NoSuchMethodException"},
 	{}
 };
 

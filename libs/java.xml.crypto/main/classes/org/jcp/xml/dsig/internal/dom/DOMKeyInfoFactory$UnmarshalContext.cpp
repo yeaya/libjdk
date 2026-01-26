@@ -17,7 +17,7 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMKeyInfoFactory$UnmarshalContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DOMKeyInfoFactory$UnmarshalContext::*)()>(&DOMKeyInfoFactory$UnmarshalContext::init$))},
+	{"<init>", "()V", nullptr, 0, $method(DOMKeyInfoFactory$UnmarshalContext, init$, void)},
 	{}
 };
 

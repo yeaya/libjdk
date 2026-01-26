@@ -17,8 +17,8 @@ $FieldInfo _CommunicationException_FieldInfo_[] = {
 };
 
 $MethodInfo _CommunicationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CommunicationException::*)($String*)>(&CommunicationException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CommunicationException::*)()>(&CommunicationException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CommunicationException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CommunicationException, init$, void)},
 	{}
 };
 

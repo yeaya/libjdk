@@ -35,8 +35,8 @@ $FieldInfo _Main$MainClassListener_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$MainClassListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/util/JavacTask;)V", nullptr, 0, $method(static_cast<void(Main$MainClassListener::*)($JavacTask*)>(&Main$MainClassListener::init$))},
-	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/source/util/JavacTask;)V", nullptr, 0, $method(Main$MainClassListener, init$, void, $JavacTask*)},
+	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(Main$MainClassListener, started, void, $TaskEvent*)},
 	{}
 };
 

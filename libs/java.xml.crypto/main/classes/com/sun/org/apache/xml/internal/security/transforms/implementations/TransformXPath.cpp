@@ -51,11 +51,11 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _TransformXPath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransformXPath::*)()>(&TransformXPath::init$))},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"getXPathFactory", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathFactory;", nullptr, $PROTECTED},
-	{"needsCircumvent", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(TransformXPath::*)($String*)>(&TransformXPath::needsCircumvent))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformXPath, init$, void)},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformXPath, engineGetURI, $String*)},
+	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformXPath, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+	{"getXPathFactory", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathFactory;", nullptr, $PROTECTED, $virtualMethod(TransformXPath, getXPathFactory, $XPathFactory*)},
+	{"needsCircumvent", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(TransformXPath, needsCircumvent, bool, $String*)},
 	{}
 };
 

@@ -28,11 +28,11 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMSignatureMethod$SHA1withRSA_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$SHA1withRSA::*)($AlgorithmParameterSpec*)>(&DOMSignatureMethod$SHA1withRSA::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$SHA1withRSA::*)($Element*)>(&DOMSignatureMethod$SHA1withRSA::init$)), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withRSA, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$SHA1withRSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$SHA1withRSA, getAlgorithm, $String*)},
+	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withRSA, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
+	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$SHA1withRSA, getJCAAlgorithm, $String*)},
 	{}
 };
 

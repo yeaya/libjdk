@@ -41,10 +41,10 @@ $FieldInfo _Flow$LambdaAliveAnalyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$LambdaAliveAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(static_cast<void(Flow$LambdaAliveAnalyzer::*)($Flow*)>(&Flow$LambdaAliveAnalyzer::init$))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$LambdaAliveAnalyzer, init$, void, $Flow*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAliveAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAliveAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAliveAnalyzer, visitReturn, void, $JCTree$JCReturn*)},
 	{}
 };
 

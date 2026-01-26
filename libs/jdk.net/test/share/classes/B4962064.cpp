@@ -52,12 +52,12 @@ $FieldInfo _B4962064_FieldInfo_[] = {
 };
 
 $MethodInfo _B4962064_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B4962064::*)()>(&B4962064::init$))},
-	{"client", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&B4962064::client)), "java.lang.Exception"},
-	{"except", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&B4962064::except))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B4962064::main)), "java.lang.Exception"},
-	{"read", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $method(static_cast<void(*)($InputStream*)>(&B4962064::read)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B4962064, init$, void)},
+	{"client", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(B4962064, client, void, $String*), "java.lang.Exception"},
+	{"except", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B4962064, except, void, $String*)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(B4962064, handle, void, $HttpExchange*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B4962064, main, void, $StringArray*), "java.lang.Exception"},
+	{"read", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(B4962064, read, void, $InputStream*), "java.io.IOException"},
 	{}
 };
 

@@ -68,11 +68,11 @@ $MethodInfo _DSAKeyValue_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DSAKeyValue::*)($Element*,$String*)>(&DSAKeyValue::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(DSAKeyValue::*)($Document*,$BigInteger*,$BigInteger*,$BigInteger*,$BigInteger*)>(&DSAKeyValue::init$))},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/Key;)V", nullptr, $PUBLIC, $method(static_cast<void(DSAKeyValue::*)($Document*,$Key*)>(&DSAKeyValue::init$)), "java.lang.IllegalArgumentException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DSAKeyValue, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "(Lorg/w3c/dom/Document;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAKeyValue, init$, void, $Document*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
+	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/Key;)V", nullptr, $PUBLIC, $method(DSAKeyValue, init$, void, $Document*, $Key*), "java.lang.IllegalArgumentException"},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DSAKeyValue, getBaseLocalName, $String*)},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(DSAKeyValue, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

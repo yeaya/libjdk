@@ -24,11 +24,11 @@ $FieldInfo _JCDiagnostic$SimpleDiagnosticPosition_FieldInfo_[] = {
 };
 
 $MethodInfo _JCDiagnostic$SimpleDiagnosticPosition_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(JCDiagnostic$SimpleDiagnosticPosition::*)(int32_t)>(&JCDiagnostic$SimpleDiagnosticPosition::init$))},
-	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC},
-	{"getPreferredPosition", "()I", nullptr, $PUBLIC},
-	{"getStartPosition", "()I", nullptr, $PUBLIC},
-	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JCDiagnostic$SimpleDiagnosticPosition, init$, void, int32_t)},
+	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$SimpleDiagnosticPosition, getEndPosition, int32_t, $EndPosTable*)},
+	{"getPreferredPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$SimpleDiagnosticPosition, getPreferredPosition, int32_t)},
+	{"getStartPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$SimpleDiagnosticPosition, getStartPosition, int32_t)},
+	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$SimpleDiagnosticPosition, getTree, $JCTree*)},
 	{}
 };
 

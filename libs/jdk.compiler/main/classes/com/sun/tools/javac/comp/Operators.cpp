@@ -180,8 +180,8 @@ $FieldInfo Operators$$Lambda$lambda$resolveUnary$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Operators$$Lambda$lambda$resolveUnary$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$lambda$resolveUnary$0::*)($Type*)>(&Operators$$Lambda$lambda$resolveUnary$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Operators$$Lambda$lambda$resolveUnary$0, init$, void, $Type*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$lambda$resolveUnary$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$lambda$resolveUnary$0::classInfo$ = {
@@ -220,8 +220,8 @@ $FieldInfo Operators$$Lambda$lambda$resolveUnary$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Operators$$Lambda$lambda$resolveUnary$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$lambda$resolveUnary$1$1::*)($Type*)>(&Operators$$Lambda$lambda$resolveUnary$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Operators$$Lambda$lambda$resolveUnary$1$1, init$, void, $Type*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$lambda$resolveUnary$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$lambda$resolveUnary$1$1::classInfo$ = {
@@ -269,8 +269,8 @@ $FieldInfo Operators$$Lambda$lambda$resolveUnary$2$2::fieldInfos[5] = {
 	{}
 };
 $MethodInfo Operators$$Lambda$lambda$resolveUnary$2$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$lambda$resolveUnary$2$2::*)(Operators*,$JCDiagnostic$DiagnosticPosition*,$JCTree$Tag*,$Type*)>(&Operators$$Lambda$lambda$resolveUnary$2$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Operators$$Lambda$lambda$resolveUnary$2$2, init$, void, Operators*, $JCDiagnostic$DiagnosticPosition*, $JCTree$Tag*, $Type*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$lambda$resolveUnary$2$2, get, $Object*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$lambda$resolveUnary$2$2::classInfo$ = {
@@ -312,8 +312,8 @@ $FieldInfo Operators$$Lambda$lambda$resolveBinary$3$3::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Operators$$Lambda$lambda$resolveBinary$3$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$lambda$resolveBinary$3$3::*)($Type*,$Type*)>(&Operators$$Lambda$lambda$resolveBinary$3$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Operators$$Lambda$lambda$resolveBinary$3$3, init$, void, $Type*, $Type*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$lambda$resolveBinary$3$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$lambda$resolveBinary$3$3::classInfo$ = {
@@ -355,8 +355,8 @@ $FieldInfo Operators$$Lambda$lambda$resolveBinary$4$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Operators$$Lambda$lambda$resolveBinary$4$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$lambda$resolveBinary$4$4::*)($Type*,$Type*)>(&Operators$$Lambda$lambda$resolveBinary$4$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Operators$$Lambda$lambda$resolveBinary$4$4, init$, void, $Type*, $Type*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$lambda$resolveBinary$4$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$lambda$resolveBinary$4$4::classInfo$ = {
@@ -407,8 +407,8 @@ $FieldInfo Operators$$Lambda$lambda$resolveBinary$5$5::fieldInfos[6] = {
 	{}
 };
 $MethodInfo Operators$$Lambda$lambda$resolveBinary$5$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$lambda$resolveBinary$5$5::*)(Operators*,$JCDiagnostic$DiagnosticPosition*,$JCTree$Tag*,$Type*,$Type*)>(&Operators$$Lambda$lambda$resolveBinary$5$5::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Operators$$Lambda$lambda$resolveBinary$5$5, init$, void, Operators*, $JCDiagnostic$DiagnosticPosition*, $JCTree$Tag*, $Type*, $Type*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$lambda$resolveBinary$5$5, get, $Object*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$lambda$resolveBinary$5$5::classInfo$ = {
@@ -447,8 +447,8 @@ $FieldInfo Operators$$Lambda$lambda$makeOperator$6$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Operators$$Lambda$lambda$makeOperator$6$6::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$lambda$makeOperator$6$6::*)(Operators*)>(&Operators$$Lambda$lambda$makeOperator$6$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;)V", nullptr, $PUBLIC, $method(Operators$$Lambda$lambda$makeOperator$6$6, init$, void, Operators*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$lambda$makeOperator$6$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$lambda$makeOperator$6$6::classInfo$ = {
@@ -480,8 +480,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$$Lambda$lambda$reportErrorIfNeeded$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$lambda$reportErrorIfNeeded$7$7::*)()>(&Operators$$Lambda$lambda$reportErrorIfNeeded$7$7::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$$Lambda$lambda$reportErrorIfNeeded$7$7, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$lambda$reportErrorIfNeeded$7$7, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$lambda$reportErrorIfNeeded$7$7::classInfo$ = {
@@ -513,8 +513,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$$Lambda$isIntegral$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$isIntegral$8::*)()>(&Operators$$Lambda$isIntegral$8::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$$Lambda$isIntegral$8, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$isIntegral$8, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$isIntegral$8::classInfo$ = {
@@ -546,8 +546,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$$Lambda$stream$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$stream$9::*)()>(&Operators$$Lambda$stream$9::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$$Lambda$stream$9, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$stream$9, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$stream$9::classInfo$ = {
@@ -586,8 +586,8 @@ $FieldInfo Operators$$Lambda$lambda$lookupBinaryOp$8$10::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Operators$$Lambda$lambda$lookupBinaryOp$8$10::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$lambda$lookupBinaryOp$8$10::*)($Predicate*)>(&Operators$$Lambda$lambda$lookupBinaryOp$8$10::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(Operators$$Lambda$lambda$lookupBinaryOp$8$10, init$, void, $Predicate*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$lambda$lookupBinaryOp$8$10, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$lambda$lookupBinaryOp$8$10::classInfo$ = {
@@ -626,8 +626,8 @@ $FieldInfo Operators$$Lambda$lambda$lookupBinaryOp$9$11::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Operators$$Lambda$lambda$lookupBinaryOp$9$11::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$$Lambda$lambda$lookupBinaryOp$9$11::*)(Operators*)>(&Operators$$Lambda$lambda$lookupBinaryOp$9$11::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;)V", nullptr, $PUBLIC, $method(Operators$$Lambda$lambda$lookupBinaryOp$9$11, init$, void, Operators*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$$Lambda$lambda$lookupBinaryOp$9$11, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Operators$$Lambda$lambda$lookupBinaryOp$9$11::classInfo$ = {
@@ -663,34 +663,34 @@ $FieldInfo _Operators_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(Operators::*)($Context*)>(&Operators::init$))},
-	{"binaryPromotion", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"initBinaryOperators", "()V", nullptr, $PRIVATE, $method(static_cast<void(Operators::*)()>(&Operators::initBinaryOperators))},
-	{"initOperatorNames", "()V", nullptr, $PRIVATE, $method(static_cast<void(Operators::*)()>(&Operators::initOperatorNames))},
-	{"initOperators", "(Ljava/util/Map;[Lcom/sun/tools/javac/comp/Operators$OperatorHelper;)V", "<O:Lcom/sun/tools/javac/comp/Operators$OperatorHelper;>(Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<TO;>;>;[TO;)V", $PRIVATE | $FINAL | $TRANSIENT, $method(static_cast<void(Operators::*)($Map*,$Operators$OperatorHelperArray*)>(&Operators::initOperators)), nullptr, nullptr, _Operators_MethodAnnotations_initOperators4},
-	{"initUnaryOperators", "()V", nullptr, $PRIVATE, $method(static_cast<void(Operators::*)()>(&Operators::initUnaryOperators))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Operators;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Operators*(*)($Context*)>(&Operators::instance))},
-	{"lambda$lookupBinaryOp$8", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Symbol$OperatorSymbol*(*)($Predicate*,$Operators$BinaryOperatorHelper*)>(&Operators::lambda$lookupBinaryOp$8))},
-	{"lambda$lookupBinaryOp$9", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Operators::*)($Symbol$OperatorSymbol*)>(&Operators::lambda$lookupBinaryOp$9))},
-	{"lambda$makeOperator$6", "(Lcom/sun/tools/javac/comp/Operators$OperatorType;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Type*(Operators::*)($Operators$OperatorType*)>(&Operators::lambda$makeOperator$6))},
-	{"lambda$reportErrorIfNeeded$7", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Type*)>(&Operators::lambda$reportErrorIfNeeded$7))},
-	{"lambda$resolveBinary$3", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Type*,$Type*,$Operators$BinaryOperatorHelper*)>(&Operators::lambda$resolveBinary$3))},
-	{"lambda$resolveBinary$4", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Symbol$OperatorSymbol*(*)($Type*,$Type*,$Operators$BinaryOperatorHelper*)>(&Operators::lambda$resolveBinary$4))},
-	{"lambda$resolveBinary$5", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Symbol$OperatorSymbol*(Operators::*)($JCDiagnostic$DiagnosticPosition*,$JCTree$Tag*,$Type*,$Type*)>(&Operators::lambda$resolveBinary$5))},
-	{"lambda$resolveUnary$0", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Operators$UnaryOperatorHelper;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Type*,$Operators$UnaryOperatorHelper*)>(&Operators::lambda$resolveUnary$0))},
-	{"lambda$resolveUnary$1", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Operators$UnaryOperatorHelper;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Symbol$OperatorSymbol*(*)($Type*,$Operators$UnaryOperatorHelper*)>(&Operators::lambda$resolveUnary$1))},
-	{"lambda$resolveUnary$2", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Symbol$OperatorSymbol*(Operators::*)($JCDiagnostic$DiagnosticPosition*,$JCTree$Tag*,$Type*)>(&Operators::lambda$resolveUnary$2))},
-	{"lookupBinaryOp", "(Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;>;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", 0},
-	{"makeOperator", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Operators$OperatorType;>;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", $PRIVATE | $TRANSIENT, $method(static_cast<$Symbol$OperatorSymbol*(Operators::*)($Name*,$List*,$Operators$OperatorType*,$ints*)>(&Operators::makeOperator))},
-	{"mergeOpcodes", "([I)I", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<int32_t(Operators::*)($ints*)>(&Operators::mergeOpcodes))},
-	{"operatorName", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"reportErrorIfNeeded", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;[Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<$Symbol$OperatorSymbol*(Operators::*)($JCDiagnostic$DiagnosticPosition*,$JCTree$Tag*,$TypeArray*)>(&Operators::reportErrorIfNeeded))},
-	{"resolve", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/Map;Ljava/util/function/Predicate;Ljava/util/function/Function;Ljava/util/function/Supplier;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", "<O:Ljava/lang/Object;>(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<TO;>;>;Ljava/util/function/Predicate<TO;>;Ljava/util/function/Function<TO;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;>;Ljava/util/function/Supplier<Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;>;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", $PRIVATE, $method(static_cast<$Symbol$OperatorSymbol*(Operators::*)($JCTree$Tag*,$Map*,$Predicate*,$Function*,$Supplier*)>(&Operators::resolve))},
-	{"resolveBinary", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, 0},
-	{"resolveUnary", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, 0},
-	{"setOperatorName", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Operators::*)($JCTree$Tag*,$String*)>(&Operators::setOperatorName))},
-	{"setOperatorName", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/util/Name;)V", nullptr, $PRIVATE, $method(static_cast<void(Operators::*)($JCTree$Tag*,$Name*)>(&Operators::setOperatorName))},
-	{"unaryPromotion", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Operators, init$, void, $Context*)},
+	{"binaryPromotion", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Operators, binaryPromotion, $Type*, $Type*, $Type*)},
+	{"initBinaryOperators", "()V", nullptr, $PRIVATE, $method(Operators, initBinaryOperators, void)},
+	{"initOperatorNames", "()V", nullptr, $PRIVATE, $method(Operators, initOperatorNames, void)},
+	{"initOperators", "(Ljava/util/Map;[Lcom/sun/tools/javac/comp/Operators$OperatorHelper;)V", "<O:Lcom/sun/tools/javac/comp/Operators$OperatorHelper;>(Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<TO;>;>;[TO;)V", $PRIVATE | $FINAL | $TRANSIENT, $method(Operators, initOperators, void, $Map*, $Operators$OperatorHelperArray*), nullptr, nullptr, _Operators_MethodAnnotations_initOperators4},
+	{"initUnaryOperators", "()V", nullptr, $PRIVATE, $method(Operators, initUnaryOperators, void)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Operators;", nullptr, $PUBLIC | $STATIC, $staticMethod(Operators, instance, Operators*, $Context*)},
+	{"lambda$lookupBinaryOp$8", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators, lambda$lookupBinaryOp$8, $Symbol$OperatorSymbol*, $Predicate*, $Operators$BinaryOperatorHelper*)},
+	{"lambda$lookupBinaryOp$9", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Operators, lambda$lookupBinaryOp$9, bool, $Symbol$OperatorSymbol*)},
+	{"lambda$makeOperator$6", "(Lcom/sun/tools/javac/comp/Operators$OperatorType;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(Operators, lambda$makeOperator$6, $Type*, $Operators$OperatorType*)},
+	{"lambda$reportErrorIfNeeded$7", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators, lambda$reportErrorIfNeeded$7, bool, $Type*)},
+	{"lambda$resolveBinary$3", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators, lambda$resolveBinary$3, bool, $Type*, $Type*, $Operators$BinaryOperatorHelper*)},
+	{"lambda$resolveBinary$4", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators, lambda$resolveBinary$4, $Symbol$OperatorSymbol*, $Type*, $Type*, $Operators$BinaryOperatorHelper*)},
+	{"lambda$resolveBinary$5", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(Operators, lambda$resolveBinary$5, $Symbol$OperatorSymbol*, $JCDiagnostic$DiagnosticPosition*, $JCTree$Tag*, $Type*, $Type*)},
+	{"lambda$resolveUnary$0", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Operators$UnaryOperatorHelper;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators, lambda$resolveUnary$0, bool, $Type*, $Operators$UnaryOperatorHelper*)},
+	{"lambda$resolveUnary$1", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Operators$UnaryOperatorHelper;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators, lambda$resolveUnary$1, $Symbol$OperatorSymbol*, $Type*, $Operators$UnaryOperatorHelper*)},
+	{"lambda$resolveUnary$2", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(Operators, lambda$resolveUnary$2, $Symbol$OperatorSymbol*, $JCDiagnostic$DiagnosticPosition*, $JCTree$Tag*, $Type*)},
+	{"lookupBinaryOp", "(Ljava/util/function/Predicate;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;>;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", 0, $virtualMethod(Operators, lookupBinaryOp, $Symbol$OperatorSymbol*, $Predicate*)},
+	{"makeOperator", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Operators$OperatorType;>;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", $PRIVATE | $TRANSIENT, $method(Operators, makeOperator, $Symbol$OperatorSymbol*, $Name*, $List*, $Operators$OperatorType*, $ints*)},
+	{"mergeOpcodes", "([I)I", nullptr, $PRIVATE | $TRANSIENT, $method(Operators, mergeOpcodes, int32_t, $ints*)},
+	{"operatorName", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Operators, operatorName, $Name*, $JCTree$Tag*)},
+	{"reportErrorIfNeeded", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;[Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $TRANSIENT, $method(Operators, reportErrorIfNeeded, $Symbol$OperatorSymbol*, $JCDiagnostic$DiagnosticPosition*, $JCTree$Tag*, $TypeArray*)},
+	{"resolve", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/Map;Ljava/util/function/Predicate;Ljava/util/function/Function;Ljava/util/function/Supplier;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", "<O:Ljava/lang/Object;>(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<TO;>;>;Ljava/util/function/Predicate<TO;>;Ljava/util/function/Function<TO;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;>;Ljava/util/function/Supplier<Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;>;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", $PRIVATE, $method(Operators, resolve, $Symbol$OperatorSymbol*, $JCTree$Tag*, $Map*, $Predicate*, $Function*, $Supplier*)},
+	{"resolveBinary", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, 0, $virtualMethod(Operators, resolveBinary, $Symbol$OperatorSymbol*, $JCDiagnostic$DiagnosticPosition*, $JCTree$Tag*, $Type*, $Type*)},
+	{"resolveUnary", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, 0, $virtualMethod(Operators, resolveUnary, $Symbol$OperatorSymbol*, $JCDiagnostic$DiagnosticPosition*, $JCTree$Tag*, $Type*)},
+	{"setOperatorName", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Operators, setOperatorName, void, $JCTree$Tag*, $String*)},
+	{"setOperatorName", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Lcom/sun/tools/javac/util/Name;)V", nullptr, $PRIVATE, $method(Operators, setOperatorName, void, $JCTree$Tag*, $Name*)},
+	{"unaryPromotion", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Operators, unaryPromotion, $Type*, $Type*)},
 	{}
 };
 

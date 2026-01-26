@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HpackHeaderTableDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HpackHeaderTableDriver::*)()>(&HpackHeaderTableDriver::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HpackHeaderTableDriver, init$, void)},
 	{}
 };
 

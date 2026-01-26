@@ -14,12 +14,12 @@ namespace jdk {
 				namespace common {
 
 $MethodInfo _OperationTrackers$Tracker_MethodInfo_[] = {
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOutstandingHttp2Streams", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOutstandingHttpOperations", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOutstandingOperations", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOutstandingWebSocketOperations", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"isFacadeReferenced", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperationTrackers$Tracker, getName, $String*)},
+	{"getOutstandingHttp2Streams", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperationTrackers$Tracker, getOutstandingHttp2Streams, int64_t)},
+	{"getOutstandingHttpOperations", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperationTrackers$Tracker, getOutstandingHttpOperations, int64_t)},
+	{"getOutstandingOperations", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperationTrackers$Tracker, getOutstandingOperations, int64_t)},
+	{"getOutstandingWebSocketOperations", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperationTrackers$Tracker, getOutstandingWebSocketOperations, int64_t)},
+	{"isFacadeReferenced", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperationTrackers$Tracker, isFacadeReferenced, bool)},
 	{}
 };
 

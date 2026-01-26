@@ -142,8 +142,8 @@ $FieldInfo WebSocketImpl$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo WebSocketImpl$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(WebSocketImpl$$Lambda$toString::*)($String*)>(&WebSocketImpl$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WebSocketImpl$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo WebSocketImpl$$Lambda$toString::classInfo$ = {
@@ -182,8 +182,8 @@ $FieldInfo WebSocketImpl$$Lambda$lambda$newInstanceAsync$0$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo WebSocketImpl$$Lambda$lambda$newInstanceAsync$0$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/BuilderImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(WebSocketImpl$$Lambda$lambda$newInstanceAsync$0$1::*)($BuilderImpl*)>(&WebSocketImpl$$Lambda$lambda$newInstanceAsync$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/BuilderImpl;)V", nullptr, $PUBLIC, $method(WebSocketImpl$$Lambda$lambda$newInstanceAsync$0$1, init$, void, $BuilderImpl*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$$Lambda$lambda$newInstanceAsync$0$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo WebSocketImpl$$Lambda$lambda$newInstanceAsync$0$1::classInfo$ = {
@@ -222,8 +222,8 @@ $FieldInfo WebSocketImpl$$Lambda$lambda$sendText$1$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo WebSocketImpl$$Lambda$lambda$sendText$1$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(WebSocketImpl$$Lambda$lambda$sendText$1$2::*)(WebSocketImpl*)>(&WebSocketImpl$$Lambda$lambda$sendText$1$2::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PUBLIC, $method(WebSocketImpl$$Lambda$lambda$sendText$1$2, init$, void, WebSocketImpl*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$$Lambda$lambda$sendText$1$2, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo WebSocketImpl$$Lambda$lambda$sendText$1$2::classInfo$ = {
@@ -262,8 +262,8 @@ $FieldInfo WebSocketImpl$$Lambda$lambda$sendPing$3$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo WebSocketImpl$$Lambda$lambda$sendPing$3$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(WebSocketImpl$$Lambda$lambda$sendPing$3$3::*)(WebSocketImpl*)>(&WebSocketImpl$$Lambda$lambda$sendPing$3$3::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PUBLIC, $method(WebSocketImpl$$Lambda$lambda$sendPing$3$3, init$, void, WebSocketImpl*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$$Lambda$lambda$sendPing$3$3, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo WebSocketImpl$$Lambda$lambda$sendPing$3$3::classInfo$ = {
@@ -302,8 +302,8 @@ $FieldInfo WebSocketImpl$$Lambda$lambda$sendClose0$5$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo WebSocketImpl$$Lambda$lambda$sendClose0$5$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(WebSocketImpl$$Lambda$lambda$sendClose0$5$4::*)(WebSocketImpl*)>(&WebSocketImpl$$Lambda$lambda$sendClose0$5$4::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PUBLIC, $method(WebSocketImpl$$Lambda$lambda$sendClose0$5$4, init$, void, WebSocketImpl*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$$Lambda$lambda$sendClose0$5$4, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo WebSocketImpl$$Lambda$lambda$sendClose0$5$4::classInfo$ = {
@@ -335,8 +335,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo WebSocketImpl$$Lambda$lambda$sendCloseSilently$6$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WebSocketImpl$$Lambda$lambda$sendCloseSilently$6$5::*)()>(&WebSocketImpl$$Lambda$lambda$sendCloseSilently$6$5::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WebSocketImpl$$Lambda$lambda$sendCloseSilently$6$5, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$$Lambda$lambda$sendCloseSilently$6$5, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo WebSocketImpl$$Lambda$lambda$sendCloseSilently$6$5::classInfo$ = {
@@ -380,43 +380,43 @@ $FieldInfo _WebSocketImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _WebSocketImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;Ljava/lang/String;Ljava/net/http/WebSocket$Listener;Ljdk/internal/net/http/websocket/TransportFactory;)V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl::*)($URI*,$String*,$WebSocket$Listener*,$TransportFactory*)>(&WebSocketImpl::init$))},
-	{"abort", "()V", nullptr, $PUBLIC},
-	{"clearAutomaticPong", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(WebSocketImpl::*)()>(&WebSocketImpl::clearAutomaticPong))},
-	{"clearPendingPingOrPong", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl::*)()>(&WebSocketImpl::clearPendingPingOrPong))},
-	{"clearPendingTextOrBinary", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl::*)()>(&WebSocketImpl::clearPendingTextOrBinary))},
-	{"close", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl::*)()>(&WebSocketImpl::close))},
-	{"getSubprotocol", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isInputClosed", "()Z", nullptr, $PUBLIC},
-	{"isLegalReason", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&WebSocketImpl::isLegalReason))},
-	{"isOutputClosed", "()Z", nullptr, $PUBLIC},
-	{"lambda$newInstanceAsync$0", "(Ljdk/internal/net/http/websocket/BuilderImpl;Ljdk/internal/net/http/websocket/OpeningHandshake$Result;)Ljava/net/http/WebSocket;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$WebSocket*(*)($BuilderImpl*,$OpeningHandshake$Result*)>(&WebSocketImpl::lambda$newInstanceAsync$0))},
-	{"lambda$sendClose0$5", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(WebSocketImpl::*)($WebSocket*,$Throwable*)>(&WebSocketImpl::lambda$sendClose0$5))},
-	{"lambda$sendCloseSilently$6", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($WebSocket*,$Throwable*)>(&WebSocketImpl::lambda$sendCloseSilently$6))},
-	{"lambda$sendPing$3", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(WebSocketImpl::*)($WebSocket*,$Throwable*)>(&WebSocketImpl::lambda$sendPing$3))},
-	{"lambda$sendText$1", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(WebSocketImpl::*)($WebSocket*,$Throwable*)>(&WebSocketImpl::lambda$sendText$1))},
-	{"newInstance", "(Ljava/net/URI;Ljava/lang/String;Ljava/net/http/WebSocket$Listener;Ljdk/internal/net/http/websocket/TransportFactory;)Ljdk/internal/net/http/websocket/WebSocketImpl;", nullptr, $STATIC, $method(static_cast<WebSocketImpl*(*)($URI*,$String*,$WebSocket$Listener*,$TransportFactory*)>(&WebSocketImpl::newInstance))},
-	{"newInstanceAsync", "(Ljdk/internal/net/http/websocket/BuilderImpl;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/websocket/BuilderImpl;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC | $STATIC, $method(static_cast<$CompletableFuture*(*)($BuilderImpl*)>(&WebSocketImpl::newInstanceAsync))},
-	{"processCloseError", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl::*)($Throwable*)>(&WebSocketImpl::processCloseError))},
-	{"replaceNull", "(Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PRIVATE, $method(static_cast<$CompletableFuture*(WebSocketImpl::*)($CompletableFuture*)>(&WebSocketImpl::replaceNull))},
-	{"request", "(J)V", nullptr, $PUBLIC},
-	{"sendBinary", "(Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletableFuture;", "(Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC},
-	{"sendClose", "(ILjava/lang/String;)Ljava/util/concurrent/CompletableFuture;", "(ILjava/lang/String;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC},
-	{"sendClose0", "(ILjava/lang/String;)Ljava/util/concurrent/CompletableFuture;", "(ILjava/lang/String;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PRIVATE, $method(static_cast<$CompletableFuture*(WebSocketImpl::*)(int32_t,$String*)>(&WebSocketImpl::sendClose0))},
-	{"sendCloseSilently", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl::*)(int32_t)>(&WebSocketImpl::sendCloseSilently))},
-	{"sendPing", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC},
-	{"sendPong", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC},
-	{"sendText", "(Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC},
-	{"setPendingPingOrPong", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(WebSocketImpl::*)()>(&WebSocketImpl::setPendingPingOrPong))},
-	{"setPendingTextOrBinary", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(WebSocketImpl::*)()>(&WebSocketImpl::setPendingTextOrBinary))},
-	{"signalClose", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl::*)(int32_t,$String*)>(&WebSocketImpl::signalClose))},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl::*)($Throwable*)>(&WebSocketImpl::signalError))},
-	{"signalOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl::*)()>(&WebSocketImpl::signalOpen))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transport", "()Ljdk/internal/net/http/websocket/Transport;", nullptr, $PROTECTED, $method(static_cast<$Transport*(WebSocketImpl::*)()>(&WebSocketImpl::transport))},
-	{"tryChangeState", "(Ljdk/internal/net/http/websocket/WebSocketImpl$State;Ljdk/internal/net/http/websocket/WebSocketImpl$State;)Z", nullptr, $PRIVATE, $method(static_cast<bool(WebSocketImpl::*)($WebSocketImpl$State*,$WebSocketImpl$State*)>(&WebSocketImpl::tryChangeState))},
-	{"trySetState", "(Ljdk/internal/net/http/websocket/WebSocketImpl$State;)Z", nullptr, $PRIVATE, $method(static_cast<bool(WebSocketImpl::*)($WebSocketImpl$State*)>(&WebSocketImpl::trySetState))},
-	{"trySwapAutomaticPong", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(static_cast<bool(WebSocketImpl::*)($ByteBuffer*)>(&WebSocketImpl::trySwapAutomaticPong))},
+	{"<init>", "(Ljava/net/URI;Ljava/lang/String;Ljava/net/http/WebSocket$Listener;Ljdk/internal/net/http/websocket/TransportFactory;)V", nullptr, $PRIVATE, $method(WebSocketImpl, init$, void, $URI*, $String*, $WebSocket$Listener*, $TransportFactory*)},
+	{"abort", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl, abort, void)},
+	{"clearAutomaticPong", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(WebSocketImpl, clearAutomaticPong, $ByteBuffer*)},
+	{"clearPendingPingOrPong", "()V", nullptr, $PRIVATE, $method(WebSocketImpl, clearPendingPingOrPong, void)},
+	{"clearPendingTextOrBinary", "()V", nullptr, $PRIVATE, $method(WebSocketImpl, clearPendingTextOrBinary, void)},
+	{"close", "()V", nullptr, $PRIVATE, $method(WebSocketImpl, close, void)},
+	{"getSubprotocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl, getSubprotocol, $String*)},
+	{"isInputClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl, isInputClosed, bool)},
+	{"isLegalReason", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WebSocketImpl, isLegalReason, bool, $String*)},
+	{"isOutputClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl, isOutputClosed, bool)},
+	{"lambda$newInstanceAsync$0", "(Ljdk/internal/net/http/websocket/BuilderImpl;Ljdk/internal/net/http/websocket/OpeningHandshake$Result;)Ljava/net/http/WebSocket;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WebSocketImpl, lambda$newInstanceAsync$0, $WebSocket*, $BuilderImpl*, $OpeningHandshake$Result*)},
+	{"lambda$sendClose0$5", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(WebSocketImpl, lambda$sendClose0$5, void, $WebSocket*, $Throwable*)},
+	{"lambda$sendCloseSilently$6", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WebSocketImpl, lambda$sendCloseSilently$6, void, $WebSocket*, $Throwable*)},
+	{"lambda$sendPing$3", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(WebSocketImpl, lambda$sendPing$3, void, $WebSocket*, $Throwable*)},
+	{"lambda$sendText$1", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(WebSocketImpl, lambda$sendText$1, void, $WebSocket*, $Throwable*)},
+	{"newInstance", "(Ljava/net/URI;Ljava/lang/String;Ljava/net/http/WebSocket$Listener;Ljdk/internal/net/http/websocket/TransportFactory;)Ljdk/internal/net/http/websocket/WebSocketImpl;", nullptr, $STATIC, $staticMethod(WebSocketImpl, newInstance, WebSocketImpl*, $URI*, $String*, $WebSocket$Listener*, $TransportFactory*)},
+	{"newInstanceAsync", "(Ljdk/internal/net/http/websocket/BuilderImpl;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/websocket/BuilderImpl;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC | $STATIC, $staticMethod(WebSocketImpl, newInstanceAsync, $CompletableFuture*, $BuilderImpl*)},
+	{"processCloseError", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(WebSocketImpl, processCloseError, void, $Throwable*)},
+	{"replaceNull", "(Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PRIVATE, $method(WebSocketImpl, replaceNull, $CompletableFuture*, $CompletableFuture*)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl, request, void, int64_t)},
+	{"sendBinary", "(Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletableFuture;", "(Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC, $virtualMethod(WebSocketImpl, sendBinary, $CompletableFuture*, $ByteBuffer*, bool)},
+	{"sendClose", "(ILjava/lang/String;)Ljava/util/concurrent/CompletableFuture;", "(ILjava/lang/String;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC, $virtualMethod(WebSocketImpl, sendClose, $CompletableFuture*, int32_t, $String*)},
+	{"sendClose0", "(ILjava/lang/String;)Ljava/util/concurrent/CompletableFuture;", "(ILjava/lang/String;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PRIVATE, $method(WebSocketImpl, sendClose0, $CompletableFuture*, int32_t, $String*)},
+	{"sendCloseSilently", "(I)V", nullptr, $PRIVATE, $method(WebSocketImpl, sendCloseSilently, void, int32_t)},
+	{"sendPing", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC, $virtualMethod(WebSocketImpl, sendPing, $CompletableFuture*, $ByteBuffer*)},
+	{"sendPong", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC, $virtualMethod(WebSocketImpl, sendPong, $CompletableFuture*, $ByteBuffer*)},
+	{"sendText", "(Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC, $virtualMethod(WebSocketImpl, sendText, $CompletableFuture*, $CharSequence*, bool)},
+	{"setPendingPingOrPong", "()Z", nullptr, $PRIVATE, $method(WebSocketImpl, setPendingPingOrPong, bool)},
+	{"setPendingTextOrBinary", "()Z", nullptr, $PRIVATE, $method(WebSocketImpl, setPendingTextOrBinary, bool)},
+	{"signalClose", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(WebSocketImpl, signalClose, void, int32_t, $String*)},
+	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(WebSocketImpl, signalError, void, $Throwable*)},
+	{"signalOpen", "()V", nullptr, $PRIVATE, $method(WebSocketImpl, signalOpen, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl, toString, $String*)},
+	{"transport", "()Ljdk/internal/net/http/websocket/Transport;", nullptr, $PROTECTED, $method(WebSocketImpl, transport, $Transport*)},
+	{"tryChangeState", "(Ljdk/internal/net/http/websocket/WebSocketImpl$State;Ljdk/internal/net/http/websocket/WebSocketImpl$State;)Z", nullptr, $PRIVATE, $method(WebSocketImpl, tryChangeState, bool, $WebSocketImpl$State*, $WebSocketImpl$State*)},
+	{"trySetState", "(Ljdk/internal/net/http/websocket/WebSocketImpl$State;)Z", nullptr, $PRIVATE, $method(WebSocketImpl, trySetState, bool, $WebSocketImpl$State*)},
+	{"trySwapAutomaticPong", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(WebSocketImpl, trySwapAutomaticPong, bool, $ByteBuffer*)},
 	{}
 };
 

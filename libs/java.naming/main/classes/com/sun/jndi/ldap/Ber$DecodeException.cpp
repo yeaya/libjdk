@@ -21,7 +21,7 @@ $FieldInfo _Ber$DecodeException_FieldInfo_[] = {
 };
 
 $MethodInfo _Ber$DecodeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Ber$DecodeException::*)($String*)>(&Ber$DecodeException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Ber$DecodeException, init$, void, $String*)},
 	{}
 };
 

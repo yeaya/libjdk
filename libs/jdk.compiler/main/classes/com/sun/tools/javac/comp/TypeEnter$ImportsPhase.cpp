@@ -166,8 +166,8 @@ $FieldInfo TypeEnter$ImportsPhase$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TypeEnter$ImportsPhase$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$ImportsPhase;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$ImportsPhase$$Lambda$lambda$new$0::*)(TypeEnter$ImportsPhase*)>(&TypeEnter$ImportsPhase$$Lambda$lambda$new$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$ImportsPhase;)V", nullptr, $PUBLIC, $method(TypeEnter$ImportsPhase$$Lambda$lambda$new$0, init$, void, TypeEnter$ImportsPhase*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$ImportsPhase$$Lambda$lambda$new$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$ImportsPhase$$Lambda$lambda$new$0::classInfo$ = {
@@ -209,8 +209,8 @@ $FieldInfo TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$1$1::fieldInfos[
 	{}
 };
 $MethodInfo TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$ImportsPhase;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$1$1::*)(TypeEnter$ImportsPhase*,$Symbol$PackageSymbol*)>(&TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$1$1::init$))},
-	{"accepts", "(Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$ImportsPhase;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PUBLIC, $method(TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$1$1, init$, void, TypeEnter$ImportsPhase*, $Symbol$PackageSymbol*)},
+	{"accepts", "(Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$1$1, accepts, bool, $Scope*, $Symbol*)},
 	{}
 };
 $ClassInfo TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$1$1::classInfo$ = {
@@ -252,8 +252,8 @@ $FieldInfo TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$2$2::fieldInfos[
 	{}
 };
 $MethodInfo TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$2$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$ImportsPhase;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$2$2::*)(TypeEnter$ImportsPhase*,$Symbol$PackageSymbol*)>(&TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$2$2::init$))},
-	{"accepts", "(Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$ImportsPhase;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PUBLIC, $method(TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$2$2, init$, void, TypeEnter$ImportsPhase*, $Symbol$PackageSymbol*)},
+	{"accepts", "(Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$2$2, accepts, bool, $Scope*, $Symbol*)},
 	{}
 };
 $ClassInfo TypeEnter$ImportsPhase$$Lambda$lambda$resolveImports$2$2::classInfo$ = {
@@ -280,19 +280,19 @@ $FieldInfo _TypeEnter$ImportsPhase_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$ImportsPhase_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$ImportsPhase::*)($TypeEnter*)>(&TypeEnter$ImportsPhase::init$))},
-	{"attribImportType", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Type;", 0, $method(static_cast<$Type*(TypeEnter$ImportsPhase::*)($JCTree*,$Env*)>(&TypeEnter$ImportsPhase::attribImportType))},
-	{"checkClassPackageClash", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PRIVATE, $method(static_cast<void(TypeEnter$ImportsPhase::*)($JCTree$JCPackageDecl*)>(&TypeEnter$ImportsPhase::checkClassPackageClash))},
-	{"doImport", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;)V", nullptr, $PRIVATE, $method(static_cast<void(TypeEnter$ImportsPhase::*)($JCTree$JCImport*)>(&TypeEnter$ImportsPhase::doImport))},
-	{"importAll", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(static_cast<void(TypeEnter$ImportsPhase::*)($JCTree$JCImport*,$Symbol$TypeSymbol*,$Env*)>(&TypeEnter$ImportsPhase::importAll))},
-	{"importNamed", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCImport;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCImport;)V", $PRIVATE, $method(static_cast<void(TypeEnter$ImportsPhase::*)($JCDiagnostic$DiagnosticPosition*,$Symbol*,$Env*,$JCTree$JCImport*)>(&TypeEnter$ImportsPhase::importNamed))},
-	{"importNamedStatic", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(static_cast<void(TypeEnter$ImportsPhase::*)($JCTree$JCImport*,$Symbol$TypeSymbol*,$Name*,$Env*)>(&TypeEnter$ImportsPhase::importNamedStatic))},
-	{"importStaticAll", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(static_cast<void(TypeEnter$ImportsPhase::*)($JCTree$JCImport*,$Symbol$TypeSymbol*,$Env*)>(&TypeEnter$ImportsPhase::importStaticAll))},
-	{"lambda$new$0", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(TypeEnter$ImportsPhase::*)($JCTree$JCImport*,$Symbol$CompletionFailure*)>(&TypeEnter$ImportsPhase::lambda$new$0))},
-	{"lambda$resolveImports$1", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(TypeEnter$ImportsPhase::*)($Symbol$PackageSymbol*,$Scope*,$Symbol*)>(&TypeEnter$ImportsPhase::lambda$resolveImports$1))},
-	{"lambda$resolveImports$2", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(TypeEnter$ImportsPhase::*)($Symbol$PackageSymbol*,$Scope*,$Symbol*)>(&TypeEnter$ImportsPhase::lambda$resolveImports$2))},
-	{"resolveImports", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(static_cast<void(TypeEnter$ImportsPhase::*)($JCTree$JCCompilationUnit*,$Env*)>(&TypeEnter$ImportsPhase::resolveImports))},
-	{"runPhase", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;)V", nullptr, $PUBLIC, $method(TypeEnter$ImportsPhase, init$, void, $TypeEnter*)},
+	{"attribImportType", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Type;", 0, $method(TypeEnter$ImportsPhase, attribImportType, $Type*, $JCTree*, $Env*)},
+	{"checkClassPackageClash", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PRIVATE, $method(TypeEnter$ImportsPhase, checkClassPackageClash, void, $JCTree$JCPackageDecl*)},
+	{"doImport", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;)V", nullptr, $PRIVATE, $method(TypeEnter$ImportsPhase, doImport, void, $JCTree$JCImport*)},
+	{"importAll", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(TypeEnter$ImportsPhase, importAll, void, $JCTree$JCImport*, $Symbol$TypeSymbol*, $Env*)},
+	{"importNamed", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCImport;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCImport;)V", $PRIVATE, $method(TypeEnter$ImportsPhase, importNamed, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Env*, $JCTree$JCImport*)},
+	{"importNamedStatic", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(TypeEnter$ImportsPhase, importNamedStatic, void, $JCTree$JCImport*, $Symbol$TypeSymbol*, $Name*, $Env*)},
+	{"importStaticAll", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(TypeEnter$ImportsPhase, importStaticAll, void, $JCTree$JCImport*, $Symbol$TypeSymbol*, $Env*)},
+	{"lambda$new$0", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(TypeEnter$ImportsPhase, lambda$new$0, void, $JCTree$JCImport*, $Symbol$CompletionFailure*)},
+	{"lambda$resolveImports$1", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(TypeEnter$ImportsPhase, lambda$resolveImports$1, bool, $Symbol$PackageSymbol*, $Scope*, $Symbol*)},
+	{"lambda$resolveImports$2", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(TypeEnter$ImportsPhase, lambda$resolveImports$2, bool, $Symbol$PackageSymbol*, $Scope*, $Symbol*)},
+	{"resolveImports", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(TypeEnter$ImportsPhase, resolveImports, void, $JCTree$JCCompilationUnit*, $Env*)},
+	{"runPhase", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED, $virtualMethod(TypeEnter$ImportsPhase, runPhase, void, $Env*)},
 	{}
 };
 

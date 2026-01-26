@@ -30,9 +30,9 @@ $FieldInfo _ClassWriter$StackMapTableFrame$FullFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassWriter$StackMapTableFrame$FullFrame_MethodInfo_[] = {
-	{"<init>", "(I[Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(ClassWriter$StackMapTableFrame$FullFrame::*)(int32_t,$TypeArray*,$TypeArray*)>(&ClassWriter$StackMapTableFrame$FullFrame::init$))},
-	{"getFrameType", "()I", nullptr, 0},
-	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0},
+	{"<init>", "(I[Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(ClassWriter$StackMapTableFrame$FullFrame, init$, void, int32_t, $TypeArray*, $TypeArray*)},
+	{"getFrameType", "()I", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$FullFrame, getFrameType, int32_t)},
+	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$FullFrame, write, void, $ClassWriter*)},
 	{}
 };
 

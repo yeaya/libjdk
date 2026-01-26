@@ -30,11 +30,11 @@ $MethodInfo _MacSymbol_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MacSymbol::*)()>(&MacSymbol::init$))},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MacSymbol, init$, void)},
+	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MacSymbol, contains, bool, $Charset*)},
+	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MacSymbol, historicalName, $String*)},
+	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MacSymbol, newDecoder, $CharsetDecoder*)},
+	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MacSymbol, newEncoder, $CharsetEncoder*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
 	{}
 };

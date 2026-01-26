@@ -33,9 +33,9 @@ $FieldInfo _ClientCodeWrapper$WrappedDiagnosticListener_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientCodeWrapper$WrappedDiagnosticListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/DiagnosticListener;)V", "(Ljavax/tools/DiagnosticListener<TT;>;)V", 0, $method(static_cast<void(ClientCodeWrapper$WrappedDiagnosticListener::*)($ClientCodeWrapper*,$DiagnosticListener*)>(&ClientCodeWrapper$WrappedDiagnosticListener::init$))},
-	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TT;>;)V", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Ljavax/tools/DiagnosticListener;)V", "(Ljavax/tools/DiagnosticListener<TT;>;)V", 0, $method(ClientCodeWrapper$WrappedDiagnosticListener, init$, void, $ClientCodeWrapper*, $DiagnosticListener*)},
+	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TT;>;)V", $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedDiagnosticListener, report, void, $Diagnostic*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$WrappedDiagnosticListener, toString, $String*)},
 	{}
 };
 

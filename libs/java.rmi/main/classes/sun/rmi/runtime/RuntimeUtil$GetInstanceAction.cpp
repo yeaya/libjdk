@@ -13,8 +13,8 @@ namespace sun {
 		namespace runtime {
 
 $MethodInfo _RuntimeUtil$GetInstanceAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeUtil$GetInstanceAction::*)()>(&RuntimeUtil$GetInstanceAction::init$))},
-	{"run", "()Lsun/rmi/runtime/RuntimeUtil;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeUtil$GetInstanceAction, init$, void)},
+	{"run", "()Lsun/rmi/runtime/RuntimeUtil;", nullptr, $PUBLIC, $virtualMethod(RuntimeUtil$GetInstanceAction, run, $Object*)},
 	{}
 };
 

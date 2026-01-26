@@ -38,10 +38,10 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _TransformC14N_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransformC14N::*)()>(&TransformC14N::init$))},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"getCanonicalizer", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformC14N, init$, void)},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformC14N, engineGetURI, $String*)},
+	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformC14N, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+	{"getCanonicalizer", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315;", nullptr, $PROTECTED, $virtualMethod(TransformC14N, getCanonicalizer, $Canonicalizer20010315*)},
 	{}
 };
 

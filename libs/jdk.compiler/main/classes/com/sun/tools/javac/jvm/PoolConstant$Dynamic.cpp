@@ -7,6 +7,7 @@
 #include <com/sun/tools/javac/util/Pair.h>
 #include <jcpp.h>
 
+using $PoolConstant$LoadableConstantArray = $Array<::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant>;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
 using $PoolConstant$Dynamic$BsmKey = ::com::sun::tools::javac::jvm::PoolConstant$Dynamic$BsmKey;
@@ -23,11 +24,11 @@ namespace com {
 				namespace jvm {
 
 $MethodInfo _PoolConstant$Dynamic_MethodInfo_[] = {
-	{"bootstrapMethod", "()Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $ABSTRACT},
-	{"bsmKey", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/jvm/PoolConstant$Dynamic$BsmKey;", nullptr, $PUBLIC},
-	{"dynamicType", "()Lcom/sun/tools/javac/jvm/PoolConstant;", nullptr, $PUBLIC | $ABSTRACT},
-	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"staticArgs", "()[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $ABSTRACT},
+	{"bootstrapMethod", "()Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolConstant$Dynamic, bootstrapMethod, $PoolConstant$LoadableConstant*)},
+	{"bsmKey", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/jvm/PoolConstant$Dynamic$BsmKey;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$Dynamic, bsmKey, $PoolConstant$Dynamic$BsmKey*, $Types*)},
+	{"dynamicType", "()Lcom/sun/tools/javac/jvm/PoolConstant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolConstant$Dynamic, dynamicType, $PoolConstant*)},
+	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$Dynamic, poolKey, $Object*, $Types*)},
+	{"staticArgs", "()[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolConstant$Dynamic, staticArgs, $PoolConstant$LoadableConstantArray*)},
 	{}
 };
 

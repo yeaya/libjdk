@@ -55,13 +55,13 @@ $FieldInfo _StorageResolver_FieldInfo_[] = {
 };
 
 $MethodInfo _StorageResolver_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi;)V", nullptr, $PUBLIC, $method(static_cast<void(StorageResolver::*)($StorageResolverSpi*)>(&StorageResolver::init$))},
-	{"<init>", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $method(static_cast<void(StorageResolver::*)($KeyStore*)>(&StorageResolver::init$))},
-	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(StorageResolver::*)($X509Certificate*)>(&StorageResolver::init$))},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi;)V", nullptr, $PUBLIC},
-	{"add", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC},
-	{"add", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC},
-	{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi;)V", nullptr, $PUBLIC, $method(StorageResolver, init$, void, $StorageResolverSpi*)},
+	{"<init>", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $method(StorageResolver, init$, void, $KeyStore*)},
+	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(StorageResolver, init$, void, $X509Certificate*)},
+	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi;)V", nullptr, $PUBLIC, $virtualMethod(StorageResolver, add, void, $StorageResolverSpi*)},
+	{"add", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $virtualMethod(StorageResolver, add, void, $KeyStore*)},
+	{"add", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(StorageResolver, add, void, $X509Certificate*)},
+	{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(StorageResolver, getIterator, $Iterator*)},
 	{}
 };
 

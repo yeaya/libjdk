@@ -53,14 +53,14 @@ $FieldInfo _MXBeanLookup_FieldInfo_[] = {
 };
 
 $MethodInfo _MXBeanLookup_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/MBeanServerConnection;)V", nullptr, $PRIVATE, $method(static_cast<void(MXBeanLookup::*)($MBeanServerConnection*)>(&MXBeanLookup::init$))},
-	{"addReference", "(Ljavax/management/ObjectName;Ljava/lang/Object;)V", nullptr, $SYNCHRONIZED, nullptr, "javax.management.InstanceAlreadyExistsException"},
-	{"getLookup", "()Lcom/sun/jmx/mbeanserver/MXBeanLookup;", nullptr, $STATIC, $method(static_cast<MXBeanLookup*(*)()>(&MXBeanLookup::getLookup))},
-	{"lookupFor", "(Ljavax/management/MBeanServerConnection;)Lcom/sun/jmx/mbeanserver/MXBeanLookup;", nullptr, $STATIC, $method(static_cast<MXBeanLookup*(*)($MBeanServerConnection*)>(&MXBeanLookup::lookupFor))},
-	{"mxbeanToObjectName", "(Ljava/lang/Object;)Ljavax/management/ObjectName;", nullptr, $SYNCHRONIZED, nullptr, "javax.management.openmbean.OpenDataException"},
-	{"objectNameToMXBean", "(Ljavax/management/ObjectName;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/ObjectName;Ljava/lang/Class<TT;>;)TT;", $SYNCHRONIZED},
-	{"removeReference", "(Ljavax/management/ObjectName;Ljava/lang/Object;)Z", nullptr, $SYNCHRONIZED},
-	{"setLookup", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;)V", nullptr, $STATIC, $method(static_cast<void(*)(MXBeanLookup*)>(&MXBeanLookup::setLookup))},
+	{"<init>", "(Ljavax/management/MBeanServerConnection;)V", nullptr, $PRIVATE, $method(MXBeanLookup, init$, void, $MBeanServerConnection*)},
+	{"addReference", "(Ljavax/management/ObjectName;Ljava/lang/Object;)V", nullptr, $SYNCHRONIZED, $virtualMethod(MXBeanLookup, addReference, void, $ObjectName*, Object$*), "javax.management.InstanceAlreadyExistsException"},
+	{"getLookup", "()Lcom/sun/jmx/mbeanserver/MXBeanLookup;", nullptr, $STATIC, $staticMethod(MXBeanLookup, getLookup, MXBeanLookup*)},
+	{"lookupFor", "(Ljavax/management/MBeanServerConnection;)Lcom/sun/jmx/mbeanserver/MXBeanLookup;", nullptr, $STATIC, $staticMethod(MXBeanLookup, lookupFor, MXBeanLookup*, $MBeanServerConnection*)},
+	{"mxbeanToObjectName", "(Ljava/lang/Object;)Ljavax/management/ObjectName;", nullptr, $SYNCHRONIZED, $virtualMethod(MXBeanLookup, mxbeanToObjectName, $ObjectName*, Object$*), "javax.management.openmbean.OpenDataException"},
+	{"objectNameToMXBean", "(Ljavax/management/ObjectName;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/ObjectName;Ljava/lang/Class<TT;>;)TT;", $SYNCHRONIZED, $virtualMethod(MXBeanLookup, objectNameToMXBean, $Object*, $ObjectName*, $Class*)},
+	{"removeReference", "(Ljavax/management/ObjectName;Ljava/lang/Object;)Z", nullptr, $SYNCHRONIZED, $virtualMethod(MXBeanLookup, removeReference, bool, $ObjectName*, Object$*)},
+	{"setLookup", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;)V", nullptr, $STATIC, $staticMethod(MXBeanLookup, setLookup, void, MXBeanLookup*)},
 	{}
 };
 

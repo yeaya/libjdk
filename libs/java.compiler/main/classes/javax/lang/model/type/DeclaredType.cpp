@@ -7,6 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Element = ::javax::lang::model::element::Element;
+using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace javax {
 	namespace lang {
@@ -14,9 +17,9 @@ namespace javax {
 			namespace type {
 
 $MethodInfo _DeclaredType_MethodInfo_[] = {
-	{"asElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEnclosingType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT},
+	{"asElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeclaredType, asElement, $Element*)},
+	{"getEnclosingType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeclaredType, getEnclosingType, $TypeMirror*)},
+	{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DeclaredType, getTypeArguments, $List*)},
 	{}
 };
 

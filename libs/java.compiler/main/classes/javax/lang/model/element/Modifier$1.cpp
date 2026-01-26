@@ -15,8 +15,8 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _Modifier$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Modifier$1::*)($String*,int32_t)>(&Modifier$1::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Modifier$1, init$, void, $String*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Modifier$1, toString, $String*)},
 	{}
 };
 

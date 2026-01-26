@@ -1,8 +1,11 @@
 #include <com/sun/source/tree/GuardedPatternTree.h>
 
 #include <com/sun/source/tree/ExpressionTree.h>
+#include <com/sun/source/tree/PatternTree.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
+using $PatternTree = ::com::sun::source::tree::PatternTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -17,8 +20,8 @@ $CompoundAttribute _GuardedPatternTree_Annotations_[] = {
 };
 
 $MethodInfo _GuardedPatternTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GuardedPatternTree, getExpression, $ExpressionTree*)},
+	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GuardedPatternTree, getPattern, $PatternTree*)},
 	{}
 };
 

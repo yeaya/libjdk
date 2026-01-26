@@ -12,6 +12,11 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
+using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
+using $NotificationFilter = ::javax::management::NotificationFilter;
+using $NotificationListener = ::javax::management::NotificationListener;
+using $Subject = ::javax::security::auth::Subject;
 
 namespace javax {
 	namespace management {
@@ -23,15 +28,15 @@ $FieldInfo _JMXConnector_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXConnector_MethodInfo_[] = {
-	{"addConnectionNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"addConnectionNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnector, addConnectionNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*)},
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"connect", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"connect", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getConnectionId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getMBeanServerConnection", "()Ljavax/management/MBeanServerConnection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getMBeanServerConnection", "(Ljavax/security/auth/Subject;)Ljavax/management/MBeanServerConnection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"removeConnectionNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.ListenerNotFoundException"},
-	{"removeConnectionNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.ListenerNotFoundException"},
+	{"connect", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnector, connect, void), "java.io.IOException"},
+	{"connect", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnector, connect, void, $Map*), "java.io.IOException"},
+	{"getConnectionId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnector, getConnectionId, $String*), "java.io.IOException"},
+	{"getMBeanServerConnection", "()Ljavax/management/MBeanServerConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnector, getMBeanServerConnection, $MBeanServerConnection*), "java.io.IOException"},
+	{"getMBeanServerConnection", "(Ljavax/security/auth/Subject;)Ljavax/management/MBeanServerConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnector, getMBeanServerConnection, $MBeanServerConnection*, $Subject*), "java.io.IOException"},
+	{"removeConnectionNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnector, removeConnectionNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
+	{"removeConnectionNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnector, removeConnectionNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
 	{}
 };
 

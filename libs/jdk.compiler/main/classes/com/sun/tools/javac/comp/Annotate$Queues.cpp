@@ -25,8 +25,8 @@ $FieldInfo _Annotate$Queues_FieldInfo_[] = {
 };
 
 $MethodInfo _Annotate$Queues_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Annotate$Queues::*)()>(&Annotate$Queues::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;)V", $PUBLIC, $method(static_cast<void(Annotate$Queues::*)($ListBuffer*,$ListBuffer*,$ListBuffer*,$ListBuffer*)>(&Annotate$Queues::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Annotate$Queues, init$, void)},
+	{"<init>", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;)V", $PUBLIC, $method(Annotate$Queues, init$, void, $ListBuffer*, $ListBuffer*, $ListBuffer*, $ListBuffer*)},
 	{}
 };
 

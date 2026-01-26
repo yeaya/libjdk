@@ -82,8 +82,8 @@ $FieldInfo Option$39$$Lambda$lambda$process$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Option$39$$Lambda$lambda$process$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Option$39$$Lambda$lambda$process$0::*)($String*)>(&Option$39$$Lambda$lambda$process$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Option$39$$Lambda$lambda$process$0, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$39$$Lambda$lambda$process$0, get, $Object*)},
 	{}
 };
 $ClassInfo Option$39$$Lambda$lambda$process$0::classInfo$ = {
@@ -115,8 +115,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Option$39$$Lambda$lambda$process$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Option$39$$Lambda$lambda$process$1$1::*)()>(&Option$39$$Lambda$lambda$process$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Option$39$$Lambda$lambda$process$1$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Option$39$$Lambda$lambda$process$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Option$39$$Lambda$lambda$process$1$1::classInfo$ = {
@@ -134,11 +134,11 @@ $Class* Option$39$$Lambda$lambda$process$1$1::load$($String* name, bool initiali
 $Class* Option$39$$Lambda$lambda$process$1$1::class$ = nullptr;
 
 $MethodInfo _Option$39_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(static_cast<void(Option$39::*)($String*,int32_t,$String*,$String*,$Option$OptionKind*,$Option$OptionGroup*)>(&Option$39::init$))},
-	{"getSupportedRuntimeOptions", "()[Lcom/sun/tools/javac/main/Option;", nullptr, $PRIVATE, $method(static_cast<$OptionArray*(Option$39::*)()>(&Option$39::getSupportedRuntimeOptions))},
-	{"lambda$process$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Option$39::lambda$process$0))},
-	{"lambda$process$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&Option$39::lambda$process$1))},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.main.Option$InvalidValueException"},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$39, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+	{"getSupportedRuntimeOptions", "()[Lcom/sun/tools/javac/main/Option;", nullptr, $PRIVATE, $method(Option$39, getSupportedRuntimeOptions, $OptionArray*)},
+	{"lambda$process$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$39, lambda$process$0, $String*, $String*)},
+	{"lambda$process$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$39, lambda$process$1, bool, $String*)},
+	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$39, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
 	{}
 };
 

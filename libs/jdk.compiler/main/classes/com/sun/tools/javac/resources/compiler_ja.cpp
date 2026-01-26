@@ -15,8 +15,8 @@ namespace com {
 				namespace resources {
 
 $MethodInfo _compiler_ja_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(compiler_ja::*)()>(&compiler_ja::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(compiler_ja, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(compiler_ja, getContents, $ObjectArray2*)},
 	{}
 };
 

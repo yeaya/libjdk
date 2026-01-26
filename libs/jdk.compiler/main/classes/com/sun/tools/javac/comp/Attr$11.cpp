@@ -36,8 +36,8 @@ $FieldInfo _Attr$11_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$11_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(static_cast<void(Attr$11::*)($Attr*,$Resolve*,$Resolve$MethodResolutionContext*,$Symbol*,$JCDiagnostic*)>(&Attr$11::init$))},
-	{"errCandidate", "()Lcom/sun/tools/javac/util/Pair;", "()Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(Attr$11, init$, void, $Attr*, $Resolve*, $Resolve$MethodResolutionContext*, $Symbol*, $JCDiagnostic*)},
+	{"errCandidate", "()Lcom/sun/tools/javac/util/Pair;", "()Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED, $virtualMethod(Attr$11, errCandidate, $Pair*)},
 	{}
 };
 

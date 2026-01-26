@@ -71,8 +71,8 @@ $FieldInfo LogManager$ConfigProperty$$Lambda$lambda$find$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LogManager$ConfigProperty$$Lambda$lambda$find$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$ConfigProperty$$Lambda$lambda$find$0::*)($String*)>(&LogManager$ConfigProperty$$Lambda$lambda$find$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LogManager$ConfigProperty$$Lambda$lambda$find$0, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LogManager$ConfigProperty$$Lambda$lambda$find$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LogManager$ConfigProperty$$Lambda$lambda$find$0::classInfo$ = {
@@ -102,19 +102,19 @@ $FieldInfo _LogManager$ConfigProperty_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$ConfigProperty_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LogManager$ConfigPropertyArray*(*)()>(&LogManager$ConfigProperty::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(LogManager$ConfigProperty::*)($String*,int32_t,$String*)>(&LogManager$ConfigProperty::init$))},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/util/logging/LogManager$ConfigProperty;>;", $STATIC, $method(static_cast<$Optional*(*)($String*)>(&LogManager$ConfigProperty::find))},
-	{"getLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&LogManager$ConfigProperty::getLoggerName))},
-	{"handleKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(static_cast<bool(LogManager$ConfigProperty::*)($String*)>(&LogManager$ConfigProperty::handleKey))},
-	{"key", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(LogManager$ConfigProperty::*)($String*)>(&LogManager$ConfigProperty::key))},
-	{"lambda$find$0", "(Ljava/lang/String;Ljava/util/logging/LogManager$ConfigProperty;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,LogManager$ConfigProperty*)>(&LogManager$ConfigProperty::lambda$find$0))},
-	{"loggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(LogManager$ConfigProperty::*)($String*)>(&LogManager$ConfigProperty::loggerName))},
-	{"matches", "(Ljava/lang/String;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($String*)>(&LogManager$ConfigProperty::matches))},
-	{"merge", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/BiFunction;)V", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;>;)V", $STATIC, $method(static_cast<void(*)($String*,$Properties*,$Properties*,$BiFunction*)>(&LogManager$ConfigProperty::merge))},
-	{"needsUpdating", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($String*,$Properties*,$Properties*)>(&LogManager$ConfigProperty::needsUpdating))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LogManager$ConfigProperty*(*)($String*)>(&LogManager$ConfigProperty::valueOf))},
-	{"values", "()[Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LogManager$ConfigPropertyArray*(*)()>(&LogManager$ConfigProperty::values))},
+	{"$values", "()[Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager$ConfigProperty, $values, $LogManager$ConfigPropertyArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(LogManager$ConfigProperty, init$, void, $String*, int32_t, $String*)},
+	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/util/logging/LogManager$ConfigProperty;>;", $STATIC, $staticMethod(LogManager$ConfigProperty, find, $Optional*, $String*)},
+	{"getLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LogManager$ConfigProperty, getLoggerName, $String*, $String*)},
+	{"handleKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(LogManager$ConfigProperty, handleKey, bool, $String*)},
+	{"key", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(LogManager$ConfigProperty, key, $String*, $String*)},
+	{"lambda$find$0", "(Ljava/lang/String;Ljava/util/logging/LogManager$ConfigProperty;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager$ConfigProperty, lambda$find$0, bool, $String*, LogManager$ConfigProperty*)},
+	{"loggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(LogManager$ConfigProperty, loggerName, $String*, $String*)},
+	{"matches", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(LogManager$ConfigProperty, matches, bool, $String*)},
+	{"merge", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/BiFunction;)V", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;>;)V", $STATIC, $staticMethod(LogManager$ConfigProperty, merge, void, $String*, $Properties*, $Properties*, $BiFunction*)},
+	{"needsUpdating", "(Ljava/lang/String;Ljava/util/Properties;Ljava/util/Properties;)Z", nullptr, $STATIC, $staticMethod(LogManager$ConfigProperty, needsUpdating, bool, $String*, $Properties*, $Properties*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$ConfigProperty, valueOf, LogManager$ConfigProperty*, $String*)},
+	{"values", "()[Ljava/util/logging/LogManager$ConfigProperty;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$ConfigProperty, values, $LogManager$ConfigPropertyArray*)},
 	{}
 };
 

@@ -23,14 +23,14 @@ $FieldInfo _ProviderList$PreferencesEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _ProviderList$PreferencesEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Lorg/ietf/jgss/Oid;)V", nullptr, 0, $method(static_cast<void(ProviderList$PreferencesEntry::*)($Provider*,$Oid*)>(&ProviderList$PreferencesEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getOid", "()Lorg/ietf/jgss/Oid;", nullptr, 0, $method(static_cast<$Oid*(ProviderList$PreferencesEntry::*)()>(&ProviderList$PreferencesEntry::getOid))},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, 0, $method(static_cast<$Provider*(ProviderList$PreferencesEntry::*)()>(&ProviderList$PreferencesEntry::getProvider))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/lang/Object;)Z", nullptr, 0, $method(static_cast<bool(ProviderList$PreferencesEntry::*)(Object$*)>(&ProviderList$PreferencesEntry::implies))},
-	{"impliesMechanism", "(Lorg/ietf/jgss/Oid;)Z", nullptr, 0, $method(static_cast<bool(ProviderList$PreferencesEntry::*)($Oid*)>(&ProviderList$PreferencesEntry::impliesMechanism))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/Provider;Lorg/ietf/jgss/Oid;)V", nullptr, 0, $method(ProviderList$PreferencesEntry, init$, void, $Provider*, $Oid*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProviderList$PreferencesEntry, equals, bool, Object$*)},
+	{"getOid", "()Lorg/ietf/jgss/Oid;", nullptr, 0, $method(ProviderList$PreferencesEntry, getOid, $Oid*)},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, 0, $method(ProviderList$PreferencesEntry, getProvider, $Provider*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProviderList$PreferencesEntry, hashCode, int32_t)},
+	{"implies", "(Ljava/lang/Object;)Z", nullptr, 0, $method(ProviderList$PreferencesEntry, implies, bool, Object$*)},
+	{"impliesMechanism", "(Lorg/ietf/jgss/Oid;)Z", nullptr, 0, $method(ProviderList$PreferencesEntry, impliesMechanism, bool, $Oid*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderList$PreferencesEntry, toString, $String*)},
 	{}
 };
 

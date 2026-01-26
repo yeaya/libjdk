@@ -17,8 +17,8 @@ $FieldInfo _ConfigurationException_FieldInfo_[] = {
 };
 
 $MethodInfo _ConfigurationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ConfigurationException::*)($String*)>(&ConfigurationException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConfigurationException::*)()>(&ConfigurationException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConfigurationException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConfigurationException, init$, void)},
 	{}
 };
 

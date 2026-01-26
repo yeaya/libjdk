@@ -19,7 +19,7 @@ $FieldInfo _UnsupportedFlavorException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsupportedFlavorException_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsupportedFlavorException::*)($DataFlavor*)>(&UnsupportedFlavorException::init$))},
+	{"<init>", "(Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC, $method(UnsupportedFlavorException, init$, void, $DataFlavor*)},
 	{}
 };
 

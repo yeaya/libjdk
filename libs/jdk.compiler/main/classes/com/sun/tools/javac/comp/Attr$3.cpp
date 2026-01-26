@@ -36,8 +36,8 @@ $FieldInfo _Attr$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(static_cast<void(Attr$3::*)($Attr*,$Check$CheckContext*)>(&Attr$3::init$))},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(Attr$3, init$, void, $Attr*, $Check$CheckContext*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Attr$3, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
 	{}
 };
 

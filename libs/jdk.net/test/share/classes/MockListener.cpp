@@ -73,8 +73,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MockListener$$Lambda$closeOrError::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MockListener$$Lambda$closeOrError::*)()>(&MockListener$$Lambda$closeOrError::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MockListener$$Lambda$closeOrError, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$$Lambda$closeOrError, test, bool, Object$*)},
 	{}
 };
 $ClassInfo MockListener$$Lambda$closeOrError::classInfo$ = {
@@ -101,29 +101,29 @@ $FieldInfo _MockListener_FieldInfo_[] = {
 };
 
 $MethodInfo _MockListener_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MockListener::*)()>(&MockListener::init$))},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(MockListener::*)(int64_t)>(&MockListener::init$))},
-	{"<init>", "(Ljava/util/function/Predicate;)V", "(Ljava/util/function/Predicate<-LMockListener$Invocation;>;)V", $PUBLIC, $method(static_cast<void(MockListener::*)($Predicate*)>(&MockListener::init$))},
-	{"<init>", "(JLjava/util/function/Predicate;)V", "(JLjava/util/function/Predicate<-LMockListener$Invocation;>;)V", $PUBLIC, $method(static_cast<void(MockListener::*)(int64_t,$Predicate*)>(&MockListener::init$))},
-	{"closeOrError", "(LMockListener$Invocation;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($MockListener$Invocation*)>(&MockListener::closeOrError))},
-	{"fullCopy", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ByteBuffer*(*)($ByteBuffer*)>(&MockListener::fullCopy))},
-	{"invocations", "()Ljava/util/List;", "()Ljava/util/List<LMockListener$Invocation;>;", $PUBLIC},
-	{"invocationsSoFar", "()Ljava/util/List;", "()Ljava/util/List<LMockListener$Invocation;>;", $PUBLIC},
-	{"onBinary", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC},
-	{"onBinary0", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletionStage<*>;", $PROTECTED},
-	{"onClose", "(Ljava/net/http/WebSocket;ILjava/lang/String;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;ILjava/lang/String;)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC},
-	{"onClose0", "(Ljava/net/http/WebSocket;ILjava/lang/String;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;ILjava/lang/String;)Ljava/util/concurrent/CompletionStage<*>;", $PROTECTED},
-	{"onError", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onError0", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PROTECTED},
-	{"onOpen", "(Ljava/net/http/WebSocket;)V", nullptr, $PUBLIC},
-	{"onOpen0", "(Ljava/net/http/WebSocket;)V", nullptr, $PROTECTED},
-	{"onPing", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC},
-	{"onPing0", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage<*>;", $PROTECTED},
-	{"onPong", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC},
-	{"onPong0", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage<*>;", $PROTECTED},
-	{"onText", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC},
-	{"onText0", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage<*>;", $PROTECTED},
-	{"replenish", "(Ljava/net/http/WebSocket;)V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MockListener, init$, void)},
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(MockListener, init$, void, int64_t)},
+	{"<init>", "(Ljava/util/function/Predicate;)V", "(Ljava/util/function/Predicate<-LMockListener$Invocation;>;)V", $PUBLIC, $method(MockListener, init$, void, $Predicate*)},
+	{"<init>", "(JLjava/util/function/Predicate;)V", "(JLjava/util/function/Predicate<-LMockListener$Invocation;>;)V", $PUBLIC, $method(MockListener, init$, void, int64_t, $Predicate*)},
+	{"closeOrError", "(LMockListener$Invocation;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MockListener, closeOrError, bool, $MockListener$Invocation*)},
+	{"fullCopy", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(MockListener, fullCopy, $ByteBuffer*, $ByteBuffer*)},
+	{"invocations", "()Ljava/util/List;", "()Ljava/util/List<LMockListener$Invocation;>;", $PUBLIC, $virtualMethod(MockListener, invocations, $List*)},
+	{"invocationsSoFar", "()Ljava/util/List;", "()Ljava/util/List<LMockListener$Invocation;>;", $PUBLIC, $virtualMethod(MockListener, invocationsSoFar, $List*)},
+	{"onBinary", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC, $virtualMethod(MockListener, onBinary, $CompletionStage*, $WebSocket*, $ByteBuffer*, bool)},
+	{"onBinary0", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)Ljava/util/concurrent/CompletionStage<*>;", $PROTECTED, $virtualMethod(MockListener, onBinary0, $CompletionStage*, $WebSocket*, $ByteBuffer*, bool)},
+	{"onClose", "(Ljava/net/http/WebSocket;ILjava/lang/String;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;ILjava/lang/String;)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC, $virtualMethod(MockListener, onClose, $CompletionStage*, $WebSocket*, int32_t, $String*)},
+	{"onClose0", "(Ljava/net/http/WebSocket;ILjava/lang/String;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;ILjava/lang/String;)Ljava/util/concurrent/CompletionStage<*>;", $PROTECTED, $virtualMethod(MockListener, onClose0, $CompletionStage*, $WebSocket*, int32_t, $String*)},
+	{"onError", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(MockListener, onError, void, $WebSocket*, $Throwable*)},
+	{"onError0", "(Ljava/net/http/WebSocket;Ljava/lang/Throwable;)V", nullptr, $PROTECTED, $virtualMethod(MockListener, onError0, void, $WebSocket*, $Throwable*)},
+	{"onOpen", "(Ljava/net/http/WebSocket;)V", nullptr, $PUBLIC, $virtualMethod(MockListener, onOpen, void, $WebSocket*)},
+	{"onOpen0", "(Ljava/net/http/WebSocket;)V", nullptr, $PROTECTED, $virtualMethod(MockListener, onOpen0, void, $WebSocket*)},
+	{"onPing", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC, $virtualMethod(MockListener, onPing, $CompletionStage*, $WebSocket*, $ByteBuffer*)},
+	{"onPing0", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage<*>;", $PROTECTED, $virtualMethod(MockListener, onPing0, $CompletionStage*, $WebSocket*, $ByteBuffer*)},
+	{"onPong", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC, $virtualMethod(MockListener, onPong, $CompletionStage*, $WebSocket*, $ByteBuffer*)},
+	{"onPong0", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)Ljava/util/concurrent/CompletionStage<*>;", $PROTECTED, $virtualMethod(MockListener, onPong0, $CompletionStage*, $WebSocket*, $ByteBuffer*)},
+	{"onText", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC, $virtualMethod(MockListener, onText, $CompletionStage*, $WebSocket*, $CharSequence*, bool)},
+	{"onText0", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage<*>;", $PROTECTED, $virtualMethod(MockListener, onText0, $CompletionStage*, $WebSocket*, $CharSequence*, bool)},
+	{"replenish", "(Ljava/net/http/WebSocket;)V", nullptr, $PROTECTED, $virtualMethod(MockListener, replenish, void, $WebSocket*)},
 	{}
 };
 

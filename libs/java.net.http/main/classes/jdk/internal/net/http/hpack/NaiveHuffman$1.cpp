@@ -24,8 +24,8 @@ $FieldInfo _NaiveHuffman$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NaiveHuffman$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/NaiveHuffman;)V", nullptr, 0, $method(static_cast<void(NaiveHuffman$1::*)($NaiveHuffman*)>(&NaiveHuffman$1::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/NaiveHuffman;)V", nullptr, 0, $method(NaiveHuffman$1, init$, void, $NaiveHuffman*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$1, toString, $String*)},
 	{}
 };
 

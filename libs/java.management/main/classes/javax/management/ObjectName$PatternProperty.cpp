@@ -13,7 +13,7 @@ namespace javax {
 	namespace management {
 
 $MethodInfo _ObjectName$PatternProperty_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, 0, $method(static_cast<void(ObjectName$PatternProperty::*)(int32_t,int32_t,int32_t)>(&ObjectName$PatternProperty::init$))},
+	{"<init>", "(III)V", nullptr, 0, $method(ObjectName$PatternProperty, init$, void, int32_t, int32_t, int32_t)},
 	{}
 };
 

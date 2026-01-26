@@ -28,8 +28,8 @@ $FieldInfo _MS932_0213$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _MS932_0213$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(static_cast<void(MS932_0213$Decoder::*)($Charset*)>(&MS932_0213$Decoder::init$))},
-	{"decodeDouble", "(II)C", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(MS932_0213$Decoder, init$, void, $Charset*)},
+	{"decodeDouble", "(II)C", nullptr, $PROTECTED, $virtualMethod(MS932_0213$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
 	{}
 };
 

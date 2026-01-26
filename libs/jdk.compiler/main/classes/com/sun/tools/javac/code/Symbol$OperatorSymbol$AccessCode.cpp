@@ -49,12 +49,12 @@ $FieldInfo _Symbol$OperatorSymbol$AccessCode_FieldInfo_[] = {
 };
 
 $MethodInfo _Symbol$OperatorSymbol$AccessCode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Symbol$OperatorSymbol$AccessCodeArray*(*)()>(&Symbol$OperatorSymbol$AccessCode::$values))},
-	{"<init>", "(Ljava/lang/String;IILcom/sun/tools/javac/tree/JCTree$Tag;)V", "(ILcom/sun/tools/javac/tree/JCTree$Tag;)V", $PRIVATE, $method(static_cast<void(Symbol$OperatorSymbol$AccessCode::*)($String*,int32_t,int32_t,$JCTree$Tag*)>(&Symbol$OperatorSymbol$AccessCode::init$))},
-	{"from", "(Lcom/sun/tools/javac/tree/JCTree$Tag;I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($JCTree$Tag*,int32_t)>(&Symbol$OperatorSymbol$AccessCode::from))},
-	{"getFromCode", "(I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Symbol$OperatorSymbol$AccessCode*(*)(int32_t)>(&Symbol$OperatorSymbol$AccessCode::getFromCode))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Symbol$OperatorSymbol$AccessCode*(*)($String*)>(&Symbol$OperatorSymbol$AccessCode::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Symbol$OperatorSymbol$AccessCodeArray*(*)()>(&Symbol$OperatorSymbol$AccessCode::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, $values, $Symbol$OperatorSymbol$AccessCodeArray*)},
+	{"<init>", "(Ljava/lang/String;IILcom/sun/tools/javac/tree/JCTree$Tag;)V", "(ILcom/sun/tools/javac/tree/JCTree$Tag;)V", $PRIVATE, $method(Symbol$OperatorSymbol$AccessCode, init$, void, $String*, int32_t, int32_t, $JCTree$Tag*)},
+	{"from", "(Lcom/sun/tools/javac/tree/JCTree$Tag;I)I", nullptr, $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, from, int32_t, $JCTree$Tag*, int32_t)},
+	{"getFromCode", "(I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, getFromCode, Symbol$OperatorSymbol$AccessCode*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, valueOf, Symbol$OperatorSymbol$AccessCode*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Symbol$OperatorSymbol$AccessCode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$OperatorSymbol$AccessCode, values, $Symbol$OperatorSymbol$AccessCodeArray*)},
 	{}
 };
 

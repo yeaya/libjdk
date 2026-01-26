@@ -31,8 +31,8 @@ $FieldInfo _Flow$AssignAnalyzer$AssignPendingExit_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$AssignAnalyzer$AssignPendingExit_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow$AssignAnalyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;)V", nullptr, $PUBLIC, $method(static_cast<void(Flow$AssignAnalyzer$AssignPendingExit::*)($Flow$AssignAnalyzer*,$JCTree*,$Bits*,$Bits*)>(&Flow$AssignAnalyzer$AssignPendingExit::init$))},
-	{"resolveJump", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Flow$AssignAnalyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;)V", nullptr, $PUBLIC, $method(Flow$AssignAnalyzer$AssignPendingExit, init$, void, $Flow$AssignAnalyzer*, $JCTree*, $Bits*, $Bits*)},
+	{"resolveJump", "()V", nullptr, $PUBLIC, $virtualMethod(Flow$AssignAnalyzer$AssignPendingExit, resolveJump, void)},
 	{}
 };
 

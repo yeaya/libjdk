@@ -36,10 +36,10 @@ $FieldInfo _ZipFileAttributeView$AttrID_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileAttributeView$AttrID_MethodInfo_[] = {
-	{"$values", "()[Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ZipFileAttributeView$AttrIDArray*(*)()>(&ZipFileAttributeView$AttrID::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ZipFileAttributeView$AttrID::*)($String*,int32_t)>(&ZipFileAttributeView$AttrID::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ZipFileAttributeView$AttrID*(*)($String*)>(&ZipFileAttributeView$AttrID::valueOf))},
-	{"values", "()[Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ZipFileAttributeView$AttrIDArray*(*)()>(&ZipFileAttributeView$AttrID::values))},
+	{"$values", "()[Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileAttributeView$AttrID, $values, $ZipFileAttributeView$AttrIDArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ZipFileAttributeView$AttrID, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipFileAttributeView$AttrID, valueOf, ZipFileAttributeView$AttrID*, $String*)},
+	{"values", "()[Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipFileAttributeView$AttrID, values, $ZipFileAttributeView$AttrIDArray*)},
 	{}
 };
 

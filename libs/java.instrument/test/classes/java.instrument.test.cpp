@@ -8,15 +8,17 @@
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
 
-void java$instrument$test$PreloadClass(void* eventData) {
+void java$instrument$test$PreloadClass() {
+}
+
+void java$instrument$test$PreinitClass() {
 }
 
 void java$instrument$test$LibEventAction(int32_t eventType, void* eventData) {
 	if (eventType == JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS) {
-		java$instrument$test$PreloadClass(eventData);
-	}
-	if (eventType == JCPP_LIB_EVENT_TYPE_THREAD_START) {
-		$onLibThreadStart(eventData);
+		java$instrument$test$PreloadClass();
+	} else if (eventType == JCPP_LIB_EVENT_TYPE_PREINIT_CLASS) {
+		java$instrument$test$PreinitClass();
 	}
 }
 
@@ -45,3 +47,9 @@ void java$instrument$test::init() {
 	};
 	$System::addLibrary(&lib);
 }
+
+#ifdef JCPP_SHARED_BUILD
+extern "C" $export void JCPP_OnLoad() {
+	java$instrument$test::init();
+}
+#endif

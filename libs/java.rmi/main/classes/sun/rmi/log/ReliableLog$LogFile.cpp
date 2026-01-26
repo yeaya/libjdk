@@ -22,9 +22,9 @@ $FieldInfo _ReliableLog$LogFile_FieldInfo_[] = {
 };
 
 $MethodInfo _ReliableLog$LogFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReliableLog$LogFile::*)($String*,$String*)>(&ReliableLog$LogFile::init$)), "java.io.FileNotFoundException,java.io.IOException"},
-	{"checkSpansBoundary", "(J)Z", nullptr, $PROTECTED},
-	{"sync", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReliableLog$LogFile, init$, void, $String*, $String*), "java.io.FileNotFoundException,java.io.IOException"},
+	{"checkSpansBoundary", "(J)Z", nullptr, $PROTECTED, $virtualMethod(ReliableLog$LogFile, checkSpansBoundary, bool, int64_t)},
+	{"sync", "()V", nullptr, $PROTECTED, $virtualMethod(ReliableLog$LogFile, sync, void), "java.io.IOException"},
 	{}
 };
 

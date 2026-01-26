@@ -33,11 +33,11 @@ $FieldInfo _PoolReader$ImmutablePoolHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _PoolReader$ImmutablePoolHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolReader;Lcom/sun/tools/javac/util/ByteBuffer;[I)V", nullptr, $PUBLIC, $method(static_cast<void(PoolReader$ImmutablePoolHelper::*)($PoolReader*,$ByteBuffer*,$ints*)>(&PoolReader$ImmutablePoolHelper::init$))},
-	{"checkIndex", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(PoolReader$ImmutablePoolHelper::*)(int32_t)>(&PoolReader$ImmutablePoolHelper::checkIndex))},
-	{"offset", "(I)I", nullptr, 0},
-	{"readIfNeeded", "(ILjava/util/BitSet;)Ljava/lang/Object;", "<P:Ljava/lang/Object;>(ILjava/util/BitSet;)TP;", 0},
-	{"tag", "(I)I", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolReader;Lcom/sun/tools/javac/util/ByteBuffer;[I)V", nullptr, $PUBLIC, $method(PoolReader$ImmutablePoolHelper, init$, void, $PoolReader*, $ByteBuffer*, $ints*)},
+	{"checkIndex", "(I)I", nullptr, $PRIVATE, $method(PoolReader$ImmutablePoolHelper, checkIndex, int32_t, int32_t)},
+	{"offset", "(I)I", nullptr, 0, $virtualMethod(PoolReader$ImmutablePoolHelper, offset, int32_t, int32_t)},
+	{"readIfNeeded", "(ILjava/util/BitSet;)Ljava/lang/Object;", "<P:Ljava/lang/Object;>(ILjava/util/BitSet;)TP;", 0, $virtualMethod(PoolReader$ImmutablePoolHelper, readIfNeeded, $Object*, int32_t, $BitSet*)},
+	{"tag", "(I)I", nullptr, 0, $virtualMethod(PoolReader$ImmutablePoolHelper, tag, int32_t, int32_t)},
 	{}
 };
 

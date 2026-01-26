@@ -53,18 +53,18 @@ $FieldInfo _Des3DkCrypto_FieldInfo_[] = {
 };
 
 $MethodInfo _Des3DkCrypto_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Des3DkCrypto::*)()>(&Des3DkCrypto::init$))},
-	{"des3Expand", "([BII)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,int32_t)>(&Des3DkCrypto::des3Expand))},
-	{"getChecksumLength", "()I", nullptr, $PUBLIC},
-	{"getCipher", "([B[BI)Ljavax/crypto/Cipher;", nullptr, $PROTECTED, nullptr, "java.security.GeneralSecurityException"},
-	{"getHmac", "([B[B)[B", nullptr, $PROTECTED, nullptr, "java.security.GeneralSecurityException"},
-	{"getKeySeedLength", "()I", nullptr, $PROTECTED},
-	{"keyCorrection", "([B)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&Des3DkCrypto::keyCorrection))},
-	{"parityFix", "([B)[B", nullptr, $PUBLIC, nullptr, "java.security.GeneralSecurityException"},
-	{"randomToKey", "([B)[B", nullptr, $PROTECTED},
-	{"setParityBit", "([B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($bytes*)>(&Des3DkCrypto::setParityBit))},
-	{"stringToKey", "([C)[B", nullptr, $PUBLIC, nullptr, "java.security.GeneralSecurityException"},
-	{"stringToKey", "([B[B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(Des3DkCrypto::*)($bytes*,$bytes*)>(&Des3DkCrypto::stringToKey)), "java.security.GeneralSecurityException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Des3DkCrypto, init$, void)},
+	{"des3Expand", "([BII)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Des3DkCrypto, des3Expand, $bytes*, $bytes*, int32_t, int32_t)},
+	{"getChecksumLength", "()I", nullptr, $PUBLIC, $virtualMethod(Des3DkCrypto, getChecksumLength, int32_t)},
+	{"getCipher", "([B[BI)Ljavax/crypto/Cipher;", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, getCipher, $Cipher*, $bytes*, $bytes*, int32_t), "java.security.GeneralSecurityException"},
+	{"getHmac", "([B[B)[B", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, getHmac, $bytes*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
+	{"getKeySeedLength", "()I", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, getKeySeedLength, int32_t)},
+	{"keyCorrection", "([B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Des3DkCrypto, keyCorrection, $bytes*, $bytes*)},
+	{"parityFix", "([B)[B", nullptr, $PUBLIC, $virtualMethod(Des3DkCrypto, parityFix, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
+	{"randomToKey", "([B)[B", nullptr, $PROTECTED, $virtualMethod(Des3DkCrypto, randomToKey, $bytes*, $bytes*)},
+	{"setParityBit", "([B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Des3DkCrypto, setParityBit, void, $bytes*)},
+	{"stringToKey", "([C)[B", nullptr, $PUBLIC, $virtualMethod(Des3DkCrypto, stringToKey, $bytes*, $chars*), "java.security.GeneralSecurityException"},
+	{"stringToKey", "([B[B)[B", nullptr, $PRIVATE, $method(Des3DkCrypto, stringToKey, $bytes*, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
 	{}
 };
 

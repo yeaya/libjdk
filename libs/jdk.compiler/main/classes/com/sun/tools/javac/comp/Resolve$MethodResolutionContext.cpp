@@ -54,12 +54,12 @@ $FieldInfo _Resolve$MethodResolutionContext_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodResolutionContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(static_cast<void(Resolve$MethodResolutionContext::*)($Resolve*)>(&Resolve$MethodResolutionContext::init$))},
-	{"addApplicableCandidate", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"addInapplicableCandidate", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0},
-	{"attrMode", "()Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, 0},
-	{"deferredAttrContext", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, 0},
-	{"internal", "()Z", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$MethodResolutionContext, init$, void, $Resolve*)},
+	{"addApplicableCandidate", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, addApplicableCandidate, void, $Symbol*, $Type*)},
+	{"addInapplicableCandidate", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, addInapplicableCandidate, void, $Symbol*, $JCDiagnostic*)},
+	{"attrMode", "()Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, attrMode, $DeferredAttr$AttrMode*)},
+	{"deferredAttrContext", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, deferredAttrContext, $DeferredAttr$DeferredAttrContext*, $Symbol*, $InferenceContext*, $Attr$ResultInfo*, $Warner*)},
+	{"internal", "()Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, internal, bool)},
 	{}
 };
 

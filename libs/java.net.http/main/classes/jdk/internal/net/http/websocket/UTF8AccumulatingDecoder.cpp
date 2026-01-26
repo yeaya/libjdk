@@ -47,8 +47,8 @@ $FieldInfo _UTF8AccumulatingDecoder_FieldInfo_[] = {
 };
 
 $MethodInfo _UTF8AccumulatingDecoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UTF8AccumulatingDecoder::*)()>(&UTF8AccumulatingDecoder::init$))},
-	{"decode", "(Ljava/nio/ByteBuffer;Z)Ljava/nio/CharBuffer;", nullptr, 0, $method(static_cast<$CharBuffer*(UTF8AccumulatingDecoder::*)($ByteBuffer*,bool)>(&UTF8AccumulatingDecoder::decode)), "java.nio.charset.CharacterCodingException"},
+	{"<init>", "()V", nullptr, 0, $method(UTF8AccumulatingDecoder, init$, void)},
+	{"decode", "(Ljava/nio/ByteBuffer;Z)Ljava/nio/CharBuffer;", nullptr, 0, $method(UTF8AccumulatingDecoder, decode, $CharBuffer*, $ByteBuffer*, bool), "java.nio.charset.CharacterCodingException"},
 	{}
 };
 

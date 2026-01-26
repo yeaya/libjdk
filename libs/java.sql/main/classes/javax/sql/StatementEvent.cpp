@@ -25,10 +25,10 @@ $FieldInfo _StatementEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _StatementEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sql/PooledConnection;Ljava/sql/PreparedStatement;)V", nullptr, $PUBLIC, $method(static_cast<void(StatementEvent::*)($PooledConnection*,$PreparedStatement*)>(&StatementEvent::init$))},
-	{"<init>", "(Ljavax/sql/PooledConnection;Ljava/sql/PreparedStatement;Ljava/sql/SQLException;)V", nullptr, $PUBLIC, $method(static_cast<void(StatementEvent::*)($PooledConnection*,$PreparedStatement*,$SQLException*)>(&StatementEvent::init$))},
-	{"getSQLException", "()Ljava/sql/SQLException;", nullptr, $PUBLIC},
-	{"getStatement", "()Ljava/sql/PreparedStatement;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/sql/PooledConnection;Ljava/sql/PreparedStatement;)V", nullptr, $PUBLIC, $method(StatementEvent, init$, void, $PooledConnection*, $PreparedStatement*)},
+	{"<init>", "(Ljavax/sql/PooledConnection;Ljava/sql/PreparedStatement;Ljava/sql/SQLException;)V", nullptr, $PUBLIC, $method(StatementEvent, init$, void, $PooledConnection*, $PreparedStatement*, $SQLException*)},
+	{"getSQLException", "()Ljava/sql/SQLException;", nullptr, $PUBLIC, $virtualMethod(StatementEvent, getSQLException, $SQLException*)},
+	{"getStatement", "()Ljava/sql/PreparedStatement;", nullptr, $PUBLIC, $virtualMethod(StatementEvent, getStatement, $PreparedStatement*)},
 	{}
 };
 

@@ -98,8 +98,8 @@ $FieldInfo SecureZipFSProvider$$Lambda$lambda$newFileSystem$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo SecureZipFSProvider$$Lambda$lambda$newFileSystem$0::methodInfos[3] = {
-	{"<init>", "(LSecureZipFSProvider;Ljava/nio/file/FileSystem;)V", nullptr, $PUBLIC, $method(static_cast<void(SecureZipFSProvider$$Lambda$lambda$newFileSystem$0::*)(SecureZipFSProvider*,$FileSystem*)>(&SecureZipFSProvider$$Lambda$lambda$newFileSystem$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(LSecureZipFSProvider;Ljava/nio/file/FileSystem;)V", nullptr, $PUBLIC, $method(SecureZipFSProvider$$Lambda$lambda$newFileSystem$0, init$, void, SecureZipFSProvider*, $FileSystem*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$$Lambda$lambda$newFileSystem$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SecureZipFSProvider$$Lambda$lambda$newFileSystem$0::classInfo$ = {
@@ -123,30 +123,30 @@ $FieldInfo _SecureZipFSProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureZipFSProvider_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/spi/FileSystemProvider;)V", nullptr, $PUBLIC, $method(static_cast<void(SecureZipFSProvider::*)($FileSystemProvider*)>(&SecureZipFSProvider::init$))},
-	{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT},
-	{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC},
-	{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"lambda$newFileSystem$0", "(Ljava/nio/file/FileSystem;Ljava/nio/file/FileSystem;)LSecureZipFSProvider$SecureZipFS;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$SecureZipFSProvider$SecureZipFS*(SecureZipFSProvider::*)($FileSystem*,$FileSystem*)>(&SecureZipFSProvider::lambda$newFileSystem$0))},
-	{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC},
-	{"newFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"newFileSystem", "(Ljava/nio/file/FileSystem;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC},
-	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"newInputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;", nullptr, $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $TRANSIENT, nullptr, "java.io.IOException"},
-	{"toTestPath", "(Ljava/nio/file/Path;)LSecureZipFSProvider$TestPath;", nullptr, $STATIC, $method(static_cast<$SecureZipFSProvider$TestPath*(*)($Path*)>(&SecureZipFSProvider::toTestPath))},
+	{"<init>", "(Ljava/nio/file/spi/FileSystemProvider;)V", nullptr, $PUBLIC, $method(SecureZipFSProvider, init$, void, $FileSystemProvider*)},
+	{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
+	{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+	{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
+	{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider, delete$, void, $Path*), "java.io.IOException"},
+	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
+	{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
+	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider, getFileSystem, $FileSystem*, $URI*)},
+	{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider, getPath, $Path*, $URI*)},
+	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider, getScheme, $String*)},
+	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider, isHidden, bool, $Path*), "java.io.IOException"},
+	{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
+	{"lambda$newFileSystem$0", "(Ljava/nio/file/FileSystem;Ljava/nio/file/FileSystem;)LSecureZipFSProvider$SecureZipFS;", nullptr, $PRIVATE | $SYNTHETIC, $method(SecureZipFSProvider, lambda$newFileSystem$0, $SecureZipFSProvider$SecureZipFS*, $FileSystem*, $FileSystem*)},
+	{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+	{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+	{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(SecureZipFSProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*)},
+	{"newFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, newFileChannel, $FileChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+	{"newFileSystem", "(Ljava/nio/file/FileSystem;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider, newFileSystem, $FileSystem*, $FileSystem*)},
+	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(SecureZipFSProvider, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
+	{"newInputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, newInputStream, $InputStream*, $Path*, $OpenOptionArray*), "java.io.IOException"},
+	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
+	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, readAttributes, $Map*, $Path*, $String*, $LinkOptionArray*), "java.io.IOException"},
+	{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider, setAttribute, void, $Path*, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
+	{"toTestPath", "(Ljava/nio/file/Path;)LSecureZipFSProvider$TestPath;", nullptr, $STATIC, $staticMethod(SecureZipFSProvider, toTestPath, $SecureZipFSProvider$TestPath*, $Path*)},
 	{}
 };
 

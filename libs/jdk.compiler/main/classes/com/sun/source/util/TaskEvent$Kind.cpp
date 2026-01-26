@@ -37,10 +37,10 @@ $FieldInfo _TaskEvent$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _TaskEvent$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TaskEvent$KindArray*(*)()>(&TaskEvent$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(TaskEvent$Kind::*)($String*,int32_t)>(&TaskEvent$Kind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TaskEvent$Kind*(*)($String*)>(&TaskEvent$Kind::valueOf))},
-	{"values", "()[Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TaskEvent$KindArray*(*)()>(&TaskEvent$Kind::values))},
+	{"$values", "()[Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TaskEvent$Kind, $values, $TaskEvent$KindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TaskEvent$Kind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TaskEvent$Kind, valueOf, TaskEvent$Kind*, $String*)},
+	{"values", "()[Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TaskEvent$Kind, values, $TaskEvent$KindArray*)},
 	{}
 };
 

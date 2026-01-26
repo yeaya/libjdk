@@ -46,14 +46,14 @@ $FieldInfo _NegTokenTarg_FieldInfo_[] = {
 };
 
 $MethodInfo _NegTokenTarg_MethodInfo_[] = {
-	{"<init>", "(ILorg/ietf/jgss/Oid;[B[B)V", nullptr, 0, $method(static_cast<void(NegTokenTarg::*)(int32_t,$Oid*,$bytes*,$bytes*)>(&NegTokenTarg::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(NegTokenTarg::*)($bytes*)>(&NegTokenTarg::init$)), "org.ietf.jgss.GSSException"},
-	{"encode", "()[B", nullptr, $FINAL, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechListMIC", "()[B", nullptr, 0},
-	{"getNegotiatedResult", "()I", nullptr, 0},
-	{"getResponseToken", "()[B", nullptr, 0},
-	{"getSupportedMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC},
-	{"parseToken", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(NegTokenTarg::*)($bytes*)>(&NegTokenTarg::parseToken)), "org.ietf.jgss.GSSException"},
+	{"<init>", "(ILorg/ietf/jgss/Oid;[B[B)V", nullptr, 0, $method(NegTokenTarg, init$, void, int32_t, $Oid*, $bytes*, $bytes*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(NegTokenTarg, init$, void, $bytes*), "org.ietf.jgss.GSSException"},
+	{"encode", "()[B", nullptr, $FINAL, $virtualMethod(NegTokenTarg, encode, $bytes*), "org.ietf.jgss.GSSException"},
+	{"getMechListMIC", "()[B", nullptr, 0, $virtualMethod(NegTokenTarg, getMechListMIC, $bytes*)},
+	{"getNegotiatedResult", "()I", nullptr, 0, $virtualMethod(NegTokenTarg, getNegotiatedResult, int32_t)},
+	{"getResponseToken", "()[B", nullptr, 0, $virtualMethod(NegTokenTarg, getResponseToken, $bytes*)},
+	{"getSupportedMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(NegTokenTarg, getSupportedMech, $Oid*)},
+	{"parseToken", "([B)V", nullptr, $PRIVATE, $method(NegTokenTarg, parseToken, void, $bytes*), "org.ietf.jgss.GSSException"},
 	{}
 };
 

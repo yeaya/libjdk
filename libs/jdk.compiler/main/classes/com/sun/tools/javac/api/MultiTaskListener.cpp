@@ -46,16 +46,16 @@ $FieldInfo _MultiTaskListener_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiTaskListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(MultiTaskListener::*)($Context*)>(&MultiTaskListener::init$))},
-	{"add", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
-	{"getTaskListeners", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lcom/sun/source/util/TaskListener;>;", $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/api/MultiTaskListener;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MultiTaskListener*(*)($Context*)>(&MultiTaskListener::instance))},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"remove", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC},
-	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(MultiTaskListener, init$, void, $Context*)},
+	{"add", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC, $virtualMethod(MultiTaskListener, add, void, $TaskListener*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(MultiTaskListener, clear, void)},
+	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(MultiTaskListener, finished, void, $TaskEvent*)},
+	{"getTaskListeners", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lcom/sun/source/util/TaskListener;>;", $PUBLIC, $virtualMethod(MultiTaskListener, getTaskListeners, $Collection*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/api/MultiTaskListener;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiTaskListener, instance, MultiTaskListener*, $Context*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(MultiTaskListener, isEmpty, bool)},
+	{"remove", "(Lcom/sun/source/util/TaskListener;)V", nullptr, $PUBLIC, $virtualMethod(MultiTaskListener, remove, void, $TaskListener*)},
+	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(MultiTaskListener, started, void, $TaskEvent*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiTaskListener, toString, $String*)},
 	{}
 };
 

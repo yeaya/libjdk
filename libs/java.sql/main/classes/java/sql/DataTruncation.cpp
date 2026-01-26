@@ -22,13 +22,13 @@ $FieldInfo _DataTruncation_FieldInfo_[] = {
 };
 
 $MethodInfo _DataTruncation_MethodInfo_[] = {
-	{"<init>", "(IZZII)V", nullptr, $PUBLIC, $method(static_cast<void(DataTruncation::*)(int32_t,bool,bool,int32_t,int32_t)>(&DataTruncation::init$))},
-	{"<init>", "(IZZIILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(DataTruncation::*)(int32_t,bool,bool,int32_t,int32_t,$Throwable*)>(&DataTruncation::init$))},
-	{"getDataSize", "()I", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"getParameter", "()Z", nullptr, $PUBLIC},
-	{"getRead", "()Z", nullptr, $PUBLIC},
-	{"getTransferSize", "()I", nullptr, $PUBLIC},
+	{"<init>", "(IZZII)V", nullptr, $PUBLIC, $method(DataTruncation, init$, void, int32_t, bool, bool, int32_t, int32_t)},
+	{"<init>", "(IZZIILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(DataTruncation, init$, void, int32_t, bool, bool, int32_t, int32_t, $Throwable*)},
+	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(DataTruncation, getDataSize, int32_t)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DataTruncation, getIndex, int32_t)},
+	{"getParameter", "()Z", nullptr, $PUBLIC, $virtualMethod(DataTruncation, getParameter, bool)},
+	{"getRead", "()Z", nullptr, $PUBLIC, $virtualMethod(DataTruncation, getRead, bool)},
+	{"getTransferSize", "()I", nullptr, $PUBLIC, $virtualMethod(DataTruncation, getTransferSize, int32_t)},
 	{}
 };
 

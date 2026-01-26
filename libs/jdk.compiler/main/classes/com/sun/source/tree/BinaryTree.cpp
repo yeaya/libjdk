@@ -1,7 +1,9 @@
 #include <com/sun/source/tree/BinaryTree.h>
 
+#include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,8 +13,8 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _BinaryTree_MethodInfo_[] = {
-	{"getLeftOperand", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRightOperand", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getLeftOperand", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryTree, getLeftOperand, $ExpressionTree*)},
+	{"getRightOperand", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryTree, getRightOperand, $ExpressionTree*)},
 	{}
 };
 

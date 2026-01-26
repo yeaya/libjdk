@@ -33,9 +33,9 @@ $CompoundAttribute _ElementScanner9_Annotations_[] = {
 };
 
 $MethodInfo _ElementScanner9_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ElementScanner9::*)()>(&ElementScanner9::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(ElementScanner9::*)(Object$*)>(&ElementScanner9::init$))},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ElementScanner9, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(ElementScanner9, init$, void, Object$*)},
+	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner9, visitModule, $Object*, $ModuleElement*, Object$*)},
 	{}
 };
 

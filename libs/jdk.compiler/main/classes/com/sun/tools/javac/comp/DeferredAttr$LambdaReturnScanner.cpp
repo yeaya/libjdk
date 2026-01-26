@@ -41,7 +41,7 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _DeferredAttr$LambdaReturnScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DeferredAttr$LambdaReturnScanner::*)()>(&DeferredAttr$LambdaReturnScanner::init$))},
+	{"<init>", "()V", nullptr, 0, $method(DeferredAttr$LambdaReturnScanner, init$, void)},
 	{}
 };
 

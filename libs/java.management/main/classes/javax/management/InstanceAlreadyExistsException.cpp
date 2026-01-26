@@ -17,8 +17,8 @@ $FieldInfo _InstanceAlreadyExistsException_FieldInfo_[] = {
 };
 
 $MethodInfo _InstanceAlreadyExistsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InstanceAlreadyExistsException::*)()>(&InstanceAlreadyExistsException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InstanceAlreadyExistsException::*)($String*)>(&InstanceAlreadyExistsException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InstanceAlreadyExistsException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstanceAlreadyExistsException, init$, void, $String*)},
 	{}
 };
 

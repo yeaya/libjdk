@@ -54,11 +54,11 @@ $FieldInfo _B4769350$Server_FieldInfo_[] = {
 };
 
 $MethodInfo _B4769350$Server_MethodInfo_[] = {
-	{"<init>", "(LB4769350;)V", nullptr, 0, $method(static_cast<void(B4769350$Server::*)($B4769350*)>(&B4769350$Server::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"getAddress", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPort", "()I", nullptr, $PUBLIC},
-	{"startServer", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LB4769350;)V", nullptr, 0, $method(B4769350$Server, init$, void, $B4769350*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(B4769350$Server, close, void)},
+	{"getAddress", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(B4769350$Server, getAddress, $String*)},
+	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(B4769350$Server, getPort, int32_t)},
+	{"startServer", "()V", nullptr, $PUBLIC, $virtualMethod(B4769350$Server, startServer, void)},
 	{}
 };
 

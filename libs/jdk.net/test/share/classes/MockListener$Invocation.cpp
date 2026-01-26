@@ -32,14 +32,14 @@ $FieldInfo _MockListener$Invocation_FieldInfo_[] = {
 };
 
 $MethodInfo _MockListener$Invocation_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/WebSocket;)V", nullptr, $PRIVATE, $method(static_cast<void(MockListener$Invocation::*)($WebSocket*)>(&MockListener$Invocation::init$))},
-	{"onBinary", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)LMockListener$OnBinary;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MockListener$OnBinary*(*)($WebSocket*,$ByteBuffer*,bool)>(&MockListener$Invocation::onBinary))},
-	{"onClose", "(Ljava/net/http/WebSocket;ILjava/lang/String;)LMockListener$OnClose;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MockListener$OnClose*(*)($WebSocket*,int32_t,$String*)>(&MockListener$Invocation::onClose))},
-	{"onError", "(Ljava/net/http/WebSocket;Ljava/lang/Class;)LMockListener$OnError;", "(Ljava/net/http/WebSocket;Ljava/lang/Class<+Ljava/lang/Throwable;>;)LMockListener$OnError;", $PUBLIC | $STATIC, $method(static_cast<$MockListener$OnError*(*)($WebSocket*,$Class*)>(&MockListener$Invocation::onError))},
-	{"onOpen", "(Ljava/net/http/WebSocket;)LMockListener$OnOpen;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MockListener$OnOpen*(*)($WebSocket*)>(&MockListener$Invocation::onOpen))},
-	{"onPing", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)LMockListener$OnPing;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MockListener$OnPing*(*)($WebSocket*,$ByteBuffer*)>(&MockListener$Invocation::onPing))},
-	{"onPong", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)LMockListener$OnPong;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MockListener$OnPong*(*)($WebSocket*,$ByteBuffer*)>(&MockListener$Invocation::onPong))},
-	{"onText", "(Ljava/net/http/WebSocket;Ljava/lang/String;Z)LMockListener$OnText;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MockListener$OnText*(*)($WebSocket*,$String*,bool)>(&MockListener$Invocation::onText))},
+	{"<init>", "(Ljava/net/http/WebSocket;)V", nullptr, $PRIVATE, $method(MockListener$Invocation, init$, void, $WebSocket*)},
+	{"onBinary", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)LMockListener$OnBinary;", nullptr, $PUBLIC | $STATIC, $staticMethod(MockListener$Invocation, onBinary, $MockListener$OnBinary*, $WebSocket*, $ByteBuffer*, bool)},
+	{"onClose", "(Ljava/net/http/WebSocket;ILjava/lang/String;)LMockListener$OnClose;", nullptr, $PUBLIC | $STATIC, $staticMethod(MockListener$Invocation, onClose, $MockListener$OnClose*, $WebSocket*, int32_t, $String*)},
+	{"onError", "(Ljava/net/http/WebSocket;Ljava/lang/Class;)LMockListener$OnError;", "(Ljava/net/http/WebSocket;Ljava/lang/Class<+Ljava/lang/Throwable;>;)LMockListener$OnError;", $PUBLIC | $STATIC, $staticMethod(MockListener$Invocation, onError, $MockListener$OnError*, $WebSocket*, $Class*)},
+	{"onOpen", "(Ljava/net/http/WebSocket;)LMockListener$OnOpen;", nullptr, $PUBLIC | $STATIC, $staticMethod(MockListener$Invocation, onOpen, $MockListener$OnOpen*, $WebSocket*)},
+	{"onPing", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)LMockListener$OnPing;", nullptr, $PUBLIC | $STATIC, $staticMethod(MockListener$Invocation, onPing, $MockListener$OnPing*, $WebSocket*, $ByteBuffer*)},
+	{"onPong", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)LMockListener$OnPong;", nullptr, $PUBLIC | $STATIC, $staticMethod(MockListener$Invocation, onPong, $MockListener$OnPong*, $WebSocket*, $ByteBuffer*)},
+	{"onText", "(Ljava/net/http/WebSocket;Ljava/lang/String;Z)LMockListener$OnText;", nullptr, $PUBLIC | $STATIC, $staticMethod(MockListener$Invocation, onText, $MockListener$OnText*, $WebSocket*, $String*, bool)},
 	{}
 };
 

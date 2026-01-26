@@ -132,8 +132,8 @@ $FieldInfo PlainHttpConnection$$Lambda$lambda$connectAsync$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PlainHttpConnection$$Lambda$lambda$connectAsync$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(PlainHttpConnection$$Lambda$lambda$connectAsync$0::*)(PlainHttpConnection*)>(&PlainHttpConnection$$Lambda$lambda$connectAsync$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection;)V", nullptr, $PUBLIC, $method(PlainHttpConnection$$Lambda$lambda$connectAsync$0, init$, void, PlainHttpConnection*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$$Lambda$lambda$connectAsync$0, run, $Object*)},
 	{}
 };
 $ClassInfo PlainHttpConnection$$Lambda$lambda$connectAsync$0::classInfo$ = {
@@ -175,8 +175,8 @@ $FieldInfo PlainHttpConnection$$Lambda$lambda$connectAsync$1$1::fieldInfos[3] = 
 	{}
 };
 $MethodInfo PlainHttpConnection$$Lambda$lambda$connectAsync$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection;Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(static_cast<void(PlainHttpConnection$$Lambda$lambda$connectAsync$1$1::*)(PlainHttpConnection*,$Exchange*)>(&PlainHttpConnection$$Lambda$lambda$connectAsync$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection;Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(PlainHttpConnection$$Lambda$lambda$connectAsync$1$1, init$, void, PlainHttpConnection*, $Exchange*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$$Lambda$lambda$connectAsync$1$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo PlainHttpConnection$$Lambda$lambda$connectAsync$1$1::classInfo$ = {
@@ -208,8 +208,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PlainHttpConnection$$Lambda$getBuffer$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PlainHttpConnection$$Lambda$getBuffer$2::*)()>(&PlainHttpConnection$$Lambda$getBuffer$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PlainHttpConnection$$Lambda$getBuffer$2, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$$Lambda$getBuffer$2, get, $Object*)},
 	{}
 };
 $ClassInfo PlainHttpConnection$$Lambda$getBuffer$2::classInfo$ = {
@@ -240,28 +240,28 @@ $FieldInfo _PlainHttpConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _PlainHttpConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(static_cast<void(PlainHttpConnection::*)($InetSocketAddress*,$HttpClientImpl*)>(&PlainHttpConnection::init$))},
-	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0},
-	{"canRetryConnect", "(Ljava/lang/Throwable;)Z", nullptr, $PRIVATE, $method(static_cast<bool(PlainHttpConnection::*)($Throwable*)>(&PlainHttpConnection::canRetryConnect))},
-	{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, 0},
-	{"checkRetryConnect", "(Ljdk/internal/net/http/PlainHttpConnection$ConnectState;Ljava/lang/Throwable;Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/PlainHttpConnection$ConnectState;Ljava/lang/Throwable;Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(static_cast<$CompletableFuture*(PlainHttpConnection::*)($PlainHttpConnection$ConnectState*,$Throwable*,$Exchange*)>(&PlainHttpConnection::checkRetryConnect))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC},
-	{"connected", "()Z", nullptr, $SYNCHRONIZED},
-	{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC},
-	{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, $FINAL},
-	{"getSoReceiveBufferSize", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(PlainHttpConnection::*)()>(&PlainHttpConnection::getSoReceiveBufferSize))},
-	{"getSoSendBufferSize", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(PlainHttpConnection::*)()>(&PlainHttpConnection::getSoSendBufferSize))},
-	{"isProxied", "()Z", nullptr, 0},
-	{"isSecure", "()Z", nullptr, 0},
-	{"lambda$connectAsync$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Boolean*(PlainHttpConnection::*)()>(&PlainHttpConnection::lambda$connectAsync$0)), "java.lang.Exception"},
-	{"lambda$connectAsync$1", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/PlainHttpConnection$ConnectState;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletableFuture*(PlainHttpConnection::*)($Exchange*,$PlainHttpConnection$ConnectState*,$Throwable*)>(&PlainHttpConnection::lambda$connectAsync$1))},
-	{"newConnectTimer", "(Ljdk/internal/net/http/Exchange;Ljava/util/concurrent/CompletableFuture;)Ljdk/internal/net/http/PlainHttpConnection$ConnectTimerEvent;", "(Ljdk/internal/net/http/Exchange<*>;Ljava/util/concurrent/CompletableFuture<*>;)Ljdk/internal/net/http/PlainHttpConnection$ConnectTimerEvent;", $PRIVATE, $method(static_cast<$PlainHttpConnection$ConnectTimerEvent*(PlainHttpConnection::*)($Exchange*,$CompletableFuture*)>(&PlainHttpConnection::newConnectTimer))},
-	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0},
-	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"trySetReceiveBufferSize", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(PlainHttpConnection::*)(int32_t)>(&PlainHttpConnection::trySetReceiveBufferSize))},
-	{"trySetSendBufferSize", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(PlainHttpConnection::*)(int32_t)>(&PlainHttpConnection::trySetSendBufferSize))},
+	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(PlainHttpConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*)},
+	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0, $virtualMethod(PlainHttpConnection, cacheKey, $ConnectionPool$CacheKey*)},
+	{"canRetryConnect", "(Ljava/lang/Throwable;)Z", nullptr, $PRIVATE, $method(PlainHttpConnection, canRetryConnect, bool, $Throwable*)},
+	{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, 0, $virtualMethod(PlainHttpConnection, channel, $SocketChannel*)},
+	{"checkRetryConnect", "(Ljdk/internal/net/http/PlainHttpConnection$ConnectState;Ljava/lang/Throwable;Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/PlainHttpConnection$ConnectState;Ljava/lang/Throwable;Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PRIVATE, $method(PlainHttpConnection, checkRetryConnect, $CompletableFuture*, $PlainHttpConnection$ConnectState*, $Throwable*, $Exchange*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection, close, void)},
+	{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(PlainHttpConnection, connectAsync, $CompletableFuture*, $Exchange*)},
+	{"connected", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(PlainHttpConnection, connected, bool)},
+	{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(PlainHttpConnection, finishConnect, $CompletableFuture*)},
+	{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, $FINAL, $virtualMethod(PlainHttpConnection, getConnectionFlow, $FlowTube*)},
+	{"getSoReceiveBufferSize", "()I", nullptr, $PRIVATE, $method(PlainHttpConnection, getSoReceiveBufferSize, int32_t)},
+	{"getSoSendBufferSize", "()I", nullptr, $PRIVATE, $method(PlainHttpConnection, getSoSendBufferSize, int32_t)},
+	{"isProxied", "()Z", nullptr, 0, $virtualMethod(PlainHttpConnection, isProxied, bool)},
+	{"isSecure", "()Z", nullptr, 0, $virtualMethod(PlainHttpConnection, isSecure, bool)},
+	{"lambda$connectAsync$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $SYNTHETIC, $method(PlainHttpConnection, lambda$connectAsync$0, $Boolean*), "java.lang.Exception"},
+	{"lambda$connectAsync$1", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/PlainHttpConnection$ConnectState;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(PlainHttpConnection, lambda$connectAsync$1, $CompletableFuture*, $Exchange*, $PlainHttpConnection$ConnectState*, $Throwable*)},
+	{"newConnectTimer", "(Ljdk/internal/net/http/Exchange;Ljava/util/concurrent/CompletableFuture;)Ljdk/internal/net/http/PlainHttpConnection$ConnectTimerEvent;", "(Ljdk/internal/net/http/Exchange<*>;Ljava/util/concurrent/CompletableFuture<*>;)Ljdk/internal/net/http/PlainHttpConnection$ConnectTimerEvent;", $PRIVATE, $method(PlainHttpConnection, newConnectTimer, $PlainHttpConnection$ConnectTimerEvent*, $Exchange*, $CompletableFuture*)},
+	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(PlainHttpConnection, proxy, $InetSocketAddress*)},
+	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, 0, $virtualMethod(PlainHttpConnection, publisher, $HttpConnection$HttpPublisher*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection, toString, $String*)},
+	{"trySetReceiveBufferSize", "(I)Z", nullptr, $PRIVATE, $method(PlainHttpConnection, trySetReceiveBufferSize, bool, int32_t)},
+	{"trySetSendBufferSize", "(I)Z", nullptr, $PRIVATE, $method(PlainHttpConnection, trySetSendBufferSize, bool, int32_t)},
 	{}
 };
 

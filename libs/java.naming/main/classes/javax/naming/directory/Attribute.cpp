@@ -10,6 +10,8 @@ using $Cloneable = ::java::lang::Cloneable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $NamingEnumeration = ::javax::naming::NamingEnumeration;
+using $DirContext = ::javax::naming::directory::DirContext;
 
 namespace javax {
 	namespace naming {
@@ -26,25 +28,25 @@ $FieldInfo _Attribute_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute_MethodInfo_[] = {
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, add, bool, Object$*)},
+	{"add", "(ILjava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, add, void, int32_t, Object$*)},
+	{"clear", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, clear, void)},
 	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, contains, bool, Object$*)},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getAll", "()Ljavax/naming/NamingEnumeration;", "()Ljavax/naming/NamingEnumeration<*>;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getAttributeDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getAttributeSyntaxDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, get, $Object*), "javax.naming.NamingException"},
+	{"get", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, get, $Object*, int32_t), "javax.naming.NamingException"},
+	{"getAll", "()Ljavax/naming/NamingEnumeration;", "()Ljavax/naming/NamingEnumeration<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, getAll, $NamingEnumeration*), "javax.naming.NamingException"},
+	{"getAttributeDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, getAttributeDefinition, $DirContext*), "javax.naming.NamingException"},
+	{"getAttributeSyntaxDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, getAttributeSyntaxDefinition, $DirContext*), "javax.naming.NamingException"},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, getID, $String*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"isOrdered", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"isOrdered", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, isOrdered, bool)},
+	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, remove, bool, Object$*)},
+	{"remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, remove, $Object*, int32_t)},
+	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, set, $Object*, int32_t, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, size, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

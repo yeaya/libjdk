@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _BasicAuthTest$ServerAuth_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(BasicAuthTest$ServerAuth::*)($String*)>(&BasicAuthTest$ServerAuth::init$))},
-	{"checkCredentials", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicAuthTest$ServerAuth, init$, void, $String*)},
+	{"checkCredentials", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BasicAuthTest$ServerAuth, checkCredentials, bool, $String*, $String*)},
 	{}
 };
 

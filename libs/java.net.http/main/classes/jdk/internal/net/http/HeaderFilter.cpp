@@ -7,6 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
+using $MultiExchange = ::jdk::internal::net::http::MultiExchange;
+using $Response = ::jdk::internal::net::http::Response;
 
 namespace jdk {
 	namespace internal {
@@ -14,8 +17,8 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _HeaderFilter_MethodInfo_[] = {
-	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HeaderFilter, request, void, $HttpRequestImpl*, $MultiExchange*), "java.io.IOException"},
+	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HeaderFilter, response, $HttpRequestImpl*, $Response*), "java.io.IOException"},
 	{}
 };
 

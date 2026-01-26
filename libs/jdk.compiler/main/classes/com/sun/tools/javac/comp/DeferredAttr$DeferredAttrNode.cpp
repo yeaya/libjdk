@@ -63,8 +63,8 @@ $FieldInfo _DeferredAttr$DeferredAttrNode_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$DeferredAttrNode_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$DeferredAttrNode::*)($DeferredAttr*,$DeferredAttr$DeferredType*,$Attr$ResultInfo*,$DeferredAttr$DeferredStuckPolicy*)>(&DeferredAttr$DeferredAttrNode::init$))},
-	{"process", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Z", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrNode, init$, void, $DeferredAttr*, $DeferredAttr$DeferredType*, $Attr$ResultInfo*, $DeferredAttr$DeferredStuckPolicy*)},
+	{"process", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Z", nullptr, 0, $virtualMethod(DeferredAttr$DeferredAttrNode, process, bool, $DeferredAttr$DeferredAttrContext*)},
 	{}
 };
 

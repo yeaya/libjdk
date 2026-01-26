@@ -6,14 +6,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Map = ::java::util::Map;
 
 namespace sun {
 	namespace management {
 
 $MethodInfo _HotspotThreadMBean_MethodInfo_[] = {
-	{"getInternalThreadCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInternalThreadCpuTimes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;", $PUBLIC | $ABSTRACT},
-	{"getInternalThreadingCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $ABSTRACT},
+	{"getInternalThreadCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotThreadMBean, getInternalThreadCount, int32_t)},
+	{"getInternalThreadCpuTimes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Long;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HotspotThreadMBean, getInternalThreadCpuTimes, $Map*)},
+	{"getInternalThreadingCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HotspotThreadMBean, getInternalThreadingCounters, $List*)},
 	{}
 };
 

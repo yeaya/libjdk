@@ -37,17 +37,17 @@ $FieldInfo _SensitivityWatchEventModifier_FieldInfo_[] = {
 };
 
 $MethodInfo _SensitivityWatchEventModifier_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SensitivityWatchEventModifierArray*(*)()>(&SensitivityWatchEventModifier::$values))},
+	{"$values", "()[Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SensitivityWatchEventModifier, $values, $SensitivityWatchEventModifierArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;I)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Integer;>;I)V", $PRIVATE, $method(static_cast<void(SensitivityWatchEventModifier::*)($String*,int32_t,$FileSystemOption*,int32_t)>(&SensitivityWatchEventModifier::init$))},
+	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;I)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Integer;>;I)V", $PRIVATE, $method(SensitivityWatchEventModifier, init$, void, $String*, int32_t, $FileSystemOption*, int32_t)},
 	{"*name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"sensitivityValueInSeconds", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(SensitivityWatchEventModifier::*)()>(&SensitivityWatchEventModifier::sensitivityValueInSeconds))},
+	{"sensitivityValueInSeconds", "()I", nullptr, $PUBLIC, $method(SensitivityWatchEventModifier, sensitivityValueInSeconds, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SensitivityWatchEventModifier*(*)($String*)>(&SensitivityWatchEventModifier::valueOf))},
-	{"values", "()[Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SensitivityWatchEventModifierArray*(*)()>(&SensitivityWatchEventModifier::values))},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(SensitivityWatchEventModifier, valueOf, SensitivityWatchEventModifier*, $String*)},
+	{"values", "()[Lcom/sun/nio/file/SensitivityWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(SensitivityWatchEventModifier, values, $SensitivityWatchEventModifierArray*)},
 	{}
 };
 

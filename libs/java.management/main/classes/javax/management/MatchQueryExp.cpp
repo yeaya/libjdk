@@ -33,14 +33,14 @@ $MethodInfo _MatchQueryExp_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MatchQueryExp::*)()>(&MatchQueryExp::init$))},
-	{"<init>", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)V", nullptr, $PUBLIC, $method(static_cast<void(MatchQueryExp::*)($AttributeValueExp*,$StringValueExp*)>(&MatchQueryExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getAttribute", "()Ljavax/management/AttributeValueExp;", nullptr, $PUBLIC},
-	{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MatchQueryExp, init$, void)},
+	{"<init>", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)V", nullptr, $PUBLIC, $method(MatchQueryExp, init$, void, $AttributeValueExp*, $StringValueExp*)},
+	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"getAttribute", "()Ljavax/management/AttributeValueExp;", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, getAttribute, $AttributeValueExp*)},
+	{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, getPattern, $String*)},
 	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"wildmatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&MatchQueryExp::wildmatch))},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, toString, $String*)},
+	{"wildmatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MatchQueryExp, wildmatch, bool, $String*, $String*)},
 	{}
 };
 

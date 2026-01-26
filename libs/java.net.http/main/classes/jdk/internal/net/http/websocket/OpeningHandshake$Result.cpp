@@ -23,7 +23,7 @@ $FieldInfo _OpeningHandshake$Result_FieldInfo_[] = {
 };
 
 $MethodInfo _OpeningHandshake$Result_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/net/http/websocket/TransportFactory;)V", nullptr, $PRIVATE, $method(static_cast<void(OpeningHandshake$Result::*)($String*,$TransportFactory*)>(&OpeningHandshake$Result::init$))},
+	{"<init>", "(Ljava/lang/String;Ljdk/internal/net/http/websocket/TransportFactory;)V", nullptr, $PRIVATE, $method(OpeningHandshake$Result, init$, void, $String*, $TransportFactory*)},
 	{}
 };
 

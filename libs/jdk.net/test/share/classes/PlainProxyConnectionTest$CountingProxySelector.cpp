@@ -27,11 +27,11 @@ $FieldInfo _PlainProxyConnectionTest$CountingProxySelector_FieldInfo_[] = {
 };
 
 $MethodInfo _PlainProxyConnectionTest$CountingProxySelector_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(static_cast<void(PlainProxyConnectionTest$CountingProxySelector::*)($InetSocketAddress*)>(&PlainProxyConnectionTest$CountingProxySelector::init$))},
-	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC},
-	{"count", "()I", nullptr, 0},
-	{"of", "(Ljava/net/InetSocketAddress;)LPlainProxyConnectionTest$CountingProxySelector;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PlainProxyConnectionTest$CountingProxySelector*(*)($InetSocketAddress*)>(&PlainProxyConnectionTest$CountingProxySelector::of))},
-	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC},
+	{"<init>", "(Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(PlainProxyConnectionTest$CountingProxySelector, init$, void, $InetSocketAddress*)},
+	{"connectFailed", "(Ljava/net/URI;Ljava/net/SocketAddress;Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(PlainProxyConnectionTest$CountingProxySelector, connectFailed, void, $URI*, $SocketAddress*, $IOException*)},
+	{"count", "()I", nullptr, 0, $virtualMethod(PlainProxyConnectionTest$CountingProxySelector, count, int32_t)},
+	{"of", "(Ljava/net/InetSocketAddress;)LPlainProxyConnectionTest$CountingProxySelector;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainProxyConnectionTest$CountingProxySelector, of, PlainProxyConnectionTest$CountingProxySelector*, $InetSocketAddress*)},
+	{"select", "(Ljava/net/URI;)Ljava/util/List;", "(Ljava/net/URI;)Ljava/util/List<Ljava/net/Proxy;>;", $PUBLIC, $virtualMethod(PlainProxyConnectionTest$CountingProxySelector, select, $List*, $URI*)},
 	{}
 };
 

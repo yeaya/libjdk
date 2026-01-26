@@ -28,10 +28,10 @@ $FieldInfo _SizeUpdateWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _SizeUpdateWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SizeUpdateWriter::*)()>(&SizeUpdateWriter::init$))},
-	{"maxHeaderTableSize", "(I)Ljdk/internal/net/http/hpack/SizeUpdateWriter;", nullptr, 0, $method(static_cast<SizeUpdateWriter*(SizeUpdateWriter::*)(int32_t)>(&SizeUpdateWriter::maxHeaderTableSize))},
-	{"reset", "()Ljdk/internal/net/http/hpack/BinaryRepresentationWriter;", nullptr, $PUBLIC},
-	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SizeUpdateWriter, init$, void)},
+	{"maxHeaderTableSize", "(I)Ljdk/internal/net/http/hpack/SizeUpdateWriter;", nullptr, 0, $method(SizeUpdateWriter, maxHeaderTableSize, SizeUpdateWriter*, int32_t)},
+	{"reset", "()Ljdk/internal/net/http/hpack/BinaryRepresentationWriter;", nullptr, $PUBLIC, $virtualMethod(SizeUpdateWriter, reset, $BinaryRepresentationWriter*)},
+	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(SizeUpdateWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
 	{}
 };
 

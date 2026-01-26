@@ -90,8 +90,8 @@ $FieldInfo LineSubscriberAdapter$LineSubscription$$Lambda$loop::fieldInfos[2] = 
 	{}
 };
 $MethodInfo LineSubscriberAdapter$LineSubscription$$Lambda$loop::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;)V", nullptr, $PUBLIC, $method(static_cast<void(LineSubscriberAdapter$LineSubscription$$Lambda$loop::*)(LineSubscriberAdapter$LineSubscription*)>(&LineSubscriberAdapter$LineSubscription$$Lambda$loop::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;)V", nullptr, $PUBLIC, $method(LineSubscriberAdapter$LineSubscription$$Lambda$loop, init$, void, LineSubscriberAdapter$LineSubscription*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter$LineSubscription$$Lambda$loop, run, void)},
 	{}
 };
 $ClassInfo LineSubscriberAdapter$LineSubscription$$Lambda$loop::classInfo$ = {
@@ -131,19 +131,19 @@ $FieldInfo _LineSubscriberAdapter$LineSubscription_FieldInfo_[] = {
 };
 
 $MethodInfo _LineSubscriberAdapter$LineSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/CharsetDecoder;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/CharsetDecoder;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;Ljava/util/concurrent/CompletableFuture<*>;)V", $PRIVATE, $method(static_cast<void(LineSubscriberAdapter$LineSubscription::*)($Flow$Subscription*,$CharsetDecoder*,$String*,$Flow$Subscriber*,$CompletableFuture*)>(&LineSubscriberAdapter$LineSubscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"create", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/Charset;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/CompletableFuture;)Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/Charset;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;Ljava/util/concurrent/CompletableFuture<*>;)Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;", $STATIC, $method(static_cast<LineSubscriberAdapter$LineSubscription*(*)($Flow$Subscription*,$Charset*,$String*,$Flow$Subscriber*,$CompletableFuture*)>(&LineSubscriberAdapter$LineSubscription::create))},
-	{"endOfLine", "(Ljava/lang/StringBuilder;Ljava/lang/String;Z)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($StringBuilder*,$String*,bool)>(&LineSubscriberAdapter$LineSubscription::endOfLine))},
-	{"isUnderFlow", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Z", nullptr, $PRIVATE, $method(static_cast<bool(LineSubscriberAdapter$LineSubscription::*)($ByteBuffer*,$CharBuffer*,bool)>(&LineSubscriberAdapter$LineSubscription::isUnderFlow)), "java.nio.charset.CharacterCodingException"},
-	{"loop", "()V", nullptr, $PRIVATE, $method(static_cast<void(LineSubscriberAdapter$LineSubscription::*)()>(&LineSubscriberAdapter$LineSubscription::loop))},
-	{"nextLine", "(Ljava/lang/StringBuilder;Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($StringBuilder*,$String*,bool)>(&LineSubscriberAdapter$LineSubscription::nextLine))},
-	{"nextLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LineSubscriberAdapter$LineSubscription::*)()>(&LineSubscriberAdapter$LineSubscription::nextLine)), "java.nio.charset.CharacterCodingException"},
-	{"request", "(J)V", nullptr, $PUBLIC},
-	{"signalComplete", "()V", nullptr, $PUBLIC, $method(static_cast<void(LineSubscriberAdapter$LineSubscription::*)()>(&LineSubscriberAdapter$LineSubscription::signalComplete))},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(LineSubscriberAdapter$LineSubscription::*)($Throwable*)>(&LineSubscriberAdapter$LineSubscription::signalError))},
-	{"submit", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(LineSubscriberAdapter$LineSubscription::*)($List*)>(&LineSubscriberAdapter$LineSubscription::submit))},
-	{"take", "(Ljava/lang/StringBuilder;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($StringBuilder*,int32_t,int32_t)>(&LineSubscriberAdapter$LineSubscription::take))},
+	{"<init>", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/CharsetDecoder;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/CharsetDecoder;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;Ljava/util/concurrent/CompletableFuture<*>;)V", $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, init$, void, $Flow$Subscription*, $CharsetDecoder*, $String*, $Flow$Subscriber*, $CompletableFuture*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter$LineSubscription, cancel, void)},
+	{"create", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/Charset;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/CompletableFuture;)Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/Charset;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;Ljava/util/concurrent/CompletableFuture<*>;)Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;", $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, create, LineSubscriberAdapter$LineSubscription*, $Flow$Subscription*, $Charset*, $String*, $Flow$Subscriber*, $CompletableFuture*)},
+	{"endOfLine", "(Ljava/lang/StringBuilder;Ljava/lang/String;Z)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, endOfLine, int32_t, $StringBuilder*, $String*, bool)},
+	{"isUnderFlow", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Z", nullptr, $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, isUnderFlow, bool, $ByteBuffer*, $CharBuffer*, bool), "java.nio.charset.CharacterCodingException"},
+	{"loop", "()V", nullptr, $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, loop, void)},
+	{"nextLine", "(Ljava/lang/StringBuilder;Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, nextLine, $String*, $StringBuilder*, $String*, bool)},
+	{"nextLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, nextLine, $String*), "java.nio.charset.CharacterCodingException"},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter$LineSubscription, request, void, int64_t)},
+	{"signalComplete", "()V", nullptr, $PUBLIC, $method(LineSubscriberAdapter$LineSubscription, signalComplete, void)},
+	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LineSubscriberAdapter$LineSubscription, signalError, void, $Throwable*)},
+	{"submit", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(LineSubscriberAdapter$LineSubscription, submit, void, $List*)},
+	{"take", "(Ljava/lang/StringBuilder;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, take, $String*, $StringBuilder*, int32_t, int32_t)},
 	{}
 };
 

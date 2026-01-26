@@ -8,9 +8,14 @@
 #include <javax/xml/crypto/dsig/XMLValidateContext.h>
 #include <jcpp.h>
 
+using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Data = ::javax::xml::crypto::Data;
 using $URIReference = ::javax::xml::crypto::URIReference;
+using $DigestMethod = ::javax::xml::crypto::dsig::DigestMethod;
+using $XMLValidateContext = ::javax::xml::crypto::dsig::XMLValidateContext;
 
 namespace javax {
 	namespace xml {
@@ -21,16 +26,16 @@ $MethodInfo _Reference_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getCalculatedDigestValue", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDereferencedData", "()Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDigestInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDigestMethod", "()Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDigestValue", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTransforms", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PUBLIC | $ABSTRACT},
+	{"getCalculatedDigestValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Reference, getCalculatedDigestValue, $bytes*)},
+	{"getDereferencedData", "()Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Reference, getDereferencedData, $Data*)},
+	{"getDigestInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Reference, getDigestInputStream, $InputStream*)},
+	{"getDigestMethod", "()Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Reference, getDigestMethod, $DigestMethod*)},
+	{"getDigestValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Reference, getDigestValue, $bytes*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Reference, getId, $String*)},
+	{"getTransforms", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Reference, getTransforms, $List*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validate", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.dsig.XMLSignatureException"},
+	{"validate", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Reference, validate, bool, $XMLValidateContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
 	{}
 };
 

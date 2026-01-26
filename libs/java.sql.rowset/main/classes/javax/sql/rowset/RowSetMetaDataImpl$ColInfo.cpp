@@ -38,7 +38,7 @@ $FieldInfo _RowSetMetaDataImpl$ColInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _RowSetMetaDataImpl$ColInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sql/rowset/RowSetMetaDataImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(RowSetMetaDataImpl$ColInfo::*)($RowSetMetaDataImpl*)>(&RowSetMetaDataImpl$ColInfo::init$))},
+	{"<init>", "(Ljavax/sql/rowset/RowSetMetaDataImpl;)V", nullptr, $PRIVATE, $method(RowSetMetaDataImpl$ColInfo, init$, void, $RowSetMetaDataImpl*)},
 	{}
 };
 

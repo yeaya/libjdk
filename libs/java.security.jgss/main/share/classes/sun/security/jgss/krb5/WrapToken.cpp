@@ -63,20 +63,20 @@ $FieldInfo _WrapToken_FieldInfo_[] = {
 };
 
 $MethodInfo _WrapToken_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(static_cast<void(WrapToken::*)($Krb5Context*,$bytes*,int32_t,int32_t,$MessageProp*)>(&WrapToken::init$)), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(static_cast<void(WrapToken::*)($Krb5Context*,$InputStream*,$MessageProp*)>(&WrapToken::init$)), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lorg/ietf/jgss/MessageProp;[BII)V", nullptr, $PUBLIC, $method(static_cast<void(WrapToken::*)($Krb5Context*,$MessageProp*,$bytes*,int32_t,int32_t)>(&WrapToken::init$)), "org.ietf.jgss.GSSException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,org.ietf.jgss.GSSException"},
-	{"encode", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException,org.ietf.jgss.GSSException"},
-	{"encode", "([BI)I", nullptr, $PUBLIC, nullptr, "java.io.IOException,org.ietf.jgss.GSSException"},
-	{"getData", "()[B", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getData", "([BI)I", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getDataFromBuffer", "([BI)V", nullptr, $PRIVATE, $method(static_cast<void(WrapToken::*)($bytes*,int32_t)>(&WrapToken::getDataFromBuffer)), "org.ietf.jgss.GSSException"},
-	{"getDataFromStream", "([BI)V", nullptr, $PRIVATE, $method(static_cast<void(WrapToken::*)($bytes*,int32_t)>(&WrapToken::getDataFromStream)), "org.ietf.jgss.GSSException"},
-	{"getKrb5TokenSize", "()I", nullptr, $PROTECTED, nullptr, "org.ietf.jgss.GSSException"},
-	{"getPadding", "(I)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(WrapToken::*)(int32_t)>(&WrapToken::getPadding))},
-	{"getSealAlg", "(ZI)I", nullptr, $PROTECTED, nullptr, "org.ietf.jgss.GSSException"},
-	{"getSizeLimit", "(IZILsun/security/jgss/krb5/CipherHelper;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t,bool,int32_t,$CipherHelper*)>(&WrapToken::getSizeLimit)), "org.ietf.jgss.GSSException"},
+	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(WrapToken, init$, void, $Krb5Context*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(WrapToken, init$, void, $Krb5Context*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Lorg/ietf/jgss/MessageProp;[BII)V", nullptr, $PUBLIC, $method(WrapToken, init$, void, $Krb5Context*, $MessageProp*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(WrapToken, encode, void, $OutputStream*), "java.io.IOException,org.ietf.jgss.GSSException"},
+	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(WrapToken, encode, $bytes*), "java.io.IOException,org.ietf.jgss.GSSException"},
+	{"encode", "([BI)I", nullptr, $PUBLIC, $virtualMethod(WrapToken, encode, int32_t, $bytes*, int32_t), "java.io.IOException,org.ietf.jgss.GSSException"},
+	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(WrapToken, getData, $bytes*), "org.ietf.jgss.GSSException"},
+	{"getData", "([BI)I", nullptr, $PUBLIC, $virtualMethod(WrapToken, getData, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
+	{"getDataFromBuffer", "([BI)V", nullptr, $PRIVATE, $method(WrapToken, getDataFromBuffer, void, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
+	{"getDataFromStream", "([BI)V", nullptr, $PRIVATE, $method(WrapToken, getDataFromStream, void, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
+	{"getKrb5TokenSize", "()I", nullptr, $PROTECTED, $virtualMethod(WrapToken, getKrb5TokenSize, int32_t), "org.ietf.jgss.GSSException"},
+	{"getPadding", "(I)[B", nullptr, $PRIVATE, $method(WrapToken, getPadding, $bytes*, int32_t)},
+	{"getSealAlg", "(ZI)I", nullptr, $PROTECTED, $virtualMethod(WrapToken, getSealAlg, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
+	{"getSizeLimit", "(IZILsun/security/jgss/krb5/CipherHelper;)I", nullptr, $STATIC, $staticMethod(WrapToken, getSizeLimit, int32_t, int32_t, bool, int32_t, $CipherHelper*), "org.ietf.jgss.GSSException"},
 	{}
 };
 

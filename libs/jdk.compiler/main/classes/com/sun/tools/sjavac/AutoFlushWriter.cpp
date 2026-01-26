@@ -17,10 +17,10 @@ namespace com {
 			namespace sjavac {
 
 $MethodInfo _AutoFlushWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(static_cast<void(AutoFlushWriter::*)($Writer*)>(&AutoFlushWriter::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(AutoFlushWriter, init$, void, $Writer*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(AutoFlushWriter, write, void, int32_t), "java.io.IOException"},
+	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(AutoFlushWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
+	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(AutoFlushWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

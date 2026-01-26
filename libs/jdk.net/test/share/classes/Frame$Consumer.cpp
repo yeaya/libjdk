@@ -5,21 +5,23 @@
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
+using $Frame$Opcode = ::Frame$Opcode;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 
 $MethodInfo _Frame$Consumer_MethodInfo_[] = {
-	{"endFrame", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"fin", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"mask", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"maskingKey", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"opcode", "(LFrame$Opcode;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"payloadData", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"payloadLen", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"rsv1", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"rsv2", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"rsv3", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"endFrame", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Frame$Consumer, endFrame, void)},
+	{"fin", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Frame$Consumer, fin, void, bool)},
+	{"mask", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Frame$Consumer, mask, void, bool)},
+	{"maskingKey", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Frame$Consumer, maskingKey, void, int32_t)},
+	{"opcode", "(LFrame$Opcode;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Frame$Consumer, opcode, void, $Frame$Opcode*)},
+	{"payloadData", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Frame$Consumer, payloadData, void, $ByteBuffer*)},
+	{"payloadLen", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Frame$Consumer, payloadLen, void, int64_t)},
+	{"rsv1", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Frame$Consumer, rsv1, void, bool)},
+	{"rsv2", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Frame$Consumer, rsv2, void, bool)},
+	{"rsv3", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Frame$Consumer, rsv3, void, bool)},
 	{}
 };
 

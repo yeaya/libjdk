@@ -27,9 +27,9 @@ $CompoundAttribute _IdResolver_Annotations_[] = {
 };
 
 $MethodInfo _IdResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(IdResolver::*)()>(&IdResolver::init$))},
-	{"getElementById", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Element*(*)($Document*,$String*)>(&IdResolver::getElementById))},
-	{"registerElementById", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Attr;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Element*,$Attr*)>(&IdResolver::registerElementById))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(IdResolver, init$, void)},
+	{"getElementById", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(IdResolver, getElementById, $Element*, $Document*, $String*)},
+	{"registerElementById", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Attr;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IdResolver, registerElementById, void, $Element*, $Attr*)},
 	{}
 };
 

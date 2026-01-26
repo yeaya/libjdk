@@ -84,8 +84,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ByteArrayPublishers$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ByteArrayPublishers$$Lambda$lambda$main$0::*)()>(&ByteArrayPublishers$$Lambda$lambda$main$0::init$))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ByteArrayPublishers$$Lambda$lambda$main$0, init$, void)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(ByteArrayPublishers$$Lambda$lambda$main$0, handle, void, $HttpExchange*)},
 	{}
 };
 $ClassInfo ByteArrayPublishers$$Lambda$lambda$main$0::classInfo$ = {
@@ -124,8 +124,8 @@ $FieldInfo ByteArrayPublishers$$Lambda$lambda$main$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ByteArrayPublishers$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/LinkedBlockingQueue;)V", nullptr, $PUBLIC, $method(static_cast<void(ByteArrayPublishers$$Lambda$lambda$main$1$1::*)($LinkedBlockingQueue*)>(&ByteArrayPublishers$$Lambda$lambda$main$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/LinkedBlockingQueue;)V", nullptr, $PUBLIC, $method(ByteArrayPublishers$$Lambda$lambda$main$1$1, init$, void, $LinkedBlockingQueue*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ByteArrayPublishers$$Lambda$lambda$main$1$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ByteArrayPublishers$$Lambda$lambda$main$1$1::classInfo$ = {
@@ -149,12 +149,12 @@ $FieldInfo _ByteArrayPublishers_FieldInfo_[] = {
 };
 
 $MethodInfo _ByteArrayPublishers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ByteArrayPublishers::*)()>(&ByteArrayPublishers::init$))},
-	{"createClient", "()Ljava/net/http/HttpClient;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$HttpClient*(*)()>(&ByteArrayPublishers::createClient))},
-	{"createRequest", "(Ljava/net/URI;)Ljava/net/http/HttpRequest;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$HttpRequest*(*)($URI*)>(&ByteArrayPublishers::createRequest)), "java.net.URISyntaxException"},
-	{"lambda$main$0", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpExchange*)>(&ByteArrayPublishers::lambda$main$0)), "java.io.IOException"},
-	{"lambda$main$1", "(Ljava/util/concurrent/LinkedBlockingQueue;Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)Ljava/net/http/HttpResponse;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpResponse*(*)($LinkedBlockingQueue*,$HttpResponse*,$Throwable*)>(&ByteArrayPublishers::lambda$main$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ByteArrayPublishers::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ByteArrayPublishers, init$, void)},
+	{"createClient", "()Ljava/net/http/HttpClient;", nullptr, $PRIVATE | $STATIC, $staticMethod(ByteArrayPublishers, createClient, $HttpClient*)},
+	{"createRequest", "(Ljava/net/URI;)Ljava/net/http/HttpRequest;", nullptr, $PRIVATE | $STATIC, $staticMethod(ByteArrayPublishers, createRequest, $HttpRequest*, $URI*), "java.net.URISyntaxException"},
+	{"lambda$main$0", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ByteArrayPublishers, lambda$main$0, void, $HttpExchange*), "java.io.IOException"},
+	{"lambda$main$1", "(Ljava/util/concurrent/LinkedBlockingQueue;Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)Ljava/net/http/HttpResponse;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ByteArrayPublishers, lambda$main$1, $HttpResponse*, $LinkedBlockingQueue*, $HttpResponse*, $Throwable*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ByteArrayPublishers, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

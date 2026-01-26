@@ -5,14 +5,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $RowSetEvent = ::javax::sql::RowSetEvent;
 
 namespace javax {
 	namespace sql {
 
 $MethodInfo _RowSetListener_MethodInfo_[] = {
-	{"cursorMoved", "(Ljavax/sql/RowSetEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"rowChanged", "(Ljavax/sql/RowSetEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"rowSetChanged", "(Ljavax/sql/RowSetEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"cursorMoved", "(Ljavax/sql/RowSetEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetListener, cursorMoved, void, $RowSetEvent*)},
+	{"rowChanged", "(Ljavax/sql/RowSetEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetListener, rowChanged, void, $RowSetEvent*)},
+	{"rowSetChanged", "(Ljavax/sql/RowSetEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetListener, rowSetChanged, void, $RowSetEvent*)},
 	{}
 };
 

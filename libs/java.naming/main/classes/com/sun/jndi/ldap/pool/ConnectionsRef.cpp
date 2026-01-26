@@ -20,8 +20,8 @@ $FieldInfo _ConnectionsRef_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionsRef_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/pool/Connections;)V", nullptr, 0, $method(static_cast<void(ConnectionsRef::*)($Connections*)>(&ConnectionsRef::init$))},
-	{"getConnections", "()Lcom/sun/jndi/ldap/pool/Connections;", nullptr, 0, $method(static_cast<$Connections*(ConnectionsRef::*)()>(&ConnectionsRef::getConnections))},
+	{"<init>", "(Lcom/sun/jndi/ldap/pool/Connections;)V", nullptr, 0, $method(ConnectionsRef, init$, void, $Connections*)},
+	{"getConnections", "()Lcom/sun/jndi/ldap/pool/Connections;", nullptr, 0, $method(ConnectionsRef, getConnections, $Connections*)},
 	{}
 };
 

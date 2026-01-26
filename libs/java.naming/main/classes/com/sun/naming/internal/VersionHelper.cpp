@@ -104,8 +104,8 @@ $FieldInfo VersionHelper$$Lambda$lambda$getJndiProperty$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo VersionHelper$$Lambda$lambda$getJndiProperty$1::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$$Lambda$lambda$getJndiProperty$1::*)(int32_t)>(&VersionHelper$$Lambda$lambda$getJndiProperty$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getJndiProperty$1, init$, void, int32_t)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getJndiProperty$1, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$$Lambda$lambda$getJndiProperty$1::classInfo$ = {
@@ -137,8 +137,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo VersionHelper$$Lambda$lambda$getJndiProperties$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$$Lambda$lambda$getJndiProperties$2$1::*)()>(&VersionHelper$$Lambda$lambda$getJndiProperties$2$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getJndiProperties$2$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getJndiProperties$2$1, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$$Lambda$lambda$getJndiProperties$2$1::classInfo$ = {
@@ -180,8 +180,8 @@ $FieldInfo VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::fieldInfos[3] =
 	{}
 };
 $MethodInfo VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::*)($Class*,$String*)>(&VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, init$, void, $Class*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getResourceAsStream$3$2, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$$Lambda$lambda$getResourceAsStream$3$2::classInfo$ = {
@@ -220,8 +220,8 @@ $FieldInfo VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::fieldInfos[2]
 	{}
 };
 $MethodInfo VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::*)($String*)>(&VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, init$, void, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$$Lambda$lambda$getJavaHomeConfStream$4$3::classInfo$ = {
@@ -263,8 +263,8 @@ $FieldInfo VersionHelper$$Lambda$lambda$getResources$5$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo VersionHelper$$Lambda$lambda$getResources$5$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$$Lambda$lambda$getResources$5$4::*)($ClassLoader*,$String*)>(&VersionHelper$$Lambda$lambda$getResources$5$4::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getResources$5$4, init$, void, $ClassLoader*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getResources$5$4, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$$Lambda$lambda$getResources$5$4::classInfo$ = {
@@ -296,8 +296,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::*)()>(&VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getContextClassLoader$6$5, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$$Lambda$lambda$getContextClassLoader$6$5::classInfo$ = {
@@ -329,8 +329,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo VersionHelper$$Lambda$lambda$static$0$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$$Lambda$lambda$static$0$6::*)()>(&VersionHelper$$Lambda$lambda$static$0$6::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$static$0$6, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$static$0$6, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$$Lambda$lambda$static$0$6::classInfo$ = {
@@ -362,28 +362,28 @@ $FieldInfo _VersionHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _VersionHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(VersionHelper::*)()>(&VersionHelper::init$))},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(static_cast<$ClassLoader*(VersionHelper::*)()>(&VersionHelper::getContextClassLoader))},
-	{"getJavaHomeConfStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, 0, $method(static_cast<$InputStream*(VersionHelper::*)($String*)>(&VersionHelper::getJavaHomeConfStream))},
-	{"getJndiProperties", "()[Ljava/lang/String;", nullptr, 0, $method(static_cast<$StringArray*(VersionHelper::*)()>(&VersionHelper::getJndiProperties))},
-	{"getJndiProperty", "(I)Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(VersionHelper::*)(int32_t)>(&VersionHelper::getJndiProperty))},
-	{"getResourceAsStream", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/io/InputStream;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/io/InputStream;", 0, $method(static_cast<$InputStream*(VersionHelper::*)($Class*,$String*)>(&VersionHelper::getResourceAsStream))},
-	{"getResources", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljava/io/InputStream;>;", 0, $method(static_cast<$NamingEnumeration*(VersionHelper::*)($ClassLoader*,$String*)>(&VersionHelper::getResources)), "java.io.IOException"},
-	{"getUrlArray", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URLArray*(*)($String*)>(&VersionHelper::getUrlArray)), "java.net.MalformedURLException"},
-	{"getVersionHelper", "()Lcom/sun/naming/internal/VersionHelper;", nullptr, $PUBLIC | $STATIC, $method(static_cast<VersionHelper*(*)()>(&VersionHelper::getVersionHelper))},
-	{"lambda$getContextClassLoader$6", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ClassLoader*(*)()>(&VersionHelper::lambda$getContextClassLoader$6))},
-	{"lambda$getJavaHomeConfStream$4", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InputStream*(*)($String*)>(&VersionHelper::lambda$getJavaHomeConfStream$4))},
-	{"lambda$getJndiProperties$2", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Properties*(*)()>(&VersionHelper::lambda$getJndiProperties$2))},
-	{"lambda$getJndiProperty$1", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(int32_t)>(&VersionHelper::lambda$getJndiProperty$1))},
-	{"lambda$getResourceAsStream$3", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InputStream*(*)($Class*,$String*)>(&VersionHelper::lambda$getResourceAsStream$3))},
-	{"lambda$getResources$5", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/util/Enumeration;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Enumeration*(*)($ClassLoader*,$String*)>(&VersionHelper::lambda$getResources$5)), "java.lang.Exception"},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&VersionHelper::lambda$static$0))},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$Class*(VersionHelper::*)($String*)>(&VersionHelper::loadClass)), "java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$Class*(VersionHelper::*)($String*,$String*)>(&VersionHelper::loadClass)), "java.lang.ClassNotFoundException,java.net.MalformedURLException"},
-	{"loadClass", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class<*>;", 0, $method(static_cast<$Class*(VersionHelper::*)($String*,bool,$ClassLoader*)>(&VersionHelper::loadClass)), "java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", 0, $method(static_cast<$Class*(VersionHelper::*)($String*,$ClassLoader*)>(&VersionHelper::loadClass)), "java.lang.ClassNotFoundException"},
-	{"loadClassWithoutInit", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$Class*(VersionHelper::*)($String*)>(&VersionHelper::loadClassWithoutInit)), "java.lang.ClassNotFoundException"},
-	{"resolveName", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Class*,$String*)>(&VersionHelper::resolveName))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(VersionHelper, init$, void)},
+	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(VersionHelper, getContextClassLoader, $ClassLoader*)},
+	{"getJavaHomeConfStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, 0, $method(VersionHelper, getJavaHomeConfStream, $InputStream*, $String*)},
+	{"getJndiProperties", "()[Ljava/lang/String;", nullptr, 0, $method(VersionHelper, getJndiProperties, $StringArray*)},
+	{"getJndiProperty", "(I)Ljava/lang/String;", nullptr, 0, $method(VersionHelper, getJndiProperty, $String*, int32_t)},
+	{"getResourceAsStream", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/io/InputStream;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/io/InputStream;", 0, $method(VersionHelper, getResourceAsStream, $InputStream*, $Class*, $String*)},
+	{"getResources", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljava/io/InputStream;>;", 0, $method(VersionHelper, getResources, $NamingEnumeration*, $ClassLoader*, $String*), "java.io.IOException"},
+	{"getUrlArray", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionHelper, getUrlArray, $URLArray*, $String*), "java.net.MalformedURLException"},
+	{"getVersionHelper", "()Lcom/sun/naming/internal/VersionHelper;", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionHelper, getVersionHelper, VersionHelper*)},
+	{"lambda$getContextClassLoader$6", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getContextClassLoader$6, $ClassLoader*)},
+	{"lambda$getJavaHomeConfStream$4", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getJavaHomeConfStream$4, $InputStream*, $String*)},
+	{"lambda$getJndiProperties$2", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getJndiProperties$2, $Properties*)},
+	{"lambda$getJndiProperty$1", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getJndiProperty$1, $String*, int32_t)},
+	{"lambda$getResourceAsStream$3", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getResourceAsStream$3, $InputStream*, $Class*, $String*)},
+	{"lambda$getResources$5", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/util/Enumeration;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getResources$5, $Enumeration*, $ClassLoader*, $String*), "java.lang.Exception"},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$static$0, $String*)},
+	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(VersionHelper, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(VersionHelper, loadClass, $Class*, $String*, $String*), "java.lang.ClassNotFoundException,java.net.MalformedURLException"},
+	{"loadClass", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class<*>;", 0, $method(VersionHelper, loadClass, $Class*, $String*, bool, $ClassLoader*), "java.lang.ClassNotFoundException"},
+	{"loadClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", 0, $method(VersionHelper, loadClass, $Class*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
+	{"loadClassWithoutInit", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC, $method(VersionHelper, loadClassWithoutInit, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"resolveName", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(VersionHelper, resolveName, $String*, $Class*, $String*)},
 	{}
 };
 

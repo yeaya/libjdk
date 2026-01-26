@@ -42,8 +42,8 @@ $FieldInfo _NTLMServer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _NTLMServer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/security/sasl/ntlm/NTLMServer;Ljava/lang/String;Ljava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, 0, $method(static_cast<void(NTLMServer$1::*)($NTLMServer*,$String*,$String*,$CallbackHandler*)>(&NTLMServer$1::init$)), "com.sun.security.ntlm.NTLMException"},
-	{"getPassword", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/security/sasl/ntlm/NTLMServer;Ljava/lang/String;Ljava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, 0, $method(NTLMServer$1, init$, void, $NTLMServer*, $String*, $String*, $CallbackHandler*), "com.sun.security.ntlm.NTLMException"},
+	{"getPassword", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $PUBLIC, $virtualMethod(NTLMServer$1, getPassword, $chars*, $String*, $String*)},
 	{}
 };
 

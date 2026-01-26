@@ -67,7 +67,7 @@ $FieldInfo _JmxProperties_FieldInfo_[] = {
 };
 
 $MethodInfo _JmxProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JmxProperties::*)()>(&JmxProperties::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JmxProperties, init$, void)},
 	{}
 };
 

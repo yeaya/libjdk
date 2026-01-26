@@ -15,6 +15,7 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$IncorporationBinaryOpKind = ::com::sun::tools::javac::comp::Infer$IncorporationBinaryOpKind;
+using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Warner = ::com::sun::tools::javac::util::Warner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,12 +36,12 @@ $FieldInfo _Infer$IncorporationAction_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$IncorporationAction_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Infer$IncorporationAction::*)($Infer*,$Type$UndetVar*,$Type*)>(&Infer$IncorporationAction::init$))},
-	{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $ABSTRACT},
-	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSameType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0},
-	{"isSubtype", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Infer$IncorporationAction, init$, void, $Infer*, $Type$UndetVar*, $Type*)},
+	{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $ABSTRACT, $virtualMethod(Infer$IncorporationAction, apply, void, $InferenceContext*, $Warner*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$IncorporationAction, dup, Infer$IncorporationAction*, $Type$UndetVar*)},
+	{"isSameType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Infer$IncorporationAction, isSameType, bool, $Type*, $Type*)},
+	{"isSubtype", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, 0, $virtualMethod(Infer$IncorporationAction, isSubtype, bool, $Type*, $Type*, $Warner*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Infer$IncorporationAction, toString, $String*)},
 	{}
 };
 

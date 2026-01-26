@@ -53,13 +53,13 @@ $FieldInfo _Analyzer$RedundantTypeArgAnalyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$RedundantTypeArgAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(static_cast<void(Analyzer$RedundantTypeArgAnalyzer::*)($Analyzer*)>(&Analyzer$RedundantTypeArgAnalyzer::init$))},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Z", nullptr, 0},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Z)V", nullptr, 0},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;>;", 0},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$RedundantTypeArgAnalyzer, init$, void, $Analyzer*)},
+	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Z", nullptr, 0, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, match, bool, $JCTree$JCMethodInvocation*)},
+	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, match, bool, $JCTree*)},
+	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;Z)V", nullptr, 0, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, process, void, $JCTree$JCMethodInvocation*, $JCTree$JCMethodInvocation*, bool)},
+	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, process, void, $JCTree*, $JCTree*, bool)},
+	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;>;", 0, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, rewrite, $List*, $JCTree$JCMethodInvocation*)},
+	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantTypeArgAnalyzer, rewrite, $List*, $JCTree*)},
 	{}
 };
 

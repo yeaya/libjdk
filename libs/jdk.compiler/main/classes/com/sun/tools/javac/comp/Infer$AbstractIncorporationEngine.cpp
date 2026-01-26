@@ -16,6 +16,7 @@ using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$SubstBounds = ::com::sun::tools::javac::comp::Infer$SubstBounds;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -36,10 +37,10 @@ $FieldInfo _Infer$AbstractIncorporationEngine_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$AbstractIncorporationEngine_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(static_cast<void(Infer$AbstractIncorporationEngine::*)($Infer*)>(&Infer$AbstractIncorporationEngine::init$))},
-	{"getIncorporationActions", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Infer$IncorporationAction;>;", $ABSTRACT},
-	{"varBoundChanged", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC},
-	{"varInstantiated", "(Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(Infer$AbstractIncorporationEngine, init$, void, $Infer*)},
+	{"getIncorporationActions", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Infer$IncorporationAction;>;", $ABSTRACT, $virtualMethod(Infer$AbstractIncorporationEngine, getIncorporationActions, $List*, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type*, bool)},
+	{"varBoundChanged", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC, $virtualMethod(Infer$AbstractIncorporationEngine, varBoundChanged, void, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type*, bool)},
+	{"varInstantiated", "(Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, $PUBLIC, $virtualMethod(Infer$AbstractIncorporationEngine, varInstantiated, void, $Type$UndetVar*)},
 	{}
 };
 

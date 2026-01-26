@@ -28,10 +28,10 @@ $FieldInfo _HttpConnection$State_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpConnection$State_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/httpserver/HttpConnection$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpConnection$StateArray*(*)()>(&HttpConnection$State::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(HttpConnection$State::*)($String*,int32_t)>(&HttpConnection$State::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpConnection$State*(*)($String*)>(&HttpConnection$State::valueOf))},
-	{"values", "()[Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpConnection$StateArray*(*)()>(&HttpConnection$State::values))},
+	{"$values", "()[Lsun/net/httpserver/HttpConnection$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpConnection$State, $values, $HttpConnection$StateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HttpConnection$State, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpConnection$State, valueOf, HttpConnection$State*, $String*)},
+	{"values", "()[Lsun/net/httpserver/HttpConnection$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpConnection$State, values, $HttpConnection$StateArray*)},
 	{}
 };
 

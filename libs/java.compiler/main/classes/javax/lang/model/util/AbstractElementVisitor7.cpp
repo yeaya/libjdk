@@ -35,7 +35,7 @@ $CompoundAttribute _AbstractElementVisitor7_MethodAnnotations_init$0[] = {
 };
 
 $MethodInfo _AbstractElementVisitor7_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(AbstractElementVisitor7::*)()>(&AbstractElementVisitor7::init$)), nullptr, nullptr, _AbstractElementVisitor7_MethodAnnotations_init$0},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(AbstractElementVisitor7, init$, void), nullptr, nullptr, _AbstractElementVisitor7_MethodAnnotations_init$0},
 	{}
 };
 

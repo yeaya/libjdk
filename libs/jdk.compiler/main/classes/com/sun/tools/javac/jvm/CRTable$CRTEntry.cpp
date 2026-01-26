@@ -23,7 +23,7 @@ $FieldInfo _CRTable$CRTEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _CRTable$CRTEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;III)V", nullptr, 0, $method(static_cast<void(CRTable$CRTEntry::*)(Object$*,int32_t,int32_t,int32_t)>(&CRTable$CRTEntry::init$))},
+	{"<init>", "(Ljava/lang/Object;III)V", nullptr, 0, $method(CRTable$CRTEntry, init$, void, Object$*, int32_t, int32_t, int32_t)},
 	{}
 };
 

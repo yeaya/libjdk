@@ -27,12 +27,12 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMSignatureMethod$RIPEMD160withECDSA_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$RIPEMD160withECDSA::*)($AlgorithmParameterSpec*)>(&DOMSignatureMethod$RIPEMD160withECDSA::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$RIPEMD160withECDSA::*)($Element*)>(&DOMSignatureMethod$RIPEMD160withECDSA::init$)), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0},
-	{"getJCAFallbackAlgorithm", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$RIPEMD160withECDSA, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$RIPEMD160withECDSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getAlgorithm, $String*)},
+	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
+	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getJCAAlgorithm, $String*)},
+	{"getJCAFallbackAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMSignatureMethod$RIPEMD160withECDSA, getJCAFallbackAlgorithm, $String*)},
 	{}
 };
 

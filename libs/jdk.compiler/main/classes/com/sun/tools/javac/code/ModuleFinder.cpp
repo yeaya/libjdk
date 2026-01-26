@@ -130,19 +130,19 @@ $FieldInfo _ModuleFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleFinder_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(ModuleFinder::*)($Context*)>(&ModuleFinder::init$))},
-	{"findAllModules", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC},
-	{"findModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC},
-	{"findModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC},
-	{"findModuleInfo", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(ModuleFinder::*)($Symbol$ModuleSymbol*)>(&ModuleFinder::findModuleInfo))},
-	{"findSingleModule", "()Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC},
-	{"getDescription", "(Ljavax/tools/StandardLocation;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0},
-	{"getModuleInfoFromLocation", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(static_cast<$JavaFileObject*(ModuleFinder::*)($JavaFileManager$Location*,$JavaFileObject$Kind*)>(&ModuleFinder::getModuleInfoFromLocation)), "java.io.IOException"},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ModuleFinder*(*)($Context*)>(&ModuleFinder::instance))},
-	{"preferredFileObject", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(static_cast<$JavaFileObject*(ModuleFinder::*)($JavaFileObject*,$JavaFileObject*)>(&ModuleFinder::preferredFileObject))},
-	{"readModule", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE, $method(static_cast<$Symbol$ModuleSymbol*(ModuleFinder::*)($JavaFileObject*)>(&ModuleFinder::readModule)), "java.io.IOException"},
-	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ModuleFinder::*)($JavaFileObject*)>(&ModuleFinder::readModuleName)), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"scanModulePath", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(static_cast<$List*(ModuleFinder::*)($Symbol$ModuleSymbol*)>(&ModuleFinder::scanModulePath))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ModuleFinder, init$, void, $Context*)},
+	{"findAllModules", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $virtualMethod(ModuleFinder, findAllModules, $List*)},
+	{"findModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder, findModule, $Symbol$ModuleSymbol*, $Name*)},
+	{"findModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder, findModule, $Symbol$ModuleSymbol*, $Symbol$ModuleSymbol*)},
+	{"findModuleInfo", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(ModuleFinder, findModuleInfo, void, $Symbol$ModuleSymbol*)},
+	{"findSingleModule", "()Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder, findSingleModule, $Symbol$ModuleSymbol*)},
+	{"getDescription", "(Ljavax/tools/StandardLocation;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(ModuleFinder, getDescription, $JCDiagnostic$Fragment*, $StandardLocation*)},
+	{"getModuleInfoFromLocation", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(ModuleFinder, getModuleInfoFromLocation, $JavaFileObject*, $JavaFileManager$Location*, $JavaFileObject$Kind*), "java.io.IOException"},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleFinder, instance, ModuleFinder*, $Context*)},
+	{"preferredFileObject", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(ModuleFinder, preferredFileObject, $JavaFileObject*, $JavaFileObject*, $JavaFileObject*)},
+	{"readModule", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE, $method(ModuleFinder, readModule, $Symbol$ModuleSymbol*, $JavaFileObject*), "java.io.IOException"},
+	{"readModuleName", "(Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModuleFinder, readModuleName, $String*, $JavaFileObject*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+	{"scanModulePath", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(ModuleFinder, scanModulePath, $List*, $Symbol$ModuleSymbol*)},
 	{}
 };
 

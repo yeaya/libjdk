@@ -29,8 +29,8 @@ $FieldInfo _JMXPluggableAuthenticator$JMXCallbackHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXPluggableAuthenticator$JMXCallbackHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/security/JMXPluggableAuthenticator;)V", nullptr, $PRIVATE, $method(static_cast<void(JMXPluggableAuthenticator$JMXCallbackHandler::*)($JMXPluggableAuthenticator*)>(&JMXPluggableAuthenticator$JMXCallbackHandler::init$))},
-	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
+	{"<init>", "(Lcom/sun/jmx/remote/security/JMXPluggableAuthenticator;)V", nullptr, $PRIVATE, $method(JMXPluggableAuthenticator$JMXCallbackHandler, init$, void, $JMXPluggableAuthenticator*)},
+	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$JMXCallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
 	{}
 };
 

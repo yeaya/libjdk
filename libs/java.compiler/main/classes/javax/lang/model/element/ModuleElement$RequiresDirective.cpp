@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 
 namespace javax {
 	namespace lang {
@@ -13,9 +14,9 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _ModuleElement$RequiresDirective_MethodInfo_[] = {
-	{"getDependency", "()Ljavax/lang/model/element/ModuleElement;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isTransitive", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getDependency", "()Ljavax/lang/model/element/ModuleElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$RequiresDirective, getDependency, $ModuleElement*)},
+	{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$RequiresDirective, isStatic, bool)},
+	{"isTransitive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$RequiresDirective, isTransitive, bool)},
 	{}
 };
 

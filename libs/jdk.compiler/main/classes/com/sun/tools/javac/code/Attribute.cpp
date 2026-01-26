@@ -7,6 +7,7 @@
 #include <javax/lang/model/element/AnnotationValueVisitor.h>
 #include <jcpp.h>
 
+using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,12 +29,12 @@ $FieldInfo _Attribute_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Attribute::*)($Type*)>(&Attribute::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"getPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"isSynthesized", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attribute, init$, void, $Type*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute, accept, void, $Attribute$Visitor*)},
+	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+	{"getPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC, $virtualMethod(Attribute, getPosition, $TypeAnnotationPosition*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attribute, getValue, $Object*)},
+	{"isSynthesized", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute, isSynthesized, bool)},
 	{}
 };
 

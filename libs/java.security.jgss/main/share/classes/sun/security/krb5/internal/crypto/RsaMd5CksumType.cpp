@@ -26,15 +26,15 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _RsaMd5CksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RsaMd5CksumType::*)()>(&RsaMd5CksumType::init$))},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"cksumSize", "()I", nullptr, $PUBLIC},
-	{"cksumType", "()I", nullptr, $PUBLIC},
-	{"confounderSize", "()I", nullptr, $PUBLIC},
-	{"isKeyed", "()Z", nullptr, $PUBLIC},
-	{"keySize", "()I", nullptr, $PUBLIC},
-	{"keyType", "()I", nullptr, $PUBLIC},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RsaMd5CksumType, init$, void)},
+	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, cksumSize, int32_t)},
+	{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, cksumType, int32_t)},
+	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, confounderSize, int32_t)},
+	{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, isKeyed, bool)},
+	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, keyType, int32_t)},
+	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(RsaMd5CksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
 	{}
 };
 

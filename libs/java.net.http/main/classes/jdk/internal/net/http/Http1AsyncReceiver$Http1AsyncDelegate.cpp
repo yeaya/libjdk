@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
+using $AbstractSubscription = ::jdk::internal::net::http::AbstractSubscription;
 
 namespace jdk {
 	namespace internal {
@@ -15,11 +17,11 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _Http1AsyncReceiver$Http1AsyncDelegate_MethodInfo_[] = {
-	{"close", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"onReadError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"subscription", "()Ljdk/internal/net/http/AbstractSubscription;", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAsyncReceive", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"close", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegate, close, void, $Throwable*)},
+	{"onReadError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegate, onReadError, void, $Throwable*)},
+	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegate, onSubscribe, void, $AbstractSubscription*)},
+	{"subscription", "()Ljdk/internal/net/http/AbstractSubscription;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegate, subscription, $AbstractSubscription*)},
+	{"tryAsyncReceive", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegate, tryAsyncReceive, bool, $ByteBuffer*)},
 	{}
 };
 

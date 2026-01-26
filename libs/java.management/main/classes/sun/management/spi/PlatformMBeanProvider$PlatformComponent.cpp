@@ -61,8 +61,8 @@ $FieldInfo PlatformMBeanProvider$PlatformComponent$$Lambda$isInstance::fieldInfo
 	{}
 };
 $MethodInfo PlatformMBeanProvider$PlatformComponent$$Lambda$isInstance::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(PlatformMBeanProvider$PlatformComponent$$Lambda$isInstance::*)($Class*)>(&PlatformMBeanProvider$PlatformComponent$$Lambda$isInstance::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(PlatformMBeanProvider$PlatformComponent$$Lambda$isInstance, init$, void, $Class*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PlatformMBeanProvider$PlatformComponent$$Lambda$isInstance, test, bool, Object$*)},
 	{}
 };
 $ClassInfo PlatformMBeanProvider$PlatformComponent$$Lambda$isInstance::classInfo$ = {
@@ -101,8 +101,8 @@ $FieldInfo PlatformMBeanProvider$PlatformComponent$$Lambda$cast$1::fieldInfos[2]
 	{}
 };
 $MethodInfo PlatformMBeanProvider$PlatformComponent$$Lambda$cast$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(PlatformMBeanProvider$PlatformComponent$$Lambda$cast$1::*)($Class*)>(&PlatformMBeanProvider$PlatformComponent$$Lambda$cast$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(PlatformMBeanProvider$PlatformComponent$$Lambda$cast$1, init$, void, $Class*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformMBeanProvider$PlatformComponent$$Lambda$cast$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PlatformMBeanProvider$PlatformComponent$$Lambda$cast$1::classInfo$ = {
@@ -120,13 +120,13 @@ $Class* PlatformMBeanProvider$PlatformComponent$$Lambda$cast$1::load$($String* n
 $Class* PlatformMBeanProvider$PlatformComponent$$Lambda$cast$1::class$ = nullptr;
 
 $MethodInfo _PlatformMBeanProvider$PlatformComponent_MethodInfo_[] = {
-	{"getMBeans", "(Ljava/lang/Class;)Ljava/util/List;", "<I:Ljava/lang/Object;>(Ljava/lang/Class<TI;>;)Ljava/util/List<+TI;>;", $PUBLIC},
-	{"getObjectNamePattern", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isSingleton", "()Z", nullptr, $PUBLIC},
-	{"mbeanInterfaceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
-	{"mbeanInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+TT;>;>;", $PUBLIC | $ABSTRACT},
-	{"nameToMBeanMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;TT;>;", $PUBLIC | $ABSTRACT},
-	{"shouldRegister", "()Z", nullptr, $PUBLIC},
+	{"getMBeans", "(Ljava/lang/Class;)Ljava/util/List;", "<I:Ljava/lang/Object;>(Ljava/lang/Class<TI;>;)Ljava/util/List<+TI;>;", $PUBLIC, $virtualMethod(PlatformMBeanProvider$PlatformComponent, getMBeans, $List*, $Class*)},
+	{"getObjectNamePattern", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformMBeanProvider$PlatformComponent, getObjectNamePattern, $String*)},
+	{"isSingleton", "()Z", nullptr, $PUBLIC, $virtualMethod(PlatformMBeanProvider$PlatformComponent, isSingleton, bool)},
+	{"mbeanInterfaceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformMBeanProvider$PlatformComponent, mbeanInterfaceNames, $Set*)},
+	{"mbeanInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformMBeanProvider$PlatformComponent, mbeanInterfaces, $Set*)},
+	{"nameToMBeanMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformMBeanProvider$PlatformComponent, nameToMBeanMap, $Map*)},
+	{"shouldRegister", "()Z", nullptr, $PUBLIC, $virtualMethod(PlatformMBeanProvider$PlatformComponent, shouldRegister, bool)},
 	{}
 };
 

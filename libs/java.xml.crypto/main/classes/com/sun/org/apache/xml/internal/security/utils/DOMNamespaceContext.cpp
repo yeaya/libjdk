@@ -30,11 +30,11 @@ $FieldInfo _DOMNamespaceContext_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMNamespaceContext_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(static_cast<void(DOMNamespaceContext::*)($Node*)>(&DOMNamespaceContext::init$))},
-	{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrefixes", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC},
-	{"setContext", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMNamespaceContext, init$, void, $Node*)},
+	{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMNamespaceContext, getNamespaceURI, $String*, $String*)},
+	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMNamespaceContext, getPrefix, $String*, $String*)},
+	{"getPrefixes", "(Ljava/lang/String;)Ljava/util/Iterator;", "(Ljava/lang/String;)Ljava/util/Iterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DOMNamespaceContext, getPrefixes, $Iterator*, $String*)},
+	{"setContext", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMNamespaceContext, setContext, void, $Node*)},
 	{}
 };
 

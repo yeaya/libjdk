@@ -4,6 +4,7 @@
 #include <com/sun/tools/javac/util/GraphUtils.h>
 #include <jcpp.h>
 
+using $GraphUtils$NodeVisitor = ::com::sun::tools::javac::util::GraphUtils$NodeVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,7 +16,7 @@ namespace com {
 				namespace util {
 
 $MethodInfo _GraphUtils$Node_MethodInfo_[] = {
-	{"accept", "(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor;Ljava/lang/Object;)V", "<A:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor<TD;TN;TA;>;TA;)V", $PUBLIC | $ABSTRACT},
+	{"accept", "(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor;Ljava/lang/Object;)V", "<A:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/GraphUtils$NodeVisitor<TD;TN;TA;>;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$Node, accept, void, $GraphUtils$NodeVisitor*, Object$*)},
 	{}
 };
 

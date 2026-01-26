@@ -7,13 +7,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Data = ::javax::xml::crypto::Data;
+using $URIReference = ::javax::xml::crypto::URIReference;
+using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 
 namespace javax {
 	namespace xml {
 		namespace crypto {
 
 $MethodInfo _URIDereferencer_MethodInfo_[] = {
-	{"dereference", "(Ljavax/xml/crypto/URIReference;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.URIReferenceException"},
+	{"dereference", "(Ljavax/xml/crypto/URIReference;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIDereferencer, dereference, $Data*, $URIReference*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
 	{}
 };
 

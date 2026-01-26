@@ -1,8 +1,11 @@
 #include <com/sun/source/tree/IfTree.h>
 
 #include <com/sun/source/tree/ExpressionTree.h>
+#include <com/sun/source/tree/StatementTree.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
+using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,9 +15,9 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _IfTree_MethodInfo_[] = {
-	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getElseStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getThenStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IfTree, getCondition, $ExpressionTree*)},
+	{"getElseStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IfTree, getElseStatement, $StatementTree*)},
+	{"getThenStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IfTree, getThenStatement, $StatementTree*)},
 	{}
 };
 

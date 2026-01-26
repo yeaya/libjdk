@@ -105,8 +105,8 @@ $FieldInfo WebSocketImpl$ReceiveTask$$Lambda$lambda$processClose$0::fieldInfos[3
 	{}
 };
 $MethodInfo WebSocketImpl$ReceiveTask$$Lambda$lambda$processClose$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl$ReceiveTask;I)V", nullptr, $PUBLIC, $method(static_cast<void(WebSocketImpl$ReceiveTask$$Lambda$lambda$processClose$0::*)(WebSocketImpl$ReceiveTask*,int32_t)>(&WebSocketImpl$ReceiveTask$$Lambda$lambda$processClose$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl$ReceiveTask;I)V", nullptr, $PUBLIC, $method(WebSocketImpl$ReceiveTask$$Lambda$lambda$processClose$0, init$, void, WebSocketImpl$ReceiveTask*, int32_t)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$ReceiveTask$$Lambda$lambda$processClose$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo WebSocketImpl$ReceiveTask$$Lambda$lambda$processClose$0::classInfo$ = {
@@ -145,8 +145,8 @@ $FieldInfo WebSocketImpl$ReceiveTask$$Lambda$lambda$processPing$1$1::fieldInfos[
 	{}
 };
 $MethodInfo WebSocketImpl$ReceiveTask$$Lambda$lambda$processPing$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl$ReceiveTask;)V", nullptr, $PUBLIC, $method(static_cast<void(WebSocketImpl$ReceiveTask$$Lambda$lambda$processPing$1$1::*)(WebSocketImpl$ReceiveTask*)>(&WebSocketImpl$ReceiveTask$$Lambda$lambda$processPing$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl$ReceiveTask;)V", nullptr, $PUBLIC, $method(WebSocketImpl$ReceiveTask$$Lambda$lambda$processPing$1$1, init$, void, WebSocketImpl$ReceiveTask*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$ReceiveTask$$Lambda$lambda$processPing$1$1, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo WebSocketImpl$ReceiveTask$$Lambda$lambda$processPing$1$1::classInfo$ = {
@@ -185,8 +185,8 @@ $FieldInfo WebSocketImpl$ReceiveTask$$Lambda$clearAutomaticPong$2::fieldInfos[2]
 	{}
 };
 $MethodInfo WebSocketImpl$ReceiveTask$$Lambda$clearAutomaticPong$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(WebSocketImpl$ReceiveTask$$Lambda$clearAutomaticPong$2::*)($WebSocketImpl*)>(&WebSocketImpl$ReceiveTask$$Lambda$clearAutomaticPong$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PUBLIC, $method(WebSocketImpl$ReceiveTask$$Lambda$clearAutomaticPong$2, init$, void, $WebSocketImpl*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$ReceiveTask$$Lambda$clearAutomaticPong$2, get, $Object*)},
 	{}
 };
 $ClassInfo WebSocketImpl$ReceiveTask$$Lambda$clearAutomaticPong$2::classInfo$ = {
@@ -209,17 +209,17 @@ $FieldInfo _WebSocketImpl$ReceiveTask_FieldInfo_[] = {
 };
 
 $MethodInfo _WebSocketImpl$ReceiveTask_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl$ReceiveTask::*)($WebSocketImpl*)>(&WebSocketImpl$ReceiveTask::init$))},
-	{"lambda$processClose$0", "(ILjava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(WebSocketImpl$ReceiveTask::*)(int32_t,Object$*,$Throwable*)>(&WebSocketImpl$ReceiveTask::lambda$processClose$0))},
-	{"lambda$processPing$1", "(Ljdk/internal/net/http/websocket/WebSocketImpl;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(WebSocketImpl$ReceiveTask::*)($WebSocketImpl*,$Throwable*)>(&WebSocketImpl$ReceiveTask::lambda$processPing$1))},
-	{"processBinary", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl$ReceiveTask::*)()>(&WebSocketImpl$ReceiveTask::processBinary))},
-	{"processClose", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl$ReceiveTask::*)()>(&WebSocketImpl$ReceiveTask::processClose)), "java.io.IOException"},
-	{"processError", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl$ReceiveTask::*)()>(&WebSocketImpl$ReceiveTask::processError)), "java.io.IOException"},
-	{"processOpen", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl$ReceiveTask::*)()>(&WebSocketImpl$ReceiveTask::processOpen))},
-	{"processPing", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl$ReceiveTask::*)()>(&WebSocketImpl$ReceiveTask::processPing))},
-	{"processPong", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl$ReceiveTask::*)()>(&WebSocketImpl$ReceiveTask::processPong))},
-	{"processText", "()V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl$ReceiveTask::*)()>(&WebSocketImpl$ReceiveTask::processText))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PRIVATE, $method(WebSocketImpl$ReceiveTask, init$, void, $WebSocketImpl*)},
+	{"lambda$processClose$0", "(ILjava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(WebSocketImpl$ReceiveTask, lambda$processClose$0, void, int32_t, Object$*, $Throwable*)},
+	{"lambda$processPing$1", "(Ljdk/internal/net/http/websocket/WebSocketImpl;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(WebSocketImpl$ReceiveTask, lambda$processPing$1, void, $WebSocketImpl*, $Throwable*)},
+	{"processBinary", "()V", nullptr, $PRIVATE, $method(WebSocketImpl$ReceiveTask, processBinary, void)},
+	{"processClose", "()V", nullptr, $PRIVATE, $method(WebSocketImpl$ReceiveTask, processClose, void), "java.io.IOException"},
+	{"processError", "()V", nullptr, $PRIVATE, $method(WebSocketImpl$ReceiveTask, processError, void), "java.io.IOException"},
+	{"processOpen", "()V", nullptr, $PRIVATE, $method(WebSocketImpl$ReceiveTask, processOpen, void)},
+	{"processPing", "()V", nullptr, $PRIVATE, $method(WebSocketImpl$ReceiveTask, processPing, void)},
+	{"processPong", "()V", nullptr, $PRIVATE, $method(WebSocketImpl$ReceiveTask, processPong, void)},
+	{"processText", "()V", nullptr, $PRIVATE, $method(WebSocketImpl$ReceiveTask, processText, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$ReceiveTask, run, void)},
 	{}
 };
 

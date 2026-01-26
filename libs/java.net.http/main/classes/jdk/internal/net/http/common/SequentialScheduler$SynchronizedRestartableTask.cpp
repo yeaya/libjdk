@@ -25,8 +25,8 @@ $FieldInfo _SequentialScheduler$SynchronizedRestartableTask_FieldInfo_[] = {
 };
 
 $MethodInfo _SequentialScheduler$SynchronizedRestartableTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(static_cast<void(SequentialScheduler$SynchronizedRestartableTask::*)($Runnable*)>(&SequentialScheduler$SynchronizedRestartableTask::init$))},
-	{"run", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SequentialScheduler$SynchronizedRestartableTask, init$, void, $Runnable*)},
+	{"run", "()V", nullptr, $PROTECTED, $virtualMethod(SequentialScheduler$SynchronizedRestartableTask, run, void)},
 	{}
 };
 

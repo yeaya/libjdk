@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TypeKind = ::javax::lang::model::type::TypeKind;
 
 namespace com {
 	namespace sun {
@@ -12,7 +13,7 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _PrimitiveTypeTree_MethodInfo_[] = {
-	{"getPrimitiveTypeKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getPrimitiveTypeKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrimitiveTypeTree, getPrimitiveTypeKind, $TypeKind*)},
 	{}
 };
 

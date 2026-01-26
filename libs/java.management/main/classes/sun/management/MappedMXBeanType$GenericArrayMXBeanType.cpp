@@ -35,9 +35,9 @@ $FieldInfo _MappedMXBeanType$GenericArrayMXBeanType_FieldInfo_[] = {
 };
 
 $MethodInfo _MappedMXBeanType$GenericArrayMXBeanType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/GenericArrayType;)V", nullptr, 0, $method(static_cast<void(MappedMXBeanType$GenericArrayMXBeanType::*)($GenericArrayType*)>(&MappedMXBeanType$GenericArrayMXBeanType::init$)), "javax.management.openmbean.OpenDataException"},
-	{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0},
-	{"getName", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/lang/reflect/GenericArrayType;)V", nullptr, 0, $method(MappedMXBeanType$GenericArrayMXBeanType, init$, void, $GenericArrayType*), "javax.management.openmbean.OpenDataException"},
+	{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$GenericArrayMXBeanType, getJavaType, $Type*)},
+	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$GenericArrayMXBeanType, getName, $String*)},
 	{}
 };
 

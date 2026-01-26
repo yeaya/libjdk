@@ -41,9 +41,9 @@ $FieldInfo _Main$Context_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$Context_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(static_cast<void(Main$Context::*)($Path*)>(&Main$Context::init$))},
-	{"getClassLoader", "(Ljava/lang/ClassLoader;)Ljava/lang/ClassLoader;", nullptr, 0},
-	{"getFileManager", "(Ljavax/tools/StandardJavaFileManager;)Ljavax/tools/JavaFileManager;", nullptr, 0},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(Main$Context, init$, void, $Path*)},
+	{"getClassLoader", "(Ljava/lang/ClassLoader;)Ljava/lang/ClassLoader;", nullptr, 0, $virtualMethod(Main$Context, getClassLoader, $ClassLoader*, $ClassLoader*)},
+	{"getFileManager", "(Ljavax/tools/StandardJavaFileManager;)Ljavax/tools/JavaFileManager;", nullptr, 0, $virtualMethod(Main$Context, getFileManager, $JavaFileManager*, $StandardJavaFileManager*)},
 	{}
 };
 

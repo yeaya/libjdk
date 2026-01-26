@@ -59,11 +59,11 @@ $FieldInfo _Locations$BasicLocationHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Locations$BasicLocationHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileManager$Location;[Lcom/sun/tools/javac/main/Option;)V", nullptr, $PROTECTED | $TRANSIENT, $method(static_cast<void(Locations$BasicLocationHandler::*)($JavaFileManager$Location*,$OptionArray*)>(&Locations$BasicLocationHandler::init$))},
-	{"checkDirectory", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"checkSingletonDirectory", "(Ljava/lang/Iterable;)Ljava/nio/file/Path;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/nio/file/Path;", $PROTECTED, nullptr, "java.io.IOException"},
-	{"isExplicit", "()Z", nullptr, 0},
-	{"setPathsForModule", "(Ljava/lang/String;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljavax/tools/JavaFileManager$Location;[Lcom/sun/tools/javac/main/Option;)V", nullptr, $PROTECTED | $TRANSIENT, $method(Locations$BasicLocationHandler, init$, void, $JavaFileManager$Location*, $OptionArray*)},
+	{"checkDirectory", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PROTECTED, $virtualMethod(Locations$BasicLocationHandler, checkDirectory, $Path*, $Path*), "java.io.IOException"},
+	{"checkSingletonDirectory", "(Ljava/lang/Iterable;)Ljava/nio/file/Path;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/nio/file/Path;", $PROTECTED, $virtualMethod(Locations$BasicLocationHandler, checkSingletonDirectory, $Path*, $Iterable*), "java.io.IOException"},
+	{"isExplicit", "()Z", nullptr, 0, $virtualMethod(Locations$BasicLocationHandler, isExplicit, bool)},
+	{"setPathsForModule", "(Ljava/lang/String;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$BasicLocationHandler, setPathsForModule, void, $String*, $Iterable*), "java.io.IOException"},
 	{}
 };
 

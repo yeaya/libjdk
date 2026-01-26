@@ -25,8 +25,8 @@ $FieldInfo _BasicAuthTest$Handler_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicAuthTest$Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BasicAuthTest$Handler::*)()>(&BasicAuthTest$Handler::init$))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(BasicAuthTest$Handler, init$, void)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(BasicAuthTest$Handler, handle, void, $HttpExchange*), "java.io.IOException"},
 	{}
 };
 

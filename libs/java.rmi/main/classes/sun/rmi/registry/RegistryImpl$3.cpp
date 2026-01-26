@@ -21,8 +21,8 @@ $FieldInfo _RegistryImpl$3_FieldInfo_[] = {
 };
 
 $MethodInfo _RegistryImpl$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(RegistryImpl$3::*)($String*)>(&RegistryImpl$3::init$))},
-	{"run", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, nullptr, "java.net.UnknownHostException"},
+	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(RegistryImpl$3, init$, void, $String*)},
+	{"run", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$3, run, $Object*), "java.net.UnknownHostException"},
 	{}
 };
 

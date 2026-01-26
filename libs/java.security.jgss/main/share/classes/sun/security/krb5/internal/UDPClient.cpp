@@ -33,10 +33,10 @@ $FieldInfo _UDPClient_FieldInfo_[] = {
 };
 
 $MethodInfo _UDPClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(static_cast<void(UDPClient::*)($String*,int32_t,int32_t)>(&UDPClient::init$)), "java.net.UnknownHostException,java.net.SocketException"},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"receive", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"send", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(UDPClient, init$, void, $String*, int32_t, int32_t), "java.net.UnknownHostException,java.net.SocketException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(UDPClient, close, void)},
+	{"receive", "()[B", nullptr, $PUBLIC, $virtualMethod(UDPClient, receive, $bytes*), "java.io.IOException"},
+	{"send", "([B)V", nullptr, $PUBLIC, $virtualMethod(UDPClient, send, void, $bytes*), "java.io.IOException"},
 	{}
 };
 

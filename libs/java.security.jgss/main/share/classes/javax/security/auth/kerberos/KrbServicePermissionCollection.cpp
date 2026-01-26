@@ -54,12 +54,12 @@ $FieldInfo _KrbServicePermissionCollection_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbServicePermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KrbServicePermissionCollection::*)()>(&KrbServicePermissionCollection::init$))},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(KrbServicePermissionCollection::*)($ObjectInputStream*)>(&KrbServicePermissionCollection::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(KrbServicePermissionCollection::*)($ObjectOutputStream*)>(&KrbServicePermissionCollection::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KrbServicePermissionCollection, init$, void)},
+	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(KrbServicePermissionCollection, add, void, $Permission*)},
+	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(KrbServicePermissionCollection, elements, $Enumeration*)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(KrbServicePermissionCollection, implies, bool, $Permission*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KrbServicePermissionCollection, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KrbServicePermissionCollection, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

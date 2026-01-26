@@ -34,13 +34,13 @@ $FieldInfo _UnicastServerRef2_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicastServerRef2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef2::*)()>(&UnicastServerRef2::init$))},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef2::*)($LiveRef*)>(&UnicastServerRef2::init$))},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef2::*)($LiveRef*,$ObjectInputFilter*)>(&UnicastServerRef2::init$))},
-	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef2::*)(int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*)>(&UnicastServerRef2::init$))},
-	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef2::*)(int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*,$ObjectInputFilter*)>(&UnicastServerRef2::init$))},
-	{"getClientRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PROTECTED},
-	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void)},
+	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, $LiveRef*)},
+	{"<init>", "(Lsun/rmi/transport/LiveRef;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, $LiveRef*, $ObjectInputFilter*)},
+	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
+	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*, $ObjectInputFilter*)},
+	{"getClientRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PROTECTED, $virtualMethod(UnicastServerRef2, getClientRef, $RemoteRef*)},
+	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef2, getRefClass, $String*, $ObjectOutput*)},
 	{}
 };
 

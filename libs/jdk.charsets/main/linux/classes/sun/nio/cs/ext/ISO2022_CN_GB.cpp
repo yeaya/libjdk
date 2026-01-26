@@ -34,11 +34,11 @@ $MethodInfo _ISO2022_CN_GB_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ISO2022_CN_GB::*)()>(&ISO2022_CN_GB::init$))},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO2022_CN_GB, init$, void)},
+	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_GB, contains, bool, $Charset*)},
+	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_GB, historicalName, $String*)},
+	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_GB, newDecoder, $CharsetDecoder*)},
+	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_GB, newEncoder, $CharsetEncoder*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
 	{}
 };

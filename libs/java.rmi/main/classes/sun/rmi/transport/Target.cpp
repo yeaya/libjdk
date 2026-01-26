@@ -98,8 +98,8 @@ $FieldInfo Target$$Lambda$lambda$refSetRemove$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Target$$Lambda$lambda$refSetRemove$1::methodInfos[3] = {
-	{"<init>", "(Lsun/rmi/transport/Target;Ljava/rmi/server/Unreferenced;)V", nullptr, $PUBLIC, $method(static_cast<void(Target$$Lambda$lambda$refSetRemove$1::*)(Target*,$Unreferenced*)>(&Target$$Lambda$lambda$refSetRemove$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/Target;Ljava/rmi/server/Unreferenced;)V", nullptr, $PUBLIC, $method(Target$$Lambda$lambda$refSetRemove$1, init$, void, Target*, $Unreferenced*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Target$$Lambda$lambda$refSetRemove$1, run, void)},
 	{}
 };
 $ClassInfo Target$$Lambda$lambda$refSetRemove$1::classInfo$ = {
@@ -138,8 +138,8 @@ $FieldInfo Target$$Lambda$lambda$refSetRemove$0$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Target$$Lambda$lambda$refSetRemove$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/rmi/server/Unreferenced;)V", nullptr, $PUBLIC, $method(static_cast<void(Target$$Lambda$lambda$refSetRemove$0$1::*)($Unreferenced*)>(&Target$$Lambda$lambda$refSetRemove$0$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/rmi/server/Unreferenced;)V", nullptr, $PUBLIC, $method(Target$$Lambda$lambda$refSetRemove$0$1, init$, void, $Unreferenced*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Target$$Lambda$lambda$refSetRemove$0$1, run, $Object*)},
 	{}
 };
 $ClassInfo Target$$Lambda$lambda$refSetRemove$0$1::classInfo$ = {
@@ -174,30 +174,30 @@ $FieldInfo _Target_FieldInfo_[] = {
 };
 
 $MethodInfo _Target_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/Remote;Lsun/rmi/server/Dispatcher;Ljava/rmi/Remote;Ljava/rmi/server/ObjID;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Target::*)($Remote*,$Dispatcher*,$Remote*,$ObjID*,bool)>(&Target::init$))},
-	{"checkLoaderAncestry", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ClassLoader*,$ClassLoader*)>(&Target::checkLoaderAncestry))},
-	{"decrementCallCount", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(Target::*)()>(&Target::decrementCallCount))},
-	{"getAccessControlContext", "()Ljava/security/AccessControlContext;", nullptr, 0, $method(static_cast<$AccessControlContext*(Target::*)()>(&Target::getAccessControlContext))},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(static_cast<$ClassLoader*(Target::*)()>(&Target::getContextClassLoader))},
-	{"getDispatcher", "()Lsun/rmi/server/Dispatcher;", nullptr, 0, $method(static_cast<$Dispatcher*(Target::*)()>(&Target::getDispatcher))},
-	{"getImpl", "()Ljava/rmi/Remote;", nullptr, 0, $method(static_cast<$Remote*(Target::*)()>(&Target::getImpl))},
-	{"getObjectEndpoint", "()Lsun/rmi/transport/ObjectEndpoint;", nullptr, 0, $method(static_cast<$ObjectEndpoint*(Target::*)()>(&Target::getObjectEndpoint))},
-	{"getStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, $method(static_cast<$Remote*(Target::*)()>(&Target::getStub))},
-	{"getWeakImpl", "()Lsun/rmi/transport/WeakRef;", nullptr, 0, $method(static_cast<$WeakRef*(Target::*)()>(&Target::getWeakImpl))},
-	{"incrementCallCount", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(Target::*)()>(&Target::incrementCallCount)), "java.rmi.NoSuchObjectException"},
-	{"isEmpty", "()Z", nullptr, 0, $method(static_cast<bool(Target::*)()>(&Target::isEmpty))},
-	{"isPermanent", "()Z", nullptr, 0, $method(static_cast<bool(Target::*)()>(&Target::isPermanent))},
-	{"lambda$refSetRemove$0", "(Ljava/rmi/server/Unreferenced;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)($Unreferenced*)>(&Target::lambda$refSetRemove$0))},
-	{"lambda$refSetRemove$1", "(Ljava/rmi/server/Unreferenced;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Target::*)($Unreferenced*)>(&Target::lambda$refSetRemove$1))},
-	{"markRemoved", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(Target::*)()>(&Target::markRemoved))},
-	{"pinImpl", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(Target::*)()>(&Target::pinImpl))},
-	{"refSetRemove", "(Ljava/rmi/dgc/VMID;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(Target::*)($VMID*)>(&Target::refSetRemove))},
-	{"referenced", "(JLjava/rmi/dgc/VMID;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(Target::*)(int64_t,$VMID*)>(&Target::referenced))},
-	{"setExportedTransport", "(Lsun/rmi/transport/Transport;)V", nullptr, 0, $method(static_cast<void(Target::*)($Transport*)>(&Target::setExportedTransport))},
-	{"unexport", "(Z)Z", nullptr, $SYNCHRONIZED, $method(static_cast<bool(Target::*)(bool)>(&Target::unexport))},
-	{"unpinImpl", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(Target::*)()>(&Target::unpinImpl))},
-	{"unreferenced", "(JLjava/rmi/dgc/VMID;Z)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(Target::*)(int64_t,$VMID*,bool)>(&Target::unreferenced))},
-	{"vmidDead", "(Ljava/rmi/dgc/VMID;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<void(Target::*)($VMID*)>(&Target::vmidDead))},
+	{"<init>", "(Ljava/rmi/Remote;Lsun/rmi/server/Dispatcher;Ljava/rmi/Remote;Ljava/rmi/server/ObjID;Z)V", nullptr, $PUBLIC, $method(Target, init$, void, $Remote*, $Dispatcher*, $Remote*, $ObjID*, bool)},
+	{"checkLoaderAncestry", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Target, checkLoaderAncestry, bool, $ClassLoader*, $ClassLoader*)},
+	{"decrementCallCount", "()V", nullptr, $SYNCHRONIZED, $method(Target, decrementCallCount, void)},
+	{"getAccessControlContext", "()Ljava/security/AccessControlContext;", nullptr, 0, $method(Target, getAccessControlContext, $AccessControlContext*)},
+	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(Target, getContextClassLoader, $ClassLoader*)},
+	{"getDispatcher", "()Lsun/rmi/server/Dispatcher;", nullptr, 0, $method(Target, getDispatcher, $Dispatcher*)},
+	{"getImpl", "()Ljava/rmi/Remote;", nullptr, 0, $method(Target, getImpl, $Remote*)},
+	{"getObjectEndpoint", "()Lsun/rmi/transport/ObjectEndpoint;", nullptr, 0, $method(Target, getObjectEndpoint, $ObjectEndpoint*)},
+	{"getStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, $method(Target, getStub, $Remote*)},
+	{"getWeakImpl", "()Lsun/rmi/transport/WeakRef;", nullptr, 0, $method(Target, getWeakImpl, $WeakRef*)},
+	{"incrementCallCount", "()V", nullptr, $SYNCHRONIZED, $method(Target, incrementCallCount, void), "java.rmi.NoSuchObjectException"},
+	{"isEmpty", "()Z", nullptr, 0, $method(Target, isEmpty, bool)},
+	{"isPermanent", "()Z", nullptr, 0, $method(Target, isPermanent, bool)},
+	{"lambda$refSetRemove$0", "(Ljava/rmi/server/Unreferenced;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Target, lambda$refSetRemove$0, $Void*, $Unreferenced*)},
+	{"lambda$refSetRemove$1", "(Ljava/rmi/server/Unreferenced;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Target, lambda$refSetRemove$1, void, $Unreferenced*)},
+	{"markRemoved", "()V", nullptr, $SYNCHRONIZED, $method(Target, markRemoved, void)},
+	{"pinImpl", "()V", nullptr, $SYNCHRONIZED, $method(Target, pinImpl, void)},
+	{"refSetRemove", "(Ljava/rmi/dgc/VMID;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Target, refSetRemove, void, $VMID*)},
+	{"referenced", "(JLjava/rmi/dgc/VMID;)V", nullptr, $SYNCHRONIZED, $method(Target, referenced, void, int64_t, $VMID*)},
+	{"setExportedTransport", "(Lsun/rmi/transport/Transport;)V", nullptr, 0, $method(Target, setExportedTransport, void, $Transport*)},
+	{"unexport", "(Z)Z", nullptr, $SYNCHRONIZED, $method(Target, unexport, bool, bool)},
+	{"unpinImpl", "()V", nullptr, $SYNCHRONIZED, $method(Target, unpinImpl, void)},
+	{"unreferenced", "(JLjava/rmi/dgc/VMID;Z)V", nullptr, $SYNCHRONIZED, $method(Target, unreferenced, void, int64_t, $VMID*, bool)},
+	{"vmidDead", "(Ljava/rmi/dgc/VMID;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Target, vmidDead, void, $VMID*)},
 	{}
 };
 

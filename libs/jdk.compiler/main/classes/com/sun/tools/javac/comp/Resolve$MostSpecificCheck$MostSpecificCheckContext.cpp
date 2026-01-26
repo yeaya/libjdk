@@ -58,12 +58,12 @@ $FieldInfo _Resolve$MostSpecificCheck$MostSpecificCheckContext_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MostSpecificCheck$MostSpecificCheckContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MostSpecificCheck;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolve$MostSpecificCheck$MostSpecificCheckContext::*)($Resolve$MostSpecificCheck*,$DeferredAttr$DeferredAttrContext*,$Warner*,$Type*)>(&Resolve$MostSpecificCheck$MostSpecificCheckContext::init$))},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC},
-	{"compatibleBySubtyping", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Resolve$MostSpecificCheck$MostSpecificCheckContext::*)($Type*,$Type*)>(&Resolve$MostSpecificCheck$MostSpecificCheckContext::compatibleBySubtyping))},
-	{"functionalInterfaceMostSpecific", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Resolve$MostSpecificCheck$MostSpecificCheckContext::*)($Type*,$Type*,$JCTree*)>(&Resolve$MostSpecificCheck$MostSpecificCheckContext::functionalInterfaceMostSpecific))},
-	{"unrelatedFunctionalInterfaces", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Resolve$MostSpecificCheck$MostSpecificCheckContext::*)($Type*,$Type*)>(&Resolve$MostSpecificCheck$MostSpecificCheckContext::unrelatedFunctionalInterfaces))},
-	{"unrelatedInterfaces", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Resolve$MostSpecificCheck$MostSpecificCheckContext::*)($Type*,$Type*)>(&Resolve$MostSpecificCheck$MostSpecificCheckContext::unrelatedInterfaces))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MostSpecificCheck;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext, init$, void, $Resolve$MostSpecificCheck*, $DeferredAttr$DeferredAttrContext*, $Warner*, $Type*)},
+	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext, compatible, bool, $Type*, $Type*, $Warner*)},
+	{"compatibleBySubtyping", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext, compatibleBySubtyping, bool, $Type*, $Type*)},
+	{"functionalInterfaceMostSpecific", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext, functionalInterfaceMostSpecific, bool, $Type*, $Type*, $JCTree*)},
+	{"unrelatedFunctionalInterfaces", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext, unrelatedFunctionalInterfaces, bool, $Type*, $Type*)},
+	{"unrelatedInterfaces", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext, unrelatedInterfaces, bool, $Type*, $Type*)},
 	{}
 };
 

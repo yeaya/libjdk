@@ -66,8 +66,8 @@ $FieldInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::fieldInfos[
 	{}
 };
 $MethodInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::*)($String*)>(&PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$0::classInfo$ = {
@@ -109,8 +109,8 @@ $FieldInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::fieldInfo
 	{}
 };
 $MethodInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::*)($String*,$String*)>(&PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, init$, void, $String*, $String*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PlatformUtils$$Lambda$lambda$lookupPlatformDescription$1$1::classInfo$ = {
@@ -149,8 +149,8 @@ $FieldInfo PlatformUtils$$Lambda$equals$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PlatformUtils$$Lambda$equals$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PlatformUtils$$Lambda$equals$2::*)($String*)>(&PlatformUtils$$Lambda$equals$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PlatformUtils$$Lambda$equals$2, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PlatformUtils$$Lambda$equals$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo PlatformUtils$$Lambda$equals$2::classInfo$ = {
@@ -168,10 +168,10 @@ $Class* PlatformUtils$$Lambda$equals$2::load$($String* name, bool initialize) {
 $Class* PlatformUtils$$Lambda$equals$2::class$ = nullptr;
 
 $MethodInfo _PlatformUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PlatformUtils::*)()>(&PlatformUtils::init$))},
-	{"lambda$lookupPlatformDescription$0", "(Ljava/lang/String;Lcom/sun/tools/javac/platform/PlatformProvider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$PlatformProvider*)>(&PlatformUtils::lambda$lookupPlatformDescription$0))},
-	{"lambda$lookupPlatformDescription$1", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/platform/PlatformProvider;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Optional*(*)($String*,$String*,$PlatformProvider*)>(&PlatformUtils::lambda$lookupPlatformDescription$1))},
-	{"lookupPlatformDescription", "(Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PlatformDescription*(*)($String*)>(&PlatformUtils::lookupPlatformDescription))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformUtils, init$, void)},
+	{"lambda$lookupPlatformDescription$0", "(Ljava/lang/String;Lcom/sun/tools/javac/platform/PlatformProvider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformUtils, lambda$lookupPlatformDescription$0, bool, $String*, $PlatformProvider*)},
+	{"lambda$lookupPlatformDescription$1", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/platform/PlatformProvider;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformUtils, lambda$lookupPlatformDescription$1, $Optional*, $String*, $String*, $PlatformProvider*)},
+	{"lookupPlatformDescription", "(Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformUtils, lookupPlatformDescription, $PlatformDescription*, $String*)},
 	{}
 };
 

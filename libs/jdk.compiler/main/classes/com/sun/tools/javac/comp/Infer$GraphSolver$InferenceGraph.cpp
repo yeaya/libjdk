@@ -58,12 +58,12 @@ $FieldInfo _Infer$GraphSolver$InferenceGraph_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$GraphSolver$InferenceGraph_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver;)V", nullptr, 0, $method(static_cast<void(Infer$GraphSolver$InferenceGraph::*)($Infer$GraphSolver*)>(&Infer$GraphSolver$InferenceGraph::init$))},
-	{"deleteNode", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)V", nullptr, $PUBLIC},
-	{"findNode", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;", nullptr, $PUBLIC},
-	{"initNodes", "()V", nullptr, 0},
-	{"notifyUpdate", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)V", nullptr, 0},
-	{"toDot", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver;)V", nullptr, 0, $method(Infer$GraphSolver$InferenceGraph, init$, void, $Infer$GraphSolver*)},
+	{"deleteNode", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)V", nullptr, $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph, deleteNode, void, $Infer$GraphSolver$InferenceGraph$Node*)},
+	{"findNode", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;", nullptr, $PUBLIC, $virtualMethod(Infer$GraphSolver$InferenceGraph, findNode, $Infer$GraphSolver$InferenceGraph$Node*, $Type*)},
+	{"initNodes", "()V", nullptr, 0, $virtualMethod(Infer$GraphSolver$InferenceGraph, initNodes, void)},
+	{"notifyUpdate", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;)V", nullptr, 0, $virtualMethod(Infer$GraphSolver$InferenceGraph, notifyUpdate, void, $Infer$GraphSolver$InferenceGraph$Node*, $Infer$GraphSolver$InferenceGraph$Node*)},
+	{"toDot", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Infer$GraphSolver$InferenceGraph, toDot, $String*)},
 	{}
 };
 

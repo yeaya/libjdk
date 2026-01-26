@@ -31,7 +31,7 @@ $FieldInfo _LayoutCharacters_FieldInfo_[] = {
 };
 
 $MethodInfo _LayoutCharacters_MethodInfo_[] = {
-	{"tabulate", "(I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&LayoutCharacters::tabulate))},
+	{"tabulate", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutCharacters, tabulate, int32_t, int32_t)},
 	{}
 };
 

@@ -120,21 +120,21 @@ $FieldInfo _FileHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _FileHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileHandler::*)()>(&FileHandler::init$)), "java.io.IOException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FileHandler::*)($String*)>(&FileHandler::init$)), "java.io.IOException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(FileHandler::*)($String*,bool)>(&FileHandler::init$)), "java.io.IOException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(static_cast<void(FileHandler::*)($String*,int32_t,int32_t)>(&FileHandler::init$)), "java.io.IOException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/lang/String;IIZ)V", nullptr, $PUBLIC, $method(static_cast<void(FileHandler::*)($String*,int32_t,int32_t,bool)>(&FileHandler::init$)), "java.io.IOException,java.lang.SecurityException"},
-	{"<init>", "(Ljava/lang/String;JIZ)V", nullptr, $PUBLIC, $method(static_cast<void(FileHandler::*)($String*,int64_t,int32_t,bool)>(&FileHandler::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.SecurityException"},
-	{"configure", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileHandler::*)()>(&FileHandler::configure))},
-	{"generate", "(Ljava/lang/String;II)Ljava/io/File;", nullptr, $PRIVATE, $method(static_cast<$File*(FileHandler::*)($String*,int32_t,int32_t)>(&FileHandler::generate)), "java.io.IOException"},
-	{"generate", "(Ljava/lang/String;III)Ljava/io/File;", nullptr, $STATIC, $method(static_cast<$File*(*)($String*,int32_t,int32_t,int32_t)>(&FileHandler::generate)), "java.io.IOException"},
-	{"isParentWritable", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(static_cast<bool(FileHandler::*)($Path*)>(&FileHandler::isParentWritable))},
-	{"open", "(Ljava/io/File;Z)V", nullptr, $PRIVATE, $method(static_cast<void(FileHandler::*)($File*,bool)>(&FileHandler::open)), "java.io.IOException"},
-	{"openFiles", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileHandler::*)()>(&FileHandler::openFiles)), "java.io.IOException"},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"rotate", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(FileHandler::*)()>(&FileHandler::rotate))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileHandler, init$, void), "java.io.IOException,java.lang.SecurityException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*), "java.io.IOException,java.lang.SecurityException"},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, bool), "java.io.IOException,java.lang.SecurityException"},
+	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, int32_t, int32_t), "java.io.IOException,java.lang.SecurityException"},
+	{"<init>", "(Ljava/lang/String;IIZ)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, int32_t, int32_t, bool), "java.io.IOException,java.lang.SecurityException"},
+	{"<init>", "(Ljava/lang/String;JIZ)V", nullptr, $PUBLIC, $method(FileHandler, init$, void, $String*, int64_t, int32_t, bool), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileHandler, close, void), "java.lang.SecurityException"},
+	{"configure", "()V", nullptr, $PRIVATE, $method(FileHandler, configure, void)},
+	{"generate", "(Ljava/lang/String;II)Ljava/io/File;", nullptr, $PRIVATE, $method(FileHandler, generate, $File*, $String*, int32_t, int32_t), "java.io.IOException"},
+	{"generate", "(Ljava/lang/String;III)Ljava/io/File;", nullptr, $STATIC, $staticMethod(FileHandler, generate, $File*, $String*, int32_t, int32_t, int32_t), "java.io.IOException"},
+	{"isParentWritable", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(FileHandler, isParentWritable, bool, $Path*)},
+	{"open", "(Ljava/io/File;Z)V", nullptr, $PRIVATE, $method(FileHandler, open, void, $File*, bool), "java.io.IOException"},
+	{"openFiles", "()V", nullptr, $PRIVATE, $method(FileHandler, openFiles, void), "java.io.IOException"},
+	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileHandler, publish, void, $LogRecord*)},
+	{"rotate", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(FileHandler, rotate, void)},
 	{}
 };
 

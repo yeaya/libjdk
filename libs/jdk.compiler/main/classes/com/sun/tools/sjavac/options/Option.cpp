@@ -146,16 +146,16 @@ $FieldInfo _Option_FieldInfo_[] = {
 };
 
 $MethodInfo _Option_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/sjavac/options/Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$OptionArray*(*)()>(&Option::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Option::*)($String*,int32_t,$String*,$String*)>(&Option::init$))},
-	{"getFileArg", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;ZZ)Ljava/nio/file/Path;", nullptr, 0},
-	{"getFileListArg", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)Ljava/util/List;", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)Ljava/util/List<Ljava/nio/file/Path;>;", 0},
-	{"getFilePatternArg", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)Ljava/lang/String;", nullptr, 0},
-	{"hasOption", "()Z", nullptr, $PUBLIC},
-	{"processCurrent", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(Option::*)($ArgumentIterator*,$OptionHelper*)>(&Option::processCurrent))},
-	{"processMatching", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/options/Option;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Option*(*)($String*)>(&Option::valueOf))},
-	{"values", "()[Lcom/sun/tools/sjavac/options/Option;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$OptionArray*(*)()>(&Option::values))},
+	{"$values", "()[Lcom/sun/tools/sjavac/options/Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, $values, $OptionArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*)},
+	{"getFileArg", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;ZZ)Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(Option, getFileArg, $Path*, $ArgumentIterator*, $OptionHelper*, bool, bool)},
+	{"getFileListArg", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)Ljava/util/List;", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)Ljava/util/List<Ljava/nio/file/Path;>;", 0, $virtualMethod(Option, getFileListArg, $List*, $ArgumentIterator*, $OptionHelper*)},
+	{"getFilePatternArg", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)Ljava/lang/String;", nullptr, 0, $virtualMethod(Option, getFilePatternArg, $String*, $ArgumentIterator*, $OptionHelper*)},
+	{"hasOption", "()Z", nullptr, $PUBLIC, $virtualMethod(Option, hasOption, bool)},
+	{"processCurrent", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)Z", nullptr, $PUBLIC | $FINAL, $method(Option, processCurrent, bool, $ArgumentIterator*, $OptionHelper*)},
+	{"processMatching", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Option, processMatching, void, $ArgumentIterator*, $OptionHelper*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/options/Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option, valueOf, Option*, $String*)},
+	{"values", "()[Lcom/sun/tools/sjavac/options/Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option, values, $OptionArray*)},
 	{}
 };
 

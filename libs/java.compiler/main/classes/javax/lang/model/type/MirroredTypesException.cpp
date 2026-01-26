@@ -33,10 +33,10 @@ $FieldInfo _MirroredTypesException_FieldInfo_[] = {
 };
 
 $MethodInfo _MirroredTypesException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/lang/model/type/TypeMirror;)V", nullptr, 0, $method(static_cast<void(MirroredTypesException::*)($String*,$TypeMirror*)>(&MirroredTypesException::init$))},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;)V", $PUBLIC, $method(static_cast<void(MirroredTypesException::*)($List*)>(&MirroredTypesException::init$))},
-	{"getTypeMirrors", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MirroredTypesException::*)($ObjectInputStream*)>(&MirroredTypesException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/String;Ljavax/lang/model/type/TypeMirror;)V", nullptr, 0, $method(MirroredTypesException, init$, void, $String*, $TypeMirror*)},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;)V", $PUBLIC, $method(MirroredTypesException, init$, void, $List*)},
+	{"getTypeMirrors", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC, $virtualMethod(MirroredTypesException, getTypeMirrors, $List*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MirroredTypesException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

@@ -22,8 +22,8 @@ $FieldInfo _LoginConfigImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LoginConfigImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/LoginConfigImpl;)V", nullptr, 0, $method(static_cast<void(LoginConfigImpl$1::*)($LoginConfigImpl*)>(&LoginConfigImpl$1::init$))},
-	{"run", "()Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/jgss/LoginConfigImpl;)V", nullptr, 0, $method(LoginConfigImpl$1, init$, void, $LoginConfigImpl*)},
+	{"run", "()Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC, $virtualMethod(LoginConfigImpl$1, run, $Object*)},
 	{}
 };
 

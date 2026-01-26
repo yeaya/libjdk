@@ -17,8 +17,8 @@ $FieldInfo _ServiceNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ServiceNotFoundException::*)()>(&ServiceNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ServiceNotFoundException::*)($String*)>(&ServiceNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ServiceNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServiceNotFoundException, init$, void, $String*)},
 	{}
 };
 

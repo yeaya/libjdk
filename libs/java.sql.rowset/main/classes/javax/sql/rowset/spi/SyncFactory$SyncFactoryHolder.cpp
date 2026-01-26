@@ -20,7 +20,7 @@ $FieldInfo _SyncFactory$SyncFactoryHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _SyncFactory$SyncFactoryHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SyncFactory$SyncFactoryHolder::*)()>(&SyncFactory$SyncFactoryHolder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SyncFactory$SyncFactoryHolder, init$, void)},
 	{}
 };
 

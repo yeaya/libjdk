@@ -11,8 +11,8 @@ namespace javax {
 $MethodInfo _Bindings_MethodInfo_[] = {
 	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Bindings, put, $Object*, $String*, Object$*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Bindings, put, $Object*, Object$*, Object$*)},
 	{"putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

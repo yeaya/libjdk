@@ -28,8 +28,8 @@ $FieldInfo _RawChannelTube$CleanupChecker_FieldInfo_[] = {
 };
 
 $MethodInfo _RawChannelTube$CleanupChecker_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/lang/System$Logger;)V", nullptr, 0, $method(static_cast<void(RawChannelTube$CleanupChecker::*)($AtomicBoolean*,$System$Logger*)>(&RawChannelTube$CleanupChecker::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/lang/System$Logger;)V", nullptr, 0, $method(RawChannelTube$CleanupChecker, init$, void, $AtomicBoolean*, $System$Logger*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube$CleanupChecker, run, void)},
 	{}
 };
 

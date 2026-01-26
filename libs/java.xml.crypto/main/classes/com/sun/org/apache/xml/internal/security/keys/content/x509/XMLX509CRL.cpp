@@ -33,10 +33,10 @@ $MethodInfo _XMLX509CRL_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLX509CRL::*)($Element*,$String*)>(&XMLX509CRL::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;[B)V", nullptr, $PUBLIC, $method(static_cast<void(XMLX509CRL::*)($Document*,$bytes*)>(&XMLX509CRL::init$))},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCRLBytes", "()[B", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509CRL, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "(Lorg/w3c/dom/Document;[B)V", nullptr, $PUBLIC, $method(XMLX509CRL, init$, void, $Document*, $bytes*)},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509CRL, getBaseLocalName, $String*)},
+	{"getCRLBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(XMLX509CRL, getCRLBytes, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

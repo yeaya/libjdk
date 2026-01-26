@@ -7,6 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Provider = ::java::security::Provider;
+using $Oid = ::org::ietf::jgss::Oid;
+using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 
 namespace sun {
 	namespace security {
@@ -14,15 +17,15 @@ namespace sun {
 			namespace spi {
 
 $MethodInfo _GSSCredentialSpi_MethodInfo_[] = {
-	{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getAcceptLifetime", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getInitLifetime", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $ABSTRACT},
-	{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"isAcceptorCredential", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"isInitiatorCredential", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
+	{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredentialSpi, dispose, void), "org.ietf.jgss.GSSException"},
+	{"getAcceptLifetime", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredentialSpi, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
+	{"getInitLifetime", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredentialSpi, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
+	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredentialSpi, getMechanism, $Oid*)},
+	{"getName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredentialSpi, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredentialSpi, getProvider, $Provider*)},
+	{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredentialSpi, impersonate, GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+	{"isAcceptorCredential", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredentialSpi, isAcceptorCredential, bool), "org.ietf.jgss.GSSException"},
+	{"isInitiatorCredential", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredentialSpi, isInitiatorCredential, bool), "org.ietf.jgss.GSSException"},
 	{}
 };
 

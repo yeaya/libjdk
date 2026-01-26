@@ -10,7 +10,7 @@ namespace sun {
 		namespace counter {
 
 $MethodInfo _StringCounter_MethodInfo_[] = {
-	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringCounter, stringValue, $String*)},
 	{}
 };
 

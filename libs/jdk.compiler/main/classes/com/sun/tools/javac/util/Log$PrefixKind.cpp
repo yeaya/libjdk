@@ -29,11 +29,11 @@ $FieldInfo _Log$PrefixKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Log$PrefixKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Log$PrefixKindArray*(*)()>(&Log$PrefixKind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Log$PrefixKind::*)($String*,int32_t,$String*)>(&Log$PrefixKind::init$))},
-	{"key", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Log$PrefixKind::*)($String*)>(&Log$PrefixKind::key))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Log$PrefixKind*(*)($String*)>(&Log$PrefixKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Log$PrefixKindArray*(*)()>(&Log$PrefixKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log$PrefixKind, $values, $Log$PrefixKindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Log$PrefixKind, init$, void, $String*, int32_t, $String*)},
+	{"key", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Log$PrefixKind, key, $String*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$PrefixKind, valueOf, Log$PrefixKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/Log$PrefixKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$PrefixKind, values, $Log$PrefixKindArray*)},
 	{}
 };
 

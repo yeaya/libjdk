@@ -51,9 +51,9 @@ $FieldInfo _Resolve$MethodReferenceCheck$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodReferenceCheck$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodReferenceCheck;ZLcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;Z)V", nullptr, 0, $method(static_cast<void(Resolve$MethodReferenceCheck$1::*)($Resolve$MethodReferenceCheck*,bool,$DeferredAttr$DeferredAttrContext*,$Warner*,bool)>(&Resolve$MethodReferenceCheck$1::init$))},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodReferenceCheck;ZLcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;Z)V", nullptr, 0, $method(Resolve$MethodReferenceCheck$1, init$, void, $Resolve$MethodReferenceCheck*, bool, $DeferredAttr$DeferredAttrContext*, $Warner*, bool)},
+	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodReferenceCheck$1, compatible, bool, $Type*, $Type*, $Warner*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodReferenceCheck$1, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
 	{}
 };
 

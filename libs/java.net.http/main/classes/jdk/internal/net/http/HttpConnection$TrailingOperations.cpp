@@ -59,8 +59,8 @@ $FieldInfo HttpConnection$TrailingOperations$$Lambda$lambda$add$0::fieldInfos[3]
 	{}
 };
 $MethodInfo HttpConnection$TrailingOperations$$Lambda$lambda$add$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection$TrailingOperations;Ljava/util/concurrent/CompletionStage;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpConnection$TrailingOperations$$Lambda$lambda$add$0::*)(HttpConnection$TrailingOperations*,$CompletionStage*)>(&HttpConnection$TrailingOperations$$Lambda$lambda$add$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection$TrailingOperations;Ljava/util/concurrent/CompletionStage;)V", nullptr, $PUBLIC, $method(HttpConnection$TrailingOperations$$Lambda$lambda$add$0, init$, void, HttpConnection$TrailingOperations*, $CompletionStage*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpConnection$TrailingOperations$$Lambda$lambda$add$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo HttpConnection$TrailingOperations$$Lambda$lambda$add$0::classInfo$ = {
@@ -83,10 +83,10 @@ $FieldInfo _HttpConnection$TrailingOperations_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpConnection$TrailingOperations_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HttpConnection$TrailingOperations::*)()>(&HttpConnection$TrailingOperations::init$))},
-	{"add", "(Ljava/util/concurrent/CompletionStage;)V", "(Ljava/util/concurrent/CompletionStage<*>;)V", 0, $method(static_cast<void(HttpConnection$TrailingOperations::*)($CompletionStage*)>(&HttpConnection$TrailingOperations::add))},
-	{"lambda$add$0", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(HttpConnection$TrailingOperations::*)($CompletionStage*,Object$*,$Throwable*)>(&HttpConnection$TrailingOperations::lambda$add$0))},
-	{"remove", "(Ljava/util/concurrent/CompletionStage;)Z", "(Ljava/util/concurrent/CompletionStage<*>;)Z", 0, $method(static_cast<bool(HttpConnection$TrailingOperations::*)($CompletionStage*)>(&HttpConnection$TrailingOperations::remove))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HttpConnection$TrailingOperations, init$, void)},
+	{"add", "(Ljava/util/concurrent/CompletionStage;)V", "(Ljava/util/concurrent/CompletionStage<*>;)V", 0, $method(HttpConnection$TrailingOperations, add, void, $CompletionStage*)},
+	{"lambda$add$0", "(Ljava/util/concurrent/CompletionStage;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpConnection$TrailingOperations, lambda$add$0, void, $CompletionStage*, Object$*, $Throwable*)},
+	{"remove", "(Ljava/util/concurrent/CompletionStage;)Z", "(Ljava/util/concurrent/CompletionStage<*>;)Z", 0, $method(HttpConnection$TrailingOperations, remove, bool, $CompletionStage*)},
 	{}
 };
 

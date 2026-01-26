@@ -25,8 +25,8 @@ $FieldInfo _ComponentContext$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ComponentContext$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/ctx/ComponentContext;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ComponentContext$2::*)($ComponentContext*,$String*)>(&ComponentContext$2::init$))},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jndi/toolkit/ctx/ComponentContext;Ljava/lang/String;)V", nullptr, 0, $method(ComponentContext$2, init$, void, $ComponentContext*, $String*)},
+	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ComponentContext$2, getContent, $Object*)},
 	{}
 };
 

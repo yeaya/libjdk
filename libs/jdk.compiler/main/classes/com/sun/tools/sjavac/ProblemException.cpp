@@ -18,7 +18,7 @@ $FieldInfo _ProblemException_FieldInfo_[] = {
 };
 
 $MethodInfo _ProblemException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ProblemException::*)($String*)>(&ProblemException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProblemException, init$, void, $String*)},
 	{}
 };
 

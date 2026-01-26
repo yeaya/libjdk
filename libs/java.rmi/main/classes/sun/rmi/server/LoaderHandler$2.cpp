@@ -24,8 +24,8 @@ namespace sun {
 		namespace server {
 
 $MethodInfo _LoaderHandler$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LoaderHandler$2::*)()>(&LoaderHandler$2::init$))},
-	{"run", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(LoaderHandler$2, init$, void)},
+	{"run", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$2, run, $Object*)},
 	{}
 };
 

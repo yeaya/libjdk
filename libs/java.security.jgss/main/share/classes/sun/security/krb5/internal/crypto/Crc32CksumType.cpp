@@ -23,17 +23,17 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _Crc32CksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Crc32CksumType::*)()>(&Crc32CksumType::init$))},
-	{"bytes2long", "([B)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($bytes*)>(&Crc32CksumType::bytes2long))},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC},
-	{"cksumSize", "()I", nullptr, $PUBLIC},
-	{"cksumType", "()I", nullptr, $PUBLIC},
-	{"confounderSize", "()I", nullptr, $PUBLIC},
-	{"int2quad", "(J)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)(int64_t)>(&Crc32CksumType::int2quad))},
-	{"isKeyed", "()Z", nullptr, $PUBLIC},
-	{"keySize", "()I", nullptr, $PUBLIC},
-	{"keyType", "()I", nullptr, $PUBLIC},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Crc32CksumType, init$, void)},
+	{"bytes2long", "([B)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Crc32CksumType, bytes2long, int64_t, $bytes*)},
+	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(Crc32CksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t)},
+	{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(Crc32CksumType, cksumSize, int32_t)},
+	{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(Crc32CksumType, cksumType, int32_t)},
+	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(Crc32CksumType, confounderSize, int32_t)},
+	{"int2quad", "(J)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Crc32CksumType, int2quad, $bytes*, int64_t)},
+	{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(Crc32CksumType, isKeyed, bool)},
+	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(Crc32CksumType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(Crc32CksumType, keyType, int32_t)},
+	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(Crc32CksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t)},
 	{}
 };
 

@@ -58,8 +58,8 @@ $FieldInfo Types$MembersClosureCache$MembersScope$$Lambda$lambda$combine$0::fiel
 	{}
 };
 $MethodInfo Types$MembersClosureCache$MembersScope$$Lambda$lambda$combine$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(static_cast<void(Types$MembersClosureCache$MembersScope$$Lambda$lambda$combine$0::*)($Predicate*)>(&Types$MembersClosureCache$MembersScope$$Lambda$lambda$combine$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Predicate;)V", nullptr, $PUBLIC, $method(Types$MembersClosureCache$MembersScope$$Lambda$lambda$combine$0, init$, void, $Predicate*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$MembersClosureCache$MembersScope$$Lambda$lambda$combine$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Types$MembersClosureCache$MembersScope$$Lambda$lambda$combine$0::classInfo$ = {
@@ -83,12 +83,12 @@ $FieldInfo _Types$MembersClosureCache$MembersScope_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$MembersClosureCache$MembersScope_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$MembersClosureCache;Lcom/sun/tools/javac/code/Scope$CompoundScope;)V", nullptr, $PUBLIC, $method(static_cast<void(Types$MembersClosureCache$MembersScope::*)($Types$MembersClosureCache*,$Scope$CompoundScope*)>(&Types$MembersClosureCache$MembersScope::init$))},
-	{"combine", "(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;", 0},
-	{"getMark", "()I", nullptr, $PUBLIC},
-	{"getSymbols", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
-	{"getSymbolsByName", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
-	{"lambda$combine$0", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Predicate*,$Symbol*)>(&Types$MembersClosureCache$MembersScope::lambda$combine$0))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$MembersClosureCache;Lcom/sun/tools/javac/code/Scope$CompoundScope;)V", nullptr, $PUBLIC, $method(Types$MembersClosureCache$MembersScope, init$, void, $Types$MembersClosureCache*, $Scope$CompoundScope*)},
+	{"combine", "(Ljava/util/function/Predicate;)Ljava/util/function/Predicate;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;)Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;", 0, $virtualMethod(Types$MembersClosureCache$MembersScope, combine, $Predicate*, $Predicate*)},
+	{"getMark", "()I", nullptr, $PUBLIC, $virtualMethod(Types$MembersClosureCache$MembersScope, getMark, int32_t)},
+	{"getSymbols", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Types$MembersClosureCache$MembersScope, getSymbols, $Iterable*, $Predicate*, $Scope$LookupKind*)},
+	{"getSymbolsByName", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/code/Scope$LookupKind;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Types$MembersClosureCache$MembersScope, getSymbolsByName, $Iterable*, $Name*, $Predicate*, $Scope$LookupKind*)},
+	{"lambda$combine$0", "(Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Types$MembersClosureCache$MembersScope, lambda$combine$0, bool, $Predicate*, $Symbol*)},
 	{}
 };
 

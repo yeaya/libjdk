@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $RawChannel = ::jdk::internal::net::http::websocket::RawChannel;
 
 namespace jdk {
 	namespace internal {
@@ -14,8 +15,8 @@ namespace jdk {
 				namespace websocket {
 
 $MethodInfo _RawChannel$Provider_MethodInfo_[] = {
-	{"closeRawChannel", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"rawChannel", "()Ljdk/internal/net/http/websocket/RawChannel;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"closeRawChannel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel$Provider, closeRawChannel, void), "java.io.IOException"},
+	{"rawChannel", "()Ljdk/internal/net/http/websocket/RawChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel$Provider, rawChannel, $RawChannel*), "java.io.IOException"},
 	{}
 };
 

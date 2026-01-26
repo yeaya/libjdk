@@ -109,8 +109,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Validator$$Lambda$lambda$validate$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$lambda$validate$0::*)()>(&Validator$$Lambda$lambda$validate$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Validator$$Lambda$lambda$validate$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$lambda$validate$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$lambda$validate$0::classInfo$ = {
@@ -149,8 +149,8 @@ $FieldInfo Validator$$Lambda$getFingerPrint$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Validator$$Lambda$getFingerPrint$1::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Validator;)V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$getFingerPrint$1::*)(Validator*)>(&Validator$$Lambda$getFingerPrint$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Validator;)V", nullptr, $PUBLIC, $method(Validator$$Lambda$getFingerPrint$1, init$, void, Validator*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$getFingerPrint$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$getFingerPrint$1::classInfo$ = {
@@ -182,8 +182,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Validator$$Lambda$isClass$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$isClass$2::*)()>(&Validator$$Lambda$isClass$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Validator$$Lambda$isClass$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$isClass$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$isClass$2::classInfo$ = {
@@ -215,8 +215,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Validator$$Lambda$mrversion$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$mrversion$3::*)()>(&Validator$$Lambda$mrversion$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Validator$$Lambda$mrversion$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$mrversion$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$mrversion$3::classInfo$ = {
@@ -248,8 +248,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Validator$$Lambda$TreeMap$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$TreeMap$4::*)()>(&Validator$$Lambda$TreeMap$4::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Validator$$Lambda$TreeMap$4, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$TreeMap$4, get, $Object*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$TreeMap$4::classInfo$ = {
@@ -281,8 +281,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Validator$$Lambda$className$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$className$5::*)()>(&Validator$$Lambda$className$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Validator$$Lambda$className$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$className$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$className$5::classInfo$ = {
@@ -321,8 +321,8 @@ $FieldInfo Validator$$Lambda$sameNameFingerPrint$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Validator$$Lambda$sameNameFingerPrint$6::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Validator;)V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$sameNameFingerPrint$6::*)(Validator*)>(&Validator$$Lambda$sameNameFingerPrint$6::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Validator;)V", nullptr, $PUBLIC, $method(Validator$$Lambda$sameNameFingerPrint$6, init$, void, Validator*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$sameNameFingerPrint$6, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$sameNameFingerPrint$6::classInfo$ = {
@@ -361,8 +361,8 @@ $FieldInfo Validator$$Lambda$lambda$validate$1$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Validator$$Lambda$lambda$validate$1$7::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Validator;)V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$lambda$validate$1$7::*)(Validator*)>(&Validator$$Lambda$lambda$validate$1$7::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Validator;)V", nullptr, $PUBLIC, $method(Validator$$Lambda$lambda$validate$1$7, init$, void, Validator*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$lambda$validate$1$7, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$lambda$validate$1$7::classInfo$ = {
@@ -404,8 +404,8 @@ $FieldInfo Validator$$Lambda$lambda$validateBase$2$8::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Validator$$Lambda$lambda$validateBase$2$8::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Validator;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$lambda$validateBase$2$8::*)(Validator*,$Map*)>(&Validator$$Lambda$lambda$validateBase$2$8::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Validator;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(Validator$$Lambda$lambda$validateBase$2$8, init$, void, Validator*, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$lambda$validateBase$2$8, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$lambda$validateBase$2$8::classInfo$ = {
@@ -447,8 +447,8 @@ $FieldInfo Validator$$Lambda$lambda$validateVersioned$3$9::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Validator$$Lambda$lambda$validateVersioned$3$9::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Validator;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$lambda$validateVersioned$3$9::*)(Validator*,$Map*)>(&Validator$$Lambda$lambda$validateVersioned$3$9::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Validator;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(Validator$$Lambda$lambda$validateVersioned$3$9, init$, void, Validator*, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$lambda$validateVersioned$3$9, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$lambda$validateVersioned$3$9::classInfo$ = {
@@ -480,8 +480,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Validator$$Lambda$source$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$source$10::*)()>(&Validator$$Lambda$source$10::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Validator$$Lambda$source$10, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$source$10, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$source$10::classInfo$ = {
@@ -520,8 +520,8 @@ $FieldInfo Validator$$Lambda$remove$11::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Validator$$Lambda$remove$11::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$remove$11::*)($Set*)>(&Validator$$Lambda$remove$11::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Validator$$Lambda$remove$11, init$, void, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$remove$11, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$remove$11::classInfo$ = {
@@ -553,8 +553,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Validator$$Lambda$source$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$source$12::*)()>(&Validator$$Lambda$source$12::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Validator$$Lambda$source$12, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$source$12, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$source$12::classInfo$ = {
@@ -586,8 +586,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Validator$$Lambda$providers$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$providers$13::*)()>(&Validator$$Lambda$providers$13::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Validator$$Lambda$providers$13, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$providers$13, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$providers$13::classInfo$ = {
@@ -619,8 +619,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Validator$$Lambda$stream$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$stream$14::*)()>(&Validator$$Lambda$stream$14::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Validator$$Lambda$stream$14, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$stream$14, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$stream$14::classInfo$ = {
@@ -659,8 +659,8 @@ $FieldInfo Validator$$Lambda$lambda$checkModuleDescriptor$4$15::fieldInfos[2] = 
 	{}
 };
 $MethodInfo Validator$$Lambda$lambda$checkModuleDescriptor$4$15::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Validator;)V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$lambda$checkModuleDescriptor$4$15::*)(Validator*)>(&Validator$$Lambda$lambda$checkModuleDescriptor$4$15::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Validator;)V", nullptr, $PUBLIC, $method(Validator$$Lambda$lambda$checkModuleDescriptor$4$15, init$, void, Validator*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$lambda$checkModuleDescriptor$4$15, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$lambda$checkModuleDescriptor$4$15::classInfo$ = {
@@ -699,8 +699,8 @@ $FieldInfo Validator$$Lambda$lambda$checkModuleDescriptor$5$16::fieldInfos[2] = 
 	{}
 };
 $MethodInfo Validator$$Lambda$lambda$checkModuleDescriptor$5$16::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Validator;)V", nullptr, $PUBLIC, $method(static_cast<void(Validator$$Lambda$lambda$checkModuleDescriptor$5$16::*)(Validator*)>(&Validator$$Lambda$lambda$checkModuleDescriptor$5$16::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Validator;)V", nullptr, $PUBLIC, $method(Validator$$Lambda$lambda$checkModuleDescriptor$5$16, init$, void, Validator*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Validator$$Lambda$lambda$checkModuleDescriptor$5$16, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Validator$$Lambda$lambda$checkModuleDescriptor$5$16::classInfo$ = {
@@ -729,28 +729,28 @@ $FieldInfo _Validator_FieldInfo_[] = {
 };
 
 $MethodInfo _Validator_MethodInfo_[] = {
-	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/zip/ZipFile;)V", nullptr, $PRIVATE, $method(static_cast<void(Validator::*)($Main*,$ZipFile*)>(&Validator::init$))},
-	{"checkClassName", "(Lsun/tools/jar/FingerPrint;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Validator::*)($FingerPrint*)>(&Validator::checkClassName))},
-	{"checkModuleDescriptor", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Validator::*)($String*)>(&Validator::checkModuleDescriptor))},
-	{"checkNestedClass", "(Lsun/tools/jar/FingerPrint;Ljava/util/Map;)Z", "(Lsun/tools/jar/FingerPrint;Ljava/util/Map<Ljava/lang/String;Lsun/tools/jar/FingerPrint;>;)Z", $PRIVATE, $method(static_cast<bool(Validator::*)($FingerPrint*,$Map*)>(&Validator::checkNestedClass))},
-	{"className", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Validator::className))},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Validator::*)($String*)>(&Validator::error))},
-	{"errorAndInvalid", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Validator::*)($String*)>(&Validator::errorAndInvalid))},
-	{"getFingerPrint", "(Ljava/util/zip/ZipEntry;)Lsun/tools/jar/FingerPrint;", nullptr, $PRIVATE, $method(static_cast<$FingerPrint*(Validator::*)($ZipEntry*)>(&Validator::getFingerPrint))},
-	{"isConcealed", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Validator::*)($String*)>(&Validator::isConcealed))},
-	{"isPlatformModule", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&Validator::isPlatformModule))},
-	{"lambda$checkModuleDescriptor$4", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Validator::*)($String*)>(&Validator::lambda$checkModuleDescriptor$4))},
-	{"lambda$checkModuleDescriptor$5", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Validator::*)($String*)>(&Validator::lambda$checkModuleDescriptor$5))},
-	{"lambda$validate$0", "(Ljava/util/zip/ZipEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ZipEntry*)>(&Validator::lambda$validate$0))},
-	{"lambda$validate$1", "(Ljava/lang/Integer;Ljava/util/Map;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Validator::*)($Integer*,$Map*)>(&Validator::lambda$validate$1))},
-	{"lambda$validateBase$2", "(Ljava/util/Map;Lsun/tools/jar/FingerPrint;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Validator::*)($Map*,$FingerPrint*)>(&Validator::lambda$validateBase$2))},
-	{"lambda$validateVersioned$3", "(Ljava/util/Map;Lsun/tools/jar/FingerPrint;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Validator::*)($Map*,$FingerPrint*)>(&Validator::lambda$validateVersioned$3))},
-	{"sameNameFingerPrint", "(Lsun/tools/jar/FingerPrint;Lsun/tools/jar/FingerPrint;)Lsun/tools/jar/FingerPrint;", nullptr, $PRIVATE, $method(static_cast<$FingerPrint*(Validator::*)($FingerPrint*,$FingerPrint*)>(&Validator::sameNameFingerPrint))},
-	{"validate", "(Lsun/tools/jar/Main;Ljava/util/zip/ZipFile;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Main*,$ZipFile*)>(&Validator::validate)), "java.io.IOException"},
-	{"validate", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(Validator::*)()>(&Validator::validate))},
-	{"validateBase", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lsun/tools/jar/FingerPrint;>;)V", $PUBLIC, $method(static_cast<void(Validator::*)($Map*)>(&Validator::validateBase))},
-	{"validateVersioned", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lsun/tools/jar/FingerPrint;>;)V", $PUBLIC, $method(static_cast<void(Validator::*)($Map*)>(&Validator::validateVersioned))},
-	{"warn", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Validator::*)($String*)>(&Validator::warn))},
+	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/zip/ZipFile;)V", nullptr, $PRIVATE, $method(Validator, init$, void, $Main*, $ZipFile*)},
+	{"checkClassName", "(Lsun/tools/jar/FingerPrint;)Z", nullptr, $PRIVATE, $method(Validator, checkClassName, bool, $FingerPrint*)},
+	{"checkModuleDescriptor", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Validator, checkModuleDescriptor, void, $String*)},
+	{"checkNestedClass", "(Lsun/tools/jar/FingerPrint;Ljava/util/Map;)Z", "(Lsun/tools/jar/FingerPrint;Ljava/util/Map<Ljava/lang/String;Lsun/tools/jar/FingerPrint;>;)Z", $PRIVATE, $method(Validator, checkNestedClass, bool, $FingerPrint*, $Map*)},
+	{"className", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Validator, className, $String*, $String*)},
+	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Validator, error, void, $String*)},
+	{"errorAndInvalid", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Validator, errorAndInvalid, void, $String*)},
+	{"getFingerPrint", "(Ljava/util/zip/ZipEntry;)Lsun/tools/jar/FingerPrint;", nullptr, $PRIVATE, $method(Validator, getFingerPrint, $FingerPrint*, $ZipEntry*)},
+	{"isConcealed", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Validator, isConcealed, bool, $String*)},
+	{"isPlatformModule", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Validator, isPlatformModule, bool, $String*)},
+	{"lambda$checkModuleDescriptor$4", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Validator, lambda$checkModuleDescriptor$4, bool, $String*)},
+	{"lambda$checkModuleDescriptor$5", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Validator, lambda$checkModuleDescriptor$5, void, $String*)},
+	{"lambda$validate$0", "(Ljava/util/zip/ZipEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Validator, lambda$validate$0, bool, $ZipEntry*)},
+	{"lambda$validate$1", "(Ljava/lang/Integer;Ljava/util/Map;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Validator, lambda$validate$1, void, $Integer*, $Map*)},
+	{"lambda$validateBase$2", "(Ljava/util/Map;Lsun/tools/jar/FingerPrint;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Validator, lambda$validateBase$2, void, $Map*, $FingerPrint*)},
+	{"lambda$validateVersioned$3", "(Ljava/util/Map;Lsun/tools/jar/FingerPrint;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Validator, lambda$validateVersioned$3, void, $Map*, $FingerPrint*)},
+	{"sameNameFingerPrint", "(Lsun/tools/jar/FingerPrint;Lsun/tools/jar/FingerPrint;)Lsun/tools/jar/FingerPrint;", nullptr, $PRIVATE, $method(Validator, sameNameFingerPrint, $FingerPrint*, $FingerPrint*, $FingerPrint*)},
+	{"validate", "(Lsun/tools/jar/Main;Ljava/util/zip/ZipFile;)Z", nullptr, $STATIC, $staticMethod(Validator, validate, bool, $Main*, $ZipFile*), "java.io.IOException"},
+	{"validate", "()Z", nullptr, $PRIVATE, $method(Validator, validate, bool)},
+	{"validateBase", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lsun/tools/jar/FingerPrint;>;)V", $PUBLIC, $method(Validator, validateBase, void, $Map*)},
+	{"validateVersioned", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lsun/tools/jar/FingerPrint;>;)V", $PUBLIC, $method(Validator, validateVersioned, void, $Map*)},
+	{"warn", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Validator, warn, void, $String*)},
 	{}
 };
 

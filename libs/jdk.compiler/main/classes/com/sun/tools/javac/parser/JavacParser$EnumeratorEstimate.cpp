@@ -30,10 +30,10 @@ $FieldInfo _JavacParser$EnumeratorEstimate_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacParser$EnumeratorEstimate_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavacParser$EnumeratorEstimateArray*(*)()>(&JavacParser$EnumeratorEstimate::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JavacParser$EnumeratorEstimate::*)($String*,int32_t)>(&JavacParser$EnumeratorEstimate::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavacParser$EnumeratorEstimate*(*)($String*)>(&JavacParser$EnumeratorEstimate::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavacParser$EnumeratorEstimateArray*(*)()>(&JavacParser$EnumeratorEstimate::values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$EnumeratorEstimate, $values, $JavacParser$EnumeratorEstimateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacParser$EnumeratorEstimate, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$EnumeratorEstimate, valueOf, JavacParser$EnumeratorEstimate*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$EnumeratorEstimate;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$EnumeratorEstimate, values, $JavacParser$EnumeratorEstimateArray*)},
 	{}
 };
 

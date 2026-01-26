@@ -44,12 +44,12 @@ $FieldInfo _ClassFile$Version_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassFile$Version_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ClassFile$VersionArray*(*)()>(&ClassFile$Version::$values))},
-	{"<init>", "(Ljava/lang/String;III)V", "(II)V", $PRIVATE, $method(static_cast<void(ClassFile$Version::*)($String*,int32_t,int32_t,int32_t)>(&ClassFile$Version::init$))},
-	{"MAX", "()Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClassFile$Version*(*)()>(&ClassFile$Version::MAX))},
-	{"MIN", "()Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClassFile$Version*(*)()>(&ClassFile$Version::MIN))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClassFile$Version*(*)($String*)>(&ClassFile$Version::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClassFile$VersionArray*(*)()>(&ClassFile$Version::values))},
+	{"$values", "()[Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassFile$Version, $values, $ClassFile$VersionArray*)},
+	{"<init>", "(Ljava/lang/String;III)V", "(II)V", $PRIVATE, $method(ClassFile$Version, init$, void, $String*, int32_t, int32_t, int32_t)},
+	{"MAX", "()Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, MAX, ClassFile$Version*)},
+	{"MIN", "()Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, MIN, ClassFile$Version*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, valueOf, ClassFile$Version*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/jvm/ClassFile$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFile$Version, values, $ClassFile$VersionArray*)},
 	{}
 };
 

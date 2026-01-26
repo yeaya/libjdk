@@ -1,11 +1,21 @@
 #include <com/sun/tools/javac/code/Symbol$Visitor.h>
 
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
+#include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$OperatorSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
+#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
+#include <com/sun/tools/javac/code/Symbol.h>
 #include <jcpp.h>
 
+using $Symbol = ::com::sun::tools::javac::code::Symbol;
+using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
+using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
+using $Symbol$OperatorSymbol = ::com::sun::tools::javac::code::Symbol$OperatorSymbol;
+using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
+using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
+using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -17,13 +27,13 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Symbol$Visitor_MethodInfo_[] = {
-	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitOperatorSymbol", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitPackageSymbol", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitTypeSymbol", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitVarSymbol", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;TP;)TR;", $PUBLIC | $ABSTRACT},
+	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Symbol$Visitor, visitClassSymbol, $Object*, $Symbol$ClassSymbol*, Object$*)},
+	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Symbol$Visitor, visitMethodSymbol, $Object*, $Symbol$MethodSymbol*, Object$*)},
+	{"visitOperatorSymbol", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Symbol$Visitor, visitOperatorSymbol, $Object*, $Symbol$OperatorSymbol*, Object$*)},
+	{"visitPackageSymbol", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Symbol$Visitor, visitPackageSymbol, $Object*, $Symbol$PackageSymbol*, Object$*)},
+	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Symbol$Visitor, visitSymbol, $Object*, $Symbol*, Object$*)},
+	{"visitTypeSymbol", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Symbol$Visitor, visitTypeSymbol, $Object*, $Symbol$TypeSymbol*, Object$*)},
+	{"visitVarSymbol", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Symbol$Visitor, visitVarSymbol, $Object*, $Symbol$VarSymbol*, Object$*)},
 	{}
 };
 

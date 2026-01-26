@@ -31,8 +31,8 @@ $FieldInfo _ArgumentAttr$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ArgumentAttr$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;)V", nullptr, 0, $method(static_cast<void(ArgumentAttr$1::*)($ArgumentAttr*,$Attr*,$ArgumentAttr$UniquePos*)>(&ArgumentAttr$1::init$))},
-	{"needsArgumentAttr", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/ArgumentAttr$UniquePos;)V", nullptr, 0, $method(ArgumentAttr$1, init$, void, $ArgumentAttr*, $Attr*, $ArgumentAttr$UniquePos*)},
+	{"needsArgumentAttr", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PROTECTED, $virtualMethod(ArgumentAttr$1, needsArgumentAttr, bool, $JCTree*)},
 	{}
 };
 

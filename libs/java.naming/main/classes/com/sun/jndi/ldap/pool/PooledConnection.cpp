@@ -12,7 +12,7 @@ namespace com {
 				namespace pool {
 
 $MethodInfo _PooledConnection_MethodInfo_[] = {
-	{"closeConnection", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"closeConnection", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, closeConnection, void)},
 	{}
 };
 

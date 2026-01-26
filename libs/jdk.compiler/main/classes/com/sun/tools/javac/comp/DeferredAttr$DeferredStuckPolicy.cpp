@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
@@ -15,9 +16,9 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _DeferredAttr$DeferredStuckPolicy_MethodInfo_[] = {
-	{"depVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT},
-	{"isStuck", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"stuckVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT},
+	{"depVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DeferredAttr$DeferredStuckPolicy, depVars, $Set*)},
+	{"isStuck", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredAttr$DeferredStuckPolicy, isStuck, bool)},
+	{"stuckVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DeferredAttr$DeferredStuckPolicy, stuckVars, $Set*)},
 	{}
 };
 

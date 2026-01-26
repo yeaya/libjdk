@@ -27,16 +27,16 @@ $FieldInfo _Uri_FieldInfo_[] = {
 };
 
 $MethodInfo _Uri_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Uri::*)($String*)>(&Uri::init$)), "java.net.MalformedURLException"},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Uri::*)()>(&Uri::init$))},
-	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPort", "()I", nullptr, $PUBLIC},
-	{"getQuery", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PROTECTED, nullptr, "java.net.MalformedURLException"},
-	{"parse", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Uri::*)($String*)>(&Uri::parse)), "java.net.MalformedURLException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Uri, init$, void, $String*), "java.net.MalformedURLException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Uri, init$, void)},
+	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getHost, $String*)},
+	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getPath, $String*)},
+	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(Uri, getPort, int32_t)},
+	{"getQuery", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getQuery, $String*)},
+	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, getScheme, $String*)},
+	{"init", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Uri, init, void, $String*), "java.net.MalformedURLException"},
+	{"parse", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Uri, parse, void, $String*), "java.net.MalformedURLException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Uri, toString, $String*)},
 	{}
 };
 

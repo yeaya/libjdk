@@ -30,11 +30,11 @@ $FieldInfo _RemoteServer_FieldInfo_[] = {
 };
 
 $MethodInfo _RemoteServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(RemoteServer::*)()>(&RemoteServer::init$))},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED, $method(static_cast<void(RemoteServer::*)($RemoteRef*)>(&RemoteServer::init$))},
-	{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&RemoteServer::getClientHost)), "java.rmi.server.ServerNotActiveException"},
-	{"getLog", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PrintStream*(*)()>(&RemoteServer::getLog))},
-	{"setLog", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($OutputStream*)>(&RemoteServer::setLog))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(RemoteServer, init$, void)},
+	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED, $method(RemoteServer, init$, void, $RemoteRef*)},
+	{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteServer, getClientHost, $String*), "java.rmi.server.ServerNotActiveException"},
+	{"getLog", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteServer, getLog, $PrintStream*)},
+	{"setLog", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteServer, setLog, void, $OutputStream*)},
 	{}
 };
 

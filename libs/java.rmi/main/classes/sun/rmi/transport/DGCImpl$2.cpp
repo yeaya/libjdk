@@ -94,8 +94,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DGCImpl$2$$Lambda$checkInput::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCImpl$2$$Lambda$checkInput::*)()>(&DGCImpl$2$$Lambda$checkInput::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$2$$Lambda$checkInput, init$, void)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$2$$Lambda$checkInput, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
 	{}
 };
 $ClassInfo DGCImpl$2$$Lambda$checkInput::classInfo$ = {
@@ -113,8 +113,8 @@ $Class* DGCImpl$2$$Lambda$checkInput::load$($String* name, bool initialize) {
 $Class* DGCImpl$2$$Lambda$checkInput::class$ = nullptr;
 
 $MethodInfo _DGCImpl$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DGCImpl$2::*)()>(&DGCImpl$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DGCImpl$2, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$2, run, $Object*)},
 	{}
 };
 

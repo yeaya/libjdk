@@ -45,15 +45,15 @@ $MethodInfo _BinaryRelQueryExp_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BinaryRelQueryExp::*)()>(&BinaryRelQueryExp::init$))},
-	{"<init>", "(ILjavax/management/ValueExp;Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(static_cast<void(BinaryRelQueryExp::*)(int32_t,$ValueExp*,$ValueExp*)>(&BinaryRelQueryExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getLeftValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC},
-	{"getOperator", "()I", nullptr, $PUBLIC},
-	{"getRightValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC},
-	{"relOpString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(BinaryRelQueryExp::*)()>(&BinaryRelQueryExp::relOpString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BinaryRelQueryExp, init$, void)},
+	{"<init>", "(ILjavax/management/ValueExp;Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(BinaryRelQueryExp, init$, void, int32_t, $ValueExp*, $ValueExp*)},
+	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(BinaryRelQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"getLeftValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BinaryRelQueryExp, getLeftValue, $ValueExp*)},
+	{"getOperator", "()I", nullptr, $PUBLIC, $virtualMethod(BinaryRelQueryExp, getOperator, int32_t)},
+	{"getRightValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BinaryRelQueryExp, getRightValue, $ValueExp*)},
+	{"relOpString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(BinaryRelQueryExp, relOpString, $String*)},
 	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BinaryRelQueryExp, toString, $String*)},
 	{}
 };
 

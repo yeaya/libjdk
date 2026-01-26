@@ -17,14 +17,14 @@ $FieldInfo _SQLTransactionRollbackException_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLTransactionRollbackException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SQLTransactionRollbackException::*)()>(&SQLTransactionRollbackException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLTransactionRollbackException::*)($String*)>(&SQLTransactionRollbackException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLTransactionRollbackException::*)($String*,$String*)>(&SQLTransactionRollbackException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(SQLTransactionRollbackException::*)($String*,$String*,int32_t)>(&SQLTransactionRollbackException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLTransactionRollbackException::*)($Throwable*)>(&SQLTransactionRollbackException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLTransactionRollbackException::*)($String*,$Throwable*)>(&SQLTransactionRollbackException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLTransactionRollbackException::*)($String*,$String*,$Throwable*)>(&SQLTransactionRollbackException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLTransactionRollbackException::*)($String*,$String*,int32_t,$Throwable*)>(&SQLTransactionRollbackException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLTransactionRollbackException, init$, void, $String*, $String*, int32_t, $Throwable*)},
 	{}
 };
 

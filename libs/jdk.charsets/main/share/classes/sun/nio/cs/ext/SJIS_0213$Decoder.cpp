@@ -42,13 +42,13 @@ $FieldInfo _SJIS_0213$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _SJIS_0213$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(static_cast<void(SJIS_0213$Decoder::*)($Charset*)>(&SJIS_0213$Decoder::init$))},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(SJIS_0213$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&SJIS_0213$Decoder::decodeArrayLoop))},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(SJIS_0213$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&SJIS_0213$Decoder::decodeBufferLoop))},
-	{"decodeDouble", "(II)C", nullptr, $PROTECTED},
-	{"decodeDoubleEx", "(II)[C", nullptr, $PROTECTED},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"decodeSingle", "(I)C", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(SJIS_0213$Decoder, init$, void, $Charset*)},
+	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SJIS_0213$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(SJIS_0213$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeDouble", "(II)C", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeDouble, char16_t, int32_t, int32_t)},
+	{"decodeDoubleEx", "(II)[C", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeDoubleEx, $chars*, int32_t, int32_t)},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeSingle", "(I)C", nullptr, $PROTECTED, $virtualMethod(SJIS_0213$Decoder, decodeSingle, char16_t, int32_t)},
 	{}
 };
 

@@ -109,8 +109,8 @@ $FieldInfo HashedPasswordManager$$Lambda$lambda$loadPasswords$0::fieldInfos[4] =
 	{}
 };
 $MethodInfo HashedPasswordManager$$Lambda$lambda$loadPasswords$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/jmx/remote/security/HashedPasswordManager;Ljava/lang/StringBuilder;Ljava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, $PUBLIC, $method(static_cast<void(HashedPasswordManager$$Lambda$lambda$loadPasswords$0::*)(HashedPasswordManager*,$StringBuilder*,$AtomicBoolean*)>(&HashedPasswordManager$$Lambda$lambda$loadPasswords$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/remote/security/HashedPasswordManager;Ljava/lang/StringBuilder;Ljava/util/concurrent/atomic/AtomicBoolean;)V", nullptr, $PUBLIC, $method(HashedPasswordManager$$Lambda$lambda$loadPasswords$0, init$, void, HashedPasswordManager*, $StringBuilder*, $AtomicBoolean*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HashedPasswordManager$$Lambda$lambda$loadPasswords$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HashedPasswordManager$$Lambda$lambda$loadPasswords$0::classInfo$ = {
@@ -140,13 +140,13 @@ $FieldInfo _HashedPasswordManager_FieldInfo_[] = {
 };
 
 $MethodInfo _HashedPasswordManager_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(HashedPasswordManager::*)($String*,bool)>(&HashedPasswordManager::init$))},
-	{"authenticate", "(Ljava/lang/String;[C)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<bool(HashedPasswordManager::*)($String*,$chars*)>(&HashedPasswordManager::authenticate))},
-	{"getHash", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$StringArray*(HashedPasswordManager::*)($String*,$String*)>(&HashedPasswordManager::getHash))},
-	{"lambda$loadPasswords$0", "(Ljava/lang/StringBuilder;Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(HashedPasswordManager::*)($StringBuilder*,$AtomicBoolean*,$String*)>(&HashedPasswordManager::lambda$loadPasswords$0))},
-	{"loadPasswords", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<void(HashedPasswordManager::*)()>(&HashedPasswordManager::loadPasswords)), "java.io.IOException,java.lang.SecurityException"},
-	{"readPasswordFile", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$StringArray*(HashedPasswordManager::*)()>(&HashedPasswordManager::readPasswordFile)), "java.io.IOException"},
-	{"writePasswordFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(HashedPasswordManager::*)($String*)>(&HashedPasswordManager::writePasswordFile)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(HashedPasswordManager, init$, void, $String*, bool)},
+	{"authenticate", "(Ljava/lang/String;[C)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $method(HashedPasswordManager, authenticate, bool, $String*, $chars*)},
+	{"getHash", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(HashedPasswordManager, getHash, $StringArray*, $String*, $String*)},
+	{"lambda$loadPasswords$0", "(Ljava/lang/StringBuilder;Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HashedPasswordManager, lambda$loadPasswords$0, void, $StringBuilder*, $AtomicBoolean*, $String*)},
+	{"loadPasswords", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(HashedPasswordManager, loadPasswords, void), "java.io.IOException,java.lang.SecurityException"},
+	{"readPasswordFile", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(HashedPasswordManager, readPasswordFile, $StringArray*), "java.io.IOException"},
+	{"writePasswordFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(HashedPasswordManager, writePasswordFile, void, $String*), "java.io.IOException"},
 	{}
 };
 

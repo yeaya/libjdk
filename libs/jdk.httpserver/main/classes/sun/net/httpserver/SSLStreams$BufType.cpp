@@ -26,10 +26,10 @@ $FieldInfo _SSLStreams$BufType_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLStreams$BufType_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/httpserver/SSLStreams$BufType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SSLStreams$BufTypeArray*(*)()>(&SSLStreams$BufType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(SSLStreams$BufType::*)($String*,int32_t)>(&SSLStreams$BufType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/httpserver/SSLStreams$BufType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SSLStreams$BufType*(*)($String*)>(&SSLStreams$BufType::valueOf))},
-	{"values", "()[Lsun/net/httpserver/SSLStreams$BufType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SSLStreams$BufTypeArray*(*)()>(&SSLStreams$BufType::values))},
+	{"$values", "()[Lsun/net/httpserver/SSLStreams$BufType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLStreams$BufType, $values, $SSLStreams$BufTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SSLStreams$BufType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/net/httpserver/SSLStreams$BufType;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLStreams$BufType, valueOf, SSLStreams$BufType*, $String*)},
+	{"values", "()[Lsun/net/httpserver/SSLStreams$BufType;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLStreams$BufType, values, $SSLStreams$BufTypeArray*)},
 	{}
 };
 

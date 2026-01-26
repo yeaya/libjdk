@@ -4,6 +4,8 @@
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <jcpp.h>
 
+using $Scope = ::com::sun::tools::javac::code::Scope;
+using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,7 +17,7 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Scope$ImportFilter_MethodInfo_[] = {
-	{"accepts", "(Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"accepts", "(Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$ImportFilter, accepts, bool, $Scope*, $Symbol*)},
 	{}
 };
 

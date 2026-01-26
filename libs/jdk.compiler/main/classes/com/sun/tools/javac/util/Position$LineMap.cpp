@@ -14,10 +14,10 @@ namespace com {
 				namespace util {
 
 $MethodInfo _Position$LineMap_MethodInfo_[] = {
-	{"getColumnNumber", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLineNumber", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPosition", "(II)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getStartPosition", "(I)I", nullptr, $PUBLIC | $ABSTRACT},
+	{"getColumnNumber", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getColumnNumber, int32_t, int32_t)},
+	{"getLineNumber", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getLineNumber, int32_t, int32_t)},
+	{"getPosition", "(II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getPosition, int32_t, int32_t, int32_t)},
+	{"getStartPosition", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Position$LineMap, getStartPosition, int32_t, int32_t)},
 	{}
 };
 

@@ -34,12 +34,12 @@ $FieldInfo _DeferredAttr$AttributionMode_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$AttributionMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DeferredAttr$AttributionModeArray*(*)()>(&DeferredAttr$AttributionMode::$values))},
-	{"<init>", "(Ljava/lang/String;IZZ)V", "(ZZ)V", $PRIVATE, $method(static_cast<void(DeferredAttr$AttributionMode::*)($String*,int32_t,bool,bool)>(&DeferredAttr$AttributionMode::init$))},
-	{"isSpeculative", "()Z", nullptr, 0, $method(static_cast<bool(DeferredAttr$AttributionMode::*)()>(&DeferredAttr$AttributionMode::isSpeculative))},
-	{"recover", "()Z", nullptr, 0, $method(static_cast<bool(DeferredAttr$AttributionMode::*)()>(&DeferredAttr$AttributionMode::recover))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DeferredAttr$AttributionMode*(*)($String*)>(&DeferredAttr$AttributionMode::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DeferredAttr$AttributionModeArray*(*)()>(&DeferredAttr$AttributionMode::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredAttr$AttributionMode, $values, $DeferredAttr$AttributionModeArray*)},
+	{"<init>", "(Ljava/lang/String;IZZ)V", "(ZZ)V", $PRIVATE, $method(DeferredAttr$AttributionMode, init$, void, $String*, int32_t, bool, bool)},
+	{"isSpeculative", "()Z", nullptr, 0, $method(DeferredAttr$AttributionMode, isSpeculative, bool)},
+	{"recover", "()Z", nullptr, 0, $method(DeferredAttr$AttributionMode, recover, bool)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredAttr$AttributionMode, valueOf, DeferredAttr$AttributionMode*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredAttr$AttributionMode, values, $DeferredAttr$AttributionModeArray*)},
 	{}
 };
 

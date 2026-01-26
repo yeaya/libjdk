@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $XMLValidateContext = ::javax::xml::crypto::dsig::XMLValidateContext;
 
 namespace javax {
 	namespace xml {
@@ -14,9 +15,9 @@ namespace javax {
 			namespace dsig {
 
 $MethodInfo _XMLSignature$SignatureValue_MethodInfo_[] = {
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getValue", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"validate", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.dsig.XMLSignatureException"},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature$SignatureValue, getId, $String*)},
+	{"getValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature$SignatureValue, getValue, $bytes*)},
+	{"validate", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature$SignatureValue, validate, bool, $XMLValidateContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
 	{}
 };
 

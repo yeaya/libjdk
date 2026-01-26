@@ -26,8 +26,8 @@ $FieldInfo _HierarchicalNameParser_FieldInfo_[] = {
 };
 
 $MethodInfo _HierarchicalNameParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HierarchicalNameParser::*)()>(&HierarchicalNameParser::init$))},
-	{"parse", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, 0, $method(HierarchicalNameParser, init$, void)},
+	{"parse", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HierarchicalNameParser, parse, $Name*, $String*), "javax.naming.NamingException"},
 	{}
 };
 

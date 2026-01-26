@@ -24,7 +24,7 @@ $FieldInfo _DocTreePath$1Result_FieldInfo_[] = {
 };
 
 $MethodInfo _DocTreePath$1Result_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/util/DocTreePath;)V", nullptr, 0, $method(static_cast<void(DocTreePath$1Result::*)($DocTreePath*)>(&DocTreePath$1Result::init$))},
+	{"<init>", "(Lcom/sun/source/util/DocTreePath;)V", nullptr, 0, $method(DocTreePath$1Result, init$, void, $DocTreePath*)},
 	{}
 };
 

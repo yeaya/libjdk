@@ -90,8 +90,8 @@ $FieldInfo ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findFirst$0::fie
 	{}
 };
 $MethodInfo ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findFirst$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findFirst$0::*)($String*)>(&ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findFirst$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findFirst$0, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findFirst$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findFirst$0::classInfo$ = {
@@ -130,8 +130,8 @@ $FieldInfo ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findSingleton$2$
 	{}
 };
 $MethodInfo ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findSingleton$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findSingleton$2$1::*)($Class*)>(&ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findSingleton$2$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findSingleton$2$1, init$, void, $Class*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findSingleton$2$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactory$PlatformMBeanFinder$$Lambda$lambda$findSingleton$2$1::classInfo$ = {
@@ -154,12 +154,12 @@ $FieldInfo _ManagementFactory$PlatformMBeanFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _ManagementFactory$PlatformMBeanFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ManagementFactory$PlatformMBeanFinder::*)()>(&ManagementFactory$PlatformMBeanFinder::init$))},
-	{"findFirst", "(Ljava/lang/Class;)Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;", "(Ljava/lang/Class<*>;)Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;", $STATIC, $method(static_cast<$PlatformMBeanProvider$PlatformComponent*(*)($Class*)>(&ManagementFactory$PlatformMBeanFinder::findFirst))},
-	{"findSingleton", "(Ljava/lang/Class;)Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;", "(Ljava/lang/Class<*>;)Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;", $STATIC, $method(static_cast<$PlatformMBeanProvider$PlatformComponent*(*)($Class*)>(&ManagementFactory$PlatformMBeanFinder::findSingleton))},
-	{"getMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $STATIC, $method(static_cast<$Map*(*)()>(&ManagementFactory$PlatformMBeanFinder::getMap))},
-	{"lambda$findFirst$0", "(Ljava/lang/String;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$PlatformMBeanProvider$PlatformComponent*)>(&ManagementFactory$PlatformMBeanFinder::lambda$findFirst$0))},
-	{"lambda$findSingleton$2", "(Ljava/lang/Class;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;)Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PlatformMBeanProvider$PlatformComponent*(*)($Class*,$PlatformMBeanProvider$PlatformComponent*,$PlatformMBeanProvider$PlatformComponent*)>(&ManagementFactory$PlatformMBeanFinder::lambda$findSingleton$2))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ManagementFactory$PlatformMBeanFinder, init$, void)},
+	{"findFirst", "(Ljava/lang/Class;)Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;", "(Ljava/lang/Class<*>;)Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;", $STATIC, $staticMethod(ManagementFactory$PlatformMBeanFinder, findFirst, $PlatformMBeanProvider$PlatformComponent*, $Class*)},
+	{"findSingleton", "(Ljava/lang/Class;)Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;", "(Ljava/lang/Class<*>;)Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;", $STATIC, $staticMethod(ManagementFactory$PlatformMBeanFinder, findSingleton, $PlatformMBeanProvider$PlatformComponent*, $Class*)},
+	{"getMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $STATIC, $staticMethod(ManagementFactory$PlatformMBeanFinder, getMap, $Map*)},
+	{"lambda$findFirst$0", "(Ljava/lang/String;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory$PlatformMBeanFinder, lambda$findFirst$0, bool, $String*, $PlatformMBeanProvider$PlatformComponent*)},
+	{"lambda$findSingleton$2", "(Ljava/lang/Class;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;)Lsun/management/spi/PlatformMBeanProvider$PlatformComponent;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactory$PlatformMBeanFinder, lambda$findSingleton$2, $PlatformMBeanProvider$PlatformComponent*, $Class*, $PlatformMBeanProvider$PlatformComponent*, $PlatformMBeanProvider$PlatformComponent*)},
 	{}
 };
 

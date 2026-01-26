@@ -22,9 +22,9 @@ $FieldInfo _ReferralsCache$ReferralCacheKey_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferralsCache$ReferralCacheKey_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;)V", nullptr, 0, $method(static_cast<void(ReferralsCache$ReferralCacheKey::*)($PrincipalName*,$PrincipalName*)>(&ReferralsCache$ReferralCacheKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;)V", nullptr, 0, $method(ReferralsCache$ReferralCacheKey, init$, void, $PrincipalName*, $PrincipalName*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ReferralsCache$ReferralCacheKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ReferralsCache$ReferralCacheKey, hashCode, int32_t)},
 	{}
 };
 

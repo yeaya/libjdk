@@ -21,8 +21,8 @@ namespace com {
 				namespace parser {
 
 $MethodInfo _JavacParser$BasicErrorRecoveryAction$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(JavacParser$BasicErrorRecoveryAction$1::*)($String*,int32_t)>(&JavacParser$BasicErrorRecoveryAction$1::init$))},
-	{"doRecover", "(Lcom/sun/tools/javac/parser/JavacParser;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(JavacParser$BasicErrorRecoveryAction$1, init$, void, $String*, int32_t)},
+	{"doRecover", "(Lcom/sun/tools/javac/parser/JavacParser;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JavacParser$BasicErrorRecoveryAction$1, doRecover, $JCTree*, $JavacParser*)},
 	{}
 };
 

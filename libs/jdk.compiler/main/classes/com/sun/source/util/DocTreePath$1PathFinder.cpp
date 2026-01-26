@@ -21,9 +21,9 @@ namespace com {
 			namespace util {
 
 $MethodInfo _DocTreePath$1PathFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DocTreePath$1PathFinder::*)()>(&DocTreePath$1PathFinder::init$))},
-	{"scan", "(Lcom/sun/source/doctree/DocTree;Lcom/sun/source/doctree/DocTree;)Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC},
-	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(DocTreePath$1PathFinder, init$, void)},
+	{"scan", "(Lcom/sun/source/doctree/DocTree;Lcom/sun/source/doctree/DocTree;)Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC, $virtualMethod(DocTreePath$1PathFinder, scan, $DocTreePath*, $DocTree*, $DocTree*)},
+	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DocTreePath$1PathFinder, scan, $Object*, $DocTree*, Object$*)},
 	{}
 };
 

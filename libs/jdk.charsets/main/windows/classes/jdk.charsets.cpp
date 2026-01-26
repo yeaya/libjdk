@@ -620,31 +620,31 @@ const char* _jdk$charsets_packages_[] = {
 	"sun.nio.cs.ext"
 };
 
-void jdk$charsets$PreloadClass(void* eventData) {
-	::java::lang::PreloadClassEvent* event = (::java::lang::PreloadClassEvent*)eventData;
+void jdk$charsets$PreloadClass() {
 	int32_t length = $lengthOf(_jdk$charsets_classes_);
-	for (int i = 0; i < length; i++) {
+	for (int32_t i = 0; i < length; i++) {
 		::java::lang::ClassEntry* classEntry = &_jdk$charsets_classes_[i];
-		if (event->preinit) {
-			if ($hasFlag(classEntry->mark, $PREINIT)) {
-				classEntry->loader(nullptr, true);
-				continue;
-			}
+		if ($hasFlag(classEntry->mark, $PRELOAD) || $hasFlag(classEntry->mark, $PREINIT)) {
+			classEntry->loader(nullptr, false);
 		}
-		if (event->preload) {
-			if ($hasFlag(classEntry->mark, $PRELOAD) || $hasFlag(classEntry->mark, $PREINIT)) {
-				classEntry->loader(nullptr, false);
-			}
+	}
+}
+
+void jdk$charsets$PreinitClass() {
+	int32_t length = $lengthOf(_jdk$charsets_classes_);
+	for (int32_t i = 0; i < length; i++) {
+		::java::lang::ClassEntry* classEntry = &_jdk$charsets_classes_[i];
+		if ($hasFlag(classEntry->mark, $PREINIT)) {
+			classEntry->loader(nullptr, true);
 		}
 	}
 }
 
 void jdk$charsets$LibEventAction(int32_t eventType, void* eventData) {
 	if (eventType == JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS) {
-		jdk$charsets$PreloadClass(eventData);
-	}
-	if (eventType == JCPP_LIB_EVENT_TYPE_THREAD_START) {
-		$onLibThreadStart(eventData);
+		jdk$charsets$PreloadClass();
+	} else if (eventType == JCPP_LIB_EVENT_TYPE_PREINIT_CLASS) {
+		jdk$charsets$PreinitClass();
 	}
 }
 
@@ -691,3 +691,9 @@ void jdk$charsets::init() {
 	};
 	$System::addLibrary(&lib);
 }
+
+#ifdef JCPP_SHARED_BUILD
+extern "C" $export void JCPP_OnLoad() {
+	jdk$charsets::init();
+}
+#endif

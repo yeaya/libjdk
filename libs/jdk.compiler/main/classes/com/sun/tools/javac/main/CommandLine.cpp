@@ -40,12 +40,12 @@ namespace com {
 				namespace main {
 
 $MethodInfo _CommandLine_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CommandLine::*)()>(&CommandLine::init$))},
-	{"appendParsedCommandArgs", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($List*,$List*)>(&CommandLine::appendParsedCommandArgs)), "java.io.IOException"},
-	{"appendParsedEnvVariables", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($List*,$String*)>(&CommandLine::appendParsedEnvVariables)), "com.sun.tools.javac.main.CommandLine$UnmatchedQuote"},
-	{"loadCmdFile", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$List*)>(&CommandLine::loadCmdFile)), "java.io.IOException"},
-	{"parse", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($List*)>(&CommandLine::parse)), "java.io.IOException"},
-	{"parse", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($String*,$List*)>(&CommandLine::parse)), "java.io.IOException,com.sun.tools.javac.main.CommandLine$UnmatchedQuote"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CommandLine, init$, void)},
+	{"appendParsedCommandArgs", "(Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(CommandLine, appendParsedCommandArgs, void, $List*, $List*), "java.io.IOException"},
+	{"appendParsedEnvVariables", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(CommandLine, appendParsedEnvVariables, void, $List*, $String*), "com.sun.tools.javac.main.CommandLine$UnmatchedQuote"},
+	{"loadCmdFile", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(CommandLine, loadCmdFile, void, $String*, $List*), "java.io.IOException"},
+	{"parse", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(CommandLine, parse, $List*, $List*), "java.io.IOException"},
+	{"parse", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(CommandLine, parse, $List*, $String*, $List*), "java.io.IOException,com.sun.tools.javac.main.CommandLine$UnmatchedQuote"},
 	{}
 };
 

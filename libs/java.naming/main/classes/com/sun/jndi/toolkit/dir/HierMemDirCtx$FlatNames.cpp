@@ -31,8 +31,8 @@ $FieldInfo _HierMemDirCtx$FlatNames_FieldInfo_[] = {
 };
 
 $MethodInfo _HierMemDirCtx$FlatNames_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljavax/naming/Name;>;)V", 0, $method(static_cast<void(HierMemDirCtx$FlatNames::*)($HierMemDirCtx*,$Enumeration*)>(&HierMemDirCtx$FlatNames::init$))},
-	{"next", "()Ljavax/naming/NameClassPair;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
+	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljavax/naming/Name;>;)V", 0, $method(HierMemDirCtx$FlatNames, init$, void, $HierMemDirCtx*, $Enumeration*)},
+	{"next", "()Ljavax/naming/NameClassPair;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx$FlatNames, next, $Object*), "javax.naming.NamingException"},
 	{}
 };
 

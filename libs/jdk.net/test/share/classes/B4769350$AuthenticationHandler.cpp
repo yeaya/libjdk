@@ -14,10 +14,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _B4769350$AuthenticationHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(B4769350$AuthenticationHandler::*)()>(&B4769350$AuthenticationHandler::init$))},
-	{"errorReply", "(Lcom/sun/net/httpserver/HttpExchange;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($HttpExchange*,$String*)>(&B4769350$AuthenticationHandler::errorReply)), "java.io.IOException"},
-	{"okReply", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $STATIC, $method(static_cast<void(*)($HttpExchange*)>(&B4769350$AuthenticationHandler::okReply)), "java.io.IOException"},
-	{"proxyReply", "(Lcom/sun/net/httpserver/HttpExchange;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($HttpExchange*,$String*)>(&B4769350$AuthenticationHandler::proxyReply)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(B4769350$AuthenticationHandler, init$, void)},
+	{"errorReply", "(Lcom/sun/net/httpserver/HttpExchange;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(B4769350$AuthenticationHandler, errorReply, void, $HttpExchange*, $String*), "java.io.IOException"},
+	{"okReply", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $STATIC, $staticMethod(B4769350$AuthenticationHandler, okReply, void, $HttpExchange*), "java.io.IOException"},
+	{"proxyReply", "(Lcom/sun/net/httpserver/HttpExchange;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(B4769350$AuthenticationHandler, proxyReply, void, $HttpExchange*, $String*), "java.io.IOException"},
 	{}
 };
 

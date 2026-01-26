@@ -49,14 +49,14 @@ $FieldInfo _Http1AsyncReceiver$Http1TubeSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1AsyncReceiver$Http1TubeSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;)V", nullptr, 0, $method(static_cast<void(Http1AsyncReceiver$Http1TubeSubscriber::*)($Http1AsyncReceiver*)>(&Http1AsyncReceiver$Http1TubeSubscriber::init$))},
-	{"dropSubscription", "()V", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(Http1AsyncReceiver$Http1TubeSubscriber::*)($List*)>(&Http1AsyncReceiver$Http1TubeSubscriber::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"requestMore", "()V", nullptr, 0, $method(static_cast<void(Http1AsyncReceiver$Http1TubeSubscriber::*)()>(&Http1AsyncReceiver$Http1TubeSubscriber::requestMore))},
+	{"<init>", "(Ljdk/internal/net/http/Http1AsyncReceiver;)V", nullptr, 0, $method(Http1AsyncReceiver$Http1TubeSubscriber, init$, void, $Http1AsyncReceiver*)},
+	{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, dropSubscription, void)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(Http1AsyncReceiver$Http1TubeSubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1TubeSubscriber, onSubscribe, void, $Flow$Subscription*)},
+	{"requestMore", "()V", nullptr, 0, $method(Http1AsyncReceiver$Http1TubeSubscriber, requestMore, void)},
 	{}
 };
 

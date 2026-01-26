@@ -26,7 +26,7 @@ $FieldInfo _TreeInfo$1Result_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeInfo$1Result_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", 0, $method(static_cast<void(TreeInfo$1Result::*)($List*)>(&TreeInfo$1Result::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", 0, $method(TreeInfo$1Result, init$, void, $List*)},
 	{}
 };
 

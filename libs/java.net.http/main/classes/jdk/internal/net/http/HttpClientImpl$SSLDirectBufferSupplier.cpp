@@ -41,9 +41,9 @@ $FieldInfo _HttpClientImpl$SSLDirectBufferSupplier_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClientImpl$SSLDirectBufferSupplier_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(static_cast<void(HttpClientImpl$SSLDirectBufferSupplier::*)($HttpClientImpl*)>(&HttpClientImpl$SSLDirectBufferSupplier::init$))},
-	{"get", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC},
-	{"recycle", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(HttpClientImpl$SSLDirectBufferSupplier, init$, void, $HttpClientImpl*)},
+	{"get", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SSLDirectBufferSupplier, get, $Object*)},
+	{"recycle", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SSLDirectBufferSupplier, recycle, void, $ByteBuffer*)},
 	{}
 };
 

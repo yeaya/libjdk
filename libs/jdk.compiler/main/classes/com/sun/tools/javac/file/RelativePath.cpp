@@ -8,6 +8,7 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
+using $RelativePath$RelativeDirectory = ::com::sun::tools::javac::file::RelativePath$RelativeDirectory;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -30,17 +31,17 @@ $FieldInfo _RelativePath_FieldInfo_[] = {
 };
 
 $MethodInfo _RelativePath_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(RelativePath::*)($String*)>(&RelativePath::init$))},
-	{"basename", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"compareTo", "(Lcom/sun/tools/javac/file/RelativePath;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"dirname", "()Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $PUBLIC | $ABSTRACT},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"resolveAgainst", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, nullptr, "java.nio.file.InvalidPathException"},
-	{"resolveAgainst", "(Ljava/nio/file/FileSystem;)Ljava/nio/file/Path;", nullptr, $PUBLIC, nullptr, "java.nio.file.InvalidPathException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(RelativePath, init$, void, $String*)},
+	{"basename", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelativePath, basename, $String*)},
+	{"compareTo", "(Lcom/sun/tools/javac/file/RelativePath;)I", nullptr, $PUBLIC, $virtualMethod(RelativePath, compareTo, int32_t, RelativePath*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RelativePath, compareTo, int32_t, Object$*)},
+	{"dirname", "()Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelativePath, dirname, $RelativePath$RelativeDirectory*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RelativePath, equals, bool, Object$*)},
+	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath, getPath, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RelativePath, hashCode, int32_t)},
+	{"resolveAgainst", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(RelativePath, resolveAgainst, $Path*, $Path*), "java.nio.file.InvalidPathException"},
+	{"resolveAgainst", "(Ljava/nio/file/FileSystem;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(RelativePath, resolveAgainst, $Path*, $FileSystem*), "java.nio.file.InvalidPathException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath, toString, $String*)},
 	{}
 };
 

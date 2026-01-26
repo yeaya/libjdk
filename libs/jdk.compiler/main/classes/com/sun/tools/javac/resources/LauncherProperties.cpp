@@ -13,7 +13,7 @@ namespace com {
 				namespace resources {
 
 $MethodInfo _LauncherProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LauncherProperties::*)()>(&LauncherProperties::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LauncherProperties, init$, void)},
 	{}
 };
 

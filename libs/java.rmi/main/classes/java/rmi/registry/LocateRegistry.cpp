@@ -41,14 +41,14 @@ namespace java {
 		namespace registry {
 
 $MethodInfo _LocateRegistry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LocateRegistry::*)()>(&LocateRegistry::init$))},
-	{"createRegistry", "(I)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Registry*(*)(int32_t)>(&LocateRegistry::createRegistry)), "java.rmi.RemoteException"},
-	{"createRegistry", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Registry*(*)(int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*)>(&LocateRegistry::createRegistry)), "java.rmi.RemoteException"},
-	{"getRegistry", "()Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Registry*(*)()>(&LocateRegistry::getRegistry)), "java.rmi.RemoteException"},
-	{"getRegistry", "(I)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Registry*(*)(int32_t)>(&LocateRegistry::getRegistry)), "java.rmi.RemoteException"},
-	{"getRegistry", "(Ljava/lang/String;)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Registry*(*)($String*)>(&LocateRegistry::getRegistry)), "java.rmi.RemoteException"},
-	{"getRegistry", "(Ljava/lang/String;I)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Registry*(*)($String*,int32_t)>(&LocateRegistry::getRegistry)), "java.rmi.RemoteException"},
-	{"getRegistry", "(Ljava/lang/String;ILjava/rmi/server/RMIClientSocketFactory;)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Registry*(*)($String*,int32_t,$RMIClientSocketFactory*)>(&LocateRegistry::getRegistry)), "java.rmi.RemoteException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LocateRegistry, init$, void)},
+	{"createRegistry", "(I)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocateRegistry, createRegistry, $Registry*, int32_t), "java.rmi.RemoteException"},
+	{"createRegistry", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocateRegistry, createRegistry, $Registry*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*), "java.rmi.RemoteException"},
+	{"getRegistry", "()Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocateRegistry, getRegistry, $Registry*), "java.rmi.RemoteException"},
+	{"getRegistry", "(I)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocateRegistry, getRegistry, $Registry*, int32_t), "java.rmi.RemoteException"},
+	{"getRegistry", "(Ljava/lang/String;)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocateRegistry, getRegistry, $Registry*, $String*), "java.rmi.RemoteException"},
+	{"getRegistry", "(Ljava/lang/String;I)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocateRegistry, getRegistry, $Registry*, $String*, int32_t), "java.rmi.RemoteException"},
+	{"getRegistry", "(Ljava/lang/String;ILjava/rmi/server/RMIClientSocketFactory;)Ljava/rmi/registry/Registry;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocateRegistry, getRegistry, $Registry*, $String*, int32_t, $RMIClientSocketFactory*), "java.rmi.RemoteException"},
 	{}
 };
 

@@ -3,6 +3,7 @@
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,8 +13,8 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _AssertTree_MethodInfo_[] = {
-	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDetail", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssertTree, getCondition, $ExpressionTree*)},
+	{"getDetail", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssertTree, getDetail, $ExpressionTree*)},
 	{}
 };
 

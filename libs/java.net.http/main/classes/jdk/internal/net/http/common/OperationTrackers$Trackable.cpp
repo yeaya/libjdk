@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $OperationTrackers$Tracker = ::jdk::internal::net::http::common::OperationTrackers$Tracker;
 
 namespace jdk {
 	namespace internal {
@@ -15,7 +16,7 @@ namespace jdk {
 				namespace common {
 
 $MethodInfo _OperationTrackers$Trackable_MethodInfo_[] = {
-	{"getOperationsTracker", "()Ljdk/internal/net/http/common/OperationTrackers$Tracker;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getOperationsTracker", "()Ljdk/internal/net/http/common/OperationTrackers$Tracker;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperationTrackers$Trackable, getOperationsTracker, $OperationTrackers$Tracker*)},
 	{}
 };
 

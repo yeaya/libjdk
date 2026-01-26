@@ -17,8 +17,8 @@ $FieldInfo _BadStringOperationException_FieldInfo_[] = {
 };
 
 $MethodInfo _BadStringOperationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BadStringOperationException::*)($String*)>(&BadStringOperationException::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BadStringOperationException, init$, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BadStringOperationException, toString, $String*)},
 	{}
 };
 

@@ -28,8 +28,8 @@ $FieldInfo _InferenceContext$1_FieldInfo_[] = {
 };
 
 $MethodInfo _InferenceContext$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(static_cast<void(InferenceContext$1::*)($InferenceContext*,$Infer*)>(&InferenceContext$1::init$))},
-	{"done", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(InferenceContext$1, init$, void, $InferenceContext*, $Infer*)},
+	{"done", "()Z", nullptr, $PUBLIC, $virtualMethod(InferenceContext$1, done, bool)},
 	{}
 };
 

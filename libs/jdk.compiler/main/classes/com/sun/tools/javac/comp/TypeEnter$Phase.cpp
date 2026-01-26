@@ -55,10 +55,10 @@ $FieldInfo _TypeEnter$Phase_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$Phase_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;Lcom/sun/tools/javac/comp/TypeEnter$Phase;)V", nullptr, 0, $method(static_cast<void(TypeEnter$Phase::*)($TypeEnter*,$Dependencies$CompletionCause*,TypeEnter$Phase*)>(&TypeEnter$Phase::init$))},
-	{"completeEnvs", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC | $FINAL, $method(static_cast<$List*(TypeEnter$Phase::*)($List*)>(&TypeEnter$Phase::completeEnvs))},
-	{"doCompleteEnvs", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)V", $PROTECTED},
-	{"runPhase", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED | $ABSTRACT},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;Lcom/sun/tools/javac/comp/TypeEnter$Phase;)V", nullptr, 0, $method(TypeEnter$Phase, init$, void, $TypeEnter*, $Dependencies$CompletionCause*, TypeEnter$Phase*)},
+	{"completeEnvs", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC | $FINAL, $method(TypeEnter$Phase, completeEnvs, $List*, $List*)},
+	{"doCompleteEnvs", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)V", $PROTECTED, $virtualMethod(TypeEnter$Phase, doCompleteEnvs, void, $List*)},
+	{"runPhase", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED | $ABSTRACT, $virtualMethod(TypeEnter$Phase, runPhase, void, $Env*)},
 	{}
 };
 

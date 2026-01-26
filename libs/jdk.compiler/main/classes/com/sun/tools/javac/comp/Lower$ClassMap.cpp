@@ -28,8 +28,8 @@ $FieldInfo _Lower$ClassMap_FieldInfo_[] = {
 };
 
 $MethodInfo _Lower$ClassMap_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;)V", nullptr, 0, $method(static_cast<void(Lower$ClassMap::*)($Lower*)>(&Lower$ClassMap::init$))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;)V", nullptr, 0, $method(Lower$ClassMap, init$, void, $Lower*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Lower$ClassMap, visitClassDef, void, $JCTree$JCClassDecl*)},
 	{}
 };
 

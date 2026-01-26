@@ -29,9 +29,9 @@ $FieldInfo _Types$CandidatesCache$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$CandidatesCache$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$CandidatesCache;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $method(static_cast<void(Types$CandidatesCache$Entry::*)($Types$CandidatesCache*,$Type*,$Symbol$MethodSymbol*)>(&Types$CandidatesCache$Entry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$CandidatesCache;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $method(Types$CandidatesCache$Entry, init$, void, $Types$CandidatesCache*, $Type*, $Symbol$MethodSymbol*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$CandidatesCache$Entry, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Types$CandidatesCache$Entry, hashCode, int32_t)},
 	{}
 };
 

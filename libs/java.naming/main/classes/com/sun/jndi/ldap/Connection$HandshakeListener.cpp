@@ -40,8 +40,8 @@ $FieldInfo _Connection$HandshakeListener_FieldInfo_[] = {
 };
 
 $MethodInfo _Connection$HandshakeListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/Connection;)V", nullptr, $PRIVATE, $method(static_cast<void(Connection$HandshakeListener::*)($Connection*)>(&Connection$HandshakeListener::init$))},
-	{"handshakeCompleted", "(Ljavax/net/ssl/HandshakeCompletedEvent;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jndi/ldap/Connection;)V", nullptr, $PRIVATE, $method(Connection$HandshakeListener, init$, void, $Connection*)},
+	{"handshakeCompleted", "(Ljavax/net/ssl/HandshakeCompletedEvent;)V", nullptr, $PUBLIC, $virtualMethod(Connection$HandshakeListener, handshakeCompleted, void, $HandshakeCompletedEvent*)},
 	{}
 };
 

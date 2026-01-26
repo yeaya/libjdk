@@ -65,15 +65,15 @@ $FieldInfo _DOMSignatureProperty_FieldInfo_[] = {
 $MethodInfo _DOMSignatureProperty_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(static_cast<void(DOMSignatureProperty::*)($List*,$String*,$String*)>(&DOMSignatureProperty::init$))},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(static_cast<void(DOMSignatureProperty::*)($Element*)>(&DOMSignatureProperty::init$)), "javax.xml.crypto.MarshalException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(DOMSignatureProperty, init$, void, $List*, $String*, $String*)},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMSignatureProperty, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, equals, bool, Object$*)},
+	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC, $virtualMethod(DOMSignatureProperty, getContent, $List*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, getId, $String*)},
+	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, getTarget, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, hashCode, int32_t)},
 	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.MarshalException"},
+	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMSignatureProperty, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

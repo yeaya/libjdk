@@ -44,10 +44,10 @@ $FieldInfo _LazyInitFileLog_FieldInfo_[] = {
 };
 
 $MethodInfo _LazyInitFileLog_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LazyInitFileLog::*)($String*)>(&LazyInitFileLog::init$))},
-	{"getAvailableDestination", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(static_cast<$Path*(LazyInitFileLog::*)()>(&LazyInitFileLog::getAvailableDestination))},
-	{"getLogDestination", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"printLogMsg", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LazyInitFileLog, init$, void, $String*)},
+	{"getAvailableDestination", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(LazyInitFileLog, getAvailableDestination, $Path*)},
+	{"getLogDestination", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(LazyInitFileLog, getLogDestination, $Path*)},
+	{"printLogMsg", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(LazyInitFileLog, printLogMsg, void, $Log$Level*, $String*)},
 	{}
 };
 

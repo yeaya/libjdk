@@ -31,11 +31,11 @@ $FieldInfo _Bits$BitsState_FieldInfo_[] = {
 };
 
 $MethodInfo _Bits$BitsState_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/Bits$BitsState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Bits$BitsStateArray*(*)()>(&Bits$BitsState::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Bits$BitsState::*)($String*,int32_t)>(&Bits$BitsState::init$))},
-	{"getState", "([IZ)Lcom/sun/tools/javac/util/Bits$BitsState;", nullptr, $STATIC, $method(static_cast<Bits$BitsState*(*)($ints*,bool)>(&Bits$BitsState::getState))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Bits$BitsState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Bits$BitsState*(*)($String*)>(&Bits$BitsState::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/Bits$BitsState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Bits$BitsStateArray*(*)()>(&Bits$BitsState::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/Bits$BitsState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bits$BitsState, $values, $Bits$BitsStateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Bits$BitsState, init$, void, $String*, int32_t)},
+	{"getState", "([IZ)Lcom/sun/tools/javac/util/Bits$BitsState;", nullptr, $STATIC, $staticMethod(Bits$BitsState, getState, Bits$BitsState*, $ints*, bool)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Bits$BitsState;", nullptr, $PUBLIC | $STATIC, $staticMethod(Bits$BitsState, valueOf, Bits$BitsState*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/Bits$BitsState;", nullptr, $PUBLIC | $STATIC, $staticMethod(Bits$BitsState, values, $Bits$BitsStateArray*)},
 	{}
 };
 

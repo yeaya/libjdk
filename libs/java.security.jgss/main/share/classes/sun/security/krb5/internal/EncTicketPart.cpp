@@ -57,12 +57,12 @@ $FieldInfo _EncTicketPart_FieldInfo_[] = {
 };
 
 $MethodInfo _EncTicketPart_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/TransitedEncoding;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/internal/AuthorizationData;)V", nullptr, $PUBLIC, $method(static_cast<void(EncTicketPart::*)($TicketFlags*,$EncryptionKey*,$PrincipalName*,$TransitedEncoding*,$KerberosTime*,$KerberosTime*,$KerberosTime*,$KerberosTime*,$HostAddresses*,$AuthorizationData*)>(&EncTicketPart::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(EncTicketPart::*)($bytes*)>(&EncTicketPart::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.KrbException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(EncTicketPart::*)($DerValue*)>(&EncTicketPart::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.KrbException,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"getHexBytes", "([BI)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($bytes*,int32_t)>(&EncTicketPart::getHexBytes)), "java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(EncTicketPart::*)($DerValue*)>(&EncTicketPart::init)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+	{"<init>", "(Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/TransitedEncoding;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/HostAddresses;Lsun/security/krb5/internal/AuthorizationData;)V", nullptr, $PUBLIC, $method(EncTicketPart, init$, void, $TicketFlags*, $EncryptionKey*, $PrincipalName*, $TransitedEncoding*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $HostAddresses*, $AuthorizationData*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncTicketPart, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.KrbException,java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EncTicketPart, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.KrbException,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(EncTicketPart, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"getHexBytes", "([BI)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(EncTicketPart, getHexBytes, $String*, $bytes*, int32_t), "java.io.IOException"},
+	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(EncTicketPart, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
 	{}
 };
 

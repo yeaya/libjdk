@@ -16,12 +16,12 @@ $FieldInfo _RefAddr_FieldInfo_[] = {
 };
 
 $MethodInfo _RefAddr_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(RefAddr::*)($String*)>(&RefAddr::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(RefAddr, init$, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RefAddr, equals, bool, Object$*)},
+	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RefAddr, getContent, $Object*)},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RefAddr, getType, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RefAddr, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RefAddr, toString, $String*)},
 	{}
 };
 

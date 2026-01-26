@@ -12,7 +12,7 @@ using $URI = ::java::net::URI;
 using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 
 $MethodInfo _MultiAuthTest$HttpRequestBuilderFactory_MethodInfo_[] = {
-	{"request", "(Ljava/net/URI;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC},
+	{"request", "(Ljava/net/URI;)Ljava/net/http/HttpRequest$Builder;", nullptr, $PUBLIC, $virtualMethod(MultiAuthTest$HttpRequestBuilderFactory, request, $HttpRequest$Builder*, $URI*)},
 	{}
 };
 

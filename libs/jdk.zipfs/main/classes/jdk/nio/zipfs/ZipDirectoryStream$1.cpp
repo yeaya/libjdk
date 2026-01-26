@@ -28,10 +28,10 @@ $FieldInfo _ZipDirectoryStream$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipDirectoryStream$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipDirectoryStream;)V", nullptr, 0, $method(static_cast<void(ZipDirectoryStream$1::*)($ZipDirectoryStream*)>(&ZipDirectoryStream$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/nio/zipfs/ZipDirectoryStream;)V", nullptr, 0, $method(ZipDirectoryStream$1, init$, void, $ZipDirectoryStream*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipDirectoryStream$1, hasNext, bool)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipDirectoryStream$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ZipDirectoryStream$1, remove, void)},
 	{}
 };
 

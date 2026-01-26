@@ -92,8 +92,8 @@ $FieldInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$rea
 	{}
 };
 $MethodInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::*)(SocketTube$InternalReadPublisher$InternalReadSubscription*)>(&SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, init$, void, SocketTube$InternalReadPublisher$InternalReadSubscription*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read, run, void)},
 	{}
 };
 $ClassInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$read::classInfo$ = {
@@ -132,8 +132,8 @@ $FieldInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$sig
 	{}
 };
 $MethodInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::*)(SocketTube$InternalReadPublisher$InternalReadSubscription*)>(&SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, init$, void, SocketTube$InternalReadPublisher$InternalReadSubscription*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$signalError$1::classInfo$ = {
@@ -172,8 +172,8 @@ $FieldInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$han
 	{}
 };
 $MethodInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::*)(SocketTube$InternalReadPublisher$InternalReadSubscription*)>(&SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, $PUBLIC, $method(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, init$, void, SocketTube$InternalReadPublisher$InternalReadSubscription*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2, run, void)},
 	{}
 };
 $ClassInfo SocketTube$InternalReadPublisher$InternalReadSubscription$$Lambda$handleSubscribeEvent$2::classInfo$ = {
@@ -202,18 +202,18 @@ $FieldInfo _SocketTube$InternalReadPublisher$InternalReadSubscription_FieldInfo_
 };
 
 $MethodInfo _SocketTube$InternalReadPublisher$InternalReadSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher;)V", nullptr, 0, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription::*)($SocketTube$InternalReadPublisher*)>(&SocketTube$InternalReadPublisher$InternalReadSubscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC | $FINAL},
-	{"handleError", "()V", nullptr, $FINAL, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription::*)()>(&SocketTube$InternalReadPublisher$InternalReadSubscription::handleError))},
-	{"handlePending", "()Z", nullptr, 0, $method(static_cast<bool(SocketTube$InternalReadPublisher$InternalReadSubscription::*)()>(&SocketTube$InternalReadPublisher$InternalReadSubscription::handlePending))},
-	{"handleSubscribeEvent", "()V", nullptr, $FINAL, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription::*)()>(&SocketTube$InternalReadPublisher$InternalReadSubscription::handleSubscribeEvent))},
-	{"pauseReadEvent", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription::*)()>(&SocketTube$InternalReadPublisher$InternalReadSubscription::pauseReadEvent))},
-	{"read", "()V", nullptr, $FINAL, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription::*)()>(&SocketTube$InternalReadPublisher$InternalReadSubscription::read))},
-	{"request", "(J)V", nullptr, $PUBLIC | $FINAL},
-	{"resumeReadEvent", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription::*)()>(&SocketTube$InternalReadPublisher$InternalReadSubscription::resumeReadEvent))},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $FINAL, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription::*)($Throwable*)>(&SocketTube$InternalReadPublisher$InternalReadSubscription::signalError))},
-	{"signalReadable", "()V", nullptr, $FINAL, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription::*)()>(&SocketTube$InternalReadPublisher$InternalReadSubscription::signalReadable))},
-	{"signalSubscribe", "()V", nullptr, $FINAL, $method(static_cast<void(SocketTube$InternalReadPublisher$InternalReadSubscription::*)()>(&SocketTube$InternalReadPublisher$InternalReadSubscription::signalSubscribe))},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher;)V", nullptr, 0, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, init$, void, $SocketTube$InternalReadPublisher*)},
+	{"cancel", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription, cancel, void)},
+	{"handleError", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, handleError, void)},
+	{"handlePending", "()Z", nullptr, 0, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, handlePending, bool)},
+	{"handleSubscribeEvent", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, handleSubscribeEvent, void)},
+	{"pauseReadEvent", "()V", nullptr, $PRIVATE, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, pauseReadEvent, void)},
+	{"read", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, read, void)},
+	{"request", "(J)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$InternalReadPublisher$InternalReadSubscription, request, void, int64_t)},
+	{"resumeReadEvent", "()V", nullptr, $PRIVATE, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, resumeReadEvent, void)},
+	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, signalError, void, $Throwable*)},
+	{"signalReadable", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, signalReadable, void)},
+	{"signalSubscribe", "()V", nullptr, $FINAL, $method(SocketTube$InternalReadPublisher$InternalReadSubscription, signalSubscribe, void)},
 	{}
 };
 

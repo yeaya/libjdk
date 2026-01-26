@@ -31,11 +31,11 @@ $FieldInfo _Type$CapturedType$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$CapturedType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$CapturedType;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(static_cast<void(Type$CapturedType$1::*)($Type$CapturedType*,$Symbol$TypeSymbol*,$Type*,$Type*,$Type*,$Type$WildcardType*,$TypeMetadata*)>(&Type$CapturedType$1::init$))},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$TypeVar;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getUpperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"setUpperBound", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$CapturedType;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$CapturedType$1, init$, void, $Type$CapturedType*, $Symbol$TypeSymbol*, $Type*, $Type*, $Type*, $Type$WildcardType*, $TypeMetadata*)},
+	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType$1, baseType, $Type*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$TypeVar;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$CapturedType$1, cloneWithMetadata, $Type$CapturedType*, $TypeMetadata*)},
+	{"getUpperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType$1, getUpperBound, $Type*)},
+	{"setUpperBound", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType$1, setUpperBound, void, $Type*)},
 	{}
 };
 

@@ -18,8 +18,8 @@ $FieldInfo _UnmarshalException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnmarshalException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnmarshalException::*)($String*)>(&UnmarshalException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(UnmarshalException::*)($String*,$Exception*)>(&UnmarshalException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnmarshalException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(UnmarshalException, init$, void, $String*, $Exception*)},
 	{}
 };
 

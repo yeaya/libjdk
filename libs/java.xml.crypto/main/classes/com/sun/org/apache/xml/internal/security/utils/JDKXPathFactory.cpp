@@ -21,8 +21,8 @@ namespace com {
 							namespace utils {
 
 $MethodInfo _JDKXPathFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JDKXPathFactory::*)()>(&JDKXPathFactory::init$))},
-	{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JDKXPathFactory, init$, void)},
+	{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC, $virtualMethod(JDKXPathFactory, newXPathAPI, $XPathAPI*)},
 	{}
 };
 

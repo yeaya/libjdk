@@ -20,9 +20,9 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Types$24_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Types$24::*)()>(&Types$24::init$))},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(Types$24, init$, void)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$24, visitTypeVar, $Integer*, $Type$TypeVar*, $Void*)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$24, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
 	{}
 };
 

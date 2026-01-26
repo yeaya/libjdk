@@ -47,13 +47,13 @@ $FieldInfo _Http1Request$FixedContentSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Request$FixedContentSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Request;)V", nullptr, 0, $method(static_cast<void(Http1Request$FixedContentSubscriber::*)($Http1Request*)>(&Http1Request$FixedContentSubscriber::init$))},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Request$FixedContentSubscriber::*)($ByteBuffer*)>(&Http1Request$FixedContentSubscriber::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Request;)V", nullptr, 0, $method(Http1Request$FixedContentSubscriber, init$, void, $Http1Request*)},
+	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, currentStateMessage, $String*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(Http1Request$FixedContentSubscriber, onNext, void, $ByteBuffer*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1Request$FixedContentSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1Request$FixedContentSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

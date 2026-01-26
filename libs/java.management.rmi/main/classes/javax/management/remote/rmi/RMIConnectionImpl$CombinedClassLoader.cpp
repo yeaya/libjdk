@@ -28,8 +28,8 @@ $FieldInfo _RMIConnectionImpl$CombinedClassLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnectionImpl$CombinedClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(static_cast<void(RMIConnectionImpl$CombinedClassLoader::*)($ClassLoader*,$ClassLoader*)>(&RMIConnectionImpl$CombinedClassLoader::init$))},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(RMIConnectionImpl$CombinedClassLoader, init$, void, $ClassLoader*, $ClassLoader*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(RMIConnectionImpl$CombinedClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
 	{}
 };
 

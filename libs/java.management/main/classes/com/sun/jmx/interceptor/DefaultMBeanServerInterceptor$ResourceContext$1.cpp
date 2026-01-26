@@ -13,10 +13,10 @@ namespace com {
 			namespace interceptor {
 
 $MethodInfo _DefaultMBeanServerInterceptor$ResourceContext$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DefaultMBeanServerInterceptor$ResourceContext$1::*)()>(&DefaultMBeanServerInterceptor$ResourceContext$1::init$))},
-	{"done", "()V", nullptr, $PUBLIC},
-	{"registering", "()V", nullptr, $PUBLIC},
-	{"unregistered", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DefaultMBeanServerInterceptor$ResourceContext$1, init$, void)},
+	{"done", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ResourceContext$1, done, void)},
+	{"registering", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ResourceContext$1, registering, void)},
+	{"unregistered", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ResourceContext$1, unregistered, void)},
 	{}
 };
 

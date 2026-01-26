@@ -119,8 +119,8 @@ $FieldInfo ModelMBeanInfoSupport$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ModelMBeanInfoSupport$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(ModelMBeanInfoSupport$$Lambda$toString::*)($StringBuilder*)>(&ModelMBeanInfoSupport$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(ModelMBeanInfoSupport$$Lambda$toString, init$, void, $StringBuilder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo ModelMBeanInfoSupport$$Lambda$toString::classInfo$ = {
@@ -174,27 +174,27 @@ $MethodInfo _ModelMBeanInfoSupport_MethodInfo_[] = {
 	{"*getNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC},
 	{"*getOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljavax/management/modelmbean/ModelMBeanInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(ModelMBeanInfoSupport::*)($ModelMBeanInfo*)>(&ModelMBeanInfoSupport::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/modelmbean/ModelMBeanAttributeInfo;[Ljavax/management/modelmbean/ModelMBeanConstructorInfo;[Ljavax/management/modelmbean/ModelMBeanOperationInfo;[Ljavax/management/modelmbean/ModelMBeanNotificationInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(ModelMBeanInfoSupport::*)($String*,$String*,$ModelMBeanAttributeInfoArray*,$ModelMBeanConstructorInfoArray*,$ModelMBeanOperationInfoArray*,$ModelMBeanNotificationInfoArray*)>(&ModelMBeanInfoSupport::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/modelmbean/ModelMBeanAttributeInfo;[Ljavax/management/modelmbean/ModelMBeanConstructorInfo;[Ljavax/management/modelmbean/ModelMBeanOperationInfo;[Ljavax/management/modelmbean/ModelMBeanNotificationInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(ModelMBeanInfoSupport::*)($String*,$String*,$ModelMBeanAttributeInfoArray*,$ModelMBeanConstructorInfoArray*,$ModelMBeanOperationInfoArray*,$ModelMBeanNotificationInfoArray*,$Descriptor*)>(&ModelMBeanInfoSupport::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getAttribute", "(Ljava/lang/String;)Ljavax/management/modelmbean/ModelMBeanAttributeInfo;", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"getConstructor", "(Ljava/lang/String;)Ljavax/management/modelmbean/ModelMBeanConstructorInfo;", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"getDescriptor", "(Ljava/lang/String;)Ljavax/management/Descriptor;", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"getDescriptor", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/management/Descriptor;", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC},
-	{"getDescriptors", "(Ljava/lang/String;)[Ljavax/management/Descriptor;", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"getMBeanDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException"},
-	{"getMBeanDescriptorNoException", "()Ljavax/management/Descriptor;", nullptr, $PRIVATE, $method(static_cast<$Descriptor*(ModelMBeanInfoSupport::*)()>(&ModelMBeanInfoSupport::getMBeanDescriptorNoException))},
-	{"getNotification", "(Ljava/lang/String;)Ljavax/management/modelmbean/ModelMBeanNotificationInfo;", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"getOperation", "(Ljava/lang/String;)Ljavax/management/modelmbean/ModelMBeanOperationInfo;", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ModelMBeanInfoSupport::*)($ObjectInputStream*)>(&ModelMBeanInfoSupport::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setDescriptor", "(Ljavax/management/Descriptor;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"setDescriptors", "([Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
-	{"setMBeanDescriptor", "(Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, nullptr, "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+	{"<init>", "(Ljavax/management/modelmbean/ModelMBeanInfo;)V", nullptr, $PUBLIC, $method(ModelMBeanInfoSupport, init$, void, $ModelMBeanInfo*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/modelmbean/ModelMBeanAttributeInfo;[Ljavax/management/modelmbean/ModelMBeanConstructorInfo;[Ljavax/management/modelmbean/ModelMBeanOperationInfo;[Ljavax/management/modelmbean/ModelMBeanNotificationInfo;)V", nullptr, $PUBLIC, $method(ModelMBeanInfoSupport, init$, void, $String*, $String*, $ModelMBeanAttributeInfoArray*, $ModelMBeanConstructorInfoArray*, $ModelMBeanOperationInfoArray*, $ModelMBeanNotificationInfoArray*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/modelmbean/ModelMBeanAttributeInfo;[Ljavax/management/modelmbean/ModelMBeanConstructorInfo;[Ljavax/management/modelmbean/ModelMBeanOperationInfo;[Ljavax/management/modelmbean/ModelMBeanNotificationInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(ModelMBeanInfoSupport, init$, void, $String*, $String*, $ModelMBeanAttributeInfoArray*, $ModelMBeanConstructorInfoArray*, $ModelMBeanOperationInfoArray*, $ModelMBeanNotificationInfoArray*, $Descriptor*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, clone, $Object*)},
+	{"getAttribute", "(Ljava/lang/String;)Ljavax/management/modelmbean/ModelMBeanAttributeInfo;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, getAttribute, $ModelMBeanAttributeInfo*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+	{"getConstructor", "(Ljava/lang/String;)Ljavax/management/modelmbean/ModelMBeanConstructorInfo;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, getConstructor, $ModelMBeanConstructorInfo*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+	{"getDescriptor", "(Ljava/lang/String;)Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, getDescriptor, $Descriptor*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+	{"getDescriptor", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, getDescriptor, $Descriptor*, $String*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+	{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, getDescriptor, $Descriptor*)},
+	{"getDescriptors", "(Ljava/lang/String;)[Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, getDescriptors, $DescriptorArray*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+	{"getMBeanDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, getMBeanDescriptor, $Descriptor*), "javax.management.MBeanException"},
+	{"getMBeanDescriptorNoException", "()Ljavax/management/Descriptor;", nullptr, $PRIVATE, $method(ModelMBeanInfoSupport, getMBeanDescriptorNoException, $Descriptor*)},
+	{"getNotification", "(Ljava/lang/String;)Ljavax/management/modelmbean/ModelMBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, getNotification, $ModelMBeanNotificationInfo*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+	{"getOperation", "(Ljava/lang/String;)Ljavax/management/modelmbean/ModelMBeanOperationInfo;", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, getOperation, $ModelMBeanOperationInfo*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ModelMBeanInfoSupport, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"setDescriptor", "(Ljavax/management/Descriptor;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, setDescriptor, void, $Descriptor*, $String*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+	{"setDescriptors", "([Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, setDescriptors, void, $DescriptorArray*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
+	{"setMBeanDescriptor", "(Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $virtualMethod(ModelMBeanInfoSupport, setMBeanDescriptor, void, $Descriptor*), "javax.management.MBeanException,javax.management.RuntimeOperationsException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validDescriptor", "(Ljavax/management/Descriptor;)Ljavax/management/Descriptor;", nullptr, $PRIVATE, $method(static_cast<$Descriptor*(ModelMBeanInfoSupport::*)($Descriptor*)>(&ModelMBeanInfoSupport::validDescriptor)), "javax.management.RuntimeOperationsException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(ModelMBeanInfoSupport::*)($ObjectOutputStream*)>(&ModelMBeanInfoSupport::writeObject)), "java.io.IOException"},
+	{"validDescriptor", "(Ljavax/management/Descriptor;)Ljavax/management/Descriptor;", nullptr, $PRIVATE, $method(ModelMBeanInfoSupport, validDescriptor, $Descriptor*, $Descriptor*), "javax.management.RuntimeOperationsException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ModelMBeanInfoSupport, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

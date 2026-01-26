@@ -67,10 +67,10 @@ $FieldInfo _JavaCompiler$1MethodBodyRemover_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaCompiler$1MethodBodyRemover_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;Z)V", "()V", 0, $method(static_cast<void(JavaCompiler$1MethodBodyRemover::*)($JavaCompiler*,bool)>(&JavaCompiler$1MethodBodyRemover::init$))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;Z)V", "()V", 0, $method(JavaCompiler$1MethodBodyRemover, init$, void, $JavaCompiler*, bool)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1MethodBodyRemover, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1MethodBodyRemover, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1MethodBodyRemover, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

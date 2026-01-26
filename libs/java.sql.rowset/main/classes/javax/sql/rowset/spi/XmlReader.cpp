@@ -4,8 +4,10 @@
 #include <javax/sql/rowset/WebRowSet.h>
 #include <jcpp.h>
 
+using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $WebRowSet = ::javax::sql::rowset::WebRowSet;
 
 namespace javax {
 	namespace sql {
@@ -13,7 +15,7 @@ namespace javax {
 			namespace spi {
 
 $MethodInfo _XmlReader_MethodInfo_[] = {
-	{"readXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/Reader;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"readXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/Reader;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XmlReader, readXML, void, $WebRowSet*, $Reader*), "java.sql.SQLException"},
 	{}
 };
 

@@ -50,15 +50,15 @@ $FieldInfo _Request$ReadStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Request$ReadStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(static_cast<void(Request$ReadStream::*)($ServerImpl*,$SocketChannel*)>(&Request$ReadStream::init$)), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "([B)I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(Request$ReadStream, init$, void, $ServerImpl*, $SocketChannel*), "java.io.IOException"},
+	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Request$ReadStream, close, void), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, mark, void, int32_t)},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(Request$ReadStream, markSupported, bool)},
+	{"read", "([B)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, reset, void), "java.io.IOException"},
 	{}
 };
 

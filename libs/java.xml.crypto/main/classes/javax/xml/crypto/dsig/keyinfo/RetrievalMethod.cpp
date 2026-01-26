@@ -8,7 +8,10 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Data = ::javax::xml::crypto::Data;
 using $URIReference = ::javax::xml::crypto::URIReference;
+using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 
 namespace javax {
 	namespace xml {
@@ -18,10 +21,10 @@ namespace javax {
 
 $MethodInfo _RetrievalMethod_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"dereference", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.URIReferenceException"},
+	{"dereference", "(Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RetrievalMethod, dereference, $Data*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getTransforms", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PUBLIC | $ABSTRACT},
+	{"getTransforms", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Transform;>;", $PUBLIC | $ABSTRACT, $virtualMethod(RetrievalMethod, getTransforms, $List*)},
 	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},

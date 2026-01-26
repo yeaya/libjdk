@@ -25,9 +25,9 @@ $FieldInfo _CRTable$SourceRange_FieldInfo_[] = {
 };
 
 $MethodInfo _CRTable$SourceRange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(CRTable$SourceRange::*)()>(&CRTable$SourceRange::init$))},
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(CRTable$SourceRange::*)(int32_t,int32_t)>(&CRTable$SourceRange::init$))},
-	{"mergeWith", "(Lcom/sun/tools/javac/jvm/CRTable$SourceRange;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(CRTable$SourceRange, init$, void)},
+	{"<init>", "(II)V", nullptr, 0, $method(CRTable$SourceRange, init$, void, int32_t, int32_t)},
+	{"mergeWith", "(Lcom/sun/tools/javac/jvm/CRTable$SourceRange;)Lcom/sun/tools/javac/jvm/CRTable$SourceRange;", nullptr, 0, $virtualMethod(CRTable$SourceRange, mergeWith, CRTable$SourceRange*, CRTable$SourceRange*)},
 	{}
 };
 

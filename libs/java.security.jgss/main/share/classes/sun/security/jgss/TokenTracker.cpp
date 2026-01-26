@@ -30,11 +30,11 @@ $FieldInfo _TokenTracker_FieldInfo_[] = {
 };
 
 $MethodInfo _TokenTracker_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(TokenTracker::*)(int32_t)>(&TokenTracker::init$))},
-	{"add", "(II)V", nullptr, $PRIVATE, $method(static_cast<void(TokenTracker::*)(int32_t,int32_t)>(&TokenTracker::add))},
-	{"getIntervalIndex", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(TokenTracker::*)(int32_t)>(&TokenTracker::getIntervalIndex))},
-	{"getProps", "(ILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<void(TokenTracker::*)(int32_t,$MessageProp*)>(&TokenTracker::getProps))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TokenTracker, init$, void, int32_t)},
+	{"add", "(II)V", nullptr, $PRIVATE, $method(TokenTracker, add, void, int32_t, int32_t)},
+	{"getIntervalIndex", "(I)I", nullptr, $PRIVATE, $method(TokenTracker, getIntervalIndex, int32_t, int32_t)},
+	{"getProps", "(ILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(TokenTracker, getProps, void, int32_t, $MessageProp*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TokenTracker, toString, $String*)},
 	{}
 };
 

@@ -77,18 +77,18 @@ $FieldInfo _Check$Validator_FieldInfo_[] = {
 };
 
 $MethodInfo _Check$Validator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(static_cast<void(Check$Validator::*)($Check*,$Env*)>(&Check$Validator::init$))},
-	{"validateTree", "(Lcom/sun/tools/javac/tree/JCTree;ZZ)V", nullptr, $PUBLIC},
-	{"validateTrees", "(Lcom/sun/tools/javac/util/List;ZZ)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;ZZ)V", $PUBLIC},
-	{"visitAnnotatedType", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;)V", nullptr, $PUBLIC},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
-	{"visitSelectInternal", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC},
-	{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC},
-	{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC},
-	{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Check$Validator, init$, void, $Check*, $Env*)},
+	{"validateTree", "(Lcom/sun/tools/javac/tree/JCTree;ZZ)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, validateTree, void, $JCTree*, bool, bool)},
+	{"validateTrees", "(Lcom/sun/tools/javac/util/List;ZZ)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;ZZ)V", $PUBLIC, $virtualMethod(Check$Validator, validateTrees, void, $List*, bool, bool)},
+	{"visitAnnotatedType", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitAnnotatedType, void, $JCTree$JCAnnotatedType*)},
+	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitSelect, void, $JCTree$JCFieldAccess*)},
+	{"visitSelectInternal", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitSelectInternal, void, $JCTree$JCFieldAccess*)},
+	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTree, void, $JCTree*)},
+	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeApply, void, $JCTree$JCTypeApply*)},
+	{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
+	{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeIdent, void, $JCTree$JCPrimitiveTypeTree*)},
+	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+	{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitWildcard, void, $JCTree$JCWildcard*)},
 	{}
 };
 

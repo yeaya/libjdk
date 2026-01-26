@@ -39,11 +39,11 @@ $FieldInfo _ServiceProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ServiceProxy::*)()>(&ServiceProxy::init$))},
-	{"fail", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$String*)>(&ServiceProxy::fail)), "com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError"},
-	{"fail", "(Ljava/lang/Class;Ljava/net/URL;ILjava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/net/URL;ILjava/lang/String;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$URL*,int32_t,$String*)>(&ServiceProxy::fail)), "com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError"},
-	{"hasService", "(Ljava/lang/Class;[Ljava/net/URL;)Z", "(Ljava/lang/Class<*>;[Ljava/net/URL;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*,$URLArray*)>(&ServiceProxy::hasService)), "com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError"},
-	{"parse", "(Ljava/lang/Class;Ljava/net/URL;)Z", "(Ljava/lang/Class<*>;Ljava/net/URL;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($Class*,$URL*)>(&ServiceProxy::parse)), "com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError"},
+	{"<init>", "()V", nullptr, 0, $method(ServiceProxy, init$, void)},
+	{"fail", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(ServiceProxy, fail, void, $Class*, $String*), "com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError"},
+	{"fail", "(Ljava/lang/Class;Ljava/net/URL;ILjava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/net/URL;ILjava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(ServiceProxy, fail, void, $Class*, $URL*, int32_t, $String*), "com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError"},
+	{"hasService", "(Ljava/lang/Class;[Ljava/net/URL;)Z", "(Ljava/lang/Class<*>;[Ljava/net/URL;)Z", $PUBLIC | $STATIC, $staticMethod(ServiceProxy, hasService, bool, $Class*, $URLArray*), "com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError"},
+	{"parse", "(Ljava/lang/Class;Ljava/net/URL;)Z", "(Ljava/lang/Class<*>;Ljava/net/URL;)Z", $PRIVATE | $STATIC, $staticMethod(ServiceProxy, parse, bool, $Class*, $URL*), "com.sun.tools.javac.processing.ServiceProxy$ServiceConfigurationError"},
 	{}
 };
 

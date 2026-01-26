@@ -35,7 +35,7 @@ $FieldInfo _MessageQueue$Message_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageQueue$Message_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MessageQueue$Message::*)()>(&MessageQueue$Message::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MessageQueue$Message, init$, void)},
 	{}
 };
 

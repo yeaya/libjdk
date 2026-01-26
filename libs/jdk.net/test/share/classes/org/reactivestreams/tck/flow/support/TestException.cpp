@@ -13,7 +13,7 @@ namespace org {
 				namespace support {
 
 $MethodInfo _TestException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestException::*)()>(&TestException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestException, init$, void)},
 	{}
 };
 

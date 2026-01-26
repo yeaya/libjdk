@@ -21,11 +21,11 @@ namespace com {
 				namespace file {
 
 $MethodInfo _PathFileObject$JRTFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(static_cast<void(PathFileObject$JRTFileObject::*)($BaseFileManager*,$Path*)>(&PathFileObject$JRTFileObject::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0},
-	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(PathFileObject$JRTFileObject, init$, void, $BaseFileManager*, $Path*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JRTFileObject, getName, $String*)},
+	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0, $virtualMethod(PathFileObject$JRTFileObject, getSibling, $PathFileObject*, $String*)},
+	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(PathFileObject$JRTFileObject, inferBinaryName, $String*, $Iterable*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$JRTFileObject, toString, $String*)},
 	{}
 };
 

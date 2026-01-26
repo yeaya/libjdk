@@ -19,8 +19,8 @@ $FieldInfo _FileSystemPreferences$Change_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemPreferences$Change_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences$Change::*)($FileSystemPreferences*)>(&FileSystemPreferences$Change::init$))},
-	{"replay", "()V", nullptr, $ABSTRACT},
+	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, $PRIVATE, $method(FileSystemPreferences$Change, init$, void, $FileSystemPreferences*)},
+	{"replay", "()V", nullptr, $ABSTRACT, $virtualMethod(FileSystemPreferences$Change, replay, void)},
 	{}
 };
 

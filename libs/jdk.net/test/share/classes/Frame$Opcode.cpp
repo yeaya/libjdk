@@ -42,12 +42,12 @@ $FieldInfo _Frame$Opcode_FieldInfo_[] = {
 };
 
 $MethodInfo _Frame$Opcode_MethodInfo_[] = {
-	{"$values", "()[LFrame$Opcode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Frame$OpcodeArray*(*)()>(&Frame$Opcode::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(Frame$Opcode::*)($String*,int32_t,int32_t)>(&Frame$Opcode::init$))},
-	{"isControl", "()Z", nullptr, 0, $method(static_cast<bool(Frame$Opcode::*)()>(&Frame$Opcode::isControl))},
-	{"ofCode", "(I)LFrame$Opcode;", nullptr, $STATIC, $method(static_cast<Frame$Opcode*(*)(int32_t)>(&Frame$Opcode::ofCode))},
-	{"valueOf", "(Ljava/lang/String;)LFrame$Opcode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Frame$Opcode*(*)($String*)>(&Frame$Opcode::valueOf))},
-	{"values", "()[LFrame$Opcode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Frame$OpcodeArray*(*)()>(&Frame$Opcode::values))},
+	{"$values", "()[LFrame$Opcode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Frame$Opcode, $values, $Frame$OpcodeArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Frame$Opcode, init$, void, $String*, int32_t, int32_t)},
+	{"isControl", "()Z", nullptr, 0, $method(Frame$Opcode, isControl, bool)},
+	{"ofCode", "(I)LFrame$Opcode;", nullptr, $STATIC, $staticMethod(Frame$Opcode, ofCode, Frame$Opcode*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LFrame$Opcode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Frame$Opcode, valueOf, Frame$Opcode*, $String*)},
+	{"values", "()[LFrame$Opcode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Frame$Opcode, values, $Frame$OpcodeArray*)},
 	{}
 };
 

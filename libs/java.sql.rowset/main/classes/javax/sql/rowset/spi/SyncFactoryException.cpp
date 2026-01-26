@@ -19,8 +19,8 @@ $FieldInfo _SyncFactoryException_FieldInfo_[] = {
 };
 
 $MethodInfo _SyncFactoryException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SyncFactoryException::*)()>(&SyncFactoryException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SyncFactoryException::*)($String*)>(&SyncFactoryException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SyncFactoryException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyncFactoryException, init$, void, $String*)},
 	{}
 };
 

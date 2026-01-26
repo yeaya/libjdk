@@ -37,20 +37,20 @@ $FieldInfo _XMLDSigRI_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLDSigRI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLDSigRI::*)()>(&XMLDSigRI::init$))},
-	{"access$000", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$000))},
-	{"access$100", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$100))},
-	{"access$1000", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$1000))},
-	{"access$1100", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$1100))},
-	{"access$1200", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$1200))},
-	{"access$200", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$200))},
-	{"access$300", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$300))},
-	{"access$400", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$400))},
-	{"access$500", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$500))},
-	{"access$600", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$600))},
-	{"access$700", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$700))},
-	{"access$800", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$800))},
-	{"access$900", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(XMLDSigRI*,$Provider$Service*)>(&XMLDSigRI::access$900))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLDSigRI, init$, void)},
+	{"access$000", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$000, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$100", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$100, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$1000", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$1000, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$1100", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$1100, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$1200", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$1200, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$200", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$200, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$300", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$300, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$400", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$400, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$500", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$500, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$600", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$600, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$700", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$700, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$800", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$800, void, XMLDSigRI*, $Provider$Service*)},
+	{"access$900", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$900, void, XMLDSigRI*, $Provider$Service*)},
 	{}
 };
 

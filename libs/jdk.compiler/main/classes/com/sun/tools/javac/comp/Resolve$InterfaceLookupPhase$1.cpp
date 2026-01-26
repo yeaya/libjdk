@@ -22,8 +22,8 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Resolve$InterfaceLookupPhase$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Resolve$InterfaceLookupPhase$1::*)($String*,int32_t)>(&Resolve$InterfaceLookupPhase$1::init$))},
-	{"update", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve;)Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Resolve$InterfaceLookupPhase$1, init$, void, $String*, int32_t)},
+	{"update", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve;)Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, 0, $virtualMethod(Resolve$InterfaceLookupPhase$1, update, $Resolve$InterfaceLookupPhase*, $Symbol*, $Resolve*)},
 	{}
 };
 

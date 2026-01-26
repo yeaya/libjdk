@@ -4,6 +4,8 @@
 #include <com/sun/jndi/ldap/pool/PooledConnection.h>
 #include <jcpp.h>
 
+using $PoolCallback = ::com::sun::jndi::ldap::pool::PoolCallback;
+using $PooledConnection = ::com::sun::jndi::ldap::pool::PooledConnection;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -14,7 +16,7 @@ namespace com {
 				namespace pool {
 
 $MethodInfo _PooledConnectionFactory_MethodInfo_[] = {
-	{"createPooledConnection", "(Lcom/sun/jndi/ldap/pool/PoolCallback;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"createPooledConnection", "(Lcom/sun/jndi/ldap/pool/PoolCallback;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnectionFactory, createPooledConnection, $PooledConnection*, $PoolCallback*), "javax.naming.NamingException"},
 	{}
 };
 

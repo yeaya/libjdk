@@ -24,7 +24,7 @@ $FieldInfo _MacRomania$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MacRomania$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacRomania$Holder::*)()>(&MacRomania$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacRomania$Holder, init$, void)},
 	{}
 };
 

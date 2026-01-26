@@ -26,16 +26,16 @@ $FieldInfo _Position$LineTabMapImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _Position$LineTabMapImpl_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Position$LineTabMapImpl::*)(int32_t)>(&Position$LineTabMapImpl::init$))},
-	{"getColumnNumber", "(I)I", nullptr, $PUBLIC},
-	{"getColumnNumber", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getLineNumber", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getLineNumber", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getPosition", "(II)I", nullptr, $PUBLIC},
-	{"getPosition", "(JJ)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getStartPosition", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getStartPosition", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"setTabPosition", "(I)V", nullptr, $PROTECTED},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Position$LineTabMapImpl, init$, void, int32_t)},
+	{"getColumnNumber", "(I)I", nullptr, $PUBLIC, $virtualMethod(Position$LineTabMapImpl, getColumnNumber, int32_t, int32_t)},
+	{"getColumnNumber", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getColumnNumber, int64_t, int64_t)},
+	{"getLineNumber", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getLineNumber, int64_t, int64_t)},
+	{"getLineNumber", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getLineNumber, int32_t, int32_t)},
+	{"getPosition", "(II)I", nullptr, $PUBLIC, $virtualMethod(Position$LineTabMapImpl, getPosition, int32_t, int32_t, int32_t)},
+	{"getPosition", "(JJ)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getPosition, int64_t, int64_t, int64_t)},
+	{"getStartPosition", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getStartPosition, int64_t, int64_t)},
+	{"getStartPosition", "(I)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Position$LineTabMapImpl, getStartPosition, int32_t, int32_t)},
+	{"setTabPosition", "(I)V", nullptr, $PROTECTED, $virtualMethod(Position$LineTabMapImpl, setTabPosition, void, int32_t)},
 	{}
 };
 

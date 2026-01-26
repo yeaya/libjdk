@@ -4,6 +4,8 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
+using $JavacParser = ::com::sun::tools::javac::parser::JavacParser;
+using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,7 +17,7 @@ namespace com {
 				namespace parser {
 
 $MethodInfo _JavacParser$ErrorRecoveryAction_MethodInfo_[] = {
-	{"doRecover", "(Lcom/sun/tools/javac/parser/JavacParser;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"doRecover", "(Lcom/sun/tools/javac/parser/JavacParser;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacParser$ErrorRecoveryAction, doRecover, $JCTree*, $JavacParser*)},
 	{}
 };
 

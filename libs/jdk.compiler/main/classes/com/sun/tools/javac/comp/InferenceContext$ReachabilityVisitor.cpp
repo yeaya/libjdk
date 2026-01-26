@@ -97,8 +97,8 @@ $FieldInfo InferenceContext$ReachabilityVisitor$$Lambda$visit::fieldInfos[2] = {
 	{}
 };
 $MethodInfo InferenceContext$ReachabilityVisitor$$Lambda$visit::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$UnaryVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(InferenceContext$ReachabilityVisitor$$Lambda$visit::*)($Types$UnaryVisitor*)>(&InferenceContext$ReachabilityVisitor$$Lambda$visit::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$UnaryVisitor;)V", nullptr, $PUBLIC, $method(InferenceContext$ReachabilityVisitor$$Lambda$visit, init$, void, $Types$UnaryVisitor*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor$$Lambda$visit, accept, void, Object$*)},
 	{}
 };
 $ClassInfo InferenceContext$ReachabilityVisitor$$Lambda$visit::classInfo$ = {
@@ -124,21 +124,21 @@ $FieldInfo _InferenceContext$ReachabilityVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _InferenceContext$ReachabilityVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $method(static_cast<void(InferenceContext$ReachabilityVisitor::*)($InferenceContext*)>(&InferenceContext$ReachabilityVisitor::init$))},
-	{"isEquiv", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Z", nullptr, 0},
-	{"scan", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", 0},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $method(InferenceContext$ReachabilityVisitor, init$, void, $InferenceContext*)},
+	{"isEquiv", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Z", nullptr, 0, $virtualMethod(InferenceContext$ReachabilityVisitor, isEquiv, bool, $Type$UndetVar*, $Type*, $Type$UndetVar$InferenceBound*)},
+	{"scan", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", 0, $virtualMethod(InferenceContext$ReachabilityVisitor, scan, void, $List*)},
+	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitArrayType, $Void*, $Type$ArrayType*, $Void*)},
+	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitClassType, $Void*, $Type$ClassType*, $Void*)},
+	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitType, $Void*, $Type*, $Void*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitType, $Object*, $Type*, Object$*)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitTypeVar, $Void*, $Type$TypeVar*, $Void*)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitUndetVar, $Void*, $Type$UndetVar*, $Void*)},
+	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitWildcardType, $Void*, $Type$WildcardType*, $Void*)},
+	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(InferenceContext$ReachabilityVisitor, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
 	{}
 };
 

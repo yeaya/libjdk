@@ -30,10 +30,10 @@ $FieldInfo _FileObjectWithLocation_FieldInfo_[] = {
 };
 
 $MethodInfo _FileObjectWithLocation_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/FileObject;Ljavax/tools/JavaFileManager$Location;)V", "(TF;Ljavax/tools/JavaFileManager$Location;)V", $PUBLIC, $method(static_cast<void(FileObjectWithLocation::*)($FileObject*,$JavaFileManager$Location*)>(&FileObjectWithLocation::init$))},
-	{"getDelegate", "()Ljavax/tools/FileObject;", nullptr, $PUBLIC},
-	{"getLocation", "()Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/tools/FileObject;Ljavax/tools/JavaFileManager$Location;)V", "(TF;Ljavax/tools/JavaFileManager$Location;)V", $PUBLIC, $method(FileObjectWithLocation, init$, void, $FileObject*, $JavaFileManager$Location*)},
+	{"getDelegate", "()Ljavax/tools/FileObject;", nullptr, $PUBLIC, $virtualMethod(FileObjectWithLocation, getDelegate, $FileObject*)},
+	{"getLocation", "()Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(FileObjectWithLocation, getLocation, $JavaFileManager$Location*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileObjectWithLocation, toString, $String*)},
 	{}
 };
 

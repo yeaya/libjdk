@@ -30,14 +30,14 @@ $FieldInfo _OutgoingHeaders_FieldInfo_[] = {
 };
 
 $MethodInfo _OutgoingHeaders_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpHeaders;Ljava/net/http/HttpHeaders;Ljava/lang/Object;)V", "(Ljava/net/http/HttpHeaders;Ljava/net/http/HttpHeaders;TT;)V", $PUBLIC, $method(static_cast<void(OutgoingHeaders::*)($HttpHeaders*,$HttpHeaders*,Object$*)>(&OutgoingHeaders::init$))},
-	{"getAttachment", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
-	{"getExclusive", "()Z", nullptr, $PUBLIC},
-	{"getStreamDependency", "()I", nullptr, $PUBLIC},
-	{"getSystemHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC},
-	{"getUserHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC},
-	{"getWeight", "()I", nullptr, $PUBLIC},
-	{"setPriority", "(IZI)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpHeaders;Ljava/net/http/HttpHeaders;Ljava/lang/Object;)V", "(Ljava/net/http/HttpHeaders;Ljava/net/http/HttpHeaders;TT;)V", $PUBLIC, $method(OutgoingHeaders, init$, void, $HttpHeaders*, $HttpHeaders*, Object$*)},
+	{"getAttachment", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(OutgoingHeaders, getAttachment, $Object*)},
+	{"getExclusive", "()Z", nullptr, $PUBLIC, $virtualMethod(OutgoingHeaders, getExclusive, bool)},
+	{"getStreamDependency", "()I", nullptr, $PUBLIC, $virtualMethod(OutgoingHeaders, getStreamDependency, int32_t)},
+	{"getSystemHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(OutgoingHeaders, getSystemHeaders, $HttpHeaders*)},
+	{"getUserHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(OutgoingHeaders, getUserHeaders, $HttpHeaders*)},
+	{"getWeight", "()I", nullptr, $PUBLIC, $virtualMethod(OutgoingHeaders, getWeight, int32_t)},
+	{"setPriority", "(IZI)V", nullptr, $PUBLIC, $virtualMethod(OutgoingHeaders, setPriority, void, int32_t, bool, int32_t)},
 	{}
 };
 

@@ -14,7 +14,7 @@ namespace jdk {
 				namespace common {
 
 $MethodInfo _FlowTube$AbstractTubePublisher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowTube$AbstractTubePublisher::*)()>(&FlowTube$AbstractTubePublisher::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowTube$AbstractTubePublisher, init$, void)},
 	{}
 };
 

@@ -31,9 +31,9 @@ $FieldInfo _CompileStates_FieldInfo_[] = {
 };
 
 $MethodInfo _CompileStates_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(static_cast<void(CompileStates::*)($Context*)>(&CompileStates::init$))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/CompileStates;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CompileStates*(*)($Context*)>(&CompileStates::instance))},
-	{"isDone", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(CompileStates, init$, void, $Context*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/CompileStates;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates, instance, CompileStates*, $Context*)},
+	{"isDone", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", $PUBLIC, $virtualMethod(CompileStates, isDone, bool, $Env*, $CompileStates$CompileState*)},
 	{}
 };
 

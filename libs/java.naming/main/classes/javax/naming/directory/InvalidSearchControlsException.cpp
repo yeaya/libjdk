@@ -18,8 +18,8 @@ $FieldInfo _InvalidSearchControlsException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidSearchControlsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidSearchControlsException::*)()>(&InvalidSearchControlsException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidSearchControlsException::*)($String*)>(&InvalidSearchControlsException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidSearchControlsException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidSearchControlsException, init$, void, $String*)},
 	{}
 };
 

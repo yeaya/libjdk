@@ -91,8 +91,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo XMLParserImpl$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLParserImpl$$Lambda$lambda$static$0::*)()>(&XMLParserImpl$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLParserImpl$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLParserImpl$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo XMLParserImpl$$Lambda$lambda$static$0::classInfo$ = {
@@ -117,15 +117,15 @@ $FieldInfo _XMLParserImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLParserImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLParserImpl::*)()>(&XMLParserImpl::init$))},
-	{"createDocumentBuilder", "(Z)Ljavax/xml/parsers/DocumentBuilder;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$DocumentBuilder*(*)(bool)>(&XMLParserImpl::createDocumentBuilder)), "javax.xml.parsers.ParserConfigurationException"},
-	{"getClassLoader", "(Ljava/lang/Class;)Ljava/lang/ClassLoader;", "(Ljava/lang/Class<*>;)Ljava/lang/ClassLoader;", $PRIVATE | $STATIC, $method(static_cast<$ClassLoader*(*)($Class*)>(&XMLParserImpl::getClassLoader))},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ClassLoader*(*)()>(&XMLParserImpl::getContextClassLoader))},
-	{"getDocumentBuilder", "(ZLjava/util/Queue;)Ljavax/xml/parsers/DocumentBuilder;", "(ZLjava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;)Ljavax/xml/parsers/DocumentBuilder;", $PRIVATE | $STATIC, $method(static_cast<$DocumentBuilder*(*)(bool,$Queue*)>(&XMLParserImpl::getDocumentBuilder)), "javax.xml.parsers.ParserConfigurationException"},
-	{"getDocumentBuilderQueue", "(ZLjava/lang/ClassLoader;)Ljava/util/Queue;", "(ZLjava/lang/ClassLoader;)Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;", $PRIVATE | $STATIC, $method(static_cast<$Queue*(*)(bool,$ClassLoader*)>(&XMLParserImpl::getDocumentBuilderQueue)), "javax.xml.parsers.ParserConfigurationException"},
-	{"lambda$static$0", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)()>(&XMLParserImpl::lambda$static$0))},
-	{"parse", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
-	{"repoolDocumentBuilder", "(Ljavax/xml/parsers/DocumentBuilder;Ljava/util/Queue;)V", "(Ljavax/xml/parsers/DocumentBuilder;Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($DocumentBuilder*,$Queue*)>(&XMLParserImpl::repoolDocumentBuilder))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLParserImpl, init$, void)},
+	{"createDocumentBuilder", "(Z)Ljavax/xml/parsers/DocumentBuilder;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, createDocumentBuilder, $DocumentBuilder*, bool), "javax.xml.parsers.ParserConfigurationException"},
+	{"getClassLoader", "(Ljava/lang/Class;)Ljava/lang/ClassLoader;", "(Ljava/lang/Class<*>;)Ljava/lang/ClassLoader;", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getClassLoader, $ClassLoader*, $Class*)},
+	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getContextClassLoader, $ClassLoader*)},
+	{"getDocumentBuilder", "(ZLjava/util/Queue;)Ljavax/xml/parsers/DocumentBuilder;", "(ZLjava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;)Ljavax/xml/parsers/DocumentBuilder;", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getDocumentBuilder, $DocumentBuilder*, bool, $Queue*), "javax.xml.parsers.ParserConfigurationException"},
+	{"getDocumentBuilderQueue", "(ZLjava/lang/ClassLoader;)Ljava/util/Queue;", "(ZLjava/lang/ClassLoader;)Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, getDocumentBuilderQueue, $Queue*, bool, $ClassLoader*), "javax.xml.parsers.ParserConfigurationException"},
+	{"lambda$static$0", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLParserImpl, lambda$static$0, $Integer*)},
+	{"parse", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(XMLParserImpl, parse, $Document*, $InputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
+	{"repoolDocumentBuilder", "(Ljavax/xml/parsers/DocumentBuilder;Ljava/util/Queue;)V", "(Ljavax/xml/parsers/DocumentBuilder;Ljava/util/Queue<Ljavax/xml/parsers/DocumentBuilder;>;)V", $PRIVATE | $STATIC, $staticMethod(XMLParserImpl, repoolDocumentBuilder, void, $DocumentBuilder*, $Queue*)},
 	{}
 };
 

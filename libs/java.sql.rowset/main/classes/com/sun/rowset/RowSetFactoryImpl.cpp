@@ -30,12 +30,12 @@ namespace com {
 		namespace rowset {
 
 $MethodInfo _RowSetFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RowSetFactoryImpl::*)()>(&RowSetFactoryImpl::init$))},
-	{"createCachedRowSet", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
-	{"createFilteredRowSet", "()Ljavax/sql/rowset/FilteredRowSet;", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
-	{"createJdbcRowSet", "()Ljavax/sql/rowset/JdbcRowSet;", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
-	{"createJoinRowSet", "()Ljavax/sql/rowset/JoinRowSet;", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
-	{"createWebRowSet", "()Ljavax/sql/rowset/WebRowSet;", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RowSetFactoryImpl, init$, void)},
+	{"createCachedRowSet", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC, $virtualMethod(RowSetFactoryImpl, createCachedRowSet, $CachedRowSet*), "java.sql.SQLException"},
+	{"createFilteredRowSet", "()Ljavax/sql/rowset/FilteredRowSet;", nullptr, $PUBLIC, $virtualMethod(RowSetFactoryImpl, createFilteredRowSet, $FilteredRowSet*), "java.sql.SQLException"},
+	{"createJdbcRowSet", "()Ljavax/sql/rowset/JdbcRowSet;", nullptr, $PUBLIC, $virtualMethod(RowSetFactoryImpl, createJdbcRowSet, $JdbcRowSet*), "java.sql.SQLException"},
+	{"createJoinRowSet", "()Ljavax/sql/rowset/JoinRowSet;", nullptr, $PUBLIC, $virtualMethod(RowSetFactoryImpl, createJoinRowSet, $JoinRowSet*), "java.sql.SQLException"},
+	{"createWebRowSet", "()Ljavax/sql/rowset/WebRowSet;", nullptr, $PUBLIC, $virtualMethod(RowSetFactoryImpl, createWebRowSet, $WebRowSet*), "java.sql.SQLException"},
 	{}
 };
 

@@ -20,7 +20,7 @@ $FieldInfo _PortFileInaccessibleException_FieldInfo_[] = {
 };
 
 $MethodInfo _PortFileInaccessibleException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(PortFileInaccessibleException::*)($Throwable*)>(&PortFileInaccessibleException::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(PortFileInaccessibleException, init$, void, $Throwable*)},
 	{}
 };
 

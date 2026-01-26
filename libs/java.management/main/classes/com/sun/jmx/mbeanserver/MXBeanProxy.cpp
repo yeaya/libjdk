@@ -50,8 +50,8 @@ $FieldInfo _MXBeanProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _MXBeanProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $method(static_cast<void(MXBeanProxy::*)($Class*)>(&MXBeanProxy::init$))},
-	{"invoke", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Throwable"},
+	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $method(MXBeanProxy, init$, void, $Class*)},
+	{"invoke", "(Ljavax/management/MBeanServerConnection;Ljavax/management/ObjectName;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MXBeanProxy, invoke, $Object*, $MBeanServerConnection*, $ObjectName*, $Method*, $ObjectArray*), "java.lang.Throwable"},
 	{}
 };
 

@@ -25,10 +25,10 @@ $FieldInfo _TreePathScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _TreePathScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreePathScanner::*)()>(&TreePathScanner::init$))},
-	{"getCurrentPath", "()Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC},
-	{"scan", "(Lcom/sun/source/util/TreePath;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/util/TreePath;TP;)TR;", $PUBLIC},
-	{"scan", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreePathScanner, init$, void)},
+	{"getCurrentPath", "()Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreePathScanner, getCurrentPath, $TreePath*)},
+	{"scan", "(Lcom/sun/source/util/TreePath;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/util/TreePath;TP;)TR;", $PUBLIC, $virtualMethod(TreePathScanner, scan, $Object*, $TreePath*, Object$*)},
+	{"scan", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/source/tree/Tree;TP;)TR;", $PUBLIC, $virtualMethod(TreePathScanner, scan, $Object*, $Tree*, Object$*)},
 	{}
 };
 

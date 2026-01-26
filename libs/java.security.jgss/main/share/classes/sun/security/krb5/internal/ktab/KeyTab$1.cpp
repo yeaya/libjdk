@@ -25,9 +25,9 @@ $FieldInfo _KeyTab$1_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyTab$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/ktab/KeyTab;)V", nullptr, 0, $method(static_cast<void(KeyTab$1::*)($KeyTab*)>(&KeyTab$1::init$))},
-	{"compare", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/EncryptionKey;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lsun/security/krb5/internal/ktab/KeyTab;)V", nullptr, 0, $method(KeyTab$1, init$, void, $KeyTab*)},
+	{"compare", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/EncryptionKey;)I", nullptr, $PUBLIC, $virtualMethod(KeyTab$1, compare, int32_t, $EncryptionKey*, $EncryptionKey*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(KeyTab$1, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

@@ -198,8 +198,8 @@ $FieldInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComm
 	{}
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$0::*)(JavadocHelper$OnDemandJavadocHelper*,$JavacTask*,$Element*)>(&JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$0::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$0, init$, void, JavadocHelper$OnDemandJavadocHelper*, $JavacTask*, $Element*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$0, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$0::classInfo$ = {
@@ -231,8 +231,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$1$1::*)()>(&JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$1$1::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$1$1, init$, void)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$1$1, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$getResolvedDocComment$1$1::classInfo$ = {
@@ -264,8 +264,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$2$2::*)()>(&JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$2$2::classInfo$ = {
@@ -310,8 +310,8 @@ $FieldInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInh
 	{}
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$3$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/TypeElement;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$3$3::*)($JavacTask*,$ExecutableElement*,$TypeElement*)>(&JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$3$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/TypeElement;)V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$3$3, init$, void, $JavacTask*, $ExecutableElement*, $TypeElement*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$3$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superMethodsForInheritDoc$3$3::classInfo$ = {
@@ -353,8 +353,8 @@ $FieldInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superTypeForInheri
 	{}
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superTypeForInheritDoc$4$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;Lcom/sun/source/util/JavacTask;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superTypeForInheritDoc$4$4::*)(JavadocHelper$OnDemandJavadocHelper*,$JavacTask*)>(&JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superTypeForInheritDoc$4$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;Lcom/sun/source/util/JavacTask;)V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superTypeForInheritDoc$4$4, init$, void, JavadocHelper$OnDemandJavadocHelper*, $JavacTask*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superTypeForInheritDoc$4$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$superTypeForInheritDoc$4$4::classInfo$ = {
@@ -386,8 +386,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$5$5::*)()>(&JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$5$5::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$5$5, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$5$5, test, bool, Object$*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$5$5::classInfo$ = {
@@ -419,8 +419,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$6$6::*)()>(&JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$6$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$6$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$6$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$interfaces$6$6::classInfo$ = {
@@ -452,8 +452,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$findSource$7$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$findSource$7$7::*)()>(&JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$findSource$7$7::init$))},
-	{"report", "(Ljavax/tools/Diagnostic;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$findSource$7$7, init$, void)},
+	{"report", "(Ljavax/tools/Diagnostic;)V", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$findSource$7$7, report, void, $Diagnostic*)},
 	{}
 };
 $ClassInfo JavadocHelper$OnDemandJavadocHelper$$Lambda$lambda$findSource$7$7::classInfo$ = {
@@ -479,30 +479,30 @@ $FieldInfo _JavadocHelper$OnDemandJavadocHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocHelper$OnDemandJavadocHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/util/JavacTask;Ljavax/tools/StandardJavaFileManager;)V", nullptr, $PRIVATE, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$StandardJavaFileManager*)>(&JavadocHelper$OnDemandJavadocHelper::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"elementSignature", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(JavadocHelper$OnDemandJavadocHelper::*)($Element*)>(&JavadocHelper$OnDemandJavadocHelper::elementSignature))},
-	{"fillElementCache", "(Lcom/sun/source/util/JavacTask;Lcom/sun/source/tree/CompilationUnitTree;)V", nullptr, $PRIVATE, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$CompilationUnitTree*)>(&JavadocHelper$OnDemandJavadocHelper::fillElementCache)), "java.io.IOException"},
-	{"findSource", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/util/Pair;", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/source/util/JavacTask;Lcom/sun/source/tree/CompilationUnitTree;>;", $PRIVATE, $method(static_cast<$Pair*(JavadocHelper$OnDemandJavadocHelper::*)($String*,$String*)>(&JavadocHelper$OnDemandJavadocHelper::findSource)), "java.io.IOException"},
-	{"getResolvedDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getResolvedDocComment", "(Lcom/sun/source/util/JavacTask;Lcom/sun/source/util/TreePath;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$TreePath*)>(&JavadocHelper$OnDemandJavadocHelper::getResolvedDocComment)), "java.io.IOException"},
-	{"getSourceElement", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getSourceElement", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/Pair;", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/source/util/JavacTask;Lcom/sun/source/util/TreePath;>;", $PRIVATE, $method(static_cast<$Pair*(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$Element*)>(&JavadocHelper$OnDemandJavadocHelper::getSourceElement)), "java.io.IOException"},
-	{"getThrownException", "(Lcom/sun/source/util/JavacTask;Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/ThrowsTree;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$TreePath*,$DocCommentTree*,$ThrowsTree*)>(&JavadocHelper$OnDemandJavadocHelper::getThrownException))},
-	{"interfaces", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/stream/Stream;", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/stream/Stream<Ljavax/lang/model/element/Element;>;", $PRIVATE, $method(static_cast<$Stream*(JavadocHelper$OnDemandJavadocHelper::*)($TypeElement*)>(&JavadocHelper$OnDemandJavadocHelper::interfaces))},
-	{"lambda$findSource$7", "(Ljavax/tools/Diagnostic;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Diagnostic*)>(&JavadocHelper$OnDemandJavadocHelper::lambda$findSource$7))},
-	{"lambda$getResolvedDocComment$0", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterator*(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$Element*)>(&JavadocHelper$OnDemandJavadocHelper::lambda$getResolvedDocComment$0))},
-	{"lambda$getResolvedDocComment$1", "([I[I)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($ints*,$ints*)>(&JavadocHelper$OnDemandJavadocHelper::lambda$getResolvedDocComment$1))},
-	{"lambda$interfaces$5", "(Ljavax/lang/model/type/TypeMirror;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($TypeMirror*)>(&JavadocHelper$OnDemandJavadocHelper::lambda$interfaces$5))},
-	{"lambda$interfaces$6", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/element/Element;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Element*(*)($TypeMirror*)>(&JavadocHelper$OnDemandJavadocHelper::lambda$interfaces$6))},
-	{"lambda$superMethodsForInheritDoc$2", "(Ljavax/lang/model/element/Element;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($Element*)>(&JavadocHelper$OnDemandJavadocHelper::lambda$superMethodsForInheritDoc$2))},
-	{"lambda$superMethodsForInheritDoc$3", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/TypeElement;Ljavax/lang/model/element/ExecutableElement;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JavacTask*,$ExecutableElement*,$TypeElement*,$ExecutableElement*)>(&JavadocHelper$OnDemandJavadocHelper::lambda$superMethodsForInheritDoc$3))},
-	{"lambda$superTypeForInheritDoc$4", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Stream*(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$Element*)>(&JavadocHelper$OnDemandJavadocHelper::lambda$superTypeForInheritDoc$4))},
-	{"parseBlockTag", "(Lcom/sun/source/util/JavacTask;Ljava/lang/String;)Lcom/sun/source/doctree/DocTree;", nullptr, $PRIVATE, $method(static_cast<$DocTree*(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$String*)>(&JavadocHelper$OnDemandJavadocHelper::parseBlockTag))},
-	{"parseDocComment", "(Lcom/sun/source/util/JavacTask;Ljava/lang/String;)Lcom/sun/tools/javac/util/Pair;", "(Lcom/sun/source/util/JavacTask;Ljava/lang/String;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Integer;>;", $PRIVATE, $method(static_cast<$Pair*(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$String*)>(&JavadocHelper$OnDemandJavadocHelper::parseDocComment))},
-	{"superMethodsForInheritDoc", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;)Ljava/util/stream/Stream;", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;)Ljava/util/stream/Stream<Ljavax/lang/model/element/ExecutableElement;>;", $PRIVATE, $method(static_cast<$Stream*(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$ExecutableElement*)>(&JavadocHelper$OnDemandJavadocHelper::superMethodsForInheritDoc))},
-	{"superTypeForInheritDoc", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Ljava/util/stream/Stream;", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Ljava/util/stream/Stream<Ljavax/lang/model/element/Element;>;", $PRIVATE, $method(static_cast<$Stream*(JavadocHelper$OnDemandJavadocHelper::*)($JavacTask*,$Element*)>(&JavadocHelper$OnDemandJavadocHelper::superTypeForInheritDoc))},
-	{"topLevelType", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/TypeElement;", nullptr, $PRIVATE, $method(static_cast<$TypeElement*(JavadocHelper$OnDemandJavadocHelper::*)($Element*)>(&JavadocHelper$OnDemandJavadocHelper::topLevelType))},
+	{"<init>", "(Lcom/sun/source/util/JavacTask;Ljavax/tools/StandardJavaFileManager;)V", nullptr, $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, init$, void, $JavacTask*, $StandardJavaFileManager*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper, close, void), "java.io.IOException"},
+	{"elementSignature", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, elementSignature, $String*, $Element*)},
+	{"fillElementCache", "(Lcom/sun/source/util/JavacTask;Lcom/sun/source/tree/CompilationUnitTree;)V", nullptr, $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, fillElementCache, void, $JavacTask*, $CompilationUnitTree*), "java.io.IOException"},
+	{"findSource", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/util/Pair;", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/source/util/JavacTask;Lcom/sun/source/tree/CompilationUnitTree;>;", $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, findSource, $Pair*, $String*, $String*), "java.io.IOException"},
+	{"getResolvedDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper, getResolvedDocComment, $String*, $Element*), "java.io.IOException"},
+	{"getResolvedDocComment", "(Lcom/sun/source/util/JavacTask;Lcom/sun/source/util/TreePath;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, getResolvedDocComment, $String*, $JavacTask*, $TreePath*), "java.io.IOException"},
+	{"getSourceElement", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper, getSourceElement, $Element*, $Element*), "java.io.IOException"},
+	{"getSourceElement", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/Pair;", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/source/util/JavacTask;Lcom/sun/source/util/TreePath;>;", $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, getSourceElement, $Pair*, $JavacTask*, $Element*), "java.io.IOException"},
+	{"getThrownException", "(Lcom/sun/source/util/JavacTask;Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/ThrowsTree;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, getThrownException, $String*, $JavacTask*, $TreePath*, $DocCommentTree*, $ThrowsTree*)},
+	{"interfaces", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/stream/Stream;", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/stream/Stream<Ljavax/lang/model/element/Element;>;", $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, interfaces, $Stream*, $TypeElement*)},
+	{"lambda$findSource$7", "(Ljavax/tools/Diagnostic;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocHelper$OnDemandJavadocHelper, lambda$findSource$7, void, $Diagnostic*)},
+	{"lambda$getResolvedDocComment$0", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavadocHelper$OnDemandJavadocHelper, lambda$getResolvedDocComment$0, $Iterator*, $JavacTask*, $Element*)},
+	{"lambda$getResolvedDocComment$1", "([I[I)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocHelper$OnDemandJavadocHelper, lambda$getResolvedDocComment$1, int32_t, $ints*, $ints*)},
+	{"lambda$interfaces$5", "(Ljavax/lang/model/type/TypeMirror;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocHelper$OnDemandJavadocHelper, lambda$interfaces$5, bool, $TypeMirror*)},
+	{"lambda$interfaces$6", "(Ljavax/lang/model/type/TypeMirror;)Ljavax/lang/model/element/Element;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocHelper$OnDemandJavadocHelper, lambda$interfaces$6, $Element*, $TypeMirror*)},
+	{"lambda$superMethodsForInheritDoc$2", "(Ljavax/lang/model/element/Element;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocHelper$OnDemandJavadocHelper, lambda$superMethodsForInheritDoc$2, $Stream*, $Element*)},
+	{"lambda$superMethodsForInheritDoc$3", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/TypeElement;Ljavax/lang/model/element/ExecutableElement;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocHelper$OnDemandJavadocHelper, lambda$superMethodsForInheritDoc$3, bool, $JavacTask*, $ExecutableElement*, $TypeElement*, $ExecutableElement*)},
+	{"lambda$superTypeForInheritDoc$4", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavadocHelper$OnDemandJavadocHelper, lambda$superTypeForInheritDoc$4, $Stream*, $JavacTask*, $Element*)},
+	{"parseBlockTag", "(Lcom/sun/source/util/JavacTask;Ljava/lang/String;)Lcom/sun/source/doctree/DocTree;", nullptr, $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, parseBlockTag, $DocTree*, $JavacTask*, $String*)},
+	{"parseDocComment", "(Lcom/sun/source/util/JavacTask;Ljava/lang/String;)Lcom/sun/tools/javac/util/Pair;", "(Lcom/sun/source/util/JavacTask;Ljava/lang/String;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Integer;>;", $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, parseDocComment, $Pair*, $JavacTask*, $String*)},
+	{"superMethodsForInheritDoc", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;)Ljava/util/stream/Stream;", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/ExecutableElement;)Ljava/util/stream/Stream<Ljavax/lang/model/element/ExecutableElement;>;", $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, superMethodsForInheritDoc, $Stream*, $JavacTask*, $ExecutableElement*)},
+	{"superTypeForInheritDoc", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Ljava/util/stream/Stream;", "(Lcom/sun/source/util/JavacTask;Ljavax/lang/model/element/Element;)Ljava/util/stream/Stream<Ljavax/lang/model/element/Element;>;", $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, superTypeForInheritDoc, $Stream*, $JavacTask*, $Element*)},
+	{"topLevelType", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/TypeElement;", nullptr, $PRIVATE, $method(JavadocHelper$OnDemandJavadocHelper, topLevelType, $TypeElement*, $Element*)},
 	{}
 };
 

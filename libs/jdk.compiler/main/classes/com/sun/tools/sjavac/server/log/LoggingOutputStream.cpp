@@ -35,8 +35,8 @@ $FieldInfo _LoggingOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _LoggingOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LoggingOutputStream::*)($OutputStream*,$Log$Level*,$String*)>(&LoggingOutputStream::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LoggingOutputStream, init$, void, $OutputStream*, $Log$Level*, $String*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(LoggingOutputStream, write, void, int32_t), "java.io.IOException"},
 	{}
 };
 

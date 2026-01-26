@@ -71,8 +71,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Util$$Lambda$lambda$indexBy$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Util$$Lambda$lambda$indexBy$0::*)()>(&Util$$Lambda$lambda$indexBy$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Util$$Lambda$lambda$indexBy$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Util$$Lambda$lambda$indexBy$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Util$$Lambda$lambda$indexBy$0::classInfo$ = {
@@ -90,30 +90,30 @@ $Class* Util$$Lambda$lambda$indexBy$0::load$($String* name, bool initialize) {
 $Class* Util$$Lambda$lambda$indexBy$0::class$ = nullptr;
 
 $MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Util::*)()>(&Util::init$))},
-	{"cleanSubOptions", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Set*,$String*)>(&Util::cleanSubOptions))},
-	{"extractBooleanOption", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*,$String*,bool)>(&Util::extractBooleanOption))},
-	{"extractIntOption", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*,$String*)>(&Util::extractIntOption))},
-	{"extractIntOption", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($String*,$String*,int32_t)>(&Util::extractIntOption))},
-	{"extractStringOption", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&Util::extractStringOption))},
-	{"extractStringOption", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*,$String*)>(&Util::extractStringOption))},
-	{"extractStringOptionLine", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$String*,$String*)>(&Util::extractStringOptionLine))},
-	{"extractStringOptionWithDelimiter", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*,$String*,char16_t)>(&Util::extractStringOptionWithDelimiter))},
-	{"fileSuffix", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Path*)>(&Util::fileSuffix))},
-	{"findServerSettings", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($StringArray*)>(&Util::findServerSettings))},
-	{"getLines", "(Ljava/lang/String;)Ljava/util/stream/Stream;", "(Ljava/lang/String;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$Stream*(*)($String*)>(&Util::getLines))},
-	{"getStackTrace", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Throwable*)>(&Util::getStackTrace))},
-	{"indexBy", "(Ljava/util/Collection;Ljava/util/function/Function;)Ljava/util/Map;", "<I:Ljava/lang/Object;T:Ljava/lang/Object;>(Ljava/util/Collection<+TT;>;Ljava/util/function/Function<-TT;+TI;>;)Ljava/util/Map<TI;TT;>;", $PUBLIC | $STATIC, $method(static_cast<$Map*(*)($Collection*,$Function*)>(&Util::indexBy))},
-	{"intersection", "(Ljava/util/Collection;Ljava/util/Collection;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<+TE;>;Ljava/util/Collection<+TE;>;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)($Collection*,$Collection*)>(&Util::intersection))},
-	{"justPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Util::justPackageName))},
-	{"lambda$indexBy$0", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)(Object$*)>(&Util::lambda$indexBy$0))},
-	{"normalizeDriveLetter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Util::normalizeDriveLetter))},
-	{"pathToFile", "(Ljava/nio/file/Path;)Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$File*(*)($Path*)>(&Util::pathToFile))},
-	{"pkgNameOfClassName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Util::pkgNameOfClassName))},
-	{"set", "([Ljava/lang/String;)Ljava/util/Set;", "([Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$Set*(*)($StringArray*)>(&Util::set))},
-	{"subtract", "(Ljava/util/Set;Ljava/util/Set;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Set<+TE;>;Ljava/util/Set<+TE;>;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)($Set*,$Set*)>(&Util::subtract))},
-	{"toFileSystemPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Util::toFileSystemPath))},
-	{"union", "(Ljava/util/Set;Ljava/util/Set;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Set<+TE;>;Ljava/util/Set<+TE;>;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)($Set*,$Set*)>(&Util::union$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Util, init$, void)},
+	{"cleanSubOptions", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Util, cleanSubOptions, $String*, $Set*, $String*)},
+	{"extractBooleanOption", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, extractBooleanOption, bool, $String*, $String*, bool)},
+	{"extractIntOption", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, extractIntOption, int32_t, $String*, $String*)},
+	{"extractIntOption", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, extractIntOption, int32_t, $String*, $String*, int32_t)},
+	{"extractStringOption", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, extractStringOption, $String*, $String*, $String*)},
+	{"extractStringOption", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, extractStringOption, $String*, $String*, $String*, $String*)},
+	{"extractStringOptionLine", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, extractStringOptionLine, $String*, $String*, $String*, $String*)},
+	{"extractStringOptionWithDelimiter", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, extractStringOptionWithDelimiter, $String*, $String*, $String*, $String*, char16_t)},
+	{"fileSuffix", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, fileSuffix, $String*, $Path*)},
+	{"findServerSettings", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, findServerSettings, $String*, $StringArray*)},
+	{"getLines", "(Ljava/lang/String;)Ljava/util/stream/Stream;", "(Ljava/lang/String;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Util, getLines, $Stream*, $String*)},
+	{"getStackTrace", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getStackTrace, $String*, $Throwable*)},
+	{"indexBy", "(Ljava/util/Collection;Ljava/util/function/Function;)Ljava/util/Map;", "<I:Ljava/lang/Object;T:Ljava/lang/Object;>(Ljava/util/Collection<+TT;>;Ljava/util/function/Function<-TT;+TI;>;)Ljava/util/Map<TI;TT;>;", $PUBLIC | $STATIC, $staticMethod(Util, indexBy, $Map*, $Collection*, $Function*)},
+	{"intersection", "(Ljava/util/Collection;Ljava/util/Collection;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<+TE;>;Ljava/util/Collection<+TE;>;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Util, intersection, $Set*, $Collection*, $Collection*)},
+	{"justPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, justPackageName, $String*, $String*)},
+	{"lambda$indexBy$0", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Util, lambda$indexBy$0, $Object*, Object$*)},
+	{"normalizeDriveLetter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, normalizeDriveLetter, $String*, $String*)},
+	{"pathToFile", "(Ljava/nio/file/Path;)Ljava/io/File;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, pathToFile, $File*, $Path*)},
+	{"pkgNameOfClassName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, pkgNameOfClassName, $String*, $String*)},
+	{"set", "([Ljava/lang/String;)Ljava/util/Set;", "([Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Util, set, $Set*, $StringArray*)},
+	{"subtract", "(Ljava/util/Set;Ljava/util/Set;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Set<+TE;>;Ljava/util/Set<+TE;>;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Util, subtract, $Set*, $Set*, $Set*)},
+	{"toFileSystemPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, toFileSystemPath, $String*, $String*)},
+	{"union", "(Ljava/util/Set;Ljava/util/Set;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Set<+TE;>;Ljava/util/Set<+TE;>;)Ljava/util/Set<TE;>;", $PUBLIC | $STATIC, $staticMethod(Util, union$, $Set*, $Set*, $Set*)},
 	{}
 };
 

@@ -42,14 +42,14 @@ $FieldInfo _DataFlavorUtil$RMI_FieldInfo_[] = {
 };
 
 $MethodInfo _DataFlavorUtil$RMI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DataFlavorUtil$RMI::*)()>(&DataFlavorUtil$RMI::init$))},
-	{"getClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($String*)>(&DataFlavorUtil$RMI::getClass))},
-	{"getConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$Constructor*(*)($Class*,$ClassArray*)>(&DataFlavorUtil$RMI::getConstructor))},
-	{"getMarshalledObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&DataFlavorUtil$RMI::getMarshalledObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$Method*(*)($Class*,$String*,$ClassArray*)>(&DataFlavorUtil$RMI::getMethod))},
-	{"isRemote", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*)>(&DataFlavorUtil$RMI::isRemote))},
-	{"newMarshalledObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&DataFlavorUtil$RMI::newMarshalledObject)), "java.io.IOException"},
-	{"remoteClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $STATIC, $method(static_cast<$Class*(*)()>(&DataFlavorUtil$RMI::remoteClass))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DataFlavorUtil$RMI, init$, void)},
+	{"getClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(DataFlavorUtil$RMI, getClass, $Class*, $String*)},
+	{"getConstructor", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(DataFlavorUtil$RMI, getConstructor, $Constructor*, $Class*, $ClassArray*)},
+	{"getMarshalledObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil$RMI, getMarshalledObject, $Object*, Object$*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(DataFlavorUtil$RMI, getMethod, $Method*, $Class*, $String*, $ClassArray*)},
+	{"isRemote", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil$RMI, isRemote, bool, $Class*)},
+	{"newMarshalledObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(DataFlavorUtil$RMI, newMarshalledObject, $Object*, Object$*), "java.io.IOException"},
+	{"remoteClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $STATIC, $staticMethod(DataFlavorUtil$RMI, remoteClass, $Class*)},
 	{}
 };
 

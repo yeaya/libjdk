@@ -25,10 +25,10 @@ $MethodInfo _JCTree$JCCaseLabel_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCTree$JCCaseLabel::*)()>(&JCTree$JCCaseLabel::init$))},
-	{"isExpression", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isNullPattern", "()Z", nullptr, $PUBLIC},
-	{"isPattern", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCCaseLabel, init$, void)},
+	{"isExpression", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JCTree$JCCaseLabel, isExpression, bool)},
+	{"isNullPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCCaseLabel, isNullPattern, bool)},
+	{"isPattern", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JCTree$JCCaseLabel, isPattern, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

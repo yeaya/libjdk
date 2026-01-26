@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
+using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $AbstractElementVisitor8 = ::javax::lang::model::util::AbstractElementVisitor8;
 
 namespace javax {
@@ -26,8 +27,8 @@ $CompoundAttribute _AbstractElementVisitor9_Annotations_[] = {
 };
 
 $MethodInfo _AbstractElementVisitor9_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractElementVisitor9::*)()>(&AbstractElementVisitor9::init$))},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement;TP;)TR;", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractElementVisitor9, init$, void)},
+	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(AbstractElementVisitor9, visitModule, $Object*, $ModuleElement*, Object$*)},
 	{}
 };
 

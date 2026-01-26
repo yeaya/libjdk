@@ -22,15 +22,15 @@ $FieldInfo _Des3_FieldInfo_[] = {
 };
 
 $MethodInfo _Des3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Des3::*)()>(&Des3::init$))},
-	{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,int32_t,int32_t)>(&Des3::calculateChecksum)), "java.security.GeneralSecurityException"},
-	{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&Des3::decrypt)), "java.security.GeneralSecurityException"},
-	{"decryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&Des3::decryptRaw)), "java.security.GeneralSecurityException"},
-	{"encrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&Des3::encrypt)), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,$bytes*,$bytes*,int32_t,int32_t)>(&Des3::encryptRaw)), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"getChecksumLength", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&Des3::getChecksumLength))},
-	{"parityFix", "([B)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&Des3::parityFix)), "java.security.GeneralSecurityException"},
-	{"stringToKey", "([C)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($chars*)>(&Des3::stringToKey)), "java.security.GeneralSecurityException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Des3, init$, void)},
+	{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+	{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+	{"decryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+	{"encrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+	{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+	{"getChecksumLength", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, getChecksumLength, int32_t)},
+	{"parityFix", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, parityFix, $bytes*, $bytes*), "java.security.GeneralSecurityException"},
+	{"stringToKey", "([C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des3, stringToKey, $bytes*, $chars*), "java.security.GeneralSecurityException"},
 	{}
 };
 

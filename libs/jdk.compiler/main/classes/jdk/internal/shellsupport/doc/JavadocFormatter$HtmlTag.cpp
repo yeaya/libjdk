@@ -70,11 +70,11 @@ $FieldInfo _JavadocFormatter$HtmlTag_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocFormatter$HtmlTag_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavadocFormatter$HtmlTagArray*(*)()>(&JavadocFormatter$HtmlTag::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JavadocFormatter$HtmlTag::*)($String*,int32_t)>(&JavadocFormatter$HtmlTag::init$))},
-	{"get", "(Ljavax/lang/model/element/Name;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavadocFormatter$HtmlTag*(*)($Name*)>(&JavadocFormatter$HtmlTag::get))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavadocFormatter$HtmlTag*(*)($String*)>(&JavadocFormatter$HtmlTag::valueOf))},
-	{"values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavadocFormatter$HtmlTagArray*(*)()>(&JavadocFormatter$HtmlTag::values))},
+	{"$values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocFormatter$HtmlTag, $values, $JavadocFormatter$HtmlTagArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavadocFormatter$HtmlTag, init$, void, $String*, int32_t)},
+	{"get", "(Ljavax/lang/model/element/Name;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$HtmlTag, get, JavadocFormatter$HtmlTag*, $Name*)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$HtmlTag, valueOf, JavadocFormatter$HtmlTag*, $String*)},
+	{"values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$HtmlTag, values, $JavadocFormatter$HtmlTagArray*)},
 	{}
 };
 

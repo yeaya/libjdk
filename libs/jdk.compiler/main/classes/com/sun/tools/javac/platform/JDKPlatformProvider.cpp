@@ -89,8 +89,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JDKPlatformProvider$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JDKPlatformProvider$$Lambda$lambda$static$0::*)()>(&JDKPlatformProvider$$Lambda$lambda$static$0::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider$$Lambda$lambda$static$0, init$, void)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$$Lambda$lambda$static$0, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo JDKPlatformProvider$$Lambda$lambda$static$0::classInfo$ = {
@@ -115,12 +115,12 @@ $FieldInfo _JDKPlatformProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _JDKPlatformProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JDKPlatformProvider::*)()>(&JDKPlatformProvider::init$))},
-	{"findCtSym", "()Ljava/nio/file/Path;", nullptr, $STATIC, $method(static_cast<$Path*(*)()>(&JDKPlatformProvider::findCtSym))},
-	{"getPlatform", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC},
-	{"getSupportedPlatformNames", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/lang/String;>;", $PUBLIC},
-	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($String*,$String*)>(&JDKPlatformProvider::lambda$static$0))},
-	{"targetNumericVersion", "(Lcom/sun/tools/javac/jvm/Target;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Target*)>(&JDKPlatformProvider::targetNumericVersion))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider, init$, void)},
+	{"findCtSym", "()Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(JDKPlatformProvider, findCtSym, $Path*)},
+	{"getPlatform", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider, getPlatform, $PlatformDescription*, $String*, $String*)},
+	{"getSupportedPlatformNames", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider, getSupportedPlatformNames, $Iterable*)},
+	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider, lambda$static$0, int32_t, $String*, $String*)},
+	{"targetNumericVersion", "(Lcom/sun/tools/javac/jvm/Target;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JDKPlatformProvider, targetNumericVersion, $String*, $Target*)},
 	{}
 };
 

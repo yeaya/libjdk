@@ -15,8 +15,8 @@ namespace java {
 		namespace server {
 
 $MethodInfo _RMIClassLoader$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RMIClassLoader$1::*)()>(&RMIClassLoader$1::init$))},
-	{"run", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(RMIClassLoader$1, init$, void)},
+	{"run", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PUBLIC, $virtualMethod(RMIClassLoader$1, run, $Object*)},
 	{}
 };
 

@@ -45,12 +45,12 @@ $FieldInfo _Options$1StateArgs_FieldInfo_[] = {
 };
 
 $MethodInfo _Options$1StateArgs_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, 0, $method(static_cast<void(Options$1StateArgs::*)($Options*)>(&Options$1StateArgs::init$))},
-	{"addAll", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC},
-	{"addArg", "(Lcom/sun/tools/sjavac/options/Option;)V", nullptr, 0},
-	{"addArg", "(Lcom/sun/tools/sjavac/options/Option;Ljava/lang/Object;)V", nullptr, 0},
-	{"addSourceLocations", "(Lcom/sun/tools/sjavac/options/Option;Ljava/util/List;)V", "(Lcom/sun/tools/sjavac/options/Option;Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;)V", 0},
-	{"getResult", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, 0, $method(Options$1StateArgs, init$, void, $Options*)},
+	{"addAll", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Options$1StateArgs, addAll, void, $Collection*)},
+	{"addArg", "(Lcom/sun/tools/sjavac/options/Option;)V", nullptr, 0, $virtualMethod(Options$1StateArgs, addArg, void, $Option*)},
+	{"addArg", "(Lcom/sun/tools/sjavac/options/Option;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(Options$1StateArgs, addArg, void, $Option*, Object$*)},
+	{"addSourceLocations", "(Lcom/sun/tools/sjavac/options/Option;Ljava/util/List;)V", "(Lcom/sun/tools/sjavac/options/Option;Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;)V", 0, $virtualMethod(Options$1StateArgs, addSourceLocations, void, $Option*, $List*)},
+	{"getResult", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Options$1StateArgs, getResult, $String*)},
 	{}
 };
 

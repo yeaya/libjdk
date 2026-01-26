@@ -9,9 +9,9 @@ namespace javax {
 	namespace naming {
 
 $MethodInfo _NamingEnumeration_MethodInfo_[] = {
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"hasMore", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamingEnumeration, close, void), "javax.naming.NamingException"},
+	{"hasMore", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamingEnumeration, hasMore, bool), "javax.naming.NamingException"},
+	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(NamingEnumeration, next, $Object*), "javax.naming.NamingException"},
 	{}
 };
 

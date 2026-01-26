@@ -29,8 +29,8 @@ $FieldInfo _Infer$LeafSolver_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$LeafSolver_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(static_cast<void(Infer$LeafSolver::*)($Infer*)>(&Infer$LeafSolver::init$))},
-	{"pickNode", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;)V", nullptr, 0, $method(Infer$LeafSolver, init$, void, $Infer*)},
+	{"pickNode", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;", nullptr, $PUBLIC, $virtualMethod(Infer$LeafSolver, pickNode, $Infer$GraphSolver$InferenceGraph$Node*, $Infer$GraphSolver$InferenceGraph*)},
 	{}
 };
 

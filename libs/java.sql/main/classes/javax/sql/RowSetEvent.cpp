@@ -19,7 +19,7 @@ $FieldInfo _RowSetEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _RowSetEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sql/RowSet;)V", nullptr, $PUBLIC, $method(static_cast<void(RowSetEvent::*)($RowSet*)>(&RowSetEvent::init$))},
+	{"<init>", "(Ljavax/sql/RowSet;)V", nullptr, $PUBLIC, $method(RowSetEvent, init$, void, $RowSet*)},
 	{}
 };
 

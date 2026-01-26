@@ -39,13 +39,13 @@ $FieldInfo _Attr$LocalInitScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$LocalInitScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Attr$LocalInitScanner::*)()>(&Attr$LocalInitScanner::init$))},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC},
-	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Attr$LocalInitScanner, init$, void)},
+	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitApply, void, $JCTree$JCMethodInvocation*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitNewArray, void, $JCTree$JCNewArray*)},
+	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitNewClass, void, $JCTree$JCNewClass*)},
+	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitReference, void, $JCTree$JCMemberReference*)},
+	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(Attr$LocalInitScanner, visitTypeCast, void, $JCTree$JCTypeCast*)},
 	{}
 };
 

@@ -32,10 +32,10 @@ $FieldInfo _Infer$IncorporationBinaryOp_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$IncorporationBinaryOp_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Infer$IncorporationBinaryOp::*)($Infer*,$Infer$IncorporationBinaryOpKind*,$Type*,$Type*)>(&Infer$IncorporationBinaryOp::init$))},
-	{"apply", "(Lcom/sun/tools/javac/util/Warner;)Z", nullptr, 0},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Infer$IncorporationBinaryOp, init$, void, $Infer*, $Infer$IncorporationBinaryOpKind*, $Type*, $Type*)},
+	{"apply", "(Lcom/sun/tools/javac/util/Warner;)Z", nullptr, 0, $virtualMethod(Infer$IncorporationBinaryOp, apply, bool, $Warner*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$IncorporationBinaryOp, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Infer$IncorporationBinaryOp, hashCode, int32_t)},
 	{}
 };
 

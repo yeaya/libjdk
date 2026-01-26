@@ -50,9 +50,9 @@ $FieldInfo _SubscriberWrapper$DownstreamPusher_FieldInfo_[] = {
 };
 
 $MethodInfo _SubscriberWrapper$DownstreamPusher_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, 0, $method(static_cast<void(SubscriberWrapper$DownstreamPusher::*)($SubscriberWrapper*)>(&SubscriberWrapper$DownstreamPusher::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"run1", "()V", nullptr, $PRIVATE, $method(static_cast<void(SubscriberWrapper$DownstreamPusher::*)()>(&SubscriberWrapper$DownstreamPusher::run1))},
+	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, 0, $method(SubscriberWrapper$DownstreamPusher, init$, void, $SubscriberWrapper*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper$DownstreamPusher, run, void)},
+	{"run1", "()V", nullptr, $PRIVATE, $method(SubscriberWrapper$DownstreamPusher, run1, void)},
 	{}
 };
 

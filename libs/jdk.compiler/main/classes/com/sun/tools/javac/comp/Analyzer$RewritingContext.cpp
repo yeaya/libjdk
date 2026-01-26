@@ -76,8 +76,8 @@ $FieldInfo Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::fieldInfos[2]
 	{}
 };
 $MethodInfo Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $method(static_cast<void(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::*)(Analyzer$RewritingContext*)>(&Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $method(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, init$, void, Analyzer$RewritingContext*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Analyzer$RewritingContext$$Lambda$lambda$diagHandler$0::classInfo$ = {
@@ -106,9 +106,9 @@ $FieldInfo _Analyzer$RewritingContext_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$RewritingContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(static_cast<void(Analyzer$RewritingContext::*)($Analyzer*,$JCTree*,$JCTree*,$JCTree*,$Analyzer$StatementAnalyzer*,$Env*)>(&Analyzer$RewritingContext::init$))},
-	{"diagHandler", "()Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;", nullptr, 0},
-	{"lambda$diagHandler$0", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Analyzer$RewritingContext::*)($JCDiagnostic*)>(&Analyzer$RewritingContext::lambda$diagHandler$0))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Analyzer$StatementAnalyzer<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Analyzer$RewritingContext, init$, void, $Analyzer*, $JCTree*, $JCTree*, $JCTree*, $Analyzer$StatementAnalyzer*, $Env*)},
+	{"diagHandler", "()Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;", nullptr, 0, $virtualMethod(Analyzer$RewritingContext, diagHandler, $Log$DeferredDiagnosticHandler*)},
+	{"lambda$diagHandler$0", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Analyzer$RewritingContext, lambda$diagHandler$0, bool, $JCDiagnostic*)},
 	{}
 };
 

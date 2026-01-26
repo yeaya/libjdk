@@ -51,14 +51,14 @@ $FieldInfo _Response_FieldInfo_[] = {
 };
 
 $MethodInfo _Response_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;)V", 0, $method(static_cast<void(Response::*)($HttpRequestImpl*,$Exchange*,$HttpHeaders*,$HttpConnection*,int32_t,$HttpClient$Version*)>(&Response::init$))},
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;Z)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;Z)V", 0, $method(static_cast<void(Response::*)($HttpRequestImpl*,$Exchange*,$HttpHeaders*,$HttpConnection*,int32_t,$HttpClient$Version*,bool)>(&Response::init$))},
-	{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, 0},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, 0},
-	{"request", "()Ljdk/internal/net/http/HttpRequestImpl;", nullptr, 0},
-	{"statusCode", "()I", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, 0},
+	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;)V", 0, $method(Response, init$, void, $HttpRequestImpl*, $Exchange*, $HttpHeaders*, $HttpConnection*, int32_t, $HttpClient$Version*)},
+	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;Z)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/net/http/HttpHeaders;Ljdk/internal/net/http/HttpConnection;ILjava/net/http/HttpClient$Version;Z)V", 0, $method(Response, init$, void, $HttpRequestImpl*, $Exchange*, $HttpHeaders*, $HttpConnection*, int32_t, $HttpClient$Version*, bool)},
+	{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, 0, $virtualMethod(Response, getSSLSession, $SSLSession*)},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(Response, headers, $HttpHeaders*)},
+	{"request", "()Ljdk/internal/net/http/HttpRequestImpl;", nullptr, 0, $virtualMethod(Response, request, $HttpRequestImpl*)},
+	{"statusCode", "()I", nullptr, 0, $virtualMethod(Response, statusCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Response, toString, $String*)},
+	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, 0, $virtualMethod(Response, version, $HttpClient$Version*)},
 	{}
 };
 

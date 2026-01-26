@@ -60,16 +60,16 @@ $FieldInfo _FSInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _FSInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(FSInfo::*)()>(&FSInfo::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(FSInfo::*)($Context*)>(&FSInfo::init$))},
-	{"exists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"getCanonicalFile", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"getJarClassPath", "(Ljava/nio/file/Path;)Ljava/util/List;", "(Ljava/nio/file/Path;)Ljava/util/List<Ljava/nio/file/Path;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"getJarFSProvider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/file/FSInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<FSInfo*(*)($Context*)>(&FSInfo::instance))},
-	{"isDirectory", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"isFile", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC},
-	{"tryResolveFile", "(Ljava/net/URL;Ljava/lang/String;)Ljava/net/URL;", nullptr, $STATIC, $method(static_cast<$URL*(*)($URL*,$String*)>(&FSInfo::tryResolveFile)), "java.net.MalformedURLException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(FSInfo, init$, void)},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(FSInfo, init$, void, $Context*)},
+	{"exists", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(FSInfo, exists, bool, $Path*)},
+	{"getCanonicalFile", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(FSInfo, getCanonicalFile, $Path*, $Path*)},
+	{"getJarClassPath", "(Ljava/nio/file/Path;)Ljava/util/List;", "(Ljava/nio/file/Path;)Ljava/util/List<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(FSInfo, getJarClassPath, $List*, $Path*), "java.io.IOException"},
+	{"getJarFSProvider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FSInfo, getJarFSProvider, $FileSystemProvider*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/file/FSInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(FSInfo, instance, FSInfo*, $Context*)},
+	{"isDirectory", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(FSInfo, isDirectory, bool, $Path*)},
+	{"isFile", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(FSInfo, isFile, bool, $Path*)},
+	{"tryResolveFile", "(Ljava/net/URL;Ljava/lang/String;)Ljava/net/URL;", nullptr, $STATIC, $staticMethod(FSInfo, tryResolveFile, $URL*, $URL*, $String*), "java.net.MalformedURLException"},
 	{}
 };
 

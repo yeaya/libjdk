@@ -17,9 +17,9 @@ namespace sun {
 			namespace tcp {
 
 $MethodInfo _TCPDirectSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TCPDirectSocketFactory::*)()>(&TCPDirectSocketFactory::init$))},
-	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TCPDirectSocketFactory, init$, void)},
+	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(TCPDirectSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
+	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(TCPDirectSocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException"},
 	{}
 };
 

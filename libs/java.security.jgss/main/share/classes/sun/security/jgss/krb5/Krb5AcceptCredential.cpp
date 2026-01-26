@@ -67,19 +67,19 @@ $FieldInfo _Krb5AcceptCredential_FieldInfo_[] = {
 };
 
 $MethodInfo _Krb5AcceptCredential_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/jgss/krb5/ServiceCreds;)V", nullptr, $PRIVATE, $method(static_cast<void(Krb5AcceptCredential::*)($Krb5NameElement*,$ServiceCreds*)>(&Krb5AcceptCredential::init$))},
-	{"destroy", "()V", nullptr, $PUBLIC, nullptr, "javax.security.auth.DestroyFailedException"},
-	{"dispose", "()V", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getAcceptLifetime", "()I", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getInitLifetime", "()I", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getInstance", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5NameElement;)Lsun/security/jgss/krb5/Krb5AcceptCredential;", nullptr, $STATIC, $method(static_cast<Krb5AcceptCredential*(*)($GSSCaller*,$Krb5NameElement*)>(&Krb5AcceptCredential::getInstance)), "org.ietf.jgss.GSSException"},
-	{"getKrb5EncryptionKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC},
-	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL},
-	{"getName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, nullptr, "org.ietf.jgss.GSSException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL},
-	{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
+	{"<init>", "(Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/jgss/krb5/ServiceCreds;)V", nullptr, $PRIVATE, $method(Krb5AcceptCredential, init$, void, $Krb5NameElement*, $ServiceCreds*)},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, destroy, void), "javax.security.auth.DestroyFailedException"},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, dispose, void), "org.ietf.jgss.GSSException"},
+	{"getAcceptLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
+	{"getInitLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
+	{"getInstance", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5NameElement;)Lsun/security/jgss/krb5/Krb5AcceptCredential;", nullptr, $STATIC, $staticMethod(Krb5AcceptCredential, getInstance, Krb5AcceptCredential*, $GSSCaller*, $Krb5NameElement*), "org.ietf.jgss.GSSException"},
+	{"getKrb5EncryptionKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, getKrb5EncryptionKeys, $EncryptionKeyArray*, $PrincipalName*)},
+	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5AcceptCredential, getMechanism, $Oid*)},
+	{"getName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5AcceptCredential, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5AcceptCredential, getProvider, $Provider*)},
+	{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, impersonate, $GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+	{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, isAcceptorCredential, bool), "org.ietf.jgss.GSSException"},
+	{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5AcceptCredential, isInitiatorCredential, bool), "org.ietf.jgss.GSSException"},
 	{}
 };
 

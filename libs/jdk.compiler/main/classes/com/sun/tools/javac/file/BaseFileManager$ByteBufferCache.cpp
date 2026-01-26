@@ -22,9 +22,9 @@ $FieldInfo _BaseFileManager$ByteBufferCache_FieldInfo_[] = {
 };
 
 $MethodInfo _BaseFileManager$ByteBufferCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BaseFileManager$ByteBufferCache::*)()>(&BaseFileManager$ByteBufferCache::init$))},
-	{"get", "(I)Ljava/nio/ByteBuffer;", nullptr, 0},
-	{"put", "(Ljava/nio/ByteBuffer;)V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BaseFileManager$ByteBufferCache, init$, void)},
+	{"get", "(I)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(BaseFileManager$ByteBufferCache, get, $ByteBuffer*, int32_t)},
+	{"put", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(BaseFileManager$ByteBufferCache, put, void, $ByteBuffer*)},
 	{}
 };
 

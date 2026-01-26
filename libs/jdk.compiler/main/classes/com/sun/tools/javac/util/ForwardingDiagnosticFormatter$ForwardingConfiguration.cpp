@@ -26,12 +26,12 @@ $FieldInfo _ForwardingDiagnosticFormatter$ForwardingConfiguration_FieldInfo_[] =
 };
 
 $MethodInfo _ForwardingDiagnosticFormatter$ForwardingConfiguration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;)V", nullptr, $PUBLIC, $method(static_cast<void(ForwardingDiagnosticFormatter$ForwardingConfiguration::*)($DiagnosticFormatter$Configuration*)>(&ForwardingDiagnosticFormatter$ForwardingConfiguration::init$))},
-	{"getDelegatedConfiguration", "()Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;", nullptr, $PUBLIC},
-	{"getMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;)I", nullptr, $PUBLIC},
-	{"getVisible", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;", $PUBLIC},
-	{"setMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;I)V", nullptr, $PUBLIC},
-	{"setVisible", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;)V", nullptr, $PUBLIC, $method(ForwardingDiagnosticFormatter$ForwardingConfiguration, init$, void, $DiagnosticFormatter$Configuration*)},
+	{"getDelegatedConfiguration", "()Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, getDelegatedConfiguration, $DiagnosticFormatter$Configuration*)},
+	{"getMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;)I", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, getMultilineLimit, int32_t, $DiagnosticFormatter$Configuration$MultilineLimit*)},
+	{"getVisible", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, getVisible, $Set*)},
+	{"setMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;I)V", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, setMultilineLimit, void, $DiagnosticFormatter$Configuration$MultilineLimit*, int32_t)},
+	{"setVisible", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, setVisible, void, $Set*)},
 	{}
 };
 

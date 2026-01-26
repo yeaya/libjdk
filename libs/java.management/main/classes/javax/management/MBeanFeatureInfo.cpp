@@ -36,16 +36,16 @@ $FieldInfo _MBeanFeatureInfo_FieldInfo_[] = {
 $MethodInfo _MBeanFeatureInfo_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanFeatureInfo::*)($String*,$String*)>(&MBeanFeatureInfo::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanFeatureInfo::*)($String*,$String*,$Descriptor*)>(&MBeanFeatureInfo::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanFeatureInfo::*)($ObjectInputStream*)>(&MBeanFeatureInfo::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanFeatureInfo, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanFeatureInfo, init$, void, $String*, $String*, $Descriptor*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, equals, bool, Object$*)},
+	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, getDescription, $String*)},
+	{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, getDescriptor, $Descriptor*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, getName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanFeatureInfo, hashCode, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanFeatureInfo, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanFeatureInfo::*)($ObjectOutputStream*)>(&MBeanFeatureInfo::writeObject)), "java.io.IOException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(MBeanFeatureInfo, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

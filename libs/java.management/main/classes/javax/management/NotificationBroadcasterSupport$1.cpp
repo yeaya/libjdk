@@ -13,8 +13,8 @@ namespace javax {
 	namespace management {
 
 $MethodInfo _NotificationBroadcasterSupport$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NotificationBroadcasterSupport$1::*)()>(&NotificationBroadcasterSupport$1::init$))},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(NotificationBroadcasterSupport$1, init$, void)},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$1, execute, void, $Runnable*)},
 	{}
 };
 

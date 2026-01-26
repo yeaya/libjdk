@@ -28,11 +28,11 @@ $FieldInfo _KrbDataInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbDataInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbDataInputStream::*)($InputStream*)>(&KrbDataInputStream::init$))},
-	{"read", "(I)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readLength4", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(KrbDataInputStream::*)()>(&KrbDataInputStream::readLength4)), "java.io.IOException"},
-	{"readVersion", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setNativeByteOrder", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(KrbDataInputStream, init$, void, $InputStream*)},
+	{"read", "(I)I", nullptr, $PUBLIC, $virtualMethod(KrbDataInputStream, read, int32_t, int32_t), "java.io.IOException"},
+	{"readLength4", "()I", nullptr, $PUBLIC | $FINAL, $method(KrbDataInputStream, readLength4, int32_t), "java.io.IOException"},
+	{"readVersion", "()I", nullptr, $PUBLIC, $virtualMethod(KrbDataInputStream, readVersion, int32_t), "java.io.IOException"},
+	{"setNativeByteOrder", "()V", nullptr, $PUBLIC, $virtualMethod(KrbDataInputStream, setNativeByteOrder, void)},
 	{}
 };
 

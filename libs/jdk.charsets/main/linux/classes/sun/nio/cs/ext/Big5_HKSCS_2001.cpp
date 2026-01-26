@@ -34,10 +34,10 @@ namespace sun {
 			namespace ext {
 
 $MethodInfo _Big5_HKSCS_2001_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Big5_HKSCS_2001::*)()>(&Big5_HKSCS_2001::init$))},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Big5_HKSCS_2001, init$, void)},
+	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS_2001, contains, bool, $Charset*)},
+	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS_2001, newDecoder, $CharsetDecoder*)},
+	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Big5_HKSCS_2001, newEncoder, $CharsetEncoder*)},
 	{}
 };
 

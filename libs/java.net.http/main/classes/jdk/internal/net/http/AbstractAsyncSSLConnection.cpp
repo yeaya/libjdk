@@ -52,13 +52,13 @@ $FieldInfo _AbstractAsyncSSLConnection_FieldInfo_[] = {
 
 $MethodInfo _AbstractAsyncSSLConnection_MethodInfo_[] = {
 	{"getConnectionFlow", "()Ljdk/internal/net/http/common/FlowTube;", nullptr, $ABSTRACT},
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/common/Utils$ServerName;I[Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(AbstractAsyncSSLConnection::*)($InetSocketAddress*,$HttpClientImpl*,$Utils$ServerName*,int32_t,$StringArray*)>(&AbstractAsyncSSLConnection::init$))},
-	{"contains", "([Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($StringArray*,$String*)>(&AbstractAsyncSSLConnection::contains))},
-	{"createEngine", "(Ljavax/net/ssl/SSLContext;Ljava/lang/String;ILjavax/net/ssl/SSLParameters;)Ljavax/net/ssl/SSLEngine;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SSLEngine*(*)($SSLContext*,$String*,int32_t,$SSLParameters*)>(&AbstractAsyncSSLConnection::createEngine))},
-	{"createSSLParameters", "(Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/common/Utils$ServerName;[Ljava/lang/String;)Ljavax/net/ssl/SSLParameters;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SSLParameters*(*)($HttpClientImpl*,$Utils$ServerName*,$StringArray*)>(&AbstractAsyncSSLConnection::createSSLParameters))},
-	{"getALPN", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/String;>;", $FINAL, $method(static_cast<$CompletableFuture*(AbstractAsyncSSLConnection::*)()>(&AbstractAsyncSSLConnection::getALPN))},
-	{"getEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, $FINAL, $method(static_cast<$SSLEngine*(AbstractAsyncSSLConnection::*)()>(&AbstractAsyncSSLConnection::getEngine))},
-	{"isSecure", "()Z", nullptr, $FINAL},
+	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/common/Utils$ServerName;I[Ljava/lang/String;)V", nullptr, 0, $method(AbstractAsyncSSLConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*, $Utils$ServerName*, int32_t, $StringArray*)},
+	{"contains", "([Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractAsyncSSLConnection, contains, bool, $StringArray*, $String*)},
+	{"createEngine", "(Ljavax/net/ssl/SSLContext;Ljava/lang/String;ILjavax/net/ssl/SSLParameters;)Ljavax/net/ssl/SSLEngine;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractAsyncSSLConnection, createEngine, $SSLEngine*, $SSLContext*, $String*, int32_t, $SSLParameters*)},
+	{"createSSLParameters", "(Ljdk/internal/net/http/HttpClientImpl;Ljdk/internal/net/http/common/Utils$ServerName;[Ljava/lang/String;)Ljavax/net/ssl/SSLParameters;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractAsyncSSLConnection, createSSLParameters, $SSLParameters*, $HttpClientImpl*, $Utils$ServerName*, $StringArray*)},
+	{"getALPN", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/String;>;", $FINAL, $method(AbstractAsyncSSLConnection, getALPN, $CompletableFuture*)},
+	{"getEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, $FINAL, $method(AbstractAsyncSSLConnection, getEngine, $SSLEngine*)},
+	{"isSecure", "()Z", nullptr, $FINAL, $virtualMethod(AbstractAsyncSSLConnection, isSecure, bool)},
 	{}
 };
 

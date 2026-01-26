@@ -28,8 +28,8 @@ $FieldInfo _Provider$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Provider$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/security/sasl/Provider;Lcom/sun/security/sasl/Provider;)V", "()V", 0, $method(static_cast<void(Provider$1::*)($Provider*,$Provider*)>(&Provider$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/security/sasl/Provider;Lcom/sun/security/sasl/Provider;)V", "()V", 0, $method(Provider$1, init$, void, $Provider*, $Provider*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Provider$1, run, $Object*)},
 	{}
 };
 

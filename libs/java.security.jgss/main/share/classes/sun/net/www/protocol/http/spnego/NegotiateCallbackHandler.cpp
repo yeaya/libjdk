@@ -46,9 +46,9 @@ $FieldInfo _NegotiateCallbackHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _NegotiateCallbackHandler_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(NegotiateCallbackHandler::*)($HttpCallerInfo*)>(&NegotiateCallbackHandler::init$))},
-	{"getAnswer", "()V", nullptr, $PRIVATE, $method(static_cast<void(NegotiateCallbackHandler::*)()>(&NegotiateCallbackHandler::getAnswer))},
-	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, nullptr, "javax.security.auth.callback.UnsupportedCallbackException,java.io.IOException"},
+	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;)V", nullptr, $PUBLIC, $method(NegotiateCallbackHandler, init$, void, $HttpCallerInfo*)},
+	{"getAnswer", "()V", nullptr, $PRIVATE, $method(NegotiateCallbackHandler, getAnswer, void)},
+	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(NegotiateCallbackHandler, handle, void, $CallbackArray*), "javax.security.auth.callback.UnsupportedCallbackException,java.io.IOException"},
 	{}
 };
 

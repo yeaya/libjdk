@@ -38,10 +38,10 @@ $FieldInfo _BufferingSubscriber$DownstreamSubscription_FieldInfo_[] = {
 };
 
 $MethodInfo _BufferingSubscriber$DownstreamSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/BufferingSubscriber;)V", nullptr, $PRIVATE, $method(static_cast<void(BufferingSubscriber$DownstreamSubscription::*)($BufferingSubscriber*)>(&BufferingSubscriber$DownstreamSubscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"pushDemanded", "()V", nullptr, 0},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/BufferingSubscriber;)V", nullptr, $PRIVATE, $method(BufferingSubscriber$DownstreamSubscription, init$, void, $BufferingSubscriber*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber$DownstreamSubscription, cancel, void)},
+	{"pushDemanded", "()V", nullptr, 0, $virtualMethod(BufferingSubscriber$DownstreamSubscription, pushDemanded, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber$DownstreamSubscription, request, void, int64_t)},
 	{}
 };
 

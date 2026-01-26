@@ -58,12 +58,12 @@ $FieldInfo _MLetParser_FieldInfo_[] = {
 };
 
 $MethodInfo _MLetParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MLetParser::*)()>(&MLetParser::init$))},
-	{"parse", "(Ljava/net/URL;)Ljava/util/List;", "(Ljava/net/URL;)Ljava/util/List<Ljavax/management/loading/MLetContent;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"parseURL", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljavax/management/loading/MLetContent;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"scanIdentifier", "(Ljava/io/Reader;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"scanTag", "(Ljava/io/Reader;)Ljava/util/Map;", "(Ljava/io/Reader;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"skipSpace", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MLetParser, init$, void)},
+	{"parse", "(Ljava/net/URL;)Ljava/util/List;", "(Ljava/net/URL;)Ljava/util/List<Ljavax/management/loading/MLetContent;>;", $PUBLIC, $virtualMethod(MLetParser, parse, $List*, $URL*), "java.io.IOException"},
+	{"parseURL", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljavax/management/loading/MLetContent;>;", $PUBLIC, $virtualMethod(MLetParser, parseURL, $List*, $String*), "java.io.IOException"},
+	{"scanIdentifier", "(Ljava/io/Reader;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MLetParser, scanIdentifier, $String*, $Reader*), "java.io.IOException"},
+	{"scanTag", "(Ljava/io/Reader;)Ljava/util/Map;", "(Ljava/io/Reader;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MLetParser, scanTag, $Map*, $Reader*), "java.io.IOException"},
+	{"skipSpace", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(MLetParser, skipSpace, void, $Reader*), "java.io.IOException"},
 	{}
 };
 

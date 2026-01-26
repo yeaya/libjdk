@@ -26,9 +26,9 @@ $FieldInfo _Analyzer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(static_cast<void(Analyzer$1::*)($Analyzer*)>(&Analyzer$1::init$))},
-	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC},
-	{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$1, init$, void, $Analyzer*)},
+	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(Analyzer$1, flush, void, $Env*)},
+	{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$1, queue, void, $Analyzer$RewritingContext*)},
 	{}
 };
 

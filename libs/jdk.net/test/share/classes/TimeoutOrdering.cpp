@@ -90,8 +90,8 @@ $FieldInfo TimeoutOrdering$$Lambda$lambda$main$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo TimeoutOrdering$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(ILjava/net/http/HttpRequest;)V", nullptr, $PUBLIC, $method(static_cast<void(TimeoutOrdering$$Lambda$lambda$main$0::*)(int32_t,$HttpRequest*)>(&TimeoutOrdering$$Lambda$lambda$main$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/net/http/HttpRequest;)V", nullptr, $PUBLIC, $method(TimeoutOrdering$$Lambda$lambda$main$0, init$, void, int32_t, $HttpRequest*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TimeoutOrdering$$Lambda$lambda$main$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo TimeoutOrdering$$Lambda$lambda$main$0::classInfo$ = {
@@ -136,8 +136,8 @@ $FieldInfo TimeoutOrdering$$Lambda$lambda$main$1$1::fieldInfos[4] = {
 	{}
 };
 $MethodInfo TimeoutOrdering$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpClient;Ljava/net/http/HttpRequest;I)V", nullptr, $PUBLIC, $method(static_cast<void(TimeoutOrdering$$Lambda$lambda$main$1$1::*)($HttpClient*,$HttpRequest*,int32_t)>(&TimeoutOrdering$$Lambda$lambda$main$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpClient;Ljava/net/http/HttpRequest;I)V", nullptr, $PUBLIC, $method(TimeoutOrdering$$Lambda$lambda$main$1$1, init$, void, $HttpClient*, $HttpRequest*, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TimeoutOrdering$$Lambda$lambda$main$1$1, run, void)},
 	{}
 };
 $ClassInfo TimeoutOrdering$$Lambda$lambda$main$1$1::classInfo$ = {
@@ -162,12 +162,12 @@ $FieldInfo _TimeoutOrdering_FieldInfo_[] = {
 };
 
 $MethodInfo _TimeoutOrdering_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TimeoutOrdering::*)()>(&TimeoutOrdering::init$))},
-	{"checkReturnOrder", "([Ljava/net/http/HttpRequest;)V", nullptr, $STATIC, $method(static_cast<void(*)($HttpRequestArray*)>(&TimeoutOrdering::checkReturnOrder)), "java.lang.InterruptedException"},
-	{"getRequest", "(Ljava/net/http/HttpRequest;[Ljava/net/http/HttpRequest;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($HttpRequest*,$HttpRequestArray*)>(&TimeoutOrdering::getRequest))},
-	{"lambda$main$0", "(ILjava/net/http/HttpRequest;Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)(int32_t,$HttpRequest*,$HttpResponse*,$Throwable*)>(&TimeoutOrdering::lambda$main$0))},
-	{"lambda$main$1", "(Ljava/net/http/HttpClient;Ljava/net/http/HttpRequest;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpClient*,$HttpRequest*,int32_t)>(&TimeoutOrdering::lambda$main$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TimeoutOrdering::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeoutOrdering, init$, void)},
+	{"checkReturnOrder", "([Ljava/net/http/HttpRequest;)V", nullptr, $STATIC, $staticMethod(TimeoutOrdering, checkReturnOrder, void, $HttpRequestArray*), "java.lang.InterruptedException"},
+	{"getRequest", "(Ljava/net/http/HttpRequest;[Ljava/net/http/HttpRequest;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(TimeoutOrdering, getRequest, $String*, $HttpRequest*, $HttpRequestArray*)},
+	{"lambda$main$0", "(ILjava/net/http/HttpRequest;Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TimeoutOrdering, lambda$main$0, void, int32_t, $HttpRequest*, $HttpResponse*, $Throwable*)},
+	{"lambda$main$1", "(Ljava/net/http/HttpClient;Ljava/net/http/HttpRequest;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TimeoutOrdering, lambda$main$1, void, $HttpClient*, $HttpRequest*, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeoutOrdering, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

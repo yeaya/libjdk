@@ -17,8 +17,8 @@ $FieldInfo _SQLPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLPermission::*)($String*)>(&SQLPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLPermission::*)($String*,$String*)>(&SQLPermission::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLPermission, init$, void, $String*, $String*)},
 	{}
 };
 

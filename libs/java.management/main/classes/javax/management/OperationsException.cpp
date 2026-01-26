@@ -17,8 +17,8 @@ $FieldInfo _OperationsException_FieldInfo_[] = {
 };
 
 $MethodInfo _OperationsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OperationsException::*)()>(&OperationsException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(OperationsException::*)($String*)>(&OperationsException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OperationsException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OperationsException, init$, void, $String*)},
 	{}
 };
 

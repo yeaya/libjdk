@@ -6,30 +6,32 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $MemoryType = ::java::lang::management::MemoryType;
+using $MemoryUsage = ::java::lang::management::MemoryUsage;
 
 namespace java {
 	namespace lang {
 		namespace management {
 
 $MethodInfo _MemoryPoolMXBean_MethodInfo_[] = {
-	{"getCollectionUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCollectionUsageThreshold", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCollectionUsageThresholdCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMemoryManagerNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPeakUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getType", "()Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getUsageThreshold", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getUsageThresholdCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"isCollectionUsageThresholdExceeded", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isCollectionUsageThresholdSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isUsageThresholdExceeded", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isUsageThresholdSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isValid", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"resetPeakUsage", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setCollectionUsageThreshold", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setUsageThreshold", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCollectionUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, getCollectionUsage, $MemoryUsage*)},
+	{"getCollectionUsageThreshold", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, getCollectionUsageThreshold, int64_t)},
+	{"getCollectionUsageThresholdCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, getCollectionUsageThresholdCount, int64_t)},
+	{"getMemoryManagerNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, getMemoryManagerNames, $StringArray*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, getName, $String*)},
+	{"getPeakUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, getPeakUsage, $MemoryUsage*)},
+	{"getType", "()Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, getType, $MemoryType*)},
+	{"getUsage", "()Ljava/lang/management/MemoryUsage;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, getUsage, $MemoryUsage*)},
+	{"getUsageThreshold", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, getUsageThreshold, int64_t)},
+	{"getUsageThresholdCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, getUsageThresholdCount, int64_t)},
+	{"isCollectionUsageThresholdExceeded", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, isCollectionUsageThresholdExceeded, bool)},
+	{"isCollectionUsageThresholdSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, isCollectionUsageThresholdSupported, bool)},
+	{"isUsageThresholdExceeded", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, isUsageThresholdExceeded, bool)},
+	{"isUsageThresholdSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, isUsageThresholdSupported, bool)},
+	{"isValid", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, isValid, bool)},
+	{"resetPeakUsage", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, resetPeakUsage, void)},
+	{"setCollectionUsageThreshold", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, setCollectionUsageThreshold, void, int64_t)},
+	{"setUsageThreshold", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryPoolMXBean, setUsageThreshold, void, int64_t)},
 	{}
 };
 

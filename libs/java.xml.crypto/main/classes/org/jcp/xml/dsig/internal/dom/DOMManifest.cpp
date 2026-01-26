@@ -70,15 +70,15 @@ $FieldInfo _DOMManifest_FieldInfo_[] = {
 $MethodInfo _DOMManifest_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;Ljava/lang/String;)V", $PUBLIC, $method(static_cast<void(DOMManifest::*)($List*,$String*)>(&DOMManifest::init$))},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(static_cast<void(DOMManifest::*)($Element*,$XMLCryptoContext*,$Provider*)>(&DOMManifest::init$)), "javax.xml.crypto.MarshalException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getManifestReferences", "(Ljavax/xml/crypto/dsig/Manifest;)Ljava/util/List;", "(Ljavax/xml/crypto/dsig/Manifest;)Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($Manifest*)>(&DOMManifest::getManifestReferences))},
-	{"getReferences", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;Ljava/lang/String;)V", $PUBLIC, $method(DOMManifest, init$, void, $List*, $String*)},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMManifest, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMManifest, equals, bool, Object$*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMManifest, getId, $String*)},
+	{"getManifestReferences", "(Ljavax/xml/crypto/dsig/Manifest;)Ljava/util/List;", "(Ljavax/xml/crypto/dsig/Manifest;)Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PUBLIC | $STATIC, $staticMethod(DOMManifest, getManifestReferences, $List*, $Manifest*)},
+	{"getReferences", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PUBLIC, $virtualMethod(DOMManifest, getReferences, $List*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMManifest, hashCode, int32_t)},
 	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.MarshalException"},
+	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMManifest, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

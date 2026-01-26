@@ -31,8 +31,8 @@ $FieldInfo _ErrorManager_FieldInfo_[] = {
 };
 
 $MethodInfo _ErrorManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ErrorManager::*)()>(&ErrorManager::init$))},
-	{"error", "(Ljava/lang/String;Ljava/lang/Exception;I)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ErrorManager, init$, void)},
+	{"error", "(Ljava/lang/String;Ljava/lang/Exception;I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ErrorManager, error, void, $String*, $Exception*, int32_t)},
 	{}
 };
 

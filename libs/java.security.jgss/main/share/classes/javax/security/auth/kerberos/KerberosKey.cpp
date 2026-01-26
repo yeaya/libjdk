@@ -29,19 +29,19 @@ $FieldInfo _KerberosKey_FieldInfo_[] = {
 };
 
 $MethodInfo _KerberosKey_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[BII)V", nullptr, $PUBLIC, $method(static_cast<void(KerberosKey::*)($KerberosPrincipal*,$bytes*,int32_t,int32_t)>(&KerberosKey::init$))},
-	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[CLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KerberosKey::*)($KerberosPrincipal*,$chars*,$String*)>(&KerberosKey::init$))},
-	{"destroy", "()V", nullptr, $PUBLIC, nullptr, "javax.security.auth.DestroyFailedException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"getKeyType", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(KerberosKey::*)()>(&KerberosKey::getKeyType))},
-	{"getPrincipal", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$KerberosPrincipal*(KerberosKey::*)()>(&KerberosKey::getPrincipal))},
-	{"getVersionNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(KerberosKey::*)()>(&KerberosKey::getVersionNumber))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[BII)V", nullptr, $PUBLIC, $method(KerberosKey, init$, void, $KerberosPrincipal*, $bytes*, int32_t, int32_t)},
+	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[CLjava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosKey, init$, void, $KerberosPrincipal*, $chars*, $String*)},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(KerberosKey, destroy, void), "javax.security.auth.DestroyFailedException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosKey, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KerberosKey, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(KerberosKey, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KerberosKey, getFormat, $String*)},
+	{"getKeyType", "()I", nullptr, $PUBLIC | $FINAL, $method(KerberosKey, getKeyType, int32_t)},
+	{"getPrincipal", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC | $FINAL, $method(KerberosKey, getPrincipal, $KerberosPrincipal*)},
+	{"getVersionNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(KerberosKey, getVersionNumber, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosKey, hashCode, int32_t)},
+	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(KerberosKey, isDestroyed, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosKey, toString, $String*)},
 	{}
 };
 

@@ -28,8 +28,8 @@ $FieldInfo _RequiredModelMBean$3_FieldInfo_[] = {
 };
 
 $MethodInfo _RequiredModelMBean$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/modelmbean/RequiredModelMBean;Ljava/lang/String;Ljava/lang/Class;)V", "()V", 0, $method(static_cast<void(RequiredModelMBean$3::*)($RequiredModelMBean*,$String*,$Class*)>(&RequiredModelMBean$3::init$))},
-	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "(Ljavax/management/modelmbean/RequiredModelMBean;Ljava/lang/String;Ljava/lang/Class;)V", "()V", 0, $method(RequiredModelMBean$3, init$, void, $RequiredModelMBean*, $String*, $Class*)},
+	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RequiredModelMBean$3, run, $Object*)},
 	{}
 };
 

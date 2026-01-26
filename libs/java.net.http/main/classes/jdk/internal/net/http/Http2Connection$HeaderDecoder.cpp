@@ -27,9 +27,9 @@ $FieldInfo _Http2Connection$HeaderDecoder_FieldInfo_[] = {
 };
 
 $MethodInfo _Http2Connection$HeaderDecoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Http2Connection$HeaderDecoder::*)()>(&Http2Connection$HeaderDecoder::init$))},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, 0},
-	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Http2Connection$HeaderDecoder, init$, void)},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(Http2Connection$HeaderDecoder, headers, $HttpHeaders*)},
+	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$HeaderDecoder, onDecoded, void, $CharSequence*, $CharSequence*)},
 	{}
 };
 

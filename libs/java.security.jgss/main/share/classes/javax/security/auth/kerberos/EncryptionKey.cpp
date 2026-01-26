@@ -25,16 +25,16 @@ $FieldInfo _EncryptionKey_FieldInfo_[] = {
 };
 
 $MethodInfo _EncryptionKey_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(static_cast<void(EncryptionKey::*)($bytes*,int32_t)>(&EncryptionKey::init$))},
-	{"destroy", "()V", nullptr, $PUBLIC, nullptr, "javax.security.auth.DestroyFailedException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getKeyType", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(EncryptionKey::*)()>(&EncryptionKey::getKeyType))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(EncryptionKey, init$, void, $bytes*, int32_t)},
+	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, destroy, void), "javax.security.auth.DestroyFailedException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, getFormat, $String*)},
+	{"getKeyType", "()I", nullptr, $PUBLIC, $method(EncryptionKey, getKeyType, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, hashCode, int32_t)},
+	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, isDestroyed, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EncryptionKey, toString, $String*)},
 	{}
 };
 

@@ -30,8 +30,8 @@ $FieldInfo _TreeMaker$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeMaker$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $method(static_cast<void(TreeMaker$1::*)($TreeMaker*,$JCTree$JCExpression*,$List*,$JCTree$JCExpression*,$List*,$JCTree$JCClassDecl*)>(&TreeMaker$1::init$))},
-	{"classDeclRemoved", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $method(TreeMaker$1, init$, void, $TreeMaker*, $JCTree$JCExpression*, $List*, $JCTree$JCExpression*, $List*, $JCTree$JCClassDecl*)},
+	{"classDeclRemoved", "()Z", nullptr, $PUBLIC, $virtualMethod(TreeMaker$1, classDeclRemoved, bool)},
 	{}
 };
 

@@ -46,10 +46,10 @@ $FieldInfo _Modules$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Modules$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, 0, $method(static_cast<void(Modules$1::*)($Modules*)>(&Modules$1::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"initErrModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules$1::*)($Symbol$ModuleSymbol*)>(&Modules$1::initErrModule))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, 0, $method(Modules$1, init$, void, $Modules*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Modules$1, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"initErrModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Modules$1, initErrModule, void, $Symbol$ModuleSymbol*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Modules$1, toString, $String*)},
 	{}
 };
 

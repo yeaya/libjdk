@@ -19,8 +19,8 @@ $FieldInfo _ExportException_FieldInfo_[] = {
 };
 
 $MethodInfo _ExportException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ExportException::*)($String*)>(&ExportException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(ExportException::*)($String*,$Exception*)>(&ExportException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExportException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ExportException, init$, void, $String*, $Exception*)},
 	{}
 };
 

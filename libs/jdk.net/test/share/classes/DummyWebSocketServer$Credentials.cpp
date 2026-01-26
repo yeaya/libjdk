@@ -15,9 +15,9 @@ $FieldInfo _DummyWebSocketServer$Credentials_FieldInfo_[] = {
 };
 
 $MethodInfo _DummyWebSocketServer$Credentials_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(DummyWebSocketServer$Credentials::*)($String*,$String*)>(&DummyWebSocketServer$Credentials::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"password", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DummyWebSocketServer$Credentials, init$, void, $String*, $String*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer$Credentials, name, $String*)},
+	{"password", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DummyWebSocketServer$Credentials, password, $String*)},
 	{}
 };
 

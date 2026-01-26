@@ -3,6 +3,7 @@
 #include <com/sun/source/util/JavacTask.h>
 #include <jcpp.h>
 
+using $JavacTask = ::com::sun::source::util::JavacTask;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,9 +13,9 @@ namespace com {
 			namespace util {
 
 $MethodInfo _Plugin_MethodInfo_[] = {
-	{"autoStart", "()Z", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"init", "(Lcom/sun/source/util/JavacTask;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT},
+	{"autoStart", "()Z", nullptr, $PUBLIC, $virtualMethod(Plugin, autoStart, bool)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Plugin, getName, $String*)},
+	{"init", "(Lcom/sun/source/util/JavacTask;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Plugin, init, void, $JavacTask*, $StringArray*)},
 	{}
 };
 

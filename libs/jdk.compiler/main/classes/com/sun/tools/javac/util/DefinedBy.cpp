@@ -3,6 +3,7 @@
 #include <com/sun/tools/javac/util/DefinedBy$Api.h>
 #include <jcpp.h>
 
+using $DefinedBy$Api = ::com::sun::tools::javac::util::DefinedBy$Api;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -38,7 +39,7 @@ $CompoundAttribute _DefinedBy_Annotations_[] = {
 };
 
 $MethodInfo _DefinedBy_MethodInfo_[] = {
-	{"value", "()Lcom/sun/tools/javac/util/DefinedBy$Api;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Lcom/sun/tools/javac/util/DefinedBy$Api;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DefinedBy, value, $DefinedBy$Api*)},
 	{}
 };
 

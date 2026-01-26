@@ -35,13 +35,13 @@ namespace sun {
 		namespace server {
 
 $MethodInfo _MarshalOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(MarshalOutputStream::*)($OutputStream*)>(&MarshalOutputStream::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(MarshalOutputStream::*)($OutputStream*,int32_t)>(&MarshalOutputStream::init$)), "java.io.IOException"},
-	{"access$000", "(Lsun/rmi/server/MarshalOutputStream;Z)Z", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(MarshalOutputStream*,bool)>(&MarshalOutputStream::access$000)), "java.lang.SecurityException"},
-	{"annotateClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, nullptr, "java.io.IOException"},
-	{"annotateProxyClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, nullptr, "java.io.IOException"},
-	{"replaceObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, nullptr, "java.io.IOException"},
-	{"writeLocation", "(Ljava/lang/String;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(MarshalOutputStream, init$, void, $OutputStream*), "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(MarshalOutputStream, init$, void, $OutputStream*, int32_t), "java.io.IOException"},
+	{"access$000", "(Lsun/rmi/server/MarshalOutputStream;Z)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MarshalOutputStream, access$000, bool, MarshalOutputStream*, bool), "java.lang.SecurityException"},
+	{"annotateClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, $virtualMethod(MarshalOutputStream, annotateClass, void, $Class*), "java.io.IOException"},
+	{"annotateProxyClass", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, $virtualMethod(MarshalOutputStream, annotateProxyClass, void, $Class*), "java.io.IOException"},
+	{"replaceObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(MarshalOutputStream, replaceObject, $Object*, Object$*), "java.io.IOException"},
+	{"writeLocation", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MarshalOutputStream, writeLocation, void, $String*), "java.io.IOException"},
 	{}
 };
 

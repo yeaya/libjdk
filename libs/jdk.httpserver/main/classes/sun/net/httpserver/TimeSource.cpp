@@ -10,7 +10,7 @@ namespace sun {
 		namespace httpserver {
 
 $MethodInfo _TimeSource_MethodInfo_[] = {
-	{"getTime", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeSource, getTime, int64_t)},
 	{}
 };
 

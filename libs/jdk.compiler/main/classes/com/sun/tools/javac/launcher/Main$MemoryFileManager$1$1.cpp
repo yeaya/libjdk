@@ -27,8 +27,8 @@ $FieldInfo _Main$MemoryFileManager$1$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$MemoryFileManager$1$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/launcher/Main$MemoryFileManager$1;)V", nullptr, 0, $method(static_cast<void(Main$MemoryFileManager$1$1::*)($Main$MemoryFileManager$1*)>(&Main$MemoryFileManager$1$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/launcher/Main$MemoryFileManager$1;)V", nullptr, 0, $method(Main$MemoryFileManager$1$1, init$, void, $Main$MemoryFileManager$1*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Main$MemoryFileManager$1$1, close, void), "java.io.IOException"},
 	{}
 };
 

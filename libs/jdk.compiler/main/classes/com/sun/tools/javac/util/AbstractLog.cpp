@@ -22,6 +22,7 @@
 
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
+using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticFlag = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticFlag;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
@@ -52,32 +53,32 @@ $FieldInfo _AbstractLog_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractLog_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$Factory;)V", nullptr, 0, $method(static_cast<void(AbstractLog::*)($JCDiagnostic$Factory*)>(&AbstractLog::init$))},
-	{"currentSource", "()Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PUBLIC},
-	{"directError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PROTECTED | $TRANSIENT | $ABSTRACT},
-	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"error", "(Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PUBLIC},
-	{"error", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PUBLIC},
-	{"error", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PUBLIC},
-	{"error", "(ILjava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"error", "(ILcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PUBLIC},
-	{"error", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;ILcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PUBLIC},
-	{"getSource", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PROTECTED},
-	{"mandatoryNote", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic$Note;)V", nullptr, $PUBLIC},
-	{"mandatoryWarning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"mandatoryWarning", "(Lcom/sun/tools/javac/code/Lint$LintCategory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"note", "(Lcom/sun/tools/javac/util/JCDiagnostic$Note;)V", nullptr, $PUBLIC},
-	{"note", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Note;)V", nullptr, $PUBLIC},
-	{"note", "(ILcom/sun/tools/javac/util/JCDiagnostic$Note;)V", nullptr, $PUBLIC},
-	{"note", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic$Note;)V", nullptr, $PUBLIC},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"useSource", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
-	{"warning", "(Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"warning", "(Lcom/sun/tools/javac/code/Lint$LintCategory;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"warning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"warning", "(Lcom/sun/tools/javac/code/Lint$LintCategory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"warning", "(ILcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"wrap", "(I)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE, $method(static_cast<$JCDiagnostic$DiagnosticPosition*(AbstractLog::*)(int32_t)>(&AbstractLog::wrap))},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$Factory;)V", nullptr, 0, $method(AbstractLog, init$, void, $JCDiagnostic$Factory*)},
+	{"currentSource", "()Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PUBLIC, $virtualMethod(AbstractLog, currentSource, $DiagnosticSource*)},
+	{"directError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PROTECTED | $TRANSIENT | $ABSTRACT, $virtualMethod(AbstractLog, directError, void, $String*, $ObjectArray*)},
+	{"error", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(AbstractLog, error, void, $String*, $ObjectArray*)},
+	{"error", "(Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, error, void, $JCDiagnostic$Error*)},
+	{"error", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, error, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Error*)},
+	{"error", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, error, void, $JCDiagnostic$DiagnosticFlag*, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Error*)},
+	{"error", "(ILjava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(AbstractLog, error, void, int32_t, $String*, $ObjectArray*)},
+	{"error", "(ILcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, error, void, int32_t, $JCDiagnostic$Error*)},
+	{"error", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticFlag;ILcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, error, void, $JCDiagnostic$DiagnosticFlag*, int32_t, $JCDiagnostic$Error*)},
+	{"getSource", "(Ljavax/tools/JavaFileObject;)Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PROTECTED, $virtualMethod(AbstractLog, getSource, $DiagnosticSource*, $JavaFileObject*)},
+	{"mandatoryNote", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic$Note;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, mandatoryNote, void, $JavaFileObject*, $JCDiagnostic$Note*)},
+	{"mandatoryWarning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, mandatoryWarning, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+	{"mandatoryWarning", "(Lcom/sun/tools/javac/code/Lint$LintCategory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, mandatoryWarning, void, $Lint$LintCategory*, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+	{"note", "(Lcom/sun/tools/javac/util/JCDiagnostic$Note;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, note, void, $JCDiagnostic$Note*)},
+	{"note", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Note;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, note, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Note*)},
+	{"note", "(ILcom/sun/tools/javac/util/JCDiagnostic$Note;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, note, void, int32_t, $JCDiagnostic$Note*)},
+	{"note", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic$Note;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, note, void, $JavaFileObject*, $JCDiagnostic$Note*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractLog, report, void, $JCDiagnostic*)},
+	{"useSource", "(Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(AbstractLog, useSource, $JavaFileObject*, $JavaFileObject*)},
+	{"warning", "(Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, warning, void, $JCDiagnostic$Warning*)},
+	{"warning", "(Lcom/sun/tools/javac/code/Lint$LintCategory;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, warning, void, $Lint$LintCategory*, $JCDiagnostic$Warning*)},
+	{"warning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, warning, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+	{"warning", "(Lcom/sun/tools/javac/code/Lint$LintCategory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, warning, void, $Lint$LintCategory*, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+	{"warning", "(ILcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLog, warning, void, int32_t, $JCDiagnostic$Warning*)},
+	{"wrap", "(I)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE, $method(AbstractLog, wrap, $JCDiagnostic$DiagnosticPosition*, int32_t)},
 	{}
 };
 

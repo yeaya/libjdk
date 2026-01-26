@@ -25,11 +25,11 @@ $FieldInfo _MemoryType_FieldInfo_[] = {
 };
 
 $MethodInfo _MemoryType_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/management/MemoryType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MemoryTypeArray*(*)()>(&MemoryType::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(MemoryType::*)($String*,int32_t,$String*)>(&MemoryType::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MemoryType*(*)($String*)>(&MemoryType::valueOf))},
-	{"values", "()[Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MemoryTypeArray*(*)()>(&MemoryType::values))},
+	{"$values", "()[Ljava/lang/management/MemoryType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemoryType, $values, $MemoryTypeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(MemoryType, init$, void, $String*, int32_t, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryType, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryType, valueOf, MemoryType*, $String*)},
+	{"values", "()[Ljava/lang/management/MemoryType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemoryType, values, $MemoryTypeArray*)},
 	{}
 };
 

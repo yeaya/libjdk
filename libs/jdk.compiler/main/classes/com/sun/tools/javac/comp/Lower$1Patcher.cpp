@@ -39,11 +39,11 @@ $FieldInfo _Lower$1Patcher_FieldInfo_[] = {
 };
 
 $MethodInfo _Lower$1Patcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)V", "()V", 0, $method(static_cast<void(Lower$1Patcher::*)($Lower*,$JCTree*,$JCTree*)>(&Lower$1Patcher::init$))},
-	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)V", "()V", 0, $method(Lower$1Patcher, init$, void, $Lower*, $JCTree*, $JCTree*)},
+	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitBreak, void, $JCTree$JCBreak*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitContinue, void, $JCTree$JCContinue*)},
+	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1Patcher, visitYield, void, $JCTree$JCYield*)},
 	{}
 };
 

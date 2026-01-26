@@ -72,8 +72,8 @@ $FieldInfo PlainHttpConnection$ConnectTimerEvent$$Lambda$lambda$handle$0::fieldI
 	{}
 };
 $MethodInfo PlainHttpConnection$ConnectTimerEvent$$Lambda$lambda$handle$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection$ConnectTimerEvent;Ljava/net/ConnectException;)V", nullptr, $PUBLIC, $method(static_cast<void(PlainHttpConnection$ConnectTimerEvent$$Lambda$lambda$handle$0::*)(PlainHttpConnection$ConnectTimerEvent*,$ConnectException*)>(&PlainHttpConnection$ConnectTimerEvent$$Lambda$lambda$handle$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection$ConnectTimerEvent;Ljava/net/ConnectException;)V", nullptr, $PUBLIC, $method(PlainHttpConnection$ConnectTimerEvent$$Lambda$lambda$handle$0, init$, void, PlainHttpConnection$ConnectTimerEvent*, $ConnectException*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectTimerEvent$$Lambda$lambda$handle$0, run, void)},
 	{}
 };
 $ClassInfo PlainHttpConnection$ConnectTimerEvent$$Lambda$lambda$handle$0::classInfo$ = {
@@ -98,10 +98,10 @@ $FieldInfo _PlainHttpConnection$ConnectTimerEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _PlainHttpConnection$ConnectTimerEvent_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection;Ljava/time/Duration;Ljdk/internal/net/http/Exchange;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/time/Duration;Ljdk/internal/net/http/Exchange<*>;Ljava/util/concurrent/CompletableFuture<*>;)V", 0, $method(static_cast<void(PlainHttpConnection$ConnectTimerEvent::*)($PlainHttpConnection*,$Duration*,$Exchange*,$CompletableFuture*)>(&PlainHttpConnection$ConnectTimerEvent::init$))},
-	{"handle", "()V", nullptr, $PUBLIC},
-	{"lambda$handle$0", "(Ljava/net/ConnectException;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(PlainHttpConnection$ConnectTimerEvent::*)($ConnectException*)>(&PlainHttpConnection$ConnectTimerEvent::lambda$handle$0))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PlainHttpConnection;Ljava/time/Duration;Ljdk/internal/net/http/Exchange;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/time/Duration;Ljdk/internal/net/http/Exchange<*>;Ljava/util/concurrent/CompletableFuture<*>;)V", 0, $method(PlainHttpConnection$ConnectTimerEvent, init$, void, $PlainHttpConnection*, $Duration*, $Exchange*, $CompletableFuture*)},
+	{"handle", "()V", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectTimerEvent, handle, void)},
+	{"lambda$handle$0", "(Ljava/net/ConnectException;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(PlainHttpConnection$ConnectTimerEvent, lambda$handle$0, void, $ConnectException*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PlainHttpConnection$ConnectTimerEvent, toString, $String*)},
 	{}
 };
 

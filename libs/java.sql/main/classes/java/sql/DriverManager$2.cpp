@@ -18,8 +18,8 @@ namespace java {
 	namespace sql {
 
 $MethodInfo _DriverManager$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DriverManager$2::*)()>(&DriverManager$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DriverManager$2, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(DriverManager$2, run, $Object*)},
 	{}
 };
 

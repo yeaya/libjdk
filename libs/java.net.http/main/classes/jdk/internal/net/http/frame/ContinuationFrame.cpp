@@ -26,10 +26,10 @@ $FieldInfo _ContinuationFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _ContinuationFrame_MethodInfo_[] = {
-	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(ContinuationFrame::*)(int32_t,int32_t,$List*)>(&ContinuationFrame::init$))},
-	{"<init>", "(ILjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(ContinuationFrame::*)(int32_t,$ByteBuffer*)>(&ContinuationFrame::init$))},
-	{"length", "()I", nullptr, 0},
-	{"type", "()I", nullptr, $PUBLIC},
+	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(ContinuationFrame, init$, void, int32_t, int32_t, $List*)},
+	{"<init>", "(ILjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(ContinuationFrame, init$, void, int32_t, $ByteBuffer*)},
+	{"length", "()I", nullptr, 0, $virtualMethod(ContinuationFrame, length, int32_t)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(ContinuationFrame, type, int32_t)},
 	{}
 };
 

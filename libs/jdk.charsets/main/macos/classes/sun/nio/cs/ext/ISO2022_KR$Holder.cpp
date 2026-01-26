@@ -23,7 +23,7 @@ $FieldInfo _ISO2022_KR$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO2022_KR$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ISO2022_KR$Holder::*)()>(&ISO2022_KR$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ISO2022_KR$Holder, init$, void)},
 	{}
 };
 

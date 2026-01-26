@@ -24,8 +24,8 @@ $FieldInfo _Http2Connection$ALPNException_FieldInfo_[] = {
 };
 
 $MethodInfo _Http2Connection$ALPNException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, 0, $method(static_cast<void(Http2Connection$ALPNException::*)($String*,$AbstractAsyncSSLConnection*)>(&Http2Connection$ALPNException::init$))},
-	{"getConnection", "()Ljdk/internal/net/http/AbstractAsyncSSLConnection;", nullptr, 0, $method(static_cast<$AbstractAsyncSSLConnection*(Http2Connection$ALPNException::*)()>(&Http2Connection$ALPNException::getConnection))},
+	{"<init>", "(Ljava/lang/String;Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, 0, $method(Http2Connection$ALPNException, init$, void, $String*, $AbstractAsyncSSLConnection*)},
+	{"getConnection", "()Ljdk/internal/net/http/AbstractAsyncSSLConnection;", nullptr, 0, $method(Http2Connection$ALPNException, getConnection, $AbstractAsyncSSLConnection*)},
 	{}
 };
 

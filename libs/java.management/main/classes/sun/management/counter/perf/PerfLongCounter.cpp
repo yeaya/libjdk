@@ -38,13 +38,13 @@ $MethodInfo _PerfLongCounter_MethodInfo_[] = {
 	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
 	{"*getVectorLength", "()I", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;ILjava/nio/LongBuffer;)V", nullptr, 0, $method(static_cast<void(PerfLongCounter::*)($String*,$Units*,$Variability*,int32_t,$LongBuffer*)>(&PerfLongCounter::init$))},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;ILjava/nio/LongBuffer;)V", nullptr, 0, $method(PerfLongCounter, init$, void, $String*, $Units*, $Variability*, int32_t, $LongBuffer*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PerfLongCounter, getValue, $Object*)},
 	{"*isInternal", "()Z", nullptr, $PUBLIC},
 	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"longValue", "()J", nullptr, $PUBLIC},
+	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(PerfLongCounter, longValue, int64_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.ObjectStreamException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PerfLongCounter, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

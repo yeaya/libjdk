@@ -32,14 +32,14 @@ $FieldInfo _UnsyncByteArrayOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsyncByteArrayOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnsyncByteArrayOutputStream::*)()>(&UnsyncByteArrayOutputStream::init$))},
-	{"expandSize", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(UnsyncByteArrayOutputStream::*)(int32_t)>(&UnsyncByteArrayOutputStream::expandSize))},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"toByteArray", "()[B", nullptr, $PUBLIC},
-	{"write", "([B)V", nullptr, $PUBLIC},
-	{"write", "([BII)V", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC},
-	{"writeTo", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnsyncByteArrayOutputStream, init$, void)},
+	{"expandSize", "(I)V", nullptr, $PRIVATE, $method(UnsyncByteArrayOutputStream, expandSize, void, int32_t)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, reset, void)},
+	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, toByteArray, $bytes*)},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, write, void, $bytes*)},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, write, void, $bytes*, int32_t, int32_t)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, write, void, int32_t)},
+	{"writeTo", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, writeTo, void, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

@@ -21,11 +21,11 @@ $FieldInfo _Gen$GenFinalizer_FieldInfo_[] = {
 };
 
 $MethodInfo _Gen$GenFinalizer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;)V", nullptr, 0, $method(static_cast<void(Gen$GenFinalizer::*)($Gen*)>(&Gen$GenFinalizer::init$))},
-	{"afterBody", "()V", nullptr, 0},
-	{"gen", "()V", nullptr, $ABSTRACT},
-	{"genLast", "()V", nullptr, $ABSTRACT},
-	{"hasFinalizer", "()Z", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;)V", nullptr, 0, $method(Gen$GenFinalizer, init$, void, $Gen*)},
+	{"afterBody", "()V", nullptr, 0, $virtualMethod(Gen$GenFinalizer, afterBody, void)},
+	{"gen", "()V", nullptr, $ABSTRACT, $virtualMethod(Gen$GenFinalizer, gen, void)},
+	{"genLast", "()V", nullptr, $ABSTRACT, $virtualMethod(Gen$GenFinalizer, genLast, void)},
+	{"hasFinalizer", "()Z", nullptr, 0, $virtualMethod(Gen$GenFinalizer, hasFinalizer, bool)},
 	{}
 };
 

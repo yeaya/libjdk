@@ -4,6 +4,7 @@
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/tree/EndPosTable.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
+#include <com/sun/tools/javac/tree/JCTree$Visitor.h>
 #include <com/sun/tools/javac/tree/Pretty.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
@@ -18,6 +19,7 @@ using $Tree = ::com::sun::source::tree::Tree;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
+using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $Pretty = ::com::sun::tools::javac::tree::Pretty;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
@@ -50,19 +52,19 @@ $MethodInfo _JCTree_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCTree::*)()>(&JCTree::init$))},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC},
-	{"getPreferredPosition", "()I", nullptr, $PUBLIC},
-	{"getStartPosition", "()I", nullptr, $PUBLIC},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
-	{"hasTag", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Z", nullptr, $PUBLIC},
-	{"pos", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC},
-	{"setPos", "(I)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
-	{"setType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree, init$, void)},
+	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JCTree, accept, void, $JCTree$Visitor*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCTree, clone, $Object*)},
+	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC, $virtualMethod(JCTree, getEndPosition, int32_t, $EndPosTable*)},
+	{"getPreferredPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JCTree, getPreferredPosition, int32_t)},
+	{"getStartPosition", "()I", nullptr, $PUBLIC, $virtualMethod(JCTree, getStartPosition, int32_t)},
+	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JCTree, getTag, $JCTree$Tag*)},
+	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree, getTree, JCTree*)},
+	{"hasTag", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Z", nullptr, $PUBLIC, $virtualMethod(JCTree, hasTag, bool, $JCTree$Tag*)},
+	{"pos", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(JCTree, pos, $JCDiagnostic$DiagnosticPosition*)},
+	{"setPos", "(I)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree, setPos, JCTree*, int32_t)},
+	{"setType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JCTree, setType, JCTree*, $Type*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCTree, toString, $String*)},
 	{}
 };
 

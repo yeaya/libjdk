@@ -38,13 +38,13 @@ $FieldInfo _ResponseSubscribers$SubscriberAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseSubscribers$SubscriberAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;)V", "(TS;Ljava/util/function/Function<-TS;+TR;>;)V", $PUBLIC, $method(static_cast<void(ResponseSubscribers$SubscriberAdapter::*)($Flow$Subscriber*,$Function*)>(&ResponseSubscribers$SubscriberAdapter::init$))},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TR;>;", $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(ResponseSubscribers$SubscriberAdapter::*)($List*)>(&ResponseSubscribers$SubscriberAdapter::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;)V", "(TS;Ljava/util/function/Function<-TS;+TR;>;)V", $PUBLIC, $method(ResponseSubscribers$SubscriberAdapter, init$, void, $Flow$Subscriber*, $Function*)},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TR;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, getBody, $CompletionStage*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(ResponseSubscribers$SubscriberAdapter, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$SubscriberAdapter, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

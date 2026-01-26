@@ -14,7 +14,7 @@ namespace com {
 				namespace dir {
 
 $MethodInfo _SearchFilter$StringFilter_MethodInfo_[] = {
-	{"parse", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.directory.InvalidSearchFilterException"},
+	{"parse", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SearchFilter$StringFilter, parse, void), "javax.naming.directory.InvalidSearchFilterException"},
 	{}
 };
 

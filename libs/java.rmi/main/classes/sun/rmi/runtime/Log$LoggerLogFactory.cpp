@@ -19,8 +19,8 @@ namespace sun {
 		namespace runtime {
 
 $MethodInfo _Log$LoggerLogFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Log$LoggerLogFactory::*)()>(&Log$LoggerLogFactory::init$))},
-	{"createLog", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/logging/Level;)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Log$LoggerLogFactory, init$, void)},
+	{"createLog", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/logging/Level;)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLogFactory, createLog, $Log*, $String*, $String*, $Level*)},
 	{}
 };
 

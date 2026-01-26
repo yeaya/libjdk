@@ -36,10 +36,10 @@ $FieldInfo _Decoder$State_FieldInfo_[] = {
 };
 
 $MethodInfo _Decoder$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Decoder$StateArray*(*)()>(&Decoder$State::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Decoder$State::*)($String*,int32_t)>(&Decoder$State::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Decoder$State*(*)($String*)>(&Decoder$State::valueOf))},
-	{"values", "()[Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Decoder$StateArray*(*)()>(&Decoder$State::values))},
+	{"$values", "()[Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Decoder$State, $values, $Decoder$StateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Decoder$State, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoder$State, valueOf, Decoder$State*, $String*)},
+	{"values", "()[Ljdk/internal/net/http/hpack/Decoder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Decoder$State, values, $Decoder$StateArray*)},
 	{}
 };
 

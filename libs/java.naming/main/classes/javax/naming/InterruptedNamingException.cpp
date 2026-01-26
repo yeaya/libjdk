@@ -17,8 +17,8 @@ $FieldInfo _InterruptedNamingException_FieldInfo_[] = {
 };
 
 $MethodInfo _InterruptedNamingException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InterruptedNamingException::*)($String*)>(&InterruptedNamingException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InterruptedNamingException::*)()>(&InterruptedNamingException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InterruptedNamingException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptedNamingException, init$, void)},
 	{}
 };
 

@@ -29,9 +29,9 @@ $FieldInfo _DCTree$DCEndPosTree_FieldInfo_[] = {
 };
 
 $MethodInfo _DCTree$DCEndPosTree_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DCTree$DCEndPosTree::*)()>(&DCTree$DCEndPosTree::init$))},
-	{"getEndPos", "(Lcom/sun/tools/javac/tree/DCTree$DCDocComment;)I", nullptr, $PUBLIC},
-	{"setEndPos", "(I)Lcom/sun/tools/javac/tree/DCTree$DCEndPosTree;", "(I)TT;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DCTree$DCEndPosTree, init$, void)},
+	{"getEndPos", "(Lcom/sun/tools/javac/tree/DCTree$DCDocComment;)I", nullptr, $PUBLIC, $virtualMethod(DCTree$DCEndPosTree, getEndPos, int32_t, $DCTree$DCDocComment*)},
+	{"setEndPos", "(I)Lcom/sun/tools/javac/tree/DCTree$DCEndPosTree;", "(I)TT;", $PUBLIC, $virtualMethod(DCTree$DCEndPosTree, setEndPos, DCTree$DCEndPosTree*, int32_t)},
 	{}
 };
 

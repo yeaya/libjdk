@@ -1,11 +1,15 @@
 #include <com/sun/source/tree/NewClassTree.h>
 
 #include <com/sun/source/tree/ClassTree.h>
+#include <com/sun/source/tree/ExpressionTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
+using $ClassTree = ::com::sun::source::tree::ClassTree;
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -13,11 +17,11 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _NewClassTree_MethodInfo_[] = {
-	{"getArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT},
-	{"getClassBody", "()Lcom/sun/source/tree/ClassTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEnclosingExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getIdentifier", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT},
+	{"getArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getArguments, $List*)},
+	{"getClassBody", "()Lcom/sun/source/tree/ClassTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getClassBody, $ClassTree*)},
+	{"getEnclosingExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getEnclosingExpression, $ExpressionTree*)},
+	{"getIdentifier", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getIdentifier, $ExpressionTree*)},
+	{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(NewClassTree, getTypeArguments, $List*)},
 	{}
 };
 

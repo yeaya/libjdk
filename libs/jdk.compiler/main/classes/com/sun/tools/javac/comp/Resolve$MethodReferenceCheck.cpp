@@ -52,11 +52,11 @@ $FieldInfo _Resolve$MethodReferenceCheck_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodReferenceCheck_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $method(static_cast<void(Resolve$MethodReferenceCheck::*)($Resolve*,$InferenceContext*)>(&Resolve$MethodReferenceCheck::init$))},
-	{"checkArg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0},
-	{"methodCheckResult", "(ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PRIVATE, $method(static_cast<$Attr$ResultInfo*(Resolve$MethodReferenceCheck::*)(bool,$Type*,$DeferredAttr$DeferredAttrContext*,$Warner*)>(&Resolve$MethodReferenceCheck::methodCheckResult))},
-	{"mostSpecificCheck", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $method(Resolve$MethodReferenceCheck, init$, void, $Resolve*, $InferenceContext*)},
+	{"checkArg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Resolve$MethodReferenceCheck, checkArg, void, $JCDiagnostic$DiagnosticPosition*, bool, $Type*, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
+	{"methodCheckResult", "(ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PRIVATE, $method(Resolve$MethodReferenceCheck, methodCheckResult, $Attr$ResultInfo*, bool, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
+	{"mostSpecificCheck", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", $PUBLIC, $virtualMethod(Resolve$MethodReferenceCheck, mostSpecificCheck, $Resolve$MethodCheck*, $List*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodReferenceCheck, toString, $String*)},
 	{}
 };
 

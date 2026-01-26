@@ -60,8 +60,8 @@ $FieldInfo RequestHandler$1$$Lambda$lambda$printLogMsg$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo RequestHandler$1$$Lambda$lambda$printLogMsg$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/Log$Level;)V", nullptr, $PUBLIC, $method(static_cast<void(RequestHandler$1$$Lambda$lambda$printLogMsg$0::*)($Log$Level*)>(&RequestHandler$1$$Lambda$lambda$printLogMsg$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/Log$Level;)V", nullptr, $PUBLIC, $method(RequestHandler$1$$Lambda$lambda$printLogMsg$0, init$, void, $Log$Level*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequestHandler$1$$Lambda$lambda$printLogMsg$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo RequestHandler$1$$Lambda$lambda$printLogMsg$0::classInfo$ = {
@@ -103,8 +103,8 @@ $FieldInfo RequestHandler$1$$Lambda$lambda$printLogMsg$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo RequestHandler$1$$Lambda$lambda$printLogMsg$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/server/RequestHandler$1;Lcom/sun/tools/sjavac/Log$Level;)V", nullptr, $PUBLIC, $method(static_cast<void(RequestHandler$1$$Lambda$lambda$printLogMsg$1$1::*)(RequestHandler$1*,$Log$Level*)>(&RequestHandler$1$$Lambda$lambda$printLogMsg$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/server/RequestHandler$1;Lcom/sun/tools/sjavac/Log$Level;)V", nullptr, $PUBLIC, $method(RequestHandler$1$$Lambda$lambda$printLogMsg$1$1, init$, void, RequestHandler$1*, $Log$Level*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(RequestHandler$1$$Lambda$lambda$printLogMsg$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo RequestHandler$1$$Lambda$lambda$printLogMsg$1$1::classInfo$ = {
@@ -127,11 +127,11 @@ $FieldInfo _RequestHandler$1_FieldInfo_[] = {
 };
 
 $MethodInfo _RequestHandler$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/server/RequestHandler;Ljava/io/Writer;Ljava/io/Writer;)V", nullptr, 0, $method(static_cast<void(RequestHandler$1::*)($RequestHandler*,$Writer*,$Writer*)>(&RequestHandler$1::init$))},
-	{"isLevelLogged", "(Lcom/sun/tools/sjavac/Log$Level;)Z", nullptr, $PROTECTED},
-	{"lambda$printLogMsg$0", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Log$Level*,$String*)>(&RequestHandler$1::lambda$printLogMsg$0))},
-	{"lambda$printLogMsg$1", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(RequestHandler$1::*)($Log$Level*,$String*)>(&RequestHandler$1::lambda$printLogMsg$1))},
-	{"printLogMsg", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/sjavac/server/RequestHandler;Ljava/io/Writer;Ljava/io/Writer;)V", nullptr, 0, $method(RequestHandler$1, init$, void, $RequestHandler*, $Writer*, $Writer*)},
+	{"isLevelLogged", "(Lcom/sun/tools/sjavac/Log$Level;)Z", nullptr, $PROTECTED, $virtualMethod(RequestHandler$1, isLevelLogged, bool, $Log$Level*)},
+	{"lambda$printLogMsg$0", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RequestHandler$1, lambda$printLogMsg$0, $String*, $Log$Level*, $String*)},
+	{"lambda$printLogMsg$1", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(RequestHandler$1, lambda$printLogMsg$1, void, $Log$Level*, $String*)},
+	{"printLogMsg", "(Lcom/sun/tools/sjavac/Log$Level;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RequestHandler$1, printLogMsg, void, $Log$Level*, $String*)},
 	{}
 };
 

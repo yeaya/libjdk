@@ -33,11 +33,11 @@ $FieldInfo _Scope$ScopeListenerList_FieldInfo_[] = {
 };
 
 $MethodInfo _Scope$ScopeListenerList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Scope$ScopeListenerList::*)()>(&Scope$ScopeListenerList::init$))},
-	{"add", "(Lcom/sun/tools/javac/code/Scope$ScopeListener;)V", nullptr, 0},
-	{"symbolAdded", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0},
-	{"symbolRemoved", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0},
-	{"walkReferences", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;Z)V", nullptr, $PRIVATE, $method(static_cast<void(Scope$ScopeListenerList::*)($Symbol*,$Scope*,bool)>(&Scope$ScopeListenerList::walkReferences))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Scope$ScopeListenerList, init$, void)},
+	{"add", "(Lcom/sun/tools/javac/code/Scope$ScopeListener;)V", nullptr, 0, $virtualMethod(Scope$ScopeListenerList, add, void, $Scope$ScopeListener*)},
+	{"symbolAdded", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Scope$ScopeListenerList, symbolAdded, void, $Symbol*, $Scope*)},
+	{"symbolRemoved", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Scope$ScopeListenerList, symbolRemoved, void, $Symbol*, $Scope*)},
+	{"walkReferences", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;Z)V", nullptr, $PRIVATE, $method(Scope$ScopeListenerList, walkReferences, void, $Symbol*, $Scope*, bool)},
 	{}
 };
 

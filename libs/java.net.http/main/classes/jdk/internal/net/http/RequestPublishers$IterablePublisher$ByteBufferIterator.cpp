@@ -34,11 +34,11 @@ $FieldInfo _RequestPublishers$IterablePublisher$ByteBufferIterator_FieldInfo_[] 
 };
 
 $MethodInfo _RequestPublishers$IterablePublisher$ByteBufferIterator_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/RequestPublishers$IterablePublisher;)V", nullptr, 0, $method(static_cast<void(RequestPublishers$IterablePublisher$ByteBufferIterator::*)($RequestPublishers$IterablePublisher*)>(&RequestPublishers$IterablePublisher$ByteBufferIterator::init$))},
-	{"copy", "()V", nullptr, 0},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, 0},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/RequestPublishers$IterablePublisher;)V", nullptr, 0, $method(RequestPublishers$IterablePublisher$ByteBufferIterator, init$, void, $RequestPublishers$IterablePublisher*)},
+	{"copy", "()V", nullptr, 0, $virtualMethod(RequestPublishers$IterablePublisher$ByteBufferIterator, copy, void)},
+	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(RequestPublishers$IterablePublisher$ByteBufferIterator, getBuffer, $ByteBuffer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$IterablePublisher$ByteBufferIterator, hasNext, bool)},
+	{"next", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$IterablePublisher$ByteBufferIterator, next, $Object*)},
 	{}
 };
 

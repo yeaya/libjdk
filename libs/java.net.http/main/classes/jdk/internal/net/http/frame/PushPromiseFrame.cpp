@@ -31,15 +31,15 @@ $FieldInfo _PushPromiseFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _PushPromiseFrame_MethodInfo_[] = {
-	{"<init>", "(IIILjava/util/List;I)V", "(IIILjava/util/List<Ljava/nio/ByteBuffer;>;I)V", $PUBLIC, $method(static_cast<void(PushPromiseFrame::*)(int32_t,int32_t,int32_t,$List*,int32_t)>(&PushPromiseFrame::init$))},
-	{"endHeaders", "()Z", nullptr, $PUBLIC},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPadLength", "()I", nullptr, $PUBLIC},
-	{"getPromisedStream", "()I", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, 0},
-	{"setPadLength", "(I)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()I", nullptr, $PUBLIC},
+	{"<init>", "(IIILjava/util/List;I)V", "(IIILjava/util/List<Ljava/nio/ByteBuffer;>;I)V", $PUBLIC, $method(PushPromiseFrame, init$, void, int32_t, int32_t, int32_t, $List*, int32_t)},
+	{"endHeaders", "()Z", nullptr, $PUBLIC, $virtualMethod(PushPromiseFrame, endHeaders, bool)},
+	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PushPromiseFrame, flagAsString, $String*, int32_t)},
+	{"getPadLength", "()I", nullptr, $PUBLIC, $virtualMethod(PushPromiseFrame, getPadLength, int32_t)},
+	{"getPromisedStream", "()I", nullptr, $PUBLIC, $virtualMethod(PushPromiseFrame, getPromisedStream, int32_t)},
+	{"length", "()I", nullptr, 0, $virtualMethod(PushPromiseFrame, length, int32_t)},
+	{"setPadLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(PushPromiseFrame, setPadLength, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PushPromiseFrame, toString, $String*)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(PushPromiseFrame, type, int32_t)},
 	{}
 };
 

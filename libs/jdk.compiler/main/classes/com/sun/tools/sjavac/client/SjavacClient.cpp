@@ -123,8 +123,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SjavacClient$$Lambda$error::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SjavacClient$$Lambda$error::*)()>(&SjavacClient$$Lambda$error::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacClient$$Lambda$error, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SjavacClient$$Lambda$error, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SjavacClient$$Lambda$error::classInfo$ = {
@@ -153,13 +153,13 @@ $FieldInfo _SjavacClient_FieldInfo_[] = {
 };
 
 $MethodInfo _SjavacClient_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $method(static_cast<void(SjavacClient::*)($Options*)>(&SjavacClient::init$))},
-	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC},
-	{"makeConnectionAttempt", "()Ljava/net/Socket;", nullptr, $PRIVATE, $method(static_cast<$Socket*(SjavacClient::*)()>(&SjavacClient::makeConnectionAttempt)), "java.io.IOException"},
-	{"makeSureServerIsRunning", "()V", nullptr, $PRIVATE, $method(static_cast<void(SjavacClient::*)()>(&SjavacClient::makeSureServerIsRunning)), "java.io.IOException,java.lang.InterruptedException"},
-	{"shutdown", "()V", nullptr, $PUBLIC},
-	{"startNewServer", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.InterruptedException"},
-	{"tryConnect", "()Ljava/net/Socket;", nullptr, $PRIVATE, $method(static_cast<$Socket*(SjavacClient::*)()>(&SjavacClient::tryConnect)), "java.io.IOException,java.lang.InterruptedException"},
+	{"<init>", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $method(SjavacClient, init$, void, $Options*)},
+	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(SjavacClient, compile, $Main$Result*, $StringArray*)},
+	{"makeConnectionAttempt", "()Ljava/net/Socket;", nullptr, $PRIVATE, $method(SjavacClient, makeConnectionAttempt, $Socket*), "java.io.IOException"},
+	{"makeSureServerIsRunning", "()V", nullptr, $PRIVATE, $method(SjavacClient, makeSureServerIsRunning, void), "java.io.IOException,java.lang.InterruptedException"},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(SjavacClient, shutdown, void)},
+	{"startNewServer", "()V", nullptr, $PUBLIC, $virtualMethod(SjavacClient, startNewServer, void), "java.io.IOException,java.lang.InterruptedException"},
+	{"tryConnect", "()Ljava/net/Socket;", nullptr, $PRIVATE, $method(SjavacClient, tryConnect, $Socket*), "java.io.IOException,java.lang.InterruptedException"},
 	{}
 };
 

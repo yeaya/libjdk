@@ -26,12 +26,12 @@ $FieldInfo _BasicAttributes$AttrEnumImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicAttributes$AttrEnumImpl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/directory/BasicAttributes;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicAttributes$AttrEnumImpl::*)($BasicAttributes*)>(&BasicAttributes$AttrEnumImpl::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"hasMore", "()Z", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"nextElement", "()Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/naming/directory/BasicAttributes;)V", nullptr, $PUBLIC, $method(BasicAttributes$AttrEnumImpl, init$, void, $BasicAttributes*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BasicAttributes$AttrEnumImpl, close, void), "javax.naming.NamingException"},
+	{"hasMore", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAttributes$AttrEnumImpl, hasMore, bool), "javax.naming.NamingException"},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicAttributes$AttrEnumImpl, hasMoreElements, bool)},
+	{"next", "()Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes$AttrEnumImpl, next, $Object*), "javax.naming.NamingException"},
+	{"nextElement", "()Ljavax/naming/directory/Attribute;", nullptr, $PUBLIC, $virtualMethod(BasicAttributes$AttrEnumImpl, nextElement, $Object*)},
 	{}
 };
 

@@ -31,10 +31,10 @@ $FieldInfo _Gen$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Gen$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;[Z)V", nullptr, 0, $method(static_cast<void(Gen$1::*)($Gen*,$booleans*)>(&Gen$1::init$))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;[Z)V", nullptr, 0, $method(Gen$1, init$, void, $Gen*, $booleans*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Gen$1, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Gen$1, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Gen$1, visitTry, void, $JCTree$JCTry*)},
 	{}
 };
 

@@ -36,9 +36,9 @@ $FieldInfo _Dependencies$GraphDependencies$CompletionNode_FieldInfo_[] = {
 };
 
 $MethodInfo _Dependencies$GraphDependencies$CompletionNode_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $method(static_cast<void(Dependencies$GraphDependencies$CompletionNode::*)($Symbol$ClassSymbol*)>(&Dependencies$GraphDependencies$CompletionNode::init$))},
-	{"getClassSymbol", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC},
-	{"nodeAttributes", "()Ljava/util/Properties;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $method(Dependencies$GraphDependencies$CompletionNode, init$, void, $Symbol$ClassSymbol*)},
+	{"getClassSymbol", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$CompletionNode, getClassSymbol, $Symbol$ClassSymbol*)},
+	{"nodeAttributes", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(Dependencies$GraphDependencies$CompletionNode, nodeAttributes, $Properties*)},
 	{}
 };
 

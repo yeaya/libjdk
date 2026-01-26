@@ -53,20 +53,20 @@ $FieldInfo _MBeanServerPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerPermission::*)($String*)>(&MBeanServerPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerPermission::*)($String*,$String*)>(&MBeanServerPermission::init$))},
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(MBeanServerPermission::*)(int32_t)>(&MBeanServerPermission::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getCanonicalName", "(I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int32_t)>(&MBeanServerPermission::getCanonicalName))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"impliedMask", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&MBeanServerPermission::impliedMask))},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"makeCanonicalName", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&MBeanServerPermission::makeCanonicalName))},
-	{"nameIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&MBeanServerPermission::nameIndex)), "java.lang.IllegalArgumentException"},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"parseMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&MBeanServerPermission::parseMask))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanServerPermission::*)($ObjectInputStream*)>(&MBeanServerPermission::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"simplifyMask", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&MBeanServerPermission::simplifyMask))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanServerPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanServerPermission, init$, void, $String*, $String*)},
+	{"<init>", "(I)V", nullptr, 0, $method(MBeanServerPermission, init$, void, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, equals, bool, Object$*)},
+	{"getCanonicalName", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MBeanServerPermission, getCanonicalName, $String*, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, hashCode, int32_t)},
+	{"impliedMask", "(I)I", nullptr, $STATIC, $staticMethod(MBeanServerPermission, impliedMask, int32_t, int32_t)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, implies, bool, $Permission*)},
+	{"makeCanonicalName", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerPermission, makeCanonicalName, $String*, int32_t)},
+	{"nameIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerPermission, nameIndex, int32_t, $String*), "java.lang.IllegalArgumentException"},
+	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, newPermissionCollection, $PermissionCollection*)},
+	{"parseMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerPermission, parseMask, int32_t, $String*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanServerPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"simplifyMask", "(I)I", nullptr, $STATIC, $staticMethod(MBeanServerPermission, simplifyMask, int32_t, int32_t)},
 	{}
 };
 

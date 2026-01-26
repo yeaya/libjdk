@@ -49,10 +49,10 @@ $FieldInfo _SubjectComber_FieldInfo_[] = {
 };
 
 $MethodInfo _SubjectComber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SubjectComber::*)()>(&SubjectComber::init$))},
-	{"find", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $STATIC, $method(static_cast<$Object*(*)($Subject*,$String*,$String*,$Class*)>(&SubjectComber::find))},
-	{"findAux", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;Z)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;Z)Ljava/lang/Object;", $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($Subject*,$String*,$String*,$Class*,bool)>(&SubjectComber::findAux))},
-	{"findMany", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;)Ljava/util/List<TT;>;", $STATIC, $method(static_cast<$List*(*)($Subject*,$String*,$String*,$Class*)>(&SubjectComber::findMany))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SubjectComber, init$, void)},
+	{"find", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $STATIC, $staticMethod(SubjectComber, find, $Object*, $Subject*, $String*, $String*, $Class*)},
+	{"findAux", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;Z)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;Z)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(SubjectComber, findAux, $Object*, $Subject*, $String*, $String*, $Class*, bool)},
+	{"findMany", "(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljavax/security/auth/Subject;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TT;>;)Ljava/util/List<TT;>;", $STATIC, $staticMethod(SubjectComber, findMany, $List*, $Subject*, $String*, $String*, $Class*)},
 	{}
 };
 

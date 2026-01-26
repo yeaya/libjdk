@@ -62,10 +62,10 @@ $FieldInfo _LambdaToMethod$1LambdaBodyTranslator_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaToMethod$1LambdaBodyTranslator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;ZLcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", "()V", 0, $method(static_cast<void(LambdaToMethod$1LambdaBodyTranslator::*)($LambdaToMethod*,bool,$JCTree$JCMethodDecl*)>(&LambdaToMethod$1LambdaBodyTranslator::init$))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;ZLcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", "()V", 0, $method(LambdaToMethod$1LambdaBodyTranslator, init$, void, $LambdaToMethod*, bool, $JCTree$JCMethodDecl*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$1LambdaBodyTranslator, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$1LambdaBodyTranslator, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$1LambdaBodyTranslator, visitReturn, void, $JCTree$JCReturn*)},
 	{}
 };
 

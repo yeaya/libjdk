@@ -28,8 +28,8 @@ $MethodInfo _SearchResultWithControls_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z[Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $method(static_cast<void(SearchResultWithControls::*)($String*,Object$*,$Attributes*,bool,$ControlArray*)>(&SearchResultWithControls::init$))},
-	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z[Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $method(SearchResultWithControls, init$, void, $String*, Object$*, $Attributes*, bool, $ControlArray*)},
+	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(SearchResultWithControls, getControls, $ControlArray*), "javax.naming.NamingException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -53,16 +53,16 @@ $FieldInfo _MBeanConstructorInfo_FieldInfo_[] = {
 
 $MethodInfo _MBeanConstructorInfo_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/String;Ljava/lang/reflect/Constructor<*>;)V", $PUBLIC, $method(static_cast<void(MBeanConstructorInfo::*)($String*,$Constructor*)>(&MBeanConstructorInfo::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanConstructorInfo::*)($String*,$String*,$MBeanParameterInfoArray*)>(&MBeanConstructorInfo::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanConstructorInfo::*)($String*,$String*,$MBeanParameterInfoArray*,$Descriptor*)>(&MBeanConstructorInfo::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"constructorSignature", "(Ljava/lang/reflect/Constructor;)[Ljavax/management/MBeanParameterInfo;", "(Ljava/lang/reflect/Constructor<*>;)[Ljavax/management/MBeanParameterInfo;", $PRIVATE | $STATIC, $method(static_cast<$MBeanParameterInfoArray*(*)($Constructor*)>(&MBeanConstructorInfo::constructorSignature))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"fastGetSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE, $method(static_cast<$MBeanParameterInfoArray*(MBeanConstructorInfo::*)()>(&MBeanConstructorInfo::fastGetSignature))},
-	{"getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/String;Ljava/lang/reflect/Constructor<*>;)V", $PUBLIC, $method(MBeanConstructorInfo, init$, void, $String*, $Constructor*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;)V", nullptr, $PUBLIC, $method(MBeanConstructorInfo, init$, void, $String*, $String*, $MBeanParameterInfoArray*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanConstructorInfo, init$, void, $String*, $String*, $MBeanParameterInfoArray*, $Descriptor*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanConstructorInfo, clone, $Object*)},
+	{"constructorSignature", "(Ljava/lang/reflect/Constructor;)[Ljavax/management/MBeanParameterInfo;", "(Ljava/lang/reflect/Constructor<*>;)[Ljavax/management/MBeanParameterInfo;", $PRIVATE | $STATIC, $staticMethod(MBeanConstructorInfo, constructorSignature, $MBeanParameterInfoArray*, $Constructor*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanConstructorInfo, equals, bool, Object$*)},
+	{"fastGetSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE, $method(MBeanConstructorInfo, fastGetSignature, $MBeanParameterInfoArray*)},
+	{"getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanConstructorInfo, getSignature, $MBeanParameterInfoArray*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanConstructorInfo, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanConstructorInfo, toString, $String*)},
 	{}
 };
 

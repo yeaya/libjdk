@@ -15,9 +15,9 @@ namespace javax {
 	namespace management {
 
 $MethodInfo _MBeanServerBuilder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerBuilder::*)()>(&MBeanServerBuilder::init$))},
-	{"newMBeanServer", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;)Ljavax/management/MBeanServer;", nullptr, $PUBLIC},
-	{"newMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MBeanServerBuilder, init$, void)},
+	{"newMBeanServer", "(Ljava/lang/String;Ljavax/management/MBeanServer;Ljavax/management/MBeanServerDelegate;)Ljavax/management/MBeanServer;", nullptr, $PUBLIC, $virtualMethod(MBeanServerBuilder, newMBeanServer, $MBeanServer*, $String*, $MBeanServer*, $MBeanServerDelegate*)},
+	{"newMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC, $virtualMethod(MBeanServerBuilder, newMBeanServerDelegate, $MBeanServerDelegate*)},
 	{}
 };
 

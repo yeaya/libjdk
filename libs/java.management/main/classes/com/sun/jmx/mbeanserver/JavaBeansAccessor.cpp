@@ -22,11 +22,11 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _JavaBeansAccessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JavaBeansAccessor::*)()>(&JavaBeansAccessor::init$))},
-	{"getConstructorPropertiesValue", "(Ljava/lang/reflect/Constructor;)[Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)[Ljava/lang/String;", $STATIC, $method(static_cast<$StringArray*(*)($Constructor*)>(&JavaBeansAccessor::getConstructorPropertiesValue))},
-	{"getJavaBeansAccess", "()Ljdk/internal/access/JavaBeansAccess;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$JavaBeansAccess*(*)()>(&JavaBeansAccessor::getJavaBeansAccess))},
-	{"getReadMethod", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Method;", $STATIC, $method(static_cast<$Method*(*)($Class*,$String*)>(&JavaBeansAccessor::getReadMethod)), "java.lang.Exception"},
-	{"isAvailable", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&JavaBeansAccessor::isAvailable))},
+	{"<init>", "()V", nullptr, 0, $method(JavaBeansAccessor, init$, void)},
+	{"getConstructorPropertiesValue", "(Ljava/lang/reflect/Constructor;)[Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)[Ljava/lang/String;", $STATIC, $staticMethod(JavaBeansAccessor, getConstructorPropertiesValue, $StringArray*, $Constructor*)},
+	{"getJavaBeansAccess", "()Ljdk/internal/access/JavaBeansAccess;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaBeansAccessor, getJavaBeansAccess, $JavaBeansAccess*)},
+	{"getReadMethod", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Method;", $STATIC, $staticMethod(JavaBeansAccessor, getReadMethod, $Method*, $Class*, $String*), "java.lang.Exception"},
+	{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(JavaBeansAccessor, isAvailable, bool)},
 	{}
 };
 

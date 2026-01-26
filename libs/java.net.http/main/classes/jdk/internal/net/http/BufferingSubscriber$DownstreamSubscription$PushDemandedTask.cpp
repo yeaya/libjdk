@@ -42,8 +42,8 @@ $FieldInfo _BufferingSubscriber$DownstreamSubscription$PushDemandedTask_FieldInf
 };
 
 $MethodInfo _BufferingSubscriber$DownstreamSubscription$PushDemandedTask_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/BufferingSubscriber$DownstreamSubscription;)V", nullptr, 0, $method(static_cast<void(BufferingSubscriber$DownstreamSubscription$PushDemandedTask::*)($BufferingSubscriber$DownstreamSubscription*)>(&BufferingSubscriber$DownstreamSubscription$PushDemandedTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/BufferingSubscriber$DownstreamSubscription;)V", nullptr, 0, $method(BufferingSubscriber$DownstreamSubscription$PushDemandedTask, init$, void, $BufferingSubscriber$DownstreamSubscription*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BufferingSubscriber$DownstreamSubscription$PushDemandedTask, run, void)},
 	{}
 };
 

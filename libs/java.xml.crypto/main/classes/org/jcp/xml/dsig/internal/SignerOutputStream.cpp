@@ -28,9 +28,9 @@ $FieldInfo _SignerOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SignerOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Signature;)V", nullptr, $PUBLIC, $method(static_cast<void(SignerOutputStream::*)($Signature*)>(&SignerOutputStream::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC},
-	{"write", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/Signature;)V", nullptr, $PUBLIC, $method(SignerOutputStream, init$, void, $Signature*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, int32_t)},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

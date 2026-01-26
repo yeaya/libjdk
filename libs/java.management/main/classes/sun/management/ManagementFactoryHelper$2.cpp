@@ -27,8 +27,8 @@ $FieldInfo _ManagementFactoryHelper$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ManagementFactoryHelper$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/MBeanServer;Ljava/lang/Object;Ljavax/management/ObjectName;)V", "()V", 0, $method(static_cast<void(ManagementFactoryHelper$2::*)($MBeanServer*,Object$*,$ObjectName*)>(&ManagementFactoryHelper$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException"},
+	{"<init>", "(Ljavax/management/MBeanServer;Ljava/lang/Object;Ljavax/management/ObjectName;)V", "()V", 0, $method(ManagementFactoryHelper$2, init$, void, $MBeanServer*, Object$*, $ObjectName*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$2, run, $Object*), "javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException"},
 	{}
 };
 

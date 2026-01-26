@@ -106,8 +106,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::*)()>(&Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Symbol$ModuleSymbol$$Lambda$lambda$getEnclosedElements$0::classInfo$ = {
@@ -158,24 +158,24 @@ $MethodInfo _Symbol$ModuleSymbol_MethodInfo_[] = {
 	{"*getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $SYNTHETIC},
 	{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$ModuleSymbol::*)($Name*,$Symbol*)>(&Symbol$ModuleSymbol::init$))},
-	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"completeUsesProvides", "()V", nullptr, $PUBLIC},
-	{"create", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Symbol$ModuleSymbol*(*)($Name*,$Name*)>(&Symbol$ModuleSymbol::create))},
-	{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/lang/model/element/ModuleElement$Directive;>;", $PUBLIC},
-	{"getEnclosedElements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
-	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC},
-	{"getQualifiedName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getSimpleName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC},
-	{"isNoModule", "()Z", nullptr, $PUBLIC},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"isUnnamed", "()Z", nullptr, $PUBLIC},
-	{"lambda$getEnclosedElements$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*)>(&Symbol$ModuleSymbol::lambda$getEnclosedElements$0))},
-	{"outermostClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC},
-	{"poolTag", "()I", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$ModuleSymbol, init$, void, $Name*, $Symbol*)},
+	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, accept, $Object*, $ElementVisitor*, Object$*)},
+	{"completeUsesProvides", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, completeUsesProvides, void)},
+	{"create", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleSymbol, create, Symbol$ModuleSymbol*, $Name*, $Name*)},
+	{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/lang/model/element/ModuleElement$Directive;>;", $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getDirectives, $List*)},
+	{"getEnclosedElements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getEnclosedElements, $List*)},
+	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getKind, $ElementKind*)},
+	{"getQualifiedName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$ModuleSymbol, getQualifiedName, $Name*)},
+	{"getSimpleName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, getSimpleName, $1Name*)},
+	{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isDeprecated, bool)},
+	{"isNoModule", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isNoModule, bool)},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isOpen, bool)},
+	{"isUnnamed", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, isUnnamed, bool)},
+	{"lambda$getEnclosedElements$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symbol$ModuleSymbol, lambda$getEnclosedElements$0, bool, $Symbol*)},
+	{"outermostClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, outermostClass, $Symbol$ClassSymbol*)},
+	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, poolTag, int32_t)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, reset, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol$ModuleSymbol, toString, $String*)},
 	{}
 };
 

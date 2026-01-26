@@ -10,7 +10,7 @@ namespace sun {
 		namespace counter {
 
 $MethodInfo _LongCounter_MethodInfo_[] = {
-	{"longValue", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"longValue", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongCounter, longValue, int64_t)},
 	{}
 };
 

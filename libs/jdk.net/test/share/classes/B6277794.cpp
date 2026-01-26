@@ -17,10 +17,10 @@ using $URI = ::java::net::URI;
 using $List = ::java::util::List;
 
 $MethodInfo _B6277794_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6277794::*)()>(&B6277794::init$))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&B6277794::fail)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6277794::main)), "java.lang.Exception"},
-	{"testCookieStore", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&B6277794::testCookieStore)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6277794, init$, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6277794, fail, void, $String*), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6277794, main, void, $StringArray*), "java.lang.Exception"},
+	{"testCookieStore", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6277794, testCookieStore, void), "java.lang.Exception"},
 	{}
 };
 

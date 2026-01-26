@@ -37,9 +37,9 @@ $FieldInfo _Operation_FieldInfo_[] = {
 };
 
 $MethodInfo _Operation_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(Operation::*)($String*)>(&Operation::init$)), nullptr, nullptr, _Operation_MethodAnnotations_init$0},
-	{"getOperation", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _Operation_MethodAnnotations_getOperation1},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _Operation_MethodAnnotations_toString2},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Operation, init$, void, $String*), nullptr, nullptr, _Operation_MethodAnnotations_init$0},
+	{"getOperation", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Operation, getOperation, $String*), nullptr, nullptr, _Operation_MethodAnnotations_getOperation1},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Operation, toString, $String*), nullptr, nullptr, _Operation_MethodAnnotations_toString2},
 	{}
 };
 

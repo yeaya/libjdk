@@ -34,9 +34,9 @@ $FieldInfo _PrintingProcessor$PrintingElementVisitor$2_FieldInfo_[] = {
 };
 
 $MethodInfo _PrintingProcessor$PrintingElementVisitor$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;Ljava/lang/Boolean;)V", nullptr, 0, $method(static_cast<void(PrintingProcessor$PrintingElementVisitor$2::*)($PrintingProcessor$PrintingElementVisitor*,$Boolean*)>(&PrintingProcessor$PrintingElementVisitor$2::init$))},
-	{"visitArray", "(Ljava/util/List;Ljava/lang/Void;)Ljava/lang/Boolean;", "(Ljava/util/List<+Ljavax/lang/model/element/AnnotationValue;>;Ljava/lang/Void;)Ljava/lang/Boolean;", $PUBLIC},
-	{"visitArray", "(Ljava/util/List;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor;Ljava/lang/Boolean;)V", nullptr, 0, $method(PrintingProcessor$PrintingElementVisitor$2, init$, void, $PrintingProcessor$PrintingElementVisitor*, $Boolean*)},
+	{"visitArray", "(Ljava/util/List;Ljava/lang/Void;)Ljava/lang/Boolean;", "(Ljava/util/List<+Ljavax/lang/model/element/AnnotationValue;>;Ljava/lang/Void;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$2, visitArray, $Boolean*, $List*, $Void*)},
+	{"visitArray", "(Ljava/util/List;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrintingProcessor$PrintingElementVisitor$2, visitArray, $Object*, $List*, Object$*)},
 	{}
 };
 

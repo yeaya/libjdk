@@ -17,8 +17,8 @@ $FieldInfo _LinkLoopException_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkLoopException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LinkLoopException::*)($String*)>(&LinkLoopException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LinkLoopException::*)()>(&LinkLoopException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkLoopException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LinkLoopException, init$, void)},
 	{}
 };
 

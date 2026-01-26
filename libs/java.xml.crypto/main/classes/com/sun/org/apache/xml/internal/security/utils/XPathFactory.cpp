@@ -2,12 +2,14 @@
 
 #include <com/sun/org/apache/xml/internal/security/utils/ClassLoaderUtils.h>
 #include <com/sun/org/apache/xml/internal/security/utils/JDKXPathFactory.h>
+#include <com/sun/org/apache/xml/internal/security/utils/XPathAPI.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XalanXPathAPI.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XalanXPathFactory.h>
 #include <jcpp.h>
 
 using $ClassLoaderUtils = ::com::sun::org::apache::xml::internal::security::utils::ClassLoaderUtils;
 using $JDKXPathFactory = ::com::sun::org::apache::xml::internal::security::utils::JDKXPathFactory;
+using $XPathAPI = ::com::sun::org::apache::xml::internal::security::utils::XPathAPI;
 using $XalanXPathAPI = ::com::sun::org::apache::xml::internal::security::utils::XalanXPathAPI;
 using $XalanXPathFactory = ::com::sun::org::apache::xml::internal::security::utils::XalanXPathFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -30,9 +32,9 @@ $FieldInfo _XPathFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _XPathFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XPathFactory::*)()>(&XPathFactory::init$))},
-	{"newInstance", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<XPathFactory*(*)()>(&XPathFactory::newInstance))},
-	{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XPathFactory, init$, void)},
+	{"newInstance", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newInstance, XPathFactory*)},
+	{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, newXPathAPI, $XPathAPI*)},
 	{}
 };
 

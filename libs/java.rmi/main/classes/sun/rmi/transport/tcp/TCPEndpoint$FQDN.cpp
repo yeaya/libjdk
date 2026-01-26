@@ -35,11 +35,11 @@ $FieldInfo _TCPEndpoint$FQDN_FieldInfo_[] = {
 };
 
 $MethodInfo _TCPEndpoint$FQDN_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(TCPEndpoint$FQDN::*)($String*)>(&TCPEndpoint$FQDN::init$))},
-	{"attemptFQDN", "(Ljava/net/InetAddress;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($InetAddress*)>(&TCPEndpoint$FQDN::attemptFQDN)), "java.net.UnknownHostException"},
-	{"getFQDN", "()V", nullptr, $PRIVATE, $method(static_cast<void(TCPEndpoint$FQDN::*)()>(&TCPEndpoint$FQDN::getFQDN))},
-	{"getHost", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<$String*(TCPEndpoint$FQDN::*)()>(&TCPEndpoint$FQDN::getHost))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(TCPEndpoint$FQDN, init$, void, $String*)},
+	{"attemptFQDN", "(Ljava/net/InetAddress;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(TCPEndpoint$FQDN, attemptFQDN, $String*, $InetAddress*), "java.net.UnknownHostException"},
+	{"getFQDN", "()V", nullptr, $PRIVATE, $method(TCPEndpoint$FQDN, getFQDN, void)},
+	{"getHost", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(TCPEndpoint$FQDN, getHost, $String*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint$FQDN, run, void)},
 	{}
 };
 

@@ -112,8 +112,8 @@ $FieldInfo LdapSearchEnumeration$$Lambda$lambda$createItem$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LdapSearchEnumeration$$Lambda$lambda$createItem$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(static_cast<void(LdapSearchEnumeration$$Lambda$lambda$createItem$0::*)($Attributes*)>(&LdapSearchEnumeration$$Lambda$lambda$createItem$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(LdapSearchEnumeration$$Lambda$lambda$createItem$0, init$, void, $Attributes*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapSearchEnumeration$$Lambda$lambda$createItem$0, run, $Object*)},
 	{}
 };
 $ClassInfo LdapSearchEnumeration$$Lambda$lambda$createItem$0::classInfo$ = {
@@ -138,13 +138,13 @@ $FieldInfo _LdapSearchEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapSearchEnumeration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljava/lang/String;Lcom/sun/jndi/ldap/LdapCtx$SearchArgs;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(static_cast<void(LdapSearchEnumeration::*)($LdapCtx*,$LdapResult*,$String*,$LdapCtx$SearchArgs*,$Continuation*)>(&LdapSearchEnumeration::init$)), "javax.naming.NamingException"},
-	{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)V", nullptr, $PUBLIC},
-	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/directory/SearchResult;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)Ljavax/naming/directory/SearchResult;", $PROTECTED, nullptr, "javax.naming.NamingException"},
-	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED, nullptr, "javax.naming.NamingException"},
-	{"lambda$createItem$0", "(Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($Attributes*)>(&LdapSearchEnumeration::lambda$createItem$0)), "java.lang.Exception"},
-	{"setStartName", "(Ljavax/naming/Name;)V", nullptr, 0, $method(static_cast<void(LdapSearchEnumeration::*)($Name*)>(&LdapSearchEnumeration::setStartName))},
-	{"update", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;)V", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;)V", $PROTECTED},
+	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljava/lang/String;Lcom/sun/jndi/ldap/LdapCtx$SearchArgs;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(LdapSearchEnumeration, init$, void, $LdapCtx*, $LdapResult*, $String*, $LdapCtx$SearchArgs*, $Continuation*), "javax.naming.NamingException"},
+	{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)V", nullptr, $PUBLIC, $virtualMethod(LdapSearchEnumeration, appendUnprocessedReferrals, void, $LdapReferralException*)},
+	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/directory/SearchResult;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)Ljavax/naming/directory/SearchResult;", $PROTECTED, $virtualMethod(LdapSearchEnumeration, createItem, $NameClassPair*, $String*, $Attributes*, $Vector*), "javax.naming.NamingException"},
+	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(LdapSearchEnumeration, getReferredResults, $AbstractLdapNamingEnumeration*, $LdapReferralContext*), "javax.naming.NamingException"},
+	{"lambda$createItem$0", "(Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapSearchEnumeration, lambda$createItem$0, $Object*, $Attributes*), "java.lang.Exception"},
+	{"setStartName", "(Ljavax/naming/Name;)V", nullptr, 0, $method(LdapSearchEnumeration, setStartName, void, $Name*)},
+	{"update", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;)V", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;)V", $PROTECTED, $virtualMethod(LdapSearchEnumeration, update, void, $AbstractLdapNamingEnumeration*)},
 	{}
 };
 

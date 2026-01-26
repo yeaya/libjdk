@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Socket = ::java::net::Socket;
 
 namespace java {
 	namespace rmi {
 		namespace server {
 
 $MethodInfo _RMIClientSocketFactory_MethodInfo_[] = {
-	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIClientSocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException"},
 	{}
 };
 

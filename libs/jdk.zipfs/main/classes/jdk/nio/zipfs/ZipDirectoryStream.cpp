@@ -42,9 +42,9 @@ $FieldInfo _ZipDirectoryStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipDirectoryStream_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter;)V", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(static_cast<void(ZipDirectoryStream::*)($ZipPath*,$DirectoryStream$Filter*)>(&ZipDirectoryStream::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter;)V", "(Ljdk/nio/zipfs/ZipPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(ZipDirectoryStream, init$, void, $ZipPath*, $DirectoryStream$Filter*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipDirectoryStream, close, void), "java.io.IOException"},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZipDirectoryStream, iterator, $Iterator*)},
 	{}
 };
 

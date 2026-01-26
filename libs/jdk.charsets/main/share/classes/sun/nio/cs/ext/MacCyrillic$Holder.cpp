@@ -24,7 +24,7 @@ $FieldInfo _MacCyrillic$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MacCyrillic$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacCyrillic$Holder::*)()>(&MacCyrillic$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacCyrillic$Holder, init$, void)},
 	{}
 };
 

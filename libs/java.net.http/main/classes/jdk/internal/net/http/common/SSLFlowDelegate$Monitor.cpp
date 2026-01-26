@@ -50,12 +50,12 @@ $FieldInfo _SSLFlowDelegate$Monitor_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLFlowDelegate$Monitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SSLFlowDelegate$Monitor::*)()>(&SSLFlowDelegate$Monitor::init$))},
-	{"add", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($SSLFlowDelegate$Monitorable*)>(&SSLFlowDelegate$Monitor::add))},
-	{"addTarget", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, 0},
-	{"remove", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($SSLFlowDelegate$Monitorable*)>(&SSLFlowDelegate$Monitor::remove))},
-	{"removeTarget", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, 0},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SSLFlowDelegate$Monitor, init$, void)},
+	{"add", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLFlowDelegate$Monitor, add, void, $SSLFlowDelegate$Monitorable*)},
+	{"addTarget", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Monitor, addTarget, void, $SSLFlowDelegate$Monitorable*)},
+	{"remove", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLFlowDelegate$Monitor, remove, void, $SSLFlowDelegate$Monitorable*)},
+	{"removeTarget", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Monitor, removeTarget, void, $SSLFlowDelegate$Monitorable*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Monitor, run, void)},
 	{}
 };
 

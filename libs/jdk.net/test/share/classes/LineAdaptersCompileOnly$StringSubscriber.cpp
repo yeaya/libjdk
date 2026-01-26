@@ -10,12 +10,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 
 $MethodInfo _LineAdaptersCompileOnly$StringSubscriber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LineAdaptersCompileOnly$StringSubscriber::*)()>(&LineAdaptersCompileOnly$StringSubscriber::init$))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(LineAdaptersCompileOnly$StringSubscriber, init$, void)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$StringSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$StringSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$StringSubscriber, onNext, void, $String*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LineAdaptersCompileOnly$StringSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$StringSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

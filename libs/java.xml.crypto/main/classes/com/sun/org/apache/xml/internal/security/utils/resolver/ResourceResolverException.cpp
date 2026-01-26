@@ -38,16 +38,16 @@ $FieldInfo _ResourceResolverException_FieldInfo_[] = {
 };
 
 $MethodInfo _ResourceResolverException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ResourceResolverException::*)($String*,$String*,$String*)>(&ResourceResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ResourceResolverException::*)($String*,$ObjectArray*,$String*,$String*)>(&ResourceResolverException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ResourceResolverException::*)($Exception*,$String*,$String*,$String*)>(&ResourceResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(ResourceResolverException::*)($String*,$Exception*,$String*,$String*)>(&ResourceResolverException::init$)), nullptr, nullptr, _ResourceResolverException_MethodAnnotations_init$3},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(ResourceResolverException::*)($Exception*,$String*,$String*,$String*,$ObjectArray*)>(&ResourceResolverException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(ResourceResolverException::*)($String*,$ObjectArray*,$Exception*,$String*,$String*)>(&ResourceResolverException::init$)), nullptr, nullptr, _ResourceResolverException_MethodAnnotations_init$5},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getbaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setbaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $String*, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $String*, $ObjectArray*, $String*, $String*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $Exception*, $String*, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ResourceResolverException, init$, void, $String*, $Exception*, $String*, $String*), nullptr, nullptr, _ResourceResolverException_MethodAnnotations_init$3},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $Exception*, $String*, $String*, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ResourceResolverException, init$, void, $String*, $ObjectArray*, $Exception*, $String*, $String*), nullptr, nullptr, _ResourceResolverException_MethodAnnotations_init$5},
+	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, getURI, $String*)},
+	{"getbaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, getbaseURI, $String*)},
+	{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, setURI, void, $String*)},
+	{"setbaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, setbaseURI, void, $String*)},
 	{}
 };
 

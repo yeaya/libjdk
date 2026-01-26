@@ -25,9 +25,9 @@ $FieldInfo _Logger$LoggerBundle_FieldInfo_[] = {
 };
 
 $MethodInfo _Logger$LoggerBundle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/ResourceBundle;)V", nullptr, $PRIVATE, $method(static_cast<void(Logger$LoggerBundle::*)($String*,$ResourceBundle*)>(&Logger$LoggerBundle::init$))},
-	{"get", "(Ljava/lang/String;Ljava/util/ResourceBundle;)Ljava/util/logging/Logger$LoggerBundle;", nullptr, $STATIC, $method(static_cast<Logger$LoggerBundle*(*)($String*,$ResourceBundle*)>(&Logger$LoggerBundle::get))},
-	{"isSystemBundle", "()Z", nullptr, 0, $method(static_cast<bool(Logger$LoggerBundle::*)()>(&Logger$LoggerBundle::isSystemBundle))},
+	{"<init>", "(Ljava/lang/String;Ljava/util/ResourceBundle;)V", nullptr, $PRIVATE, $method(Logger$LoggerBundle, init$, void, $String*, $ResourceBundle*)},
+	{"get", "(Ljava/lang/String;Ljava/util/ResourceBundle;)Ljava/util/logging/Logger$LoggerBundle;", nullptr, $STATIC, $staticMethod(Logger$LoggerBundle, get, Logger$LoggerBundle*, $String*, $ResourceBundle*)},
+	{"isSystemBundle", "()Z", nullptr, 0, $method(Logger$LoggerBundle, isSystemBundle, bool)},
 	{}
 };
 

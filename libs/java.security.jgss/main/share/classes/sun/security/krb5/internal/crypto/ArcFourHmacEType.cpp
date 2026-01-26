@@ -31,20 +31,20 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _ArcFourHmacEType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArcFourHmacEType::*)()>(&ArcFourHmacEType::init$))},
-	{"blockSize", "()I", nullptr, $PUBLIC},
-	{"checksumSize", "()I", nullptr, $PUBLIC},
-	{"checksumType", "()I", nullptr, $PUBLIC},
-	{"confounderSize", "()I", nullptr, $PUBLIC},
-	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decryptedData", "([B)[B", nullptr, $PUBLIC},
-	{"eType", "()I", nullptr, $PUBLIC},
-	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"keySize", "()I", nullptr, $PUBLIC},
-	{"keyType", "()I", nullptr, $PUBLIC},
-	{"minimumPadSize", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ArcFourHmacEType, init$, void)},
+	{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, blockSize, int32_t)},
+	{"checksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, checksumSize, int32_t)},
+	{"checksumType", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, checksumType, int32_t)},
+	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, confounderSize, int32_t)},
+	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+	{"decryptedData", "([B)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, decryptedData, $bytes*, $bytes*)},
+	{"eType", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, eType, int32_t)},
+	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, keyType, int32_t)},
+	{"minimumPadSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, minimumPadSize, int32_t)},
 	{}
 };
 

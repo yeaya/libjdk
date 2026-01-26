@@ -24,9 +24,9 @@ $FieldInfo _Types$FunctionDescriptorLookupError_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$FunctionDescriptorLookupError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Types$FunctionDescriptorLookupError::*)()>(&Types$FunctionDescriptorLookupError::init$))},
-	{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC},
-	{"setMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/code/Types$FunctionDescriptorLookupError;", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(Types$FunctionDescriptorLookupError, init$, void)},
+	{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Types$FunctionDescriptorLookupError, getDiagnostic, $JCDiagnostic*)},
+	{"setMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/code/Types$FunctionDescriptorLookupError;", nullptr, 0, $virtualMethod(Types$FunctionDescriptorLookupError, setMessage, Types$FunctionDescriptorLookupError*, $JCDiagnostic*)},
 	{}
 };
 

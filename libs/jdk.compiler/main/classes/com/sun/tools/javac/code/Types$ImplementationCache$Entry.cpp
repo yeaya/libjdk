@@ -29,8 +29,8 @@ $FieldInfo _Types$ImplementationCache$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$ImplementationCache$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$ImplementationCache;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/function/Predicate;ZI)V", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;ZI)V", $PUBLIC, $method(static_cast<void(Types$ImplementationCache$Entry::*)($Types$ImplementationCache*,$Symbol$MethodSymbol*,$Predicate*,bool,int32_t)>(&Types$ImplementationCache$Entry::init$))},
-	{"matches", "(Ljava/util/function/Predicate;ZI)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;ZI)Z", 0},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$ImplementationCache;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/function/Predicate;ZI)V", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;ZI)V", $PUBLIC, $method(Types$ImplementationCache$Entry, init$, void, $Types$ImplementationCache*, $Symbol$MethodSymbol*, $Predicate*, bool, int32_t)},
+	{"matches", "(Ljava/util/function/Predicate;ZI)Z", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Symbol;>;ZI)Z", 0, $virtualMethod(Types$ImplementationCache$Entry, matches, bool, $Predicate*, bool, int32_t)},
 	{}
 };
 

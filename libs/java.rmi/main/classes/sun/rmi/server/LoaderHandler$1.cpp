@@ -26,8 +26,8 @@ $FieldInfo _LoaderHandler$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LoaderHandler$1_MethodInfo_[] = {
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;)V", "()V", 0, $method(static_cast<void(LoaderHandler$1::*)($URLArray*,$ClassLoader*)>(&LoaderHandler$1::init$))},
-	{"run", "()Lsun/rmi/server/LoaderHandler$Loader;", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;)V", "()V", 0, $method(LoaderHandler$1, init$, void, $URLArray*, $ClassLoader*)},
+	{"run", "()Lsun/rmi/server/LoaderHandler$Loader;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$1, run, $Object*)},
 	{}
 };
 

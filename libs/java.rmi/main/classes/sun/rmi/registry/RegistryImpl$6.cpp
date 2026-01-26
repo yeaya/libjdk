@@ -24,8 +24,8 @@ namespace sun {
 		namespace registry {
 
 $MethodInfo _RegistryImpl$6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RegistryImpl$6::*)()>(&RegistryImpl$6::init$))},
-	{"run", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(RegistryImpl$6, init$, void)},
+	{"run", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$6, run, $Object*)},
 	{}
 };
 

@@ -13,8 +13,8 @@ namespace java {
 		namespace prefs {
 
 $MethodInfo _Preferences$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Preferences$1::*)()>(&Preferences$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Preferences$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Preferences$1, run, $Object*)},
 	{}
 };
 

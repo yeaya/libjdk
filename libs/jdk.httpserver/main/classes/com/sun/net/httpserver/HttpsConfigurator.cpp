@@ -23,9 +23,9 @@ $FieldInfo _HttpsConfigurator_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpsConfigurator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/SSLContext;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpsConfigurator::*)($SSLContext*)>(&HttpsConfigurator::init$))},
-	{"configure", "(Lcom/sun/net/httpserver/HttpsParameters;)V", nullptr, $PUBLIC},
-	{"getSSLContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/net/ssl/SSLContext;)V", nullptr, $PUBLIC, $method(HttpsConfigurator, init$, void, $SSLContext*)},
+	{"configure", "(Lcom/sun/net/httpserver/HttpsParameters;)V", nullptr, $PUBLIC, $virtualMethod(HttpsConfigurator, configure, void, $HttpsParameters*)},
+	{"getSSLContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(HttpsConfigurator, getSSLContext, $SSLContext*)},
 	{}
 };
 

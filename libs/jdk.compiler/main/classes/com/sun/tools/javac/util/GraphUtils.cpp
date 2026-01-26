@@ -23,9 +23,9 @@ namespace com {
 				namespace util {
 
 $MethodInfo _GraphUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GraphUtils::*)()>(&GraphUtils::init$))},
-	{"tarjan", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/List;", "<D:Ljava/lang/Object;N:Lcom/sun/tools/javac/util/GraphUtils$TarjanNode<TD;TN;>;>(Ljava/lang/Iterable<+TN;>;)Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/util/List<+TN;>;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($Iterable*)>(&GraphUtils::tarjan))},
-	{"toDot", "(Ljava/util/Collection;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "<D:Ljava/lang/Object;N::Lcom/sun/tools/javac/util/GraphUtils$DottableNode<TD;TN;>;>(Ljava/util/Collection<+TN;>;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Collection*,$String*,$String*)>(&GraphUtils::toDot))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GraphUtils, init$, void)},
+	{"tarjan", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/List;", "<D:Ljava/lang/Object;N:Lcom/sun/tools/javac/util/GraphUtils$TarjanNode<TD;TN;>;>(Ljava/lang/Iterable<+TN;>;)Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/util/List<+TN;>;>;", $PUBLIC | $STATIC, $staticMethod(GraphUtils, tarjan, $List*, $Iterable*)},
+	{"toDot", "(Ljava/util/Collection;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "<D:Ljava/lang/Object;N::Lcom/sun/tools/javac/util/GraphUtils$DottableNode<TD;TN;>;>(Ljava/util/Collection<+TN;>;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(GraphUtils, toDot, $String*, $Collection*, $String*, $String*)},
 	{}
 };
 

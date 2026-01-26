@@ -24,7 +24,7 @@ $FieldInfo _IBM970$EncodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _IBM970$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(IBM970$EncodeHolder::*)()>(&IBM970$EncodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(IBM970$EncodeHolder, init$, void)},
 	{}
 };
 

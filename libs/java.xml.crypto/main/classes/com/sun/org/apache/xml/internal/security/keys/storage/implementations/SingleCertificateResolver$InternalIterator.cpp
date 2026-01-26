@@ -32,10 +32,10 @@ $FieldInfo _SingleCertificateResolver$InternalIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _SingleCertificateResolver$InternalIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(SingleCertificateResolver$InternalIterator::*)($X509Certificate*)>(&SingleCertificateResolver$InternalIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(SingleCertificateResolver$InternalIterator, init$, void, $X509Certificate*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(SingleCertificateResolver$InternalIterator, hasNext, bool)},
+	{"next", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(SingleCertificateResolver$InternalIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(SingleCertificateResolver$InternalIterator, remove, void)},
 	{}
 };
 

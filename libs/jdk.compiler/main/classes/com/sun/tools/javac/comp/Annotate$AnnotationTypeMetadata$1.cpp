@@ -30,14 +30,14 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Annotate$AnnotationTypeMetadata$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeCompleter;)V", nullptr, 0, $method(static_cast<void(Annotate$AnnotationTypeMetadata$1::*)($Symbol$ClassSymbol*,$Annotate$AnnotationTypeCompleter*)>(&Annotate$AnnotationTypeMetadata$1::init$))},
-	{"complete", "()V", nullptr, $PUBLIC},
-	{"getAnnotationElements", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC},
-	{"getAnnotationElementsWithDefault", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC},
-	{"getRepeatable", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC},
-	{"getTarget", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC},
-	{"isMetadataForAnnotationType", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeCompleter;)V", nullptr, 0, $method(Annotate$AnnotationTypeMetadata$1, init$, void, $Symbol$ClassSymbol*, $Annotate$AnnotationTypeCompleter*)},
+	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, complete, void)},
+	{"getAnnotationElements", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getAnnotationElements, $Set*)},
+	{"getAnnotationElementsWithDefault", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;>;", $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getAnnotationElementsWithDefault, $Set*)},
+	{"getRepeatable", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getRepeatable, $Attribute$Compound*)},
+	{"getTarget", "()Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, getTarget, $Attribute$Compound*)},
+	{"isMetadataForAnnotationType", "()Z", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, isMetadataForAnnotationType, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Annotate$AnnotationTypeMetadata$1, toString, $String*)},
 	{}
 };
 

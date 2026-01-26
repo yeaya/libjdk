@@ -58,19 +58,19 @@ $FieldInfo _MBeanAttributeInfo_FieldInfo_[] = {
 
 $MethodInfo _MBeanAttributeInfo_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZ)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanAttributeInfo::*)($String*,$String*,$String*,bool,bool,bool)>(&MBeanAttributeInfo::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZLjavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanAttributeInfo::*)($String*,$String*,$String*,bool,bool,bool,$Descriptor*)>(&MBeanAttributeInfo::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanAttributeInfo::*)($String*,$String*,$Method*,$Method*)>(&MBeanAttributeInfo::init$)), "javax.management.IntrospectionException"},
-	{"attributeType", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Method*,$Method*)>(&MBeanAttributeInfo::attributeType)), "javax.management.IntrospectionException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isIs", "()Z", nullptr, $PUBLIC},
-	{"isIs", "(Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Method*)>(&MBeanAttributeInfo::isIs))},
-	{"isReadable", "()Z", nullptr, $PUBLIC},
-	{"isWritable", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZ)V", nullptr, $PUBLIC, $method(MBeanAttributeInfo, init$, void, $String*, $String*, $String*, bool, bool, bool)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZLjavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanAttributeInfo, init$, void, $String*, $String*, $String*, bool, bool, bool, $Descriptor*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(MBeanAttributeInfo, init$, void, $String*, $String*, $Method*, $Method*), "javax.management.IntrospectionException"},
+	{"attributeType", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanAttributeInfo, attributeType, $String*, $Method*, $Method*), "javax.management.IntrospectionException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, equals, bool, Object$*)},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, getType, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, hashCode, int32_t)},
+	{"isIs", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, isIs, bool)},
+	{"isIs", "(Ljava/lang/reflect/Method;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanAttributeInfo, isIs, bool, $Method*)},
+	{"isReadable", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, isReadable, bool)},
+	{"isWritable", "()Z", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, isWritable, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanAttributeInfo, toString, $String*)},
 	{}
 };
 

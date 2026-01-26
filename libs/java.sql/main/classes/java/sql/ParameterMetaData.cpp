@@ -21,15 +21,15 @@ $FieldInfo _ParameterMetaData_FieldInfo_[] = {
 };
 
 $MethodInfo _ParameterMetaData_MethodInfo_[] = {
-	{"getParameterClassName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getParameterCount", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getParameterMode", "(I)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getParameterType", "(I)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getParameterTypeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getPrecision", "(I)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getScale", "(I)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"isNullable", "(I)I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"isSigned", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getParameterClassName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterMetaData, getParameterClassName, $String*, int32_t), "java.sql.SQLException"},
+	{"getParameterCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterMetaData, getParameterCount, int32_t), "java.sql.SQLException"},
+	{"getParameterMode", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterMetaData, getParameterMode, int32_t, int32_t), "java.sql.SQLException"},
+	{"getParameterType", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterMetaData, getParameterType, int32_t, int32_t), "java.sql.SQLException"},
+	{"getParameterTypeName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterMetaData, getParameterTypeName, $String*, int32_t), "java.sql.SQLException"},
+	{"getPrecision", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterMetaData, getPrecision, int32_t, int32_t), "java.sql.SQLException"},
+	{"getScale", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterMetaData, getScale, int32_t, int32_t), "java.sql.SQLException"},
+	{"isNullable", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterMetaData, isNullable, int32_t, int32_t), "java.sql.SQLException"},
+	{"isSigned", "(I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParameterMetaData, isSigned, bool, int32_t), "java.sql.SQLException"},
 	{}
 };
 

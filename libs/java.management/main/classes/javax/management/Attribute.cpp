@@ -21,12 +21,12 @@ $FieldInfo _Attribute_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Attribute::*)($String*,Object$*)>(&Attribute::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Attribute, init$, void, $String*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Attribute, equals, bool, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute, getName, $String*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attribute, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Attribute, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute, toString, $String*)},
 	{}
 };
 

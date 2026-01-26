@@ -17,14 +17,14 @@ $FieldInfo _SQLSyntaxErrorException_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLSyntaxErrorException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SQLSyntaxErrorException::*)()>(&SQLSyntaxErrorException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLSyntaxErrorException::*)($String*)>(&SQLSyntaxErrorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLSyntaxErrorException::*)($String*,$String*)>(&SQLSyntaxErrorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(SQLSyntaxErrorException::*)($String*,$String*,int32_t)>(&SQLSyntaxErrorException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLSyntaxErrorException::*)($Throwable*)>(&SQLSyntaxErrorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLSyntaxErrorException::*)($String*,$Throwable*)>(&SQLSyntaxErrorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLSyntaxErrorException::*)($String*,$String*,$Throwable*)>(&SQLSyntaxErrorException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLSyntaxErrorException::*)($String*,$String*,int32_t,$Throwable*)>(&SQLSyntaxErrorException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLSyntaxErrorException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLSyntaxErrorException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLSyntaxErrorException, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLSyntaxErrorException, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLSyntaxErrorException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLSyntaxErrorException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLSyntaxErrorException, init$, void, $String*, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLSyntaxErrorException, init$, void, $String*, $String*, int32_t, $Throwable*)},
 	{}
 };
 

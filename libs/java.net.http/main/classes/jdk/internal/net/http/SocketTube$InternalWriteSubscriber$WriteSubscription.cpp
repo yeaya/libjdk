@@ -33,11 +33,11 @@ $FieldInfo _SocketTube$InternalWriteSubscriber$WriteSubscription_FieldInfo_[] = 
 };
 
 $MethodInfo _SocketTube$InternalWriteSubscriber$WriteSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;Ljava/util/concurrent/Flow$Subscription;)V", nullptr, 0, $method(static_cast<void(SocketTube$InternalWriteSubscriber$WriteSubscription::*)($SocketTube$InternalWriteSubscriber*,$Flow$Subscription*)>(&SocketTube$InternalWriteSubscriber$WriteSubscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"dropSubscription", "()V", nullptr, 0, $method(static_cast<void(SocketTube$InternalWriteSubscriber$WriteSubscription::*)()>(&SocketTube$InternalWriteSubscriber$WriteSubscription::dropSubscription))},
-	{"request", "(J)V", nullptr, $PUBLIC},
-	{"requestMore", "()V", nullptr, 0, $method(static_cast<void(SocketTube$InternalWriteSubscriber$WriteSubscription::*)()>(&SocketTube$InternalWriteSubscriber$WriteSubscription::requestMore))},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;Ljava/util/concurrent/Flow$Subscription;)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber$WriteSubscription, init$, void, $SocketTube$InternalWriteSubscriber*, $Flow$Subscription*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$WriteSubscription, cancel, void)},
+	{"dropSubscription", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber$WriteSubscription, dropSubscription, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$WriteSubscription, request, void, int64_t)},
+	{"requestMore", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber$WriteSubscription, requestMore, void)},
 	{}
 };
 

@@ -10,8 +10,8 @@ namespace sun {
 		namespace counter {
 
 $MethodInfo _LongArrayCounter_MethodInfo_[] = {
-	{"longArrayValue", "()[J", nullptr, $PUBLIC | $ABSTRACT},
-	{"longAt", "(I)J", nullptr, $PUBLIC | $ABSTRACT},
+	{"longArrayValue", "()[J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongArrayCounter, longArrayValue, $longs*)},
+	{"longAt", "(I)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LongArrayCounter, longAt, int64_t, int32_t)},
 	{}
 };
 

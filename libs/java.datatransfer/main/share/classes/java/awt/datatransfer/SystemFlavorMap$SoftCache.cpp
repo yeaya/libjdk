@@ -28,10 +28,10 @@ $FieldInfo _SystemFlavorMap$SoftCache_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemFlavorMap$SoftCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SystemFlavorMap$SoftCache::*)()>(&SystemFlavorMap$SoftCache::init$))},
-	{"check", "(Ljava/lang/Object;)Ljava/util/LinkedHashSet;", "(TK;)Ljava/util/LinkedHashSet<TV;>;", $PUBLIC, $method(static_cast<$LinkedHashSet*(SystemFlavorMap$SoftCache::*)(Object$*)>(&SystemFlavorMap$SoftCache::check))},
-	{"put", "(Ljava/lang/Object;Ljava/util/LinkedHashSet;)V", "(TK;Ljava/util/LinkedHashSet<TV;>;)V", $PUBLIC, $method(static_cast<void(SystemFlavorMap$SoftCache::*)(Object$*,$LinkedHashSet*)>(&SystemFlavorMap$SoftCache::put))},
-	{"remove", "(Ljava/lang/Object;)V", "(TK;)V", $PUBLIC, $method(static_cast<void(SystemFlavorMap$SoftCache::*)(Object$*)>(&SystemFlavorMap$SoftCache::remove))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SystemFlavorMap$SoftCache, init$, void)},
+	{"check", "(Ljava/lang/Object;)Ljava/util/LinkedHashSet;", "(TK;)Ljava/util/LinkedHashSet<TV;>;", $PUBLIC, $method(SystemFlavorMap$SoftCache, check, $LinkedHashSet*, Object$*)},
+	{"put", "(Ljava/lang/Object;Ljava/util/LinkedHashSet;)V", "(TK;Ljava/util/LinkedHashSet<TV;>;)V", $PUBLIC, $method(SystemFlavorMap$SoftCache, put, void, Object$*, $LinkedHashSet*)},
+	{"remove", "(Ljava/lang/Object;)V", "(TK;)V", $PUBLIC, $method(SystemFlavorMap$SoftCache, remove, void, Object$*)},
 	{}
 };
 

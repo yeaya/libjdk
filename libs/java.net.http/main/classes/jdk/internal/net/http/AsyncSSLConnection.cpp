@@ -91,8 +91,8 @@ $FieldInfo AsyncSSLConnection$$Lambda$lambda$connectAsync$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo AsyncSSLConnection$$Lambda$lambda$connectAsync$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/AsyncSSLConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(AsyncSSLConnection$$Lambda$lambda$connectAsync$0::*)(AsyncSSLConnection*)>(&AsyncSSLConnection$$Lambda$lambda$connectAsync$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/AsyncSSLConnection;)V", nullptr, $PUBLIC, $method(AsyncSSLConnection$$Lambda$lambda$connectAsync$0, init$, void, AsyncSSLConnection*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AsyncSSLConnection$$Lambda$lambda$connectAsync$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo AsyncSSLConnection$$Lambda$lambda$connectAsync$0::classInfo$ = {
@@ -131,8 +131,8 @@ $FieldInfo AsyncSSLConnection$$Lambda$lambda$finishConnect$1$1::fieldInfos[2] = 
 	{}
 };
 $MethodInfo AsyncSSLConnection$$Lambda$lambda$finishConnect$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/AsyncSSLConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(AsyncSSLConnection$$Lambda$lambda$finishConnect$1$1::*)(AsyncSSLConnection*)>(&AsyncSSLConnection$$Lambda$lambda$finishConnect$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/AsyncSSLConnection;)V", nullptr, $PUBLIC, $method(AsyncSSLConnection$$Lambda$lambda$finishConnect$1$1, init$, void, AsyncSSLConnection*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AsyncSSLConnection$$Lambda$lambda$finishConnect$1$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo AsyncSSLConnection$$Lambda$lambda$finishConnect$1$1::classInfo$ = {
@@ -171,8 +171,8 @@ $FieldInfo AsyncSSLConnection$$Lambda$recycle$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo AsyncSSLConnection$$Lambda$recycle$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/BufferSupplier;)V", nullptr, $PUBLIC, $method(static_cast<void(AsyncSSLConnection$$Lambda$recycle$2::*)($BufferSupplier*)>(&AsyncSSLConnection$$Lambda$recycle$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/BufferSupplier;)V", nullptr, $PUBLIC, $method(AsyncSSLConnection$$Lambda$recycle$2, init$, void, $BufferSupplier*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AsyncSSLConnection$$Lambda$recycle$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo AsyncSSLConnection$$Lambda$recycle$2::classInfo$ = {
@@ -197,19 +197,19 @@ $FieldInfo _AsyncSSLConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _AsyncSSLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;[Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(AsyncSSLConnection::*)($InetSocketAddress*,$HttpClientImpl*,$StringArray*)>(&AsyncSSLConnection::init$))},
-	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0},
-	{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, 0},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC},
-	{"connected", "()Z", nullptr, 0},
-	{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC},
-	{"getConnectionFlow", "()Ljdk/internal/net/http/common/SSLTube;", nullptr, 0},
-	{"isProxied", "()Z", nullptr, 0},
-	{"lambda$connectAsync$0", "(Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(AsyncSSLConnection::*)($Void*)>(&AsyncSSLConnection::lambda$connectAsync$0))},
-	{"lambda$finishConnect$1", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletableFuture*(AsyncSSLConnection::*)($String*,$Throwable*)>(&AsyncSSLConnection::lambda$finishConnect$1))},
-	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0},
-	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, 0},
+	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;[Ljava/lang/String;)V", nullptr, 0, $method(AsyncSSLConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*, $StringArray*)},
+	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0, $virtualMethod(AsyncSSLConnection, cacheKey, $ConnectionPool$CacheKey*)},
+	{"channel", "()Ljava/nio/channels/SocketChannel;", nullptr, 0, $virtualMethod(AsyncSSLConnection, channel, $SocketChannel*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncSSLConnection, close, void)},
+	{"connectAsync", "(Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(AsyncSSLConnection, connectAsync, $CompletableFuture*, $Exchange*)},
+	{"connected", "()Z", nullptr, 0, $virtualMethod(AsyncSSLConnection, connected, bool)},
+	{"finishConnect", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(AsyncSSLConnection, finishConnect, $CompletableFuture*)},
+	{"getConnectionFlow", "()Ljdk/internal/net/http/common/SSLTube;", nullptr, 0, $virtualMethod(AsyncSSLConnection, getConnectionFlow, $FlowTube*)},
+	{"isProxied", "()Z", nullptr, 0, $virtualMethod(AsyncSSLConnection, isProxied, bool)},
+	{"lambda$connectAsync$0", "(Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(AsyncSSLConnection, lambda$connectAsync$0, $Void*, $Void*)},
+	{"lambda$finishConnect$1", "(Ljava/lang/String;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(AsyncSSLConnection, lambda$finishConnect$1, $CompletableFuture*, $String*, $Throwable*)},
+	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(AsyncSSLConnection, proxy, $InetSocketAddress*)},
+	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, 0, $virtualMethod(AsyncSSLConnection, publisher, $HttpConnection$HttpPublisher*)},
 	{}
 };
 

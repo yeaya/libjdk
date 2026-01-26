@@ -34,12 +34,12 @@ $FieldInfo _Attr$CheckMode_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$CheckMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Attr$CheckModeArray*(*)()>(&Attr$CheckMode::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Attr$CheckMode::*)($String*,int32_t)>(&Attr$CheckMode::init$))},
-	{"installPostInferenceHook", "()Z", nullptr, $PUBLIC},
-	{"updateTreeType", "()Z", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Attr$CheckMode*(*)($String*)>(&Attr$CheckMode::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Attr$CheckModeArray*(*)()>(&Attr$CheckMode::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Attr$CheckMode, $values, $Attr$CheckModeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Attr$CheckMode, init$, void, $String*, int32_t)},
+	{"installPostInferenceHook", "()Z", nullptr, $PUBLIC, $virtualMethod(Attr$CheckMode, installPostInferenceHook, bool)},
+	{"updateTreeType", "()Z", nullptr, $PUBLIC, $virtualMethod(Attr$CheckMode, updateTreeType, bool)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Attr$CheckMode, valueOf, Attr$CheckMode*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Attr$CheckMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Attr$CheckMode, values, $Attr$CheckModeArray*)},
 	{}
 };
 

@@ -35,10 +35,10 @@ $FieldInfo _SignerOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SignerOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;)V", nullptr, $PUBLIC, $method(static_cast<void(SignerOutputStream::*)($SignatureAlgorithm*)>(&SignerOutputStream::init$))},
-	{"write", "([B)V", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC},
-	{"write", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithm;)V", nullptr, $PUBLIC, $method(SignerOutputStream, init$, void, $SignatureAlgorithm*)},
+	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, $bytes*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, int32_t)},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SignerOutputStream, write, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

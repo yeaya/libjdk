@@ -49,9 +49,9 @@ $FieldInfo _RichDiagnosticFormatter$ClassNameSimplifier_FieldInfo_[] = {
 };
 
 $MethodInfo _RichDiagnosticFormatter$ClassNameSimplifier_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter;)V", nullptr, $PROTECTED, $method(static_cast<void(RichDiagnosticFormatter$ClassNameSimplifier::*)($RichDiagnosticFormatter*)>(&RichDiagnosticFormatter$ClassNameSimplifier::init$))},
-	{"addUsage", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PROTECTED},
-	{"simplify", "(Lcom/sun/tools/javac/code/Symbol;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter;)V", nullptr, $PROTECTED, $method(RichDiagnosticFormatter$ClassNameSimplifier, init$, void, $RichDiagnosticFormatter*)},
+	{"addUsage", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PROTECTED, $virtualMethod(RichDiagnosticFormatter$ClassNameSimplifier, addUsage, void, $Symbol*)},
+	{"simplify", "(Lcom/sun/tools/javac/code/Symbol;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$ClassNameSimplifier, simplify, $String*, $Symbol*)},
 	{}
 };
 

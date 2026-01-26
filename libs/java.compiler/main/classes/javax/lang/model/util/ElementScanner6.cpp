@@ -77,16 +77,16 @@ $FieldInfo _ElementScanner6_FieldInfo_[] = {
 };
 
 $MethodInfo _ElementScanner6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(ElementScanner6::*)()>(&ElementScanner6::init$)), nullptr, nullptr, _ElementScanner6_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(static_cast<void(ElementScanner6::*)(Object$*)>(&ElementScanner6::init$)), nullptr, nullptr, _ElementScanner6_MethodAnnotations_init$1},
-	{"scan", "(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;TP;)TR;", $PUBLIC | $FINAL, $method(static_cast<$Object*(ElementScanner6::*)($Iterable*,Object$*)>(&ElementScanner6::scan))},
-	{"scan", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC},
-	{"scan", "(Ljavax/lang/model/element/Element;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;)TR;", $PUBLIC | $FINAL, $method(static_cast<$Object*(ElementScanner6::*)($Element*)>(&ElementScanner6::scan))},
-	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ExecutableElement;TP;)TR;", $PUBLIC},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/PackageElement;TP;)TR;", $PUBLIC},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeElement;TP;)TR;", $PUBLIC},
-	{"visitTypeParameter", "(Ljavax/lang/model/element/TypeParameterElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeParameterElement;TP;)TR;", $PUBLIC},
-	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(ElementScanner6, init$, void), nullptr, nullptr, _ElementScanner6_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(ElementScanner6, init$, void, Object$*), nullptr, nullptr, _ElementScanner6_MethodAnnotations_init$1},
+	{"scan", "(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;TP;)TR;", $PUBLIC | $FINAL, $method(ElementScanner6, scan, $Object*, $Iterable*, Object$*)},
+	{"scan", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, scan, $Object*, $Element*, Object$*)},
+	{"scan", "(Ljavax/lang/model/element/Element;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;)TR;", $PUBLIC | $FINAL, $method(ElementScanner6, scan, $Object*, $Element*)},
+	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ExecutableElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitExecutable, $Object*, $ExecutableElement*, Object$*)},
+	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/PackageElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitPackage, $Object*, $PackageElement*, Object$*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitType, $Object*, $TypeElement*, Object$*)},
+	{"visitTypeParameter", "(Ljavax/lang/model/element/TypeParameterElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeParameterElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitTypeParameter, $Object*, $TypeParameterElement*, Object$*)},
+	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitVariable, $Object*, $VariableElement*, Object$*)},
 	{}
 };
 

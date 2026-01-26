@@ -31,9 +31,9 @@ $FieldInfo _JCDiagnostic$SourcePosition_FieldInfo_[] = {
 };
 
 $MethodInfo _JCDiagnostic$SourcePosition_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(static_cast<void(JCDiagnostic$SourcePosition::*)($JCDiagnostic*)>(&JCDiagnostic$SourcePosition::init$))},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC},
-	{"getLineNumber", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(JCDiagnostic$SourcePosition, init$, void, $JCDiagnostic*)},
+	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$SourcePosition, getColumnNumber, int32_t)},
+	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$SourcePosition, getLineNumber, int32_t)},
 	{}
 };
 

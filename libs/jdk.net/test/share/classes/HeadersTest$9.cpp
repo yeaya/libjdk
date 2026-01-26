@@ -28,14 +28,14 @@ using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
 
 $MethodInfo _HeadersTest$9_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HeadersTest$9::*)()>(&HeadersTest$9::init$))},
-	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC},
-	{"expectContinue", "()Z", nullptr, $PUBLIC},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC},
-	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HeadersTest$9, init$, void)},
+	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(HeadersTest$9, bodyPublisher, $Optional*)},
+	{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadersTest$9, expectContinue, bool)},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$9, headers, $HttpHeaders*)},
+	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$9, method, $String*)},
+	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HeadersTest$9, timeout, $Optional*)},
+	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$9, uri, $URI*)},
+	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(HeadersTest$9, version, $Optional*)},
 	{}
 };
 

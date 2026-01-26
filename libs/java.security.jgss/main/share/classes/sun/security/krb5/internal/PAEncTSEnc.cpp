@@ -36,10 +36,10 @@ $FieldInfo _PAEncTSEnc_FieldInfo_[] = {
 };
 
 $MethodInfo _PAEncTSEnc_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(static_cast<void(PAEncTSEnc::*)($KerberosTime*,$Integer*)>(&PAEncTSEnc::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PAEncTSEnc::*)()>(&PAEncTSEnc::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(PAEncTSEnc::*)($DerValue*)>(&PAEncTSEnc::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "(Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(PAEncTSEnc, init$, void, $KerberosTime*, $Integer*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PAEncTSEnc, init$, void)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PAEncTSEnc, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(PAEncTSEnc, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
 	{}
 };
 

@@ -20,12 +20,12 @@ $FieldInfo _StringHeadTail_FieldInfo_[] = {
 };
 
 $MethodInfo _StringHeadTail_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(StringHeadTail::*)($String*,$String*)>(&StringHeadTail::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(StringHeadTail::*)($String*,$String*,int32_t)>(&StringHeadTail::init$))},
-	{"getHead", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getStatus", "()I", nullptr, $PUBLIC},
-	{"getTail", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setStatus", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringHeadTail, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(StringHeadTail, init$, void, $String*, $String*, int32_t)},
+	{"getHead", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringHeadTail, getHead, $String*)},
+	{"getStatus", "()I", nullptr, $PUBLIC, $virtualMethod(StringHeadTail, getStatus, int32_t)},
+	{"getTail", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringHeadTail, getTail, $String*)},
+	{"setStatus", "(I)V", nullptr, $PUBLIC, $virtualMethod(StringHeadTail, setStatus, void, int32_t)},
 	{}
 };
 

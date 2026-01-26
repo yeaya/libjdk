@@ -18,9 +18,9 @@ namespace com {
 				namespace file {
 
 $MethodInfo _JavacFileManager$SortFiles$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(JavacFileManager$SortFiles$1::*)($String*,int32_t)>(&JavacFileManager$SortFiles$1::init$))},
-	{"compare", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(JavacFileManager$SortFiles$1::*)($Path*,$Path*)>(&JavacFileManager$SortFiles$1::compare))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(JavacFileManager$SortFiles$1, init$, void, $String*, int32_t)},
+	{"compare", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)I", nullptr, $PUBLIC, $method(JavacFileManager$SortFiles$1, compare, int32_t, $Path*, $Path*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacFileManager$SortFiles$1, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

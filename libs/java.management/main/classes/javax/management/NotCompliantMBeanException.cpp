@@ -17,8 +17,8 @@ $FieldInfo _NotCompliantMBeanException_FieldInfo_[] = {
 };
 
 $MethodInfo _NotCompliantMBeanException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotCompliantMBeanException::*)()>(&NotCompliantMBeanException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NotCompliantMBeanException::*)($String*)>(&NotCompliantMBeanException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotCompliantMBeanException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotCompliantMBeanException, init$, void, $String*)},
 	{}
 };
 

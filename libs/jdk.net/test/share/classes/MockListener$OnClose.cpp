@@ -22,10 +22,10 @@ $FieldInfo _MockListener$OnClose_FieldInfo_[] = {
 };
 
 $MethodInfo _MockListener$OnClose_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/WebSocket;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MockListener$OnClose::*)($WebSocket*,int32_t,$String*)>(&MockListener$OnClose::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/WebSocket;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(MockListener$OnClose, init$, void, $WebSocket*, int32_t, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnClose, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnClose, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnClose, toString, $String*)},
 	{}
 };
 

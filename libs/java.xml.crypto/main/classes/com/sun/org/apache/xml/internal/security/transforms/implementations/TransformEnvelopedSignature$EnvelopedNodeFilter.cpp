@@ -28,9 +28,9 @@ $FieldInfo _TransformEnvelopedSignature$EnvelopedNodeFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _TransformEnvelopedSignature$EnvelopedNodeFilter_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(static_cast<void(TransformEnvelopedSignature$EnvelopedNodeFilter::*)($Node*)>(&TransformEnvelopedSignature$EnvelopedNodeFilter::init$))},
-	{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC},
-	{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(TransformEnvelopedSignature$EnvelopedNodeFilter, init$, void, $Node*)},
+	{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(TransformEnvelopedSignature$EnvelopedNodeFilter, isNodeInclude, int32_t, $Node*)},
+	{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC, $virtualMethod(TransformEnvelopedSignature$EnvelopedNodeFilter, isNodeIncludeDO, int32_t, $Node*, int32_t)},
 	{}
 };
 

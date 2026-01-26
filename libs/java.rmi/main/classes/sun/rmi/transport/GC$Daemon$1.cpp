@@ -31,8 +31,8 @@ $FieldInfo _GC$Daemon$1_FieldInfo_[] = {
 };
 
 $MethodInfo _GC$Daemon$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GC$Daemon$1::*)()>(&GC$Daemon$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(GC$Daemon$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(GC$Daemon$1, run, $Object*)},
 	{}
 };
 

@@ -19,8 +19,8 @@ $FieldInfo _ExtendedCharsets_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedCharsets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExtendedCharsets::*)()>(&ExtendedCharsets::init$))},
-	{"aliasesFor", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&ExtendedCharsets::aliasesFor))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedCharsets, init$, void)},
+	{"aliasesFor", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedCharsets, aliasesFor, $StringArray*, $String*)},
 	{}
 };
 

@@ -59,15 +59,15 @@ $FieldInfo _Profile_FieldInfo_[] = {
 };
 
 $MethodInfo _Profile_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ProfileArray*(*)()>(&Profile::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Profile::*)($String*,int32_t)>(&Profile::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;ILcom/sun/tools/javac/jvm/Target;[Lcom/sun/tools/javac/jvm/Target;)V", "(Ljava/lang/String;ILcom/sun/tools/javac/jvm/Target;[Lcom/sun/tools/javac/jvm/Target;)V", $PRIVATE | $TRANSIENT, $method(static_cast<void(Profile::*)($String*,int32_t,$String*,int32_t,$Target*,$TargetArray*)>(&Profile::init$))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Profile*(*)($Context*)>(&Profile::instance))},
-	{"isValid", "(Lcom/sun/tools/javac/jvm/Target;)Z", nullptr, $PUBLIC},
-	{"lookup", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Profile*(*)($String*)>(&Profile::lookup))},
-	{"lookup", "(I)Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Profile*(*)(int32_t)>(&Profile::lookup))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Profile*(*)($String*)>(&Profile::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ProfileArray*(*)()>(&Profile::values))},
+	{"$values", "()[Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Profile, $values, $ProfileArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Profile, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;ILcom/sun/tools/javac/jvm/Target;[Lcom/sun/tools/javac/jvm/Target;)V", "(Ljava/lang/String;ILcom/sun/tools/javac/jvm/Target;[Lcom/sun/tools/javac/jvm/Target;)V", $PRIVATE | $TRANSIENT, $method(Profile, init$, void, $String*, int32_t, $String*, int32_t, $Target*, $TargetArray*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PUBLIC | $STATIC, $staticMethod(Profile, instance, Profile*, $Context*)},
+	{"isValid", "(Lcom/sun/tools/javac/jvm/Target;)Z", nullptr, $PUBLIC, $virtualMethod(Profile, isValid, bool, $Target*)},
+	{"lookup", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PUBLIC | $STATIC, $staticMethod(Profile, lookup, Profile*, $String*)},
+	{"lookup", "(I)Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PUBLIC | $STATIC, $staticMethod(Profile, lookup, Profile*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PUBLIC | $STATIC, $staticMethod(Profile, valueOf, Profile*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/jvm/Profile;", nullptr, $PUBLIC | $STATIC, $staticMethod(Profile, values, $ProfileArray*)},
 	{}
 };
 

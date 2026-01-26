@@ -32,9 +32,9 @@ $FieldInfo _Check$DefaultMethodClashFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _Check$DefaultMethodClashFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Check$DefaultMethodClashFilter::*)($Check*,$Type*)>(&Check$DefaultMethodClashFilter::init$))},
-	{"test", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Check$DefaultMethodClashFilter, init$, void, $Check*, $Type*)},
+	{"test", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Check$DefaultMethodClashFilter, test, bool, $Symbol*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Check$DefaultMethodClashFilter, test, bool, Object$*)},
 	{}
 };
 

@@ -25,7 +25,7 @@ $FieldInfo _NotificationEmitterSupport$ListenerInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _NotificationEmitterSupport$ListenerInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/NotificationEmitterSupport;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(NotificationEmitterSupport$ListenerInfo::*)($NotificationEmitterSupport*,$NotificationListener*,$NotificationFilter*,Object$*)>(&NotificationEmitterSupport$ListenerInfo::init$))},
+	{"<init>", "(Lsun/management/NotificationEmitterSupport;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(NotificationEmitterSupport$ListenerInfo, init$, void, $NotificationEmitterSupport*, $NotificationListener*, $NotificationFilter*, Object$*)},
 	{}
 };
 

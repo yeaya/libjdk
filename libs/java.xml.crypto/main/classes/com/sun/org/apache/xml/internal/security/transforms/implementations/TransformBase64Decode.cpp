@@ -41,10 +41,10 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _TransformBase64Decode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransformBase64Decode::*)()>(&TransformBase64Decode::init$))},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, nullptr, "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"traverseElement", "(Lorg/w3c/dom/Element;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(static_cast<void(TransformBase64Decode::*)($Element*,$StringBuilder*)>(&TransformBase64Decode::traverseElement))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformBase64Decode, init$, void)},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformBase64Decode, engineGetURI, $String*)},
+	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformBase64Decode, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+	{"traverseElement", "(Lorg/w3c/dom/Element;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(TransformBase64Decode, traverseElement, void, $Element*, $StringBuilder*)},
 	{}
 };
 

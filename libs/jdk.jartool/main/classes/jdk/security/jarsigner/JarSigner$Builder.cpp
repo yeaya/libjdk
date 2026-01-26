@@ -79,20 +79,20 @@ $FieldInfo _JarSigner$Builder_FieldInfo_[] = {
 };
 
 $MethodInfo _JarSigner$Builder_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore$PrivateKeyEntry;)V", nullptr, $PUBLIC, $method(static_cast<void(JarSigner$Builder::*)($KeyStore$PrivateKeyEntry*)>(&JarSigner$Builder::init$))},
-	{"<init>", "(Ljava/security/PrivateKey;Ljava/security/cert/CertPath;)V", nullptr, $PUBLIC, $method(static_cast<void(JarSigner$Builder::*)($PrivateKey*,$CertPath*)>(&JarSigner$Builder::init$))},
-	{"build", "()Ljdk/security/jarsigner/JarSigner;", nullptr, $PUBLIC},
-	{"digestAlgorithm", "(Ljava/lang/String;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException"},
-	{"digestAlgorithm", "(Ljava/lang/String;Ljava/security/Provider;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException"},
-	{"eventHandler", "(Ljava/util/function/BiConsumer;)Ljdk/security/jarsigner/JarSigner$Builder;", "(Ljava/util/function/BiConsumer<Ljava/lang/String;Ljava/lang/String;>;)Ljdk/security/jarsigner/JarSigner$Builder;", $PUBLIC},
-	{"getDefaultDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)()>(&JarSigner$Builder::getDefaultDigestAlgorithm))},
-	{"getDefaultSignatureAlgorithm", "(Ljava/security/PrivateKey;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($PrivateKey*)>(&JarSigner$Builder::getDefaultSignatureAlgorithm))},
-	{"parseBoolean", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*,$String*)>(&JarSigner$Builder::parseBoolean))},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC},
-	{"signatureAlgorithm", "(Ljava/lang/String;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException"},
-	{"signatureAlgorithm", "(Ljava/lang/String;Ljava/security/Provider;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException"},
-	{"signerName", "(Ljava/lang/String;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC},
-	{"tsa", "(Ljava/net/URI;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/KeyStore$PrivateKeyEntry;)V", nullptr, $PUBLIC, $method(JarSigner$Builder, init$, void, $KeyStore$PrivateKeyEntry*)},
+	{"<init>", "(Ljava/security/PrivateKey;Ljava/security/cert/CertPath;)V", nullptr, $PUBLIC, $method(JarSigner$Builder, init$, void, $PrivateKey*, $CertPath*)},
+	{"build", "()Ljdk/security/jarsigner/JarSigner;", nullptr, $PUBLIC, $virtualMethod(JarSigner$Builder, build, $JarSigner*)},
+	{"digestAlgorithm", "(Ljava/lang/String;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, $virtualMethod(JarSigner$Builder, digestAlgorithm, JarSigner$Builder*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"digestAlgorithm", "(Ljava/lang/String;Ljava/security/Provider;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, $virtualMethod(JarSigner$Builder, digestAlgorithm, JarSigner$Builder*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"eventHandler", "(Ljava/util/function/BiConsumer;)Ljdk/security/jarsigner/JarSigner$Builder;", "(Ljava/util/function/BiConsumer<Ljava/lang/String;Ljava/lang/String;>;)Ljdk/security/jarsigner/JarSigner$Builder;", $PUBLIC, $virtualMethod(JarSigner$Builder, eventHandler, JarSigner$Builder*, $BiConsumer*)},
+	{"getDefaultDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarSigner$Builder, getDefaultDigestAlgorithm, $String*)},
+	{"getDefaultSignatureAlgorithm", "(Ljava/security/PrivateKey;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(JarSigner$Builder, getDefaultSignatureAlgorithm, $String*, $PrivateKey*)},
+	{"parseBoolean", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JarSigner$Builder, parseBoolean, bool, $String*, $String*)},
+	{"setProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, $virtualMethod(JarSigner$Builder, setProperty, JarSigner$Builder*, $String*, $String*)},
+	{"signatureAlgorithm", "(Ljava/lang/String;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, $virtualMethod(JarSigner$Builder, signatureAlgorithm, JarSigner$Builder*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"signatureAlgorithm", "(Ljava/lang/String;Ljava/security/Provider;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, $virtualMethod(JarSigner$Builder, signatureAlgorithm, JarSigner$Builder*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"signerName", "(Ljava/lang/String;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, $virtualMethod(JarSigner$Builder, signerName, JarSigner$Builder*, $String*)},
+	{"tsa", "(Ljava/net/URI;)Ljdk/security/jarsigner/JarSigner$Builder;", nullptr, $PUBLIC, $virtualMethod(JarSigner$Builder, tsa, JarSigner$Builder*, $URI*)},
 	{}
 };
 

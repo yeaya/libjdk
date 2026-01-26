@@ -15,14 +15,18 @@
 
 using $Closeable = ::java::io::Closeable;
 using $ClassInfo = ::java::lang::ClassInfo;
+using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+using $Iterator = ::java::util::Iterator;
 using $ServiceLoader = ::java::util::ServiceLoader;
+using $Set = ::java::util::Set;
 using $FileObject = ::javax::tools::FileObject;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
+using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace javax {
 	namespace tools {
@@ -30,26 +34,26 @@ namespace javax {
 $MethodInfo _JavaFileManager_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"contains", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"contains", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(JavaFileManager, contains, bool, $JavaFileManager$Location*, $FileObject*), "java.io.IOException"},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"flush", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getClassLoader", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getServiceLoader", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"handleOption", "(Ljava/lang/String;Ljava/util/Iterator;)Z", "(Ljava/lang/String;Ljava/util/Iterator<Ljava/lang/String;>;)Z", $PUBLIC | $ABSTRACT},
-	{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getClassLoader", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager, getClassLoader, $ClassLoader*, $JavaFileManager$Location*)},
+	{"getFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;)Ljavax/tools/FileObject;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager, getFileForInput, $FileObject*, $JavaFileManager$Location*, $String*, $String*), "java.io.IOException"},
+	{"getFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/lang/String;Ljavax/tools/FileObject;)Ljavax/tools/FileObject;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager, getFileForOutput, $FileObject*, $JavaFileManager$Location*, $String*, $String*, $FileObject*), "java.io.IOException"},
+	{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
+	{"getJavaFileForOutput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;Ljavax/tools/FileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager, getJavaFileForOutput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*, $FileObject*), "java.io.IOException"},
+	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(JavaFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $String*), "java.io.IOException"},
+	{"getLocationForModule", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC, $virtualMethod(JavaFileManager, getLocationForModule, $JavaFileManager$Location*, $JavaFileManager$Location*, $JavaFileObject*), "java.io.IOException"},
+	{"getServiceLoader", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljavax/tools/JavaFileManager$Location;Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC, $virtualMethod(JavaFileManager, getServiceLoader, $ServiceLoader*, $JavaFileManager$Location*, $Class*), "java.io.IOException"},
+	{"handleOption", "(Ljava/lang/String;Ljava/util/Iterator;)Z", "(Ljava/lang/String;Ljava/util/Iterator<Ljava/lang/String;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager, handleOption, bool, $String*, $Iterator*)},
+	{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager, hasLocation, bool, $JavaFileManager$Location*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"listLocationsForModules", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", $PUBLIC, nullptr, "java.io.IOException"},
+	{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
+	{"inferModuleName", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaFileManager, inferModuleName, $String*, $JavaFileManager$Location*), "java.io.IOException"},
+	{"isSameFile", "(Ljavax/tools/FileObject;Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager, isSameFile, bool, $FileObject*, $FileObject*)},
+	{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
+	{"listLocationsForModules", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", $PUBLIC, $virtualMethod(JavaFileManager, listLocationsForModules, $Iterable*, $JavaFileManager$Location*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -11,6 +11,8 @@
 #undef RTS
 
 using $Types$MostSpecificReturnCheckArray = $Array<::com::sun::tools::javac::code::Types$MostSpecificReturnCheck>;
+using $Type = ::com::sun::tools::javac::code::Type;
+using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$MostSpecificReturnCheck$1 = ::com::sun::tools::javac::code::Types$MostSpecificReturnCheck$1;
 using $Types$MostSpecificReturnCheck$2 = ::com::sun::tools::javac::code::Types$MostSpecificReturnCheck$2;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -33,11 +35,11 @@ $FieldInfo _Types$MostSpecificReturnCheck_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$MostSpecificReturnCheck_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Types$MostSpecificReturnCheck;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Types$MostSpecificReturnCheckArray*(*)()>(&Types$MostSpecificReturnCheck::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Types$MostSpecificReturnCheck::*)($String*,int32_t)>(&Types$MostSpecificReturnCheck::init$))},
-	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Types$MostSpecificReturnCheck;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Types$MostSpecificReturnCheck*(*)($String*)>(&Types$MostSpecificReturnCheck::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Types$MostSpecificReturnCheck;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Types$MostSpecificReturnCheckArray*(*)()>(&Types$MostSpecificReturnCheck::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Types$MostSpecificReturnCheck;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Types$MostSpecificReturnCheck, $values, $Types$MostSpecificReturnCheckArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Types$MostSpecificReturnCheck, init$, void, $String*, int32_t)},
+	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Types$MostSpecificReturnCheck, test, bool, $Type*, $Type*, $Types*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Types$MostSpecificReturnCheck;", nullptr, $PUBLIC | $STATIC, $staticMethod(Types$MostSpecificReturnCheck, valueOf, Types$MostSpecificReturnCheck*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Types$MostSpecificReturnCheck;", nullptr, $PUBLIC | $STATIC, $staticMethod(Types$MostSpecificReturnCheck, values, $Types$MostSpecificReturnCheckArray*)},
 	{}
 };
 

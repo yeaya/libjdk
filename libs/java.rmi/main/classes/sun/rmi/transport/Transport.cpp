@@ -86,6 +86,8 @@ using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $Log = ::sun::rmi::runtime::Log;
 using $Dispatcher = ::sun::rmi::server::Dispatcher;
 using $UnicastServerRef = ::sun::rmi::server::UnicastServerRef;
+using $Channel = ::sun::rmi::transport::Channel;
+using $Endpoint = ::sun::rmi::transport::Endpoint;
 using $ObjectEndpoint = ::sun::rmi::transport::ObjectEndpoint;
 using $ObjectTable = ::sun::rmi::transport::ObjectTable;
 using $Target = ::sun::rmi::transport::Target;
@@ -110,8 +112,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Transport$$Lambda$lambda$getLogLevel$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Transport$$Lambda$lambda$getLogLevel$0::*)()>(&Transport$$Lambda$lambda$getLogLevel$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Transport$$Lambda$lambda$getLogLevel$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transport$$Lambda$lambda$getLogLevel$0, run, $Object*)},
 	{}
 };
 $ClassInfo Transport$$Lambda$lambda$getLogLevel$0::classInfo$ = {
@@ -150,8 +152,8 @@ $FieldInfo Transport$$Lambda$lambda$setContextClassLoader$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Transport$$Lambda$lambda$setContextClassLoader$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(Transport$$Lambda$lambda$setContextClassLoader$1$1::*)($ClassLoader*)>(&Transport$$Lambda$lambda$setContextClassLoader$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(Transport$$Lambda$lambda$setContextClassLoader$1$1, init$, void, $ClassLoader*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Transport$$Lambda$lambda$setContextClassLoader$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo Transport$$Lambda$lambda$setContextClassLoader$1$1::classInfo$ = {
@@ -178,18 +180,18 @@ $FieldInfo _Transport_FieldInfo_[] = {
 };
 
 $MethodInfo _Transport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Transport::*)()>(&Transport::init$))},
-	{"checkAcceptPermission", "(Ljava/security/AccessControlContext;)V", nullptr, $PROTECTED | $ABSTRACT},
-	{"currentTransport", "()Lsun/rmi/transport/Transport;", nullptr, $STATIC, $method(static_cast<Transport*(*)()>(&Transport::currentTransport))},
-	{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"free", "(Lsun/rmi/transport/Endpoint;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getChannel", "(Lsun/rmi/transport/Endpoint;)Lsun/rmi/transport/Channel;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLogLevel", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&Transport::getLogLevel))},
-	{"lambda$getLogLevel$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&Transport::lambda$getLogLevel$0))},
-	{"lambda$setContextClassLoader$1", "(Ljava/lang/ClassLoader;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)($ClassLoader*)>(&Transport::lambda$setContextClassLoader$1))},
-	{"serviceCall", "(Ljava/rmi/server/RemoteCall;)Z", nullptr, $PUBLIC},
-	{"setContextClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ClassLoader*)>(&Transport::setContextClassLoader))},
-	{"targetUnexported", "()V", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Transport, init$, void)},
+	{"checkAcceptPermission", "(Ljava/security/AccessControlContext;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(Transport, checkAcceptPermission, void, $AccessControlContext*)},
+	{"currentTransport", "()Lsun/rmi/transport/Transport;", nullptr, $STATIC, $staticMethod(Transport, currentTransport, Transport*)},
+	{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC, $virtualMethod(Transport, exportObject, void, $Target*), "java.rmi.RemoteException"},
+	{"free", "(Lsun/rmi/transport/Endpoint;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transport, free, void, $Endpoint*)},
+	{"getChannel", "(Lsun/rmi/transport/Endpoint;)Lsun/rmi/transport/Channel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transport, getChannel, $Channel*, $Endpoint*)},
+	{"getLogLevel", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Transport, getLogLevel, $String*)},
+	{"lambda$getLogLevel$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transport, lambda$getLogLevel$0, $String*)},
+	{"lambda$setContextClassLoader$1", "(Ljava/lang/ClassLoader;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Transport, lambda$setContextClassLoader$1, $Void*, $ClassLoader*)},
+	{"serviceCall", "(Ljava/rmi/server/RemoteCall;)Z", nullptr, $PUBLIC, $virtualMethod(Transport, serviceCall, bool, $RemoteCall*)},
+	{"setContextClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Transport, setContextClassLoader, void, $ClassLoader*)},
+	{"targetUnexported", "()V", nullptr, $PROTECTED, $virtualMethod(Transport, targetUnexported, void)},
 	{}
 };
 

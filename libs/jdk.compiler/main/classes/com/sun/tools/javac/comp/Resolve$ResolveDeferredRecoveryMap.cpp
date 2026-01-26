@@ -45,9 +45,9 @@ $FieldInfo _Resolve$ResolveDeferredRecoveryMap_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$ResolveDeferredRecoveryMap_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolve$ResolveDeferredRecoveryMap::*)($Resolve*,$DeferredAttr$AttrMode*,$Symbol*,$Resolve$MethodResolutionPhase*)>(&Resolve$ResolveDeferredRecoveryMap::init$))},
-	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED},
-	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PUBLIC, $method(Resolve$ResolveDeferredRecoveryMap, init$, void, $Resolve*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*)},
+	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(Resolve$ResolveDeferredRecoveryMap, typeOf, $Type*, $DeferredAttr$DeferredType*, $Type*)},
+	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Resolve$ResolveDeferredRecoveryMap, typeOf, $Type*, $DeferredAttr$DeferredType*, Object$*)},
 	{}
 };
 

@@ -70,8 +70,8 @@ $FieldInfo StartTlsRequest$$Lambda$getContextClassLoader::fieldInfos[2] = {
 	{}
 };
 $MethodInfo StartTlsRequest$$Lambda$getContextClassLoader::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $method(static_cast<void(StartTlsRequest$$Lambda$getContextClassLoader::*)($Thread*)>(&StartTlsRequest$$Lambda$getContextClassLoader::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $method(StartTlsRequest$$Lambda$getContextClassLoader, init$, void, $Thread*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StartTlsRequest$$Lambda$getContextClassLoader, run, $Object*)},
 	{}
 };
 $ClassInfo StartTlsRequest$$Lambda$getContextClassLoader::classInfo$ = {
@@ -110,8 +110,8 @@ $FieldInfo StartTlsRequest$$Lambda$hasNext$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo StartTlsRequest$$Lambda$hasNext$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Iterator;)V", nullptr, $PUBLIC, $method(static_cast<void(StartTlsRequest$$Lambda$hasNext$1::*)($Iterator*)>(&StartTlsRequest$$Lambda$hasNext$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Iterator;)V", nullptr, $PUBLIC, $method(StartTlsRequest$$Lambda$hasNext$1, init$, void, $Iterator*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StartTlsRequest$$Lambda$hasNext$1, run, $Object*)},
 	{}
 };
 $ClassInfo StartTlsRequest$$Lambda$hasNext$1::classInfo$ = {
@@ -135,13 +135,13 @@ $FieldInfo _StartTlsRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _StartTlsRequest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StartTlsRequest::*)()>(&StartTlsRequest::init$))},
-	{"createExtendedResponse", "(Ljava/lang/String;[BII)Ljavax/naming/ldap/ExtendedResponse;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $method(static_cast<$ClassLoader*(StartTlsRequest::*)()>(&StartTlsRequest::getContextClassLoader))},
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"privilegedHasNext", "(Ljava/util/Iterator;)Z", "(Ljava/util/Iterator<Ljavax/naming/ldap/StartTlsResponse;>;)Z", $PRIVATE | $STATIC | $FINAL, $method(static_cast<bool(*)($Iterator*)>(&StartTlsRequest::privilegedHasNext))},
-	{"wrapException", "(Ljava/lang/Exception;)Ljavax/naming/ConfigurationException;", nullptr, $PRIVATE, $method(static_cast<$ConfigurationException*(StartTlsRequest::*)($Exception*)>(&StartTlsRequest::wrapException))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StartTlsRequest, init$, void)},
+	{"createExtendedResponse", "(Ljava/lang/String;[BII)Ljavax/naming/ldap/ExtendedResponse;", nullptr, $PUBLIC, $virtualMethod(StartTlsRequest, createExtendedResponse, $ExtendedResponse*, $String*, $bytes*, int32_t, int32_t), "javax.naming.NamingException"},
+	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $method(StartTlsRequest, getContextClassLoader, $ClassLoader*)},
+	{"getEncodedValue", "()[B", nullptr, $PUBLIC, $virtualMethod(StartTlsRequest, getEncodedValue, $bytes*)},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartTlsRequest, getID, $String*)},
+	{"privilegedHasNext", "(Ljava/util/Iterator;)Z", "(Ljava/util/Iterator<Ljavax/naming/ldap/StartTlsResponse;>;)Z", $PRIVATE | $STATIC | $FINAL, $staticMethod(StartTlsRequest, privilegedHasNext, bool, $Iterator*)},
+	{"wrapException", "(Ljava/lang/Exception;)Ljavax/naming/ConfigurationException;", nullptr, $PRIVATE, $method(StartTlsRequest, wrapException, $ConfigurationException*, $Exception*)},
 	{}
 };
 

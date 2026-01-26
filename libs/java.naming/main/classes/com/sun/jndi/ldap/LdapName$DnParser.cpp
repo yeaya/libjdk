@@ -33,17 +33,17 @@ $FieldInfo _LdapName$DnParser_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapName$DnParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(LdapName$DnParser::*)($String*,bool)>(&LdapName$DnParser::init$)), "javax.naming.InvalidNameException"},
-	{"atTerminator", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(LdapName$DnParser::*)()>(&LdapName$DnParser::atTerminator))},
-	{"consumeWhitespace", "()V", nullptr, $PRIVATE, $method(static_cast<void(LdapName$DnParser::*)()>(&LdapName$DnParser::consumeWhitespace))},
-	{"getDn", "()Ljava/util/Vector;", "()Ljava/util/Vector<Lcom/sun/jndi/ldap/LdapName$Rdn;>;", 0, nullptr, "javax.naming.InvalidNameException"},
-	{"getRdn", "()Lcom/sun/jndi/ldap/LdapName$Rdn;", nullptr, 0, nullptr, "javax.naming.InvalidNameException"},
-	{"parseAttrType", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LdapName$DnParser::*)()>(&LdapName$DnParser::parseAttrType)), "javax.naming.InvalidNameException"},
-	{"parseAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LdapName$DnParser::*)()>(&LdapName$DnParser::parseAttrValue)), "javax.naming.InvalidNameException"},
-	{"parseBinaryAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LdapName$DnParser::*)()>(&LdapName$DnParser::parseBinaryAttrValue)), "javax.naming.InvalidNameException"},
-	{"parseQuotedAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LdapName$DnParser::*)()>(&LdapName$DnParser::parseQuotedAttrValue)), "javax.naming.InvalidNameException"},
-	{"parseRdn", "()Lcom/sun/jndi/ldap/LdapName$Rdn;", nullptr, $PRIVATE, $method(static_cast<$LdapName$Rdn*(LdapName$DnParser::*)()>(&LdapName$DnParser::parseRdn)), "javax.naming.InvalidNameException"},
-	{"parseStringAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(LdapName$DnParser::*)()>(&LdapName$DnParser::parseStringAttrValue)), "javax.naming.InvalidNameException"},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(LdapName$DnParser, init$, void, $String*, bool), "javax.naming.InvalidNameException"},
+	{"atTerminator", "()Z", nullptr, $PRIVATE, $method(LdapName$DnParser, atTerminator, bool)},
+	{"consumeWhitespace", "()V", nullptr, $PRIVATE, $method(LdapName$DnParser, consumeWhitespace, void)},
+	{"getDn", "()Ljava/util/Vector;", "()Ljava/util/Vector<Lcom/sun/jndi/ldap/LdapName$Rdn;>;", 0, $virtualMethod(LdapName$DnParser, getDn, $Vector*), "javax.naming.InvalidNameException"},
+	{"getRdn", "()Lcom/sun/jndi/ldap/LdapName$Rdn;", nullptr, 0, $virtualMethod(LdapName$DnParser, getRdn, $LdapName$Rdn*), "javax.naming.InvalidNameException"},
+	{"parseAttrType", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapName$DnParser, parseAttrType, $String*), "javax.naming.InvalidNameException"},
+	{"parseAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapName$DnParser, parseAttrValue, $String*), "javax.naming.InvalidNameException"},
+	{"parseBinaryAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapName$DnParser, parseBinaryAttrValue, $String*), "javax.naming.InvalidNameException"},
+	{"parseQuotedAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapName$DnParser, parseQuotedAttrValue, $String*), "javax.naming.InvalidNameException"},
+	{"parseRdn", "()Lcom/sun/jndi/ldap/LdapName$Rdn;", nullptr, $PRIVATE, $method(LdapName$DnParser, parseRdn, $LdapName$Rdn*), "javax.naming.InvalidNameException"},
+	{"parseStringAttrValue", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapName$DnParser, parseStringAttrValue, $String*), "javax.naming.InvalidNameException"},
 	{}
 };
 

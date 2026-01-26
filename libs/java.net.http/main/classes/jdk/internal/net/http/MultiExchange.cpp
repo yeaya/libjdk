@@ -168,8 +168,8 @@ $FieldInfo MultiExchange$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MultiExchange$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$toString::*)($String*)>(&MultiExchange$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$toString::classInfo$ = {
@@ -201,8 +201,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MultiExchange$$Lambda$ConnectTimeoutTracker$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$ConnectTimeoutTracker$1::*)()>(&MultiExchange$$Lambda$ConnectTimeoutTracker$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$ConnectTimeoutTracker$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$ConnectTimeoutTracker$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$ConnectTimeoutTracker$1::classInfo$ = {
@@ -234,8 +234,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MultiExchange$$Lambda$getRemaining$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$getRemaining$2::*)()>(&MultiExchange$$Lambda$getRemaining$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$getRemaining$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$getRemaining$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$getRemaining$2::classInfo$ = {
@@ -267,8 +267,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MultiExchange$$Lambda$lambda$responseAsync$0$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$lambda$responseAsync$0$3::*)()>(&MultiExchange$$Lambda$lambda$responseAsync$0$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$lambda$responseAsync$0$3, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$lambda$responseAsync$0$3, get, $Object*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$lambda$responseAsync$0$3::classInfo$ = {
@@ -316,8 +316,8 @@ $FieldInfo MultiExchange$$Lambda$lambda$handleNoBody$1$4::fieldInfos[5] = {
 	{}
 };
 $MethodInfo MultiExchange$$Lambda$lambda$handleNoBody$1$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/MultiExchange;Ljdk/internal/net/http/common/MinimalFuture;Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$lambda$handleNoBody$1$4::*)(MultiExchange*,$MinimalFuture*,$Response*,$Exchange*)>(&MultiExchange$$Lambda$lambda$handleNoBody$1$4::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/MultiExchange;Ljdk/internal/net/http/common/MinimalFuture;Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$lambda$handleNoBody$1$4, init$, void, MultiExchange*, $MinimalFuture*, $Response*, $Exchange*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$lambda$handleNoBody$1$4, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$lambda$handleNoBody$1$4::classInfo$ = {
@@ -356,8 +356,8 @@ $FieldInfo MultiExchange$$Lambda$nullBody$5::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MultiExchange$$Lambda$nullBody$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$nullBody$5::*)($Exchange*)>(&MultiExchange$$Lambda$nullBody$5::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$nullBody$5, init$, void, $Exchange*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$nullBody$5, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$nullBody$5::classInfo$ = {
@@ -396,8 +396,8 @@ $FieldInfo MultiExchange$$Lambda$lambda$responseAsync0$2$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MultiExchange$$Lambda$lambda$responseAsync0$2$6::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$lambda$responseAsync0$2$6::*)(MultiExchange*)>(&MultiExchange$$Lambda$lambda$responseAsync0$2$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$lambda$responseAsync0$2$6, init$, void, MultiExchange*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$lambda$responseAsync0$2$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$lambda$responseAsync0$2$6::classInfo$ = {
@@ -436,8 +436,8 @@ $FieldInfo MultiExchange$$Lambda$lambda$responseAsync0$4$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MultiExchange$$Lambda$lambda$responseAsync0$4$7::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$lambda$responseAsync0$4$7::*)(MultiExchange*)>(&MultiExchange$$Lambda$lambda$responseAsync0$4$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$lambda$responseAsync0$4$7, init$, void, MultiExchange*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$lambda$responseAsync0$4$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$lambda$responseAsync0$4$7::classInfo$ = {
@@ -476,8 +476,8 @@ $FieldInfo MultiExchange$$Lambda$whenCancelled$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MultiExchange$$Lambda$whenCancelled$8::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$whenCancelled$8::*)(MultiExchange*)>(&MultiExchange$$Lambda$whenCancelled$8::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$whenCancelled$8, init$, void, MultiExchange*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$whenCancelled$8, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$whenCancelled$8::classInfo$ = {
@@ -519,8 +519,8 @@ $FieldInfo MultiExchange$$Lambda$lambda$responseAsyncImpl$6$9::fieldInfos[3] = {
 	{}
 };
 $MethodInfo MultiExchange$$Lambda$lambda$responseAsyncImpl$6$9::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/MultiExchange;Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$lambda$responseAsyncImpl$6$9::*)(MultiExchange*,$Exchange*)>(&MultiExchange$$Lambda$lambda$responseAsyncImpl$6$9::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/MultiExchange;Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$lambda$responseAsyncImpl$6$9, init$, void, MultiExchange*, $Exchange*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$lambda$responseAsyncImpl$6$9, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$lambda$responseAsyncImpl$6$9::classInfo$ = {
@@ -559,8 +559,8 @@ $FieldInfo MultiExchange$$Lambda$lambda$responseAsyncImpl$7$10::fieldInfos[2] = 
 	{}
 };
 $MethodInfo MultiExchange$$Lambda$lambda$responseAsyncImpl$7$10::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$lambda$responseAsyncImpl$7$10::*)(MultiExchange*)>(&MultiExchange$$Lambda$lambda$responseAsyncImpl$7$10::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/MultiExchange;)V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$lambda$responseAsyncImpl$7$10, init$, void, MultiExchange*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$lambda$responseAsyncImpl$7$10, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$lambda$responseAsyncImpl$7$10::classInfo$ = {
@@ -602,8 +602,8 @@ $FieldInfo MultiExchange$$Lambda$lambda$responseAsyncImpl$5$11::fieldInfos[3] = 
 	{}
 };
 $MethodInfo MultiExchange$$Lambda$lambda$responseAsyncImpl$5$11::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/MultiExchange;Ljdk/internal/net/http/HttpRequestImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$lambda$responseAsyncImpl$5$11::*)(MultiExchange*,$HttpRequestImpl*)>(&MultiExchange$$Lambda$lambda$responseAsyncImpl$5$11::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/MultiExchange;Ljdk/internal/net/http/HttpRequestImpl;)V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$lambda$responseAsyncImpl$5$11, init$, void, MultiExchange*, $HttpRequestImpl*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$lambda$responseAsyncImpl$5$11, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$lambda$responseAsyncImpl$5$11::classInfo$ = {
@@ -648,8 +648,8 @@ $FieldInfo MultiExchange$$Lambda$lambda$responseAsync0$3$12::fieldInfos[4] = {
 	{}
 };
 $MethodInfo MultiExchange$$Lambda$lambda$responseAsync0$3$12::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/MultiExchange;Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(static_cast<void(MultiExchange$$Lambda$lambda$responseAsync0$3$12::*)(MultiExchange*,$Response*,$Exchange*)>(&MultiExchange$$Lambda$lambda$responseAsync0$3$12::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/MultiExchange;Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(MultiExchange$$Lambda$lambda$responseAsync0$3$12, init$, void, MultiExchange*, $Response*, $Exchange*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiExchange$$Lambda$lambda$responseAsync0$3$12, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo MultiExchange$$Lambda$lambda$responseAsync0$3$12::classInfo$ = {
@@ -700,41 +700,41 @@ $FieldInfo _MultiExchange_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiExchange_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpRequest;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;Ljava/security/AccessControlContext;)V", "(Ljava/net/http/HttpRequest;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljava/security/AccessControlContext;)V", 0, $method(static_cast<void(MultiExchange::*)($HttpRequest*,$HttpRequestImpl*,$HttpClientImpl*,$HttpResponse$BodyHandler*,$HttpResponse$PushPromiseHandler*,$AccessControlContext*)>(&MultiExchange::init$))},
-	{"bodyIsPresent", "(Ljdk/internal/net/http/Response;)Z", nullptr, $PRIVATE, $method(static_cast<bool(MultiExchange::*)($Response*)>(&MultiExchange::bodyIsPresent))},
-	{"bodyNotPermitted", "(Ljdk/internal/net/http/Response;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Response*)>(&MultiExchange::bodyNotPermitted))},
-	{"canRetryRequest", "(Ljava/net/http/HttpRequest;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($HttpRequest*)>(&MultiExchange::canRetryRequest))},
-	{"cancel", "(Ljava/io/IOException;)V", nullptr, $PUBLIC},
-	{"cancel", "(Z)Z", nullptr, $PUBLIC},
-	{"cancelTimer", "()V", nullptr, $PRIVATE, $method(static_cast<void(MultiExchange::*)()>(&MultiExchange::cancelTimer))},
-	{"client", "()Ljdk/internal/net/http/HttpClientImpl;", nullptr, 0},
-	{"disableRetryConnect", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&MultiExchange::disableRetryConnect))},
-	{"getExceptionalCF", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", $PRIVATE, $method(static_cast<$CompletableFuture*(MultiExchange::*)($Throwable*)>(&MultiExchange::getExceptionalCF))},
-	{"getExchange", "()Ljdk/internal/net/http/Exchange;", "()Ljdk/internal/net/http/Exchange<TT;>;", $SYNCHRONIZED},
-	{"handleNoBody", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE, $method(static_cast<$CompletableFuture*(MultiExchange::*)($Response*,$Exchange*)>(&MultiExchange::handleNoBody))},
-	{"isIdempotentRequest", "(Ljava/net/http/HttpRequest;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($HttpRequest*)>(&MultiExchange::isIdempotentRequest))},
-	{"lambda$handleNoBody$1", "(Ljdk/internal/net/http/common/MinimalFuture;Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(MultiExchange::*)($MinimalFuture*,$Response*,$Exchange*,Object$*,$Throwable*)>(&MultiExchange::lambda$handleNoBody$1))},
-	{"lambda$responseAsync$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)()>(&MultiExchange::lambda$responseAsync$0))},
-	{"lambda$responseAsync0$2", "(Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletionStage*(MultiExchange::*)($Void*)>(&MultiExchange::lambda$responseAsync0$2))},
-	{"lambda$responseAsync0$3", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;Ljava/lang/Object;)Ljava/net/http/HttpResponse;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$HttpResponse*(MultiExchange::*)($Response*,$Exchange*,Object$*)>(&MultiExchange::lambda$responseAsync0$3))},
-	{"lambda$responseAsync0$4", "(Ljdk/internal/net/http/Response;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletionStage*(MultiExchange::*)($Response*)>(&MultiExchange::lambda$responseAsync0$4))},
-	{"lambda$responseAsyncImpl$5", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/lang/Void;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletableFuture*(MultiExchange::*)($HttpRequestImpl*,$Void*,$Throwable*)>(&MultiExchange::lambda$responseAsyncImpl$5))},
-	{"lambda$responseAsyncImpl$6", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/Response;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletionStage*(MultiExchange::*)($Exchange*,$Response*)>(&MultiExchange::lambda$responseAsyncImpl$6))},
-	{"lambda$responseAsyncImpl$7", "(Ljdk/internal/net/http/Response;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletableFuture*(MultiExchange::*)($Response*,$Throwable*)>(&MultiExchange::lambda$responseAsyncImpl$7))},
-	{"remainingConnectTimeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC},
-	{"requestCancelled", "()Z", nullptr, 0},
-	{"requestFilters", "(Ljdk/internal/net/http/HttpRequestImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(MultiExchange::*)($HttpRequestImpl*)>(&MultiExchange::requestFilters)), "java.io.IOException"},
-	{"responseAsync", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC},
-	{"responseAsync0", "(Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE, $method(static_cast<$CompletableFuture*(MultiExchange::*)($CompletableFuture*)>(&MultiExchange::responseAsync0))},
-	{"responseAsyncImpl", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", $PRIVATE, $method(static_cast<$CompletableFuture*(MultiExchange::*)()>(&MultiExchange::responseAsyncImpl))},
-	{"responseFilters", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PRIVATE, $method(static_cast<$HttpRequestImpl*(MultiExchange::*)($Response*)>(&MultiExchange::responseFilters)), "java.io.IOException"},
-	{"retryCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PRIVATE, $method(static_cast<$Throwable*(MultiExchange::*)($Throwable*)>(&MultiExchange::retryCause))},
-	{"retryOnFailure", "(Ljava/lang/Throwable;)Z", nullptr, $PRIVATE, $method(static_cast<bool(MultiExchange::*)($Throwable*)>(&MultiExchange::retryOnFailure))},
-	{"retryPostValue", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&MultiExchange::retryPostValue))},
-	{"setExchange", "(Ljdk/internal/net/http/Exchange;)V", "(Ljdk/internal/net/http/Exchange<TT;>;)V", $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(MultiExchange::*)($Exchange*)>(&MultiExchange::setExchange))},
-	{"toTimeoutException", "(Ljava/io/IOException;)Ljava/net/http/HttpTimeoutException;", nullptr, $PRIVATE, $method(static_cast<$HttpTimeoutException*(MultiExchange::*)($IOException*)>(&MultiExchange::toTimeoutException))},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, 0},
-	{"whenCancelled", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE, $method(static_cast<$CompletableFuture*(MultiExchange::*)($Throwable*)>(&MultiExchange::whenCancelled))},
+	{"<init>", "(Ljava/net/http/HttpRequest;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;Ljava/security/AccessControlContext;)V", "(Ljava/net/http/HttpRequest;Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/HttpClientImpl;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljava/security/AccessControlContext;)V", 0, $method(MultiExchange, init$, void, $HttpRequest*, $HttpRequestImpl*, $HttpClientImpl*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*, $AccessControlContext*)},
+	{"bodyIsPresent", "(Ljdk/internal/net/http/Response;)Z", nullptr, $PRIVATE, $method(MultiExchange, bodyIsPresent, bool, $Response*)},
+	{"bodyNotPermitted", "(Ljdk/internal/net/http/Response;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MultiExchange, bodyNotPermitted, bool, $Response*)},
+	{"canRetryRequest", "(Ljava/net/http/HttpRequest;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MultiExchange, canRetryRequest, bool, $HttpRequest*)},
+	{"cancel", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(MultiExchange, cancel, void, $IOException*)},
+	{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(MultiExchange, cancel, bool, bool)},
+	{"cancelTimer", "()V", nullptr, $PRIVATE, $method(MultiExchange, cancelTimer, void)},
+	{"client", "()Ljdk/internal/net/http/HttpClientImpl;", nullptr, 0, $virtualMethod(MultiExchange, client, $HttpClientImpl*)},
+	{"disableRetryConnect", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MultiExchange, disableRetryConnect, bool)},
+	{"getExceptionalCF", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", $PRIVATE, $method(MultiExchange, getExceptionalCF, $CompletableFuture*, $Throwable*)},
+	{"getExchange", "()Ljdk/internal/net/http/Exchange;", "()Ljdk/internal/net/http/Exchange<TT;>;", $SYNCHRONIZED, $virtualMethod(MultiExchange, getExchange, $Exchange*)},
+	{"handleNoBody", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE, $method(MultiExchange, handleNoBody, $CompletableFuture*, $Response*, $Exchange*)},
+	{"isIdempotentRequest", "(Ljava/net/http/HttpRequest;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MultiExchange, isIdempotentRequest, bool, $HttpRequest*)},
+	{"lambda$handleNoBody$1", "(Ljdk/internal/net/http/common/MinimalFuture;Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(MultiExchange, lambda$handleNoBody$1, void, $MinimalFuture*, $Response*, $Exchange*, Object$*, $Throwable*)},
+	{"lambda$responseAsync$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiExchange, lambda$responseAsync$0, $Void*)},
+	{"lambda$responseAsync0$2", "(Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(MultiExchange, lambda$responseAsync0$2, $CompletionStage*, $Void*)},
+	{"lambda$responseAsync0$3", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;Ljava/lang/Object;)Ljava/net/http/HttpResponse;", nullptr, $PRIVATE | $SYNTHETIC, $method(MultiExchange, lambda$responseAsync0$3, $HttpResponse*, $Response*, $Exchange*, Object$*)},
+	{"lambda$responseAsync0$4", "(Ljdk/internal/net/http/Response;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(MultiExchange, lambda$responseAsync0$4, $CompletionStage*, $Response*)},
+	{"lambda$responseAsyncImpl$5", "(Ljdk/internal/net/http/HttpRequestImpl;Ljava/lang/Void;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(MultiExchange, lambda$responseAsyncImpl$5, $CompletableFuture*, $HttpRequestImpl*, $Void*, $Throwable*)},
+	{"lambda$responseAsyncImpl$6", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/Response;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(MultiExchange, lambda$responseAsyncImpl$6, $CompletionStage*, $Exchange*, $Response*)},
+	{"lambda$responseAsyncImpl$7", "(Ljdk/internal/net/http/Response;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(MultiExchange, lambda$responseAsyncImpl$7, $CompletableFuture*, $Response*, $Throwable*)},
+	{"remainingConnectTimeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(MultiExchange, remainingConnectTimeout, $Optional*)},
+	{"requestCancelled", "()Z", nullptr, 0, $virtualMethod(MultiExchange, requestCancelled, bool)},
+	{"requestFilters", "(Ljdk/internal/net/http/HttpRequestImpl;)V", nullptr, $PRIVATE, $method(MultiExchange, requestFilters, void, $HttpRequestImpl*), "java.io.IOException"},
+	{"responseAsync", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(MultiExchange, responseAsync, $CompletableFuture*, $Executor*)},
+	{"responseAsync0", "(Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE, $method(MultiExchange, responseAsync0, $CompletableFuture*, $CompletableFuture*)},
+	{"responseAsyncImpl", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", $PRIVATE, $method(MultiExchange, responseAsyncImpl, $CompletableFuture*)},
+	{"responseFilters", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PRIVATE, $method(MultiExchange, responseFilters, $HttpRequestImpl*, $Response*), "java.io.IOException"},
+	{"retryCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PRIVATE, $method(MultiExchange, retryCause, $Throwable*, $Throwable*)},
+	{"retryOnFailure", "(Ljava/lang/Throwable;)Z", nullptr, $PRIVATE, $method(MultiExchange, retryOnFailure, bool, $Throwable*)},
+	{"retryPostValue", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MultiExchange, retryPostValue, bool)},
+	{"setExchange", "(Ljdk/internal/net/http/Exchange;)V", "(Ljdk/internal/net/http/Exchange<TT;>;)V", $PRIVATE | $SYNCHRONIZED, $method(MultiExchange, setExchange, void, $Exchange*)},
+	{"toTimeoutException", "(Ljava/io/IOException;)Ljava/net/http/HttpTimeoutException;", nullptr, $PRIVATE, $method(MultiExchange, toTimeoutException, $HttpTimeoutException*, $IOException*)},
+	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, 0, $virtualMethod(MultiExchange, version, $HttpClient$Version*)},
+	{"whenCancelled", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE, $method(MultiExchange, whenCancelled, $CompletableFuture*, $Throwable*)},
 	{}
 };
 

@@ -60,22 +60,22 @@ $FieldInfo _PortFile_FieldInfo_[] = {
 };
 
 $MethodInfo _PortFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PortFile::*)($String*)>(&PortFile::init$))},
-	{"containsPortInfo", "()Z", nullptr, $PUBLIC},
-	{"delete", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.InterruptedException"},
-	{"exists", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getCookie", "()J", nullptr, $PUBLIC},
-	{"getFilename", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPort", "()I", nullptr, $PUBLIC},
-	{"getServerStartupTimeoutSeconds", "()J", nullptr, $PRIVATE, $method(static_cast<int64_t(PortFile::*)()>(&PortFile::getServerStartupTimeoutSeconds))},
-	{"getValues", "()V", nullptr, $PUBLIC},
-	{"initializeChannel", "()V", nullptr, $PRIVATE, $method(static_cast<void(PortFile::*)()>(&PortFile::initializeChannel)), "com.sun.tools.sjavac.client.PortFileInaccessibleException"},
-	{"lock", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.InterruptedException"},
-	{"markedForStop", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setValues", "(IJ)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"stillMyValues", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.io.FileNotFoundException,java.lang.InterruptedException"},
-	{"unlock", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"waitForValidValues", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.InterruptedException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PortFile, init$, void, $String*)},
+	{"containsPortInfo", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, containsPortInfo, bool)},
+	{"delete", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, delete$, void), "java.io.IOException,java.lang.InterruptedException"},
+	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, exists, bool), "java.io.IOException"},
+	{"getCookie", "()J", nullptr, $PUBLIC, $virtualMethod(PortFile, getCookie, int64_t)},
+	{"getFilename", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PortFile, getFilename, $String*)},
+	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(PortFile, getPort, int32_t)},
+	{"getServerStartupTimeoutSeconds", "()J", nullptr, $PRIVATE, $method(PortFile, getServerStartupTimeoutSeconds, int64_t)},
+	{"getValues", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, getValues, void)},
+	{"initializeChannel", "()V", nullptr, $PRIVATE, $method(PortFile, initializeChannel, void), "com.sun.tools.sjavac.client.PortFileInaccessibleException"},
+	{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, lock, void), "java.io.IOException,java.lang.InterruptedException"},
+	{"markedForStop", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, markedForStop, bool), "java.io.IOException"},
+	{"setValues", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(PortFile, setValues, void, int32_t, int64_t), "java.io.IOException"},
+	{"stillMyValues", "()Z", nullptr, $PUBLIC, $virtualMethod(PortFile, stillMyValues, bool), "java.io.IOException,java.io.FileNotFoundException,java.lang.InterruptedException"},
+	{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, unlock, void), "java.io.IOException"},
+	{"waitForValidValues", "()V", nullptr, $PUBLIC, $virtualMethod(PortFile, waitForValidValues, void), "java.io.IOException,java.lang.InterruptedException"},
 	{}
 };
 

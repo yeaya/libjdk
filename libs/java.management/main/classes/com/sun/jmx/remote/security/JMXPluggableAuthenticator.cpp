@@ -74,11 +74,11 @@ $FieldInfo _JMXPluggableAuthenticator_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXPluggableAuthenticator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $method(static_cast<void(JMXPluggableAuthenticator::*)($Map*)>(&JMXPluggableAuthenticator::init$))},
-	{"authenticate", "(Ljava/lang/Object;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC},
-	{"authenticationFailure", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&JMXPluggableAuthenticator::authenticationFailure)), "java.lang.SecurityException"},
-	{"authenticationFailure", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$Exception*)>(&JMXPluggableAuthenticator::authenticationFailure)), "java.lang.SecurityException"},
-	{"logException", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,$Exception*)>(&JMXPluggableAuthenticator::logException))},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $method(JMXPluggableAuthenticator, init$, void, $Map*)},
+	{"authenticate", "(Ljava/lang/Object;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator, authenticate, $Subject*, Object$*)},
+	{"authenticationFailure", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPluggableAuthenticator, authenticationFailure, void, $String*, $String*), "java.lang.SecurityException"},
+	{"authenticationFailure", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPluggableAuthenticator, authenticationFailure, void, $String*, $Exception*), "java.lang.SecurityException"},
+	{"logException", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPluggableAuthenticator, logException, void, $String*, $String*, $Exception*)},
 	{}
 };
 

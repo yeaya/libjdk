@@ -73,8 +73,8 @@ $FieldInfo PooledSjavac$$Lambda$lambda$compile$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo PooledSjavac$$Lambda$lambda$compile$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/comp/PooledSjavac;Lcom/sun/tools/sjavac/Log;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PooledSjavac$$Lambda$lambda$compile$0::*)(PooledSjavac*,$Log*,$StringArray*)>(&PooledSjavac$$Lambda$lambda$compile$0::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/comp/PooledSjavac;Lcom/sun/tools/sjavac/Log;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PooledSjavac$$Lambda$lambda$compile$0, init$, void, PooledSjavac*, $Log*, $StringArray*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PooledSjavac$$Lambda$lambda$compile$0, call, $Object*)},
 	{}
 };
 $ClassInfo PooledSjavac$$Lambda$lambda$compile$0::classInfo$ = {
@@ -98,10 +98,10 @@ $FieldInfo _PooledSjavac_FieldInfo_[] = {
 };
 
 $MethodInfo _PooledSjavac_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/server/Sjavac;I)V", nullptr, $PUBLIC, $method(static_cast<void(PooledSjavac::*)($Sjavac*,int32_t)>(&PooledSjavac::init$))},
-	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC},
-	{"lambda$compile$0", "(Lcom/sun/tools/sjavac/Log;[Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Main$Result*(PooledSjavac::*)($Log*,$StringArray*)>(&PooledSjavac::lambda$compile$0)), "java.lang.Exception"},
-	{"shutdown", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/server/Sjavac;I)V", nullptr, $PUBLIC, $method(PooledSjavac, init$, void, $Sjavac*, int32_t)},
+	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(PooledSjavac, compile, $Main$Result*, $StringArray*)},
+	{"lambda$compile$0", "(Lcom/sun/tools/sjavac/Log;[Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $SYNTHETIC, $method(PooledSjavac, lambda$compile$0, $Main$Result*, $Log*, $StringArray*), "java.lang.Exception"},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(PooledSjavac, shutdown, void)},
 	{}
 };
 

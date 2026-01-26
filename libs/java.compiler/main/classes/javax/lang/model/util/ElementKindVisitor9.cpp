@@ -32,9 +32,9 @@ $CompoundAttribute _ElementKindVisitor9_Annotations_[] = {
 };
 
 $MethodInfo _ElementKindVisitor9_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ElementKindVisitor9::*)()>(&ElementKindVisitor9::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(ElementKindVisitor9::*)(Object$*)>(&ElementKindVisitor9::init$))},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ElementKindVisitor9, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(ElementKindVisitor9, init$, void, Object$*)},
+	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementKindVisitor9, visitModule, $Object*, $ModuleElement*, Object$*)},
 	{}
 };
 

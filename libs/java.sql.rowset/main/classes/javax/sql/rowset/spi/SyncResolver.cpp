@@ -25,13 +25,13 @@ $FieldInfo _SyncResolver_FieldInfo_[] = {
 };
 
 $MethodInfo _SyncResolver_MethodInfo_[] = {
-	{"getConflictValue", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getConflictValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getStatus", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"nextConflict", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"previousConflict", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"setResolvedValue", "(ILjava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"setResolvedValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getConflictValue", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, getConflictValue, $Object*, int32_t), "java.sql.SQLException"},
+	{"getConflictValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, getConflictValue, $Object*, $String*), "java.sql.SQLException"},
+	{"getStatus", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, getStatus, int32_t)},
+	{"nextConflict", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, nextConflict, bool), "java.sql.SQLException"},
+	{"previousConflict", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, previousConflict, bool), "java.sql.SQLException"},
+	{"setResolvedValue", "(ILjava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, setResolvedValue, void, int32_t, Object$*), "java.sql.SQLException"},
+	{"setResolvedValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncResolver, setResolvedValue, void, $String*, Object$*), "java.sql.SQLException"},
 	{}
 };
 

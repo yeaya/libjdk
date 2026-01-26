@@ -59,8 +59,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo AnnotationProxyMaker$MirroredTypesExceptionProxy$$Lambda$lambda$toString$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AnnotationProxyMaker$MirroredTypesExceptionProxy$$Lambda$lambda$toString$0::*)()>(&AnnotationProxyMaker$MirroredTypesExceptionProxy$$Lambda$lambda$toString$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationProxyMaker$MirroredTypesExceptionProxy$$Lambda$lambda$toString$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$MirroredTypesExceptionProxy$$Lambda$lambda$toString$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo AnnotationProxyMaker$MirroredTypesExceptionProxy$$Lambda$lambda$toString$0::classInfo$ = {
@@ -85,13 +85,13 @@ $FieldInfo _AnnotationProxyMaker$MirroredTypesExceptionProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationProxyMaker$MirroredTypesExceptionProxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Ljavax/lang/model/type/TypeMirror;>;)V", 0, $method(static_cast<void(AnnotationProxyMaker$MirroredTypesExceptionProxy::*)($List*)>(&AnnotationProxyMaker$MirroredTypesExceptionProxy::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"lambda$toString$0", "(Ljavax/lang/model/type/TypeMirror;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($TypeMirror*)>(&AnnotationProxyMaker$MirroredTypesExceptionProxy::lambda$toString$0))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(AnnotationProxyMaker$MirroredTypesExceptionProxy::*)($ObjectInputStream*)>(&AnnotationProxyMaker$MirroredTypesExceptionProxy::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Ljavax/lang/model/type/TypeMirror;>;)V", 0, $method(AnnotationProxyMaker$MirroredTypesExceptionProxy, init$, void, $List*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$MirroredTypesExceptionProxy, equals, bool, Object$*)},
+	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(AnnotationProxyMaker$MirroredTypesExceptionProxy, generateException, $RuntimeException*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$MirroredTypesExceptionProxy, hashCode, int32_t)},
+	{"lambda$toString$0", "(Ljavax/lang/model/type/TypeMirror;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AnnotationProxyMaker$MirroredTypesExceptionProxy, lambda$toString$0, $String*, $TypeMirror*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AnnotationProxyMaker$MirroredTypesExceptionProxy, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$MirroredTypesExceptionProxy, toString, $String*)},
 	{}
 };
 

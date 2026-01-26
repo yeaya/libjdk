@@ -39,10 +39,10 @@ $FieldInfo _Infer$GraphInferenceSteps_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$GraphInferenceSteps_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Infer$GraphInferenceStepsArray*(*)()>(&Infer$GraphInferenceSteps::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/util/EnumSet;)V", "(Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)V", $PRIVATE, $method(static_cast<void(Infer$GraphInferenceSteps::*)($String*,int32_t,$EnumSet*)>(&Infer$GraphInferenceSteps::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Infer$GraphInferenceSteps*(*)($String*)>(&Infer$GraphInferenceSteps::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Infer$GraphInferenceStepsArray*(*)()>(&Infer$GraphInferenceSteps::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$GraphInferenceSteps, $values, $Infer$GraphInferenceStepsArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/util/EnumSet;)V", "(Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)V", $PRIVATE, $method(Infer$GraphInferenceSteps, init$, void, $String*, int32_t, $EnumSet*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$GraphInferenceSteps, valueOf, Infer$GraphInferenceSteps*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$GraphInferenceSteps, values, $Infer$GraphInferenceStepsArray*)},
 	{}
 };
 

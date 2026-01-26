@@ -22,9 +22,9 @@ $FieldInfo _ResetFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _ResetFrame_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(ResetFrame::*)(int32_t,int32_t)>(&ResetFrame::init$))},
-	{"length", "()I", nullptr, 0},
-	{"type", "()I", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ResetFrame, init$, void, int32_t, int32_t)},
+	{"length", "()I", nullptr, 0, $virtualMethod(ResetFrame, length, int32_t)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(ResetFrame, type, int32_t)},
 	{}
 };
 

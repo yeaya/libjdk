@@ -68,8 +68,8 @@ $FieldInfo SimpleHeaderTable$$Lambda$lambda$put$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SimpleHeaderTable$$Lambda$lambda$put$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable$$Lambda$lambda$put$0::*)($SimpleHeaderTable$HeaderField*)>(&SimpleHeaderTable$$Lambda$lambda$put$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$$Lambda$lambda$put$0, init$, void, $SimpleHeaderTable$HeaderField*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable$$Lambda$lambda$put$0, get, $Object*)},
 	{}
 };
 $ClassInfo SimpleHeaderTable$$Lambda$lambda$put$0::classInfo$ = {
@@ -111,8 +111,8 @@ $FieldInfo SimpleHeaderTable$$Lambda$lambda$put$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo SimpleHeaderTable$$Lambda$lambda$put$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;I)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable$$Lambda$lambda$put$1$1::*)($SimpleHeaderTable$HeaderField*,int32_t)>(&SimpleHeaderTable$$Lambda$lambda$put$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;I)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$$Lambda$lambda$put$1$1, init$, void, $SimpleHeaderTable$HeaderField*, int32_t)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable$$Lambda$lambda$put$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo SimpleHeaderTable$$Lambda$lambda$put$1$1::classInfo$ = {
@@ -151,8 +151,8 @@ $FieldInfo SimpleHeaderTable$$Lambda$lambda$put$2$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SimpleHeaderTable$$Lambda$lambda$put$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable;)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable$$Lambda$lambda$put$2$2::*)(SimpleHeaderTable*)>(&SimpleHeaderTable$$Lambda$lambda$put$2$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$$Lambda$lambda$put$2$2, init$, void, SimpleHeaderTable*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable$$Lambda$lambda$put$2$2, get, $Object*)},
 	{}
 };
 $ClassInfo SimpleHeaderTable$$Lambda$lambda$put$2$2::classInfo$ = {
@@ -191,8 +191,8 @@ $FieldInfo SimpleHeaderTable$$Lambda$lambda$put$3$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SimpleHeaderTable$$Lambda$lambda$put$3$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable$$Lambda$lambda$put$3$3::*)($SimpleHeaderTable$HeaderField*)>(&SimpleHeaderTable$$Lambda$lambda$put$3$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$$Lambda$lambda$put$3$3, init$, void, $SimpleHeaderTable$HeaderField*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable$$Lambda$lambda$put$3$3, get, $Object*)},
 	{}
 };
 $ClassInfo SimpleHeaderTable$$Lambda$lambda$put$3$3::classInfo$ = {
@@ -231,8 +231,8 @@ $FieldInfo SimpleHeaderTable$$Lambda$lambda$put$4$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SimpleHeaderTable$$Lambda$lambda$put$4$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable$$Lambda$lambda$put$4$4::*)($SimpleHeaderTable$HeaderField*)>(&SimpleHeaderTable$$Lambda$lambda$put$4$4::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$$Lambda$lambda$put$4$4, init$, void, $SimpleHeaderTable$HeaderField*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable$$Lambda$lambda$put$4$4, get, $Object*)},
 	{}
 };
 $ClassInfo SimpleHeaderTable$$Lambda$lambda$put$4$4::classInfo$ = {
@@ -271,8 +271,8 @@ $FieldInfo SimpleHeaderTable$$Lambda$toString$5::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SimpleHeaderTable$$Lambda$toString$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable;)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable$$Lambda$toString$5::*)(SimpleHeaderTable*)>(&SimpleHeaderTable$$Lambda$toString$5::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$$Lambda$toString$5, init$, void, SimpleHeaderTable*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable$$Lambda$toString$5, get, $Object*)},
 	{}
 };
 $ClassInfo SimpleHeaderTable$$Lambda$toString$5::classInfo$ = {
@@ -314,8 +314,8 @@ $FieldInfo SimpleHeaderTable$$Lambda$lambda$evictEntry$5$6::fieldInfos[3] = {
 	{}
 };
 $MethodInfo SimpleHeaderTable$$Lambda$lambda$evictEntry$5$6::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;I)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable$$Lambda$lambda$evictEntry$5$6::*)($SimpleHeaderTable$HeaderField*,int32_t)>(&SimpleHeaderTable$$Lambda$lambda$evictEntry$5$6::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;I)V", nullptr, $PUBLIC, $method(SimpleHeaderTable$$Lambda$lambda$evictEntry$5$6, init$, void, $SimpleHeaderTable$HeaderField*, int32_t)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable$$Lambda$lambda$evictEntry$5$6, get, $Object*)},
 	{}
 };
 $ClassInfo SimpleHeaderTable$$Lambda$lambda$evictEntry$5$6::classInfo$ = {
@@ -344,27 +344,27 @@ $FieldInfo _SimpleHeaderTable_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleHeaderTable_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/net/http/hpack/HPACK$Logger;)V", nullptr, $PUBLIC, $method(static_cast<void(SimpleHeaderTable::*)(int32_t,$HPACK$Logger*)>(&SimpleHeaderTable::init$))},
-	{"add", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PROTECTED},
-	{"checkIndex", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(SimpleHeaderTable::*)(int32_t)>(&SimpleHeaderTable::checkIndex))},
-	{"evictEntry", "()Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;", nullptr, 0},
-	{"get", "(I)Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;", nullptr, 0},
-	{"getStateString", "()Ljava/lang/String;", nullptr, 0},
-	{"lambda$evictEntry$5", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($SimpleHeaderTable$HeaderField*,int32_t)>(&SimpleHeaderTable::lambda$evictEntry$5))},
-	{"lambda$put$0", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($SimpleHeaderTable$HeaderField*)>(&SimpleHeaderTable::lambda$put$0))},
-	{"lambda$put$1", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($SimpleHeaderTable$HeaderField*,int32_t)>(&SimpleHeaderTable::lambda$put$1))},
-	{"lambda$put$2", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(SimpleHeaderTable::*)()>(&SimpleHeaderTable::lambda$put$2))},
-	{"lambda$put$3", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($SimpleHeaderTable$HeaderField*)>(&SimpleHeaderTable::lambda$put$3))},
-	{"lambda$put$4", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($SimpleHeaderTable$HeaderField*)>(&SimpleHeaderTable::lambda$put$4))},
-	{"length", "()I", nullptr, $PUBLIC},
-	{"maxSize", "()I", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, 0},
-	{"put", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PRIVATE, $method(static_cast<void(SimpleHeaderTable::*)($SimpleHeaderTable$HeaderField*)>(&SimpleHeaderTable::put))},
-	{"remove", "()Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;", nullptr, $PROTECTED},
-	{"setMaxSize", "(I)V", nullptr, 0},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"sizeOf", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)I", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILjdk/internal/net/http/hpack/HPACK$Logger;)V", nullptr, $PUBLIC, $method(SimpleHeaderTable, init$, void, int32_t, $HPACK$Logger*)},
+	{"add", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PROTECTED, $virtualMethod(SimpleHeaderTable, add, void, $SimpleHeaderTable$HeaderField*)},
+	{"checkIndex", "(I)I", nullptr, $PRIVATE, $method(SimpleHeaderTable, checkIndex, int32_t, int32_t)},
+	{"evictEntry", "()Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;", nullptr, 0, $virtualMethod(SimpleHeaderTable, evictEntry, $SimpleHeaderTable$HeaderField*)},
+	{"get", "(I)Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;", nullptr, 0, $virtualMethod(SimpleHeaderTable, get, $SimpleHeaderTable$HeaderField*, int32_t)},
+	{"getStateString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(SimpleHeaderTable, getStateString, $String*)},
+	{"lambda$evictEntry$5", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SimpleHeaderTable, lambda$evictEntry$5, $String*, $SimpleHeaderTable$HeaderField*, int32_t)},
+	{"lambda$put$0", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SimpleHeaderTable, lambda$put$0, $String*, $SimpleHeaderTable$HeaderField*)},
+	{"lambda$put$1", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SimpleHeaderTable, lambda$put$1, $String*, $SimpleHeaderTable$HeaderField*, int32_t)},
+	{"lambda$put$2", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(SimpleHeaderTable, lambda$put$2, $String*)},
+	{"lambda$put$3", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SimpleHeaderTable, lambda$put$3, $String*, $SimpleHeaderTable$HeaderField*)},
+	{"lambda$put$4", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SimpleHeaderTable, lambda$put$4, $String*, $SimpleHeaderTable$HeaderField*)},
+	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable, length, int32_t)},
+	{"maxSize", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable, maxSize, int32_t)},
+	{"put", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, 0, $virtualMethod(SimpleHeaderTable, put, void, $CharSequence*, $CharSequence*)},
+	{"put", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PRIVATE, $method(SimpleHeaderTable, put, void, $SimpleHeaderTable$HeaderField*)},
+	{"remove", "()Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;", nullptr, $PROTECTED, $virtualMethod(SimpleHeaderTable, remove, $SimpleHeaderTable$HeaderField*)},
+	{"setMaxSize", "(I)V", nullptr, 0, $virtualMethod(SimpleHeaderTable, setMaxSize, void, int32_t)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable, size, int32_t)},
+	{"sizeOf", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)I", nullptr, 0, $virtualMethod(SimpleHeaderTable, sizeOf, int32_t, $SimpleHeaderTable$HeaderField*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleHeaderTable, toString, $String*)},
 	{}
 };
 

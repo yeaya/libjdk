@@ -26,10 +26,10 @@ $FieldInfo _IndexedWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _IndexedWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(IndexedWriter::*)()>(&IndexedWriter::init$))},
-	{"index", "(I)Ljdk/internal/net/http/hpack/IndexedWriter;", nullptr, 0, $method(static_cast<IndexedWriter*(IndexedWriter::*)(int32_t)>(&IndexedWriter::index))},
-	{"reset", "()Ljdk/internal/net/http/hpack/BinaryRepresentationWriter;", nullptr, $PUBLIC},
-	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(IndexedWriter, init$, void)},
+	{"index", "(I)Ljdk/internal/net/http/hpack/IndexedWriter;", nullptr, 0, $method(IndexedWriter, index, IndexedWriter*, int32_t)},
+	{"reset", "()Ljdk/internal/net/http/hpack/BinaryRepresentationWriter;", nullptr, $PUBLIC, $virtualMethod(IndexedWriter, reset, $BinaryRepresentationWriter*)},
+	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(IndexedWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
 	{}
 };
 

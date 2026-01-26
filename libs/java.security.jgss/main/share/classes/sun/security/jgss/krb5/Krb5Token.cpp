@@ -42,8 +42,8 @@ $FieldInfo _Krb5Token_FieldInfo_[] = {
 };
 
 $MethodInfo _Krb5Token_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Krb5Token::*)()>(&Krb5Token::init$))},
-	{"getTokenName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&Krb5Token::getTokenName))},
+	{"<init>", "()V", nullptr, 0, $method(Krb5Token, init$, void)},
+	{"getTokenName", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5Token, getTokenName, $String*, int32_t)},
 	{}
 };
 

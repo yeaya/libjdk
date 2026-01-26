@@ -56,19 +56,19 @@ $FieldInfo _AbstractCharsetProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractCharsetProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractCharsetProvider::*)()>(&AbstractCharsetProvider::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(AbstractCharsetProvider::*)($String*)>(&AbstractCharsetProvider::init$))},
-	{"aliases", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$StringArray*(AbstractCharsetProvider::*)($String*)>(&AbstractCharsetProvider::aliases))},
-	{"canonicalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(AbstractCharsetProvider::*)($String*)>(&AbstractCharsetProvider::canonicalize))},
-	{"charset", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"charsetForName", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $FINAL},
-	{"charsets", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/charset/Charset;>;", $PUBLIC | $FINAL},
-	{"deleteCharset", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"hasCharset", "(Ljava/lang/String;)Z", nullptr, $PROTECTED},
-	{"init", "()V", nullptr, $PROTECTED},
-	{"lookup", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PRIVATE, $method(static_cast<$Charset*(AbstractCharsetProvider::*)($String*)>(&AbstractCharsetProvider::lookup))},
-	{"put", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;TK;TV;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Map*,Object$*,Object$*)>(&AbstractCharsetProvider::put))},
-	{"remove", "(Ljava/util/Map;Ljava/lang/Object;)V", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;TK;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Map*,Object$*)>(&AbstractCharsetProvider::remove))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractCharsetProvider, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AbstractCharsetProvider, init$, void, $String*)},
+	{"aliases", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(AbstractCharsetProvider, aliases, $StringArray*, $String*)},
+	{"canonicalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(AbstractCharsetProvider, canonicalize, $String*, $String*)},
+	{"charset", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AbstractCharsetProvider, charset, void, $String*, $String*, $StringArray*)},
+	{"charsetForName", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractCharsetProvider, charsetForName, $Charset*, $String*)},
+	{"charsets", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/charset/Charset;>;", $PUBLIC | $FINAL, $virtualMethod(AbstractCharsetProvider, charsets, $Iterator*)},
+	{"deleteCharset", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AbstractCharsetProvider, deleteCharset, void, $String*, $StringArray*)},
+	{"hasCharset", "(Ljava/lang/String;)Z", nullptr, $PROTECTED, $virtualMethod(AbstractCharsetProvider, hasCharset, bool, $String*)},
+	{"init", "()V", nullptr, $PROTECTED, $virtualMethod(AbstractCharsetProvider, init, void)},
+	{"lookup", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PRIVATE, $method(AbstractCharsetProvider, lookup, $Charset*, $String*)},
+	{"put", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;TK;TV;)V", $PRIVATE | $STATIC, $staticMethod(AbstractCharsetProvider, put, void, $Map*, Object$*, Object$*)},
+	{"remove", "(Ljava/util/Map;Ljava/lang/Object;)V", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;TK;)V", $PRIVATE | $STATIC, $staticMethod(AbstractCharsetProvider, remove, void, $Map*, Object$*)},
 	{}
 };
 

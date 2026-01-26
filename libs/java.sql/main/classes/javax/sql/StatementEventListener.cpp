@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $StatementEvent = ::javax::sql::StatementEvent;
 
 namespace javax {
 	namespace sql {
 
 $MethodInfo _StatementEventListener_MethodInfo_[] = {
-	{"statementClosed", "(Ljavax/sql/StatementEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"statementErrorOccurred", "(Ljavax/sql/StatementEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"statementClosed", "(Ljavax/sql/StatementEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StatementEventListener, statementClosed, void, $StatementEvent*)},
+	{"statementErrorOccurred", "(Ljavax/sql/StatementEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StatementEventListener, statementErrorOccurred, void, $StatementEvent*)},
 	{}
 };
 

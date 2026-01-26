@@ -35,7 +35,7 @@ $CompoundAttribute _SupportedOptions_Annotations_[] = {
 };
 
 $MethodInfo _SupportedOptions_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SupportedOptions, value, $StringArray*)},
 	{}
 };
 

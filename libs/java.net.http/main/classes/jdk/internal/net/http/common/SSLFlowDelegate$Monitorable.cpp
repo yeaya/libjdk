@@ -14,7 +14,7 @@ namespace jdk {
 				namespace common {
 
 $MethodInfo _SSLFlowDelegate$Monitorable_MethodInfo_[] = {
-	{"getInfo", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getInfo", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLFlowDelegate$Monitorable, getInfo, $String*)},
 	{}
 };
 

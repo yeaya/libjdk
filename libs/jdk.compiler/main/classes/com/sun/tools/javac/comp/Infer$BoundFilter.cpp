@@ -28,9 +28,9 @@ $FieldInfo _Infer$BoundFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$BoundFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $method(static_cast<void(Infer$BoundFilter::*)($InferenceContext*)>(&Infer$BoundFilter::init$))},
-	{"test", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $method(Infer$BoundFilter, init$, void, $InferenceContext*)},
+	{"test", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$BoundFilter, test, bool, $Type*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$BoundFilter, test, bool, Object$*)},
 	{}
 };
 

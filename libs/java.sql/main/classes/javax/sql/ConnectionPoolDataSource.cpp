@@ -8,17 +8,18 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
+using $PooledConnection = ::javax::sql::PooledConnection;
 using $PooledConnectionBuilder = ::javax::sql::PooledConnectionBuilder;
 
 namespace javax {
 	namespace sql {
 
 $MethodInfo _ConnectionPoolDataSource_MethodInfo_[] = {
-	{"createPooledConnectionBuilder", "()Ljavax/sql/PooledConnectionBuilder;", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
+	{"createPooledConnectionBuilder", "()Ljavax/sql/PooledConnectionBuilder;", nullptr, $PUBLIC, $virtualMethod(ConnectionPoolDataSource, createPooledConnectionBuilder, $PooledConnectionBuilder*), "java.sql.SQLException"},
 	{"getLogWriter", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getLoginTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPooledConnection", "()Ljavax/sql/PooledConnection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getPooledConnection", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/sql/PooledConnection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getPooledConnection", "()Ljavax/sql/PooledConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConnectionPoolDataSource, getPooledConnection, $PooledConnection*), "java.sql.SQLException"},
+	{"getPooledConnection", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/sql/PooledConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConnectionPoolDataSource, getPooledConnection, $PooledConnection*, $String*, $String*), "java.sql.SQLException"},
 	{"setLogWriter", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"setLoginTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
 	{}

@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
+using $RecordComponentElement = ::javax::lang::model::element::RecordComponentElement;
 using $AbstractElementVisitor9 = ::javax::lang::model::util::AbstractElementVisitor9;
 
 namespace javax {
@@ -26,8 +27,8 @@ $CompoundAttribute _AbstractElementVisitor14_Annotations_[] = {
 };
 
 $MethodInfo _AbstractElementVisitor14_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractElementVisitor14::*)()>(&AbstractElementVisitor14::init$))},
-	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/RecordComponentElement;TP;)TR;", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractElementVisitor14, init$, void)},
+	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/RecordComponentElement;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(AbstractElementVisitor14, visitRecordComponent, $Object*, $RecordComponentElement*, Object$*)},
 	{}
 };
 

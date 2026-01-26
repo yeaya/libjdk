@@ -21,7 +21,7 @@ $MethodInfo _JCTree$JCDirective_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCTree$JCDirective::*)()>(&JCTree$JCDirective::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCDirective, init$, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -48,8 +48,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo GNUStyleOptions$20$$Lambda$printHelp::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GNUStyleOptions$20$$Lambda$printHelp::*)()>(&GNUStyleOptions$20$$Lambda$printHelp::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GNUStyleOptions$20$$Lambda$printHelp, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GNUStyleOptions$20$$Lambda$printHelp, accept, void, Object$*)},
 	{}
 };
 $ClassInfo GNUStyleOptions$20$$Lambda$printHelp::classInfo$ = {
@@ -81,8 +81,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo GNUStyleOptions$20$$Lambda$printCompatHelp$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GNUStyleOptions$20$$Lambda$printCompatHelp$1::*)()>(&GNUStyleOptions$20$$Lambda$printCompatHelp$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GNUStyleOptions$20$$Lambda$printCompatHelp$1, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GNUStyleOptions$20$$Lambda$printCompatHelp$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo GNUStyleOptions$20$$Lambda$printCompatHelp$1::classInfo$ = {
@@ -100,8 +100,8 @@ $Class* GNUStyleOptions$20$$Lambda$printCompatHelp$1::load$($String* name, bool 
 $Class* GNUStyleOptions$20$$Lambda$printCompatHelp$1::class$ = nullptr;
 
 $MethodInfo _GNUStyleOptions$20_MethodInfo_[] = {
-	{"<init>", "(ZZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(static_cast<void(GNUStyleOptions$20::*)(bool,bool,$GNUStyleOptions$OptionType*,$StringArray*)>(&GNUStyleOptions$20::init$))},
-	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, nullptr, "sun.tools.jar.GNUStyleOptions$BadArgs"},
+	{"<init>", "(ZZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$20, init$, void, bool, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(GNUStyleOptions$20, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
 	{}
 };
 

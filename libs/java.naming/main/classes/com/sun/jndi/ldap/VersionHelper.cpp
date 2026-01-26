@@ -66,8 +66,8 @@ $FieldInfo VersionHelper$$Lambda$lambda$getPrivilegedProperty$0::fieldInfos[3] =
 	{}
 };
 $MethodInfo VersionHelper$$Lambda$lambda$getPrivilegedProperty$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$$Lambda$lambda$getPrivilegedProperty$0::*)($String*,$String*)>(&VersionHelper$$Lambda$lambda$getPrivilegedProperty$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$getPrivilegedProperty$0, init$, void, $String*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$getPrivilegedProperty$0, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$$Lambda$lambda$getPrivilegedProperty$0::classInfo$ = {
@@ -109,8 +109,8 @@ $FieldInfo VersionHelper$$Lambda$lambda$createThread$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo VersionHelper$$Lambda$lambda$createThread$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$$Lambda$lambda$createThread$1$1::*)($Runnable*,$AccessControlContext*)>(&VersionHelper$$Lambda$lambda$createThread$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$lambda$createThread$1$1, init$, void, $Runnable*, $AccessControlContext*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$lambda$createThread$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$$Lambda$lambda$createThread$1$1::classInfo$ = {
@@ -149,8 +149,8 @@ $FieldInfo VersionHelper$$Lambda$getContextClassLoader$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo VersionHelper$$Lambda$getContextClassLoader$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $method(static_cast<void(VersionHelper$$Lambda$getContextClassLoader$2::*)($Thread*)>(&VersionHelper$$Lambda$getContextClassLoader$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $method(VersionHelper$$Lambda$getContextClassLoader$2, init$, void, $Thread*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$$Lambda$getContextClassLoader$2, run, $Object*)},
 	{}
 };
 $ClassInfo VersionHelper$$Lambda$getContextClassLoader$2::classInfo$ = {
@@ -175,17 +175,17 @@ $FieldInfo _VersionHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _VersionHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(VersionHelper::*)()>(&VersionHelper::init$))},
-	{"createThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, 0, $method(static_cast<$Thread*(VersionHelper::*)($Runnable*)>(&VersionHelper::createThread))},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $method(static_cast<$ClassLoader*(VersionHelper::*)()>(&VersionHelper::getContextClassLoader))},
-	{"getPrivilegedProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&VersionHelper::getPrivilegedProperty))},
-	{"getURLClassLoader", "([Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, 0, $method(static_cast<$ClassLoader*(VersionHelper::*)($StringArray*)>(&VersionHelper::getURLClassLoader)), "java.net.MalformedURLException"},
-	{"getUrlArray", "([Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URLArray*(*)($StringArray*)>(&VersionHelper::getUrlArray)), "java.net.MalformedURLException"},
-	{"getVersionHelper", "()Lcom/sun/jndi/ldap/VersionHelper;", nullptr, $STATIC, $method(static_cast<VersionHelper*(*)()>(&VersionHelper::getVersionHelper))},
-	{"isSerialDataAllowed", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&VersionHelper::isSerialDataAllowed))},
-	{"lambda$createThread$1", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Thread*(*)($Runnable*,$AccessControlContext*)>(&VersionHelper::lambda$createThread$1))},
-	{"lambda$getPrivilegedProperty$0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*,$String*)>(&VersionHelper::lambda$getPrivilegedProperty$0))},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", 0, $method(static_cast<$Class*(VersionHelper::*)($String*)>(&VersionHelper::loadClass)), "java.lang.ClassNotFoundException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(VersionHelper, init$, void)},
+	{"createThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, 0, $method(VersionHelper, createThread, $Thread*, $Runnable*)},
+	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $method(VersionHelper, getContextClassLoader, $ClassLoader*)},
+	{"getPrivilegedProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionHelper, getPrivilegedProperty, $String*, $String*, $String*)},
+	{"getURLClassLoader", "([Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, 0, $method(VersionHelper, getURLClassLoader, $ClassLoader*, $StringArray*), "java.net.MalformedURLException"},
+	{"getUrlArray", "([Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionHelper, getUrlArray, $URLArray*, $StringArray*), "java.net.MalformedURLException"},
+	{"getVersionHelper", "()Lcom/sun/jndi/ldap/VersionHelper;", nullptr, $STATIC, $staticMethod(VersionHelper, getVersionHelper, VersionHelper*)},
+	{"isSerialDataAllowed", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionHelper, isSerialDataAllowed, bool)},
+	{"lambda$createThread$1", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$createThread$1, $Thread*, $Runnable*, $AccessControlContext*)},
+	{"lambda$getPrivilegedProperty$0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(VersionHelper, lambda$getPrivilegedProperty$0, $String*, $String*, $String*)},
+	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", 0, $method(VersionHelper, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
 	{}
 };
 

@@ -20,7 +20,7 @@ $CompoundAttribute _TestSupport$F3_Annotations_[] = {
 };
 
 $MethodInfo _TestSupport$F3_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TA;TB;TC;)TR;", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TA;TB;TC;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TestSupport$F3, apply, $Object*, Object$*, Object$*, Object$*)},
 	{}
 };
 

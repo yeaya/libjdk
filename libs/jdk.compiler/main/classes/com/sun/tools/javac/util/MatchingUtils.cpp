@@ -25,10 +25,10 @@ $FieldInfo _MatchingUtils_FieldInfo_[] = {
 };
 
 $MethodInfo _MatchingUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MatchingUtils::*)()>(&MatchingUtils::init$))},
-	{"isValidImportString", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&MatchingUtils::isValidImportString))},
-	{"validImportStringToPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Pattern*(*)($String*)>(&MatchingUtils::validImportStringToPattern))},
-	{"validImportStringToPatternString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&MatchingUtils::validImportStringToPatternString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MatchingUtils, init$, void)},
+	{"isValidImportString", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchingUtils, isValidImportString, bool, $String*)},
+	{"validImportStringToPattern", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchingUtils, validImportStringToPattern, $Pattern*, $String*)},
+	{"validImportStringToPatternString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(MatchingUtils, validImportStringToPatternString, $String*, $String*)},
 	{}
 };
 

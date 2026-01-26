@@ -27,10 +27,10 @@ $FieldInfo _ZipPath$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipPath$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipPath;)V", nullptr, 0, $method(static_cast<void(ZipPath$1::*)($ZipPath*)>(&ZipPath$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/nio/zipfs/ZipPath;)V", nullptr, 0, $method(ZipPath$1, init$, void, $ZipPath*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipPath$1, hasNext, bool)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(ZipPath$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ZipPath$1, remove, void)},
 	{}
 };
 

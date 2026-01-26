@@ -3,15 +3,16 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
+using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace sql {
 
 $MethodInfo _SQLType_MethodInfo_[] = {
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getVendorTypeNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLType, getName, $String*)},
+	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLType, getVendor, $String*)},
+	{"getVendorTypeNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLType, getVendorTypeNumber, $Integer*)},
 	{}
 };
 

@@ -14,8 +14,8 @@ namespace javax {
 			namespace spi {
 
 $MethodInfo _SyncFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SyncFactory$1::*)()>(&SyncFactory$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SyncFactory$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SyncFactory$1, run, $Object*)},
 	{}
 };
 

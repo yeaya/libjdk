@@ -24,11 +24,11 @@ $FieldInfo _AttributeChangeNotification_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributeChangeNotification_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(AttributeChangeNotification::*)(Object$*,int64_t,int64_t,$String*,$String*,$String*,Object$*,Object$*)>(&AttributeChangeNotification::init$))},
-	{"getAttributeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getAttributeType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNewValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getOldValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;JJLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AttributeChangeNotification, init$, void, Object$*, int64_t, int64_t, $String*, $String*, $String*, Object$*, Object$*)},
+	{"getAttributeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getAttributeName, $String*)},
+	{"getAttributeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getAttributeType, $String*)},
+	{"getNewValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getNewValue, $Object*)},
+	{"getOldValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AttributeChangeNotification, getOldValue, $Object*)},
 	{}
 };
 

@@ -23,7 +23,7 @@ $FieldInfo _Frame_FieldInfo_[] = {
 };
 
 $MethodInfo _Frame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Frame::*)()>(&Frame::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Frame, init$, void)},
 	{}
 };
 

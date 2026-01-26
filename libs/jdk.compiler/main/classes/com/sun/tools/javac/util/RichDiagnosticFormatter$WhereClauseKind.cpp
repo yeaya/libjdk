@@ -31,11 +31,11 @@ $FieldInfo _RichDiagnosticFormatter$WhereClauseKind_FieldInfo_[] = {
 };
 
 $MethodInfo _RichDiagnosticFormatter$WhereClauseKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$RichDiagnosticFormatter$WhereClauseKindArray*(*)()>(&RichDiagnosticFormatter$WhereClauseKind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(RichDiagnosticFormatter$WhereClauseKind::*)($String*,int32_t,$String*)>(&RichDiagnosticFormatter$WhereClauseKind::init$))},
-	{"key", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(RichDiagnosticFormatter$WhereClauseKind::*)()>(&RichDiagnosticFormatter$WhereClauseKind::key))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RichDiagnosticFormatter$WhereClauseKind*(*)($String*)>(&RichDiagnosticFormatter$WhereClauseKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RichDiagnosticFormatter$WhereClauseKindArray*(*)()>(&RichDiagnosticFormatter$WhereClauseKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RichDiagnosticFormatter$WhereClauseKind, $values, $RichDiagnosticFormatter$WhereClauseKindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(RichDiagnosticFormatter$WhereClauseKind, init$, void, $String*, int32_t, $String*)},
+	{"key", "()Ljava/lang/String;", nullptr, 0, $method(RichDiagnosticFormatter$WhereClauseKind, key, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$WhereClauseKind, valueOf, RichDiagnosticFormatter$WhereClauseKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$WhereClauseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$WhereClauseKind, values, $RichDiagnosticFormatter$WhereClauseKindArray*)},
 	{}
 };
 

@@ -23,9 +23,9 @@ $FieldInfo _Sasl$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Sasl$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(Sasl$2::*)($Iterator*)>(&Sasl$2::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljavax/security/sasl/SaslServerFactory;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Iterator;)V", "()V", 0, $method(Sasl$2, init$, void, $Iterator*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Sasl$2, hasMoreElements, bool)},
+	{"nextElement", "()Ljavax/security/sasl/SaslServerFactory;", nullptr, $PUBLIC, $virtualMethod(Sasl$2, nextElement, $Object*)},
 	{}
 };
 

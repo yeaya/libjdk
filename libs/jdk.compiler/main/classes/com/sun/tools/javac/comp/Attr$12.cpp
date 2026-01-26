@@ -32,9 +32,9 @@ $FieldInfo _Attr$12_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$12_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(Attr$12::*)($Attr*,$Symbol*)>(&Attr$12::init$))},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Attr$12, init$, void, $Attr*, $Symbol*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Attr$12, visitIdent, void, $JCTree$JCIdent*)},
+	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Attr$12, visitSelect, void, $JCTree$JCFieldAccess*)},
 	{}
 };
 

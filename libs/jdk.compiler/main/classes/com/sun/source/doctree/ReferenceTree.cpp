@@ -11,7 +11,7 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _ReferenceTree_MethodInfo_[] = {
-	{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReferenceTree, getSignature, $String*)},
 	{}
 };
 

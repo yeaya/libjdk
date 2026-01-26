@@ -35,11 +35,11 @@ $FieldInfo _WebSocketExample_FieldInfo_[] = {
 };
 
 $MethodInfo _WebSocketExample_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WebSocketExample::*)()>(&WebSocketExample::init$))},
-	{"newBuilderExample0", "()V", nullptr, $PUBLIC},
-	{"newBuilderExample1", "()V", nullptr, $PUBLIC},
-	{"processCompleteTextMessage", "(Ljava/lang/CharSequence;)V", nullptr, $STATIC, $method(static_cast<void(*)($CharSequence*)>(&WebSocketExample::processCompleteTextMessage))},
-	{"requestExample", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WebSocketExample, init$, void)},
+	{"newBuilderExample0", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketExample, newBuilderExample0, void)},
+	{"newBuilderExample1", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketExample, newBuilderExample1, void)},
+	{"processCompleteTextMessage", "(Ljava/lang/CharSequence;)V", nullptr, $STATIC, $staticMethod(WebSocketExample, processCompleteTextMessage, void, $CharSequence*)},
+	{"requestExample", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketExample, requestExample, void)},
 	{}
 };
 

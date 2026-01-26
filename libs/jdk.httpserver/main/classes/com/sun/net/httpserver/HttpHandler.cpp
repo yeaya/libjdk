@@ -3,6 +3,7 @@
 #include <com/sun/net/httpserver/HttpExchange.h>
 #include <jcpp.h>
 
+using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,7 +13,7 @@ namespace com {
 			namespace httpserver {
 
 $MethodInfo _HttpHandler_MethodInfo_[] = {
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpHandler, handle, void, $HttpExchange*), "java.io.IOException"},
 	{}
 };
 

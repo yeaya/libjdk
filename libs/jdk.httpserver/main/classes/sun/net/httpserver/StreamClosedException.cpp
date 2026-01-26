@@ -18,7 +18,7 @@ $FieldInfo _StreamClosedException_FieldInfo_[] = {
 };
 
 $MethodInfo _StreamClosedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StreamClosedException::*)()>(&StreamClosedException::init$))},
+	{"<init>", "()V", nullptr, 0, $method(StreamClosedException, init$, void)},
 	{}
 };
 

@@ -28,9 +28,9 @@ $FieldInfo _Annotate$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Annotate$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;)V", nullptr, 0, $method(static_cast<void(Annotate$1::*)($Annotate*)>(&Annotate$1::init$))},
-	{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC},
-	{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;)V", nullptr, 0, $method(Annotate$1, init$, void, $Annotate*)},
+	{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$1, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
+	{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$1, visitTypeIdent, void, $JCTree$JCPrimitiveTypeTree*)},
 	{}
 };
 

@@ -125,8 +125,8 @@ $FieldInfo JavacProcessingEnvironment$1$$Lambda$lambda$visitTopLevel$0::fieldInf
 	{}
 };
 $MethodInfo JavacProcessingEnvironment$1$$Lambda$lambda$visitTopLevel$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$1;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacProcessingEnvironment$1$$Lambda$lambda$visitTopLevel$0::*)(JavacProcessingEnvironment$1*,$JCTree$JCCompilationUnit*)>(&JavacProcessingEnvironment$1$$Lambda$lambda$visitTopLevel$0::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$1;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$1$$Lambda$lambda$visitTopLevel$0, init$, void, JavacProcessingEnvironment$1*, $JCTree$JCCompilationUnit*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1$$Lambda$lambda$visitTopLevel$0, complete, void, $Symbol*)},
 	{}
 };
 $ClassInfo JavacProcessingEnvironment$1$$Lambda$lambda$visitTopLevel$0::classInfo$ = {
@@ -165,8 +165,8 @@ $FieldInfo JavacProcessingEnvironment$1$$Lambda$lambda$visitClassDef$1$1::fieldI
 	{}
 };
 $MethodInfo JavacProcessingEnvironment$1$$Lambda$lambda$visitClassDef$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$1;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacProcessingEnvironment$1$$Lambda$lambda$visitClassDef$1$1::*)(JavacProcessingEnvironment$1*)>(&JavacProcessingEnvironment$1$$Lambda$lambda$visitClassDef$1$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$1;)V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$1$$Lambda$lambda$visitClassDef$1$1, init$, void, JavacProcessingEnvironment$1*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1$$Lambda$lambda$visitClassDef$1$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo JavacProcessingEnvironment$1$$Lambda$lambda$visitClassDef$1$1::classInfo$ = {
@@ -190,21 +190,21 @@ $FieldInfo _JavacProcessingEnvironment$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacProcessingEnvironment$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;)V", nullptr, 0, $method(static_cast<void(JavacProcessingEnvironment$1::*)($JavacProcessingEnvironment*)>(&JavacProcessingEnvironment$1::init$))},
-	{"lambda$visitClassDef$1", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(JavacProcessingEnvironment$1::*)($JCTree$JCAnnotation*)>(&JavacProcessingEnvironment$1::lambda$visitClassDef$1))},
-	{"lambda$visitTopLevel$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(JavacProcessingEnvironment$1::*)($JCTree$JCCompilationUnit*,$Symbol*)>(&JavacProcessingEnvironment$1::lambda$visitTopLevel$0)), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC},
-	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
-	{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;)V", nullptr, 0, $method(JavacProcessingEnvironment$1, init$, void, $JavacProcessingEnvironment*)},
+	{"lambda$visitClassDef$1", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacProcessingEnvironment$1, lambda$visitClassDef$1, void, $JCTree$JCAnnotation*)},
+	{"lambda$visitTopLevel$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacProcessingEnvironment$1, lambda$visitTopLevel$0, void, $JCTree$JCCompilationUnit*, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, scan, void, $JCTree*)},
+	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitAnnotation, void, $JCTree$JCAnnotation*)},
+	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitAssignop, void, $JCTree$JCAssignOp*)},
+	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitBinary, void, $JCTree$JCBinary*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitIdent, void, $JCTree$JCIdent*)},
+	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitNewClass, void, $JCTree$JCNewClass*)},
+	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitSelect, void, $JCTree$JCFieldAccess*)},
+	{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitTopLevel, void, $JCTree$JCCompilationUnit*)},
+	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitUnary, void, $JCTree$JCUnary*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$1, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

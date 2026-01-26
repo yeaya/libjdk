@@ -24,8 +24,8 @@ $FieldInfo _OpenType$1_FieldInfo_[] = {
 };
 
 $MethodInfo _OpenType$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "()V", 0, $method(static_cast<void(OpenType$1::*)($Class*)>(&OpenType$1::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", "()V", 0, $method(OpenType$1, init$, void, $Class*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(OpenType$1, run, $Object*)},
 	{}
 };
 

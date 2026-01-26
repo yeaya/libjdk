@@ -31,8 +31,8 @@ $FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$4
 };
 
 $MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$4::*)($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext*,int64_t,$Name*,$Type*,$Symbol*,$Symbol*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$4::init$))},
-	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$4, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext*, int64_t, $Name*, $Type*, $Symbol*, $Symbol*)},
+	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$4, baseSymbol, $Symbol*)},
 	{}
 };
 

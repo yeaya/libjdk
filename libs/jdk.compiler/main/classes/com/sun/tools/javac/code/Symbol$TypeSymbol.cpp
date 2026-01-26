@@ -60,18 +60,18 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Symbol$TypeSymbol_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$TypeSymbol::*)($Kinds$Kind*,int64_t,$Name*,$Type*,$Symbol*)>(&Symbol$TypeSymbol::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"formFlatName", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Name*(*)($Name*,$Symbol*)>(&Symbol$TypeSymbol::formFlatName))},
-	{"formFullName", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Name*(*)($Name*,$Symbol*)>(&Symbol$TypeSymbol::formFullName))},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getAnnotationTypeMetadata", "()Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeMetadata;", nullptr, $PUBLIC},
-	{"getEnclosedElements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
-	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"isAnnotationType", "()Z", nullptr, $PUBLIC},
-	{"precedes", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(Symbol$TypeSymbol::*)(Symbol$TypeSymbol*,$Types*)>(&Symbol$TypeSymbol::precedes))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$TypeSymbol, init$, void, $Kinds$Kind*, int64_t, $Name*, $Type*, $Symbol*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$TypeSymbol, accept, $Object*, $Symbol$Visitor*, Object$*)},
+	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, asType, $TypeMirror*)},
+	{"formFlatName", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$TypeSymbol, formFlatName, $Name*, $Name*, $Symbol*)},
+	{"formFullName", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$TypeSymbol, formFullName, $Name*, $Name*, $Symbol*)},
+	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, getAnnotationMirrors, $List*)},
+	{"getAnnotationTypeMetadata", "()Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeMetadata;", nullptr, $PUBLIC, $virtualMethod(Symbol$TypeSymbol, getAnnotationTypeMetadata, $Annotate$AnnotationTypeMetadata*)},
+	{"getEnclosedElements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Symbol$TypeSymbol, getEnclosedElements, $List*)},
+	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, getEnclosingElement, $Element*)},
+	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, getSimpleName, $1Name*)},
+	{"isAnnotationType", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$TypeSymbol, isAnnotationType, bool)},
+	{"precedes", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC | $FINAL, $method(Symbol$TypeSymbol, precedes, bool, Symbol$TypeSymbol*, $Types*)},
 	{}
 };
 

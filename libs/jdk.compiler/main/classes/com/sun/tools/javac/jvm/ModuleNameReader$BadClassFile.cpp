@@ -21,7 +21,7 @@ $FieldInfo _ModuleNameReader$BadClassFile_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleNameReader$BadClassFile_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ModuleNameReader$BadClassFile::*)($String*)>(&ModuleNameReader$BadClassFile::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ModuleNameReader$BadClassFile, init$, void, $String*)},
 	{}
 };
 

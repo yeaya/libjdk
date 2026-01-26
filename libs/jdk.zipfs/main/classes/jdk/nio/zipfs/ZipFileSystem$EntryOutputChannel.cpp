@@ -28,8 +28,8 @@ $FieldInfo _ZipFileSystem$EntryOutputChannel_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileSystem$EntryOutputChannel_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;)V", nullptr, 0, $method(static_cast<void(ZipFileSystem$EntryOutputChannel::*)($ZipFileSystem*,$ZipFileSystem$Entry*)>(&ZipFileSystem$EntryOutputChannel::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;)V", nullptr, 0, $method(ZipFileSystem$EntryOutputChannel, init$, void, $ZipFileSystem*, $ZipFileSystem$Entry*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryOutputChannel, close, void), "java.io.IOException"},
 	{}
 };
 

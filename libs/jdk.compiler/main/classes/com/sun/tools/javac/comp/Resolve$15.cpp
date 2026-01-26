@@ -31,8 +31,8 @@ $FieldInfo _Resolve$15_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$15_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(Resolve$15::*)($Resolve*,int64_t,$Name*,$Type*,$Symbol*,$Symbol*)>(&Resolve$15::init$))},
-	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Resolve$15, init$, void, $Resolve*, int64_t, $Name*, $Type*, $Symbol*, $Symbol*)},
+	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$15, baseSymbol, $Symbol*)},
 	{}
 };
 

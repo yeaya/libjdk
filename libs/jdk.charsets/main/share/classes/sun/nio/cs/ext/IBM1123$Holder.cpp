@@ -24,7 +24,7 @@ $FieldInfo _IBM1123$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _IBM1123$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(IBM1123$Holder::*)()>(&IBM1123$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(IBM1123$Holder, init$, void)},
 	{}
 };
 

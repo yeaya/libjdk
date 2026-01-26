@@ -35,12 +35,12 @@ $FieldInfo _TreeInfo$PatternPrimaryType_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeInfo$PatternPrimaryType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$PatternPrimaryType::*)($Type*,bool)>(&TreeInfo$PatternPrimaryType::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"type", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $method(static_cast<$Type*(TreeInfo$PatternPrimaryType::*)()>(&TreeInfo$PatternPrimaryType::type))},
-	{"unconditional", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(TreeInfo$PatternPrimaryType::*)()>(&TreeInfo$PatternPrimaryType::unconditional))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC, $method(TreeInfo$PatternPrimaryType, init$, void, $Type*, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeInfo$PatternPrimaryType, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeInfo$PatternPrimaryType, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TreeInfo$PatternPrimaryType, toString, $String*)},
+	{"type", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $method(TreeInfo$PatternPrimaryType, type, $Type*)},
+	{"unconditional", "()Z", nullptr, $PUBLIC, $method(TreeInfo$PatternPrimaryType, unconditional, bool)},
 	{}
 };
 

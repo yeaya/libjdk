@@ -27,8 +27,8 @@ $FieldInfo _Infer$InferenceException_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$InferenceException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Infer$InferenceException::*)()>(&Infer$InferenceException::init$))},
-	{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Infer$InferenceException, init$, void)},
+	{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceException, getDiagnostic, $JCDiagnostic*)},
 	{}
 };
 

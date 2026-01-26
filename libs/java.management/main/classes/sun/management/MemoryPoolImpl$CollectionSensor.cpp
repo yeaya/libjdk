@@ -25,10 +25,10 @@ $FieldInfo _MemoryPoolImpl$CollectionSensor_FieldInfo_[] = {
 };
 
 $MethodInfo _MemoryPoolImpl$CollectionSensor_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/MemoryPoolImpl;Lsun/management/MemoryPoolImpl;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(MemoryPoolImpl$CollectionSensor::*)($MemoryPoolImpl*,$MemoryPoolImpl*,$String*)>(&MemoryPoolImpl$CollectionSensor::init$))},
-	{"clearAction", "()V", nullptr, 0},
-	{"triggerAction", "(Ljava/lang/management/MemoryUsage;)V", nullptr, 0},
-	{"triggerAction", "()V", nullptr, 0},
+	{"<init>", "(Lsun/management/MemoryPoolImpl;Lsun/management/MemoryPoolImpl;Ljava/lang/String;)V", nullptr, 0, $method(MemoryPoolImpl$CollectionSensor, init$, void, $MemoryPoolImpl*, $MemoryPoolImpl*, $String*)},
+	{"clearAction", "()V", nullptr, 0, $virtualMethod(MemoryPoolImpl$CollectionSensor, clearAction, void)},
+	{"triggerAction", "(Ljava/lang/management/MemoryUsage;)V", nullptr, 0, $virtualMethod(MemoryPoolImpl$CollectionSensor, triggerAction, void, $MemoryUsage*)},
+	{"triggerAction", "()V", nullptr, 0, $virtualMethod(MemoryPoolImpl$CollectionSensor, triggerAction, void)},
 	{}
 };
 

@@ -25,9 +25,9 @@ $FieldInfo _MBeanServerNotification_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerNotification_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JLjavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerNotification::*)($String*,Object$*,int64_t,$ObjectName*)>(&MBeanServerNotification::init$))},
-	{"getMBeanName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JLjavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(MBeanServerNotification, init$, void, $String*, Object$*, int64_t, $ObjectName*)},
+	{"getMBeanName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MBeanServerNotification, getMBeanName, $ObjectName*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanServerNotification, toString, $String*)},
 	{}
 };
 

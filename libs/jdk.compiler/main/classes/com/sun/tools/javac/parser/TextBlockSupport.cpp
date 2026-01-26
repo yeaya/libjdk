@@ -26,9 +26,9 @@ namespace com {
 				namespace parser {
 
 $MethodInfo _TextBlockSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TextBlockSupport::*)()>(&TextBlockSupport::init$))},
-	{"checkWhitespace", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Lcom/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks;>;", $STATIC, $method(static_cast<$Set*(*)($String*)>(&TextBlockSupport::checkWhitespace))},
-	{"indexOfNonWhitespace", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&TextBlockSupport::indexOfNonWhitespace))},
+	{"<init>", "()V", nullptr, 0, $method(TextBlockSupport, init$, void)},
+	{"checkWhitespace", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Lcom/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks;>;", $STATIC, $staticMethod(TextBlockSupport, checkWhitespace, $Set*, $String*)},
+	{"indexOfNonWhitespace", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TextBlockSupport, indexOfNonWhitespace, int32_t, $String*)},
 	{}
 };
 

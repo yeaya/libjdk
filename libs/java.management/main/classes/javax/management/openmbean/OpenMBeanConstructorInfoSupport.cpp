@@ -41,12 +41,12 @@ $MethodInfo _OpenMBeanConstructorInfoSupport_MethodInfo_[] = {
 	{"*getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{"*getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanParameterInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(OpenMBeanConstructorInfoSupport::*)($String*,$String*,$OpenMBeanParameterInfoArray*)>(&OpenMBeanConstructorInfoSupport::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanParameterInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(OpenMBeanConstructorInfoSupport::*)($String*,$String*,$OpenMBeanParameterInfoArray*,$Descriptor*)>(&OpenMBeanConstructorInfoSupport::init$))},
-	{"arrayCopyCast", "([Ljavax/management/openmbean/OpenMBeanParameterInfo;)[Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MBeanParameterInfoArray*(*)($OpenMBeanParameterInfoArray*)>(&OpenMBeanConstructorInfoSupport::arrayCopyCast))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanParameterInfo;)V", nullptr, $PUBLIC, $method(OpenMBeanConstructorInfoSupport, init$, void, $String*, $String*, $OpenMBeanParameterInfoArray*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/openmbean/OpenMBeanParameterInfo;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(OpenMBeanConstructorInfoSupport, init$, void, $String*, $String*, $OpenMBeanParameterInfoArray*, $Descriptor*)},
+	{"arrayCopyCast", "([Ljavax/management/openmbean/OpenMBeanParameterInfo;)[Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpenMBeanConstructorInfoSupport, arrayCopyCast, $MBeanParameterInfoArray*, $OpenMBeanParameterInfoArray*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OpenMBeanConstructorInfoSupport, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OpenMBeanConstructorInfoSupport, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OpenMBeanConstructorInfoSupport, toString, $String*)},
 	{}
 };
 

@@ -32,9 +32,9 @@ $FieldInfo _MultiExchange$ConnectTimeoutTracker_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiExchange$ConnectTimeoutTracker_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/Duration;)V", nullptr, 0, $method(static_cast<void(MultiExchange$ConnectTimeoutTracker::*)($Duration*)>(&MultiExchange$ConnectTimeoutTracker::init$))},
-	{"getRemaining", "()Ljava/time/Duration;", nullptr, 0, $method(static_cast<$Duration*(MultiExchange$ConnectTimeoutTracker::*)()>(&MultiExchange$ConnectTimeoutTracker::getRemaining))},
-	{"reset", "()V", nullptr, 0, $method(static_cast<void(MultiExchange$ConnectTimeoutTracker::*)()>(&MultiExchange$ConnectTimeoutTracker::reset))},
+	{"<init>", "(Ljava/time/Duration;)V", nullptr, 0, $method(MultiExchange$ConnectTimeoutTracker, init$, void, $Duration*)},
+	{"getRemaining", "()Ljava/time/Duration;", nullptr, 0, $method(MultiExchange$ConnectTimeoutTracker, getRemaining, $Duration*)},
+	{"reset", "()V", nullptr, 0, $method(MultiExchange$ConnectTimeoutTracker, reset, void)},
 	{}
 };
 

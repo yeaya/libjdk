@@ -54,8 +54,8 @@ $FieldInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::fieldI
 	{}
 };
 $MethodInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::*)($Class*)>(&JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, init$, void, $Class*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$1::classInfo$ = {
@@ -97,8 +97,8 @@ $FieldInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::fiel
 	{}
 };
 $MethodInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::*)($InputStream*,$Class*)>(&JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, init$, void, $InputStream*, $Class*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1, get, $Object*)},
 	{}
 };
 $ClassInfo JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::classInfo$ = {
@@ -116,10 +116,10 @@ $Class* JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::load$($
 $Class* JavadocExamples$FromMappingSubscriber$$Lambda$lambda$asJSON$0$1::class$ = nullptr;
 
 $MethodInfo _JavadocExamples$FromMappingSubscriber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JavadocExamples$FromMappingSubscriber::*)()>(&JavadocExamples$FromMappingSubscriber::init$))},
-	{"asJSON", "(Ljava/lang/Class;)Ljava/net/http/HttpResponse$BodySubscriber;", "<W:Ljava/lang/Object;>(Ljava/lang/Class<TW;>;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/function/Supplier<TW;>;>;", $PUBLIC | $STATIC, $method(static_cast<$HttpResponse$BodySubscriber*(*)($Class*)>(&JavadocExamples$FromMappingSubscriber::asJSON))},
-	{"lambda$asJSON$0", "(Ljava/io/InputStream;Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Object*(*)($InputStream*,$Class*)>(&JavadocExamples$FromMappingSubscriber::lambda$asJSON$0))},
-	{"lambda$asJSON$1", "(Ljava/lang/Class;Ljava/io/InputStream;)Ljava/util/function/Supplier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Supplier*(*)($Class*,$InputStream*)>(&JavadocExamples$FromMappingSubscriber::lambda$asJSON$1))},
+	{"<init>", "()V", nullptr, 0, $method(JavadocExamples$FromMappingSubscriber, init$, void)},
+	{"asJSON", "(Ljava/lang/Class;)Ljava/net/http/HttpResponse$BodySubscriber;", "<W:Ljava/lang/Object;>(Ljava/lang/Class<TW;>;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/util/function/Supplier<TW;>;>;", $PUBLIC | $STATIC, $staticMethod(JavadocExamples$FromMappingSubscriber, asJSON, $HttpResponse$BodySubscriber*, $Class*)},
+	{"lambda$asJSON$0", "(Ljava/io/InputStream;Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples$FromMappingSubscriber, lambda$asJSON$0, $Object*, $InputStream*, $Class*)},
+	{"lambda$asJSON$1", "(Ljava/lang/Class;Ljava/io/InputStream;)Ljava/util/function/Supplier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples$FromMappingSubscriber, lambda$asJSON$1, $Supplier*, $Class*, $InputStream*)},
 	{}
 };
 

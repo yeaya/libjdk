@@ -31,8 +31,8 @@ $FieldInfo _KdcComm$KdcCommunication_FieldInfo_[] = {
 };
 
 $MethodInfo _KdcComm$KdcCommunication_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IZII[B)V", nullptr, $PUBLIC, $method(static_cast<void(KdcComm$KdcCommunication::*)($String*,int32_t,bool,int32_t,int32_t,$bytes*)>(&KdcComm$KdcCommunication::init$))},
-	{"run", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException,sun.security.krb5.KrbException"},
+	{"<init>", "(Ljava/lang/String;IZII[B)V", nullptr, $PUBLIC, $method(KdcComm$KdcCommunication, init$, void, $String*, int32_t, bool, int32_t, int32_t, $bytes*)},
+	{"run", "()[B", nullptr, $PUBLIC, $virtualMethod(KdcComm$KdcCommunication, run, $Object*), "java.io.IOException,sun.security.krb5.KrbException"},
 	{}
 };
 

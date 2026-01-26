@@ -26,13 +26,13 @@ $FieldInfo _ArgumentIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ArgumentIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ArgumentIterator::*)($Iterable*)>(&ArgumentIterator::init$))},
-	{"current", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"fillBuffer", "()V", nullptr, $PRIVATE, $method(static_cast<void(ArgumentIterator::*)()>(&ArgumentIterator::fillBuffer))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"peek", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/lang/String;>;)V", $PUBLIC, $method(ArgumentIterator, init$, void, $Iterable*)},
+	{"current", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArgumentIterator, current, $String*)},
+	{"fillBuffer", "()V", nullptr, $PRIVATE, $method(ArgumentIterator, fillBuffer, void)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ArgumentIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArgumentIterator, next, $Object*)},
+	{"peek", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArgumentIterator, peek, $String*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ArgumentIterator, remove, void)},
 	{}
 };
 

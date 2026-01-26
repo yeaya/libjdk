@@ -25,10 +25,10 @@ namespace com {
 				namespace platform {
 
 $MethodInfo _JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileObject;)V", nullptr, $PUBLIC, $method(static_cast<void(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject::*)($JavaFileObject*)>(&JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject::init$))},
-	{"getDelegate", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/tools/JavaFileObject;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, init$, void, $JavaFileObject*)},
+	{"getDelegate", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, getDelegate, $JavaFileObject*)},
+	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, getKind, $JavaFileObject$Kind*)},
+	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
 	{}
 };
 

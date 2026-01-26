@@ -48,10 +48,10 @@ $FieldInfo _Resolve$MethodReferenceLookupHelper$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodReferenceLookupHelper$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodReferenceLookupHelper;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, 0, $method(static_cast<void(Resolve$MethodReferenceLookupHelper$1::*)($Resolve$MethodReferenceLookupHelper*,$JCTree$JCMemberReference*,$Name*,$Type*,$List*,$List*,$Resolve$MethodResolutionPhase*)>(&Resolve$MethodReferenceLookupHelper$1::init$))},
-	{"lookup", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", 0},
-	{"referenceKind", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, 0},
-	{"unboundLookup", "(Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupHelper;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodReferenceLookupHelper;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, 0, $method(Resolve$MethodReferenceLookupHelper$1, init$, void, $Resolve$MethodReferenceLookupHelper*, $JCTree$JCMemberReference*, $Name*, $Type*, $List*, $List*, $Resolve$MethodResolutionPhase*)},
+	{"lookup", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", 0, $virtualMethod(Resolve$MethodReferenceLookupHelper$1, lookup, $Symbol*, $Env*, $Resolve$MethodResolutionPhase*)},
+	{"referenceKind", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, 0, $virtualMethod(Resolve$MethodReferenceLookupHelper$1, referenceKind, $JCTree$JCMemberReference$ReferenceKind*, $Symbol*)},
+	{"unboundLookup", "(Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupHelper;", nullptr, 0, $virtualMethod(Resolve$MethodReferenceLookupHelper$1, unboundLookup, $Resolve$ReferenceLookupHelper*, $InferenceContext*)},
 	{}
 };
 

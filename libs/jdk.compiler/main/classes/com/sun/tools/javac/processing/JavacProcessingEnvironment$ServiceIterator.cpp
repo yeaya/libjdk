@@ -52,14 +52,14 @@ $FieldInfo _JavacProcessingEnvironment$ServiceIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacProcessingEnvironment$ServiceIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Ljava/lang/ClassLoader;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(static_cast<void(JavacProcessingEnvironment$ServiceIterator::*)($JavacProcessingEnvironment*,$ClassLoader*,$Log*)>(&JavacProcessingEnvironment$ServiceIterator::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Ljava/util/ServiceLoader;Lcom/sun/tools/javac/util/Log;)V", "(Ljava/util/ServiceLoader<Ljavax/annotation/processing/Processor;>;Lcom/sun/tools/javac/util/Log;)V", 0, $method(static_cast<void(JavacProcessingEnvironment$ServiceIterator::*)($JavacProcessingEnvironment*,$ServiceLoader*,$Log*)>(&JavacProcessingEnvironment$ServiceIterator::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"internalHasNext", "()Z", nullptr, 0},
-	{"internalNext", "()Ljavax/annotation/processing/Processor;", nullptr, 0},
-	{"next", "()Ljavax/annotation/processing/Processor;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Ljava/lang/ClassLoader;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(JavacProcessingEnvironment$ServiceIterator, init$, void, $JavacProcessingEnvironment*, $ClassLoader*, $Log*)},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Ljava/util/ServiceLoader;Lcom/sun/tools/javac/util/Log;)V", "(Ljava/util/ServiceLoader<Ljavax/annotation/processing/Processor;>;Lcom/sun/tools/javac/util/Log;)V", 0, $method(JavacProcessingEnvironment$ServiceIterator, init$, void, $JavacProcessingEnvironment*, $ServiceLoader*, $Log*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ServiceIterator, close, void)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ServiceIterator, hasNext, bool)},
+	{"internalHasNext", "()Z", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$ServiceIterator, internalHasNext, bool)},
+	{"internalNext", "()Ljavax/annotation/processing/Processor;", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$ServiceIterator, internalNext, $Processor*)},
+	{"next", "()Ljavax/annotation/processing/Processor;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ServiceIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ServiceIterator, remove, void)},
 	{}
 };
 

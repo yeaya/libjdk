@@ -45,13 +45,13 @@ $FieldInfo _Http1Request$StreamSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Request$StreamSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Request;)V", nullptr, 0, $method(static_cast<void(Http1Request$StreamSubscriber::*)($Http1Request*)>(&Http1Request$StreamSubscriber::init$))},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Request$StreamSubscriber::*)($ByteBuffer*)>(&Http1Request$StreamSubscriber::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Request;)V", nullptr, 0, $method(Http1Request$StreamSubscriber, init$, void, $Http1Request*)},
+	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Http1Request$StreamSubscriber, currentStateMessage, $String*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Request$StreamSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1Request$StreamSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(Http1Request$StreamSubscriber, onNext, void, $ByteBuffer*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1Request$StreamSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1Request$StreamSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

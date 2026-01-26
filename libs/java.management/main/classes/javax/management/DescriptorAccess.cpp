@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Descriptor = ::javax::management::Descriptor;
 
 namespace javax {
 	namespace management {
 
 $MethodInfo _DescriptorAccess_MethodInfo_[] = {
-	{"setDescriptor", "(Ljavax/management/Descriptor;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"setDescriptor", "(Ljavax/management/Descriptor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DescriptorAccess, setDescriptor, void, $Descriptor*)},
 	{}
 };
 

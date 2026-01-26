@@ -18,9 +18,9 @@ $FieldInfo _ClassDefinition_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassDefinition_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[B)V", "(Ljava/lang/Class<*>;[B)V", $PUBLIC, $method(static_cast<void(ClassDefinition::*)($Class*,$bytes*)>(&ClassDefinition::init$))},
-	{"getDefinitionClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(static_cast<$Class*(ClassDefinition::*)()>(&ClassDefinition::getDefinitionClass))},
-	{"getDefinitionClassFile", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(ClassDefinition::*)()>(&ClassDefinition::getDefinitionClassFile))},
+	{"<init>", "(Ljava/lang/Class;[B)V", "(Ljava/lang/Class<*>;[B)V", $PUBLIC, $method(ClassDefinition, init$, void, $Class*, $bytes*)},
+	{"getDefinitionClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(ClassDefinition, getDefinitionClass, $Class*)},
+	{"getDefinitionClassFile", "()[B", nullptr, $PUBLIC, $method(ClassDefinition, getDefinitionClassFile, $bytes*)},
 	{}
 };
 

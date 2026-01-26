@@ -39,10 +39,10 @@ $FieldInfo _DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters_FieldInfo_[
 };
 
 $MethodInfo _DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", 0, $method(static_cast<void(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters::*)($Class*,$StringArray*,$MXBeanMappingArray*)>(&DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters::init$))},
-	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0},
-	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL},
-	{"possibleCause", "()Ljava/lang/Throwable;", nullptr, 0},
+	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, init$, void, $Class*, $StringArray*, $MXBeanMappingArray*)},
+	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, applicable, $String*, $MethodArray*)},
+	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*)},
+	{"possibleCause", "()Ljava/lang/Throwable;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, possibleCause, $Throwable*)},
 	{}
 };
 

@@ -17,9 +17,9 @@ $FieldInfo _SequenceEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _SequenceEntry_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(SequenceEntry::*)(int64_t)>(&SequenceEntry::init$))},
-	{"retain", "(J)V", nullptr, 0},
-	{"update", "(J)V", nullptr, 0},
+	{"<init>", "(J)V", nullptr, 0, $method(SequenceEntry, init$, void, int64_t)},
+	{"retain", "(J)V", nullptr, 0, $virtualMethod(SequenceEntry, retain, void, int64_t)},
+	{"update", "(J)V", nullptr, 0, $virtualMethod(SequenceEntry, update, void, int64_t)},
 	{}
 };
 

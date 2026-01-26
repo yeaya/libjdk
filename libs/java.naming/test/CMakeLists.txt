@@ -5,8 +5,6 @@ jcpp_add_dependencies(
 	"java.security.sasl:17.35"
 )
 
-add_definitions(-DJCPP_USE_LIB_CURRENT_OBJECT_STACK_CACHE)
-
 include_directories("classes")
 include_directories("../main/include")
 

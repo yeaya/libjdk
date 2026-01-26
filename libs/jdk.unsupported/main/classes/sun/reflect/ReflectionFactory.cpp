@@ -54,18 +54,18 @@ $FieldInfo _ReflectionFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _ReflectionFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ReflectionFactory::*)()>(&ReflectionFactory::init$))},
-	{"getReflectionFactory", "()Lsun/reflect/ReflectionFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ReflectionFactory*(*)()>(&ReflectionFactory::getReflectionFactory))},
-	{"hasStaticInitializerForSerialization", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $FINAL, $method(static_cast<bool(ReflectionFactory::*)($Class*)>(&ReflectionFactory::hasStaticInitializerForSerialization))},
-	{"newConstructorForExternalization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(static_cast<$Constructor*(ReflectionFactory::*)($Class*)>(&ReflectionFactory::newConstructorForExternalization))},
-	{"newConstructorForSerialization", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC},
-	{"newConstructorForSerialization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(static_cast<$Constructor*(ReflectionFactory::*)($Class*)>(&ReflectionFactory::newConstructorForSerialization))},
-	{"newOptionalDataExceptionForSerialization", "(Z)Ljava/io/OptionalDataException;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$OptionalDataException*(ReflectionFactory::*)(bool)>(&ReflectionFactory::newOptionalDataExceptionForSerialization))},
-	{"readObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(static_cast<$MethodHandle*(ReflectionFactory::*)($Class*)>(&ReflectionFactory::readObjectForSerialization))},
-	{"readObjectNoDataForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(static_cast<$MethodHandle*(ReflectionFactory::*)($Class*)>(&ReflectionFactory::readObjectNoDataForSerialization))},
-	{"readResolveForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(static_cast<$MethodHandle*(ReflectionFactory::*)($Class*)>(&ReflectionFactory::readResolveForSerialization))},
-	{"writeObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(static_cast<$MethodHandle*(ReflectionFactory::*)($Class*)>(&ReflectionFactory::writeObjectForSerialization))},
-	{"writeReplaceForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(static_cast<$MethodHandle*(ReflectionFactory::*)($Class*)>(&ReflectionFactory::writeReplaceForSerialization))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ReflectionFactory, init$, void)},
+	{"getReflectionFactory", "()Lsun/reflect/ReflectionFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReflectionFactory, getReflectionFactory, ReflectionFactory*)},
+	{"hasStaticInitializerForSerialization", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $FINAL, $method(ReflectionFactory, hasStaticInitializerForSerialization, bool, $Class*)},
+	{"newConstructorForExternalization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForExternalization, $Constructor*, $Class*)},
+	{"newConstructorForSerialization", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $virtualMethod(ReflectionFactory, newConstructorForSerialization, $Constructor*, $Class*, $Constructor*)},
+	{"newConstructorForSerialization", "(Ljava/lang/Class;)Ljava/lang/reflect/Constructor;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/Constructor<*>;", $PUBLIC | $FINAL, $method(ReflectionFactory, newConstructorForSerialization, $Constructor*, $Class*)},
+	{"newOptionalDataExceptionForSerialization", "(Z)Ljava/io/OptionalDataException;", nullptr, $PUBLIC | $FINAL, $method(ReflectionFactory, newOptionalDataExceptionForSerialization, $OptionalDataException*, bool)},
+	{"readObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readObjectForSerialization, $MethodHandle*, $Class*)},
+	{"readObjectNoDataForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readObjectNoDataForSerialization, $MethodHandle*, $Class*)},
+	{"readResolveForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, readResolveForSerialization, $MethodHandle*, $Class*)},
+	{"writeObjectForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, writeObjectForSerialization, $MethodHandle*, $Class*)},
+	{"writeReplaceForSerialization", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC | $FINAL, $method(ReflectionFactory, writeReplaceForSerialization, $MethodHandle*, $Class*)},
 	{}
 };
 

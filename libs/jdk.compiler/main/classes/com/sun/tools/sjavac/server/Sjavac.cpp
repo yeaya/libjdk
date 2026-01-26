@@ -3,6 +3,7 @@
 #include <com/sun/tools/javac/main/Main$Result.h>
 #include <jcpp.h>
 
+using $Main$Result = ::com::sun::tools::javac::main::Main$Result;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -13,8 +14,8 @@ namespace com {
 				namespace server {
 
 $MethodInfo _Sjavac_MethodInfo_[] = {
-	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $ABSTRACT},
-	{"shutdown", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sjavac, compile, $Main$Result*, $StringArray*)},
+	{"shutdown", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sjavac, shutdown, void)},
 	{}
 };
 

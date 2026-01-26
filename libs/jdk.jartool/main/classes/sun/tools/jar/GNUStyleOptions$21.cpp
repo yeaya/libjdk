@@ -46,8 +46,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo GNUStyleOptions$21$$Lambda$printHelpExtra::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GNUStyleOptions$21$$Lambda$printHelpExtra::*)()>(&GNUStyleOptions$21$$Lambda$printHelpExtra::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GNUStyleOptions$21$$Lambda$printHelpExtra, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GNUStyleOptions$21$$Lambda$printHelpExtra, accept, void, Object$*)},
 	{}
 };
 $ClassInfo GNUStyleOptions$21$$Lambda$printHelpExtra::classInfo$ = {
@@ -65,8 +65,8 @@ $Class* GNUStyleOptions$21$$Lambda$printHelpExtra::load$($String* name, bool ini
 $Class* GNUStyleOptions$21$$Lambda$printHelpExtra::class$ = nullptr;
 
 $MethodInfo _GNUStyleOptions$21_MethodInfo_[] = {
-	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(static_cast<void(GNUStyleOptions$21::*)(bool,$GNUStyleOptions$OptionType*,$StringArray*)>(&GNUStyleOptions$21::init$))},
-	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, nullptr, "sun.tools.jar.GNUStyleOptions$BadArgs"},
+	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$21, init$, void, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(GNUStyleOptions$21, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
 	{}
 };
 

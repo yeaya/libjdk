@@ -19,10 +19,10 @@ $CompoundAttribute _ObjectFactoriesFilter$FactoryInfo_Annotations_[] = {
 };
 
 $MethodInfo _ObjectFactoriesFilter$FactoryInfo_MethodInfo_[] = {
-	{"arrayLength", "()J", nullptr, $PUBLIC},
-	{"depth", "()J", nullptr, $PUBLIC},
-	{"references", "()J", nullptr, $PUBLIC},
-	{"streamBytes", "()J", nullptr, $PUBLIC},
+	{"arrayLength", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, arrayLength, int64_t)},
+	{"depth", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, depth, int64_t)},
+	{"references", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, references, int64_t)},
+	{"streamBytes", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$FactoryInfo, streamBytes, int64_t)},
 	{}
 };
 

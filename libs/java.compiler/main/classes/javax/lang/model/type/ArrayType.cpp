@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace javax {
 	namespace lang {
@@ -12,7 +13,7 @@ namespace javax {
 			namespace type {
 
 $MethodInfo _ArrayType_MethodInfo_[] = {
-	{"getComponentType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getComponentType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayType, getComponentType, $TypeMirror*)},
 	{}
 };
 

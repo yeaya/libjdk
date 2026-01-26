@@ -49,21 +49,21 @@ $FieldInfo _ContextEnumerator_FieldInfo_[] = {
 };
 
 $MethodInfo _ContextEnumerator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/Context;)V", nullptr, $PUBLIC, $method(static_cast<void(ContextEnumerator::*)($Context*)>(&ContextEnumerator::init$)), "javax.naming.NamingException"},
-	{"<init>", "(Ljavax/naming/Context;I)V", nullptr, $PUBLIC, $method(static_cast<void(ContextEnumerator::*)($Context*,int32_t)>(&ContextEnumerator::init$)), "javax.naming.NamingException"},
-	{"<init>", "(Ljavax/naming/Context;ILjava/lang/String;Z)V", nullptr, $PROTECTED, $method(static_cast<void(ContextEnumerator::*)($Context*,int32_t,$String*,bool)>(&ContextEnumerator::init$)), "javax.naming.NamingException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"getImmediateChildren", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, nullptr, "javax.naming.NamingException"},
-	{"getNextChild", "()Ljavax/naming/Binding;", nullptr, $PRIVATE, $method(static_cast<$Binding*(ContextEnumerator::*)()>(&ContextEnumerator::getNextChild)), "javax.naming.NamingException"},
-	{"getNextDescendant", "()Ljavax/naming/Binding;", nullptr, $PRIVATE, $method(static_cast<$Binding*(ContextEnumerator::*)()>(&ContextEnumerator::getNextDescendant)), "javax.naming.NamingException"},
-	{"hasMore", "()Z", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"hasMoreChildren", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ContextEnumerator::*)()>(&ContextEnumerator::hasMoreChildren)), "javax.naming.NamingException"},
-	{"hasMoreDescendants", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ContextEnumerator::*)()>(&ContextEnumerator::hasMoreDescendants)), "javax.naming.NamingException"},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"newEnumerator", "(Ljavax/naming/Context;ILjava/lang/String;Z)Lcom/sun/jndi/toolkit/dir/ContextEnumerator;", nullptr, $PROTECTED, nullptr, "javax.naming.NamingException"},
-	{"next", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"nextElement", "()Ljavax/naming/Binding;", nullptr, $PUBLIC},
-	{"prepNextChild", "()V", nullptr, $PRIVATE, $method(static_cast<void(ContextEnumerator::*)()>(&ContextEnumerator::prepNextChild)), "javax.naming.NamingException"},
+	{"<init>", "(Ljavax/naming/Context;)V", nullptr, $PUBLIC, $method(ContextEnumerator, init$, void, $Context*), "javax.naming.NamingException"},
+	{"<init>", "(Ljavax/naming/Context;I)V", nullptr, $PUBLIC, $method(ContextEnumerator, init$, void, $Context*, int32_t), "javax.naming.NamingException"},
+	{"<init>", "(Ljavax/naming/Context;ILjava/lang/String;Z)V", nullptr, $PROTECTED, $method(ContextEnumerator, init$, void, $Context*, int32_t, $String*, bool), "javax.naming.NamingException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, close, void), "javax.naming.NamingException"},
+	{"getImmediateChildren", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Context;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(ContextEnumerator, getImmediateChildren, $NamingEnumeration*, $Context*), "javax.naming.NamingException"},
+	{"getNextChild", "()Ljavax/naming/Binding;", nullptr, $PRIVATE, $method(ContextEnumerator, getNextChild, $Binding*), "javax.naming.NamingException"},
+	{"getNextDescendant", "()Ljavax/naming/Binding;", nullptr, $PRIVATE, $method(ContextEnumerator, getNextDescendant, $Binding*), "javax.naming.NamingException"},
+	{"hasMore", "()Z", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, hasMore, bool), "javax.naming.NamingException"},
+	{"hasMoreChildren", "()Z", nullptr, $PRIVATE, $method(ContextEnumerator, hasMoreChildren, bool), "javax.naming.NamingException"},
+	{"hasMoreDescendants", "()Z", nullptr, $PRIVATE, $method(ContextEnumerator, hasMoreDescendants, bool), "javax.naming.NamingException"},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, hasMoreElements, bool)},
+	{"newEnumerator", "(Ljavax/naming/Context;ILjava/lang/String;Z)Lcom/sun/jndi/toolkit/dir/ContextEnumerator;", nullptr, $PROTECTED, $virtualMethod(ContextEnumerator, newEnumerator, ContextEnumerator*, $Context*, int32_t, $String*, bool), "javax.naming.NamingException"},
+	{"next", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, next, $Object*), "javax.naming.NamingException"},
+	{"nextElement", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(ContextEnumerator, nextElement, $Object*)},
+	{"prepNextChild", "()V", nullptr, $PRIVATE, $method(ContextEnumerator, prepNextChild, void), "javax.naming.NamingException"},
 	{}
 };
 

@@ -57,8 +57,8 @@ $FieldInfo DeferredAttr$DeferredAttrDiagHandler$$Lambda$lambda$new$0::fieldInfos
 	{}
 };
 $MethodInfo DeferredAttr$DeferredAttrDiagHandler$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(static_cast<void(DeferredAttr$DeferredAttrDiagHandler$$Lambda$lambda$new$0::*)($JCTree*)>(&DeferredAttr$DeferredAttrDiagHandler$$Lambda$lambda$new$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(DeferredAttr$DeferredAttrDiagHandler$$Lambda$lambda$new$0, init$, void, $JCTree*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrDiagHandler$$Lambda$lambda$new$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DeferredAttr$DeferredAttrDiagHandler$$Lambda$lambda$new$0::classInfo$ = {
@@ -76,8 +76,8 @@ $Class* DeferredAttr$DeferredAttrDiagHandler$$Lambda$lambda$new$0::load$($String
 $Class* DeferredAttr$DeferredAttrDiagHandler$$Lambda$lambda$new$0::class$ = nullptr;
 
 $MethodInfo _DeferredAttr$DeferredAttrDiagHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$DeferredAttrDiagHandler::*)($Log*,$JCTree*)>(&DeferredAttr$DeferredAttrDiagHandler::init$))},
-	{"lambda$new$0", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree*,$JCDiagnostic*)>(&DeferredAttr$DeferredAttrDiagHandler::lambda$new$0))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrDiagHandler, init$, void, $Log*, $JCTree*)},
+	{"lambda$new$0", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredAttr$DeferredAttrDiagHandler, lambda$new$0, bool, $JCTree*, $JCDiagnostic*)},
 	{}
 };
 

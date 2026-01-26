@@ -14,12 +14,12 @@ namespace com {
 				namespace util {
 
 $MethodInfo _ArrayUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ArrayUtils::*)()>(&ArrayUtils::init$))},
-	{"calculateNewLength", "(II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&ArrayUtils::calculateNewLength))},
-	{"ensureCapacity", "([Ljava/lang/Object;I)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;I)[TT;", $PUBLIC | $STATIC, $method(static_cast<$ObjectArray*(*)($ObjectArray*,int32_t)>(&ArrayUtils::ensureCapacity))},
-	{"ensureCapacity", "([BI)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t)>(&ArrayUtils::ensureCapacity))},
-	{"ensureCapacity", "([CI)[C", nullptr, $PUBLIC | $STATIC, $method(static_cast<$chars*(*)($chars*,int32_t)>(&ArrayUtils::ensureCapacity))},
-	{"ensureCapacity", "([II)[I", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ints*(*)($ints*,int32_t)>(&ArrayUtils::ensureCapacity))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayUtils, init$, void)},
+	{"calculateNewLength", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayUtils, calculateNewLength, int32_t, int32_t, int32_t)},
+	{"ensureCapacity", "([Ljava/lang/Object;I)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;I)[TT;", $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $ObjectArray*, $ObjectArray*, int32_t)},
+	{"ensureCapacity", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $bytes*, $bytes*, int32_t)},
+	{"ensureCapacity", "([CI)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $chars*, $chars*, int32_t)},
+	{"ensureCapacity", "([II)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(ArrayUtils, ensureCapacity, $ints*, $ints*, int32_t)},
 	{}
 };
 

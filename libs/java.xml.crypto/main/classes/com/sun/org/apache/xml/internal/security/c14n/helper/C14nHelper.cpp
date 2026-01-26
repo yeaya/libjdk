@@ -18,11 +18,11 @@ namespace com {
 								namespace helper {
 
 $MethodInfo _C14nHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(C14nHelper::*)()>(&C14nHelper::init$))},
-	{"namespaceIsAbsolute", "(Lorg/w3c/dom/Attr;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Attr*)>(&C14nHelper::namespaceIsAbsolute))},
-	{"namespaceIsAbsolute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&C14nHelper::namespaceIsAbsolute))},
-	{"namespaceIsRelative", "(Lorg/w3c/dom/Attr;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Attr*)>(&C14nHelper::namespaceIsRelative))},
-	{"namespaceIsRelative", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&C14nHelper::namespaceIsRelative))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(C14nHelper, init$, void)},
+	{"namespaceIsAbsolute", "(Lorg/w3c/dom/Attr;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(C14nHelper, namespaceIsAbsolute, bool, $Attr*)},
+	{"namespaceIsAbsolute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(C14nHelper, namespaceIsAbsolute, bool, $String*)},
+	{"namespaceIsRelative", "(Lorg/w3c/dom/Attr;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(C14nHelper, namespaceIsRelative, bool, $Attr*)},
+	{"namespaceIsRelative", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(C14nHelper, namespaceIsRelative, bool, $String*)},
 	{}
 };
 

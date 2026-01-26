@@ -38,12 +38,12 @@ $FieldInfo _Scope$ScopeImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Scope$ScopeImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Scope$LookupKind;Ljava/util/function/Predicate;)V", "()V", 0, $method(static_cast<void(Scope$ScopeImpl$1::*)($Scope$ScopeImpl*,$Scope$LookupKind*,$Predicate*)>(&Scope$ScopeImpl$1::init$))},
-	{"doNext", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(static_cast<$Symbol*(Scope$ScopeImpl$1::*)()>(&Scope$ScopeImpl$1::doNext))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"skipToNextMatchingEntry", "()V", nullptr, 0},
-	{"update", "()V", nullptr, $PRIVATE, $method(static_cast<void(Scope$ScopeImpl$1::*)()>(&Scope$ScopeImpl$1::update))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$ScopeImpl;Lcom/sun/tools/javac/code/Scope$LookupKind;Ljava/util/function/Predicate;)V", "()V", 0, $method(Scope$ScopeImpl$1, init$, void, $Scope$ScopeImpl*, $Scope$LookupKind*, $Predicate*)},
+	{"doNext", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Scope$ScopeImpl$1, doNext, $Symbol*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl$1, hasNext, bool)},
+	{"next", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Scope$ScopeImpl$1, next, $Object*)},
+	{"skipToNextMatchingEntry", "()V", nullptr, 0, $virtualMethod(Scope$ScopeImpl$1, skipToNextMatchingEntry, void)},
+	{"update", "()V", nullptr, $PRIVATE, $method(Scope$ScopeImpl$1, update, void)},
 	{}
 };
 

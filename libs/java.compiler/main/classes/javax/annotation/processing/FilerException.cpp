@@ -18,7 +18,7 @@ $FieldInfo _FilerException_FieldInfo_[] = {
 };
 
 $MethodInfo _FilerException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FilerException::*)($String*)>(&FilerException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FilerException, init$, void, $String*)},
 	{}
 };
 

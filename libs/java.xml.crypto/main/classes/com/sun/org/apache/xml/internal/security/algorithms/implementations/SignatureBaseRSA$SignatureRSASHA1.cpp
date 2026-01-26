@@ -25,9 +25,9 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _SignatureBaseRSA$SignatureRSASHA1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SignatureBaseRSA$SignatureRSASHA1::*)()>(&SignatureBaseRSA$SignatureRSASHA1::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureBaseRSA$SignatureRSASHA1::*)($Provider*)>(&SignatureBaseRSA$SignatureRSASHA1::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASHA1, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASHA1, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureBaseRSA$SignatureRSASHA1, engineGetURI, $String*)},
 	{}
 };
 

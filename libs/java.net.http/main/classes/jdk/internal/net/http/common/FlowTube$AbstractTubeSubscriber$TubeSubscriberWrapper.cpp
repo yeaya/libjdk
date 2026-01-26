@@ -27,13 +27,13 @@ $FieldInfo _FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper_FieldInfo_[] =
 };
 
 $MethodInfo _FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $method(static_cast<void(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper::*)($Flow$Subscriber*)>(&FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper::init$))},
-	{"dropSubscription", "()V", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper::*)($List*)>(&FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $method(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, init$, void, $Flow$Subscriber*)},
+	{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, dropSubscription, void)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

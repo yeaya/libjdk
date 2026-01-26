@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ModuleElement$DirectiveKind = ::javax::lang::model::element::ModuleElement$DirectiveKind;
+using $ModuleElement$DirectiveVisitor = ::javax::lang::model::element::ModuleElement$DirectiveVisitor;
 
 namespace javax {
 	namespace lang {
@@ -15,8 +17,8 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _ModuleElement$Directive_MethodInfo_[] = {
-	{"accept", "(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"getKind", "()Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$Directive, accept, $Object*, $ModuleElement$DirectiveVisitor*, Object$*)},
+	{"getKind", "()Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$Directive, getKind, $ModuleElement$DirectiveKind*)},
 	{}
 };
 

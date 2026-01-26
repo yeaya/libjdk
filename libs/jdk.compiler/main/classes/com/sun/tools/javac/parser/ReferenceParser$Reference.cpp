@@ -31,7 +31,7 @@ $FieldInfo _ReferenceParser$Reference_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceParser$Reference_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", 0, $method(static_cast<void(ReferenceParser$Reference::*)($JCTree$JCExpression*,$JCTree*,$Name*,$List*)>(&ReferenceParser$Reference::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)V", 0, $method(ReferenceParser$Reference, init$, void, $JCTree$JCExpression*, $JCTree*, $Name*, $List*)},
 	{}
 };
 

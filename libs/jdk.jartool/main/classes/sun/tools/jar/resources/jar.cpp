@@ -14,8 +14,8 @@ namespace sun {
 			namespace resources {
 
 $MethodInfo _jar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(jar::*)()>(&jar::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(jar, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(jar, getContents, $ObjectArray2*)},
 	{}
 };
 

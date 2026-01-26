@@ -18,8 +18,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Type$UndetVar$InferenceBound$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Type$UndetVar$InferenceBound$1::*)($String*,int32_t)>(&Type$UndetVar$InferenceBound$1::init$))},
-	{"complement", "()Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Type$UndetVar$InferenceBound$1, init$, void, $String*, int32_t)},
+	{"complement", "()Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$InferenceBound$1, complement, $Type$UndetVar$InferenceBound*)},
 	{}
 };
 

@@ -76,8 +76,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Analyzer$AnalyzerCopier$$Lambda$lambda$visitLambdaExpression$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Analyzer$AnalyzerCopier$$Lambda$lambda$visitLambdaExpression$0::*)()>(&Analyzer$AnalyzerCopier$$Lambda$lambda$visitLambdaExpression$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Analyzer$AnalyzerCopier$$Lambda$lambda$visitLambdaExpression$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$AnalyzerCopier$$Lambda$lambda$visitLambdaExpression$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Analyzer$AnalyzerCopier$$Lambda$lambda$visitLambdaExpression$0::classInfo$ = {
@@ -100,12 +100,12 @@ $FieldInfo _Analyzer$AnalyzerCopier_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$AnalyzerCopier_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, $PUBLIC, $method(static_cast<void(Analyzer$AnalyzerCopier::*)($Analyzer*)>(&Analyzer$AnalyzerCopier::init$))},
-	{"lambda$visitLambdaExpression$0", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($JCTree$JCVariableDecl*)>(&Analyzer$AnalyzerCopier::lambda$visitLambdaExpression$0))},
-	{"visitLambdaExpression", "(Lcom/sun/source/tree/LambdaExpressionTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
-	{"visitLambdaExpression", "(Lcom/sun/source/tree/LambdaExpressionTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, $PUBLIC, $method(Analyzer$AnalyzerCopier, init$, void, $Analyzer*)},
+	{"lambda$visitLambdaExpression$0", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Analyzer$AnalyzerCopier, lambda$visitLambdaExpression$0, void, $JCTree$JCVariableDecl*)},
+	{"visitLambdaExpression", "(Lcom/sun/source/tree/LambdaExpressionTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(Analyzer$AnalyzerCopier, visitLambdaExpression, $JCTree*, $LambdaExpressionTree*, $Void*)},
+	{"visitLambdaExpression", "(Lcom/sun/source/tree/LambdaExpressionTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$AnalyzerCopier, visitLambdaExpression, $Object*, $LambdaExpressionTree*, Object$*)},
+	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(Analyzer$AnalyzerCopier, visitNewClass, $JCTree*, $NewClassTree*, $Void*)},
+	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$AnalyzerCopier, visitNewClass, $Object*, $NewClassTree*, Object$*)},
 	{}
 };
 

@@ -32,9 +32,9 @@ $FieldInfo _PoolConstant$NameAndType_FieldInfo_[] = {
 };
 
 $MethodInfo _PoolConstant$NameAndType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(PoolConstant$NameAndType::*)($Name*,$Type*)>(&PoolConstant$NameAndType::init$))},
-	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"poolTag", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(PoolConstant$NameAndType, init$, void, $Name*, $Type*)},
+	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$NameAndType, poolKey, $Object*, $Types*)},
+	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(PoolConstant$NameAndType, poolTag, int32_t)},
 	{}
 };
 

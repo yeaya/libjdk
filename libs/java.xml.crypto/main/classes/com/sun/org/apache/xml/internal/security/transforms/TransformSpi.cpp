@@ -5,8 +5,11 @@
 #include <org/w3c/dom/Element.h>
 #include <jcpp.h>
 
+using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
+using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Element = ::org::w3c::dom::Element;
 
 namespace com {
 	namespace sun {
@@ -18,9 +21,9 @@ namespace com {
 							namespace transforms {
 
 $MethodInfo _TransformSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransformSpi::*)()>(&TransformSpi::init$))},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException,com.sun.org.apache.xml.internal.security.transforms.TransformationException,javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformSpi, init$, void)},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(TransformSpi, engineGetURI, $String*)},
+	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(TransformSpi, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException,com.sun.org.apache.xml.internal.security.transforms.TransformationException,javax.xml.parsers.ParserConfigurationException,org.xml.sax.SAXException"},
 	{}
 };
 

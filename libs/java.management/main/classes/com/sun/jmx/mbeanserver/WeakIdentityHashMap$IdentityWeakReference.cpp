@@ -24,10 +24,10 @@ $FieldInfo _WeakIdentityHashMap$IdentityWeakReference_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakIdentityHashMap$IdentityWeakReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(static_cast<void(WeakIdentityHashMap$IdentityWeakReference::*)(Object$*)>(&WeakIdentityHashMap$IdentityWeakReference::init$))},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<TT;>;)V", 0, $method(static_cast<void(WeakIdentityHashMap$IdentityWeakReference::*)(Object$*,$ReferenceQueue*)>(&WeakIdentityHashMap$IdentityWeakReference::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(WeakIdentityHashMap$IdentityWeakReference, init$, void, Object$*)},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<TT;>;)V", 0, $method(WeakIdentityHashMap$IdentityWeakReference, init$, void, Object$*, $ReferenceQueue*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap$IdentityWeakReference, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WeakIdentityHashMap$IdentityWeakReference, hashCode, int32_t)},
 	{}
 };
 

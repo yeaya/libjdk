@@ -23,9 +23,9 @@ $FieldInfo _DataFlavorUtil$TextFlavorComparator_FieldInfo_[] = {
 };
 
 $MethodInfo _DataFlavorUtil$TextFlavorComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DataFlavorUtil$TextFlavorComparator::*)()>(&DataFlavorUtil$TextFlavorComparator::init$))},
-	{"compare", "(Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/DataFlavor;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DataFlavorUtil$TextFlavorComparator, init$, void)},
+	{"compare", "(Ljava/awt/datatransfer/DataFlavor;Ljava/awt/datatransfer/DataFlavor;)I", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$TextFlavorComparator, compare, int32_t, $DataFlavor*, $DataFlavor*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DataFlavorUtil$TextFlavorComparator, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

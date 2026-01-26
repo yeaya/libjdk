@@ -47,13 +47,13 @@ $FieldInfo _IntegerReader_FieldInfo_[] = {
 };
 
 $MethodInfo _IntegerReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(IntegerReader::*)()>(&IntegerReader::init$))},
-	{"checkPrefix", "(I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t)>(&IntegerReader::checkPrefix))},
-	{"configure", "(I)Ljdk/internal/net/http/hpack/IntegerReader;", nullptr, $PUBLIC, $method(static_cast<IntegerReader*(IntegerReader::*)(int32_t)>(&IntegerReader::configure))},
-	{"configure", "(II)Ljdk/internal/net/http/hpack/IntegerReader;", nullptr, $PUBLIC, $method(static_cast<IntegerReader*(IntegerReader::*)(int32_t,int32_t)>(&IntegerReader::configure))},
-	{"get", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(IntegerReader::*)()>(&IntegerReader::get)), "java.lang.IllegalStateException"},
-	{"read", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $method(static_cast<bool(IntegerReader::*)($ByteBuffer*)>(&IntegerReader::read)), "java.io.IOException"},
-	{"reset", "()Ljdk/internal/net/http/hpack/IntegerReader;", nullptr, $PUBLIC, $method(static_cast<IntegerReader*(IntegerReader::*)()>(&IntegerReader::reset))},
+	{"<init>", "()V", nullptr, 0, $method(IntegerReader, init$, void)},
+	{"checkPrefix", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerReader, checkPrefix, void, int32_t)},
+	{"configure", "(I)Ljdk/internal/net/http/hpack/IntegerReader;", nullptr, $PUBLIC, $method(IntegerReader, configure, IntegerReader*, int32_t)},
+	{"configure", "(II)Ljdk/internal/net/http/hpack/IntegerReader;", nullptr, $PUBLIC, $method(IntegerReader, configure, IntegerReader*, int32_t, int32_t)},
+	{"get", "()I", nullptr, $PUBLIC, $method(IntegerReader, get, int32_t), "java.lang.IllegalStateException"},
+	{"read", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $method(IntegerReader, read, bool, $ByteBuffer*), "java.io.IOException"},
+	{"reset", "()Ljdk/internal/net/http/hpack/IntegerReader;", nullptr, $PUBLIC, $method(IntegerReader, reset, IntegerReader*)},
 	{}
 };
 

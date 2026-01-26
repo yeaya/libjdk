@@ -81,14 +81,14 @@ $FieldInfo _Analyzer$LambdaAnalyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$LambdaAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(static_cast<void(Analyzer$LambdaAnalyzer::*)($Analyzer*)>(&Analyzer$LambdaAnalyzer::init$))},
-	{"decls", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE, $method(static_cast<$List*(Analyzer$LambdaAnalyzer::*)($JCTree$JCClassDecl*)>(&Analyzer$LambdaAnalyzer::decls))},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Z", nullptr, 0},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Z)V", nullptr, 0},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCLambda;>;", 0},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$LambdaAnalyzer, init$, void, $Analyzer*)},
+	{"decls", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE, $method(Analyzer$LambdaAnalyzer, decls, $List*, $JCTree$JCClassDecl*)},
+	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Z", nullptr, 0, $virtualMethod(Analyzer$LambdaAnalyzer, match, bool, $JCTree$JCNewClass*)},
+	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$LambdaAnalyzer, match, bool, $JCTree*)},
+	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCLambda;Z)V", nullptr, 0, $virtualMethod(Analyzer$LambdaAnalyzer, process, void, $JCTree$JCNewClass*, $JCTree$JCLambda*, bool)},
+	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$LambdaAnalyzer, process, void, $JCTree*, $JCTree*, bool)},
+	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCLambda;>;", 0, $virtualMethod(Analyzer$LambdaAnalyzer, rewrite, $List*, $JCTree$JCNewClass*)},
+	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$LambdaAnalyzer, rewrite, $List*, $JCTree*)},
 	{}
 };
 

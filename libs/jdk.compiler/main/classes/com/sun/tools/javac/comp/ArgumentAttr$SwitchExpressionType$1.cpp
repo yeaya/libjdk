@@ -32,8 +32,8 @@ $FieldInfo _ArgumentAttr$SwitchExpressionType$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ArgumentAttr$SwitchExpressionType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(static_cast<void(ArgumentAttr$SwitchExpressionType$1::*)($ArgumentAttr$SwitchExpressionType*,$ListBuffer*)>(&ArgumentAttr$SwitchExpressionType$1::init$))},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(ArgumentAttr$SwitchExpressionType$1, init$, void, $ArgumentAttr$SwitchExpressionType*, $ListBuffer*)},
+	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$SwitchExpressionType$1, visitYield, void, $JCTree$JCYield*)},
 	{}
 };
 

@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace sun {
 	namespace management {
 
 $MethodInfo _HotspotMemoryMBean_MethodInfo_[] = {
-	{"getInternalMemoryCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $ABSTRACT},
+	{"getInternalMemoryCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HotspotMemoryMBean, getInternalMemoryCounters, $List*)},
 	{}
 };
 

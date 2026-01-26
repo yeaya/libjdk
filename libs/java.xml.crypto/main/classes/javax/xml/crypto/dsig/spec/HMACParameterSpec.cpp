@@ -18,8 +18,8 @@ $FieldInfo _HMACParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _HMACParameterSpec_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(HMACParameterSpec::*)(int32_t)>(&HMACParameterSpec::init$))},
-	{"getOutputLength", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(HMACParameterSpec::*)()>(&HMACParameterSpec::getOutputLength))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(HMACParameterSpec, init$, void, int32_t)},
+	{"getOutputLength", "()I", nullptr, $PUBLIC, $method(HMACParameterSpec, getOutputLength, int32_t)},
 	{}
 };
 

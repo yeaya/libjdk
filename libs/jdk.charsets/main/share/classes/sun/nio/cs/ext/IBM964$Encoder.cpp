@@ -27,7 +27,7 @@ $FieldInfo _IBM964$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _IBM964$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(IBM964$Encoder::*)($Charset*)>(&IBM964$Encoder::init$))},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(IBM964$Encoder, init$, void, $Charset*)},
 	{}
 };
 

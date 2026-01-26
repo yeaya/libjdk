@@ -16,8 +16,8 @@ $FieldInfo _MultiAuthTest$ServerAuth_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiAuthTest$ServerAuth_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(MultiAuthTest$ServerAuth::*)($String*)>(&MultiAuthTest$ServerAuth::init$))},
-	{"checkCredentials", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(MultiAuthTest$ServerAuth, init$, void, $String*)},
+	{"checkCredentials", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(MultiAuthTest$ServerAuth, checkCredentials, bool, $String*, $String*)},
 	{}
 };
 

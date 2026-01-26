@@ -15,9 +15,9 @@ namespace javax {
 		namespace processing {
 
 $MethodInfo _Completions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Completions::*)()>(&Completions::init$))},
-	{"of", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/annotation/processing/Completion;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Completion*(*)($String*,$String*)>(&Completions::of))},
-	{"of", "(Ljava/lang/String;)Ljavax/annotation/processing/Completion;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Completion*(*)($String*)>(&Completions::of))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Completions, init$, void)},
+	{"of", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/annotation/processing/Completion;", nullptr, $PUBLIC | $STATIC, $staticMethod(Completions, of, $Completion*, $String*, $String*)},
+	{"of", "(Ljava/lang/String;)Ljavax/annotation/processing/Completion;", nullptr, $PUBLIC | $STATIC, $staticMethod(Completions, of, $Completion*, $String*)},
 	{}
 };
 

@@ -30,9 +30,9 @@ $FieldInfo _LdapClientFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapClientFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(LdapClientFactory::*)($String*,int32_t,$String*,int32_t,int32_t,$OutputStream*)>(&LdapClientFactory::init$))},
-	{"createPooledConnection", "(Lcom/sun/jndi/ldap/pool/PoolCallback;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;)V", nullptr, 0, $method(LdapClientFactory, init$, void, $String*, int32_t, $String*, int32_t, int32_t, $OutputStream*)},
+	{"createPooledConnection", "(Lcom/sun/jndi/ldap/pool/PoolCallback;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PUBLIC, $virtualMethod(LdapClientFactory, createPooledConnection, $PooledConnection*, $PoolCallback*), "javax.naming.NamingException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapClientFactory, toString, $String*)},
 	{}
 };
 

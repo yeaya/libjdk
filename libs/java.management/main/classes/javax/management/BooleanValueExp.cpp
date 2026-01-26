@@ -35,12 +35,12 @@ $MethodInfo _BooleanValueExp_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(BooleanValueExp::*)(bool)>(&BooleanValueExp::init$))},
-	{"<init>", "(Ljava/lang/Boolean;)V", nullptr, 0, $method(static_cast<void(BooleanValueExp::*)($Boolean*)>(&BooleanValueExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getValue", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _BooleanValueExp_MethodAnnotations_setMBeanServer4},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Z)V", nullptr, 0, $method(BooleanValueExp, init$, void, bool)},
+	{"<init>", "(Ljava/lang/Boolean;)V", nullptr, 0, $method(BooleanValueExp, init$, void, $Boolean*)},
+	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BooleanValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"getValue", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(BooleanValueExp, getValue, $Boolean*)},
+	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(BooleanValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, _BooleanValueExp_MethodAnnotations_setMBeanServer4},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BooleanValueExp, toString, $String*)},
 	{}
 };
 

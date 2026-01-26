@@ -28,11 +28,11 @@ $FieldInfo _LogManager$RootLogger_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$RootLogger_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager$RootLogger::*)($LogManager*)>(&LogManager$RootLogger::init$))},
-	{"accessCheckedHandlers", "()[Ljava/util/logging/Handler;", nullptr, 0},
-	{"addHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC},
-	{"log", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC},
-	{"removeHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, $PRIVATE, $method(LogManager$RootLogger, init$, void, $LogManager*)},
+	{"accessCheckedHandlers", "()[Ljava/util/logging/Handler;", nullptr, 0, $virtualMethod(LogManager$RootLogger, accessCheckedHandlers, $HandlerArray*)},
+	{"addHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC, $virtualMethod(LogManager$RootLogger, addHandler, void, $Handler*)},
+	{"log", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $virtualMethod(LogManager$RootLogger, log, void, $LogRecord*)},
+	{"removeHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC, $virtualMethod(LogManager$RootLogger, removeHandler, void, $Handler*)},
 	{}
 };
 

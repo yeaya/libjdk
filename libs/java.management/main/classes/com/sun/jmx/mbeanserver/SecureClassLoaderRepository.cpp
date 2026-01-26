@@ -21,10 +21,10 @@ $FieldInfo _SecureClassLoaderRepository_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureClassLoaderRepository_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/loading/ClassLoaderRepository;)V", nullptr, $PUBLIC, $method(static_cast<void(SecureClassLoaderRepository::*)($ClassLoaderRepository*)>(&SecureClassLoaderRepository::init$))},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, nullptr, "java.lang.ClassNotFoundException"},
-	{"loadClassBefore", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, nullptr, "java.lang.ClassNotFoundException"},
-	{"loadClassWithout", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljavax/management/loading/ClassLoaderRepository;)V", nullptr, $PUBLIC, $method(SecureClassLoaderRepository, init$, void, $ClassLoaderRepository*)},
+	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(SecureClassLoaderRepository, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClassBefore", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(SecureClassLoaderRepository, loadClassBefore, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClassWithout", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(SecureClassLoaderRepository, loadClassWithout, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
 	{}
 };
 

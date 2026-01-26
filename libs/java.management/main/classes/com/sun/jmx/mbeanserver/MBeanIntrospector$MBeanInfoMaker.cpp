@@ -51,10 +51,10 @@ $FieldInfo _MBeanIntrospector$MBeanInfoMaker_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanIntrospector$MBeanInfoMaker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/MBeanIntrospector;)V", nullptr, $PRIVATE, $method(static_cast<void(MBeanIntrospector$MBeanInfoMaker::*)($MBeanIntrospector*)>(&MBeanIntrospector$MBeanInfoMaker::init$))},
-	{"makeMBeanInfo", "(Ljava/lang/Class;Ljava/lang/String;)Ljavax/management/MBeanInfo;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljavax/management/MBeanInfo;", 0},
-	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;TM;)V", $PUBLIC},
-	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;)V", $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/mbeanserver/MBeanIntrospector;)V", nullptr, $PRIVATE, $method(MBeanIntrospector$MBeanInfoMaker, init$, void, $MBeanIntrospector*)},
+	{"makeMBeanInfo", "(Ljava/lang/Class;Ljava/lang/String;)Ljavax/management/MBeanInfo;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljavax/management/MBeanInfo;", 0, $virtualMethod(MBeanIntrospector$MBeanInfoMaker, makeMBeanInfo, $MBeanInfo*, $Class*, $String*)},
+	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;TM;)V", $PUBLIC, $virtualMethod(MBeanIntrospector$MBeanInfoMaker, visitAttribute, void, $String*, Object$*, Object$*)},
+	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;)V", $PUBLIC, $virtualMethod(MBeanIntrospector$MBeanInfoMaker, visitOperation, void, $String*, Object$*)},
 	{}
 };
 

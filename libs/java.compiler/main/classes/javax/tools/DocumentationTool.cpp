@@ -6,13 +6,22 @@
 #include <java/util/Locale.h>
 #include <javax/tools/DiagnosticListener.h>
 #include <javax/tools/DocumentationTool$DocumentationTask.h>
+#include <javax/tools/JavaFileManager.h>
 #include <javax/tools/StandardJavaFileManager.h>
 #include <javax/tools/Tool.h>
 #include <jcpp.h>
 
+using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Charset = ::java::nio::charset::Charset;
+using $Locale = ::java::util::Locale;
+using $DiagnosticListener = ::javax::tools::DiagnosticListener;
+using $DocumentationTool$DocumentationTask = ::javax::tools::DocumentationTool$DocumentationTask;
+using $JavaFileManager = ::javax::tools::JavaFileManager;
+using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 using $Tool = ::javax::tools::Tool;
 
 namespace javax {
@@ -22,8 +31,8 @@ $MethodInfo _DocumentationTool_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getStandardFileManager", "(Ljavax/tools/DiagnosticListener;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", "(Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", $PUBLIC | $ABSTRACT},
-	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Class;Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljavax/tools/DocumentationTool$DocumentationTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Class<*>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Ljavax/tools/DocumentationTool$DocumentationTask;", $PUBLIC | $ABSTRACT},
+	{"getStandardFileManager", "(Ljavax/tools/DiagnosticListener;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", "(Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", $PUBLIC | $ABSTRACT, $virtualMethod(DocumentationTool, getStandardFileManager, $StandardJavaFileManager*, $DiagnosticListener*, $Locale*, $Charset*)},
+	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Class;Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljavax/tools/DocumentationTool$DocumentationTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Class<*>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Ljavax/tools/DocumentationTool$DocumentationTask;", $PUBLIC | $ABSTRACT, $virtualMethod(DocumentationTool, getTask, $DocumentationTool$DocumentationTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Class*, $Iterable*, $Iterable*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

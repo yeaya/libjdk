@@ -28,16 +28,16 @@ $FieldInfo _ExtendedWatchEventModifier_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedWatchEventModifier_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ExtendedWatchEventModifierArray*(*)()>(&ExtendedWatchEventModifier::$values))},
+	{"$values", "()[Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedWatchEventModifier, $values, $ExtendedWatchEventModifierArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;)V", $PRIVATE, $method(static_cast<void(ExtendedWatchEventModifier::*)($String*,int32_t,$FileSystemOption*)>(&ExtendedWatchEventModifier::init$))},
+	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;)V", $PRIVATE, $method(ExtendedWatchEventModifier, init$, void, $String*, int32_t, $FileSystemOption*)},
 	{"*name", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ExtendedWatchEventModifier*(*)($String*)>(&ExtendedWatchEventModifier::valueOf))},
-	{"values", "()[Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ExtendedWatchEventModifierArray*(*)()>(&ExtendedWatchEventModifier::values))},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedWatchEventModifier, valueOf, ExtendedWatchEventModifier*, $String*)},
+	{"values", "()[Lcom/sun/nio/file/ExtendedWatchEventModifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedWatchEventModifier, values, $ExtendedWatchEventModifierArray*)},
 	{}
 };
 

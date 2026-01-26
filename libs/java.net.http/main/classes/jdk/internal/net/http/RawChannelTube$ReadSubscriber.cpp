@@ -64,8 +64,8 @@ $FieldInfo RawChannelTube$ReadSubscriber$$Lambda$lambda$onNext$0::fieldInfos[2] 
 	{}
 };
 $MethodInfo RawChannelTube$ReadSubscriber$$Lambda$lambda$onNext$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(RawChannelTube$ReadSubscriber$$Lambda$lambda$onNext$0::*)($List*)>(&RawChannelTube$ReadSubscriber$$Lambda$lambda$onNext$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(RawChannelTube$ReadSubscriber$$Lambda$lambda$onNext$0, init$, void, $List*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RawChannelTube$ReadSubscriber$$Lambda$lambda$onNext$0, get, $Object*)},
 	{}
 };
 $ClassInfo RawChannelTube$ReadSubscriber$$Lambda$lambda$onNext$0::classInfo$ = {
@@ -94,14 +94,14 @@ $FieldInfo _RawChannelTube$ReadSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _RawChannelTube$ReadSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/RawChannelTube;)V", nullptr, 0, $method(static_cast<void(RawChannelTube$ReadSubscriber::*)($RawChannelTube*)>(&RawChannelTube$ReadSubscriber::init$))},
-	{"checkEvents", "()V", nullptr, 0},
-	{"lambda$onNext$0", "(Ljava/util/List;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($List*)>(&RawChannelTube$ReadSubscriber::lambda$onNext$0))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/RawChannelTube;)V", nullptr, 0, $method(RawChannelTube$ReadSubscriber, init$, void, $RawChannelTube*)},
+	{"checkEvents", "()V", nullptr, 0, $virtualMethod(RawChannelTube$ReadSubscriber, checkEvents, void)},
+	{"lambda$onNext$0", "(Ljava/util/List;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RawChannelTube$ReadSubscriber, lambda$onNext$0, $String*, $List*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube$ReadSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube$ReadSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RawChannelTube$ReadSubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RawChannelTube$ReadSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube$ReadSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

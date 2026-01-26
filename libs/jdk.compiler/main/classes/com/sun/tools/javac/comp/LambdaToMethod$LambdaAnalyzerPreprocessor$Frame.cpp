@@ -29,8 +29,8 @@ $FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$Frame_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$Frame_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(static_cast<void(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame::*)($LambdaToMethod$LambdaAnalyzerPreprocessor*,$JCTree*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$Frame::init$))},
-	{"addLocal", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $JCTree*)},
+	{"addLocal", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$Frame, addLocal, void, $Symbol*)},
 	{}
 };
 

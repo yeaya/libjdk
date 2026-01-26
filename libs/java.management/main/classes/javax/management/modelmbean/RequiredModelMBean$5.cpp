@@ -29,8 +29,8 @@ $FieldInfo _RequiredModelMBean$5_FieldInfo_[] = {
 };
 
 $MethodInfo _RequiredModelMBean$5_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/modelmbean/RequiredModelMBean;Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/Exception;)V", "()V", 0, $method(static_cast<void(RequiredModelMBean$5::*)($RequiredModelMBean*,$String*,$Class*,$ExceptionArray*)>(&RequiredModelMBean$5::init$))},
-	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "(Ljavax/management/modelmbean/RequiredModelMBean;Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/Exception;)V", "()V", 0, $method(RequiredModelMBean$5, init$, void, $RequiredModelMBean*, $String*, $Class*, $ExceptionArray*)},
+	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RequiredModelMBean$5, run, $Object*)},
 	{}
 };
 

@@ -25,11 +25,11 @@ $FieldInfo _RestrictedHeadersTest_FieldInfo_[] = {
 };
 
 $MethodInfo _RestrictedHeadersTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RestrictedHeadersTest::*)()>(&RestrictedHeadersTest::init$))},
-	{"checkHeader", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,bool)>(&RestrictedHeadersTest::checkHeader))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RestrictedHeadersTest::main))},
-	{"runDefaultTest", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&RestrictedHeadersTest::runDefaultTest))},
-	{"runTest", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Set*)>(&RestrictedHeadersTest::runTest))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RestrictedHeadersTest, init$, void)},
+	{"checkHeader", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RestrictedHeadersTest, checkHeader, void, $String*, $String*, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RestrictedHeadersTest, main, void, $StringArray*)},
+	{"runDefaultTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(RestrictedHeadersTest, runDefaultTest, void)},
+	{"runTest", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(RestrictedHeadersTest, runTest, void, $Set*)},
 	{}
 };
 

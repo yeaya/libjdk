@@ -29,8 +29,8 @@ $FieldInfo _ServerImpl$ServerTimerTask_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerImpl$ServerTimerTask_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(static_cast<void(ServerImpl$ServerTimerTask::*)($ServerImpl*)>(&ServerImpl$ServerTimerTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(ServerImpl$ServerTimerTask, init$, void, $ServerImpl*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ServerImpl$ServerTimerTask, run, void)},
 	{}
 };
 

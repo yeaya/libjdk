@@ -47,14 +47,14 @@ $FieldInfo _LineSubscriberAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _LineSubscriberAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;Ljava/nio/charset/Charset;Ljava/lang/String;)V", "(TS;Ljava/util/function/Function<-TS;+TR;>;Ljava/nio/charset/Charset;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(LineSubscriberAdapter::*)($Flow$Subscriber*,$Function*,$Charset*,$String*)>(&LineSubscriberAdapter::init$))},
-	{"create", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;Ljava/nio/charset/Charset;Ljava/lang/String;)Ljdk/internal/net/http/LineSubscriberAdapter;", "<S::Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;R:Ljava/lang/Object;>(TS;Ljava/util/function/Function<-TS;+TR;>;Ljava/nio/charset/Charset;Ljava/lang/String;)Ljdk/internal/net/http/LineSubscriberAdapter<TS;TR;>;", $PUBLIC | $STATIC, $method(static_cast<LineSubscriberAdapter*(*)($Flow$Subscriber*,$Function*,$Charset*,$String*)>(&LineSubscriberAdapter::create))},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TR;>;", $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(LineSubscriberAdapter::*)($List*)>(&LineSubscriberAdapter::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;Ljava/nio/charset/Charset;Ljava/lang/String;)V", "(TS;Ljava/util/function/Function<-TS;+TR;>;Ljava/nio/charset/Charset;Ljava/lang/String;)V", $PRIVATE, $method(LineSubscriberAdapter, init$, void, $Flow$Subscriber*, $Function*, $Charset*, $String*)},
+	{"create", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/function/Function;Ljava/nio/charset/Charset;Ljava/lang/String;)Ljdk/internal/net/http/LineSubscriberAdapter;", "<S::Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;R:Ljava/lang/Object;>(TS;Ljava/util/function/Function<-TS;+TR;>;Ljava/nio/charset/Charset;Ljava/lang/String;)Ljdk/internal/net/http/LineSubscriberAdapter<TS;TR;>;", $PUBLIC | $STATIC, $staticMethod(LineSubscriberAdapter, create, LineSubscriberAdapter*, $Flow$Subscriber*, $Function*, $Charset*, $String*)},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TR;>;", $PUBLIC, $virtualMethod(LineSubscriberAdapter, getBody, $CompletionStage*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(LineSubscriberAdapter, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LineSubscriberAdapter, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

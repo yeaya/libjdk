@@ -54,13 +54,13 @@ $MethodInfo _CCacheOutputStream_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(CCacheOutputStream::*)($OutputStream*)>(&CCacheOutputStream::init$))},
-	{"addConfigEntry", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"addCreds", "(Lsun/security/krb5/internal/ccache/Credentials;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,sun.security.krb5.Asn1Exception"},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(CCacheOutputStream, init$, void, $OutputStream*)},
+	{"addConfigEntry", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;)V", nullptr, $PUBLIC, $virtualMethod(CCacheOutputStream, addConfigEntry, void, $PrincipalName*, $CredentialsCache$ConfigEntry*), "java.io.IOException"},
+	{"addCreds", "(Lsun/security/krb5/internal/ccache/Credentials;)V", nullptr, $PUBLIC, $virtualMethod(CCacheOutputStream, addCreds, void, $Credentials*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeFlags", "(Lsun/security/krb5/internal/TicketFlags;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"writeHeader", "(Lsun/security/krb5/PrincipalName;I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"writeTicket", "(Lsun/security/krb5/internal/Ticket;)V", nullptr, 0, nullptr, "java.io.IOException,sun.security.krb5.Asn1Exception"},
+	{"writeFlags", "(Lsun/security/krb5/internal/TicketFlags;)V", nullptr, 0, $virtualMethod(CCacheOutputStream, writeFlags, void, $TicketFlags*), "java.io.IOException"},
+	{"writeHeader", "(Lsun/security/krb5/PrincipalName;I)V", nullptr, $PUBLIC, $virtualMethod(CCacheOutputStream, writeHeader, void, $PrincipalName*, int32_t), "java.io.IOException"},
+	{"writeTicket", "(Lsun/security/krb5/internal/Ticket;)V", nullptr, 0, $virtualMethod(CCacheOutputStream, writeTicket, void, $Ticket*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
 	{}
 };
 

@@ -220,8 +220,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LogManager$$Lambda$TreeSet::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$$Lambda$TreeSet::*)()>(&LogManager$$Lambda$TreeSet::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LogManager$$Lambda$TreeSet, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogManager$$Lambda$TreeSet, get, $Object*)},
 	{}
 };
 $ClassInfo LogManager$$Lambda$TreeSet::classInfo$ = {
@@ -266,8 +266,8 @@ $FieldInfo LogManager$$Lambda$lambda$updateConfiguration$0$1::fieldInfos[4] = {
 	{}
 };
 $MethodInfo LogManager$$Lambda$lambda$updateConfiguration$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$$Lambda$lambda$updateConfiguration$0$1::*)($Properties*,$Properties*,$Function*)>(&LogManager$$Lambda$lambda$updateConfiguration$0$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(LogManager$$Lambda$lambda$updateConfiguration$0$1, init$, void, $Properties*, $Properties*, $Function*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LogManager$$Lambda$lambda$updateConfiguration$0$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo LogManager$$Lambda$lambda$updateConfiguration$0$1::classInfo$ = {
@@ -299,8 +299,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LogManager$$Lambda$matches$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$$Lambda$matches$2::*)()>(&LogManager$$Lambda$matches$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LogManager$$Lambda$matches$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LogManager$$Lambda$matches$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LogManager$$Lambda$matches$2::classInfo$ = {
@@ -342,8 +342,8 @@ $FieldInfo LogManager$$Lambda$lambda$updateConfiguration$1$3::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LogManager$$Lambda$lambda$updateConfiguration$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Properties;Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$$Lambda$lambda$updateConfiguration$1$3::*)($Properties*,$Properties*)>(&LogManager$$Lambda$lambda$updateConfiguration$1$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Properties;Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(LogManager$$Lambda$lambda$updateConfiguration$1$3, init$, void, $Properties*, $Properties*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LogManager$$Lambda$lambda$updateConfiguration$1$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LogManager$$Lambda$lambda$updateConfiguration$1$3::classInfo$ = {
@@ -375,8 +375,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LogManager$$Lambda$getLoggerName$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$$Lambda$getLoggerName$4::*)()>(&LogManager$$Lambda$getLoggerName$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LogManager$$Lambda$getLoggerName$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogManager$$Lambda$getLoggerName$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LogManager$$Lambda$getLoggerName$4::classInfo$ = {
@@ -408,8 +408,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LogManager$$Lambda$TreeMap$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$$Lambda$TreeMap$5::*)()>(&LogManager$$Lambda$TreeMap$5::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LogManager$$Lambda$TreeMap$5, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogManager$$Lambda$TreeMap$5, get, $Object*)},
 	{}
 };
 $ClassInfo LogManager$$Lambda$TreeMap$5::classInfo$ = {
@@ -448,8 +448,8 @@ $FieldInfo LogManager$$Lambda$lambda$updateConfiguration$2$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo LogManager$$Lambda$lambda$updateConfiguration$2$6::methodInfos[3] = {
-	{"<init>", "(Ljava/util/logging/Logger;)V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$$Lambda$lambda$updateConfiguration$2$6::*)($Logger*)>(&LogManager$$Lambda$lambda$updateConfiguration$2$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/Logger;)V", nullptr, $PUBLIC, $method(LogManager$$Lambda$lambda$updateConfiguration$2$6, init$, void, $Logger*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LogManager$$Lambda$lambda$updateConfiguration$2$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LogManager$$Lambda$lambda$updateConfiguration$2$6::classInfo$ = {
@@ -488,8 +488,8 @@ $FieldInfo LogManager$$Lambda$lambda$addConfigurationListener$3$7::fieldInfos[2]
 	{}
 };
 $MethodInfo LogManager$$Lambda$lambda$addConfigurationListener$3$7::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$$Lambda$lambda$addConfigurationListener$3$7::*)($Runnable*)>(&LogManager$$Lambda$lambda$addConfigurationListener$3$7::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(LogManager$$Lambda$lambda$addConfigurationListener$3$7, init$, void, $Runnable*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogManager$$Lambda$lambda$addConfigurationListener$3$7, run, $Object*)},
 	{}
 };
 $ClassInfo LogManager$$Lambda$lambda$addConfigurationListener$3$7::classInfo$ = {
@@ -531,8 +531,8 @@ $FieldInfo LogManager$$Lambda$lambda$addConfigurationListener$4$8::fieldInfos[3]
 	{}
 };
 $MethodInfo LogManager$$Lambda$lambda$addConfigurationListener$4$8::methodInfos[3] = {
-	{"<init>", "(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$$Lambda$lambda$addConfigurationListener$4$8::*)($PrivilegedAction*,$AccessControlContext*)>(&LogManager$$Lambda$lambda$addConfigurationListener$4$8::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(LogManager$$Lambda$lambda$addConfigurationListener$4$8, init$, void, $PrivilegedAction*, $AccessControlContext*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LogManager$$Lambda$lambda$addConfigurationListener$4$8, run, void)},
 	{}
 };
 $ClassInfo LogManager$$Lambda$lambda$addConfigurationListener$4$8::classInfo$ = {
@@ -599,62 +599,62 @@ $FieldInfo _LogManager_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(LogManager::*)()>(&LogManager::init$))},
-	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager::*)($Void*)>(&LogManager::init$))},
-	{"addConfigurationListener", "(Ljava/lang/Runnable;)Ljava/util/logging/LogManager;", nullptr, $PUBLIC},
-	{"addLogger", "(Ljava/util/logging/Logger;)Z", nullptr, $PUBLIC},
-	{"checkAccess", "()V", nullptr, $PUBLIC | $DEPRECATED, nullptr, "java.lang.SecurityException", nullptr, _LogManager_MethodAnnotations_checkAccess4},
-	{"checkPermission", "()V", nullptr, 0},
-	{"checkSubclassPermissions", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Void*(*)()>(&LogManager::checkSubclassPermissions))},
-	{"closeHandlers", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager::*)($Logger*)>(&LogManager::closeHandlers))},
-	{"contexts", "()Ljava/util/List;", "()Ljava/util/List<Ljava/util/logging/LogManager$LoggerContext;>;", $PRIVATE, $method(static_cast<$List*(LogManager::*)()>(&LogManager::contexts))},
-	{"createLoggerHandlers", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljava/util/logging/Handler;>;", $PRIVATE, $method(static_cast<$List*(LogManager::*)($String*,$String*)>(&LogManager::createLoggerHandlers))},
-	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/logging/Logger;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/logging/Logger;", 0},
-	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0},
-	{"demandSystemLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/logging/Logger;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/logging/Logger;", 0},
-	{"demandSystemLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0},
-	{"doSetLevel", "(Ljava/util/logging/Logger;Ljava/util/logging/Level;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Logger*,$Level*)>(&LogManager::doSetLevel))},
-	{"doSetParent", "(Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Logger*,$Logger*)>(&LogManager::doSetParent))},
-	{"drainLoggerRefQueueBounded", "()V", nullptr, $FINAL, $method(static_cast<void(LogManager::*)()>(&LogManager::drainLoggerRefQueueBounded))},
-	{"ensureLogManagerInitialized", "()V", nullptr, $FINAL, $method(static_cast<void(LogManager::*)()>(&LogManager::ensureLogManagerInitialized))},
-	{"forceLoadHandlers", "(Ljava/util/logging/Logger;)Z", nullptr, $PRIVATE, $method(static_cast<bool(LogManager::*)($Logger*)>(&LogManager::forceLoadHandlers))},
-	{"getBooleanProperty", "(Ljava/lang/String;Z)Z", nullptr, 0},
-	{"getConfigurationFileName", "()Ljava/lang/String;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getFilterProperty", "(Ljava/lang/String;Ljava/util/logging/Filter;)Ljava/util/logging/Filter;", nullptr, 0},
-	{"getFormatterProperty", "(Ljava/lang/String;Ljava/util/logging/Formatter;)Ljava/util/logging/Formatter;", nullptr, 0},
-	{"getIntProperty", "(Ljava/lang/String;I)I", nullptr, 0},
-	{"getLevelProperty", "(Ljava/lang/String;Ljava/util/logging/Level;)Ljava/util/logging/Level;", nullptr, 0},
-	{"getLogManager", "()Ljava/util/logging/LogManager;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LogManager*(*)()>(&LogManager::getLogManager))},
-	{"getLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, $PUBLIC},
-	{"getLoggerNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC},
-	{"getLoggingMXBean", "()Ljava/util/logging/LoggingMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED | $DEPRECATED, $method(static_cast<$LoggingMXBean*(*)()>(&LogManager::getLoggingMXBean)), nullptr, nullptr, _LogManager_MethodAnnotations_getLoggingMXBean28},
-	{"getLongProperty", "(Ljava/lang/String;J)J", nullptr, 0},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getStringProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, 0},
-	{"getSystemContext", "()Ljava/util/logging/LogManager$LoggerContext;", nullptr, $FINAL, $method(static_cast<$LogManager$LoggerContext*(LogManager::*)()>(&LogManager::getSystemContext))},
-	{"getUserContext", "()Ljava/util/logging/LogManager$LoggerContext;", nullptr, $PRIVATE, $method(static_cast<$LogManager$LoggerContext*(LogManager::*)()>(&LogManager::getUserContext))},
-	{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&LogManager::initStatic))},
-	{"initializeGlobalHandlers", "()V", nullptr, $PRIVATE, $method(static_cast<void(LogManager::*)()>(&LogManager::initializeGlobalHandlers))},
-	{"invokeConfigurationListeners", "()V", nullptr, $PRIVATE, $method(static_cast<void(LogManager::*)()>(&LogManager::invokeConfigurationListeners))},
-	{"lambda$addConfigurationListener$3", "(Ljava/lang/Runnable;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)($Runnable*)>(&LogManager::lambda$addConfigurationListener$3))},
-	{"lambda$addConfigurationListener$4", "(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($PrivilegedAction*,$AccessControlContext*)>(&LogManager::lambda$addConfigurationListener$4))},
-	{"lambda$updateConfiguration$0", "(Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/Function;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Properties*,$Properties*,$Function*,$String*)>(&LogManager::lambda$updateConfiguration$0))},
-	{"lambda$updateConfiguration$1", "(Ljava/util/Properties;Ljava/util/Properties;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Properties*,$Properties*,$String*)>(&LogManager::lambda$updateConfiguration$1))},
-	{"lambda$updateConfiguration$2", "(Ljava/util/logging/Logger;Ljava/util/logging/LogManager$CloseOnReset;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Logger*,$LogManager$CloseOnReset*)>(&LogManager::lambda$updateConfiguration$2))},
-	{"loadLoggerHandlers", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager::*)($Logger*,$String*,$String*)>(&LogManager::loadLoggerHandlers))},
-	{"parseClassNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$StringArray*(LogManager::*)($String*)>(&LogManager::parseClassNames))},
-	{"readConfiguration", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.SecurityException"},
-	{"readConfiguration", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.SecurityException"},
-	{"readPrimordialConfiguration", "()V", nullptr, $PRIVATE, $method(static_cast<void(LogManager::*)()>(&LogManager::readPrimordialConfiguration))},
-	{"removeConfigurationListener", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.lang.SecurityException"},
-	{"resetLogger", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager::*)($Logger*)>(&LogManager::resetLogger))},
-	{"resetLoggerContext", "(Ljava/util/logging/LogManager$LoggerContext;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager::*)($LogManager$LoggerContext*)>(&LogManager::resetLoggerContext))},
-	{"setLevelsOnExistingLoggers", "()V", nullptr, $PRIVATE, $method(static_cast<void(LogManager::*)()>(&LogManager::setLevelsOnExistingLoggers))},
-	{"setLoggerHandlers", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/util/logging/Handler;>;)V", $PRIVATE, $method(static_cast<void(LogManager::*)($Logger*,$String*,$String*,$List*)>(&LogManager::setLoggerHandlers))},
-	{"trim", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&LogManager::trim))},
-	{"updateConfiguration", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;>;>;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"updateConfiguration", "(Ljava/io/InputStream;Ljava/util/function/Function;)V", "(Ljava/io/InputStream;Ljava/util/function/Function<Ljava/lang/String;Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;>;>;)V", $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(LogManager, init$, void)},
+	{"<init>", "(Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(LogManager, init$, void, $Void*)},
+	{"addConfigurationListener", "(Ljava/lang/Runnable;)Ljava/util/logging/LogManager;", nullptr, $PUBLIC, $virtualMethod(LogManager, addConfigurationListener, LogManager*, $Runnable*)},
+	{"addLogger", "(Ljava/util/logging/Logger;)Z", nullptr, $PUBLIC, $virtualMethod(LogManager, addLogger, bool, $Logger*)},
+	{"checkAccess", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LogManager, checkAccess, void), "java.lang.SecurityException", nullptr, _LogManager_MethodAnnotations_checkAccess4},
+	{"checkPermission", "()V", nullptr, 0, $virtualMethod(LogManager, checkPermission, void)},
+	{"checkSubclassPermissions", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(LogManager, checkSubclassPermissions, $Void*)},
+	{"closeHandlers", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager, closeHandlers, void, $Logger*)},
+	{"contexts", "()Ljava/util/List;", "()Ljava/util/List<Ljava/util/logging/LogManager$LoggerContext;>;", $PRIVATE, $method(LogManager, contexts, $List*)},
+	{"createLoggerHandlers", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/List<Ljava/util/logging/Handler;>;", $PRIVATE, $method(LogManager, createLoggerHandlers, $List*, $String*, $String*)},
+	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/logging/Logger;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/logging/Logger;", 0, $virtualMethod(LogManager, demandLogger, $Logger*, $String*, $String*, $Class*)},
+	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager, demandLogger, $Logger*, $String*, $String*, $Module*)},
+	{"demandSystemLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Ljava/util/logging/Logger;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/util/logging/Logger;", 0, $virtualMethod(LogManager, demandSystemLogger, $Logger*, $String*, $String*, $Class*)},
+	{"demandSystemLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager, demandSystemLogger, $Logger*, $String*, $String*, $Module*)},
+	{"doSetLevel", "(Ljava/util/logging/Logger;Ljava/util/logging/Level;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LogManager, doSetLevel, void, $Logger*, $Level*)},
+	{"doSetParent", "(Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LogManager, doSetParent, void, $Logger*, $Logger*)},
+	{"drainLoggerRefQueueBounded", "()V", nullptr, $FINAL, $method(LogManager, drainLoggerRefQueueBounded, void)},
+	{"ensureLogManagerInitialized", "()V", nullptr, $FINAL, $method(LogManager, ensureLogManagerInitialized, void)},
+	{"forceLoadHandlers", "(Ljava/util/logging/Logger;)Z", nullptr, $PRIVATE, $method(LogManager, forceLoadHandlers, bool, $Logger*)},
+	{"getBooleanProperty", "(Ljava/lang/String;Z)Z", nullptr, 0, $virtualMethod(LogManager, getBooleanProperty, bool, $String*, bool)},
+	{"getConfigurationFileName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(LogManager, getConfigurationFileName, $String*), "java.io.IOException"},
+	{"getFilterProperty", "(Ljava/lang/String;Ljava/util/logging/Filter;)Ljava/util/logging/Filter;", nullptr, 0, $virtualMethod(LogManager, getFilterProperty, $Filter*, $String*, $Filter*)},
+	{"getFormatterProperty", "(Ljava/lang/String;Ljava/util/logging/Formatter;)Ljava/util/logging/Formatter;", nullptr, 0, $virtualMethod(LogManager, getFormatterProperty, $Formatter*, $String*, $Formatter*)},
+	{"getIntProperty", "(Ljava/lang/String;I)I", nullptr, 0, $virtualMethod(LogManager, getIntProperty, int32_t, $String*, int32_t)},
+	{"getLevelProperty", "(Ljava/lang/String;Ljava/util/logging/Level;)Ljava/util/logging/Level;", nullptr, 0, $virtualMethod(LogManager, getLevelProperty, $Level*, $String*, $Level*)},
+	{"getLogManager", "()Ljava/util/logging/LogManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager, getLogManager, LogManager*)},
+	{"getLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, $PUBLIC, $virtualMethod(LogManager, getLogger, $Logger*, $String*)},
+	{"getLoggerNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LogManager, getLoggerNames, $Enumeration*)},
+	{"getLoggingMXBean", "()Ljava/util/logging/LoggingMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED | $DEPRECATED, $staticMethod(LogManager, getLoggingMXBean, $LoggingMXBean*), nullptr, nullptr, _LogManager_MethodAnnotations_getLoggingMXBean28},
+	{"getLongProperty", "(Ljava/lang/String;J)J", nullptr, 0, $virtualMethod(LogManager, getLongProperty, int64_t, $String*, int64_t)},
+	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogManager, getProperty, $String*, $String*)},
+	{"getStringProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(LogManager, getStringProperty, $String*, $String*, $String*)},
+	{"getSystemContext", "()Ljava/util/logging/LogManager$LoggerContext;", nullptr, $FINAL, $method(LogManager, getSystemContext, $LogManager$LoggerContext*)},
+	{"getUserContext", "()Ljava/util/logging/LogManager$LoggerContext;", nullptr, $PRIVATE, $method(LogManager, getUserContext, $LogManager$LoggerContext*)},
+	{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LogManager, initStatic, void)},
+	{"initializeGlobalHandlers", "()V", nullptr, $PRIVATE, $method(LogManager, initializeGlobalHandlers, void)},
+	{"invokeConfigurationListeners", "()V", nullptr, $PRIVATE, $method(LogManager, invokeConfigurationListeners, void)},
+	{"lambda$addConfigurationListener$3", "(Ljava/lang/Runnable;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager, lambda$addConfigurationListener$3, $Void*, $Runnable*)},
+	{"lambda$addConfigurationListener$4", "(Ljava/security/PrivilegedAction;Ljava/security/AccessControlContext;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager, lambda$addConfigurationListener$4, void, $PrivilegedAction*, $AccessControlContext*)},
+	{"lambda$updateConfiguration$0", "(Ljava/util/Properties;Ljava/util/Properties;Ljava/util/function/Function;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager, lambda$updateConfiguration$0, void, $Properties*, $Properties*, $Function*, $String*)},
+	{"lambda$updateConfiguration$1", "(Ljava/util/Properties;Ljava/util/Properties;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager, lambda$updateConfiguration$1, bool, $Properties*, $Properties*, $String*)},
+	{"lambda$updateConfiguration$2", "(Ljava/util/logging/Logger;Ljava/util/logging/LogManager$CloseOnReset;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager, lambda$updateConfiguration$2, bool, $Logger*, $LogManager$CloseOnReset*)},
+	{"loadLoggerHandlers", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LogManager, loadLoggerHandlers, void, $Logger*, $String*, $String*)},
+	{"parseClassNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(LogManager, parseClassNames, $StringArray*, $String*)},
+	{"readConfiguration", "()V", nullptr, $PUBLIC, $virtualMethod(LogManager, readConfiguration, void), "java.io.IOException,java.lang.SecurityException"},
+	{"readConfiguration", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(LogManager, readConfiguration, void, $InputStream*), "java.io.IOException,java.lang.SecurityException"},
+	{"readPrimordialConfiguration", "()V", nullptr, $PRIVATE, $method(LogManager, readPrimordialConfiguration, void)},
+	{"removeConfigurationListener", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(LogManager, removeConfigurationListener, void, $Runnable*)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LogManager, reset, void), "java.lang.SecurityException"},
+	{"resetLogger", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager, resetLogger, void, $Logger*)},
+	{"resetLoggerContext", "(Ljava/util/logging/LogManager$LoggerContext;)V", nullptr, $PRIVATE, $method(LogManager, resetLoggerContext, void, $LogManager$LoggerContext*)},
+	{"setLevelsOnExistingLoggers", "()V", nullptr, $PRIVATE, $method(LogManager, setLevelsOnExistingLoggers, void)},
+	{"setLoggerHandlers", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/util/logging/Handler;>;)V", $PRIVATE, $method(LogManager, setLoggerHandlers, void, $Logger*, $String*, $String*, $List*)},
+	{"trim", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LogManager, trim, $String*, $String*)},
+	{"updateConfiguration", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;>;>;)V", $PUBLIC, $virtualMethod(LogManager, updateConfiguration, void, $Function*), "java.io.IOException"},
+	{"updateConfiguration", "(Ljava/io/InputStream;Ljava/util/function/Function;)V", "(Ljava/io/InputStream;Ljava/util/function/Function<Ljava/lang/String;Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;>;>;)V", $PUBLIC, $virtualMethod(LogManager, updateConfiguration, void, $InputStream*, $Function*), "java.io.IOException"},
 	{}
 };
 

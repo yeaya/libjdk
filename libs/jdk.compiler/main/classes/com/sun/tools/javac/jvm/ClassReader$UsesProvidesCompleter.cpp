@@ -52,8 +52,8 @@ $FieldInfo _ClassReader$UsesProvidesCompleter_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$UsesProvidesCompleter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimUsesDirective;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimProvidesDirective;>;)V", $PUBLIC, $method(static_cast<void(ClassReader$UsesProvidesCompleter::*)($ClassReader*,$Symbol$ModuleSymbol*,$List*,$List*)>(&ClassReader$UsesProvidesCompleter::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimUsesDirective;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$InterimProvidesDirective;>;)V", $PUBLIC, $method(ClassReader$UsesProvidesCompleter, init$, void, $ClassReader*, $Symbol$ModuleSymbol*, $List*, $List*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$UsesProvidesCompleter, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
 	{}
 };
 

@@ -47,9 +47,9 @@ $FieldInfo _ResolverFragment_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolverFragment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResolverFragment::*)()>(&ResolverFragment::init$))},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverFragment, init$, void)},
+	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverFragment, engineCanResolveURI, bool, $ResourceResolverContext*)},
+	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverFragment, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
 	{}
 };
 

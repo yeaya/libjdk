@@ -9,6 +9,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace javax {
 	namespace xml {
@@ -23,7 +24,7 @@ $FieldInfo _X509Data_FieldInfo_[] = {
 };
 
 $MethodInfo _X509Data_MethodInfo_[] = {
-	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<*>;", $PUBLIC | $ABSTRACT},
+	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(X509Data, getContent, $List*)},
 	{}
 };
 

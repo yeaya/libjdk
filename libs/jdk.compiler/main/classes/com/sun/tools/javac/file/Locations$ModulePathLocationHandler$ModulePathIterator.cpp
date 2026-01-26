@@ -109,13 +109,13 @@ $FieldInfo _Locations$ModulePathLocationHandler$ModulePathIterator_FieldInfo_[] 
 };
 
 $MethodInfo _Locations$ModulePathLocationHandler$ModulePathIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations$ModulePathLocationHandler;)V", nullptr, 0, $method(static_cast<void(Locations$ModulePathLocationHandler$ModulePathIterator::*)($Locations$ModulePathLocationHandler*)>(&Locations$ModulePathLocationHandler$ModulePathIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"inferModuleName", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/util/Pair;", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/util/Pair<Ljava/lang/String;Ljava/nio/file/Path;>;", $PRIVATE, $method(static_cast<$Pair*(Locations$ModulePathLocationHandler$ModulePathIterator::*)($Path*)>(&Locations$ModulePathLocationHandler$ModulePathIterator::inferModuleName))},
-	{"next", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", $PUBLIC},
-	{"readModuleName", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Locations$ModulePathLocationHandler$ModulePathIterator::*)($Path*)>(&Locations$ModulePathLocationHandler$ModulePathIterator::readModuleName)), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
-	{"scanDirectory", "(Ljava/nio/file/Path;)Ljava/util/Set;", "(Ljava/nio/file/Path;)Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", $PRIVATE, $method(static_cast<$Set*(Locations$ModulePathLocationHandler$ModulePathIterator::*)($Path*)>(&Locations$ModulePathLocationHandler$ModulePathIterator::scanDirectory))},
-	{"scanFile", "(Ljava/nio/file/Path;)Ljava/util/Set;", "(Ljava/nio/file/Path;)Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", $PRIVATE, $method(static_cast<$Set*(Locations$ModulePathLocationHandler$ModulePathIterator::*)($Path*)>(&Locations$ModulePathLocationHandler$ModulePathIterator::scanFile))},
+	{"<init>", "(Lcom/sun/tools/javac/file/Locations$ModulePathLocationHandler;)V", nullptr, 0, $method(Locations$ModulePathLocationHandler$ModulePathIterator, init$, void, $Locations$ModulePathLocationHandler*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Locations$ModulePathLocationHandler$ModulePathIterator, hasNext, bool)},
+	{"inferModuleName", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/util/Pair;", "(Ljava/nio/file/Path;)Lcom/sun/tools/javac/util/Pair<Ljava/lang/String;Ljava/nio/file/Path;>;", $PRIVATE, $method(Locations$ModulePathLocationHandler$ModulePathIterator, inferModuleName, $Pair*, $Path*)},
+	{"next", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", $PUBLIC, $virtualMethod(Locations$ModulePathLocationHandler$ModulePathIterator, next, $Object*)},
+	{"readModuleName", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Locations$ModulePathLocationHandler$ModulePathIterator, readModuleName, $String*, $Path*), "java.io.IOException,com.sun.tools.javac.jvm.ModuleNameReader$BadClassFile"},
+	{"scanDirectory", "(Ljava/nio/file/Path;)Ljava/util/Set;", "(Ljava/nio/file/Path;)Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", $PRIVATE, $method(Locations$ModulePathLocationHandler$ModulePathIterator, scanDirectory, $Set*, $Path*)},
+	{"scanFile", "(Ljava/nio/file/Path;)Ljava/util/Set;", "(Ljava/nio/file/Path;)Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", $PRIVATE, $method(Locations$ModulePathLocationHandler$ModulePathIterator, scanFile, $Set*, $Path*)},
 	{}
 };
 

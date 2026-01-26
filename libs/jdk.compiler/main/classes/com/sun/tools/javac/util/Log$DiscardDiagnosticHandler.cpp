@@ -19,8 +19,8 @@ namespace com {
 				namespace util {
 
 $MethodInfo _Log$DiscardDiagnosticHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(static_cast<void(Log$DiscardDiagnosticHandler::*)($Log*)>(&Log$DiscardDiagnosticHandler::init$))},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(Log$DiscardDiagnosticHandler, init$, void, $Log*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Log$DiscardDiagnosticHandler, report, void, $JCDiagnostic*)},
 	{}
 };
 

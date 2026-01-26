@@ -69,8 +69,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ProxyServer$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ProxyServer$$Lambda$lambda$static$0::*)()>(&ProxyServer$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ProxyServer$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProxyServer$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo ProxyServer$$Lambda$lambda$static$0::classInfo$ = {
@@ -103,19 +103,19 @@ $MethodInfo _ProxyServer_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(static_cast<void(ProxyServer::*)($Integer*)>(&ProxyServer::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Integer;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ProxyServer::*)($Integer*,$Boolean*,$String*,$String*)>(&ProxyServer::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Integer;Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $method(static_cast<void(ProxyServer::*)($Integer*,$Boolean*)>(&ProxyServer::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Integer;Ljava/lang/Boolean;LProxyServer$Credentials;)V", nullptr, $PUBLIC, $method(static_cast<void(ProxyServer::*)($Integer*,$Boolean*,$ProxyServer$Credentials*)>(&ProxyServer::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ProxyServer::*)($String*)>(&ProxyServer::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"execute", "()V", nullptr, $PUBLIC},
-	{"getPort", "()I", nullptr, $PUBLIC},
-	{"getProxyAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isWindows", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&ProxyServer::isWindows))},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&ProxyServer::lambda$static$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ProxyServer::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(ProxyServer, init$, void, $Integer*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Integer;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProxyServer, init$, void, $Integer*, $Boolean*, $String*, $String*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Integer;Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $method(ProxyServer, init$, void, $Integer*, $Boolean*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/Integer;Ljava/lang/Boolean;LProxyServer$Credentials;)V", nullptr, $PUBLIC, $method(ProxyServer, init$, void, $Integer*, $Boolean*, $ProxyServer$Credentials*), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProxyServer, init$, void, $String*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer, close, void), "java.io.IOException"},
+	{"execute", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer, execute, void)},
+	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(ProxyServer, getPort, int32_t)},
+	{"getProxyAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(ProxyServer, getProxyAddress, $InetSocketAddress*), "java.io.IOException"},
+	{"isWindows", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyServer, isWindows, bool)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProxyServer, lambda$static$0, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ProxyServer, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyServer, run, void)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

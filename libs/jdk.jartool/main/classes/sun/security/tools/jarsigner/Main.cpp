@@ -293,8 +293,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$parseArgs$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$parseArgs$0::*)()>(&Main$$Lambda$lambda$parseArgs$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$parseArgs$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$parseArgs$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$parseArgs$0::classInfo$ = {
@@ -333,8 +333,8 @@ $FieldInfo Main$$Lambda$println$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$println$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$println$1::*)($PrintStream*)>(&Main$$Lambda$println$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(Main$$Lambda$println$1, init$, void, $PrintStream*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$println$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$println$1::classInfo$ = {
@@ -366,8 +366,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$signJar$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$signJar$1$2::*)()>(&Main$$Lambda$lambda$signJar$1$2::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$signJar$1$2, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$signJar$1$2, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$signJar$1$2::classInfo$ = {
@@ -399,8 +399,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$signJar$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$signJar$2$3::*)()>(&Main$$Lambda$lambda$signJar$2$3::init$))},
-	{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$signJar$2$3, init$, void)},
+	{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$signJar$2$3, handle, void, $String*, $ObjectArray*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$signJar$2$3::classInfo$ = {
@@ -432,8 +432,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$loadKeyStore$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$loadKeyStore$3$4::*)()>(&Main$$Lambda$lambda$loadKeyStore$3$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$loadKeyStore$3$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$loadKeyStore$3$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$loadKeyStore$3$4::classInfo$ = {
@@ -465,8 +465,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$loadKeyStore$4$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$loadKeyStore$4$5::*)()>(&Main$$Lambda$lambda$loadKeyStore$4$5::init$))},
-	{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$loadKeyStore$4$5, init$, void)},
+	{"handle", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$loadKeyStore$4$5, handle, void, $String*, $ObjectArray*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$loadKeyStore$4$5::classInfo$ = {
@@ -579,43 +579,43 @@ $FieldInfo _Main_FieldInfo_[] = {
 };
 
 $MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main::*)()>(&Main::init$))},
-	{"certsAndTSInfo", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/security/Timestamp;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<+Ljava/security/cert/Certificate;>;Ljava/security/Timestamp;)Ljava/lang/String;", $PRIVATE, $method(static_cast<$String*(Main::*)($String*,$String*,$List*,$Timestamp*)>(&Main::certsAndTSInfo)), "java.lang.Exception"},
-	{"checkCertUsage", "(Ljava/security/cert/X509Certificate;[Z)V", nullptr, 0},
-	{"checkWeakAlg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Main::checkWeakAlg))},
-	{"checkWeakKey", "(Ljava/security/PublicKey;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($PublicKey*)>(&Main::checkWeakKey))},
-	{"checkWeakSign", "(Ljava/lang/String;Ljava/util/Set;Z)V", "(Ljava/lang/String;Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Z)V", $PRIVATE, $method(static_cast<void(Main::*)($String*,$Set*,bool)>(&Main::checkWeakSign))},
-	{"checkWeakSign", "(Ljava/security/PrivateKey;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($PrivateKey*)>(&Main::checkWeakSign))},
-	{"displayMessagesAndResult", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)(bool)>(&Main::displayMessagesAndResult))},
-	{"error", "(Ljava/lang/String;)V", nullptr, 0},
-	{"error", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0},
-	{"fullusage", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Main::fullusage))},
-	{"getAliasInfo", "(Ljava/lang/String;)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"getPass", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $STATIC, $method(static_cast<$chars*(*)($String*,$String*)>(&Main::getPass))},
-	{"getPass", "(Ljava/lang/String;)[C", nullptr, 0},
-	{"getTsaCert", "(Ljava/lang/String;)Ljava/security/cert/X509Certificate;", nullptr, 0},
-	{"inKeyStore", "([Ljava/security/CodeSigner;)I", nullptr, 0},
-	{"inKeyStoreForOneSigner", "(Ljava/security/CodeSigner;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(Main::*)($CodeSigner*)>(&Main::inKeyStoreForOneSigner))},
-	{"lambda$loadKeyStore$3", "(Ljava/security/cert/X509Certificate;)Ljava/security/cert/TrustAnchor;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TrustAnchor*(*)($X509Certificate*)>(&Main::lambda$loadKeyStore$3))},
-	{"lambda$loadKeyStore$4", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*,$ObjectArray*)>(&Main::lambda$loadKeyStore$4))},
-	{"lambda$parseArgs$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&Main::lambda$parseArgs$0))},
-	{"lambda$signJar$1", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*,$String*)>(&Main::lambda$signJar$1))},
-	{"lambda$signJar$2", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($String*,$ObjectArray*)>(&Main::lambda$signJar$2))},
-	{"loadKeyStore", "(Ljava/lang/String;Z)V", nullptr, 0},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Main::main)), "java.lang.Exception"},
-	{"parseArgs", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"printCert", "(ZLjava/lang/String;Ljava/security/cert/Certificate;Ljava/util/Date;Z)Ljava/lang/String;", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"printTimestamp", "(Ljava/lang/String;Ljava/security/Timestamp;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Main::*)($String*,$Timestamp*)>(&Main::printTimestamp))},
-	{"run", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"signJar", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"signatureRelated", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Main::*)($String*)>(&Main::signatureRelated))},
-	{"signerInfo", "(Ljava/security/CodeSigner;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Main::*)($CodeSigner*,$String*)>(&Main::signerInfo)), "java.lang.Exception"},
-	{"usage", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Main::usage))},
-	{"usageNoArg", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Main::usageNoArg))},
-	{"validateCertChain", "(Ljava/lang/String;Ljava/util/List;Ljava/security/Timestamp;)V", "(Ljava/lang/String;Ljava/util/List<+Ljava/security/cert/Certificate;>;Ljava/security/Timestamp;)V", 0, nullptr, "java.lang.Exception"},
-	{"verifyJar", "(Ljava/lang/String;)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"verifyWithWeak", "(Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Z)Ljava/lang/String;", $PRIVATE, $method(static_cast<$String*(Main::*)($String*,$Set*,bool)>(&Main::verifyWithWeak))},
-	{"verifyWithWeak", "(Ljava/security/PublicKey;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Main::*)($PublicKey*)>(&Main::verifyWithWeak))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main, init$, void)},
+	{"certsAndTSInfo", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/security/Timestamp;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<+Ljava/security/cert/Certificate;>;Ljava/security/Timestamp;)Ljava/lang/String;", $PRIVATE, $method(Main, certsAndTSInfo, $String*, $String*, $String*, $List*, $Timestamp*), "java.lang.Exception"},
+	{"checkCertUsage", "(Ljava/security/cert/X509Certificate;[Z)V", nullptr, 0, $virtualMethod(Main, checkCertUsage, void, $X509Certificate*, $booleans*)},
+	{"checkWeakAlg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, checkWeakAlg, $String*, $String*)},
+	{"checkWeakKey", "(Ljava/security/PublicKey;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, checkWeakKey, $String*, $PublicKey*)},
+	{"checkWeakSign", "(Ljava/lang/String;Ljava/util/Set;Z)V", "(Ljava/lang/String;Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Z)V", $PRIVATE, $method(Main, checkWeakSign, void, $String*, $Set*, bool)},
+	{"checkWeakSign", "(Ljava/security/PrivateKey;)V", nullptr, $PRIVATE, $method(Main, checkWeakSign, void, $PrivateKey*)},
+	{"displayMessagesAndResult", "(Z)V", nullptr, $PRIVATE, $method(Main, displayMessagesAndResult, void, bool)},
+	{"error", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, error, void, $String*)},
+	{"error", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, error, void, $String*, $Throwable*)},
+	{"fullusage", "()V", nullptr, $STATIC, $staticMethod(Main, fullusage, void)},
+	{"getAliasInfo", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, getAliasInfo, void, $String*), "java.lang.Exception"},
+	{"getPass", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $STATIC, $staticMethod(Main, getPass, $chars*, $String*, $String*)},
+	{"getPass", "(Ljava/lang/String;)[C", nullptr, 0, $virtualMethod(Main, getPass, $chars*, $String*)},
+	{"getTsaCert", "(Ljava/lang/String;)Ljava/security/cert/X509Certificate;", nullptr, 0, $virtualMethod(Main, getTsaCert, $X509Certificate*, $String*)},
+	{"inKeyStore", "([Ljava/security/CodeSigner;)I", nullptr, 0, $virtualMethod(Main, inKeyStore, int32_t, $CodeSignerArray*)},
+	{"inKeyStoreForOneSigner", "(Ljava/security/CodeSigner;)I", nullptr, $PRIVATE, $method(Main, inKeyStoreForOneSigner, int32_t, $CodeSigner*)},
+	{"lambda$loadKeyStore$3", "(Ljava/security/cert/X509Certificate;)Ljava/security/cert/TrustAnchor;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$loadKeyStore$3, $TrustAnchor*, $X509Certificate*)},
+	{"lambda$loadKeyStore$4", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$loadKeyStore$4, void, $String*, $ObjectArray*)},
+	{"lambda$parseArgs$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$parseArgs$0, bool, $String*)},
+	{"lambda$signJar$1", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$signJar$1, void, $String*, $String*)},
+	{"lambda$signJar$2", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$signJar$2, void, $String*, $ObjectArray*)},
+	{"loadKeyStore", "(Ljava/lang/String;Z)V", nullptr, 0, $virtualMethod(Main, loadKeyStore, void, $String*, bool)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*), "java.lang.Exception"},
+	{"parseArgs", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(Main, parseArgs, $StringArray*, $StringArray*), "java.lang.Exception"},
+	{"printCert", "(ZLjava/lang/String;Ljava/security/cert/Certificate;Ljava/util/Date;Z)Ljava/lang/String;", nullptr, 0, $virtualMethod(Main, printCert, $String*, bool, $String*, $Certificate*, $Date*, bool), "java.lang.Exception"},
+	{"printTimestamp", "(Ljava/lang/String;Ljava/security/Timestamp;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, printTimestamp, $String*, $String*, $Timestamp*)},
+	{"run", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Main, run, void, $StringArray*)},
+	{"signJar", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, signJar, void, $String*, $String*), "java.lang.Exception"},
+	{"signatureRelated", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Main, signatureRelated, bool, $String*)},
+	{"signerInfo", "(Ljava/security/CodeSigner;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, signerInfo, $String*, $CodeSigner*, $String*), "java.lang.Exception"},
+	{"usage", "()V", nullptr, $STATIC, $staticMethod(Main, usage, void)},
+	{"usageNoArg", "()V", nullptr, $STATIC, $staticMethod(Main, usageNoArg, void)},
+	{"validateCertChain", "(Ljava/lang/String;Ljava/util/List;Ljava/security/Timestamp;)V", "(Ljava/lang/String;Ljava/util/List<+Ljava/security/cert/Certificate;>;Ljava/security/Timestamp;)V", 0, $virtualMethod(Main, validateCertChain, void, $String*, $List*, $Timestamp*), "java.lang.Exception"},
+	{"verifyJar", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, verifyJar, void, $String*), "java.lang.Exception"},
+	{"verifyWithWeak", "(Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Z)Ljava/lang/String;", $PRIVATE, $method(Main, verifyWithWeak, $String*, $String*, $Set*, bool)},
+	{"verifyWithWeak", "(Ljava/security/PublicKey;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, verifyWithWeak, $String*, $PublicKey*)},
 	{}
 };
 

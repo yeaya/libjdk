@@ -74,15 +74,15 @@ $FieldInfo _HandshakeFailureTest_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeFailureTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HandshakeFailureTest::*)()>(&HandshakeFailureTest::init$))},
-	{"checkExceptionOrCause", "(Ljava/lang/Throwable;)LHandshakeFailureTest$ExpectedExceptionType;", nullptr, $STATIC, $method(static_cast<$HandshakeFailureTest$ExpectedExceptionType*(*)($Throwable*)>(&HandshakeFailureTest::checkExceptionOrCause))},
-	{"getClient", "()Ljava/net/http/HttpClient;", nullptr, $STATIC, $method(static_cast<$HttpClient*(*)()>(&HandshakeFailureTest::getClient))},
-	{"isWsaeConnAborted", "(Ljava/lang/Throwable;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Throwable*)>(&HandshakeFailureTest::isWsaeConnAborted))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&HandshakeFailureTest::main)), "java.lang.Exception"},
-	{"testAsyncDiffClient", "(Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"testAsyncSameClient", "(Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"testSyncDiffClient", "(Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"testSyncSameClient", "(Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HandshakeFailureTest, init$, void)},
+	{"checkExceptionOrCause", "(Ljava/lang/Throwable;)LHandshakeFailureTest$ExpectedExceptionType;", nullptr, $STATIC, $staticMethod(HandshakeFailureTest, checkExceptionOrCause, $HandshakeFailureTest$ExpectedExceptionType*, $Throwable*)},
+	{"getClient", "()Ljava/net/http/HttpClient;", nullptr, $STATIC, $staticMethod(HandshakeFailureTest, getClient, $HttpClient*)},
+	{"isWsaeConnAborted", "(Ljava/lang/Throwable;)Z", nullptr, $STATIC, $staticMethod(HandshakeFailureTest, isWsaeConnAborted, bool, $Throwable*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HandshakeFailureTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"testAsyncDiffClient", "(Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, $virtualMethod(HandshakeFailureTest, testAsyncDiffClient, void, $URI*, $HttpClient$Version*), "java.lang.Exception"},
+	{"testAsyncSameClient", "(Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, $virtualMethod(HandshakeFailureTest, testAsyncSameClient, void, $URI*, $HttpClient$Version*), "java.lang.Exception"},
+	{"testSyncDiffClient", "(Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, $virtualMethod(HandshakeFailureTest, testSyncDiffClient, void, $URI*, $HttpClient$Version*), "java.lang.Exception"},
+	{"testSyncSameClient", "(Ljava/net/URI;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, $virtualMethod(HandshakeFailureTest, testSyncSameClient, void, $URI*, $HttpClient$Version*), "java.lang.Exception"},
 	{}
 };
 

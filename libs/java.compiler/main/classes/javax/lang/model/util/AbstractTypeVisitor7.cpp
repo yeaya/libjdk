@@ -37,7 +37,7 @@ $CompoundAttribute _AbstractTypeVisitor7_MethodAnnotations_init$0[] = {
 };
 
 $MethodInfo _AbstractTypeVisitor7_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(AbstractTypeVisitor7::*)()>(&AbstractTypeVisitor7::init$)), nullptr, nullptr, _AbstractTypeVisitor7_MethodAnnotations_init$0},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(AbstractTypeVisitor7, init$, void), nullptr, nullptr, _AbstractTypeVisitor7_MethodAnnotations_init$0},
 	{"visitUnion", "(Ljavax/lang/model/type/UnionType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

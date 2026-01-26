@@ -29,20 +29,20 @@ $FieldInfo _SearchControls_FieldInfo_[] = {
 };
 
 $MethodInfo _SearchControls_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SearchControls::*)()>(&SearchControls::init$))},
-	{"<init>", "(IJI[Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(static_cast<void(SearchControls::*)(int32_t,int64_t,int32_t,$StringArray*,bool,bool)>(&SearchControls::init$))},
-	{"getCountLimit", "()J", nullptr, $PUBLIC},
-	{"getDerefLinkFlag", "()Z", nullptr, $PUBLIC},
-	{"getReturningAttributes", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getReturningObjFlag", "()Z", nullptr, $PUBLIC},
-	{"getSearchScope", "()I", nullptr, $PUBLIC},
-	{"getTimeLimit", "()I", nullptr, $PUBLIC},
-	{"setCountLimit", "(J)V", nullptr, $PUBLIC},
-	{"setDerefLinkFlag", "(Z)V", nullptr, $PUBLIC},
-	{"setReturningAttributes", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setReturningObjFlag", "(Z)V", nullptr, $PUBLIC},
-	{"setSearchScope", "(I)V", nullptr, $PUBLIC},
-	{"setTimeLimit", "(I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SearchControls, init$, void)},
+	{"<init>", "(IJI[Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(SearchControls, init$, void, int32_t, int64_t, int32_t, $StringArray*, bool, bool)},
+	{"getCountLimit", "()J", nullptr, $PUBLIC, $virtualMethod(SearchControls, getCountLimit, int64_t)},
+	{"getDerefLinkFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(SearchControls, getDerefLinkFlag, bool)},
+	{"getReturningAttributes", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SearchControls, getReturningAttributes, $StringArray*)},
+	{"getReturningObjFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(SearchControls, getReturningObjFlag, bool)},
+	{"getSearchScope", "()I", nullptr, $PUBLIC, $virtualMethod(SearchControls, getSearchScope, int32_t)},
+	{"getTimeLimit", "()I", nullptr, $PUBLIC, $virtualMethod(SearchControls, getTimeLimit, int32_t)},
+	{"setCountLimit", "(J)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setCountLimit, void, int64_t)},
+	{"setDerefLinkFlag", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setDerefLinkFlag, void, bool)},
+	{"setReturningAttributes", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setReturningAttributes, void, $StringArray*)},
+	{"setReturningObjFlag", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setReturningObjFlag, void, bool)},
+	{"setSearchScope", "(I)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setSearchScope, void, int32_t)},
+	{"setTimeLimit", "(I)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setTimeLimit, void, int32_t)},
 	{}
 };
 

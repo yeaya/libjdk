@@ -19,8 +19,8 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMBase64Transform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DOMBase64Transform::*)()>(&DOMBase64Transform::init$))},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMBase64Transform, init$, void)},
+	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMBase64Transform, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

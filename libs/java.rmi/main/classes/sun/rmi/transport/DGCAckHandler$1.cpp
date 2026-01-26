@@ -23,8 +23,8 @@ $FieldInfo _DGCAckHandler$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCAckHandler$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/DGCAckHandler;)V", nullptr, 0, $method(static_cast<void(DGCAckHandler$1::*)($DGCAckHandler*)>(&DGCAckHandler$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/DGCAckHandler;)V", nullptr, 0, $method(DGCAckHandler$1, init$, void, $DGCAckHandler*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DGCAckHandler$1, run, void)},
 	{}
 };
 

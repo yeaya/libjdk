@@ -18,9 +18,9 @@ namespace jdk {
 		namespace zipfs {
 
 $MethodInfo _ZipCoder$UTF8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ZipCoder$UTF8::*)()>(&ZipCoder$UTF8::init$))},
-	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0},
-	{"toString", "([B)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(ZipCoder$UTF8, init$, void)},
+	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(ZipCoder$UTF8, getBytes, $bytes*, $String*)},
+	{"toString", "([B)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder$UTF8, toString, $String*, $bytes*)},
 	{}
 };
 

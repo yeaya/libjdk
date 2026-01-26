@@ -1,5 +1,6 @@
 #include <jdk/internal/net/http/ExchangeImpl.h>
 
+#include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -34,6 +35,7 @@
 #undef DEBUG
 #undef HTTP_1_1
 
+using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -42,8 +44,10 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $HttpClient = ::java::net::http::HttpClient;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpResponse = ::java::net::http::HttpResponse;
+using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
+using $Executor = ::java::util::concurrent::Executor;
 using $BiFunction = ::java::util::function::BiFunction;
 using $Function = ::java::util::function::Function;
 using $Supplier = ::java::util::function::Supplier;
@@ -88,8 +92,8 @@ $FieldInfo ExchangeImpl$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ExchangeImpl$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ExchangeImpl$$Lambda$toString::*)($String*)>(&ExchangeImpl$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExchangeImpl$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo ExchangeImpl$$Lambda$toString::classInfo$ = {
@@ -131,8 +135,8 @@ $FieldInfo ExchangeImpl$$Lambda$lambda$get$0$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ExchangeImpl$$Lambda$lambda$get$0$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(ExchangeImpl$$Lambda$lambda$get$0$1::*)($Exchange*,$HttpConnection*)>(&ExchangeImpl$$Lambda$lambda$get$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PUBLIC, $method(ExchangeImpl$$Lambda$lambda$get$0$1, init$, void, $Exchange*, $HttpConnection*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl$$Lambda$lambda$get$0$1, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ExchangeImpl$$Lambda$lambda$get$0$1::classInfo$ = {
@@ -164,8 +168,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ExchangeImpl$$Lambda$lambda$get$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ExchangeImpl$$Lambda$lambda$get$1$2::*)()>(&ExchangeImpl$$Lambda$lambda$get$1$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ExchangeImpl$$Lambda$lambda$get$1$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl$$Lambda$lambda$get$1$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ExchangeImpl$$Lambda$lambda$get$1$2::classInfo$ = {
@@ -204,8 +208,8 @@ $FieldInfo ExchangeImpl$$Lambda$lambda$createExchangeImpl$2$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ExchangeImpl$$Lambda$lambda$createExchangeImpl$2$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(static_cast<void(ExchangeImpl$$Lambda$lambda$createExchangeImpl$2$3::*)($Exchange*)>(&ExchangeImpl$$Lambda$lambda$createExchangeImpl$2$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Exchange;)V", nullptr, $PUBLIC, $method(ExchangeImpl$$Lambda$lambda$createExchangeImpl$2$3, init$, void, $Exchange*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ExchangeImpl$$Lambda$lambda$createExchangeImpl$2$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ExchangeImpl$$Lambda$lambda$createExchangeImpl$2$3::classInfo$ = {
@@ -229,29 +233,29 @@ $FieldInfo _ExchangeImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ExchangeImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Exchange;)V", "(Ljdk/internal/net/http/Exchange<TT;>;)V", 0, $method(static_cast<void(ExchangeImpl::*)($Exchange*)>(&ExchangeImpl::init$))},
-	{"cancel", "()V", nullptr, $ABSTRACT},
-	{"cancel", "(Ljava/io/IOException;)V", nullptr, $ABSTRACT},
-	{"client", "()Ljava/net/http/HttpClient;", nullptr, 0},
-	{"completed", "()V", nullptr, $ABSTRACT},
-	{"connection", "()Ljdk/internal/net/http/HttpConnection;", nullptr, $ABSTRACT},
-	{"createExchangeImpl", "(Ljdk/internal/net/http/Http2Connection;Ljava/lang/Throwable;Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljdk/internal/net/http/Http2Connection;Ljava/lang/Throwable;Ljdk/internal/net/http/Exchange<TU;>;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture<+Ljdk/internal/net/http/ExchangeImpl<TU;>;>;", $PRIVATE | $STATIC, $method(static_cast<$CompletableFuture*(*)($Http2Connection*,$Throwable*,$Exchange*,$HttpConnection*)>(&ExchangeImpl::createExchangeImpl))},
-	{"createHttp1Exchange", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/Exchange<TT;>;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Exchange<TT;>;>;", $PRIVATE | $STATIC, $method(static_cast<$CompletableFuture*(*)($Exchange*,$HttpConnection*)>(&ExchangeImpl::createHttp1Exchange))},
-	{"get", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljdk/internal/net/http/Exchange<TU;>;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture<+Ljdk/internal/net/http/ExchangeImpl<TU;>;>;", $STATIC, $method(static_cast<$CompletableFuture*(*)($Exchange*,$HttpConnection*)>(&ExchangeImpl::get))},
-	{"getCancelCause", "()Ljava/lang/Throwable;", nullptr, $ABSTRACT},
-	{"getExchange", "()Ljdk/internal/net/http/Exchange;", "()Ljdk/internal/net/http/Exchange<TT;>;", $FINAL, $method(static_cast<$Exchange*(ExchangeImpl::*)()>(&ExchangeImpl::getExchange))},
-	{"getResponseAsync", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", $ABSTRACT},
-	{"ignoreBody", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $ABSTRACT},
-	{"isCanceled", "()Z", nullptr, $ABSTRACT},
-	{"lambda$createExchangeImpl$2", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/Http1Exchange;)Ljdk/internal/net/http/Http1Exchange;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Http1Exchange*(*)($Exchange*,$Http1Exchange*)>(&ExchangeImpl::lambda$createExchangeImpl$2))},
-	{"lambda$get$0", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2Connection;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CompletableFuture*(*)($Exchange*,$HttpConnection*,$Http2Connection*,$Throwable*)>(&ExchangeImpl::lambda$get$0))},
-	{"lambda$get$1", "(Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CompletionStage*(*)($CompletableFuture*)>(&ExchangeImpl::lambda$get$1))},
-	{"nullBody", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", "(Ljava/net/http/HttpResponse<TT;>;Ljava/lang/Throwable;)V", 0},
-	{"readBodyAsync", "(Ljava/net/http/HttpResponse$BodyHandler;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", $ABSTRACT},
-	{"released", "()V", nullptr, $ABSTRACT},
-	{"sendBodyAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", $ABSTRACT},
-	{"sendHeadersAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", $ABSTRACT},
-	{"upgraded", "()V", nullptr, 0},
+	{"<init>", "(Ljdk/internal/net/http/Exchange;)V", "(Ljdk/internal/net/http/Exchange<TT;>;)V", 0, $method(ExchangeImpl, init$, void, $Exchange*)},
+	{"cancel", "()V", nullptr, $ABSTRACT, $virtualMethod(ExchangeImpl, cancel, void)},
+	{"cancel", "(Ljava/io/IOException;)V", nullptr, $ABSTRACT, $virtualMethod(ExchangeImpl, cancel, void, $IOException*)},
+	{"client", "()Ljava/net/http/HttpClient;", nullptr, 0, $virtualMethod(ExchangeImpl, client, $HttpClient*)},
+	{"completed", "()V", nullptr, $ABSTRACT, $virtualMethod(ExchangeImpl, completed, void)},
+	{"connection", "()Ljdk/internal/net/http/HttpConnection;", nullptr, $ABSTRACT, $virtualMethod(ExchangeImpl, connection, $HttpConnection*)},
+	{"createExchangeImpl", "(Ljdk/internal/net/http/Http2Connection;Ljava/lang/Throwable;Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljdk/internal/net/http/Http2Connection;Ljava/lang/Throwable;Ljdk/internal/net/http/Exchange<TU;>;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture<+Ljdk/internal/net/http/ExchangeImpl<TU;>;>;", $PRIVATE | $STATIC, $staticMethod(ExchangeImpl, createExchangeImpl, $CompletableFuture*, $Http2Connection*, $Throwable*, $Exchange*, $HttpConnection*)},
+	{"createHttp1Exchange", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/Exchange<TT;>;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Exchange<TT;>;>;", $PRIVATE | $STATIC, $staticMethod(ExchangeImpl, createHttp1Exchange, $CompletableFuture*, $Exchange*, $HttpConnection*)},
+	{"get", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljdk/internal/net/http/Exchange<TU;>;Ljdk/internal/net/http/HttpConnection;)Ljava/util/concurrent/CompletableFuture<+Ljdk/internal/net/http/ExchangeImpl<TU;>;>;", $STATIC, $staticMethod(ExchangeImpl, get, $CompletableFuture*, $Exchange*, $HttpConnection*)},
+	{"getCancelCause", "()Ljava/lang/Throwable;", nullptr, $ABSTRACT, $virtualMethod(ExchangeImpl, getCancelCause, $Throwable*)},
+	{"getExchange", "()Ljdk/internal/net/http/Exchange;", "()Ljdk/internal/net/http/Exchange<TT;>;", $FINAL, $method(ExchangeImpl, getExchange, $Exchange*)},
+	{"getResponseAsync", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", $ABSTRACT, $virtualMethod(ExchangeImpl, getResponseAsync, $CompletableFuture*, $Executor*)},
+	{"ignoreBody", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $ABSTRACT, $virtualMethod(ExchangeImpl, ignoreBody, $CompletableFuture*)},
+	{"isCanceled", "()Z", nullptr, $ABSTRACT, $virtualMethod(ExchangeImpl, isCanceled, bool)},
+	{"lambda$createExchangeImpl$2", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/Http1Exchange;)Ljdk/internal/net/http/Http1Exchange;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExchangeImpl, lambda$createExchangeImpl$2, $Http1Exchange*, $Exchange*, $Http1Exchange*)},
+	{"lambda$get$0", "(Ljdk/internal/net/http/Exchange;Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2Connection;Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExchangeImpl, lambda$get$0, $CompletableFuture*, $Exchange*, $HttpConnection*, $Http2Connection*, $Throwable*)},
+	{"lambda$get$1", "(Ljava/util/concurrent/CompletableFuture;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExchangeImpl, lambda$get$1, $CompletionStage*, $CompletableFuture*)},
+	{"nullBody", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", "(Ljava/net/http/HttpResponse<TT;>;Ljava/lang/Throwable;)V", 0, $virtualMethod(ExchangeImpl, nullBody, void, $HttpResponse*, $Throwable*)},
+	{"readBodyAsync", "(Ljava/net/http/HttpResponse$BodyHandler;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TT;>;", $ABSTRACT, $virtualMethod(ExchangeImpl, readBodyAsync, $CompletableFuture*, $HttpResponse$BodyHandler*, bool, $Executor*)},
+	{"released", "()V", nullptr, $ABSTRACT, $virtualMethod(ExchangeImpl, released, void)},
+	{"sendBodyAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", $ABSTRACT, $virtualMethod(ExchangeImpl, sendBodyAsync, $CompletableFuture*)},
+	{"sendHeadersAsync", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/ExchangeImpl<TT;>;>;", $ABSTRACT, $virtualMethod(ExchangeImpl, sendHeadersAsync, $CompletableFuture*)},
+	{"upgraded", "()V", nullptr, 0, $virtualMethod(ExchangeImpl, upgraded, void)},
 	{}
 };
 

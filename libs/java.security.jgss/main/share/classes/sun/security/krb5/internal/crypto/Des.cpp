@@ -47,21 +47,21 @@ $FieldInfo _Des_FieldInfo_[] = {
 };
 
 $MethodInfo _Des_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Des::*)()>(&Des::init$))},
-	{"bad_key", "(J)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<bool(*)(int64_t)>(&Des::bad_key))},
-	{"bad_key", "([B)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<bool(*)($bytes*)>(&Des::bad_key))},
-	{"cbc_encrypt", "([B[B[B[BZ)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($bytes*,$bytes*,$bytes*,$bytes*,bool)>(&Des::cbc_encrypt)), "sun.security.krb5.KrbCryptoException"},
-	{"char_to_key", "([C)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($chars*)>(&Des::char_to_key)), "sun.security.krb5.KrbCryptoException"},
-	{"des_cksum", "([B[B[B)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,$bytes*,$bytes*)>(&Des::des_cksum)), "sun.security.krb5.KrbCryptoException"},
-	{"long2octet", "(J)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)(int64_t)>(&Des::long2octet))},
-	{"long2octet", "(J[B)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int64_t,$bytes*)>(&Des::long2octet))},
-	{"long2octet", "(J[BI)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int64_t,$bytes*,int32_t)>(&Des::long2octet))},
-	{"octet2long", "([B)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($bytes*)>(&Des::octet2long))},
-	{"octet2long", "([BI)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($bytes*,int32_t)>(&Des::octet2long))},
-	{"pad", "([B)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&Des::pad))},
-	{"set_parity", "([B)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$bytes*(*)($bytes*)>(&Des::set_parity))},
-	{"set_parity", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<int64_t(*)(int64_t)>(&Des::set_parity))},
-	{"string_to_key_bytes", "([C)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($chars*)>(&Des::string_to_key_bytes)), "sun.security.krb5.KrbCryptoException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Des, init$, void)},
+	{"bad_key", "(J)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, bad_key, bool, int64_t)},
+	{"bad_key", "([B)Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, bad_key, bool, $bytes*)},
+	{"cbc_encrypt", "([B[B[B[BZ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, cbc_encrypt, void, $bytes*, $bytes*, $bytes*, $bytes*, bool), "sun.security.krb5.KrbCryptoException"},
+	{"char_to_key", "([C)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, char_to_key, int64_t, $chars*), "sun.security.krb5.KrbCryptoException"},
+	{"des_cksum", "([B[B[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, des_cksum, $bytes*, $bytes*, $bytes*, $bytes*), "sun.security.krb5.KrbCryptoException"},
+	{"long2octet", "(J)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, long2octet, $bytes*, int64_t)},
+	{"long2octet", "(J[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, long2octet, void, int64_t, $bytes*)},
+	{"long2octet", "(J[BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, long2octet, void, int64_t, $bytes*, int32_t)},
+	{"octet2long", "([B)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, octet2long, int64_t, $bytes*)},
+	{"octet2long", "([BI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, octet2long, int64_t, $bytes*, int32_t)},
+	{"pad", "([B)[B", nullptr, $STATIC, $staticMethod(Des, pad, $bytes*, $bytes*)},
+	{"set_parity", "([B)[B", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, set_parity, $bytes*, $bytes*)},
+	{"set_parity", "(J)J", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Des, set_parity, int64_t, int64_t)},
+	{"string_to_key_bytes", "([C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Des, string_to_key_bytes, $bytes*, $chars*), "sun.security.krb5.KrbCryptoException"},
 	{}
 };
 

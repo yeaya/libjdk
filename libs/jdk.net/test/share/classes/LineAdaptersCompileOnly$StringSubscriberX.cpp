@@ -10,8 +10,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _LineAdaptersCompileOnly$StringSubscriberX_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LineAdaptersCompileOnly$StringSubscriberX::*)()>(&LineAdaptersCompileOnly$StringSubscriberX::init$))},
-	{"getIntegerX", "()I", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(LineAdaptersCompileOnly$StringSubscriberX, init$, void)},
+	{"getIntegerX", "()I", nullptr, 0, $virtualMethod(LineAdaptersCompileOnly$StringSubscriberX, getIntegerX, int32_t)},
 	{}
 };
 

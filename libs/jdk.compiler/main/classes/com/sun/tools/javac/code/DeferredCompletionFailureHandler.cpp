@@ -43,13 +43,13 @@ $FieldInfo _DeferredCompletionFailureHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredCompletionFailureHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(DeferredCompletionFailureHandler::*)($Context*)>(&DeferredCompletionFailureHandler::init$))},
-	{"classSymbolCompleteFailed", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC},
-	{"classSymbolRemoved", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC},
-	{"handleAPICompletionFailure", "(Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DeferredCompletionFailureHandler*(*)($Context*)>(&DeferredCompletionFailureHandler::instance))},
-	{"isDeferredCompleter", "(Lcom/sun/tools/javac/code/Symbol$Completer;)Z", nullptr, $PUBLIC},
-	{"setHandler", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$Handler;)Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$Handler;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(DeferredCompletionFailureHandler, init$, void, $Context*)},
+	{"classSymbolCompleteFailed", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler, classSymbolCompleteFailed, void, $Symbol$ClassSymbol*, $Symbol$Completer*)},
+	{"classSymbolRemoved", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler, classSymbolRemoved, void, $Symbol$ClassSymbol*)},
+	{"handleAPICompletionFailure", "(Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler, handleAPICompletionFailure, void, $Symbol$CompletionFailure*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredCompletionFailureHandler, instance, DeferredCompletionFailureHandler*, $Context*)},
+	{"isDeferredCompleter", "(Lcom/sun/tools/javac/code/Symbol$Completer;)Z", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler, isDeferredCompleter, bool, $Symbol$Completer*)},
+	{"setHandler", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$Handler;)Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$Handler;", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler, setHandler, $DeferredCompletionFailureHandler$Handler*, $DeferredCompletionFailureHandler$Handler*)},
 	{}
 };
 

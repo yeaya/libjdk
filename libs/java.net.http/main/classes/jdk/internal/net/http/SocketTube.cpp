@@ -118,8 +118,8 @@ $FieldInfo SocketTube$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SocketTube$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$$Lambda$dbgString::*)(SocketTube*)>(&SocketTube$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube;)V", nullptr, $PUBLIC, $method(SocketTube$$Lambda$dbgString, init$, void, SocketTube*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketTube$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo SocketTube$$Lambda$dbgString::classInfo$ = {
@@ -155,25 +155,25 @@ $FieldInfo _SocketTube_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketTube_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;Ljava/nio/channels/SocketChannel;Ljava/util/function/Supplier;)V", "(Ljdk/internal/net/http/HttpClientImpl;Ljava/nio/channels/SocketChannel;Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(SocketTube::*)($HttpClientImpl*,$SocketChannel*,$Supplier*)>(&SocketTube::init$))},
-	{"channelDescr", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(SocketTube::*)()>(&SocketTube::channelDescr))},
-	{"connectFlows", "(Ljdk/internal/net/http/common/FlowTube$TubePublisher;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;)V", nullptr, $PUBLIC},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(SocketTube::*)()>(&SocketTube::dbgString))},
-	{"debugState", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(SocketTube::*)($String*)>(&SocketTube::debugState))},
-	{"isFinished", "()Z", nullptr, $PUBLIC},
-	{"listOf", "(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/List<TT;>;TT;)Ljava/util/List<TT;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*,Object$*)>(&SocketTube::listOf))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(SocketTube::*)($List*)>(&SocketTube::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"pauseEvent", "(Ljdk/internal/net/http/SocketTube$SocketFlowEvent;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/SocketTube$SocketFlowEvent;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", $PRIVATE, $method(static_cast<void(SocketTube::*)($SocketTube$SocketFlowEvent*,$Consumer*)>(&SocketTube::pauseEvent))},
-	{"readAvailable", "(Ljdk/internal/net/http/SocketTube$BufferSource;)Ljava/util/List;", "(Ljdk/internal/net/http/SocketTube$BufferSource;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(static_cast<$List*(SocketTube::*)($SocketTube$BufferSource*)>(&SocketTube::readAvailable)), "java.io.IOException"},
-	{"resumeEvent", "(Ljdk/internal/net/http/SocketTube$SocketFlowEvent;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/SocketTube$SocketFlowEvent;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", $PRIVATE, $method(static_cast<void(SocketTube::*)($SocketTube$SocketFlowEvent*,$Consumer*)>(&SocketTube::resumeEvent))},
-	{"signalClosed", "()V", nullptr, 0, $method(static_cast<void(SocketTube::*)()>(&SocketTube::signalClosed))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeAvailable", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PRIVATE, $method(static_cast<int64_t(SocketTube::*)($List*)>(&SocketTube::writeAvailable)), "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;Ljava/nio/channels/SocketChannel;Ljava/util/function/Supplier;)V", "(Ljdk/internal/net/http/HttpClientImpl;Ljava/nio/channels/SocketChannel;Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SocketTube, init$, void, $HttpClientImpl*, $SocketChannel*, $Supplier*)},
+	{"channelDescr", "()Ljava/lang/String;", nullptr, $FINAL, $method(SocketTube, channelDescr, $String*)},
+	{"connectFlows", "(Ljdk/internal/net/http/common/FlowTube$TubePublisher;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube, connectFlows, void, $FlowTube$TubePublisher*, $FlowTube$TubeSubscriber*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(SocketTube, dbgString, $String*)},
+	{"debugState", "(Ljava/lang/String;)V", nullptr, 0, $method(SocketTube, debugState, void, $String*)},
+	{"isFinished", "()Z", nullptr, $PUBLIC, $virtualMethod(SocketTube, isFinished, bool)},
+	{"listOf", "(Ljava/util/List;Ljava/lang/Object;)Ljava/util/List;", "<T:Ljava/lang/Object;>(Ljava/util/List<TT;>;TT;)Ljava/util/List<TT;>;", $PRIVATE | $STATIC, $staticMethod(SocketTube, listOf, $List*, $List*, Object$*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SocketTube, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SocketTube, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube, onSubscribe, void, $Flow$Subscription*)},
+	{"pauseEvent", "(Ljdk/internal/net/http/SocketTube$SocketFlowEvent;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/SocketTube$SocketFlowEvent;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", $PRIVATE, $method(SocketTube, pauseEvent, void, $SocketTube$SocketFlowEvent*, $Consumer*)},
+	{"readAvailable", "(Ljdk/internal/net/http/SocketTube$BufferSource;)Ljava/util/List;", "(Ljdk/internal/net/http/SocketTube$BufferSource;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(SocketTube, readAvailable, $List*, $SocketTube$BufferSource*), "java.io.IOException"},
+	{"resumeEvent", "(Ljdk/internal/net/http/SocketTube$SocketFlowEvent;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/SocketTube$SocketFlowEvent;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", $PRIVATE, $method(SocketTube, resumeEvent, void, $SocketTube$SocketFlowEvent*, $Consumer*)},
+	{"signalClosed", "()V", nullptr, 0, $method(SocketTube, signalClosed, void)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $virtualMethod(SocketTube, subscribe, void, $Flow$Subscriber*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SocketTube, toString, $String*)},
+	{"writeAvailable", "(Ljava/util/List;)J", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)J", $PRIVATE, $method(SocketTube, writeAvailable, int64_t, $List*), "java.io.IOException"},
 	{}
 };
 

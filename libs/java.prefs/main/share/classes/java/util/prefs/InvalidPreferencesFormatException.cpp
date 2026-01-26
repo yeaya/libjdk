@@ -17,9 +17,9 @@ $FieldInfo _InvalidPreferencesFormatException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidPreferencesFormatException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidPreferencesFormatException::*)($Throwable*)>(&InvalidPreferencesFormatException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidPreferencesFormatException::*)($String*)>(&InvalidPreferencesFormatException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidPreferencesFormatException::*)($String*,$Throwable*)>(&InvalidPreferencesFormatException::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidPreferencesFormatException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidPreferencesFormatException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidPreferencesFormatException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

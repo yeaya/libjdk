@@ -8,8 +8,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ExceptionallyCloseable_MethodInfo_[] = {
-	{"close", "(Ljava/lang/Throwable;Ljava/io/Closeable;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Throwable*,$Closeable*)>(&ExceptionallyCloseable::close)), "java.io.IOException"},
-	{"closeExceptionally", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"close", "(Ljava/lang/Throwable;Ljava/io/Closeable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionallyCloseable, close, void, $Throwable*, $Closeable*), "java.io.IOException"},
+	{"closeExceptionally", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ExceptionallyCloseable, closeExceptionally, void, $Throwable*), "java.io.IOException"},
 	{}
 };
 

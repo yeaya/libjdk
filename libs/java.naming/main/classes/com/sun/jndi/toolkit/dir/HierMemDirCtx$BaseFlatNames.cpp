@@ -28,12 +28,12 @@ $FieldInfo _HierMemDirCtx$BaseFlatNames_FieldInfo_[] = {
 };
 
 $MethodInfo _HierMemDirCtx$BaseFlatNames_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljavax/naming/Name;>;)V", 0, $method(static_cast<void(HierMemDirCtx$BaseFlatNames::*)($HierMemDirCtx*,$Enumeration*)>(&HierMemDirCtx$BaseFlatNames::init$))},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"hasMore", "()Z", nullptr, $PUBLIC | $FINAL, nullptr, "javax.naming.NamingException"},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljavax/naming/Name;>;)V", 0, $method(HierMemDirCtx$BaseFlatNames, init$, void, $HierMemDirCtx*, $Enumeration*)},
+	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, close, void)},
+	{"hasMore", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, hasMore, bool), "javax.naming.NamingException"},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, hasMoreElements, bool)},
 	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $FINAL},
+	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, nextElement, $Object*)},
 	{}
 };
 

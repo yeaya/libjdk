@@ -28,10 +28,10 @@ $FieldInfo _DiagnosticFormatter$Configuration$MultilineLimit_FieldInfo_[] = {
 };
 
 $MethodInfo _DiagnosticFormatter$Configuration$MultilineLimit_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DiagnosticFormatter$Configuration$MultilineLimitArray*(*)()>(&DiagnosticFormatter$Configuration$MultilineLimit::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DiagnosticFormatter$Configuration$MultilineLimit::*)($String*,int32_t)>(&DiagnosticFormatter$Configuration$MultilineLimit::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DiagnosticFormatter$Configuration$MultilineLimit*(*)($String*)>(&DiagnosticFormatter$Configuration$MultilineLimit::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DiagnosticFormatter$Configuration$MultilineLimitArray*(*)()>(&DiagnosticFormatter$Configuration$MultilineLimit::values))},
+	{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DiagnosticFormatter$Configuration$MultilineLimit, $values, $DiagnosticFormatter$Configuration$MultilineLimitArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DiagnosticFormatter$Configuration$MultilineLimit, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$MultilineLimit, valueOf, DiagnosticFormatter$Configuration$MultilineLimit*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$MultilineLimit, values, $DiagnosticFormatter$Configuration$MultilineLimitArray*)},
 	{}
 };
 

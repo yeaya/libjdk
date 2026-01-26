@@ -31,10 +31,10 @@ $FieldInfo _Monitor$DaemonThreadFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _Monitor$DaemonThreadFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Monitor$DaemonThreadFactory::*)($String*)>(&Monitor$DaemonThreadFactory::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(static_cast<void(Monitor$DaemonThreadFactory::*)($String*,$ThreadGroup*)>(&Monitor$DaemonThreadFactory::init$))},
-	{"getThreadGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Monitor$DaemonThreadFactory, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(Monitor$DaemonThreadFactory, init$, void, $String*, $ThreadGroup*)},
+	{"getThreadGroup", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $virtualMethod(Monitor$DaemonThreadFactory, getThreadGroup, $ThreadGroup*)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(Monitor$DaemonThreadFactory, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

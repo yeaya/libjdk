@@ -26,9 +26,9 @@ namespace java {
 		namespace logging {
 
 $MethodInfo _ConsoleHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConsoleHandler::*)()>(&ConsoleHandler::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConsoleHandler, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ConsoleHandler, close, void)},
+	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $virtualMethod(ConsoleHandler, publish, void, $LogRecord*)},
 	{}
 };
 

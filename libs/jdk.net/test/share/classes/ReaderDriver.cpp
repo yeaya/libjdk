@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ReaderDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReaderDriver::*)()>(&ReaderDriver::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReaderDriver, init$, void)},
 	{}
 };
 

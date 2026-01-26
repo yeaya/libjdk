@@ -69,14 +69,14 @@ $FieldInfo _Main$MemoryClassLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$MemoryClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/ClassLoader;Ljava/nio/file/Path;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/lang/ClassLoader;Ljava/nio/file/Path;)V", 0, $method(static_cast<void(Main$MemoryClassLoader::*)($Map*,$ClassLoader*,$Path*)>(&Main$MemoryClassLoader::init$))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC},
-	{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC},
-	{"getResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC},
-	{"getResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, nullptr, "java.io.IOException"},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"toBinaryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Main$MemoryClassLoader::*)($String*)>(&Main$MemoryClassLoader::toBinaryName))},
+	{"<init>", "(Ljava/util/Map;Ljava/lang/ClassLoader;Ljava/nio/file/Path;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/lang/ClassLoader;Ljava/nio/file/Path;)V", 0, $method(Main$MemoryClassLoader, init$, void, $Map*, $ClassLoader*, $Path*)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Main$MemoryClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader, findResource, $URL*, $String*)},
+	{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(Main$MemoryClassLoader, findResources, $Enumeration*, $String*)},
+	{"getResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader, getResource, $URL*, $String*)},
+	{"getResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(Main$MemoryClassLoader, getResources, $Enumeration*, $String*), "java.io.IOException"},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Main$MemoryClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+	{"toBinaryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main$MemoryClassLoader, toBinaryName, $String*, $String*)},
 	{}
 };
 

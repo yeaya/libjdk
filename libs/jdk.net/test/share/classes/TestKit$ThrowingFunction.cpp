@@ -8,7 +8,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _TestKit$ThrowingFunction_MethodInfo_[] = {
-	{"run", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"run", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $ABSTRACT, $virtualMethod(TestKit$ThrowingFunction, run, $Object*), "java.lang.Throwable"},
 	{}
 };
 

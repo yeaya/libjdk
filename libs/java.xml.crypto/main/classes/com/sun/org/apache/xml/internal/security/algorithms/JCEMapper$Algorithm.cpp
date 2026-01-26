@@ -31,12 +31,12 @@ $FieldInfo _JCEMapper$Algorithm_FieldInfo_[] = {
 };
 
 $MethodInfo _JCEMapper$Algorithm_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(static_cast<void(JCEMapper$Algorithm::*)($Element*)>(&JCEMapper$Algorithm::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JCEMapper$Algorithm::*)($String*,$String*)>(&JCEMapper$Algorithm::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JCEMapper$Algorithm::*)($String*,$String*,$String*)>(&JCEMapper$Algorithm::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(JCEMapper$Algorithm::*)($String*,$String*,int32_t)>(&JCEMapper$Algorithm::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(static_cast<void(JCEMapper$Algorithm::*)($String*,$String*,$String*,int32_t,int32_t)>(&JCEMapper$Algorithm::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JCEMapper$Algorithm::*)($String*,$String*,$String*,int32_t,int32_t,$String*)>(&JCEMapper$Algorithm::init$))},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $Element*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, $String*, int32_t, int32_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;)V", nullptr, $PUBLIC, $method(JCEMapper$Algorithm, init$, void, $String*, $String*, $String*, int32_t, int32_t, $String*)},
 	{}
 };
 

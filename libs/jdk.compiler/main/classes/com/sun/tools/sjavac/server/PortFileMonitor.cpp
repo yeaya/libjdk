@@ -36,9 +36,9 @@ $FieldInfo _PortFileMonitor_FieldInfo_[] = {
 };
 
 $MethodInfo _PortFileMonitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/server/PortFile;Lcom/sun/tools/sjavac/server/SjavacServer;)V", nullptr, $PUBLIC, $method(static_cast<void(PortFileMonitor::*)($PortFile*,$SjavacServer*)>(&PortFileMonitor::init$))},
-	{"shutdown", "()V", nullptr, $PUBLIC},
-	{"start", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/server/PortFile;Lcom/sun/tools/sjavac/server/SjavacServer;)V", nullptr, $PUBLIC, $method(PortFileMonitor, init$, void, $PortFile*, $SjavacServer*)},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(PortFileMonitor, shutdown, void)},
+	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(PortFileMonitor, start, void)},
 	{}
 };
 

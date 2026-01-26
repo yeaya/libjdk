@@ -42,9 +42,9 @@ $FieldInfo _LambdaToMethod$DedupedLambda_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaToMethod$DedupedLambda_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(static_cast<void(LambdaToMethod$DedupedLambda::*)($LambdaToMethod*,$Symbol$MethodSymbol*,$JCTree*)>(&LambdaToMethod$DedupedLambda::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(LambdaToMethod$DedupedLambda, init$, void, $LambdaToMethod*, $Symbol$MethodSymbol*, $JCTree*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$DedupedLambda, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$DedupedLambda, hashCode, int32_t)},
 	{}
 };
 

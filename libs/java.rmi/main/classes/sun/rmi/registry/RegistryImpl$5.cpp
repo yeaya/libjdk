@@ -20,8 +20,8 @@ $FieldInfo _RegistryImpl$5_FieldInfo_[] = {
 };
 
 $MethodInfo _RegistryImpl$5_MethodInfo_[] = {
-	{"<init>", "(I)V", "()V", 0, $method(static_cast<void(RegistryImpl$5::*)(int32_t)>(&RegistryImpl$5::init$))},
-	{"run", "()Lsun/rmi/registry/RegistryImpl;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
+	{"<init>", "(I)V", "()V", 0, $method(RegistryImpl$5, init$, void, int32_t)},
+	{"run", "()Lsun/rmi/registry/RegistryImpl;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$5, run, $Object*), "java.rmi.RemoteException"},
 	{}
 };
 

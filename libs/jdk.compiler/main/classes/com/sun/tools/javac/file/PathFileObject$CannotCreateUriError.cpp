@@ -22,7 +22,7 @@ $FieldInfo _PathFileObject$CannotCreateUriError_FieldInfo_[] = {
 };
 
 $MethodInfo _PathFileObject$CannotCreateUriError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(PathFileObject$CannotCreateUriError::*)($String*,$Throwable*)>(&PathFileObject$CannotCreateUriError::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(PathFileObject$CannotCreateUriError, init$, void, $String*, $Throwable*)},
 	{}
 };
 

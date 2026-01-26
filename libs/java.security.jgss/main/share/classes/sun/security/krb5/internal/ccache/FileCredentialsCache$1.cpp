@@ -15,8 +15,8 @@ namespace sun {
 				namespace ccache {
 
 $MethodInfo _FileCredentialsCache$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FileCredentialsCache$1::*)()>(&FileCredentialsCache$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FileCredentialsCache$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache$1, run, $Object*)},
 	{}
 };
 

@@ -47,21 +47,21 @@ $FieldInfo _SimpleJavaFileObject_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleJavaFileObject_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;)V", nullptr, $PROTECTED, $method(static_cast<void(SimpleJavaFileObject::*)($URI*,$JavaFileObject$Kind*)>(&SimpleJavaFileObject::init$))},
-	{"delete", "()Z", nullptr, $PUBLIC},
-	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC},
-	{"getLastModified", "()J", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;)V", nullptr, $PROTECTED, $method(SimpleJavaFileObject, init$, void, $URI*, $JavaFileObject$Kind*)},
+	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, delete$, bool)},
+	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getAccessLevel, $Modifier*)},
+	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getKind, $JavaFileObject$Kind*)},
+	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getLastModified, int64_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getName, $String*)},
+	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getNestingKind, $NestingKind*)},
+	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openInputStream, $InputStream*), "java.io.IOException"},
+	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openReader, $Reader*, bool), "java.io.IOException"},
+	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openWriter, $Writer*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, toString, $String*)},
+	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, toUri, $URI*)},
 	{}
 };
 

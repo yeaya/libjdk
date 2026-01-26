@@ -18,8 +18,8 @@ $FieldInfo _InvalidRoleValueException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidRoleValueException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidRoleValueException::*)()>(&InvalidRoleValueException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidRoleValueException::*)($String*)>(&InvalidRoleValueException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidRoleValueException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidRoleValueException, init$, void, $String*)},
 	{}
 };
 

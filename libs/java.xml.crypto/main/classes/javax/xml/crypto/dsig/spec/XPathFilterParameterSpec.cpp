@@ -28,10 +28,10 @@ $FieldInfo _XPathFilterParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _XPathFilterParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XPathFilterParameterSpec::*)($String*)>(&XPathFilterParameterSpec::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(XPathFilterParameterSpec::*)($String*,$Map*)>(&XPathFilterParameterSpec::init$))},
-	{"getNamespaceMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$Map*(XPathFilterParameterSpec::*)()>(&XPathFilterParameterSpec::getNamespaceMap))},
-	{"getXPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(XPathFilterParameterSpec::*)()>(&XPathFilterParameterSpec::getXPath))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XPathFilterParameterSpec, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(XPathFilterParameterSpec, init$, void, $String*, $Map*)},
+	{"getNamespaceMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $method(XPathFilterParameterSpec, getNamespaceMap, $Map*)},
+	{"getXPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XPathFilterParameterSpec, getXPath, $String*)},
 	{}
 };
 

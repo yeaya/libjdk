@@ -17,9 +17,9 @@ namespace com {
 						namespace security {
 
 $MethodInfo _Init$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Init$2::*)()>(&Init$2::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Init$2, init$, void)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Init$2, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Init$2, nextElement, $Object*)},
 	{}
 };
 

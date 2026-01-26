@@ -16,8 +16,8 @@ $FieldInfo _ProxyServer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyServer$1_MethodInfo_[] = {
-	{"<init>", "(LProxyServer;)V", nullptr, 0, $method(static_cast<void(ProxyServer$1::*)($ProxyServer*)>(&ProxyServer$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(LProxyServer;)V", nullptr, 0, $method(ProxyServer$1, init$, void, $ProxyServer*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ProxyServer$1, run, $Object*)},
 	{}
 };
 

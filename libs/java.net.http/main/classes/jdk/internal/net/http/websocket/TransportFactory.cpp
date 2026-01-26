@@ -8,6 +8,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $MessageQueue = ::jdk::internal::net::http::websocket::MessageQueue;
+using $MessageStreamConsumer = ::jdk::internal::net::http::websocket::MessageStreamConsumer;
+using $Transport = ::jdk::internal::net::http::websocket::Transport;
 
 namespace jdk {
 	namespace internal {
@@ -21,7 +24,7 @@ $CompoundAttribute _TransportFactory_Annotations_[] = {
 };
 
 $MethodInfo _TransportFactory_MethodInfo_[] = {
-	{"createTransport", "(Ljdk/internal/net/http/websocket/MessageQueue;Ljdk/internal/net/http/websocket/MessageStreamConsumer;)Ljdk/internal/net/http/websocket/Transport;", nullptr, $PUBLIC | $ABSTRACT},
+	{"createTransport", "(Ljdk/internal/net/http/websocket/MessageQueue;Ljdk/internal/net/http/websocket/MessageStreamConsumer;)Ljdk/internal/net/http/websocket/Transport;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransportFactory, createTransport, $Transport*, $MessageQueue*, $MessageStreamConsumer*)},
 	{}
 };
 

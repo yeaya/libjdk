@@ -32,13 +32,13 @@ namespace sun {
 			namespace ext {
 
 $MethodInfo _MS50220_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MS50220::*)()>(&MS50220::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(MS50220::*)($String*,$StringArray*)>(&MS50220::init$))},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC},
-	{"doSBKANA", "()Z", nullptr, $PROTECTED},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MS50220, init$, void)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(MS50220, init$, void, $String*, $StringArray*)},
+	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS50220, contains, bool, $Charset*)},
+	{"doSBKANA", "()Z", nullptr, $PROTECTED, $virtualMethod(MS50220, doSBKANA, bool)},
+	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MS50220, historicalName, $String*)},
+	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS50220, newDecoder, $CharsetDecoder*)},
+	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS50220, newEncoder, $CharsetEncoder*)},
 	{}
 };
 

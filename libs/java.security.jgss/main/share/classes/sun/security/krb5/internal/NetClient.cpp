@@ -16,10 +16,10 @@ namespace sun {
 
 $MethodInfo _NetClient_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NetClient::*)()>(&NetClient::init$))},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;II)Lsun/security/krb5/internal/NetClient;", nullptr, $PUBLIC | $STATIC, $method(static_cast<NetClient*(*)($String*,$String*,int32_t,int32_t)>(&NetClient::getInstance)), "java.io.IOException"},
-	{"receive", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"send", "([B)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NetClient, init$, void)},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;II)Lsun/security/krb5/internal/NetClient;", nullptr, $PUBLIC | $STATIC, $staticMethod(NetClient, getInstance, NetClient*, $String*, $String*, int32_t, int32_t), "java.io.IOException"},
+	{"receive", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NetClient, receive, $bytes*), "java.io.IOException"},
+	{"send", "([B)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NetClient, send, void, $bytes*), "java.io.IOException"},
 	{}
 };
 

@@ -28,10 +28,10 @@ $FieldInfo _TreePath$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TreePath$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/util/TreePath;)V", nullptr, 0, $method(static_cast<void(TreePath$1::*)($TreePath*)>(&TreePath$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/source/util/TreePath;)V", nullptr, 0, $method(TreePath$1, init$, void, $TreePath*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(TreePath$1, hasNext, bool)},
+	{"next", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC, $virtualMethod(TreePath$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TreePath$1, remove, void)},
 	{}
 };
 

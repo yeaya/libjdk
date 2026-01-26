@@ -60,15 +60,15 @@ $FieldInfo _IBM29626C$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _IBM29626C$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(static_cast<void(IBM29626C$Encoder::*)($Charset*)>(&IBM29626C$Encoder::init$))},
-	{"<init>", "(Ljava/nio/charset/Charset;FFLsun/nio/cs/SingleByte$Encoder;Lsun/nio/cs/DoubleByte$Encoder;Lsun/nio/cs/DoubleByte$Encoder;)V", nullptr, $PROTECTED, $method(static_cast<void(IBM29626C$Encoder::*)($Charset*,float,float,$SingleByte$Encoder*,$DoubleByte$Encoder*,$DoubleByte$Encoder*)>(&IBM29626C$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(IBM29626C$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&IBM29626C$Encoder::encodeArrayLoop))},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(IBM29626C$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&IBM29626C$Encoder::encodeBufferLoop))},
-	{"encodeDouble", "(C)I", nullptr, $PROTECTED},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"encodeSingle", "(C[B)I", nullptr, $PROTECTED},
-	{"encodeUDC", "(C)I", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(IBM29626C$Encoder, init$, void, $Charset*)},
+	{"<init>", "(Ljava/nio/charset/Charset;FFLsun/nio/cs/SingleByte$Encoder;Lsun/nio/cs/DoubleByte$Encoder;Lsun/nio/cs/DoubleByte$Encoder;)V", nullptr, $PROTECTED, $method(IBM29626C$Encoder, init$, void, $Charset*, float, float, $SingleByte$Encoder*, $DoubleByte$Encoder*, $DoubleByte$Encoder*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(IBM29626C$Encoder, canEncode, bool, char16_t)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(IBM29626C$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(IBM29626C$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeDouble", "(C)I", nullptr, $PROTECTED, $virtualMethod(IBM29626C$Encoder, encodeDouble, int32_t, char16_t)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(IBM29626C$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeSingle", "(C[B)I", nullptr, $PROTECTED, $virtualMethod(IBM29626C$Encoder, encodeSingle, int32_t, char16_t, $bytes*)},
+	{"encodeUDC", "(C)I", nullptr, $PROTECTED, $virtualMethod(IBM29626C$Encoder, encodeUDC, int32_t, char16_t)},
 	{}
 };
 

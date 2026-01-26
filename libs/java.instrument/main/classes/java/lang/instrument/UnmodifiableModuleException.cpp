@@ -17,8 +17,8 @@ $FieldInfo _UnmodifiableModuleException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnmodifiableModuleException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnmodifiableModuleException::*)()>(&UnmodifiableModuleException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnmodifiableModuleException::*)($String*)>(&UnmodifiableModuleException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnmodifiableModuleException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnmodifiableModuleException, init$, void, $String*)},
 	{}
 };
 

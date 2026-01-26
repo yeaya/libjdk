@@ -10,11 +10,11 @@ namespace java {
 		namespace management {
 
 $MethodInfo _OperatingSystemMXBean_MethodInfo_[] = {
-	{"getArch", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAvailableProcessors", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSystemLoadAverage", "()D", nullptr, $PUBLIC | $ABSTRACT},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getArch", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperatingSystemMXBean, getArch, $String*)},
+	{"getAvailableProcessors", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperatingSystemMXBean, getAvailableProcessors, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperatingSystemMXBean, getName, $String*)},
+	{"getSystemLoadAverage", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperatingSystemMXBean, getSystemLoadAverage, double)},
+	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OperatingSystemMXBean, getVersion, $String*)},
 	{}
 };
 

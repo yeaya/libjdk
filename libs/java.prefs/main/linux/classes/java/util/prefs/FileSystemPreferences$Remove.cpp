@@ -24,8 +24,8 @@ $FieldInfo _FileSystemPreferences$Remove_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemPreferences$Remove_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(FileSystemPreferences$Remove::*)($FileSystemPreferences*,$String*)>(&FileSystemPreferences$Remove::init$))},
-	{"replay", "()V", nullptr, 0},
+	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/String;)V", nullptr, 0, $method(FileSystemPreferences$Remove, init$, void, $FileSystemPreferences*, $String*)},
+	{"replay", "()V", nullptr, 0, $virtualMethod(FileSystemPreferences$Remove, replay, void)},
 	{}
 };
 

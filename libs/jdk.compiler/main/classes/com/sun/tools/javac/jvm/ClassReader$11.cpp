@@ -78,8 +78,8 @@ $FieldInfo ClassReader$11$$Lambda$sigToTypeParams::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassReader$11$$Lambda$sigToTypeParams::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$11$$Lambda$sigToTypeParams::*)($ClassReader*)>(&ClassReader$11$$Lambda$sigToTypeParams::init$))},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;)V", nullptr, $PUBLIC, $method(ClassReader$11$$Lambda$sigToTypeParams, init$, void, $ClassReader*)},
+	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$11$$Lambda$sigToTypeParams, map, $Object*, $bytes*, int32_t, int32_t)},
 	{}
 };
 $ClassInfo ClassReader$11$$Lambda$sigToTypeParams::classInfo$ = {
@@ -102,8 +102,8 @@ $FieldInfo _ClassReader$11_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$11_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(static_cast<void(ClassReader$11::*)($ClassReader*,$Name*,$ClassFile$Version*,$Set*)>(&ClassReader$11::init$))},
-	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(ClassReader$11, init$, void, $ClassReader*, $Name*, $ClassFile$Version*, $Set*)},
+	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED, $virtualMethod(ClassReader$11, read, void, $Symbol*, int32_t)},
 	{}
 };
 

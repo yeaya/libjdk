@@ -50,16 +50,16 @@ $FieldInfo _ConstFold_FieldInfo_[] = {
 };
 
 $MethodInfo _ConstFold_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(static_cast<void(ConstFold::*)($Context*)>(&ConstFold::init$))},
-	{"b2i", "(Z)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Integer*(*)(bool)>(&ConstFold::b2i))},
-	{"coerce", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"doubleValue", "(Ljava/lang/Object;)D", nullptr, $PRIVATE | $STATIC, $method(static_cast<double(*)(Object$*)>(&ConstFold::doubleValue))},
-	{"floatValue", "(Ljava/lang/Object;)F", nullptr, $PRIVATE | $STATIC, $method(static_cast<float(*)(Object$*)>(&ConstFold::floatValue))},
-	{"fold1", "(ILcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"fold2", "(ILcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/ConstFold;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ConstFold*(*)($Context*)>(&ConstFold::instance))},
-	{"intValue", "(Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)(Object$*)>(&ConstFold::intValue))},
-	{"longValue", "(Ljava/lang/Object;)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(Object$*)>(&ConstFold::longValue))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(ConstFold, init$, void, $Context*)},
+	{"b2i", "(Z)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, b2i, $Integer*, bool)},
+	{"coerce", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ConstFold, coerce, $Type*, $Type*, $Type*)},
+	{"doubleValue", "(Ljava/lang/Object;)D", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, doubleValue, double, Object$*)},
+	{"floatValue", "(Ljava/lang/Object;)F", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, floatValue, float, Object$*)},
+	{"fold1", "(ILcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ConstFold, fold1, $Type*, int32_t, $Type*)},
+	{"fold2", "(ILcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ConstFold, fold2, $Type*, int32_t, $Type*, $Type*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/ConstFold;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstFold, instance, ConstFold*, $Context*)},
+	{"intValue", "(Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, intValue, int32_t, Object$*)},
+	{"longValue", "(Ljava/lang/Object;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstFold, longValue, int64_t, Object$*)},
 	{}
 };
 

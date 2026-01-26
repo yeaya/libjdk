@@ -18,10 +18,10 @@ $FieldInfo _ExtendedSocketOptions$ExtSocketOption_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedSocketOptions$ExtSocketOption_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<TT;>;)V", 0, $method(static_cast<void(ExtendedSocketOptions$ExtSocketOption::*)($String*,$Class*)>(&ExtendedSocketOptions$ExtSocketOption::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<TT;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<TT;>;)V", 0, $method(ExtendedSocketOptions$ExtSocketOption, init$, void, $String*, $Class*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOptions$ExtSocketOption, name, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOptions$ExtSocketOption, toString, $String*)},
+	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<TT;>;", $PUBLIC, $virtualMethod(ExtendedSocketOptions$ExtSocketOption, type, $Class*)},
 	{}
 };
 

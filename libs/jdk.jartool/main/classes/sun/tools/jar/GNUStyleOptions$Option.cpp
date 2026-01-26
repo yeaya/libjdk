@@ -10,6 +10,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GNUStyleOptions$OptionType = ::sun::tools::jar::GNUStyleOptions$OptionType;
+using $Main = ::sun::tools::jar::Main;
 
 namespace sun {
 	namespace tools {
@@ -24,12 +25,12 @@ $FieldInfo _GNUStyleOptions$Option_FieldInfo_[] = {
 };
 
 $MethodInfo _GNUStyleOptions$Option_MethodInfo_[] = {
-	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(static_cast<void(GNUStyleOptions$Option::*)(bool,$GNUStyleOptions$OptionType*,$StringArray*)>(&GNUStyleOptions$Option::init$))},
-	{"<init>", "(ZZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(static_cast<void(GNUStyleOptions$Option::*)(bool,bool,$GNUStyleOptions$OptionType*,$StringArray*)>(&GNUStyleOptions$Option::init$))},
-	{"isExtra", "()Z", nullptr, 0},
-	{"isHidden", "()Z", nullptr, 0},
-	{"matches", "(Ljava/lang/String;)Z", nullptr, 0},
-	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $ABSTRACT, nullptr, "sun.tools.jar.GNUStyleOptions$BadArgs"},
+	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$Option, init$, void, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+	{"<init>", "(ZZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$Option, init$, void, bool, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+	{"isExtra", "()Z", nullptr, 0, $virtualMethod(GNUStyleOptions$Option, isExtra, bool)},
+	{"isHidden", "()Z", nullptr, 0, $virtualMethod(GNUStyleOptions$Option, isHidden, bool)},
+	{"matches", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(GNUStyleOptions$Option, matches, bool, $String*)},
+	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $ABSTRACT, $virtualMethod(GNUStyleOptions$Option, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
 	{}
 };
 

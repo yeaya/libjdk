@@ -37,14 +37,14 @@ $FieldInfo _HeadersTest$10_FieldInfo_[] = {
 };
 
 $MethodInfo _HeadersTest$10_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/Duration;)V", nullptr, 0, $method(static_cast<void(HeadersTest$10::*)($Duration*)>(&HeadersTest$10::init$))},
-	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC},
-	{"expectContinue", "()Z", nullptr, $PUBLIC},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC},
-	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC},
+	{"<init>", "(Ljava/time/Duration;)V", nullptr, 0, $method(HeadersTest$10, init$, void, $Duration*)},
+	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(HeadersTest$10, bodyPublisher, $Optional*)},
+	{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadersTest$10, expectContinue, bool)},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$10, headers, $HttpHeaders*)},
+	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$10, method, $String*)},
+	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HeadersTest$10, timeout, $Optional*)},
+	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HeadersTest$10, uri, $URI*)},
+	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(HeadersTest$10, version, $Optional*)},
 	{}
 };
 

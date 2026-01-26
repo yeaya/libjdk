@@ -49,9 +49,9 @@ $MethodInfo _RMIServerImpl_Stub_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(static_cast<void(RMIServerImpl_Stub::*)($RemoteRef*)>(&RMIServerImpl_Stub::init$))},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"newClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(RMIServerImpl_Stub, init$, void, $RemoteRef*)},
+	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RMIServerImpl_Stub, getVersion, $String*), "java.rmi.RemoteException"},
+	{"newClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PUBLIC, $virtualMethod(RMIServerImpl_Stub, newClient, $RMIConnection*, Object$*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -19,10 +19,10 @@ $FieldInfo _MBeanException_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanException::*)($Exception*)>(&MBeanException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanException::*)($Exception*,$String*)>(&MBeanException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getTargetException", "()Ljava/lang/Exception;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(MBeanException, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanException, init$, void, $Exception*, $String*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(MBeanException, getCause, $Throwable*)},
+	{"getTargetException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(MBeanException, getTargetException, $Exception*)},
 	{}
 };
 

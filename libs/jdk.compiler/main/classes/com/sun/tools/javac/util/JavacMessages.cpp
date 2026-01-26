@@ -102,8 +102,8 @@ $FieldInfo JavacMessages$$Lambda$lambda$add$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavacMessages$$Lambda$lambda$add$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacMessages$$Lambda$lambda$add$0::*)($String*)>(&JavacMessages$$Lambda$lambda$add$0::init$))},
-	{"getResourceBundle", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavacMessages$$Lambda$lambda$add$0, init$, void, $String*)},
+	{"getResourceBundle", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(JavacMessages$$Lambda$lambda$add$0, getResourceBundle, $ResourceBundle*, $Locale*)},
 	{}
 };
 $ClassInfo JavacMessages$$Lambda$lambda$add$0::classInfo$ = {
@@ -141,27 +141,27 @@ $FieldInfo _JavacMessages_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacMessages_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacMessages::*)($Context*)>(&JavacMessages::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacMessages::*)($String*)>(&JavacMessages::init$)), "java.util.MissingResourceException"},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacMessages::*)($String*,$Locale*)>(&JavacMessages::init$)), "java.util.MissingResourceException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacMessages::*)()>(&JavacMessages::init$)), "java.util.MissingResourceException"},
-	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.util.MissingResourceException"},
-	{"add", "(Lcom/sun/tools/javac/util/JavacMessages$ResourceBundleHelper;)V", nullptr, $PUBLIC},
-	{"getBundles", "(Ljava/util/Locale;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/Locale;)Lcom/sun/tools/javac/util/List<Ljava/util/ResourceBundle;>;", $PUBLIC},
-	{"getCurrentLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getDefaultBundle", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ResourceBundle*(*)()>(&JavacMessages::getDefaultBundle))},
-	{"getDefaultLocalizedString", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($String*,$ObjectArray*)>(&JavacMessages::getDefaultLocalizedString))},
-	{"getDefaultMessages", "()Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $STATIC | $DEPRECATED, $method(static_cast<JavacMessages*(*)()>(&JavacMessages::getDefaultMessages)), nullptr, nullptr, _JavacMessages_MethodAnnotations_getDefaultMessages10},
-	{"getDiagFactory", "()Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, 0},
-	{"getLocalizedString", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT},
-	{"getLocalizedString", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLocalizedString", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT},
-	{"getLocalizedString", "(Ljava/util/Locale;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLocalizedString", "(Lcom/sun/tools/javac/util/List;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Ljava/util/ResourceBundle;>;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", $PRIVATE | $STATIC | $TRANSIENT, $method(static_cast<$String*(*)($List*,$String*,$ObjectArray*)>(&JavacMessages::getLocalizedString))},
-	{"getLocalizedString", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Ljava/util/ResourceBundle;>;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Ljava/lang/String;", $PRIVATE, $method(static_cast<$String*(JavacMessages::*)($List*,$JCDiagnostic$DiagnosticInfo*)>(&JavacMessages::getLocalizedString))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavacMessages*(*)($Context*)>(&JavacMessages::instance))},
-	{"lambda$add$0", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ResourceBundle*(*)($String*,$Locale*)>(&JavacMessages::lambda$add$0))},
-	{"setCurrentLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(JavacMessages, init$, void, $Context*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavacMessages, init$, void, $String*), "java.util.MissingResourceException"},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(JavacMessages, init$, void, $String*, $Locale*), "java.util.MissingResourceException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacMessages, init$, void), "java.util.MissingResourceException"},
+	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessages, add, void, $String*), "java.util.MissingResourceException"},
+	{"add", "(Lcom/sun/tools/javac/util/JavacMessages$ResourceBundleHelper;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessages, add, void, $JavacMessages$ResourceBundleHelper*)},
+	{"getBundles", "(Ljava/util/Locale;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/Locale;)Lcom/sun/tools/javac/util/List<Ljava/util/ResourceBundle;>;", $PUBLIC, $virtualMethod(JavacMessages, getBundles, $List*, $Locale*)},
+	{"getCurrentLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JavacMessages, getCurrentLocale, $Locale*)},
+	{"getDefaultBundle", "()Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacMessages, getDefaultBundle, $ResourceBundle*)},
+	{"getDefaultLocalizedString", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC | $TRANSIENT, $staticMethod(JavacMessages, getDefaultLocalizedString, $String*, $String*, $ObjectArray*)},
+	{"getDefaultMessages", "()Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $STATIC | $DEPRECATED, $staticMethod(JavacMessages, getDefaultMessages, JavacMessages*), nullptr, nullptr, _JavacMessages_MethodAnnotations_getDefaultMessages10},
+	{"getDiagFactory", "()Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, 0, $virtualMethod(JavacMessages, getDiagFactory, $JCDiagnostic$Factory*)},
+	{"getLocalizedString", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacMessages, getLocalizedString, $String*, $String*, $ObjectArray*)},
+	{"getLocalizedString", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacMessages, getLocalizedString, $String*, $JCDiagnostic$DiagnosticInfo*)},
+	{"getLocalizedString", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacMessages, getLocalizedString, $String*, $Locale*, $String*, $ObjectArray*)},
+	{"getLocalizedString", "(Ljava/util/Locale;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacMessages, getLocalizedString, $String*, $Locale*, $JCDiagnostic$DiagnosticInfo*)},
+	{"getLocalizedString", "(Lcom/sun/tools/javac/util/List;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Ljava/util/ResourceBundle;>;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(JavacMessages, getLocalizedString, $String*, $List*, $String*, $ObjectArray*)},
+	{"getLocalizedString", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Ljava/util/ResourceBundle;>;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)Ljava/lang/String;", $PRIVATE, $method(JavacMessages, getLocalizedString, $String*, $List*, $JCDiagnostic$DiagnosticInfo*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/JavacMessages;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacMessages, instance, JavacMessages*, $Context*)},
+	{"lambda$add$0", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacMessages, lambda$add$0, $ResourceBundle*, $String*, $Locale*)},
+	{"setCurrentLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessages, setCurrentLocale, void, $Locale*)},
 	{}
 };
 

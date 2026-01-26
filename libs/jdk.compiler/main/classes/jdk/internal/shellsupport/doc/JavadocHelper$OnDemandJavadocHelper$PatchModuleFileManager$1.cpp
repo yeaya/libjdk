@@ -13,10 +13,10 @@ namespace jdk {
 			namespace doc {
 
 $MethodInfo _JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1::*)()>(&JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isModuleOrientedLocation", "()Z", nullptr, $PUBLIC},
-	{"isOutputLocation", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1, init$, void)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1, getName, $String*)},
+	{"isModuleOrientedLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1, isModuleOrientedLocation, bool)},
+	{"isOutputLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager$1, isOutputLocation, bool)},
 	{}
 };
 

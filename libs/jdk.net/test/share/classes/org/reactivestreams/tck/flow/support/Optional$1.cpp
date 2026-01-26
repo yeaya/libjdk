@@ -18,9 +18,9 @@ namespace org {
 				namespace support {
 
 $MethodInfo _Optional$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Optional$1::*)()>(&Optional$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Optional$1, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Optional$1, get, $Object*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Optional$1, isEmpty, bool)},
 	{}
 };
 

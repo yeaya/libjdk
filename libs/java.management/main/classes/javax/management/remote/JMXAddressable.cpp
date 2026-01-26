@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $JMXServiceURL = ::javax::management::remote::JMXServiceURL;
 
 namespace javax {
 	namespace management {
 		namespace remote {
 
 $MethodInfo _JMXAddressable_MethodInfo_[] = {
-	{"getAddress", "()Ljavax/management/remote/JMXServiceURL;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAddress", "()Ljavax/management/remote/JMXServiceURL;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXAddressable, getAddress, $JMXServiceURL*)},
 	{}
 };
 

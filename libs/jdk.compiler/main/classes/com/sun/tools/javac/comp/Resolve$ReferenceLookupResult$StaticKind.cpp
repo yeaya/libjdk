@@ -34,12 +34,12 @@ $FieldInfo _Resolve$ReferenceLookupResult$StaticKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$ReferenceLookupResult$StaticKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Resolve$ReferenceLookupResult$StaticKindArray*(*)()>(&Resolve$ReferenceLookupResult$StaticKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Resolve$ReferenceLookupResult$StaticKind::*)($String*,int32_t)>(&Resolve$ReferenceLookupResult$StaticKind::init$))},
-	{"from", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $STATIC, $method(static_cast<Resolve$ReferenceLookupResult$StaticKind*(*)($Symbol*)>(&Resolve$ReferenceLookupResult$StaticKind::from))},
-	{"reduce", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $STATIC, $method(static_cast<Resolve$ReferenceLookupResult$StaticKind*(*)(Resolve$ReferenceLookupResult$StaticKind*,Resolve$ReferenceLookupResult$StaticKind*)>(&Resolve$ReferenceLookupResult$StaticKind::reduce))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Resolve$ReferenceLookupResult$StaticKind*(*)($String*)>(&Resolve$ReferenceLookupResult$StaticKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Resolve$ReferenceLookupResult$StaticKindArray*(*)()>(&Resolve$ReferenceLookupResult$StaticKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$ReferenceLookupResult$StaticKind, $values, $Resolve$ReferenceLookupResult$StaticKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Resolve$ReferenceLookupResult$StaticKind, init$, void, $String*, int32_t)},
+	{"from", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $STATIC, $staticMethod(Resolve$ReferenceLookupResult$StaticKind, from, Resolve$ReferenceLookupResult$StaticKind*, $Symbol*)},
+	{"reduce", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $STATIC, $staticMethod(Resolve$ReferenceLookupResult$StaticKind, reduce, Resolve$ReferenceLookupResult$StaticKind*, Resolve$ReferenceLookupResult$StaticKind*, Resolve$ReferenceLookupResult$StaticKind*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$ReferenceLookupResult$StaticKind, valueOf, Resolve$ReferenceLookupResult$StaticKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$ReferenceLookupResult$StaticKind, values, $Resolve$ReferenceLookupResult$StaticKindArray*)},
 	{}
 };
 

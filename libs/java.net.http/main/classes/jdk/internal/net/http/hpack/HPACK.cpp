@@ -87,8 +87,8 @@ $FieldInfo HPACK$$Lambda$lambda$static$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HPACK$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HPACK$$Lambda$lambda$static$0::*)($String*)>(&HPACK$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HPACK$$Lambda$lambda$static$0, init$, void, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo HPACK$$Lambda$lambda$static$0::classInfo$ = {
@@ -130,8 +130,8 @@ $FieldInfo HPACK$$Lambda$lambda$static$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo HPACK$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HPACK$$Lambda$lambda$static$1$1::*)($String*,$String*)>(&HPACK$$Lambda$lambda$static$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HPACK$$Lambda$lambda$static$1$1, init$, void, $String*, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$$Lambda$lambda$static$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo HPACK$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -170,8 +170,8 @@ $FieldInfo HPACK$$Lambda$lambda$static$2$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HPACK$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PUBLIC, $method(static_cast<void(HPACK$$Lambda$lambda$static$2$2::*)($HPACK$Logger$Level*)>(&HPACK$$Lambda$lambda$static$2$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)V", nullptr, $PUBLIC, $method(HPACK$$Lambda$lambda$static$2$2, init$, void, $HPACK$Logger$Level*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HPACK$$Lambda$lambda$static$2$2, get, $Object*)},
 	{}
 };
 $ClassInfo HPACK$$Lambda$lambda$static$2$2::classInfo$ = {
@@ -196,14 +196,14 @@ $FieldInfo _HPACK_FieldInfo_[] = {
 };
 
 $MethodInfo _HPACK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HPACK::*)()>(&HPACK::init$))},
-	{"bytesForBits", "(I)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t)>(&HPACK::bytesForBits))},
-	{"getLogger", "()Ljdk/internal/net/http/hpack/HPACK$Logger;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HPACK$Logger*(*)()>(&HPACK::getLogger))},
-	{"lambda$static$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&HPACK::lambda$static$0))},
-	{"lambda$static$1", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*,$String*)>(&HPACK::lambda$static$1))},
-	{"lambda$static$2", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($HPACK$Logger$Level*)>(&HPACK::lambda$static$2))},
-	{"read", "(Ljava/nio/ByteBuffer;JILjdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ByteBuffer*,int64_t,int32_t,$HPACK$BufferUpdateConsumer*)>(&HPACK::read))},
-	{"write", "(JILjdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int64_t,int32_t,$HPACK$BufferUpdateConsumer*,$ByteBuffer*)>(&HPACK::write))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HPACK, init$, void)},
+	{"bytesForBits", "(I)I", nullptr, $STATIC, $staticMethod(HPACK, bytesForBits, int32_t, int32_t)},
+	{"getLogger", "()Ljdk/internal/net/http/hpack/HPACK$Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK, getLogger, $HPACK$Logger*)},
+	{"lambda$static$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK, lambda$static$0, $String*, $String*)},
+	{"lambda$static$1", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK, lambda$static$1, $String*, $String*, $String*)},
+	{"lambda$static$2", "(Ljdk/internal/net/http/hpack/HPACK$Logger$Level;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HPACK, lambda$static$2, $String*, $HPACK$Logger$Level*)},
+	{"read", "(Ljava/nio/ByteBuffer;JILjdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK, read, int32_t, $ByteBuffer*, int64_t, int32_t, $HPACK$BufferUpdateConsumer*)},
+	{"write", "(JILjdk/internal/net/http/hpack/HPACK$BufferUpdateConsumer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(HPACK, write, int32_t, int64_t, int32_t, $HPACK$BufferUpdateConsumer*, $ByteBuffer*)},
 	{}
 };
 

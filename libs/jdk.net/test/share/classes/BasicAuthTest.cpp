@@ -68,8 +68,8 @@ $FieldInfo _BasicAuthTest_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicAuthTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BasicAuthTest::*)()>(&BasicAuthTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BasicAuthTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicAuthTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicAuthTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

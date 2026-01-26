@@ -13,8 +13,8 @@ namespace sun {
 		namespace transport {
 
 $MethodInfo _GC$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GC$1::*)()>(&GC$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(GC$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(GC$1, run, $Object*)},
 	{}
 };
 

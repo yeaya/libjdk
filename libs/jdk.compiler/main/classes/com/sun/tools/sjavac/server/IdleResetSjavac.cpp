@@ -38,12 +38,12 @@ $FieldInfo _IdleResetSjavac_FieldInfo_[] = {
 };
 
 $MethodInfo _IdleResetSjavac_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/server/Sjavac;Lcom/sun/tools/sjavac/server/Terminable;J)V", nullptr, $PUBLIC, $method(static_cast<void(IdleResetSjavac::*)($Sjavac*,$Terminable*,int64_t)>(&IdleResetSjavac::init$))},
-	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC},
-	{"endCall", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(IdleResetSjavac::*)()>(&IdleResetSjavac::endCall))},
-	{"scheduleTimeout", "()V", nullptr, $PRIVATE, $method(static_cast<void(IdleResetSjavac::*)()>(&IdleResetSjavac::scheduleTimeout))},
-	{"shutdown", "()V", nullptr, $PUBLIC},
-	{"startCall", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(IdleResetSjavac::*)()>(&IdleResetSjavac::startCall))},
+	{"<init>", "(Lcom/sun/tools/sjavac/server/Sjavac;Lcom/sun/tools/sjavac/server/Terminable;J)V", nullptr, $PUBLIC, $method(IdleResetSjavac, init$, void, $Sjavac*, $Terminable*, int64_t)},
+	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(IdleResetSjavac, compile, $Main$Result*, $StringArray*)},
+	{"endCall", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(IdleResetSjavac, endCall, void)},
+	{"scheduleTimeout", "()V", nullptr, $PRIVATE, $method(IdleResetSjavac, scheduleTimeout, void)},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(IdleResetSjavac, shutdown, void)},
+	{"startCall", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(IdleResetSjavac, startCall, void)},
 	{}
 };
 

@@ -71,8 +71,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HeaderTable$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HeaderTable$$Lambda$lambda$static$0::*)()>(&HeaderTable$$Lambda$lambda$static$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HeaderTable$$Lambda$lambda$static$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HeaderTable$$Lambda$lambda$static$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo HeaderTable$$Lambda$lambda$static$0::classInfo$ = {
@@ -104,8 +104,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HeaderTable$$Lambda$lambda$add$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HeaderTable$$Lambda$lambda$add$2$1::*)()>(&HeaderTable$$Lambda$lambda$add$2$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HeaderTable$$Lambda$lambda$add$2$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HeaderTable$$Lambda$lambda$add$2$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo HeaderTable$$Lambda$lambda$add$2$1::classInfo$ = {
@@ -131,14 +131,14 @@ $FieldInfo _HeaderTable_FieldInfo_[] = {
 };
 
 $MethodInfo _HeaderTable_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/net/http/hpack/HPACK$Logger;)V", nullptr, $PUBLIC, $method(static_cast<void(HeaderTable::*)(int32_t,$HPACK$Logger*)>(&HeaderTable::init$))},
-	{"add", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PROTECTED},
-	{"indexOf", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $method(static_cast<int32_t(HeaderTable::*)($CharSequence*,$CharSequence*)>(&HeaderTable::indexOf))},
-	{"indexesUniqueAndOrdered", "(Ljava/util/Deque;)Z", "(Ljava/util/Deque<Ljava/lang/Long;>;)Z", $PRIVATE, $method(static_cast<bool(HeaderTable::*)($Deque*)>(&HeaderTable::indexesUniqueAndOrdered))},
-	{"lambda$add$2", "(Ljava/lang/String;)Ljava/util/Deque;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Deque*(*)($String*)>(&HeaderTable::lambda$add$2))},
-	{"lambda$static$0", "(Ljava/lang/String;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Map*(*)($String*)>(&HeaderTable::lambda$static$0))},
-	{"remove", "()Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;", nullptr, $PROTECTED},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, 0, $method(static_cast<int32_t(HeaderTable::*)($String*,$String*)>(&HeaderTable::search))},
+	{"<init>", "(ILjdk/internal/net/http/hpack/HPACK$Logger;)V", nullptr, $PUBLIC, $method(HeaderTable, init$, void, int32_t, $HPACK$Logger*)},
+	{"add", "(Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;)V", nullptr, $PROTECTED, $virtualMethod(HeaderTable, add, void, $SimpleHeaderTable$HeaderField*)},
+	{"indexOf", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $method(HeaderTable, indexOf, int32_t, $CharSequence*, $CharSequence*)},
+	{"indexesUniqueAndOrdered", "(Ljava/util/Deque;)Z", "(Ljava/util/Deque<Ljava/lang/Long;>;)Z", $PRIVATE, $method(HeaderTable, indexesUniqueAndOrdered, bool, $Deque*)},
+	{"lambda$add$2", "(Ljava/lang/String;)Ljava/util/Deque;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HeaderTable, lambda$add$2, $Deque*, $String*)},
+	{"lambda$static$0", "(Ljava/lang/String;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HeaderTable, lambda$static$0, $Map*, $String*)},
+	{"remove", "()Ljdk/internal/net/http/hpack/SimpleHeaderTable$HeaderField;", nullptr, $PROTECTED, $virtualMethod(HeaderTable, remove, $SimpleHeaderTable$HeaderField*)},
+	{"search", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, 0, $method(HeaderTable, search, int32_t, $String*, $String*)},
 	{}
 };
 

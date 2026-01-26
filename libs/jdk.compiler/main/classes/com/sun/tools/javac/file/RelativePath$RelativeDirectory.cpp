@@ -17,14 +17,14 @@ namespace com {
 				namespace file {
 
 $MethodInfo _RelativePath$RelativeDirectory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RelativePath$RelativeDirectory::*)($String*)>(&RelativePath$RelativeDirectory::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RelativePath$RelativeDirectory::*)(RelativePath$RelativeDirectory*,$String*)>(&RelativePath$RelativeDirectory::init$))},
-	{"basename", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"contains", "(Lcom/sun/tools/javac/file/RelativePath;)Z", nullptr, 0},
-	{"dirname", "()Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $PUBLIC},
-	{"forPackage", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $STATIC, $method(static_cast<RelativePath$RelativeDirectory*(*)($CharSequence*)>(&RelativePath$RelativeDirectory::forPackage))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelativePath$RelativeDirectory, init$, void, $String*)},
+	{"<init>", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelativePath$RelativeDirectory, init$, void, RelativePath$RelativeDirectory*, $String*)},
+	{"basename", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeDirectory, basename, $String*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RelativePath$RelativeDirectory, compareTo, int32_t, Object$*)},
+	{"contains", "(Lcom/sun/tools/javac/file/RelativePath;)Z", nullptr, 0, $virtualMethod(RelativePath$RelativeDirectory, contains, bool, $RelativePath*)},
+	{"dirname", "()Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeDirectory, dirname, RelativePath$RelativeDirectory*)},
+	{"forPackage", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;", nullptr, $STATIC, $staticMethod(RelativePath$RelativeDirectory, forPackage, RelativePath$RelativeDirectory*, $CharSequence*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RelativePath$RelativeDirectory, toString, $String*)},
 	{}
 };
 

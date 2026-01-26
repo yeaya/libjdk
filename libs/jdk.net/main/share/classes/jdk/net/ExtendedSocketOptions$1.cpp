@@ -36,9 +36,9 @@ namespace jdk {
 	namespace net {
 
 $MethodInfo _ExtendedSocketOptions$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, 0, $method(static_cast<void(ExtendedSocketOptions$1::*)($Set*)>(&ExtendedSocketOptions$1::init$))},
-	{"getOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;)Ljava/lang/Object;", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;)Ljava/lang/Object;", $PUBLIC, nullptr, "java.net.SocketException"},
-	{"setOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;Ljava/lang/Object;)V", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;Ljava/lang/Object;)V", $PUBLIC, nullptr, "java.net.SocketException"},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, 0, $method(ExtendedSocketOptions$1, init$, void, $Set*)},
+	{"getOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;)Ljava/lang/Object;", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(ExtendedSocketOptions$1, getOption, $Object*, $FileDescriptor*, $SocketOption*), "java.net.SocketException"},
+	{"setOption", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption;Ljava/lang/Object;)V", "(Ljava/io/FileDescriptor;Ljava/net/SocketOption<*>;Ljava/lang/Object;)V", $PUBLIC, $virtualMethod(ExtendedSocketOptions$1, setOption, void, $FileDescriptor*, $SocketOption*, Object$*), "java.net.SocketException"},
 	{}
 };
 

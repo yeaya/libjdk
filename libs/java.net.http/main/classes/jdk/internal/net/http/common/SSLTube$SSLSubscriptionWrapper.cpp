@@ -31,10 +31,10 @@ $FieldInfo _SSLTube$SSLSubscriptionWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLTube$SSLSubscriptionWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLTube;)V", nullptr, 0, $method(static_cast<void(SSLTube$SSLSubscriptionWrapper::*)($SSLTube*)>(&SSLTube$SSLSubscriptionWrapper::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
-	{"setSubscription", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, 0, $method(static_cast<void(SSLTube$SSLSubscriptionWrapper::*)($Flow$Subscription*)>(&SSLTube$SSLSubscriptionWrapper::setSubscription))},
+	{"<init>", "(Ljdk/internal/net/http/common/SSLTube;)V", nullptr, 0, $method(SSLTube$SSLSubscriptionWrapper, init$, void, $SSLTube*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTube$SSLSubscriptionWrapper, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(SSLTube$SSLSubscriptionWrapper, request, void, int64_t)},
+	{"setSubscription", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, 0, $method(SSLTube$SSLSubscriptionWrapper, setSubscription, void, $Flow$Subscription*)},
 	{}
 };
 

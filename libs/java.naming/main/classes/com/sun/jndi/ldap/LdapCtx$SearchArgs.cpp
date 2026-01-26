@@ -26,7 +26,7 @@ $FieldInfo _LdapCtx$SearchArgs_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapCtx$SearchArgs_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;[Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(LdapCtx$SearchArgs::*)($Name*,$String*,$SearchControls*,$StringArray*)>(&LdapCtx$SearchArgs::init$))},
+	{"<init>", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;[Ljava/lang/String;)V", nullptr, 0, $method(LdapCtx$SearchArgs, init$, void, $Name*, $String*, $SearchControls*, $StringArray*)},
 	{}
 };
 

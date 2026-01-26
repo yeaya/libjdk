@@ -95,8 +95,8 @@ $FieldInfo TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$0::fie
 	{}
 };
 $MethodInfo TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$0::*)($Symbol$BindingSymbol*)>(&TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)V", nullptr, $PUBLIC, $method(TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$0, init$, void, $Symbol$BindingSymbol*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$0::classInfo$ = {
@@ -128,8 +128,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$1$1::*)()>(&TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TransPatterns$BasicBindingContext$$Lambda$lambda$getBindingFor$1$1::classInfo$ = {
@@ -154,17 +154,17 @@ $FieldInfo _TransPatterns$BasicBindingContext_FieldInfo_[] = {
 };
 
 $MethodInfo _TransPatterns$BasicBindingContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;)V", nullptr, $PUBLIC, $method(static_cast<void(TransPatterns$BasicBindingContext::*)($TransPatterns*)>(&TransPatterns$BasicBindingContext::init$))},
-	{"bindingDeclared", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0},
-	{"bindingVars", "(I)Lcom/sun/tools/javac/util/List;", "(I)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0},
-	{"decorateExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0},
-	{"decorateStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, 0},
-	{"getBindingFor", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0},
-	{"lambda$getBindingFor$0", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;Ljava/util/Map$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol$BindingSymbol*,$Map$Entry*)>(&TransPatterns$BasicBindingContext::lambda$getBindingFor$0))},
-	{"lambda$getBindingFor$1", "(Ljava/util/Map$Entry;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Symbol$VarSymbol*(*)($Map$Entry*)>(&TransPatterns$BasicBindingContext::lambda$getBindingFor$1))},
-	{"makeHoistedVarDecl", "(ILcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCVariableDecl*(TransPatterns$BasicBindingContext::*)(int32_t,$Symbol$VarSymbol*)>(&TransPatterns$BasicBindingContext::makeHoistedVarDecl))},
-	{"pop", "()Lcom/sun/tools/javac/comp/TransPatterns$BindingContext;", nullptr, 0},
-	{"tryPrepend", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;)V", nullptr, $PUBLIC, $method(TransPatterns$BasicBindingContext, init$, void, $TransPatterns*)},
+	{"bindingDeclared", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$BasicBindingContext, bindingDeclared, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
+	{"bindingVars", "(I)Lcom/sun/tools/javac/util/List;", "(I)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", 0, $virtualMethod(TransPatterns$BasicBindingContext, bindingVars, $List*, int32_t)},
+	{"decorateExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(TransPatterns$BasicBindingContext, decorateExpression, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+	{"decorateStatement", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;)Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, 0, $virtualMethod(TransPatterns$BasicBindingContext, decorateStatement, $JCTree$JCStatement*, $JCTree$JCStatement*)},
+	{"getBindingFor", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$BasicBindingContext, getBindingFor, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
+	{"lambda$getBindingFor$0", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;Ljava/util/Map$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransPatterns$BasicBindingContext, lambda$getBindingFor$0, bool, $Symbol$BindingSymbol*, $Map$Entry*)},
+	{"lambda$getBindingFor$1", "(Ljava/util/Map$Entry;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransPatterns$BasicBindingContext, lambda$getBindingFor$1, $Symbol$VarSymbol*, $Map$Entry*)},
+	{"makeHoistedVarDecl", "(ILcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PRIVATE, $method(TransPatterns$BasicBindingContext, makeHoistedVarDecl, $JCTree$JCVariableDecl*, int32_t, $Symbol$VarSymbol*)},
+	{"pop", "()Lcom/sun/tools/javac/comp/TransPatterns$BindingContext;", nullptr, 0, $virtualMethod(TransPatterns$BasicBindingContext, pop, $TransPatterns$BindingContext*)},
+	{"tryPrepend", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0, $virtualMethod(TransPatterns$BasicBindingContext, tryPrepend, bool, $Symbol$BindingSymbol*, $JCTree$JCVariableDecl*)},
 	{}
 };
 

@@ -32,16 +32,16 @@ $FieldInfo _ClientListenerInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientListenerInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Integer;Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $method(static_cast<void(ClientListenerInfo::*)($Integer*,$ObjectName*,$NotificationListener*,$NotificationFilter*,Object$*,$Subject*)>(&ClientListenerInfo::init$))},
-	{"getDelegationSubject", "()Ljavax/security/auth/Subject;", nullptr, $PUBLIC},
-	{"getHandback", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getListener", "()Ljavax/management/NotificationListener;", nullptr, $PUBLIC},
-	{"getListenerID", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
-	{"getNotificationFilter", "()Ljavax/management/NotificationFilter;", nullptr, $PUBLIC},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"sameAs", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC},
-	{"sameAs", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;)Z", nullptr, $PUBLIC},
-	{"sameAs", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Integer;Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $method(ClientListenerInfo, init$, void, $Integer*, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*, $Subject*)},
+	{"getDelegationSubject", "()Ljavax/security/auth/Subject;", nullptr, $PUBLIC, $virtualMethod(ClientListenerInfo, getDelegationSubject, $Subject*)},
+	{"getHandback", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClientListenerInfo, getHandback, $Object*)},
+	{"getListener", "()Ljavax/management/NotificationListener;", nullptr, $PUBLIC, $virtualMethod(ClientListenerInfo, getListener, $NotificationListener*)},
+	{"getListenerID", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(ClientListenerInfo, getListenerID, $Integer*)},
+	{"getNotificationFilter", "()Ljavax/management/NotificationFilter;", nullptr, $PUBLIC, $virtualMethod(ClientListenerInfo, getNotificationFilter, $NotificationFilter*)},
+	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ClientListenerInfo, getObjectName, $ObjectName*)},
+	{"sameAs", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(ClientListenerInfo, sameAs, bool, $ObjectName*)},
+	{"sameAs", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;)Z", nullptr, $PUBLIC, $virtualMethod(ClientListenerInfo, sameAs, bool, $ObjectName*, $NotificationListener*)},
+	{"sameAs", "(Ljavax/management/ObjectName;Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ClientListenerInfo, sameAs, bool, $ObjectName*, $NotificationListener*, $NotificationFilter*, Object$*)},
 	{}
 };
 

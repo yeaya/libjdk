@@ -20,8 +20,8 @@ $FieldInfo _Abort_FieldInfo_[] = {
 };
 
 $MethodInfo _Abort_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(Abort::*)($Throwable*)>(&Abort::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Abort::*)()>(&Abort::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Abort, init$, void, $Throwable*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Abort, init$, void)},
 	{}
 };
 

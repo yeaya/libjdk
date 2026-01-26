@@ -92,8 +92,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TypeEnter$RecordConstructorHelper$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$RecordConstructorHelper$$Lambda$lambda$new$0::*)()>(&TypeEnter$RecordConstructorHelper$$Lambda$lambda$new$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeEnter$RecordConstructorHelper$$Lambda$lambda$new$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeEnter$RecordConstructorHelper$$Lambda$lambda$new$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$RecordConstructorHelper$$Lambda$lambda$new$0::classInfo$ = {
@@ -118,11 +118,11 @@ $FieldInfo _TypeEnter$RecordConstructorHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$RecordConstructorHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;)V", 0, $method(static_cast<void(TypeEnter$RecordConstructorHelper::*)($TypeEnter*,$Symbol$ClassSymbol*,$List*)>(&TypeEnter$RecordConstructorHelper::init$))},
-	{"constructorSymbol", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC},
-	{"constructorType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"finalAdjustment", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC},
-	{"lambda$new$0", "(Lcom/sun/tools/javac/code/Symbol$RecordComponent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol$RecordComponent*)>(&TypeEnter$RecordConstructorHelper::lambda$new$0))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;>;)V", 0, $method(TypeEnter$RecordConstructorHelper, init$, void, $TypeEnter*, $Symbol$ClassSymbol*, $List*)},
+	{"constructorSymbol", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$RecordConstructorHelper, constructorSymbol, $Symbol$MethodSymbol*)},
+	{"constructorType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$RecordConstructorHelper, constructorType, $Type*)},
+	{"finalAdjustment", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$RecordConstructorHelper, finalAdjustment, $JCTree$JCMethodDecl*, $JCTree$JCMethodDecl*)},
+	{"lambda$new$0", "(Lcom/sun/tools/javac/code/Symbol$RecordComponent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter$RecordConstructorHelper, lambda$new$0, bool, $Symbol$RecordComponent*)},
 	{}
 };
 

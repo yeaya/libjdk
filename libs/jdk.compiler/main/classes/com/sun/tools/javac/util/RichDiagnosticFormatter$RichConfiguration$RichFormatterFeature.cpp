@@ -30,10 +30,10 @@ $FieldInfo _RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature_Field
 };
 
 $MethodInfo _RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$RichDiagnosticFormatter$RichConfiguration$RichFormatterFeatureArray*(*)()>(&RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::*)($String*,int32_t)>(&RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature*(*)($String*)>(&RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RichDiagnosticFormatter$RichConfiguration$RichFormatterFeatureArray*(*)()>(&RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, $values, $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeatureArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, valueOf, RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC | $STATIC, $staticMethod(RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature, values, $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeatureArray*)},
 	{}
 };
 

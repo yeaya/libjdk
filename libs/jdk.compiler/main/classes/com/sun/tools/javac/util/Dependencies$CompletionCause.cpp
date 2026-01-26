@@ -42,15 +42,15 @@ $FieldInfo _Dependencies$CompletionCause_FieldInfo_[] = {
 };
 
 $MethodInfo _Dependencies$CompletionCause_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Dependencies$CompletionCauseArray*(*)()>(&Dependencies$CompletionCause::$values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dependencies$CompletionCause, $values, $Dependencies$CompletionCauseArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Dependencies$CompletionCause::*)($String*,int32_t)>(&Dependencies$CompletionCause::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Dependencies$CompletionCause, init$, void, $String*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Dependencies$CompletionCause*(*)($String*)>(&Dependencies$CompletionCause::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Dependencies$CompletionCauseArray*(*)()>(&Dependencies$CompletionCause::values))},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$CompletionCause, valueOf, Dependencies$CompletionCause*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$CompletionCause, values, $Dependencies$CompletionCauseArray*)},
 	{}
 };
 

@@ -45,9 +45,9 @@ $FieldInfo _JMXPluggableAuthenticator$FileLoginConfig_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXPluggableAuthenticator$FileLoginConfig_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JMXPluggableAuthenticator$FileLoginConfig::*)($String*,$String*)>(&JMXPluggableAuthenticator$FileLoginConfig::init$))},
-	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC},
-	{"refresh", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMXPluggableAuthenticator$FileLoginConfig, init$, void, $String*, $String*)},
+	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$FileLoginConfig, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
+	{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$FileLoginConfig, refresh, void)},
 	{}
 };
 

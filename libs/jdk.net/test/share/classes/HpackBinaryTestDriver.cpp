@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HpackBinaryTestDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HpackBinaryTestDriver::*)()>(&HpackBinaryTestDriver::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HpackBinaryTestDriver, init$, void)},
 	{}
 };
 

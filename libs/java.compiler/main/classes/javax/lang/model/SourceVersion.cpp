@@ -66,18 +66,18 @@ $FieldInfo _SourceVersion_FieldInfo_[] = {
 };
 
 $MethodInfo _SourceVersion_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SourceVersionArray*(*)()>(&SourceVersion::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(SourceVersion::*)($String*,int32_t)>(&SourceVersion::init$))},
-	{"getLatestSupported", "()Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC, $method(static_cast<SourceVersion*(*)()>(&SourceVersion::getLatestSupported))},
-	{"isIdentifier", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($CharSequence*)>(&SourceVersion::isIdentifier))},
-	{"isKeyword", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($CharSequence*)>(&SourceVersion::isKeyword))},
-	{"isKeyword", "(Ljava/lang/CharSequence;Ljavax/lang/model/SourceVersion;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($CharSequence*,SourceVersion*)>(&SourceVersion::isKeyword))},
-	{"isName", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($CharSequence*)>(&SourceVersion::isName))},
-	{"isName", "(Ljava/lang/CharSequence;Ljavax/lang/model/SourceVersion;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($CharSequence*,SourceVersion*)>(&SourceVersion::isName))},
-	{"latest", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SourceVersion*(*)()>(&SourceVersion::latest))},
-	{"latestSupported", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SourceVersion*(*)()>(&SourceVersion::latestSupported))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SourceVersion*(*)($String*)>(&SourceVersion::valueOf))},
-	{"values", "()[Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SourceVersionArray*(*)()>(&SourceVersion::values))},
+	{"$values", "()[Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SourceVersion, $values, $SourceVersionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SourceVersion, init$, void, $String*, int32_t)},
+	{"getLatestSupported", "()Ljavax/lang/model/SourceVersion;", nullptr, $PRIVATE | $STATIC, $staticMethod(SourceVersion, getLatestSupported, SourceVersion*)},
+	{"isIdentifier", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isIdentifier, bool, $CharSequence*)},
+	{"isKeyword", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isKeyword, bool, $CharSequence*)},
+	{"isKeyword", "(Ljava/lang/CharSequence;Ljavax/lang/model/SourceVersion;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isKeyword, bool, $CharSequence*, SourceVersion*)},
+	{"isName", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isName, bool, $CharSequence*)},
+	{"isName", "(Ljava/lang/CharSequence;Ljavax/lang/model/SourceVersion;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, isName, bool, $CharSequence*, SourceVersion*)},
+	{"latest", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, latest, SourceVersion*)},
+	{"latestSupported", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, latestSupported, SourceVersion*)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, valueOf, SourceVersion*, $String*)},
+	{"values", "()[Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $STATIC, $staticMethod(SourceVersion, values, $SourceVersionArray*)},
 	{}
 };
 

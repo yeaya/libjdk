@@ -43,11 +43,11 @@ $FieldInfo _APRep_FieldInfo_[] = {
 };
 
 $MethodInfo _APRep_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(static_cast<void(APRep::*)($EncryptedData*)>(&APRep::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(APRep::*)($bytes*)>(&APRep::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(APRep::*)($DerValue*)>(&APRep::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(APRep::*)($DerValue*)>(&APRep::init)), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"<init>", "(Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(APRep, init$, void, $EncryptedData*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(APRep, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(APRep, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(APRep, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(APRep, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
 	{}
 };
 

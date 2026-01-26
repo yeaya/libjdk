@@ -140,8 +140,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LoaderHandler$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LoaderHandler$$Lambda$lambda$static$0::*)()>(&LoaderHandler$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LoaderHandler$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo LoaderHandler$$Lambda$lambda$static$0::classInfo$ = {
@@ -173,8 +173,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LoaderHandler$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LoaderHandler$$Lambda$lambda$static$1$1::*)()>(&LoaderHandler$$Lambda$lambda$static$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LoaderHandler$$Lambda$lambda$static$1$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoaderHandler$$Lambda$lambda$static$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo LoaderHandler$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -204,27 +204,27 @@ $FieldInfo _LoaderHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _LoaderHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LoaderHandler::*)()>(&LoaderHandler::init$))},
-	{"addPermissionsForURLs", "([Ljava/net/URL;Ljava/security/PermissionCollection;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($URLArray*,$PermissionCollection*,bool)>(&LoaderHandler::addPermissionsForURLs))},
-	{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Class*)>(&LoaderHandler::getClassAnnotation))},
-	{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClassLoader*(*)($String*)>(&LoaderHandler::getClassLoader)), "java.net.MalformedURLException"},
-	{"getDefaultCodebaseURLs", "()[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<$URLArray*(*)()>(&LoaderHandler::getDefaultCodebaseURLs)), "java.net.MalformedURLException"},
-	{"getLoaderAccessControlContext", "([Ljava/net/URL;)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AccessControlContext*(*)($URLArray*)>(&LoaderHandler::getLoaderAccessControlContext))},
-	{"getRMIContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ClassLoader*(*)()>(&LoaderHandler::getRMIContextClassLoader))},
-	{"getSecurityContext", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Object*(*)($ClassLoader*)>(&LoaderHandler::getSecurityContext))},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&LoaderHandler::lambda$static$0))},
-	{"lambda$static$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&LoaderHandler::lambda$static$1))},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($String*,$String*,$ClassLoader*)>(&LoaderHandler::loadClass)), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadClass", "([Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($URLArray*,$String*)>(&LoaderHandler::loadClass)), "java.lang.ClassNotFoundException"},
-	{"loadClassForName", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($String*,bool,$ClassLoader*)>(&LoaderHandler::loadClassForName)), "java.lang.ClassNotFoundException"},
-	{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($String*,$StringArray*,$ClassLoader*)>(&LoaderHandler::loadProxyClass)), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadProxyClass", "([Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;Z)Ljava/lang/Class;", "([Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;Z)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($StringArray*,$ClassLoader*,$ClassLoader*,bool)>(&LoaderHandler::loadProxyClass)), "java.lang.ClassNotFoundException"},
-	{"loadProxyClass", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($ClassLoader*,$ClassArray*)>(&LoaderHandler::loadProxyClass)), "java.lang.ClassNotFoundException"},
-	{"loadProxyInterfaces", "([Ljava/lang/String;Ljava/lang/ClassLoader;[Ljava/lang/Class;[Z)Ljava/lang/ClassLoader;", "([Ljava/lang/String;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;[Z)Ljava/lang/ClassLoader;", $PRIVATE | $STATIC, $method(static_cast<$ClassLoader*(*)($StringArray*,$ClassLoader*,$ClassArray*,$booleans*)>(&LoaderHandler::loadProxyInterfaces)), "java.lang.ClassNotFoundException"},
-	{"lookupLoader", "([Ljava/net/URL;Ljava/lang/ClassLoader;)Lsun/rmi/server/LoaderHandler$Loader;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$LoaderHandler$Loader*(*)($URLArray*,$ClassLoader*)>(&LoaderHandler::lookupLoader))},
-	{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URLArray*(*)($String*)>(&LoaderHandler::pathToURLs)), "java.net.MalformedURLException"},
-	{"registerCodebaseLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($ClassLoader*)>(&LoaderHandler::registerCodebaseLoader))},
-	{"urlsToPath", "([Ljava/net/URL;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($URLArray*)>(&LoaderHandler::urlsToPath))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LoaderHandler, init$, void)},
+	{"addPermissionsForURLs", "([Ljava/net/URL;Ljava/security/PermissionCollection;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, addPermissionsForURLs, void, $URLArray*, $PermissionCollection*, bool)},
+	{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(LoaderHandler, getClassAnnotation, $String*, $Class*)},
+	{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoaderHandler, getClassLoader, $ClassLoader*, $String*), "java.net.MalformedURLException"},
+	{"getDefaultCodebaseURLs", "()[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(LoaderHandler, getDefaultCodebaseURLs, $URLArray*), "java.net.MalformedURLException"},
+	{"getLoaderAccessControlContext", "([Ljava/net/URL;)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, getLoaderAccessControlContext, $AccessControlContext*, $URLArray*)},
+	{"getRMIContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, getRMIContextClassLoader, $ClassLoader*)},
+	{"getSecurityContext", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoaderHandler, getSecurityContext, $Object*, $ClassLoader*)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoaderHandler, lambda$static$0, $String*)},
+	{"lambda$static$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoaderHandler, lambda$static$1, $String*)},
+	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(LoaderHandler, loadClass, $Class*, $String*, $String*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+	{"loadClass", "([Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadClass, $Class*, $URLArray*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClassForName", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadClassForName, $Class*, $String*, bool, $ClassLoader*), "java.lang.ClassNotFoundException"},
+	{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(LoaderHandler, loadProxyClass, $Class*, $String*, $StringArray*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+	{"loadProxyClass", "([Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;Z)Ljava/lang/Class;", "([Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;Z)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadProxyClass, $Class*, $StringArray*, $ClassLoader*, $ClassLoader*, bool), "java.lang.ClassNotFoundException"},
+	{"loadProxyClass", "(Ljava/lang/ClassLoader;[Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadProxyClass, $Class*, $ClassLoader*, $ClassArray*), "java.lang.ClassNotFoundException"},
+	{"loadProxyInterfaces", "([Ljava/lang/String;Ljava/lang/ClassLoader;[Ljava/lang/Class;[Z)Ljava/lang/ClassLoader;", "([Ljava/lang/String;Ljava/lang/ClassLoader;[Ljava/lang/Class<*>;[Z)Ljava/lang/ClassLoader;", $PRIVATE | $STATIC, $staticMethod(LoaderHandler, loadProxyInterfaces, $ClassLoader*, $StringArray*, $ClassLoader*, $ClassArray*, $booleans*), "java.lang.ClassNotFoundException"},
+	{"lookupLoader", "([Ljava/net/URL;Ljava/lang/ClassLoader;)Lsun/rmi/server/LoaderHandler$Loader;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, lookupLoader, $LoaderHandler$Loader*, $URLArray*, $ClassLoader*)},
+	{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, pathToURLs, $URLArray*, $String*), "java.net.MalformedURLException"},
+	{"registerCodebaseLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LoaderHandler, registerCodebaseLoader, void, $ClassLoader*)},
+	{"urlsToPath", "([Ljava/net/URL;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoaderHandler, urlsToPath, $String*, $URLArray*)},
 	{}
 };
 

@@ -17,14 +17,14 @@ $FieldInfo _SQLIntegrityConstraintViolationException_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLIntegrityConstraintViolationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SQLIntegrityConstraintViolationException::*)()>(&SQLIntegrityConstraintViolationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLIntegrityConstraintViolationException::*)($String*)>(&SQLIntegrityConstraintViolationException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLIntegrityConstraintViolationException::*)($String*,$String*)>(&SQLIntegrityConstraintViolationException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(SQLIntegrityConstraintViolationException::*)($String*,$String*,int32_t)>(&SQLIntegrityConstraintViolationException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLIntegrityConstraintViolationException::*)($Throwable*)>(&SQLIntegrityConstraintViolationException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLIntegrityConstraintViolationException::*)($String*,$Throwable*)>(&SQLIntegrityConstraintViolationException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLIntegrityConstraintViolationException::*)($String*,$String*,$Throwable*)>(&SQLIntegrityConstraintViolationException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLIntegrityConstraintViolationException::*)($String*,$String*,int32_t,$Throwable*)>(&SQLIntegrityConstraintViolationException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLIntegrityConstraintViolationException, init$, void, $String*, $String*, int32_t, $Throwable*)},
 	{}
 };
 

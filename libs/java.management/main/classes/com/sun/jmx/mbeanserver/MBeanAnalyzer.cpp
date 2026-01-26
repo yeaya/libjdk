@@ -61,11 +61,11 @@ $FieldInfo _MBeanAnalyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanIntrospector;)V", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;)V", $PRIVATE, $method(static_cast<void(MBeanAnalyzer::*)($Class*,$MBeanIntrospector*)>(&MBeanAnalyzer::init$)), "javax.management.NotCompliantMBeanException"},
-	{"analyzer", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanIntrospector;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;", "<M:Ljava/lang/Object;>(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<TM;>;", $STATIC, $method(static_cast<MBeanAnalyzer*(*)($Class*,$MBeanIntrospector*)>(&MBeanAnalyzer::analyzer)), "javax.management.NotCompliantMBeanException"},
-	{"eliminateCovariantMethods", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/reflect/Method;>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $STATIC, $method(static_cast<$List*(*)($List*)>(&MBeanAnalyzer::eliminateCovariantMethods))},
-	{"initMaps", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanIntrospector;)V", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;)V", $PRIVATE, $method(static_cast<void(MBeanAnalyzer::*)($Class*,$MBeanIntrospector*)>(&MBeanAnalyzer::initMaps)), "java.lang.Exception"},
-	{"visit", "(Lcom/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor;)V", "(Lcom/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor<TM;>;)V", 0},
+	{"<init>", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanIntrospector;)V", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;)V", $PRIVATE, $method(MBeanAnalyzer, init$, void, $Class*, $MBeanIntrospector*), "javax.management.NotCompliantMBeanException"},
+	{"analyzer", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanIntrospector;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;", "<M:Ljava/lang/Object;>(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;)Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<TM;>;", $STATIC, $staticMethod(MBeanAnalyzer, analyzer, MBeanAnalyzer*, $Class*, $MBeanIntrospector*), "javax.management.NotCompliantMBeanException"},
+	{"eliminateCovariantMethods", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/reflect/Method;>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $STATIC, $staticMethod(MBeanAnalyzer, eliminateCovariantMethods, $List*, $List*)},
+	{"initMaps", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanIntrospector;)V", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;)V", $PRIVATE, $method(MBeanAnalyzer, initMaps, void, $Class*, $MBeanIntrospector*), "java.lang.Exception"},
+	{"visit", "(Lcom/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor;)V", "(Lcom/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor<TM;>;)V", 0, $virtualMethod(MBeanAnalyzer, visit, void, $MBeanAnalyzer$MBeanVisitor*)},
 	{}
 };
 

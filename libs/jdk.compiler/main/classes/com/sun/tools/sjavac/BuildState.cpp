@@ -72,8 +72,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BuildState$$Lambda$union::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BuildState$$Lambda$union::*)()>(&BuildState$$Lambda$union::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BuildState$$Lambda$union, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BuildState$$Lambda$union, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo BuildState$$Lambda$union::classInfo$ = {
@@ -100,22 +100,22 @@ $FieldInfo _BuildState_FieldInfo_[] = {
 };
 
 $MethodInfo _BuildState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BuildState::*)()>(&BuildState::init$))},
-	{"artifacts", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/io/File;>;", $PUBLIC},
-	{"calculateDependents", "()V", nullptr, $PUBLIC},
-	{"checkInternalState", "(Ljava/lang/String;ZLjava/util/Map;)V", "(Ljava/lang/String;ZLjava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;)V", $PUBLIC},
-	{"copyPackagesExcept", "(Lcom/sun/tools/sjavac/BuildState;Ljava/util/Set;Ljava/util/Set;)V", "(Lcom/sun/tools/sjavac/BuildState;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC},
-	{"dependents", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC},
-	{"findModuleFromPackageName", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, 0},
-	{"flattenArtifacts", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;)V", $PUBLIC},
-	{"flattenPackagesSourcesAndArtifacts", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;)V", $PUBLIC},
-	{"loadModule", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, $PUBLIC},
-	{"loadPackage", "(Lcom/sun/tools/sjavac/Module;Ljava/lang/String;)Lcom/sun/tools/sjavac/Package;", nullptr, $PUBLIC},
-	{"loadSource", "(Lcom/sun/tools/sjavac/Package;Ljava/lang/String;Z)Lcom/sun/tools/sjavac/Source;", nullptr, $PUBLIC},
-	{"lookupModule", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, $PUBLIC},
-	{"modules", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;", $PUBLIC},
-	{"packages", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Package;>;", $PUBLIC},
-	{"sources", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BuildState, init$, void)},
+	{"artifacts", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/io/File;>;", $PUBLIC, $virtualMethod(BuildState, artifacts, $Map*)},
+	{"calculateDependents", "()V", nullptr, $PUBLIC, $virtualMethod(BuildState, calculateDependents, void)},
+	{"checkInternalState", "(Ljava/lang/String;ZLjava/util/Map;)V", "(Ljava/lang/String;ZLjava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;)V", $PUBLIC, $virtualMethod(BuildState, checkInternalState, void, $String*, bool, $Map*)},
+	{"copyPackagesExcept", "(Lcom/sun/tools/sjavac/BuildState;Ljava/util/Set;Ljava/util/Set;)V", "(Lcom/sun/tools/sjavac/BuildState;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(BuildState, copyPackagesExcept, void, BuildState*, $Set*, $Set*)},
+	{"dependents", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(BuildState, dependents, $Map*)},
+	{"findModuleFromPackageName", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, 0, $virtualMethod(BuildState, findModuleFromPackageName, $Module*, $String*)},
+	{"flattenArtifacts", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;)V", $PUBLIC, $virtualMethod(BuildState, flattenArtifacts, void, $Map*)},
+	{"flattenPackagesSourcesAndArtifacts", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;)V", $PUBLIC, $virtualMethod(BuildState, flattenPackagesSourcesAndArtifacts, void, $Map*)},
+	{"loadModule", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, $PUBLIC, $virtualMethod(BuildState, loadModule, $Module*, $String*)},
+	{"loadPackage", "(Lcom/sun/tools/sjavac/Module;Ljava/lang/String;)Lcom/sun/tools/sjavac/Package;", nullptr, $PUBLIC, $virtualMethod(BuildState, loadPackage, $Package*, $Module*, $String*)},
+	{"loadSource", "(Lcom/sun/tools/sjavac/Package;Ljava/lang/String;Z)Lcom/sun/tools/sjavac/Source;", nullptr, $PUBLIC, $virtualMethod(BuildState, loadSource, $Source*, $Package*, $String*, bool)},
+	{"lookupModule", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Module;", nullptr, $PUBLIC, $virtualMethod(BuildState, lookupModule, $Module*, $String*)},
+	{"modules", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;", $PUBLIC, $virtualMethod(BuildState, modules, $Map*)},
+	{"packages", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Package;>;", $PUBLIC, $virtualMethod(BuildState, packages, $Map*)},
+	{"sources", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;", $PUBLIC, $virtualMethod(BuildState, sources, $Map*)},
 	{}
 };
 

@@ -15,7 +15,7 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _DefaultMXBeanMappingFactory$Mappings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DefaultMXBeanMappingFactory$Mappings::*)()>(&DefaultMXBeanMappingFactory$Mappings::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultMXBeanMappingFactory$Mappings, init$, void)},
 	{}
 };
 

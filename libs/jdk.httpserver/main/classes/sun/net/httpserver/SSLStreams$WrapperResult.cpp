@@ -23,7 +23,7 @@ $FieldInfo _SSLStreams$WrapperResult_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLStreams$WrapperResult_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/SSLStreams;)V", nullptr, 0, $method(static_cast<void(SSLStreams$WrapperResult::*)($SSLStreams*)>(&SSLStreams$WrapperResult::init$))},
+	{"<init>", "(Lsun/net/httpserver/SSLStreams;)V", nullptr, 0, $method(SSLStreams$WrapperResult, init$, void, $SSLStreams*)},
 	{}
 };
 

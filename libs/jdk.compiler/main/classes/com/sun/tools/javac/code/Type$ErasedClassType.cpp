@@ -23,8 +23,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Type$ErasedClassType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(static_cast<void(Type$ErasedClassType::*)($Type*,$Symbol$TypeSymbol*,$TypeMetadata*)>(&Type$ErasedClassType::init$))},
-	{"hasErasedSupertypes", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$ErasedClassType, init$, void, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+	{"hasErasedSupertypes", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErasedClassType, hasErasedSupertypes, bool)},
 	{}
 };
 

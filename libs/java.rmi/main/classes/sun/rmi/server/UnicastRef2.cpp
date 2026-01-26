@@ -24,11 +24,11 @@ $FieldInfo _UnicastRef2_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicastRef2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicastRef2::*)()>(&UnicastRef2::init$))},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastRef2::*)($LiveRef*)>(&UnicastRef2::init$))},
-	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastRef2, init$, void)},
+	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(UnicastRef2, init$, void, $LiveRef*)},
+	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastRef2, getRefClass, $String*, $ObjectOutput*)},
+	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastRef2, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastRef2, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
 	{}
 };
 

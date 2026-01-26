@@ -27,15 +27,15 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _DesMacKCksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DesMacKCksumType::*)()>(&DesMacKCksumType::init$))},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"cksumSize", "()I", nullptr, $PUBLIC},
-	{"cksumType", "()I", nullptr, $PUBLIC},
-	{"confounderSize", "()I", nullptr, $PUBLIC},
-	{"isKeyed", "()Z", nullptr, $PUBLIC},
-	{"keySize", "()I", nullptr, $PUBLIC},
-	{"keyType", "()I", nullptr, $PUBLIC},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DesMacKCksumType, init$, void)},
+	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesMacKCksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacKCksumType, cksumSize, int32_t)},
+	{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacKCksumType, cksumType, int32_t)},
+	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacKCksumType, confounderSize, int32_t)},
+	{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(DesMacKCksumType, isKeyed, bool)},
+	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacKCksumType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacKCksumType, keyType, int32_t)},
+	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(DesMacKCksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
 	{}
 };
 

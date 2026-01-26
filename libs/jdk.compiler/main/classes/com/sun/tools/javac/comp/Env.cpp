@@ -37,13 +37,13 @@ $FieldInfo _Env_FieldInfo_[] = {
 };
 
 $MethodInfo _Env_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)V", "(Lcom/sun/tools/javac/tree/JCTree;TA;)V", $PUBLIC, $method(static_cast<void(Env::*)($JCTree*,Object$*)>(&Env::init$))},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;TA;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC},
-	{"dupto", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/comp/Env<TA;>;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC},
-	{"enclosing", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<TA;>;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)V", "(Lcom/sun/tools/javac/tree/JCTree;TA;)V", $PUBLIC, $method(Env, init$, void, $JCTree*, Object$*)},
+	{"dup", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;TA;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, dup, Env*, $JCTree*, Object$*)},
+	{"dup", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, dup, Env*, $JCTree*)},
+	{"dupto", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/comp/Env<TA;>;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, dupto, Env*, Env*)},
+	{"enclosing", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env, enclosing, Env*, $JCTree$Tag*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<TA;>;>;", $PUBLIC, $virtualMethod(Env, iterator, $Iterator*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Env, toString, $String*)},
 	{}
 };
 

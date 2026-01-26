@@ -33,9 +33,9 @@ $FieldInfo _Types$MethodFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$MethodFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Types$MethodFilter::*)($Types*,$Symbol*,$Type*)>(&Types$MethodFilter::init$))},
-	{"test", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$MethodFilter, init$, void, $Types*, $Symbol*, $Type*)},
+	{"test", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Types$MethodFilter, test, bool, $Symbol*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$MethodFilter, test, bool, Object$*)},
 	{}
 };
 

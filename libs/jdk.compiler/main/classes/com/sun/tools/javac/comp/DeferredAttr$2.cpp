@@ -57,11 +57,11 @@ $FieldInfo _DeferredAttr$2_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$2::*)($DeferredAttr*,$TreeMaker*)>(&DeferredAttr$2::init$))},
-	{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
-	{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, 0, $method(DeferredAttr$2, init$, void, $DeferredAttr*, $TreeMaker*)},
+	{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$2, visitMemberReference, $JCTree*, $MemberReferenceTree*, $Void*)},
+	{"visitMemberReference", "(Lcom/sun/source/tree/MemberReferenceTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$2, visitMemberReference, $Object*, $MemberReferenceTree*, Object$*)},
+	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$2, visitNewClass, $JCTree*, $NewClassTree*, $Void*)},
+	{"visitNewClass", "(Lcom/sun/source/tree/NewClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$2, visitNewClass, $Object*, $NewClassTree*, Object$*)},
 	{}
 };
 

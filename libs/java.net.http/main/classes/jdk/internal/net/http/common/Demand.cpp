@@ -45,8 +45,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Demand$$Lambda$lambda$increase$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Demand$$Lambda$lambda$increase$0::*)()>(&Demand$$Lambda$lambda$increase$0::init$))},
-	{"applyAsLong", "(JJ)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Demand$$Lambda$lambda$increase$0, init$, void)},
+	{"applyAsLong", "(JJ)J", nullptr, $PUBLIC, $virtualMethod(Demand$$Lambda$lambda$increase$0, applyAsLong, int64_t, int64_t, int64_t)},
 	{}
 };
 $ClassInfo Demand$$Lambda$lambda$increase$0::classInfo$ = {
@@ -69,16 +69,16 @@ $FieldInfo _Demand_FieldInfo_[] = {
 };
 
 $MethodInfo _Demand_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Demand::*)()>(&Demand::init$))},
-	{"decreaseAndGet", "(J)J", nullptr, $PUBLIC, $method(static_cast<int64_t(Demand::*)(int64_t)>(&Demand::decreaseAndGet))},
-	{"get", "()J", nullptr, $PUBLIC, $method(static_cast<int64_t(Demand::*)()>(&Demand::get))},
-	{"increase", "(J)Z", nullptr, $PUBLIC, $method(static_cast<bool(Demand::*)(int64_t)>(&Demand::increase))},
-	{"increaseIfFulfilled", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Demand::*)()>(&Demand::increaseIfFulfilled))},
-	{"isFulfilled", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Demand::*)()>(&Demand::isFulfilled))},
-	{"lambda$increase$0", "(JJ)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&Demand::lambda$increase$0))},
-	{"reset", "()V", nullptr, $PUBLIC, $method(static_cast<void(Demand::*)()>(&Demand::reset))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryDecrement", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(Demand::*)()>(&Demand::tryDecrement))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Demand, init$, void)},
+	{"decreaseAndGet", "(J)J", nullptr, $PUBLIC, $method(Demand, decreaseAndGet, int64_t, int64_t)},
+	{"get", "()J", nullptr, $PUBLIC, $method(Demand, get, int64_t)},
+	{"increase", "(J)Z", nullptr, $PUBLIC, $method(Demand, increase, bool, int64_t)},
+	{"increaseIfFulfilled", "()Z", nullptr, $PUBLIC, $method(Demand, increaseIfFulfilled, bool)},
+	{"isFulfilled", "()Z", nullptr, $PUBLIC, $method(Demand, isFulfilled, bool)},
+	{"lambda$increase$0", "(JJ)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Demand, lambda$increase$0, int64_t, int64_t, int64_t)},
+	{"reset", "()V", nullptr, $PUBLIC, $method(Demand, reset, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Demand, toString, $String*)},
+	{"tryDecrement", "()Z", nullptr, $PUBLIC, $method(Demand, tryDecrement, bool)},
 	{}
 };
 

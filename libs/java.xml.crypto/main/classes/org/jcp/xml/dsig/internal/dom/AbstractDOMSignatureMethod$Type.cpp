@@ -33,10 +33,10 @@ $FieldInfo _AbstractDOMSignatureMethod$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractDOMSignatureMethod$Type_MethodInfo_[] = {
-	{"$values", "()[Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AbstractDOMSignatureMethod$TypeArray*(*)()>(&AbstractDOMSignatureMethod$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(AbstractDOMSignatureMethod$Type::*)($String*,int32_t)>(&AbstractDOMSignatureMethod$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AbstractDOMSignatureMethod$Type*(*)($String*)>(&AbstractDOMSignatureMethod$Type::valueOf))},
-	{"values", "()[Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AbstractDOMSignatureMethod$TypeArray*(*)()>(&AbstractDOMSignatureMethod$Type::values))},
+	{"$values", "()[Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractDOMSignatureMethod$Type, $values, $AbstractDOMSignatureMethod$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AbstractDOMSignatureMethod$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractDOMSignatureMethod$Type, valueOf, AbstractDOMSignatureMethod$Type*, $String*)},
+	{"values", "()[Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(AbstractDOMSignatureMethod$Type, values, $AbstractDOMSignatureMethod$TypeArray*)},
 	{}
 };
 

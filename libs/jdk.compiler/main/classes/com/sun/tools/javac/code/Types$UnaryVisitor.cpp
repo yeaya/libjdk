@@ -22,8 +22,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Types$UnaryVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Types$UnaryVisitor::*)()>(&Types$UnaryVisitor::init$))},
-	{"visit", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type;)TR;", $PUBLIC | $FINAL, $method(static_cast<$Object*(Types$UnaryVisitor::*)($Type*)>(&Types$UnaryVisitor::visit))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Types$UnaryVisitor, init$, void)},
+	{"visit", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type;)TR;", $PUBLIC | $FINAL, $method(Types$UnaryVisitor, visit, $Object*, $Type*)},
 	{}
 };
 

@@ -10,7 +10,7 @@ namespace javax {
 		namespace crypto {
 
 $MethodInfo _XMLStructure_MethodInfo_[] = {
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStructure, isFeatureSupported, bool, $String*)},
 	{}
 };
 

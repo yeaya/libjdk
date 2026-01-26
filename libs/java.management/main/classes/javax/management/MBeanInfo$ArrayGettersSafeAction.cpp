@@ -24,8 +24,8 @@ $FieldInfo _MBeanInfo$ArrayGettersSafeAction_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanInfo$ArrayGettersSafeAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(MBeanInfo$ArrayGettersSafeAction::*)($Class*,$Class*)>(&MBeanInfo$ArrayGettersSafeAction::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", 0, $method(MBeanInfo$ArrayGettersSafeAction, init$, void, $Class*, $Class*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(MBeanInfo$ArrayGettersSafeAction, run, $Object*)},
 	{}
 };
 

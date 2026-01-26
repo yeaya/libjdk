@@ -28,10 +28,10 @@ $FieldInfo _KrbAsReqBuilder$State_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbAsReqBuilder$State_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$KrbAsReqBuilder$StateArray*(*)()>(&KrbAsReqBuilder$State::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(KrbAsReqBuilder$State::*)($String*,int32_t)>(&KrbAsReqBuilder$State::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KrbAsReqBuilder$State*(*)($String*)>(&KrbAsReqBuilder$State::valueOf))},
-	{"values", "()[Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$KrbAsReqBuilder$StateArray*(*)()>(&KrbAsReqBuilder$State::values))},
+	{"$values", "()[Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KrbAsReqBuilder$State, $values, $KrbAsReqBuilder$StateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(KrbAsReqBuilder$State, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(KrbAsReqBuilder$State, valueOf, KrbAsReqBuilder$State*, $String*)},
+	{"values", "()[Lsun/security/krb5/KrbAsReqBuilder$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(KrbAsReqBuilder$State, values, $KrbAsReqBuilder$StateArray*)},
 	{}
 };
 

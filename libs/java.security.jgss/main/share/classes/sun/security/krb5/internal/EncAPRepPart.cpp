@@ -44,13 +44,13 @@ $FieldInfo _EncAPRepPart_FieldInfo_[] = {
 };
 
 $MethodInfo _EncAPRepPart_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/internal/KerberosTime;ILsun/security/krb5/EncryptionKey;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(static_cast<void(EncAPRepPart::*)($KerberosTime*,int32_t,$EncryptionKey*,$Integer*)>(&EncAPRepPart::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(EncAPRepPart::*)($bytes*)>(&EncAPRepPart::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(EncAPRepPart::*)($DerValue*)>(&EncAPRepPart::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"getSeqNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Integer*(EncAPRepPart::*)()>(&EncAPRepPart::getSeqNumber))},
-	{"getSubKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$EncryptionKey*(EncAPRepPart::*)()>(&EncAPRepPart::getSubKey))},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(EncAPRepPart::*)($DerValue*)>(&EncAPRepPart::init)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "(Lsun/security/krb5/internal/KerberosTime;ILsun/security/krb5/EncryptionKey;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(EncAPRepPart, init$, void, $KerberosTime*, int32_t, $EncryptionKey*, $Integer*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncAPRepPart, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EncAPRepPart, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(EncAPRepPart, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"getSeqNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(EncAPRepPart, getSeqNumber, $Integer*)},
+	{"getSubKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $FINAL, $method(EncAPRepPart, getSubKey, $EncryptionKey*)},
+	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(EncAPRepPart, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
 	{}
 };
 

@@ -38,9 +38,9 @@ $FieldInfo _TimerAlarmClock_FieldInfo_[] = {
 };
 
 $MethodInfo _TimerAlarmClock_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/timer/Timer;J)V", nullptr, $PUBLIC, $method(static_cast<void(TimerAlarmClock::*)($Timer*,int64_t)>(&TimerAlarmClock::init$))},
-	{"<init>", "(Ljavax/management/timer/Timer;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(static_cast<void(TimerAlarmClock::*)($Timer*,$Date*)>(&TimerAlarmClock::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/timer/Timer;J)V", nullptr, $PUBLIC, $method(TimerAlarmClock, init$, void, $Timer*, int64_t)},
+	{"<init>", "(Ljavax/management/timer/Timer;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(TimerAlarmClock, init$, void, $Timer*, $Date*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TimerAlarmClock, run, void)},
 	{}
 };
 

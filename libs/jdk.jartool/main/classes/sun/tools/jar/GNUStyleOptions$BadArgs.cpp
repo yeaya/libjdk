@@ -22,9 +22,9 @@ $FieldInfo _GNUStyleOptions$BadArgs_FieldInfo_[] = {
 };
 
 $MethodInfo _GNUStyleOptions$BadArgs_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(GNUStyleOptions$BadArgs::*)($String*,$String*)>(&GNUStyleOptions$BadArgs::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(GNUStyleOptions$BadArgs::*)($String*)>(&GNUStyleOptions$BadArgs::init$))},
-	{"showUsage", "(Z)Lsun/tools/jar/GNUStyleOptions$BadArgs;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(GNUStyleOptions$BadArgs, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(GNUStyleOptions$BadArgs, init$, void, $String*)},
+	{"showUsage", "(Z)Lsun/tools/jar/GNUStyleOptions$BadArgs;", nullptr, 0, $virtualMethod(GNUStyleOptions$BadArgs, showUsage, GNUStyleOptions$BadArgs*, bool)},
 	{}
 };
 

@@ -56,9 +56,9 @@ $FieldInfo _TypeEnter$AbstractMembersPhase_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$AbstractMembersPhase_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;Lcom/sun/tools/javac/comp/TypeEnter$Phase;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$AbstractMembersPhase::*)($TypeEnter*,$Dependencies$CompletionCause*,$TypeEnter$Phase*)>(&TypeEnter$AbstractMembersPhase::init$))},
-	{"doCompleteEnvs", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)V", $PROTECTED},
-	{"enterThisAndSuper", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;Lcom/sun/tools/javac/comp/TypeEnter$Phase;)V", nullptr, $PUBLIC, $method(TypeEnter$AbstractMembersPhase, init$, void, $TypeEnter*, $Dependencies$CompletionCause*, $TypeEnter$Phase*)},
+	{"doCompleteEnvs", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;)V", $PROTECTED, $virtualMethod(TypeEnter$AbstractMembersPhase, doCompleteEnvs, void, $List*)},
+	{"enterThisAndSuper", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(TypeEnter$AbstractMembersPhase, enterThisAndSuper, void, $Symbol$ClassSymbol*, $Env*)},
 	{}
 };
 

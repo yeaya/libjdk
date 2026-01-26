@@ -163,8 +163,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactoryHelper$$Lambda$getName::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactoryHelper$$Lambda$getName::*)()>(&ManagementFactoryHelper$$Lambda$getName::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactoryHelper$$Lambda$getName, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$$Lambda$getName, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactoryHelper$$Lambda$getName::classInfo$ = {
@@ -196,8 +196,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactoryHelper$$Lambda$lambda$getAllMemoryPoolNames$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactoryHelper$$Lambda$lambda$getAllMemoryPoolNames$0$1::*)()>(&ManagementFactoryHelper$$Lambda$lambda$getAllMemoryPoolNames$0$1::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactoryHelper$$Lambda$lambda$getAllMemoryPoolNames$0$1, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$$Lambda$lambda$getAllMemoryPoolNames$0$1, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ManagementFactoryHelper$$Lambda$lambda$getAllMemoryPoolNames$0$1::classInfo$ = {
@@ -229,8 +229,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ManagementFactoryHelper$$Lambda$createBufferPoolMXBean$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ManagementFactoryHelper$$Lambda$createBufferPoolMXBean$2::*)()>(&ManagementFactoryHelper$$Lambda$createBufferPoolMXBean$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ManagementFactoryHelper$$Lambda$createBufferPoolMXBean$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$$Lambda$createBufferPoolMXBean$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ManagementFactoryHelper$$Lambda$createBufferPoolMXBean$2::classInfo$ = {
@@ -275,38 +275,38 @@ $FieldInfo _ManagementFactoryHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _ManagementFactoryHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ManagementFactoryHelper::*)()>(&ManagementFactoryHelper::init$))},
-	{"addMBean", "(Ljavax/management/MBeanServer;Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MBeanServer*,Object$*,$String*)>(&ManagementFactoryHelper::addMBean))},
-	{"createBufferPoolMXBean", "(Ljdk/internal/misc/VM$BufferPool;)Ljava/lang/management/BufferPoolMXBean;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$BufferPoolMXBean*(*)($VM$BufferPool*)>(&ManagementFactoryHelper::createBufferPoolMXBean))},
-	{"createGarbageCollector", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/management/GarbageCollectorMXBean;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$GarbageCollectorMXBean*(*)($String*,$String*)>(&ManagementFactoryHelper::createGarbageCollector))},
-	{"createMemoryManager", "(Ljava/lang/String;)Ljava/lang/management/MemoryManagerMXBean;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MemoryManagerMXBean*(*)($String*)>(&ManagementFactoryHelper::createMemoryManager))},
-	{"createMemoryPool", "(Ljava/lang/String;ZJJ)Ljava/lang/management/MemoryPoolMXBean;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MemoryPoolMXBean*(*)($String*,bool,int64_t,int64_t)>(&ManagementFactoryHelper::createMemoryPool))},
-	{"getAllMemoryPoolNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringArray*(*)()>(&ManagementFactoryHelper::getAllMemoryPoolNames))},
-	{"getBufferPoolMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/BufferPoolMXBean;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)()>(&ManagementFactoryHelper::getBufferPoolMXBeans))},
-	{"getClassLoadingMXBean", "()Ljava/lang/management/ClassLoadingMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$ClassLoadingMXBean*(*)()>(&ManagementFactoryHelper::getClassLoadingMXBean))},
-	{"getCompilationMXBean", "()Ljava/lang/management/CompilationMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$CompilationMXBean*(*)()>(&ManagementFactoryHelper::getCompilationMXBean))},
-	{"getGarbageCollectorMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/GarbageCollectorMXBean;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)()>(&ManagementFactoryHelper::getGarbageCollectorMXBeans))},
-	{"getHotspotClassLoadingMBean", "()Lsun/management/HotspotClassLoadingMBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$HotspotClassLoadingMBean*(*)()>(&ManagementFactoryHelper::getHotspotClassLoadingMBean))},
-	{"getHotspotCompilationMBean", "()Lsun/management/HotspotCompilationMBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$HotspotCompilationMBean*(*)()>(&ManagementFactoryHelper::getHotspotCompilationMBean))},
-	{"getHotspotMemoryMBean", "()Lsun/management/HotspotMemoryMBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$HotspotMemoryMBean*(*)()>(&ManagementFactoryHelper::getHotspotMemoryMBean))},
-	{"getHotspotRuntimeMBean", "()Lsun/management/HotspotRuntimeMBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$HotspotRuntimeMBean*(*)()>(&ManagementFactoryHelper::getHotspotRuntimeMBean))},
-	{"getHotspotThreadMBean", "()Lsun/management/HotspotThreadMBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$HotspotThreadMBean*(*)()>(&ManagementFactoryHelper::getHotspotThreadMBean))},
-	{"getMemoryMXBean", "()Ljava/lang/management/MemoryMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$MemoryMXBean*(*)()>(&ManagementFactoryHelper::getMemoryMXBean))},
-	{"getMemoryManagerMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/MemoryManagerMXBean;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)()>(&ManagementFactoryHelper::getMemoryManagerMXBeans))},
-	{"getMemoryPoolMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/MemoryPoolMXBean;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)()>(&ManagementFactoryHelper::getMemoryPoolMXBeans))},
-	{"getOperatingSystemMXBean", "()Ljava/lang/management/OperatingSystemMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$OperatingSystemMXBean*(*)()>(&ManagementFactoryHelper::getOperatingSystemMXBean))},
-	{"getPlatformLoggingMXBean", "()Ljava/lang/management/PlatformLoggingMXBean;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PlatformLoggingMXBean*(*)()>(&ManagementFactoryHelper::getPlatformLoggingMXBean))},
-	{"getRuntimeMXBean", "()Ljava/lang/management/RuntimeMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$RuntimeMXBean*(*)()>(&ManagementFactoryHelper::getRuntimeMXBean))},
-	{"getThreadMXBean", "()Ljava/lang/management/ThreadMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$ThreadMXBean*(*)()>(&ManagementFactoryHelper::getThreadMXBean))},
-	{"getVMManagement", "()Lsun/management/VMManagement;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$VMManagement*(*)()>(&ManagementFactoryHelper::getVMManagement))},
-	{"isPlatformLoggingMXBeanAvailable", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&ManagementFactoryHelper::isPlatformLoggingMXBeanAvailable))},
-	{"isThreadRunningNative", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&ManagementFactoryHelper::isThreadRunningNative))},
-	{"isThreadSuspended", "(I)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t)>(&ManagementFactoryHelper::isThreadSuspended))},
-	{"lambda$getAllMemoryPoolNames$0", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StringArray*(*)(int32_t)>(&ManagementFactoryHelper::lambda$getAllMemoryPoolNames$0))},
-	{"registerInternalMBeans", "(Ljavax/management/MBeanServer;)V", nullptr, $STATIC, $method(static_cast<void(*)($MBeanServer*)>(&ManagementFactoryHelper::registerInternalMBeans))},
-	{"toThreadState", "(I)Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Thread$State*(*)(int32_t)>(&ManagementFactoryHelper::toThreadState))},
-	{"unregisterInternalMBeans", "(Ljavax/management/MBeanServer;)V", nullptr, $STATIC, $method(static_cast<void(*)($MBeanServer*)>(&ManagementFactoryHelper::unregisterInternalMBeans))},
-	{"unregisterMBean", "(Ljavax/management/MBeanServer;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($MBeanServer*,$String*)>(&ManagementFactoryHelper::unregisterMBean))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ManagementFactoryHelper, init$, void)},
+	{"addMBean", "(Ljavax/management/MBeanServer;Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactoryHelper, addMBean, void, $MBeanServer*, Object$*, $String*)},
+	{"createBufferPoolMXBean", "(Ljdk/internal/misc/VM$BufferPool;)Ljava/lang/management/BufferPoolMXBean;", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactoryHelper, createBufferPoolMXBean, $BufferPoolMXBean*, $VM$BufferPool*)},
+	{"createGarbageCollector", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/management/GarbageCollectorMXBean;", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactoryHelper, createGarbageCollector, $GarbageCollectorMXBean*, $String*, $String*)},
+	{"createMemoryManager", "(Ljava/lang/String;)Ljava/lang/management/MemoryManagerMXBean;", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactoryHelper, createMemoryManager, $MemoryManagerMXBean*, $String*)},
+	{"createMemoryPool", "(Ljava/lang/String;ZJJ)Ljava/lang/management/MemoryPoolMXBean;", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactoryHelper, createMemoryPool, $MemoryPoolMXBean*, $String*, bool, int64_t, int64_t)},
+	{"getAllMemoryPoolNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, getAllMemoryPoolNames, $StringArray*)},
+	{"getBufferPoolMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/BufferPoolMXBean;>;", $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, getBufferPoolMXBeans, $List*)},
+	{"getClassLoadingMXBean", "()Ljava/lang/management/ClassLoadingMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getClassLoadingMXBean, $ClassLoadingMXBean*)},
+	{"getCompilationMXBean", "()Ljava/lang/management/CompilationMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getCompilationMXBean, $CompilationMXBean*)},
+	{"getGarbageCollectorMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/GarbageCollectorMXBean;>;", $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, getGarbageCollectorMXBeans, $List*)},
+	{"getHotspotClassLoadingMBean", "()Lsun/management/HotspotClassLoadingMBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getHotspotClassLoadingMBean, $HotspotClassLoadingMBean*)},
+	{"getHotspotCompilationMBean", "()Lsun/management/HotspotCompilationMBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getHotspotCompilationMBean, $HotspotCompilationMBean*)},
+	{"getHotspotMemoryMBean", "()Lsun/management/HotspotMemoryMBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getHotspotMemoryMBean, $HotspotMemoryMBean*)},
+	{"getHotspotRuntimeMBean", "()Lsun/management/HotspotRuntimeMBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getHotspotRuntimeMBean, $HotspotRuntimeMBean*)},
+	{"getHotspotThreadMBean", "()Lsun/management/HotspotThreadMBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getHotspotThreadMBean, $HotspotThreadMBean*)},
+	{"getMemoryMXBean", "()Ljava/lang/management/MemoryMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getMemoryMXBean, $MemoryMXBean*)},
+	{"getMemoryManagerMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/MemoryManagerMXBean;>;", $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, getMemoryManagerMXBeans, $List*)},
+	{"getMemoryPoolMXBeans", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/management/MemoryPoolMXBean;>;", $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, getMemoryPoolMXBeans, $List*)},
+	{"getOperatingSystemMXBean", "()Ljava/lang/management/OperatingSystemMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getOperatingSystemMXBean, $OperatingSystemMXBean*)},
+	{"getPlatformLoggingMXBean", "()Ljava/lang/management/PlatformLoggingMXBean;", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, getPlatformLoggingMXBean, $PlatformLoggingMXBean*)},
+	{"getRuntimeMXBean", "()Ljava/lang/management/RuntimeMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getRuntimeMXBean, $RuntimeMXBean*)},
+	{"getThreadMXBean", "()Ljava/lang/management/ThreadMXBean;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ManagementFactoryHelper, getThreadMXBean, $ThreadMXBean*)},
+	{"getVMManagement", "()Lsun/management/VMManagement;", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, getVMManagement, $VMManagement*)},
+	{"isPlatformLoggingMXBeanAvailable", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, isPlatformLoggingMXBeanAvailable, bool)},
+	{"isThreadRunningNative", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, isThreadRunningNative, bool, int32_t)},
+	{"isThreadSuspended", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, isThreadSuspended, bool, int32_t)},
+	{"lambda$getAllMemoryPoolNames$0", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManagementFactoryHelper, lambda$getAllMemoryPoolNames$0, $StringArray*, int32_t)},
+	{"registerInternalMBeans", "(Ljavax/management/MBeanServer;)V", nullptr, $STATIC, $staticMethod(ManagementFactoryHelper, registerInternalMBeans, void, $MBeanServer*)},
+	{"toThreadState", "(I)Ljava/lang/Thread$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(ManagementFactoryHelper, toThreadState, $Thread$State*, int32_t)},
+	{"unregisterInternalMBeans", "(Ljavax/management/MBeanServer;)V", nullptr, $STATIC, $staticMethod(ManagementFactoryHelper, unregisterInternalMBeans, void, $MBeanServer*)},
+	{"unregisterMBean", "(Ljavax/management/MBeanServer;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactoryHelper, unregisterMBean, void, $MBeanServer*, $String*)},
 	{}
 };
 

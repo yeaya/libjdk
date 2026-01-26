@@ -22,10 +22,10 @@ $FieldInfo _MockListener$OnPing_FieldInfo_[] = {
 };
 
 $MethodInfo _MockListener$OnPing_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(MockListener$OnPing::*)($WebSocket*,$ByteBuffer*)>(&MockListener$OnPing::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(MockListener$OnPing, init$, void, $WebSocket*, $ByteBuffer*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnPing, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnPing, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnPing, toString, $String*)},
 	{}
 };
 

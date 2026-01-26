@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Savepoint = ::java::sql::Savepoint;
 
 namespace javax {
 	namespace sql {
@@ -12,9 +13,9 @@ namespace javax {
 			namespace spi {
 
 $MethodInfo _TransactionalWriter_MethodInfo_[] = {
-	{"commit", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"rollback", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"commit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransactionalWriter, commit, void), "java.sql.SQLException"},
+	{"rollback", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransactionalWriter, rollback, void), "java.sql.SQLException"},
+	{"rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransactionalWriter, rollback, void, $Savepoint*), "java.sql.SQLException"},
 	{}
 };
 

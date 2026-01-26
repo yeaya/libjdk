@@ -85,8 +85,8 @@ $FieldInfo SocketTube$InternalWriteSubscriber$$Lambda$signalError::fieldInfos[2]
 	{}
 };
 $MethodInfo SocketTube$InternalWriteSubscriber$$Lambda$signalError::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$InternalWriteSubscriber$$Lambda$signalError::*)(SocketTube$InternalWriteSubscriber*)>(&SocketTube$InternalWriteSubscriber$$Lambda$signalError::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$signalError, init$, void, SocketTube$InternalWriteSubscriber*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$signalError, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SocketTube$InternalWriteSubscriber$$Lambda$signalError::classInfo$ = {
@@ -125,8 +125,8 @@ $FieldInfo SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::field
 	{}
 };
 $MethodInfo SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::*)(SocketTube$InternalWriteSubscriber*)>(&SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, init$, void, SocketTube$InternalWriteSubscriber*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1, run, void)},
 	{}
 };
 $ClassInfo SocketTube$InternalWriteSubscriber$$Lambda$startSubscription$1::classInfo$ = {
@@ -165,8 +165,8 @@ $FieldInfo SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::fieldInfos[
 	{}
 };
 $MethodInfo SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::*)(SocketTube$InternalWriteSubscriber*)>(&SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, init$, void, SocketTube$InternalWriteSubscriber*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2, run, void)},
 	{}
 };
 $ClassInfo SocketTube$InternalWriteSubscriber$$Lambda$requestMore$2::classInfo$ = {
@@ -205,8 +205,8 @@ $FieldInfo SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::fi
 	{}
 };
 $MethodInfo SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::*)($Throwable*)>(&SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, init$, void, $Throwable*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3, get, $Object*)},
 	{}
 };
 $ClassInfo SocketTube$InternalWriteSubscriber$$Lambda$lambda$signalError$0$3::classInfo$ = {
@@ -236,19 +236,19 @@ $FieldInfo _SocketTube$InternalWriteSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketTube$InternalWriteSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube;)V", nullptr, $PRIVATE, $method(static_cast<void(SocketTube$InternalWriteSubscriber::*)($SocketTube*)>(&SocketTube$InternalWriteSubscriber::init$))},
-	{"lambda$signalError$0", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Throwable*)>(&SocketTube$InternalWriteSubscriber::lambda$signalError$0))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(SocketTube$InternalWriteSubscriber::*)($List*)>(&SocketTube$InternalWriteSubscriber::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"requestMore", "()V", nullptr, 0, $method(static_cast<void(SocketTube$InternalWriteSubscriber::*)()>(&SocketTube$InternalWriteSubscriber::requestMore))},
-	{"resumeWriteEvent", "(Z)V", nullptr, 0, $method(static_cast<void(SocketTube$InternalWriteSubscriber::*)(bool)>(&SocketTube$InternalWriteSubscriber::resumeWriteEvent))},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(SocketTube$InternalWriteSubscriber::*)($Throwable*)>(&SocketTube$InternalWriteSubscriber::signalError))},
-	{"signalWritable", "()V", nullptr, 0, $method(static_cast<void(SocketTube$InternalWriteSubscriber::*)()>(&SocketTube$InternalWriteSubscriber::signalWritable))},
-	{"startSubscription", "()V", nullptr, 0, $method(static_cast<void(SocketTube$InternalWriteSubscriber::*)()>(&SocketTube$InternalWriteSubscriber::startSubscription))},
-	{"tryFlushCurrent", "(Z)V", nullptr, 0, $method(static_cast<void(SocketTube$InternalWriteSubscriber::*)(bool)>(&SocketTube$InternalWriteSubscriber::tryFlushCurrent))},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube;)V", nullptr, $PRIVATE, $method(SocketTube$InternalWriteSubscriber, init$, void, $SocketTube*)},
+	{"lambda$signalError$0", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SocketTube$InternalWriteSubscriber, lambda$signalError$0, $String*, $Throwable*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SocketTube$InternalWriteSubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalWriteSubscriber, onSubscribe, void, $Flow$Subscription*)},
+	{"requestMore", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, requestMore, void)},
+	{"resumeWriteEvent", "(Z)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, resumeWriteEvent, void, bool)},
+	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, signalError, void, $Throwable*)},
+	{"signalWritable", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, signalWritable, void)},
+	{"startSubscription", "()V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, startSubscription, void)},
+	{"tryFlushCurrent", "(Z)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber, tryFlushCurrent, void, bool)},
 	{}
 };
 

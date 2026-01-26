@@ -100,8 +100,8 @@ $FieldInfo MessageDecoder$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MessageDecoder$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MessageDecoder$$Lambda$toString::*)($String*)>(&MessageDecoder$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MessageDecoder$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageDecoder$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo MessageDecoder$$Lambda$toString::classInfo$ = {
@@ -133,18 +133,18 @@ $FieldInfo _MessageDecoder_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageDecoder_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/MessageStreamConsumer;)V", nullptr, 0, $method(static_cast<void(MessageDecoder::*)($MessageStreamConsumer*)>(&MessageDecoder::init$))},
-	{"endFrame", "()V", nullptr, $PUBLIC},
-	{"fin", "(Z)V", nullptr, $PUBLIC},
-	{"getOutput", "()Ljdk/internal/net/http/websocket/MessageStreamConsumer;", nullptr, 0},
-	{"mask", "(Z)V", nullptr, $PUBLIC},
-	{"maskingKey", "(I)V", nullptr, $PUBLIC},
-	{"opcode", "(Ljdk/internal/net/http/websocket/Frame$Opcode;)V", nullptr, $PUBLIC},
-	{"payloadData", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"payloadLen", "(J)V", nullptr, $PUBLIC},
-	{"rsv1", "(Z)V", nullptr, $PUBLIC},
-	{"rsv2", "(Z)V", nullptr, $PUBLIC},
-	{"rsv3", "(Z)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/MessageStreamConsumer;)V", nullptr, 0, $method(MessageDecoder, init$, void, $MessageStreamConsumer*)},
+	{"endFrame", "()V", nullptr, $PUBLIC, $virtualMethod(MessageDecoder, endFrame, void)},
+	{"fin", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MessageDecoder, fin, void, bool)},
+	{"getOutput", "()Ljdk/internal/net/http/websocket/MessageStreamConsumer;", nullptr, 0, $virtualMethod(MessageDecoder, getOutput, $MessageStreamConsumer*)},
+	{"mask", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MessageDecoder, mask, void, bool)},
+	{"maskingKey", "(I)V", nullptr, $PUBLIC, $virtualMethod(MessageDecoder, maskingKey, void, int32_t)},
+	{"opcode", "(Ljdk/internal/net/http/websocket/Frame$Opcode;)V", nullptr, $PUBLIC, $virtualMethod(MessageDecoder, opcode, void, $Frame$Opcode*)},
+	{"payloadData", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(MessageDecoder, payloadData, void, $ByteBuffer*)},
+	{"payloadLen", "(J)V", nullptr, $PUBLIC, $virtualMethod(MessageDecoder, payloadLen, void, int64_t)},
+	{"rsv1", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MessageDecoder, rsv1, void, bool)},
+	{"rsv2", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MessageDecoder, rsv2, void, bool)},
+	{"rsv3", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MessageDecoder, rsv3, void, bool)},
 	{}
 };
 

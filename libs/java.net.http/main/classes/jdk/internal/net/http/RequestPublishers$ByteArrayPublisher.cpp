@@ -44,12 +44,12 @@ $FieldInfo _RequestPublishers$ByteArrayPublisher_FieldInfo_[] = {
 };
 
 $MethodInfo _RequestPublishers$ByteArrayPublisher_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$ByteArrayPublisher::*)($bytes*)>(&RequestPublishers$ByteArrayPublisher::init$))},
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$ByteArrayPublisher::*)($bytes*,int32_t,int32_t)>(&RequestPublishers$ByteArrayPublisher::init$))},
-	{"<init>", "([BIII)V", nullptr, 0, $method(static_cast<void(RequestPublishers$ByteArrayPublisher::*)($bytes*,int32_t,int32_t,int32_t)>(&RequestPublishers$ByteArrayPublisher::init$))},
-	{"contentLength", "()J", nullptr, $PUBLIC},
-	{"copy", "([BII)Ljava/util/List;", "([BII)Ljava/util/List<Ljava/nio/ByteBuffer;>;", 0},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(RequestPublishers$ByteArrayPublisher, init$, void, $bytes*)},
+	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(RequestPublishers$ByteArrayPublisher, init$, void, $bytes*, int32_t, int32_t)},
+	{"<init>", "([BIII)V", nullptr, 0, $method(RequestPublishers$ByteArrayPublisher, init$, void, $bytes*, int32_t, int32_t, int32_t)},
+	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$ByteArrayPublisher, contentLength, int64_t)},
+	{"copy", "([BII)Ljava/util/List;", "([BII)Ljava/util/List<Ljava/nio/ByteBuffer;>;", 0, $virtualMethod(RequestPublishers$ByteArrayPublisher, copy, $List*, $bytes*, int32_t, int32_t)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$ByteArrayPublisher, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

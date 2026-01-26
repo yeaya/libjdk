@@ -27,7 +27,7 @@ $FieldInfo _SJIS_0213$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _SJIS_0213$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SJIS_0213$Holder::*)()>(&SJIS_0213$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SJIS_0213$Holder, init$, void)},
 	{}
 };
 

@@ -61,8 +61,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JISAutoDetect$Decoder$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JISAutoDetect$Decoder$$Lambda$lambda$static$0::*)()>(&JISAutoDetect$Decoder$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JISAutoDetect$Decoder$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo JISAutoDetect$Decoder$$Lambda$lambda$static$0::classInfo$ = {
@@ -88,18 +88,18 @@ $FieldInfo _JISAutoDetect$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _JISAutoDetect$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(JISAutoDetect$Decoder::*)($Charset*)>(&JISAutoDetect$Decoder::init$))},
-	{"copyLeadingASCII", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ByteBuffer*,$CharBuffer*)>(&JISAutoDetect$Decoder::copyLeadingASCII))},
-	{"decodeLoop", "(Lsun/nio/cs/DelegatableDecoder;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(JISAutoDetect$Decoder::*)($DelegatableDecoder*,$ByteBuffer*,$CharBuffer*)>(&JISAutoDetect$Decoder::decodeLoop))},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"detectedCharset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC},
-	{"getSJISName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&JISAutoDetect$Decoder::getSJISName))},
-	{"implFlush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implReset", "()V", nullptr, $PROTECTED},
-	{"isAutoDetecting", "()Z", nullptr, $PUBLIC},
-	{"isCharsetDetected", "()Z", nullptr, $PUBLIC},
-	{"isPlainASCII", "(B)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(int8_t)>(&JISAutoDetect$Decoder::isPlainASCII))},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&JISAutoDetect$Decoder::lambda$static$0))},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(JISAutoDetect$Decoder, init$, void, $Charset*)},
+	{"copyLeadingASCII", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect$Decoder, copyLeadingASCII, void, $ByteBuffer*, $CharBuffer*)},
+	{"decodeLoop", "(Lsun/nio/cs/DelegatableDecoder;Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(JISAutoDetect$Decoder, decodeLoop, $CoderResult*, $DelegatableDecoder*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(JISAutoDetect$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"detectedCharset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder, detectedCharset, $Charset*)},
+	{"getSJISName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect$Decoder, getSJISName, $String*)},
+	{"implFlush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(JISAutoDetect$Decoder, implFlush, $CoderResult*, $CharBuffer*)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(JISAutoDetect$Decoder, implReset, void)},
+	{"isAutoDetecting", "()Z", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder, isAutoDetecting, bool)},
+	{"isCharsetDetected", "()Z", nullptr, $PUBLIC, $virtualMethod(JISAutoDetect$Decoder, isCharsetDetected, bool)},
+	{"isPlainASCII", "(B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JISAutoDetect$Decoder, isPlainASCII, bool, int8_t)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JISAutoDetect$Decoder, lambda$static$0, $String*)},
 	{}
 };
 

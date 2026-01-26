@@ -26,10 +26,10 @@ $FieldInfo _MonitorInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _MonitorInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IILjava/lang/StackTraceElement;)V", nullptr, $PUBLIC, $method(static_cast<void(MonitorInfo::*)($String*,int32_t,int32_t,$StackTraceElement*)>(&MonitorInfo::init$))},
-	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MonitorInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MonitorInfo*(*)($CompositeData*)>(&MonitorInfo::from))},
-	{"getLockedStackDepth", "()I", nullptr, $PUBLIC},
-	{"getLockedStackFrame", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;IILjava/lang/StackTraceElement;)V", nullptr, $PUBLIC, $method(MonitorInfo, init$, void, $String*, int32_t, int32_t, $StackTraceElement*)},
+	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/MonitorInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(MonitorInfo, from, MonitorInfo*, $CompositeData*)},
+	{"getLockedStackDepth", "()I", nullptr, $PUBLIC, $virtualMethod(MonitorInfo, getLockedStackDepth, int32_t)},
+	{"getLockedStackFrame", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(MonitorInfo, getLockedStackFrame, $StackTraceElement*)},
 	{}
 };
 

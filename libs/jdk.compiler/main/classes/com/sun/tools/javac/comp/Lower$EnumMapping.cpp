@@ -97,9 +97,9 @@ $FieldInfo _Lower$EnumMapping_FieldInfo_[] = {
 };
 
 $MethodInfo _Lower$EnumMapping_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(static_cast<void(Lower$EnumMapping::*)($Lower*,$JCDiagnostic$DiagnosticPosition*,$Symbol$TypeSymbol*)>(&Lower$EnumMapping::init$))},
-	{"forConstant", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCLiteral;", nullptr, 0},
-	{"translate", "()V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(Lower$EnumMapping, init$, void, $Lower*, $JCDiagnostic$DiagnosticPosition*, $Symbol$TypeSymbol*)},
+	{"forConstant", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCLiteral;", nullptr, 0, $virtualMethod(Lower$EnumMapping, forConstant, $JCTree$JCLiteral*, $Symbol$VarSymbol*)},
+	{"translate", "()V", nullptr, 0, $virtualMethod(Lower$EnumMapping, translate, void)},
 	{}
 };
 

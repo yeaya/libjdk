@@ -25,9 +25,9 @@ $FieldInfo _Tag_FieldInfo_[] = {
 };
 
 $MethodInfo _Tag_MethodInfo_[] = {
-	{"<init>", "(IILjava/lang/Integer;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(static_cast<void(Tag::*)(int32_t,int32_t,$Integer*,$Integer*)>(&Tag::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Tag::*)(int32_t)>(&Tag::init$))},
-	{"toByteArray", "()[B", nullptr, $PUBLIC},
+	{"<init>", "(IILjava/lang/Integer;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(Tag, init$, void, int32_t, int32_t, $Integer*, $Integer*)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Tag, init$, void, int32_t)},
+	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(Tag, toByteArray, $bytes*)},
 	{}
 };
 

@@ -18,8 +18,8 @@ namespace java {
 		namespace prefs {
 
 $MethodInfo _MacOSXPreferencesFile$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JZ)V", nullptr, 0, $method(static_cast<void(MacOSXPreferencesFile$3::*)($ThreadGroup*,$Runnable*,$String*,int64_t,bool)>(&MacOSXPreferencesFile$3::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JZ)V", nullptr, 0, $method(MacOSXPreferencesFile$3, init$, void, $ThreadGroup*, $Runnable*, $String*, int64_t, bool)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$3, run, void)},
 	{}
 };
 

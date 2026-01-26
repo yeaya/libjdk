@@ -22,8 +22,8 @@ namespace java {
 		namespace prefs {
 
 $MethodInfo _FileSystemPreferences$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FileSystemPreferences$1::*)()>(&FileSystemPreferences$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FileSystemPreferences$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$1, run, $Object*)},
 	{}
 };
 

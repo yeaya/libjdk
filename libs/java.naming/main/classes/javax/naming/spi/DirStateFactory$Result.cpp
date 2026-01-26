@@ -21,9 +21,9 @@ $FieldInfo _DirStateFactory$Result_FieldInfo_[] = {
 };
 
 $MethodInfo _DirStateFactory$Result_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(static_cast<void(DirStateFactory$Result::*)(Object$*,$Attributes*)>(&DirStateFactory$Result::init$))},
-	{"getAttributes", "()Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC},
-	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(DirStateFactory$Result, init$, void, Object$*, $Attributes*)},
+	{"getAttributes", "()Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(DirStateFactory$Result, getAttributes, $Attributes*)},
+	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DirStateFactory$Result, getObject, $Object*)},
 	{}
 };
 

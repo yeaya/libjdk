@@ -29,13 +29,13 @@ $FieldInfo _MBeanParameterInfo_FieldInfo_[] = {
 
 $MethodInfo _MBeanParameterInfo_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanParameterInfo::*)($String*,$String*,$String*)>(&MBeanParameterInfo::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanParameterInfo::*)($String*,$String*,$String*,$Descriptor*)>(&MBeanParameterInfo::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanParameterInfo, init$, void, $String*, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanParameterInfo, init$, void, $String*, $String*, $String*, $Descriptor*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, equals, bool, Object$*)},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, getType, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanParameterInfo, toString, $String*)},
 	{}
 };
 

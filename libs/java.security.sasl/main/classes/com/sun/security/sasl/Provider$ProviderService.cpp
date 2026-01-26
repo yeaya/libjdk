@@ -36,8 +36,8 @@ namespace com {
 			namespace sasl {
 
 $MethodInfo _Provider$ProviderService_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Provider$ProviderService::*)($Provider*,$String*,$String*,$String*)>(&Provider$ProviderService::init$))},
-	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.security.NoSuchAlgorithmException"},
+	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Provider$ProviderService, init$, void, $Provider*, $String*, $String*, $String*)},
+	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Provider$ProviderService, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
 	{}
 };
 

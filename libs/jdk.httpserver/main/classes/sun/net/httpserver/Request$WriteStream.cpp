@@ -39,11 +39,11 @@ $FieldInfo _Request$WriteStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Request$WriteStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(static_cast<void(Request$WriteStream::*)($ServerImpl*,$SocketChannel*)>(&Request$WriteStream::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(Request$WriteStream, init$, void, $ServerImpl*, $SocketChannel*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Request$WriteStream, close, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$WriteStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$WriteStream, write, void, $bytes*), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$WriteStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

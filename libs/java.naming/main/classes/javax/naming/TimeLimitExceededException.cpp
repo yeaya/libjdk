@@ -17,8 +17,8 @@ $FieldInfo _TimeLimitExceededException_FieldInfo_[] = {
 };
 
 $MethodInfo _TimeLimitExceededException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TimeLimitExceededException::*)()>(&TimeLimitExceededException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TimeLimitExceededException::*)($String*)>(&TimeLimitExceededException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeLimitExceededException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TimeLimitExceededException, init$, void, $String*)},
 	{}
 };
 

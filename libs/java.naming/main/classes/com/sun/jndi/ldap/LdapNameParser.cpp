@@ -15,8 +15,8 @@ namespace com {
 			namespace ldap {
 
 $MethodInfo _LdapNameParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LdapNameParser::*)()>(&LdapNameParser::init$))},
-	{"parse", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapNameParser, init$, void)},
+	{"parse", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapNameParser, parse, $Name*, $String*), "javax.naming.NamingException"},
 	{}
 };
 

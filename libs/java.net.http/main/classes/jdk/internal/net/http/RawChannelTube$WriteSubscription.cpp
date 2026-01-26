@@ -35,9 +35,9 @@ $FieldInfo _RawChannelTube$WriteSubscription_FieldInfo_[] = {
 };
 
 $MethodInfo _RawChannelTube$WriteSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/RawChannelTube;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $method(static_cast<void(RawChannelTube$WriteSubscription::*)($RawChannelTube*,$Flow$Subscriber*)>(&RawChannelTube$WriteSubscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/RawChannelTube;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $method(RawChannelTube$WriteSubscription, init$, void, $RawChannelTube*, $Flow$Subscriber*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube$WriteSubscription, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(RawChannelTube$WriteSubscription, request, void, int64_t)},
 	{}
 };
 

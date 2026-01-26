@@ -24,8 +24,8 @@ $FieldInfo _Items$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Items$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;I)V", nullptr, 0, $method(static_cast<void(Items$1::*)($Items*,int32_t)>(&Items$1::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;I)V", nullptr, 0, $method(Items$1, init$, void, $Items*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$1, toString, $String*)},
 	{}
 };
 

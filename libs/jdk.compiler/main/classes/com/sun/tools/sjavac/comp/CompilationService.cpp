@@ -107,10 +107,10 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _CompilationService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompilationService::*)()>(&CompilationService::init$))},
-	{"compile", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/List;Ljava/util/Set;Ljava/util/Set;)Lcom/sun/tools/sjavac/server/CompilationSubResult;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/List<Ljava/io/File;>;Ljava/util/Set<Ljava/net/URI;>;Ljava/util/Set<Ljava/net/URI;>;)Lcom/sun/tools/sjavac/server/CompilationSubResult;", $PUBLIC},
-	{"getSysInfo", "()Lcom/sun/tools/sjavac/server/SysInfo;", nullptr, $PUBLIC},
-	{"logJavacInvocation", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(CompilationService::*)($StringArray*)>(&CompilationService::logJavacInvocation))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompilationService, init$, void)},
+	{"compile", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/List;Ljava/util/Set;Ljava/util/Set;)Lcom/sun/tools/sjavac/server/CompilationSubResult;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/util/List<Ljava/io/File;>;Ljava/util/Set<Ljava/net/URI;>;Ljava/util/Set<Ljava/net/URI;>;)Lcom/sun/tools/sjavac/server/CompilationSubResult;", $PUBLIC, $virtualMethod(CompilationService, compile, $CompilationSubResult*, $String*, $String*, $StringArray*, $List*, $Set*, $Set*)},
+	{"getSysInfo", "()Lcom/sun/tools/sjavac/server/SysInfo;", nullptr, $PUBLIC, $virtualMethod(CompilationService, getSysInfo, $SysInfo*)},
+	{"logJavacInvocation", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CompilationService, logJavacInvocation, void, $StringArray*)},
 	{}
 };
 

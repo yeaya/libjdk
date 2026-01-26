@@ -22,13 +22,13 @@ $FieldInfo _ChannelBinding_FieldInfo_[] = {
 };
 
 $MethodInfo _ChannelBinding_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetAddress;Ljava/net/InetAddress;[B)V", nullptr, $PUBLIC, $method(static_cast<void(ChannelBinding::*)($InetAddress*,$InetAddress*,$bytes*)>(&ChannelBinding::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(ChannelBinding::*)($bytes*)>(&ChannelBinding::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAcceptorAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC},
-	{"getApplicationData", "()[B", nullptr, $PUBLIC},
-	{"getInitiatorAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/InetAddress;Ljava/net/InetAddress;[B)V", nullptr, $PUBLIC, $method(ChannelBinding, init$, void, $InetAddress*, $InetAddress*, $bytes*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ChannelBinding, init$, void, $bytes*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, equals, bool, Object$*)},
+	{"getAcceptorAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, getAcceptorAddress, $InetAddress*)},
+	{"getApplicationData", "()[B", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, getApplicationData, $bytes*)},
+	{"getInitiatorAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, getInitiatorAddress, $InetAddress*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChannelBinding, hashCode, int32_t)},
 	{}
 };
 

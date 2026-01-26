@@ -7,12 +7,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Path = ::java::nio::file::Path;
 
 namespace javax {
 	namespace tools {
 
 $MethodInfo _StandardJavaFileManager$PathFactory_MethodInfo_[] = {
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT},
+	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(StandardJavaFileManager$PathFactory, getPath, $Path*, $String*, $StringArray*)},
 	{}
 };
 

@@ -22,16 +22,16 @@ $FieldInfo _Frame$HeaderWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _Frame$HeaderWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Frame$HeaderWriter::*)()>(&Frame$HeaderWriter::init$))},
-	{"fin", "(Z)LFrame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(bool)>(&Frame$HeaderWriter::fin))},
-	{"mask", "(I)LFrame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(int32_t)>(&Frame$HeaderWriter::mask))},
-	{"noMask", "()LFrame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)()>(&Frame$HeaderWriter::noMask))},
-	{"opcode", "(LFrame$Opcode;)LFrame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)($Frame$Opcode*)>(&Frame$HeaderWriter::opcode))},
-	{"payloadLen", "(J)LFrame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(int64_t)>(&Frame$HeaderWriter::payloadLen))},
-	{"rsv1", "(Z)LFrame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(bool)>(&Frame$HeaderWriter::rsv1))},
-	{"rsv2", "(Z)LFrame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(bool)>(&Frame$HeaderWriter::rsv2))},
-	{"rsv3", "(Z)LFrame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(bool)>(&Frame$HeaderWriter::rsv3))},
-	{"write", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(Frame$HeaderWriter::*)($ByteBuffer*)>(&Frame$HeaderWriter::write))},
+	{"<init>", "()V", nullptr, 0, $method(Frame$HeaderWriter, init$, void)},
+	{"fin", "(Z)LFrame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, fin, Frame$HeaderWriter*, bool)},
+	{"mask", "(I)LFrame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, mask, Frame$HeaderWriter*, int32_t)},
+	{"noMask", "()LFrame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, noMask, Frame$HeaderWriter*)},
+	{"opcode", "(LFrame$Opcode;)LFrame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, opcode, Frame$HeaderWriter*, $Frame$Opcode*)},
+	{"payloadLen", "(J)LFrame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, payloadLen, Frame$HeaderWriter*, int64_t)},
+	{"rsv1", "(Z)LFrame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, rsv1, Frame$HeaderWriter*, bool)},
+	{"rsv2", "(Z)LFrame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, rsv2, Frame$HeaderWriter*, bool)},
+	{"rsv3", "(Z)LFrame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, rsv3, Frame$HeaderWriter*, bool)},
+	{"write", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Frame$HeaderWriter, write, void, $ByteBuffer*)},
 	{}
 };
 

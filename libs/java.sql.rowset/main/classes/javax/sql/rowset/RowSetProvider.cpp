@@ -70,15 +70,15 @@ $FieldInfo _RowSetProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _RowSetProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(RowSetProvider::*)()>(&RowSetProvider::init$))},
-	{"defaultRowSetFactory", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$RowSetFactory*(*)()>(&RowSetProvider::defaultRowSetFactory))},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ClassLoader*(*)()>(&RowSetProvider::getContextClassLoader)), "java.lang.SecurityException"},
-	{"getFactoryClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($String*,$ClassLoader*,bool)>(&RowSetProvider::getFactoryClass)), "java.lang.ClassNotFoundException"},
-	{"getSystemProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&RowSetProvider::getSystemProperty))},
-	{"loadViaServiceLoader", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$RowSetFactory*(*)()>(&RowSetProvider::loadViaServiceLoader)), "java.sql.SQLException"},
-	{"newFactory", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RowSetFactory*(*)()>(&RowSetProvider::newFactory)), "java.sql.SQLException"},
-	{"newFactory", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljavax/sql/rowset/RowSetFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RowSetFactory*(*)($String*,$ClassLoader*)>(&RowSetProvider::newFactory)), "java.sql.SQLException"},
-	{"trace", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&RowSetProvider::trace))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(RowSetProvider, init$, void)},
+	{"defaultRowSetFactory", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, defaultRowSetFactory, $RowSetFactory*)},
+	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, getContextClassLoader, $ClassLoader*), "java.lang.SecurityException"},
+	{"getFactoryClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;Z)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(RowSetProvider, getFactoryClass, $Class*, $String*, $ClassLoader*, bool), "java.lang.ClassNotFoundException"},
+	{"getSystemProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, getSystemProperty, $String*, $String*)},
+	{"loadViaServiceLoader", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, loadViaServiceLoader, $RowSetFactory*), "java.sql.SQLException"},
+	{"newFactory", "()Ljavax/sql/rowset/RowSetFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowSetProvider, newFactory, $RowSetFactory*), "java.sql.SQLException"},
+	{"newFactory", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljavax/sql/rowset/RowSetFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowSetProvider, newFactory, $RowSetFactory*, $String*, $ClassLoader*), "java.sql.SQLException"},
+	{"trace", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RowSetProvider, trace, void, $String*)},
 	{}
 };
 

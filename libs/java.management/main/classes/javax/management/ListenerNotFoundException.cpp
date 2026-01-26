@@ -17,8 +17,8 @@ $FieldInfo _ListenerNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _ListenerNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ListenerNotFoundException::*)()>(&ListenerNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ListenerNotFoundException::*)($String*)>(&ListenerNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ListenerNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ListenerNotFoundException, init$, void, $String*)},
 	{}
 };
 

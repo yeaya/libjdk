@@ -39,10 +39,10 @@ $FieldInfo _DCTree_FieldInfo_[] = {
 };
 
 $MethodInfo _DCTree_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DCTree::*)()>(&DCTree::init$))},
-	{"getSourcePosition", "(Lcom/sun/tools/javac/tree/DCTree$DCDocComment;)J", nullptr, $PUBLIC},
-	{"pos", "(Lcom/sun/tools/javac/tree/DCTree$DCDocComment;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DCTree, init$, void)},
+	{"getSourcePosition", "(Lcom/sun/tools/javac/tree/DCTree$DCDocComment;)J", nullptr, $PUBLIC, $virtualMethod(DCTree, getSourcePosition, int64_t, $DCTree$DCDocComment*)},
+	{"pos", "(Lcom/sun/tools/javac/tree/DCTree$DCDocComment;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(DCTree, pos, $JCDiagnostic$DiagnosticPosition*, $DCTree$DCDocComment*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DCTree, toString, $String*)},
 	{}
 };
 

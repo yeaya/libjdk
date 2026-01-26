@@ -153,8 +153,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo XMLUtils$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLUtils$$Lambda$lambda$static$0::*)()>(&XMLUtils$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLUtils$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLUtils$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo XMLUtils$$Lambda$lambda$static$0::classInfo$ = {
@@ -186,8 +186,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo XMLUtils$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLUtils$$Lambda$lambda$static$1$1::*)()>(&XMLUtils$$Lambda$lambda$static$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLUtils$$Lambda$lambda$static$1$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLUtils$$Lambda$lambda$static$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo XMLUtils$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -226,8 +226,8 @@ $FieldInfo XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::methodInfos[3] = {
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::*)($Node*)>(&XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, init$, void, $Node*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo XMLUtils$$Lambda$lambda$excludeNodeFromSet$2$2::classInfo$ = {
@@ -256,56 +256,56 @@ $FieldInfo _XMLUtils_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(XMLUtils::*)()>(&XMLUtils::init$))},
-	{"addReturnBeforeChild", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Element*,$Node*)>(&XMLUtils::addReturnBeforeChild))},
-	{"addReturnToElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Element*)>(&XMLUtils::addReturnToElement))},
-	{"addReturnToElement", "(Lorg/w3c/dom/Document;Lcom/sun/org/apache/xml/internal/security/utils/HelperNodeList;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Document*,$HelperNodeList*)>(&XMLUtils::addReturnToElement))},
-	{"circumventBug2650", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Document*)>(&XMLUtils::circumventBug2650))},
-	{"circumventBug2650internal", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Node*)>(&XMLUtils::circumventBug2650internal))},
-	{"convertNodelistToSet", "(Lorg/w3c/dom/NodeList;)Ljava/util/Set;", "(Lorg/w3c/dom/NodeList;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)($NodeList*)>(&XMLUtils::convertNodelistToSet))},
-	{"createElementInEncryption11Space", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Element*(*)($Document*,$String*)>(&XMLUtils::createElementInEncryption11Space))},
-	{"createElementInEncryptionSpace", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Element*(*)($Document*,$String*)>(&XMLUtils::createElementInEncryptionSpace))},
-	{"createElementInSignature11Space", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Element*(*)($Document*,$String*)>(&XMLUtils::createElementInSignature11Space))},
-	{"createElementInSignatureSpace", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Element*(*)($Document*,$String*)>(&XMLUtils::createElementInSignatureSpace))},
-	{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&XMLUtils::decode))},
-	{"decode", "([B)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&XMLUtils::decode))},
-	{"elementIsInEncryption11Space", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Element*,$String*)>(&XMLUtils::elementIsInEncryption11Space))},
-	{"elementIsInEncryptionSpace", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Element*,$String*)>(&XMLUtils::elementIsInEncryptionSpace))},
-	{"elementIsInSignature11Space", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Element*,$String*)>(&XMLUtils::elementIsInSignature11Space))},
-	{"elementIsInSignatureSpace", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Element*,$String*)>(&XMLUtils::elementIsInSignatureSpace))},
-	{"encodeToString", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($bytes*)>(&XMLUtils::encodeToString))},
-	{"excludeNodeFromSet", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Ljava/util/Set;", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC | $STATIC, $method(static_cast<$Set*(*)($Node*,$Set*)>(&XMLUtils::excludeNodeFromSet))},
-	{"getBytes", "(Ljava/math/BigInteger;I)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($BigInteger*,int32_t)>(&XMLUtils::getBytes))},
-	{"getFullTextChildrenFromNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Node*)>(&XMLUtils::getFullTextChildrenFromNode))},
-	{"getNextElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Element*(*)($Node*)>(&XMLUtils::getNextElement))},
-	{"getOwnerDocument", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Document*(*)($Node*)>(&XMLUtils::getOwnerDocument))},
-	{"getOwnerDocument", "(Ljava/util/Set;)Lorg/w3c/dom/Document;", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;)Lorg/w3c/dom/Document;", $PUBLIC | $STATIC, $method(static_cast<$Document*(*)($Set*)>(&XMLUtils::getOwnerDocument))},
-	{"getSet", "(Lorg/w3c/dom/Node;Ljava/util/Set;Lorg/w3c/dom/Node;Z)V", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Z)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Node*,$Set*,$Node*,bool)>(&XMLUtils::getSet))},
-	{"getSetRec", "(Lorg/w3c/dom/Node;Ljava/util/Set;Lorg/w3c/dom/Node;Z)V", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Z)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Node*,$Set*,$Node*,bool)>(&XMLUtils::getSetRec))},
-	{"getStrFromNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Node*)>(&XMLUtils::getStrFromNode))},
-	{"ignoreLineBreaks", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&XMLUtils::ignoreLineBreaks))},
-	{"isDescendantOrSelf", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Node*,$Node*)>(&XMLUtils::isDescendantOrSelf))},
-	{"isIgnoreLineBreaks", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&XMLUtils::isIgnoreLineBreaks))},
-	{"lambda$excludeNodeFromSet$2", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Node*,$Node*)>(&XMLUtils::lambda$excludeNodeFromSet$2))},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&XMLUtils::lambda$static$0))},
-	{"lambda$static$1", "()Lcom/sun/org/apache/xml/internal/security/parser/XMLParser;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$XMLParser*(*)()>(&XMLUtils::lambda$static$1))},
-	{"outputDOM", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Node*,$OutputStream*)>(&XMLUtils::outputDOM))},
-	{"outputDOM", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Node*,$OutputStream*,bool)>(&XMLUtils::outputDOM))},
-	{"outputDOMc14nWithComments", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Node*,$OutputStream*)>(&XMLUtils::outputDOMc14nWithComments))},
-	{"protectAgainstWrappingAttack", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Node*,$String*)>(&XMLUtils::protectAgainstWrappingAttack))},
-	{"protectAgainstWrappingAttack", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Node*,$Element*,$String*)>(&XMLUtils::protectAgainstWrappingAttack))},
-	{"read", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Document*(*)($InputStream*,bool)>(&XMLUtils::read)), "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
-	{"selectDs11Node", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Element*(*)($Node*,$String*,int32_t)>(&XMLUtils::selectDs11Node))},
-	{"selectDs11Nodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ElementArray*(*)($Node*,$String*)>(&XMLUtils::selectDs11Nodes))},
-	{"selectDsNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Element*(*)($Node*,$String*,int32_t)>(&XMLUtils::selectDsNode))},
-	{"selectDsNodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ElementArray*(*)($Node*,$String*)>(&XMLUtils::selectDsNodes))},
-	{"selectNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Element*(*)($Node*,$String*,$String*,int32_t)>(&XMLUtils::selectNode))},
-	{"selectNodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ElementArray*(*)($Node*,$String*,$String*)>(&XMLUtils::selectNodes))},
-	{"selectXencNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Element*(*)($Node*,$String*,int32_t)>(&XMLUtils::selectXencNode))},
-	{"setDs11Prefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&XMLUtils::setDs11Prefix))},
-	{"setDsPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&XMLUtils::setDsPrefix))},
-	{"setXenc11Prefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&XMLUtils::setXenc11Prefix))},
-	{"setXencPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&XMLUtils::setXencPrefix))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(XMLUtils, init$, void)},
+	{"addReturnBeforeChild", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, addReturnBeforeChild, void, $Element*, $Node*)},
+	{"addReturnToElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, addReturnToElement, void, $Element*)},
+	{"addReturnToElement", "(Lorg/w3c/dom/Document;Lcom/sun/org/apache/xml/internal/security/utils/HelperNodeList;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, addReturnToElement, void, $Document*, $HelperNodeList*)},
+	{"circumventBug2650", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, circumventBug2650, void, $Document*)},
+	{"circumventBug2650internal", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLUtils, circumventBug2650internal, void, $Node*)},
+	{"convertNodelistToSet", "(Lorg/w3c/dom/NodeList;)Ljava/util/Set;", "(Lorg/w3c/dom/NodeList;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC | $STATIC, $staticMethod(XMLUtils, convertNodelistToSet, $Set*, $NodeList*)},
+	{"createElementInEncryption11Space", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInEncryption11Space, $Element*, $Document*, $String*)},
+	{"createElementInEncryptionSpace", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInEncryptionSpace, $Element*, $Document*, $String*)},
+	{"createElementInSignature11Space", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInSignature11Space, $Element*, $Document*, $String*)},
+	{"createElementInSignatureSpace", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, createElementInSignatureSpace, $Element*, $Document*, $String*)},
+	{"decode", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, decode, $bytes*, $String*)},
+	{"decode", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, decode, $bytes*, $bytes*)},
+	{"elementIsInEncryption11Space", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInEncryption11Space, bool, $Element*, $String*)},
+	{"elementIsInEncryptionSpace", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInEncryptionSpace, bool, $Element*, $String*)},
+	{"elementIsInSignature11Space", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInSignature11Space, bool, $Element*, $String*)},
+	{"elementIsInSignatureSpace", "(Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, elementIsInSignatureSpace, bool, $Element*, $String*)},
+	{"encodeToString", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, encodeToString, $String*, $bytes*)},
+	{"excludeNodeFromSet", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Ljava/util/Set;", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PUBLIC | $STATIC, $staticMethod(XMLUtils, excludeNodeFromSet, $Set*, $Node*, $Set*)},
+	{"getBytes", "(Ljava/math/BigInteger;I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getBytes, $bytes*, $BigInteger*, int32_t)},
+	{"getFullTextChildrenFromNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getFullTextChildrenFromNode, $String*, $Node*)},
+	{"getNextElement", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getNextElement, $Element*, $Node*)},
+	{"getOwnerDocument", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getOwnerDocument, $Document*, $Node*)},
+	{"getOwnerDocument", "(Ljava/util/Set;)Lorg/w3c/dom/Document;", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;)Lorg/w3c/dom/Document;", $PUBLIC | $STATIC, $staticMethod(XMLUtils, getOwnerDocument, $Document*, $Set*)},
+	{"getSet", "(Lorg/w3c/dom/Node;Ljava/util/Set;Lorg/w3c/dom/Node;Z)V", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Z)V", $PUBLIC | $STATIC, $staticMethod(XMLUtils, getSet, void, $Node*, $Set*, $Node*, bool)},
+	{"getSetRec", "(Lorg/w3c/dom/Node;Ljava/util/Set;Lorg/w3c/dom/Node;Z)V", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;Z)V", $PRIVATE | $STATIC, $staticMethod(XMLUtils, getSetRec, void, $Node*, $Set*, $Node*, bool)},
+	{"getStrFromNode", "(Lorg/w3c/dom/Node;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, getStrFromNode, $String*, $Node*)},
+	{"ignoreLineBreaks", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, ignoreLineBreaks, bool)},
+	{"isDescendantOrSelf", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, isDescendantOrSelf, bool, $Node*, $Node*)},
+	{"isIgnoreLineBreaks", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, isIgnoreLineBreaks, bool)},
+	{"lambda$excludeNodeFromSet$2", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLUtils, lambda$excludeNodeFromSet$2, bool, $Node*, $Node*)},
+	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLUtils, lambda$static$0, $Boolean*)},
+	{"lambda$static$1", "()Lcom/sun/org/apache/xml/internal/security/parser/XMLParser;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLUtils, lambda$static$1, $XMLParser*)},
+	{"outputDOM", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, outputDOM, void, $Node*, $OutputStream*)},
+	{"outputDOM", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, outputDOM, void, $Node*, $OutputStream*, bool)},
+	{"outputDOMc14nWithComments", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, outputDOMc14nWithComments, void, $Node*, $OutputStream*)},
+	{"protectAgainstWrappingAttack", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, protectAgainstWrappingAttack, bool, $Node*, $String*)},
+	{"protectAgainstWrappingAttack", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Element;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, protectAgainstWrappingAttack, bool, $Node*, $Element*, $String*)},
+	{"read", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, read, $Document*, $InputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
+	{"selectDs11Node", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDs11Node, $Element*, $Node*, $String*, int32_t)},
+	{"selectDs11Nodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDs11Nodes, $ElementArray*, $Node*, $String*)},
+	{"selectDsNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDsNode, $Element*, $Node*, $String*, int32_t)},
+	{"selectDsNodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectDsNodes, $ElementArray*, $Node*, $String*)},
+	{"selectNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectNode, $Element*, $Node*, $String*, $String*, int32_t)},
+	{"selectNodes", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/lang/String;)[Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectNodes, $ElementArray*, $Node*, $String*, $String*)},
+	{"selectXencNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, selectXencNode, $Element*, $Node*, $String*, int32_t)},
+	{"setDs11Prefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setDs11Prefix, void, $String*)},
+	{"setDsPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setDsPrefix, void, $String*)},
+	{"setXenc11Prefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setXenc11Prefix, void, $String*)},
+	{"setXencPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLUtils, setXencPrefix, void, $String*)},
 	{}
 };
 

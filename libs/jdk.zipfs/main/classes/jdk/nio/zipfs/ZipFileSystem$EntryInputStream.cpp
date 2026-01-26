@@ -36,13 +36,13 @@ $FieldInfo _ZipFileSystem$EntryInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileSystem$EntryInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;)V", nullptr, 0, $method(static_cast<void(ZipFileSystem$EntryInputStream::*)($ZipFileSystem*,$ZipFileSystem$Entry*)>(&ZipFileSystem$EntryInputStream::init$)), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"initDataPos", "()V", nullptr, $PRIVATE, $method(static_cast<void(ZipFileSystem$EntryInputStream::*)()>(&ZipFileSystem$EntryInputStream::initDataPos)), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;)V", nullptr, 0, $method(ZipFileSystem$EntryInputStream, init$, void, $ZipFileSystem*, $ZipFileSystem$Entry*), "java.io.IOException"},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, available, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, close, void)},
+	{"initDataPos", "()V", nullptr, $PRIVATE, $method(ZipFileSystem$EntryInputStream, initDataPos, void), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, read, int32_t), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryInputStream, skip, int64_t, int64_t)},
 	{}
 };
 

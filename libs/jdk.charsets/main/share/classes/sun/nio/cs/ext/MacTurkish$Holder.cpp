@@ -24,7 +24,7 @@ $FieldInfo _MacTurkish$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MacTurkish$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacTurkish$Holder::*)()>(&MacTurkish$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacTurkish$Holder, init$, void)},
 	{}
 };
 

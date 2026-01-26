@@ -17,8 +17,8 @@ $FieldInfo _NamingSecurityException_FieldInfo_[] = {
 };
 
 $MethodInfo _NamingSecurityException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NamingSecurityException::*)($String*)>(&NamingSecurityException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NamingSecurityException::*)()>(&NamingSecurityException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamingSecurityException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NamingSecurityException, init$, void)},
 	{}
 };
 

@@ -136,8 +136,8 @@ $FieldInfo SyncFactory$$Lambda$lambda$initMapIfNecessary$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SyncFactory$$Lambda$lambda$initMapIfNecessary$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(static_cast<void(SyncFactory$$Lambda$lambda$initMapIfNecessary$0::*)($Properties*)>(&SyncFactory$$Lambda$lambda$initMapIfNecessary$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(SyncFactory$$Lambda$lambda$initMapIfNecessary$0, init$, void, $Properties*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SyncFactory$$Lambda$lambda$initMapIfNecessary$0, run, $Object*)},
 	{}
 };
 $ClassInfo SyncFactory$$Lambda$lambda$initMapIfNecessary$0::classInfo$ = {
@@ -172,25 +172,25 @@ $FieldInfo _SyncFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _SyncFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SyncFactory::*)()>(&SyncFactory::init$))},
-	{"enumerateBindings", "(Ljavax/naming/NamingEnumeration;Ljava/util/Properties;)V", "(Ljavax/naming/NamingEnumeration<*>;Ljava/util/Properties;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($NamingEnumeration*,$Properties*)>(&SyncFactory::enumerateBindings)), "javax.naming.NamingException"},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/sql/rowset/spi/SyncProvider;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SyncProvider*(*)($String*)>(&SyncFactory::getInstance)), "javax.sql.rowset.spi.SyncFactoryException"},
-	{"getLogger", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Logger*(*)()>(&SyncFactory::getLogger)), "javax.sql.rowset.spi.SyncFactoryException"},
-	{"getPropertyNames", "(Z)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)(bool)>(&SyncFactory::getPropertyNames))},
-	{"getPropertyNames", "(ZLjava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)(bool,$String*)>(&SyncFactory::getPropertyNames))},
-	{"getRegisteredProviders", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/sql/rowset/spi/SyncProvider;>;", $PUBLIC | $STATIC, $method(static_cast<$Enumeration*(*)()>(&SyncFactory::getRegisteredProviders)), "javax.sql.rowset.spi.SyncFactoryException"},
-	{"getSyncFactory", "()Ljavax/sql/rowset/spi/SyncFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SyncFactory*(*)()>(&SyncFactory::getSyncFactory))},
-	{"initJNDIContext", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&SyncFactory::initJNDIContext)), "javax.sql.rowset.spi.SyncFactoryException"},
-	{"initMapIfNecessary", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&SyncFactory::initMapIfNecessary)), "javax.sql.rowset.spi.SyncFactoryException"},
-	{"lambda$initMapIfNecessary$0", "(Ljava/util/Properties;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)($Properties*)>(&SyncFactory::lambda$initMapIfNecessary$0)), "java.lang.Exception"},
-	{"parseJNDIContext", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Properties*(*)()>(&SyncFactory::parseJNDIContext)), "javax.naming.NamingException"},
-	{"parseProperties", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Properties*)>(&SyncFactory::parseProperties))},
-	{"registerProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($String*)>(&SyncFactory::registerProvider)), "javax.sql.rowset.spi.SyncFactoryException"},
-	{"setJNDIContext", "(Ljavax/naming/Context;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($Context*)>(&SyncFactory::setJNDIContext)), "javax.sql.rowset.spi.SyncFactoryException"},
-	{"setLogger", "(Ljava/util/logging/Logger;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Logger*)>(&SyncFactory::setLogger))},
-	{"setLogger", "(Ljava/util/logging/Logger;Ljava/util/logging/Level;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Logger*,$Level*)>(&SyncFactory::setLogger))},
-	{"showImpl", "(Ljavax/sql/rowset/spi/ProviderImpl;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ProviderImpl*)>(&SyncFactory::showImpl))},
-	{"unregisterProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($String*)>(&SyncFactory::unregisterProvider)), "javax.sql.rowset.spi.SyncFactoryException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SyncFactory, init$, void)},
+	{"enumerateBindings", "(Ljavax/naming/NamingEnumeration;Ljava/util/Properties;)V", "(Ljavax/naming/NamingEnumeration<*>;Ljava/util/Properties;)V", $PRIVATE | $STATIC, $staticMethod(SyncFactory, enumerateBindings, void, $NamingEnumeration*, $Properties*), "javax.naming.NamingException"},
+	{"getInstance", "(Ljava/lang/String;)Ljavax/sql/rowset/spi/SyncProvider;", nullptr, $PUBLIC | $STATIC, $staticMethod(SyncFactory, getInstance, $SyncProvider*, $String*), "javax.sql.rowset.spi.SyncFactoryException"},
+	{"getLogger", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC | $STATIC, $staticMethod(SyncFactory, getLogger, $Logger*), "javax.sql.rowset.spi.SyncFactoryException"},
+	{"getPropertyNames", "(Z)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SyncFactory, getPropertyNames, $StringArray*, bool)},
+	{"getPropertyNames", "(ZLjava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SyncFactory, getPropertyNames, $StringArray*, bool, $String*)},
+	{"getRegisteredProviders", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/sql/rowset/spi/SyncProvider;>;", $PUBLIC | $STATIC, $staticMethod(SyncFactory, getRegisteredProviders, $Enumeration*), "javax.sql.rowset.spi.SyncFactoryException"},
+	{"getSyncFactory", "()Ljavax/sql/rowset/spi/SyncFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(SyncFactory, getSyncFactory, SyncFactory*)},
+	{"initJNDIContext", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SyncFactory, initJNDIContext, void), "javax.sql.rowset.spi.SyncFactoryException"},
+	{"initMapIfNecessary", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SyncFactory, initMapIfNecessary, void), "javax.sql.rowset.spi.SyncFactoryException"},
+	{"lambda$initMapIfNecessary$0", "(Ljava/util/Properties;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SyncFactory, lambda$initMapIfNecessary$0, $Void*, $Properties*), "java.lang.Exception"},
+	{"parseJNDIContext", "()Ljava/util/Properties;", nullptr, $PRIVATE | $STATIC, $staticMethod(SyncFactory, parseJNDIContext, $Properties*), "javax.naming.NamingException"},
+	{"parseProperties", "(Ljava/util/Properties;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SyncFactory, parseProperties, void, $Properties*)},
+	{"registerProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SyncFactory, registerProvider, void, $String*), "javax.sql.rowset.spi.SyncFactoryException"},
+	{"setJNDIContext", "(Ljavax/naming/Context;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SyncFactory, setJNDIContext, void, $Context*), "javax.sql.rowset.spi.SyncFactoryException"},
+	{"setLogger", "(Ljava/util/logging/Logger;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SyncFactory, setLogger, void, $Logger*)},
+	{"setLogger", "(Ljava/util/logging/Logger;Ljava/util/logging/Level;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SyncFactory, setLogger, void, $Logger*, $Level*)},
+	{"showImpl", "(Ljavax/sql/rowset/spi/ProviderImpl;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SyncFactory, showImpl, void, $ProviderImpl*)},
+	{"unregisterProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SyncFactory, unregisterProvider, void, $String*), "javax.sql.rowset.spi.SyncFactoryException"},
 	{}
 };
 

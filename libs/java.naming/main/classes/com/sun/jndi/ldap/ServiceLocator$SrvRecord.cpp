@@ -26,9 +26,9 @@ $FieldInfo _ServiceLocator$SrvRecord_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLocator$SrvRecord_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ServiceLocator$SrvRecord::*)($String*)>(&ServiceLocator$SrvRecord::init$)), "java.lang.Exception"},
-	{"compareTo", "(Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ServiceLocator$SrvRecord, init$, void, $String*), "java.lang.Exception"},
+	{"compareTo", "(Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;)I", nullptr, $PUBLIC, $virtualMethod(ServiceLocator$SrvRecord, compareTo, int32_t, ServiceLocator$SrvRecord*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ServiceLocator$SrvRecord, compareTo, int32_t, Object$*)},
 	{}
 };
 

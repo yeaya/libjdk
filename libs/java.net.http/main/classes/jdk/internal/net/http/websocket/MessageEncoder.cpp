@@ -99,8 +99,8 @@ $FieldInfo MessageEncoder$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MessageEncoder$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MessageEncoder$$Lambda$toString::*)($String*)>(&MessageEncoder$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MessageEncoder$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageEncoder$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo MessageEncoder$$Lambda$toString::classInfo$ = {
@@ -138,17 +138,17 @@ $FieldInfo _MessageEncoder_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageEncoder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MessageEncoder::*)()>(&MessageEncoder::init$))},
-	{"createIntermediateBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, $PROTECTED},
-	{"encodeBinary", "(Ljava/nio/ByteBuffer;ZLjava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encodeClose", "(ILjava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encodePing", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encodePong", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"encodeText", "(Ljava/nio/CharBuffer;ZLjava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"maskAvailable", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(MessageEncoder::*)($ByteBuffer*,$ByteBuffer*)>(&MessageEncoder::maskAvailable))},
-	{"putAvailable", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(static_cast<bool(MessageEncoder::*)($ByteBuffer*,$ByteBuffer*)>(&MessageEncoder::putAvailable))},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"setupHeader", "(Ljdk/internal/net/http/websocket/Frame$Opcode;ZJ)V", nullptr, $PRIVATE, $method(static_cast<void(MessageEncoder::*)($Frame$Opcode*,bool,int64_t)>(&MessageEncoder::setupHeader))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MessageEncoder, init$, void)},
+	{"createIntermediateBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, $PROTECTED, $virtualMethod(MessageEncoder, createIntermediateBuffer, $ByteBuffer*, int32_t)},
+	{"encodeBinary", "(Ljava/nio/ByteBuffer;ZLjava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodeBinary, bool, $ByteBuffer*, bool, $ByteBuffer*), "java.io.IOException"},
+	{"encodeClose", "(ILjava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodeClose, bool, int32_t, $CharBuffer*, $ByteBuffer*), "java.io.IOException"},
+	{"encodePing", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodePing, bool, $ByteBuffer*, $ByteBuffer*), "java.io.IOException"},
+	{"encodePong", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodePong, bool, $ByteBuffer*, $ByteBuffer*), "java.io.IOException"},
+	{"encodeText", "(Ljava/nio/CharBuffer;ZLjava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, encodeText, bool, $CharBuffer*, bool, $ByteBuffer*), "java.io.IOException"},
+	{"maskAvailable", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(MessageEncoder, maskAvailable, int32_t, $ByteBuffer*, $ByteBuffer*)},
+	{"putAvailable", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(MessageEncoder, putAvailable, bool, $ByteBuffer*, $ByteBuffer*)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(MessageEncoder, reset, void)},
+	{"setupHeader", "(Ljdk/internal/net/http/websocket/Frame$Opcode;ZJ)V", nullptr, $PRIVATE, $method(MessageEncoder, setupHeader, void, $Frame$Opcode*, bool, int64_t)},
 	{}
 };
 

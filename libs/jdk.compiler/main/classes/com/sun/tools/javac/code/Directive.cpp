@@ -13,7 +13,7 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Directive_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Directive::*)()>(&Directive::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Directive, init$, void)},
 	{}
 };
 

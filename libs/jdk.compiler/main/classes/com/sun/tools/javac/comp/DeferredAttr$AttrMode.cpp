@@ -28,10 +28,10 @@ $FieldInfo _DeferredAttr$AttrMode_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$AttrMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DeferredAttr$AttrModeArray*(*)()>(&DeferredAttr$AttrMode::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DeferredAttr$AttrMode::*)($String*,int32_t)>(&DeferredAttr$AttrMode::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DeferredAttr$AttrMode*(*)($String*)>(&DeferredAttr$AttrMode::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DeferredAttr$AttrModeArray*(*)()>(&DeferredAttr$AttrMode::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredAttr$AttrMode, $values, $DeferredAttr$AttrModeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DeferredAttr$AttrMode, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredAttr$AttrMode, valueOf, DeferredAttr$AttrMode*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredAttr$AttrMode, values, $DeferredAttr$AttrModeArray*)},
 	{}
 };
 

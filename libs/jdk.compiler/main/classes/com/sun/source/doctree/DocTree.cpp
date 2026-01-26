@@ -4,6 +4,8 @@
 #include <com/sun/source/doctree/DocTreeVisitor.h>
 #include <jcpp.h>
 
+using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
+using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -14,8 +16,8 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _DocTree_MethodInfo_[] = {
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC | $ABSTRACT},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(DocTree, accept, $Object*, $DocTreeVisitor*, Object$*)},
+	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocTree, getKind, $DocTree$Kind*)},
 	{}
 };
 

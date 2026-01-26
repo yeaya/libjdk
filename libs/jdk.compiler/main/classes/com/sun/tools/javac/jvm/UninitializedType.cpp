@@ -30,11 +30,11 @@ $FieldInfo _UninitializedType_FieldInfo_[] = {
 };
 
 $MethodInfo _UninitializedType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Type;ILcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PRIVATE, $method(static_cast<void(UninitializedType::*)($TypeTag*,$Type*,int32_t,$TypeMetadata*)>(&UninitializedType::init$))},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC},
-	{"initializedType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"uninitializedObject", "(Lcom/sun/tools/javac/code/Type;I)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<UninitializedType*(*)($Type*,int32_t)>(&UninitializedType::uninitializedObject))},
-	{"uninitializedThis", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<UninitializedType*(*)($Type*)>(&UninitializedType::uninitializedThis))},
+	{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Type;ILcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PRIVATE, $method(UninitializedType, init$, void, $TypeTag*, $Type*, int32_t, $TypeMetadata*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC, $virtualMethod(UninitializedType, cloneWithMetadata, UninitializedType*, $TypeMetadata*)},
+	{"initializedType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(UninitializedType, initializedType, $Type*)},
+	{"uninitializedObject", "(Lcom/sun/tools/javac/code/Type;I)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UninitializedType, uninitializedObject, UninitializedType*, $Type*, int32_t)},
+	{"uninitializedThis", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/UninitializedType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UninitializedType, uninitializedThis, UninitializedType*, $Type*)},
 	{}
 };
 

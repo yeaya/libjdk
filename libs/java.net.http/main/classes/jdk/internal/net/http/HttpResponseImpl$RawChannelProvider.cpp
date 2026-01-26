@@ -67,8 +67,8 @@ $FieldInfo HttpResponseImpl$RawChannelProvider$$Lambda$drainLeftOverBytes::field
 	{}
 };
 $MethodInfo HttpResponseImpl$RawChannelProvider$$Lambda$drainLeftOverBytes::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Exchange;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpResponseImpl$RawChannelProvider$$Lambda$drainLeftOverBytes::*)($Http1Exchange*)>(&HttpResponseImpl$RawChannelProvider$$Lambda$drainLeftOverBytes::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Exchange;)V", nullptr, $PUBLIC, $method(HttpResponseImpl$RawChannelProvider$$Lambda$drainLeftOverBytes, init$, void, $Http1Exchange*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl$RawChannelProvider$$Lambda$drainLeftOverBytes, get, $Object*)},
 	{}
 };
 $ClassInfo HttpResponseImpl$RawChannelProvider$$Lambda$drainLeftOverBytes::classInfo$ = {
@@ -94,12 +94,12 @@ $FieldInfo _HttpResponseImpl$RawChannelProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpResponseImpl$RawChannelProvider_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Exchange;)V", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Exchange<*>;)V", 0, $method(static_cast<void(HttpResponseImpl$RawChannelProvider::*)($HttpConnection*,$Exchange*)>(&HttpResponseImpl$RawChannelProvider::init$))},
-	{"closeRawChannel", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"connection", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;)Ljdk/internal/net/http/HttpConnection;", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange<*>;)Ljdk/internal/net/http/HttpConnection;", $PRIVATE | $STATIC, $method(static_cast<$HttpConnection*(*)($Response*,$Exchange*)>(&HttpResponseImpl$RawChannelProvider::connection))},
-	{"create", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;)Ljdk/internal/net/http/HttpResponseImpl$RawChannelProvider;", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange<*>;)Ljdk/internal/net/http/HttpResponseImpl$RawChannelProvider;", $STATIC, $method(static_cast<HttpResponseImpl$RawChannelProvider*(*)($Response*,$Exchange*)>(&HttpResponseImpl$RawChannelProvider::create))},
-	{"exchangeImpl", "()Ljdk/internal/net/http/ExchangeImpl;", "()Ljdk/internal/net/http/ExchangeImpl<*>;", $PRIVATE, $method(static_cast<$ExchangeImpl*(HttpResponseImpl$RawChannelProvider::*)()>(&HttpResponseImpl$RawChannelProvider::exchangeImpl))},
-	{"rawChannel", "()Ljdk/internal/net/http/websocket/RawChannel;", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Exchange;)V", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Exchange<*>;)V", 0, $method(HttpResponseImpl$RawChannelProvider, init$, void, $HttpConnection*, $Exchange*)},
+	{"closeRawChannel", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpResponseImpl$RawChannelProvider, closeRawChannel, void), "java.io.IOException"},
+	{"connection", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;)Ljdk/internal/net/http/HttpConnection;", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange<*>;)Ljdk/internal/net/http/HttpConnection;", $PRIVATE | $STATIC, $staticMethod(HttpResponseImpl$RawChannelProvider, connection, $HttpConnection*, $Response*, $Exchange*)},
+	{"create", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange;)Ljdk/internal/net/http/HttpResponseImpl$RawChannelProvider;", "(Ljdk/internal/net/http/Response;Ljdk/internal/net/http/Exchange<*>;)Ljdk/internal/net/http/HttpResponseImpl$RawChannelProvider;", $STATIC, $staticMethod(HttpResponseImpl$RawChannelProvider, create, HttpResponseImpl$RawChannelProvider*, $Response*, $Exchange*)},
+	{"exchangeImpl", "()Ljdk/internal/net/http/ExchangeImpl;", "()Ljdk/internal/net/http/ExchangeImpl<*>;", $PRIVATE, $method(HttpResponseImpl$RawChannelProvider, exchangeImpl, $ExchangeImpl*)},
+	{"rawChannel", "()Ljdk/internal/net/http/websocket/RawChannel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpResponseImpl$RawChannelProvider, rawChannel, $RawChannel*)},
 	{}
 };
 

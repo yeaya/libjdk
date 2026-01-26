@@ -29,10 +29,10 @@ $FieldInfo _RowIdLifetime_FieldInfo_[] = {
 };
 
 $MethodInfo _RowIdLifetime_MethodInfo_[] = {
-	{"$values", "()[Ljava/sql/RowIdLifetime;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$RowIdLifetimeArray*(*)()>(&RowIdLifetime::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(RowIdLifetime::*)($String*,int32_t)>(&RowIdLifetime::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RowIdLifetime*(*)($String*)>(&RowIdLifetime::valueOf))},
-	{"values", "()[Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RowIdLifetimeArray*(*)()>(&RowIdLifetime::values))},
+	{"$values", "()[Ljava/sql/RowIdLifetime;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RowIdLifetime, $values, $RowIdLifetimeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RowIdLifetime, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowIdLifetime, valueOf, RowIdLifetime*, $String*)},
+	{"values", "()[Ljava/sql/RowIdLifetime;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowIdLifetime, values, $RowIdLifetimeArray*)},
 	{}
 };
 

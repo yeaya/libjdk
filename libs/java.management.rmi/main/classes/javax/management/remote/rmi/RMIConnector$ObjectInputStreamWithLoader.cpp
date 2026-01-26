@@ -32,8 +32,8 @@ $FieldInfo _RMIConnector$ObjectInputStreamWithLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnector$ObjectInputStreamWithLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(RMIConnector$ObjectInputStreamWithLoader::*)($InputStream*,$ClassLoader*)>(&RMIConnector$ObjectInputStreamWithLoader::init$)), "java.io.IOException,java.lang.IllegalArgumentException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/io/InputStream;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(RMIConnector$ObjectInputStreamWithLoader, init$, void, $InputStream*, $ClassLoader*), "java.io.IOException,java.lang.IllegalArgumentException"},
+	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(RMIConnector$ObjectInputStreamWithLoader, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

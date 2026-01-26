@@ -43,10 +43,10 @@ $MethodInfo _KeyTabOutputStream_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyTabOutputStream::*)($OutputStream*)>(&KeyTabOutputStream::init$))},
+	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(KeyTabOutputStream, init$, void, $OutputStream*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeEntry", "(Lsun/security/krb5/internal/ktab/KeyTabEntry;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"writeVersion", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"writeEntry", "(Lsun/security/krb5/internal/ktab/KeyTabEntry;)V", nullptr, $PUBLIC, $virtualMethod(KeyTabOutputStream, writeEntry, void, $KeyTabEntry*), "java.io.IOException"},
+	{"writeVersion", "(I)V", nullptr, $PUBLIC, $virtualMethod(KeyTabOutputStream, writeVersion, void, int32_t), "java.io.IOException"},
 	{}
 };
 

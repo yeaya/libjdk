@@ -81,19 +81,19 @@ $FieldInfo _JavacRoundEnvironment_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacRoundEnvironment_MethodInfo_[] = {
-	{"<init>", "(ZZLjava/util/Set;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;)V", "(ZZLjava/util/Set<+Ljavax/lang/model/element/Element;>;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;)V", 0, $method(static_cast<void(JavacRoundEnvironment::*)(bool,bool,$Set*,$JavacProcessingEnvironment*)>(&JavacRoundEnvironment::init$))},
-	{"annotationToElement", "(Ljava/lang/Class;)Ljavax/lang/model/element/TypeElement;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Ljavax/lang/model/element/TypeElement;", $PRIVATE, $method(static_cast<$TypeElement*(JavacRoundEnvironment::*)($Class*)>(&JavacRoundEnvironment::annotationToElement))},
-	{"errorRaised", "()Z", nullptr, $PUBLIC},
-	{"getElementsAnnotatedWith", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"getElementsAnnotatedWith", "(Ljava/lang/Class;)Ljava/util/Set;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"getElementsAnnotatedWithAny", "([Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "([Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $TRANSIENT},
-	{"getElementsAnnotatedWithAny", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;>;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"getRootElements", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"mirrorAsElement", "(Ljavax/lang/model/element/AnnotationMirror;)Ljavax/lang/model/element/Element;", nullptr, $PRIVATE, $method(static_cast<$Element*(JavacRoundEnvironment::*)($AnnotationMirror*)>(&JavacRoundEnvironment::mirrorAsElement))},
-	{"processingOver", "()Z", nullptr, $PUBLIC},
-	{"throwIfNotAnnotation", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)V", $PRIVATE, $method(static_cast<void(JavacRoundEnvironment::*)($Class*)>(&JavacRoundEnvironment::throwIfNotAnnotation))},
-	{"throwIfNotAnnotation", "(Ljavax/lang/model/element/TypeElement;)V", nullptr, $PRIVATE, $method(static_cast<void(JavacRoundEnvironment::*)($TypeElement*)>(&JavacRoundEnvironment::throwIfNotAnnotation))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ZZLjava/util/Set;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;)V", "(ZZLjava/util/Set<+Ljavax/lang/model/element/Element;>;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;)V", 0, $method(JavacRoundEnvironment, init$, void, bool, bool, $Set*, $JavacProcessingEnvironment*)},
+	{"annotationToElement", "(Ljava/lang/Class;)Ljavax/lang/model/element/TypeElement;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Ljavax/lang/model/element/TypeElement;", $PRIVATE, $method(JavacRoundEnvironment, annotationToElement, $TypeElement*, $Class*)},
+	{"errorRaised", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacRoundEnvironment, errorRaised, bool)},
+	{"getElementsAnnotatedWith", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment, getElementsAnnotatedWith, $Set*, $TypeElement*)},
+	{"getElementsAnnotatedWith", "(Ljava/lang/Class;)Ljava/util/Set;", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment, getElementsAnnotatedWith, $Set*, $Class*)},
+	{"getElementsAnnotatedWithAny", "([Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "([Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $TRANSIENT, $virtualMethod(JavacRoundEnvironment, getElementsAnnotatedWithAny, $Set*, $TypeElementArray*)},
+	{"getElementsAnnotatedWithAny", "(Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;>;)Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment, getElementsAnnotatedWithAny, $Set*, $Set*)},
+	{"getRootElements", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment, getRootElements, $Set*)},
+	{"mirrorAsElement", "(Ljavax/lang/model/element/AnnotationMirror;)Ljavax/lang/model/element/Element;", nullptr, $PRIVATE, $method(JavacRoundEnvironment, mirrorAsElement, $Element*, $AnnotationMirror*)},
+	{"processingOver", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacRoundEnvironment, processingOver, bool)},
+	{"throwIfNotAnnotation", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)V", $PRIVATE, $method(JavacRoundEnvironment, throwIfNotAnnotation, void, $Class*)},
+	{"throwIfNotAnnotation", "(Ljavax/lang/model/element/TypeElement;)V", nullptr, $PRIVATE, $method(JavacRoundEnvironment, throwIfNotAnnotation, void, $TypeElement*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacRoundEnvironment, toString, $String*)},
 	{}
 };
 

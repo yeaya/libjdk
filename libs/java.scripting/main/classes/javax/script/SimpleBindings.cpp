@@ -34,22 +34,22 @@ $FieldInfo _SimpleBindings_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleBindings_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $method(static_cast<void(SimpleBindings::*)($Map*)>(&SimpleBindings::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SimpleBindings::*)()>(&SimpleBindings::init$))},
-	{"checkKey", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(SimpleBindings::*)(Object$*)>(&SimpleBindings::checkKey))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;>;", $PUBLIC},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+Ljava/lang/String;+Ljava/lang/Object;>;)V", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $method(SimpleBindings, init$, void, $Map*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleBindings, init$, void)},
+	{"checkKey", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(SimpleBindings, checkKey, void, Object$*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, clear, void)},
+	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, containsKey, bool, Object$*)},
+	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, containsValue, bool, Object$*)},
+	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(SimpleBindings, entrySet, $Set*)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, get, $Object*, Object$*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, isEmpty, bool)},
+	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SimpleBindings, keySet, $Set*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, put, $Object*, $String*, Object$*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SimpleBindings, put, $Object*, Object$*, Object$*)},
+	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+Ljava/lang/String;+Ljava/lang/Object;>;)V", $PUBLIC, $virtualMethod(SimpleBindings, putAll, void, $Map*)},
+	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, remove, $Object*, Object$*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleBindings, size, int32_t)},
+	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(SimpleBindings, values, $Collection*)},
 	{}
 };
 

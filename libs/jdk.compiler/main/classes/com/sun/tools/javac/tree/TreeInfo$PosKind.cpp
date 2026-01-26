@@ -49,8 +49,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeInfo$PosKind$$Lambda$getStartPos::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$PosKind$$Lambda$getStartPos::*)()>(&TreeInfo$PosKind$$Lambda$getStartPos::init$))},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$PosKind$$Lambda$getStartPos, init$, void)},
+	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$PosKind$$Lambda$getStartPos, applyAsInt, int32_t, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$PosKind$$Lambda$getStartPos::classInfo$ = {
@@ -82,8 +82,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeInfo$PosKind$$Lambda$firstStatPos$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$PosKind$$Lambda$firstStatPos$1::*)()>(&TreeInfo$PosKind$$Lambda$firstStatPos$1::init$))},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$PosKind$$Lambda$firstStatPos$1, init$, void)},
+	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$PosKind$$Lambda$firstStatPos$1, applyAsInt, int32_t, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$PosKind$$Lambda$firstStatPos$1::classInfo$ = {
@@ -115,8 +115,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TreeInfo$PosKind$$Lambda$endPos$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TreeInfo$PosKind$$Lambda$endPos$2::*)()>(&TreeInfo$PosKind$$Lambda$endPos$2::init$))},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$PosKind$$Lambda$endPos$2, init$, void)},
+	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$PosKind$$Lambda$endPos$2, applyAsInt, int32_t, Object$*)},
 	{}
 };
 $ClassInfo TreeInfo$PosKind$$Lambda$endPos$2::classInfo$ = {
@@ -143,11 +143,11 @@ $FieldInfo _TreeInfo$PosKind_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeInfo$PosKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TreeInfo$PosKindArray*(*)()>(&TreeInfo$PosKind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/util/function/ToIntFunction;)V", "(Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/tree/JCTree;>;)V", $PRIVATE, $method(static_cast<void(TreeInfo$PosKind::*)($String*,int32_t,$ToIntFunction*)>(&TreeInfo$PosKind::init$))},
-	{"toPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, 0, $method(static_cast<int32_t(TreeInfo$PosKind::*)($JCTree*)>(&TreeInfo$PosKind::toPos))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TreeInfo$PosKind*(*)($String*)>(&TreeInfo$PosKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TreeInfo$PosKindArray*(*)()>(&TreeInfo$PosKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo$PosKind, $values, $TreeInfo$PosKindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/util/function/ToIntFunction;)V", "(Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/tree/JCTree;>;)V", $PRIVATE, $method(TreeInfo$PosKind, init$, void, $String*, int32_t, $ToIntFunction*)},
+	{"toPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, 0, $method(TreeInfo$PosKind, toPos, int32_t, $JCTree*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo$PosKind, valueOf, TreeInfo$PosKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo$PosKind, values, $TreeInfo$PosKindArray*)},
 	{}
 };
 

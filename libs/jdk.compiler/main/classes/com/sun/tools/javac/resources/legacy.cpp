@@ -15,8 +15,8 @@ namespace com {
 				namespace resources {
 
 $MethodInfo _legacy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(legacy::*)()>(&legacy::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(legacy, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(legacy, getContents, $ObjectArray2*)},
 	{}
 };
 

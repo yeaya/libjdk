@@ -36,8 +36,8 @@ $FieldInfo _Symtab$6_FieldInfo_[] = {
 };
 
 $MethodInfo _Symtab$6_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(Symtab$6::*)($Symtab*,$Kinds$Kind*,int64_t,$Name*,$Type*,$Symbol*)>(&Symtab$6::init$))},
-	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Symtab$6, init$, void, $Symtab*, $Kinds$Kind*, int64_t, $Name*, $Type*, $Symbol*)},
+	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symtab$6, accept, $Object*, $ElementVisitor*, Object$*)},
 	{}
 };
 

@@ -29,8 +29,8 @@ $FieldInfo _ISO2022_CN_GB$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO2022_CN_GB$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(ISO2022_CN_GB$Encoder::*)($Charset*)>(&ISO2022_CN_GB$Encoder::init$))},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ISO2022_CN_GB$Encoder, init$, void, $Charset*)},
+	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_GB$Encoder, isLegalReplacement, bool, $bytes*)},
 	{}
 };
 

@@ -67,8 +67,8 @@ $FieldInfo WindowUpdateSender$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo WindowUpdateSender$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/WindowUpdateSender;)V", nullptr, $PUBLIC, $method(static_cast<void(WindowUpdateSender$$Lambda$dbgString::*)(WindowUpdateSender*)>(&WindowUpdateSender$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/WindowUpdateSender;)V", nullptr, $PUBLIC, $method(WindowUpdateSender$$Lambda$dbgString, init$, void, WindowUpdateSender*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowUpdateSender$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo WindowUpdateSender$$Lambda$dbgString::classInfo$ = {
@@ -95,13 +95,13 @@ $FieldInfo _WindowUpdateSender_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowUpdateSender_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, 0, $method(static_cast<void(WindowUpdateSender::*)($Http2Connection*)>(&WindowUpdateSender::init$))},
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;I)V", nullptr, 0, $method(static_cast<void(WindowUpdateSender::*)($Http2Connection*,int32_t)>(&WindowUpdateSender::init$))},
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;II)V", nullptr, 0, $method(static_cast<void(WindowUpdateSender::*)($Http2Connection*,int32_t,int32_t)>(&WindowUpdateSender::init$))},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0},
-	{"getStreamId", "()I", nullptr, $ABSTRACT},
-	{"sendWindowUpdate", "(I)V", nullptr, 0},
-	{"update", "(I)V", nullptr, 0},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, 0, $method(WindowUpdateSender, init$, void, $Http2Connection*)},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection;I)V", nullptr, 0, $method(WindowUpdateSender, init$, void, $Http2Connection*, int32_t)},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection;II)V", nullptr, 0, $method(WindowUpdateSender, init$, void, $Http2Connection*, int32_t, int32_t)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(WindowUpdateSender, dbgString, $String*)},
+	{"getStreamId", "()I", nullptr, $ABSTRACT, $virtualMethod(WindowUpdateSender, getStreamId, int32_t)},
+	{"sendWindowUpdate", "(I)V", nullptr, 0, $virtualMethod(WindowUpdateSender, sendWindowUpdate, void, int32_t)},
+	{"update", "(I)V", nullptr, 0, $virtualMethod(WindowUpdateSender, update, void, int32_t)},
 	{}
 };
 

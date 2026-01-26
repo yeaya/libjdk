@@ -133,8 +133,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FileSystemPreferences$$Lambda$lambda$static$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileSystemPreferences$$Lambda$lambda$static$1::*)()>(&FileSystemPreferences$$Lambda$lambda$static$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemPreferences$$Lambda$lambda$static$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$$Lambda$lambda$static$1, run, $Object*)},
 	{}
 };
 $ClassInfo FileSystemPreferences$$Lambda$lambda$static$1::classInfo$ = {
@@ -166,8 +166,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FileSystemPreferences$$Lambda$lambda$static$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileSystemPreferences$$Lambda$lambda$static$0$1::*)()>(&FileSystemPreferences$$Lambda$lambda$static$0$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileSystemPreferences$$Lambda$lambda$static$0$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$$Lambda$lambda$static$0$1, run, $Object*)},
 	{}
 };
 $ClassInfo FileSystemPreferences$$Lambda$lambda$static$0$1::classInfo$ = {
@@ -226,44 +226,44 @@ $FieldInfo _FileSystemPreferences_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemPreferences_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences::*)(bool)>(&FileSystemPreferences::init$))},
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences::*)(FileSystemPreferences*,$String*)>(&FileSystemPreferences::init$))},
-	{"byteArray", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&FileSystemPreferences::byteArray))},
-	{"checkLockFile0ErrorCode", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences::*)(int32_t)>(&FileSystemPreferences::checkLockFile0ErrorCode)), "java.lang.SecurityException"},
-	{"childSpi", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED},
-	{"childrenNamesSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED},
-	{"chmod", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)($String*,int32_t)>(&FileSystemPreferences::chmod))},
-	{"dirName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&FileSystemPreferences::dirName))},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.util.prefs.BackingStoreException"},
-	{"flushSpi", "()V", nullptr, $PROTECTED, nullptr, "java.util.prefs.BackingStoreException"},
-	{"getLogger", "()Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$PlatformLogger*(*)()>(&FileSystemPreferences::getLogger))},
-	{"getSpi", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"getSystemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $method(static_cast<$Preferences*(*)()>(&FileSystemPreferences::getSystemRoot))},
-	{"getUserRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $method(static_cast<$Preferences*(*)()>(&FileSystemPreferences::getUserRoot))},
-	{"initCacheIfNecessary", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences::*)()>(&FileSystemPreferences::initCacheIfNecessary))},
-	{"isDirChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&FileSystemPreferences::isDirChar))},
-	{"isUserNode", "()Z", nullptr, $PUBLIC},
-	{"keysSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED},
-	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)()>(&FileSystemPreferences::lambda$static$0))},
-	{"lambda$static$1", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)()>(&FileSystemPreferences::lambda$static$1))},
-	{"loadCache", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences::*)()>(&FileSystemPreferences::loadCache)), "java.util.prefs.BackingStoreException"},
-	{"lockFile", "(Z)Z", nullptr, $PRIVATE, $method(static_cast<bool(FileSystemPreferences::*)(bool)>(&FileSystemPreferences::lockFile)), "java.lang.SecurityException"},
-	{"lockFile0", "(Ljava/lang/String;IZ)[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$ints*(*)($String*,int32_t,bool)>(&FileSystemPreferences::lockFile0))},
-	{"nodeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&FileSystemPreferences::nodeName))},
-	{"putSpi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"removeNode", "()V", nullptr, $PUBLIC, nullptr, "java.util.prefs.BackingStoreException"},
-	{"removeNodeSpi", "()V", nullptr, $PROTECTED, nullptr, "java.util.prefs.BackingStoreException"},
-	{"removeSpi", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"replayChanges", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences::*)()>(&FileSystemPreferences::replayChanges))},
-	{"setupSystemRoot", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&FileSystemPreferences::setupSystemRoot))},
-	{"setupUserRoot", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&FileSystemPreferences::setupUserRoot))},
-	{"sync", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.util.prefs.BackingStoreException"},
-	{"syncSpi", "()V", nullptr, $PROTECTED, nullptr, "java.util.prefs.BackingStoreException"},
-	{"syncSpiPrivileged", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences::*)()>(&FileSystemPreferences::syncSpiPrivileged)), "java.util.prefs.BackingStoreException"},
-	{"syncWorld", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&FileSystemPreferences::syncWorld))},
-	{"unlockFile", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences::*)()>(&FileSystemPreferences::unlockFile))},
-	{"unlockFile0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t)>(&FileSystemPreferences::unlockFile0))},
-	{"writeBackCache", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileSystemPreferences::*)()>(&FileSystemPreferences::writeBackCache)), "java.util.prefs.BackingStoreException"},
+	{"<init>", "(Z)V", nullptr, $PRIVATE, $method(FileSystemPreferences, init$, void, bool)},
+	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FileSystemPreferences, init$, void, FileSystemPreferences*, $String*)},
+	{"byteArray", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, byteArray, $bytes*, $String*)},
+	{"checkLockFile0ErrorCode", "(I)V", nullptr, $PRIVATE, $method(FileSystemPreferences, checkLockFile0ErrorCode, void, int32_t), "java.lang.SecurityException"},
+	{"childSpi", "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, childSpi, $AbstractPreferences*, $String*)},
+	{"childrenNamesSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, childrenNamesSpi, $StringArray*)},
+	{"chmod", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileSystemPreferences, chmod, int32_t, $String*, int32_t)},
+	{"dirName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, dirName, $String*, $String*)},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences, flush, void), "java.util.prefs.BackingStoreException"},
+	{"flushSpi", "()V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, flushSpi, void), "java.util.prefs.BackingStoreException"},
+	{"getLogger", "()Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, getLogger, $PlatformLogger*)},
+	{"getSpi", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, getSpi, $String*, $String*)},
+	{"getSystemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(FileSystemPreferences, getSystemRoot, $Preferences*)},
+	{"getUserRoot", "()Ljava/util/prefs/Preferences;", nullptr, $STATIC, $staticMethod(FileSystemPreferences, getUserRoot, $Preferences*)},
+	{"initCacheIfNecessary", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, initCacheIfNecessary, void)},
+	{"isDirChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, isDirChar, bool, char16_t)},
+	{"isUserNode", "()Z", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences, isUserNode, bool)},
+	{"keysSpi", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, keysSpi, $StringArray*)},
+	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileSystemPreferences, lambda$static$0, $Void*)},
+	{"lambda$static$1", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileSystemPreferences, lambda$static$1, $Integer*)},
+	{"loadCache", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, loadCache, void), "java.util.prefs.BackingStoreException"},
+	{"lockFile", "(Z)Z", nullptr, $PRIVATE, $method(FileSystemPreferences, lockFile, bool, bool), "java.lang.SecurityException"},
+	{"lockFile0", "(Ljava/lang/String;IZ)[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileSystemPreferences, lockFile0, $ints*, $String*, int32_t, bool)},
+	{"nodeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, nodeName, $String*, $String*)},
+	{"putSpi", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, putSpi, void, $String*, $String*)},
+	{"removeNode", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences, removeNode, void), "java.util.prefs.BackingStoreException"},
+	{"removeNodeSpi", "()V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, removeNodeSpi, void), "java.util.prefs.BackingStoreException"},
+	{"removeSpi", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, removeSpi, void, $String*)},
+	{"replayChanges", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, replayChanges, void)},
+	{"setupSystemRoot", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, setupSystemRoot, void)},
+	{"setupUserRoot", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, setupUserRoot, void)},
+	{"sync", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileSystemPreferences, sync, void), "java.util.prefs.BackingStoreException"},
+	{"syncSpi", "()V", nullptr, $PROTECTED, $virtualMethod(FileSystemPreferences, syncSpi, void), "java.util.prefs.BackingStoreException"},
+	{"syncSpiPrivileged", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, syncSpiPrivileged, void), "java.util.prefs.BackingStoreException"},
+	{"syncWorld", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileSystemPreferences, syncWorld, void)},
+	{"unlockFile", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, unlockFile, void)},
+	{"unlockFile0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileSystemPreferences, unlockFile0, int32_t, int32_t)},
+	{"writeBackCache", "()V", nullptr, $PRIVATE, $method(FileSystemPreferences, writeBackCache, void), "java.util.prefs.BackingStoreException"},
 	{}
 };
 

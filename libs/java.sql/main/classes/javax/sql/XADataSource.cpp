@@ -8,17 +8,18 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
+using $XAConnection = ::javax::sql::XAConnection;
 using $XAConnectionBuilder = ::javax::sql::XAConnectionBuilder;
 
 namespace javax {
 	namespace sql {
 
 $MethodInfo _XADataSource_MethodInfo_[] = {
-	{"createXAConnectionBuilder", "()Ljavax/sql/XAConnectionBuilder;", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
+	{"createXAConnectionBuilder", "()Ljavax/sql/XAConnectionBuilder;", nullptr, $PUBLIC, $virtualMethod(XADataSource, createXAConnectionBuilder, $XAConnectionBuilder*), "java.sql.SQLException"},
 	{"getLogWriter", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getLoginTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getXAConnection", "()Ljavax/sql/XAConnection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getXAConnection", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/sql/XAConnection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getXAConnection", "()Ljavax/sql/XAConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XADataSource, getXAConnection, $XAConnection*), "java.sql.SQLException"},
+	{"getXAConnection", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/sql/XAConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XADataSource, getXAConnection, $XAConnection*, $String*, $String*), "java.sql.SQLException"},
 	{"setLogWriter", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"setLoginTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
 	{}

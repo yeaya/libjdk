@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Subject = ::javax::security::auth::Subject;
 
 namespace javax {
 	namespace management {
 		namespace remote {
 
 $MethodInfo _JMXAuthenticator_MethodInfo_[] = {
-	{"authenticate", "(Ljava/lang/Object;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC | $ABSTRACT},
+	{"authenticate", "(Ljava/lang/Object;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JMXAuthenticator, authenticate, $Subject*, Object$*)},
 	{}
 };
 

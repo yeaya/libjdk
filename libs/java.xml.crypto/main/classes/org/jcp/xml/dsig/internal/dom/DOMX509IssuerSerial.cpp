@@ -48,14 +48,14 @@ $FieldInfo _DOMX509IssuerSerial_FieldInfo_[] = {
 $MethodInfo _DOMX509IssuerSerial_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(static_cast<void(DOMX509IssuerSerial::*)($String*,$BigInteger*)>(&DOMX509IssuerSerial::init$))},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(static_cast<void(DOMX509IssuerSerial::*)($Element*)>(&DOMX509IssuerSerial::init$)), "javax.xml.crypto.MarshalException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DOMX509IssuerSerial, init$, void, $String*, $BigInteger*)},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(DOMX509IssuerSerial, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, equals, bool, Object$*)},
+	{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, getIssuerName, $String*)},
+	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, getSerialNumber, $BigInteger*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, hashCode, int32_t)},
 	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.MarshalException"},
+	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMX509IssuerSerial, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

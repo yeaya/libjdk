@@ -101,8 +101,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ShortRequestBody$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ShortRequestBody$$Lambda$lambda$main$0::*)()>(&ShortRequestBody$$Lambda$lambda$main$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortRequestBody$$Lambda$lambda$main$0, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$$Lambda$lambda$main$0, get, $Object*)},
 	{}
 };
 $ClassInfo ShortRequestBody$$Lambda$lambda$main$0::classInfo$ = {
@@ -141,8 +141,8 @@ $FieldInfo ShortRequestBody$$Lambda$lambda$main$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ShortRequestBody$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpClient;)V", nullptr, $PUBLIC, $method(static_cast<void(ShortRequestBody$$Lambda$lambda$main$1$1::*)($HttpClient*)>(&ShortRequestBody$$Lambda$lambda$main$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpClient;)V", nullptr, $PUBLIC, $method(ShortRequestBody$$Lambda$lambda$main$1$1, init$, void, $HttpClient*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$$Lambda$lambda$main$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo ShortRequestBody$$Lambda$lambda$main$1$1::classInfo$ = {
@@ -172,16 +172,16 @@ $FieldInfo _ShortRequestBody_FieldInfo_[] = {
 };
 
 $MethodInfo _ShortRequestBody_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ShortRequestBody::*)()>(&ShortRequestBody::init$))},
-	{"check", "(ZLjava/lang/Throwable;[Ljava/lang/Object;)Z", nullptr, $STATIC | $TRANSIENT, $method(static_cast<bool(*)(bool,$Throwable*,$ObjectArray*)>(&ShortRequestBody::check))},
-	{"failureBlocking", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $method(static_cast<void(*)($Supplier*,$URI*,$HttpRequest$BodyPublisher*)>(&ShortRequestBody::failureBlocking)), "java.lang.Exception"},
-	{"failureNonBlocking", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $method(static_cast<void(*)($Supplier*,$URI*,$HttpRequest$BodyPublisher*)>(&ShortRequestBody::failureNonBlocking)), "java.lang.Exception"},
-	{"fileSize", "(Ljava/nio/file/Path;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($Path*)>(&ShortRequestBody::fileSize))},
-	{"lambda$main$0", "()Ljava/net/http/HttpClient;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpClient*(*)()>(&ShortRequestBody::lambda$main$0))},
-	{"lambda$main$1", "(Ljava/net/http/HttpClient;)Ljava/net/http/HttpClient;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpClient*(*)($HttpClient*)>(&ShortRequestBody::lambda$main$1))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ShortRequestBody::main)), "java.lang.Exception"},
-	{"readRequestHeaders", "(Ljava/io/InputStream;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($InputStream*)>(&ShortRequestBody::readRequestHeaders)), "java.io.IOException"},
-	{"success", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $method(static_cast<void(*)($Supplier*,$URI*,$HttpRequest$BodyPublisher*)>(&ShortRequestBody::success)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortRequestBody, init$, void)},
+	{"check", "(ZLjava/lang/Throwable;[Ljava/lang/Object;)Z", nullptr, $STATIC | $TRANSIENT, $staticMethod(ShortRequestBody, check, bool, bool, $Throwable*, $ObjectArray*)},
+	{"failureBlocking", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $staticMethod(ShortRequestBody, failureBlocking, void, $Supplier*, $URI*, $HttpRequest$BodyPublisher*), "java.lang.Exception"},
+	{"failureNonBlocking", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $staticMethod(ShortRequestBody, failureNonBlocking, void, $Supplier*, $URI*, $HttpRequest$BodyPublisher*), "java.lang.Exception"},
+	{"fileSize", "(Ljava/nio/file/Path;)I", nullptr, $STATIC, $staticMethod(ShortRequestBody, fileSize, int32_t, $Path*)},
+	{"lambda$main$0", "()Ljava/net/http/HttpClient;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ShortRequestBody, lambda$main$0, $HttpClient*)},
+	{"lambda$main$1", "(Ljava/net/http/HttpClient;)Ljava/net/http/HttpClient;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ShortRequestBody, lambda$main$1, $HttpClient*, $HttpClient*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortRequestBody, main, void, $StringArray*), "java.lang.Exception"},
+	{"readRequestHeaders", "(Ljava/io/InputStream;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ShortRequestBody, readRequestHeaders, $String*, $InputStream*), "java.io.IOException"},
+	{"success", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $staticMethod(ShortRequestBody, success, void, $Supplier*, $URI*, $HttpRequest$BodyPublisher*), "java.lang.Exception"},
 	{}
 };
 

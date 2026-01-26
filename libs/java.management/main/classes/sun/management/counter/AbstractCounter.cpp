@@ -31,16 +31,16 @@ $FieldInfo _AbstractCounter_FieldInfo_[] = {
 
 $MethodInfo _AbstractCounter_MethodInfo_[] = {
 	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;II)V", nullptr, $PROTECTED, $method(static_cast<void(AbstractCounter::*)($String*,$Units*,$Variability*,int32_t,int32_t)>(&AbstractCounter::init$))},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;I)V", nullptr, $PROTECTED, $method(static_cast<void(AbstractCounter::*)($String*,$Units*,$Variability*,int32_t)>(&AbstractCounter::init$))},
-	{"getFlags", "()I", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
-	{"getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
-	{"getVectorLength", "()I", nullptr, $PUBLIC},
-	{"isInternal", "()Z", nullptr, $PUBLIC},
-	{"isVector", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;II)V", nullptr, $PROTECTED, $method(AbstractCounter, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t)},
+	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;I)V", nullptr, $PROTECTED, $method(AbstractCounter, init$, void, $String*, $Units*, $Variability*, int32_t)},
+	{"getFlags", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getFlags, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getName, $String*)},
+	{"getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getUnits, $Units*)},
+	{"getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getVariability, $Variability*)},
+	{"getVectorLength", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, getVectorLength, int32_t)},
+	{"isInternal", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, isInternal, bool)},
+	{"isVector", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, isVector, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractCounter, toString, $String*)},
 	{}
 };
 

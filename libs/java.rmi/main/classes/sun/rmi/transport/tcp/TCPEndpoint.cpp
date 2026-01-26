@@ -130,8 +130,8 @@ $FieldInfo TCPEndpoint$$Lambda$lambda$getInt$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo TCPEndpoint$$Lambda$lambda$getInt$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(TCPEndpoint$$Lambda$lambda$getInt$0::*)($String*,int32_t)>(&TCPEndpoint$$Lambda$lambda$getInt$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TCPEndpoint$$Lambda$lambda$getInt$0, init$, void, $String*, int32_t)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint$$Lambda$lambda$getInt$0, run, $Object*)},
 	{}
 };
 $ClassInfo TCPEndpoint$$Lambda$lambda$getInt$0::classInfo$ = {
@@ -170,8 +170,8 @@ $FieldInfo TCPEndpoint$$Lambda$lambda$getBoolean$1$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TCPEndpoint$$Lambda$lambda$getBoolean$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TCPEndpoint$$Lambda$lambda$getBoolean$1$1::*)($String*)>(&TCPEndpoint$$Lambda$lambda$getBoolean$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, init$, void, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint$$Lambda$lambda$getBoolean$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo TCPEndpoint$$Lambda$lambda$getBoolean$1$1::classInfo$ = {
@@ -203,8 +203,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::*)()>(&TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo TCPEndpoint$$Lambda$lambda$getHostnameProperty$2$2::classInfo$ = {
@@ -237,40 +237,40 @@ $FieldInfo _TCPEndpoint_FieldInfo_[] = {
 };
 
 $MethodInfo _TCPEndpoint_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(TCPEndpoint::*)($String*,int32_t)>(&TCPEndpoint::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(static_cast<void(TCPEndpoint::*)($String*,int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*)>(&TCPEndpoint::init$))},
-	{"allKnownTransports", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/rmi/transport/tcp/TCPTransport;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)()>(&TCPEndpoint::allKnownTransports))},
-	{"chooseFactory", "()Ljava/rmi/server/RMISocketFactory;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$RMISocketFactory*(*)()>(&TCPEndpoint::chooseFactory))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"getBoolean", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&TCPEndpoint::getBoolean))},
-	{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC},
-	{"getClientSocketFactory", "()Ljava/rmi/server/RMIClientSocketFactory;", nullptr, $PUBLIC},
-	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHostnameProperty", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&TCPEndpoint::getHostnameProperty))},
-	{"getInboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC},
-	{"getInt", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t)>(&TCPEndpoint::getInt))},
-	{"getListenPort", "()I", nullptr, $PUBLIC},
-	{"getLocalEndpoint", "(I)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TCPEndpoint*(*)(int32_t)>(&TCPEndpoint::getLocalEndpoint))},
-	{"getLocalEndpoint", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TCPEndpoint*(*)(int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*)>(&TCPEndpoint::getLocalEndpoint))},
-	{"getOutboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC},
-	{"getPort", "()I", nullptr, $PUBLIC},
-	{"getServerSocketFactory", "()Ljava/rmi/server/RMIServerSocketFactory;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"lambda$getBoolean$1", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)($String*)>(&TCPEndpoint::lambda$getBoolean$1))},
-	{"lambda$getHostnameProperty$2", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&TCPEndpoint::lambda$getHostnameProperty$2))},
-	{"lambda$getInt$0", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($String*,int32_t)>(&TCPEndpoint::lambda$getInt$0))},
-	{"newServerSocket", "()Ljava/net/ServerSocket;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"newSocket", "()Ljava/net/Socket;", nullptr, 0, nullptr, "java.rmi.RemoteException"},
-	{"read", "(Ljava/io/ObjectInput;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TCPEndpoint*(*)($ObjectInput*)>(&TCPEndpoint::read)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readHostPortFormat", "(Ljava/io/DataInput;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TCPEndpoint*(*)($DataInput*)>(&TCPEndpoint::readHostPortFormat)), "java.io.IOException"},
-	{"resampleLocalHost", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&TCPEndpoint::resampleLocalHost))},
-	{"setDefaultPort", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*)>(&TCPEndpoint::setDefaultPort))},
-	{"setLocalHost", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&TCPEndpoint::setLocalHost))},
-	{"shedConnectionCaches", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&TCPEndpoint::shedConnectionCaches))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"writeHostPortFormat", "(Ljava/io/DataOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(TCPEndpoint, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(TCPEndpoint, init$, void, $String*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
+	{"allKnownTransports", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/rmi/transport/tcp/TCPTransport;>;", $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, allKnownTransports, $Collection*)},
+	{"chooseFactory", "()Ljava/rmi/server/RMISocketFactory;", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, chooseFactory, $RMISocketFactory*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, equals, bool, Object$*)},
+	{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, exportObject, void, $Target*), "java.rmi.RemoteException"},
+	{"getBoolean", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, getBoolean, bool, $String*)},
+	{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getChannel, $Channel*)},
+	{"getClientSocketFactory", "()Ljava/rmi/server/RMIClientSocketFactory;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getClientSocketFactory, $RMIClientSocketFactory*)},
+	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getHost, $String*)},
+	{"getHostnameProperty", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, getHostnameProperty, $String*)},
+	{"getInboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getInboundTransport, $Transport*)},
+	{"getInt", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, getInt, int32_t, $String*, int32_t)},
+	{"getListenPort", "()I", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getListenPort, int32_t)},
+	{"getLocalEndpoint", "(I)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, getLocalEndpoint, TCPEndpoint*, int32_t)},
+	{"getLocalEndpoint", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, getLocalEndpoint, TCPEndpoint*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
+	{"getOutboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getOutboundTransport, $Transport*)},
+	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getPort, int32_t)},
+	{"getServerSocketFactory", "()Ljava/rmi/server/RMIServerSocketFactory;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, getServerSocketFactory, $RMIServerSocketFactory*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, hashCode, int32_t)},
+	{"lambda$getBoolean$1", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPEndpoint, lambda$getBoolean$1, $Boolean*, $String*)},
+	{"lambda$getHostnameProperty$2", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPEndpoint, lambda$getHostnameProperty$2, $String*)},
+	{"lambda$getInt$0", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPEndpoint, lambda$getInt$0, $Integer*, $String*, int32_t)},
+	{"newServerSocket", "()Ljava/net/ServerSocket;", nullptr, 0, $virtualMethod(TCPEndpoint, newServerSocket, $ServerSocket*), "java.io.IOException"},
+	{"newSocket", "()Ljava/net/Socket;", nullptr, 0, $virtualMethod(TCPEndpoint, newSocket, $Socket*), "java.rmi.RemoteException"},
+	{"read", "(Ljava/io/ObjectInput;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, read, TCPEndpoint*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readHostPortFormat", "(Ljava/io/DataInput;)Lsun/rmi/transport/tcp/TCPEndpoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, readHostPortFormat, TCPEndpoint*, $DataInput*), "java.io.IOException"},
+	{"resampleLocalHost", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPEndpoint, resampleLocalHost, $String*)},
+	{"setDefaultPort", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $STATIC, $staticMethod(TCPEndpoint, setDefaultPort, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
+	{"setLocalHost", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(TCPEndpoint, setLocalHost, void, $String*)},
+	{"shedConnectionCaches", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TCPEndpoint, shedConnectionCaches, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, toString, $String*)},
+	{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, write, void, $ObjectOutput*), "java.io.IOException"},
+	{"writeHostPortFormat", "(Ljava/io/DataOutput;)V", nullptr, $PUBLIC, $virtualMethod(TCPEndpoint, writeHostPortFormat, void, $DataOutput*), "java.io.IOException"},
 	{}
 };
 

@@ -33,12 +33,12 @@ $FieldInfo _TimeoutEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _TimeoutEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/Duration;)V", nullptr, 0, $method(static_cast<void(TimeoutEvent::*)($Duration*)>(&TimeoutEvent::init$))},
-	{"compareTo", "(Ljdk/internal/net/http/TimeoutEvent;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"deadline", "()Ljava/time/Instant;", nullptr, $PUBLIC},
-	{"handle", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/time/Duration;)V", nullptr, 0, $method(TimeoutEvent, init$, void, $Duration*)},
+	{"compareTo", "(Ljdk/internal/net/http/TimeoutEvent;)I", nullptr, $PUBLIC, $virtualMethod(TimeoutEvent, compareTo, int32_t, TimeoutEvent*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TimeoutEvent, compareTo, int32_t, Object$*)},
+	{"deadline", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(TimeoutEvent, deadline, $Instant*)},
+	{"handle", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TimeoutEvent, handle, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TimeoutEvent, toString, $String*)},
 	{}
 };
 

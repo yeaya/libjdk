@@ -19,8 +19,8 @@ $FieldInfo _ManagementPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _ManagementPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ManagementPermission::*)($String*)>(&ManagementPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ManagementPermission::*)($String*,$String*)>(&ManagementPermission::init$)), "java.lang.IllegalArgumentException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ManagementPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ManagementPermission, init$, void, $String*, $String*), "java.lang.IllegalArgumentException"},
 	{}
 };
 

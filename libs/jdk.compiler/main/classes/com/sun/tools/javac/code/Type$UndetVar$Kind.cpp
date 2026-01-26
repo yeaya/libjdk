@@ -31,10 +31,10 @@ $FieldInfo _Type$UndetVar$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$UndetVar$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type$UndetVar$KindArray*(*)()>(&Type$UndetVar$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Type$UndetVar$Kind::*)($String*,int32_t)>(&Type$UndetVar$Kind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Type$UndetVar$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Type$UndetVar$Kind*(*)($String*)>(&Type$UndetVar$Kind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Type$UndetVar$KindArray*(*)()>(&Type$UndetVar$Kind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Type$UndetVar$Kind, $values, $Type$UndetVar$KindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Type$UndetVar$Kind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Type$UndetVar$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Type$UndetVar$Kind, valueOf, Type$UndetVar$Kind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Type$UndetVar$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Type$UndetVar$Kind, values, $Type$UndetVar$KindArray*)},
 	{}
 };
 

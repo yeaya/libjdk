@@ -59,7 +59,7 @@ $FieldInfo _PerfDataEntry$EntryFieldOffset_FieldInfo_[] = {
 };
 
 $MethodInfo _PerfDataEntry$EntryFieldOffset_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/counter/perf/PerfDataEntry;)V", nullptr, $PRIVATE, $method(static_cast<void(PerfDataEntry$EntryFieldOffset::*)($PerfDataEntry*)>(&PerfDataEntry$EntryFieldOffset::init$))},
+	{"<init>", "(Lsun/management/counter/perf/PerfDataEntry;)V", nullptr, $PRIVATE, $method(PerfDataEntry$EntryFieldOffset, init$, void, $PerfDataEntry*)},
 	{}
 };
 

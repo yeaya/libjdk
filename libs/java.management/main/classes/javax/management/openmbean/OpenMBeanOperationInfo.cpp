@@ -4,8 +4,10 @@
 #include <javax/management/openmbean/OpenType.h>
 #include <jcpp.h>
 
+using $MBeanParameterInfoArray = $Array<::javax::management::MBeanParameterInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $OpenType = ::javax::management::openmbean::OpenType;
 
 namespace javax {
 	namespace management {
@@ -13,12 +15,12 @@ namespace javax {
 
 $MethodInfo _OpenMBeanOperationInfo_MethodInfo_[] = {
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getImpact", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getReturnOpenType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", $PUBLIC | $ABSTRACT},
-	{"getReturnType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanOperationInfo, getDescription, $String*)},
+	{"getImpact", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanOperationInfo, getImpact, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanOperationInfo, getName, $String*)},
+	{"getReturnOpenType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanOperationInfo, getReturnOpenType, $OpenType*)},
+	{"getReturnType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanOperationInfo, getReturnType, $String*)},
+	{"getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanOperationInfo, getSignature, $MBeanParameterInfoArray*)},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

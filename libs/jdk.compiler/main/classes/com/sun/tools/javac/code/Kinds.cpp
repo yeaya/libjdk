@@ -46,10 +46,10 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Kinds_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Kinds::*)()>(&Kinds::init$))},
-	{"kindName", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;)Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Kinds$KindName*(*)($MemberReferenceTree$ReferenceMode*)>(&Kinds::kindName))},
-	{"kindName", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Kinds$KindName*(*)($Symbol*)>(&Kinds::kindName))},
-	{"typeKindName", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Kinds$KindName*(*)($Type*)>(&Kinds::typeKindName))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Kinds, init$, void)},
+	{"kindName", "(Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;)Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds, kindName, $Kinds$KindName*, $MemberReferenceTree$ReferenceMode*)},
+	{"kindName", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds, kindName, $Kinds$KindName*, $Symbol*)},
+	{"typeKindName", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds, typeKindName, $Kinds$KindName*, $Type*)},
 	{}
 };
 

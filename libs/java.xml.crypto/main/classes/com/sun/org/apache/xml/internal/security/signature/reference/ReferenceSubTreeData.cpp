@@ -30,10 +30,10 @@ $FieldInfo _ReferenceSubTreeData_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceSubTreeData_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceSubTreeData::*)($Node*,bool)>(&ReferenceSubTreeData::init$))},
-	{"excludeComments", "()Z", nullptr, $PUBLIC},
-	{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(ReferenceSubTreeData, init$, void, $Node*, bool)},
+	{"excludeComments", "()Z", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData, excludeComments, bool)},
+	{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(ReferenceSubTreeData, getRoot, $Node*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(ReferenceSubTreeData, iterator, $Iterator*)},
 	{}
 };
 

@@ -102,19 +102,19 @@ $FieldInfo _JDBCType_FieldInfo_[] = {
 };
 
 $MethodInfo _JDBCType_MethodInfo_[] = {
-	{"$values", "()[Ljava/sql/JDBCType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JDBCTypeArray*(*)()>(&JDBCType::$values))},
+	{"$values", "()[Ljava/sql/JDBCType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDBCType, $values, $JDBCTypeArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/Integer;)V", "(Ljava/lang/Integer;)V", $PRIVATE, $method(static_cast<void(JDBCType::*)($String*,int32_t,$Integer*)>(&JDBCType::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getVendorTypeNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/Integer;)V", "(Ljava/lang/Integer;)V", $PRIVATE, $method(JDBCType, init$, void, $String*, int32_t, $Integer*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDBCType, getName, $String*)},
+	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDBCType, getVendor, $String*)},
+	{"getVendorTypeNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(JDBCType, getVendorTypeNumber, $Integer*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JDBCType*(*)($String*)>(&JDBCType::valueOf))},
-	{"valueOf", "(I)Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JDBCType*(*)(int32_t)>(&JDBCType::valueOf))},
-	{"values", "()[Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JDBCTypeArray*(*)()>(&JDBCType::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JDBCType, valueOf, JDBCType*, $String*)},
+	{"valueOf", "(I)Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JDBCType, valueOf, JDBCType*, int32_t)},
+	{"values", "()[Ljava/sql/JDBCType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JDBCType, values, $JDBCTypeArray*)},
 	{}
 };
 

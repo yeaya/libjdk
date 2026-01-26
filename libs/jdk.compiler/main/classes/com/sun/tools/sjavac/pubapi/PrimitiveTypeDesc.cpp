@@ -27,8 +27,8 @@ $FieldInfo _PrimitiveTypeDesc_FieldInfo_[] = {
 };
 
 $MethodInfo _PrimitiveTypeDesc_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/type/TypeKind;)V", nullptr, $PUBLIC, $method(static_cast<void(PrimitiveTypeDesc::*)($TypeKind*)>(&PrimitiveTypeDesc::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/lang/model/type/TypeKind;)V", nullptr, $PUBLIC, $method(PrimitiveTypeDesc, init$, void, $TypeKind*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrimitiveTypeDesc, toString, $String*)},
 	{}
 };
 

@@ -14,7 +14,7 @@ namespace com {
 				namespace shell {
 
 $MethodInfo _Main$Command_MethodInfo_[] = {
-	{"run", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"run", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Main$Command, run, void, $StringArray*)},
 	{}
 };
 

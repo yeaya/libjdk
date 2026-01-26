@@ -10,6 +10,7 @@
 #include <javax/xml/crypto/Data.h>
 #include <javax/xml/crypto/NoSuchMechanismException.h>
 #include <javax/xml/crypto/URIDereferencer.h>
+#include <javax/xml/crypto/XMLStructure.h>
 #include <javax/xml/crypto/dsig/CanonicalizationMethod.h>
 #include <javax/xml/crypto/dsig/DigestMethod.h>
 #include <javax/xml/crypto/dsig/Manifest.h>
@@ -18,6 +19,7 @@
 #include <javax/xml/crypto/dsig/SignatureProperties.h>
 #include <javax/xml/crypto/dsig/SignatureProperty.h>
 #include <javax/xml/crypto/dsig/SignedInfo.h>
+#include <javax/xml/crypto/dsig/Transform.h>
 #include <javax/xml/crypto/dsig/XMLObject.h>
 #include <javax/xml/crypto/dsig/XMLSignature.h>
 #include <javax/xml/crypto/dsig/XMLValidateContext.h>
@@ -26,6 +28,7 @@
 #include <javax/xml/crypto/dsig/spec/C14NMethodParameterSpec.h>
 #include <javax/xml/crypto/dsig/spec/DigestMethodParameterSpec.h>
 #include <javax/xml/crypto/dsig/spec/SignatureMethodParameterSpec.h>
+#include <javax/xml/crypto/dsig/spec/TransformParameterSpec.h>
 #include <jcpp.h>
 
 using $ProviderArray = $Array<::java::security::Provider>;
@@ -40,8 +43,29 @@ using $NoSuchProviderException = ::java::security::NoSuchProviderException;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $Security = ::java::security::Security;
+using $List = ::java::util::List;
+using $Data = ::javax::xml::crypto::Data;
 using $NoSuchMechanismException = ::javax::xml::crypto::NoSuchMechanismException;
+using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
+using $XMLStructure = ::javax::xml::crypto::XMLStructure;
+using $CanonicalizationMethod = ::javax::xml::crypto::dsig::CanonicalizationMethod;
+using $DigestMethod = ::javax::xml::crypto::dsig::DigestMethod;
+using $Manifest = ::javax::xml::crypto::dsig::Manifest;
+using $Reference = ::javax::xml::crypto::dsig::Reference;
+using $SignatureMethod = ::javax::xml::crypto::dsig::SignatureMethod;
+using $SignatureProperties = ::javax::xml::crypto::dsig::SignatureProperties;
+using $SignatureProperty = ::javax::xml::crypto::dsig::SignatureProperty;
+using $SignedInfo = ::javax::xml::crypto::dsig::SignedInfo;
+using $Transform = ::javax::xml::crypto::dsig::Transform;
+using $XMLObject = ::javax::xml::crypto::dsig::XMLObject;
+using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
+using $XMLValidateContext = ::javax::xml::crypto::dsig::XMLValidateContext;
+using $KeyInfo = ::javax::xml::crypto::dsig::keyinfo::KeyInfo;
 using $KeyInfoFactory = ::javax::xml::crypto::dsig::keyinfo::KeyInfoFactory;
+using $C14NMethodParameterSpec = ::javax::xml::crypto::dsig::spec::C14NMethodParameterSpec;
+using $DigestMethodParameterSpec = ::javax::xml::crypto::dsig::spec::DigestMethodParameterSpec;
+using $SignatureMethodParameterSpec = ::javax::xml::crypto::dsig::spec::SignatureMethodParameterSpec;
+using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParameterSpec;
 
 namespace javax {
 	namespace xml {
@@ -55,37 +79,37 @@ $FieldInfo _XMLSignatureFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLSignatureFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(XMLSignatureFactory::*)()>(&XMLSignatureFactory::init$))},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLSignatureFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<XMLSignatureFactory*(*)($String*)>(&XMLSignatureFactory::getInstance))},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/xml/crypto/dsig/XMLSignatureFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<XMLSignatureFactory*(*)($String*,$Provider*)>(&XMLSignatureFactory::getInstance))},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLSignatureFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<XMLSignatureFactory*(*)($String*,$String*)>(&XMLSignatureFactory::getInstance)), "java.security.NoSuchProviderException"},
-	{"getInstance", "()Ljavax/xml/crypto/dsig/XMLSignatureFactory;", nullptr, $PUBLIC | $STATIC, $method(static_cast<XMLSignatureFactory*(*)()>(&XMLSignatureFactory::getInstance))},
-	{"getKeyInfoFactory", "()Ljavax/xml/crypto/dsig/keyinfo/KeyInfoFactory;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$KeyInfoFactory*(XMLSignatureFactory::*)()>(&XMLSignatureFactory::getKeyInfoFactory))},
-	{"getMechanismType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(XMLSignatureFactory::*)()>(&XMLSignatureFactory::getMechanismType))},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(XMLSignatureFactory::*)()>(&XMLSignatureFactory::getProvider))},
-	{"getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"newCanonicalizationMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/C14NMethodParameterSpec;)Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newCanonicalizationMethod", "(Ljava/lang/String;Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newDigestMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/DigestMethodParameterSpec;)Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newManifest", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/Manifest;", "(Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;)Ljavax/xml/crypto/dsig/Manifest;", $PUBLIC | $ABSTRACT},
-	{"newManifest", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Manifest;", "(Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Manifest;", $PUBLIC | $ABSTRACT},
-	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;)Ljavax/xml/crypto/dsig/Reference;", nullptr, $PUBLIC | $ABSTRACT},
-	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", $PUBLIC | $ABSTRACT},
-	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;[B)Ljavax/xml/crypto/dsig/Reference;", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;Ljava/lang/String;[B)Ljavax/xml/crypto/dsig/Reference;", $PUBLIC | $ABSTRACT},
-	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljavax/xml/crypto/Data;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljavax/xml/crypto/Data;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", $PUBLIC | $ABSTRACT},
-	{"newSignatureMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;)Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newSignatureProperties", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperties;", "(Ljava/util/List<+Ljavax/xml/crypto/dsig/SignatureProperty;>;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperties;", $PUBLIC | $ABSTRACT},
-	{"newSignatureProperty", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperty;", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperty;", $PUBLIC | $ABSTRACT},
-	{"newSignedInfo", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;)Ljavax/xml/crypto/dsig/SignedInfo;", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;)Ljavax/xml/crypto/dsig/SignedInfo;", $PUBLIC | $ABSTRACT},
-	{"newSignedInfo", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignedInfo;", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignedInfo;", $PUBLIC | $ABSTRACT},
-	{"newTransform", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)Ljavax/xml/crypto/dsig/Transform;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newTransform", "(Ljava/lang/String;Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/Transform;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newXMLObject", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLObject;", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLObject;", $PUBLIC | $ABSTRACT},
-	{"newXMLSignature", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC | $ABSTRACT},
-	{"newXMLSignature", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLSignature;", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljava/util/List<+Ljavax/xml/crypto/dsig/XMLObject;>;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLSignature;", $PUBLIC | $ABSTRACT},
-	{"unmarshalXMLSignature", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.MarshalException"},
-	{"unmarshalXMLSignature", "(Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.MarshalException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(XMLSignatureFactory, init$, void)},
+	{"getInstance", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLSignatureFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLSignatureFactory, getInstance, XMLSignatureFactory*, $String*)},
+	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/xml/crypto/dsig/XMLSignatureFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLSignatureFactory, getInstance, XMLSignatureFactory*, $String*, $Provider*)},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLSignatureFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLSignatureFactory, getInstance, XMLSignatureFactory*, $String*, $String*), "java.security.NoSuchProviderException"},
+	{"getInstance", "()Ljavax/xml/crypto/dsig/XMLSignatureFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLSignatureFactory, getInstance, XMLSignatureFactory*)},
+	{"getKeyInfoFactory", "()Ljavax/xml/crypto/dsig/keyinfo/KeyInfoFactory;", nullptr, $PUBLIC | $FINAL, $method(XMLSignatureFactory, getKeyInfoFactory, $KeyInfoFactory*)},
+	{"getMechanismType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(XMLSignatureFactory, getMechanismType, $String*)},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(XMLSignatureFactory, getProvider, $Provider*)},
+	{"getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, getURIDereferencer, $URIDereferencer*)},
+	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, isFeatureSupported, bool, $String*)},
+	{"newCanonicalizationMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/C14NMethodParameterSpec;)Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newCanonicalizationMethod, $CanonicalizationMethod*, $String*, $C14NMethodParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+	{"newCanonicalizationMethod", "(Ljava/lang/String;Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newCanonicalizationMethod, $CanonicalizationMethod*, $String*, $XMLStructure*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+	{"newDigestMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/DigestMethodParameterSpec;)Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newDigestMethod, $DigestMethod*, $String*, $DigestMethodParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+	{"newManifest", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/Manifest;", "(Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;)Ljavax/xml/crypto/dsig/Manifest;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newManifest, $Manifest*, $List*)},
+	{"newManifest", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Manifest;", "(Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Manifest;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newManifest, $Manifest*, $List*, $String*)},
+	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;)Ljavax/xml/crypto/dsig/Reference;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*)},
+	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*, $List*, $String*, $String*)},
+	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;[B)Ljavax/xml/crypto/dsig/Reference;", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;Ljava/lang/String;[B)Ljavax/xml/crypto/dsig/Reference;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*, $List*, $String*, $String*, $bytes*)},
+	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljavax/xml/crypto/Data;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljavax/xml/crypto/Data;Ljava/util/List<+Ljavax/xml/crypto/dsig/Transform;>;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*, $List*, $Data*, $List*, $String*, $String*)},
+	{"newSignatureMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;)Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newSignatureMethod, $SignatureMethod*, $String*, $SignatureMethodParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+	{"newSignatureProperties", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperties;", "(Ljava/util/List<+Ljavax/xml/crypto/dsig/SignatureProperty;>;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperties;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newSignatureProperties, $SignatureProperties*, $List*, $String*)},
+	{"newSignatureProperty", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperty;", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperty;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newSignatureProperty, $SignatureProperty*, $List*, $String*, $String*)},
+	{"newSignedInfo", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;)Ljavax/xml/crypto/dsig/SignedInfo;", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;)Ljavax/xml/crypto/dsig/SignedInfo;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newSignedInfo, $SignedInfo*, $CanonicalizationMethod*, $SignatureMethod*, $List*)},
+	{"newSignedInfo", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignedInfo;", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignedInfo;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newSignedInfo, $SignedInfo*, $CanonicalizationMethod*, $SignatureMethod*, $List*, $String*)},
+	{"newTransform", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)Ljavax/xml/crypto/dsig/Transform;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newTransform, $Transform*, $String*, $TransformParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+	{"newTransform", "(Ljava/lang/String;Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/Transform;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newTransform, $Transform*, $String*, $XMLStructure*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+	{"newXMLObject", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLObject;", "(Ljava/util/List<+Ljavax/xml/crypto/XMLStructure;>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLObject;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newXMLObject, $XMLObject*, $List*, $String*, $String*, $String*)},
+	{"newXMLSignature", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newXMLSignature, $XMLSignature*, $SignedInfo*, $KeyInfo*)},
+	{"newXMLSignature", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLSignature;", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljava/util/List<+Ljavax/xml/crypto/dsig/XMLObject;>;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLSignature;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, newXMLSignature, $XMLSignature*, $SignedInfo*, $KeyInfo*, $List*, $String*, $String*)},
+	{"unmarshalXMLSignature", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, unmarshalXMLSignature, $XMLSignature*, $XMLValidateContext*), "javax.xml.crypto.MarshalException"},
+	{"unmarshalXMLSignature", "(Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignatureFactory, unmarshalXMLSignature, $XMLSignature*, $XMLStructure*), "javax.xml.crypto.MarshalException"},
 	{}
 };
 

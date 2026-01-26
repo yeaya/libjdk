@@ -17,8 +17,8 @@ $FieldInfo _SizeLimitExceededException_FieldInfo_[] = {
 };
 
 $MethodInfo _SizeLimitExceededException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SizeLimitExceededException::*)()>(&SizeLimitExceededException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SizeLimitExceededException::*)($String*)>(&SizeLimitExceededException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SizeLimitExceededException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SizeLimitExceededException, init$, void, $String*)},
 	{}
 };
 

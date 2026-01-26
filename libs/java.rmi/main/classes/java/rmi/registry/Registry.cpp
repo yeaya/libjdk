@@ -1,5 +1,6 @@
 #include <java/rmi/registry/Registry.h>
 
+#include <java/rmi/Remote.h>
 #include <jcpp.h>
 
 #undef REGISTRY_PORT
@@ -7,6 +8,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Remote = ::java::rmi::Remote;
 
 namespace java {
 	namespace rmi {
@@ -18,11 +20,11 @@ $FieldInfo _Registry_FieldInfo_[] = {
 };
 
 $MethodInfo _Registry_MethodInfo_[] = {
-	{"bind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException,java.rmi.AlreadyBoundException,java.rmi.AccessException"},
-	{"list", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException,java.rmi.AccessException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException,java.rmi.NotBoundException,java.rmi.AccessException"},
-	{"rebind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException,java.rmi.AccessException"},
-	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException,java.rmi.NotBoundException,java.rmi.AccessException"},
+	{"bind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Registry, bind, void, $String*, $Remote*), "java.rmi.RemoteException,java.rmi.AlreadyBoundException,java.rmi.AccessException"},
+	{"list", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Registry, list, $StringArray*), "java.rmi.RemoteException,java.rmi.AccessException"},
+	{"lookup", "(Ljava/lang/String;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Registry, lookup, $Remote*, $String*), "java.rmi.RemoteException,java.rmi.NotBoundException,java.rmi.AccessException"},
+	{"rebind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Registry, rebind, void, $String*, $Remote*), "java.rmi.RemoteException,java.rmi.AccessException"},
+	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Registry, unbind, void, $String*), "java.rmi.RemoteException,java.rmi.NotBoundException,java.rmi.AccessException"},
 	{}
 };
 

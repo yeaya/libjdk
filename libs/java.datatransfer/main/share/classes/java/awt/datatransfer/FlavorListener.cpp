@@ -3,6 +3,7 @@
 #include <java/awt/datatransfer/FlavorEvent.h>
 #include <jcpp.h>
 
+using $FlavorEvent = ::java::awt::datatransfer::FlavorEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -11,7 +12,7 @@ namespace java {
 		namespace datatransfer {
 
 $MethodInfo _FlavorListener_MethodInfo_[] = {
-	{"flavorsChanged", "(Ljava/awt/datatransfer/FlavorEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"flavorsChanged", "(Ljava/awt/datatransfer/FlavorEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FlavorListener, flavorsChanged, void, $FlavorEvent*)},
 	{}
 };
 

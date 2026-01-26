@@ -34,9 +34,9 @@ $FieldInfo _ECKeyValue$Curve_FieldInfo_[] = {
 };
 
 $MethodInfo _ECKeyValue$Curve_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V", nullptr, 0, $method(static_cast<void(ECKeyValue$Curve::*)($String*,$String*,$EllipticCurve*,$ECPoint*,$BigInteger*,int32_t)>(&ECKeyValue$Curve::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ECKeyValue$Curve::*)()>(&ECKeyValue$Curve::getName))},
-	{"getObjectId", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ECKeyValue$Curve::*)()>(&ECKeyValue$Curve::getObjectId))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V", nullptr, 0, $method(ECKeyValue$Curve, init$, void, $String*, $String*, $EllipticCurve*, $ECPoint*, $BigInteger*, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ECKeyValue$Curve, getName, $String*)},
+	{"getObjectId", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ECKeyValue$Curve, getObjectId, $String*)},
 	{}
 };
 

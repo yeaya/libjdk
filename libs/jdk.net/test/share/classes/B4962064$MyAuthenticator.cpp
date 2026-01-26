@@ -26,8 +26,8 @@ $FieldInfo _B4962064$MyAuthenticator_FieldInfo_[] = {
 };
 
 $MethodInfo _B4962064$MyAuthenticator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(B4962064$MyAuthenticator::*)()>(&B4962064$MyAuthenticator::init$))},
-	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(B4962064$MyAuthenticator, init$, void)},
+	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(B4962064$MyAuthenticator, getPasswordAuthentication, $PasswordAuthentication*)},
 	{}
 };
 

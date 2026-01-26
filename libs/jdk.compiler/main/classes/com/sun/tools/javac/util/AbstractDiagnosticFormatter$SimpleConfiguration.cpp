@@ -55,15 +55,15 @@ $FieldInfo _AbstractDiagnosticFormatter$SimpleConfiguration_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractDiagnosticFormatter$SimpleConfiguration_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC, $method(static_cast<void(AbstractDiagnosticFormatter$SimpleConfiguration::*)($Set*)>(&AbstractDiagnosticFormatter$SimpleConfiguration::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/util/Options;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/util/Options;Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC, $method(static_cast<void(AbstractDiagnosticFormatter$SimpleConfiguration::*)($Options*,$Set*)>(&AbstractDiagnosticFormatter$SimpleConfiguration::init$))},
-	{"getMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;)I", nullptr, $PUBLIC},
-	{"getVisible", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;", $PUBLIC},
-	{"isCaretEnabled", "()Z", nullptr, $PUBLIC},
-	{"setCaretEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"setMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;I)V", nullptr, $PUBLIC},
-	{"setVisible", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC},
-	{"setVisiblePart", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;Z)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC, $method(AbstractDiagnosticFormatter$SimpleConfiguration, init$, void, $Set*)},
+	{"<init>", "(Lcom/sun/tools/javac/util/Options;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/util/Options;Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC, $method(AbstractDiagnosticFormatter$SimpleConfiguration, init$, void, $Options*, $Set*)},
+	{"getMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;)I", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter$SimpleConfiguration, getMultilineLimit, int32_t, $DiagnosticFormatter$Configuration$MultilineLimit*)},
+	{"getVisible", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;", $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter$SimpleConfiguration, getVisible, $Set*)},
+	{"isCaretEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter$SimpleConfiguration, isCaretEnabled, bool)},
+	{"setCaretEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter$SimpleConfiguration, setCaretEnabled, void, bool)},
+	{"setMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter$SimpleConfiguration, setMultilineLimit, void, $DiagnosticFormatter$Configuration$MultilineLimit*, int32_t)},
+	{"setVisible", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter$SimpleConfiguration, setVisible, void, $Set*)},
+	{"setVisiblePart", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter$SimpleConfiguration, setVisiblePart, void, $DiagnosticFormatter$Configuration$DiagnosticPart*, bool)},
 	{}
 };
 

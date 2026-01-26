@@ -64,12 +64,12 @@ $FieldInfo _InitialToken$OverloadedChecksum_FieldInfo_[] = {
 };
 
 $MethodInfo _InitialToken$OverloadedChecksum_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/InitialToken;Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;)V", nullptr, $PUBLIC, $method(static_cast<void(InitialToken$OverloadedChecksum::*)($InitialToken*,$Krb5Context*,$Credentials*,$Credentials*)>(&InitialToken$OverloadedChecksum::init$)), "sun.security.krb5.KrbException,java.io.IOException,org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/InitialToken;Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Checksum;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(static_cast<void(InitialToken$OverloadedChecksum::*)($InitialToken*,$Krb5Context*,$Checksum*,$EncryptionKey*,$EncryptionKey*)>(&InitialToken$OverloadedChecksum::init$)), "org.ietf.jgss.GSSException,sun.security.krb5.KrbException,java.io.IOException"},
-	{"getChecksum", "()Lsun/security/krb5/Checksum;", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbException"},
-	{"getDelegatedCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC},
-	{"setContextFlags", "(Lsun/security/jgss/krb5/Krb5Context;)V", nullptr, $PUBLIC},
-	{"useNullKey", "(Lsun/security/jgss/krb5/CipherHelper;)Z", nullptr, $PRIVATE, $method(static_cast<bool(InitialToken$OverloadedChecksum::*)($CipherHelper*)>(&InitialToken$OverloadedChecksum::useNullKey))},
+	{"<init>", "(Lsun/security/jgss/krb5/InitialToken;Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;)V", nullptr, $PUBLIC, $method(InitialToken$OverloadedChecksum, init$, void, $InitialToken*, $Krb5Context*, $Credentials*, $Credentials*), "sun.security.krb5.KrbException,java.io.IOException,org.ietf.jgss.GSSException"},
+	{"<init>", "(Lsun/security/jgss/krb5/InitialToken;Lsun/security/jgss/krb5/Krb5Context;Lsun/security/krb5/Checksum;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(InitialToken$OverloadedChecksum, init$, void, $InitialToken*, $Krb5Context*, $Checksum*, $EncryptionKey*, $EncryptionKey*), "org.ietf.jgss.GSSException,sun.security.krb5.KrbException,java.io.IOException"},
+	{"getChecksum", "()Lsun/security/krb5/Checksum;", nullptr, $PUBLIC, $virtualMethod(InitialToken$OverloadedChecksum, getChecksum, $Checksum*), "sun.security.krb5.KrbException"},
+	{"getDelegatedCreds", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(InitialToken$OverloadedChecksum, getDelegatedCreds, $Credentials*)},
+	{"setContextFlags", "(Lsun/security/jgss/krb5/Krb5Context;)V", nullptr, $PUBLIC, $virtualMethod(InitialToken$OverloadedChecksum, setContextFlags, void, $Krb5Context*)},
+	{"useNullKey", "(Lsun/security/jgss/krb5/CipherHelper;)Z", nullptr, $PRIVATE, $method(InitialToken$OverloadedChecksum, useNullKey, bool, $CipherHelper*)},
 	{}
 };
 

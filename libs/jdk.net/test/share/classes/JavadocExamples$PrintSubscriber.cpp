@@ -20,12 +20,12 @@ $FieldInfo _JavadocExamples$PrintSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocExamples$PrintSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, 0, $method(static_cast<void(JavadocExamples$PrintSubscriber::*)($PrintStream*)>(&JavadocExamples$PrintSubscriber::init$))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$PrintSubscriber::*)($String*)>(&JavadocExamples$PrintSubscriber::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, 0, $method(JavadocExamples$PrintSubscriber, init$, void, $PrintStream*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$PrintSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$PrintSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavadocExamples$PrintSubscriber, onNext, void, $String*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocExamples$PrintSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$PrintSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

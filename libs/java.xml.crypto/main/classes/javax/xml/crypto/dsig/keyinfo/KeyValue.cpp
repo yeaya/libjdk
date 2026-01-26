@@ -10,6 +10,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PublicKey = ::java::security::PublicKey;
 
 namespace javax {
 	namespace xml {
@@ -25,7 +26,7 @@ $FieldInfo _KeyValue_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyValue_MethodInfo_[] = {
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.KeyException"},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyValue, getPublicKey, $PublicKey*), "java.security.KeyException"},
 	{}
 };
 

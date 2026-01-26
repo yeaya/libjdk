@@ -29,14 +29,14 @@ $CompoundAttribute _RMIIIOPServerImpl_Annotations_[] = {
 };
 
 $MethodInfo _RMIIIOPServerImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(static_cast<void(RMIIIOPServerImpl::*)($Map*)>(&RMIIIOPServerImpl::init$)), "java.io.IOException"},
-	{"closeClient", "(Ljavax/management/remote/rmi/RMIConnection;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"closeServer", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"doNewClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"export", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"makeClient", "(Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"toStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(RMIIIOPServerImpl, init$, void, $Map*), "java.io.IOException"},
+	{"closeClient", "(Ljavax/management/remote/rmi/RMIConnection;)V", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, closeClient, void, $RMIConnection*), "java.io.IOException"},
+	{"closeServer", "()V", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, closeServer, void), "java.io.IOException"},
+	{"doNewClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, 0, $virtualMethod(RMIIIOPServerImpl, doNewClient, $RMIConnection*, Object$*), "java.io.IOException"},
+	{"export", "()V", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, export$, void), "java.io.IOException"},
+	{"getProtocol", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, getProtocol, $String*)},
+	{"makeClient", "(Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, makeClient, $RMIConnection*, $String*, $Subject*), "java.io.IOException"},
+	{"toStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(RMIIIOPServerImpl, toStub, $Remote*), "java.io.IOException"},
 	{}
 };
 

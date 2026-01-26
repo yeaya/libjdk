@@ -38,13 +38,13 @@ $FieldInfo _QuickHuffman_FieldInfo_[] = {
 };
 
 $MethodInfo _QuickHuffman_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(QuickHuffman::*)()>(&QuickHuffman::init$))},
-	{"addChar", "(Ljdk/internal/net/http/hpack/QuickHuffman$Node;III)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($QuickHuffman$Node*,int32_t,int32_t,int32_t)>(&QuickHuffman::addChar))},
-	{"addEOS", "(Ljdk/internal/net/http/hpack/QuickHuffman$Node;III)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($QuickHuffman$Node*,int32_t,int32_t,int32_t)>(&QuickHuffman::addEOS))},
-	{"addLeaf", "(Ljdk/internal/net/http/hpack/QuickHuffman$Node;CIIZ)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($QuickHuffman$Node*,char16_t,int32_t,int32_t,bool)>(&QuickHuffman::addLeaf))},
-	{"buildTrie", "()Ljdk/internal/net/http/hpack/QuickHuffman$Node;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$QuickHuffman$Node*(*)()>(&QuickHuffman::buildTrie))},
-	{"codeLengthOf", "(C)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(char16_t)>(&QuickHuffman::codeLengthOf))},
-	{"codeValueOf", "(C)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(char16_t)>(&QuickHuffman::codeValueOf))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(QuickHuffman, init$, void)},
+	{"addChar", "(Ljdk/internal/net/http/hpack/QuickHuffman$Node;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(QuickHuffman, addChar, void, $QuickHuffman$Node*, int32_t, int32_t, int32_t)},
+	{"addEOS", "(Ljdk/internal/net/http/hpack/QuickHuffman$Node;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(QuickHuffman, addEOS, void, $QuickHuffman$Node*, int32_t, int32_t, int32_t)},
+	{"addLeaf", "(Ljdk/internal/net/http/hpack/QuickHuffman$Node;CIIZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(QuickHuffman, addLeaf, void, $QuickHuffman$Node*, char16_t, int32_t, int32_t, bool)},
+	{"buildTrie", "()Ljdk/internal/net/http/hpack/QuickHuffman$Node;", nullptr, $PRIVATE | $STATIC, $staticMethod(QuickHuffman, buildTrie, $QuickHuffman$Node*)},
+	{"codeLengthOf", "(C)J", nullptr, $PRIVATE | $STATIC, $staticMethod(QuickHuffman, codeLengthOf, int64_t, char16_t)},
+	{"codeValueOf", "(C)J", nullptr, $PRIVATE | $STATIC, $staticMethod(QuickHuffman, codeValueOf, int64_t, char16_t)},
 	{}
 };
 

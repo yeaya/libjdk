@@ -34,8 +34,8 @@ $FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$1
 };
 
 $MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $method(static_cast<void(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$1::*)($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext*,int64_t,$Name*,$Type*,$Symbol*,$LambdaToMethod$LambdaAnalyzerPreprocessor*,$Symbol$MethodSymbol*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$1::init$))},
-	{"originalEnclosingMethod", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$1, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext*, int64_t, $Name*, $Type*, $Symbol*, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $Symbol$MethodSymbol*)},
+	{"originalEnclosingMethod", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$1, originalEnclosingMethod, $Symbol$MethodSymbol*)},
 	{}
 };
 

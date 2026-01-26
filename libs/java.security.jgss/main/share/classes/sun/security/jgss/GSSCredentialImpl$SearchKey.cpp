@@ -25,11 +25,11 @@ $FieldInfo _GSSCredentialImpl$SearchKey_FieldInfo_[] = {
 };
 
 $MethodInfo _GSSCredentialImpl$SearchKey_MethodInfo_[] = {
-	{"<init>", "(Lorg/ietf/jgss/Oid;I)V", nullptr, $PUBLIC, $method(static_cast<void(GSSCredentialImpl$SearchKey::*)($Oid*,int32_t)>(&GSSCredentialImpl$SearchKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC},
-	{"getUsage", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/ietf/jgss/Oid;I)V", nullptr, $PUBLIC, $method(GSSCredentialImpl$SearchKey, init$, void, $Oid*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, equals, bool, Object$*)},
+	{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, getMech, $Oid*)},
+	{"getUsage", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, getUsage, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl$SearchKey, hashCode, int32_t)},
 	{}
 };
 

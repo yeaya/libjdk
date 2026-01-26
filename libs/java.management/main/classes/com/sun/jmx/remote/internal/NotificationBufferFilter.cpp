@@ -7,6 +7,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Notification = ::javax::management::Notification;
+using $ObjectName = ::javax::management::ObjectName;
 
 namespace com {
 	namespace sun {
@@ -15,7 +18,7 @@ namespace com {
 				namespace internal {
 
 $MethodInfo _NotificationBufferFilter_MethodInfo_[] = {
-	{"apply", "(Ljava/util/List;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", "(Ljava/util/List<Ljavax/management/remote/TargetedNotification;>;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", $PUBLIC | $ABSTRACT},
+	{"apply", "(Ljava/util/List;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", "(Ljava/util/List<Ljavax/management/remote/TargetedNotification;>;Ljavax/management/ObjectName;Ljavax/management/Notification;)V", $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBufferFilter, apply, void, $List*, $ObjectName*, $Notification*)},
 	{}
 };
 

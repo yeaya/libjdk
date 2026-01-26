@@ -24,7 +24,7 @@ $FieldInfo _AbstractPreferences$NodeAddedEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractPreferences$NodeAddedEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/AbstractPreferences;Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V", nullptr, 0, $method(static_cast<void(AbstractPreferences$NodeAddedEvent::*)($AbstractPreferences*,$Preferences*,$Preferences*)>(&AbstractPreferences$NodeAddedEvent::init$))},
+	{"<init>", "(Ljava/util/prefs/AbstractPreferences;Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V", nullptr, 0, $method(AbstractPreferences$NodeAddedEvent, init$, void, $AbstractPreferences*, $Preferences*, $Preferences*)},
 	{}
 };
 

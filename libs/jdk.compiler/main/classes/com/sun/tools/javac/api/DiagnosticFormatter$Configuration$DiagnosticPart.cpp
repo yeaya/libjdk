@@ -34,10 +34,10 @@ $FieldInfo _DiagnosticFormatter$Configuration$DiagnosticPart_FieldInfo_[] = {
 };
 
 $MethodInfo _DiagnosticFormatter$Configuration$DiagnosticPart_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DiagnosticFormatter$Configuration$DiagnosticPartArray*(*)()>(&DiagnosticFormatter$Configuration$DiagnosticPart::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DiagnosticFormatter$Configuration$DiagnosticPart::*)($String*,int32_t)>(&DiagnosticFormatter$Configuration$DiagnosticPart::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DiagnosticFormatter$Configuration$DiagnosticPart*(*)($String*)>(&DiagnosticFormatter$Configuration$DiagnosticPart::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DiagnosticFormatter$Configuration$DiagnosticPartArray*(*)()>(&DiagnosticFormatter$Configuration$DiagnosticPart::values))},
+	{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DiagnosticFormatter$Configuration$DiagnosticPart, $values, $DiagnosticFormatter$Configuration$DiagnosticPartArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DiagnosticFormatter$Configuration$DiagnosticPart, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$DiagnosticPart, valueOf, DiagnosticFormatter$Configuration$DiagnosticPart*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$Configuration$DiagnosticPart, values, $DiagnosticFormatter$Configuration$DiagnosticPartArray*)},
 	{}
 };
 

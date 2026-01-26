@@ -32,8 +32,8 @@ $FieldInfo _Attr$10_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$10_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(static_cast<void(Attr$10::*)($Attr*,$Check$CheckContext*)>(&Attr$10::init$))},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(Attr$10, init$, void, $Attr*, $Check$CheckContext*)},
+	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Attr$10, compatible, bool, $Type*, $Type*, $Warner*)},
 	{}
 };
 

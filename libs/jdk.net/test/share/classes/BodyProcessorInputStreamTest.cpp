@@ -71,8 +71,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0::*)()>(&BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$0::classInfo$ = {
@@ -104,8 +104,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BodyProcessorInputStreamTest$$Lambda$trim$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BodyProcessorInputStreamTest$$Lambda$trim$1::*)()>(&BodyProcessorInputStreamTest$$Lambda$trim$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$trim$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$trim$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo BodyProcessorInputStreamTest$$Lambda$trim$1::classInfo$ = {
@@ -137,8 +137,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2::*)()>(&BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$1$2::classInfo$ = {
@@ -170,8 +170,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3::*)()>(&BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo BodyProcessorInputStreamTest$$Lambda$lambda$getCharset$2$3::classInfo$ = {
@@ -203,8 +203,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BodyProcessorInputStreamTest$$Lambda$forName$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BodyProcessorInputStreamTest$$Lambda$forName$4::*)()>(&BodyProcessorInputStreamTest$$Lambda$forName$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest$$Lambda$forName$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BodyProcessorInputStreamTest$$Lambda$forName$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo BodyProcessorInputStreamTest$$Lambda$forName$4::classInfo$ = {
@@ -228,12 +228,12 @@ $FieldInfo _BodyProcessorInputStreamTest_FieldInfo_[] = {
 };
 
 $MethodInfo _BodyProcessorInputStreamTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BodyProcessorInputStreamTest::*)()>(&BodyProcessorInputStreamTest::init$))},
-	{"getCharset", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional;", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional<Ljava/nio/charset/Charset;>;", $PUBLIC | $STATIC, $method(static_cast<$Optional*(*)($HttpHeaders*)>(&BodyProcessorInputStreamTest::getCharset))},
-	{"lambda$getCharset$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&BodyProcessorInputStreamTest::lambda$getCharset$0))},
-	{"lambda$getCharset$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&BodyProcessorInputStreamTest::lambda$getCharset$1))},
-	{"lambda$getCharset$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&BodyProcessorInputStreamTest::lambda$getCharset$2))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&BodyProcessorInputStreamTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BodyProcessorInputStreamTest, init$, void)},
+	{"getCharset", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional;", "(Ljava/net/http/HttpHeaders;)Ljava/util/Optional<Ljava/nio/charset/Charset;>;", $PUBLIC | $STATIC, $staticMethod(BodyProcessorInputStreamTest, getCharset, $Optional*, $HttpHeaders*)},
+	{"lambda$getCharset$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyProcessorInputStreamTest, lambda$getCharset$0, $String*, $String*)},
+	{"lambda$getCharset$1", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyProcessorInputStreamTest, lambda$getCharset$1, bool, $String*)},
+	{"lambda$getCharset$2", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BodyProcessorInputStreamTest, lambda$getCharset$2, $String*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BodyProcessorInputStreamTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

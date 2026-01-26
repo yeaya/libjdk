@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 
 namespace javax {
 	namespace lang {
@@ -12,7 +13,7 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _RecordComponentElement_MethodInfo_[] = {
-	{"getAccessor", "()Ljavax/lang/model/element/ExecutableElement;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAccessor", "()Ljavax/lang/model/element/ExecutableElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RecordComponentElement, getAccessor, $ExecutableElement*)},
 	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

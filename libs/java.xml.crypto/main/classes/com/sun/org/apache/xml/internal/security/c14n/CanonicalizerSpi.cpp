@@ -15,6 +15,7 @@ using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Set = ::java::util::Set;
 using $Document = ::org::w3c::dom::Document;
 using $Node = ::org::w3c::dom::Node;
 
@@ -28,14 +29,14 @@ namespace com {
 							namespace c14n {
 
 $MethodInfo _CanonicalizerSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CanonicalizerSpi::*)()>(&CanonicalizerSpi::init$))},
-	{"engineCanonicalize", "([BLjava/io/OutputStream;Z)V", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZLjava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/io/OutputStream;)V", $PUBLIC | $ABSTRACT, nullptr, "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineCanonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/lang/String;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/lang/String;Ljava/io/OutputStream;)V", $PUBLIC | $ABSTRACT, nullptr, "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CanonicalizerSpi, init$, void)},
+	{"engineCanonicalize", "([BLjava/io/OutputStream;Z)V", nullptr, $PUBLIC, $virtualMethod(CanonicalizerSpi, engineCanonicalize, void, $bytes*, $OutputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException,java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CanonicalizerSpi, engineCanonicalizeSubTree, void, $Node*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CanonicalizerSpi, engineCanonicalizeSubTree, void, $Node*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+	{"engineCanonicalizeSubTree", "(Lorg/w3c/dom/Node;Ljava/lang/String;ZLjava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CanonicalizerSpi, engineCanonicalizeSubTree, void, $Node*, $String*, bool, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+	{"engineCanonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/io/OutputStream;)V", $PUBLIC | $ABSTRACT, $virtualMethod(CanonicalizerSpi, engineCanonicalizeXPathNodeSet, void, $Set*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+	{"engineCanonicalizeXPathNodeSet", "(Ljava/util/Set;Ljava/lang/String;Ljava/io/OutputStream;)V", "(Ljava/util/Set<Lorg/w3c/dom/Node;>;Ljava/lang/String;Ljava/io/OutputStream;)V", $PUBLIC | $ABSTRACT, $virtualMethod(CanonicalizerSpi, engineCanonicalizeXPathNodeSet, void, $Set*, $String*, $OutputStream*), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CanonicalizerSpi, engineGetURI, $String*)},
 	{}
 };
 

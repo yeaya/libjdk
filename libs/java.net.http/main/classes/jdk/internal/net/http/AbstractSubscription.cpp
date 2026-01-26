@@ -20,8 +20,8 @@ $FieldInfo _AbstractSubscription_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractSubscription_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AbstractSubscription::*)()>(&AbstractSubscription::init$))},
-	{"demand", "()Ljdk/internal/net/http/common/Demand;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(AbstractSubscription, init$, void)},
+	{"demand", "()Ljdk/internal/net/http/common/Demand;", nullptr, $PROTECTED, $virtualMethod(AbstractSubscription, demand, $Demand*)},
 	{}
 };
 

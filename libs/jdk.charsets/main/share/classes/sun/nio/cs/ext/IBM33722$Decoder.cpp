@@ -40,10 +40,10 @@ $FieldInfo _IBM33722$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _IBM33722$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(IBM33722$Decoder::*)($Charset*)>(&IBM33722$Decoder::init$))},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(IBM33722$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&IBM33722$Decoder::decodeArrayLoop))},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(IBM33722$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&IBM33722$Decoder::decodeBufferLoop))},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(IBM33722$Decoder, init$, void, $Charset*)},
+	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(IBM33722$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(IBM33722$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(IBM33722$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
 	{}
 };
 

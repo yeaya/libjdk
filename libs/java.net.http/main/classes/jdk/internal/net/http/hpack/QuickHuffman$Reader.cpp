@@ -61,8 +61,8 @@ $FieldInfo QuickHuffman$Reader$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo QuickHuffman$Reader$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/QuickHuffman$Reader;)V", nullptr, $PUBLIC, $method(static_cast<void(QuickHuffman$Reader$$Lambda$lambda$new$0::*)(QuickHuffman$Reader*)>(&QuickHuffman$Reader$$Lambda$lambda$new$0::init$))},
-	{"accept", "(JI)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/QuickHuffman$Reader;)V", nullptr, $PUBLIC, $method(QuickHuffman$Reader$$Lambda$lambda$new$0, init$, void, QuickHuffman$Reader*)},
+	{"accept", "(JI)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Reader$$Lambda$lambda$new$0, accept, void, int64_t, int32_t)},
 	{}
 };
 $ClassInfo QuickHuffman$Reader$$Lambda$lambda$new$0::classInfo$ = {
@@ -90,10 +90,10 @@ $FieldInfo _QuickHuffman$Reader_FieldInfo_[] = {
 };
 
 $MethodInfo _QuickHuffman$Reader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(QuickHuffman$Reader::*)()>(&QuickHuffman$Reader::init$))},
-	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(QuickHuffman$Reader::*)(int64_t,int32_t)>(&QuickHuffman$Reader::lambda$new$0))},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;Z)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(QuickHuffman$Reader, init$, void)},
+	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(QuickHuffman$Reader, lambda$new$0, void, int64_t, int32_t)},
+	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;Z)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Reader, read, void, $ByteBuffer*, $Appendable*, bool), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Reader, reset, void)},
 	{}
 };
 

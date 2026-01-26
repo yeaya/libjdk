@@ -43,14 +43,14 @@ $FieldInfo _SaslInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SaslInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/sasl/SaslClient;Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(SaslInputStream::*)($SaslClient*,$InputStream*)>(&SaslInputStream::init$)), "javax.security.sasl.SaslException"},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"fill", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(SaslInputStream::*)()>(&SaslInputStream::fill)), "java.io.IOException"},
-	{"networkByteOrderToInt", "([BII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t,int32_t)>(&SaslInputStream::networkByteOrderToInt))},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readFully", "([BI)I", nullptr, $PRIVATE, $method(static_cast<int32_t(SaslInputStream::*)($bytes*,int32_t)>(&SaslInputStream::readFully)), "java.io.IOException"},
+	{"<init>", "(Ljavax/security/sasl/SaslClient;Ljava/io/InputStream;)V", nullptr, 0, $method(SaslInputStream, init$, void, $SaslClient*, $InputStream*), "javax.security.sasl.SaslException"},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, close, void), "java.io.IOException"},
+	{"fill", "()I", nullptr, $PRIVATE, $method(SaslInputStream, fill, int32_t), "java.io.IOException"},
+	{"networkByteOrderToInt", "([BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SaslInputStream, networkByteOrderToInt, int32_t, $bytes*, int32_t, int32_t)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SaslInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"readFully", "([BI)I", nullptr, $PRIVATE, $method(SaslInputStream, readFully, int32_t, $bytes*, int32_t), "java.io.IOException"},
 	{}
 };
 

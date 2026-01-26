@@ -149,7 +149,7 @@ $FieldInfo _EncryptionConstants_FieldInfo_[] = {
 };
 
 $MethodInfo _EncryptionConstants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(EncryptionConstants::*)()>(&EncryptionConstants::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(EncryptionConstants, init$, void)},
 	{}
 };
 

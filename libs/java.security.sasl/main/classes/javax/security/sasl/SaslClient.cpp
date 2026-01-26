@@ -10,14 +10,14 @@ namespace javax {
 		namespace sasl {
 
 $MethodInfo _SaslClient_MethodInfo_[] = {
-	{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.sasl.SaslException"},
-	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.sasl.SaslException"},
-	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasInitialResponse", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isComplete", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.security.sasl.SaslException"},
+	{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SaslClient, dispose, void), "javax.security.sasl.SaslException"},
+	{"evaluateChallenge", "([B)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SaslClient, evaluateChallenge, $bytes*, $bytes*), "javax.security.sasl.SaslException"},
+	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SaslClient, getMechanismName, $String*)},
+	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SaslClient, getNegotiatedProperty, $Object*, $String*)},
+	{"hasInitialResponse", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SaslClient, hasInitialResponse, bool)},
+	{"isComplete", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SaslClient, isComplete, bool)},
+	{"unwrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SaslClient, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+	{"wrap", "([BII)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SaslClient, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
 	{}
 };
 

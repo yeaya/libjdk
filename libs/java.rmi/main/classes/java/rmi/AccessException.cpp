@@ -18,8 +18,8 @@ $FieldInfo _AccessException_FieldInfo_[] = {
 };
 
 $MethodInfo _AccessException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AccessException::*)($String*)>(&AccessException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(AccessException::*)($String*,$Exception*)>(&AccessException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccessException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(AccessException, init$, void, $String*, $Exception*)},
 	{}
 };
 

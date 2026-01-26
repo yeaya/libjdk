@@ -44,13 +44,13 @@ $FieldInfo _ResponseSubscribers$ConsumerSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseSubscribers$ConsumerSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/util/Optional<[B>;>;)V", $PUBLIC, $method(static_cast<void(ResponseSubscribers$ConsumerSubscriber::*)($Consumer*)>(&ResponseSubscribers$ConsumerSubscriber::init$))},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/lang/Void;>;", $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/util/Optional<[B>;>;)V", $PUBLIC, $method(ResponseSubscribers$ConsumerSubscriber, init$, void, $Consumer*)},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, getBody, $CompletionStage*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ConsumerSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

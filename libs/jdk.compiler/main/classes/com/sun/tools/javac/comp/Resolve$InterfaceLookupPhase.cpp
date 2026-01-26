@@ -11,6 +11,8 @@
 #undef DEFAULT_OK
 
 using $Resolve$InterfaceLookupPhaseArray = $Array<::com::sun::tools::javac::comp::Resolve$InterfaceLookupPhase>;
+using $Symbol = ::com::sun::tools::javac::code::Symbol;
+using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$InterfaceLookupPhase$1 = ::com::sun::tools::javac::comp::Resolve$InterfaceLookupPhase$1;
 using $Resolve$InterfaceLookupPhase$2 = ::com::sun::tools::javac::comp::Resolve$InterfaceLookupPhase$2;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -33,11 +35,11 @@ $FieldInfo _Resolve$InterfaceLookupPhase_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$InterfaceLookupPhase_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Resolve$InterfaceLookupPhaseArray*(*)()>(&Resolve$InterfaceLookupPhase::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Resolve$InterfaceLookupPhase::*)($String*,int32_t)>(&Resolve$InterfaceLookupPhase::init$))},
-	{"update", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve;)Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, $ABSTRACT},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Resolve$InterfaceLookupPhase*(*)($String*)>(&Resolve$InterfaceLookupPhase::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Resolve$InterfaceLookupPhaseArray*(*)()>(&Resolve$InterfaceLookupPhase::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$InterfaceLookupPhase, $values, $Resolve$InterfaceLookupPhaseArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Resolve$InterfaceLookupPhase, init$, void, $String*, int32_t)},
+	{"update", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve;)Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, $ABSTRACT, $virtualMethod(Resolve$InterfaceLookupPhase, update, Resolve$InterfaceLookupPhase*, $Symbol*, $Resolve*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$InterfaceLookupPhase, valueOf, Resolve$InterfaceLookupPhase*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$InterfaceLookupPhase;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$InterfaceLookupPhase, values, $Resolve$InterfaceLookupPhaseArray*)},
 	{}
 };
 

@@ -55,10 +55,10 @@ $FieldInfo _DOMKeyValue$RSA_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMKeyValue$RSA_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/interfaces/RSAPublicKey;)V", nullptr, 0, $method(static_cast<void(DOMKeyValue$RSA::*)($RSAPublicKey*)>(&DOMKeyValue$RSA::init$)), "java.security.KeyException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMKeyValue$RSA::*)($Element*)>(&DOMKeyValue$RSA::init$)), "javax.xml.crypto.MarshalException"},
-	{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, nullptr, "javax.xml.crypto.MarshalException"},
-	{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/interfaces/RSAPublicKey;", nullptr, 0, nullptr, "javax.xml.crypto.MarshalException"},
+	{"<init>", "(Ljava/security/interfaces/RSAPublicKey;)V", nullptr, 0, $method(DOMKeyValue$RSA, init$, void, $RSAPublicKey*), "java.security.KeyException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMKeyValue$RSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, $virtualMethod(DOMKeyValue$RSA, marshalPublicKey, void, $Node*, $Document*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+	{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/interfaces/RSAPublicKey;", nullptr, 0, $virtualMethod(DOMKeyValue$RSA, unmarshalKeyValue, $PublicKey*, $Element*), "javax.xml.crypto.MarshalException"},
 	{}
 };
 

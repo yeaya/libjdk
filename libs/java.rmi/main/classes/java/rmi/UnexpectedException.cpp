@@ -18,8 +18,8 @@ $FieldInfo _UnexpectedException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnexpectedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(UnexpectedException::*)($String*)>(&UnexpectedException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(UnexpectedException::*)($String*,$Exception*)>(&UnexpectedException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnexpectedException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(UnexpectedException, init$, void, $String*, $Exception*)},
 	{}
 };
 

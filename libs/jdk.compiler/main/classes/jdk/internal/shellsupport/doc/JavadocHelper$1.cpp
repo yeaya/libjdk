@@ -17,10 +17,10 @@ namespace jdk {
 			namespace doc {
 
 $MethodInfo _JavadocHelper$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JavadocHelper$1::*)()>(&JavadocHelper$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getResolvedDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getSourceElement", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(JavadocHelper$1, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$1, close, void), "java.io.IOException"},
+	{"getResolvedDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$1, getResolvedDocComment, $String*, $Element*), "java.io.IOException"},
+	{"getSourceElement", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$1, getSourceElement, $Element*, $Element*), "java.io.IOException"},
 	{}
 };
 

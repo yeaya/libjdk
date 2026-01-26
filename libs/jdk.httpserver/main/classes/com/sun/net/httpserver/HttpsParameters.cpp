@@ -5,9 +5,12 @@
 #include <javax/net/ssl/SSLParameters.h>
 #include <jcpp.h>
 
+using $HttpsConfigurator = ::com::sun::net::httpserver::HttpsConfigurator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $InetSocketAddress = ::java::net::InetSocketAddress;
+using $SSLParameters = ::javax::net::ssl::SSLParameters;
 
 namespace com {
 	namespace sun {
@@ -23,18 +26,18 @@ $FieldInfo _HttpsParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpsParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(HttpsParameters::*)()>(&HttpsParameters::init$))},
-	{"getCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getClientAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNeedClientAuth", "()Z", nullptr, $PUBLIC},
-	{"getProtocols", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getWantClientAuth", "()Z", nullptr, $PUBLIC},
-	{"setCipherSuites", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setNeedClientAuth", "(Z)V", nullptr, $PUBLIC},
-	{"setProtocols", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setWantClientAuth", "(Z)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(HttpsParameters, init$, void)},
+	{"getCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsParameters, getCipherSuites, $StringArray*)},
+	{"getClientAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpsParameters, getClientAddress, $InetSocketAddress*)},
+	{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpsParameters, getHttpsConfigurator, $HttpsConfigurator*)},
+	{"getNeedClientAuth", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsParameters, getNeedClientAuth, bool)},
+	{"getProtocols", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsParameters, getProtocols, $StringArray*)},
+	{"getWantClientAuth", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsParameters, getWantClientAuth, bool)},
+	{"setCipherSuites", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpsParameters, setCipherSuites, void, $StringArray*)},
+	{"setNeedClientAuth", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsParameters, setNeedClientAuth, void, bool)},
+	{"setProtocols", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpsParameters, setProtocols, void, $StringArray*)},
+	{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpsParameters, setSSLParameters, void, $SSLParameters*)},
+	{"setWantClientAuth", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsParameters, setWantClientAuth, void, bool)},
 	{}
 };
 

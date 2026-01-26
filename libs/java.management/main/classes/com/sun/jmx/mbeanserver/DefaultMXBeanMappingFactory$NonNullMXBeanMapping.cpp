@@ -19,12 +19,12 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _DefaultMXBeanMappingFactory$NonNullMXBeanMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType<*>;)V", 0, $method(static_cast<void(DefaultMXBeanMappingFactory$NonNullMXBeanMapping::*)($Type*,$OpenType*)>(&DefaultMXBeanMappingFactory$NonNullMXBeanMapping::init$))},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $ABSTRACT, nullptr, "java.io.InvalidObjectException"},
-	{"fromOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.InvalidObjectException"},
-	{"isIdentity", "()Z", nullptr, 0},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $ABSTRACT, nullptr, "javax.management.openmbean.OpenDataException"},
-	{"toOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, nullptr, "javax.management.openmbean.OpenDataException"},
+	{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/OpenType<*>;)V", 0, $method(DefaultMXBeanMappingFactory$NonNullMXBeanMapping, init$, void, $Type*, $OpenType*)},
+	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(DefaultMXBeanMappingFactory$NonNullMXBeanMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+	{"fromOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$NonNullMXBeanMapping, fromOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+	{"isIdentity", "()Z", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$NonNullMXBeanMapping, isIdentity, bool)},
+	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $ABSTRACT, $virtualMethod(DefaultMXBeanMappingFactory$NonNullMXBeanMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
+	{"toOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$NonNullMXBeanMapping, toOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
 	{}
 };
 

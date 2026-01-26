@@ -24,7 +24,7 @@ $FieldInfo _MacHebrew$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MacHebrew$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacHebrew$Holder::*)()>(&MacHebrew$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacHebrew$Holder, init$, void)},
 	{}
 };
 

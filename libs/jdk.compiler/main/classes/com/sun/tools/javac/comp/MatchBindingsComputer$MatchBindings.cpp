@@ -24,8 +24,8 @@ $FieldInfo _MatchBindingsComputer$MatchBindings_FieldInfo_[] = {
 };
 
 $MethodInfo _MatchBindingsComputer$MatchBindings_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;)V", $PUBLIC, $method(static_cast<void(MatchBindingsComputer$MatchBindings::*)($List*,$List*)>(&MatchBindingsComputer$MatchBindings::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;Z)V", $PUBLIC, $method(static_cast<void(MatchBindingsComputer$MatchBindings::*)($List*,$List*,bool)>(&MatchBindingsComputer$MatchBindings::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;)V", $PUBLIC, $method(MatchBindingsComputer$MatchBindings, init$, void, $List*, $List*)},
+	{"<init>", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;Z)V", $PUBLIC, $method(MatchBindingsComputer$MatchBindings, init$, void, $List*, $List*, bool)},
 	{}
 };
 

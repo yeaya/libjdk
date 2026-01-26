@@ -6,6 +6,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Element = ::javax::lang::model::element::Element;
+using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace javax {
 	namespace lang {
@@ -13,9 +15,9 @@ namespace javax {
 			namespace type {
 
 $MethodInfo _TypeVariable_MethodInfo_[] = {
-	{"asElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLowerBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getUpperBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
+	{"asElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeVariable, asElement, $Element*)},
+	{"getLowerBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeVariable, getLowerBound, $TypeMirror*)},
+	{"getUpperBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeVariable, getUpperBound, $TypeMirror*)},
 	{}
 };
 

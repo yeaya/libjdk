@@ -37,10 +37,10 @@ $FieldInfo _ZipFileSystem$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileSystem$2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljava/io/InputStream;Ljava/util/zip/Inflater;IJ)V", nullptr, 0, $method(static_cast<void(ZipFileSystem$2::*)($ZipFileSystem*,$InputStream*,$Inflater*,int32_t,int64_t)>(&ZipFileSystem$2::init$))},
-	{"available", "()I", nullptr, $PUBLIC},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"fill", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljava/io/InputStream;Ljava/util/zip/Inflater;IJ)V", nullptr, 0, $method(ZipFileSystem$2, init$, void, $ZipFileSystem*, $InputStream*, $Inflater*, int32_t, int64_t)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$2, available, int32_t)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$2, close, void), "java.io.IOException"},
+	{"fill", "()V", nullptr, $PROTECTED, $virtualMethod(ZipFileSystem$2, fill, void), "java.io.IOException"},
 	{}
 };
 

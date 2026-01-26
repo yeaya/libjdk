@@ -39,16 +39,16 @@ $FieldInfo _ChunkedInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ChunkedInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(ChunkedInputStream::*)($ExchangeImpl*,$InputStream*)>(&ChunkedInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"consumeCRLF", "()V", nullptr, $PRIVATE, $method(static_cast<void(ChunkedInputStream::*)()>(&ChunkedInputStream::consumeCRLF)), "java.io.IOException"},
-	{"isDataBuffered", "()Z", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"numeric", "([CI)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ChunkedInputStream::*)($chars*,int32_t)>(&ChunkedInputStream::numeric)), "java.io.IOException"},
-	{"readChunkHeader", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(ChunkedInputStream::*)()>(&ChunkedInputStream::readChunkHeader)), "java.io.IOException"},
-	{"readImpl", "([BII)I", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/InputStream;)V", nullptr, 0, $method(ChunkedInputStream, init$, void, $ExchangeImpl*, $InputStream*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, available, int32_t), "java.io.IOException"},
+	{"consumeCRLF", "()V", nullptr, $PRIVATE, $method(ChunkedInputStream, consumeCRLF, void), "java.io.IOException"},
+	{"isDataBuffered", "()Z", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, isDataBuffered, bool), "java.io.IOException"},
+	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, mark, void, int32_t)},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, markSupported, bool)},
+	{"numeric", "([CI)I", nullptr, $PRIVATE, $method(ChunkedInputStream, numeric, int32_t, $chars*, int32_t), "java.io.IOException"},
+	{"readChunkHeader", "()I", nullptr, $PRIVATE, $method(ChunkedInputStream, readChunkHeader, int32_t), "java.io.IOException"},
+	{"readImpl", "([BII)I", nullptr, $PROTECTED, $virtualMethod(ChunkedInputStream, readImpl, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ChunkedInputStream, reset, void), "java.io.IOException"},
 	{}
 };
 

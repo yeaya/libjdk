@@ -28,13 +28,13 @@ $FieldInfo _JMXPrincipal_FieldInfo_[] = {
 $MethodInfo _JMXPrincipal_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JMXPrincipal::*)($String*)>(&JMXPrincipal::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(JMXPrincipal::*)($ObjectInputStream*)>(&JMXPrincipal::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validate", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&JMXPrincipal::validate)), "java.lang.NullPointerException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMXPrincipal, init$, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, equals, bool, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, getName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, hashCode, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JMXPrincipal, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXPrincipal, toString, $String*)},
+	{"validate", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXPrincipal, validate, void, $String*), "java.lang.NullPointerException"},
 	{}
 };
 

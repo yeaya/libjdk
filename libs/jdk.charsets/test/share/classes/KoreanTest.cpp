@@ -26,11 +26,11 @@ $FieldInfo _KoreanTest_FieldInfo_[] = {
 };
 
 $MethodInfo _KoreanTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KoreanTest::*)()>(&KoreanTest::init$))},
-	{"doCompare", "([[Ljava/lang/String;)V", nullptr, 0},
-	{"doEquals", "([[Ljava/lang/String;)V", nullptr, 0},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&KoreanTest::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KoreanTest, init$, void)},
+	{"doCompare", "([[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(KoreanTest, doCompare, void, $StringArray2*)},
+	{"doEquals", "([[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(KoreanTest, doEquals, void, $StringArray2*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KoreanTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(KoreanTest, run, void)},
 	{}
 };
 

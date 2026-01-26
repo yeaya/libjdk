@@ -34,12 +34,12 @@ namespace com {
 				namespace file {
 
 $MethodInfo _JavacFileManager$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JavacFileManager$1::*)()>(&JavacFileManager$1::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getFileObject", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"indexedDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $PUBLIC},
-	{"list", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set;ZLcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;ZLcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"maintainsDirectoryIndex", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(JavacFileManager$1, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$1, close, void), "java.io.IOException"},
+	{"getFileObject", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeFile;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$1, getFileObject, $JavaFileObject*, $Path*, $RelativePath$RelativeFile*), "java.io.IOException"},
+	{"indexedDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;", $PUBLIC, $virtualMethod(JavacFileManager$1, indexedDirectories, $Iterable*)},
+	{"list", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set;ZLcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/nio/file/Path;Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;ZLcom/sun/tools/javac/util/ListBuffer<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(JavacFileManager$1, list, void, $Path*, $RelativePath$RelativeDirectory*, $Set*, bool, $ListBuffer*), "java.io.IOException"},
+	{"maintainsDirectoryIndex", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$1, maintainsDirectoryIndex, bool)},
 	{}
 };
 

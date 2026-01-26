@@ -17,8 +17,8 @@ $FieldInfo _InvalidOpenTypeException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidOpenTypeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidOpenTypeException::*)()>(&InvalidOpenTypeException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidOpenTypeException::*)($String*)>(&InvalidOpenTypeException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidOpenTypeException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidOpenTypeException, init$, void, $String*)},
 	{}
 };
 

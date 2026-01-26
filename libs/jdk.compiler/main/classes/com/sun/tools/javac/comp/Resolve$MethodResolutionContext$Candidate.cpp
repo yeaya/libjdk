@@ -33,8 +33,8 @@ $FieldInfo _Resolve$MethodResolutionContext$Candidate_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodResolutionContext$Candidate_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(static_cast<void(Resolve$MethodResolutionContext$Candidate::*)($Resolve$MethodResolutionContext*,$Resolve$MethodResolutionPhase*,$Symbol*,$JCDiagnostic*,$Type*)>(&Resolve$MethodResolutionContext$Candidate::init$))},
-	{"isApplicable", "()Z", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(Resolve$MethodResolutionContext$Candidate, init$, void, $Resolve$MethodResolutionContext*, $Resolve$MethodResolutionPhase*, $Symbol*, $JCDiagnostic*, $Type*)},
+	{"isApplicable", "()Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext$Candidate, isApplicable, bool)},
 	{}
 };
 

@@ -30,15 +30,15 @@ $FieldInfo _OptionHelper$GrumpyHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _OptionHelper$GrumpyHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(static_cast<void(OptionHelper$GrumpyHelper::*)($Log*)>(&OptionHelper$GrumpyHelper::init$))},
-	{"addClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"addFile", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC},
-	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLog", "()Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC},
-	{"getOwnName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(OptionHelper$GrumpyHelper, init$, void, $Log*)},
+	{"addClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, addClassName, void, $String*)},
+	{"addFile", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, addFile, void, $Path*)},
+	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, get, $String*, $Option*)},
+	{"getLog", "()Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, getLog, $Log*)},
+	{"getOwnName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, getOwnName, $String*)},
+	{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, handleFileManagerOption, bool, $Option*, $String*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, put, void, $String*, $String*)},
+	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(OptionHelper$GrumpyHelper, remove, void, $String*)},
 	{}
 };
 

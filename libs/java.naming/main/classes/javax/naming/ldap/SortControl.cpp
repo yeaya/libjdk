@@ -31,10 +31,10 @@ $FieldInfo _SortControl_FieldInfo_[] = {
 };
 
 $MethodInfo _SortControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(SortControl::*)($String*,bool)>(&SortControl::init$)), "java.io.IOException"},
-	{"<init>", "([Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(SortControl::*)($StringArray*,bool)>(&SortControl::init$)), "java.io.IOException"},
-	{"<init>", "([Ljavax/naming/ldap/SortKey;Z)V", nullptr, $PUBLIC, $method(static_cast<void(SortControl::*)($SortKeyArray*,bool)>(&SortControl::init$)), "java.io.IOException"},
-	{"setEncodedValue", "([Ljavax/naming/ldap/SortKey;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(SortControl::*)($SortKeyArray*)>(&SortControl::setEncodedValue)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SortControl, init$, void, $String*, bool), "java.io.IOException"},
+	{"<init>", "([Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SortControl, init$, void, $StringArray*, bool), "java.io.IOException"},
+	{"<init>", "([Ljavax/naming/ldap/SortKey;Z)V", nullptr, $PUBLIC, $method(SortControl, init$, void, $SortKeyArray*, bool), "java.io.IOException"},
+	{"setEncodedValue", "([Ljavax/naming/ldap/SortKey;)[B", nullptr, $PRIVATE, $method(SortControl, setEncodedValue, $bytes*, $SortKeyArray*), "java.io.IOException"},
 	{}
 };
 

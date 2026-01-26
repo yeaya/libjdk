@@ -26,11 +26,11 @@ $FieldInfo _ResponseInfoImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseInfoImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Response;)V", nullptr, 0, $method(static_cast<void(ResponseInfoImpl::*)($Response*)>(&ResponseInfoImpl::init$))},
-	{"<init>", "(ILjava/net/http/HttpHeaders;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, $method(static_cast<void(ResponseInfoImpl::*)(int32_t,$HttpHeaders*,$HttpClient$Version*)>(&ResponseInfoImpl::init$))},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC},
-	{"statusCode", "()I", nullptr, $PUBLIC},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Response;)V", nullptr, 0, $method(ResponseInfoImpl, init$, void, $Response*)},
+	{"<init>", "(ILjava/net/http/HttpHeaders;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, $method(ResponseInfoImpl, init$, void, int32_t, $HttpHeaders*, $HttpClient$Version*)},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(ResponseInfoImpl, headers, $HttpHeaders*)},
+	{"statusCode", "()I", nullptr, $PUBLIC, $virtualMethod(ResponseInfoImpl, statusCode, int32_t)},
+	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(ResponseInfoImpl, version, $HttpClient$Version*)},
 	{}
 };
 

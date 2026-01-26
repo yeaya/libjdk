@@ -53,11 +53,11 @@ $FieldInfo _StringWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _StringWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(StringWriter::*)()>(&StringWriter::init$))},
-	{"configure", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/StringWriter;", nullptr, 0, $method(static_cast<StringWriter*(StringWriter::*)($CharSequence*,bool)>(&StringWriter::configure))},
-	{"configure", "(Ljava/lang/CharSequence;IIZ)Ljdk/internal/net/http/hpack/StringWriter;", nullptr, 0, $method(static_cast<StringWriter*(StringWriter::*)($CharSequence*,int32_t,int32_t,bool)>(&StringWriter::configure))},
-	{"reset", "()V", nullptr, 0, $method(static_cast<void(StringWriter::*)()>(&StringWriter::reset))},
-	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $method(static_cast<bool(StringWriter::*)($ByteBuffer*)>(&StringWriter::write))},
+	{"<init>", "()V", nullptr, 0, $method(StringWriter, init$, void)},
+	{"configure", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/StringWriter;", nullptr, 0, $method(StringWriter, configure, StringWriter*, $CharSequence*, bool)},
+	{"configure", "(Ljava/lang/CharSequence;IIZ)Ljdk/internal/net/http/hpack/StringWriter;", nullptr, 0, $method(StringWriter, configure, StringWriter*, $CharSequence*, int32_t, int32_t, bool)},
+	{"reset", "()V", nullptr, 0, $method(StringWriter, reset, void)},
+	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, 0, $method(StringWriter, write, bool, $ByteBuffer*)},
 	{}
 };
 

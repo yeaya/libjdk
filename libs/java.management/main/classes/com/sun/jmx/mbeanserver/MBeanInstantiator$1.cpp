@@ -27,8 +27,8 @@ $FieldInfo _MBeanInstantiator$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanInstantiator$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/MBeanInstantiator;Ljavax/management/ObjectName;)V", "()V", 0, $method(static_cast<void(MBeanInstantiator$1::*)($MBeanInstantiator*,$ObjectName*)>(&MBeanInstantiator$1::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/mbeanserver/MBeanInstantiator;Ljavax/management/ObjectName;)V", "()V", 0, $method(MBeanInstantiator$1, init$, void, $MBeanInstantiator*, $ObjectName*)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(MBeanInstantiator$1, run, $Object*)},
 	{}
 };
 

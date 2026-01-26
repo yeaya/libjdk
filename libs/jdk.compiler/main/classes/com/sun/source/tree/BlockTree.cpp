@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -12,8 +13,8 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _BlockTree_MethodInfo_[] = {
-	{"getStatements", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/StatementTree;>;", $PUBLIC | $ABSTRACT},
-	{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getStatements", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/StatementTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(BlockTree, getStatements, $List*)},
+	{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BlockTree, isStatic, bool)},
 	{}
 };
 

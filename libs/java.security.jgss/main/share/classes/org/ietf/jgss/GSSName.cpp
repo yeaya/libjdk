@@ -30,14 +30,14 @@ $FieldInfo _GSSName_FieldInfo_[] = {
 };
 
 $MethodInfo _GSSName_MethodInfo_[] = {
-	{"canonicalize", "(Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
+	{"canonicalize", "(Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSName, canonicalize, GSSName*, $Oid*), "org.ietf.jgss.GSSException"},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"equals", "(Lorg/ietf/jgss/GSSName;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"export", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getStringNameType", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
+	{"equals", "(Lorg/ietf/jgss/GSSName;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSName, equals, bool, GSSName*), "org.ietf.jgss.GSSException"},
+	{"export", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSName, export$, $bytes*), "org.ietf.jgss.GSSException"},
+	{"getStringNameType", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSName, getStringNameType, $Oid*), "org.ietf.jgss.GSSException"},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isAnonymous", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isMN", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isAnonymous", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSName, isAnonymous, bool)},
+	{"isMN", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSName, isMN, bool)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

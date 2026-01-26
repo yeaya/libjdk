@@ -24,12 +24,12 @@ $FieldInfo _Res_FieldInfo_[] = {
 };
 
 $MethodInfo _Res_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Res::*)()>(&Res::init$))},
-	{"getText", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&Res::getText))},
-	{"getText", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&Res::getText))},
-	{"getText", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,$String*,$String*)>(&Res::getText))},
-	{"getText", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,$String*,$String*,$String*)>(&Res::getText))},
-	{"initResource", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&Res::initResource))},
+	{"<init>", "()V", nullptr, 0, $method(Res, init$, void)},
+	{"getText", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Res, getText, $String*, $String*)},
+	{"getText", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Res, getText, $String*, $String*, $String*)},
+	{"getText", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Res, getText, $String*, $String*, $String*, $String*)},
+	{"getText", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Res, getText, $String*, $String*, $String*, $String*, $String*)},
+	{"initResource", "()V", nullptr, $STATIC, $staticMethod(Res, initResource, void)},
 	{}
 };
 

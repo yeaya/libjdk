@@ -6,14 +6,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SQLInput = ::java::sql::SQLInput;
+using $SQLOutput = ::java::sql::SQLOutput;
 
 namespace java {
 	namespace sql {
 
 $MethodInfo _SQLData_MethodInfo_[] = {
-	{"getSQLTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"readSQL", "(Ljava/sql/SQLInput;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeSQL", "(Ljava/sql/SQLOutput;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getSQLTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLData, getSQLTypeName, $String*), "java.sql.SQLException"},
+	{"readSQL", "(Ljava/sql/SQLInput;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLData, readSQL, void, $SQLInput*, $String*), "java.sql.SQLException"},
+	{"writeSQL", "(Ljava/sql/SQLOutput;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLData, writeSQL, void, $SQLOutput*), "java.sql.SQLException"},
 	{}
 };
 

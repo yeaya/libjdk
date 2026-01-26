@@ -6,6 +6,7 @@
 #include <java/net/URL.h>
 #include <java/sql/Array.h>
 #include <java/sql/Blob.h>
+#include <java/sql/Clob.h>
 #include <java/sql/Date.h>
 #include <java/sql/NClob.h>
 #include <java/sql/Ref.h>
@@ -19,43 +20,59 @@
 #include <java/sql/Timestamp.h>
 #include <jcpp.h>
 
+using $InputStream = ::java::io::InputStream;
+using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $BigDecimal = ::java::math::BigDecimal;
+using $URL = ::java::net::URL;
+using $1Array = ::java::sql::Array;
+using $Blob = ::java::sql::Blob;
+using $Clob = ::java::sql::Clob;
+using $Date = ::java::sql::Date;
+using $NClob = ::java::sql::NClob;
+using $Ref = ::java::sql::Ref;
+using $RowId = ::java::sql::RowId;
+using $SQLData = ::java::sql::SQLData;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
 using $SQLType = ::java::sql::SQLType;
+using $SQLXML = ::java::sql::SQLXML;
+using $Struct = ::java::sql::Struct;
+using $Time = ::java::sql::Time;
+using $Timestamp = ::java::sql::Timestamp;
 
 namespace java {
 	namespace sql {
 
 $MethodInfo _SQLOutput_MethodInfo_[] = {
-	{"writeArray", "(Ljava/sql/Array;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeAsciiStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeBigDecimal", "(Ljava/math/BigDecimal;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeBinaryStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeBlob", "(Ljava/sql/Blob;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeBoolean", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeByte", "(B)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeBytes", "([B)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeCharacterStream", "(Ljava/io/Reader;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeClob", "(Ljava/sql/Clob;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeDate", "(Ljava/sql/Date;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeDouble", "(D)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeFloat", "(F)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeInt", "(I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeLong", "(J)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeNClob", "(Ljava/sql/NClob;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeNString", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeObject", "(Ljava/sql/SQLData;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeObject", "(Ljava/lang/Object;Ljava/sql/SQLType;)V", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
-	{"writeRef", "(Ljava/sql/Ref;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeRowId", "(Ljava/sql/RowId;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeSQLXML", "(Ljava/sql/SQLXML;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeShort", "(S)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeString", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeStruct", "(Ljava/sql/Struct;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeTime", "(Ljava/sql/Time;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeTimestamp", "(Ljava/sql/Timestamp;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"writeURL", "(Ljava/net/URL;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"writeArray", "(Ljava/sql/Array;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeArray, void, $1Array*), "java.sql.SQLException"},
+	{"writeAsciiStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeAsciiStream, void, $InputStream*), "java.sql.SQLException"},
+	{"writeBigDecimal", "(Ljava/math/BigDecimal;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeBigDecimal, void, $BigDecimal*), "java.sql.SQLException"},
+	{"writeBinaryStream", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeBinaryStream, void, $InputStream*), "java.sql.SQLException"},
+	{"writeBlob", "(Ljava/sql/Blob;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeBlob, void, $Blob*), "java.sql.SQLException"},
+	{"writeBoolean", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeBoolean, void, bool), "java.sql.SQLException"},
+	{"writeByte", "(B)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeByte, void, int8_t), "java.sql.SQLException"},
+	{"writeBytes", "([B)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeBytes, void, $bytes*), "java.sql.SQLException"},
+	{"writeCharacterStream", "(Ljava/io/Reader;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeCharacterStream, void, $Reader*), "java.sql.SQLException"},
+	{"writeClob", "(Ljava/sql/Clob;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeClob, void, $Clob*), "java.sql.SQLException"},
+	{"writeDate", "(Ljava/sql/Date;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeDate, void, $Date*), "java.sql.SQLException"},
+	{"writeDouble", "(D)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeDouble, void, double), "java.sql.SQLException"},
+	{"writeFloat", "(F)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeFloat, void, float), "java.sql.SQLException"},
+	{"writeInt", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeInt, void, int32_t), "java.sql.SQLException"},
+	{"writeLong", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeLong, void, int64_t), "java.sql.SQLException"},
+	{"writeNClob", "(Ljava/sql/NClob;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeNClob, void, $NClob*), "java.sql.SQLException"},
+	{"writeNString", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeNString, void, $String*), "java.sql.SQLException"},
+	{"writeObject", "(Ljava/sql/SQLData;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeObject, void, $SQLData*), "java.sql.SQLException"},
+	{"writeObject", "(Ljava/lang/Object;Ljava/sql/SQLType;)V", nullptr, $PUBLIC, $virtualMethod(SQLOutput, writeObject, void, Object$*, $SQLType*), "java.sql.SQLException"},
+	{"writeRef", "(Ljava/sql/Ref;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeRef, void, $Ref*), "java.sql.SQLException"},
+	{"writeRowId", "(Ljava/sql/RowId;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeRowId, void, $RowId*), "java.sql.SQLException"},
+	{"writeSQLXML", "(Ljava/sql/SQLXML;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeSQLXML, void, $SQLXML*), "java.sql.SQLException"},
+	{"writeShort", "(S)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeShort, void, int16_t), "java.sql.SQLException"},
+	{"writeString", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeString, void, $String*), "java.sql.SQLException"},
+	{"writeStruct", "(Ljava/sql/Struct;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeStruct, void, $Struct*), "java.sql.SQLException"},
+	{"writeTime", "(Ljava/sql/Time;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeTime, void, $Time*), "java.sql.SQLException"},
+	{"writeTimestamp", "(Ljava/sql/Timestamp;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeTimestamp, void, $Timestamp*), "java.sql.SQLException"},
+	{"writeURL", "(Ljava/net/URL;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SQLOutput, writeURL, void, $URL*), "java.sql.SQLException"},
 	{}
 };
 

@@ -37,10 +37,10 @@ $FieldInfo _BulkSizeUpdateWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _BulkSizeUpdateWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(BulkSizeUpdateWriter::*)()>(&BulkSizeUpdateWriter::init$))},
-	{"maxHeaderTableSizes", "(Ljava/lang/Iterable;)Ljdk/internal/net/http/hpack/BulkSizeUpdateWriter;", "(Ljava/lang/Iterable<Ljava/lang/Integer;>;)Ljdk/internal/net/http/hpack/BulkSizeUpdateWriter;", 0, $method(static_cast<BulkSizeUpdateWriter*(BulkSizeUpdateWriter::*)($Iterable*)>(&BulkSizeUpdateWriter::maxHeaderTableSizes))},
-	{"reset", "()Ljdk/internal/net/http/hpack/BulkSizeUpdateWriter;", nullptr, $PUBLIC},
-	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(BulkSizeUpdateWriter, init$, void)},
+	{"maxHeaderTableSizes", "(Ljava/lang/Iterable;)Ljdk/internal/net/http/hpack/BulkSizeUpdateWriter;", "(Ljava/lang/Iterable<Ljava/lang/Integer;>;)Ljdk/internal/net/http/hpack/BulkSizeUpdateWriter;", 0, $method(BulkSizeUpdateWriter, maxHeaderTableSizes, BulkSizeUpdateWriter*, $Iterable*)},
+	{"reset", "()Ljdk/internal/net/http/hpack/BulkSizeUpdateWriter;", nullptr, $PUBLIC, $virtualMethod(BulkSizeUpdateWriter, reset, BulkSizeUpdateWriter*)},
+	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(BulkSizeUpdateWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
 	{}
 };
 

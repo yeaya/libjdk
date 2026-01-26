@@ -45,8 +45,8 @@ $FieldInfo _HierMemDirCtx$FlatBindings_FieldInfo_[] = {
 };
 
 $MethodInfo _HierMemDirCtx$FlatBindings_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljava/util/Hashtable;Ljava/util/Hashtable;Z)V", "(Ljava/util/Hashtable<Ljavax/naming/Name;Ljava/lang/Object;>;Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;Z)V", 0, $method(static_cast<void(HierMemDirCtx$FlatBindings::*)($HierMemDirCtx*,$Hashtable*,$Hashtable*,bool)>(&HierMemDirCtx$FlatBindings::init$))},
-	{"next", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
+	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljava/util/Hashtable;Ljava/util/Hashtable;Z)V", "(Ljava/util/Hashtable<Ljavax/naming/Name;Ljava/lang/Object;>;Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;Z)V", 0, $method(HierMemDirCtx$FlatBindings, init$, void, $HierMemDirCtx*, $Hashtable*, $Hashtable*, bool)},
+	{"next", "()Ljavax/naming/Binding;", nullptr, $PUBLIC, $virtualMethod(HierMemDirCtx$FlatBindings, next, $Object*), "javax.naming.NamingException"},
 	{}
 };
 

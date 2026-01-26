@@ -48,8 +48,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApiTypeParam$$Lambda$encodeAsString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApiTypeParam$$Lambda$encodeAsString::*)()>(&PubApiTypeParam$$Lambda$encodeAsString::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApiTypeParam$$Lambda$encodeAsString, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam$$Lambda$encodeAsString, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApiTypeParam$$Lambda$encodeAsString::classInfo$ = {
@@ -74,11 +74,11 @@ $FieldInfo _PubApiTypeParam_FieldInfo_[] = {
 };
 
 $MethodInfo _PubApiTypeParam_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;)V", $PUBLIC, $method(static_cast<void(PubApiTypeParam::*)($String*,$List*)>(&PubApiTypeParam::init$))},
-	{"asString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;)V", $PUBLIC, $method(PubApiTypeParam, init$, void, $String*, $List*)},
+	{"asString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, asString, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubApiTypeParam, toString, $String*)},
 	{}
 };
 

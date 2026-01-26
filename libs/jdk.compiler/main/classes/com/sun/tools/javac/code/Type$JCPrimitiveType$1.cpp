@@ -33,10 +33,10 @@ $FieldInfo _Type$JCPrimitiveType$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$JCPrimitiveType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$JCPrimitiveType;Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(static_cast<void(Type$JCPrimitiveType$1::*)($Type$JCPrimitiveType*,$TypeTag*,$Symbol$TypeSymbol*,$TypeMetadata*)>(&Type$JCPrimitiveType$1::init$))},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$JCPrimitiveType;Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$JCPrimitiveType$1, init$, void, $Type$JCPrimitiveType*, $TypeTag*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType$1, baseType, $Type*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$JCPrimitiveType$1, cloneWithMetadata, $Type$JCPrimitiveType*, $TypeMetadata*)},
+	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$JCPrimitiveType$1, getAnnotationMirrors, $List*)},
 	{}
 };
 

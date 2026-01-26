@@ -25,13 +25,13 @@ $FieldInfo _Optional_FieldInfo_[] = {
 };
 
 $MethodInfo _Optional_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Optional::*)()>(&Optional::init$))},
-	{"empty", "()Lorg/reactivestreams/tck/flow/support/Optional;", "<T:Ljava/lang/Object;>()Lorg/reactivestreams/tck/flow/support/Optional<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Optional*(*)()>(&Optional::empty))},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT},
-	{"isDefined", "()Z", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"of", "(Ljava/lang/Object;)Lorg/reactivestreams/tck/flow/support/Optional;", "<T:Ljava/lang/Object;>(TT;)Lorg/reactivestreams/tck/flow/support/Optional<TT;>;", $PUBLIC | $STATIC, $method(static_cast<Optional*(*)(Object$*)>(&Optional::of))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Optional, init$, void)},
+	{"empty", "()Lorg/reactivestreams/tck/flow/support/Optional;", "<T:Ljava/lang/Object;>()Lorg/reactivestreams/tck/flow/support/Optional<TT;>;", $PUBLIC | $STATIC, $staticMethod(Optional, empty, Optional*)},
+	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(Optional, get, $Object*)},
+	{"isDefined", "()Z", nullptr, $PUBLIC, $virtualMethod(Optional, isDefined, bool)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Optional, isEmpty, bool)},
+	{"of", "(Ljava/lang/Object;)Lorg/reactivestreams/tck/flow/support/Optional;", "<T:Ljava/lang/Object;>(TT;)Lorg/reactivestreams/tck/flow/support/Optional<TT;>;", $PUBLIC | $STATIC, $staticMethod(Optional, of, Optional*, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Optional, toString, $String*)},
 	{}
 };
 

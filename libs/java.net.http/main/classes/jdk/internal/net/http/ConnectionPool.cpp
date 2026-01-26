@@ -106,8 +106,8 @@ $FieldInfo ConnectionPool$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ConnectionPool$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ConnectionPool;)V", nullptr, $PUBLIC, $method(static_cast<void(ConnectionPool$$Lambda$dbgString::*)(ConnectionPool*)>(&ConnectionPool$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ConnectionPool;)V", nullptr, $PUBLIC, $method(ConnectionPool$$Lambda$dbgString, init$, void, ConnectionPool*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo ConnectionPool$$Lambda$dbgString::classInfo$ = {
@@ -146,8 +146,8 @@ $FieldInfo ConnectionPool$$Lambda$close$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ConnectionPool$$Lambda$close$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ConnectionPool;)V", nullptr, $PUBLIC, $method(static_cast<void(ConnectionPool$$Lambda$close$1::*)(ConnectionPool*)>(&ConnectionPool$$Lambda$close$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ConnectionPool;)V", nullptr, $PUBLIC, $method(ConnectionPool$$Lambda$close$1, init$, void, ConnectionPool*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$$Lambda$close$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ConnectionPool$$Lambda$close$1::classInfo$ = {
@@ -179,8 +179,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ConnectionPool$$Lambda$lambda$stop$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ConnectionPool$$Lambda$lambda$stop$0$2::*)()>(&ConnectionPool$$Lambda$lambda$stop$0$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ConnectionPool$$Lambda$lambda$stop$0$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$$Lambda$lambda$stop$0$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ConnectionPool$$Lambda$lambda$stop$0$2::classInfo$ = {
@@ -211,26 +211,26 @@ $FieldInfo _ConnectionPool_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionPool_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(ConnectionPool::*)(int64_t)>(&ConnectionPool::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(ConnectionPool::*)($String*)>(&ConnectionPool::init$))},
-	{"cacheKey", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;)Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, $STATIC, $method(static_cast<$ConnectionPool$CacheKey*(*)($InetSocketAddress*,$InetSocketAddress*)>(&ConnectionPool::cacheKey))},
-	{"cleanup", "(Ljdk/internal/net/http/HttpConnection;Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(ConnectionPool::*)($HttpConnection*,$Throwable*)>(&ConnectionPool::cleanup))},
-	{"close", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PRIVATE, $method(static_cast<void(ConnectionPool::*)($HttpConnection*)>(&ConnectionPool::close))},
-	{"contains", "(Ljdk/internal/net/http/HttpConnection;)Z", nullptr, $SYNCHRONIZED, $method(static_cast<bool(ConnectionPool::*)($HttpConnection*)>(&ConnectionPool::contains))},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(ConnectionPool::*)()>(&ConnectionPool::dbgString))},
-	{"findConnection", "(Ljdk/internal/net/http/ConnectionPool$CacheKey;Ljava/util/HashMap;)Ljdk/internal/net/http/HttpConnection;", "(Ljdk/internal/net/http/ConnectionPool$CacheKey;Ljava/util/HashMap<Ljdk/internal/net/http/ConnectionPool$CacheKey;Ljava/util/LinkedList<Ljdk/internal/net/http/HttpConnection;>;>;)Ljdk/internal/net/http/HttpConnection;", $PRIVATE, $method(static_cast<$HttpConnection*(ConnectionPool::*)($ConnectionPool$CacheKey*,$HashMap*)>(&ConnectionPool::findConnection))},
-	{"getConnection", "(ZLjava/net/InetSocketAddress;Ljava/net/InetSocketAddress;)Ljdk/internal/net/http/HttpConnection;", nullptr, $SYNCHRONIZED, $method(static_cast<$HttpConnection*(ConnectionPool::*)(bool,$InetSocketAddress*,$InetSocketAddress*)>(&ConnectionPool::getConnection))},
-	{"lambda$stop$0", "(Ljdk/internal/net/http/ConnectionPool$ExpiryEntry;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpConnection*(*)($ConnectionPool$ExpiryEntry*)>(&ConnectionPool::lambda$stop$0))},
-	{"purgeExpiredConnectionsAndReturnNextDeadline", "()J", nullptr, 0, $method(static_cast<int64_t(ConnectionPool::*)()>(&ConnectionPool::purgeExpiredConnectionsAndReturnNextDeadline))},
-	{"purgeExpiredConnectionsAndReturnNextDeadline", "(Ljava/time/Instant;)J", nullptr, 0, $method(static_cast<int64_t(ConnectionPool::*)($Instant*)>(&ConnectionPool::purgeExpiredConnectionsAndReturnNextDeadline))},
-	{"putConnection", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/HashMap;)V", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/HashMap<Ljdk/internal/net/http/ConnectionPool$CacheKey;Ljava/util/LinkedList<Ljdk/internal/net/http/HttpConnection;>;>;)V", $PRIVATE, $method(static_cast<void(ConnectionPool::*)($HttpConnection*,$HashMap*)>(&ConnectionPool::putConnection))},
-	{"registerCleanupTrigger", "(Ljdk/internal/net/http/HttpConnection;)Ljdk/internal/net/http/ConnectionPool$CleanupTrigger;", nullptr, $PRIVATE, $method(static_cast<$ConnectionPool$CleanupTrigger*(ConnectionPool::*)($HttpConnection*)>(&ConnectionPool::registerCleanupTrigger))},
-	{"removeFromPool", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/HashMap;)Z", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/HashMap<Ljdk/internal/net/http/ConnectionPool$CacheKey;Ljava/util/LinkedList<Ljdk/internal/net/http/HttpConnection;>;>;)Z", $PRIVATE, $method(static_cast<bool(ConnectionPool::*)($HttpConnection*,$HashMap*)>(&ConnectionPool::removeFromPool))},
-	{"removeFromPool", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PRIVATE, $method(static_cast<void(ConnectionPool::*)($HttpConnection*)>(&ConnectionPool::removeFromPool))},
-	{"returnToPool", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(static_cast<void(ConnectionPool::*)($HttpConnection*)>(&ConnectionPool::returnToPool))},
-	{"returnToPool", "(Ljdk/internal/net/http/HttpConnection;Ljava/time/Instant;J)V", nullptr, 0, $method(static_cast<void(ConnectionPool::*)($HttpConnection*,$Instant*,int64_t)>(&ConnectionPool::returnToPool))},
-	{"start", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(ConnectionPool::*)()>(&ConnectionPool::start))},
-	{"stop", "()V", nullptr, 0, $method(static_cast<void(ConnectionPool::*)()>(&ConnectionPool::stop))},
+	{"<init>", "(J)V", nullptr, 0, $method(ConnectionPool, init$, void, int64_t)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ConnectionPool, init$, void, $String*)},
+	{"cacheKey", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;)Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, $STATIC, $staticMethod(ConnectionPool, cacheKey, $ConnectionPool$CacheKey*, $InetSocketAddress*, $InetSocketAddress*)},
+	{"cleanup", "(Ljdk/internal/net/http/HttpConnection;Ljava/lang/Throwable;)V", nullptr, 0, $method(ConnectionPool, cleanup, void, $HttpConnection*, $Throwable*)},
+	{"close", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PRIVATE, $method(ConnectionPool, close, void, $HttpConnection*)},
+	{"contains", "(Ljdk/internal/net/http/HttpConnection;)Z", nullptr, $SYNCHRONIZED, $method(ConnectionPool, contains, bool, $HttpConnection*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(ConnectionPool, dbgString, $String*)},
+	{"findConnection", "(Ljdk/internal/net/http/ConnectionPool$CacheKey;Ljava/util/HashMap;)Ljdk/internal/net/http/HttpConnection;", "(Ljdk/internal/net/http/ConnectionPool$CacheKey;Ljava/util/HashMap<Ljdk/internal/net/http/ConnectionPool$CacheKey;Ljava/util/LinkedList<Ljdk/internal/net/http/HttpConnection;>;>;)Ljdk/internal/net/http/HttpConnection;", $PRIVATE, $method(ConnectionPool, findConnection, $HttpConnection*, $ConnectionPool$CacheKey*, $HashMap*)},
+	{"getConnection", "(ZLjava/net/InetSocketAddress;Ljava/net/InetSocketAddress;)Ljdk/internal/net/http/HttpConnection;", nullptr, $SYNCHRONIZED, $method(ConnectionPool, getConnection, $HttpConnection*, bool, $InetSocketAddress*, $InetSocketAddress*)},
+	{"lambda$stop$0", "(Ljdk/internal/net/http/ConnectionPool$ExpiryEntry;)Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConnectionPool, lambda$stop$0, $HttpConnection*, $ConnectionPool$ExpiryEntry*)},
+	{"purgeExpiredConnectionsAndReturnNextDeadline", "()J", nullptr, 0, $method(ConnectionPool, purgeExpiredConnectionsAndReturnNextDeadline, int64_t)},
+	{"purgeExpiredConnectionsAndReturnNextDeadline", "(Ljava/time/Instant;)J", nullptr, 0, $method(ConnectionPool, purgeExpiredConnectionsAndReturnNextDeadline, int64_t, $Instant*)},
+	{"putConnection", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/HashMap;)V", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/HashMap<Ljdk/internal/net/http/ConnectionPool$CacheKey;Ljava/util/LinkedList<Ljdk/internal/net/http/HttpConnection;>;>;)V", $PRIVATE, $method(ConnectionPool, putConnection, void, $HttpConnection*, $HashMap*)},
+	{"registerCleanupTrigger", "(Ljdk/internal/net/http/HttpConnection;)Ljdk/internal/net/http/ConnectionPool$CleanupTrigger;", nullptr, $PRIVATE, $method(ConnectionPool, registerCleanupTrigger, $ConnectionPool$CleanupTrigger*, $HttpConnection*)},
+	{"removeFromPool", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/HashMap;)Z", "(Ljdk/internal/net/http/HttpConnection;Ljava/util/HashMap<Ljdk/internal/net/http/ConnectionPool$CacheKey;Ljava/util/LinkedList<Ljdk/internal/net/http/HttpConnection;>;>;)Z", $PRIVATE, $method(ConnectionPool, removeFromPool, bool, $HttpConnection*, $HashMap*)},
+	{"removeFromPool", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PRIVATE, $method(ConnectionPool, removeFromPool, void, $HttpConnection*)},
+	{"returnToPool", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(ConnectionPool, returnToPool, void, $HttpConnection*)},
+	{"returnToPool", "(Ljdk/internal/net/http/HttpConnection;Ljava/time/Instant;J)V", nullptr, 0, $method(ConnectionPool, returnToPool, void, $HttpConnection*, $Instant*, int64_t)},
+	{"start", "()V", nullptr, $SYNCHRONIZED, $method(ConnectionPool, start, void)},
+	{"stop", "()V", nullptr, 0, $method(ConnectionPool, stop, void)},
 	{}
 };
 

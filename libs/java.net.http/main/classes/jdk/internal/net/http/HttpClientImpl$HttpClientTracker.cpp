@@ -28,13 +28,13 @@ $FieldInfo _HttpClientImpl$HttpClientTracker_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClientImpl$HttpClientTracker_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/ref/Reference;Ljava/lang/String;)V", "(Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/ref/Reference<*>;Ljava/lang/String;)V", 0, $method(static_cast<void(HttpClientImpl$HttpClientTracker::*)($AtomicLong*,$AtomicLong*,$AtomicLong*,$AtomicLong*,$Reference*,$String*)>(&HttpClientImpl$HttpClientTracker::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getOutstandingHttp2Streams", "()J", nullptr, $PUBLIC},
-	{"getOutstandingHttpOperations", "()J", nullptr, $PUBLIC},
-	{"getOutstandingOperations", "()J", nullptr, $PUBLIC},
-	{"getOutstandingWebSocketOperations", "()J", nullptr, $PUBLIC},
-	{"isFacadeReferenced", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/ref/Reference;Ljava/lang/String;)V", "(Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/util/concurrent/atomic/AtomicLong;Ljava/lang/ref/Reference<*>;Ljava/lang/String;)V", 0, $method(HttpClientImpl$HttpClientTracker, init$, void, $AtomicLong*, $AtomicLong*, $AtomicLong*, $AtomicLong*, $Reference*, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getName, $String*)},
+	{"getOutstandingHttp2Streams", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingHttp2Streams, int64_t)},
+	{"getOutstandingHttpOperations", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingHttpOperations, int64_t)},
+	{"getOutstandingOperations", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingOperations, int64_t)},
+	{"getOutstandingWebSocketOperations", "()J", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, getOutstandingWebSocketOperations, int64_t)},
+	{"isFacadeReferenced", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$HttpClientTracker, isFacadeReferenced, bool)},
 	{}
 };
 

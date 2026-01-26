@@ -42,10 +42,10 @@ $FieldInfo _MethodsTest_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodsTest::*)()>(&MethodsTest::init$))},
-	{"bad", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&MethodsTest::bad)), "java.io.IOException,java.lang.InterruptedException"},
-	{"good", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&MethodsTest::good))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&MethodsTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodsTest, init$, void)},
+	{"bad", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(MethodsTest, bad, void, $String*), "java.io.IOException,java.lang.InterruptedException"},
+	{"good", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(MethodsTest, good, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodsTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

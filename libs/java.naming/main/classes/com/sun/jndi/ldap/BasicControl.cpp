@@ -20,11 +20,11 @@ $FieldInfo _BasicControl_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicControl::*)($String*)>(&BasicControl::init$))},
-	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(static_cast<void(BasicControl::*)($String*,bool,$bytes*)>(&BasicControl::init$))},
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isCritical", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicControl, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(BasicControl, init$, void, $String*, bool, $bytes*)},
+	{"getEncodedValue", "()[B", nullptr, $PUBLIC, $virtualMethod(BasicControl, getEncodedValue, $bytes*)},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicControl, getID, $String*)},
+	{"isCritical", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicControl, isCritical, bool)},
 	{}
 };
 

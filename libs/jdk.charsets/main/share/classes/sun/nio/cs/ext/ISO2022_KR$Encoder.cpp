@@ -30,8 +30,8 @@ $FieldInfo _ISO2022_KR$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO2022_KR$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(ISO2022_KR$Encoder::*)($Charset*)>(&ISO2022_KR$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ISO2022_KR$Encoder, init$, void, $Charset*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR$Encoder, canEncode, bool, char16_t)},
 	{}
 };
 

@@ -56,12 +56,12 @@ $FieldInfo _AttrContext_FieldInfo_[] = {
 };
 
 $MethodInfo _AttrContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AttrContext::*)()>(&AttrContext::init$))},
-	{"dup", "(Lcom/sun/tools/javac/code/Scope$WriteableScope;)Lcom/sun/tools/javac/comp/AttrContext;", nullptr, 0},
-	{"dup", "()Lcom/sun/tools/javac/comp/AttrContext;", nullptr, 0},
-	{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
-	{"lastResolveVarargs", "()Z", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AttrContext, init$, void)},
+	{"dup", "(Lcom/sun/tools/javac/code/Scope$WriteableScope;)Lcom/sun/tools/javac/comp/AttrContext;", nullptr, 0, $virtualMethod(AttrContext, dup, AttrContext*, $Scope$WriteableScope*)},
+	{"dup", "()Lcom/sun/tools/javac/comp/AttrContext;", nullptr, 0, $virtualMethod(AttrContext, dup, AttrContext*)},
+	{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(AttrContext, getLocalElements, $Iterable*)},
+	{"lastResolveVarargs", "()Z", nullptr, 0, $virtualMethod(AttrContext, lastResolveVarargs, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrContext, toString, $String*)},
 	{}
 };
 

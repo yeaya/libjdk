@@ -58,8 +58,8 @@ $FieldInfo QuickHuffman$Writer$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo QuickHuffman$Writer$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/QuickHuffman$Writer;)V", nullptr, $PUBLIC, $method(static_cast<void(QuickHuffman$Writer$$Lambda$lambda$new$0::*)(QuickHuffman$Writer*)>(&QuickHuffman$Writer$$Lambda$lambda$new$0::init$))},
-	{"accept", "(JI)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/QuickHuffman$Writer;)V", nullptr, $PUBLIC, $method(QuickHuffman$Writer$$Lambda$lambda$new$0, init$, void, QuickHuffman$Writer*)},
+	{"accept", "(JI)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer$$Lambda$lambda$new$0, accept, void, int64_t, int32_t)},
 	{}
 };
 $ClassInfo QuickHuffman$Writer$$Lambda$lambda$new$0::classInfo$ = {
@@ -88,12 +88,12 @@ $FieldInfo _QuickHuffman$Writer_FieldInfo_[] = {
 };
 
 $MethodInfo _QuickHuffman$Writer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(QuickHuffman$Writer::*)()>(&QuickHuffman$Writer::init$))},
-	{"from", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/QuickHuffman$Writer;", nullptr, $PUBLIC},
-	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(QuickHuffman$Writer::*)(int64_t,int32_t)>(&QuickHuffman$Writer::lambda$new$0))},
-	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC},
-	{"reset", "()Ljdk/internal/net/http/hpack/QuickHuffman$Writer;", nullptr, $PUBLIC},
-	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(QuickHuffman$Writer, init$, void)},
+	{"from", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/QuickHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, from, QuickHuffman$Writer*, $CharSequence*, int32_t, int32_t)},
+	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(QuickHuffman$Writer, lambda$new$0, void, int64_t, int32_t)},
+	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, lengthOf, int32_t, $CharSequence*, int32_t, int32_t)},
+	{"reset", "()Ljdk/internal/net/http/hpack/QuickHuffman$Writer;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, reset, QuickHuffman$Writer*)},
+	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$Writer, write, bool, $ByteBuffer*)},
 	{}
 };
 

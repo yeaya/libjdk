@@ -18,7 +18,7 @@ $FieldInfo _Event_FieldInfo_[] = {
 };
 
 $MethodInfo _Event_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;)V", nullptr, $PROTECTED, $method(static_cast<void(Event::*)($ExchangeImpl*)>(&Event::init$))},
+	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;)V", nullptr, $PROTECTED, $method(Event, init$, void, $ExchangeImpl*)},
 	{}
 };
 

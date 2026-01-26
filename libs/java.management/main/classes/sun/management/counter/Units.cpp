@@ -37,10 +37,10 @@ $FieldInfo _Units_FieldInfo_[] = {
 };
 
 $MethodInfo _Units_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Units::*)($String*,int32_t)>(&Units::init$))},
-	{"intValue", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toUnits", "(I)Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Units*(*)(int32_t)>(&Units::toUnits))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Units, init$, void, $String*, int32_t)},
+	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Units, intValue, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Units, toString, $String*)},
+	{"toUnits", "(I)Lsun/management/counter/Units;", nullptr, $PUBLIC | $STATIC, $staticMethod(Units, toUnits, Units*, int32_t)},
 	{}
 };
 

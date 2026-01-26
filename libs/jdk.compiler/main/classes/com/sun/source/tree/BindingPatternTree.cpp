@@ -3,6 +3,7 @@
 #include <com/sun/source/tree/VariableTree.h>
 #include <jcpp.h>
 
+using $VariableTree = ::com::sun::source::tree::VariableTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,7 +13,7 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _BindingPatternTree_MethodInfo_[] = {
-	{"getVariable", "()Lcom/sun/source/tree/VariableTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getVariable", "()Lcom/sun/source/tree/VariableTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BindingPatternTree, getVariable, $VariableTree*)},
 	{}
 };
 

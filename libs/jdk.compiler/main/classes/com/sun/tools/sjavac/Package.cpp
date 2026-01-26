@@ -90,8 +90,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Package$$Lambda$lambda$savePubapi$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Package$$Lambda$lambda$savePubapi$0::*)()>(&Package$$Lambda$lambda$savePubapi$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Package$$Lambda$lambda$savePubapi$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Package$$Lambda$lambda$savePubapi$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Package$$Lambda$lambda$savePubapi$0::classInfo$ = {
@@ -130,8 +130,8 @@ $FieldInfo Package$$Lambda$append$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Package$$Lambda$append$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Package$$Lambda$append$1::*)($StringBuilder*)>(&Package$$Lambda$append$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Package$$Lambda$append$1, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Package$$Lambda$append$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Package$$Lambda$append$1::classInfo$ = {
@@ -163,41 +163,41 @@ $FieldInfo _Package_FieldInfo_[] = {
 };
 
 $MethodInfo _Package_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Package::*)($Module*,$String*)>(&Package::init$))},
-	{"addArtifact", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"addArtifact", "(Ljava/io/File;)V", nullptr, $PUBLIC},
-	{"addArtifacts", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/net/URI;>;)V", $PUBLIC},
-	{"addDependency", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC},
-	{"addDependent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"addSource", "(Lcom/sun/tools/sjavac/Source;)V", nullptr, $PUBLIC},
-	{"artifacts", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/io/File;>;", $PUBLIC},
-	{"compareTo", "(Lcom/sun/tools/sjavac/Package;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"deleteArtifacts", "()V", nullptr, $PUBLIC},
-	{"dependents", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"dirname", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"existsInJavacState", "()Z", nullptr, $PUBLIC},
-	{"getPubApi", "()Lcom/sun/tools/sjavac/pubapi/PubApi;", nullptr, $PUBLIC},
-	{"hasPubApiChanged", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"lambda$savePubapi$0", "(Ljava/lang/String;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Stream*(*)($String*)>(&Package::lambda$savePubapi$0))},
-	{"load", "(Lcom/sun/tools/sjavac/Module;Ljava/lang/String;)Lcom/sun/tools/sjavac/Package;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Package*(*)($Module*,$String*)>(&Package::load))},
-	{"loadArtifact", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"mod", "()Lcom/sun/tools/sjavac/Module;", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"parseAndAddDependency", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC},
-	{"save", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC},
-	{"saveArtifacts", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC},
-	{"saveDependencies", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC},
-	{"savePackages", "(Ljava/util/Map;Ljava/lang/StringBuilder;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Package;>;Ljava/lang/StringBuilder;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($Map*,$StringBuilder*)>(&Package::savePackages))},
-	{"savePubapi", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC},
-	{"setArtifacts", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/net/URI;>;)V", $PUBLIC},
-	{"setDependencies", "(Ljava/util/Map;Z)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;Z)V", $PUBLIC},
-	{"setPubapi", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)V", nullptr, $PUBLIC},
-	{"sources", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;", $PUBLIC},
-	{"typeClasspathDependencies", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC},
-	{"typeDependencies", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Package, init$, void, $Module*, $String*)},
+	{"addArtifact", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Package, addArtifact, void, $String*)},
+	{"addArtifact", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(Package, addArtifact, void, $File*)},
+	{"addArtifacts", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/net/URI;>;)V", $PUBLIC, $virtualMethod(Package, addArtifacts, void, $Set*)},
+	{"addDependency", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(Package, addDependency, void, $String*, $String*, bool)},
+	{"addDependent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Package, addDependent, void, $String*)},
+	{"addSource", "(Lcom/sun/tools/sjavac/Source;)V", nullptr, $PUBLIC, $virtualMethod(Package, addSource, void, $Source*)},
+	{"artifacts", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/io/File;>;", $PUBLIC, $virtualMethod(Package, artifacts, $Map*)},
+	{"compareTo", "(Lcom/sun/tools/sjavac/Package;)I", nullptr, $PUBLIC, $virtualMethod(Package, compareTo, int32_t, Package*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Package, compareTo, int32_t, Object$*)},
+	{"deleteArtifacts", "()V", nullptr, $PUBLIC, $virtualMethod(Package, deleteArtifacts, void)},
+	{"dependents", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Package, dependents, $Set*)},
+	{"dirname", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, dirname, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Package, equals, bool, Object$*)},
+	{"existsInJavacState", "()Z", nullptr, $PUBLIC, $virtualMethod(Package, existsInJavacState, bool)},
+	{"getPubApi", "()Lcom/sun/tools/sjavac/pubapi/PubApi;", nullptr, $PUBLIC, $virtualMethod(Package, getPubApi, $PubApi*)},
+	{"hasPubApiChanged", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)Z", nullptr, $PUBLIC, $virtualMethod(Package, hasPubApiChanged, bool, $PubApi*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Package, hashCode, int32_t)},
+	{"lambda$savePubapi$0", "(Ljava/lang/String;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Package, lambda$savePubapi$0, $Stream*, $String*)},
+	{"load", "(Lcom/sun/tools/sjavac/Module;Ljava/lang/String;)Lcom/sun/tools/sjavac/Package;", nullptr, $PUBLIC | $STATIC, $staticMethod(Package, load, Package*, $Module*, $String*)},
+	{"loadArtifact", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Package, loadArtifact, void, $String*)},
+	{"mod", "()Lcom/sun/tools/sjavac/Module;", nullptr, $PUBLIC, $virtualMethod(Package, mod, $Module*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Package, name, $String*)},
+	{"parseAndAddDependency", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(Package, parseAndAddDependency, void, $String*, bool)},
+	{"save", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $virtualMethod(Package, save, void, $StringBuilder*)},
+	{"saveArtifacts", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $virtualMethod(Package, saveArtifacts, void, $StringBuilder*)},
+	{"saveDependencies", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $virtualMethod(Package, saveDependencies, void, $StringBuilder*)},
+	{"savePackages", "(Ljava/util/Map;Ljava/lang/StringBuilder;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Package;>;Ljava/lang/StringBuilder;)V", $PUBLIC | $STATIC, $staticMethod(Package, savePackages, void, $Map*, $StringBuilder*)},
+	{"savePubapi", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $virtualMethod(Package, savePubapi, void, $StringBuilder*)},
+	{"setArtifacts", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/net/URI;>;)V", $PUBLIC, $virtualMethod(Package, setArtifacts, void, $Set*)},
+	{"setDependencies", "(Ljava/util/Map;Z)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;Z)V", $PUBLIC, $virtualMethod(Package, setDependencies, void, $Map*, bool)},
+	{"setPubapi", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)V", nullptr, $PUBLIC, $virtualMethod(Package, setPubapi, void, $PubApi*)},
+	{"sources", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;", $PUBLIC, $virtualMethod(Package, sources, $Map*)},
+	{"typeClasspathDependencies", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(Package, typeClasspathDependencies, $Map*)},
+	{"typeDependencies", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(Package, typeDependencies, $Map*)},
 	{}
 };
 

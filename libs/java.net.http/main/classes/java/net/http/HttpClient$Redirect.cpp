@@ -28,10 +28,10 @@ $FieldInfo _HttpClient$Redirect_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClient$Redirect_MethodInfo_[] = {
-	{"$values", "()[Ljava/net/http/HttpClient$Redirect;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpClient$RedirectArray*(*)()>(&HttpClient$Redirect::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(HttpClient$Redirect::*)($String*,int32_t)>(&HttpClient$Redirect::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpClient$Redirect*(*)($String*)>(&HttpClient$Redirect::valueOf))},
-	{"values", "()[Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpClient$RedirectArray*(*)()>(&HttpClient$Redirect::values))},
+	{"$values", "()[Ljava/net/http/HttpClient$Redirect;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClient$Redirect, $values, $HttpClient$RedirectArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HttpClient$Redirect, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Redirect, valueOf, HttpClient$Redirect*, $String*)},
+	{"values", "()[Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Redirect, values, $HttpClient$RedirectArray*)},
 	{}
 };
 

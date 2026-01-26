@@ -39,8 +39,8 @@ $FieldInfo _Resolve$InapplicableSymbolsError$MostSpecificMap_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$InapplicableSymbolsError$MostSpecificMap_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$InapplicableSymbolsError;)V", nullptr, $PRIVATE, $method(static_cast<void(Resolve$InapplicableSymbolsError$MostSpecificMap::*)($Resolve$InapplicableSymbolsError*)>(&Resolve$InapplicableSymbolsError$MostSpecificMap::init$))},
-	{"put", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext$Candidate;)V", nullptr, $PRIVATE, $method(static_cast<void(Resolve$InapplicableSymbolsError$MostSpecificMap::*)($Resolve$MethodResolutionContext$Candidate*)>(&Resolve$InapplicableSymbolsError$MostSpecificMap::put))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$InapplicableSymbolsError;)V", nullptr, $PRIVATE, $method(Resolve$InapplicableSymbolsError$MostSpecificMap, init$, void, $Resolve$InapplicableSymbolsError*)},
+	{"put", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext$Candidate;)V", nullptr, $PRIVATE, $method(Resolve$InapplicableSymbolsError$MostSpecificMap, put, void, $Resolve$MethodResolutionContext$Candidate*)},
 	{}
 };
 

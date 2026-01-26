@@ -4,8 +4,10 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
+using $DocTree = ::com::sun::source::doctree::DocTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -13,8 +15,8 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _IndexTree_MethodInfo_[] = {
-	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT},
-	{"getSearchTerm", "()Lcom/sun/source/doctree/DocTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(IndexTree, getDescription, $List*)},
+	{"getSearchTerm", "()Lcom/sun/source/doctree/DocTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IndexTree, getSearchTerm, $DocTree*)},
 	{}
 };
 

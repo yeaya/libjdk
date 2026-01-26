@@ -7,6 +7,7 @@
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SSLSession = ::javax::net::ssl::SSLSession;
 
 namespace com {
 	namespace sun {
@@ -14,8 +15,8 @@ namespace com {
 			namespace httpserver {
 
 $MethodInfo _HttpsExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(HttpsExchange::*)()>(&HttpsExchange::init$))},
-	{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(HttpsExchange, init$, void)},
+	{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpsExchange, getSSLSession, $SSLSession*)},
 	{}
 };
 

@@ -10,6 +10,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HostnameVerifier = ::javax::net::ssl::HostnameVerifier;
+using $SSLSession = ::javax::net::ssl::SSLSession;
+using $SSLSocketFactory = ::javax::net::ssl::SSLSocketFactory;
 
 namespace javax {
 	namespace naming {
@@ -22,14 +25,14 @@ $FieldInfo _StartTlsResponse_FieldInfo_[] = {
 };
 
 $MethodInfo _StartTlsResponse_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(StartTlsResponse::*)()>(&StartTlsResponse::init$))},
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"negotiate", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"negotiate", "(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"setEnabledCipherSuites", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(StartTlsResponse, init$, void)},
+	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StartTlsResponse, close, void), "java.io.IOException"},
+	{"getEncodedValue", "()[B", nullptr, $PUBLIC, $virtualMethod(StartTlsResponse, getEncodedValue, $bytes*)},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartTlsResponse, getID, $String*)},
+	{"negotiate", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StartTlsResponse, negotiate, $SSLSession*), "java.io.IOException"},
+	{"negotiate", "(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StartTlsResponse, negotiate, $SSLSession*, $SSLSocketFactory*), "java.io.IOException"},
+	{"setEnabledCipherSuites", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StartTlsResponse, setEnabledCipherSuites, void, $StringArray*)},
+	{"setHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StartTlsResponse, setHostnameVerifier, void, $HostnameVerifier*)},
 	{}
 };
 

@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Hashtable = ::java::util::Hashtable;
+using $Context = ::javax::naming::Context;
 
 namespace javax {
 	namespace naming {
 		namespace spi {
 
 $MethodInfo _InitialContextFactory_MethodInfo_[] = {
-	{"getInitialContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"getInitialContext", "(Ljava/util/Hashtable;)Ljavax/naming/Context;", "(Ljava/util/Hashtable<**>;)Ljavax/naming/Context;", $PUBLIC | $ABSTRACT, $virtualMethod(InitialContextFactory, getInitialContext, $Context*, $Hashtable*), "javax.naming.NamingException"},
 	{}
 };
 

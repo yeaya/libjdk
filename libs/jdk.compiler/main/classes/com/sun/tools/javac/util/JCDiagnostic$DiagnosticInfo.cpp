@@ -37,12 +37,12 @@ $FieldInfo _JCDiagnostic$DiagnosticInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _JCDiagnostic$DiagnosticInfo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(static_cast<void(JCDiagnostic$DiagnosticInfo::*)($JCDiagnostic$DiagnosticType*,$String*,$String*,$ObjectArray*)>(&JCDiagnostic$DiagnosticInfo::init$))},
-	{"getArgs", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"key", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"of", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<JCDiagnostic$DiagnosticInfo*(*)($JCDiagnostic$DiagnosticType*,$String*,$String*,$ObjectArray*)>(&JCDiagnostic$DiagnosticInfo::of))},
-	{"setArgs", "([Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(JCDiagnostic$DiagnosticInfo, init$, void, $JCDiagnostic$DiagnosticType*, $String*, $String*, $ObjectArray*)},
+	{"getArgs", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, getArgs, $ObjectArray*)},
+	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, getCode, $String*)},
+	{"key", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, key, $String*)},
+	{"of", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(JCDiagnostic$DiagnosticInfo, of, JCDiagnostic$DiagnosticInfo*, $JCDiagnostic$DiagnosticType*, $String*, $String*, $ObjectArray*)},
+	{"setArgs", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$DiagnosticInfo, setArgs, void, $ObjectArray*)},
 	{}
 };
 

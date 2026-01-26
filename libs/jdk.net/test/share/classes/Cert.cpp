@@ -25,10 +25,10 @@ $FieldInfo _Cert_FieldInfo_[] = {
 };
 
 $MethodInfo _Cert_MethodInfo_[] = {
-	{"$values", "()[LCert;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CertArray*(*)()>(&Cert::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Cert::*)($String*,int32_t,$String*,$String*,$String*)>(&Cert::init$))},
-	{"valueOf", "(Ljava/lang/String;)LCert;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Cert*(*)($String*)>(&Cert::valueOf))},
-	{"values", "()[LCert;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CertArray*(*)()>(&Cert::values))},
+	{"$values", "()[LCert;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Cert, $values, $CertArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Cert, init$, void, $String*, int32_t, $String*, $String*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)LCert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cert, valueOf, Cert*, $String*)},
+	{"values", "()[LCert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cert, values, $CertArray*)},
 	{}
 };
 

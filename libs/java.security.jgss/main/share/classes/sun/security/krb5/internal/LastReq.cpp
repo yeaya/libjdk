@@ -37,10 +37,10 @@ $FieldInfo _LastReq_FieldInfo_[] = {
 };
 
 $MethodInfo _LastReq_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/LastReqEntry;)V", nullptr, $PUBLIC, $method(static_cast<void(LastReq::*)($LastReqEntryArray*)>(&LastReq::init$)), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(LastReq::*)($DerValue*)>(&LastReq::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/LastReq;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LastReq*(*)($DerInputStream*,int8_t,bool)>(&LastReq::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "([Lsun/security/krb5/internal/LastReqEntry;)V", nullptr, $PUBLIC, $method(LastReq, init$, void, $LastReqEntryArray*), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(LastReq, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(LastReq, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/LastReq;", nullptr, $PUBLIC | $STATIC, $staticMethod(LastReq, parse, LastReq*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
 	{}
 };
 

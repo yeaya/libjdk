@@ -31,9 +31,9 @@ $FieldInfo _ClassReader$EnumAttributeProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$EnumAttributeProxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$EnumAttributeProxy::*)($Type*,$Name*)>(&ClassReader$EnumAttributeProxy::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(ClassReader$EnumAttributeProxy, init$, void, $Type*, $Name*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$EnumAttributeProxy, accept, void, $Attribute$Visitor*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$EnumAttributeProxy, toString, $String*)},
 	{}
 };
 

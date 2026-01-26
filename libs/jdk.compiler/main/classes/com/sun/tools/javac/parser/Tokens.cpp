@@ -47,10 +47,10 @@ $FieldInfo _Tokens_FieldInfo_[] = {
 };
 
 $MethodInfo _Tokens_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(Tokens::*)($Context*)>(&Tokens::init$))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/parser/Tokens;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Tokens*(*)($Context*)>(&Tokens::instance))},
-	{"lookupKind", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, 0},
-	{"lookupKind", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Tokens, init$, void, $Context*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/parser/Tokens;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens, instance, Tokens*, $Context*)},
+	{"lookupKind", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, 0, $virtualMethod(Tokens, lookupKind, $Tokens$TokenKind*, $Name*)},
+	{"lookupKind", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, 0, $virtualMethod(Tokens, lookupKind, $Tokens$TokenKind*, $String*)},
 	{}
 };
 

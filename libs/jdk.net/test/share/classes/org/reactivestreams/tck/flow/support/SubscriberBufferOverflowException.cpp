@@ -13,10 +13,10 @@ namespace org {
 				namespace support {
 
 $MethodInfo _SubscriberBufferOverflowException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SubscriberBufferOverflowException::*)()>(&SubscriberBufferOverflowException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SubscriberBufferOverflowException::*)($String*)>(&SubscriberBufferOverflowException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SubscriberBufferOverflowException::*)($String*,$Throwable*)>(&SubscriberBufferOverflowException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SubscriberBufferOverflowException::*)($Throwable*)>(&SubscriberBufferOverflowException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SubscriberBufferOverflowException, init$, void, $Throwable*)},
 	{}
 };
 

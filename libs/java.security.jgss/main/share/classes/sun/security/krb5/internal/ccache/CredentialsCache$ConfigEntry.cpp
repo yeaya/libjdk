@@ -28,12 +28,12 @@ $FieldInfo _CredentialsCache$ConfigEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _CredentialsCache$ConfigEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/krb5/PrincipalName;[B)V", nullptr, $PUBLIC, $method(static_cast<void(CredentialsCache$ConfigEntry::*)($String*,$PrincipalName*,$bytes*)>(&CredentialsCache$ConfigEntry::init$))},
-	{"getData", "()[B", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrinc", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC},
-	{"getSName", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/security/krb5/PrincipalName;[B)V", nullptr, $PUBLIC, $method(CredentialsCache$ConfigEntry, init$, void, $String*, $PrincipalName*, $bytes*)},
+	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(CredentialsCache$ConfigEntry, getData, $bytes*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CredentialsCache$ConfigEntry, getName, $String*)},
+	{"getPrinc", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(CredentialsCache$ConfigEntry, getPrinc, $PrincipalName*)},
+	{"getSName", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(CredentialsCache$ConfigEntry, getSName, $PrincipalName*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CredentialsCache$ConfigEntry, toString, $String*)},
 	{}
 };
 

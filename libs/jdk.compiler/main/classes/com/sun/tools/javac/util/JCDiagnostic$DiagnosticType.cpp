@@ -33,10 +33,10 @@ $FieldInfo _JCDiagnostic$DiagnosticType_FieldInfo_[] = {
 };
 
 $MethodInfo _JCDiagnostic$DiagnosticType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCDiagnostic$DiagnosticTypeArray*(*)()>(&JCDiagnostic$DiagnosticType::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(JCDiagnostic$DiagnosticType::*)($String*,int32_t,$String*)>(&JCDiagnostic$DiagnosticType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JCDiagnostic$DiagnosticType*(*)($String*)>(&JCDiagnostic$DiagnosticType::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCDiagnostic$DiagnosticTypeArray*(*)()>(&JCDiagnostic$DiagnosticType::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCDiagnostic$DiagnosticType, $values, $JCDiagnostic$DiagnosticTypeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(JCDiagnostic$DiagnosticType, init$, void, $String*, int32_t, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCDiagnostic$DiagnosticType, valueOf, JCDiagnostic$DiagnosticType*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCDiagnostic$DiagnosticType, values, $JCDiagnostic$DiagnosticTypeArray*)},
 	{}
 };
 

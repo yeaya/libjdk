@@ -15,8 +15,8 @@ namespace com {
 				namespace resources {
 
 $MethodInfo _javac_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(javac::*)()>(&javac::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(javac, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(javac, getContents, $ObjectArray2*)},
 	{}
 };
 

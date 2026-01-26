@@ -28,12 +28,12 @@ namespace sun {
 			namespace internal {
 
 $MethodInfo _APOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(APOptions::*)()>(&APOptions::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(APOptions::*)(int32_t)>(&APOptions::init$)), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(APOptions::*)(int32_t,$bytes*)>(&APOptions::init$)), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(static_cast<void(APOptions::*)($booleans*)>(&APOptions::init$)), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(APOptions::*)($DerValue*)>(&APOptions::init$)), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/APOptions;", nullptr, $PUBLIC | $STATIC, $method(static_cast<APOptions*(*)($DerInputStream*,int8_t,bool)>(&APOptions::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(APOptions, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(APOptions, init$, void, int32_t), "sun.security.krb5.Asn1Exception"},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(APOptions, init$, void, int32_t, $bytes*), "sun.security.krb5.Asn1Exception"},
+	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(APOptions, init$, void, $booleans*), "sun.security.krb5.Asn1Exception"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(APOptions, init$, void, $DerValue*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/APOptions;", nullptr, $PUBLIC | $STATIC, $staticMethod(APOptions, parse, APOptions*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
 	{}
 };
 

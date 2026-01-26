@@ -19,12 +19,12 @@ $FieldInfo _BinaryRefAddr_FieldInfo_[] = {
 };
 
 $MethodInfo _BinaryRefAddr_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(static_cast<void(BinaryRefAddr::*)($String*,$bytes*)>(&BinaryRefAddr::init$))},
-	{"<init>", "(Ljava/lang/String;[BII)V", nullptr, $PUBLIC, $method(static_cast<void(BinaryRefAddr::*)($String*,$bytes*,int32_t,int32_t)>(&BinaryRefAddr::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $method(BinaryRefAddr, init$, void, $String*, $bytes*)},
+	{"<init>", "(Ljava/lang/String;[BII)V", nullptr, $PUBLIC, $method(BinaryRefAddr, init$, void, $String*, $bytes*, int32_t, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BinaryRefAddr, equals, bool, Object$*)},
+	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BinaryRefAddr, getContent, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BinaryRefAddr, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BinaryRefAddr, toString, $String*)},
 	{}
 };
 

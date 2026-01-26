@@ -20,6 +20,7 @@ using $OptionArray = $Array<::com::sun::tools::sjavac::options::Option>;
 using $PathArray = $Array<::java::nio::file::Path>;
 using $CommandLine = ::com::sun::tools::javac::main::CommandLine;
 using $1Option = ::com::sun::tools::javac::main::Option;
+using $Transformer = ::com::sun::tools::sjavac::Transformer;
 using $ArgumentIterator = ::com::sun::tools::sjavac::options::ArgumentIterator;
 using $Option = ::com::sun::tools::sjavac::options::Option;
 using $IOException = ::java::io::IOException;
@@ -28,6 +29,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -40,31 +42,31 @@ namespace com {
 				namespace options {
 
 $MethodInfo _OptionHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OptionHelper::*)()>(&OptionHelper::init$))},
-	{"addTransformer", "(Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"classpath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC | $ABSTRACT},
-	{"compareFoundSources", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"destDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"exclude", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"generatedSourcesDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"headerDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"implicit", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"include", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"javacArg", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT},
-	{"logLevel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"modulepath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC | $ABSTRACT},
-	{"numCores", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"permitArtifact", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"permitDefaultPackage", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"permitUnidentifiedArtifacts", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"reportError", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"serverConf", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"sourceRoots", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC | $ABSTRACT},
-	{"sourcepath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC | $ABSTRACT},
-	{"startServerConf", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"stateDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"traverse", "([Ljava/lang/String;)V", nullptr, 0},
-	{"unescapeCmdArg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&OptionHelper::unescapeCmdArg))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OptionHelper, init$, void)},
+	{"addTransformer", "(Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, addTransformer, void, $String*, $Transformer*)},
+	{"classpath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, classpath, void, $List*)},
+	{"compareFoundSources", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, compareFoundSources, void, $Path*)},
+	{"destDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, destDir, void, $Path*)},
+	{"exclude", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, exclude, void, $String*)},
+	{"generatedSourcesDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, generatedSourcesDir, void, $Path*)},
+	{"headerDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, headerDir, void, $Path*)},
+	{"implicit", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, implicit, void, $String*)},
+	{"include", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, include, void, $String*)},
+	{"javacArg", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(OptionHelper, javacArg, void, $StringArray*)},
+	{"logLevel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, logLevel, void, $String*)},
+	{"modulepath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, modulepath, void, $List*)},
+	{"numCores", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, numCores, void, int32_t)},
+	{"permitArtifact", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, permitArtifact, void, $String*)},
+	{"permitDefaultPackage", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, permitDefaultPackage, void)},
+	{"permitUnidentifiedArtifacts", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, permitUnidentifiedArtifacts, void)},
+	{"reportError", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, reportError, void, $String*)},
+	{"serverConf", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, serverConf, void, $String*)},
+	{"sourceRoots", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, sourceRoots, void, $List*)},
+	{"sourcepath", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/Path;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, sourcepath, void, $List*)},
+	{"startServerConf", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, startServerConf, void, $String*)},
+	{"stateDir", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OptionHelper, stateDir, void, $Path*)},
+	{"traverse", "([Ljava/lang/String;)V", nullptr, 0, $virtualMethod(OptionHelper, traverse, void, $StringArray*)},
+	{"unescapeCmdArg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(OptionHelper, unescapeCmdArg, $String*, $String*)},
 	{}
 };
 

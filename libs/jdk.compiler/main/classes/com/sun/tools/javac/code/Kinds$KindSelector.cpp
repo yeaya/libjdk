@@ -65,11 +65,11 @@ $FieldInfo _Kinds$KindSelector_FieldInfo_[] = {
 };
 
 $MethodInfo _Kinds$KindSelector_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(Kinds$KindSelector::*)(int32_t)>(&Kinds$KindSelector::init$))},
-	{"contains", "(Lcom/sun/tools/javac/code/Kinds$KindSelector;)Z", nullptr, $PUBLIC},
-	{"kindNames", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Kinds$KindName;>;", $PUBLIC},
-	{"of", "([Lcom/sun/tools/javac/code/Kinds$KindSelector;)Lcom/sun/tools/javac/code/Kinds$KindSelector;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<Kinds$KindSelector*(*)($Kinds$KindSelectorArray*)>(&Kinds$KindSelector::of))},
-	{"subset", "(Lcom/sun/tools/javac/code/Kinds$KindSelector;)Z", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PRIVATE, $method(Kinds$KindSelector, init$, void, int32_t)},
+	{"contains", "(Lcom/sun/tools/javac/code/Kinds$KindSelector;)Z", nullptr, $PUBLIC, $virtualMethod(Kinds$KindSelector, contains, bool, Kinds$KindSelector*)},
+	{"kindNames", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Kinds$KindName;>;", $PUBLIC, $virtualMethod(Kinds$KindSelector, kindNames, $Set*)},
+	{"of", "([Lcom/sun/tools/javac/code/Kinds$KindSelector;)Lcom/sun/tools/javac/code/Kinds$KindSelector;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Kinds$KindSelector, of, Kinds$KindSelector*, $Kinds$KindSelectorArray*)},
+	{"subset", "(Lcom/sun/tools/javac/code/Kinds$KindSelector;)Z", nullptr, $PUBLIC, $virtualMethod(Kinds$KindSelector, subset, bool, Kinds$KindSelector*)},
 	{}
 };
 

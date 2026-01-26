@@ -66,8 +66,8 @@ $FieldInfo LazyCompositeData$$Lambda$lambda$isTypeMatched$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LazyCompositeData$$Lambda$lambda$isTypeMatched$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/management/openmbean/CompositeType;Ljavax/management/openmbean/CompositeType;)V", nullptr, $PUBLIC, $method(static_cast<void(LazyCompositeData$$Lambda$lambda$isTypeMatched$0::*)($CompositeType*,$CompositeType*)>(&LazyCompositeData$$Lambda$lambda$isTypeMatched$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/openmbean/CompositeType;Ljavax/management/openmbean/CompositeType;)V", nullptr, $PUBLIC, $method(LazyCompositeData$$Lambda$lambda$isTypeMatched$0, init$, void, $CompositeType*, $CompositeType*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LazyCompositeData$$Lambda$lambda$isTypeMatched$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LazyCompositeData$$Lambda$lambda$isTypeMatched$0::classInfo$ = {
@@ -93,28 +93,28 @@ $FieldInfo _LazyCompositeData_FieldInfo_[] = {
 $MethodInfo _LazyCompositeData_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LazyCompositeData::*)()>(&LazyCompositeData::init$))},
-	{"compositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<$CompositeData*(LazyCompositeData::*)()>(&LazyCompositeData::compositeData))},
-	{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getAll", "([Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getBoolean", "(Ljavax/management/openmbean/CompositeData;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($CompositeData*,$String*)>(&LazyCompositeData::getBoolean))},
-	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED | $ABSTRACT},
-	{"getCompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $PUBLIC},
-	{"getInt", "(Ljavax/management/openmbean/CompositeData;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($CompositeData*,$String*)>(&LazyCompositeData::getInt))},
-	{"getLong", "(Ljavax/management/openmbean/CompositeData;Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)($CompositeData*,$String*)>(&LazyCompositeData::getLong))},
-	{"getString", "(Ljavax/management/openmbean/CompositeData;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($CompositeData*,$String*)>(&LazyCompositeData::getString))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isTypeMatched", "(Ljavax/management/openmbean/CompositeType;Ljavax/management/openmbean/CompositeType;)Z", nullptr, $PROTECTED | $STATIC, $method(static_cast<bool(*)($CompositeType*,$CompositeType*)>(&LazyCompositeData::isTypeMatched))},
-	{"isTypeMatched", "(Ljavax/management/openmbean/TabularType;Ljavax/management/openmbean/TabularType;)Z", nullptr, $PROTECTED | $STATIC, $method(static_cast<bool(*)($TabularType*,$TabularType*)>(&LazyCompositeData::isTypeMatched))},
-	{"isTypeMatched", "(Ljavax/management/openmbean/ArrayType;Ljavax/management/openmbean/ArrayType;)Z", "(Ljavax/management/openmbean/ArrayType<*>;Ljavax/management/openmbean/ArrayType<*>;)Z", $PROTECTED | $STATIC, $method(static_cast<bool(*)($ArrayType*,$ArrayType*)>(&LazyCompositeData::isTypeMatched))},
-	{"isTypeMatched", "(Ljavax/management/openmbean/OpenType;Ljavax/management/openmbean/OpenType;)Z", "(Ljavax/management/openmbean/OpenType<*>;Ljavax/management/openmbean/OpenType<*>;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($OpenType*,$OpenType*)>(&LazyCompositeData::isTypeMatched))},
-	{"lambda$isTypeMatched$0", "(Ljavax/management/openmbean/CompositeType;Ljavax/management/openmbean/CompositeType;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($CompositeType*,$CompositeType*,$String*)>(&LazyCompositeData::lambda$isTypeMatched$0))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.ObjectStreamException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LazyCompositeData, init$, void)},
+	{"compositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(LazyCompositeData, compositeData, $CompositeData*)},
+	{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(LazyCompositeData, containsKey, bool, $String*)},
+	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LazyCompositeData, containsValue, bool, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LazyCompositeData, equals, bool, Object$*)},
+	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LazyCompositeData, get, $Object*, $String*)},
+	{"getAll", "([Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LazyCompositeData, getAll, $ObjectArray*, $StringArray*)},
+	{"getBoolean", "(Ljavax/management/openmbean/CompositeData;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LazyCompositeData, getBoolean, bool, $CompositeData*, $String*)},
+	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(LazyCompositeData, getCompositeData, $CompositeData*)},
+	{"getCompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $PUBLIC, $virtualMethod(LazyCompositeData, getCompositeType, $CompositeType*)},
+	{"getInt", "(Ljavax/management/openmbean/CompositeData;Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(LazyCompositeData, getInt, int32_t, $CompositeData*, $String*)},
+	{"getLong", "(Ljavax/management/openmbean/CompositeData;Ljava/lang/String;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(LazyCompositeData, getLong, int64_t, $CompositeData*, $String*)},
+	{"getString", "(Ljavax/management/openmbean/CompositeData;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LazyCompositeData, getString, $String*, $CompositeData*, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LazyCompositeData, hashCode, int32_t)},
+	{"isTypeMatched", "(Ljavax/management/openmbean/CompositeType;Ljavax/management/openmbean/CompositeType;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(LazyCompositeData, isTypeMatched, bool, $CompositeType*, $CompositeType*)},
+	{"isTypeMatched", "(Ljavax/management/openmbean/TabularType;Ljavax/management/openmbean/TabularType;)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(LazyCompositeData, isTypeMatched, bool, $TabularType*, $TabularType*)},
+	{"isTypeMatched", "(Ljavax/management/openmbean/ArrayType;Ljavax/management/openmbean/ArrayType;)Z", "(Ljavax/management/openmbean/ArrayType<*>;Ljavax/management/openmbean/ArrayType<*>;)Z", $PROTECTED | $STATIC, $staticMethod(LazyCompositeData, isTypeMatched, bool, $ArrayType*, $ArrayType*)},
+	{"isTypeMatched", "(Ljavax/management/openmbean/OpenType;Ljavax/management/openmbean/OpenType;)Z", "(Ljavax/management/openmbean/OpenType<*>;Ljavax/management/openmbean/OpenType<*>;)Z", $PRIVATE | $STATIC, $staticMethod(LazyCompositeData, isTypeMatched, bool, $OpenType*, $OpenType*)},
+	{"lambda$isTypeMatched$0", "(Ljavax/management/openmbean/CompositeType;Ljavax/management/openmbean/CompositeType;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LazyCompositeData, lambda$isTypeMatched$0, bool, $CompositeType*, $CompositeType*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LazyCompositeData, toString, $String*)},
+	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(LazyCompositeData, values, $Collection*)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(LazyCompositeData, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

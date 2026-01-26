@@ -41,11 +41,11 @@ $FieldInfo _IntegerWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _IntegerWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(IntegerWriter::*)()>(&IntegerWriter::init$))},
-	{"checkPrefix", "(I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t)>(&IntegerWriter::checkPrefix))},
-	{"configure", "(III)Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PUBLIC, $method(static_cast<IntegerWriter*(IntegerWriter::*)(int32_t,int32_t,int32_t)>(&IntegerWriter::configure))},
-	{"reset", "()Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PUBLIC, $method(static_cast<IntegerWriter*(IntegerWriter::*)()>(&IntegerWriter::reset))},
-	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $method(static_cast<bool(IntegerWriter::*)($ByteBuffer*)>(&IntegerWriter::write))},
+	{"<init>", "()V", nullptr, 0, $method(IntegerWriter, init$, void)},
+	{"checkPrefix", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerWriter, checkPrefix, void, int32_t)},
+	{"configure", "(III)Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PUBLIC, $method(IntegerWriter, configure, IntegerWriter*, int32_t, int32_t, int32_t)},
+	{"reset", "()Ljdk/internal/net/http/hpack/IntegerWriter;", nullptr, $PUBLIC, $method(IntegerWriter, reset, IntegerWriter*)},
+	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $method(IntegerWriter, write, bool, $ByteBuffer*)},
 	{}
 };
 

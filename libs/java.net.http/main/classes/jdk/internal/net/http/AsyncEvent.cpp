@@ -6,9 +6,11 @@
 
 #undef REPEATING
 
+using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 
 namespace jdk {
 	namespace internal {
@@ -22,13 +24,13 @@ $FieldInfo _AsyncEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _AsyncEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(AsyncEvent::*)()>(&AsyncEvent::init$))},
-	{"<init>", "(I)V", nullptr, 0, $method(static_cast<void(AsyncEvent::*)(int32_t)>(&AsyncEvent::init$))},
-	{"abort", "(Ljava/io/IOException;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $ABSTRACT},
-	{"handle", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"interestOps", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"repeating", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(AsyncEvent, init$, void)},
+	{"<init>", "(I)V", nullptr, 0, $method(AsyncEvent, init$, void, int32_t)},
+	{"abort", "(Ljava/io/IOException;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsyncEvent, abort, void, $IOException*)},
+	{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsyncEvent, channel, $SelectableChannel*)},
+	{"handle", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsyncEvent, handle, void)},
+	{"interestOps", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AsyncEvent, interestOps, int32_t)},
+	{"repeating", "()Z", nullptr, $PUBLIC, $virtualMethod(AsyncEvent, repeating, bool)},
 	{}
 };
 

@@ -23,20 +23,20 @@ $FieldInfo _MessageProp_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageProp_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(MessageProp::*)(bool)>(&MessageProp::init$))},
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(static_cast<void(MessageProp::*)(int32_t,bool)>(&MessageProp::init$))},
-	{"getMinorStatus", "()I", nullptr, $PUBLIC},
-	{"getMinorString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPrivacy", "()Z", nullptr, $PUBLIC},
-	{"getQOP", "()I", nullptr, $PUBLIC},
-	{"isDuplicateToken", "()Z", nullptr, $PUBLIC},
-	{"isGapToken", "()Z", nullptr, $PUBLIC},
-	{"isOldToken", "()Z", nullptr, $PUBLIC},
-	{"isUnseqToken", "()Z", nullptr, $PUBLIC},
-	{"resetStatusValues", "()V", nullptr, $PRIVATE, $method(static_cast<void(MessageProp::*)()>(&MessageProp::resetStatusValues))},
-	{"setPrivacy", "(Z)V", nullptr, $PUBLIC},
-	{"setQOP", "(I)V", nullptr, $PUBLIC},
-	{"setSupplementaryStates", "(ZZZZILjava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(MessageProp, init$, void, bool)},
+	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(MessageProp, init$, void, int32_t, bool)},
+	{"getMinorStatus", "()I", nullptr, $PUBLIC, $virtualMethod(MessageProp, getMinorStatus, int32_t)},
+	{"getMinorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageProp, getMinorString, $String*)},
+	{"getPrivacy", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, getPrivacy, bool)},
+	{"getQOP", "()I", nullptr, $PUBLIC, $virtualMethod(MessageProp, getQOP, int32_t)},
+	{"isDuplicateToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isDuplicateToken, bool)},
+	{"isGapToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isGapToken, bool)},
+	{"isOldToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isOldToken, bool)},
+	{"isUnseqToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isUnseqToken, bool)},
+	{"resetStatusValues", "()V", nullptr, $PRIVATE, $method(MessageProp, resetStatusValues, void)},
+	{"setPrivacy", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MessageProp, setPrivacy, void, bool)},
+	{"setQOP", "(I)V", nullptr, $PUBLIC, $virtualMethod(MessageProp, setQOP, void, int32_t)},
+	{"setSupplementaryStates", "(ZZZZILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MessageProp, setSupplementaryStates, void, bool, bool, bool, bool, int32_t, $String*)},
 	{}
 };
 

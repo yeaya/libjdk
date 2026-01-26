@@ -18,8 +18,8 @@ namespace com {
 				namespace spi {
 
 $MethodInfo _HttpServerProvider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HttpServerProvider$1::*)()>(&HttpServerProvider$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HttpServerProvider$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpServerProvider$1, run, $Object*)},
 	{}
 };
 

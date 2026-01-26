@@ -37,12 +37,12 @@ $FieldInfo _Logging_FieldInfo_[] = {
 };
 
 $MethodInfo _Logging_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Logging::*)()>(&Logging::init$))},
-	{"getInstance", "()Ljava/util/logging/Logging;", nullptr, $STATIC, $method(static_cast<Logging*(*)()>(&Logging::getInstance))},
-	{"getLoggerLevel", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLoggerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getParentLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setLoggerLevel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Logging, init$, void)},
+	{"getInstance", "()Ljava/util/logging/Logging;", nullptr, $STATIC, $staticMethod(Logging, getInstance, Logging*)},
+	{"getLoggerLevel", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logging, getLoggerLevel, $String*, $String*)},
+	{"getLoggerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Logging, getLoggerNames, $List*)},
+	{"getParentLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logging, getParentLoggerName, $String*, $String*)},
+	{"setLoggerLevel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logging, setLoggerLevel, void, $String*, $String*)},
 	{}
 };
 

@@ -18,8 +18,8 @@ $FieldInfo _RelationNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _RelationNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RelationNotFoundException::*)()>(&RelationNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RelationNotFoundException::*)($String*)>(&RelationNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RelationNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelationNotFoundException, init$, void, $String*)},
 	{}
 };
 

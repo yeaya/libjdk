@@ -71,8 +71,8 @@ $FieldInfo Http1Exchange$Http1Publisher$WriteTask$$Lambda$lambda$run$0::fieldInf
 	{}
 };
 $MethodInfo Http1Exchange$Http1Publisher$WriteTask$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Exchange$Http1Publisher$WriteTask;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Exchange$Http1Publisher$WriteTask$$Lambda$lambda$run$0::*)(Http1Exchange$Http1Publisher$WriteTask*)>(&Http1Exchange$Http1Publisher$WriteTask$$Lambda$lambda$run$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Exchange$Http1Publisher$WriteTask;)V", nullptr, $PUBLIC, $method(Http1Exchange$Http1Publisher$WriteTask$$Lambda$lambda$run$0, init$, void, Http1Exchange$Http1Publisher$WriteTask*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1Publisher$WriteTask$$Lambda$lambda$run$0, get, $Object*)},
 	{}
 };
 $ClassInfo Http1Exchange$Http1Publisher$WriteTask$$Lambda$lambda$run$0::classInfo$ = {
@@ -96,9 +96,9 @@ $FieldInfo _Http1Exchange$Http1Publisher$WriteTask_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Exchange$Http1Publisher$WriteTask_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Exchange$Http1Publisher;)V", nullptr, 0, $method(static_cast<void(Http1Exchange$Http1Publisher$WriteTask::*)($Http1Exchange$Http1Publisher*)>(&Http1Exchange$Http1Publisher$WriteTask::init$))},
-	{"lambda$run$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Http1Exchange$Http1Publisher$WriteTask::*)()>(&Http1Exchange$Http1Publisher$WriteTask::lambda$run$0))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Exchange$Http1Publisher;)V", nullptr, 0, $method(Http1Exchange$Http1Publisher$WriteTask, init$, void, $Http1Exchange$Http1Publisher*)},
+	{"lambda$run$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Http1Exchange$Http1Publisher$WriteTask, lambda$run$0, $String*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1Publisher$WriteTask, run, void)},
 	{}
 };
 

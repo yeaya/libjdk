@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace javax {
 	namespace xml {
@@ -12,9 +13,9 @@ namespace javax {
 			namespace dsig {
 
 $MethodInfo _SignatureProperty_MethodInfo_[] = {
-	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getContent", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SignatureProperty, getContent, $List*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SignatureProperty, getId, $String*)},
+	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SignatureProperty, getTarget, $String*)},
 	{}
 };
 

@@ -60,13 +60,13 @@ $FieldInfo _JavacRoundEnvironment$AnnotationSetScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacRoundEnvironment$AnnotationSetScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacRoundEnvironment;Ljava/util/Set;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Element;>;)V", 0, $method(static_cast<void(JavacRoundEnvironment$AnnotationSetScanner::*)($JavacRoundEnvironment*,$Set*)>(&JavacRoundEnvironment$AnnotationSetScanner::init$))},
-	{"scan", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"scan", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "(Ljavax/lang/model/element/ModuleElement;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "(Ljavax/lang/model/element/PackageElement;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacRoundEnvironment;Ljava/util/Set;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Element;>;)V", 0, $method(JavacRoundEnvironment$AnnotationSetScanner, init$, void, $JavacRoundEnvironment*, $Set*)},
+	{"scan", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetScanner, scan, $Set*, $Element*, $TypeElement*)},
+	{"scan", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetScanner, scan, $Object*, $Element*, Object$*)},
+	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "(Ljavax/lang/model/element/ModuleElement;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetScanner, visitModule, $Set*, $ModuleElement*, $TypeElement*)},
+	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetScanner, visitModule, $Object*, $ModuleElement*, Object$*)},
+	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set;", "(Ljavax/lang/model/element/PackageElement;Ljavax/lang/model/element/TypeElement;)Ljava/util/Set<Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetScanner, visitPackage, $Set*, $PackageElement*, $TypeElement*)},
+	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacRoundEnvironment$AnnotationSetScanner, visitPackage, $Object*, $PackageElement*, Object$*)},
 	{}
 };
 

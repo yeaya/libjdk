@@ -18,9 +18,9 @@ namespace com {
 				namespace util {
 
 $MethodInfo _List$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(static_cast<void(List$1::*)(Object$*,$List*)>(&List$1::init$))},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"setTail", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Ljava/lang/Object;>;)Lcom/sun/tools/javac/util/List<Ljava/lang/Object;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(List$1, init$, void, Object$*, $List*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(List$1, isEmpty, bool)},
+	{"setTail", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Ljava/lang/Object;>;)Lcom/sun/tools/javac/util/List<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(List$1, setTail, $List*, $List*)},
 	{}
 };
 

@@ -21,8 +21,8 @@ namespace jdk {
 				namespace common {
 
 $MethodInfo _OperationTrackers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(OperationTrackers::*)()>(&OperationTrackers::init$))},
-	{"getTracker", "(Ljava/net/http/HttpClient;)Ljdk/internal/net/http/common/OperationTrackers$Tracker;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$OperationTrackers$Tracker*(*)($HttpClient*)>(&OperationTrackers::getTracker))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(OperationTrackers, init$, void)},
+	{"getTracker", "(Ljava/net/http/HttpClient;)Ljdk/internal/net/http/common/OperationTrackers$Tracker;", nullptr, $PUBLIC | $STATIC, $staticMethod(OperationTrackers, getTracker, $OperationTrackers$Tracker*, $HttpClient*)},
 	{}
 };
 

@@ -28,8 +28,8 @@ $FieldInfo _ArrayNotificationBuffer$4_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayNotificationBuffer$4_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(ArrayNotificationBuffer$4::*)($MBeanServer*,$ObjectName*,$String*)>(&ArrayNotificationBuffer$4::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, nullptr, "javax.management.InstanceNotFoundException"},
+	{"<init>", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;Ljava/lang/String;)V", "()V", 0, $method(ArrayNotificationBuffer$4, init$, void, $MBeanServer*, $ObjectName*, $String*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$4, run, $Object*), "javax.management.InstanceNotFoundException"},
 	{}
 };
 

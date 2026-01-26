@@ -142,8 +142,8 @@ $FieldInfo Http1Response$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$dbgString::*)(Http1Response*)>(&Http1Response$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$dbgString, init$, void, Http1Response*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$dbgString::classInfo$ = {
@@ -182,8 +182,8 @@ $FieldInfo Http1Response$$Lambda$advance$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$advance$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$advance$1::*)(Http1Response*)>(&Http1Response$$Lambda$advance$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$advance$1, init$, void, Http1Response*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$advance$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$advance$1::classInfo$ = {
@@ -222,8 +222,8 @@ $FieldInfo Http1Response$$Lambda$lambda$readHeadersAsync$0$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$lambda$readHeadersAsync$0$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$lambda$readHeadersAsync$0$2::*)(Http1Response*)>(&Http1Response$$Lambda$lambda$readHeadersAsync$0$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$lambda$readHeadersAsync$0$2, init$, void, Http1Response*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$lambda$readHeadersAsync$0$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$lambda$readHeadersAsync$0$2::classInfo$ = {
@@ -274,8 +274,8 @@ $FieldInfo Http1Response$$Lambda$lambda$readBody$3$3::fieldInfos[6] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$lambda$readBody$3$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response;JLjdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$lambda$readBody$3$3::*)(Http1Response*,int64_t,$Http1Response$Http1BodySubscriber*,$CompletableFuture*,$Http1Response$ClientRefCountTracker*)>(&Http1Response$$Lambda$lambda$readBody$3$3::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response;JLjdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$lambda$readBody$3$3, init$, void, Http1Response*, int64_t, $Http1Response$Http1BodySubscriber*, $CompletableFuture*, $Http1Response$ClientRefCountTracker*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$lambda$readBody$3$3, run, void)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$lambda$readBody$3$3::classInfo$ = {
@@ -317,8 +317,8 @@ $FieldInfo Http1Response$$Lambda$lambda$readBody$4$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$lambda$readBody$4$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$lambda$readBody$4$4::*)(Http1Response*,$CompletableFuture*)>(&Http1Response$$Lambda$lambda$readBody$4$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$lambda$readBody$4$4, init$, void, Http1Response*, $CompletableFuture*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$lambda$readBody$4$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$lambda$readBody$4$4::classInfo$ = {
@@ -357,8 +357,8 @@ $FieldInfo Http1Response$$Lambda$lambda$readBody$5$5::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$lambda$readBody$5$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$lambda$readBody$5$5::*)($Http1Response$ClientRefCountTracker*)>(&Http1Response$$Lambda$lambda$readBody$5$5::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$lambda$readBody$5$5, init$, void, $Http1Response$ClientRefCountTracker*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$lambda$readBody$5$5, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$lambda$readBody$5$5::classInfo$ = {
@@ -397,8 +397,8 @@ $FieldInfo Http1Response$$Lambda$lambda$onReadError$6$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$lambda$onReadError$6$6::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$lambda$onReadError$6$6::*)($CompletableFuture*)>(&Http1Response$$Lambda$lambda$onReadError$6$6::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$lambda$onReadError$6$6, init$, void, $CompletableFuture*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$lambda$onReadError$6$6, get, $Object*)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$lambda$onReadError$6$6::classInfo$ = {
@@ -437,8 +437,8 @@ $FieldInfo Http1Response$$Lambda$lambda$onReadError$7$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$lambda$onReadError$7$7::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$lambda$onReadError$7$7::*)($Throwable*)>(&Http1Response$$Lambda$lambda$onReadError$7$7::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$lambda$onReadError$7$7, init$, void, $Throwable*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$lambda$onReadError$7$7, get, $Object*)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$lambda$onReadError$7$7::classInfo$ = {
@@ -477,8 +477,8 @@ $FieldInfo Http1Response$$Lambda$onFinished$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$onFinished$8::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$onFinished$8::*)(Http1Response*)>(&Http1Response$$Lambda$onFinished$8::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$onFinished$8, init$, void, Http1Response*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$onFinished$8, run, void)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$onFinished$8::classInfo$ = {
@@ -523,8 +523,8 @@ $FieldInfo Http1Response$$Lambda$lambda$readBody$1$9::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$lambda$readBody$1$9::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response;Ljdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$lambda$readBody$1$9::*)(Http1Response*,$Http1Response$Http1BodySubscriber*,$CompletableFuture*)>(&Http1Response$$Lambda$lambda$readBody$1$9::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response;Ljdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$lambda$readBody$1$9, init$, void, Http1Response*, $Http1Response$Http1BodySubscriber*, $CompletableFuture*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$lambda$readBody$1$9, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$lambda$readBody$1$9::classInfo$ = {
@@ -572,8 +572,8 @@ $FieldInfo Http1Response$$Lambda$lambda$readBody$2$10::fieldInfos[5] = {
 	{}
 };
 $MethodInfo Http1Response$$Lambda$lambda$readBody$2$10::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response;Ljdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$$Lambda$lambda$readBody$2$10::*)(Http1Response*,$Http1Response$Http1BodySubscriber*,$CompletableFuture*,$Http1Response$ClientRefCountTracker*)>(&Http1Response$$Lambda$lambda$readBody$2$10::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response;Ljdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;)V", nullptr, $PUBLIC, $method(Http1Response$$Lambda$lambda$readBody$2$10, init$, void, Http1Response*, $Http1Response$Http1BodySubscriber*, $CompletableFuture*, $Http1Response$ClientRefCountTracker*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http1Response$$Lambda$lambda$readBody$2$10, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Http1Response$$Lambda$lambda$readBody$2$10::classInfo$ = {
@@ -619,29 +619,29 @@ $FieldInfo _Http1Response_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Response_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http1Exchange;Ljdk/internal/net/http/Http1AsyncReceiver;)V", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http1Exchange<TT;>;Ljdk/internal/net/http/Http1AsyncReceiver;)V", 0, $method(static_cast<void(Http1Response::*)($HttpConnection*,$Http1Exchange*,$Http1AsyncReceiver*)>(&Http1Response::init$))},
-	{"advance", "(Ljdk/internal/net/http/Http1Response$State;)Ljdk/internal/net/http/Http1Response$State;", nullptr, $PRIVATE, $method(static_cast<$Http1Response$State*(Http1Response::*)($Http1Response$State*)>(&Http1Response::advance))},
-	{"completed", "()V", nullptr, $SYNCHRONIZED},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Http1Response::*)()>(&Http1Response::dbgString))},
-	{"finished", "()Z", nullptr, $SYNCHRONIZED},
-	{"fixupContentLen", "(J)J", nullptr, 0},
-	{"ignoreBody", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC},
-	{"lambda$onReadError$6", "(Ljava/util/concurrent/CompletableFuture;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($CompletableFuture*)>(&Http1Response::lambda$onReadError$6))},
-	{"lambda$onReadError$7", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Throwable*)>(&Http1Response::lambda$onReadError$7))},
-	{"lambda$readBody$1", "(Ljdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Http1Response::*)($Http1Response$Http1BodySubscriber*,$CompletableFuture*,$Throwable*)>(&Http1Response::lambda$readBody$1))},
-	{"lambda$readBody$2", "(Ljdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;Ljdk/internal/net/http/Http1Response$State;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Http1Response::*)($Http1Response$Http1BodySubscriber*,$CompletableFuture*,$Http1Response$ClientRefCountTracker*,$Http1Response$State*,$Throwable*)>(&Http1Response::lambda$readBody$2))},
-	{"lambda$readBody$3", "(JLjdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Http1Response::*)(int64_t,$Http1Response$Http1BodySubscriber*,$CompletableFuture*,$Http1Response$ClientRefCountTracker*)>(&Http1Response::lambda$readBody$3))},
-	{"lambda$readBody$4", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Http1Response::*)($CompletableFuture*,$Throwable*)>(&Http1Response::lambda$readBody$4))},
-	{"lambda$readBody$5", "(Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Http1Response$ClientRefCountTracker*,Object$*,$Throwable*)>(&Http1Response::lambda$readBody$5))},
-	{"lambda$readHeadersAsync$0", "(Ljdk/internal/net/http/Http1Response$State;)Ljdk/internal/net/http/Response;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Response*(Http1Response::*)($Http1Response$State*)>(&Http1Response::lambda$readHeadersAsync$0))},
-	{"nullBody", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", "(Ljava/net/http/HttpResponse<TT;>;Ljava/lang/Throwable;)V", $PUBLIC},
-	{"onFinished", "()V", nullptr, $PRIVATE, $method(static_cast<void(Http1Response::*)()>(&Http1Response::onFinished))},
-	{"onReadError", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"readBody", "(Ljava/net/http/HttpResponse$BodySubscriber;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/net/http/HttpResponse$BodySubscriber<TU;>;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC},
-	{"readHeadersAsync", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", $PUBLIC},
-	{"receiver", "(Ljdk/internal/net/http/Http1Response$State;)Ljdk/internal/net/http/Http1Response$Receiver;", "(Ljdk/internal/net/http/Http1Response$State;)Ljdk/internal/net/http/Http1Response$Receiver<*>;", 0},
-	{"responseCode", "()I", nullptr, 0},
-	{"responseHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, 0},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http1Exchange;Ljdk/internal/net/http/Http1AsyncReceiver;)V", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http1Exchange<TT;>;Ljdk/internal/net/http/Http1AsyncReceiver;)V", 0, $method(Http1Response, init$, void, $HttpConnection*, $Http1Exchange*, $Http1AsyncReceiver*)},
+	{"advance", "(Ljdk/internal/net/http/Http1Response$State;)Ljdk/internal/net/http/Http1Response$State;", nullptr, $PRIVATE, $method(Http1Response, advance, $Http1Response$State*, $Http1Response$State*)},
+	{"completed", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(Http1Response, completed, void)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Http1Response, dbgString, $String*)},
+	{"finished", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(Http1Response, finished, bool)},
+	{"fixupContentLen", "(J)J", nullptr, 0, $virtualMethod(Http1Response, fixupContentLen, int64_t, int64_t)},
+	{"ignoreBody", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(Http1Response, ignoreBody, $CompletableFuture*, $Executor*)},
+	{"lambda$onReadError$6", "(Ljava/util/concurrent/CompletableFuture;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1Response, lambda$onReadError$6, $String*, $CompletableFuture*)},
+	{"lambda$onReadError$7", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1Response, lambda$onReadError$7, $String*, $Throwable*)},
+	{"lambda$readBody$1", "(Ljdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Http1Response, lambda$readBody$1, void, $Http1Response$Http1BodySubscriber*, $CompletableFuture*, $Throwable*)},
+	{"lambda$readBody$2", "(Ljdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;Ljdk/internal/net/http/Http1Response$State;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Http1Response, lambda$readBody$2, void, $Http1Response$Http1BodySubscriber*, $CompletableFuture*, $Http1Response$ClientRefCountTracker*, $Http1Response$State*, $Throwable*)},
+	{"lambda$readBody$3", "(JLjdk/internal/net/http/Http1Response$Http1BodySubscriber;Ljava/util/concurrent/CompletableFuture;Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Http1Response, lambda$readBody$3, void, int64_t, $Http1Response$Http1BodySubscriber*, $CompletableFuture*, $Http1Response$ClientRefCountTracker*)},
+	{"lambda$readBody$4", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Http1Response, lambda$readBody$4, void, $CompletableFuture*, $Throwable*)},
+	{"lambda$readBody$5", "(Ljdk/internal/net/http/Http1Response$ClientRefCountTracker;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1Response, lambda$readBody$5, void, $Http1Response$ClientRefCountTracker*, Object$*, $Throwable*)},
+	{"lambda$readHeadersAsync$0", "(Ljdk/internal/net/http/Http1Response$State;)Ljdk/internal/net/http/Response;", nullptr, $PRIVATE | $SYNTHETIC, $method(Http1Response, lambda$readHeadersAsync$0, $Response*, $Http1Response$State*)},
+	{"nullBody", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", "(Ljava/net/http/HttpResponse<TT;>;Ljava/lang/Throwable;)V", $PUBLIC, $virtualMethod(Http1Response, nullBody, void, $HttpResponse*, $Throwable*)},
+	{"onFinished", "()V", nullptr, $PRIVATE, $method(Http1Response, onFinished, void)},
+	{"onReadError", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Http1Response, onReadError, void, $Throwable*)},
+	{"readBody", "(Ljava/net/http/HttpResponse$BodySubscriber;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/net/http/HttpResponse$BodySubscriber<TU;>;ZLjava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC, $virtualMethod(Http1Response, readBody, $CompletableFuture*, $HttpResponse$BodySubscriber*, bool, $Executor*)},
+	{"readHeadersAsync", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Response;>;", $PUBLIC, $virtualMethod(Http1Response, readHeadersAsync, $CompletableFuture*, $Executor*)},
+	{"receiver", "(Ljdk/internal/net/http/Http1Response$State;)Ljdk/internal/net/http/Http1Response$Receiver;", "(Ljdk/internal/net/http/Http1Response$State;)Ljdk/internal/net/http/Http1Response$Receiver<*>;", 0, $virtualMethod(Http1Response, receiver, $Http1Response$Receiver*, $Http1Response$State*)},
+	{"responseCode", "()I", nullptr, 0, $virtualMethod(Http1Response, responseCode, int32_t)},
+	{"responseHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, 0, $virtualMethod(Http1Response, responseHeaders, $HttpHeaders*)},
 	{}
 };
 

@@ -27,7 +27,7 @@ $FieldInfo _JIS_X_0208_MS5022X$DecodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _JIS_X_0208_MS5022X$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JIS_X_0208_MS5022X$DecodeHolder::*)()>(&JIS_X_0208_MS5022X$DecodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(JIS_X_0208_MS5022X$DecodeHolder, init$, void)},
 	{}
 };
 

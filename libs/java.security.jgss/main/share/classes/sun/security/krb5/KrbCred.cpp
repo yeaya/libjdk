@@ -71,11 +71,11 @@ $FieldInfo _KrbCred_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbCred_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbCred::*)($Credentials*,$Credentials*,$EncryptionKey*)>(&KrbCred::init$)), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"<init>", "([BLsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbCred::*)($bytes*,$EncryptionKey*)>(&KrbCred::init$)), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"createMessage", "(Lsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;)Lsun/security/krb5/internal/KRBCred;", nullptr, 0, nullptr, "sun.security.krb5.KrbException,java.io.IOException"},
-	{"getDelegatedCreds", "()[Lsun/security/krb5/Credentials;", nullptr, $PUBLIC},
-	{"getMessage", "()[B", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/krb5/Credentials;Lsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(KrbCred, init$, void, $Credentials*, $Credentials*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"<init>", "([BLsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(KrbCred, init$, void, $bytes*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"createMessage", "(Lsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;)Lsun/security/krb5/internal/KRBCred;", nullptr, 0, $virtualMethod(KrbCred, createMessage, $KRBCred*, $Credentials*, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"getDelegatedCreds", "()[Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $virtualMethod(KrbCred, getDelegatedCreds, $CredentialsArray*)},
+	{"getMessage", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbCred, getMessage, $bytes*)},
 	{}
 };
 

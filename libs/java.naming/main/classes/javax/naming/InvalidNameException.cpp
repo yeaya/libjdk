@@ -17,8 +17,8 @@ $FieldInfo _InvalidNameException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidNameException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidNameException::*)($String*)>(&InvalidNameException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidNameException::*)()>(&InvalidNameException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidNameException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidNameException, init$, void)},
 	{}
 };
 

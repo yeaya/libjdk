@@ -25,8 +25,8 @@ $FieldInfo _JRTIndex$CtSym_FieldInfo_[] = {
 };
 
 $MethodInfo _JRTIndex$CtSym_MethodInfo_[] = {
-	{"<init>", "(ZZLjava/lang/String;)V", nullptr, 0, $method(static_cast<void(JRTIndex$CtSym::*)(bool,bool,$String*)>(&JRTIndex$CtSym::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ZZLjava/lang/String;)V", nullptr, 0, $method(JRTIndex$CtSym, init$, void, bool, bool, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRTIndex$CtSym, toString, $String*)},
 	{}
 };
 

@@ -24,7 +24,7 @@ $FieldInfo _MacSymbol$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MacSymbol$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacSymbol$Holder::*)()>(&MacSymbol$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacSymbol$Holder, init$, void)},
 	{}
 };
 

@@ -64,16 +64,16 @@ $FieldInfo _KerberosPrincipal_FieldInfo_[] = {
 $MethodInfo _KerberosPrincipal_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KerberosPrincipal::*)($String*)>(&KerberosPrincipal::init$))},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(KerberosPrincipal::*)($String*,int32_t)>(&KerberosPrincipal::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNameType", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(KerberosPrincipal::*)()>(&KerberosPrincipal::getNameType))},
-	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(KerberosPrincipal::*)()>(&KerberosPrincipal::getRealm))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(KerberosPrincipal::*)($ObjectInputStream*)>(&KerberosPrincipal::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(KerberosPrincipal::*)($ObjectOutputStream*)>(&KerberosPrincipal::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosPrincipal, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(KerberosPrincipal, init$, void, $String*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, equals, bool, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, getName, $String*)},
+	{"getNameType", "()I", nullptr, $PUBLIC, $method(KerberosPrincipal, getNameType, int32_t)},
+	{"getRealm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(KerberosPrincipal, getRealm, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, hashCode, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KerberosPrincipal, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosPrincipal, toString, $String*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KerberosPrincipal, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

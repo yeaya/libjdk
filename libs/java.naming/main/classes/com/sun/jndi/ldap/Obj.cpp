@@ -138,16 +138,16 @@ $FieldInfo _Obj_FieldInfo_[] = {
 };
 
 $MethodInfo _Obj_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Obj::*)()>(&Obj::init$))},
-	{"decodeObject", "(Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", nullptr, $STATIC, $method(static_cast<$Object*(*)($Attributes*)>(&Obj::decodeObject)), "javax.naming.NamingException"},
-	{"decodeReference", "(Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/Reference;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Reference*(*)($Attributes*,$StringArray*)>(&Obj::decodeReference)), "javax.naming.NamingException,java.io.IOException"},
-	{"decodeRmiObject", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($String*,$String*,$StringArray*)>(&Obj::decodeRmiObject)), "javax.naming.NamingException"},
-	{"deserializeObject", "([BLjava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($bytes*,$ClassLoader*)>(&Obj::deserializeObject)), "javax.naming.NamingException"},
-	{"determineBindAttrs", "(CLjava/lang/Object;Ljavax/naming/directory/Attributes;ZLjavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljavax/naming/directory/Attributes;", "(CLjava/lang/Object;Ljavax/naming/directory/Attributes;ZLjavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljavax/naming/directory/Attributes;", $STATIC, $method(static_cast<$Attributes*(*)(char16_t,Object$*,$Attributes*,bool,$Name*,$Context*,$Hashtable*)>(&Obj::determineBindAttrs)), "javax.naming.NamingException"},
-	{"encodeObject", "(CLjava/lang/Object;Ljavax/naming/directory/Attributes;Ljavax/naming/directory/Attribute;Z)Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Attributes*(*)(char16_t,Object$*,$Attributes*,$Attribute*,bool)>(&Obj::encodeObject)), "javax.naming.NamingException"},
-	{"encodeReference", "(CLjavax/naming/Reference;Ljavax/naming/directory/Attributes;Ljava/lang/Object;)Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Attributes*(*)(char16_t,$Reference*,$Attributes*,Object$*)>(&Obj::encodeReference)), "javax.naming.NamingException"},
-	{"getCodebases", "(Ljavax/naming/directory/Attribute;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($Attribute*)>(&Obj::getCodebases)), "javax.naming.NamingException"},
-	{"serializeObject", "(Ljava/lang/Object;)[B", nullptr, $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)(Object$*)>(&Obj::serializeObject)), "javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Obj, init$, void)},
+	{"decodeObject", "(Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(Obj, decodeObject, $Object*, $Attributes*), "javax.naming.NamingException"},
+	{"decodeReference", "(Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/Reference;", nullptr, $PRIVATE | $STATIC, $staticMethod(Obj, decodeReference, $Reference*, $Attributes*, $StringArray*), "javax.naming.NamingException,java.io.IOException"},
+	{"decodeRmiObject", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Obj, decodeRmiObject, $Object*, $String*, $String*, $StringArray*), "javax.naming.NamingException"},
+	{"deserializeObject", "([BLjava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Obj, deserializeObject, $Object*, $bytes*, $ClassLoader*), "javax.naming.NamingException"},
+	{"determineBindAttrs", "(CLjava/lang/Object;Ljavax/naming/directory/Attributes;ZLjavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljavax/naming/directory/Attributes;", "(CLjava/lang/Object;Ljavax/naming/directory/Attributes;ZLjavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljavax/naming/directory/Attributes;", $STATIC, $staticMethod(Obj, determineBindAttrs, $Attributes*, char16_t, Object$*, $Attributes*, bool, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
+	{"encodeObject", "(CLjava/lang/Object;Ljavax/naming/directory/Attributes;Ljavax/naming/directory/Attribute;Z)Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE | $STATIC, $staticMethod(Obj, encodeObject, $Attributes*, char16_t, Object$*, $Attributes*, $Attribute*, bool), "javax.naming.NamingException"},
+	{"encodeReference", "(CLjavax/naming/Reference;Ljavax/naming/directory/Attributes;Ljava/lang/Object;)Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE | $STATIC, $staticMethod(Obj, encodeReference, $Attributes*, char16_t, $Reference*, $Attributes*, Object$*), "javax.naming.NamingException"},
+	{"getCodebases", "(Ljavax/naming/directory/Attribute;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Obj, getCodebases, $StringArray*, $Attribute*), "javax.naming.NamingException"},
+	{"serializeObject", "(Ljava/lang/Object;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(Obj, serializeObject, $bytes*, Object$*), "javax.naming.NamingException"},
 	{}
 };
 

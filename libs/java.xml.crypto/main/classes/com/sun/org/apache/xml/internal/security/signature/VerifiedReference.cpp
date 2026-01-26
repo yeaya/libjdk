@@ -27,10 +27,10 @@ $FieldInfo _VerifiedReference_FieldInfo_[] = {
 };
 
 $MethodInfo _VerifiedReference_MethodInfo_[] = {
-	{"<init>", "(ZLjava/lang/String;Ljava/util/List;)V", "(ZLjava/lang/String;Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;)V", $PUBLIC, $method(static_cast<void(VerifiedReference::*)(bool,$String*,$List*)>(&VerifiedReference::init$))},
-	{"getManifestReferences", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PUBLIC},
-	{"getUri", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isValid", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(ZLjava/lang/String;Ljava/util/List;)V", "(ZLjava/lang/String;Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;)V", $PUBLIC, $method(VerifiedReference, init$, void, bool, $String*, $List*)},
+	{"getManifestReferences", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PUBLIC, $virtualMethod(VerifiedReference, getManifestReferences, $List*)},
+	{"getUri", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VerifiedReference, getUri, $String*)},
+	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(VerifiedReference, isValid, bool)},
 	{}
 };
 

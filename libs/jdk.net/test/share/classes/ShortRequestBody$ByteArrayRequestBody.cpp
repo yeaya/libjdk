@@ -13,7 +13,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
 
 $MethodInfo _ShortRequestBody$ByteArrayRequestBody_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, 0, $method(static_cast<void(ShortRequestBody$ByteArrayRequestBody::*)($bytes*,int32_t)>(&ShortRequestBody$ByteArrayRequestBody::init$))},
+	{"<init>", "([BI)V", nullptr, 0, $method(ShortRequestBody$ByteArrayRequestBody, init$, void, $bytes*, int32_t)},
 	{}
 };
 

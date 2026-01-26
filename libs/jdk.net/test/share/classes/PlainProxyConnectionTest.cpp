@@ -85,11 +85,11 @@ $FieldInfo _PlainProxyConnectionTest_FieldInfo_[] = {
 };
 
 $MethodInfo _PlainProxyConnectionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PlainProxyConnectionTest::*)()>(&PlainProxyConnectionTest::init$))},
-	{"createHttpsServer", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, $STATIC, $method(static_cast<$HttpServer*(*)()>(&PlainProxyConnectionTest::createHttpsServer)), "java.io.IOException,java.security.NoSuchAlgorithmException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&PlainProxyConnectionTest::main)), "java.io.IOException,java.net.URISyntaxException,java.security.NoSuchAlgorithmException,java.lang.InterruptedException"},
-	{"performSanityTest", "(Lcom/sun/net/httpserver/HttpServer;Ljava/net/URI;Ljava/net/URI;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($HttpServer*,$URI*,$URI*)>(&PlainProxyConnectionTest::performSanityTest)), "java.io.IOException"},
-	{"test", "(Lcom/sun/net/httpserver/HttpServer;Ljava/net/http/HttpClient$Version;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($HttpServer*,$HttpClient$Version*)>(&PlainProxyConnectionTest::test)), "java.io.IOException,java.net.URISyntaxException,java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PlainProxyConnectionTest, init$, void)},
+	{"createHttpsServer", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, $STATIC, $staticMethod(PlainProxyConnectionTest, createHttpsServer, $HttpServer*), "java.io.IOException,java.security.NoSuchAlgorithmException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainProxyConnectionTest, main, void, $StringArray*), "java.io.IOException,java.net.URISyntaxException,java.security.NoSuchAlgorithmException,java.lang.InterruptedException"},
+	{"performSanityTest", "(Lcom/sun/net/httpserver/HttpServer;Ljava/net/URI;Ljava/net/URI;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PlainProxyConnectionTest, performSanityTest, void, $HttpServer*, $URI*, $URI*), "java.io.IOException"},
+	{"test", "(Lcom/sun/net/httpserver/HttpServer;Ljava/net/http/HttpClient$Version;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainProxyConnectionTest, test, void, $HttpServer*, $HttpClient$Version*), "java.io.IOException,java.net.URISyntaxException,java.lang.InterruptedException"},
 	{}
 };
 

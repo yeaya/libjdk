@@ -43,10 +43,10 @@ $FieldInfo _ResolverAnonymous_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolverAnonymous_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ResolverAnonymous::*)($String*)>(&ResolverAnonymous::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(ResolverAnonymous::*)($Path*)>(&ResolverAnonymous::init$))},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResolverAnonymous, init$, void, $String*), "java.io.IOException"},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ResolverAnonymous, init$, void, $Path*)},
+	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverAnonymous, engineCanResolveURI, bool, $ResourceResolverContext*)},
+	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverAnonymous, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
 	{}
 };
 

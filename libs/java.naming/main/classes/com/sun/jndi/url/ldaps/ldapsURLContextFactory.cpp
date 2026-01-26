@@ -14,7 +14,7 @@ namespace com {
 				namespace ldaps {
 
 $MethodInfo _ldapsURLContextFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ldapsURLContextFactory::*)()>(&ldapsURLContextFactory::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ldapsURLContextFactory, init$, void)},
 	{}
 };
 

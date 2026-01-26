@@ -161,7 +161,7 @@ $FieldInfo _Constants_FieldInfo_[] = {
 };
 
 $MethodInfo _Constants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Constants::*)()>(&Constants::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Constants, init$, void)},
 	{}
 };
 

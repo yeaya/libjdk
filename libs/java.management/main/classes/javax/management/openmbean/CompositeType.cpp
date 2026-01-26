@@ -40,18 +40,18 @@ $FieldInfo _CompositeType_FieldInfo_[] = {
 };
 
 $MethodInfo _CompositeType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljavax/management/openmbean/OpenType<*>;)V", $PUBLIC, $method(static_cast<void(CompositeType::*)($String*,$String*,$StringArray*,$StringArray*,$OpenTypeArray*)>(&CompositeType::init$)), "javax.management.openmbean.OpenDataException"},
-	{"checkForEmptyString", "([Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray*,$String*)>(&CompositeType::checkForEmptyString))},
-	{"checkForNullElement", "([Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ObjectArray*,$String*)>(&CompositeType::checkForNullElement))},
-	{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getDescription", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getType", "(Ljava/lang/String;)Ljavax/management/openmbean/OpenType;", "(Ljava/lang/String;)Ljavax/management/openmbean/OpenType<*>;", $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isAssignableFrom", "(Ljavax/management/openmbean/OpenType;)Z", "(Ljavax/management/openmbean/OpenType<*>;)Z", 0},
-	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljavax/management/openmbean/OpenType;)V", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljavax/management/openmbean/OpenType<*>;)V", $PUBLIC, $method(CompositeType, init$, void, $String*, $String*, $StringArray*, $StringArray*, $OpenTypeArray*), "javax.management.openmbean.OpenDataException"},
+	{"checkForEmptyString", "([Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CompositeType, checkForEmptyString, void, $StringArray*, $String*)},
+	{"checkForNullElement", "([Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CompositeType, checkForNullElement, void, $ObjectArray*, $String*)},
+	{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CompositeType, containsKey, bool, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompositeType, equals, bool, Object$*)},
+	{"getDescription", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompositeType, getDescription, $String*, $String*)},
+	{"getType", "(Ljava/lang/String;)Ljavax/management/openmbean/OpenType;", "(Ljava/lang/String;)Ljavax/management/openmbean/OpenType<*>;", $PUBLIC, $virtualMethod(CompositeType, getType, $OpenType*, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CompositeType, hashCode, int32_t)},
+	{"isAssignableFrom", "(Ljavax/management/openmbean/OpenType;)Z", "(Ljavax/management/openmbean/OpenType<*>;)Z", 0, $virtualMethod(CompositeType, isAssignableFrom, bool, $OpenType*)},
+	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompositeType, isValue, bool, Object$*)},
+	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CompositeType, keySet, $Set*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompositeType, toString, $String*)},
 	{}
 };
 

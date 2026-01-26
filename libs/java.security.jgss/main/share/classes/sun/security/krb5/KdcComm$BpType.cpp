@@ -28,10 +28,10 @@ $FieldInfo _KdcComm$BpType_FieldInfo_[] = {
 };
 
 $MethodInfo _KdcComm$BpType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/krb5/KdcComm$BpType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$KdcComm$BpTypeArray*(*)()>(&KdcComm$BpType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(KdcComm$BpType::*)($String*,int32_t)>(&KdcComm$BpType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KdcComm$BpType*(*)($String*)>(&KdcComm$BpType::valueOf))},
-	{"values", "()[Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$KdcComm$BpTypeArray*(*)()>(&KdcComm$BpType::values))},
+	{"$values", "()[Lsun/security/krb5/KdcComm$BpType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KdcComm$BpType, $values, $KdcComm$BpTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(KdcComm$BpType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(KdcComm$BpType, valueOf, KdcComm$BpType*, $String*)},
+	{"values", "()[Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(KdcComm$BpType, values, $KdcComm$BpTypeArray*)},
 	{}
 };
 

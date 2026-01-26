@@ -20,8 +20,8 @@ namespace com {
 				namespace jvm {
 
 $MethodInfo _Code$StackMapFormat$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Code$StackMapFormat$1::*)($String*,int32_t)>(&Code$StackMapFormat$1::init$))},
-	{"getAttributeName", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Code$StackMapFormat$1, init$, void, $String*, int32_t)},
+	{"getAttributeName", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(Code$StackMapFormat$1, getAttributeName, $Name*, $Names*)},
 	{}
 };
 

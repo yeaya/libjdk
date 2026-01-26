@@ -25,8 +25,8 @@ $CompoundAttribute _SimpleAnnotationValueVisitor9_Annotations_[] = {
 };
 
 $MethodInfo _SimpleAnnotationValueVisitor9_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SimpleAnnotationValueVisitor9::*)()>(&SimpleAnnotationValueVisitor9::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(SimpleAnnotationValueVisitor9::*)(Object$*)>(&SimpleAnnotationValueVisitor9::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SimpleAnnotationValueVisitor9, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(SimpleAnnotationValueVisitor9, init$, void, Object$*)},
 	{}
 };
 

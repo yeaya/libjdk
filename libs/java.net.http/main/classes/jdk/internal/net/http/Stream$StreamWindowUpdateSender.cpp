@@ -24,9 +24,9 @@ $FieldInfo _Stream$StreamWindowUpdateSender_FieldInfo_[] = {
 };
 
 $MethodInfo _Stream$StreamWindowUpdateSender_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;Ljdk/internal/net/http/Http2Connection;)V", nullptr, 0, $method(static_cast<void(Stream$StreamWindowUpdateSender::*)($Stream*,$Http2Connection*)>(&Stream$StreamWindowUpdateSender::init$))},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0},
-	{"getStreamId", "()I", nullptr, 0},
+	{"<init>", "(Ljdk/internal/net/http/Stream;Ljdk/internal/net/http/Http2Connection;)V", nullptr, 0, $method(Stream$StreamWindowUpdateSender, init$, void, $Stream*, $Http2Connection*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Stream$StreamWindowUpdateSender, dbgString, $String*)},
+	{"getStreamId", "()I", nullptr, 0, $virtualMethod(Stream$StreamWindowUpdateSender, getStreamId, int32_t)},
 	{}
 };
 

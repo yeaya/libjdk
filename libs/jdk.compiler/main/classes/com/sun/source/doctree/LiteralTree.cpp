@@ -3,6 +3,7 @@
 #include <com/sun/source/doctree/TextTree.h>
 #include <jcpp.h>
 
+using $TextTree = ::com::sun::source::doctree::TextTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,7 +13,7 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _LiteralTree_MethodInfo_[] = {
-	{"getBody", "()Lcom/sun/source/doctree/TextTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getBody", "()Lcom/sun/source/doctree/TextTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LiteralTree, getBody, $TextTree*)},
 	{}
 };
 

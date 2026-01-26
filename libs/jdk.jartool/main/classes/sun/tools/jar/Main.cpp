@@ -271,8 +271,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$static$27::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$static$27::*)()>(&Main$$Lambda$lambda$static$27::init$))},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$static$27, init$, void)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$static$27, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$static$27::classInfo$ = {
@@ -304,8 +304,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$getName$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$getName$1::*)()>(&Main$$Lambda$getName$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$getName$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$getName$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$getName$1::classInfo$ = {
@@ -337,8 +337,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$run$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$run$0$2::*)()>(&Main$$Lambda$lambda$run$0$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$run$0$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$run$0$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$run$0$2::classInfo$ = {
@@ -383,8 +383,8 @@ $FieldInfo Main$$Lambda$lambda$run$1$3::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$run$1$3::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$run$1$3::*)(Main*,$Set*,$Set*)>(&Main$$Lambda$lambda$run$1$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$run$1$3, init$, void, Main*, $Set*, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$run$1$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$run$1$3::classInfo$ = {
@@ -423,8 +423,8 @@ $FieldInfo Main$$Lambda$filesToEntryNames$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$filesToEntryNames$4::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$filesToEntryNames$4::*)(Main*)>(&Main$$Lambda$filesToEntryNames$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, $PUBLIC, $method(Main$$Lambda$filesToEntryNames$4, init$, void, Main*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$filesToEntryNames$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$filesToEntryNames$4::classInfo$ = {
@@ -456,8 +456,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$filesMapToFiles$2$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$filesMapToFiles$2$5::*)()>(&Main$$Lambda$lambda$filesMapToFiles$2$5::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$filesMapToFiles$2$5, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$filesMapToFiles$2$5, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$filesMapToFiles$2$5::classInfo$ = {
@@ -502,8 +502,8 @@ $FieldInfo Main$$Lambda$lambda$filesToEntryNames$3$6::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$filesToEntryNames$3$6::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;I)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$filesToEntryNames$3$6::*)(Main*,$Set*,int32_t)>(&Main$$Lambda$lambda$filesToEntryNames$3$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;I)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$filesToEntryNames$3$6, init$, void, Main*, $Set*, int32_t)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$filesToEntryNames$3$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$filesToEntryNames$3$6::classInfo$ = {
@@ -545,8 +545,8 @@ $FieldInfo Main$$Lambda$lambda$update$4$7::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$update$4$7::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$update$4$7::*)(Main*,$Set*)>(&Main$$Lambda$lambda$update$4$7::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Main;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$update$4$7, init$, void, Main*, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$update$4$7, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$update$4$7::classInfo$ = {
@@ -585,8 +585,8 @@ $FieldInfo Main$$Lambda$lambda$replaceFSC$5$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$replaceFSC$5$8::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$replaceFSC$5$8::*)($Map*)>(&Main$$Lambda$lambda$replaceFSC$5$8::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$replaceFSC$5$8, init$, void, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$replaceFSC$5$8, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$replaceFSC$5$8::classInfo$ = {
@@ -618,8 +618,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$6$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$6$9::*)()>(&Main$$Lambda$lambda$describeModule$6$9::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$6$9, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$6$9, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$6$9::classInfo$ = {
@@ -658,8 +658,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$7$10::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$7$10::methodInfos[3] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$7$10::*)($ZipFile*)>(&Main$$Lambda$lambda$describeModule$7$10::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/zip/ZipFile;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$7$10, init$, void, $ZipFile*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$7$10, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$7$10::classInfo$ = {
@@ -691,8 +691,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$8$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$8$11::*)()>(&Main$$Lambda$lambda$describeModule$8$11::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$8$11, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$8$11, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$8$11::classInfo$ = {
@@ -724,8 +724,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$name$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$name$12::*)()>(&Main$$Lambda$name$12::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$name$12, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$name$12, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$name$12::classInfo$ = {
@@ -757,8 +757,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$describeModuleFromStream$9$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModuleFromStream$9$13::*)()>(&Main$$Lambda$lambda$describeModuleFromStream$9$13::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModuleFromStream$9$13, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModuleFromStream$9$13, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModuleFromStream$9$13::classInfo$ = {
@@ -790,8 +790,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$describeModuleFromEntries$10$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModuleFromEntries$10$14::*)()>(&Main$$Lambda$lambda$describeModuleFromEntries$10$14::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModuleFromEntries$10$14, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModuleFromEntries$10$14, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModuleFromEntries$10$14::classInfo$ = {
@@ -823,8 +823,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$versionFromEntryName$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$versionFromEntryName$15::*)()>(&Main$$Lambda$versionFromEntryName$15::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$versionFromEntryName$15, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$versionFromEntryName$15, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$versionFromEntryName$15::classInfo$ = {
@@ -856,8 +856,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$toLowerCaseString$11$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$toLowerCaseString$11$16::*)()>(&Main$$Lambda$lambda$toLowerCaseString$11$16::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$toLowerCaseString$11$16, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$toLowerCaseString$11$16, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$toLowerCaseString$11$16::classInfo$ = {
@@ -889,8 +889,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$toString$12$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$toString$12$17::*)()>(&Main$$Lambda$lambda$toString$12$17::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$toString$12$17, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$toString$12$17, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$toString$12$17::classInfo$ = {
@@ -922,8 +922,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$source$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$source$18::*)()>(&Main$$Lambda$source$18::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$source$18, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$source$18, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$source$18::classInfo$ = {
@@ -955,8 +955,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$13$19::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$13$19::*)()>(&Main$$Lambda$lambda$describeModule$13$19::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$13$19, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$13$19, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$13$19::classInfo$ = {
@@ -995,8 +995,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$14$20::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$14$20::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$14$20::*)($StringBuilder*)>(&Main$$Lambda$lambda$describeModule$14$20::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$14$20, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$14$20, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$14$20::classInfo$ = {
@@ -1035,8 +1035,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$15$21::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$15$21::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$15$21::*)($StringBuilder*)>(&Main$$Lambda$lambda$describeModule$15$21::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$15$21, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$15$21, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$15$21::classInfo$ = {
@@ -1075,8 +1075,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$16$22::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$16$22::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$16$22::*)($StringBuilder*)>(&Main$$Lambda$lambda$describeModule$16$22::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$16$22, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$16$22, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$16$22::classInfo$ = {
@@ -1108,8 +1108,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$service$23::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$service$23::*)()>(&Main$$Lambda$service$23::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$service$23, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$service$23, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$service$23::classInfo$ = {
@@ -1148,8 +1148,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$17$24::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$17$24::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$17$24::*)($StringBuilder*)>(&Main$$Lambda$lambda$describeModule$17$24::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$17$24, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$17$24, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$17$24::classInfo$ = {
@@ -1181,8 +1181,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$isQualified$25::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$isQualified$25::*)()>(&Main$$Lambda$isQualified$25::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$isQualified$25, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$isQualified$25, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$isQualified$25::classInfo$ = {
@@ -1221,8 +1221,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$18$26::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$18$26::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$18$26::*)($StringBuilder*)>(&Main$$Lambda$lambda$describeModule$18$26::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$18$26, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$18$26, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$18$26::classInfo$ = {
@@ -1254,8 +1254,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$source$27::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$source$27::*)()>(&Main$$Lambda$source$27::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$source$27, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$source$27, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$source$27::classInfo$ = {
@@ -1287,8 +1287,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$19$28::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$19$28::*)()>(&Main$$Lambda$lambda$describeModule$19$28::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$19$28, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$19$28, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$19$28::classInfo$ = {
@@ -1327,8 +1327,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$20$29::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$20$29::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$20$29::*)($StringBuilder*)>(&Main$$Lambda$lambda$describeModule$20$29::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$20$29, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$20$29, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$20$29::classInfo$ = {
@@ -1360,8 +1360,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$isQualified$30::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$isQualified$30::*)()>(&Main$$Lambda$isQualified$30::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$isQualified$30, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$isQualified$30, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$isQualified$30::classInfo$ = {
@@ -1400,8 +1400,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$21$31::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$21$31::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$21$31::*)($StringBuilder*)>(&Main$$Lambda$lambda$describeModule$21$31::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$21$31, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$21$31, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$21$31::classInfo$ = {
@@ -1440,8 +1440,8 @@ $FieldInfo Main$$Lambda$remove$32::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$remove$32::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$remove$32::*)($Set*)>(&Main$$Lambda$remove$32::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$remove$32, init$, void, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$remove$32, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$remove$32::classInfo$ = {
@@ -1480,8 +1480,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$22$33::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$22$33::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$22$33::*)($StringBuilder*)>(&Main$$Lambda$lambda$describeModule$22$33::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$22$33, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$22$33, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$22$33::classInfo$ = {
@@ -1520,8 +1520,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$23$34::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$23$34::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$23$34::*)($StringBuilder*)>(&Main$$Lambda$lambda$describeModule$23$34::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$23$34, init$, void, $StringBuilder*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$23$34, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$23$34::classInfo$ = {
@@ -1563,8 +1563,8 @@ $FieldInfo Main$$Lambda$lambda$describeModule$24$35::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$describeModule$24$35::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;Ljdk/internal/module/ModuleHashes;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$describeModule$24$35::*)($StringBuilder*,$ModuleHashes*)>(&Main$$Lambda$lambda$describeModule$24$35::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;Ljdk/internal/module/ModuleHashes;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$describeModule$24$35, init$, void, $StringBuilder*, $ModuleHashes*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$describeModule$24$35, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$describeModule$24$35::classInfo$ = {
@@ -1596,8 +1596,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$providers$36::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$providers$36::*)()>(&Main$$Lambda$providers$36::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$providers$36, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$providers$36, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$providers$36::classInfo$ = {
@@ -1629,8 +1629,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Main$$Lambda$stream$37::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$stream$37::*)()>(&Main$$Lambda$stream$37::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Main$$Lambda$stream$37, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$stream$37, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$stream$37::classInfo$ = {
@@ -1669,8 +1669,8 @@ $FieldInfo Main$$Lambda$lambda$checkModuleInfo$25$38::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$checkModuleInfo$25$38::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$checkModuleInfo$25$38::*)($Set*)>(&Main$$Lambda$lambda$checkModuleInfo$25$38::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$checkModuleInfo$25$38, init$, void, $Set*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$checkModuleInfo$25$38, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$checkModuleInfo$25$38::classInfo$ = {
@@ -1709,8 +1709,8 @@ $FieldInfo Main$$Lambda$lambda$checkModuleInfo$26$39::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Main$$Lambda$lambda$checkModuleInfo$26$39::methodInfos[3] = {
-	{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, $PUBLIC, $method(static_cast<void(Main$$Lambda$lambda$checkModuleInfo$26$39::*)(Main*)>(&Main$$Lambda$lambda$checkModuleInfo$26$39::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Main;)V", nullptr, $PUBLIC, $method(Main$$Lambda$lambda$checkModuleInfo$26$39, init$, void, Main*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Main$$Lambda$lambda$checkModuleInfo$26$39, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Main$$Lambda$lambda$checkModuleInfo$26$39::classInfo$ = {
@@ -1778,110 +1778,110 @@ $FieldInfo _Main_FieldInfo_[] = {
 };
 
 $MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintStream;Ljava/io/PrintStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Main::*)($PrintStream*,$PrintStream*,$String*)>(&Main::init$))},
-	{"<init>", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Main::*)($PrintWriter*,$PrintWriter*,$String*)>(&Main::init$))},
-	{"addCreatedBy", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($Manifest*)>(&Main::addCreatedBy))},
-	{"addExtendedModuleAttributes", "(Ljava/util/Map;Ljava/util/Set;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(static_cast<void(Main::*)($Map*,$Set*)>(&Main::addExtendedModuleAttributes)), "java.io.IOException"},
-	{"addFile", "(Ljava/util/zip/ZipOutputStream;Lsun/tools/jar/Main$Entry;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"addIndex", "(Ljdk/internal/util/jar/JarIndex;Ljava/util/zip/ZipOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($JarIndex*,$ZipOutputStream*)>(&Main::addIndex)), "java.io.IOException"},
-	{"addMainClass", "(Ljava/util/jar/Manifest;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($Manifest*,$String*)>(&Main::addMainClass))},
-	{"addMultiRelease", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($Manifest*)>(&Main::addMultiRelease))},
-	{"addPackageIfNamed", "(Ljava/util/Set;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;)V", 0},
-	{"addVersion", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($Manifest*)>(&Main::addVersion))},
-	{"checkModuleInfo", "([BLjava/util/Set;)Z", "([BLjava/util/Set<Ljava/lang/String;>;)Z", $PRIVATE, $method(static_cast<bool(Main::*)($bytes*,$Set*)>(&Main::checkModuleInfo)), "java.io.IOException"},
-	{"copy", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($InputStream*,$OutputStream*)>(&Main::copy)), "java.io.IOException"},
-	{"copy", "(Ljava/io/File;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($File*,$OutputStream*)>(&Main::copy)), "java.io.IOException"},
-	{"copy", "(Ljava/io/InputStream;Ljava/io/File;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($InputStream*,$File*)>(&Main::copy)), "java.io.IOException"},
-	{"crc32File", "(Ljava/util/zip/ZipEntry;Ljava/io/File;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($ZipEntry*,$File*)>(&Main::crc32File)), "java.io.IOException"},
-	{"crc32Manifest", "(Ljava/util/zip/ZipEntry;Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($ZipEntry*,$Manifest*)>(&Main::crc32Manifest)), "java.io.IOException"},
-	{"crc32ModuleInfo", "(Ljava/util/zip/ZipEntry;[B)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($ZipEntry*,$bytes*)>(&Main::crc32ModuleInfo)), "java.io.IOException"},
-	{"create", "(Ljava/io/OutputStream;Ljava/util/jar/Manifest;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"createTempFileInSameDirectoryAs", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$File*(*)($File*)>(&Main::createTempFileInSameDirectoryAs)), "java.io.IOException"},
-	{"createTemporaryFile", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(static_cast<$File*(Main::*)($String*,$String*)>(&Main::createTemporaryFile))},
-	{"describeModule", "(Ljava/util/zip/ZipFile;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Main::*)($ZipFile*)>(&Main::describeModule)), "java.io.IOException"},
-	{"describeModule", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($InputStream*,$String*)>(&Main::describeModule)), "java.io.IOException"},
-	{"describeModule", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($ModuleDescriptor*,$ModuleTarget*,$ModuleHashes*,$String*)>(&Main::describeModule)), "java.io.IOException"},
-	{"describeModuleFromEntries", "([Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Main::*)($Main$ModuleInfoEntryArray*)>(&Main::describeModuleFromEntries)), "java.io.IOException"},
-	{"describeModuleFromStream", "(Ljava/io/FileInputStream;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Main::*)($FileInputStream*)>(&Main::describeModuleFromStream)), "java.io.IOException"},
-	{"dumpIndex", "(Ljava/lang/String;Ljdk/internal/util/jar/JarIndex;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"equalsIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Main::*)($String*,$String*)>(&Main::equalsIgnoreCase))},
-	{"error", "(Ljava/lang/String;)V", nullptr, 0},
-	{"expand", "()V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)()>(&Main::expand)), "java.io.IOException"},
-	{"expand", "(Ljava/io/File;[Ljava/lang/String;Ljava/util/Set;I)V", "(Ljava/io/File;[Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;I)V", $PRIVATE, $method(static_cast<void(Main::*)($File*,$StringArray*,$Set*,int32_t)>(&Main::expand)), "java.io.IOException"},
-	{"extendedInfoBytes", "(Ljava/lang/module/ModuleDescriptor;[BLjava/util/Set;)[B", "(Ljava/lang/module/ModuleDescriptor;[BLjava/util/Set<Ljava/lang/String;>;)[B", $PRIVATE, $method(static_cast<$bytes*(Main::*)($ModuleDescriptor*,$bytes*,$Set*)>(&Main::extendedInfoBytes)), "java.io.IOException"},
-	{"extract", "(Ljava/io/InputStream;[Ljava/lang/String;)Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"extract", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"extractFile", "(Ljava/io/InputStream;Ljava/util/zip/ZipEntry;)Ljava/util/zip/ZipEntry;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"fatalError", "(Ljava/lang/Exception;)V", nullptr, 0},
-	{"fatalError", "(Ljava/lang/String;)V", nullptr, 0},
-	{"filesMapToFiles", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/Integer;[Ljava/lang/String;>;)[Ljava/lang/String;", $PRIVATE, $method(static_cast<$StringArray*(Main::*)($Map*)>(&Main::filesMapToFiles))},
-	{"filesToEntryNames", "(Ljava/util/Map$Entry;)Ljava/util/stream/Stream;", "(Ljava/util/Map$Entry<Ljava/lang/Integer;[Ljava/lang/String;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;", 0},
-	{"formatMsg", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&Main::formatMsg))},
-	{"formatMsg2", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*,$String*,$String*)>(&Main::formatMsg2))},
-	{"genIndex", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getJarPath", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", 0, nullptr, "java.io.IOException"},
-	{"getMsg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&Main::getMsg))},
-	{"intVersionFromEntry", "(Lsun/tools/jar/Main$ModuleInfoEntry;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($Main$ModuleInfoEntry*)>(&Main::intVersionFromEntry))},
-	{"isAmbiguousMainClass", "(Ljava/util/jar/Manifest;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Main::*)($Manifest*)>(&Main::isAmbiguousMainClass))},
-	{"isModuleInfoEntry", "(Ljava/lang/String;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($String*)>(&Main::isModuleInfoEntry))},
-	{"isWinDriveLetter", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<bool(*)(char16_t)>(&Main::isWinDriveLetter))},
-	{"lambda$checkModuleInfo$25", "(Ljava/util/Set;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Set*,$String*)>(&Main::lambda$checkModuleInfo$25))},
-	{"lambda$checkModuleInfo$26", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Main::*)($String*)>(&Main::lambda$checkModuleInfo$26))},
-	{"lambda$describeModule$13", "(Ljava/lang/module/ModuleDescriptor$Exports;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ModuleDescriptor$Exports*)>(&Main::lambda$describeModule$13))},
-	{"lambda$describeModule$14", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$ModuleDescriptor$Exports*)>(&Main::lambda$describeModule$14))},
-	{"lambda$describeModule$15", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Requires;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$ModuleDescriptor$Requires*)>(&Main::lambda$describeModule$15))},
-	{"lambda$describeModule$16", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$String*)>(&Main::lambda$describeModule$16))},
-	{"lambda$describeModule$17", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Provides;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$ModuleDescriptor$Provides*)>(&Main::lambda$describeModule$17))},
-	{"lambda$describeModule$18", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$ModuleDescriptor$Exports*)>(&Main::lambda$describeModule$18))},
-	{"lambda$describeModule$19", "(Ljava/lang/module/ModuleDescriptor$Opens;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ModuleDescriptor$Opens*)>(&Main::lambda$describeModule$19))},
-	{"lambda$describeModule$20", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$ModuleDescriptor$Opens*)>(&Main::lambda$describeModule$20))},
-	{"lambda$describeModule$21", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$ModuleDescriptor$Opens*)>(&Main::lambda$describeModule$21))},
-	{"lambda$describeModule$22", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$String*)>(&Main::lambda$describeModule$22))},
-	{"lambda$describeModule$23", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$String*)>(&Main::lambda$describeModule$23))},
-	{"lambda$describeModule$24", "(Ljava/lang/StringBuilder;Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($StringBuilder*,$ModuleHashes*,$String*)>(&Main::lambda$describeModule$24))},
-	{"lambda$describeModule$6", "(Ljava/util/zip/ZipEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ZipEntry*)>(&Main::lambda$describeModule$6))},
-	{"lambda$describeModule$7", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;)Lsun/tools/jar/Main$ZipFileModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Main$ZipFileModuleInfoEntry*(*)($ZipFile*,$ZipEntry*)>(&Main::lambda$describeModule$7))},
-	{"lambda$describeModule$8", "(I)[Lsun/tools/jar/Main$ZipFileModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Main$ZipFileModuleInfoEntryArray*(*)(int32_t)>(&Main::lambda$describeModule$8))},
-	{"lambda$describeModuleFromEntries$10", "(Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Main$ModuleInfoEntry*)>(&Main::lambda$describeModuleFromEntries$10))},
-	{"lambda$describeModuleFromStream$9", "(I)[Lsun/tools/jar/Main$ModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Main$ModuleInfoEntryArray*(*)(int32_t)>(&Main::lambda$describeModuleFromStream$9))},
-	{"lambda$filesMapToFiles$2", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StringArray*(*)(int32_t)>(&Main::lambda$filesMapToFiles$2))},
-	{"lambda$filesToEntryNames$3", "(Ljava/util/Set;ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Main::*)($Set*,int32_t,$String*)>(&Main::lambda$filesToEntryNames$3))},
-	{"lambda$replaceFSC$5", "(Ljava/util/Map;Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$Integer*)>(&Main::lambda$replaceFSC$5))},
-	{"lambda$run$0", "(Lsun/tools/jar/Main$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Main$Entry*)>(&Main::lambda$run$0))},
-	{"lambda$run$1", "(Ljava/util/Set;Ljava/util/Set;Lsun/tools/jar/Main$Entry;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Main::*)($Set*,$Set*,$Main$Entry*)>(&Main::lambda$run$1))},
-	{"lambda$static$27", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int32_t(*)($String*,$String*)>(&Main::lambda$static$27))},
-	{"lambda$toLowerCaseString$11", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(Object$*)>(&Main::lambda$toLowerCaseString$11))},
-	{"lambda$toString$12", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(Object$*)>(&Main::lambda$toString$12))},
-	{"lambda$update$4", "(Ljava/util/Set;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Main::*)($Set*,$String*)>(&Main::lambda$update$4))},
-	{"lessThanEqualReleaseValue", "(Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Main::*)($Main$ModuleInfoEntry*)>(&Main::lessThanEqualReleaseValue))},
-	{"list", "(Ljava/io/InputStream;[Ljava/lang/String;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"list", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Main::main))},
-	{"newDirSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/zip/ZipEntry;>;", 0},
-	{"output", "(Ljava/lang/String;)V", nullptr, $PROTECTED},
-	{"parseArgs", "([Ljava/lang/String;)Z", nullptr, 0},
-	{"printEntry", "(Ljava/util/zip/ZipEntry;[Ljava/lang/String;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"printEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"replaceFSC", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/Integer;[Ljava/lang/String;>;)V", 0},
-	{"run", "([Ljava/lang/String;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"safeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Main::*)($String*)>(&Main::safeName))},
-	{"toBinaryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&Main::toBinaryName))},
-	{"toEntryName", "(Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;Z)Ljava/lang/String;", $PRIVATE, $method(static_cast<$String*(Main::*)($String*,$Set*,bool)>(&Main::toEntryName))},
-	{"toHex", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($bytes*)>(&Main::toHex))},
-	{"toLowerCaseString", "(Ljava/util/Collection;)Ljava/lang/String;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/lang/String;", $STATIC, $method(static_cast<$String*(*)($Collection*)>(&Main::toLowerCaseString))},
-	{"toPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Main::toPackageName))},
-	{"toString", "(Ljava/util/Collection;)Ljava/lang/String;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/lang/String;", $STATIC, $method(static_cast<$String*(*)($Collection*)>(&Main::toString))},
-	{"toUpperCaseASCII", "(C)C", nullptr, $PRIVATE, $method(static_cast<char16_t(Main::*)(char16_t)>(&Main::toUpperCaseASCII))},
-	{"toVersionedName", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,int32_t)>(&Main::toVersionedName))},
-	{"update", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/InputStream;Ljava/util/Map;Ljdk/internal/util/jar/JarIndex;)Z", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/InputStream;Ljava/util/Map<Ljava/lang/String;[B>;Ljdk/internal/util/jar/JarIndex;)Z", 0, nullptr, "java.io.IOException"},
-	{"updateLastModifiedTime", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/zip/ZipEntry;>;)V", 0, nullptr, "java.io.IOException"},
-	{"updateManifest", "(Ljava/util/jar/Manifest;Ljava/util/zip/ZipOutputStream;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Main::*)($Manifest*,$ZipOutputStream*)>(&Main::updateManifest)), "java.io.IOException"},
-	{"updateModuleInfo", "(Ljava/util/Map;Ljava/util/zip/ZipOutputStream;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/util/zip/ZipOutputStream;)V", $PRIVATE, $method(static_cast<void(Main::*)($Map*,$ZipOutputStream*)>(&Main::updateModuleInfo)), "java.io.IOException"},
-	{"usageError", "(Ljava/lang/String;)V", nullptr, 0},
-	{"validateAndClose", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($File*)>(&Main::validateAndClose)), "java.io.IOException"},
-	{"validateJar", "(Ljava/io/File;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Main::*)($File*)>(&Main::validateJar)), "java.io.IOException"},
-	{"versionFromEntryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Main::versionFromEntryName))},
-	{"warn", "(Ljava/lang/String;)V", nullptr, 0},
+	{"<init>", "(Ljava/io/PrintStream;Ljava/io/PrintStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintStream*, $PrintStream*, $String*)},
+	{"<init>", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintWriter*, $PrintWriter*, $String*)},
+	{"addCreatedBy", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, addCreatedBy, void, $Manifest*)},
+	{"addExtendedModuleAttributes", "(Ljava/util/Map;Ljava/util/Set;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(Main, addExtendedModuleAttributes, void, $Map*, $Set*), "java.io.IOException"},
+	{"addFile", "(Ljava/util/zip/ZipOutputStream;Lsun/tools/jar/Main$Entry;)V", nullptr, 0, $virtualMethod(Main, addFile, void, $ZipOutputStream*, $Main$Entry*), "java.io.IOException"},
+	{"addIndex", "(Ljdk/internal/util/jar/JarIndex;Ljava/util/zip/ZipOutputStream;)V", nullptr, $PRIVATE, $method(Main, addIndex, void, $JarIndex*, $ZipOutputStream*), "java.io.IOException"},
+	{"addMainClass", "(Ljava/util/jar/Manifest;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Main, addMainClass, void, $Manifest*, $String*)},
+	{"addMultiRelease", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, addMultiRelease, void, $Manifest*)},
+	{"addPackageIfNamed", "(Ljava/util/Set;Ljava/lang/String;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;)V", 0, $virtualMethod(Main, addPackageIfNamed, void, $Set*, $String*)},
+	{"addVersion", "(Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, addVersion, void, $Manifest*)},
+	{"checkModuleInfo", "([BLjava/util/Set;)Z", "([BLjava/util/Set<Ljava/lang/String;>;)Z", $PRIVATE, $method(Main, checkModuleInfo, bool, $bytes*, $Set*), "java.io.IOException"},
+	{"copy", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(Main, copy, void, $InputStream*, $OutputStream*), "java.io.IOException"},
+	{"copy", "(Ljava/io/File;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(Main, copy, void, $File*, $OutputStream*), "java.io.IOException"},
+	{"copy", "(Ljava/io/InputStream;Ljava/io/File;)V", nullptr, $PRIVATE, $method(Main, copy, void, $InputStream*, $File*), "java.io.IOException"},
+	{"crc32File", "(Ljava/util/zip/ZipEntry;Ljava/io/File;)V", nullptr, $PRIVATE, $method(Main, crc32File, void, $ZipEntry*, $File*), "java.io.IOException"},
+	{"crc32Manifest", "(Ljava/util/zip/ZipEntry;Ljava/util/jar/Manifest;)V", nullptr, $PRIVATE, $method(Main, crc32Manifest, void, $ZipEntry*, $Manifest*), "java.io.IOException"},
+	{"crc32ModuleInfo", "(Ljava/util/zip/ZipEntry;[B)V", nullptr, $PRIVATE, $method(Main, crc32ModuleInfo, void, $ZipEntry*, $bytes*), "java.io.IOException"},
+	{"create", "(Ljava/io/OutputStream;Ljava/util/jar/Manifest;)V", nullptr, 0, $virtualMethod(Main, create, void, $OutputStream*, $Manifest*), "java.io.IOException"},
+	{"createTempFileInSameDirectoryAs", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, createTempFileInSameDirectoryAs, $File*, $File*), "java.io.IOException"},
+	{"createTemporaryFile", "(Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(Main, createTemporaryFile, $File*, $String*, $String*)},
+	{"describeModule", "(Ljava/util/zip/ZipFile;)Z", nullptr, $PRIVATE, $method(Main, describeModule, bool, $ZipFile*), "java.io.IOException"},
+	{"describeModule", "(Ljava/io/InputStream;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Main, describeModule, void, $InputStream*, $String*), "java.io.IOException"},
+	{"describeModule", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Main, describeModule, void, $ModuleDescriptor*, $ModuleTarget*, $ModuleHashes*, $String*), "java.io.IOException"},
+	{"describeModuleFromEntries", "([Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE, $method(Main, describeModuleFromEntries, bool, $Main$ModuleInfoEntryArray*), "java.io.IOException"},
+	{"describeModuleFromStream", "(Ljava/io/FileInputStream;)Z", nullptr, $PRIVATE, $method(Main, describeModuleFromStream, bool, $FileInputStream*), "java.io.IOException"},
+	{"dumpIndex", "(Ljava/lang/String;Ljdk/internal/util/jar/JarIndex;)V", nullptr, 0, $virtualMethod(Main, dumpIndex, void, $String*, $JarIndex*), "java.io.IOException"},
+	{"equalsIgnoreCase", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Main, equalsIgnoreCase, bool, $String*, $String*)},
+	{"error", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, error, void, $String*)},
+	{"expand", "()V", nullptr, $PRIVATE, $method(Main, expand, void), "java.io.IOException"},
+	{"expand", "(Ljava/io/File;[Ljava/lang/String;Ljava/util/Set;I)V", "(Ljava/io/File;[Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;I)V", $PRIVATE, $method(Main, expand, void, $File*, $StringArray*, $Set*, int32_t), "java.io.IOException"},
+	{"extendedInfoBytes", "(Ljava/lang/module/ModuleDescriptor;[BLjava/util/Set;)[B", "(Ljava/lang/module/ModuleDescriptor;[BLjava/util/Set<Ljava/lang/String;>;)[B", $PRIVATE, $method(Main, extendedInfoBytes, $bytes*, $ModuleDescriptor*, $bytes*, $Set*), "java.io.IOException"},
+	{"extract", "(Ljava/io/InputStream;[Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Main, extract, bool, $InputStream*, $StringArray*), "java.io.IOException"},
+	{"extract", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, extract, void, $String*, $StringArray*), "java.io.IOException"},
+	{"extractFile", "(Ljava/io/InputStream;Ljava/util/zip/ZipEntry;)Ljava/util/zip/ZipEntry;", nullptr, 0, $virtualMethod(Main, extractFile, $ZipEntry*, $InputStream*, $ZipEntry*), "java.io.IOException"},
+	{"fatalError", "(Ljava/lang/Exception;)V", nullptr, 0, $virtualMethod(Main, fatalError, void, $Exception*)},
+	{"fatalError", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, fatalError, void, $String*)},
+	{"filesMapToFiles", "(Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/Integer;[Ljava/lang/String;>;)[Ljava/lang/String;", $PRIVATE, $method(Main, filesMapToFiles, $StringArray*, $Map*)},
+	{"filesToEntryNames", "(Ljava/util/Map$Entry;)Ljava/util/stream/Stream;", "(Ljava/util/Map$Entry<Ljava/lang/Integer;[Ljava/lang/String;>;)Ljava/util/stream/Stream<Ljava/lang/String;>;", 0, $virtualMethod(Main, filesToEntryNames, $Stream*, $Map$Entry*)},
+	{"formatMsg", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, formatMsg, $String*, $String*, $String*)},
+	{"formatMsg2", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, formatMsg2, $String*, $String*, $String*, $String*)},
+	{"genIndex", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, genIndex, void, $String*, $StringArray*), "java.io.IOException"},
+	{"getJarPath", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", 0, $virtualMethod(Main, getJarPath, $List*, $String*), "java.io.IOException"},
+	{"getMsg", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, getMsg, $String*, $String*)},
+	{"intVersionFromEntry", "(Lsun/tools/jar/Main$ModuleInfoEntry;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, intVersionFromEntry, int32_t, $Main$ModuleInfoEntry*)},
+	{"isAmbiguousMainClass", "(Ljava/util/jar/Manifest;)Z", nullptr, $PRIVATE, $method(Main, isAmbiguousMainClass, bool, $Manifest*)},
+	{"isModuleInfoEntry", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(Main, isModuleInfoEntry, bool, $String*)},
+	{"isWinDriveLetter", "(C)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Main, isWinDriveLetter, bool, char16_t)},
+	{"lambda$checkModuleInfo$25", "(Ljava/util/Set;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$checkModuleInfo$25, bool, $Set*, $String*)},
+	{"lambda$checkModuleInfo$26", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$checkModuleInfo$26, void, $String*)},
+	{"lambda$describeModule$13", "(Ljava/lang/module/ModuleDescriptor$Exports;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$13, bool, $ModuleDescriptor$Exports*)},
+	{"lambda$describeModule$14", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$14, void, $StringBuilder*, $ModuleDescriptor$Exports*)},
+	{"lambda$describeModule$15", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Requires;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$15, void, $StringBuilder*, $ModuleDescriptor$Requires*)},
+	{"lambda$describeModule$16", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$16, void, $StringBuilder*, $String*)},
+	{"lambda$describeModule$17", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Provides;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$17, void, $StringBuilder*, $ModuleDescriptor$Provides*)},
+	{"lambda$describeModule$18", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Exports;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$18, void, $StringBuilder*, $ModuleDescriptor$Exports*)},
+	{"lambda$describeModule$19", "(Ljava/lang/module/ModuleDescriptor$Opens;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$19, bool, $ModuleDescriptor$Opens*)},
+	{"lambda$describeModule$20", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$20, void, $StringBuilder*, $ModuleDescriptor$Opens*)},
+	{"lambda$describeModule$21", "(Ljava/lang/StringBuilder;Ljava/lang/module/ModuleDescriptor$Opens;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$21, void, $StringBuilder*, $ModuleDescriptor$Opens*)},
+	{"lambda$describeModule$22", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$22, void, $StringBuilder*, $String*)},
+	{"lambda$describeModule$23", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$23, void, $StringBuilder*, $String*)},
+	{"lambda$describeModule$24", "(Ljava/lang/StringBuilder;Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$24, void, $StringBuilder*, $ModuleHashes*, $String*)},
+	{"lambda$describeModule$6", "(Ljava/util/zip/ZipEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$6, bool, $ZipEntry*)},
+	{"lambda$describeModule$7", "(Ljava/util/zip/ZipFile;Ljava/util/zip/ZipEntry;)Lsun/tools/jar/Main$ZipFileModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$7, $Main$ZipFileModuleInfoEntry*, $ZipFile*, $ZipEntry*)},
+	{"lambda$describeModule$8", "(I)[Lsun/tools/jar/Main$ZipFileModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModule$8, $Main$ZipFileModuleInfoEntryArray*, int32_t)},
+	{"lambda$describeModuleFromEntries$10", "(Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModuleFromEntries$10, bool, $Main$ModuleInfoEntry*)},
+	{"lambda$describeModuleFromStream$9", "(I)[Lsun/tools/jar/Main$ModuleInfoEntry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$describeModuleFromStream$9, $Main$ModuleInfoEntryArray*, int32_t)},
+	{"lambda$filesMapToFiles$2", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$filesMapToFiles$2, $StringArray*, int32_t)},
+	{"lambda$filesToEntryNames$3", "(Ljava/util/Set;ILjava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$filesToEntryNames$3, $String*, $Set*, int32_t, $String*)},
+	{"lambda$replaceFSC$5", "(Ljava/util/Map;Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$replaceFSC$5, void, $Map*, $Integer*)},
+	{"lambda$run$0", "(Lsun/tools/jar/Main$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$run$0, bool, $Main$Entry*)},
+	{"lambda$run$1", "(Ljava/util/Set;Ljava/util/Set;Lsun/tools/jar/Main$Entry;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$run$1, void, $Set*, $Set*, $Main$Entry*)},
+	{"lambda$static$27", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$static$27, int32_t, $String*, $String*)},
+	{"lambda$toLowerCaseString$11", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$toLowerCaseString$11, $String*, Object$*)},
+	{"lambda$toString$12", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Main, lambda$toString$12, $String*, Object$*)},
+	{"lambda$update$4", "(Ljava/util/Set;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Main, lambda$update$4, void, $Set*, $String*)},
+	{"lessThanEqualReleaseValue", "(Lsun/tools/jar/Main$ModuleInfoEntry;)Z", nullptr, $PRIVATE, $method(Main, lessThanEqualReleaseValue, bool, $Main$ModuleInfoEntry*)},
+	{"list", "(Ljava/io/InputStream;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, list, void, $InputStream*, $StringArray*), "java.io.IOException"},
+	{"list", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, list, void, $String*, $StringArray*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*)},
+	{"newDirSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/zip/ZipEntry;>;", 0, $virtualMethod(Main, newDirSet, $Set*)},
+	{"output", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Main, output, void, $String*)},
+	{"parseArgs", "([Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Main, parseArgs, bool, $StringArray*)},
+	{"printEntry", "(Ljava/util/zip/ZipEntry;[Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, printEntry, void, $ZipEntry*, $StringArray*), "java.io.IOException"},
+	{"printEntry", "(Ljava/util/zip/ZipEntry;)V", nullptr, 0, $virtualMethod(Main, printEntry, void, $ZipEntry*), "java.io.IOException"},
+	{"replaceFSC", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/Integer;[Ljava/lang/String;>;)V", 0, $virtualMethod(Main, replaceFSC, void, $Map*)},
+	{"run", "([Ljava/lang/String;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Main, run, bool, $StringArray*)},
+	{"safeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, safeName, $String*, $String*)},
+	{"toBinaryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Main, toBinaryName, $String*, $String*)},
+	{"toEntryName", "(Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;Z)Ljava/lang/String;", $PRIVATE, $method(Main, toEntryName, $String*, $String*, $Set*, bool)},
+	{"toHex", "([B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, toHex, $String*, $bytes*)},
+	{"toLowerCaseString", "(Ljava/util/Collection;)Ljava/lang/String;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/lang/String;", $STATIC, $staticMethod(Main, toLowerCaseString, $String*, $Collection*)},
+	{"toPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, toPackageName, $String*, $String*)},
+	{"toString", "(Ljava/util/Collection;)Ljava/lang/String;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/lang/String;", $STATIC, $staticMethod(Main, toString, $String*, $Collection*)},
+	{"toUpperCaseASCII", "(C)C", nullptr, $PRIVATE, $method(Main, toUpperCaseASCII, char16_t, char16_t)},
+	{"toVersionedName", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, toVersionedName, $String*, $String*, int32_t)},
+	{"update", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/InputStream;Ljava/util/Map;Ljdk/internal/util/jar/JarIndex;)Z", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/InputStream;Ljava/util/Map<Ljava/lang/String;[B>;Ljdk/internal/util/jar/JarIndex;)Z", 0, $virtualMethod(Main, update, bool, $InputStream*, $OutputStream*, $InputStream*, $Map*, $JarIndex*), "java.io.IOException"},
+	{"updateLastModifiedTime", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/zip/ZipEntry;>;)V", 0, $virtualMethod(Main, updateLastModifiedTime, void, $Set*), "java.io.IOException"},
+	{"updateManifest", "(Ljava/util/jar/Manifest;Ljava/util/zip/ZipOutputStream;)Z", nullptr, $PRIVATE, $method(Main, updateManifest, bool, $Manifest*, $ZipOutputStream*), "java.io.IOException"},
+	{"updateModuleInfo", "(Ljava/util/Map;Ljava/util/zip/ZipOutputStream;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/util/zip/ZipOutputStream;)V", $PRIVATE, $method(Main, updateModuleInfo, void, $Map*, $ZipOutputStream*), "java.io.IOException"},
+	{"usageError", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, usageError, void, $String*)},
+	{"validateAndClose", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(Main, validateAndClose, void, $File*), "java.io.IOException"},
+	{"validateJar", "(Ljava/io/File;)Z", nullptr, $PRIVATE, $method(Main, validateJar, bool, $File*), "java.io.IOException"},
+	{"versionFromEntryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, versionFromEntryName, $String*, $String*)},
+	{"warn", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, warn, void, $String*)},
 	{}
 };
 

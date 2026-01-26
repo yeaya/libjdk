@@ -15,6 +15,7 @@
 #undef TYPE_PARAMS
 
 using $JavadocFormatter$SectionsArray = $Array<::jdk::internal::shellsupport::doc::JavadocFormatter$Sections>;
+using $DocTree = ::com::sun::source::doctree::DocTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -40,11 +41,11 @@ $FieldInfo _JavadocFormatter$Sections_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocFormatter$Sections_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$Sections;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavadocFormatter$SectionsArray*(*)()>(&JavadocFormatter$Sections::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JavadocFormatter$Sections::*)($String*,int32_t)>(&JavadocFormatter$Sections::init$))},
-	{"matches", "(Lcom/sun/source/doctree/DocTree;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/shellsupport/doc/JavadocFormatter$Sections;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavadocFormatter$Sections*(*)($String*)>(&JavadocFormatter$Sections::valueOf))},
-	{"values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$Sections;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavadocFormatter$SectionsArray*(*)()>(&JavadocFormatter$Sections::values))},
+	{"$values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$Sections;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocFormatter$Sections, $values, $JavadocFormatter$SectionsArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavadocFormatter$Sections, init$, void, $String*, int32_t)},
+	{"matches", "(Lcom/sun/source/doctree/DocTree;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavadocFormatter$Sections, matches, bool, $DocTree*)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/shellsupport/doc/JavadocFormatter$Sections;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$Sections, valueOf, JavadocFormatter$Sections*, $String*)},
+	{"values", "()[Ljdk/internal/shellsupport/doc/JavadocFormatter$Sections;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavadocFormatter$Sections, values, $JavadocFormatter$SectionsArray*)},
 	{}
 };
 

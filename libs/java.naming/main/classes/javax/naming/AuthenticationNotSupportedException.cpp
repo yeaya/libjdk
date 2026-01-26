@@ -17,8 +17,8 @@ $FieldInfo _AuthenticationNotSupportedException_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthenticationNotSupportedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationNotSupportedException::*)($String*)>(&AuthenticationNotSupportedException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationNotSupportedException::*)()>(&AuthenticationNotSupportedException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthenticationNotSupportedException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationNotSupportedException, init$, void)},
 	{}
 };
 

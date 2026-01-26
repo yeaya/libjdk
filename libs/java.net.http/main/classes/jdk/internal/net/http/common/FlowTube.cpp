@@ -29,14 +29,14 @@ namespace jdk {
 				namespace common {
 
 $MethodInfo _FlowTube_MethodInfo_[] = {
-	{"asTubePublisher", "(Ljava/util/concurrent/Flow$Publisher;)Ljdk/internal/net/http/common/FlowTube$TubePublisher;", "(Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)Ljdk/internal/net/http/common/FlowTube$TubePublisher;", $PUBLIC | $STATIC, $method(static_cast<$FlowTube$TubePublisher*(*)($Flow$Publisher*)>(&FlowTube::asTubePublisher))},
-	{"asTubeSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;)Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", $PUBLIC | $STATIC, $method(static_cast<$FlowTube$TubeSubscriber*(*)($Flow$Subscriber*)>(&FlowTube::asTubeSubscriber))},
+	{"asTubePublisher", "(Ljava/util/concurrent/Flow$Publisher;)Ljdk/internal/net/http/common/FlowTube$TubePublisher;", "(Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)Ljdk/internal/net/http/common/FlowTube$TubePublisher;", $PUBLIC | $STATIC, $staticMethod(FlowTube, asTubePublisher, $FlowTube$TubePublisher*, $Flow$Publisher*)},
+	{"asTubeSubscriber", "(Ljava/util/concurrent/Flow$Subscriber;)Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", $PUBLIC | $STATIC, $staticMethod(FlowTube, asTubeSubscriber, $FlowTube$TubeSubscriber*, $Flow$Subscriber*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"connectFlows", "(Ljdk/internal/net/http/common/FlowTube$TubePublisher;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;)V", nullptr, $PUBLIC},
+	{"connectFlows", "(Ljdk/internal/net/http/common/FlowTube$TubePublisher;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;)V", nullptr, $PUBLIC, $virtualMethod(FlowTube, connectFlows, void, $FlowTube$TubePublisher*, $FlowTube$TubeSubscriber*)},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"isFinished", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isFinished", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FlowTube, isFinished, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -53,8 +53,8 @@ $FieldInfo _Check$ConversionWarner_FieldInfo_[] = {
 };
 
 $MethodInfo _Check$ConversionWarner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$ConversionWarner::*)($Check*,$JCDiagnostic$DiagnosticPosition*,$String*,$Type*,$Type*)>(&Check$ConversionWarner::init$))},
-	{"warn", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Check$ConversionWarner, init$, void, $Check*, $JCDiagnostic$DiagnosticPosition*, $String*, $Type*, $Type*)},
+	{"warn", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $virtualMethod(Check$ConversionWarner, warn, void, $Lint$LintCategory*)},
 	{}
 };
 

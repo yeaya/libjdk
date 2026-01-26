@@ -49,22 +49,22 @@ $FieldInfo _KeyTab_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyTab_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;Ljava/io/File;Z)V", nullptr, $PRIVATE, $method(static_cast<void(KeyTab::*)($KerberosPrincipal*,$File*,bool)>(&KeyTab::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"exists", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(KeyTab::*)()>(&KeyTab::exists))},
-	{"getEncryptionKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, 0, $method(static_cast<$EncryptionKeyArray*(KeyTab::*)($PrincipalName*)>(&KeyTab::getEncryptionKeys))},
-	{"getInstance", "(Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyTab*(*)($File*)>(&KeyTab::getInstance))},
-	{"getInstance", "(Ljavax/security/auth/kerberos/KerberosPrincipal;Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyTab*(*)($KerberosPrincipal*,$File*)>(&KeyTab::getInstance))},
-	{"getInstance", "()Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyTab*(*)()>(&KeyTab::getInstance))},
-	{"getInstance", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyTab*(*)($KerberosPrincipal*)>(&KeyTab::getInstance))},
-	{"getKeys", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(static_cast<$KerberosKeyArray*(KeyTab::*)($KerberosPrincipal*)>(&KeyTab::getKeys))},
-	{"getPrincipal", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC, $method(static_cast<$KerberosPrincipal*(KeyTab::*)()>(&KeyTab::getPrincipal))},
-	{"getUnboundInstance", "(Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyTab*(*)($File*)>(&KeyTab::getUnboundInstance))},
-	{"getUnboundInstance", "()Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeyTab*(*)()>(&KeyTab::getUnboundInstance))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isBound", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(KeyTab::*)()>(&KeyTab::isBound))},
-	{"takeSnapshot", "()Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, 0, $method(static_cast<$KeyTab*(KeyTab::*)()>(&KeyTab::takeSnapshot))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;Ljava/io/File;Z)V", nullptr, $PRIVATE, $method(KeyTab, init$, void, $KerberosPrincipal*, $File*, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyTab, equals, bool, Object$*)},
+	{"exists", "()Z", nullptr, $PUBLIC, $method(KeyTab, exists, bool)},
+	{"getEncryptionKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, 0, $method(KeyTab, getEncryptionKeys, $EncryptionKeyArray*, $PrincipalName*)},
+	{"getInstance", "(Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $File*)},
+	{"getInstance", "(Ljavax/security/auth/kerberos/KerberosPrincipal;Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $KerberosPrincipal*, $File*)},
+	{"getInstance", "()Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*)},
+	{"getInstance", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $KerberosPrincipal*)},
+	{"getKeys", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(KeyTab, getKeys, $KerberosKeyArray*, $KerberosPrincipal*)},
+	{"getPrincipal", "()Ljavax/security/auth/kerberos/KerberosPrincipal;", nullptr, $PUBLIC, $method(KeyTab, getPrincipal, $KerberosPrincipal*)},
+	{"getUnboundInstance", "(Ljava/io/File;)Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getUnboundInstance, KeyTab*, $File*)},
+	{"getUnboundInstance", "()Ljavax/security/auth/kerberos/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getUnboundInstance, KeyTab*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyTab, hashCode, int32_t)},
+	{"isBound", "()Z", nullptr, $PUBLIC, $method(KeyTab, isBound, bool)},
+	{"takeSnapshot", "()Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, 0, $method(KeyTab, takeSnapshot, $KeyTab*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyTab, toString, $String*)},
 	{}
 };
 

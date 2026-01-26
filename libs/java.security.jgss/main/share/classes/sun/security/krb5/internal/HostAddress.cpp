@@ -57,20 +57,20 @@ $FieldInfo _HostAddress_FieldInfo_[] = {
 };
 
 $MethodInfo _HostAddress_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(HostAddress::*)(int32_t)>(&HostAddress::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HostAddress::*)()>(&HostAddress::init$)), "java.net.UnknownHostException"},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(HostAddress::*)(int32_t,$bytes*)>(&HostAddress::init$)), "sun.security.krb5.internal.KrbApErrException,java.net.UnknownHostException"},
-	{"<init>", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(static_cast<void(HostAddress::*)($InetAddress*)>(&HostAddress::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(HostAddress::*)($DerValue*)>(&HostAddress::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAddrType", "(Ljava/net/InetAddress;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(HostAddress::*)($InetAddress*)>(&HostAddress::getAddrType))},
-	{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, nullptr, "java.net.UnknownHostException"},
-	{"getLocalInetAddress", "()Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<$InetAddress*(*)()>(&HostAddress::getLocalInetAddress)), "java.net.UnknownHostException"},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/HostAddress;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HostAddress*(*)($DerInputStream*,int8_t,bool)>(&HostAddress::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PRIVATE, $method(HostAddress, init$, void, int32_t)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HostAddress, init$, void), "java.net.UnknownHostException"},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(HostAddress, init$, void, int32_t, $bytes*), "sun.security.krb5.internal.KrbApErrException,java.net.UnknownHostException"},
+	{"<init>", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(HostAddress, init$, void, $InetAddress*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(HostAddress, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(HostAddress, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HostAddress, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HostAddress, equals, bool, Object$*)},
+	{"getAddrType", "(Ljava/net/InetAddress;)I", nullptr, $PRIVATE, $method(HostAddress, getAddrType, int32_t, $InetAddress*)},
+	{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(HostAddress, getInetAddress, $InetAddress*), "java.net.UnknownHostException"},
+	{"getLocalInetAddress", "()Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(HostAddress, getLocalInetAddress, $InetAddress*), "java.net.UnknownHostException"},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HostAddress, hashCode, int32_t)},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/HostAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(HostAddress, parse, HostAddress*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostAddress, toString, $String*)},
 	{}
 };
 

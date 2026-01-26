@@ -25,8 +25,8 @@ $FieldInfo _NamingManager$FactoryInitializationError_FieldInfo_[] = {
 };
 
 $MethodInfo _NamingManager$FactoryInitializationError_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/NoInitialContextException;)V", nullptr, $PRIVATE, $method(static_cast<void(NamingManager$FactoryInitializationError::*)($NoInitialContextException*)>(&NamingManager$FactoryInitializationError::init$))},
-	{"getCause", "()Ljavax/naming/NoInitialContextException;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/naming/NoInitialContextException;)V", nullptr, $PRIVATE, $method(NamingManager$FactoryInitializationError, init$, void, $NoInitialContextException*)},
+	{"getCause", "()Ljavax/naming/NoInitialContextException;", nullptr, $PUBLIC, $virtualMethod(NamingManager$FactoryInitializationError, getCause, $Throwable*)},
 	{}
 };
 

@@ -254,8 +254,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$static$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$static$17::*)()>(&Modules$$Lambda$lambda$static$17::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$static$17, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$static$17, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$static$17::classInfo$ = {
@@ -294,8 +294,8 @@ $FieldInfo Modules$$Lambda$lambda$initModules$0$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$initModules$0$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$initModules$0$1::*)(Modules*)>(&Modules$$Lambda$lambda$initModules$0$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$initModules$0$1, init$, void, Modules*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$initModules$0$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$initModules$0$1::classInfo$ = {
@@ -327,8 +327,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$enter$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$enter$1$2::*)()>(&Modules$$Lambda$lambda$enter$1$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$enter$1$2, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$enter$1$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$enter$1$2::classInfo$ = {
@@ -367,8 +367,8 @@ $FieldInfo Modules$$Lambda$lambda$setCompilationUnitModules$2$3::fieldInfos[2] =
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$setCompilationUnitModules$2$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setCompilationUnitModules$2$3::*)(Modules*)>(&Modules$$Lambda$lambda$setCompilationUnitModules$2$3::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setCompilationUnitModules$2$3, init$, void, Modules*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setCompilationUnitModules$2$3, complete, void, $Symbol*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setCompilationUnitModules$2$3::classInfo$ = {
@@ -407,8 +407,8 @@ $FieldInfo Modules$$Lambda$lambda$getUsesProvidesCompleter$4$4::fieldInfos[2] = 
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$getUsesProvidesCompleter$4$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$getUsesProvidesCompleter$4$4::*)(Modules*)>(&Modules$$Lambda$lambda$getUsesProvidesCompleter$4$4::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$getUsesProvidesCompleter$4$4, init$, void, Modules*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$getUsesProvidesCompleter$4$4, complete, void, $Symbol*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$getUsesProvidesCompleter$4$4::classInfo$ = {
@@ -450,8 +450,8 @@ $FieldInfo Modules$$Lambda$lambda$setupAllModules$5$5::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$5$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$5$5::*)(Modules*,$Set*)>(&Modules$$Lambda$lambda$setupAllModules$5$5::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$5$5, init$, void, Modules*, $Set*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$5$5, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$5$5::classInfo$ = {
@@ -483,8 +483,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$6$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$6$6::*)()>(&Modules$$Lambda$lambda$setupAllModules$6$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$6$6, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$6$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$6$6::classInfo$ = {
@@ -516,8 +516,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$8$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$8$7::*)()>(&Modules$$Lambda$lambda$setupAllModules$8$7::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$8$7, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$8$7, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$8$7::classInfo$ = {
@@ -556,8 +556,8 @@ $FieldInfo Modules$$Lambda$lambda$setupAllModules$10$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$10$8::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$10$8::*)(Modules*)>(&Modules$$Lambda$lambda$setupAllModules$10$8::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$10$8, init$, void, Modules*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$10$8, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$10$8::classInfo$ = {
@@ -589,8 +589,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$11$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$11$9::*)()>(&Modules$$Lambda$lambda$setupAllModules$11$9::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$11$9, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$11$9, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$11$9::classInfo$ = {
@@ -622,8 +622,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$12$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$12$10::*)()>(&Modules$$Lambda$lambda$setupAllModules$12$10::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$12$10, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$12$10, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$12$10::classInfo$ = {
@@ -665,8 +665,8 @@ $FieldInfo Modules$$Lambda$lambda$setupAllModules$13$11::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$13$11::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$13$11::*)($Set*,$Set*)>(&Modules$$Lambda$lambda$setupAllModules$13$11::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$13$11, init$, void, $Set*, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$13$11, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$13$11::classInfo$ = {
@@ -705,8 +705,8 @@ $FieldInfo Modules$$Lambda$add$12::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$add$12::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$add$12::*)($Set*)>(&Modules$$Lambda$add$12::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$add$12, init$, void, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$add$12, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$add$12::classInfo$ = {
@@ -738,8 +738,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$14$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$14$13::*)()>(&Modules$$Lambda$lambda$setupAllModules$14$13::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$14$13, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$14$13, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$14$13::classInfo$ = {
@@ -771,8 +771,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$15$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$15$14::*)()>(&Modules$$Lambda$lambda$setupAllModules$15$14::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$15$14, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$15$14, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$15$14::classInfo$ = {
@@ -811,8 +811,8 @@ $FieldInfo Modules$$Lambda$lambda$setupAllModules$16$15::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$16$15::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$16$15::*)($Name*)>(&Modules$$Lambda$lambda$setupAllModules$16$15::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$16$15, init$, void, $Name*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$16$15, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$16$15::classInfo$ = {
@@ -854,8 +854,8 @@ $FieldInfo Modules$$Lambda$lambda$completeModule$18$16::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$completeModule$18$16::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$completeModule$18$16::*)(Modules*,$Symbol$ModuleSymbol*)>(&Modules$$Lambda$lambda$completeModule$18$16::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$completeModule$18$16, init$, void, Modules*, $Symbol$ModuleSymbol*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$completeModule$18$16, complete, void, $Symbol*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$completeModule$18$16::classInfo$ = {
@@ -894,8 +894,8 @@ $FieldInfo Modules$$Lambda$lambda$completeModule$19$17::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$completeModule$19$17::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Directive$RequiresDirective;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$completeModule$19$17::*)($Directive$RequiresDirective*)>(&Modules$$Lambda$lambda$completeModule$19$17::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Directive$RequiresDirective;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$completeModule$19$17, init$, void, $Directive$RequiresDirective*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$completeModule$19$17, get, $Object*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$completeModule$19$17::classInfo$ = {
@@ -937,8 +937,8 @@ $FieldInfo Modules$$Lambda$lambda$retrieveRequiresTransitive$20$18::fieldInfos[3
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$retrieveRequiresTransitive$20$18::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$retrieveRequiresTransitive$20$18::*)($Symbol$ModuleSymbol*,$Symbol$ModuleSymbol*)>(&Modules$$Lambda$lambda$retrieveRequiresTransitive$20$18::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$retrieveRequiresTransitive$20$18, init$, void, $Symbol$ModuleSymbol*, $Symbol$ModuleSymbol*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$retrieveRequiresTransitive$20$18, get, $Object*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$retrieveRequiresTransitive$20$18::classInfo$ = {
@@ -983,8 +983,8 @@ $FieldInfo Modules$$Lambda$lambda$initVisiblePackages$21$19::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$lambda$initVisiblePackages$21$19::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$initVisiblePackages$21$19::*)(Modules*,$Symbol$ModuleSymbol*,$Map*)>(&Modules$$Lambda$lambda$initVisiblePackages$21$19::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$initVisiblePackages$21$19, init$, void, Modules*, $Symbol$ModuleSymbol*, $Map*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$initVisiblePackages$21$19, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$initVisiblePackages$21$19::classInfo$ = {
@@ -1016,8 +1016,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$initAddExports$22$20::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$initAddExports$22$20::*)()>(&Modules$$Lambda$lambda$initAddExports$22$20::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$initAddExports$22$20, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$initAddExports$22$20, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$initAddExports$22$20::classInfo$ = {
@@ -1049,8 +1049,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$initAddReads$23$21::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$initAddReads$23$21::*)()>(&Modules$$Lambda$lambda$initAddReads$23$21::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$initAddReads$23$21, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$initAddReads$23$21, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$initAddReads$23$21::classInfo$ = {
@@ -1089,8 +1089,8 @@ $FieldInfo Modules$$Lambda$toString$22::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Modules$$Lambda$toString$22::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$toString$22::*)($Symbol$ModuleSymbol*)>(&Modules$$Lambda$toString$22::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Modules$$Lambda$toString$22, init$, void, $Symbol$ModuleSymbol*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$toString$22, get, $Object*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$toString$22::classInfo$ = {
@@ -1122,8 +1122,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$$Lambda$lambda$setupAllModules$7$23::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$$Lambda$lambda$setupAllModules$7$23::*)()>(&Modules$$Lambda$lambda$setupAllModules$7$23::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$$Lambda$lambda$setupAllModules$7$23, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Modules$$Lambda$lambda$setupAllModules$7$23, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Modules$$Lambda$lambda$setupAllModules$7$23::classInfo$ = {
@@ -1184,69 +1184,69 @@ $FieldInfo _Modules_FieldInfo_[] = {
 };
 
 $MethodInfo _Modules_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(Modules::*)($Context*)>(&Modules::init$))},
-	{"addExtraAddModules", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"addVisiblePackages", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Collection<Lcom/sun/tools/javac/code/Directive$ExportsDirective;>;)V", $PRIVATE, $method(static_cast<void(Modules::*)($Symbol$ModuleSymbol*,$Map*,$Symbol$ModuleSymbol*,$Collection*)>(&Modules::addVisiblePackages))},
-	{"allModules", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC},
-	{"checkCyclicDependencies", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules::*)($JCTree$JCModuleDecl*)>(&Modules::checkCyclicDependencies))},
-	{"checkNoAllModulePath", "()V", nullptr, $PRIVATE, $method(static_cast<void(Modules::*)()>(&Modules::checkNoAllModulePath))},
-	{"checkSourceLocation", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules::*)($JCTree$JCCompilationUnit*,$Symbol$ModuleSymbol*)>(&Modules::checkSourceLocation))},
-	{"completeAutomaticModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules::*)($Symbol$ModuleSymbol*)>(&Modules::completeAutomaticModule)), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"completeModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules::*)($Symbol$ModuleSymbol*)>(&Modules::completeModule))},
-	{"computeTransitiveClosure", "(Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;Ljava/util/Set<+Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(static_cast<$Set*(Modules::*)($Set*,$Set*,$Set*)>(&Modules::computeTransitiveClosure))},
-	{"enter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", $PUBLIC},
-	{"enter", "(Lcom/sun/tools/javac/util/List;Ljava/util/function/Consumer;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Ljava/util/function/Consumer<Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", $PRIVATE, $method(static_cast<bool(Modules::*)($List*,$Consumer*,$Symbol$ClassSymbol*)>(&Modules::enter))},
-	{"enterModule", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)V", $PRIVATE, $method(static_cast<void(Modules::*)($JCTree$JCCompilationUnit*,$Symbol$ClassSymbol*,$Set*)>(&Modules::enterModule))},
-	{"enterModules", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Set;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(static_cast<$Set*(Modules::*)($List*,$Symbol$ClassSymbol*)>(&Modules::enterModules))},
-	{"getCompleter", "()Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC},
-	{"getDefaultModule", "()Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC},
-	{"getModuleLocation", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PRIVATE, $method(static_cast<$JavaFileManager$Location*(Modules::*)($JCTree$JCCompilationUnit*)>(&Modules::getModuleLocation)), "java.io.IOException"},
-	{"getObservableModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC},
-	{"getRootModules", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC},
-	{"getSourceCompleter", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PRIVATE, $method(static_cast<$Symbol$Completer*(Modules::*)($JCTree$JCCompilationUnit*)>(&Modules::getSourceCompleter))},
-	{"getUnnamedModuleCompleter", "()Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PRIVATE, $method(static_cast<$Symbol$Completer*(Modules::*)()>(&Modules::getUnnamedModuleCompleter))},
-	{"getUsesProvidesCompleter", "()Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC},
-	{"initAddExports", "()V", nullptr, $PRIVATE, $method(static_cast<void(Modules::*)()>(&Modules::initAddExports))},
-	{"initAddReads", "()V", nullptr, $PRIVATE, $method(static_cast<void(Modules::*)()>(&Modules::initAddReads))},
-	{"initModules", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)V", $PUBLIC},
-	{"initVisiblePackages", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Collection<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)V", $PRIVATE, $method(static_cast<void(Modules::*)($Symbol$ModuleSymbol*,$Collection*)>(&Modules::initVisiblePackages))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Modules;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Modules*(*)($Context*)>(&Modules::instance))},
-	{"isInModuleGraph", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PUBLIC},
-	{"isKnownModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Set;)Z", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)Z", $PRIVATE, $method(static_cast<bool(Modules::*)($Symbol$ModuleSymbol*,$Set*)>(&Modules::isKnownModule))},
-	{"isRootModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PUBLIC},
-	{"isValidName", "(Ljava/lang/CharSequence;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Modules::*)($CharSequence*)>(&Modules::isValidName))},
-	{"lambda$completeModule$18", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Modules::*)($Symbol$ModuleSymbol*,$Symbol*)>(&Modules::lambda$completeModule$18)), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"lambda$completeModule$19", "(Lcom/sun/tools/javac/code/Directive$RequiresDirective;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Directive$RequiresDirective*)>(&Modules::lambda$completeModule$19))},
-	{"lambda$enter$1", "(Ljava/util/Set;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Set*)>(&Modules::lambda$enter$1))},
-	{"lambda$getUsesProvidesCompleter$4", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Modules::*)($Symbol*)>(&Modules::lambda$getUsesProvidesCompleter$4)), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"lambda$initAddExports$22", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Set*(*)($Symbol$ModuleSymbol*)>(&Modules::lambda$initAddExports$22))},
-	{"lambda$initAddReads$23", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Set*(*)($Symbol$ModuleSymbol*)>(&Modules::lambda$initAddReads$23))},
-	{"lambda$initModules$0", "(Ljava/util/Set;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Modules::*)($Set*)>(&Modules::lambda$initModules$0))},
-	{"lambda$initVisiblePackages$21", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Set;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Modules::*)($Symbol$ModuleSymbol*,$Map*,$Symbol$ModuleSymbol*,$Set*)>(&Modules::lambda$initVisiblePackages$21))},
-	{"lambda$retrieveRequiresTransitive$20", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Symbol$ModuleSymbol*,$Symbol$ModuleSymbol*)>(&Modules::lambda$retrieveRequiresTransitive$20))},
-	{"lambda$setCompilationUnitModules$2", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Modules::*)($Symbol*)>(&Modules::lambda$setCompilationUnitModules$2)), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"lambda$setupAllModules$10", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Modules::*)($Symbol$ModuleSymbol*)>(&Modules::lambda$setupAllModules$10))},
-	{"lambda$setupAllModules$11", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol$ModuleSymbol*)>(&Modules::lambda$setupAllModules$11))},
-	{"lambda$setupAllModules$12", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol$ModuleSymbol*)>(&Modules::lambda$setupAllModules$12))},
-	{"lambda$setupAllModules$13", "(Ljava/util/Set;Ljava/util/Set;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Set*,$Set*,$Symbol$ModuleSymbol*)>(&Modules::lambda$setupAllModules$13))},
-	{"lambda$setupAllModules$14", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol$ModuleSymbol*)>(&Modules::lambda$setupAllModules$14))},
-	{"lambda$setupAllModules$15", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Symbol$ModuleSymbol*)>(&Modules::lambda$setupAllModules$15))},
-	{"lambda$setupAllModules$16", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Name*,$Symbol$ModuleSymbol*)>(&Modules::lambda$setupAllModules$16))},
-	{"lambda$setupAllModules$5", "(Ljava/util/Set;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Modules::*)($Set*,$Symbol$ModuleSymbol*)>(&Modules::lambda$setupAllModules$5))},
-	{"lambda$setupAllModules$6", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol$ModuleSymbol*)>(&Modules::lambda$setupAllModules$6))},
-	{"lambda$setupAllModules$7", "(Lcom/sun/tools/javac/code/Directive$ExportsDirective;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Directive$ExportsDirective*)>(&Modules::lambda$setupAllModules$7))},
-	{"lambda$setupAllModules$8", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol$ModuleSymbol*)>(&Modules::lambda$setupAllModules$8))},
-	{"lambda$static$17", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol$ModuleSymbol*)>(&Modules::lambda$static$17))},
-	{"modulesInitialized", "()Z", nullptr, $PUBLIC},
-	{"newRound", "()V", nullptr, $PUBLIC},
-	{"retrieveRequiresTransitive", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Set;", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(static_cast<$Set*(Modules::*)($Symbol$ModuleSymbol*)>(&Modules::retrieveRequiresTransitive))},
-	{"setCompilationUnitModules", "(Lcom/sun/tools/javac/util/List;Ljava/util/Set;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", $PRIVATE, $method(static_cast<void(Modules::*)($List*,$Set*,$Symbol$ClassSymbol*)>(&Modules::setCompilationUnitModules))},
-	{"setupAllModules", "()V", nullptr, $PRIVATE, $method(static_cast<void(Modules::*)()>(&Modules::setupAllModules))},
-	{"setupAutomaticModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules::*)($Symbol$ModuleSymbol*)>(&Modules::setupAutomaticModule)), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"singleModuleOverride", "(Lcom/sun/tools/javac/util/List;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Ljava/lang/String;", $PRIVATE, $method(static_cast<$String*(Modules::*)($List*)>(&Modules::singleModuleOverride))},
-	{"toString", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Modules::*)($Symbol$ModuleSymbol*)>(&Modules::toString))},
-	{"toString", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, 0},
-	{"toString", "(Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Modules, init$, void, $Context*)},
+	{"addExtraAddModules", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Modules, addExtraAddModules, void, $StringArray*)},
+	{"addVisiblePackages", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Collection<Lcom/sun/tools/javac/code/Directive$ExportsDirective;>;)V", $PRIVATE, $method(Modules, addVisiblePackages, void, $Symbol$ModuleSymbol*, $Map*, $Symbol$ModuleSymbol*, $Collection*)},
+	{"allModules", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $virtualMethod(Modules, allModules, $Set*)},
+	{"checkCyclicDependencies", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PRIVATE, $method(Modules, checkCyclicDependencies, void, $JCTree$JCModuleDecl*)},
+	{"checkNoAllModulePath", "()V", nullptr, $PRIVATE, $method(Modules, checkNoAllModulePath, void)},
+	{"checkSourceLocation", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Modules, checkSourceLocation, void, $JCTree$JCCompilationUnit*, $Symbol$ModuleSymbol*)},
+	{"completeAutomaticModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Modules, completeAutomaticModule, void, $Symbol$ModuleSymbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"completeModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Modules, completeModule, void, $Symbol$ModuleSymbol*)},
+	{"computeTransitiveClosure", "(Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;)Ljava/util/Set;", "(Ljava/util/Set<+Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;Ljava/util/Set<+Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(Modules, computeTransitiveClosure, $Set*, $Set*, $Set*, $Set*)},
+	{"enter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", $PUBLIC, $virtualMethod(Modules, enter, bool, $List*, $Symbol$ClassSymbol*)},
+	{"enter", "(Lcom/sun/tools/javac/util/List;Ljava/util/function/Consumer;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Ljava/util/function/Consumer<Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", $PRIVATE, $method(Modules, enter, bool, $List*, $Consumer*, $Symbol$ClassSymbol*)},
+	{"enterModule", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)V", $PRIVATE, $method(Modules, enterModule, void, $JCTree$JCCompilationUnit*, $Symbol$ClassSymbol*, $Set*)},
+	{"enterModules", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Set;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(Modules, enterModules, $Set*, $List*, $Symbol$ClassSymbol*)},
+	{"getCompleter", "()Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC, $virtualMethod(Modules, getCompleter, $Symbol$Completer*)},
+	{"getDefaultModule", "()Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(Modules, getDefaultModule, $Symbol$ModuleSymbol*)},
+	{"getModuleLocation", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PRIVATE, $method(Modules, getModuleLocation, $JavaFileManager$Location*, $JCTree$JCCompilationUnit*), "java.io.IOException"},
+	{"getObservableModule", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(Modules, getObservableModule, $Symbol$ModuleSymbol*, $Name*)},
+	{"getRootModules", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $virtualMethod(Modules, getRootModules, $Set*)},
+	{"getSourceCompleter", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PRIVATE, $method(Modules, getSourceCompleter, $Symbol$Completer*, $JCTree$JCCompilationUnit*)},
+	{"getUnnamedModuleCompleter", "()Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PRIVATE, $method(Modules, getUnnamedModuleCompleter, $Symbol$Completer*)},
+	{"getUsesProvidesCompleter", "()Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC, $virtualMethod(Modules, getUsesProvidesCompleter, $Symbol$Completer*)},
+	{"initAddExports", "()V", nullptr, $PRIVATE, $method(Modules, initAddExports, void)},
+	{"initAddReads", "()V", nullptr, $PRIVATE, $method(Modules, initAddReads, void)},
+	{"initModules", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)V", $PUBLIC, $virtualMethod(Modules, initModules, void, $List*)},
+	{"initVisiblePackages", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Collection<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)V", $PRIVATE, $method(Modules, initVisiblePackages, void, $Symbol$ModuleSymbol*, $Collection*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Modules;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modules, instance, Modules*, $Context*)},
+	{"isInModuleGraph", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Modules, isInModuleGraph, bool, $Symbol$ModuleSymbol*)},
+	{"isKnownModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Set;)Z", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)Z", $PRIVATE, $method(Modules, isKnownModule, bool, $Symbol$ModuleSymbol*, $Set*)},
+	{"isRootModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Modules, isRootModule, bool, $Symbol$ModuleSymbol*)},
+	{"isValidName", "(Ljava/lang/CharSequence;)Z", nullptr, $PRIVATE, $method(Modules, isValidName, bool, $CharSequence*)},
+	{"lambda$completeModule$18", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Modules, lambda$completeModule$18, void, $Symbol$ModuleSymbol*, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"lambda$completeModule$19", "(Lcom/sun/tools/javac/code/Directive$RequiresDirective;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$completeModule$19, $String*, $Directive$RequiresDirective*)},
+	{"lambda$enter$1", "(Ljava/util/Set;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$enter$1, void, $Set*)},
+	{"lambda$getUsesProvidesCompleter$4", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Modules, lambda$getUsesProvidesCompleter$4, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"lambda$initAddExports$22", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$initAddExports$22, $Set*, $Symbol$ModuleSymbol*)},
+	{"lambda$initAddReads$23", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$initAddReads$23, $Set*, $Symbol$ModuleSymbol*)},
+	{"lambda$initModules$0", "(Ljava/util/Set;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Modules, lambda$initModules$0, void, $Set*)},
+	{"lambda$initVisiblePackages$21", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Set;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Modules, lambda$initVisiblePackages$21, void, $Symbol$ModuleSymbol*, $Map*, $Symbol$ModuleSymbol*, $Set*)},
+	{"lambda$retrieveRequiresTransitive$20", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$retrieveRequiresTransitive$20, $String*, $Symbol$ModuleSymbol*, $Symbol$ModuleSymbol*)},
+	{"lambda$setCompilationUnitModules$2", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Modules, lambda$setCompilationUnitModules$2, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"lambda$setupAllModules$10", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Modules, lambda$setupAllModules$10, bool, $Symbol$ModuleSymbol*)},
+	{"lambda$setupAllModules$11", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$setupAllModules$11, bool, $Symbol$ModuleSymbol*)},
+	{"lambda$setupAllModules$12", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$setupAllModules$12, bool, $Symbol$ModuleSymbol*)},
+	{"lambda$setupAllModules$13", "(Ljava/util/Set;Ljava/util/Set;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$setupAllModules$13, void, $Set*, $Set*, $Symbol$ModuleSymbol*)},
+	{"lambda$setupAllModules$14", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$setupAllModules$14, bool, $Symbol$ModuleSymbol*)},
+	{"lambda$setupAllModules$15", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$setupAllModules$15, $String*, $Symbol$ModuleSymbol*)},
+	{"lambda$setupAllModules$16", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$setupAllModules$16, void, $Name*, $Symbol$ModuleSymbol*)},
+	{"lambda$setupAllModules$5", "(Ljava/util/Set;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Modules, lambda$setupAllModules$5, bool, $Set*, $Symbol$ModuleSymbol*)},
+	{"lambda$setupAllModules$6", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$setupAllModules$6, bool, $Symbol$ModuleSymbol*)},
+	{"lambda$setupAllModules$7", "(Lcom/sun/tools/javac/code/Directive$ExportsDirective;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$setupAllModules$7, bool, $Directive$ExportsDirective*)},
+	{"lambda$setupAllModules$8", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$setupAllModules$8, bool, $Symbol$ModuleSymbol*)},
+	{"lambda$static$17", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules, lambda$static$17, bool, $Symbol$ModuleSymbol*)},
+	{"modulesInitialized", "()Z", nullptr, $PUBLIC, $virtualMethod(Modules, modulesInitialized, bool)},
+	{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(Modules, newRound, void)},
+	{"retrieveRequiresTransitive", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Set;", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(Modules, retrieveRequiresTransitive, $Set*, $Symbol$ModuleSymbol*)},
+	{"setCompilationUnitModules", "(Lcom/sun/tools/javac/util/List;Ljava/util/Set;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", $PRIVATE, $method(Modules, setCompilationUnitModules, void, $List*, $Set*, $Symbol$ClassSymbol*)},
+	{"setupAllModules", "()V", nullptr, $PRIVATE, $method(Modules, setupAllModules, void)},
+	{"setupAutomaticModule", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Modules, setupAutomaticModule, void, $Symbol$ModuleSymbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"singleModuleOverride", "(Lcom/sun/tools/javac/util/List;)Ljava/lang/String;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Ljava/lang/String;", $PRIVATE, $method(Modules, singleModuleOverride, $String*, $List*)},
+	{"toString", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Modules, toString, $String*, $Symbol$ModuleSymbol*)},
+	{"toString", "(Ljavax/tools/JavaFileManager$Location;)Ljava/lang/String;", nullptr, 0, $virtualMethod(Modules, toString, $String*, $JavaFileManager$Location*)},
+	{"toString", "(Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, 0, $virtualMethod(Modules, toString, $String*, $JavaFileObject*)},
 	{}
 };
 

@@ -59,10 +59,10 @@ $FieldInfo _JavacTrees$3_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTrees$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Lcom/sun/tools/javac/util/ListBuffer;Ljava/util/Map;)V", nullptr, 0, $method(static_cast<void(JavacTrees$3::*)($JavacTrees*,$ListBuffer*,$Map*)>(&JavacTrees$3::init$))},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Lcom/sun/tools/javac/util/ListBuffer;Ljava/util/Map;)V", nullptr, 0, $method(JavacTrees$3, init$, void, $JavacTrees*, $ListBuffer*, $Map*)},
+	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(JavacTrees$3, visitBlock, void, $JCTree$JCBlock*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacTrees$3, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacTrees$3, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

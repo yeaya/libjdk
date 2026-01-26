@@ -27,10 +27,10 @@ $FieldInfo _ClientInfoStatus_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientInfoStatus_MethodInfo_[] = {
-	{"$values", "()[Ljava/sql/ClientInfoStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ClientInfoStatusArray*(*)()>(&ClientInfoStatus::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ClientInfoStatus::*)($String*,int32_t)>(&ClientInfoStatus::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClientInfoStatus*(*)($String*)>(&ClientInfoStatus::valueOf))},
-	{"values", "()[Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClientInfoStatusArray*(*)()>(&ClientInfoStatus::values))},
+	{"$values", "()[Ljava/sql/ClientInfoStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClientInfoStatus, $values, $ClientInfoStatusArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClientInfoStatus, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientInfoStatus, valueOf, ClientInfoStatus*, $String*)},
+	{"values", "()[Ljava/sql/ClientInfoStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientInfoStatus, values, $ClientInfoStatusArray*)},
 	{}
 };
 

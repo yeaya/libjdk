@@ -29,15 +29,15 @@ $FieldInfo _GaugeMonitor$GaugeMonitorObservedObject_FieldInfo_[] = {
 };
 
 $MethodInfo _GaugeMonitor$GaugeMonitorObservedObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(static_cast<void(GaugeMonitor$GaugeMonitorObservedObject::*)($ObjectName*)>(&GaugeMonitor$GaugeMonitorObservedObject::init$))},
-	{"getDerivedGaugeValid", "()Z", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<bool(GaugeMonitor$GaugeMonitorObservedObject::*)()>(&GaugeMonitor$GaugeMonitorObservedObject::getDerivedGaugeValid))},
-	{"getPreviousScanGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<$Number*(GaugeMonitor$GaugeMonitorObservedObject::*)()>(&GaugeMonitor$GaugeMonitorObservedObject::getPreviousScanGauge))},
-	{"getStatus", "()I", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<int32_t(GaugeMonitor$GaugeMonitorObservedObject::*)()>(&GaugeMonitor$GaugeMonitorObservedObject::getStatus))},
-	{"getType", "()Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<$Monitor$NumericalType*(GaugeMonitor$GaugeMonitorObservedObject::*)()>(&GaugeMonitor$GaugeMonitorObservedObject::getType))},
-	{"setDerivedGaugeValid", "(Z)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<void(GaugeMonitor$GaugeMonitorObservedObject::*)(bool)>(&GaugeMonitor$GaugeMonitorObservedObject::setDerivedGaugeValid))},
-	{"setPreviousScanGauge", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<void(GaugeMonitor$GaugeMonitorObservedObject::*)($Number*)>(&GaugeMonitor$GaugeMonitorObservedObject::setPreviousScanGauge))},
-	{"setStatus", "(I)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<void(GaugeMonitor$GaugeMonitorObservedObject::*)(int32_t)>(&GaugeMonitor$GaugeMonitorObservedObject::setStatus))},
-	{"setType", "(Ljavax/management/monitor/Monitor$NumericalType;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<void(GaugeMonitor$GaugeMonitorObservedObject::*)($Monitor$NumericalType*)>(&GaugeMonitor$GaugeMonitorObservedObject::setType))},
+	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(GaugeMonitor$GaugeMonitorObservedObject, init$, void, $ObjectName*)},
+	{"getDerivedGaugeValid", "()Z", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getDerivedGaugeValid, bool)},
+	{"getPreviousScanGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getPreviousScanGauge, $Number*)},
+	{"getStatus", "()I", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getStatus, int32_t)},
+	{"getType", "()Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, getType, $Monitor$NumericalType*)},
+	{"setDerivedGaugeValid", "(Z)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setDerivedGaugeValid, void, bool)},
+	{"setPreviousScanGauge", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setPreviousScanGauge, void, $Number*)},
+	{"setStatus", "(I)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setStatus, void, int32_t)},
+	{"setType", "(Ljavax/management/monitor/Monitor$NumericalType;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(GaugeMonitor$GaugeMonitorObservedObject, setType, void, $Monitor$NumericalType*)},
 	{}
 };
 

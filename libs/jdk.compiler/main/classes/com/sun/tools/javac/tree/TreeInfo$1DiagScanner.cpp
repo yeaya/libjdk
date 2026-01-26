@@ -30,9 +30,9 @@ namespace com {
 				namespace tree {
 
 $MethodInfo _TreeInfo$1DiagScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(TreeInfo$1DiagScanner::*)($Symbol*)>(&TreeInfo$1DiagScanner::init$))},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(TreeInfo$1DiagScanner, init$, void, $Symbol*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1DiagScanner, visitIdent, void, $JCTree$JCIdent*)},
+	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1DiagScanner, visitSelect, void, $JCTree$JCFieldAccess*)},
 	{}
 };
 

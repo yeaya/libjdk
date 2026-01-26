@@ -49,13 +49,13 @@ $FieldInfo _Log$LoggerLog_FieldInfo_[] = {
 };
 
 $MethodInfo _Log$LoggerLog_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/Logger;Ljava/util/logging/Level;)V", nullptr, $PRIVATE, $method(static_cast<void(Log$LoggerLog::*)($Logger*,$Level*)>(&Log$LoggerLog::init$))},
-	{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/Logger;Ljava/util/logging/Level;)V", nullptr, $PRIVATE, $method(Log$LoggerLog, init$, void, $Logger*, $Level*)},
+	{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Log$LoggerLog, getPrintStream, $PrintStream*)},
+	{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, isLoggable, bool, $Level*)},
+	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, log, void, $Level*, $String*)},
+	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, log, void, $Level*, $String*, $Throwable*)},
+	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Log$LoggerLog, setOutputStream, void, $OutputStream*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog, toString, $String*)},
 	{}
 };
 

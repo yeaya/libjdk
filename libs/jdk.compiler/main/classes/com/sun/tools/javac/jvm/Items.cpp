@@ -67,21 +67,21 @@ $FieldInfo _Items_FieldInfo_[] = {
 };
 
 $MethodInfo _Items_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolWriter;Lcom/sun/tools/javac/jvm/Code;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(static_cast<void(Items::*)($PoolWriter*,$Code*,$Symtab*,$Types*)>(&Items::init$))},
-	{"makeAssignItem", "(Lcom/sun/tools/javac/jvm/Items$Item;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"makeCondItem", "(ILcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$Chain;)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0},
-	{"makeCondItem", "(I)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0},
-	{"makeDynamicItem", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"makeImmediateItem", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"makeIndexedItem", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"makeLocalItem", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, 0},
-	{"makeLocalItem", "(Lcom/sun/tools/javac/code/Type;I)Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, $PRIVATE, $method(static_cast<$Items$LocalItem*(Items::*)($Type*,int32_t)>(&Items::makeLocalItem))},
-	{"makeMemberItem", "(Lcom/sun/tools/javac/code/Symbol;Z)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"makeStackItem", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"makeStaticItem", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"makeSuperItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"makeThisItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"makeVoidItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolWriter;Lcom/sun/tools/javac/jvm/Code;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Items, init$, void, $PoolWriter*, $Code*, $Symtab*, $Types*)},
+	{"makeAssignItem", "(Lcom/sun/tools/javac/jvm/Items$Item;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeAssignItem, $Items$Item*, $Items$Item*)},
+	{"makeCondItem", "(ILcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$Chain;)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items, makeCondItem, $Items$CondItem*, int32_t, $Code$Chain*, $Code$Chain*)},
+	{"makeCondItem", "(I)Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items, makeCondItem, $Items$CondItem*, int32_t)},
+	{"makeDynamicItem", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeDynamicItem, $Items$Item*, $Symbol*)},
+	{"makeImmediateItem", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeImmediateItem, $Items$Item*, $Type*, Object$*)},
+	{"makeIndexedItem", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeIndexedItem, $Items$Item*, $Type*)},
+	{"makeLocalItem", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, 0, $virtualMethod(Items, makeLocalItem, $Items$LocalItem*, $Symbol$VarSymbol*)},
+	{"makeLocalItem", "(Lcom/sun/tools/javac/code/Type;I)Lcom/sun/tools/javac/jvm/Items$LocalItem;", nullptr, $PRIVATE, $method(Items, makeLocalItem, $Items$LocalItem*, $Type*, int32_t)},
+	{"makeMemberItem", "(Lcom/sun/tools/javac/code/Symbol;Z)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeMemberItem, $Items$Item*, $Symbol*, bool)},
+	{"makeStackItem", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeStackItem, $Items$Item*, $Type*)},
+	{"makeStaticItem", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeStaticItem, $Items$Item*, $Symbol*)},
+	{"makeSuperItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeSuperItem, $Items$Item*)},
+	{"makeThisItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeThisItem, $Items$Item*)},
+	{"makeVoidItem", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items, makeVoidItem, $Items$Item*)},
 	{}
 };
 

@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $PackageElement = ::javax::lang::model::element::PackageElement;
 
 namespace javax {
 	namespace lang {
@@ -15,8 +17,8 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _ModuleElement$ExportsDirective_MethodInfo_[] = {
-	{"getPackage", "()Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTargetModules", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC | $ABSTRACT},
+	{"getPackage", "()Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$ExportsDirective, getPackage, $PackageElement*)},
+	{"getTargetModules", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$ExportsDirective, getTargetModules, $List*)},
 	{}
 };
 

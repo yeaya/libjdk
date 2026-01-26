@@ -52,9 +52,9 @@ $FieldInfo _ModuleFinder$ModuleLocationIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleFinder$ModuleLocationIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/ModuleFinder;)V", nullptr, 0, $method(static_cast<void(ModuleFinder$ModuleLocationIterator::*)($ModuleFinder*)>(&ModuleFinder$ModuleLocationIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/ModuleFinder;)V", nullptr, 0, $method(ModuleFinder$ModuleLocationIterator, init$, void, $ModuleFinder*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$ModuleLocationIterator, hasNext, bool)},
+	{"next", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;", $PUBLIC, $virtualMethod(ModuleFinder$ModuleLocationIterator, next, $Object*)},
 	{}
 };
 

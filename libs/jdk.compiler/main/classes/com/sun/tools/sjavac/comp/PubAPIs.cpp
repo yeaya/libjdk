@@ -51,10 +51,10 @@ $FieldInfo _PubAPIs_FieldInfo_[] = {
 };
 
 $MethodInfo _PubAPIs_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(static_cast<void(PubAPIs::*)($Context*)>(&PubAPIs::init$))},
-	{"getPubapis", "(Ljava/util/Collection;Z)Ljava/util/Map;", "(Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;Z)Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/sjavac/comp/PubAPIs;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PubAPIs*(*)($Context*)>(&PubAPIs::instance))},
-	{"visitPubapi", "(Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(PubAPIs, init$, void, $Context*)},
+	{"getPubapis", "(Ljava/util/Collection;Z)Ljava/util/Map;", "(Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;Z)Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PUBLIC, $virtualMethod(PubAPIs, getPubapis, $Map*, $Collection*, bool)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/sjavac/comp/PubAPIs;", nullptr, $PUBLIC | $STATIC, $staticMethod(PubAPIs, instance, PubAPIs*, $Context*)},
+	{"visitPubapi", "(Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC, $virtualMethod(PubAPIs, visitPubapi, void, $Element*)},
 	{}
 };
 

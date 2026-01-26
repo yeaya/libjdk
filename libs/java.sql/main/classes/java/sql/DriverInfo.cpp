@@ -20,11 +20,11 @@ $FieldInfo _DriverInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _DriverInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/sql/Driver;Ljava/sql/DriverAction;)V", nullptr, 0, $method(static_cast<void(DriverInfo::*)($Driver*,$DriverAction*)>(&DriverInfo::init$))},
-	{"action", "()Ljava/sql/DriverAction;", nullptr, 0},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/sql/Driver;Ljava/sql/DriverAction;)V", nullptr, 0, $method(DriverInfo, init$, void, $Driver*, $DriverAction*)},
+	{"action", "()Ljava/sql/DriverAction;", nullptr, 0, $virtualMethod(DriverInfo, action, $DriverAction*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DriverInfo, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DriverInfo, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DriverInfo, toString, $String*)},
 	{}
 };
 

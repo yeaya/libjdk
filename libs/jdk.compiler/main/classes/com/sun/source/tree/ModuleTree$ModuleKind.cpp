@@ -27,10 +27,10 @@ $FieldInfo _ModuleTree$ModuleKind_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleTree$ModuleKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ModuleTree$ModuleKindArray*(*)()>(&ModuleTree$ModuleKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ModuleTree$ModuleKind::*)($String*,int32_t)>(&ModuleTree$ModuleKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ModuleTree$ModuleKind*(*)($String*)>(&ModuleTree$ModuleKind::valueOf))},
-	{"values", "()[Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ModuleTree$ModuleKindArray*(*)()>(&ModuleTree$ModuleKind::values))},
+	{"$values", "()[Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleTree$ModuleKind, $values, $ModuleTree$ModuleKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleTree$ModuleKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleTree$ModuleKind, valueOf, ModuleTree$ModuleKind*, $String*)},
+	{"values", "()[Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleTree$ModuleKind, values, $ModuleTree$ModuleKindArray*)},
 	{}
 };
 

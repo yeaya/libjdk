@@ -29,15 +29,15 @@ $FieldInfo _Infer$DependencyKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$DependencyKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Infer$DependencyKindArray*(*)()>(&Infer$DependencyKind::$values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$DependencyKind, $values, $Infer$DependencyKindArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Infer$DependencyKind::*)($String*,int32_t,$String*)>(&Infer$DependencyKind::init$))},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Infer$DependencyKind, init$, void, $String*, int32_t, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Infer$DependencyKind*(*)($String*)>(&Infer$DependencyKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Infer$DependencyKindArray*(*)()>(&Infer$DependencyKind::values))},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$DependencyKind, valueOf, Infer$DependencyKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Infer$DependencyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$DependencyKind, values, $Infer$DependencyKindArray*)},
 	{}
 };
 

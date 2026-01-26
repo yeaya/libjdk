@@ -28,10 +28,10 @@ $FieldInfo _JavacParser$PatternResult_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacParser$PatternResult_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavacParser$PatternResultArray*(*)()>(&JavacParser$PatternResult::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JavacParser$PatternResult::*)($String*,int32_t)>(&JavacParser$PatternResult::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavacParser$PatternResult*(*)($String*)>(&JavacParser$PatternResult::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavacParser$PatternResultArray*(*)()>(&JavacParser$PatternResult::values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$PatternResult, $values, $JavacParser$PatternResultArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacParser$PatternResult, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$PatternResult, valueOf, JavacParser$PatternResult*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$PatternResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$PatternResult, values, $JavacParser$PatternResultArray*)},
 	{}
 };
 

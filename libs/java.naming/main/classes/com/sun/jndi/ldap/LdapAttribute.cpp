@@ -58,16 +58,16 @@ $FieldInfo _LdapAttribute_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(LdapAttribute::*)($String*)>(&LdapAttribute::init$))},
-	{"<init>", "(Ljava/lang/String;Ljavax/naming/directory/DirContext;Ljavax/naming/Name;)V", nullptr, $PRIVATE, $method(static_cast<void(LdapAttribute::*)($String*,$DirContext*,$Name*)>(&LdapAttribute::init$))},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getAttributeDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"getAttributeSyntaxDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"getBaseCtx", "()Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(static_cast<$DirContext*(LdapAttribute::*)()>(&LdapAttribute::getBaseCtx)), "javax.naming.NamingException"},
-	{"setBaseCtxInfo", "()V", nullptr, $PRIVATE, $method(static_cast<void(LdapAttribute::*)()>(&LdapAttribute::setBaseCtxInfo))},
-	{"setParent", "(Ljavax/naming/directory/DirContext;Ljavax/naming/Name;)V", nullptr, 0, $method(static_cast<void(LdapAttribute::*)($DirContext*,$Name*)>(&LdapAttribute::setParent))},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(LdapAttribute::*)($ObjectOutputStream*)>(&LdapAttribute::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(LdapAttribute, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljavax/naming/directory/DirContext;Ljavax/naming/Name;)V", nullptr, $PRIVATE, $method(LdapAttribute, init$, void, $String*, $DirContext*, $Name*)},
+	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, add, bool, Object$*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, clone, $Object*)},
+	{"getAttributeDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, getAttributeDefinition, $DirContext*), "javax.naming.NamingException"},
+	{"getAttributeSyntaxDefinition", "()Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(LdapAttribute, getAttributeSyntaxDefinition, $DirContext*), "javax.naming.NamingException"},
+	{"getBaseCtx", "()Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(LdapAttribute, getBaseCtx, $DirContext*), "javax.naming.NamingException"},
+	{"setBaseCtxInfo", "()V", nullptr, $PRIVATE, $method(LdapAttribute, setBaseCtxInfo, void)},
+	{"setParent", "(Ljavax/naming/directory/DirContext;Ljavax/naming/Name;)V", nullptr, 0, $method(LdapAttribute, setParent, void, $DirContext*, $Name*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LdapAttribute, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

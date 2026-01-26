@@ -36,10 +36,10 @@ $FieldInfo _SocketTube$InternalWriteSubscriber$WriteEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketTube$InternalWriteSubscriber$WriteEvent_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;Ljava/nio/channels/SocketChannel;Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, 0, $method(static_cast<void(SocketTube$InternalWriteSubscriber$WriteEvent::*)($SocketTube$InternalWriteSubscriber*,$SocketChannel*,$SocketTube$InternalWriteSubscriber*)>(&SocketTube$InternalWriteSubscriber$WriteEvent::init$))},
-	{"debug", "()Ljdk/internal/net/http/common/Logger;", nullptr, 0},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PROTECTED},
-	{"signalEvent", "()V", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;Ljava/nio/channels/SocketChannel;Ljdk/internal/net/http/SocketTube$InternalWriteSubscriber;)V", nullptr, 0, $method(SocketTube$InternalWriteSubscriber$WriteEvent, init$, void, $SocketTube$InternalWriteSubscriber*, $SocketChannel*, $SocketTube$InternalWriteSubscriber*)},
+	{"debug", "()Ljdk/internal/net/http/common/Logger;", nullptr, 0, $virtualMethod(SocketTube$InternalWriteSubscriber$WriteEvent, debug, $Logger*)},
+	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PROTECTED, $virtualMethod(SocketTube$InternalWriteSubscriber$WriteEvent, signalError, void, $Throwable*)},
+	{"signalEvent", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(SocketTube$InternalWriteSubscriber$WriteEvent, signalEvent, void)},
 	{}
 };
 

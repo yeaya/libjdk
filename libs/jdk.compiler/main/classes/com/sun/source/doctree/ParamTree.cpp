@@ -4,8 +4,10 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
+using $IdentifierTree = ::com::sun::source::doctree::IdentifierTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -13,9 +15,9 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _ParamTree_MethodInfo_[] = {
-	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT},
-	{"getName", "()Lcom/sun/source/doctree/IdentifierTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isTypeParameter", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ParamTree, getDescription, $List*)},
+	{"getName", "()Lcom/sun/source/doctree/IdentifierTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParamTree, getName, $IdentifierTree*)},
+	{"isTypeParameter", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ParamTree, isTypeParameter, bool)},
 	{}
 };
 

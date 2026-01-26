@@ -19,8 +19,8 @@ $FieldInfo _NamedWeakReference_FieldInfo_[] = {
 };
 
 $MethodInfo _NamedWeakReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;)V", "(TT;Ljava/lang/String;)V", 0, $method(static_cast<void(NamedWeakReference::*)(Object$*,$String*)>(&NamedWeakReference::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;)V", "(TT;Ljava/lang/String;)V", 0, $method(NamedWeakReference, init$, void, Object$*, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(NamedWeakReference, getName, $String*)},
 	{}
 };
 

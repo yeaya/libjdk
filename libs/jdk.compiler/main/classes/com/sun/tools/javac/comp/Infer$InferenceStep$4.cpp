@@ -43,8 +43,8 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Infer$InferenceStep$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $PRIVATE, $method(static_cast<void(Infer$InferenceStep$4::*)($String*,int32_t,$Type$UndetVar$InferenceBound*)>(&Infer$InferenceStep$4::init$))},
-	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $PRIVATE, $method(Infer$InferenceStep$4, init$, void, $String*, int32_t, $Type$UndetVar$InferenceBound*)},
+	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Infer$InferenceStep$4, solve, $Type*, $Type$UndetVar*, $InferenceContext*)},
 	{}
 };
 

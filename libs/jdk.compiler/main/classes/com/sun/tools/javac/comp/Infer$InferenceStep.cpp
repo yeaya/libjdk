@@ -64,13 +64,13 @@ $FieldInfo _Infer$InferenceStep_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$InferenceStep_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Infer$InferenceStepArray*(*)()>(&Infer$InferenceStep::$values))},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", $PRIVATE, $method(static_cast<void(Infer$InferenceStep::*)($String*,int32_t,$Type$UndetVar$InferenceBound*)>(&Infer$InferenceStep::init$))},
-	{"accepts", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Z", nullptr, $PUBLIC},
-	{"filterBounds", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, $ABSTRACT},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Infer$InferenceStep*(*)($String*)>(&Infer$InferenceStep::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Infer$InferenceStepArray*(*)()>(&Infer$InferenceStep::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$InferenceStep, $values, $Infer$InferenceStepArray*)},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", $PRIVATE, $method(Infer$InferenceStep, init$, void, $String*, int32_t, $Type$UndetVar$InferenceBound*)},
+	{"accepts", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep, accepts, bool, $Type$UndetVar*, $InferenceContext*)},
+	{"filterBounds", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Infer$InferenceStep, filterBounds, $List*, $Type$UndetVar*, $InferenceContext*)},
+	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, $ABSTRACT, $virtualMethod(Infer$InferenceStep, solve, $Type*, $Type$UndetVar*, $InferenceContext*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$InferenceStep, valueOf, Infer$InferenceStep*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$InferenceStep, values, $Infer$InferenceStepArray*)},
 	{}
 };
 

@@ -20,11 +20,11 @@ $FieldInfo _JgssExtender_FieldInfo_[] = {
 };
 
 $MethodInfo _JgssExtender_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JgssExtender::*)()>(&JgssExtender::init$))},
-	{"getExtender", "()Lsun/security/jgss/JgssExtender;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JgssExtender*(*)()>(&JgssExtender::getExtender))},
-	{"setExtender", "(Lsun/security/jgss/JgssExtender;)V", nullptr, $PROTECTED | $STATIC, $method(static_cast<void(*)(JgssExtender*)>(&JgssExtender::setExtender))},
-	{"wrap", "(Lorg/ietf/jgss/GSSCredential;)Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC},
-	{"wrap", "(Lorg/ietf/jgss/GSSContext;)Lorg/ietf/jgss/GSSContext;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JgssExtender, init$, void)},
+	{"getExtender", "()Lsun/security/jgss/JgssExtender;", nullptr, $PUBLIC | $STATIC, $staticMethod(JgssExtender, getExtender, JgssExtender*)},
+	{"setExtender", "(Lsun/security/jgss/JgssExtender;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(JgssExtender, setExtender, void, JgssExtender*)},
+	{"wrap", "(Lorg/ietf/jgss/GSSCredential;)Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(JgssExtender, wrap, $GSSCredential*, $GSSCredential*)},
+	{"wrap", "(Lorg/ietf/jgss/GSSContext;)Lorg/ietf/jgss/GSSContext;", nullptr, $PUBLIC, $virtualMethod(JgssExtender, wrap, $GSSContext*, $GSSContext*)},
 	{}
 };
 

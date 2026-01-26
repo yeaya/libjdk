@@ -37,12 +37,12 @@ $FieldInfo _UnsharedNameTable_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsharedNameTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Names;I)V", nullptr, $PUBLIC, $method(static_cast<void(UnsharedNameTable::*)($Names*,int32_t)>(&UnsharedNameTable::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, $PUBLIC, $method(static_cast<void(UnsharedNameTable::*)($Names*)>(&UnsharedNameTable::init$))},
-	{"create", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name$Table;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Name$Table*(*)($Names*)>(&UnsharedNameTable::create))},
-	{"dispose", "()V", nullptr, $PUBLIC},
-	{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Names;I)V", nullptr, $PUBLIC, $method(UnsharedNameTable, init$, void, $Names*, int32_t)},
+	{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, $PUBLIC, $method(UnsharedNameTable, init$, void, $Names*)},
+	{"create", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/Name$Table;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnsharedNameTable, create, $Name$Table*, $Names*)},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable, dispose, void)},
+	{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable, fromChars, $Name*, $chars*, int32_t, int32_t)},
+	{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(UnsharedNameTable, fromUtf, $Name*, $bytes*, int32_t, int32_t)},
 	{}
 };
 

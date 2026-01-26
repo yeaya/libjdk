@@ -25,9 +25,9 @@ $FieldInfo _ArrayTypeDesc_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayTypeDesc_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/pubapi/TypeDesc;)V", nullptr, $PUBLIC, $method(static_cast<void(ArrayTypeDesc::*)($TypeDesc*)>(&ArrayTypeDesc::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/pubapi/TypeDesc;)V", nullptr, $PUBLIC, $method(ArrayTypeDesc, init$, void, $TypeDesc*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayTypeDesc, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayTypeDesc, hashCode, int32_t)},
 	{}
 };
 

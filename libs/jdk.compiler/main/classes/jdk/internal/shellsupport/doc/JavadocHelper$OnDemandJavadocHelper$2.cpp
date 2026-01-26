@@ -30,8 +30,8 @@ $FieldInfo _JavadocHelper$OnDemandJavadocHelper$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocHelper$OnDemandJavadocHelper$2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$2::*)($JavadocHelper$OnDemandJavadocHelper*,$URI*,$JavaFileObject$Kind*,$String*)>(&JavadocHelper$OnDemandJavadocHelper$2::init$))},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/lang/String;)V", nullptr, 0, $method(JavadocHelper$OnDemandJavadocHelper$2, init$, void, $JavadocHelper$OnDemandJavadocHelper*, $URI*, $JavaFileObject$Kind*, $String*)},
+	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$2, getCharContent, $CharSequence*, bool), "java.io.IOException"},
 	{}
 };
 

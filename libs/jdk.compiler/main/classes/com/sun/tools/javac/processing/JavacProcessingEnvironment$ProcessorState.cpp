@@ -71,11 +71,11 @@ $FieldInfo _JavacProcessingEnvironment$ProcessorState_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacProcessingEnvironment$ProcessorState_MethodInfo_[] = {
-	{"<init>", "(Ljavax/annotation/processing/Processor;Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;ZLjavax/annotation/processing/ProcessingEnvironment;Z)V", nullptr, 0, $method(static_cast<void(JavacProcessingEnvironment$ProcessorState::*)($Processor*,$Log*,$Source*,$DeferredCompletionFailureHandler*,bool,$ProcessingEnvironment*,bool)>(&JavacProcessingEnvironment$ProcessorState::init$))},
-	{"annotationSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"checkOptionName", "(Ljava/lang/String;Lcom/sun/tools/javac/util/Log;)Z", nullptr, $PRIVATE, $method(static_cast<bool(JavacProcessingEnvironment$ProcessorState::*)($String*,$Log*)>(&JavacProcessingEnvironment$ProcessorState::checkOptionName))},
-	{"checkSourceVersionCompatibility", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/Log;)V", nullptr, $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment$ProcessorState::*)($Source*,$Log*)>(&JavacProcessingEnvironment$ProcessorState::checkSourceVersionCompatibility))},
-	{"removeSupportedOptions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC},
+	{"<init>", "(Ljavax/annotation/processing/Processor;Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;ZLjavax/annotation/processing/ProcessingEnvironment;Z)V", nullptr, 0, $method(JavacProcessingEnvironment$ProcessorState, init$, void, $Processor*, $Log*, $Source*, $DeferredCompletionFailureHandler*, bool, $ProcessingEnvironment*, bool)},
+	{"annotationSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ProcessorState, annotationSupported, bool, $String*)},
+	{"checkOptionName", "(Ljava/lang/String;Lcom/sun/tools/javac/util/Log;)Z", nullptr, $PRIVATE, $method(JavacProcessingEnvironment$ProcessorState, checkOptionName, bool, $String*, $Log*)},
+	{"checkSourceVersionCompatibility", "(Lcom/sun/tools/javac/code/Source;Lcom/sun/tools/javac/util/Log;)V", nullptr, $PRIVATE, $method(JavacProcessingEnvironment$ProcessorState, checkSourceVersionCompatibility, void, $Source*, $Log*)},
+	{"removeSupportedOptions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ProcessorState, removeSupportedOptions, void, $Set*)},
 	{}
 };
 

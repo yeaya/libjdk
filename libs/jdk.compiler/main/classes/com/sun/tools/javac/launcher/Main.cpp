@@ -155,16 +155,16 @@ $FieldInfo _Main_FieldInfo_[] = {
 };
 
 $MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(static_cast<void(Main::*)($PrintStream*)>(&Main::init$))},
-	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(static_cast<void(Main::*)($PrintWriter*)>(&Main::init$))},
-	{"compile", "(Ljava/nio/file/Path;Ljava/util/List;Lcom/sun/tools/javac/launcher/Main$Context;)Ljava/lang/String;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/lang/String;>;Lcom/sun/tools/javac/launcher/Main$Context;)Ljava/lang/String;", $PRIVATE, $method(static_cast<$String*(Main::*)($Path*,$List*,$Main$Context*)>(&Main::compile)), "com.sun.tools.javac.launcher.Main$Fault"},
-	{"execute", "(Ljava/lang/String;[Ljava/lang/String;Lcom/sun/tools/javac/launcher/Main$Context;)V", nullptr, $PRIVATE, $method(static_cast<void(Main::*)($String*,$StringArray*,$Main$Context*)>(&Main::execute)), "com.sun.tools.javac.launcher.Main$Fault,java.lang.reflect.InvocationTargetException"},
-	{"getFile", "([Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(static_cast<$Path*(Main::*)($StringArray*)>(&Main::getFile)), "com.sun.tools.javac.launcher.Main$Fault"},
-	{"getJavacOpts", "([Ljava/lang/String;)Ljava/util/List;", "([Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $method(static_cast<$List*(Main::*)($StringArray*)>(&Main::getJavacOpts)), "com.sun.tools.javac.launcher.Main$Fault"},
-	{"getMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic$Error;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Main::*)($JCDiagnostic$Error*)>(&Main::getMessage))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($StringArray*)>(&Main::main)), "java.lang.Throwable"},
-	{"readFile", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(static_cast<$JavaFileObject*(Main::*)($Path*)>(&Main::readFile)), "com.sun.tools.javac.launcher.Main$Fault"},
-	{"run", "([Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.launcher.Main$Fault,java.lang.reflect.InvocationTargetException"},
+	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintStream*)},
+	{"<init>", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Main, init$, void, $PrintWriter*)},
+	{"compile", "(Ljava/nio/file/Path;Ljava/util/List;Lcom/sun/tools/javac/launcher/Main$Context;)Ljava/lang/String;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/lang/String;>;Lcom/sun/tools/javac/launcher/Main$Context;)Ljava/lang/String;", $PRIVATE, $method(Main, compile, $String*, $Path*, $List*, $Main$Context*), "com.sun.tools.javac.launcher.Main$Fault"},
+	{"execute", "(Ljava/lang/String;[Ljava/lang/String;Lcom/sun/tools/javac/launcher/Main$Context;)V", nullptr, $PRIVATE, $method(Main, execute, void, $String*, $StringArray*, $Main$Context*), "com.sun.tools.javac.launcher.Main$Fault,java.lang.reflect.InvocationTargetException"},
+	{"getFile", "([Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(Main, getFile, $Path*, $StringArray*), "com.sun.tools.javac.launcher.Main$Fault"},
+	{"getJavacOpts", "([Ljava/lang/String;)Ljava/util/List;", "([Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $method(Main, getJavacOpts, $List*, $StringArray*), "com.sun.tools.javac.launcher.Main$Fault"},
+	{"getMessage", "(Lcom/sun/tools/javac/util/JCDiagnostic$Error;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main, getMessage, $String*, $JCDiagnostic$Error*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Main, main, void, $StringArray*), "java.lang.Throwable"},
+	{"readFile", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $method(Main, readFile, $JavaFileObject*, $Path*), "com.sun.tools.javac.launcher.Main$Fault"},
+	{"run", "([Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Main, run, void, $StringArray*, $StringArray*), "com.sun.tools.javac.launcher.Main$Fault,java.lang.reflect.InvocationTargetException"},
 	{}
 };
 

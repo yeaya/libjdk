@@ -22,7 +22,7 @@ $FieldInfo _ServiceProxy$ServiceConfigurationError_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceProxy$ServiceConfigurationError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ServiceProxy$ServiceConfigurationError::*)($String*)>(&ServiceProxy$ServiceConfigurationError::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ServiceProxy$ServiceConfigurationError, init$, void, $String*)},
 	{}
 };
 

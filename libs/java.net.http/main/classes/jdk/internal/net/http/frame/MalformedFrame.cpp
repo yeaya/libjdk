@@ -24,11 +24,11 @@ $FieldInfo _MalformedFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _MalformedFrame_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MalformedFrame::*)(int32_t,$String*)>(&MalformedFrame::init$))},
-	{"<init>", "(IILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MalformedFrame::*)(int32_t,int32_t,$String*)>(&MalformedFrame::init$))},
-	{"getErrorCode", "()I", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedFrame, init$, void, int32_t, $String*)},
+	{"<init>", "(IILjava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedFrame, init$, void, int32_t, int32_t, $String*)},
+	{"getErrorCode", "()I", nullptr, $PUBLIC, $virtualMethod(MalformedFrame, getErrorCode, int32_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MalformedFrame, getMessage, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MalformedFrame, toString, $String*)},
 	{}
 };
 

@@ -40,9 +40,9 @@ $FieldInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaFrom_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaFrom_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(static_cast<void(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom::*)($Class*,$StringArray*)>(&DefaultMXBeanMappingFactory$CompositeBuilderViaFrom::init$))},
-	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, nullptr, "java.io.InvalidObjectException"},
-	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL, nullptr, "java.io.InvalidObjectException"},
+	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, init$, void, $Class*, $StringArray*)},
+	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, applicable, $String*, $MethodArray*), "java.io.InvalidObjectException"},
+	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderViaFrom, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*), "java.io.InvalidObjectException"},
 	{}
 };
 

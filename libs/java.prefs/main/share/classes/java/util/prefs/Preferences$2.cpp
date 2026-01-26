@@ -15,8 +15,8 @@ namespace java {
 		namespace prefs {
 
 $MethodInfo _Preferences$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Preferences$2::*)()>(&Preferences$2::init$))},
-	{"run", "()Ljava/util/prefs/PreferencesFactory;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Preferences$2, init$, void)},
+	{"run", "()Ljava/util/prefs/PreferencesFactory;", nullptr, $PUBLIC, $virtualMethod(Preferences$2, run, $Object*)},
 	{}
 };
 

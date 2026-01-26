@@ -30,9 +30,9 @@ $CompoundAttribute _TypeKindVisitor9_Annotations_[] = {
 };
 
 $MethodInfo _TypeKindVisitor9_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(TypeKindVisitor9::*)()>(&TypeKindVisitor9::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(TypeKindVisitor9::*)(Object$*)>(&TypeKindVisitor9::init$))},
-	{"visitNoTypeAsModule", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(TypeKindVisitor9, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(TypeKindVisitor9, init$, void, Object$*)},
+	{"visitNoTypeAsModule", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor9, visitNoTypeAsModule, $Object*, $NoType*, Object$*)},
 	{}
 };
 

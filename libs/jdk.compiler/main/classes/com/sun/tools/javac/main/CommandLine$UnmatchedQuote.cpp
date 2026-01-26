@@ -22,7 +22,7 @@ $FieldInfo _CommandLine$UnmatchedQuote_FieldInfo_[] = {
 };
 
 $MethodInfo _CommandLine$UnmatchedQuote_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(CommandLine$UnmatchedQuote::*)($String*)>(&CommandLine$UnmatchedQuote::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CommandLine$UnmatchedQuote, init$, void, $String*)},
 	{}
 };
 

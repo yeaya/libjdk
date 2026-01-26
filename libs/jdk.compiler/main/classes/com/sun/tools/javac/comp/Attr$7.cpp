@@ -48,8 +48,8 @@ $FieldInfo _Attr$7_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$7_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(static_cast<void(Attr$7::*)($Attr*,$Check$CheckContext*,$JCTree$JCNewClass*,$Symbol$TypeSymbol*)>(&Attr$7::init$))},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(Attr$7, init$, void, $Attr*, $Check$CheckContext*, $JCTree$JCNewClass*, $Symbol$TypeSymbol*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Attr$7, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
 	{}
 };
 

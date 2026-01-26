@@ -35,9 +35,9 @@ $FieldInfo _Iterators_FieldInfo_[] = {
 };
 
 $MethodInfo _Iterators_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Iterators::*)()>(&Iterators::init$))},
-	{"createCompoundIterator", "(Ljava/lang/Iterable;Ljava/util/function/Function;)Ljava/util/Iterator;", "<I:Ljava/lang/Object;O:Ljava/lang/Object;>(Ljava/lang/Iterable<TI;>;Ljava/util/function/Function<TI;Ljava/util/Iterator<TO;>;>;)Ljava/util/Iterator<TO;>;", $PUBLIC | $STATIC, $method(static_cast<$Iterator*(*)($Iterable*,$Function*)>(&Iterators::createCompoundIterator))},
-	{"createFilterIterator", "(Ljava/util/Iterator;Ljava/util/function/Predicate;)Ljava/util/Iterator;", "<E:Ljava/lang/Object;>(Ljava/util/Iterator<TE;>;Ljava/util/function/Predicate<TE;>;)Ljava/util/Iterator<TE;>;", $PUBLIC | $STATIC, $method(static_cast<$Iterator*(*)($Iterator*,$Predicate*)>(&Iterators::createFilterIterator))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Iterators, init$, void)},
+	{"createCompoundIterator", "(Ljava/lang/Iterable;Ljava/util/function/Function;)Ljava/util/Iterator;", "<I:Ljava/lang/Object;O:Ljava/lang/Object;>(Ljava/lang/Iterable<TI;>;Ljava/util/function/Function<TI;Ljava/util/Iterator<TO;>;>;)Ljava/util/Iterator<TO;>;", $PUBLIC | $STATIC, $staticMethod(Iterators, createCompoundIterator, $Iterator*, $Iterable*, $Function*)},
+	{"createFilterIterator", "(Ljava/util/Iterator;Ljava/util/function/Predicate;)Ljava/util/Iterator;", "<E:Ljava/lang/Object;>(Ljava/util/Iterator<TE;>;Ljava/util/function/Predicate<TE;>;)Ljava/util/Iterator<TE;>;", $PUBLIC | $STATIC, $staticMethod(Iterators, createFilterIterator, $Iterator*, $Iterator*, $Predicate*)},
 	{}
 };
 

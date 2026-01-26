@@ -27,7 +27,7 @@ $FieldInfo _LoaderHandler$LoaderEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _LoaderHandler$LoaderEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/server/LoaderHandler$LoaderKey;Lsun/rmi/server/LoaderHandler$Loader;)V", nullptr, $PUBLIC, $method(static_cast<void(LoaderHandler$LoaderEntry::*)($LoaderHandler$LoaderKey*,$LoaderHandler$Loader*)>(&LoaderHandler$LoaderEntry::init$))},
+	{"<init>", "(Lsun/rmi/server/LoaderHandler$LoaderKey;Lsun/rmi/server/LoaderHandler$Loader;)V", nullptr, $PUBLIC, $method(LoaderHandler$LoaderEntry, init$, void, $LoaderHandler$LoaderKey*, $LoaderHandler$Loader*)},
 	{}
 };
 

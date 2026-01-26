@@ -87,8 +87,8 @@ $FieldInfo HttpClientImpl$SelectorAttachment$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HttpClientImpl$SelectorAttachment$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$SelectorAttachment$$Lambda$toString::*)($String*)>(&HttpClientImpl$SelectorAttachment$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorAttachment$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorAttachment$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo HttpClientImpl$SelectorAttachment$$Lambda$toString::classInfo$ = {
@@ -127,8 +127,8 @@ $FieldInfo HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::fieldInf
 	{}
 };
 $MethodInfo HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::*)(int32_t)>(&HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, init$, void, int32_t)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo HttpClientImpl$SelectorAttachment$$Lambda$lambda$events$0$1::classInfo$ = {
@@ -156,12 +156,12 @@ $FieldInfo _HttpClientImpl$SelectorAttachment_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClientImpl$SelectorAttachment_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/SelectableChannel;Ljava/nio/channels/Selector;)V", nullptr, 0, $method(static_cast<void(HttpClientImpl$SelectorAttachment::*)($SelectableChannel*,$Selector*)>(&HttpClientImpl$SelectorAttachment::init$))},
-	{"abortPending", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"events", "(I)Ljava/util/stream/Stream;", "(I)Ljava/util/stream/Stream<Ljdk/internal/net/http/AsyncEvent;>;", 0},
-	{"lambda$events$0", "(ILjdk/internal/net/http/AsyncEvent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)(int32_t,$AsyncEvent*)>(&HttpClientImpl$SelectorAttachment::lambda$events$0))},
-	{"register", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, nullptr, "java.nio.channels.ClosedChannelException"},
-	{"resetInterestOps", "(I)V", nullptr, 0},
+	{"<init>", "(Ljava/nio/channels/SelectableChannel;Ljava/nio/channels/Selector;)V", nullptr, 0, $method(HttpClientImpl$SelectorAttachment, init$, void, $SelectableChannel*, $Selector*)},
+	{"abortPending", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(HttpClientImpl$SelectorAttachment, abortPending, void, $Throwable*)},
+	{"events", "(I)Ljava/util/stream/Stream;", "(I)Ljava/util/stream/Stream<Ljdk/internal/net/http/AsyncEvent;>;", 0, $virtualMethod(HttpClientImpl$SelectorAttachment, events, $Stream*, int32_t)},
+	{"lambda$events$0", "(ILjdk/internal/net/http/AsyncEvent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorAttachment, lambda$events$0, bool, int32_t, $AsyncEvent*)},
+	{"register", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $virtualMethod(HttpClientImpl$SelectorAttachment, register$, void, $AsyncEvent*), "java.nio.channels.ClosedChannelException"},
+	{"resetInterestOps", "(I)V", nullptr, 0, $virtualMethod(HttpClientImpl$SelectorAttachment, resetInterestOps, void, int32_t)},
 	{}
 };
 

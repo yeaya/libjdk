@@ -87,14 +87,14 @@ $FieldInfo _JRTIndex_FieldInfo_[] = {
 };
 
 $MethodInfo _JRTIndex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JRTIndex::*)()>(&JRTIndex::init$)), "java.io.IOException"},
-	{"getCtInfo", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Lcom/sun/tools/javac/file/JRTIndex$CtSym;", nullptr, $PRIVATE, $method(static_cast<$JRTIndex$CtSym*(JRTIndex::*)($RelativePath$RelativeDirectory*)>(&JRTIndex::getCtInfo))},
-	{"getCtSym", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/file/JRTIndex$CtSym;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getEntry", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Lcom/sun/tools/javac/file/JRTIndex$Entry;", nullptr, $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"getSharedInstance", "()Lcom/sun/tools/javac/file/JRTIndex;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<JRTIndex*(*)()>(&JRTIndex::getSharedInstance))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/file/JRTIndex;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JRTIndex*(*)($Context*)>(&JRTIndex::instance))},
-	{"isAvailable", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&JRTIndex::isAvailable))},
-	{"isInJRT", "(Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JRTIndex, init$, void), "java.io.IOException"},
+	{"getCtInfo", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Lcom/sun/tools/javac/file/JRTIndex$CtSym;", nullptr, $PRIVATE, $method(JRTIndex, getCtInfo, $JRTIndex$CtSym*, $RelativePath$RelativeDirectory*)},
+	{"getCtSym", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/file/JRTIndex$CtSym;", nullptr, $PUBLIC, $virtualMethod(JRTIndex, getCtSym, $JRTIndex$CtSym*, $CharSequence*), "java.io.IOException"},
+	{"getEntry", "(Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;)Lcom/sun/tools/javac/file/JRTIndex$Entry;", nullptr, $SYNCHRONIZED, $virtualMethod(JRTIndex, getEntry, $JRTIndex$Entry*, $RelativePath$RelativeDirectory*), "java.io.IOException"},
+	{"getSharedInstance", "()Lcom/sun/tools/javac/file/JRTIndex;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(JRTIndex, getSharedInstance, JRTIndex*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/file/JRTIndex;", nullptr, $PUBLIC | $STATIC, $staticMethod(JRTIndex, instance, JRTIndex*, $Context*)},
+	{"isAvailable", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRTIndex, isAvailable, bool)},
+	{"isInJRT", "(Ljavax/tools/FileObject;)Z", nullptr, $PUBLIC, $virtualMethod(JRTIndex, isInJRT, bool, $FileObject*)},
 	{}
 };
 

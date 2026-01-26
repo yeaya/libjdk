@@ -12,7 +12,7 @@ namespace com {
 				namespace server {
 
 $MethodInfo _Terminable_MethodInfo_[] = {
-	{"shutdown", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"shutdown", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Terminable, shutdown, void, $String*)},
 	{}
 };
 

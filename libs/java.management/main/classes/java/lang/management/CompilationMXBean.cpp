@@ -10,9 +10,9 @@ namespace java {
 		namespace management {
 
 $MethodInfo _CompilationMXBean_MethodInfo_[] = {
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTotalCompilationTime", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"isCompilationTimeMonitoringSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompilationMXBean, getName, $String*)},
+	{"getTotalCompilationTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompilationMXBean, getTotalCompilationTime, int64_t)},
+	{"isCompilationTimeMonitoringSupported", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompilationMXBean, isCompilationTimeMonitoringSupported, bool)},
 	{}
 };
 

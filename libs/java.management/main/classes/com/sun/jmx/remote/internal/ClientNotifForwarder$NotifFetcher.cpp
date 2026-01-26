@@ -78,16 +78,16 @@ $FieldInfo _ClientNotifForwarder$NotifFetcher_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientNotifForwarder$NotifFetcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ClientNotifForwarder;)V", nullptr, $PRIVATE, $method(static_cast<void(ClientNotifForwarder$NotifFetcher::*)($ClientNotifForwarder*)>(&ClientNotifForwarder$NotifFetcher::init$))},
-	{"dispatchNotification", "(Ljavax/management/remote/TargetedNotification;Ljava/lang/Integer;Ljava/util/Map;)V", "(Ljavax/management/remote/TargetedNotification;Ljava/lang/Integer;Ljava/util/Map<Ljava/lang/Integer;Lcom/sun/jmx/remote/internal/ClientListenerInfo;>;)V", 0},
-	{"doRun", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClientNotifForwarder$NotifFetcher::*)()>(&ClientNotifForwarder$NotifFetcher::doRun))},
-	{"fetchNotifs", "()Ljavax/management/remote/NotificationResult;", nullptr, $PRIVATE, $method(static_cast<$NotificationResult*(ClientNotifForwarder$NotifFetcher::*)()>(&ClientNotifForwarder$NotifFetcher::fetchNotifs))},
-	{"fetchOneNotif", "()Ljavax/management/remote/NotificationResult;", nullptr, $PRIVATE, $method(static_cast<$NotificationResult*(ClientNotifForwarder$NotifFetcher::*)()>(&ClientNotifForwarder$NotifFetcher::fetchOneNotif))},
-	{"isRejectedExecutionException", "(Ljava/lang/Exception;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ClientNotifForwarder$NotifFetcher::*)($Exception*)>(&ClientNotifForwarder$NotifFetcher::isRejectedExecutionException))},
-	{"logOnce", "(Ljava/lang/String;Ljava/lang/SecurityException;)V", nullptr, $PRIVATE, $method(static_cast<void(ClientNotifForwarder$NotifFetcher::*)($String*,$SecurityException*)>(&ClientNotifForwarder$NotifFetcher::logOnce))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"setContextClassLoader", "(Ljava/lang/ClassLoader;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $method(static_cast<$ClassLoader*(ClientNotifForwarder$NotifFetcher::*)($ClassLoader*)>(&ClientNotifForwarder$NotifFetcher::setContextClassLoader))},
-	{"shouldStop", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(ClientNotifForwarder$NotifFetcher::*)()>(&ClientNotifForwarder$NotifFetcher::shouldStop))},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ClientNotifForwarder;)V", nullptr, $PRIVATE, $method(ClientNotifForwarder$NotifFetcher, init$, void, $ClientNotifForwarder*)},
+	{"dispatchNotification", "(Ljavax/management/remote/TargetedNotification;Ljava/lang/Integer;Ljava/util/Map;)V", "(Ljavax/management/remote/TargetedNotification;Ljava/lang/Integer;Ljava/util/Map<Ljava/lang/Integer;Lcom/sun/jmx/remote/internal/ClientListenerInfo;>;)V", 0, $virtualMethod(ClientNotifForwarder$NotifFetcher, dispatchNotification, void, $TargetedNotification*, $Integer*, $Map*)},
+	{"doRun", "()V", nullptr, $PRIVATE, $method(ClientNotifForwarder$NotifFetcher, doRun, void)},
+	{"fetchNotifs", "()Ljavax/management/remote/NotificationResult;", nullptr, $PRIVATE, $method(ClientNotifForwarder$NotifFetcher, fetchNotifs, $NotificationResult*)},
+	{"fetchOneNotif", "()Ljavax/management/remote/NotificationResult;", nullptr, $PRIVATE, $method(ClientNotifForwarder$NotifFetcher, fetchOneNotif, $NotificationResult*)},
+	{"isRejectedExecutionException", "(Ljava/lang/Exception;)Z", nullptr, $PRIVATE, $method(ClientNotifForwarder$NotifFetcher, isRejectedExecutionException, bool, $Exception*)},
+	{"logOnce", "(Ljava/lang/String;Ljava/lang/SecurityException;)V", nullptr, $PRIVATE, $method(ClientNotifForwarder$NotifFetcher, logOnce, void, $String*, $SecurityException*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClientNotifForwarder$NotifFetcher, run, void)},
+	{"setContextClassLoader", "(Ljava/lang/ClassLoader;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $method(ClientNotifForwarder$NotifFetcher, setContextClassLoader, $ClassLoader*, $ClassLoader*)},
+	{"shouldStop", "()Z", nullptr, $PRIVATE, $method(ClientNotifForwarder$NotifFetcher, shouldStop, bool)},
 	{}
 };
 

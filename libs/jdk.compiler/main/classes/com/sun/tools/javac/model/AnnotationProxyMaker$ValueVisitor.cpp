@@ -87,15 +87,15 @@ $FieldInfo _AnnotationProxyMaker$ValueVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationProxyMaker$ValueVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/model/AnnotationProxyMaker;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $method(static_cast<void(AnnotationProxyMaker$ValueVisitor::*)($AnnotationProxyMaker*,$Symbol$MethodSymbol*)>(&AnnotationProxyMaker$ValueVisitor::init$))},
-	{"getValue", "(Lcom/sun/tools/javac/code/Attribute;)Ljava/lang/Object;", nullptr, 0},
-	{"typeMismatch", "(Ljava/lang/reflect/Method;Lcom/sun/tools/javac/code/Attribute;)V", nullptr, $PRIVATE, $method(static_cast<void(AnnotationProxyMaker$ValueVisitor::*)($Method*,$Attribute*)>(&AnnotationProxyMaker$ValueVisitor::typeMismatch))},
-	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC},
-	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC},
-	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC},
-	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC},
-	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC},
-	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/model/AnnotationProxyMaker;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $method(AnnotationProxyMaker$ValueVisitor, init$, void, $AnnotationProxyMaker*, $Symbol$MethodSymbol*)},
+	{"getValue", "(Lcom/sun/tools/javac/code/Attribute;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(AnnotationProxyMaker$ValueVisitor, getValue, $Object*, $Attribute*)},
+	{"typeMismatch", "(Ljava/lang/reflect/Method;Lcom/sun/tools/javac/code/Attribute;)V", nullptr, $PRIVATE, $method(AnnotationProxyMaker$ValueVisitor, typeMismatch, void, $Method*, $Attribute*)},
+	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitArray, void, $Attribute$Array*)},
+	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitClass, void, $Attribute$Class*)},
+	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitCompound, void, $Attribute$Compound*)},
+	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitConstant, void, $Attribute$Constant*)},
+	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitEnum, void, $Attribute$Enum*)},
+	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor, visitError, void, $Attribute$Error*)},
 	{}
 };
 

@@ -60,14 +60,14 @@ $FieldInfo _Authenticator_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/Checksum;ILsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/EncryptionKey;Ljava/lang/Integer;Lsun/security/krb5/internal/AuthorizationData;)V", nullptr, $PUBLIC, $method(static_cast<void(Authenticator::*)($PrincipalName*,$Checksum*,int32_t,$KerberosTime*,$EncryptionKey*,$Integer*,$AuthorizationData*)>(&Authenticator::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(Authenticator::*)($bytes*)>(&Authenticator::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(Authenticator::*)($DerValue*)>(&Authenticator::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"getChecksum", "()Lsun/security/krb5/Checksum;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Checksum*(Authenticator::*)()>(&Authenticator::getChecksum))},
-	{"getSeqNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Integer*(Authenticator::*)()>(&Authenticator::getSeqNumber))},
-	{"getSubKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$EncryptionKey*(Authenticator::*)()>(&Authenticator::getSubKey))},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(Authenticator::*)($DerValue*)>(&Authenticator::init)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
+	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/Checksum;ILsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/EncryptionKey;Ljava/lang/Integer;Lsun/security/krb5/internal/AuthorizationData;)V", nullptr, $PUBLIC, $method(Authenticator, init$, void, $PrincipalName*, $Checksum*, int32_t, $KerberosTime*, $EncryptionKey*, $Integer*, $AuthorizationData*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(Authenticator, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(Authenticator, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(Authenticator, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"getChecksum", "()Lsun/security/krb5/Checksum;", nullptr, $PUBLIC | $FINAL, $method(Authenticator, getChecksum, $Checksum*)},
+	{"getSeqNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $FINAL, $method(Authenticator, getSeqNumber, $Integer*)},
+	{"getSubKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $FINAL, $method(Authenticator, getSubKey, $EncryptionKey*)},
+	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(Authenticator, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException"},
 	{}
 };
 

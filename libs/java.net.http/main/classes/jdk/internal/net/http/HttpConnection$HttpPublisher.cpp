@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace jdk {
 	namespace internal {
@@ -14,9 +15,9 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _HttpConnection$HttpPublisher_MethodInfo_[] = {
-	{"enqueue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"enqueueUnordered", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"signalEnqueued", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"enqueue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection$HttpPublisher, enqueue, void, $List*), "java.io.IOException"},
+	{"enqueueUnordered", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection$HttpPublisher, enqueueUnordered, void, $List*), "java.io.IOException"},
+	{"signalEnqueued", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpConnection$HttpPublisher, signalEnqueued, void), "java.io.IOException"},
 	{}
 };
 

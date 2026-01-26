@@ -18,7 +18,7 @@ $FieldInfo _KrbCryptoException_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbCryptoException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbCryptoException::*)($String*)>(&KrbCryptoException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KrbCryptoException, init$, void, $String*)},
 	{}
 };
 

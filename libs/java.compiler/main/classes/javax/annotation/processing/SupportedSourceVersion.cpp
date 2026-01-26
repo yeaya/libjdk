@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
+using $SourceVersion = ::javax::lang::model::SourceVersion;
 
 namespace javax {
 	namespace annotation {
@@ -36,7 +37,7 @@ $CompoundAttribute _SupportedSourceVersion_Annotations_[] = {
 };
 
 $MethodInfo _SupportedSourceVersion_MethodInfo_[] = {
-	{"value", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SupportedSourceVersion, value, $SourceVersion*)},
 	{}
 };
 

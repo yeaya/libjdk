@@ -10,15 +10,17 @@
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
 
-void java$security$jgss$test$PreloadClass(void* eventData) {
+void java$security$jgss$test$PreloadClass() {
+}
+
+void java$security$jgss$test$PreinitClass() {
 }
 
 void java$security$jgss$test$LibEventAction(int32_t eventType, void* eventData) {
 	if (eventType == JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS) {
-		java$security$jgss$test$PreloadClass(eventData);
-	}
-	if (eventType == JCPP_LIB_EVENT_TYPE_THREAD_START) {
-		$onLibThreadStart(eventData);
+		java$security$jgss$test$PreloadClass();
+	} else if (eventType == JCPP_LIB_EVENT_TYPE_PREINIT_CLASS) {
+		java$security$jgss$test$PreinitClass();
 	}
 }
 
@@ -49,3 +51,9 @@ void java$security$jgss$test::init() {
 	};
 	$System::addLibrary(&lib);
 }
+
+#ifdef JCPP_SHARED_BUILD
+extern "C" $export void JCPP_OnLoad() {
+	java$security$jgss$test::init();
+}
+#endif

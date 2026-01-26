@@ -58,10 +58,10 @@ $FieldInfo _ZeroRedirects_FieldInfo_[] = {
 };
 
 $MethodInfo _ZeroRedirects_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ZeroRedirects::*)()>(&ZeroRedirects::init$))},
-	{"initServer", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&ZeroRedirects::initServer)), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ZeroRedirects::main)), "java.lang.Exception"},
-	{"test", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&ZeroRedirects::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ZeroRedirects, init$, void)},
+	{"initServer", "()V", nullptr, $STATIC, $staticMethod(ZeroRedirects, initServer, void), "java.lang.Exception"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZeroRedirects, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ZeroRedirects, test, void), "java.lang.Exception"},
 	{}
 };
 

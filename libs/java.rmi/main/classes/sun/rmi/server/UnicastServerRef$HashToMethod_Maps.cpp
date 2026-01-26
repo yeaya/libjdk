@@ -34,8 +34,8 @@ namespace sun {
 		namespace server {
 
 $MethodInfo _UnicastServerRef$HashToMethod_Maps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(UnicastServerRef$HashToMethod_Maps::*)()>(&UnicastServerRef$HashToMethod_Maps::init$))},
-	{"computeValue", "(Ljava/lang/Class;)Ljava/util/Map;", "(Ljava/lang/Class<*>;)Ljava/util/Map<Ljava/lang/Long;Ljava/lang/reflect/Method;>;", $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(UnicastServerRef$HashToMethod_Maps, init$, void)},
+	{"computeValue", "(Ljava/lang/Class;)Ljava/util/Map;", "(Ljava/lang/Class<*>;)Ljava/util/Map<Ljava/lang/Long;Ljava/lang/reflect/Method;>;", $PROTECTED, $virtualMethod(UnicastServerRef$HashToMethod_Maps, computeValue, $Object*, $Class*)},
 	{}
 };
 

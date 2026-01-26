@@ -62,12 +62,12 @@ $FieldInfo _KDCRep_FieldInfo_[] = {
 };
 
 $MethodInfo _KDCRep_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptedData;I)V", nullptr, $PUBLIC, $method(static_cast<void(KDCRep::*)($PADataArray*,$PrincipalName*,$Ticket*,$EncryptedData*,int32_t)>(&KDCRep::init$)), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KDCRep::*)()>(&KDCRep::init$))},
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(static_cast<void(KDCRep::*)($bytes*,int32_t)>(&KDCRep::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(static_cast<void(KDCRep::*)($DerValue*,int32_t)>(&KDCRep::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;I)V", nullptr, $PROTECTED, nullptr, "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
+	{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptedData;I)V", nullptr, $PUBLIC, $method(KDCRep, init$, void, $PADataArray*, $PrincipalName*, $Ticket*, $EncryptedData*, int32_t), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KDCRep, init$, void)},
+	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(KDCRep, init$, void, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException,java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(KDCRep, init$, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KDCRep, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"init", "(Lsun/security/util/DerValue;I)V", nullptr, $PROTECTED, $virtualMethod(KDCRep, init, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
 	{}
 };
 

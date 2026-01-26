@@ -8,7 +8,11 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
+using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
+using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
+using $Type = ::com::sun::tools::javac::code::Type;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
+using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -20,12 +24,12 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _TypeEnter$DefaultConstructorHelper_MethodInfo_[] = {
-	{"constructorSymbol", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC | $ABSTRACT},
-	{"constructorType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"enclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $ABSTRACT},
-	{"finalAdjustment", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC},
-	{"owner", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC | $ABSTRACT},
-	{"superArgs", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC | $ABSTRACT},
+	{"constructorSymbol", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, constructorSymbol, $Symbol$MethodSymbol*)},
+	{"constructorType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, constructorType, $Type*)},
+	{"enclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, enclosingType, $Type*)},
+	{"finalAdjustment", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$DefaultConstructorHelper, finalAdjustment, $JCTree$JCMethodDecl*, $JCTree$JCMethodDecl*)},
+	{"owner", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, owner, $Symbol$TypeSymbol*)},
+	{"superArgs", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, superArgs, $List*)},
 	{}
 };
 

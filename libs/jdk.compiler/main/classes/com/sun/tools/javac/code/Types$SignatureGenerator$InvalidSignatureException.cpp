@@ -24,8 +24,8 @@ $FieldInfo _Types$SignatureGenerator$InvalidSignatureException_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$SignatureGenerator$InvalidSignatureException_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Types$SignatureGenerator$InvalidSignatureException::*)($Type*)>(&Types$SignatureGenerator$InvalidSignatureException::init$))},
-	{"type", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$SignatureGenerator$InvalidSignatureException, init$, void, $Type*)},
+	{"type", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$SignatureGenerator$InvalidSignatureException, type, $Type*)},
 	{}
 };
 

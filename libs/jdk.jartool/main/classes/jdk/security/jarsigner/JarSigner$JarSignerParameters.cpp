@@ -50,17 +50,17 @@ $FieldInfo _JarSigner$JarSignerParameters_FieldInfo_[] = {
 };
 
 $MethodInfo _JarSigner$JarSignerParameters_MethodInfo_[] = {
-	{"<init>", "(Ljdk/security/jarsigner/JarSigner;[Ljava/lang/String;Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;[BLjava/lang/String;[Ljava/security/cert/X509Certificate;[BLjava/util/zip/ZipFile;)V", nullptr, 0, $method(static_cast<void(JarSigner$JarSignerParameters::*)($JarSigner*,$StringArray*,$URI*,$String*,$String*,$bytes*,$String*,$X509CertificateArray*,$bytes*,$ZipFile*)>(&JarSigner$JarSignerParameters::init$))},
-	{"getCommandLine", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getContent", "()[B", nullptr, $PUBLIC},
-	{"getSignature", "()[B", nullptr, $PUBLIC},
-	{"getSignatureAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSignerCertificateChain", "()[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
-	{"getSource", "()Ljava/util/zip/ZipFile;", nullptr, $PUBLIC},
-	{"getTSADigestAlg", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTSAPolicyID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTimestampingAuthority", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{"getTimestampingAuthorityCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/security/jarsigner/JarSigner;[Ljava/lang/String;Ljava/net/URI;Ljava/lang/String;Ljava/lang/String;[BLjava/lang/String;[Ljava/security/cert/X509Certificate;[BLjava/util/zip/ZipFile;)V", nullptr, 0, $method(JarSigner$JarSignerParameters, init$, void, $JarSigner*, $StringArray*, $URI*, $String*, $String*, $bytes*, $String*, $X509CertificateArray*, $bytes*, $ZipFile*)},
+	{"getCommandLine", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarSigner$JarSignerParameters, getCommandLine, $StringArray*)},
+	{"getContent", "()[B", nullptr, $PUBLIC, $virtualMethod(JarSigner$JarSignerParameters, getContent, $bytes*)},
+	{"getSignature", "()[B", nullptr, $PUBLIC, $virtualMethod(JarSigner$JarSignerParameters, getSignature, $bytes*)},
+	{"getSignatureAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarSigner$JarSignerParameters, getSignatureAlgorithm, $String*)},
+	{"getSignerCertificateChain", "()[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(JarSigner$JarSignerParameters, getSignerCertificateChain, $X509CertificateArray*)},
+	{"getSource", "()Ljava/util/zip/ZipFile;", nullptr, $PUBLIC, $virtualMethod(JarSigner$JarSignerParameters, getSource, $ZipFile*)},
+	{"getTSADigestAlg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarSigner$JarSignerParameters, getTSADigestAlg, $String*)},
+	{"getTSAPolicyID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarSigner$JarSignerParameters, getTSAPolicyID, $String*)},
+	{"getTimestampingAuthority", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(JarSigner$JarSignerParameters, getTimestampingAuthority, $URI*)},
+	{"getTimestampingAuthorityCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(JarSigner$JarSignerParameters, getTimestampingAuthorityCertificate, $X509Certificate*)},
 	{}
 };
 

@@ -39,13 +39,13 @@ $FieldInfo _RichDiagnosticFormatter$2_FieldInfo_[] = {
 };
 
 $MethodInfo _RichDiagnosticFormatter$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter;)V", nullptr, 0, $method(static_cast<void(RichDiagnosticFormatter$2::*)($RichDiagnosticFormatter*)>(&RichDiagnosticFormatter$2::init$))},
-	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter;)V", nullptr, 0, $method(RichDiagnosticFormatter$2, init$, void, $RichDiagnosticFormatter*)},
+	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$2, visitClassSymbol, $Void*, $Symbol$ClassSymbol*, $Void*)},
+	{"visitClassSymbol", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter$2, visitClassSymbol, $Object*, $Symbol$ClassSymbol*, Object$*)},
+	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$2, visitMethodSymbol, $Void*, $Symbol$MethodSymbol*, $Void*)},
+	{"visitMethodSymbol", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter$2, visitMethodSymbol, $Object*, $Symbol$MethodSymbol*, Object$*)},
+	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$2, visitSymbol, $Void*, $Symbol*, $Void*)},
+	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RichDiagnosticFormatter$2, visitSymbol, $Object*, $Symbol*, Object$*)},
 	{}
 };
 

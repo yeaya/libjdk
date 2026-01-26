@@ -32,10 +32,10 @@ $FieldInfo _ArgumentAttr$UniquePos_FieldInfo_[] = {
 };
 
 $MethodInfo _ArgumentAttr$UniquePos_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(static_cast<void(ArgumentAttr$UniquePos::*)($ArgumentAttr*,$JCTree*)>(&ArgumentAttr$UniquePos::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(ArgumentAttr$UniquePos, init$, void, $ArgumentAttr*, $JCTree*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$UniquePos, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$UniquePos, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$UniquePos, toString, $String*)},
 	{}
 };
 

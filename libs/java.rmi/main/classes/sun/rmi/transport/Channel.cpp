@@ -6,15 +6,17 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Connection = ::sun::rmi::transport::Connection;
+using $Endpoint = ::sun::rmi::transport::Endpoint;
 
 namespace sun {
 	namespace rmi {
 		namespace transport {
 
 $MethodInfo _Channel_MethodInfo_[] = {
-	{"free", "(Lsun/rmi/transport/Connection;Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException"},
-	{"getEndpoint", "()Lsun/rmi/transport/Endpoint;", nullptr, $PUBLIC | $ABSTRACT},
-	{"newConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException"},
+	{"free", "(Lsun/rmi/transport/Connection;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channel, free, void, $Connection*, bool), "java.rmi.RemoteException"},
+	{"getEndpoint", "()Lsun/rmi/transport/Endpoint;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channel, getEndpoint, $Endpoint*)},
+	{"newConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Channel, newConnection, $Connection*), "java.rmi.RemoteException"},
 	{}
 };
 

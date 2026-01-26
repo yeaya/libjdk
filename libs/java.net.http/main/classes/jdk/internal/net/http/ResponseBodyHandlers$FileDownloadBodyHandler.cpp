@@ -103,8 +103,8 @@ $FieldInfo ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::
 	{}
 };
 $MethodInfo ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$ResponseInfo;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::*)($HttpResponse$ResponseInfo*)>(&ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpResponse$ResponseInfo;)V", nullptr, $PUBLIC, $method(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, init$, void, $HttpResponse$ResponseInfo*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0, get, $Object*)},
 	{}
 };
 $ClassInfo ResponseBodyHandlers$FileDownloadBodyHandler$$Lambda$lambda$apply$0::classInfo$ = {
@@ -134,11 +134,11 @@ $FieldInfo _ResponseBodyHandlers$FileDownloadBodyHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseBodyHandlers$FileDownloadBodyHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", $PRIVATE | $TRANSIENT, $method(static_cast<void(ResponseBodyHandlers$FileDownloadBodyHandler::*)($Path*,$List*,$AccessControlContext*,$FilePermissionArray*)>(&ResponseBodyHandlers$FileDownloadBodyHandler::init$))},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/nio/file/Path;>;", $PUBLIC},
-	{"create", "(Ljava/nio/file/Path;Ljava/util/List;)Ljdk/internal/net/http/ResponseBodyHandlers$FileDownloadBodyHandler;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;)Ljdk/internal/net/http/ResponseBodyHandlers$FileDownloadBodyHandler;", $PUBLIC | $STATIC, $method(static_cast<ResponseBodyHandlers$FileDownloadBodyHandler*(*)($Path*,$List*)>(&ResponseBodyHandlers$FileDownloadBodyHandler::create))},
-	{"lambda$apply$0", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/io/UncheckedIOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$UncheckedIOException*(*)($HttpResponse$ResponseInfo*)>(&ResponseBodyHandlers$FileDownloadBodyHandler::lambda$apply$0))},
-	{"unchecked", "(Ljava/net/http/HttpResponse$ResponseInfo;Ljava/lang/String;)Ljava/io/UncheckedIOException;", nullptr, $STATIC | $FINAL, $method(static_cast<$UncheckedIOException*(*)($HttpResponse$ResponseInfo*,$String*)>(&ResponseBodyHandlers$FileDownloadBodyHandler::unchecked))},
+	{"<init>", "(Ljava/nio/file/Path;Ljava/util/List;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;Ljava/security/AccessControlContext;[Ljava/io/FilePermission;)V", $PRIVATE | $TRANSIENT, $method(ResponseBodyHandlers$FileDownloadBodyHandler, init$, void, $Path*, $List*, $AccessControlContext*, $FilePermissionArray*)},
+	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ResponseBodyHandlers$FileDownloadBodyHandler, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+	{"create", "(Ljava/nio/file/Path;Ljava/util/List;)Ljdk/internal/net/http/ResponseBodyHandlers$FileDownloadBodyHandler;", "(Ljava/nio/file/Path;Ljava/util/List<Ljava/nio/file/OpenOption;>;)Ljdk/internal/net/http/ResponseBodyHandlers$FileDownloadBodyHandler;", $PUBLIC | $STATIC, $staticMethod(ResponseBodyHandlers$FileDownloadBodyHandler, create, ResponseBodyHandlers$FileDownloadBodyHandler*, $Path*, $List*)},
+	{"lambda$apply$0", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/io/UncheckedIOException;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseBodyHandlers$FileDownloadBodyHandler, lambda$apply$0, $UncheckedIOException*, $HttpResponse$ResponseInfo*)},
+	{"unchecked", "(Ljava/net/http/HttpResponse$ResponseInfo;Ljava/lang/String;)Ljava/io/UncheckedIOException;", nullptr, $STATIC | $FINAL, $staticMethod(ResponseBodyHandlers$FileDownloadBodyHandler, unchecked, $UncheckedIOException*, $HttpResponse$ResponseInfo*, $String*)},
 	{}
 };
 

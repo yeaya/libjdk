@@ -41,7 +41,7 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _DeferredAttr$SwitchExpressionScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DeferredAttr$SwitchExpressionScanner::*)()>(&DeferredAttr$SwitchExpressionScanner::init$))},
+	{"<init>", "()V", nullptr, 0, $method(DeferredAttr$SwitchExpressionScanner, init$, void)},
 	{}
 };
 

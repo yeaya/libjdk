@@ -35,7 +35,7 @@ $CompoundAttribute _AbstractAnnotationValueVisitor7_MethodAnnotations_init$0[] =
 };
 
 $MethodInfo _AbstractAnnotationValueVisitor7_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(AbstractAnnotationValueVisitor7::*)()>(&AbstractAnnotationValueVisitor7::init$)), nullptr, nullptr, _AbstractAnnotationValueVisitor7_MethodAnnotations_init$0},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(AbstractAnnotationValueVisitor7, init$, void), nullptr, nullptr, _AbstractAnnotationValueVisitor7_MethodAnnotations_init$0},
 	{}
 };
 

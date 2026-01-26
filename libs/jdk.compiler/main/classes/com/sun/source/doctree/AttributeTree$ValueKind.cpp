@@ -31,10 +31,10 @@ $FieldInfo _AttributeTree$ValueKind_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributeTree$ValueKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$AttributeTree$ValueKindArray*(*)()>(&AttributeTree$ValueKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(AttributeTree$ValueKind::*)($String*,int32_t)>(&AttributeTree$ValueKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<AttributeTree$ValueKind*(*)($String*)>(&AttributeTree$ValueKind::valueOf))},
-	{"values", "()[Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AttributeTree$ValueKindArray*(*)()>(&AttributeTree$ValueKind::values))},
+	{"$values", "()[Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AttributeTree$ValueKind, $values, $AttributeTree$ValueKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AttributeTree$ValueKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeTree$ValueKind, valueOf, AttributeTree$ValueKind*, $String*)},
+	{"values", "()[Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeTree$ValueKind, values, $AttributeTree$ValueKindArray*)},
 	{}
 };
 

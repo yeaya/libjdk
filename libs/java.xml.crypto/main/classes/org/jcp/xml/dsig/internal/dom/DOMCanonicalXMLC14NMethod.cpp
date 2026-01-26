@@ -38,9 +38,9 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMCanonicalXMLC14NMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DOMCanonicalXMLC14NMethod::*)()>(&DOMCanonicalXMLC14NMethod::init$))},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.dsig.TransformException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMCanonicalXMLC14NMethod, init$, void)},
+	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14NMethod, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14NMethod, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
 	{}
 };
 

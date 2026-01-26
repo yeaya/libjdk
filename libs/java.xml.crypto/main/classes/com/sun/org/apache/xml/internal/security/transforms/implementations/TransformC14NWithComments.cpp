@@ -26,9 +26,9 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _TransformC14NWithComments_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransformC14NWithComments::*)()>(&TransformC14NWithComments::init$))},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED},
-	{"getCanonicalizer", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315;", nullptr, $PROTECTED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformC14NWithComments, init$, void)},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformC14NWithComments, engineGetURI, $String*)},
+	{"getCanonicalizer", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315;", nullptr, $PROTECTED, $virtualMethod(TransformC14NWithComments, getCanonicalizer, $Canonicalizer20010315*)},
 	{}
 };
 

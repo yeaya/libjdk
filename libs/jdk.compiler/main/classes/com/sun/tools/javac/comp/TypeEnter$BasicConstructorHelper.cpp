@@ -45,12 +45,12 @@ $FieldInfo _TypeEnter$BasicConstructorHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$BasicConstructorHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(static_cast<void(TypeEnter$BasicConstructorHelper::*)($TypeEnter*,$Symbol$TypeSymbol*)>(&TypeEnter$BasicConstructorHelper::init$))},
-	{"constructorSymbol", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC},
-	{"constructorType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"enclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"owner", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC},
-	{"superArgs", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(TypeEnter$BasicConstructorHelper, init$, void, $TypeEnter*, $Symbol$TypeSymbol*)},
+	{"constructorSymbol", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$BasicConstructorHelper, constructorSymbol, $Symbol$MethodSymbol*)},
+	{"constructorType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$BasicConstructorHelper, constructorType, $Type*)},
+	{"enclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$BasicConstructorHelper, enclosingType, $Type*)},
+	{"owner", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$BasicConstructorHelper, owner, $Symbol$TypeSymbol*)},
+	{"superArgs", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC, $virtualMethod(TypeEnter$BasicConstructorHelper, superArgs, $List*)},
 	{}
 };
 

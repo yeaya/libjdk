@@ -31,10 +31,10 @@ $FieldInfo _Diagnostic$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _Diagnostic$Kind_MethodInfo_[] = {
-	{"$values", "()[Ljavax/tools/Diagnostic$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Diagnostic$KindArray*(*)()>(&Diagnostic$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Diagnostic$Kind::*)($String*,int32_t)>(&Diagnostic$Kind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/tools/Diagnostic$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Diagnostic$Kind*(*)($String*)>(&Diagnostic$Kind::valueOf))},
-	{"values", "()[Ljavax/tools/Diagnostic$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Diagnostic$KindArray*(*)()>(&Diagnostic$Kind::values))},
+	{"$values", "()[Ljavax/tools/Diagnostic$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Diagnostic$Kind, $values, $Diagnostic$KindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Diagnostic$Kind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/tools/Diagnostic$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Diagnostic$Kind, valueOf, Diagnostic$Kind*, $String*)},
+	{"values", "()[Ljavax/tools/Diagnostic$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Diagnostic$Kind, values, $Diagnostic$KindArray*)},
 	{}
 };
 

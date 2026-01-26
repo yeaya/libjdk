@@ -33,13 +33,13 @@ $FieldInfo _SubscriptionBase_FieldInfo_[] = {
 };
 
 $MethodInfo _SubscriptionBase_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(static_cast<void(SubscriptionBase::*)($SequentialScheduler*,$Runnable*)>(&SubscriptionBase::init$))},
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", $PUBLIC, $method(static_cast<void(SubscriptionBase::*)($SequentialScheduler*,$Runnable*,$Consumer*)>(&SubscriptionBase::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"tryDecrement", "()Z", nullptr, $PUBLIC},
-	{"window", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SubscriptionBase, init$, void, $SequentialScheduler*, $Runnable*)},
+	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", $PUBLIC, $method(SubscriptionBase, init$, void, $SequentialScheduler*, $Runnable*, $Consumer*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, request, void, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubscriptionBase, toString, $String*)},
+	{"tryDecrement", "()Z", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, tryDecrement, bool)},
+	{"window", "()J", nullptr, $PUBLIC, $virtualMethod(SubscriptionBase, window, int64_t)},
 	{}
 };
 

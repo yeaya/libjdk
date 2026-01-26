@@ -34,10 +34,10 @@ $FieldInfo _Log$LoggerPrintStream_FieldInfo_[] = {
 };
 
 $MethodInfo _Log$LoggerPrintStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(static_cast<void(Log$LoggerPrintStream::*)($Logger*)>(&Log$LoggerPrintStream::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC},
-	{"write", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(Log$LoggerPrintStream, init$, void, $Logger*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Log$LoggerPrintStream, toString, $String*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Log$LoggerPrintStream, write, void, int32_t)},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Log$LoggerPrintStream, write, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

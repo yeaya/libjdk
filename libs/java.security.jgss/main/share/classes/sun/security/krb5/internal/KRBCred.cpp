@@ -52,11 +52,11 @@ $FieldInfo _KRBCred_FieldInfo_[] = {
 };
 
 $MethodInfo _KRBCred_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(static_cast<void(KRBCred::*)($TicketArray*,$EncryptedData*)>(&KRBCred::init$)), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(KRBCred::*)($bytes*)>(&KRBCred::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(KRBCred::*)($DerValue*)>(&KRBCred::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(KRBCred::*)($DerValue*)>(&KRBCred::init)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"<init>", "([Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(KRBCred, init$, void, $TicketArray*, $EncryptedData*), "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(KRBCred, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KRBCred, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KRBCred, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(KRBCred, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
 	{}
 };
 

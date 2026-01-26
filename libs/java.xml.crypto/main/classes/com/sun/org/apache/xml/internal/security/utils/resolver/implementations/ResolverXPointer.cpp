@@ -51,12 +51,12 @@ $FieldInfo _ResolverXPointer_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolverXPointer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResolverXPointer::*)()>(&ResolverXPointer::init$))},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
-	{"getXPointerId", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ResolverXPointer::getXPointerId))},
-	{"isXPointerId", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&ResolverXPointer::isXPointerId))},
-	{"isXPointerSlash", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&ResolverXPointer::isXPointerSlash))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverXPointer, init$, void)},
+	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverXPointer, engineCanResolveURI, bool, $ResourceResolverContext*)},
+	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverXPointer, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+	{"getXPointerId", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverXPointer, getXPointerId, $String*, $String*)},
+	{"isXPointerId", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverXPointer, isXPointerId, bool, $String*)},
+	{"isXPointerSlash", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverXPointer, isXPointerSlash, bool, $String*)},
 	{}
 };
 

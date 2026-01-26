@@ -157,31 +157,31 @@ const char* _jdk$jartool_packages_[] = {
 	"sun.tools.jar.resources"
 };
 
-void jdk$jartool$PreloadClass(void* eventData) {
-	::java::lang::PreloadClassEvent* event = (::java::lang::PreloadClassEvent*)eventData;
+void jdk$jartool$PreloadClass() {
 	int32_t length = $lengthOf(_jdk$jartool_classes_);
-	for (int i = 0; i < length; i++) {
+	for (int32_t i = 0; i < length; i++) {
 		::java::lang::ClassEntry* classEntry = &_jdk$jartool_classes_[i];
-		if (event->preinit) {
-			if ($hasFlag(classEntry->mark, $PREINIT)) {
-				classEntry->loader(nullptr, true);
-				continue;
-			}
+		if ($hasFlag(classEntry->mark, $PRELOAD) || $hasFlag(classEntry->mark, $PREINIT)) {
+			classEntry->loader(nullptr, false);
 		}
-		if (event->preload) {
-			if ($hasFlag(classEntry->mark, $PRELOAD) || $hasFlag(classEntry->mark, $PREINIT)) {
-				classEntry->loader(nullptr, false);
-			}
+	}
+}
+
+void jdk$jartool$PreinitClass() {
+	int32_t length = $lengthOf(_jdk$jartool_classes_);
+	for (int32_t i = 0; i < length; i++) {
+		::java::lang::ClassEntry* classEntry = &_jdk$jartool_classes_[i];
+		if ($hasFlag(classEntry->mark, $PREINIT)) {
+			classEntry->loader(nullptr, true);
 		}
 	}
 }
 
 void jdk$jartool$LibEventAction(int32_t eventType, void* eventData) {
 	if (eventType == JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS) {
-		jdk$jartool$PreloadClass(eventData);
-	}
-	if (eventType == JCPP_LIB_EVENT_TYPE_THREAD_START) {
-		$onLibThreadStart(eventData);
+		jdk$jartool$PreloadClass();
+	} else if (eventType == JCPP_LIB_EVENT_TYPE_PREINIT_CLASS) {
+		jdk$jartool$PreinitClass();
 	}
 }
 
@@ -228,3 +228,9 @@ void jdk$jartool::init() {
 	};
 	$System::addLibrary(&lib);
 }
+
+#ifdef JCPP_SHARED_BUILD
+extern "C" $export void JCPP_OnLoad() {
+	jdk$jartool::init();
+}
+#endif

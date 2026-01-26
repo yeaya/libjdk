@@ -23,9 +23,9 @@ $FieldInfo _MBeanAnalyzer$MethodOrder_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanAnalyzer$MethodOrder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MBeanAnalyzer$MethodOrder::*)()>(&MBeanAnalyzer$MethodOrder::init$))},
-	{"compare", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MBeanAnalyzer$MethodOrder, init$, void)},
+	{"compare", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)I", nullptr, $PUBLIC, $virtualMethod(MBeanAnalyzer$MethodOrder, compare, int32_t, $Method*, $Method*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MBeanAnalyzer$MethodOrder, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

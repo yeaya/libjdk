@@ -34,9 +34,9 @@ $FieldInfo _DGCImpl$LeaseInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCImpl$LeaseInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/dgc/VMID;J)V", nullptr, 0, $method(static_cast<void(DGCImpl$LeaseInfo::*)($VMID*,int64_t)>(&DGCImpl$LeaseInfo::init$))},
-	{"expired", "(J)Z", nullptr, 0},
-	{"renew", "(J)V", nullptr, $SYNCHRONIZED},
+	{"<init>", "(Ljava/rmi/dgc/VMID;J)V", nullptr, 0, $method(DGCImpl$LeaseInfo, init$, void, $VMID*, int64_t)},
+	{"expired", "(J)Z", nullptr, 0, $virtualMethod(DGCImpl$LeaseInfo, expired, bool, int64_t)},
+	{"renew", "(J)V", nullptr, $SYNCHRONIZED, $virtualMethod(DGCImpl$LeaseInfo, renew, void, int64_t)},
 	{}
 };
 

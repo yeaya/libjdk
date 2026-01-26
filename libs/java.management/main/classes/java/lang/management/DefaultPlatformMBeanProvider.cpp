@@ -51,9 +51,9 @@ $FieldInfo _DefaultPlatformMBeanProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultPlatformMBeanProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DefaultPlatformMBeanProvider::*)()>(&DefaultPlatformMBeanProvider::init$))},
-	{"getPlatformComponentList", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PUBLIC},
-	{"init", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PRIVATE, $method(static_cast<$List*(DefaultPlatformMBeanProvider::*)()>(&DefaultPlatformMBeanProvider::init))},
+	{"<init>", "()V", nullptr, 0, $method(DefaultPlatformMBeanProvider, init$, void)},
+	{"getPlatformComponentList", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider, getPlatformComponentList, $List*)},
+	{"init", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider$PlatformComponent<*>;>;", $PRIVATE, $method(DefaultPlatformMBeanProvider, init, $List*)},
 	{}
 };
 

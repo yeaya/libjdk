@@ -22,8 +22,8 @@ $FieldInfo _Flow$BaseAnalyzer$PendingExit_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$BaseAnalyzer$PendingExit_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(static_cast<void(Flow$BaseAnalyzer$PendingExit::*)($JCTree*)>(&Flow$BaseAnalyzer$PendingExit::init$))},
-	{"resolveJump", "()V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(Flow$BaseAnalyzer$PendingExit, init$, void, $JCTree*)},
+	{"resolveJump", "()V", nullptr, 0, $virtualMethod(Flow$BaseAnalyzer$PendingExit, resolveJump, void)},
 	{}
 };
 

@@ -23,10 +23,10 @@ $FieldInfo _Resolve$ReferenceChooser_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$ReferenceChooser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(static_cast<void(Resolve$ReferenceChooser::*)($Resolve*)>(&Resolve$ReferenceChooser::init$))},
-	{"boundResult", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, $ABSTRACT},
-	{"result", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, 0},
-	{"unboundResult", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, $ABSTRACT},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$ReferenceChooser, init$, void, $Resolve*)},
+	{"boundResult", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, $ABSTRACT, $virtualMethod(Resolve$ReferenceChooser, boundResult, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*)},
+	{"result", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, 0, $virtualMethod(Resolve$ReferenceChooser, result, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*)},
+	{"unboundResult", "(Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupResult;", nullptr, $ABSTRACT, $virtualMethod(Resolve$ReferenceChooser, unboundResult, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*, $Resolve$ReferenceLookupResult*)},
 	{}
 };
 

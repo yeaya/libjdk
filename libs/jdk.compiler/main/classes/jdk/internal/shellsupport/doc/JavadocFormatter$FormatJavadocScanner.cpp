@@ -120,22 +120,22 @@ $FieldInfo _JavadocFormatter$FormatJavadocScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocFormatter$FormatJavadocScanner_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocFormatter;Ljava/lang/StringBuilder;Lcom/sun/source/util/JavacTask;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocFormatter$FormatJavadocScanner::*)($JavadocFormatter*,$StringBuilder*,$JavacTask*)>(&JavadocFormatter$FormatJavadocScanner::init$))},
-	{"formatDef", "(Ljava/lang/CharSequence;Ljava/util/List;)Ljava/lang/Object;", "(Ljava/lang/CharSequence;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Ljava/lang/Object;", $PUBLIC},
-	{"handleEndElement", "(Ljavax/lang/model/element/Name;)V", nullptr, $PRIVATE, $method(static_cast<void(JavadocFormatter$FormatJavadocScanner::*)($Name*)>(&JavadocFormatter$FormatJavadocScanner::handleEndElement))},
-	{"reflowTillNow", "()V", nullptr, $PRIVATE, $method(static_cast<void(JavadocFormatter$FormatJavadocScanner::*)()>(&JavadocFormatter$FormatJavadocScanner::reflowTillNow))},
-	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"startSection", "(Ljdk/internal/shellsupport/doc/JavadocFormatter$Sections;)V", nullptr, $PRIVATE, $method(static_cast<void(JavadocFormatter$FormatJavadocScanner::*)($JavadocFormatter$Sections*)>(&JavadocFormatter$FormatJavadocScanner::startSection))},
-	{"visitDocComment", "(Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"visitEndElement", "(Lcom/sun/source/doctree/EndElementTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"visitEntity", "(Lcom/sun/source/doctree/EntityTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"visitLink", "(Lcom/sun/source/doctree/LinkTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"visitLiteral", "(Lcom/sun/source/doctree/LiteralTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"visitParam", "(Lcom/sun/source/doctree/ParamTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"visitReturn", "(Lcom/sun/source/doctree/ReturnTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"visitStartElement", "(Lcom/sun/source/doctree/StartElementTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"visitText", "(Lcom/sun/source/doctree/TextTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"visitThrows", "(Lcom/sun/source/doctree/ThrowsTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocFormatter;Ljava/lang/StringBuilder;Lcom/sun/source/util/JavacTask;)V", nullptr, $PUBLIC, $method(JavadocFormatter$FormatJavadocScanner, init$, void, $JavadocFormatter*, $StringBuilder*, $JavacTask*)},
+	{"formatDef", "(Ljava/lang/CharSequence;Ljava/util/List;)Ljava/lang/Object;", "(Ljava/lang/CharSequence;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, formatDef, $Object*, $CharSequence*, $List*)},
+	{"handleEndElement", "(Ljavax/lang/model/element/Name;)V", nullptr, $PRIVATE, $method(JavadocFormatter$FormatJavadocScanner, handleEndElement, void, $Name*)},
+	{"reflowTillNow", "()V", nullptr, $PRIVATE, $method(JavadocFormatter$FormatJavadocScanner, reflowTillNow, void)},
+	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, scan, $Object*, $DocTree*, Object$*)},
+	{"startSection", "(Ljdk/internal/shellsupport/doc/JavadocFormatter$Sections;)V", nullptr, $PRIVATE, $method(JavadocFormatter$FormatJavadocScanner, startSection, void, $JavadocFormatter$Sections*)},
+	{"visitDocComment", "(Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, visitDocComment, $Object*, $DocCommentTree*, Object$*)},
+	{"visitEndElement", "(Lcom/sun/source/doctree/EndElementTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, visitEndElement, $Object*, $EndElementTree*, Object$*)},
+	{"visitEntity", "(Lcom/sun/source/doctree/EntityTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, visitEntity, $Object*, $EntityTree*, Object$*)},
+	{"visitLink", "(Lcom/sun/source/doctree/LinkTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, visitLink, $Object*, $LinkTree*, Object$*)},
+	{"visitLiteral", "(Lcom/sun/source/doctree/LiteralTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, visitLiteral, $Object*, $LiteralTree*, Object$*)},
+	{"visitParam", "(Lcom/sun/source/doctree/ParamTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, visitParam, $Object*, $ParamTree*, Object$*)},
+	{"visitReturn", "(Lcom/sun/source/doctree/ReturnTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, visitReturn, $Object*, $ReturnTree*, Object$*)},
+	{"visitStartElement", "(Lcom/sun/source/doctree/StartElementTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, visitStartElement, $Object*, $StartElementTree*, Object$*)},
+	{"visitText", "(Lcom/sun/source/doctree/TextTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, visitText, $Object*, $TextTree*, Object$*)},
+	{"visitThrows", "(Lcom/sun/source/doctree/ThrowsTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$FormatJavadocScanner, visitThrows, $Object*, $ThrowsTree*, Object$*)},
 	{}
 };
 

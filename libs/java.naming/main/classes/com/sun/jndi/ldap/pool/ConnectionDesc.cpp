@@ -34,17 +34,17 @@ $FieldInfo _ConnectionDesc_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionDesc_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/pool/PooledConnection;)V", nullptr, 0, $method(static_cast<void(ConnectionDesc::*)($PooledConnection*)>(&ConnectionDesc::init$))},
-	{"<init>", "(Lcom/sun/jndi/ldap/pool/PooledConnection;Z)V", nullptr, 0, $method(static_cast<void(ConnectionDesc::*)($PooledConnection*,bool)>(&ConnectionDesc::init$))},
-	{"d", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(ConnectionDesc::*)($String*)>(&ConnectionDesc::d))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"expire", "(J)Z", nullptr, $SYNCHRONIZED, $method(static_cast<bool(ConnectionDesc::*)(int64_t)>(&ConnectionDesc::expire))},
-	{"getState", "()I", nullptr, 0, $method(static_cast<int32_t(ConnectionDesc::*)()>(&ConnectionDesc::getState))},
-	{"getUseCount", "()J", nullptr, 0, $method(static_cast<int64_t(ConnectionDesc::*)()>(&ConnectionDesc::getUseCount))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"release", "()Z", nullptr, $SYNCHRONIZED, $method(static_cast<bool(ConnectionDesc::*)()>(&ConnectionDesc::release))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryUse", "()Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $SYNCHRONIZED, $method(static_cast<$PooledConnection*(ConnectionDesc::*)()>(&ConnectionDesc::tryUse))},
+	{"<init>", "(Lcom/sun/jndi/ldap/pool/PooledConnection;)V", nullptr, 0, $method(ConnectionDesc, init$, void, $PooledConnection*)},
+	{"<init>", "(Lcom/sun/jndi/ldap/pool/PooledConnection;Z)V", nullptr, 0, $method(ConnectionDesc, init$, void, $PooledConnection*, bool)},
+	{"d", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ConnectionDesc, d, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConnectionDesc, equals, bool, Object$*)},
+	{"expire", "(J)Z", nullptr, $SYNCHRONIZED, $method(ConnectionDesc, expire, bool, int64_t)},
+	{"getState", "()I", nullptr, 0, $method(ConnectionDesc, getState, int32_t)},
+	{"getUseCount", "()J", nullptr, 0, $method(ConnectionDesc, getUseCount, int64_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ConnectionDesc, hashCode, int32_t)},
+	{"release", "()Z", nullptr, $SYNCHRONIZED, $method(ConnectionDesc, release, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConnectionDesc, toString, $String*)},
+	{"tryUse", "()Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $SYNCHRONIZED, $method(ConnectionDesc, tryUse, $PooledConnection*)},
 	{}
 };
 

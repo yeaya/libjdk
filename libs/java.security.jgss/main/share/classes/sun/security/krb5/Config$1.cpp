@@ -36,8 +36,8 @@ $FieldInfo _Config$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Config$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/Config;Ljava/lang/String;Ljava/nio/file/Path;Ljava/util/List;Ljava/util/Set;)V", "()V", 0, $method(static_cast<void(Config$1::*)($Config*,$String*,$Path*,$List*,$Set*)>(&Config$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/krb5/Config;Ljava/lang/String;Ljava/nio/file/Path;Ljava/util/List;Ljava/util/Set;)V", "()V", 0, $method(Config$1, init$, void, $Config*, $String*, $Path*, $List*, $Set*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Config$1, run, $Object*), "java.io.IOException"},
 	{}
 };
 

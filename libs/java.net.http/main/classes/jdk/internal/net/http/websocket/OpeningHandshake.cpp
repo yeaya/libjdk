@@ -180,8 +180,8 @@ $FieldInfo OpeningHandshake$$Lambda$lambda$send$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo OpeningHandshake$$Lambda$lambda$send$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/OpeningHandshake;)V", nullptr, $PUBLIC, $method(static_cast<void(OpeningHandshake$$Lambda$lambda$send$0::*)(OpeningHandshake*)>(&OpeningHandshake$$Lambda$lambda$send$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/OpeningHandshake;)V", nullptr, $PUBLIC, $method(OpeningHandshake$$Lambda$lambda$send$0, init$, void, OpeningHandshake*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OpeningHandshake$$Lambda$lambda$send$0, run, $Object*)},
 	{}
 };
 $ClassInfo OpeningHandshake$$Lambda$lambda$send$0::classInfo$ = {
@@ -213,8 +213,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo OpeningHandshake$$Lambda$lambda$checkPermissions$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OpeningHandshake$$Lambda$lambda$checkPermissions$1$1::*)()>(&OpeningHandshake$$Lambda$lambda$checkPermissions$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OpeningHandshake$$Lambda$lambda$checkPermissions$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OpeningHandshake$$Lambda$lambda$checkPermissions$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo OpeningHandshake$$Lambda$lambda$checkPermissions$1$1::classInfo$ = {
@@ -253,8 +253,8 @@ $FieldInfo OpeningHandshake$$Lambda$resultFrom$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo OpeningHandshake$$Lambda$resultFrom$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/OpeningHandshake;)V", nullptr, $PUBLIC, $method(static_cast<void(OpeningHandshake$$Lambda$resultFrom$2::*)(OpeningHandshake*)>(&OpeningHandshake$$Lambda$resultFrom$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/OpeningHandshake;)V", nullptr, $PUBLIC, $method(OpeningHandshake$$Lambda$resultFrom$2, init$, void, OpeningHandshake*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OpeningHandshake$$Lambda$resultFrom$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo OpeningHandshake$$Lambda$resultFrom$2::classInfo$ = {
@@ -292,24 +292,24 @@ $FieldInfo _OpeningHandshake_FieldInfo_[] = {
 };
 
 $MethodInfo _OpeningHandshake_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/BuilderImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(OpeningHandshake::*)($BuilderImpl*)>(&OpeningHandshake::init$))},
-	{"checkAndReturnSubprotocol", "(Ljava/net/http/HttpHeaders;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(OpeningHandshake::*)($HttpHeaders*)>(&OpeningHandshake::checkAndReturnSubprotocol)), "jdk.internal.net.http.websocket.CheckFailedException"},
-	{"checkFailed", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/CheckFailedException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$CheckFailedException*(*)($String*)>(&OpeningHandshake::checkFailed))},
-	{"checkPermissions", "(Ljdk/internal/net/http/websocket/BuilderImpl;Ljava/net/Proxy;)V", nullptr, $STATIC, $method(static_cast<void(*)($BuilderImpl*,$Proxy*)>(&OpeningHandshake::checkPermissions))},
-	{"checkURI", "(Ljava/net/URI;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URI*(*)($URI*)>(&OpeningHandshake::checkURI))},
-	{"createNonce", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&OpeningHandshake::createNonce))},
-	{"createRequestSubprotocols", "(Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Collection*(*)($Collection*)>(&OpeningHandshake::createRequestSubprotocols))},
-	{"createRequestURI", "(Ljava/net/URI;)Ljava/net/URI;", nullptr, $STATIC, $method(static_cast<$URI*(*)($URI*)>(&OpeningHandshake::createRequestURI))},
-	{"handleResponse", "(Ljava/net/http/HttpResponse;)Ljdk/internal/net/http/websocket/OpeningHandshake$Result;", "(Ljava/net/http/HttpResponse<*>;)Ljdk/internal/net/http/websocket/OpeningHandshake$Result;", $PRIVATE, $method(static_cast<$OpeningHandshake$Result*(OpeningHandshake::*)($HttpResponse*)>(&OpeningHandshake::handleResponse)), "java.io.IOException"},
-	{"illegal", "(Ljava/lang/String;)Ljava/lang/IllegalArgumentException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$IllegalArgumentException*(*)($String*)>(&OpeningHandshake::illegal))},
-	{"lambda$checkPermissions$1", "(Ljdk/internal/net/http/common/Pair;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Pair*)>(&OpeningHandshake::lambda$checkPermissions$1))},
-	{"lambda$send$0", "()Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletableFuture*(OpeningHandshake::*)()>(&OpeningHandshake::lambda$send$0))},
-	{"proxyFor", "(Ljava/util/Optional;Ljava/net/URI;)Ljava/net/Proxy;", "(Ljava/util/Optional<Ljava/net/ProxySelector;>;Ljava/net/URI;)Ljava/net/Proxy;", $PRIVATE | $STATIC, $method(static_cast<$Proxy*(*)($Optional*,$URI*)>(&OpeningHandshake::proxyFor))},
-	{"requireAbsent", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($HttpHeaders*,$String*)>(&OpeningHandshake::requireAbsent))},
-	{"requireAtMostOne", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Optional*(*)($HttpHeaders*,$String*)>(&OpeningHandshake::requireAtMostOne))},
-	{"requireSingle", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($HttpHeaders*,$String*)>(&OpeningHandshake::requireSingle))},
-	{"resultFrom", "(Ljava/net/http/HttpResponse;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse<*>;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/websocket/OpeningHandshake$Result;>;", $PRIVATE, $method(static_cast<$CompletableFuture*(OpeningHandshake::*)($HttpResponse*)>(&OpeningHandshake::resultFrom))},
-	{"send", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/websocket/OpeningHandshake$Result;>;", $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/BuilderImpl;)V", nullptr, $PUBLIC, $method(OpeningHandshake, init$, void, $BuilderImpl*)},
+	{"checkAndReturnSubprotocol", "(Ljava/net/http/HttpHeaders;)Ljava/lang/String;", nullptr, $PRIVATE, $method(OpeningHandshake, checkAndReturnSubprotocol, $String*, $HttpHeaders*), "jdk.internal.net.http.websocket.CheckFailedException"},
+	{"checkFailed", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/CheckFailedException;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpeningHandshake, checkFailed, $CheckFailedException*, $String*)},
+	{"checkPermissions", "(Ljdk/internal/net/http/websocket/BuilderImpl;Ljava/net/Proxy;)V", nullptr, $STATIC, $staticMethod(OpeningHandshake, checkPermissions, void, $BuilderImpl*, $Proxy*)},
+	{"checkURI", "(Ljava/net/URI;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpeningHandshake, checkURI, $URI*, $URI*)},
+	{"createNonce", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpeningHandshake, createNonce, $String*)},
+	{"createRequestSubprotocols", "(Ljava/util/Collection;)Ljava/util/Collection;", "(Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(OpeningHandshake, createRequestSubprotocols, $Collection*, $Collection*)},
+	{"createRequestURI", "(Ljava/net/URI;)Ljava/net/URI;", nullptr, $STATIC, $staticMethod(OpeningHandshake, createRequestURI, $URI*, $URI*)},
+	{"handleResponse", "(Ljava/net/http/HttpResponse;)Ljdk/internal/net/http/websocket/OpeningHandshake$Result;", "(Ljava/net/http/HttpResponse<*>;)Ljdk/internal/net/http/websocket/OpeningHandshake$Result;", $PRIVATE, $method(OpeningHandshake, handleResponse, $OpeningHandshake$Result*, $HttpResponse*), "java.io.IOException"},
+	{"illegal", "(Ljava/lang/String;)Ljava/lang/IllegalArgumentException;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpeningHandshake, illegal, $IllegalArgumentException*, $String*)},
+	{"lambda$checkPermissions$1", "(Ljdk/internal/net/http/common/Pair;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpeningHandshake, lambda$checkPermissions$1, $String*, $Pair*)},
+	{"lambda$send$0", "()Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $SYNTHETIC, $method(OpeningHandshake, lambda$send$0, $CompletableFuture*)},
+	{"proxyFor", "(Ljava/util/Optional;Ljava/net/URI;)Ljava/net/Proxy;", "(Ljava/util/Optional<Ljava/net/ProxySelector;>;Ljava/net/URI;)Ljava/net/Proxy;", $PRIVATE | $STATIC, $staticMethod(OpeningHandshake, proxyFor, $Proxy*, $Optional*, $URI*)},
+	{"requireAbsent", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(OpeningHandshake, requireAbsent, void, $HttpHeaders*, $String*)},
+	{"requireAtMostOne", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(OpeningHandshake, requireAtMostOne, $Optional*, $HttpHeaders*, $String*)},
+	{"requireSingle", "(Ljava/net/http/HttpHeaders;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(OpeningHandshake, requireSingle, $String*, $HttpHeaders*, $String*)},
+	{"resultFrom", "(Ljava/net/http/HttpResponse;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse<*>;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/websocket/OpeningHandshake$Result;>;", $PRIVATE, $method(OpeningHandshake, resultFrom, $CompletableFuture*, $HttpResponse*)},
+	{"send", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/websocket/OpeningHandshake$Result;>;", $PUBLIC, $virtualMethod(OpeningHandshake, send, $CompletableFuture*)},
 	{}
 };
 

@@ -168,8 +168,8 @@ $FieldInfo Analyzer$$Lambda$lambda$doAnalysis$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Analyzer$$Lambda$lambda$doAnalysis$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $method(static_cast<void(Analyzer$$Lambda$lambda$doAnalysis$0::*)($Analyzer$RewritingContext*)>(&Analyzer$$Lambda$lambda$doAnalysis$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $method(Analyzer$$Lambda$lambda$doAnalysis$0, init$, void, $Analyzer$RewritingContext*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Analyzer$$Lambda$lambda$doAnalysis$0, get, $Object*)},
 	{}
 };
 $ClassInfo Analyzer$$Lambda$lambda$doAnalysis$0::classInfo$ = {
@@ -201,8 +201,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Analyzer$$Lambda$lambda$doAnalysis$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Analyzer$$Lambda$lambda$doAnalysis$1$1::*)()>(&Analyzer$$Lambda$lambda$doAnalysis$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Analyzer$$Lambda$lambda$doAnalysis$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Analyzer$$Lambda$lambda$doAnalysis$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Analyzer$$Lambda$lambda$doAnalysis$1$1::classInfo$ = {
@@ -238,15 +238,15 @@ $FieldInfo _Analyzer_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(Analyzer::*)($Context*)>(&Analyzer::init$))},
-	{"analyze", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED},
-	{"analyzeIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0},
-	{"copyEnvIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0},
-	{"doAnalysis", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, 0},
-	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Analyzer*(*)($Context*)>(&Analyzer::instance))},
-	{"lambda$doAnalysis$0", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)Lcom/sun/tools/javac/util/Log$DiagnosticHandler;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Log$DiagnosticHandler*(*)($Analyzer$RewritingContext*)>(&Analyzer::lambda$doAnalysis$0))},
-	{"lambda$doAnalysis$1", "(Ljava/lang/StackTraceElement;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($StackTraceElement*)>(&Analyzer::lambda$doAnalysis$1))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Analyzer, init$, void, $Context*)},
+	{"analyze", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCStatement;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED, $virtualMethod(Analyzer, analyze, void, $JCTree$JCStatement*, $Env*)},
+	{"analyzeIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Analyzer, analyzeIfNeeded, void, $JCTree*, $Env*)},
+	{"copyEnvIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $virtualMethod(Analyzer, copyEnvIfNeeded, $Env*, $JCTree*, $Env*)},
+	{"doAnalysis", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, 0, $virtualMethod(Analyzer, doAnalysis, void, $Analyzer$RewritingContext*)},
+	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(Analyzer, flush, void, $Env*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Analyzer, instance, Analyzer*, $Context*)},
+	{"lambda$doAnalysis$0", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)Lcom/sun/tools/javac/util/Log$DiagnosticHandler;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Analyzer, lambda$doAnalysis$0, $Log$DiagnosticHandler*, $Analyzer$RewritingContext*)},
+	{"lambda$doAnalysis$1", "(Ljava/lang/StackTraceElement;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Analyzer, lambda$doAnalysis$1, $String*, $StackTraceElement*)},
 	{}
 };
 

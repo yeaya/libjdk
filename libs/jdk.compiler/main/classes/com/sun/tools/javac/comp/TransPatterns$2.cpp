@@ -35,8 +35,8 @@ $FieldInfo _TransPatterns$2_FieldInfo_[] = {
 };
 
 $MethodInfo _TransPatterns$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(static_cast<void(TransPatterns$2::*)($TransPatterns*,$ListBuffer*)>(&TransPatterns$2::init$))},
-	{"tryPrepend", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(TransPatterns$2, init$, void, $TransPatterns*, $ListBuffer*)},
+	{"tryPrepend", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0, $virtualMethod(TransPatterns$2, tryPrepend, bool, $Symbol$BindingSymbol*, $JCTree$JCVariableDecl*)},
 	{}
 };
 

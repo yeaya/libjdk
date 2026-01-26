@@ -53,11 +53,11 @@ $FieldInfo _KrbCredInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbCredInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(KrbCredInfo::*)()>(&KrbCredInfo::init$))},
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/HostAddresses;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbCredInfo::*)($EncryptionKey*,$PrincipalName*,$TicketFlags*,$KerberosTime*,$KerberosTime*,$KerberosTime*,$KerberosTime*,$PrincipalName*,$HostAddresses*)>(&KrbCredInfo::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbCredInfo::*)($DerValue*)>(&KrbCredInfo::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(KrbCredInfo, init$, void)},
+	{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/HostAddresses;)V", nullptr, $PUBLIC, $method(KrbCredInfo, init$, void, $EncryptionKey*, $PrincipalName*, $TicketFlags*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $PrincipalName*, $HostAddresses*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KrbCredInfo, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbCredInfo, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(KrbCredInfo, clone, $Object*)},
 	{}
 };
 

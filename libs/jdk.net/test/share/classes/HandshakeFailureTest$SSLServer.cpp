@@ -45,9 +45,9 @@ $FieldInfo _HandshakeFailureTest$SSLServer_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeFailureTest$SSLServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(HandshakeFailureTest$SSLServer::*)()>(&HandshakeFailureTest$SSLServer::init$)), "java.io.IOException"},
-	{"createUntrustingContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $STATIC, $method(static_cast<$SSLContext*(*)()>(&HandshakeFailureTest$SSLServer::createUntrustingContext))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(HandshakeFailureTest$SSLServer, init$, void), "java.io.IOException"},
+	{"createUntrustingContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $STATIC, $staticMethod(HandshakeFailureTest$SSLServer, createUntrustingContext, $SSLContext*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HandshakeFailureTest$SSLServer, run, void)},
 	{}
 };
 

@@ -35,14 +35,14 @@ $FieldInfo _WebSocketImpl$SignallingMessageConsumer_FieldInfo_[] = {
 };
 
 $MethodInfo _WebSocketImpl$SignallingMessageConsumer_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(WebSocketImpl$SignallingMessageConsumer::*)($WebSocketImpl*)>(&WebSocketImpl$SignallingMessageConsumer::init$))},
-	{"onBinary", "(Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC},
-	{"onClose", "(ILjava/lang/CharSequence;)V", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onPing", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"onPong", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"onText", "(Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/WebSocketImpl;)V", nullptr, $PRIVATE, $method(WebSocketImpl$SignallingMessageConsumer, init$, void, $WebSocketImpl*)},
+	{"onBinary", "(Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$SignallingMessageConsumer, onBinary, void, $ByteBuffer*, bool)},
+	{"onClose", "(ILjava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$SignallingMessageConsumer, onClose, void, int32_t, $CharSequence*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$SignallingMessageConsumer, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$SignallingMessageConsumer, onError, void, $Throwable*)},
+	{"onPing", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$SignallingMessageConsumer, onPing, void, $ByteBuffer*)},
+	{"onPong", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$SignallingMessageConsumer, onPong, void, $ByteBuffer*)},
+	{"onText", "(Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $virtualMethod(WebSocketImpl$SignallingMessageConsumer, onText, void, $CharSequence*, bool)},
 	{}
 };
 

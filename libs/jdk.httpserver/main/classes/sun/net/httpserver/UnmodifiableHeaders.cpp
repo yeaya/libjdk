@@ -58,8 +58,8 @@ $FieldInfo UnmodifiableHeaders$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo UnmodifiableHeaders$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/net/httpserver/Headers;)V", nullptr, $PUBLIC, $method(static_cast<void(UnmodifiableHeaders$$Lambda$lambda$new$0::*)($Headers*)>(&UnmodifiableHeaders$$Lambda$lambda$new$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/net/httpserver/Headers;)V", nullptr, $PUBLIC, $method(UnmodifiableHeaders$$Lambda$lambda$new$0, init$, void, $Headers*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders$$Lambda$lambda$new$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo UnmodifiableHeaders$$Lambda$lambda$new$0::classInfo$ = {
@@ -83,31 +83,31 @@ $FieldInfo _UnmodifiableHeaders_FieldInfo_[] = {
 };
 
 $MethodInfo _UnmodifiableHeaders_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/net/httpserver/Headers;)V", nullptr, $PUBLIC, $method(static_cast<void(UnmodifiableHeaders::*)($Headers*)>(&UnmodifiableHeaders::init$))},
-	{"add", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;>;", $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getFirst", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"lambda$new$0", "(Lcom/sun/net/httpserver/Headers;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Headers*,$String*,$List*)>(&UnmodifiableHeaders::lambda$new$0))},
-	{"put", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+Ljava/lang/String;+Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"replace", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"replace", "(Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Z", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)Z", $PUBLIC},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-Ljava/lang/String;-Ljava/util/List<Ljava/lang/String;>;+Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC},
-	{"set", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/net/httpserver/Headers;)V", nullptr, $PUBLIC, $method(UnmodifiableHeaders, init$, void, $Headers*)},
+	{"add", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders, add, void, $String*, $String*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders, clear, void)},
+	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders, containsKey, bool, Object$*)},
+	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders, containsValue, bool, Object$*)},
+	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;>;", $PUBLIC, $virtualMethod(UnmodifiableHeaders, entrySet, $Set*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders, equals, bool, Object$*)},
+	{"get", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnmodifiableHeaders, get, $Object*, Object$*)},
+	{"getFirst", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders, getFirst, $String*, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders, hashCode, int32_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders, isEmpty, bool)},
+	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnmodifiableHeaders, keySet, $Set*)},
+	{"lambda$new$0", "(Lcom/sun/net/httpserver/Headers;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnmodifiableHeaders, lambda$new$0, void, $Headers*, $String*, $List*)},
+	{"put", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnmodifiableHeaders, put, $List*, $String*, $List*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnmodifiableHeaders, put, $Object*, Object$*, Object$*)},
+	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+Ljava/lang/String;+Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC, $virtualMethod(UnmodifiableHeaders, putAll, void, $Map*)},
+	{"remove", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnmodifiableHeaders, remove, $Object*, Object$*)},
+	{"replace", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnmodifiableHeaders, replace, $List*, $String*, $List*)},
+	{"replace", "(Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Z", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(UnmodifiableHeaders, replace, bool, $String*, $List*, $List*)},
+	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnmodifiableHeaders, replace, $Object*, Object$*, Object$*)},
+	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnmodifiableHeaders, replace, bool, Object$*, Object$*, Object$*)},
+	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-Ljava/lang/String;-Ljava/util/List<Ljava/lang/String;>;+Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC, $virtualMethod(UnmodifiableHeaders, replaceAll, void, $BiFunction*)},
+	{"set", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders, set, void, $String*, $String*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(UnmodifiableHeaders, size, int32_t)},
+	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(UnmodifiableHeaders, values, $Collection*)},
 	{}
 };
 

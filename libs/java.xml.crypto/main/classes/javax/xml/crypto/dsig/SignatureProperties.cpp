@@ -8,6 +8,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace javax {
 	namespace xml {
@@ -20,8 +21,8 @@ $FieldInfo _SignatureProperties_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureProperties_MethodInfo_[] = {
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getProperties", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/SignatureProperty;>;", $PUBLIC | $ABSTRACT},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SignatureProperties, getId, $String*)},
+	{"getProperties", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/SignatureProperty;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SignatureProperties, getProperties, $List*)},
 	{}
 };
 

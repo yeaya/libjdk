@@ -9,8 +9,8 @@ namespace org {
 	namespace reactivestreams {
 
 $MethodInfo _Subscription_MethodInfo_[] = {
-	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"request", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"cancel", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Subscription, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Subscription, request, void, int64_t)},
 	{}
 };
 

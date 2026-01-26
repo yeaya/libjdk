@@ -5,9 +5,12 @@
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
+using $AttributeTree$ValueKind = ::com::sun::source::doctree::AttributeTree$ValueKind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {
@@ -15,9 +18,9 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _AttributeTree_MethodInfo_[] = {
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getValue", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT},
-	{"getValueKind", "()Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributeTree, getName, $Name*)},
+	{"getValue", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AttributeTree, getValue, $List*)},
+	{"getValueKind", "()Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributeTree, getValueKind, $AttributeTree$ValueKind*)},
 	{}
 };
 

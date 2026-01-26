@@ -26,9 +26,9 @@ $FieldInfo _S$NReadsInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _S$NReadsInputStream_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(S$NReadsInputStream::*)(int64_t)>(&S$NReadsInputStream::init$))},
-	{"read", "()I", nullptr, $PUBLIC},
-	{"read", "([BII)I", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, 0, $method(S$NReadsInputStream, init$, void, int64_t)},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(S$NReadsInputStream, read, int32_t)},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(S$NReadsInputStream, read, int32_t, $bytes*, int32_t, int32_t)},
 	{}
 };
 

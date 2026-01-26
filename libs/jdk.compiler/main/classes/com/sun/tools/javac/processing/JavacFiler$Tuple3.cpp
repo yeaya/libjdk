@@ -22,7 +22,7 @@ $FieldInfo _JavacFiler$Tuple3_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacFiler$Tuple3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "(TA;TB;TC;)V", $PUBLIC, $method(static_cast<void(JavacFiler$Tuple3::*)(Object$*,Object$*,Object$*)>(&JavacFiler$Tuple3::init$))},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V", "(TA;TB;TC;)V", $PUBLIC, $method(JavacFiler$Tuple3, init$, void, Object$*, Object$*, Object$*)},
 	{}
 };
 

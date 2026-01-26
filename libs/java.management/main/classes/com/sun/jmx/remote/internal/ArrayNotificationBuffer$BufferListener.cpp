@@ -29,8 +29,8 @@ $FieldInfo _ArrayNotificationBuffer$BufferListener_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayNotificationBuffer$BufferListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(ArrayNotificationBuffer$BufferListener::*)($ArrayNotificationBuffer*)>(&ArrayNotificationBuffer$BufferListener::init$))},
-	{"handleNotification", "(Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;)V", nullptr, $PRIVATE, $method(ArrayNotificationBuffer$BufferListener, init$, void, $ArrayNotificationBuffer*)},
+	{"handleNotification", "(Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$BufferListener, handleNotification, void, $Notification*, Object$*)},
 	{}
 };
 

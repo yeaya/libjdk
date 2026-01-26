@@ -38,10 +38,10 @@ $FieldInfo _JavadocTokenizer_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocTokenizer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Ljava/nio/CharBuffer;)V", nullptr, $PROTECTED, $method(static_cast<void(JavadocTokenizer::*)($ScannerFactory*,$CharBuffer*)>(&JavadocTokenizer::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(static_cast<void(JavadocTokenizer::*)($ScannerFactory*,$chars*,int32_t)>(&JavadocTokenizer::init$))},
-	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC},
-	{"processComment", "(IILcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;Ljava/nio/CharBuffer;)V", nullptr, $PROTECTED, $method(JavadocTokenizer, init$, void, $ScannerFactory*, $CharBuffer*)},
+	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(JavadocTokenizer, init$, void, $ScannerFactory*, $chars*, int32_t)},
+	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(JavadocTokenizer, getLineMap, $Position$LineMap*)},
+	{"processComment", "(IILcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PROTECTED, $virtualMethod(JavadocTokenizer, processComment, $Tokens$Comment*, int32_t, int32_t, $Tokens$Comment$CommentStyle*)},
 	{}
 };
 

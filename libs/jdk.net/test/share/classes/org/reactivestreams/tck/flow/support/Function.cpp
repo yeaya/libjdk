@@ -12,7 +12,7 @@ namespace org {
 				namespace support {
 
 $MethodInfo _Function_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TIn;)TOut;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Throwable"},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TIn;)TOut;", $PUBLIC | $ABSTRACT, $virtualMethod(Function, apply, $Object*, Object$*), "java.lang.Throwable"},
 	{}
 };
 

@@ -21,10 +21,10 @@ $FieldInfo _Optional$Some_FieldInfo_[] = {
 };
 
 $MethodInfo _Optional$Some_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(static_cast<void(Optional$Some::*)(Object$*)>(&Optional$Some::init$))},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(Optional$Some, init$, void, Object$*)},
+	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Optional$Some, get, $Object*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Optional$Some, isEmpty, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Optional$Some, toString, $String*)},
 	{}
 };
 

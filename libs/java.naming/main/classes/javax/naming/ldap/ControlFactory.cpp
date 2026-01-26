@@ -24,9 +24,9 @@ namespace javax {
 		namespace ldap {
 
 $MethodInfo _ControlFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ControlFactory::*)()>(&ControlFactory::init$))},
-	{"getControlInstance", "(Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/Control;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getControlInstance", "(Ljavax/naming/ldap/Control;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljavax/naming/ldap/Control;", "(Ljavax/naming/ldap/Control;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljavax/naming/ldap/Control;", $PUBLIC | $STATIC, $method(static_cast<$Control*(*)($Control*,$Context*,$Hashtable*)>(&ControlFactory::getControlInstance)), "javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ControlFactory, init$, void)},
+	{"getControlInstance", "(Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/Control;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ControlFactory, getControlInstance, $Control*, $Control*), "javax.naming.NamingException"},
+	{"getControlInstance", "(Ljavax/naming/ldap/Control;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljavax/naming/ldap/Control;", "(Ljavax/naming/ldap/Control;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljavax/naming/ldap/Control;", $PUBLIC | $STATIC, $staticMethod(ControlFactory, getControlInstance, $Control*, $Control*, $Context*, $Hashtable*), "javax.naming.NamingException"},
 	{}
 };
 

@@ -20,10 +20,10 @@ $FieldInfo _Completions$SimpleCompletion_FieldInfo_[] = {
 };
 
 $MethodInfo _Completions$SimpleCompletion_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Completions$SimpleCompletion::*)($String*,$String*)>(&Completions$SimpleCompletion::init$))},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Completions$SimpleCompletion, init$, void, $String*, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Completions$SimpleCompletion, getMessage, $String*)},
+	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Completions$SimpleCompletion, getValue, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Completions$SimpleCompletion, toString, $String*)},
 	{}
 };
 

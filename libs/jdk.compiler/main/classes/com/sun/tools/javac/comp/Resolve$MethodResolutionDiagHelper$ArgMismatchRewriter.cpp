@@ -30,8 +30,8 @@ $FieldInfo _Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter_FieldInfo_[] 
 };
 
 $MethodInfo _Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter::*)(int32_t)>(&Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter::init$))},
-	{"rewriteDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter, init$, void, int32_t)},
+	{"rewriteDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter, rewriteDiagnostic, $JCDiagnostic*, $JCDiagnostic$Factory*, $JCDiagnostic$DiagnosticPosition*, $DiagnosticSource*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic*)},
 	{}
 };
 

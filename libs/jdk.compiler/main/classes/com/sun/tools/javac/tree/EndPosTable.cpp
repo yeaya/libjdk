@@ -3,6 +3,7 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
+using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -13,9 +14,9 @@ namespace com {
 				namespace tree {
 
 $MethodInfo _EndPosTable_MethodInfo_[] = {
-	{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"replaceTree", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"storeEnd", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"getEndPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndPosTable, getEndPos, int32_t, $JCTree*)},
+	{"replaceTree", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndPosTable, replaceTree, int32_t, $JCTree*, $JCTree*)},
+	{"storeEnd", "(Lcom/sun/tools/javac/tree/JCTree;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EndPosTable, storeEnd, void, $JCTree*, int32_t)},
 	{}
 };
 

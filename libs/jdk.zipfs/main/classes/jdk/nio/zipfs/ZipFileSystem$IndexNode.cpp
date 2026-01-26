@@ -30,19 +30,19 @@ $FieldInfo _ZipFileSystem$IndexNode_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileSystem$IndexNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ZipFileSystem$IndexNode::*)()>(&ZipFileSystem$IndexNode::init$))},
-	{"<init>", "([BZ)V", nullptr, 0, $method(static_cast<void(ZipFileSystem$IndexNode::*)($bytes*,bool)>(&ZipFileSystem$IndexNode::init$))},
-	{"<init>", "([BI)V", nullptr, 0, $method(static_cast<void(ZipFileSystem$IndexNode::*)($bytes*,int32_t)>(&ZipFileSystem$IndexNode::init$))},
-	{"<init>", "([BII)V", nullptr, 0, $method(static_cast<void(ZipFileSystem$IndexNode::*)($bytes*,int32_t,int32_t)>(&ZipFileSystem$IndexNode::init$))},
-	{"as", "([B)Ljdk/nio/zipfs/ZipFileSystem$IndexNode;", nullptr, $FINAL, $method(static_cast<ZipFileSystem$IndexNode*(ZipFileSystem$IndexNode::*)($bytes*)>(&ZipFileSystem$IndexNode::as))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isDir", "()Z", nullptr, 0},
-	{"keyOf", "([B)Ljdk/nio/zipfs/ZipFileSystem$IndexNode;", nullptr, $STATIC | $FINAL, $method(static_cast<ZipFileSystem$IndexNode*(*)($bytes*)>(&ZipFileSystem$IndexNode::keyOf))},
-	{"name", "([B)V", nullptr, $FINAL, $method(static_cast<void(ZipFileSystem$IndexNode::*)($bytes*)>(&ZipFileSystem$IndexNode::name))},
-	{"normalize", "([B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(ZipFileSystem$IndexNode::*)($bytes*)>(&ZipFileSystem$IndexNode::normalize))},
-	{"normalize", "([BI)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(ZipFileSystem$IndexNode::*)($bytes*,int32_t)>(&ZipFileSystem$IndexNode::normalize))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ZipFileSystem$IndexNode, init$, void)},
+	{"<init>", "([BZ)V", nullptr, 0, $method(ZipFileSystem$IndexNode, init$, void, $bytes*, bool)},
+	{"<init>", "([BI)V", nullptr, 0, $method(ZipFileSystem$IndexNode, init$, void, $bytes*, int32_t)},
+	{"<init>", "([BII)V", nullptr, 0, $method(ZipFileSystem$IndexNode, init$, void, $bytes*, int32_t, int32_t)},
+	{"as", "([B)Ljdk/nio/zipfs/ZipFileSystem$IndexNode;", nullptr, $FINAL, $method(ZipFileSystem$IndexNode, as, ZipFileSystem$IndexNode*, $bytes*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$IndexNode, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$IndexNode, hashCode, int32_t)},
+	{"isDir", "()Z", nullptr, 0, $virtualMethod(ZipFileSystem$IndexNode, isDir, bool)},
+	{"keyOf", "([B)Ljdk/nio/zipfs/ZipFileSystem$IndexNode;", nullptr, $STATIC | $FINAL, $staticMethod(ZipFileSystem$IndexNode, keyOf, ZipFileSystem$IndexNode*, $bytes*)},
+	{"name", "([B)V", nullptr, $FINAL, $method(ZipFileSystem$IndexNode, name, void, $bytes*)},
+	{"normalize", "([B)[B", nullptr, $PRIVATE, $method(ZipFileSystem$IndexNode, normalize, $bytes*, $bytes*)},
+	{"normalize", "([BI)[B", nullptr, $PRIVATE, $method(ZipFileSystem$IndexNode, normalize, $bytes*, $bytes*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$IndexNode, toString, $String*)},
 	{}
 };
 

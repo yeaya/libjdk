@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PublicKey = ::java::security::PublicKey;
 
 namespace com {
 	namespace sun {
@@ -18,7 +19,7 @@ namespace com {
 									namespace keyvalues {
 
 $MethodInfo _KeyValueContent_MethodInfo_[] = {
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyValueContent, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
 	{}
 };
 

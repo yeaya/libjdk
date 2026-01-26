@@ -35,14 +35,14 @@ $FieldInfo _CanonicalizationException_FieldInfo_[] = {
 };
 
 $MethodInfo _CanonicalizationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CanonicalizationException::*)()>(&CanonicalizationException::init$))},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(CanonicalizationException::*)($Exception*)>(&CanonicalizationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CanonicalizationException::*)($String*)>(&CanonicalizationException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(CanonicalizationException::*)($String*,$ObjectArray*)>(&CanonicalizationException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(CanonicalizationException::*)($Exception*,$String*)>(&CanonicalizationException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(CanonicalizationException::*)($String*,$Exception*)>(&CanonicalizationException::init$)), nullptr, nullptr, _CanonicalizationException_MethodAnnotations_init$5},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(CanonicalizationException::*)($Exception*,$String*,$ObjectArray*)>(&CanonicalizationException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(CanonicalizationException::*)($String*,$ObjectArray*,$Exception*)>(&CanonicalizationException::init$)), nullptr, nullptr, _CanonicalizationException_MethodAnnotations_init$7},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void)},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $Exception*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(CanonicalizationException, init$, void, $String*, $Exception*), nullptr, nullptr, _CanonicalizationException_MethodAnnotations_init$5},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CanonicalizationException, init$, void, $Exception*, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(CanonicalizationException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _CanonicalizationException_MethodAnnotations_init$7},
 	{}
 };
 

@@ -23,8 +23,8 @@ $FieldInfo _GSSCaller_FieldInfo_[] = {
 };
 
 $MethodInfo _GSSCaller_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(GSSCaller::*)($String*)>(&GSSCaller::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(GSSCaller, init$, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSCaller, toString, $String*)},
 	{}
 };
 

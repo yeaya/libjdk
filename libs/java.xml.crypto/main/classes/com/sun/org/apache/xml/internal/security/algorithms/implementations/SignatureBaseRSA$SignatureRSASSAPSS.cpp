@@ -65,12 +65,12 @@ $FieldInfo _SignatureBaseRSA$SignatureRSASSAPSS_FieldInfo_[] = {
 };
 
 $MethodInfo _SignatureBaseRSA$SignatureRSASSAPSS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SignatureBaseRSA$SignatureRSASSAPSS::*)()>(&SignatureBaseRSA$SignatureRSASSAPSS::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureBaseRSA$SignatureRSASSAPSS::*)($Provider*)>(&SignatureBaseRSA$SignatureRSASSAPSS::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineAddContextToElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetContextFromElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, nullptr, "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineAddContextToElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineAddContextToElement, void, $Element*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineGetContextFromElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineGetContextFromElement, void, $Element*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineGetURI, $String*)},
+	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureBaseRSA$SignatureRSASSAPSS, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
 	{}
 };
 

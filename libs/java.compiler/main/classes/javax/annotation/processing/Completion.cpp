@@ -10,8 +10,8 @@ namespace javax {
 		namespace processing {
 
 $MethodInfo _Completion_MethodInfo_[] = {
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Completion, getMessage, $String*)},
+	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Completion, getValue, $String*)},
 	{}
 };
 

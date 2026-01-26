@@ -53,9 +53,9 @@ $FieldInfo _ResponseContent_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseContent_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;JLjava/net/http/HttpHeaders;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/lang/Runnable;)V", "(Ljdk/internal/net/http/HttpConnection;JLjava/net/http/HttpHeaders;Ljava/net/http/HttpResponse$BodySubscriber<*>;Ljava/lang/Runnable;)V", 0, $method(static_cast<void(ResponseContent::*)($HttpConnection*,int64_t,$HttpHeaders*,$HttpResponse$BodySubscriber*,$Runnable*)>(&ResponseContent::init$))},
-	{"contentChunked", "()Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getBodyParser", "(Ljava/util/function/Consumer;)Ljdk/internal/net/http/ResponseContent$BodyParser;", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)Ljdk/internal/net/http/ResponseContent$BodyParser;", 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;JLjava/net/http/HttpHeaders;Ljava/net/http/HttpResponse$BodySubscriber;Ljava/lang/Runnable;)V", "(Ljdk/internal/net/http/HttpConnection;JLjava/net/http/HttpHeaders;Ljava/net/http/HttpResponse$BodySubscriber<*>;Ljava/lang/Runnable;)V", 0, $method(ResponseContent, init$, void, $HttpConnection*, int64_t, $HttpHeaders*, $HttpResponse$BodySubscriber*, $Runnable*)},
+	{"contentChunked", "()Z", nullptr, 0, $virtualMethod(ResponseContent, contentChunked, bool), "java.io.IOException"},
+	{"getBodyParser", "(Ljava/util/function/Consumer;)Ljdk/internal/net/http/ResponseContent$BodyParser;", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)Ljdk/internal/net/http/ResponseContent$BodyParser;", 0, $virtualMethod(ResponseContent, getBodyParser, $ResponseContent$BodyParser*, $Consumer*), "java.io.IOException"},
 	{}
 };
 

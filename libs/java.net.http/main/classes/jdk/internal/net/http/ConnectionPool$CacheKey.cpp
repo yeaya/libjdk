@@ -24,9 +24,9 @@ $FieldInfo _ConnectionPool$CacheKey_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionPool$CacheKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(static_cast<void(ConnectionPool$CacheKey::*)($InetSocketAddress*,$InetSocketAddress*)>(&ConnectionPool$CacheKey::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/InetSocketAddress;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(ConnectionPool$CacheKey, init$, void, $InetSocketAddress*, $InetSocketAddress*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CacheKey, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ConnectionPool$CacheKey, hashCode, int32_t)},
 	{}
 };
 

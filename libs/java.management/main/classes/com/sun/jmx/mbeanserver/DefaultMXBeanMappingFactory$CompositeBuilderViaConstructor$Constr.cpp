@@ -25,7 +25,7 @@ $FieldInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr_Fi
 };
 
 $MethodInfo _DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Constructor;[ILjava/util/BitSet;)V", "(Ljava/lang/reflect/Constructor<*>;[ILjava/util/BitSet;)V", 0, $method(static_cast<void(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr::*)($Constructor*,$ints*,$BitSet*)>(&DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr::init$))},
+	{"<init>", "(Ljava/lang/reflect/Constructor;[ILjava/util/BitSet;)V", "(Ljava/lang/reflect/Constructor<*>;[ILjava/util/BitSet;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor$Constr, init$, void, $Constructor*, $ints*, $BitSet*)},
 	{}
 };
 

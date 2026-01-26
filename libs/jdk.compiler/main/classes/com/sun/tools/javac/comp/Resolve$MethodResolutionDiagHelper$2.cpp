@@ -59,8 +59,8 @@ $FieldInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::fieldInfos[2]
 	{}
 };
 $MethodInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$2;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::*)(Resolve$MethodResolutionDiagHelper$2*)>(&Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$2;)V", nullptr, $PUBLIC, $method(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, init$, void, Resolve$MethodResolutionDiagHelper$2*)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::classInfo$ = {
@@ -102,8 +102,8 @@ $FieldInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::
 	{}
 };
 $MethodInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$2;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::*)(Resolve$MethodResolutionDiagHelper$2*,$List*)>(&Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$2;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, init$, void, Resolve$MethodResolutionDiagHelper$2*, $List*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::classInfo$ = {
@@ -126,11 +126,11 @@ $FieldInfo _Resolve$MethodResolutionDiagHelper$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodResolutionDiagHelper$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(static_cast<void(Resolve$MethodResolutionDiagHelper$2::*)($String*,$Resolve$MethodResolutionDiagHelper$TemplateArray*)>(&Resolve$MethodResolutionDiagHelper$2::init$))},
-	{"containsAny", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0},
-	{"lambda$$0", "(Ljava/lang/Object;Lcom/sun/tools/javac/util/List;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Resolve$MethodResolutionDiagHelper$2::*)(Object$*,$List*)>(&Resolve$MethodResolutionDiagHelper$2::lambda$$0))},
-	{"lambda$containsAny$1", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Resolve$MethodResolutionDiagHelper$2::*)($List*,Object$*)>(&Resolve$MethodResolutionDiagHelper$2::lambda$containsAny$1))},
-	{"matches", "(Ljava/lang/Object;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(Resolve$MethodResolutionDiagHelper$2, init$, void, $String*, $Resolve$MethodResolutionDiagHelper$TemplateArray*)},
+	{"containsAny", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$2, containsAny, bool, $JCDiagnostic*, $List*)},
+	{"lambda$$0", "(Ljava/lang/Object;Lcom/sun/tools/javac/util/List;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$MethodResolutionDiagHelper$2, lambda$$0, bool, Object$*, $List*)},
+	{"lambda$containsAny$1", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$MethodResolutionDiagHelper$2, lambda$containsAny$1, bool, $List*, Object$*)},
+	{"matches", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$2, matches, bool, Object$*)},
 	{}
 };
 

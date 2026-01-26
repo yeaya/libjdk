@@ -7,9 +7,10 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SocketOption = ::java::net::SocketOption;
 
 $MethodInfo _DummySecureWebSocketServer$WebServerSocketChannel$Config_MethodInfo_[] = {
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC | $ABSTRACT, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel$Config, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
 	{}
 };
 

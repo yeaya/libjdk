@@ -19,7 +19,7 @@ using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublisher
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
 $MethodInfo _ShortRequestBody$StringRequestBody_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(ShortRequestBody$StringRequestBody::*)($String*,int32_t)>(&ShortRequestBody$StringRequestBody::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(ShortRequestBody$StringRequestBody, init$, void, $String*, int32_t)},
 	{}
 };
 

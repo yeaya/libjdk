@@ -39,7 +39,7 @@ $FieldInfo _LoginOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _LoginOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LoginOptions::*)()>(&LoginOptions::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LoginOptions, init$, void)},
 	{}
 };
 

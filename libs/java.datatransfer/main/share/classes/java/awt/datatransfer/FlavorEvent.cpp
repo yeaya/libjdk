@@ -20,7 +20,7 @@ $FieldInfo _FlavorEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _FlavorEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/datatransfer/Clipboard;)V", nullptr, $PUBLIC, $method(static_cast<void(FlavorEvent::*)($Clipboard*)>(&FlavorEvent::init$))},
+	{"<init>", "(Ljava/awt/datatransfer/Clipboard;)V", nullptr, $PUBLIC, $method(FlavorEvent, init$, void, $Clipboard*)},
 	{}
 };
 

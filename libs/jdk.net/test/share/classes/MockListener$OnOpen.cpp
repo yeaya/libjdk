@@ -14,10 +14,10 @@ using $WebSocket = ::java::net::http::WebSocket;
 using $Objects = ::java::util::Objects;
 
 $MethodInfo _MockListener$OnOpen_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/WebSocket;)V", nullptr, $PUBLIC, $method(static_cast<void(MockListener$OnOpen::*)($WebSocket*)>(&MockListener$OnOpen::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/WebSocket;)V", nullptr, $PUBLIC, $method(MockListener$OnOpen, init$, void, $WebSocket*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnOpen, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnOpen, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnOpen, toString, $String*)},
 	{}
 };
 

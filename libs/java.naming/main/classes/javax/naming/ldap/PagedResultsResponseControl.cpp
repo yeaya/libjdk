@@ -28,9 +28,9 @@ $FieldInfo _PagedResultsResponseControl_FieldInfo_[] = {
 };
 
 $MethodInfo _PagedResultsResponseControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(static_cast<void(PagedResultsResponseControl::*)($String*,bool,$bytes*)>(&PagedResultsResponseControl::init$)), "java.io.IOException"},
-	{"getCookie", "()[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(PagedResultsResponseControl::*)()>(&PagedResultsResponseControl::getCookie))},
-	{"getResultSize", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(PagedResultsResponseControl::*)()>(&PagedResultsResponseControl::getResultSize))},
+	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(PagedResultsResponseControl, init$, void, $String*, bool, $bytes*), "java.io.IOException"},
+	{"getCookie", "()[B", nullptr, $PUBLIC, $method(PagedResultsResponseControl, getCookie, $bytes*)},
+	{"getResultSize", "()I", nullptr, $PUBLIC, $method(PagedResultsResponseControl, getResultSize, int32_t)},
 	{}
 };
 

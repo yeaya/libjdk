@@ -24,19 +24,19 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _NullEType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullEType::*)()>(&NullEType::init$))},
-	{"blockSize", "()I", nullptr, $PUBLIC},
-	{"checksumSize", "()I", nullptr, $PUBLIC},
-	{"checksumType", "()I", nullptr, $PUBLIC},
-	{"confounderSize", "()I", nullptr, $PUBLIC},
-	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KrbApErrException"},
-	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KrbApErrException"},
-	{"eType", "()I", nullptr, $PUBLIC},
-	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC},
-	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC},
-	{"keySize", "()I", nullptr, $PUBLIC},
-	{"keyType", "()I", nullptr, $PUBLIC},
-	{"minimumPadSize", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullEType, init$, void)},
+	{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, blockSize, int32_t)},
+	{"checksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, checksumSize, int32_t)},
+	{"checksumType", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, checksumType, int32_t)},
+	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, confounderSize, int32_t)},
+	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException"},
+	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException"},
+	{"eType", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, eType, int32_t)},
+	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, encrypt, $bytes*, $bytes*, $bytes*, int32_t)},
+	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(NullEType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t)},
+	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, keyType, int32_t)},
+	{"minimumPadSize", "()I", nullptr, $PUBLIC, $virtualMethod(NullEType, minimumPadSize, int32_t)},
 	{}
 };
 

@@ -32,8 +32,8 @@ $FieldInfo _HotspotCompilation$CompilerThreadInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _HotspotCompilation$CompilerThreadInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/HotspotCompilation;Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(HotspotCompilation$CompilerThreadInfo::*)($HotspotCompilation*,$String*,int32_t)>(&HotspotCompilation$CompilerThreadInfo::init$))},
-	{"getCompilerThreadStat", "()Lsun/management/CompilerThreadStat;", nullptr, 0},
+	{"<init>", "(Lsun/management/HotspotCompilation;Ljava/lang/String;I)V", nullptr, 0, $method(HotspotCompilation$CompilerThreadInfo, init$, void, $HotspotCompilation*, $String*, int32_t)},
+	{"getCompilerThreadStat", "()Lsun/management/CompilerThreadStat;", nullptr, 0, $virtualMethod(HotspotCompilation$CompilerThreadInfo, getCompilerThreadStat, $CompilerThreadStat*)},
 	{}
 };
 

@@ -53,8 +53,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DocLint$$Lambda$lambda$newDocLint$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DocLint$$Lambda$lambda$newDocLint$0::*)()>(&DocLint$$Lambda$lambda$newDocLint$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DocLint$$Lambda$lambda$newDocLint$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DocLint$$Lambda$lambda$newDocLint$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DocLint$$Lambda$lambda$newDocLint$0::classInfo$ = {
@@ -80,10 +80,10 @@ $FieldInfo _DocLint_FieldInfo_[] = {
 };
 
 $MethodInfo _DocLint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DocLint::*)()>(&DocLint::init$))},
-	{"isValidOption", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"lambda$newDocLint$0", "(Ljava/util/ServiceLoader$Provider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($ServiceLoader$Provider*)>(&DocLint::lambda$newDocLint$0))},
-	{"newDocLint", "()Lcom/sun/tools/doclint/DocLint;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<DocLint*(*)()>(&DocLint::newDocLint))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DocLint, init$, void)},
+	{"isValidOption", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocLint, isValidOption, bool, $String*)},
+	{"lambda$newDocLint$0", "(Ljava/util/ServiceLoader$Provider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocLint, lambda$newDocLint$0, bool, $ServiceLoader$Provider*)},
+	{"newDocLint", "()Lcom/sun/tools/doclint/DocLint;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(DocLint, newDocLint, DocLint*)},
 	{}
 };
 

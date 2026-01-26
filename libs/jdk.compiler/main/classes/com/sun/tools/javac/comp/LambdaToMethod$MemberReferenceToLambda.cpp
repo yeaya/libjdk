@@ -102,14 +102,14 @@ $FieldInfo _LambdaToMethod$MemberReferenceToLambda_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaToMethod$MemberReferenceToLambda_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(LambdaToMethod$MemberReferenceToLambda::*)($LambdaToMethod*,$JCTree$JCMemberReference*,$LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext*,$Symbol*)>(&LambdaToMethod$MemberReferenceToLambda::init$))},
-	{"addParameter", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PRIVATE, $method(static_cast<$Symbol$VarSymbol*(LambdaToMethod$MemberReferenceToLambda::*)($String*,$Type*,bool)>(&LambdaToMethod$MemberReferenceToLambda::addParameter))},
-	{"addParametersReturnReceiver", "()Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0},
-	{"expressionInvoke", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCExpression*(LambdaToMethod$MemberReferenceToLambda::*)($Symbol$VarSymbol*)>(&LambdaToMethod$MemberReferenceToLambda::expressionInvoke))},
-	{"expressionNew", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCExpression*(LambdaToMethod$MemberReferenceToLambda::*)()>(&LambdaToMethod$MemberReferenceToLambda::expressionNew))},
-	{"getReceiverExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0},
-	{"lambda", "()Lcom/sun/tools/javac/tree/JCTree$JCLambda;", nullptr, 0},
-	{"makeReceiver", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCExpression*(LambdaToMethod$MemberReferenceToLambda::*)($Symbol$VarSymbol*)>(&LambdaToMethod$MemberReferenceToLambda::makeReceiver))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(LambdaToMethod$MemberReferenceToLambda, init$, void, $LambdaToMethod*, $JCTree$JCMemberReference*, $LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext*, $Symbol*)},
+	{"addParameter", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PRIVATE, $method(LambdaToMethod$MemberReferenceToLambda, addParameter, $Symbol$VarSymbol*, $String*, $Type*, bool)},
+	{"addParametersReturnReceiver", "()Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(LambdaToMethod$MemberReferenceToLambda, addParametersReturnReceiver, $Symbol$VarSymbol*)},
+	{"expressionInvoke", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod$MemberReferenceToLambda, expressionInvoke, $JCTree$JCExpression*, $Symbol$VarSymbol*)},
+	{"expressionNew", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod$MemberReferenceToLambda, expressionNew, $JCTree$JCExpression*)},
+	{"getReceiverExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, 0, $virtualMethod(LambdaToMethod$MemberReferenceToLambda, getReceiverExpression, $JCTree$JCExpression*)},
+	{"lambda", "()Lcom/sun/tools/javac/tree/JCTree$JCLambda;", nullptr, 0, $virtualMethod(LambdaToMethod$MemberReferenceToLambda, lambda, $JCTree$JCLambda*)},
+	{"makeReceiver", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod$MemberReferenceToLambda, makeReceiver, $JCTree$JCExpression*, $Symbol$VarSymbol*)},
 	{}
 };
 

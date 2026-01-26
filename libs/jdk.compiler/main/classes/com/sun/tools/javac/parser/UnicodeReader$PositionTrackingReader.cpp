@@ -26,10 +26,10 @@ $FieldInfo _UnicodeReader$PositionTrackingReader_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicodeReader$PositionTrackingReader_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(static_cast<void(UnicodeReader$PositionTrackingReader::*)($ScannerFactory*,$chars*,int32_t)>(&UnicodeReader$PositionTrackingReader::init$))},
-	{"column", "()I", nullptr, $PROTECTED},
-	{"next", "()C", nullptr, $PROTECTED},
-	{"offsetPosition", "()I", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(UnicodeReader$PositionTrackingReader, init$, void, $ScannerFactory*, $chars*, int32_t)},
+	{"column", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader$PositionTrackingReader, column, int32_t)},
+	{"next", "()C", nullptr, $PROTECTED, $virtualMethod(UnicodeReader$PositionTrackingReader, next, char16_t)},
+	{"offsetPosition", "()I", nullptr, $PROTECTED, $virtualMethod(UnicodeReader$PositionTrackingReader, offsetPosition, int32_t)},
 	{}
 };
 

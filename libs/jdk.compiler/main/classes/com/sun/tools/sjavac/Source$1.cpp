@@ -75,8 +75,8 @@ $FieldInfo Source$1$$Lambda$lambda$visitFile$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Source$1$$Lambda$lambda$visitFile$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(Source$1$$Lambda$lambda$visitFile$0::*)($Path*)>(&Source$1$$Lambda$lambda$visitFile$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(Source$1$$Lambda$lambda$visitFile$0, init$, void, $Path*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Source$1$$Lambda$lambda$visitFile$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Source$1$$Lambda$lambda$visitFile$0::classInfo$ = {
@@ -106,10 +106,10 @@ $FieldInfo _Source$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Source$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;Ljava/util/List;Ljava/util/List;Ljava/util/Set;Ljava/util/Map;Lcom/sun/tools/sjavac/Module;ZZ)V", nullptr, 0, $method(static_cast<void(Source$1::*)($File*,$List*,$List*,$Set*,$Map*,$Module*,bool,bool)>(&Source$1::init$))},
-	{"lambda$visitFile$0", "(Ljava/nio/file/Path;Ljava/nio/file/PathMatcher;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Path*,$PathMatcher*)>(&Source$1::lambda$visitFile$0))},
-	{"visitFile", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/File;Ljava/util/List;Ljava/util/List;Ljava/util/Set;Ljava/util/Map;Lcom/sun/tools/sjavac/Module;ZZ)V", nullptr, 0, $method(Source$1, init$, void, $File*, $List*, $List*, $Set*, $Map*, $Module*, bool, bool)},
+	{"lambda$visitFile$0", "(Ljava/nio/file/Path;Ljava/nio/file/PathMatcher;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Source$1, lambda$visitFile$0, bool, $Path*, $PathMatcher*)},
+	{"visitFile", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC, $virtualMethod(Source$1, visitFile, $FileVisitResult*, $Path*, $BasicFileAttributes*), "java.io.IOException"},
+	{"visitFile", "(Ljava/lang/Object;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/nio/file/FileVisitResult;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Source$1, visitFile, $FileVisitResult*, Object$*, $BasicFileAttributes*), "java.io.IOException"},
 	{}
 };
 

@@ -104,8 +104,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$body::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$body::*)()>(&JavadocExamples$$Lambda$body::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$body, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$body, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$body::classInfo$ = {
@@ -144,8 +144,8 @@ $FieldInfo JavadocExamples$$Lambda$println$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavadocExamples$$Lambda$println$1::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$println$1::*)($PrintStream*)>(&JavadocExamples$$Lambda$println$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$println$1, init$, void, $PrintStream*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$println$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$println$1::classInfo$ = {
@@ -177,8 +177,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::*)()>(&JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$0$2::classInfo$ = {
@@ -210,8 +210,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::*)()>(&JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$1$3::classInfo$ = {
@@ -243,8 +243,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::*)()>(&JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromHttpRequest$2$4::classInfo$ = {
@@ -283,8 +283,8 @@ $FieldInfo JavadocExamples$$Lambda$println$5::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavadocExamples$$Lambda$println$5::methodInfos[3] = {
-	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$println$5::*)($PrintStream*)>(&JavadocExamples$$Lambda$println$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$println$5, init$, void, $PrintStream*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$println$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$println$5::classInfo$ = {
@@ -316,8 +316,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::*)()>(&JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::init$))},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6, init$, void)},
+	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$3$6::classInfo$ = {
@@ -349,8 +349,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::*)()>(&JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::init$))},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7, init$, void)},
+	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$4$7::classInfo$ = {
@@ -382,8 +382,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::*)()>(&JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::init$))},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8, init$, void)},
+	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$5$8::classInfo$ = {
@@ -415,8 +415,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::*)()>(&JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::init$))},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9, init$, void)},
+	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$6$9::classInfo$ = {
@@ -448,8 +448,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::*)()>(&JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::init$))},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10, init$, void)},
+	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$7$10::classInfo$ = {
@@ -481,8 +481,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::*)()>(&JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::init$))},
-	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11, init$, void)},
+	{"apply", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11, apply, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromHttpResponse$8$11::classInfo$ = {
@@ -514,8 +514,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$statusCode$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$statusCode$12::*)()>(&JavadocExamples$$Lambda$statusCode$12::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$statusCode$12, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$statusCode$12, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$statusCode$12::classInfo$ = {
@@ -547,8 +547,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13::*)()>(&JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13, accept, void, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromLineSubscriber1$9$13::classInfo$ = {
@@ -580,8 +580,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::*)()>(&JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$lambda$fromLineSubscriber2$10$14::classInfo$ = {
@@ -613,8 +613,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavadocExamples$$Lambda$getBytes$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$$Lambda$getBytes$15::*)()>(&JavadocExamples$$Lambda$getBytes$15::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples$$Lambda$getBytes$15, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$$Lambda$getBytes$15, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavadocExamples$$Lambda$getBytes$15::classInfo$ = {
@@ -639,23 +639,23 @@ $FieldInfo _JavadocExamples_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocExamples_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples::*)()>(&JavadocExamples::init$))},
-	{"fromHttpClientClasslevelDescription", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"fromHttpRequest", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"fromHttpResponse", "()V", nullptr, 0, nullptr, "java.lang.Exception"},
-	{"fromLineSubscriber1", "()V", nullptr, 0},
-	{"fromLineSubscriber2", "()V", nullptr, 0, nullptr, "java.io.IOException,java.lang.InterruptedException"},
-	{"lambda$fromHttpRequest$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&JavadocExamples::lambda$fromHttpRequest$0))},
-	{"lambda$fromHttpRequest$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&JavadocExamples::lambda$fromHttpRequest$1))},
-	{"lambda$fromHttpRequest$2", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&JavadocExamples::lambda$fromHttpRequest$2))},
-	{"lambda$fromHttpResponse$3", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpResponse$BodySubscriber*(*)($HttpResponse$ResponseInfo*)>(&JavadocExamples::lambda$fromHttpResponse$3))},
-	{"lambda$fromHttpResponse$4", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpResponse$BodySubscriber*(*)($HttpResponse$ResponseInfo*)>(&JavadocExamples::lambda$fromHttpResponse$4))},
-	{"lambda$fromHttpResponse$5", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpResponse$BodySubscriber*(*)($HttpResponse$ResponseInfo*)>(&JavadocExamples::lambda$fromHttpResponse$5))},
-	{"lambda$fromHttpResponse$6", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpResponse$BodySubscriber*(*)($HttpResponse$ResponseInfo*)>(&JavadocExamples::lambda$fromHttpResponse$6))},
-	{"lambda$fromHttpResponse$7", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpResponse$BodySubscriber*(*)($HttpResponse$ResponseInfo*)>(&JavadocExamples::lambda$fromHttpResponse$7))},
-	{"lambda$fromHttpResponse$8", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HttpResponse$BodySubscriber*(*)($HttpResponse$ResponseInfo*)>(&JavadocExamples::lambda$fromHttpResponse$8))},
-	{"lambda$fromLineSubscriber1$9", "(Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Integer*)>(&JavadocExamples::lambda$fromLineSubscriber1$9))},
-	{"lambda$fromLineSubscriber2$10", "(LJavadocExamples$LineParserSubscriber;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($JavadocExamples$LineParserSubscriber*)>(&JavadocExamples::lambda$fromLineSubscriber2$10))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocExamples, init$, void)},
+	{"fromHttpClientClasslevelDescription", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromHttpClientClasslevelDescription, void), "java.lang.Exception"},
+	{"fromHttpRequest", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromHttpRequest, void), "java.lang.Exception"},
+	{"fromHttpResponse", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromHttpResponse, void), "java.lang.Exception"},
+	{"fromLineSubscriber1", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromLineSubscriber1, void)},
+	{"fromLineSubscriber2", "()V", nullptr, 0, $virtualMethod(JavadocExamples, fromLineSubscriber2, void), "java.io.IOException,java.lang.InterruptedException"},
+	{"lambda$fromHttpRequest$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpRequest$0, bool, $String*, $String*)},
+	{"lambda$fromHttpRequest$1", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpRequest$1, bool, $String*, $String*)},
+	{"lambda$fromHttpRequest$2", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpRequest$2, bool, $String*, $String*)},
+	{"lambda$fromHttpResponse$3", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$3, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+	{"lambda$fromHttpResponse$4", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$4, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+	{"lambda$fromHttpResponse$5", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$5, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+	{"lambda$fromHttpResponse$6", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$6, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+	{"lambda$fromHttpResponse$7", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$7, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+	{"lambda$fromHttpResponse$8", "(Ljava/net/http/HttpResponse$ResponseInfo;)Ljava/net/http/HttpResponse$BodySubscriber;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromHttpResponse$8, $HttpResponse$BodySubscriber*, $HttpResponse$ResponseInfo*)},
+	{"lambda$fromLineSubscriber1$9", "(Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromLineSubscriber1$9, void, $Integer*)},
+	{"lambda$fromLineSubscriber2$10", "(LJavadocExamples$LineParserSubscriber;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavadocExamples, lambda$fromLineSubscriber2$10, $List*, $JavadocExamples$LineParserSubscriber*)},
 	{}
 };
 

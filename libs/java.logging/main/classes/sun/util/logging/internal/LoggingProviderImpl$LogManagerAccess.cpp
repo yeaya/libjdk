@@ -9,6 +9,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Module = ::java::lang::Module;
+using $LogManager = ::java::util::logging::LogManager;
+using $Logger = ::java::util::logging::Logger;
 
 namespace sun {
 	namespace util {
@@ -16,7 +19,7 @@ namespace sun {
 			namespace internal {
 
 $MethodInfo _LoggingProviderImpl$LogManagerAccess_MethodInfo_[] = {
-	{"demandLoggerFor", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PUBLIC | $ABSTRACT},
+	{"demandLoggerFor", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingProviderImpl$LogManagerAccess, demandLoggerFor, $Logger*, $LogManager*, $String*, $Module*)},
 	{}
 };
 

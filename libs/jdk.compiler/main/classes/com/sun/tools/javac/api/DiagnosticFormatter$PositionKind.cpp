@@ -34,10 +34,10 @@ $FieldInfo _DiagnosticFormatter$PositionKind_FieldInfo_[] = {
 };
 
 $MethodInfo _DiagnosticFormatter$PositionKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DiagnosticFormatter$PositionKindArray*(*)()>(&DiagnosticFormatter$PositionKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DiagnosticFormatter$PositionKind::*)($String*,int32_t)>(&DiagnosticFormatter$PositionKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DiagnosticFormatter$PositionKind*(*)($String*)>(&DiagnosticFormatter$PositionKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DiagnosticFormatter$PositionKindArray*(*)()>(&DiagnosticFormatter$PositionKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DiagnosticFormatter$PositionKind, $values, $DiagnosticFormatter$PositionKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DiagnosticFormatter$PositionKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$PositionKind, valueOf, DiagnosticFormatter$PositionKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$PositionKind, values, $DiagnosticFormatter$PositionKindArray*)},
 	{}
 };
 

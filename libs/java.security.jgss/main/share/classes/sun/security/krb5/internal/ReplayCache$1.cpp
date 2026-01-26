@@ -19,8 +19,8 @@ namespace sun {
 			namespace internal {
 
 $MethodInfo _ReplayCache$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ReplayCache$1::*)()>(&ReplayCache$1::init$))},
-	{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KrbApErrException"},
+	{"<init>", "()V", nullptr, 0, $method(ReplayCache$1, init$, void)},
+	{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC, $virtualMethod(ReplayCache$1, checkAndStore, void, $KerberosTime*, $AuthTimeWithHash*), "sun.security.krb5.internal.KrbApErrException"},
 	{}
 };
 

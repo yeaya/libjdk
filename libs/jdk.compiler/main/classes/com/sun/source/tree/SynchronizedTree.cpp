@@ -4,6 +4,8 @@
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
+using $BlockTree = ::com::sun::source::tree::BlockTree;
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -13,8 +15,8 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _SynchronizedTree_MethodInfo_[] = {
-	{"getBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SynchronizedTree, getBlock, $BlockTree*)},
+	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SynchronizedTree, getExpression, $ExpressionTree*)},
 	{}
 };
 

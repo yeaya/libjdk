@@ -49,10 +49,10 @@ $FieldInfo _CurrencyFormat_FieldInfo_[] = {
 };
 
 $MethodInfo _CurrencyFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CurrencyFormat::*)()>(&CurrencyFormat::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&CurrencyFormat::main)), "java.lang.Exception"},
-	{"testFormatting", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&CurrencyFormat::testFormatting))},
-	{"testSymbols", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&CurrencyFormat::testSymbols)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyFormat, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CurrencyFormat, main, void, $StringArray*), "java.lang.Exception"},
+	{"testFormatting", "()V", nullptr, $STATIC, $staticMethod(CurrencyFormat, testFormatting, void)},
+	{"testSymbols", "()V", nullptr, $STATIC, $staticMethod(CurrencyFormat, testSymbols, void), "java.lang.Exception"},
 	{}
 };
 

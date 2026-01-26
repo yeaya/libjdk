@@ -57,10 +57,10 @@ $FieldInfo _JDKXPathAPI_FieldInfo_[] = {
 };
 
 $MethodInfo _JDKXPathAPI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JDKXPathAPI::*)()>(&JDKXPathAPI::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"evaluate", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, nullptr, "javax.xml.transform.TransformerException"},
-	{"selectNodeList", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, nullptr, "javax.xml.transform.TransformerException"},
+	{"<init>", "()V", nullptr, 0, $method(JDKXPathAPI, init$, void)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(JDKXPathAPI, clear, void)},
+	{"evaluate", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(JDKXPathAPI, evaluate, bool, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+	{"selectNodeList", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(JDKXPathAPI, selectNodeList, $NodeList*, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
 	{}
 };
 

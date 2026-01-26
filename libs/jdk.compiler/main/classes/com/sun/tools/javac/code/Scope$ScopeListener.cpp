@@ -4,6 +4,8 @@
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <jcpp.h>
 
+using $Scope = ::com::sun::tools::javac::code::Scope;
+using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,8 +17,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Scope$ScopeListener_MethodInfo_[] = {
-	{"symbolAdded", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"symbolRemoved", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"symbolAdded", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$ScopeListener, symbolAdded, void, $Symbol*, $Scope*)},
+	{"symbolRemoved", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope$ScopeListener, symbolRemoved, void, $Symbol*, $Scope*)},
 	{}
 };
 

@@ -73,15 +73,15 @@ $FieldInfo _KdcComm_FieldInfo_[] = {
 };
 
 $MethodInfo _KdcComm_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KdcComm::*)($String*)>(&KdcComm::init$)), "sun.security.krb5.KrbException"},
-	{"getRealmSpecificValue", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(KdcComm::*)($String*,$String*,int32_t)>(&KdcComm::getRealmSpecificValue))},
-	{"initStatic", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&KdcComm::initStatic))},
-	{"parsePositiveIntString", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&KdcComm::parsePositiveIntString))},
-	{"parseTimeString", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&KdcComm::parseTimeString))},
-	{"send", "([B)[B", nullptr, $PUBLIC, $method(static_cast<$bytes*(KdcComm::*)($bytes*)>(&KdcComm::send)), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"send", "([BZ)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(KdcComm::*)($bytes*,bool)>(&KdcComm::send)), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"send", "([BLjava/lang/String;Z)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(KdcComm::*)($bytes*,$String*,bool)>(&KdcComm::send)), "java.io.IOException,sun.security.krb5.KrbException"},
-	{"sendIfPossible", "([BLjava/lang/String;Z)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(KdcComm::*)($bytes*,$String*,bool)>(&KdcComm::sendIfPossible)), "java.io.IOException,sun.security.krb5.KrbException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KdcComm, init$, void, $String*), "sun.security.krb5.KrbException"},
+	{"getRealmSpecificValue", "(Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE, $method(KdcComm, getRealmSpecificValue, int32_t, $String*, $String*, int32_t)},
+	{"initStatic", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(KdcComm, initStatic, void)},
+	{"parsePositiveIntString", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(KdcComm, parsePositiveIntString, int32_t, $String*)},
+	{"parseTimeString", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(KdcComm, parseTimeString, int32_t, $String*)},
+	{"send", "([B)[B", nullptr, $PUBLIC, $method(KdcComm, send, $bytes*, $bytes*), "java.io.IOException,sun.security.krb5.KrbException"},
+	{"send", "([BZ)[B", nullptr, $PRIVATE, $method(KdcComm, send, $bytes*, $bytes*, bool), "java.io.IOException,sun.security.krb5.KrbException"},
+	{"send", "([BLjava/lang/String;Z)[B", nullptr, $PRIVATE, $method(KdcComm, send, $bytes*, $bytes*, $String*, bool), "java.io.IOException,sun.security.krb5.KrbException"},
+	{"sendIfPossible", "([BLjava/lang/String;Z)[B", nullptr, $PRIVATE, $method(KdcComm, sendIfPossible, $bytes*, $bytes*, $String*, bool), "java.io.IOException,sun.security.krb5.KrbException"},
 	{}
 };
 

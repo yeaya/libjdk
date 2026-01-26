@@ -163,8 +163,8 @@ $FieldInfo TypeEnter$MembersPhase$$Lambda$lambda$finishClass$0::fieldInfos[2] = 
 	{}
 };
 $MethodInfo TypeEnter$MembersPhase$$Lambda$lambda$finishClass$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$MembersPhase$$Lambda$lambda$finishClass$0::*)($JCTree*)>(&TypeEnter$MembersPhase$$Lambda$lambda$finishClass$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(TypeEnter$MembersPhase$$Lambda$lambda$finishClass$0, init$, void, $JCTree*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeEnter$MembersPhase$$Lambda$lambda$finishClass$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$MembersPhase$$Lambda$lambda$finishClass$0::classInfo$ = {
@@ -203,8 +203,8 @@ $FieldInfo TypeEnter$MembersPhase$$Lambda$lambda$addAccessor$1$1::fieldInfos[2] 
 	{}
 };
 $MethodInfo TypeEnter$MembersPhase$$Lambda$lambda$addAccessor$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$MembersPhase$$Lambda$lambda$addAccessor$1$1::*)($JCTree$JCVariableDecl*)>(&TypeEnter$MembersPhase$$Lambda$lambda$addAccessor$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $method(TypeEnter$MembersPhase$$Lambda$lambda$addAccessor$1$1, init$, void, $JCTree$JCVariableDecl*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeEnter$MembersPhase$$Lambda$lambda$addAccessor$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$MembersPhase$$Lambda$lambda$addAccessor$1$1::classInfo$ = {
@@ -236,8 +236,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TypeEnter$MembersPhase$$Lambda$lambda$getCanonicalConstructorDecl$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$MembersPhase$$Lambda$lambda$getCanonicalConstructorDecl$2$2::*)()>(&TypeEnter$MembersPhase$$Lambda$lambda$getCanonicalConstructorDecl$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeEnter$MembersPhase$$Lambda$lambda$getCanonicalConstructorDecl$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$MembersPhase$$Lambda$lambda$getCanonicalConstructorDecl$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$MembersPhase$$Lambda$lambda$getCanonicalConstructorDecl$2$2::classInfo$ = {
@@ -276,8 +276,8 @@ $FieldInfo TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$4$3::f
 	{}
 };
 $MethodInfo TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$4$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$MembersPhase;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$4$3::*)(TypeEnter$MembersPhase*)>(&TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$4$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$MembersPhase;)V", nullptr, $PUBLIC, $method(TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$4$3, init$, void, TypeEnter$MembersPhase*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$4$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$4$3::classInfo$ = {
@@ -319,8 +319,8 @@ $FieldInfo TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$5$4::f
 	{}
 };
 $MethodInfo TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$5$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$MembersPhase;Lcom/sun/tools/javac/comp/Env;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$5$4::*)(TypeEnter$MembersPhase*,$Env*)>(&TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$5$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$MembersPhase;Lcom/sun/tools/javac/comp/Env;)V", nullptr, $PUBLIC, $method(TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$5$4, init$, void, TypeEnter$MembersPhase*, $Env*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$5$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$MembersPhase$$Lambda$lambda$addRecordMembersIfNeeded$5$4::classInfo$ = {
@@ -343,19 +343,19 @@ $FieldInfo _TypeEnter$MembersPhase_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$MembersPhase_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$MembersPhase::*)($TypeEnter*)>(&TypeEnter$MembersPhase::init$))},
-	{"addAccessor", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(static_cast<void(TypeEnter$MembersPhase::*)($JCTree$JCVariableDecl*,$Env*)>(&TypeEnter$MembersPhase::addAccessor))},
-	{"addEnumMembers", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(static_cast<void(TypeEnter$MembersPhase::*)($JCTree$JCClassDecl*,$Env*)>(&TypeEnter$MembersPhase::addEnumMembers))},
-	{"addRecordMembersIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(static_cast<void(TypeEnter$MembersPhase::*)($JCTree$JCClassDecl*,$Env*)>(&TypeEnter$MembersPhase::addRecordMembersIfNeeded))},
-	{"finishClass", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(static_cast<void(TypeEnter$MembersPhase::*)($JCTree$JCClassDecl*,$JCTree*,$Env*)>(&TypeEnter$MembersPhase::finishClass))},
-	{"getCanonicalConstructorDecl", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, 0, $method(static_cast<$JCTree$JCMethodDecl*(TypeEnter$MembersPhase::*)($JCTree$JCClassDecl*)>(&TypeEnter$MembersPhase::getCanonicalConstructorDecl))},
-	{"getDefaultConstructorHelper", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/TypeEnter$DefaultConstructorHelper;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/TypeEnter$DefaultConstructorHelper;", 0, $method(static_cast<$TypeEnter$DefaultConstructorHelper*(TypeEnter$MembersPhase::*)($Env*)>(&TypeEnter$MembersPhase::getDefaultConstructorHelper))},
-	{"lambda$addAccessor$1", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCVariableDecl*,$JCTree$JCVariableDecl*)>(&TypeEnter$MembersPhase::lambda$addAccessor$1))},
-	{"lambda$addRecordMembersIfNeeded$4", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(TypeEnter$MembersPhase::*)($JCTree$JCVariableDecl*)>(&TypeEnter$MembersPhase::lambda$addRecordMembersIfNeeded$4))},
-	{"lambda$addRecordMembersIfNeeded$5", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(TypeEnter$MembersPhase::*)($Env*,$JCTree$JCVariableDecl*)>(&TypeEnter$MembersPhase::lambda$addRecordMembersIfNeeded$5))},
-	{"lambda$finishClass$0", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree*,$JCTree*)>(&TypeEnter$MembersPhase::lambda$finishClass$0))},
-	{"lambda$getCanonicalConstructorDecl$2", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Type*(*)($JCTree$JCVariableDecl*)>(&TypeEnter$MembersPhase::lambda$getCanonicalConstructorDecl$2))},
-	{"runPhase", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;)V", nullptr, $PUBLIC, $method(TypeEnter$MembersPhase, init$, void, $TypeEnter*)},
+	{"addAccessor", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(TypeEnter$MembersPhase, addAccessor, void, $JCTree$JCVariableDecl*, $Env*)},
+	{"addEnumMembers", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(TypeEnter$MembersPhase, addEnumMembers, void, $JCTree$JCClassDecl*, $Env*)},
+	{"addRecordMembersIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(TypeEnter$MembersPhase, addRecordMembersIfNeeded, void, $JCTree$JCClassDecl*, $Env*)},
+	{"finishClass", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(TypeEnter$MembersPhase, finishClass, void, $JCTree$JCClassDecl*, $JCTree*, $Env*)},
+	{"getCanonicalConstructorDecl", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, 0, $method(TypeEnter$MembersPhase, getCanonicalConstructorDecl, $JCTree$JCMethodDecl*, $JCTree$JCClassDecl*)},
+	{"getDefaultConstructorHelper", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/TypeEnter$DefaultConstructorHelper;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/TypeEnter$DefaultConstructorHelper;", 0, $method(TypeEnter$MembersPhase, getDefaultConstructorHelper, $TypeEnter$DefaultConstructorHelper*, $Env*)},
+	{"lambda$addAccessor$1", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter$MembersPhase, lambda$addAccessor$1, bool, $JCTree$JCVariableDecl*, $JCTree$JCVariableDecl*)},
+	{"lambda$addRecordMembersIfNeeded$4", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(TypeEnter$MembersPhase, lambda$addRecordMembersIfNeeded$4, bool, $JCTree$JCVariableDecl*)},
+	{"lambda$addRecordMembersIfNeeded$5", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(TypeEnter$MembersPhase, lambda$addRecordMembersIfNeeded$5, void, $Env*, $JCTree$JCVariableDecl*)},
+	{"lambda$finishClass$0", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter$MembersPhase, lambda$finishClass$0, bool, $JCTree*, $JCTree*)},
+	{"lambda$getCanonicalConstructorDecl$2", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter$MembersPhase, lambda$getCanonicalConstructorDecl$2, $Type*, $JCTree$JCVariableDecl*)},
+	{"runPhase", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED, $virtualMethod(TypeEnter$MembersPhase, runPhase, void, $Env*)},
 	{}
 };
 

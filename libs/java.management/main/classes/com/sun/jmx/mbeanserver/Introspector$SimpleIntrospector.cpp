@@ -59,11 +59,11 @@ $FieldInfo _Introspector$SimpleIntrospector_FieldInfo_[] = {
 };
 
 $MethodInfo _Introspector$SimpleIntrospector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Introspector$SimpleIntrospector::*)()>(&Introspector$SimpleIntrospector::init$))},
-	{"getCachedMethods", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($Class*)>(&Introspector$SimpleIntrospector::getCachedMethods))},
-	{"getReadMethod", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Method;", $STATIC, $method(static_cast<$Method*(*)($Class*,$String*)>(&Introspector$SimpleIntrospector::getReadMethod))},
-	{"getReadMethods", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $STATIC, $method(static_cast<$List*(*)($Class*)>(&Introspector$SimpleIntrospector::getReadMethods))},
-	{"isReadMethod", "(Ljava/lang/reflect/Method;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Method*)>(&Introspector$SimpleIntrospector::isReadMethod))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Introspector$SimpleIntrospector, init$, void)},
+	{"getCachedMethods", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $PRIVATE | $STATIC, $staticMethod(Introspector$SimpleIntrospector, getCachedMethods, $List*, $Class*)},
+	{"getReadMethod", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/lang/reflect/Method;", $STATIC, $staticMethod(Introspector$SimpleIntrospector, getReadMethod, $Method*, $Class*, $String*)},
+	{"getReadMethods", "(Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/reflect/Method;>;", $STATIC, $staticMethod(Introspector$SimpleIntrospector, getReadMethods, $List*, $Class*)},
+	{"isReadMethod", "(Ljava/lang/reflect/Method;)Z", nullptr, $STATIC, $staticMethod(Introspector$SimpleIntrospector, isReadMethod, bool, $Method*)},
 	{}
 };
 

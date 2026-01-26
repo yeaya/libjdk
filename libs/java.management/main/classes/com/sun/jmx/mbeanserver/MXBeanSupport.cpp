@@ -42,14 +42,14 @@ $FieldInfo _MXBeanSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _MXBeanSupport_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)V", $PUBLIC, $method(static_cast<void(MXBeanSupport::*)(Object$*,$Class*)>(&MXBeanSupport::init$)), "javax.management.NotCompliantMBeanException"},
-	{"findMXBeanInterface", "(Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/lang/Class<-TT;>;", $STATIC, $method(static_cast<$Class*(*)($Class*)>(&MXBeanSupport::findMXBeanInterface))},
-	{"getCookie", "()Ljava/lang/Object;", nullptr, 0},
-	{"getMBeanIntrospector", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;", 0},
-	{"register", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, nullptr, "javax.management.InstanceAlreadyExistsException"},
-	{"transitiveInterfaces", "(Ljava/lang/Class;)Ljava/util/Set;", "(Ljava/lang/Class<*>;)Ljava/util/Set<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)($Class*)>(&MXBeanSupport::transitiveInterfaces))},
-	{"transitiveInterfaces", "(Ljava/lang/Class;Ljava/util/Set;)V", "(Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/Class<*>;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Class*,$Set*)>(&MXBeanSupport::transitiveInterfaces))},
-	{"unregister", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)V", $PUBLIC, $method(MXBeanSupport, init$, void, Object$*, $Class*), "javax.management.NotCompliantMBeanException"},
+	{"findMXBeanInterface", "(Ljava/lang/Class;)Ljava/lang/Class;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)Ljava/lang/Class<-TT;>;", $STATIC, $staticMethod(MXBeanSupport, findMXBeanInterface, $Class*, $Class*)},
+	{"getCookie", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(MXBeanSupport, getCookie, $Object*)},
+	{"getMBeanIntrospector", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;", 0, $virtualMethod(MXBeanSupport, getMBeanIntrospector, $MBeanIntrospector*)},
+	{"register", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(MXBeanSupport, register$, void, $MBeanServer*, $ObjectName*), "javax.management.InstanceAlreadyExistsException"},
+	{"transitiveInterfaces", "(Ljava/lang/Class;)Ljava/util/Set;", "(Ljava/lang/Class<*>;)Ljava/util/Set<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC, $staticMethod(MXBeanSupport, transitiveInterfaces, $Set*, $Class*)},
+	{"transitiveInterfaces", "(Ljava/lang/Class;Ljava/util/Set;)V", "(Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/Class<*>;>;)V", $PRIVATE | $STATIC, $staticMethod(MXBeanSupport, transitiveInterfaces, void, $Class*, $Set*)},
+	{"unregister", "()V", nullptr, $PUBLIC, $virtualMethod(MXBeanSupport, unregister, void)},
 	{}
 };
 

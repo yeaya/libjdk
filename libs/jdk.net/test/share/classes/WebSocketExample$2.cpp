@@ -25,8 +25,8 @@ $FieldInfo _WebSocketExample$2_FieldInfo_[] = {
 };
 
 $MethodInfo _WebSocketExample$2_MethodInfo_[] = {
-	{"<init>", "(LWebSocketExample;)V", nullptr, 0, $method(static_cast<void(WebSocketExample$2::*)($WebSocketExample*)>(&WebSocketExample$2::init$))},
-	{"onText", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC},
+	{"<init>", "(LWebSocketExample;)V", nullptr, 0, $method(WebSocketExample$2, init$, void, $WebSocketExample*)},
+	{"onText", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage;", "(Ljava/net/http/WebSocket;Ljava/lang/CharSequence;Z)Ljava/util/concurrent/CompletionStage<*>;", $PUBLIC, $virtualMethod(WebSocketExample$2, onText, $CompletionStage*, $WebSocket*, $CharSequence*, bool)},
 	{}
 };
 

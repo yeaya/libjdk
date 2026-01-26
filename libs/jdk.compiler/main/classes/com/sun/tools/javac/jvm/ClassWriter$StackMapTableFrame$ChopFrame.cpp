@@ -27,9 +27,9 @@ $FieldInfo _ClassWriter$StackMapTableFrame$ChopFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassWriter$StackMapTableFrame$ChopFrame_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, 0, $method(static_cast<void(ClassWriter$StackMapTableFrame$ChopFrame::*)(int32_t,int32_t)>(&ClassWriter$StackMapTableFrame$ChopFrame::init$))},
-	{"getFrameType", "()I", nullptr, 0},
-	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0},
+	{"<init>", "(II)V", nullptr, 0, $method(ClassWriter$StackMapTableFrame$ChopFrame, init$, void, int32_t, int32_t)},
+	{"getFrameType", "()I", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$ChopFrame, getFrameType, int32_t)},
+	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$ChopFrame, write, void, $ClassWriter*)},
 	{}
 };
 

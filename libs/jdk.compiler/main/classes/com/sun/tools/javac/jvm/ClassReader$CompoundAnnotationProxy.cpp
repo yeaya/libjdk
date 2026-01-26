@@ -40,9 +40,9 @@ $FieldInfo _ClassReader$CompoundAnnotationProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$CompoundAnnotationProxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Attribute;>;>;)V", $PUBLIC, $method(static_cast<void(ClassReader$CompoundAnnotationProxy::*)($Type*,$List*)>(&ClassReader$CompoundAnnotationProxy::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Attribute;>;>;)V", $PUBLIC, $method(ClassReader$CompoundAnnotationProxy, init$, void, $Type*, $List*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$CompoundAnnotationProxy, accept, void, $Attribute$Visitor*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$CompoundAnnotationProxy, toString, $String*)},
 	{}
 };
 

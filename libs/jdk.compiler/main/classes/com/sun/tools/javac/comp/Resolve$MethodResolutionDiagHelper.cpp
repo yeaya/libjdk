@@ -65,8 +65,8 @@ $FieldInfo _Resolve$MethodResolutionDiagHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodResolutionDiagHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Resolve$MethodResolutionDiagHelper::*)()>(&Resolve$MethodResolutionDiagHelper::init$))},
-	{"rewrite", "(Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $STATIC, $method(static_cast<$JCDiagnostic*(*)($JCDiagnostic$Factory*,$JCDiagnostic$DiagnosticPosition*,$DiagnosticSource*,$JCDiagnostic$DiagnosticType*,$JCDiagnostic*)>(&Resolve$MethodResolutionDiagHelper::rewrite))},
+	{"<init>", "()V", nullptr, 0, $method(Resolve$MethodResolutionDiagHelper, init$, void)},
+	{"rewrite", "(Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $STATIC, $staticMethod(Resolve$MethodResolutionDiagHelper, rewrite, $JCDiagnostic*, $JCDiagnostic$Factory*, $JCDiagnostic$DiagnosticPosition*, $DiagnosticSource*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic*)},
 	{}
 };
 

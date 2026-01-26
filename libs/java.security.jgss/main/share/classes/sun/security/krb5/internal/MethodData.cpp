@@ -33,9 +33,9 @@ $FieldInfo _MethodData_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodData_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(MethodData::*)(int32_t,$bytes*)>(&MethodData::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(MethodData::*)($DerValue*)>(&MethodData::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(MethodData, init$, void, int32_t, $bytes*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(MethodData, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(MethodData, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
 	{}
 };
 

@@ -22,9 +22,9 @@ $FieldInfo _ConnectionEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sql/PooledConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(ConnectionEvent::*)($PooledConnection*)>(&ConnectionEvent::init$))},
-	{"<init>", "(Ljavax/sql/PooledConnection;Ljava/sql/SQLException;)V", nullptr, $PUBLIC, $method(static_cast<void(ConnectionEvent::*)($PooledConnection*,$SQLException*)>(&ConnectionEvent::init$))},
-	{"getSQLException", "()Ljava/sql/SQLException;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/sql/PooledConnection;)V", nullptr, $PUBLIC, $method(ConnectionEvent, init$, void, $PooledConnection*)},
+	{"<init>", "(Ljavax/sql/PooledConnection;Ljava/sql/SQLException;)V", nullptr, $PUBLIC, $method(ConnectionEvent, init$, void, $PooledConnection*, $SQLException*)},
+	{"getSQLException", "()Ljava/sql/SQLException;", nullptr, $PUBLIC, $virtualMethod(ConnectionEvent, getSQLException, $SQLException*)},
 	{}
 };
 

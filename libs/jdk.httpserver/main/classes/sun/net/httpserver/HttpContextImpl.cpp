@@ -50,19 +50,19 @@ $FieldInfo _HttpContextImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpContextImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(static_cast<void(HttpContextImpl::*)($String*,$String*,$HttpHandler*,$ServerImpl*)>(&HttpContextImpl::init$))},
-	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC},
-	{"getAuthenticator", "()Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC},
-	{"getFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", $PUBLIC},
-	{"getHandler", "()Lcom/sun/net/httpserver/HttpHandler;", nullptr, $PUBLIC},
-	{"getLogger", "()Ljava/lang/System$Logger;", nullptr, 0},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getServer", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC},
-	{"getServerImpl", "()Lsun/net/httpserver/ServerImpl;", nullptr, 0},
-	{"getSystemFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", 0},
-	{"setAuthenticator", "(Lcom/sun/net/httpserver/Authenticator;)Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC},
-	{"setHandler", "(Lcom/sun/net/httpserver/HttpHandler;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(HttpContextImpl, init$, void, $String*, $String*, $HttpHandler*, $ServerImpl*)},
+	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(HttpContextImpl, getAttributes, $Map*)},
+	{"getAuthenticator", "()Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getAuthenticator, $Authenticator*)},
+	{"getFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", $PUBLIC, $virtualMethod(HttpContextImpl, getFilters, $List*)},
+	{"getHandler", "()Lcom/sun/net/httpserver/HttpHandler;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getHandler, $HttpHandler*)},
+	{"getLogger", "()Ljava/lang/System$Logger;", nullptr, 0, $virtualMethod(HttpContextImpl, getLogger, $System$Logger*)},
+	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getPath, $String*)},
+	{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getProtocol, $String*)},
+	{"getServer", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, getServer, $HttpServer*)},
+	{"getServerImpl", "()Lsun/net/httpserver/ServerImpl;", nullptr, 0, $virtualMethod(HttpContextImpl, getServerImpl, $ServerImpl*)},
+	{"getSystemFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", 0, $virtualMethod(HttpContextImpl, getSystemFilters, $List*)},
+	{"setAuthenticator", "(Lcom/sun/net/httpserver/Authenticator;)Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, setAuthenticator, $Authenticator*, $Authenticator*)},
+	{"setHandler", "(Lcom/sun/net/httpserver/HttpHandler;)V", nullptr, $PUBLIC, $virtualMethod(HttpContextImpl, setHandler, void, $HttpHandler*)},
 	{}
 };
 

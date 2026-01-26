@@ -71,14 +71,14 @@ $FieldInfo _XalanXPathAPI_FieldInfo_[] = {
 };
 
 $MethodInfo _XalanXPathAPI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(XalanXPathAPI::*)()>(&XalanXPathAPI::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"createXPath", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/XPath;", nullptr, $PRIVATE, $method(static_cast<$XPath*(XalanXPathAPI::*)($String*,$PrefixResolver*)>(&XalanXPathAPI::createXPath)), "javax.xml.transform.TransformerException"},
-	{"eval", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PRIVATE, $method(static_cast<$XObject*(XalanXPathAPI::*)($Node*,$Node*,$String*,$Node*)>(&XalanXPathAPI::eval)), "javax.xml.transform.TransformerException"},
-	{"evaluate", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, nullptr, "javax.xml.transform.TransformerException"},
-	{"fixupFunctionTable", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&XalanXPathAPI::fixupFunctionTable))},
-	{"isInstalled", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&XalanXPathAPI::isInstalled))},
-	{"selectNodeList", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, nullptr, "javax.xml.transform.TransformerException"},
+	{"<init>", "()V", nullptr, 0, $method(XalanXPathAPI, init$, void)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XalanXPathAPI, clear, void)},
+	{"createXPath", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)Lcom/sun/org/apache/xpath/internal/XPath;", nullptr, $PRIVATE, $method(XalanXPathAPI, createXPath, $XPath*, $String*, $PrefixResolver*), "javax.xml.transform.TransformerException"},
+	{"eval", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PRIVATE, $method(XalanXPathAPI, eval, $XObject*, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+	{"evaluate", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(XalanXPathAPI, evaluate, bool, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
+	{"fixupFunctionTable", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(XalanXPathAPI, fixupFunctionTable, void)},
+	{"isInstalled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XalanXPathAPI, isInstalled, bool)},
+	{"selectNodeList", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;Lorg/w3c/dom/Node;)Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(XalanXPathAPI, selectNodeList, $NodeList*, $Node*, $Node*, $String*, $Node*), "javax.xml.transform.TransformerException"},
 	{}
 };
 

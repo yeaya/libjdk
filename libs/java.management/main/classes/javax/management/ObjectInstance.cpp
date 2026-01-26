@@ -23,13 +23,13 @@ $FieldInfo _ObjectInstance_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectInstance_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInstance::*)($String*,$String*)>(&ObjectInstance::init$)), "javax.management.MalformedObjectNameException"},
-	{"<init>", "(Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectInstance::*)($ObjectName*,$String*)>(&ObjectInstance::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInstance, init$, void, $String*, $String*), "javax.management.MalformedObjectNameException"},
+	{"<init>", "(Ljavax/management/ObjectName;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectInstance, init$, void, $ObjectName*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, equals, bool, Object$*)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, getClassName, $String*)},
+	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, getObjectName, $ObjectName*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInstance, toString, $String*)},
 	{}
 };
 

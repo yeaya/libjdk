@@ -46,12 +46,12 @@ $FieldInfo _XPath2NodeFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _XPath2NodeFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lorg/w3c/dom/NodeList;>;Ljava/util/List<Lorg/w3c/dom/NodeList;>;Ljava/util/List<Lorg/w3c/dom/NodeList;>;)V", 0, $method(static_cast<void(XPath2NodeFilter::*)($List*,$List*,$List*)>(&XPath2NodeFilter::init$))},
-	{"convertNodeListToSet", "(Ljava/util/List;)Ljava/util/Set;", "(Ljava/util/List<Lorg/w3c/dom/NodeList;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)($List*)>(&XPath2NodeFilter::convertNodeListToSet))},
-	{"inList", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Z", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Z", $STATIC, $method(static_cast<bool(*)($Node*,$Set*)>(&XPath2NodeFilter::inList))},
-	{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC},
-	{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC},
-	{"rooted", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Z", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Z", $STATIC, $method(static_cast<bool(*)($Node*,$Set*)>(&XPath2NodeFilter::rooted))},
+	{"<init>", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/List<Lorg/w3c/dom/NodeList;>;Ljava/util/List<Lorg/w3c/dom/NodeList;>;Ljava/util/List<Lorg/w3c/dom/NodeList;>;)V", 0, $method(XPath2NodeFilter, init$, void, $List*, $List*, $List*)},
+	{"convertNodeListToSet", "(Ljava/util/List;)Ljava/util/Set;", "(Ljava/util/List<Lorg/w3c/dom/NodeList;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE | $STATIC, $staticMethod(XPath2NodeFilter, convertNodeListToSet, $Set*, $List*)},
+	{"inList", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Z", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Z", $STATIC, $staticMethod(XPath2NodeFilter, inList, bool, $Node*, $Set*)},
+	{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(XPath2NodeFilter, isNodeInclude, int32_t, $Node*)},
+	{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC, $virtualMethod(XPath2NodeFilter, isNodeIncludeDO, int32_t, $Node*, int32_t)},
+	{"rooted", "(Lorg/w3c/dom/Node;Ljava/util/Set;)Z", "(Lorg/w3c/dom/Node;Ljava/util/Set<Lorg/w3c/dom/Node;>;)Z", $STATIC, $staticMethod(XPath2NodeFilter, rooted, bool, $Node*, $Set*)},
 	{}
 };
 

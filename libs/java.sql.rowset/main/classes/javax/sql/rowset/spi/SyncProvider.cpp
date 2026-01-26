@@ -19,6 +19,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $RowSetReader = ::javax::sql::RowSetReader;
+using $RowSetWriter = ::javax::sql::RowSetWriter;
 
 namespace javax {
 	namespace sql {
@@ -41,16 +43,16 @@ $FieldInfo _SyncProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _SyncProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SyncProvider::*)()>(&SyncProvider::init$))},
-	{"getDataSourceLock", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.sql.rowset.spi.SyncProviderException"},
-	{"getProviderGrade", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setDataSourceLock", "(I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.sql.rowset.spi.SyncProviderException"},
-	{"supportsUpdatableView", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SyncProvider, init$, void)},
+	{"getDataSourceLock", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncProvider, getDataSourceLock, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+	{"getProviderGrade", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncProvider, getProviderGrade, int32_t)},
+	{"getProviderID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncProvider, getProviderID, $String*)},
+	{"getRowSetReader", "()Ljavax/sql/RowSetReader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncProvider, getRowSetReader, $RowSetReader*)},
+	{"getRowSetWriter", "()Ljavax/sql/RowSetWriter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncProvider, getRowSetWriter, $RowSetWriter*)},
+	{"getVendor", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncProvider, getVendor, $String*)},
+	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncProvider, getVersion, $String*)},
+	{"setDataSourceLock", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncProvider, setDataSourceLock, void, int32_t), "javax.sql.rowset.spi.SyncProviderException"},
+	{"supportsUpdatableView", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SyncProvider, supportsUpdatableView, int32_t)},
 	{}
 };
 

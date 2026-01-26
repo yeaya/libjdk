@@ -65,19 +65,19 @@ $FieldInfo _MBeanOperationInfo_FieldInfo_[] = {
 
 $MethodInfo _MBeanOperationInfo_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanOperationInfo::*)($String*,$Method*)>(&MBeanOperationInfo::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanOperationInfo::*)($String*,$String*,$MBeanParameterInfoArray*,$String*,int32_t)>(&MBeanOperationInfo::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;Ljava/lang/String;ILjavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanOperationInfo::*)($String*,$String*,$MBeanParameterInfoArray*,$String*,int32_t,$Descriptor*)>(&MBeanOperationInfo::init$))},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"fastGetSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE, $method(static_cast<$MBeanParameterInfoArray*(MBeanOperationInfo::*)()>(&MBeanOperationInfo::fastGetSignature))},
-	{"getImpact", "()I", nullptr, $PUBLIC},
-	{"getReturnType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"methodSignature", "(Ljava/lang/reflect/Method;)[Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$MBeanParameterInfoArray*(*)($Method*)>(&MBeanOperationInfo::methodSignature))},
-	{"parameters", "([Ljava/lang/Class;[[Ljava/lang/annotation/Annotation;)[Ljavax/management/MBeanParameterInfo;", "([Ljava/lang/Class<*>;[[Ljava/lang/annotation/Annotation;)[Ljavax/management/MBeanParameterInfo;", $STATIC, $method(static_cast<$MBeanParameterInfoArray*(*)($ClassArray*,$AnnotationArray2*)>(&MBeanOperationInfo::parameters))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(MBeanOperationInfo, init$, void, $String*, $Method*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(MBeanOperationInfo, init$, void, $String*, $String*, $MBeanParameterInfoArray*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;Ljava/lang/String;ILjavax/management/Descriptor;)V", nullptr, $PUBLIC, $method(MBeanOperationInfo, init$, void, $String*, $String*, $MBeanParameterInfoArray*, $String*, int32_t, $Descriptor*)},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanOperationInfo, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanOperationInfo, equals, bool, Object$*)},
+	{"fastGetSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE, $method(MBeanOperationInfo, fastGetSignature, $MBeanParameterInfoArray*)},
+	{"getImpact", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanOperationInfo, getImpact, int32_t)},
+	{"getReturnType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanOperationInfo, getReturnType, $String*)},
+	{"getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanOperationInfo, getSignature, $MBeanParameterInfoArray*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanOperationInfo, hashCode, int32_t)},
+	{"methodSignature", "(Ljava/lang/reflect/Method;)[Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanOperationInfo, methodSignature, $MBeanParameterInfoArray*, $Method*)},
+	{"parameters", "([Ljava/lang/Class;[[Ljava/lang/annotation/Annotation;)[Ljavax/management/MBeanParameterInfo;", "([Ljava/lang/Class<*>;[[Ljava/lang/annotation/Annotation;)[Ljavax/management/MBeanParameterInfo;", $STATIC, $staticMethod(MBeanOperationInfo, parameters, $MBeanParameterInfoArray*, $ClassArray*, $AnnotationArray2*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MBeanOperationInfo, toString, $String*)},
 	{}
 };
 

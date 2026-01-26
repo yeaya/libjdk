@@ -21,9 +21,9 @@ namespace sun {
 		namespace transport {
 
 $MethodInfo _GC$Daemon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(GC$Daemon::*)()>(&GC$Daemon::init$))},
-	{"create", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&GC$Daemon::create))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(GC$Daemon, init$, void)},
+	{"create", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GC$Daemon, create, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GC$Daemon, run, void)},
 	{}
 };
 

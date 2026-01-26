@@ -27,11 +27,11 @@ $FieldInfo _TreeInfo$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TreeInfo$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;I)V", "()V", 0, $method(static_cast<void(TreeInfo$1::*)($JCTree*,int32_t)>(&TreeInfo$1::init$))},
-	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC},
-	{"getPreferredPosition", "()I", nullptr, $PUBLIC},
-	{"getStartPosition", "()I", nullptr, $PUBLIC},
-	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;I)V", "()V", 0, $method(TreeInfo$1, init$, void, $JCTree*, int32_t)},
+	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getEndPosition, int32_t, $EndPosTable*)},
+	{"getPreferredPosition", "()I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getPreferredPosition, int32_t)},
+	{"getStartPosition", "()I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getStartPosition, int32_t)},
+	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getTree, $JCTree*)},
 	{}
 };
 

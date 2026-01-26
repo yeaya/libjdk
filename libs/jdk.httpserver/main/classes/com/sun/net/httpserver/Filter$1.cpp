@@ -28,9 +28,9 @@ $FieldInfo _Filter$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Filter$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Consumer;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Filter$1::*)($Consumer*,$String*)>(&Filter$1::init$))},
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/function/Consumer;Ljava/lang/String;)V", nullptr, 0, $method(Filter$1, init$, void, $Consumer*, $String*)},
+	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Filter$1, description, $String*)},
+	{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, $PUBLIC, $virtualMethod(Filter$1, doFilter, void, $HttpExchange*, $Filter$Chain*), "java.io.IOException"},
 	{}
 };
 

@@ -102,8 +102,8 @@ $FieldInfo SubscriberWrapper$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SubscriberWrapper$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(static_cast<void(SubscriberWrapper$$Lambda$dbgString::*)(SubscriberWrapper*)>(&SubscriberWrapper$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(SubscriberWrapper$$Lambda$dbgString, init$, void, SubscriberWrapper*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo SubscriberWrapper$$Lambda$dbgString::classInfo$ = {
@@ -142,8 +142,8 @@ $FieldInfo SubscriberWrapper$$Lambda$lambda$new$0$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SubscriberWrapper$$Lambda$lambda$new$0$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(static_cast<void(SubscriberWrapper$$Lambda$lambda$new$0$1::*)(SubscriberWrapper*)>(&SubscriberWrapper$$Lambda$lambda$new$0$1::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(SubscriberWrapper$$Lambda$lambda$new$0$1, init$, void, SubscriberWrapper*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper$$Lambda$lambda$new$0$1, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo SubscriberWrapper$$Lambda$lambda$new$0$1::classInfo$ = {
@@ -182,8 +182,8 @@ $FieldInfo SubscriberWrapper$$Lambda$downstreamCompletion$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SubscriberWrapper$$Lambda$downstreamCompletion$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(static_cast<void(SubscriberWrapper$$Lambda$downstreamCompletion$2::*)(SubscriberWrapper*)>(&SubscriberWrapper$$Lambda$downstreamCompletion$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SubscriberWrapper;)V", nullptr, $PUBLIC, $method(SubscriberWrapper$$Lambda$downstreamCompletion$2, init$, void, SubscriberWrapper*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper$$Lambda$downstreamCompletion$2, run, void)},
 	{}
 };
 $ClassInfo SubscriberWrapper$$Lambda$downstreamCompletion$2::classInfo$ = {
@@ -222,41 +222,41 @@ $MethodInfo _SubscriberWrapper_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SubscriberWrapper::*)()>(&SubscriberWrapper::init$))},
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $method(static_cast<void(SubscriberWrapper::*)($Flow$Subscriber*)>(&SubscriberWrapper::init$))},
-	{"addData", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"checkCompletion", "()V", nullptr, 0},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"close", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"closing", "()Z", nullptr, $PUBLIC},
-	{"completion", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"downstreamCompletion", "()V", nullptr, 0},
-	{"enterScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED},
-	{"errorCommon", "(Ljava/lang/Throwable;)Z", nullptr, $PROTECTED},
-	{"hasNoOutputData", "()Z", nullptr, $FINAL, $method(static_cast<bool(SubscriberWrapper::*)()>(&SubscriberWrapper::hasNoOutputData))},
-	{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PROTECTED | $ABSTRACT},
-	{"incomingCaller", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PRIVATE, $method(static_cast<void(SubscriberWrapper::*)($List*,bool)>(&SubscriberWrapper::incomingCaller))},
-	{"initialUpstreamDemand", "()J", nullptr, $PROTECTED},
-	{"lambda$new$0", "(Ljava/lang/Void;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(SubscriberWrapper::*)($Void*,$Throwable*)>(&SubscriberWrapper::lambda$new$0))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "()V", nullptr, $PROTECTED},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"outgoing", "(Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC},
-	{"outgoing", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PUBLIC},
-	{"outputQueueSize", "()I", nullptr, $FINAL, $method(static_cast<int32_t(SubscriberWrapper::*)()>(&SubscriberWrapper::outputQueueSize))},
-	{"requestMore", "()V", nullptr, $PROTECTED},
-	{"resetDownstreamDemand", "()V", nullptr, $PUBLIC},
-	{"signalScheduling", "()Z", nullptr, $PROTECTED},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC | $FINAL},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"upstreamRequest", "(J)V", nullptr, $PRIVATE, $method(static_cast<void(SubscriberWrapper::*)(int64_t)>(&SubscriberWrapper::upstreamRequest))},
-	{"upstreamWindow", "()J", nullptr, $PUBLIC},
-	{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED},
-	{"upstreamWindowUpdate", "()V", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SubscriberWrapper, init$, void)},
+	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $method(SubscriberWrapper, init$, void, $Flow$Subscriber*)},
+	{"addData", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, addData, void, $ByteBuffer*)},
+	{"checkCompletion", "()V", nullptr, 0, $virtualMethod(SubscriberWrapper, checkCompletion, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, close, void)},
+	{"close", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, close, void, $Throwable*)},
+	{"closing", "()Z", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, closing, bool)},
+	{"completion", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $PUBLIC, $virtualMethod(SubscriberWrapper, completion, $CompletableFuture*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, dbgString, $String*)},
+	{"downstreamCompletion", "()V", nullptr, 0, $virtualMethod(SubscriberWrapper, downstreamCompletion, void)},
+	{"enterScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, enterScheduling, $SubscriberWrapper$SchedulingAction*)},
+	{"errorCommon", "(Ljava/lang/Throwable;)Z", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, errorCommon, bool, $Throwable*)},
+	{"hasNoOutputData", "()Z", nullptr, $FINAL, $method(SubscriberWrapper, hasNoOutputData, bool)},
+	{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PROTECTED | $ABSTRACT, $virtualMethod(SubscriberWrapper, incoming, void, $List*, bool)},
+	{"incomingCaller", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PRIVATE, $method(SubscriberWrapper, incomingCaller, void, $List*, bool)},
+	{"initialUpstreamDemand", "()J", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, initialUpstreamDemand, int64_t)},
+	{"lambda$new$0", "(Ljava/lang/Void;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(SubscriberWrapper, lambda$new$0, void, $Void*, $Throwable*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(SubscriberWrapper, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SubscriberWrapper, onNext, void, Object$*)},
+	{"onSubscribe", "()V", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, onSubscribe, void)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, onSubscribe, void, $Flow$Subscription*)},
+	{"outgoing", "(Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, outgoing, void, $ByteBuffer*, bool)},
+	{"outgoing", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PUBLIC, $virtualMethod(SubscriberWrapper, outgoing, void, $List*, bool)},
+	{"outputQueueSize", "()I", nullptr, $FINAL, $method(SubscriberWrapper, outputQueueSize, int32_t)},
+	{"requestMore", "()V", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, requestMore, void)},
+	{"resetDownstreamDemand", "()V", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, resetDownstreamDemand, void)},
+	{"signalScheduling", "()Z", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, signalScheduling, bool)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC | $FINAL, $virtualMethod(SubscriberWrapper, subscribe, void, $Flow$Subscriber*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, toString, $String*)},
+	{"upstreamRequest", "(J)V", nullptr, $PRIVATE, $method(SubscriberWrapper, upstreamRequest, void, int64_t)},
+	{"upstreamWindow", "()J", nullptr, $PUBLIC, $virtualMethod(SubscriberWrapper, upstreamWindow, int64_t)},
+	{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED, $virtualMethod(SubscriberWrapper, upstreamWindowUpdate, int64_t, int64_t, int64_t)},
+	{"upstreamWindowUpdate", "()V", nullptr, 0, $virtualMethod(SubscriberWrapper, upstreamWindowUpdate, void)},
 	{}
 };
 

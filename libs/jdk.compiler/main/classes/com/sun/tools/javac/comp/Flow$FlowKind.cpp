@@ -30,11 +30,11 @@ $FieldInfo _Flow$FlowKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$FlowKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Flow$FlowKindArray*(*)()>(&Flow$FlowKind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(static_cast<void(Flow$FlowKind::*)($String*,int32_t,$String*,bool)>(&Flow$FlowKind::init$))},
-	{"isFinal", "()Z", nullptr, 0, $method(static_cast<bool(Flow$FlowKind::*)()>(&Flow$FlowKind::isFinal))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Flow$FlowKind*(*)($String*)>(&Flow$FlowKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Flow$FlowKindArray*(*)()>(&Flow$FlowKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$FlowKind, $values, $Flow$FlowKindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(Flow$FlowKind, init$, void, $String*, int32_t, $String*, bool)},
+	{"isFinal", "()Z", nullptr, 0, $method(Flow$FlowKind, isFinal, bool)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$FlowKind, valueOf, Flow$FlowKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Flow$FlowKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$FlowKind, values, $Flow$FlowKindArray*)},
 	{}
 };
 

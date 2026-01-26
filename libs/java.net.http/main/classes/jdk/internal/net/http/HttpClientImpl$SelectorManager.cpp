@@ -111,8 +111,8 @@ $FieldInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::fieldInfos[3] = 
 	{}
 };
 $MethodInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::*)($List*,$IOException*)>(&HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, init$, void, $List*, $IOException*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$0::classInfo$ = {
@@ -151,8 +151,8 @@ $FieldInfo HttpClientImpl$SelectorManager$$Lambda$add$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HttpClientImpl$SelectorManager$$Lambda$add$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$SelectorManager$$Lambda$add$1::*)($List*)>(&HttpClientImpl$SelectorManager$$Lambda$add$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$add$1, init$, void, $List*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$add$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HttpClientImpl$SelectorManager$$Lambda$add$1::classInfo$ = {
@@ -194,8 +194,8 @@ $FieldInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::fieldInfos[3] 
 	{}
 };
 $MethodInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorAttachment;I)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::*)($HttpClientImpl$SelectorAttachment*,int32_t)>(&HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorAttachment;I)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, init$, void, $HttpClientImpl$SelectorAttachment*, int32_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2, run, void)},
 	{}
 };
 $ClassInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$2$2::classInfo$ = {
@@ -234,8 +234,8 @@ $FieldInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::fieldInfos[2] 
 	{}
 };
 $MethodInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorManager;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::*)(HttpClientImpl$SelectorManager*)>(&HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorManager;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, init$, void, HttpClientImpl$SelectorManager*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$3$3::classInfo$ = {
@@ -274,8 +274,8 @@ $FieldInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::fieldInfos[2] 
 	{}
 };
 $MethodInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorManager;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::*)(HttpClientImpl$SelectorManager*)>(&HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl$SelectorManager;)V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, init$, void, HttpClientImpl$SelectorManager*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$4$4::classInfo$ = {
@@ -307,8 +307,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5::*)()>(&HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo HttpClientImpl$SelectorManager$$Lambda$lambda$run$5$5::classInfo$ = {
@@ -343,19 +343,19 @@ $FieldInfo _HttpClientImpl$SelectorManager_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClientImpl$SelectorManager_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(static_cast<void(HttpClientImpl$SelectorManager::*)($HttpClientImpl*)>(&HttpClientImpl$SelectorManager::init$)), "java.io.IOException"},
-	{"cancel", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(HttpClientImpl$SelectorManager::*)($SocketChannel*)>(&HttpClientImpl$SelectorManager::cancel))},
-	{"eventUpdated", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(static_cast<void(HttpClientImpl$SelectorManager::*)($AsyncEvent*)>(&HttpClientImpl$SelectorManager::eventUpdated)), "java.nio.channels.ClosedChannelException"},
-	{"handleEvent", "(Ljdk/internal/net/http/AsyncEvent;Ljava/io/IOException;)V", nullptr, 0, $method(static_cast<void(HttpClientImpl$SelectorManager::*)($AsyncEvent*,$IOException*)>(&HttpClientImpl$SelectorManager::handleEvent))},
-	{"lambda$run$0", "(Ljava/util/List;Ljava/io/IOException;Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($List*,$IOException*,$AsyncEvent*)>(&HttpClientImpl$SelectorManager::lambda$run$0))},
-	{"lambda$run$2", "(Ljdk/internal/net/http/HttpClientImpl$SelectorAttachment;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpClientImpl$SelectorAttachment*,int32_t)>(&HttpClientImpl$SelectorManager::lambda$run$2))},
-	{"lambda$run$3", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(HttpClientImpl$SelectorManager::*)($AsyncEvent*)>(&HttpClientImpl$SelectorManager::lambda$run$3))},
-	{"lambda$run$4", "(Ljdk/internal/net/http/common/Pair;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(HttpClientImpl$SelectorManager::*)($Pair*)>(&HttpClientImpl$SelectorManager::lambda$run$4))},
-	{"lambda$run$5", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Runnable*)>(&HttpClientImpl$SelectorManager::lambda$run$5))},
-	{"register", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(HttpClientImpl$SelectorManager::*)($AsyncEvent*)>(&HttpClientImpl$SelectorManager::register$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"shutdown", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(HttpClientImpl$SelectorManager::*)()>(&HttpClientImpl$SelectorManager::shutdown))},
-	{"wakeupSelector", "()V", nullptr, 0, $method(static_cast<void(HttpClientImpl$SelectorManager::*)()>(&HttpClientImpl$SelectorManager::wakeupSelector))},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(HttpClientImpl$SelectorManager, init$, void, $HttpClientImpl*), "java.io.IOException"},
+	{"cancel", "(Ljava/nio/channels/SocketChannel;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl$SelectorManager, cancel, void, $SocketChannel*)},
+	{"eventUpdated", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(HttpClientImpl$SelectorManager, eventUpdated, void, $AsyncEvent*), "java.nio.channels.ClosedChannelException"},
+	{"handleEvent", "(Ljdk/internal/net/http/AsyncEvent;Ljava/io/IOException;)V", nullptr, 0, $method(HttpClientImpl$SelectorManager, handleEvent, void, $AsyncEvent*, $IOException*)},
+	{"lambda$run$0", "(Ljava/util/List;Ljava/io/IOException;Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorManager, lambda$run$0, void, $List*, $IOException*, $AsyncEvent*)},
+	{"lambda$run$2", "(Ljdk/internal/net/http/HttpClientImpl$SelectorAttachment;I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorManager, lambda$run$2, void, $HttpClientImpl$SelectorAttachment*, int32_t)},
+	{"lambda$run$3", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl$SelectorManager, lambda$run$3, void, $AsyncEvent*)},
+	{"lambda$run$4", "(Ljdk/internal/net/http/common/Pair;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl$SelectorManager, lambda$run$4, void, $Pair*)},
+	{"lambda$run$5", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl$SelectorManager, lambda$run$5, void, $Runnable*)},
+	{"register", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl$SelectorManager, register$, void, $AsyncEvent*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$SelectorManager, run, void)},
+	{"shutdown", "()V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl$SelectorManager, shutdown, void)},
+	{"wakeupSelector", "()V", nullptr, 0, $method(HttpClientImpl$SelectorManager, wakeupSelector, void)},
 	{}
 };
 

@@ -9,6 +9,12 @@
 #include <com/sun/tools/javac/util/Warner.h>
 #include <jcpp.h>
 
+using $Type = ::com::sun::tools::javac::code::Type;
+using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
+using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
+using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
+using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
+using $Warner = ::com::sun::tools::javac::util::Warner;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -20,11 +26,11 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Check$CheckContext_MethodInfo_[] = {
-	{"checkWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC | $ABSTRACT},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC | $ABSTRACT},
-	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC | $ABSTRACT},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"checkWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, checkWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, compatible, bool, $Type*, $Type*, $Warner*)},
+	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
+	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, inferenceContext, $InferenceContext*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Check$CheckContext, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
 	{}
 };
 

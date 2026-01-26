@@ -52,8 +52,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubMethod$$Lambda$asString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubMethod$$Lambda$asString::*)()>(&PubMethod$$Lambda$asString::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubMethod$$Lambda$asString, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubMethod$$Lambda$asString, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubMethod$$Lambda$asString::classInfo$ = {
@@ -85,8 +85,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubMethod$$Lambda$encodeAsString$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubMethod$$Lambda$encodeAsString$1::*)()>(&PubMethod$$Lambda$encodeAsString$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubMethod$$Lambda$encodeAsString$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubMethod$$Lambda$encodeAsString$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubMethod$$Lambda$encodeAsString$1::classInfo$ = {
@@ -115,11 +115,11 @@ $FieldInfo _PubMethod_FieldInfo_[] = {
 };
 
 $MethodInfo _PubMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/util/List;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;>;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;)V", $PUBLIC, $method(static_cast<void(PubMethod::*)($Set*,$List*,$TypeDesc*,$String*,$List*,$List*)>(&PubMethod::init$))},
-	{"asSignatureString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/util/List;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;>;Lcom/sun/tools/sjavac/pubapi/TypeDesc;Ljava/lang/String;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;)V", $PUBLIC, $method(PubMethod, init$, void, $Set*, $List*, $TypeDesc*, $String*, $List*, $List*)},
+	{"asSignatureString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubMethod, asSignatureString, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PubMethod, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PubMethod, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubMethod, toString, $String*)},
 	{}
 };
 

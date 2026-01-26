@@ -79,8 +79,8 @@ $FieldInfo DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::fieldI
 	{}
 };
 $MethodInfo DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RenewCleanThread;ZLjava/util/Set;J)V", nullptr, $PUBLIC, $method(static_cast<void(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::*)(DGCClient$EndpointEntry$RenewCleanThread*,bool,$Set*,int64_t)>(&DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RenewCleanThread;ZLjava/util/Set;J)V", nullptr, $PUBLIC, $method(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, init$, void, DGCClient$EndpointEntry$RenewCleanThread*, bool, $Set*, int64_t)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, run, $Object*)},
 	{}
 };
 $ClassInfo DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::classInfo$ = {
@@ -103,9 +103,9 @@ $FieldInfo _DGCClient$EndpointEntry$RenewCleanThread_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCClient$EndpointEntry$RenewCleanThread_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry;)V", nullptr, $PRIVATE, $method(static_cast<void(DGCClient$EndpointEntry$RenewCleanThread::*)($DGCClient$EndpointEntry*)>(&DGCClient$EndpointEntry$RenewCleanThread::init$))},
-	{"lambda$run$0", "(ZLjava/util/Set;J)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(DGCClient$EndpointEntry$RenewCleanThread::*)(bool,$Set*,int64_t)>(&DGCClient$EndpointEntry$RenewCleanThread::lambda$run$0))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry$RenewCleanThread, init$, void, $DGCClient$EndpointEntry*)},
+	{"lambda$run$0", "(ZLjava/util/Set;J)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(DGCClient$EndpointEntry$RenewCleanThread, lambda$run$0, $Void*, bool, $Set*, int64_t)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RenewCleanThread, run, void)},
 	{}
 };
 

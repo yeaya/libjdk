@@ -9,15 +9,17 @@
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
 
-void java$naming$test$PreloadClass(void* eventData) {
+void java$naming$test$PreloadClass() {
+}
+
+void java$naming$test$PreinitClass() {
 }
 
 void java$naming$test$LibEventAction(int32_t eventType, void* eventData) {
 	if (eventType == JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS) {
-		java$naming$test$PreloadClass(eventData);
-	}
-	if (eventType == JCPP_LIB_EVENT_TYPE_THREAD_START) {
-		$onLibThreadStart(eventData);
+		java$naming$test$PreloadClass();
+	} else if (eventType == JCPP_LIB_EVENT_TYPE_PREINIT_CLASS) {
+		java$naming$test$PreinitClass();
 	}
 }
 
@@ -47,3 +49,9 @@ void java$naming$test::init() {
 	};
 	$System::addLibrary(&lib);
 }
+
+#ifdef JCPP_SHARED_BUILD
+extern "C" $export void JCPP_OnLoad() {
+	java$naming$test::init();
+}
+#endif

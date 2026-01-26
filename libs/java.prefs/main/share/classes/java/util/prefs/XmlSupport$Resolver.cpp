@@ -20,8 +20,8 @@ namespace java {
 		namespace prefs {
 
 $MethodInfo _XmlSupport$Resolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(XmlSupport$Resolver::*)()>(&XmlSupport$Resolver::init$))},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, nullptr, "org.xml.sax.SAXException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(XmlSupport$Resolver, init$, void)},
+	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(XmlSupport$Resolver, resolveEntity, $InputSource*, $String*, $String*), "org.xml.sax.SAXException"},
 	{}
 };
 

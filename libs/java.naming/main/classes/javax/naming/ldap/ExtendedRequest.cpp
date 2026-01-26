@@ -5,15 +5,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ExtendedResponse = ::javax::naming::ldap::ExtendedResponse;
 
 namespace javax {
 	namespace naming {
 		namespace ldap {
 
 $MethodInfo _ExtendedRequest_MethodInfo_[] = {
-	{"createExtendedResponse", "(Ljava/lang/String;[BII)Ljavax/naming/ldap/ExtendedResponse;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"createExtendedResponse", "(Ljava/lang/String;[BII)Ljavax/naming/ldap/ExtendedResponse;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedRequest, createExtendedResponse, $ExtendedResponse*, $String*, $bytes*, int32_t, int32_t), "javax.naming.NamingException"},
+	{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedRequest, getEncodedValue, $bytes*)},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedRequest, getID, $String*)},
 	{}
 };
 

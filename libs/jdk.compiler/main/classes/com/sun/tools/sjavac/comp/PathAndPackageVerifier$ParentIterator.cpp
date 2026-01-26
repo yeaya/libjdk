@@ -22,9 +22,9 @@ $FieldInfo _PathAndPackageVerifier$ParentIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _PathAndPackageVerifier$ParentIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(static_cast<void(PathAndPackageVerifier$ParentIterator::*)($Path*)>(&PathAndPackageVerifier$ParentIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, 0, $method(PathAndPackageVerifier$ParentIterator, init$, void, $Path*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier$ParentIterator, hasNext, bool)},
+	{"next", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathAndPackageVerifier$ParentIterator, next, $Object*)},
 	{}
 };
 

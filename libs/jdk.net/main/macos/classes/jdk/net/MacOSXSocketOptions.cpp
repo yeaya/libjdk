@@ -50,8 +50,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MacOSXSocketOptions$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MacOSXSocketOptions$$Lambda$lambda$static$0::*)()>(&MacOSXSocketOptions$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSXSocketOptions$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MacOSXSocketOptions$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo MacOSXSocketOptions$$Lambda$lambda$static$0::classInfo$ = {
@@ -69,25 +69,25 @@ $Class* MacOSXSocketOptions$$Lambda$lambda$static$0::load$($String* name, bool i
 $Class* MacOSXSocketOptions$$Lambda$lambda$static$0::class$ = nullptr;
 
 $MethodInfo _MacOSXSocketOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MacOSXSocketOptions::*)()>(&MacOSXSocketOptions::init$))},
-	{"getSoPeerCred", "(I)Ljdk/net/UnixDomainPrincipal;", nullptr, 0, nullptr, "java.net.SocketException"},
-	{"getSoPeerCred0", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int64_t(*)(int32_t)>(&MacOSXSocketOptions::getSoPeerCred0)), "java.net.SocketException"},
-	{"getTcpKeepAliveIntvl", "(I)I", nullptr, 0, nullptr, "java.net.SocketException"},
-	{"getTcpKeepAliveIntvl0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t)>(&MacOSXSocketOptions::getTcpKeepAliveIntvl0)), "java.net.SocketException"},
-	{"getTcpKeepAliveTime", "(I)I", nullptr, 0, nullptr, "java.net.SocketException"},
-	{"getTcpKeepAliveTime0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t)>(&MacOSXSocketOptions::getTcpKeepAliveTime0)), "java.net.SocketException"},
-	{"getTcpkeepAliveProbes", "(I)I", nullptr, 0, nullptr, "java.net.SocketException"},
-	{"getTcpkeepAliveProbes0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<int32_t(*)(int32_t)>(&MacOSXSocketOptions::getTcpkeepAliveProbes0)), "java.net.SocketException"},
-	{"keepAliveOptionsSupported", "()Z", nullptr, 0},
-	{"keepAliveOptionsSupported0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<bool(*)()>(&MacOSXSocketOptions::keepAliveOptionsSupported0))},
-	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Void*(*)()>(&MacOSXSocketOptions::lambda$static$0))},
-	{"peerCredentialsSupported", "()Z", nullptr, 0},
-	{"setTcpKeepAliveIntvl", "(II)V", nullptr, 0, nullptr, "java.net.SocketException"},
-	{"setTcpKeepAliveIntvl0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t,int32_t)>(&MacOSXSocketOptions::setTcpKeepAliveIntvl0)), "java.net.SocketException"},
-	{"setTcpKeepAliveTime", "(II)V", nullptr, 0, nullptr, "java.net.SocketException"},
-	{"setTcpKeepAliveTime0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t,int32_t)>(&MacOSXSocketOptions::setTcpKeepAliveTime0)), "java.net.SocketException"},
-	{"setTcpkeepAliveProbes", "(II)V", nullptr, 0, nullptr, "java.net.SocketException"},
-	{"setTcpkeepAliveProbes0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)(int32_t,int32_t)>(&MacOSXSocketOptions::setTcpkeepAliveProbes0)), "java.net.SocketException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSXSocketOptions, init$, void)},
+	{"getSoPeerCred", "(I)Ljdk/net/UnixDomainPrincipal;", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getSoPeerCred, $UnixDomainPrincipal*, int32_t), "java.net.SocketException"},
+	{"getSoPeerCred0", "(I)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getSoPeerCred0, int64_t, int32_t), "java.net.SocketException"},
+	{"getTcpKeepAliveIntvl", "(I)I", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getTcpKeepAliveIntvl, int32_t, int32_t), "java.net.SocketException"},
+	{"getTcpKeepAliveIntvl0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getTcpKeepAliveIntvl0, int32_t, int32_t), "java.net.SocketException"},
+	{"getTcpKeepAliveTime", "(I)I", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getTcpKeepAliveTime, int32_t, int32_t), "java.net.SocketException"},
+	{"getTcpKeepAliveTime0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getTcpKeepAliveTime0, int32_t, int32_t), "java.net.SocketException"},
+	{"getTcpkeepAliveProbes", "(I)I", nullptr, 0, $virtualMethod(MacOSXSocketOptions, getTcpkeepAliveProbes, int32_t, int32_t), "java.net.SocketException"},
+	{"getTcpkeepAliveProbes0", "(I)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, getTcpkeepAliveProbes0, int32_t, int32_t), "java.net.SocketException"},
+	{"keepAliveOptionsSupported", "()Z", nullptr, 0, $virtualMethod(MacOSXSocketOptions, keepAliveOptionsSupported, bool)},
+	{"keepAliveOptionsSupported0", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, keepAliveOptionsSupported0, bool)},
+	{"lambda$static$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MacOSXSocketOptions, lambda$static$0, $Void*)},
+	{"peerCredentialsSupported", "()Z", nullptr, 0, $virtualMethod(MacOSXSocketOptions, peerCredentialsSupported, bool)},
+	{"setTcpKeepAliveIntvl", "(II)V", nullptr, 0, $virtualMethod(MacOSXSocketOptions, setTcpKeepAliveIntvl, void, int32_t, int32_t), "java.net.SocketException"},
+	{"setTcpKeepAliveIntvl0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, setTcpKeepAliveIntvl0, void, int32_t, int32_t), "java.net.SocketException"},
+	{"setTcpKeepAliveTime", "(II)V", nullptr, 0, $virtualMethod(MacOSXSocketOptions, setTcpKeepAliveTime, void, int32_t, int32_t), "java.net.SocketException"},
+	{"setTcpKeepAliveTime0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, setTcpKeepAliveTime0, void, int32_t, int32_t), "java.net.SocketException"},
+	{"setTcpkeepAliveProbes", "(II)V", nullptr, 0, $virtualMethod(MacOSXSocketOptions, setTcpkeepAliveProbes, void, int32_t, int32_t), "java.net.SocketException"},
+	{"setTcpkeepAliveProbes0", "(II)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(MacOSXSocketOptions, setTcpkeepAliveProbes0, void, int32_t, int32_t), "java.net.SocketException"},
 	{}
 };
 

@@ -71,12 +71,12 @@ $FieldInfo _CRTable_FieldInfo_[] = {
 };
 
 $MethodInfo _CRTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/tree/EndPosTable;)V", nullptr, $PUBLIC, $method(static_cast<void(CRTable::*)($JCTree$JCMethodDecl*,$EndPosTable*)>(&CRTable::init$))},
-	{"encodePosition", "(ILcom/sun/tools/javac/util/Position$LineMap;Lcom/sun/tools/javac/util/Log;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(CRTable::*)(int32_t,$Position$LineMap*,$Log*)>(&CRTable::encodePosition))},
-	{"getTypes", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(CRTable::*)(int32_t)>(&CRTable::getTypes))},
-	{"length", "()I", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/Object;III)V", nullptr, $PUBLIC},
-	{"writeCRT", "(Lcom/sun/tools/javac/util/ByteBuffer;Lcom/sun/tools/javac/util/Position$LineMap;Lcom/sun/tools/javac/util/Log;)I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/tree/EndPosTable;)V", nullptr, $PUBLIC, $method(CRTable, init$, void, $JCTree$JCMethodDecl*, $EndPosTable*)},
+	{"encodePosition", "(ILcom/sun/tools/javac/util/Position$LineMap;Lcom/sun/tools/javac/util/Log;)I", nullptr, $PRIVATE, $method(CRTable, encodePosition, int32_t, int32_t, $Position$LineMap*, $Log*)},
+	{"getTypes", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(CRTable, getTypes, $String*, int32_t)},
+	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(CRTable, length, int32_t)},
+	{"put", "(Ljava/lang/Object;III)V", nullptr, $PUBLIC, $virtualMethod(CRTable, put, void, Object$*, int32_t, int32_t, int32_t)},
+	{"writeCRT", "(Lcom/sun/tools/javac/util/ByteBuffer;Lcom/sun/tools/javac/util/Position$LineMap;Lcom/sun/tools/javac/util/Log;)I", nullptr, $PUBLIC, $virtualMethod(CRTable, writeCRT, int32_t, $ByteBuffer*, $Position$LineMap*, $Log*)},
 	{}
 };
 

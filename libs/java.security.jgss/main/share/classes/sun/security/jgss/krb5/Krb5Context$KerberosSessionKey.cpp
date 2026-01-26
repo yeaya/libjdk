@@ -25,11 +25,11 @@ $FieldInfo _Krb5Context$KerberosSessionKey_FieldInfo_[] = {
 };
 
 $MethodInfo _Krb5Context$KerberosSessionKey_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;)V", nullptr, 0, $method(static_cast<void(Krb5Context$KerberosSessionKey::*)($EncryptionKey*)>(&Krb5Context$KerberosSessionKey::init$))},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getEncoded", "()[B", nullptr, $PUBLIC},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/krb5/EncryptionKey;)V", nullptr, 0, $method(Krb5Context$KerberosSessionKey, init$, void, $EncryptionKey*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, getAlgorithm, $String*)},
+	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, getEncoded, $bytes*)},
+	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, getFormat, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$KerberosSessionKey, toString, $String*)},
 	{}
 };
 

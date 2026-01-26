@@ -30,11 +30,11 @@ $FieldInfo _AbstractDiagnosticFormatter$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractDiagnosticFormatter$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter;)V", nullptr, 0, $method(static_cast<void(AbstractDiagnosticFormatter$1::*)($AbstractDiagnosticFormatter*)>(&AbstractDiagnosticFormatter$1::init$))},
-	{"capturedVarId", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter;)V", nullptr, 0, $method(AbstractDiagnosticFormatter$1, init$, void, $AbstractDiagnosticFormatter*)},
+	{"capturedVarId", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDiagnosticFormatter$1, capturedVarId, $String*, $Type$CapturedType*, $Locale*)},
+	{"localize", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED | $TRANSIENT, $virtualMethod(AbstractDiagnosticFormatter$1, localize, $String*, $Locale*, $String*, $ObjectArray*)},
+	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDiagnosticFormatter$1, visitCapturedType, $String*, $Type$CapturedType*, $Locale*)},
+	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractDiagnosticFormatter$1, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
 	{}
 };
 

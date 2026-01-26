@@ -13,8 +13,8 @@ using $Authenticator = ::java::net::Authenticator;
 using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 
 $MethodInfo _GetAuthenticatorTest$MyAuthenticator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GetAuthenticatorTest$MyAuthenticator::*)()>(&GetAuthenticatorTest$MyAuthenticator::init$))},
-	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(GetAuthenticatorTest$MyAuthenticator, init$, void)},
+	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(GetAuthenticatorTest$MyAuthenticator, getPasswordAuthentication, $PasswordAuthentication*)},
 	{}
 };
 

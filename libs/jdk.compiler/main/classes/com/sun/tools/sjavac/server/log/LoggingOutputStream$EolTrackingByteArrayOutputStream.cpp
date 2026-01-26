@@ -25,8 +25,8 @@ $FieldInfo _LoggingOutputStream$EolTrackingByteArrayOutputStream_FieldInfo_[] = 
 };
 
 $MethodInfo _LoggingOutputStream$EolTrackingByteArrayOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LoggingOutputStream$EolTrackingByteArrayOutputStream::*)()>(&LoggingOutputStream$EolTrackingByteArrayOutputStream::init$))},
-	{"isLineComplete", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(LoggingOutputStream$EolTrackingByteArrayOutputStream::*)()>(&LoggingOutputStream$EolTrackingByteArrayOutputStream::isLineComplete))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LoggingOutputStream$EolTrackingByteArrayOutputStream, init$, void)},
+	{"isLineComplete", "()Z", nullptr, $PRIVATE, $method(LoggingOutputStream$EolTrackingByteArrayOutputStream, isLineComplete, bool)},
 	{}
 };
 

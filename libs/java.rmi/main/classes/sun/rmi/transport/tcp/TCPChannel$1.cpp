@@ -28,8 +28,8 @@ $FieldInfo _TCPChannel$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TCPChannel$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;)V", nullptr, 0, $method(static_cast<void(TCPChannel$1::*)($TCPChannel*)>(&TCPChannel$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/tcp/TCPChannel;)V", nullptr, 0, $method(TCPChannel$1, init$, void, $TCPChannel*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TCPChannel$1, run, void)},
 	{}
 };
 

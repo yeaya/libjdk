@@ -23,8 +23,8 @@ $FieldInfo _HashedPasswordManager$UserCredentials_FieldInfo_[] = {
 };
 
 $MethodInfo _HashedPasswordManager$UserCredentials_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(HashedPasswordManager$UserCredentials::*)($String*,$String*,$String*,$String*)>(&HashedPasswordManager$UserCredentials::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HashedPasswordManager$UserCredentials, init$, void, $String*, $String*, $String*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HashedPasswordManager$UserCredentials, toString, $String*)},
 	{}
 };
 

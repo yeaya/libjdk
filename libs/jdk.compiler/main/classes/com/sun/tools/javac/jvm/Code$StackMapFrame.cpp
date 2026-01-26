@@ -23,7 +23,7 @@ $FieldInfo _Code$StackMapFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _Code$StackMapFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Code$StackMapFrame::*)()>(&Code$StackMapFrame::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Code$StackMapFrame, init$, void)},
 	{}
 };
 

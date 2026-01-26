@@ -39,10 +39,10 @@ $FieldInfo _AuthList_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthList_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(AuthList::*)(int32_t)>(&AuthList::init$))},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"put", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "sun.security.krb5.internal.KrbApErrException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(AuthList, init$, void, int32_t)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(AuthList, isEmpty, bool)},
+	{"put", "(Lsun/security/krb5/internal/rcache/AuthTimeWithHash;Lsun/security/krb5/internal/KerberosTime;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(AuthList, put, void, $AuthTimeWithHash*, $KerberosTime*), "sun.security.krb5.internal.KrbApErrException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthList, toString, $String*)},
 	{}
 };
 

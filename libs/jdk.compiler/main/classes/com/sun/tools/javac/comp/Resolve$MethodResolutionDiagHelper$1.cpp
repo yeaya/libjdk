@@ -17,8 +17,8 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Resolve$MethodResolutionDiagHelper$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(static_cast<void(Resolve$MethodResolutionDiagHelper$1::*)($String*,$Resolve$MethodResolutionDiagHelper$TemplateArray*)>(&Resolve$MethodResolutionDiagHelper$1::init$))},
-	{"matches", "(Ljava/lang/Object;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(Resolve$MethodResolutionDiagHelper$1, init$, void, $String*, $Resolve$MethodResolutionDiagHelper$TemplateArray*)},
+	{"matches", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$1, matches, bool, Object$*)},
 	{}
 };
 

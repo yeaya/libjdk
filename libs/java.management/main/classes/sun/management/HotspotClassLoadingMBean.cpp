@@ -5,19 +5,20 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace sun {
 	namespace management {
 
 $MethodInfo _HotspotClassLoadingMBean_MethodInfo_[] = {
-	{"getClassInitializationTime", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getClassLoadingTime", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getClassVerificationTime", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInitializedClassCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInternalClassLoadingCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $ABSTRACT},
-	{"getLoadedClassSize", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMethodDataSize", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getUnloadedClassSize", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getClassInitializationTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotClassLoadingMBean, getClassInitializationTime, int64_t)},
+	{"getClassLoadingTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotClassLoadingMBean, getClassLoadingTime, int64_t)},
+	{"getClassVerificationTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotClassLoadingMBean, getClassVerificationTime, int64_t)},
+	{"getInitializedClassCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotClassLoadingMBean, getInitializedClassCount, int64_t)},
+	{"getInternalClassLoadingCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HotspotClassLoadingMBean, getInternalClassLoadingCounters, $List*)},
+	{"getLoadedClassSize", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotClassLoadingMBean, getLoadedClassSize, int64_t)},
+	{"getMethodDataSize", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotClassLoadingMBean, getMethodDataSize, int64_t)},
+	{"getUnloadedClassSize", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotClassLoadingMBean, getUnloadedClassSize, int64_t)},
 	{}
 };
 

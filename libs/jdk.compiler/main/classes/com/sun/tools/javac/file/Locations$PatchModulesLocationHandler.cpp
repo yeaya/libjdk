@@ -68,16 +68,16 @@ $FieldInfo _Locations$PatchModulesLocationHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Locations$PatchModulesLocationHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, 0, $method(static_cast<void(Locations$PatchModulesLocationHandler::*)($Locations*)>(&Locations$PatchModulesLocationHandler::init$))},
-	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getLocationForModule", "(Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getLocationForModule", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileManager$Location;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0},
-	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, 0},
-	{"isSet", "()Z", nullptr, 0},
-	{"listLocationsForModules", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", 0, nullptr, "java.io.IOException"},
-	{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, nullptr, "java.io.IOException"},
-	{"setPathsForModule", "(Ljava/lang/String;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, 0, $method(Locations$PatchModulesLocationHandler, init$, void, $Locations*)},
+	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, $virtualMethod(Locations$PatchModulesLocationHandler, contains, bool, $Path*), "java.io.IOException"},
+	{"getLocationForModule", "(Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, 0, $virtualMethod(Locations$PatchModulesLocationHandler, getLocationForModule, $JavaFileManager$Location*, $String*), "java.io.IOException"},
+	{"getLocationForModule", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileManager$Location;", nullptr, 0, $virtualMethod(Locations$PatchModulesLocationHandler, getLocationForModule, $JavaFileManager$Location*, $Path*), "java.io.IOException"},
+	{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0, $virtualMethod(Locations$PatchModulesLocationHandler, getPaths, $Collection*)},
+	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Locations$PatchModulesLocationHandler, handleOption, bool, $Option*, $String*)},
+	{"isSet", "()Z", nullptr, 0, $virtualMethod(Locations$PatchModulesLocationHandler, isSet, bool)},
+	{"listLocationsForModules", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/util/Set<Ljavax/tools/JavaFileManager$Location;>;>;", 0, $virtualMethod(Locations$PatchModulesLocationHandler, listLocationsForModules, $Iterable*), "java.io.IOException"},
+	{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$PatchModulesLocationHandler, setPaths, void, $Iterable*), "java.io.IOException"},
+	{"setPathsForModule", "(Ljava/lang/String;Ljava/lang/Iterable;)V", "(Ljava/lang/String;Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$PatchModulesLocationHandler, setPathsForModule, void, $String*, $Iterable*), "java.io.IOException"},
 	{}
 };
 

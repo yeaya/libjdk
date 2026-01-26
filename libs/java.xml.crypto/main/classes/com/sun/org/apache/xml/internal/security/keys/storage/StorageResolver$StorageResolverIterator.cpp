@@ -35,11 +35,11 @@ $FieldInfo _StorageResolver$StorageResolverIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _StorageResolver$StorageResolverIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi;>;)V", $PUBLIC, $method(static_cast<void(StorageResolver$StorageResolverIterator::*)($Iterator*)>(&StorageResolver$StorageResolverIterator::init$))},
-	{"findNextResolver", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PRIVATE, $method(static_cast<$Iterator*(StorageResolver$StorageResolverIterator::*)()>(&StorageResolver$StorageResolverIterator::findNextResolver))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi;>;)V", $PUBLIC, $method(StorageResolver$StorageResolverIterator, init$, void, $Iterator*)},
+	{"findNextResolver", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PRIVATE, $method(StorageResolver$StorageResolverIterator, findNextResolver, $Iterator*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(StorageResolver$StorageResolverIterator, hasNext, bool)},
+	{"next", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(StorageResolver$StorageResolverIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(StorageResolver$StorageResolverIterator, remove, void)},
 	{}
 };
 

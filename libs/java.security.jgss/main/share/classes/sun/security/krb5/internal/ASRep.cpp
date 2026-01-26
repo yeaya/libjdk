@@ -27,10 +27,10 @@ namespace sun {
 			namespace internal {
 
 $MethodInfo _ASRep_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(static_cast<void(ASRep::*)($PADataArray*,$PrincipalName*,$Ticket*,$EncryptedData*)>(&ASRep::init$)), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(ASRep::*)($bytes*)>(&ASRep::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(ASRep::*)($DerValue*)>(&ASRep::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(ASRep::*)($DerValue*)>(&ASRep::init)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(ASRep, init$, void, $PADataArray*, $PrincipalName*, $Ticket*, $EncryptedData*), "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ASRep, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(ASRep, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(ASRep, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
 	{}
 };
 

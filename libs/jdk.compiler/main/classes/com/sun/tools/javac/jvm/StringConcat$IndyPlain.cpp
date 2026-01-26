@@ -65,9 +65,9 @@ namespace com {
 				namespace jvm {
 
 $MethodInfo _StringConcat$IndyPlain_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcat$IndyPlain::*)($Context*)>(&StringConcat$IndyPlain::init$))},
-	{"doCall", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(static_cast<void(StringConcat$IndyPlain::*)($Type*,$JCDiagnostic$DiagnosticPosition*,$List*)>(&StringConcat$IndyPlain::doCall))},
-	{"emit", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;ZLcom/sun/tools/javac/code/Type;)V", $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(StringConcat$IndyPlain, init$, void, $Context*)},
+	{"doCall", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(StringConcat$IndyPlain, doCall, void, $Type*, $JCDiagnostic$DiagnosticPosition*, $List*)},
+	{"emit", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;ZLcom/sun/tools/javac/code/Type;)V", $PROTECTED, $virtualMethod(StringConcat$IndyPlain, emit, void, $JCDiagnostic$DiagnosticPosition*, $List*, bool, $Type*)},
 	{}
 };
 

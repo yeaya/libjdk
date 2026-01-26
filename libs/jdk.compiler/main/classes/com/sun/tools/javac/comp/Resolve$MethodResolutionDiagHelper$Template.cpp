@@ -24,8 +24,8 @@ $FieldInfo _Resolve$MethodResolutionDiagHelper$Template_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodResolutionDiagHelper$Template_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(static_cast<void(Resolve$MethodResolutionDiagHelper$Template::*)($String*,$Resolve$MethodResolutionDiagHelper$TemplateArray*)>(&Resolve$MethodResolutionDiagHelper$Template::init$))},
-	{"matches", "(Ljava/lang/Object;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(Resolve$MethodResolutionDiagHelper$Template, init$, void, $String*, $Resolve$MethodResolutionDiagHelper$TemplateArray*)},
+	{"matches", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$Template, matches, bool, Object$*)},
 	{}
 };
 

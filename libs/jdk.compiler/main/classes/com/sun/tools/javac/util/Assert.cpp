@@ -16,22 +16,22 @@ namespace com {
 				namespace util {
 
 $MethodInfo _Assert_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Assert::*)()>(&Assert::init$))},
-	{"check", "(Z)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool)>(&Assert::check))},
-	{"check", "(ZI)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool,int32_t)>(&Assert::check))},
-	{"check", "(ZJ)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool,int64_t)>(&Assert::check))},
-	{"check", "(ZLjava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool,Object$*)>(&Assert::check))},
-	{"check", "(ZLjava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool,$String*)>(&Assert::check))},
-	{"check", "(ZLjava/util/function/Supplier;)V", "(ZLjava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)(bool,$Supplier*)>(&Assert::check))},
-	{"checkNonNull", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TT;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)(Object$*)>(&Assert::checkNonNull))},
-	{"checkNonNull", "(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TT;Ljava/lang/String;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)(Object$*,$String*)>(&Assert::checkNonNull))},
-	{"checkNonNull", "(Ljava/lang/Object;Ljava/util/function/Supplier;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TT;Ljava/util/function/Supplier<Ljava/lang/String;>;)TT;", $PUBLIC | $STATIC, $method(static_cast<$Object*(*)(Object$*,$Supplier*)>(&Assert::checkNonNull))},
-	{"checkNull", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*)>(&Assert::checkNull))},
-	{"checkNull", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*,Object$*)>(&Assert::checkNull))},
-	{"checkNull", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*,$String*)>(&Assert::checkNull))},
-	{"checkNull", "(Ljava/lang/Object;Ljava/util/function/Supplier;)V", "(Ljava/lang/Object;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)(Object$*,$Supplier*)>(&Assert::checkNull))},
-	{"error", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Assert::error))},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&Assert::error))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Assert, init$, void)},
+	{"check", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Assert, check, void, bool)},
+	{"check", "(ZI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Assert, check, void, bool, int32_t)},
+	{"check", "(ZJ)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Assert, check, void, bool, int64_t)},
+	{"check", "(ZLjava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Assert, check, void, bool, Object$*)},
+	{"check", "(ZLjava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Assert, check, void, bool, $String*)},
+	{"check", "(ZLjava/util/function/Supplier;)V", "(ZLjava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(Assert, check, void, bool, $Supplier*)},
+	{"checkNonNull", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TT;)TT;", $PUBLIC | $STATIC, $staticMethod(Assert, checkNonNull, $Object*, Object$*)},
+	{"checkNonNull", "(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TT;Ljava/lang/String;)TT;", $PUBLIC | $STATIC, $staticMethod(Assert, checkNonNull, $Object*, Object$*, $String*)},
+	{"checkNonNull", "(Ljava/lang/Object;Ljava/util/function/Supplier;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TT;Ljava/util/function/Supplier<Ljava/lang/String;>;)TT;", $PUBLIC | $STATIC, $staticMethod(Assert, checkNonNull, $Object*, Object$*, $Supplier*)},
+	{"checkNull", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Assert, checkNull, void, Object$*)},
+	{"checkNull", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Assert, checkNull, void, Object$*, Object$*)},
+	{"checkNull", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Assert, checkNull, void, Object$*, $String*)},
+	{"checkNull", "(Ljava/lang/Object;Ljava/util/function/Supplier;)V", "(Ljava/lang/Object;Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(Assert, checkNull, void, Object$*, $Supplier*)},
+	{"error", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Assert, error, void)},
+	{"error", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Assert, error, void, $String*)},
 	{}
 };
 

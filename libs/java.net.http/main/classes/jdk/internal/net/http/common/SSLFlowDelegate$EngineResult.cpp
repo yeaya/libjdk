@@ -34,14 +34,14 @@ $FieldInfo _SSLFlowDelegate$EngineResult_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLFlowDelegate$EngineResult_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/SSLEngineResult;)V", nullptr, 0, $method(static_cast<void(SSLFlowDelegate$EngineResult::*)($SSLEngineResult*)>(&SSLFlowDelegate$EngineResult::init$))},
-	{"<init>", "(Ljavax/net/ssl/SSLEngineResult;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(SSLFlowDelegate$EngineResult::*)($SSLEngineResult*,$ByteBuffer*)>(&SSLFlowDelegate$EngineResult::init$))},
-	{"bytesConsumed", "()I", nullptr, 0},
-	{"bytesProduced", "()I", nullptr, 0},
-	{"handshakeStatus", "()Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, 0},
-	{"handshaking", "()Z", nullptr, 0},
-	{"needUnwrap", "()Z", nullptr, 0},
-	{"status", "()Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, 0},
+	{"<init>", "(Ljavax/net/ssl/SSLEngineResult;)V", nullptr, 0, $method(SSLFlowDelegate$EngineResult, init$, void, $SSLEngineResult*)},
+	{"<init>", "(Ljavax/net/ssl/SSLEngineResult;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(SSLFlowDelegate$EngineResult, init$, void, $SSLEngineResult*, $ByteBuffer*)},
+	{"bytesConsumed", "()I", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, bytesConsumed, int32_t)},
+	{"bytesProduced", "()I", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, bytesProduced, int32_t)},
+	{"handshakeStatus", "()Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, handshakeStatus, $SSLEngineResult$HandshakeStatus*)},
+	{"handshaking", "()Z", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, handshaking, bool)},
+	{"needUnwrap", "()Z", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, needUnwrap, bool)},
+	{"status", "()Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, 0, $virtualMethod(SSLFlowDelegate$EngineResult, status, $SSLEngineResult$Status*)},
 	{}
 };
 

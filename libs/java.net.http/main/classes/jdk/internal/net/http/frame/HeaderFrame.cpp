@@ -32,11 +32,11 @@ $FieldInfo _HeaderFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _HeaderFrame_MethodInfo_[] = {
-	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(HeaderFrame::*)(int32_t,int32_t,$List*)>(&HeaderFrame::init$))},
-	{"endHeaders", "()Z", nullptr, $PUBLIC},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHeaderBlock", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC},
-	{"getHeaderLength", "()I", nullptr, 0},
+	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(HeaderFrame, init$, void, int32_t, int32_t, $List*)},
+	{"endHeaders", "()Z", nullptr, $PUBLIC, $virtualMethod(HeaderFrame, endHeaders, bool)},
+	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderFrame, flagAsString, $String*, int32_t)},
+	{"getHeaderBlock", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(HeaderFrame, getHeaderBlock, $List*)},
+	{"getHeaderLength", "()I", nullptr, 0, $virtualMethod(HeaderFrame, getHeaderLength, int32_t)},
 	{}
 };
 

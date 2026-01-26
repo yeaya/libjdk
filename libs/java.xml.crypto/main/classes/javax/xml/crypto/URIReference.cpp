@@ -10,8 +10,8 @@ namespace javax {
 		namespace crypto {
 
 $MethodInfo _URIReference_MethodInfo_[] = {
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIReference, getType, $String*)},
+	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URIReference, getURI, $String*)},
 	{}
 };
 

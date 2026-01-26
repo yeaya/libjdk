@@ -32,10 +32,10 @@ $FieldInfo _TypeAnnotations$AnnotationType_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeAnnotations$AnnotationType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TypeAnnotations$AnnotationTypeArray*(*)()>(&TypeAnnotations$AnnotationType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(TypeAnnotations$AnnotationType::*)($String*,int32_t)>(&TypeAnnotations$AnnotationType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeAnnotations$AnnotationType*(*)($String*)>(&TypeAnnotations$AnnotationType::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TypeAnnotations$AnnotationTypeArray*(*)()>(&TypeAnnotations$AnnotationType::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeAnnotations$AnnotationType, $values, $TypeAnnotations$AnnotationTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeAnnotations$AnnotationType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotations$AnnotationType, valueOf, TypeAnnotations$AnnotationType*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotations$AnnotationType, values, $TypeAnnotations$AnnotationTypeArray*)},
 	{}
 };
 

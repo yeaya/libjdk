@@ -26,8 +26,8 @@ $FieldInfo _Krb5Context$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Krb5Context$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljava/security/AccessControlContext;)V", "()V", 0, $method(static_cast<void(Krb5Context$2::*)($Krb5Context*,$AccessControlContext*)>(&Krb5Context$2::init$))},
-	{"run", "()Ljavax/security/auth/Subject;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljava/security/AccessControlContext;)V", "()V", 0, $method(Krb5Context$2, init$, void, $Krb5Context*, $AccessControlContext*)},
+	{"run", "()Ljavax/security/auth/Subject;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$2, run, $Object*)},
 	{}
 };
 

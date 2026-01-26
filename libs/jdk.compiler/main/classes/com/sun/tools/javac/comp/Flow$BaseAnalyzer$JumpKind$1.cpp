@@ -22,8 +22,8 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Flow$BaseAnalyzer$JumpKind$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, $PRIVATE, $method(static_cast<void(Flow$BaseAnalyzer$JumpKind$1::*)($String*,int32_t,$JCTree$Tag*)>(&Flow$BaseAnalyzer$JumpKind$1::init$))},
-	{"getTarget", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, $PRIVATE, $method(Flow$BaseAnalyzer$JumpKind$1, init$, void, $String*, int32_t, $JCTree$Tag*)},
+	{"getTarget", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $virtualMethod(Flow$BaseAnalyzer$JumpKind$1, getTarget, $JCTree*, $JCTree*)},
 	{}
 };
 

@@ -5,6 +5,8 @@
 #include <com/sun/tools/javac/comp/Infer.h>
 #include <jcpp.h>
 
+using $Infer$GraphSolver$InferenceGraph = ::com::sun::tools::javac::comp::Infer$GraphSolver$InferenceGraph;
+using $Infer$GraphSolver$InferenceGraph$Node = ::com::sun::tools::javac::comp::Infer$GraphSolver$InferenceGraph$Node;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -16,8 +18,8 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Infer$GraphStrategy_MethodInfo_[] = {
-	{"done", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"pickNode", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "com.sun.tools.javac.comp.Infer$GraphStrategy$NodeNotFoundException"},
+	{"done", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$GraphStrategy, done, bool)},
+	{"pickNode", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph$Node;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$GraphStrategy, pickNode, $Infer$GraphSolver$InferenceGraph$Node*, $Infer$GraphSolver$InferenceGraph*), "com.sun.tools.javac.comp.Infer$GraphStrategy$NodeNotFoundException"},
 	{}
 };
 

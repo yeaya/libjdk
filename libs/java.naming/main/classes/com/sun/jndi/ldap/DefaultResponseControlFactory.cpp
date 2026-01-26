@@ -32,8 +32,8 @@ namespace com {
 			namespace ldap {
 
 $MethodInfo _DefaultResponseControlFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultResponseControlFactory::*)()>(&DefaultResponseControlFactory::init$))},
-	{"getControlInstance", "(Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultResponseControlFactory, init$, void)},
+	{"getControlInstance", "(Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(DefaultResponseControlFactory, getControlInstance, $Control*, $Control*), "javax.naming.NamingException"},
 	{}
 };
 

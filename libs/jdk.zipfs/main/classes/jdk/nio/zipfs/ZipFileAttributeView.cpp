@@ -49,14 +49,14 @@ $FieldInfo _ZipFileAttributeView_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileAttributeView_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipPath;Z)V", nullptr, 0, $method(static_cast<void(ZipFileAttributeView::*)($ZipPath*,bool)>(&ZipFileAttributeView::init$))},
-	{"attribute", "(Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;Ljdk/nio/zipfs/ZipFileAttributes;)Ljava/lang/Object;", nullptr, 0},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"readAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"readAttributes", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", 0, nullptr, "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"setPermissions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/nio/zipfs/ZipPath;Z)V", nullptr, 0, $method(ZipFileAttributeView, init$, void, $ZipPath*, bool)},
+	{"attribute", "(Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;Ljdk/nio/zipfs/ZipFileAttributes;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(ZipFileAttributeView, attribute, $Object*, $ZipFileAttributeView$AttrID*, $ZipFileAttributes*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileAttributeView, name, $String*)},
+	{"readAttributes", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC, $virtualMethod(ZipFileAttributeView, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
+	{"readAttributes", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", 0, $virtualMethod(ZipFileAttributeView, readAttributes, $Map*, $String*), "java.io.IOException"},
+	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ZipFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
+	{"setPermissions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)V", $PUBLIC, $virtualMethod(ZipFileAttributeView, setPermissions, void, $Set*), "java.io.IOException"},
+	{"setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC, $virtualMethod(ZipFileAttributeView, setTimes, void, $FileTime*, $FileTime*, $FileTime*), "java.io.IOException"},
 	{}
 };
 

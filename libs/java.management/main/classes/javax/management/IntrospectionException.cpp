@@ -17,8 +17,8 @@ $FieldInfo _IntrospectionException_FieldInfo_[] = {
 };
 
 $MethodInfo _IntrospectionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntrospectionException::*)()>(&IntrospectionException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IntrospectionException::*)($String*)>(&IntrospectionException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntrospectionException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IntrospectionException, init$, void, $String*)},
 	{}
 };
 

@@ -1,9 +1,11 @@
 #include <javax/lang/model/type/WildcardType.h>
 
+#include <javax/lang/model/type/TypeMirror.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace javax {
 	namespace lang {
@@ -11,8 +13,8 @@ namespace javax {
 			namespace type {
 
 $MethodInfo _WildcardType_MethodInfo_[] = {
-	{"getExtendsBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSuperBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getExtendsBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WildcardType, getExtendsBound, $TypeMirror*)},
+	{"getSuperBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WildcardType, getSuperBound, $TypeMirror*)},
 	{}
 };
 

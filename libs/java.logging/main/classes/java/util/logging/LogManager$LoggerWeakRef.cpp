@@ -33,10 +33,10 @@ $FieldInfo _LogManager$LoggerWeakRef_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$LoggerWeakRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;)V", nullptr, 0, $method(static_cast<void(LogManager$LoggerWeakRef::*)($LogManager*,$Logger*)>(&LogManager$LoggerWeakRef::init$))},
-	{"dispose", "()V", nullptr, 0, $method(static_cast<void(LogManager$LoggerWeakRef::*)()>(&LogManager$LoggerWeakRef::dispose))},
-	{"setNode", "(Ljava/util/logging/LogManager$LogNode;)V", nullptr, 0, $method(static_cast<void(LogManager$LoggerWeakRef::*)($LogManager$LogNode*)>(&LogManager$LoggerWeakRef::setNode))},
-	{"setParentRef", "(Ljava/lang/ref/WeakReference;)V", "(Ljava/lang/ref/WeakReference<Ljava/util/logging/Logger;>;)V", 0, $method(static_cast<void(LogManager$LoggerWeakRef::*)($WeakReference*)>(&LogManager$LoggerWeakRef::setParentRef))},
+	{"<init>", "(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;)V", nullptr, 0, $method(LogManager$LoggerWeakRef, init$, void, $LogManager*, $Logger*)},
+	{"dispose", "()V", nullptr, 0, $method(LogManager$LoggerWeakRef, dispose, void)},
+	{"setNode", "(Ljava/util/logging/LogManager$LogNode;)V", nullptr, 0, $method(LogManager$LoggerWeakRef, setNode, void, $LogManager$LogNode*)},
+	{"setParentRef", "(Ljava/lang/ref/WeakReference;)V", "(Ljava/lang/ref/WeakReference<Ljava/util/logging/Logger;>;)V", 0, $method(LogManager$LoggerWeakRef, setParentRef, void, $WeakReference*)},
 	{}
 };
 

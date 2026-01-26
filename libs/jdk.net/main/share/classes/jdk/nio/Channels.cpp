@@ -31,8 +31,8 @@ namespace jdk {
 	namespace nio {
 
 $MethodInfo _Channels_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Channels::*)()>(&Channels::init$))},
-	{"readWriteSelectableChannel", "(Ljava/io/FileDescriptor;Ljdk/nio/Channels$SelectableChannelCloser;)Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SelectableChannel*(*)($FileDescriptor*,$Channels$SelectableChannelCloser*)>(&Channels::readWriteSelectableChannel))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Channels, init$, void)},
+	{"readWriteSelectableChannel", "(Ljava/io/FileDescriptor;Ljdk/nio/Channels$SelectableChannelCloser;)Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, readWriteSelectableChannel, $SelectableChannel*, $FileDescriptor*, $Channels$SelectableChannelCloser*)},
 	{}
 };
 

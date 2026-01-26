@@ -22,8 +22,8 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Infer$IncorporationBinaryOpKind$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Infer$IncorporationBinaryOpKind$1::*)($String*,int32_t)>(&Infer$IncorporationBinaryOpKind$1::init$))},
-	{"apply", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/code/Types;)Z", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Infer$IncorporationBinaryOpKind$1, init$, void, $String*, int32_t)},
+	{"apply", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/code/Types;)Z", nullptr, 0, $virtualMethod(Infer$IncorporationBinaryOpKind$1, apply, bool, $Type*, $Type*, $Warner*, $Types*)},
 	{}
 };
 

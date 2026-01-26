@@ -20,9 +20,9 @@ $FieldInfo _Xid_FieldInfo_[] = {
 };
 
 $MethodInfo _Xid_MethodInfo_[] = {
-	{"getBranchQualifier", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getFormatId", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getGlobalTransactionId", "()[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"getBranchQualifier", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Xid, getBranchQualifier, $bytes*)},
+	{"getFormatId", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Xid, getFormatId, int32_t)},
+	{"getGlobalTransactionId", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Xid, getGlobalTransactionId, $bytes*)},
 	{}
 };
 

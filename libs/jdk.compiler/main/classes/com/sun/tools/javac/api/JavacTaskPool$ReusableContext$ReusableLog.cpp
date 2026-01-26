@@ -52,8 +52,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::*)()>(&JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::init$))},
-	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog, init$, void)},
+	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog, make, $Object*, $Context*)},
 	{}
 };
 $ClassInfo JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::classInfo$ = {
@@ -77,8 +77,8 @@ $FieldInfo _JavacTaskPool$ReusableContext$ReusableLog_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTaskPool$ReusableContext$ReusableLog_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(static_cast<void(JavacTaskPool$ReusableContext$ReusableLog::*)($Context*)>(&JavacTaskPool$ReusableContext$ReusableLog::init$))},
-	{"clear", "()V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(JavacTaskPool$ReusableContext$ReusableLog, init$, void, $Context*)},
+	{"clear", "()V", nullptr, 0, $virtualMethod(JavacTaskPool$ReusableContext$ReusableLog, clear, void)},
 	{}
 };
 

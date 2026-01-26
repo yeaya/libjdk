@@ -81,19 +81,19 @@ $FieldInfo _Checksum_FieldInfo_[] = {
 };
 
 $MethodInfo _Checksum_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(static_cast<void(Checksum::*)($bytes*,int32_t)>(&Checksum::init$))},
-	{"<init>", "(I[BLsun/security/krb5/EncryptionKey;I)V", nullptr, $PUBLIC, $method(static_cast<void(Checksum::*)(int32_t,$bytes*,$EncryptionKey*,int32_t)>(&Checksum::init$)), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(Checksum::*)($DerValue*)>(&Checksum::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(static_cast<$bytes*(Checksum::*)()>(&Checksum::getBytes))},
-	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(Checksum::*)()>(&Checksum::getType))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"initStatic", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&Checksum::initStatic))},
-	{"isEqual", "(Lsun/security/krb5/Checksum;)Z", nullptr, 0, nullptr, "sun.security.krb5.internal.KdcErrException"},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/Checksum;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Checksum*(*)($DerInputStream*,int8_t,bool)>(&Checksum::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"verifyAnyChecksum", "([BLsun/security/krb5/EncryptionKey;I)Z", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KdcErrException,sun.security.krb5.KrbCryptoException"},
-	{"verifyKeyedChecksum", "([BLsun/security/krb5/EncryptionKey;I)Z", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(Checksum, init$, void, $bytes*, int32_t)},
+	{"<init>", "(I[BLsun/security/krb5/EncryptionKey;I)V", nullptr, $PUBLIC, $method(Checksum, init$, void, int32_t, $bytes*, $EncryptionKey*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(Checksum, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(Checksum, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Checksum, equals, bool, Object$*)},
+	{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(Checksum, getBytes, $bytes*)},
+	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $method(Checksum, getType, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Checksum, hashCode, int32_t)},
+	{"initStatic", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Checksum, initStatic, void)},
+	{"isEqual", "(Lsun/security/krb5/Checksum;)Z", nullptr, 0, $virtualMethod(Checksum, isEqual, bool, Checksum*), "sun.security.krb5.internal.KdcErrException"},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/Checksum;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checksum, parse, Checksum*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"verifyAnyChecksum", "([BLsun/security/krb5/EncryptionKey;I)Z", nullptr, $PUBLIC, $virtualMethod(Checksum, verifyAnyChecksum, bool, $bytes*, $EncryptionKey*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.KrbCryptoException"},
+	{"verifyKeyedChecksum", "([BLsun/security/krb5/EncryptionKey;I)Z", nullptr, $PUBLIC, $virtualMethod(Checksum, verifyKeyedChecksum, bool, $bytes*, $EncryptionKey*, int32_t), "sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
 	{}
 };
 

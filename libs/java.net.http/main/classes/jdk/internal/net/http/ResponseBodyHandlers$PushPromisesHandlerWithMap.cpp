@@ -32,8 +32,8 @@ $FieldInfo _ResponseBodyHandlers$PushPromisesHandlerWithMap_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseBodyHandlers$PushPromisesHandlerWithMap_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/concurrent/ConcurrentMap;)V", "(Ljava/util/function/Function<Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;>;Ljava/util/concurrent/ConcurrentMap<Ljava/net/http/HttpRequest;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)V", $PUBLIC, $method(static_cast<void(ResponseBodyHandlers$PushPromisesHandlerWithMap::*)($Function*,$ConcurrentMap*)>(&ResponseBodyHandlers$PushPromisesHandlerWithMap::init$))},
-	{"applyPushPromise", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function;)V", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function<Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;Ljava/util/concurrent/ConcurrentMap;)V", "(Ljava/util/function/Function<Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;>;Ljava/util/concurrent/ConcurrentMap<Ljava/net/http/HttpRequest;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)V", $PUBLIC, $method(ResponseBodyHandlers$PushPromisesHandlerWithMap, init$, void, $Function*, $ConcurrentMap*)},
+	{"applyPushPromise", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function;)V", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function<Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)V", $PUBLIC, $virtualMethod(ResponseBodyHandlers$PushPromisesHandlerWithMap, applyPushPromise, void, $HttpRequest*, $HttpRequest*, $Function*)},
 	{}
 };
 

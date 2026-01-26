@@ -26,11 +26,11 @@ $FieldInfo _Code$LocalVar$Range_FieldInfo_[] = {
 };
 
 $MethodInfo _Code$LocalVar$Range_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;)V", nullptr, 0, $method(static_cast<void(Code$LocalVar$Range::*)($Code$LocalVar*)>(&Code$LocalVar$Range::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;C)V", nullptr, 0, $method(static_cast<void(Code$LocalVar$Range::*)($Code$LocalVar*,char16_t)>(&Code$LocalVar$Range::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;CC)V", nullptr, 0, $method(static_cast<void(Code$LocalVar$Range::*)($Code$LocalVar*,char16_t,char16_t)>(&Code$LocalVar$Range::init$))},
-	{"closed", "()Z", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;)V", nullptr, 0, $method(Code$LocalVar$Range, init$, void, $Code$LocalVar*)},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;C)V", nullptr, 0, $method(Code$LocalVar$Range, init$, void, $Code$LocalVar*, char16_t)},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;CC)V", nullptr, 0, $method(Code$LocalVar$Range, init$, void, $Code$LocalVar*, char16_t, char16_t)},
+	{"closed", "()Z", nullptr, 0, $virtualMethod(Code$LocalVar$Range, closed, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar$Range, toString, $String*)},
 	{}
 };
 

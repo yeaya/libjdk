@@ -29,8 +29,8 @@ $FieldInfo _ZipFileSystem$END_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileSystem$END_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ZipFileSystem$END::*)()>(&ZipFileSystem$END::init$))},
-	{"write", "(Ljava/io/OutputStream;JZ)V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(ZipFileSystem$END, init$, void)},
+	{"write", "(Ljava/io/OutputStream;JZ)V", nullptr, 0, $virtualMethod(ZipFileSystem$END, write, void, $OutputStream*, int64_t, bool), "java.io.IOException"},
 	{}
 };
 

@@ -5,16 +5,19 @@
 #include <java/util/Set.h>
 #include <jcpp.h>
 
+using $InputStream = ::java::io::InputStream;
+using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Set = ::java::util::Set;
 
 namespace javax {
 	namespace tools {
 
 $MethodInfo _Tool_MethodInfo_[] = {
-	{"getSourceVersions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/SourceVersion;>;", $PUBLIC | $ABSTRACT},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"run", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/OutputStream;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT},
+	{"getSourceVersions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/SourceVersion;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Tool, getSourceVersions, $Set*)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tool, name, $String*)},
+	{"run", "(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/io/OutputStream;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Tool, run, int32_t, $InputStream*, $OutputStream*, $OutputStream*, $StringArray*)},
 	{}
 };
 

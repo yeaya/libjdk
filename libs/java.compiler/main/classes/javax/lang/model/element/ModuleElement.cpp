@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace javax {
 	namespace lang {
@@ -14,13 +15,13 @@ namespace javax {
 
 $MethodInfo _ModuleElement_MethodInfo_[] = {
 	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/ModuleElement$Directive;>;", $PUBLIC | $ABSTRACT},
+	{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/ModuleElement$Directive;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement, getDirectives, $List*)},
 	{"getEnclosedElements", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getQualifiedName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isUnnamed", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement, isOpen, bool)},
+	{"isUnnamed", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement, isUnnamed, bool)},
 	{}
 };
 

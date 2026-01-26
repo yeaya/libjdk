@@ -71,8 +71,8 @@ $FieldInfo Operators$BinaryOperatorHelper$$Lambda$lambda$doLookup$0::fieldInfos[
 	{}
 };
 $MethodInfo Operators$BinaryOperatorHelper$$Lambda$lambda$doLookup$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$BinaryOperatorHelper$$Lambda$lambda$doLookup$0::*)(Operators$BinaryOperatorHelper*,$Type*,$Type*)>(&Operators$BinaryOperatorHelper$$Lambda$lambda$doLookup$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Operators$BinaryOperatorHelper$$Lambda$lambda$doLookup$0, init$, void, Operators$BinaryOperatorHelper*, $Type*, $Type*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryOperatorHelper$$Lambda$lambda$doLookup$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Operators$BinaryOperatorHelper$$Lambda$lambda$doLookup$0::classInfo$ = {
@@ -123,8 +123,8 @@ $FieldInfo Operators$BinaryOperatorHelper$$Lambda$lambda$addBinaryOperator$1$1::
 	{}
 };
 $MethodInfo Operators$BinaryOperatorHelper$$Lambda$lambda$addBinaryOperator$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)V", nullptr, $PUBLIC, $method(static_cast<void(Operators$BinaryOperatorHelper$$Lambda$lambda$addBinaryOperator$1$1::*)(Operators$BinaryOperatorHelper*,$Operators$OperatorType*,$Operators$OperatorType*,$Operators$OperatorType*,$ints*)>(&Operators$BinaryOperatorHelper$$Lambda$lambda$addBinaryOperator$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)V", nullptr, $PUBLIC, $method(Operators$BinaryOperatorHelper$$Lambda$lambda$addBinaryOperator$1$1, init$, void, Operators$BinaryOperatorHelper*, $Operators$OperatorType*, $Operators$OperatorType*, $Operators$OperatorType*, $ints*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryOperatorHelper$$Lambda$lambda$addBinaryOperator$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo Operators$BinaryOperatorHelper$$Lambda$lambda$addBinaryOperator$1$1::classInfo$ = {
@@ -151,13 +151,13 @@ $MethodInfo _Operators$BinaryOperatorHelper_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Operators$BinaryOperatorHelper::*)($Operators*,$JCTree$Tag*)>(&Operators$BinaryOperatorHelper::init$))},
-	{"addBinaryOperator", "(Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;", nullptr, $FINAL | $TRANSIENT, $method(static_cast<Operators$BinaryOperatorHelper*(Operators$BinaryOperatorHelper::*)($Operators$OperatorType*,$Operators$OperatorType*,$Operators$OperatorType*,$ints*)>(&Operators$BinaryOperatorHelper::addBinaryOperator))},
-	{"doLookup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $FINAL, $method(static_cast<$Symbol$OperatorSymbol*(Operators$BinaryOperatorHelper::*)($Type*,$Type*)>(&Operators$BinaryOperatorHelper::doLookup))},
-	{"isBinaryOperatorApplicable", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0},
-	{"lambda$addBinaryOperator$1", "(Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Symbol$OperatorSymbol*(Operators$BinaryOperatorHelper::*)($Operators$OperatorType*,$Operators$OperatorType*,$Operators$OperatorType*,$ints*)>(&Operators$BinaryOperatorHelper::lambda$addBinaryOperator$1))},
-	{"lambda$doLookup$0", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Operators$BinaryOperatorHelper::*)($Type*,$Type*,$Symbol$OperatorSymbol*)>(&Operators$BinaryOperatorHelper::lambda$doLookup$0))},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $ABSTRACT},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$BinaryOperatorHelper, init$, void, $Operators*, $JCTree$Tag*)},
+	{"addBinaryOperator", "(Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/comp/Operators$BinaryOperatorHelper;", nullptr, $FINAL | $TRANSIENT, $method(Operators$BinaryOperatorHelper, addBinaryOperator, Operators$BinaryOperatorHelper*, $Operators$OperatorType*, $Operators$OperatorType*, $Operators$OperatorType*, $ints*)},
+	{"doLookup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $FINAL, $method(Operators$BinaryOperatorHelper, doLookup, $Symbol$OperatorSymbol*, $Type*, $Type*)},
+	{"isBinaryOperatorApplicable", "(Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Operators$BinaryOperatorHelper, isBinaryOperatorApplicable, bool, $Symbol$OperatorSymbol*, $Type*, $Type*)},
+	{"lambda$addBinaryOperator$1", "(Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;Lcom/sun/tools/javac/comp/Operators$OperatorType;[I)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(Operators$BinaryOperatorHelper, lambda$addBinaryOperator$1, $Symbol$OperatorSymbol*, $Operators$OperatorType*, $Operators$OperatorType*, $Operators$OperatorType*, $ints*)},
+	{"lambda$doLookup$0", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Operators$BinaryOperatorHelper, lambda$doLookup$0, bool, $Type*, $Type*, $Symbol$OperatorSymbol*)},
+	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $ABSTRACT, $virtualMethod(Operators$BinaryOperatorHelper, resolve, $Symbol$OperatorSymbol*, $Type*, $Type*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

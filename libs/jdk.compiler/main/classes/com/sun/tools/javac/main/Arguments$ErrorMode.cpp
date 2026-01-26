@@ -30,10 +30,10 @@ $FieldInfo _Arguments$ErrorMode_FieldInfo_[] = {
 };
 
 $MethodInfo _Arguments$ErrorMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Arguments$ErrorModeArray*(*)()>(&Arguments$ErrorMode::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Arguments$ErrorMode::*)($String*,int32_t)>(&Arguments$ErrorMode::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Arguments$ErrorMode*(*)($String*)>(&Arguments$ErrorMode::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Arguments$ErrorModeArray*(*)()>(&Arguments$ErrorMode::values))},
+	{"$values", "()[Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Arguments$ErrorMode, $values, $Arguments$ErrorModeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Arguments$ErrorMode, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arguments$ErrorMode, valueOf, Arguments$ErrorMode*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/main/Arguments$ErrorMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Arguments$ErrorMode, values, $Arguments$ErrorModeArray*)},
 	{}
 };
 

@@ -265,22 +265,22 @@ $FieldInfo _Tokens$TokenKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Tokens$TokenKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Tokens$TokenKindArray*(*)()>(&Tokens$TokenKind::$values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tokens$TokenKind, $values, $Tokens$TokenKindArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Tokens$TokenKind::*)($String*,int32_t)>(&Tokens$TokenKind::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Tokens$TokenKind::*)($String*,int32_t,$String*)>(&Tokens$TokenKind::init$))},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", "(Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", $PRIVATE, $method(static_cast<void(Tokens$TokenKind::*)($String*,int32_t,$Tokens$Token$Tag*)>(&Tokens$TokenKind::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", "(Ljava/lang/String;Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", $PRIVATE, $method(static_cast<void(Tokens$TokenKind::*)($String*,int32_t,$String*,$Tokens$Token$Tag*)>(&Tokens$TokenKind::init$))},
-	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"test", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Z", nullptr, $PUBLIC, $method(static_cast<bool(Tokens$TokenKind::*)(Tokens$TokenKind*)>(&Tokens$TokenKind::test))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Tokens$TokenKind*(*)($String*)>(&Tokens$TokenKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Tokens$TokenKindArray*(*)()>(&Tokens$TokenKind::values))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t, $String*)},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", "(Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t, $Tokens$Token$Tag*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", "(Ljava/lang/String;Lcom/sun/tools/javac/parser/Tokens$Token$Tag;)V", $PRIVATE, $method(Tokens$TokenKind, init$, void, $String*, int32_t, $String*, $Tokens$Token$Tag*)},
+	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$TokenKind, getKind, $String*)},
+	{"test", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;)Z", nullptr, $PUBLIC, $method(Tokens$TokenKind, test, bool, Tokens$TokenKind*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Tokens$TokenKind, test, bool, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$TokenKind, toString, $String*)},
+	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$TokenKind, toString, $String*, $Locale*, $Messages*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$TokenKind, valueOf, Tokens$TokenKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$TokenKind, values, $Tokens$TokenKindArray*)},
 	{}
 };
 

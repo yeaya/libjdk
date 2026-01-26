@@ -100,8 +100,8 @@ $FieldInfo SSLTube$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SSLTube$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLTube;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLTube$$Lambda$dbgString::*)(SSLTube*)>(&SSLTube$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SSLTube;)V", nullptr, $PUBLIC, $method(SSLTube$$Lambda$dbgString, init$, void, SSLTube*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLTube$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo SSLTube$$Lambda$dbgString::classInfo$ = {
@@ -133,22 +133,22 @@ $FieldInfo _SSLTube_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLTube_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljdk/internal/net/http/common/FlowTube;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLTube::*)($SSLEngine*,$Executor*,$FlowTube*)>(&SSLTube::init$))},
-	{"<init>", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljdk/internal/net/http/common/FlowTube;)V", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;Ljdk/internal/net/http/common/FlowTube;)V", $PUBLIC, $method(static_cast<void(SSLTube::*)($SSLEngine*,$Executor*,$Consumer*,$FlowTube*)>(&SSLTube::init$))},
-	{"checkForHandshake", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, 0},
-	{"connectFlows", "(Ljdk/internal/net/http/common/FlowTube$TubePublisher;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;)V", nullptr, $PUBLIC},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(SSLTube::*)()>(&SSLTube::dbgString))},
-	{"getALPN", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/String;>;", $PUBLIC},
-	{"handshakeFailed", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(SSLTube::*)()>(&SSLTube::handshakeFailed))},
-	{"handshaking", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(SSLTube::*)()>(&SSLTube::handshaking))},
-	{"isFinished", "()Z", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljdk/internal/net/http/common/FlowTube;)V", nullptr, $PUBLIC, $method(SSLTube, init$, void, $SSLEngine*, $Executor*, $FlowTube*)},
+	{"<init>", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljdk/internal/net/http/common/FlowTube;)V", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;Ljdk/internal/net/http/common/FlowTube;)V", $PUBLIC, $method(SSLTube, init$, void, $SSLEngine*, $Executor*, $Consumer*, $FlowTube*)},
+	{"checkForHandshake", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, 0, $virtualMethod(SSLTube, checkForHandshake, $Throwable*, $Throwable*)},
+	{"connectFlows", "(Ljdk/internal/net/http/common/FlowTube$TubePublisher;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube, connectFlows, void, $FlowTube$TubePublisher*, $FlowTube$TubeSubscriber*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(SSLTube, dbgString, $String*)},
+	{"getALPN", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SSLTube, getALPN, $CompletableFuture*)},
+	{"handshakeFailed", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(SSLTube, handshakeFailed, $String*)},
+	{"handshaking", "()Z", nullptr, $PRIVATE, $method(SSLTube, handshaking, bool)},
+	{"isFinished", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLTube, isFinished, bool)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTube, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(SSLTube, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SSLTube, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube, onSubscribe, void, $Flow$Subscription*)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $virtualMethod(SSLTube, subscribe, void, $Flow$Subscriber*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLTube, toString, $String*)},
 	{}
 };
 

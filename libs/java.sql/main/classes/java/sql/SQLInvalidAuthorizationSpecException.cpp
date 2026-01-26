@@ -17,14 +17,14 @@ $FieldInfo _SQLInvalidAuthorizationSpecException_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLInvalidAuthorizationSpecException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SQLInvalidAuthorizationSpecException::*)()>(&SQLInvalidAuthorizationSpecException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLInvalidAuthorizationSpecException::*)($String*)>(&SQLInvalidAuthorizationSpecException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLInvalidAuthorizationSpecException::*)($String*,$String*)>(&SQLInvalidAuthorizationSpecException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(SQLInvalidAuthorizationSpecException::*)($String*,$String*,int32_t)>(&SQLInvalidAuthorizationSpecException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLInvalidAuthorizationSpecException::*)($Throwable*)>(&SQLInvalidAuthorizationSpecException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLInvalidAuthorizationSpecException::*)($String*,$Throwable*)>(&SQLInvalidAuthorizationSpecException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLInvalidAuthorizationSpecException::*)($String*,$String*,$Throwable*)>(&SQLInvalidAuthorizationSpecException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLInvalidAuthorizationSpecException::*)($String*,$String*,int32_t,$Throwable*)>(&SQLInvalidAuthorizationSpecException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLInvalidAuthorizationSpecException, init$, void, $String*, $String*, int32_t, $Throwable*)},
 	{}
 };
 

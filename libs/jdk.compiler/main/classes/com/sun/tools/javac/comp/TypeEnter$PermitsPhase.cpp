@@ -53,8 +53,8 @@ $FieldInfo _TypeEnter$PermitsPhase_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$PermitsPhase_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$PermitsPhase::*)($TypeEnter*)>(&TypeEnter$PermitsPhase::init$))},
-	{"runPhase", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;)V", nullptr, $PUBLIC, $method(TypeEnter$PermitsPhase, init$, void, $TypeEnter*)},
+	{"runPhase", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED, $virtualMethod(TypeEnter$PermitsPhase, runPhase, void, $Env*)},
 	{}
 };
 

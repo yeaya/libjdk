@@ -5,6 +5,9 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <jcpp.h>
 
+using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;
+using $DCTree$DCDocComment = ::com::sun::tools::javac::tree::DCTree$DCDocComment;
+using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -15,11 +18,11 @@ namespace com {
 				namespace tree {
 
 $MethodInfo _DocCommentTable_MethodInfo_[] = {
-	{"getComment", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCommentText", "(Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCommentTree", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasComment", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"putComment", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"getComment", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocCommentTable, getComment, $Tokens$Comment*, $JCTree*)},
+	{"getCommentText", "(Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocCommentTable, getCommentText, $String*, $JCTree*)},
+	{"getCommentTree", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocCommentTable, getCommentTree, $DCTree$DCDocComment*, $JCTree*)},
+	{"hasComment", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocCommentTable, hasComment, bool, $JCTree*)},
+	{"putComment", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocCommentTable, putComment, void, $JCTree*, $Tokens$Comment*)},
 	{}
 };
 

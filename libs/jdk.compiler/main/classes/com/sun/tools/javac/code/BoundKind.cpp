@@ -29,11 +29,11 @@ $FieldInfo _BoundKind_FieldInfo_[] = {
 };
 
 $MethodInfo _BoundKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$BoundKindArray*(*)()>(&BoundKind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(BoundKind::*)($String*,int32_t,$String*)>(&BoundKind::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<BoundKind*(*)($String*)>(&BoundKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$BoundKindArray*(*)()>(&BoundKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BoundKind, $values, $BoundKindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(BoundKind, init$, void, $String*, int32_t, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BoundKind, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BoundKind, valueOf, BoundKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BoundKind, values, $BoundKindArray*)},
 	{}
 };
 

@@ -88,8 +88,8 @@ $FieldInfo _Code_FieldInfo_[] = {
 };
 
 $MethodInfo _Code_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Code::*)()>(&Code::init$))},
-	{"msg", "(I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int32_t)>(&Code::msg))},
+	{"<init>", "()V", nullptr, 0, $method(Code, init$, void)},
+	{"msg", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Code, msg, $String*, int32_t)},
 	{}
 };
 

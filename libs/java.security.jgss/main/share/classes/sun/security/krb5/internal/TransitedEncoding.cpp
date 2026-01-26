@@ -33,10 +33,10 @@ $FieldInfo _TransitedEncoding_FieldInfo_[] = {
 };
 
 $MethodInfo _TransitedEncoding_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(TransitedEncoding::*)(int32_t,$bytes*)>(&TransitedEncoding::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(TransitedEncoding::*)($DerValue*)>(&TransitedEncoding::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/TransitedEncoding;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TransitedEncoding*(*)($DerInputStream*,int8_t,bool)>(&TransitedEncoding::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(TransitedEncoding, init$, void, int32_t, $bytes*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(TransitedEncoding, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(TransitedEncoding, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/TransitedEncoding;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransitedEncoding, parse, TransitedEncoding*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
 	{}
 };
 

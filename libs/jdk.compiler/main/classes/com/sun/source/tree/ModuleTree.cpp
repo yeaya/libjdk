@@ -5,9 +5,12 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
+using $ModuleTree$ModuleKind = ::com::sun::source::tree::ModuleTree$ModuleKind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -15,10 +18,10 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _ModuleTree_MethodInfo_[] = {
-	{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT},
-	{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/DirectiveTree;>;", $PUBLIC | $ABSTRACT},
-	{"getModuleType", "()Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getAnnotations, $List*)},
+	{"getDirectives", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/DirectiveTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getDirectives, $List*)},
+	{"getModuleType", "()Lcom/sun/source/tree/ModuleTree$ModuleKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getModuleType, $ModuleTree$ModuleKind*)},
+	{"getName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleTree, getName, $ExpressionTree*)},
 	{}
 };
 

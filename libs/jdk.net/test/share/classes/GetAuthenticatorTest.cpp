@@ -21,8 +21,8 @@ using $AccessControlException = ::java::security::AccessControlException;
 using $Permission = ::java::security::Permission;
 
 $MethodInfo _GetAuthenticatorTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GetAuthenticatorTest::*)()>(&GetAuthenticatorTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&GetAuthenticatorTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAuthenticatorTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAuthenticatorTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

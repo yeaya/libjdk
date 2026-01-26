@@ -27,10 +27,10 @@ $FieldInfo _LambdaExpressionTree$BodyKind_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaExpressionTree$BodyKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LambdaExpressionTree$BodyKindArray*(*)()>(&LambdaExpressionTree$BodyKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(LambdaExpressionTree$BodyKind::*)($String*,int32_t)>(&LambdaExpressionTree$BodyKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LambdaExpressionTree$BodyKind*(*)($String*)>(&LambdaExpressionTree$BodyKind::valueOf))},
-	{"values", "()[Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LambdaExpressionTree$BodyKindArray*(*)()>(&LambdaExpressionTree$BodyKind::values))},
+	{"$values", "()[Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaExpressionTree$BodyKind, $values, $LambdaExpressionTree$BodyKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LambdaExpressionTree$BodyKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaExpressionTree$BodyKind, valueOf, LambdaExpressionTree$BodyKind*, $String*)},
+	{"values", "()[Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaExpressionTree$BodyKind, values, $LambdaExpressionTree$BodyKindArray*)},
 	{}
 };
 

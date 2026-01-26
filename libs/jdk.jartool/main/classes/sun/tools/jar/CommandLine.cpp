@@ -28,9 +28,9 @@ namespace sun {
 		namespace jar {
 
 $MethodInfo _CommandLine_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CommandLine::*)()>(&CommandLine::init$))},
-	{"loadCmdFile", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$List*)>(&CommandLine::loadCmdFile)), "java.io.IOException"},
-	{"parse", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringArray*(*)($StringArray*)>(&CommandLine::parse)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CommandLine, init$, void)},
+	{"loadCmdFile", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(CommandLine, loadCmdFile, void, $String*, $List*), "java.io.IOException"},
+	{"parse", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CommandLine, parse, $StringArray*, $StringArray*), "java.io.IOException"},
 	{}
 };
 

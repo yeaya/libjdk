@@ -27,12 +27,12 @@ $FieldInfo _CompilerThreadStat_FieldInfo_[] = {
 };
 
 $MethodInfo _CompilerThreadStat_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;JJLsun/management/MethodInfo;)V", nullptr, 0, $method(static_cast<void(CompilerThreadStat::*)($String*,int64_t,int64_t,$1MethodInfo*)>(&CompilerThreadStat::init$))},
-	{"getCompileTaskCount", "()J", nullptr, $PUBLIC},
-	{"getCompileTime", "()J", nullptr, $PUBLIC},
-	{"getLastCompiledMethodInfo", "()Lsun/management/MethodInfo;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;JJLsun/management/MethodInfo;)V", nullptr, 0, $method(CompilerThreadStat, init$, void, $String*, int64_t, int64_t, $1MethodInfo*)},
+	{"getCompileTaskCount", "()J", nullptr, $PUBLIC, $virtualMethod(CompilerThreadStat, getCompileTaskCount, int64_t)},
+	{"getCompileTime", "()J", nullptr, $PUBLIC, $virtualMethod(CompilerThreadStat, getCompileTime, int64_t)},
+	{"getLastCompiledMethodInfo", "()Lsun/management/MethodInfo;", nullptr, $PUBLIC, $virtualMethod(CompilerThreadStat, getLastCompiledMethodInfo, $1MethodInfo*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompilerThreadStat, getName, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompilerThreadStat, toString, $String*)},
 	{}
 };
 

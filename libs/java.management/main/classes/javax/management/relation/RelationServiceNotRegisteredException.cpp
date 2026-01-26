@@ -18,8 +18,8 @@ $FieldInfo _RelationServiceNotRegisteredException_FieldInfo_[] = {
 };
 
 $MethodInfo _RelationServiceNotRegisteredException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RelationServiceNotRegisteredException::*)()>(&RelationServiceNotRegisteredException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RelationServiceNotRegisteredException::*)($String*)>(&RelationServiceNotRegisteredException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RelationServiceNotRegisteredException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelationServiceNotRegisteredException, init$, void, $String*)},
 	{}
 };
 

@@ -28,12 +28,12 @@ $FieldInfo _PreferenceChangeEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _PreferenceChangeEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/Preferences;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(PreferenceChangeEvent::*)($Preferences*,$String*,$String*)>(&PreferenceChangeEvent::init$))},
-	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNewValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNode", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(PreferenceChangeEvent::*)($ObjectInputStream*)>(&PreferenceChangeEvent::readObject)), "java.io.NotSerializableException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(PreferenceChangeEvent::*)($ObjectOutputStream*)>(&PreferenceChangeEvent::writeObject)), "java.io.NotSerializableException"},
+	{"<init>", "(Ljava/util/prefs/Preferences;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PreferenceChangeEvent, init$, void, $Preferences*, $String*, $String*)},
+	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreferenceChangeEvent, getKey, $String*)},
+	{"getNewValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PreferenceChangeEvent, getNewValue, $String*)},
+	{"getNode", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(PreferenceChangeEvent, getNode, $Preferences*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PreferenceChangeEvent, readObject, void, $ObjectInputStream*), "java.io.NotSerializableException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(PreferenceChangeEvent, writeObject, void, $ObjectOutputStream*), "java.io.NotSerializableException"},
 	{}
 };
 

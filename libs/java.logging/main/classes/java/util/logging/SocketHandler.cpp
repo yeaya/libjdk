@@ -44,11 +44,11 @@ $FieldInfo _SocketHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SocketHandler::*)()>(&SocketHandler::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(SocketHandler::*)($String*,int32_t)>(&SocketHandler::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.SecurityException"},
-	{"connect", "()V", nullptr, $PRIVATE, $method(static_cast<void(SocketHandler::*)()>(&SocketHandler::connect)), "java.io.IOException"},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketHandler, init$, void), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SocketHandler, init$, void, $String*, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SocketHandler, close, void), "java.lang.SecurityException"},
+	{"connect", "()V", nullptr, $PRIVATE, $method(SocketHandler, connect, void), "java.io.IOException"},
+	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SocketHandler, publish, void, $LogRecord*)},
 	{}
 };
 

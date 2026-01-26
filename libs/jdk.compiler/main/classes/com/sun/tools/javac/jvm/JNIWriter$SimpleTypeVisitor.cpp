@@ -48,21 +48,21 @@ $FieldInfo _JNIWriter$SimpleTypeVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _JNIWriter$SimpleTypeVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(JNIWriter$SimpleTypeVisitor::*)()>(&JNIWriter$SimpleTypeVisitor::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(JNIWriter$SimpleTypeVisitor::*)(Object$*)>(&JNIWriter$SimpleTypeVisitor::init$))},
-	{"defaultAction", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type;TP;)TR;", $PROTECTED},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ArrayType;TP;)TR;", $PUBLIC},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$CapturedType;TP;)TR;", $PUBLIC},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ClassType;TP;)TR;", $PUBLIC},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ErrorType;TP;)TR;", $PUBLIC},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ForAll;TP;)TR;", $PUBLIC},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$MethodType;TP;)TR;", $PUBLIC},
-	{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ModuleType;TP;)TR;", $PUBLIC},
-	{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$PackageType;TP;)TR;", $PUBLIC},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type;TP;)TR;", $PUBLIC},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$TypeVar;TP;)TR;", $PUBLIC},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$UndetVar;TP;)TR;", $PUBLIC},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$WildcardType;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(JNIWriter$SimpleTypeVisitor, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(JNIWriter$SimpleTypeVisitor, init$, void, Object$*)},
+	{"defaultAction", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type;TP;)TR;", $PROTECTED, $virtualMethod(JNIWriter$SimpleTypeVisitor, defaultAction, $Object*, $Type*, Object$*)},
+	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ArrayType;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$CapturedType;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ClassType;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ErrorType;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ForAll;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitForAll, $Object*, $Type$ForAll*, Object$*)},
+	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$MethodType;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+	{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ModuleType;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitModuleType, $Object*, $Type$ModuleType*, Object$*)},
+	{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$PackageType;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitPackageType, $Object*, $Type$PackageType*, Object$*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitType, $Object*, $Type*, Object$*)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$TypeVar;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$UndetVar;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$WildcardType;TP;)TR;", $PUBLIC, $virtualMethod(JNIWriter$SimpleTypeVisitor, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
 	{}
 };
 

@@ -32,13 +32,13 @@ $FieldInfo _JavadocExamples$LineParserSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocExamples$LineParserSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, 0, $method(static_cast<void(JavadocExamples$LineParserSubscriber::*)($Pattern*)>(&JavadocExamples$LineParserSubscriber::init$))},
-	{"getMatchingLines", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(static_cast<$List*(JavadocExamples$LineParserSubscriber::*)()>(&JavadocExamples$LineParserSubscriber::getMatchingLines))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocExamples$LineParserSubscriber::*)($String*)>(&JavadocExamples$LineParserSubscriber::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, 0, $method(JavadocExamples$LineParserSubscriber, init$, void, $Pattern*)},
+	{"getMatchingLines", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(JavadocExamples$LineParserSubscriber, getMatchingLines, $List*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$LineParserSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$LineParserSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavadocExamples$LineParserSubscriber, onNext, void, $String*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocExamples$LineParserSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(JavadocExamples$LineParserSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

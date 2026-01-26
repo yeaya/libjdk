@@ -63,13 +63,13 @@ $FieldInfo _Lower$FreeVarCollector_FieldInfo_[] = {
 };
 
 $MethodInfo _Lower$FreeVarCollector_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $method(static_cast<void(Lower$FreeVarCollector::*)($Lower*,$Symbol$ClassSymbol*)>(&Lower$FreeVarCollector::init$))},
-	{"addFreeVar", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Lower$FreeVarCollector::*)($Symbol$VarSymbol*)>(&Lower$FreeVarCollector::addFreeVar))},
-	{"addFreeVars", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $method(Lower$FreeVarCollector, init$, void, $Lower*, $Symbol$ClassSymbol*)},
+	{"addFreeVar", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, $PRIVATE, $method(Lower$FreeVarCollector, addFreeVar, void, $Symbol$VarSymbol*)},
+	{"addFreeVars", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(Lower$FreeVarCollector, addFreeVars, void, $Symbol$ClassSymbol*)},
+	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Lower$FreeVarCollector, visitApply, void, $JCTree$JCMethodInvocation*)},
+	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Lower$FreeVarCollector, visitNewClass, void, $JCTree$JCNewClass*)},
+	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Lower$FreeVarCollector, visitSelect, void, $JCTree$JCFieldAccess*)},
+	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Lower$FreeVarCollector, visitSymbol, void, $Symbol*)},
 	{}
 };
 

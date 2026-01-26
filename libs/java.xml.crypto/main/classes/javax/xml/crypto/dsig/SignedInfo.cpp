@@ -6,8 +6,12 @@
 #include <javax/xml/crypto/dsig/SignatureMethod.h>
 #include <jcpp.h>
 
+using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $CanonicalizationMethod = ::javax::xml::crypto::dsig::CanonicalizationMethod;
+using $SignatureMethod = ::javax::xml::crypto::dsig::SignatureMethod;
 
 namespace javax {
 	namespace xml {
@@ -15,11 +19,11 @@ namespace javax {
 			namespace dsig {
 
 $MethodInfo _SignedInfo_MethodInfo_[] = {
-	{"getCanonicalizationMethod", "()Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCanonicalizedData", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getReferences", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PUBLIC | $ABSTRACT},
-	{"getSignatureMethod", "()Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCanonicalizationMethod", "()Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SignedInfo, getCanonicalizationMethod, $CanonicalizationMethod*)},
+	{"getCanonicalizedData", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SignedInfo, getCanonicalizedData, $InputStream*)},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SignedInfo, getId, $String*)},
+	{"getReferences", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SignedInfo, getReferences, $List*)},
+	{"getSignatureMethod", "()Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SignedInfo, getSignatureMethod, $SignatureMethod*)},
 	{}
 };
 

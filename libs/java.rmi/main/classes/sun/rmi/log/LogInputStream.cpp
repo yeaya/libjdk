@@ -24,14 +24,14 @@ $FieldInfo _LogInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _LogInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(LogInputStream::*)($InputStream*,int32_t)>(&LogInputStream::init$)), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"finalize", "()V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(LogInputStream, init$, void, $InputStream*, int32_t), "java.io.IOException"},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LogInputStream, close, void)},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(LogInputStream, finalize, void), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(LogInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(LogInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

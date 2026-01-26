@@ -59,22 +59,22 @@ $CompoundAttribute _TypeKindVisitor6_MethodAnnotations_init$1[] = {
 };
 
 $MethodInfo _TypeKindVisitor6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(TypeKindVisitor6::*)()>(&TypeKindVisitor6::init$)), nullptr, nullptr, _TypeKindVisitor6_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(static_cast<void(TypeKindVisitor6::*)(Object$*)>(&TypeKindVisitor6::init$)), nullptr, nullptr, _TypeKindVisitor6_MethodAnnotations_init$1},
-	{"visitNoType", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC},
-	{"visitNoTypeAsModule", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC},
-	{"visitNoTypeAsNone", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC},
-	{"visitNoTypeAsPackage", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC},
-	{"visitNoTypeAsVoid", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC},
-	{"visitPrimitive", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC},
-	{"visitPrimitiveAsBoolean", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC},
-	{"visitPrimitiveAsByte", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC},
-	{"visitPrimitiveAsChar", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC},
-	{"visitPrimitiveAsDouble", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC},
-	{"visitPrimitiveAsFloat", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC},
-	{"visitPrimitiveAsInt", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC},
-	{"visitPrimitiveAsLong", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC},
-	{"visitPrimitiveAsShort", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(TypeKindVisitor6, init$, void), nullptr, nullptr, _TypeKindVisitor6_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(TypeKindVisitor6, init$, void, Object$*), nullptr, nullptr, _TypeKindVisitor6_MethodAnnotations_init$1},
+	{"visitNoType", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitNoType, $Object*, $NoType*, Object$*)},
+	{"visitNoTypeAsModule", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitNoTypeAsModule, $Object*, $NoType*, Object$*)},
+	{"visitNoTypeAsNone", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitNoTypeAsNone, $Object*, $NoType*, Object$*)},
+	{"visitNoTypeAsPackage", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitNoTypeAsPackage, $Object*, $NoType*, Object$*)},
+	{"visitNoTypeAsVoid", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitNoTypeAsVoid, $Object*, $NoType*, Object$*)},
+	{"visitPrimitive", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitPrimitive, $Object*, $PrimitiveType*, Object$*)},
+	{"visitPrimitiveAsBoolean", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitPrimitiveAsBoolean, $Object*, $PrimitiveType*, Object$*)},
+	{"visitPrimitiveAsByte", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitPrimitiveAsByte, $Object*, $PrimitiveType*, Object$*)},
+	{"visitPrimitiveAsChar", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitPrimitiveAsChar, $Object*, $PrimitiveType*, Object$*)},
+	{"visitPrimitiveAsDouble", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitPrimitiveAsDouble, $Object*, $PrimitiveType*, Object$*)},
+	{"visitPrimitiveAsFloat", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitPrimitiveAsFloat, $Object*, $PrimitiveType*, Object$*)},
+	{"visitPrimitiveAsInt", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitPrimitiveAsInt, $Object*, $PrimitiveType*, Object$*)},
+	{"visitPrimitiveAsLong", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitPrimitiveAsLong, $Object*, $PrimitiveType*, Object$*)},
+	{"visitPrimitiveAsShort", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor6, visitPrimitiveAsShort, $Object*, $PrimitiveType*, Object$*)},
 	{}
 };
 

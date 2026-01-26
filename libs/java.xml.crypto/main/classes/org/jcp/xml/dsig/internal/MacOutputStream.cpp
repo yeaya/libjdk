@@ -22,9 +22,9 @@ $FieldInfo _MacOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _MacOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/Mac;)V", nullptr, $PUBLIC, $method(static_cast<void(MacOutputStream::*)($Mac*)>(&MacOutputStream::init$))},
-	{"write", "(I)V", nullptr, $PUBLIC},
-	{"write", "([BII)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/crypto/Mac;)V", nullptr, $PUBLIC, $method(MacOutputStream, init$, void, $Mac*)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(MacOutputStream, write, void, int32_t)},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(MacOutputStream, write, void, $bytes*, int32_t, int32_t)},
 	{}
 };
 

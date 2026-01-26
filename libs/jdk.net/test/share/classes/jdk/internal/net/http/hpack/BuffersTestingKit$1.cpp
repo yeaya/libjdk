@@ -31,9 +31,9 @@ $FieldInfo _BuffersTestingKit$1_FieldInfo_[] = {
 };
 
 $MethodInfo _BuffersTestingKit$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", "()V", 0, $method(static_cast<void(BuffersTestingKit$1::*)($Iterable*)>(&BuffersTestingKit$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Iterable;)V", "()V", 0, $method(BuffersTestingKit$1, init$, void, $Iterable*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$1, hasNext, bool)},
+	{"next", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$1, next, $Object*)},
 	{}
 };
 

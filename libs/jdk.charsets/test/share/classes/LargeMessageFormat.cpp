@@ -31,10 +31,10 @@ $FieldInfo _LargeMessageFormat_FieldInfo_[] = {
 };
 
 $MethodInfo _LargeMessageFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LargeMessageFormat::*)()>(&LargeMessageFormat::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LargeMessageFormat::main)), "java.text.ParseException"},
-	{"testFormat", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&LargeMessageFormat::testFormat))},
-	{"testParse", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&LargeMessageFormat::testParse)), "java.text.ParseException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LargeMessageFormat, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LargeMessageFormat, main, void, $StringArray*), "java.text.ParseException"},
+	{"testFormat", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LargeMessageFormat, testFormat, void)},
+	{"testParse", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(LargeMessageFormat, testParse, void), "java.text.ParseException"},
 	{}
 };
 

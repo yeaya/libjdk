@@ -53,8 +53,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FilteredMemberList$$Lambda$lambda$iterator$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FilteredMemberList$$Lambda$lambda$iterator$0::*)()>(&FilteredMemberList$$Lambda$lambda$iterator$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FilteredMemberList$$Lambda$lambda$iterator$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FilteredMemberList$$Lambda$lambda$iterator$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo FilteredMemberList$$Lambda$lambda$iterator$0::classInfo$ = {
@@ -77,12 +77,12 @@ $FieldInfo _FilteredMemberList_FieldInfo_[] = {
 };
 
 $MethodInfo _FilteredMemberList_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC, $method(static_cast<void(FilteredMemberList::*)($Scope*)>(&FilteredMemberList::init$))},
-	{"get", "(I)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC},
-	{"lambda$iterator$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*)>(&FilteredMemberList::lambda$iterator$0))},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"unwanted", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Symbol*)>(&FilteredMemberList::unwanted))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, $PUBLIC, $method(FilteredMemberList, init$, void, $Scope*)},
+	{"get", "(I)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(FilteredMemberList, get, $Object*, int32_t)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(FilteredMemberList, iterator, $Iterator*)},
+	{"lambda$iterator$0", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FilteredMemberList, lambda$iterator$0, bool, $Symbol*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(FilteredMemberList, size, int32_t)},
+	{"unwanted", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(FilteredMemberList, unwanted, bool, $Symbol*)},
 	{}
 };
 

@@ -20,8 +20,8 @@ $FieldInfo _Config$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Config$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/Config;)V", nullptr, 0, $method(static_cast<void(Config$2::*)($Config*)>(&Config$2::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/krb5/Config;)V", nullptr, 0, $method(Config$2, init$, void, $Config*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Config$2, run, $Object*)},
 	{}
 };
 

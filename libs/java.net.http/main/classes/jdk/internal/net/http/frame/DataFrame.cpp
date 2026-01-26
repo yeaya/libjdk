@@ -37,17 +37,17 @@ $FieldInfo _DataFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _DataFrame_MethodInfo_[] = {
-	{"<init>", "(IILjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(DataFrame::*)(int32_t,int32_t,$ByteBuffer*)>(&DataFrame::init$))},
-	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(DataFrame::*)(int32_t,int32_t,$List*)>(&DataFrame::init$))},
-	{"<init>", "(IILjava/util/List;I)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;I)V", $PUBLIC, $method(static_cast<void(DataFrame::*)(int32_t,int32_t,$List*,int32_t)>(&DataFrame::init$))},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getData", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC},
-	{"getDataLength", "()I", nullptr, $PUBLIC},
-	{"getPadLength", "()I", nullptr, 0},
-	{"length", "()I", nullptr, 0},
-	{"payloadLength", "()I", nullptr, $PUBLIC},
-	{"setPadLength", "(I)V", nullptr, $PUBLIC},
-	{"type", "()I", nullptr, $PUBLIC},
+	{"<init>", "(IILjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(DataFrame, init$, void, int32_t, int32_t, $ByteBuffer*)},
+	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(DataFrame, init$, void, int32_t, int32_t, $List*)},
+	{"<init>", "(IILjava/util/List;I)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;I)V", $PUBLIC, $method(DataFrame, init$, void, int32_t, int32_t, $List*, int32_t)},
+	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFrame, flagAsString, $String*, int32_t)},
+	{"getData", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(DataFrame, getData, $List*)},
+	{"getDataLength", "()I", nullptr, $PUBLIC, $virtualMethod(DataFrame, getDataLength, int32_t)},
+	{"getPadLength", "()I", nullptr, 0, $virtualMethod(DataFrame, getPadLength, int32_t)},
+	{"length", "()I", nullptr, 0, $virtualMethod(DataFrame, length, int32_t)},
+	{"payloadLength", "()I", nullptr, $PUBLIC, $virtualMethod(DataFrame, payloadLength, int32_t)},
+	{"setPadLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(DataFrame, setPadLength, void, int32_t)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(DataFrame, type, int32_t)},
 	{}
 };
 

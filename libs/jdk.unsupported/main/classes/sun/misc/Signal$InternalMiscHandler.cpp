@@ -30,9 +30,9 @@ $FieldInfo _Signal$InternalMiscHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Signal$InternalMiscHandler_MethodInfo_[] = {
-	{"<init>", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)V", nullptr, $PRIVATE, $method(static_cast<void(Signal$InternalMiscHandler::*)($Signal*,$SignalHandler*)>(&Signal$InternalMiscHandler::init$))},
-	{"handle", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC},
-	{"of", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)Ljdk/internal/misc/Signal$Handler;", nullptr, $STATIC, $method(static_cast<$Signal$Handler*(*)($Signal*,$SignalHandler*)>(&Signal$InternalMiscHandler::of))},
+	{"<init>", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)V", nullptr, $PRIVATE, $method(Signal$InternalMiscHandler, init$, void, $Signal*, $SignalHandler*)},
+	{"handle", "(Ljdk/internal/misc/Signal;)V", nullptr, $PUBLIC, $virtualMethod(Signal$InternalMiscHandler, handle, void, $1Signal*)},
+	{"of", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)Ljdk/internal/misc/Signal$Handler;", nullptr, $STATIC, $staticMethod(Signal$InternalMiscHandler, of, $Signal$Handler*, $Signal*, $SignalHandler*)},
 	{}
 };
 

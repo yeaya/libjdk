@@ -4,8 +4,10 @@
 #include <org/w3c/dom/Document.h>
 #include <jcpp.h>
 
+using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Document = ::org::w3c::dom::Document;
 
 namespace com {
 	namespace sun {
@@ -17,7 +19,7 @@ namespace com {
 							namespace parser {
 
 $MethodInfo _XMLParser_MethodInfo_[] = {
-	{"parse", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
+	{"parse", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLParser, parse, $Document*, $InputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
 	{}
 };
 

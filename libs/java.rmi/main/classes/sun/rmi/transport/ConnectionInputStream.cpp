@@ -76,13 +76,13 @@ $FieldInfo _ConnectionInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(ConnectionInputStream::*)($InputStream*)>(&ConnectionInputStream::init$)), "java.io.IOException"},
-	{"discardRefs", "()V", nullptr, 0},
-	{"done", "(Lsun/rmi/transport/Connection;)V", nullptr, 0},
-	{"readID", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"registerRefs", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"saveRef", "(Lsun/rmi/transport/LiveRef;)V", nullptr, 0},
-	{"setAckNeeded", "()V", nullptr, 0},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(ConnectionInputStream, init$, void, $InputStream*), "java.io.IOException"},
+	{"discardRefs", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, discardRefs, void)},
+	{"done", "(Lsun/rmi/transport/Connection;)V", nullptr, 0, $virtualMethod(ConnectionInputStream, done, void, $Connection*)},
+	{"readID", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, readID, void), "java.io.IOException"},
+	{"registerRefs", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, registerRefs, void), "java.io.IOException"},
+	{"saveRef", "(Lsun/rmi/transport/LiveRef;)V", nullptr, 0, $virtualMethod(ConnectionInputStream, saveRef, void, $LiveRef*)},
+	{"setAckNeeded", "()V", nullptr, 0, $virtualMethod(ConnectionInputStream, setAckNeeded, void)},
 	{}
 };
 

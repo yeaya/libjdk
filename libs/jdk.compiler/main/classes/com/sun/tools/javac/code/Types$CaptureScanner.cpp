@@ -78,8 +78,8 @@ $FieldInfo Types$CaptureScanner$$Lambda$lambda$visitClassType$0::fieldInfos[3] =
 	{}
 };
 $MethodInfo Types$CaptureScanner$$Lambda$lambda$visitClassType$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$CaptureScanner;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(Types$CaptureScanner$$Lambda$lambda$visitClassType$0::*)(Types$CaptureScanner*,$Set*)>(&Types$CaptureScanner$$Lambda$lambda$visitClassType$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$CaptureScanner;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Types$CaptureScanner$$Lambda$lambda$visitClassType$0, init$, void, Types$CaptureScanner*, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Types$CaptureScanner$$Lambda$lambda$visitClassType$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Types$CaptureScanner$$Lambda$lambda$visitClassType$0::classInfo$ = {
@@ -102,20 +102,20 @@ $FieldInfo _Types$CaptureScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$CaptureScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(static_cast<void(Types$CaptureScanner::*)($Types*)>(&Types$CaptureScanner::init$))},
-	{"lambda$visitClassType$0", "(Ljava/util/Set;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Types$CaptureScanner::*)($Set*,$Type*)>(&Types$CaptureScanner::lambda$visitClassType$0))},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$CaptureScanner, init$, void, $Types*)},
+	{"lambda$visitClassType$0", "(Ljava/util/Set;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$CaptureScanner, lambda$visitClassType$0, void, $Set*, $Type*)},
+	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Types$CaptureScanner, visitArrayType, $Void*, $Type$ArrayType*, $Set*)},
+	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$CaptureScanner, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Types$CaptureScanner, visitCapturedType, $Void*, $Type$CapturedType*, $Set*)},
+	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$CaptureScanner, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Types$CaptureScanner, visitClassType, $Void*, $Type$ClassType*, $Set*)},
+	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$CaptureScanner, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Types$CaptureScanner, visitType, $Void*, $Type*, $Set*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$CaptureScanner, visitType, $Object*, $Type*, Object$*)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Types$CaptureScanner, visitTypeVar, $Void*, $Type$TypeVar*, $Set*)},
+	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$CaptureScanner, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/util/Set;)Ljava/lang/Void;", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)Ljava/lang/Void;", $PUBLIC, $virtualMethod(Types$CaptureScanner, visitWildcardType, $Void*, $Type$WildcardType*, $Set*)},
+	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$CaptureScanner, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
 	{}
 };
 

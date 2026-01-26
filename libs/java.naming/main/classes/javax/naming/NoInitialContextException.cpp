@@ -17,8 +17,8 @@ $FieldInfo _NoInitialContextException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoInitialContextException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoInitialContextException::*)()>(&NoInitialContextException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoInitialContextException::*)($String*)>(&NoInitialContextException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoInitialContextException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoInitialContextException, init$, void, $String*)},
 	{}
 };
 

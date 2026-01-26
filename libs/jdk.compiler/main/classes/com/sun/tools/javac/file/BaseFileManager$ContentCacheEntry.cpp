@@ -27,9 +27,9 @@ $FieldInfo _BaseFileManager$ContentCacheEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _BaseFileManager$ContentCacheEntry_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileObject;Ljava/nio/CharBuffer;)V", nullptr, 0, $method(static_cast<void(BaseFileManager$ContentCacheEntry::*)($JavaFileObject*,$CharBuffer*)>(&BaseFileManager$ContentCacheEntry::init$))},
-	{"getValue", "()Ljava/nio/CharBuffer;", nullptr, 0},
-	{"isValid", "(Ljavax/tools/JavaFileObject;)Z", nullptr, 0},
+	{"<init>", "(Ljavax/tools/JavaFileObject;Ljava/nio/CharBuffer;)V", nullptr, 0, $method(BaseFileManager$ContentCacheEntry, init$, void, $JavaFileObject*, $CharBuffer*)},
+	{"getValue", "()Ljava/nio/CharBuffer;", nullptr, 0, $virtualMethod(BaseFileManager$ContentCacheEntry, getValue, $CharBuffer*)},
+	{"isValid", "(Ljavax/tools/JavaFileObject;)Z", nullptr, 0, $virtualMethod(BaseFileManager$ContentCacheEntry, isValid, bool, $JavaFileObject*)},
 	{}
 };
 

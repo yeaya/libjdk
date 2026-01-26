@@ -13,8 +13,8 @@ namespace com {
 			namespace util {
 
 $MethodInfo _TaskListener_MethodInfo_[] = {
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
-	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
+	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(TaskListener, finished, void, $TaskEvent*)},
+	{"started", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(TaskListener, started, void, $TaskEvent*)},
 	{}
 };
 

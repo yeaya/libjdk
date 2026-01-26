@@ -29,8 +29,8 @@ $FieldInfo _Krb5Context$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Krb5Context$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljavax/security/auth/Subject;Ljavax/security/auth/kerberos/KerberosTicket;)V", "()V", 0, $method(static_cast<void(Krb5Context$3::*)($Krb5Context*,$Subject*,$KerberosTicket*)>(&Krb5Context$3::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/jgss/krb5/Krb5Context;Ljavax/security/auth/Subject;Ljavax/security/auth/kerberos/KerberosTicket;)V", "()V", 0, $method(Krb5Context$3, init$, void, $Krb5Context*, $Subject*, $KerberosTicket*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Krb5Context$3, run, $Object*)},
 	{}
 };
 

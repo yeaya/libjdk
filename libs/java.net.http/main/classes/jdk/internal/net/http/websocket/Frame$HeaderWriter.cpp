@@ -28,16 +28,16 @@ $FieldInfo _Frame$HeaderWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _Frame$HeaderWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Frame$HeaderWriter::*)()>(&Frame$HeaderWriter::init$))},
-	{"fin", "(Z)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(bool)>(&Frame$HeaderWriter::fin))},
-	{"mask", "(I)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(int32_t)>(&Frame$HeaderWriter::mask))},
-	{"noMask", "()Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)()>(&Frame$HeaderWriter::noMask))},
-	{"opcode", "(Ljdk/internal/net/http/websocket/Frame$Opcode;)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)($Frame$Opcode*)>(&Frame$HeaderWriter::opcode))},
-	{"payloadLen", "(J)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(int64_t)>(&Frame$HeaderWriter::payloadLen))},
-	{"rsv1", "(Z)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(bool)>(&Frame$HeaderWriter::rsv1))},
-	{"rsv2", "(Z)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(bool)>(&Frame$HeaderWriter::rsv2))},
-	{"rsv3", "(Z)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(static_cast<Frame$HeaderWriter*(Frame$HeaderWriter::*)(bool)>(&Frame$HeaderWriter::rsv3))},
-	{"write", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(Frame$HeaderWriter::*)($ByteBuffer*)>(&Frame$HeaderWriter::write))},
+	{"<init>", "()V", nullptr, 0, $method(Frame$HeaderWriter, init$, void)},
+	{"fin", "(Z)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, fin, Frame$HeaderWriter*, bool)},
+	{"mask", "(I)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, mask, Frame$HeaderWriter*, int32_t)},
+	{"noMask", "()Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, noMask, Frame$HeaderWriter*)},
+	{"opcode", "(Ljdk/internal/net/http/websocket/Frame$Opcode;)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, opcode, Frame$HeaderWriter*, $Frame$Opcode*)},
+	{"payloadLen", "(J)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, payloadLen, Frame$HeaderWriter*, int64_t)},
+	{"rsv1", "(Z)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, rsv1, Frame$HeaderWriter*, bool)},
+	{"rsv2", "(Z)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, rsv2, Frame$HeaderWriter*, bool)},
+	{"rsv3", "(Z)Ljdk/internal/net/http/websocket/Frame$HeaderWriter;", nullptr, 0, $method(Frame$HeaderWriter, rsv3, Frame$HeaderWriter*, bool)},
+	{"write", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Frame$HeaderWriter, write, void, $ByteBuffer*)},
 	{}
 };
 

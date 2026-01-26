@@ -8,13 +8,17 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Hashtable = ::java::util::Hashtable;
+using $Context = ::javax::naming::Context;
+using $Name = ::javax::naming::Name;
+using $Attributes = ::javax::naming::directory::Attributes;
 
 namespace javax {
 	namespace naming {
 		namespace spi {
 
 $MethodInfo _DirObjectFactory_MethodInfo_[] = {
-	{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
+	{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", $PUBLIC | $ABSTRACT, $virtualMethod(DirObjectFactory, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "java.lang.Exception"},
 	{}
 };
 

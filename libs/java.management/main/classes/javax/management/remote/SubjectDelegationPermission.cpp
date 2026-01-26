@@ -19,8 +19,8 @@ $FieldInfo _SubjectDelegationPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _SubjectDelegationPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SubjectDelegationPermission::*)($String*)>(&SubjectDelegationPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SubjectDelegationPermission::*)($String*,$String*)>(&SubjectDelegationPermission::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SubjectDelegationPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SubjectDelegationPermission, init$, void, $String*, $String*)},
 	{}
 };
 

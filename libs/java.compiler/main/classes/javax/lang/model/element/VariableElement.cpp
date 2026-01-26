@@ -12,7 +12,7 @@ namespace javax {
 
 $MethodInfo _VariableElement_MethodInfo_[] = {
 	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getConstantValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getConstantValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VariableElement, getConstantValue, $Object*)},
 	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

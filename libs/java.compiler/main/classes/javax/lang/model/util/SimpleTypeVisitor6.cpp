@@ -75,18 +75,18 @@ $FieldInfo _SimpleTypeVisitor6_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleTypeVisitor6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(SimpleTypeVisitor6::*)()>(&SimpleTypeVisitor6::init$)), nullptr, nullptr, _SimpleTypeVisitor6_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(static_cast<void(SimpleTypeVisitor6::*)(Object$*)>(&SimpleTypeVisitor6::init$)), nullptr, nullptr, _SimpleTypeVisitor6_MethodAnnotations_init$1},
-	{"defaultAction", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeMirror;TP;)TR;", $PROTECTED},
-	{"visitArray", "(Ljavax/lang/model/type/ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/ArrayType;TP;)TR;", $PUBLIC},
-	{"visitDeclared", "(Ljavax/lang/model/type/DeclaredType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/DeclaredType;TP;)TR;", $PUBLIC},
-	{"visitError", "(Ljavax/lang/model/type/ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/ErrorType;TP;)TR;", $PUBLIC},
-	{"visitExecutable", "(Ljavax/lang/model/type/ExecutableType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/ExecutableType;TP;)TR;", $PUBLIC},
-	{"visitNoType", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC},
-	{"visitNull", "(Ljavax/lang/model/type/NullType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NullType;TP;)TR;", $PUBLIC},
-	{"visitPrimitive", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC},
-	{"visitTypeVariable", "(Ljavax/lang/model/type/TypeVariable;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeVariable;TP;)TR;", $PUBLIC},
-	{"visitWildcard", "(Ljavax/lang/model/type/WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/WildcardType;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(SimpleTypeVisitor6, init$, void), nullptr, nullptr, _SimpleTypeVisitor6_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(SimpleTypeVisitor6, init$, void, Object$*), nullptr, nullptr, _SimpleTypeVisitor6_MethodAnnotations_init$1},
+	{"defaultAction", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeMirror;TP;)TR;", $PROTECTED, $virtualMethod(SimpleTypeVisitor6, defaultAction, $Object*, $TypeMirror*, Object$*)},
+	{"visitArray", "(Ljavax/lang/model/type/ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/ArrayType;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTypeVisitor6, visitArray, $Object*, $ArrayType*, Object$*)},
+	{"visitDeclared", "(Ljavax/lang/model/type/DeclaredType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/DeclaredType;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTypeVisitor6, visitDeclared, $Object*, $DeclaredType*, Object$*)},
+	{"visitError", "(Ljavax/lang/model/type/ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/ErrorType;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTypeVisitor6, visitError, $Object*, $ErrorType*, Object$*)},
+	{"visitExecutable", "(Ljavax/lang/model/type/ExecutableType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/ExecutableType;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTypeVisitor6, visitExecutable, $Object*, $ExecutableType*, Object$*)},
+	{"visitNoType", "(Ljavax/lang/model/type/NoType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NoType;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTypeVisitor6, visitNoType, $Object*, $NoType*, Object$*)},
+	{"visitNull", "(Ljavax/lang/model/type/NullType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/NullType;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTypeVisitor6, visitNull, $Object*, $NullType*, Object$*)},
+	{"visitPrimitive", "(Ljavax/lang/model/type/PrimitiveType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/PrimitiveType;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTypeVisitor6, visitPrimitive, $Object*, $PrimitiveType*, Object$*)},
+	{"visitTypeVariable", "(Ljavax/lang/model/type/TypeVariable;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/TypeVariable;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTypeVisitor6, visitTypeVariable, $Object*, $TypeVariable*, Object$*)},
+	{"visitWildcard", "(Ljavax/lang/model/type/WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/WildcardType;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTypeVisitor6, visitWildcard, $Object*, $WildcardType*, Object$*)},
 	{}
 };
 

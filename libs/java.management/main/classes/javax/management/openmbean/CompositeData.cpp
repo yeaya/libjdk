@@ -6,21 +6,23 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Collection = ::java::util::Collection;
+using $CompositeType = ::javax::management::openmbean::CompositeType;
 
 namespace javax {
 	namespace management {
 		namespace openmbean {
 
 $MethodInfo _CompositeData_MethodInfo_[] = {
-	{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompositeData, containsKey, bool, $String*)},
+	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompositeData, containsValue, bool, Object$*)},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAll", "([Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $PUBLIC | $ABSTRACT},
+	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompositeData, get, $Object*, $String*)},
+	{"getAll", "([Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompositeData, getAll, $ObjectArray*, $StringArray*)},
+	{"getCompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompositeData, getCompositeType, $CompositeType*)},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC | $ABSTRACT},
+	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(CompositeData, values, $Collection*)},
 	{}
 };
 

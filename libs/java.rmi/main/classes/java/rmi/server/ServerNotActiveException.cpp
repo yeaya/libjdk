@@ -17,8 +17,8 @@ $FieldInfo _ServerNotActiveException_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerNotActiveException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ServerNotActiveException::*)()>(&ServerNotActiveException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ServerNotActiveException::*)($String*)>(&ServerNotActiveException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ServerNotActiveException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServerNotActiveException, init$, void, $String*)},
 	{}
 };
 

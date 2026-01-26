@@ -15,8 +15,8 @@ namespace sun {
 		namespace krb5 {
 
 $MethodInfo _KdcComm$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KdcComm$1::*)()>(&KdcComm$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(KdcComm$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KdcComm$1, run, $Object*)},
 	{}
 };
 

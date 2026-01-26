@@ -24,7 +24,7 @@ $FieldInfo _MacDingbat$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MacDingbat$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacDingbat$Holder::*)()>(&MacDingbat$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacDingbat$Holder, init$, void)},
 	{}
 };
 

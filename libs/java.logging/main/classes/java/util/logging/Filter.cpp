@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $LogRecord = ::java::util::logging::LogRecord;
 
 namespace java {
 	namespace util {
@@ -17,7 +18,7 @@ $CompoundAttribute _Filter_Annotations_[] = {
 };
 
 $MethodInfo _Filter_MethodInfo_[] = {
-	{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Filter, isLoggable, bool, $LogRecord*)},
 	{}
 };
 

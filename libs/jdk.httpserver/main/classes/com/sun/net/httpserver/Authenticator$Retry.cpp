@@ -21,8 +21,8 @@ $FieldInfo _Authenticator$Retry_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator$Retry_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Authenticator$Retry::*)(int32_t)>(&Authenticator$Retry::init$))},
-	{"getResponseCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Authenticator$Retry, init$, void, int32_t)},
+	{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(Authenticator$Retry, getResponseCode, int32_t)},
 	{}
 };
 

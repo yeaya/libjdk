@@ -37,13 +37,13 @@ $FieldInfo _DGCClient$EndpointEntry$RefEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCClient$EndpointEntry$RefEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry;Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(static_cast<void(DGCClient$EndpointEntry$RefEntry::*)($DGCClient$EndpointEntry*,$LiveRef*)>(&DGCClient$EndpointEntry$RefEntry::init$))},
-	{"addInstanceToRefSet", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC},
-	{"getRef", "()Lsun/rmi/transport/LiveRef;", nullptr, $PUBLIC},
-	{"hasDirtyFailed", "()Z", nullptr, $PUBLIC},
-	{"isRefSetEmpty", "()Z", nullptr, $PUBLIC},
-	{"markDirtyFailed", "()V", nullptr, $PUBLIC},
-	{"removeInstanceFromRefSet", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry$PhantomLiveRef;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry;Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(DGCClient$EndpointEntry$RefEntry, init$, void, $DGCClient$EndpointEntry*, $LiveRef*)},
+	{"addInstanceToRefSet", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RefEntry, addInstanceToRefSet, void, $LiveRef*)},
+	{"getRef", "()Lsun/rmi/transport/LiveRef;", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RefEntry, getRef, $LiveRef*)},
+	{"hasDirtyFailed", "()Z", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RefEntry, hasDirtyFailed, bool)},
+	{"isRefSetEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RefEntry, isRefSetEmpty, bool)},
+	{"markDirtyFailed", "()V", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RefEntry, markDirtyFailed, void)},
+	{"removeInstanceFromRefSet", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry$PhantomLiveRef;)V", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RefEntry, removeInstanceFromRefSet, void, $DGCClient$EndpointEntry$RefEntry$PhantomLiveRef*)},
 	{}
 };
 

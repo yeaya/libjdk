@@ -34,14 +34,14 @@ $MethodInfo _BetweenQueryExp_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BetweenQueryExp::*)()>(&BetweenQueryExp::init$))},
-	{"<init>", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(static_cast<void(BetweenQueryExp::*)($ValueExp*,$ValueExp*,$ValueExp*)>(&BetweenQueryExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getCheckedValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC},
-	{"getLowerBound", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC},
-	{"getUpperBound", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BetweenQueryExp, init$, void)},
+	{"<init>", "(Ljavax/management/ValueExp;Ljavax/management/ValueExp;Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(BetweenQueryExp, init$, void, $ValueExp*, $ValueExp*, $ValueExp*)},
+	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(BetweenQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"getCheckedValue", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BetweenQueryExp, getCheckedValue, $ValueExp*)},
+	{"getLowerBound", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BetweenQueryExp, getLowerBound, $ValueExp*)},
+	{"getUpperBound", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BetweenQueryExp, getUpperBound, $ValueExp*)},
 	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BetweenQueryExp, toString, $String*)},
 	{}
 };
 

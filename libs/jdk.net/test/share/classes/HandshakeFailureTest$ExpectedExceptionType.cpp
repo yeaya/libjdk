@@ -22,10 +22,10 @@ $FieldInfo _HandshakeFailureTest$ExpectedExceptionType_FieldInfo_[] = {
 };
 
 $MethodInfo _HandshakeFailureTest$ExpectedExceptionType_MethodInfo_[] = {
-	{"$values", "()[LHandshakeFailureTest$ExpectedExceptionType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$HandshakeFailureTest$ExpectedExceptionTypeArray*(*)()>(&HandshakeFailureTest$ExpectedExceptionType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(HandshakeFailureTest$ExpectedExceptionType::*)($String*,int32_t)>(&HandshakeFailureTest$ExpectedExceptionType::init$))},
-	{"valueOf", "(Ljava/lang/String;)LHandshakeFailureTest$ExpectedExceptionType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HandshakeFailureTest$ExpectedExceptionType*(*)($String*)>(&HandshakeFailureTest$ExpectedExceptionType::valueOf))},
-	{"values", "()[LHandshakeFailureTest$ExpectedExceptionType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HandshakeFailureTest$ExpectedExceptionTypeArray*(*)()>(&HandshakeFailureTest$ExpectedExceptionType::values))},
+	{"$values", "()[LHandshakeFailureTest$ExpectedExceptionType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HandshakeFailureTest$ExpectedExceptionType, $values, $HandshakeFailureTest$ExpectedExceptionTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HandshakeFailureTest$ExpectedExceptionType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)LHandshakeFailureTest$ExpectedExceptionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(HandshakeFailureTest$ExpectedExceptionType, valueOf, HandshakeFailureTest$ExpectedExceptionType*, $String*)},
+	{"values", "()[LHandshakeFailureTest$ExpectedExceptionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(HandshakeFailureTest$ExpectedExceptionType, values, $HandshakeFailureTest$ExpectedExceptionTypeArray*)},
 	{}
 };
 

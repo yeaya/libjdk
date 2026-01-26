@@ -26,14 +26,14 @@ $FieldInfo _Signal_FieldInfo_[] = {
 };
 
 $MethodInfo _Signal_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Signal::*)($String*)>(&Signal::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(Signal::*)()>(&Signal::getName))},
-	{"getNumber", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(Signal::*)()>(&Signal::getNumber))},
-	{"handle", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)Lsun/misc/SignalHandler;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$SignalHandler*(*)(Signal*,$SignalHandler*)>(&Signal::handle)), "java.lang.IllegalArgumentException"},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"raise", "(Lsun/misc/Signal;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(Signal*)>(&Signal::raise)), "java.lang.IllegalArgumentException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Signal, init$, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Signal, equals, bool, Object$*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Signal, getName, $String*)},
+	{"getNumber", "()I", nullptr, $PUBLIC, $method(Signal, getNumber, int32_t)},
+	{"handle", "(Lsun/misc/Signal;Lsun/misc/SignalHandler;)Lsun/misc/SignalHandler;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Signal, handle, $SignalHandler*, Signal*, $SignalHandler*), "java.lang.IllegalArgumentException"},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Signal, hashCode, int32_t)},
+	{"raise", "(Lsun/misc/Signal;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Signal, raise, void, Signal*), "java.lang.IllegalArgumentException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Signal, toString, $String*)},
 	{}
 };
 

@@ -40,10 +40,10 @@ $FieldInfo _JavacTrees$6_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTrees$6_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Lcom/sun/tools/javac/util/List;Ljavax/tools/JavaFileObject;)V", nullptr, 0, $method(static_cast<void(JavacTrees$6::*)($JavacTrees*,$List*,$JavaFileObject*)>(&JavacTrees$6::init$))},
-	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC},
-	{"getPos", "()I", nullptr, $PUBLIC},
-	{"getSourcefile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Lcom/sun/tools/javac/util/List;Ljavax/tools/JavaFileObject;)V", nullptr, 0, $method(JavacTrees$6, init$, void, $JavacTrees*, $List*, $JavaFileObject*)},
+	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$6, getLineMap, $LineMap*)},
+	{"getPos", "()I", nullptr, $PUBLIC, $virtualMethod(JavacTrees$6, getPos, int32_t)},
+	{"getSourcefile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$6, getSourcefile, $JavaFileObject*)},
 	{}
 };
 

@@ -32,7 +32,7 @@ $FieldInfo _ClassFinder$BadEnclosingMethodAttr_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassFinder$BadEnclosingMethodAttr_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$BadEnclosingMethodAttr::*)($Symbol$TypeSymbol*,$JavaFileObject*,$JCDiagnostic*,$JCDiagnostic$Factory*,$DeferredCompletionFailureHandler*)>(&ClassFinder$BadEnclosingMethodAttr::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", nullptr, $PUBLIC, $method(ClassFinder$BadEnclosingMethodAttr, init$, void, $Symbol$TypeSymbol*, $JavaFileObject*, $JCDiagnostic*, $JCDiagnostic$Factory*, $DeferredCompletionFailureHandler*)},
 	{}
 };
 

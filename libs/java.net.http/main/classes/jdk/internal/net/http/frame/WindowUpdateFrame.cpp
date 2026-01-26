@@ -23,11 +23,11 @@ $FieldInfo _WindowUpdateFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowUpdateFrame_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(WindowUpdateFrame::*)(int32_t,int32_t)>(&WindowUpdateFrame::init$))},
-	{"getUpdate", "()I", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()I", nullptr, $PUBLIC},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(WindowUpdateFrame, init$, void, int32_t, int32_t)},
+	{"getUpdate", "()I", nullptr, $PUBLIC, $virtualMethod(WindowUpdateFrame, getUpdate, int32_t)},
+	{"length", "()I", nullptr, 0, $virtualMethod(WindowUpdateFrame, length, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowUpdateFrame, toString, $String*)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(WindowUpdateFrame, type, int32_t)},
 	{}
 };
 

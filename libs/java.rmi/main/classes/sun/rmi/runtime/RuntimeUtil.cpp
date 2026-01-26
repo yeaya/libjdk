@@ -57,8 +57,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RuntimeUtil$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeUtil$$Lambda$lambda$static$0::*)()>(&RuntimeUtil$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeUtil$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuntimeUtil$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo RuntimeUtil$$Lambda$lambda$static$0::classInfo$ = {
@@ -85,10 +85,10 @@ $FieldInfo _RuntimeUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _RuntimeUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RuntimeUtil::*)()>(&RuntimeUtil::init$))},
-	{"getInstance", "()Lsun/rmi/runtime/RuntimeUtil;", nullptr, $PRIVATE | $STATIC, $method(static_cast<RuntimeUtil*(*)()>(&RuntimeUtil::getInstance))},
-	{"getScheduler", "()Ljava/util/concurrent/ScheduledThreadPoolExecutor;", nullptr, $PUBLIC, $method(static_cast<$ScheduledThreadPoolExecutor*(RuntimeUtil::*)()>(&RuntimeUtil::getScheduler))},
-	{"lambda$static$0", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)()>(&RuntimeUtil::lambda$static$0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RuntimeUtil, init$, void)},
+	{"getInstance", "()Lsun/rmi/runtime/RuntimeUtil;", nullptr, $PRIVATE | $STATIC, $staticMethod(RuntimeUtil, getInstance, RuntimeUtil*)},
+	{"getScheduler", "()Ljava/util/concurrent/ScheduledThreadPoolExecutor;", nullptr, $PUBLIC, $method(RuntimeUtil, getScheduler, $ScheduledThreadPoolExecutor*)},
+	{"lambda$static$0", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RuntimeUtil, lambda$static$0, $Integer*)},
 	{}
 };
 

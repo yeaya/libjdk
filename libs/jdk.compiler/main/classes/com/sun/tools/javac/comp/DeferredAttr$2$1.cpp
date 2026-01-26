@@ -39,9 +39,9 @@ $FieldInfo _DeferredAttr$2$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$2$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$2;Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$2$1::*)($DeferredAttr$2*,$MemberReferenceTree$ReferenceMode*,$Name*,$JCTree$JCExpression*,$List*,$JCTree$JCMemberReference*)>(&DeferredAttr$2$1::init$))},
-	{"getOverloadKind", "()Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC},
-	{"setOverloadKind", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$2;Lcom/sun/source/tree/MemberReferenceTree$ReferenceMode;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, 0, $method(DeferredAttr$2$1, init$, void, $DeferredAttr$2*, $MemberReferenceTree$ReferenceMode*, $Name*, $JCTree$JCExpression*, $List*, $JCTree$JCMemberReference*)},
+	{"getOverloadKind", "()Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$2$1, getOverloadKind, $JCTree$JCMemberReference$OverloadKind*)},
+	{"setOverloadKind", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$2$1, setOverloadKind, void, $JCTree$JCMemberReference$OverloadKind*)},
 	{}
 };
 

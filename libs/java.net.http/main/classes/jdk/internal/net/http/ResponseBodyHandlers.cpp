@@ -16,8 +16,8 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _ResponseBodyHandlers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ResponseBodyHandlers::*)()>(&ResponseBodyHandlers::init$))},
-	{"pathForSecurityCheck", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$String*(*)($Path*)>(&ResponseBodyHandlers::pathForSecurityCheck))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ResponseBodyHandlers, init$, void)},
+	{"pathForSecurityCheck", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ResponseBodyHandlers, pathForSecurityCheck, $String*, $Path*)},
 	{}
 };
 

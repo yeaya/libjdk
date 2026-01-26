@@ -20,9 +20,9 @@ $FieldInfo _ShortRequestBody$AbstractDelegateRequestBody_FieldInfo_[] = {
 };
 
 $MethodInfo _ShortRequestBody$AbstractDelegateRequestBody_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpRequest$BodyPublisher;J)V", nullptr, 0, $method(static_cast<void(ShortRequestBody$AbstractDelegateRequestBody::*)($HttpRequest$BodyPublisher*,int64_t)>(&ShortRequestBody$AbstractDelegateRequestBody::init$))},
-	{"contentLength", "()J", nullptr, $PUBLIC},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpRequest$BodyPublisher;J)V", nullptr, 0, $method(ShortRequestBody$AbstractDelegateRequestBody, init$, void, $HttpRequest$BodyPublisher*, int64_t)},
+	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$AbstractDelegateRequestBody, contentLength, int64_t)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ShortRequestBody$AbstractDelegateRequestBody, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

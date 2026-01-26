@@ -12,7 +12,7 @@ namespace java {
 		namespace http {
 
 $MethodInfo _HttpRequest$BodyPublisher_MethodInfo_[] = {
-	{"contentLength", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"contentLength", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpRequest$BodyPublisher, contentLength, int64_t)},
 	{}
 };
 

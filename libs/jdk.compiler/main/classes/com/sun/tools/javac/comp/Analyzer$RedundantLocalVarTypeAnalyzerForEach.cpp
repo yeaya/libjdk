@@ -44,13 +44,13 @@ $FieldInfo _Analyzer$RedundantLocalVarTypeAnalyzerForEach_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$RedundantLocalVarTypeAnalyzerForEach_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(static_cast<void(Analyzer$RedundantLocalVarTypeAnalyzerForEach::*)($Analyzer*)>(&Analyzer$RedundantLocalVarTypeAnalyzerForEach::init$))},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Z", nullptr, 0},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;Z)V", nullptr, 0},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;>;", 0},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$RedundantLocalVarTypeAnalyzerForEach, init$, void, $Analyzer*)},
+	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Z", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, match, bool, $JCTree$JCEnhancedForLoop*)},
+	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, match, bool, $JCTree*)},
+	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;Z)V", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, process, void, $JCTree$JCEnhancedForLoop*, $JCTree$JCEnhancedForLoop*, bool)},
+	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, process, void, $JCTree*, $JCTree*, bool)},
+	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;>;", 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, rewrite, $List*, $JCTree$JCEnhancedForLoop*)},
+	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerForEach, rewrite, $List*, $JCTree*)},
 	{}
 };
 

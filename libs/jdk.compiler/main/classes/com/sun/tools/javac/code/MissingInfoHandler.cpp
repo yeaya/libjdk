@@ -38,10 +38,10 @@ $FieldInfo _MissingInfoHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _MissingInfoHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(MissingInfoHandler::*)($Context*)>(&MissingInfoHandler::init$))},
-	{"getParameterName", "(Lcom/sun/tools/javac/code/Symbol$ParamSymbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/MissingInfoHandler;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MissingInfoHandler*(*)($Context*)>(&MissingInfoHandler::instance))},
-	{"setDelegate", "(Lcom/sun/source/util/ParameterNameProvider;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(MissingInfoHandler, init$, void, $Context*)},
+	{"getParameterName", "(Lcom/sun/tools/javac/code/Symbol$ParamSymbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(MissingInfoHandler, getParameterName, $Name*, $Symbol$ParamSymbol*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/MissingInfoHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(MissingInfoHandler, instance, MissingInfoHandler*, $Context*)},
+	{"setDelegate", "(Lcom/sun/source/util/ParameterNameProvider;)V", nullptr, $PUBLIC, $virtualMethod(MissingInfoHandler, setDelegate, void, $ParameterNameProvider*)},
 	{}
 };
 

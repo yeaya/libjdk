@@ -20,8 +20,8 @@ $FieldInfo _PropagatedException_FieldInfo_[] = {
 };
 
 $MethodInfo _PropagatedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/RuntimeException;)V", nullptr, $PUBLIC, $method(static_cast<void(PropagatedException::*)($RuntimeException*)>(&PropagatedException::init$))},
-	{"getCause", "()Ljava/lang/RuntimeException;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/RuntimeException;)V", nullptr, $PUBLIC, $method(PropagatedException, init$, void, $RuntimeException*)},
+	{"getCause", "()Ljava/lang/RuntimeException;", nullptr, $PUBLIC, $virtualMethod(PropagatedException, getCause, $RuntimeException*)},
 	{}
 };
 

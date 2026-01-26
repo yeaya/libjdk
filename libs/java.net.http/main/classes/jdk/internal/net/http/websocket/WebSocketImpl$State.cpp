@@ -42,10 +42,10 @@ $FieldInfo _WebSocketImpl$State_FieldInfo_[] = {
 };
 
 $MethodInfo _WebSocketImpl$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$WebSocketImpl$StateArray*(*)()>(&WebSocketImpl$State::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(WebSocketImpl$State::*)($String*,int32_t)>(&WebSocketImpl$State::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<WebSocketImpl$State*(*)($String*)>(&WebSocketImpl$State::valueOf))},
-	{"values", "()[Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$WebSocketImpl$StateArray*(*)()>(&WebSocketImpl$State::values))},
+	{"$values", "()[Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WebSocketImpl$State, $values, $WebSocketImpl$StateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(WebSocketImpl$State, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(WebSocketImpl$State, valueOf, WebSocketImpl$State*, $String*)},
+	{"values", "()[Ljdk/internal/net/http/websocket/WebSocketImpl$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(WebSocketImpl$State, values, $WebSocketImpl$StateArray*)},
 	{}
 };
 

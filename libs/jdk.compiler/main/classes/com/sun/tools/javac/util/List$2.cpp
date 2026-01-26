@@ -18,10 +18,10 @@ namespace com {
 				namespace util {
 
 $MethodInfo _List$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(List$2::*)()>(&List$2::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(List$2, init$, void)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(List$2, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List$2, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(List$2, remove, void)},
 	{}
 };
 

@@ -110,18 +110,18 @@ $FieldInfo _GSSUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _GSSUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GSSUtil::*)()>(&GSSUtil::init$))},
-	{"createOid", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Oid*(*)($String*)>(&GSSUtil::createOid))},
-	{"debug", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&GSSUtil::debug))},
-	{"getMechStr", "(Lorg/ietf/jgss/Oid;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Oid*)>(&GSSUtil::getMechStr))},
-	{"getSubject", "(Lorg/ietf/jgss/GSSName;Lorg/ietf/jgss/GSSCredential;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Subject*(*)($GSSName*,$GSSCredential*)>(&GSSUtil::getSubject))},
-	{"isKerberosMech", "(Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Oid*)>(&GSSUtil::isKerberosMech))},
-	{"isSpNegoMech", "(Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Oid*)>(&GSSUtil::isSpNegoMech))},
-	{"login", "(Lsun/security/jgss/GSSCaller;Lorg/ietf/jgss/Oid;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Subject*(*)($GSSCaller*,$Oid*)>(&GSSUtil::login)), "javax.security.auth.login.LoginException"},
-	{"populateCredentials", "(Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/Object;>;Ljava/util/Set<*>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($Set*,$Set*)>(&GSSUtil::populateCredentials))},
-	{"searchSubject", "(Lsun/security/jgss/spi/GSSNameSpi;Lorg/ietf/jgss/Oid;ZLjava/lang/Class;)Ljava/util/Vector;", "<T::Lsun/security/jgss/spi/GSSCredentialSpi;>(Lsun/security/jgss/spi/GSSNameSpi;Lorg/ietf/jgss/Oid;ZLjava/lang/Class<+TT;>;)Ljava/util/Vector<TT;>;", $PUBLIC | $STATIC, $method(static_cast<$Vector*(*)($GSSNameSpi*,$Oid*,bool,$Class*)>(&GSSUtil::searchSubject))},
-	{"useMSInterop", "()Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)()>(&GSSUtil::useMSInterop))},
-	{"useSubjectCredsOnly", "(Lsun/security/jgss/GSSCaller;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($GSSCaller*)>(&GSSUtil::useSubjectCredsOnly))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GSSUtil, init$, void)},
+	{"createOid", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, createOid, $Oid*, $String*)},
+	{"debug", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(GSSUtil, debug, void, $String*)},
+	{"getMechStr", "(Lorg/ietf/jgss/Oid;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, getMechStr, $String*, $Oid*)},
+	{"getSubject", "(Lorg/ietf/jgss/GSSName;Lorg/ietf/jgss/GSSCredential;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, getSubject, $Subject*, $GSSName*, $GSSCredential*)},
+	{"isKerberosMech", "(Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, isKerberosMech, bool, $Oid*)},
+	{"isSpNegoMech", "(Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, isSpNegoMech, bool, $Oid*)},
+	{"login", "(Lsun/security/jgss/GSSCaller;Lorg/ietf/jgss/Oid;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, login, $Subject*, $GSSCaller*, $Oid*), "javax.security.auth.login.LoginException"},
+	{"populateCredentials", "(Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/Object;>;Ljava/util/Set<*>;)V", $PRIVATE | $STATIC, $staticMethod(GSSUtil, populateCredentials, void, $Set*, $Set*)},
+	{"searchSubject", "(Lsun/security/jgss/spi/GSSNameSpi;Lorg/ietf/jgss/Oid;ZLjava/lang/Class;)Ljava/util/Vector;", "<T::Lsun/security/jgss/spi/GSSCredentialSpi;>(Lsun/security/jgss/spi/GSSNameSpi;Lorg/ietf/jgss/Oid;ZLjava/lang/Class<+TT;>;)Ljava/util/Vector<TT;>;", $PUBLIC | $STATIC, $staticMethod(GSSUtil, searchSubject, $Vector*, $GSSNameSpi*, $Oid*, bool, $Class*)},
+	{"useMSInterop", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, useMSInterop, bool)},
+	{"useSubjectCredsOnly", "(Lsun/security/jgss/GSSCaller;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, useSubjectCredsOnly, bool, $GSSCaller*)},
 	{}
 };
 

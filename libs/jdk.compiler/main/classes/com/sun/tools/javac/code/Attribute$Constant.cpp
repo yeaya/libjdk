@@ -39,11 +39,11 @@ $FieldInfo _Attribute$Constant_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute$Constant_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Attribute$Constant::*)($Type*,Object$*)>(&Attribute$Constant::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Attribute$Constant, init$, void, $Type*, Object$*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Constant, accept, void, $Attribute$Visitor*)},
+	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Constant, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Attribute$Constant, getValue, $Object*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Constant, toString, $String*)},
 	{}
 };
 

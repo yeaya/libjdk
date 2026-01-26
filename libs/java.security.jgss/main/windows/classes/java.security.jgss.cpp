@@ -572,31 +572,31 @@ const char* _java$security$jgss_packages_[] = {
 	"sun.security.krb5.internal.util"
 };
 
-void java$security$jgss$PreloadClass(void* eventData) {
-	::java::lang::PreloadClassEvent* event = (::java::lang::PreloadClassEvent*)eventData;
+void java$security$jgss$PreloadClass() {
 	int32_t length = $lengthOf(_java$security$jgss_classes_);
-	for (int i = 0; i < length; i++) {
+	for (int32_t i = 0; i < length; i++) {
 		::java::lang::ClassEntry* classEntry = &_java$security$jgss_classes_[i];
-		if (event->preinit) {
-			if ($hasFlag(classEntry->mark, $PREINIT)) {
-				classEntry->loader(nullptr, true);
-				continue;
-			}
+		if ($hasFlag(classEntry->mark, $PRELOAD) || $hasFlag(classEntry->mark, $PREINIT)) {
+			classEntry->loader(nullptr, false);
 		}
-		if (event->preload) {
-			if ($hasFlag(classEntry->mark, $PRELOAD) || $hasFlag(classEntry->mark, $PREINIT)) {
-				classEntry->loader(nullptr, false);
-			}
+	}
+}
+
+void java$security$jgss$PreinitClass() {
+	int32_t length = $lengthOf(_java$security$jgss_classes_);
+	for (int32_t i = 0; i < length; i++) {
+		::java::lang::ClassEntry* classEntry = &_java$security$jgss_classes_[i];
+		if ($hasFlag(classEntry->mark, $PREINIT)) {
+			classEntry->loader(nullptr, true);
 		}
 	}
 }
 
 void java$security$jgss$LibEventAction(int32_t eventType, void* eventData) {
 	if (eventType == JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS) {
-		java$security$jgss$PreloadClass(eventData);
-	}
-	if (eventType == JCPP_LIB_EVENT_TYPE_THREAD_START) {
-		$onLibThreadStart(eventData);
+		java$security$jgss$PreloadClass();
+	} else if (eventType == JCPP_LIB_EVENT_TYPE_PREINIT_CLASS) {
+		java$security$jgss$PreinitClass();
 	}
 }
 
@@ -645,3 +645,9 @@ void java$security$jgss::init() {
 	};
 	$System::addLibrary(&lib);
 }
+
+#ifdef JCPP_SHARED_BUILD
+extern "C" $export void JCPP_OnLoad() {
+	java$security$jgss::init();
+}
+#endif

@@ -62,14 +62,14 @@ $FieldInfo _ServiceCreds_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceCreds_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServiceCreds::*)()>(&ServiceCreds::init$))},
-	{"destroy", "()V", nullptr, $PUBLIC, $method(static_cast<void(ServiceCreds::*)()>(&ServiceCreds::destroy))},
-	{"getEKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $method(static_cast<$EncryptionKeyArray*(ServiceCreds::*)($PrincipalName*)>(&ServiceCreds::getEKeys))},
-	{"getInitCred", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $method(static_cast<$Credentials*(ServiceCreds::*)()>(&ServiceCreds::getInitCred))},
-	{"getInstance", "(Ljavax/security/auth/Subject;Ljava/lang/String;)Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ServiceCreds*(*)($Subject*,$String*)>(&ServiceCreds::getInstance))},
-	{"getKKeys", "()[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(static_cast<$KerberosKeyArray*(ServiceCreds::*)()>(&ServiceCreds::getKKeys))},
-	{"getKKeys", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(static_cast<$KerberosKeyArray*(ServiceCreds::*)($KerberosPrincipal*)>(&ServiceCreds::getKKeys))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(ServiceCreds::*)()>(&ServiceCreds::getName))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServiceCreds, init$, void)},
+	{"destroy", "()V", nullptr, $PUBLIC, $method(ServiceCreds, destroy, void)},
+	{"getEKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $method(ServiceCreds, getEKeys, $EncryptionKeyArray*, $PrincipalName*)},
+	{"getInitCred", "()Lsun/security/krb5/Credentials;", nullptr, $PUBLIC, $method(ServiceCreds, getInitCred, $Credentials*)},
+	{"getInstance", "(Ljavax/security/auth/Subject;Ljava/lang/String;)Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServiceCreds, getInstance, ServiceCreds*, $Subject*, $String*)},
+	{"getKKeys", "()[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(ServiceCreds, getKKeys, $KerberosKeyArray*)},
+	{"getKKeys", "(Ljavax/security/auth/kerberos/KerberosPrincipal;)[Ljavax/security/auth/kerberos/KerberosKey;", nullptr, $PUBLIC, $method(ServiceCreds, getKKeys, $KerberosKeyArray*, $KerberosPrincipal*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ServiceCreds, getName, $String*)},
 	{}
 };
 

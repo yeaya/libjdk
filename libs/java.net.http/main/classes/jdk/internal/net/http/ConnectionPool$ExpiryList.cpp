@@ -53,17 +53,17 @@ $FieldInfo _ConnectionPool$ExpiryList_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionPool$ExpiryList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ConnectionPool$ExpiryList::*)()>(&ConnectionPool$ExpiryList::init$))},
-	{"add", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(static_cast<void(ConnectionPool$ExpiryList::*)($HttpConnection*)>(&ConnectionPool$ExpiryList::add))},
-	{"add", "(Ljdk/internal/net/http/HttpConnection;Ljava/time/Instant;J)V", nullptr, 0, $method(static_cast<void(ConnectionPool$ExpiryList::*)($HttpConnection*,$Instant*,int64_t)>(&ConnectionPool$ExpiryList::add))},
-	{"clear", "()V", nullptr, 0, $method(static_cast<void(ConnectionPool$ExpiryList::*)()>(&ConnectionPool$ExpiryList::clear))},
-	{"nextExpiryDeadline", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Instant;>;", 0, $method(static_cast<$Optional*(ConnectionPool$ExpiryList::*)()>(&ConnectionPool$ExpiryList::nextExpiryDeadline))},
-	{"purgeMaybeRequired", "()Z", nullptr, 0, $method(static_cast<bool(ConnectionPool$ExpiryList::*)()>(&ConnectionPool$ExpiryList::purgeMaybeRequired))},
-	{"purgeUntil", "(Ljava/time/Instant;)Ljava/util/List;", "(Ljava/time/Instant;)Ljava/util/List<Ljdk/internal/net/http/HttpConnection;>;", 0, $method(static_cast<$List*(ConnectionPool$ExpiryList::*)($Instant*)>(&ConnectionPool$ExpiryList::purgeUntil))},
-	{"remove", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(static_cast<void(ConnectionPool$ExpiryList::*)($HttpConnection*)>(&ConnectionPool$ExpiryList::remove))},
-	{"removeOldest", "()Ljdk/internal/net/http/HttpConnection;", nullptr, 0, $method(static_cast<$HttpConnection*(ConnectionPool$ExpiryList::*)()>(&ConnectionPool$ExpiryList::removeOldest))},
-	{"size", "()I", nullptr, 0, $method(static_cast<int32_t(ConnectionPool$ExpiryList::*)()>(&ConnectionPool$ExpiryList::size))},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljdk/internal/net/http/ConnectionPool$ExpiryEntry;>;", 0, $method(static_cast<$Stream*(ConnectionPool$ExpiryList::*)()>(&ConnectionPool$ExpiryList::stream))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ConnectionPool$ExpiryList, init$, void)},
+	{"add", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(ConnectionPool$ExpiryList, add, void, $HttpConnection*)},
+	{"add", "(Ljdk/internal/net/http/HttpConnection;Ljava/time/Instant;J)V", nullptr, 0, $method(ConnectionPool$ExpiryList, add, void, $HttpConnection*, $Instant*, int64_t)},
+	{"clear", "()V", nullptr, 0, $method(ConnectionPool$ExpiryList, clear, void)},
+	{"nextExpiryDeadline", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Instant;>;", 0, $method(ConnectionPool$ExpiryList, nextExpiryDeadline, $Optional*)},
+	{"purgeMaybeRequired", "()Z", nullptr, 0, $method(ConnectionPool$ExpiryList, purgeMaybeRequired, bool)},
+	{"purgeUntil", "(Ljava/time/Instant;)Ljava/util/List;", "(Ljava/time/Instant;)Ljava/util/List<Ljdk/internal/net/http/HttpConnection;>;", 0, $method(ConnectionPool$ExpiryList, purgeUntil, $List*, $Instant*)},
+	{"remove", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(ConnectionPool$ExpiryList, remove, void, $HttpConnection*)},
+	{"removeOldest", "()Ljdk/internal/net/http/HttpConnection;", nullptr, 0, $method(ConnectionPool$ExpiryList, removeOldest, $HttpConnection*)},
+	{"size", "()I", nullptr, 0, $method(ConnectionPool$ExpiryList, size, int32_t)},
+	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljdk/internal/net/http/ConnectionPool$ExpiryEntry;>;", 0, $method(ConnectionPool$ExpiryList, stream, $Stream*)},
 	{}
 };
 

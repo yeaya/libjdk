@@ -72,18 +72,18 @@ $FieldInfo _SpNegoMechFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _SpNegoMechFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SpNegoMechFactory::*)()>(&SpNegoMechFactory::init$))},
-	{"<init>", "(Lsun/security/jgss/GSSCaller;)V", nullptr, $PUBLIC, $method(static_cast<void(SpNegoMechFactory::*)($GSSCaller*)>(&SpNegoMechFactory::init$))},
-	{"getCredFromSubject", "(Lsun/security/jgss/spi/GSSNameSpi;Z)Lsun/security/jgss/spnego/SpNegoCredElement;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SpNegoCredElement*(*)($GSSNameSpi*,bool)>(&SpNegoMechFactory::getCredFromSubject)), "org.ietf.jgss.GSSException"},
-	{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;III)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechanismOid", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL},
-	{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getNameElement", "([BLorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getNameTypes", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SpNegoMechFactory, init$, void)},
+	{"<init>", "(Lsun/security/jgss/GSSCaller;)V", nullptr, $PUBLIC, $method(SpNegoMechFactory, init$, void, $GSSCaller*)},
+	{"getCredFromSubject", "(Lsun/security/jgss/spi/GSSNameSpi;Z)Lsun/security/jgss/spnego/SpNegoCredElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(SpNegoMechFactory, getCredFromSubject, $SpNegoCredElement*, $GSSNameSpi*, bool), "org.ietf.jgss.GSSException"},
+	{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;III)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getCredentialElement, $GSSCredentialSpi*, $GSSNameSpi*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getMechanismContext, $GSSContextSpi*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t), "org.ietf.jgss.GSSException"},
+	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getMechanismContext, $GSSContextSpi*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+	{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getMechanismContext, $GSSContextSpi*, $bytes*), "org.ietf.jgss.GSSException"},
+	{"getMechanismOid", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SpNegoMechFactory, getMechanismOid, $Oid*)},
+	{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getNameElement, $GSSNameSpi*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
+	{"getNameElement", "([BLorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getNameElement, $GSSNameSpi*, $bytes*, $Oid*), "org.ietf.jgss.GSSException"},
+	{"getNameTypes", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getNameTypes, $OidArray*)},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(SpNegoMechFactory, getProvider, $Provider*)},
 	{}
 };
 

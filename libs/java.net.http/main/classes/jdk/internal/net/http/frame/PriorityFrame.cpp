@@ -25,12 +25,12 @@ $FieldInfo _PriorityFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _PriorityFrame_MethodInfo_[] = {
-	{"<init>", "(IIZI)V", nullptr, $PUBLIC, $method(static_cast<void(PriorityFrame::*)(int32_t,int32_t,bool,int32_t)>(&PriorityFrame::init$))},
-	{"exclusive", "()Z", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, 0},
-	{"streamDependency", "()I", nullptr, $PUBLIC},
-	{"type", "()I", nullptr, $PUBLIC},
-	{"weight", "()I", nullptr, $PUBLIC},
+	{"<init>", "(IIZI)V", nullptr, $PUBLIC, $method(PriorityFrame, init$, void, int32_t, int32_t, bool, int32_t)},
+	{"exclusive", "()Z", nullptr, $PUBLIC, $virtualMethod(PriorityFrame, exclusive, bool)},
+	{"length", "()I", nullptr, 0, $virtualMethod(PriorityFrame, length, int32_t)},
+	{"streamDependency", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityFrame, streamDependency, int32_t)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityFrame, type, int32_t)},
+	{"weight", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityFrame, weight, int32_t)},
 	{}
 };
 

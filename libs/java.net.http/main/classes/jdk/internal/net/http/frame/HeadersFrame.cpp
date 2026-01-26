@@ -37,18 +37,18 @@ $FieldInfo _HeadersFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _HeadersFrame_MethodInfo_[] = {
-	{"<init>", "(IILjava/util/List;I)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;I)V", $PUBLIC, $method(static_cast<void(HeadersFrame::*)(int32_t,int32_t,$List*,int32_t)>(&HeadersFrame::init$))},
-	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(HeadersFrame::*)(int32_t,int32_t,$List*)>(&HeadersFrame::init$))},
-	{"<init>", "(IILjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(HeadersFrame::*)(int32_t,int32_t,$ByteBuffer*)>(&HeadersFrame::init$))},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getExclusive", "()Z", nullptr, $PUBLIC},
-	{"getPadLength", "()I", nullptr, 0},
-	{"getStreamDependency", "()I", nullptr, $PUBLIC},
-	{"getWeight", "()I", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, 0},
-	{"setPadLength", "(I)V", nullptr, $PUBLIC},
-	{"setPriority", "(IZI)V", nullptr, $PUBLIC},
-	{"type", "()I", nullptr, $PUBLIC},
+	{"<init>", "(IILjava/util/List;I)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;I)V", $PUBLIC, $method(HeadersFrame, init$, void, int32_t, int32_t, $List*, int32_t)},
+	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(HeadersFrame, init$, void, int32_t, int32_t, $List*)},
+	{"<init>", "(IILjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(HeadersFrame, init$, void, int32_t, int32_t, $ByteBuffer*)},
+	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, flagAsString, $String*, int32_t)},
+	{"getExclusive", "()Z", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, getExclusive, bool)},
+	{"getPadLength", "()I", nullptr, 0, $virtualMethod(HeadersFrame, getPadLength, int32_t)},
+	{"getStreamDependency", "()I", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, getStreamDependency, int32_t)},
+	{"getWeight", "()I", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, getWeight, int32_t)},
+	{"length", "()I", nullptr, 0, $virtualMethod(HeadersFrame, length, int32_t)},
+	{"setPadLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, setPadLength, void, int32_t)},
+	{"setPriority", "(IZI)V", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, setPriority, void, int32_t, bool, int32_t)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(HeadersFrame, type, int32_t)},
 	{}
 };
 

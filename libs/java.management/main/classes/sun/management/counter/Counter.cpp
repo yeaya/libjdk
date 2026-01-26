@@ -6,20 +6,22 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Units = ::sun::management::counter::Units;
+using $Variability = ::sun::management::counter::Variability;
 
 namespace sun {
 	namespace management {
 		namespace counter {
 
 $MethodInfo _Counter_MethodInfo_[] = {
-	{"getFlags", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getVectorLength", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isInternal", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isVector", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getFlags", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Counter, getFlags, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Counter, getName, $String*)},
+	{"getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Counter, getUnits, $Units*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Counter, getValue, $Object*)},
+	{"getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Counter, getVariability, $Variability*)},
+	{"getVectorLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Counter, getVectorLength, int32_t)},
+	{"isInternal", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Counter, isInternal, bool)},
+	{"isVector", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Counter, isVector, bool)},
 	{}
 };
 

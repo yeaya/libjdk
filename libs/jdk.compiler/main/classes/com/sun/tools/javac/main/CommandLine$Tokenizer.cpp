@@ -23,9 +23,9 @@ $FieldInfo _CommandLine$Tokenizer_FieldInfo_[] = {
 };
 
 $MethodInfo _CommandLine$Tokenizer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(static_cast<void(CommandLine$Tokenizer::*)($Reader*)>(&CommandLine$Tokenizer::init$)), "java.io.IOException"},
-	{"nextToken", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skipWhite", "()V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(CommandLine$Tokenizer, init$, void, $Reader*), "java.io.IOException"},
+	{"nextToken", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CommandLine$Tokenizer, nextToken, $String*), "java.io.IOException"},
+	{"skipWhite", "()V", nullptr, 0, $virtualMethod(CommandLine$Tokenizer, skipWhite, void), "java.io.IOException"},
 	{}
 };
 

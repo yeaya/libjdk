@@ -52,8 +52,8 @@ $FieldInfo PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::fieldInfo
 	{}
 };
 $MethodInfo PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PrivilegedExecutor$PrivilegedRunnable;)V", nullptr, $PUBLIC, $method(static_cast<void(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::*)(PrivilegedExecutor$PrivilegedRunnable*)>(&PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PrivilegedExecutor$PrivilegedRunnable;)V", nullptr, $PUBLIC, $method(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, init$, void, PrivilegedExecutor$PrivilegedRunnable*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0, run, $Object*)},
 	{}
 };
 $ClassInfo PrivilegedExecutor$PrivilegedRunnable$$Lambda$lambda$run$0::classInfo$ = {
@@ -77,9 +77,9 @@ $FieldInfo _PrivilegedExecutor$PrivilegedRunnable_FieldInfo_[] = {
 };
 
 $MethodInfo _PrivilegedExecutor$PrivilegedRunnable_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(static_cast<void(PrivilegedExecutor$PrivilegedRunnable::*)($Runnable*,$AccessControlContext*)>(&PrivilegedExecutor$PrivilegedRunnable::init$))},
-	{"lambda$run$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(PrivilegedExecutor$PrivilegedRunnable::*)()>(&PrivilegedExecutor$PrivilegedRunnable::lambda$run$0))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Runnable;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(PrivilegedExecutor$PrivilegedRunnable, init$, void, $Runnable*, $AccessControlContext*)},
+	{"lambda$run$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(PrivilegedExecutor$PrivilegedRunnable, lambda$run$0, $Void*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrivilegedExecutor$PrivilegedRunnable, run, void)},
 	{}
 };
 

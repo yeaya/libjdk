@@ -32,10 +32,10 @@ $FieldInfo _JavaFileObject$Kind_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaFileObject$Kind_MethodInfo_[] = {
-	{"$values", "()[Ljavax/tools/JavaFileObject$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavaFileObject$KindArray*(*)()>(&JavaFileObject$Kind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(JavaFileObject$Kind::*)($String*,int32_t,$String*)>(&JavaFileObject$Kind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavaFileObject$Kind*(*)($String*)>(&JavaFileObject$Kind::valueOf))},
-	{"values", "()[Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavaFileObject$KindArray*(*)()>(&JavaFileObject$Kind::values))},
+	{"$values", "()[Ljavax/tools/JavaFileObject$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaFileObject$Kind, $values, $JavaFileObject$KindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(JavaFileObject$Kind, init$, void, $String*, int32_t, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaFileObject$Kind, valueOf, JavaFileObject$Kind*, $String*)},
+	{"values", "()[Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaFileObject$Kind, values, $JavaFileObject$KindArray*)},
 	{}
 };
 

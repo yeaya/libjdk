@@ -54,14 +54,14 @@ $FieldInfo _ECDSAUtils_FieldInfo_[] = {
 };
 
 $MethodInfo _ECDSAUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ECDSAUtils::*)()>(&ECDSAUtils::init$))},
-	{"convertASN1toXMLDSIG", "([BI)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t)>(&ECDSAUtils::convertASN1toXMLDSIG)), "java.io.IOException"},
-	{"convertXMLDSIGtoASN1", "([B)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&ECDSAUtils::convertXMLDSIGtoASN1)), "java.io.IOException"},
-	{"decodePoint", "([BLjava/security/spec/EllipticCurve;)Ljava/security/spec/ECPoint;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ECPoint*(*)($bytes*,$EllipticCurve*)>(&ECDSAUtils::decodePoint))},
-	{"encodePoint", "(Ljava/security/spec/ECPoint;Ljava/security/spec/EllipticCurve;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($ECPoint*,$EllipticCurve*)>(&ECDSAUtils::encodePoint))},
-	{"getECCurveDefinition", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/ECDSAUtils$ECCurveDefinition;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ECDSAUtils$ECCurveDefinition*(*)($String*)>(&ECDSAUtils::getECCurveDefinition))},
-	{"getOIDFromPublicKey", "(Ljava/security/interfaces/ECPublicKey;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($ECPublicKey*)>(&ECDSAUtils::getOIDFromPublicKey))},
-	{"stripLeadingZeros", "([B)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($bytes*)>(&ECDSAUtils::stripLeadingZeros))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ECDSAUtils, init$, void)},
+	{"convertASN1toXMLDSIG", "([BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ECDSAUtils, convertASN1toXMLDSIG, $bytes*, $bytes*, int32_t), "java.io.IOException"},
+	{"convertXMLDSIGtoASN1", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ECDSAUtils, convertXMLDSIGtoASN1, $bytes*, $bytes*), "java.io.IOException"},
+	{"decodePoint", "([BLjava/security/spec/EllipticCurve;)Ljava/security/spec/ECPoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(ECDSAUtils, decodePoint, $ECPoint*, $bytes*, $EllipticCurve*)},
+	{"encodePoint", "(Ljava/security/spec/ECPoint;Ljava/security/spec/EllipticCurve;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ECDSAUtils, encodePoint, $bytes*, $ECPoint*, $EllipticCurve*)},
+	{"getECCurveDefinition", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/ECDSAUtils$ECCurveDefinition;", nullptr, $PUBLIC | $STATIC, $staticMethod(ECDSAUtils, getECCurveDefinition, $ECDSAUtils$ECCurveDefinition*, $String*)},
+	{"getOIDFromPublicKey", "(Ljava/security/interfaces/ECPublicKey;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ECDSAUtils, getOIDFromPublicKey, $String*, $ECPublicKey*)},
+	{"stripLeadingZeros", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ECDSAUtils, stripLeadingZeros, $bytes*, $bytes*)},
 	{}
 };
 

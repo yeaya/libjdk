@@ -1,11 +1,15 @@
 #include <javax/management/openmbean/OpenMBeanParameterInfo.h>
 
+#include <java/lang/Comparable.h>
 #include <java/util/Set.h>
 #include <javax/management/openmbean/OpenType.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
+using $Comparable = ::java::lang::Comparable;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Set = ::java::util::Set;
+using $OpenType = ::javax::management::openmbean::OpenType;
 
 namespace javax {
 	namespace management {
@@ -13,19 +17,19 @@ namespace javax {
 
 $MethodInfo _OpenMBeanParameterInfo_MethodInfo_[] = {
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLegalValues", "()Ljava/util/Set;", "()Ljava/util/Set<*>;", $PUBLIC | $ABSTRACT},
-	{"getMaxValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC | $ABSTRACT},
-	{"getMinValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOpenType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", $PUBLIC | $ABSTRACT},
-	{"hasDefaultValue", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasLegalValues", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasMaxValue", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hasMinValue", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getDefaultValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, getDefaultValue, $Object*)},
+	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, getDescription, $String*)},
+	{"getLegalValues", "()Ljava/util/Set;", "()Ljava/util/Set<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, getLegalValues, $Set*)},
+	{"getMaxValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, getMaxValue, $Comparable*)},
+	{"getMinValue", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, getMinValue, $Comparable*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, getName, $String*)},
+	{"getOpenType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, getOpenType, $OpenType*)},
+	{"hasDefaultValue", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, hasDefaultValue, bool)},
+	{"hasLegalValues", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, hasLegalValues, bool)},
+	{"hasMaxValue", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, hasMaxValue, bool)},
+	{"hasMinValue", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, hasMinValue, bool)},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanParameterInfo, isValue, bool, Object$*)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

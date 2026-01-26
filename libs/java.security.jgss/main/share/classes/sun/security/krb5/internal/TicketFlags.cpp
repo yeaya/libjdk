@@ -39,15 +39,15 @@ namespace sun {
 			namespace internal {
 
 $MethodInfo _TicketFlags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TicketFlags::*)()>(&TicketFlags::init$))},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(static_cast<void(TicketFlags::*)($booleans*)>(&TicketFlags::init$)), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(TicketFlags::*)(int32_t,$bytes*)>(&TicketFlags::init$)), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(TicketFlags::*)($DerValue*)>(&TicketFlags::init$)), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"match", "(Lsun/security/krb5/internal/LoginOptions;)Z", nullptr, $PUBLIC},
-	{"match", "(Lsun/security/krb5/internal/TicketFlags;)Z", nullptr, $PUBLIC},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/TicketFlags;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TicketFlags*(*)($DerInputStream*,int8_t,bool)>(&TicketFlags::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TicketFlags, init$, void)},
+	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(TicketFlags, init$, void, $booleans*), "sun.security.krb5.Asn1Exception"},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(TicketFlags, init$, void, int32_t, $bytes*), "sun.security.krb5.Asn1Exception"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(TicketFlags, init$, void, $DerValue*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TicketFlags, clone, $Object*)},
+	{"match", "(Lsun/security/krb5/internal/LoginOptions;)Z", nullptr, $PUBLIC, $virtualMethod(TicketFlags, match, bool, $LoginOptions*)},
+	{"match", "(Lsun/security/krb5/internal/TicketFlags;)Z", nullptr, $PUBLIC, $virtualMethod(TicketFlags, match, bool, TicketFlags*)},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/TicketFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(TicketFlags, parse, TicketFlags*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TicketFlags, toString, $String*)},
 	{}
 };
 

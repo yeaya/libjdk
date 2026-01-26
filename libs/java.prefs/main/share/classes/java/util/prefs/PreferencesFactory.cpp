@@ -5,14 +5,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Preferences = ::java::util::prefs::Preferences;
 
 namespace java {
 	namespace util {
 		namespace prefs {
 
 $MethodInfo _PreferencesFactory_MethodInfo_[] = {
-	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC | $ABSTRACT},
-	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC | $ABSTRACT},
+	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PreferencesFactory, systemRoot, $Preferences*)},
+	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PreferencesFactory, userRoot, $Preferences*)},
 	{}
 };
 

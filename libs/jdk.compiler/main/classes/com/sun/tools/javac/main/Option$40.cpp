@@ -29,9 +29,9 @@ $FieldInfo _Option$40_FieldInfo_[] = {
 };
 
 $MethodInfo _Option$40_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Option$40::*)()>(&Option$40::init$))},
-	{"compare", "(Lcom/sun/tools/javac/main/Option;Lcom/sun/tools/javac/main/Option;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, 0, $method(Option$40, init$, void)},
+	{"compare", "(Lcom/sun/tools/javac/main/Option;Lcom/sun/tools/javac/main/Option;)I", nullptr, $PUBLIC, $virtualMethod(Option$40, compare, int32_t, $Option*, $Option*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Option$40, compare, int32_t, Object$*, Object$*)},
 	{}
 };
 

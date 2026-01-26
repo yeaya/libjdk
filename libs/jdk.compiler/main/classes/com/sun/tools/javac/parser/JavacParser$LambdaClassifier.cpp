@@ -43,10 +43,10 @@ $FieldInfo _JavacParser$LambdaClassifier_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacParser$LambdaClassifier_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, 0, $method(static_cast<void(JavacParser$LambdaClassifier::*)($JavacParser*)>(&JavacParser$LambdaClassifier::init$))},
-	{"addParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, 0},
-	{"reduce", "(Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;)V", nullptr, $PRIVATE, $method(static_cast<void(JavacParser$LambdaClassifier::*)($JavacParser$LambdaParameterKind*)>(&JavacParser$LambdaClassifier::reduce))},
-	{"result", "()Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/parser/JavacParser;)V", nullptr, 0, $method(JavacParser$LambdaClassifier, init$, void, $JavacParser*)},
+	{"addParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, 0, $virtualMethod(JavacParser$LambdaClassifier, addParameter, void, $JCTree$JCVariableDecl*)},
+	{"reduce", "(Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;)V", nullptr, $PRIVATE, $method(JavacParser$LambdaClassifier, reduce, void, $JavacParser$LambdaParameterKind*)},
+	{"result", "()Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, 0, $virtualMethod(JavacParser$LambdaClassifier, result, $JavacParser$LambdaParameterKind*)},
 	{}
 };
 

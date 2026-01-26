@@ -35,13 +35,13 @@ $FieldInfo _Base64DecodingException_FieldInfo_[] = {
 };
 
 $MethodInfo _Base64DecodingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Base64DecodingException::*)()>(&Base64DecodingException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Base64DecodingException::*)($String*)>(&Base64DecodingException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Base64DecodingException::*)($String*,$ObjectArray*)>(&Base64DecodingException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Base64DecodingException::*)($Exception*,$String*)>(&Base64DecodingException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(Base64DecodingException::*)($String*,$Exception*)>(&Base64DecodingException::init$)), nullptr, nullptr, _Base64DecodingException_MethodAnnotations_init$4},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(Base64DecodingException::*)($Exception*,$String*,$ObjectArray*)>(&Base64DecodingException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(Base64DecodingException::*)($String*,$ObjectArray*,$Exception*)>(&Base64DecodingException::init$)), nullptr, nullptr, _Base64DecodingException_MethodAnnotations_init$6},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $Exception*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Base64DecodingException, init$, void, $String*, $Exception*), nullptr, nullptr, _Base64DecodingException_MethodAnnotations_init$4},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Base64DecodingException, init$, void, $Exception*, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Base64DecodingException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _Base64DecodingException_MethodAnnotations_init$6},
 	{}
 };
 

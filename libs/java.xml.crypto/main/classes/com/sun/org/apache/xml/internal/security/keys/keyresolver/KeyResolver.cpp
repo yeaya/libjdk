@@ -100,16 +100,16 @@ $FieldInfo _KeyResolver_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KeyResolver::*)()>(&KeyResolver::init$))},
-	{"getPublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$PublicKey*(*)($Element*,$String*,$StorageResolver*,bool)>(&KeyResolver::getPublicKey)), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<$X509Certificate*(*)($Element*,$String*,$StorageResolver*,bool)>(&KeyResolver::getX509Certificate)), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;>;", $PUBLIC | $STATIC, $method(static_cast<$Iterator*(*)()>(&KeyResolver::iterator))},
-	{"length", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&KeyResolver::length))},
-	{"register", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&KeyResolver::register$)), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.reflect.InvocationTargetException"},
-	{"register", "(Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;Z)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($KeyResolverSpi*,bool)>(&KeyResolver::register$))},
-	{"registerAtStart", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&KeyResolver::registerAtStart))},
-	{"registerClassNames", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($List*)>(&KeyResolver::registerClassNames)), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.reflect.InvocationTargetException"},
-	{"registerDefaultResolvers", "()V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)()>(&KeyResolver::registerDefaultResolvers))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyResolver, init$, void)},
+	{"getPublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyResolver, getPublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+	{"getX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyResolver, getX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;>;", $PUBLIC | $STATIC, $staticMethod(KeyResolver, iterator, $Iterator*)},
+	{"length", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, length, int32_t)},
+	{"register", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, register$, void, $String*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.reflect.InvocationTargetException"},
+	{"register", "(Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, register$, void, $KeyResolverSpi*, bool)},
+	{"registerAtStart", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, registerAtStart, void, $String*)},
+	{"registerClassNames", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(KeyResolver, registerClassNames, void, $List*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.reflect.InvocationTargetException"},
+	{"registerDefaultResolvers", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyResolver, registerDefaultResolvers, void)},
 	{}
 };
 

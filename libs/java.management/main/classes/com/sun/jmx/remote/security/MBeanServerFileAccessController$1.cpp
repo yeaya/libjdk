@@ -27,8 +27,8 @@ $FieldInfo _MBeanServerFileAccessController$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerFileAccessController$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/security/MBeanServerFileAccessController;Ljava/security/AccessControlContext;)V", "()V", 0, $method(static_cast<void(MBeanServerFileAccessController$1::*)($MBeanServerFileAccessController*,$AccessControlContext*)>(&MBeanServerFileAccessController$1::init$))},
-	{"run", "()Ljavax/security/auth/Subject;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/remote/security/MBeanServerFileAccessController;Ljava/security/AccessControlContext;)V", "()V", 0, $method(MBeanServerFileAccessController$1, init$, void, $MBeanServerFileAccessController*, $AccessControlContext*)},
+	{"run", "()Ljavax/security/auth/Subject;", nullptr, $PUBLIC, $virtualMethod(MBeanServerFileAccessController$1, run, $Object*)},
 	{}
 };
 

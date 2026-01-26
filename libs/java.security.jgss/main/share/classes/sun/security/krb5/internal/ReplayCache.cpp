@@ -13,7 +13,9 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
+using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $ReplayCache$1 = ::sun::security::krb5::internal::ReplayCache$1;
+using $AuthTimeWithHash = ::sun::security::krb5::internal::rcache::AuthTimeWithHash;
 using $DflCache = ::sun::security::krb5::internal::rcache::DflCache;
 using $MemoryCache = ::sun::security::krb5::internal::rcache::MemoryCache;
 
@@ -23,10 +25,10 @@ namespace sun {
 			namespace internal {
 
 $MethodInfo _ReplayCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReplayCache::*)()>(&ReplayCache::init$))},
-	{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "sun.security.krb5.internal.KrbApErrException"},
-	{"getInstance", "(Ljava/lang/String;)Lsun/security/krb5/internal/ReplayCache;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ReplayCache*(*)($String*)>(&ReplayCache::getInstance))},
-	{"getInstance", "()Lsun/security/krb5/internal/ReplayCache;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ReplayCache*(*)()>(&ReplayCache::getInstance))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReplayCache, init$, void)},
+	{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ReplayCache, checkAndStore, void, $KerberosTime*, $AuthTimeWithHash*), "sun.security.krb5.internal.KrbApErrException"},
+	{"getInstance", "(Ljava/lang/String;)Lsun/security/krb5/internal/ReplayCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReplayCache, getInstance, ReplayCache*, $String*)},
+	{"getInstance", "()Lsun/security/krb5/internal/ReplayCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(ReplayCache, getInstance, ReplayCache*)},
 	{}
 };
 

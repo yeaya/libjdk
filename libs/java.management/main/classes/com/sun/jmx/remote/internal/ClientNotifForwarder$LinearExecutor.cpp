@@ -50,8 +50,8 @@ $FieldInfo ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::fieldIn
 	{}
 };
 $MethodInfo ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ClientNotifForwarder$LinearExecutor;)V", nullptr, $PUBLIC, $method(static_cast<void(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::*)(ClientNotifForwarder$LinearExecutor*)>(&ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ClientNotifForwarder$LinearExecutor;)V", nullptr, $PUBLIC, $method(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, init$, void, ClientNotifForwarder$LinearExecutor*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0, run, void)},
 	{}
 };
 $ClassInfo ClientNotifForwarder$LinearExecutor$$Lambda$lambda$execute$0::classInfo$ = {
@@ -75,9 +75,9 @@ $FieldInfo _ClientNotifForwarder$LinearExecutor_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientNotifForwarder$LinearExecutor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClientNotifForwarder$LinearExecutor::*)()>(&ClientNotifForwarder$LinearExecutor::init$))},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"lambda$execute$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ClientNotifForwarder$LinearExecutor::*)()>(&ClientNotifForwarder$LinearExecutor::lambda$execute$0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ClientNotifForwarder$LinearExecutor, init$, void)},
+	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ClientNotifForwarder$LinearExecutor, execute, void, $Runnable*)},
+	{"lambda$execute$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(ClientNotifForwarder$LinearExecutor, lambda$execute$0, void)},
 	{}
 };
 

@@ -19,8 +19,8 @@ $FieldInfo _VMManagementImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _VMManagementImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagementImpl;)V", nullptr, 0, $method(static_cast<void(VMManagementImpl$1::*)($VMManagementImpl*)>(&VMManagementImpl$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/management/VMManagementImpl;)V", nullptr, 0, $method(VMManagementImpl$1, init$, void, $VMManagementImpl*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VMManagementImpl$1, run, $Object*)},
 	{}
 };
 

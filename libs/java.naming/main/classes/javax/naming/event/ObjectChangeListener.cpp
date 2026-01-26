@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $NamingEvent = ::javax::naming::event::NamingEvent;
 
 namespace javax {
 	namespace naming {
 		namespace event {
 
 $MethodInfo _ObjectChangeListener_MethodInfo_[] = {
-	{"objectChanged", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"objectChanged", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ObjectChangeListener, objectChanged, void, $NamingEvent*)},
 	{}
 };
 

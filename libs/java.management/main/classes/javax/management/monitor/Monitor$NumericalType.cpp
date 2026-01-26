@@ -34,10 +34,10 @@ $FieldInfo _Monitor$NumericalType_FieldInfo_[] = {
 };
 
 $MethodInfo _Monitor$NumericalType_MethodInfo_[] = {
-	{"$values", "()[Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Monitor$NumericalTypeArray*(*)()>(&Monitor$NumericalType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Monitor$NumericalType::*)($String*,int32_t)>(&Monitor$NumericalType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Monitor$NumericalType*(*)($String*)>(&Monitor$NumericalType::valueOf))},
-	{"values", "()[Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Monitor$NumericalTypeArray*(*)()>(&Monitor$NumericalType::values))},
+	{"$values", "()[Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Monitor$NumericalType, $values, $Monitor$NumericalTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Monitor$NumericalType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Monitor$NumericalType, valueOf, Monitor$NumericalType*, $String*)},
+	{"values", "()[Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $STATIC, $staticMethod(Monitor$NumericalType, values, $Monitor$NumericalTypeArray*)},
 	{}
 };
 

@@ -27,8 +27,8 @@ $FieldInfo _ServerImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(static_cast<void(ServerImpl$1::*)($ServerImpl*)>(&ServerImpl$1::init$))},
-	{"run", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/httpserver/ServerImpl;)V", nullptr, 0, $method(ServerImpl$1, init$, void, $ServerImpl*)},
+	{"run", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(ServerImpl$1, run, $Object*)},
 	{}
 };
 

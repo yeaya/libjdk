@@ -48,18 +48,18 @@ namespace java {
 		namespace http {
 
 $MethodInfo _HttpRequest$BodyPublishers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(HttpRequest$BodyPublishers::*)()>(&HttpRequest$BodyPublishers::init$))},
-	{"concat", "([Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<$HttpRequest$BodyPublisher*(*)($HttpRequest$BodyPublisherArray*)>(&HttpRequest$BodyPublishers::concat))},
-	{"fromPublisher", "(Ljava/util/concurrent/Flow$Publisher;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/concurrent/Flow$Publisher<+Ljava/nio/ByteBuffer;>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$BodyPublisher*(*)($Flow$Publisher*)>(&HttpRequest$BodyPublishers::fromPublisher))},
-	{"fromPublisher", "(Ljava/util/concurrent/Flow$Publisher;J)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/concurrent/Flow$Publisher<+Ljava/nio/ByteBuffer;>;J)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$BodyPublisher*(*)($Flow$Publisher*,int64_t)>(&HttpRequest$BodyPublishers::fromPublisher))},
-	{"noBody", "()Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$BodyPublisher*(*)()>(&HttpRequest$BodyPublishers::noBody))},
-	{"ofByteArray", "([B)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$BodyPublisher*(*)($bytes*)>(&HttpRequest$BodyPublishers::ofByteArray))},
-	{"ofByteArray", "([BII)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$BodyPublisher*(*)($bytes*,int32_t,int32_t)>(&HttpRequest$BodyPublishers::ofByteArray))},
-	{"ofByteArrays", "(Ljava/lang/Iterable;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/lang/Iterable<[B>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$BodyPublisher*(*)($Iterable*)>(&HttpRequest$BodyPublishers::ofByteArrays))},
-	{"ofFile", "(Ljava/nio/file/Path;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$BodyPublisher*(*)($Path*)>(&HttpRequest$BodyPublishers::ofFile)), "java.io.FileNotFoundException"},
-	{"ofInputStream", "(Ljava/util/function/Supplier;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/function/Supplier<+Ljava/io/InputStream;>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$BodyPublisher*(*)($Supplier*)>(&HttpRequest$BodyPublishers::ofInputStream))},
-	{"ofString", "(Ljava/lang/String;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$BodyPublisher*(*)($String*)>(&HttpRequest$BodyPublishers::ofString))},
-	{"ofString", "(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$HttpRequest$BodyPublisher*(*)($String*,$Charset*)>(&HttpRequest$BodyPublishers::ofString))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(HttpRequest$BodyPublishers, init$, void)},
+	{"concat", "([Ljava/net/http/HttpRequest$BodyPublisher;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(HttpRequest$BodyPublishers, concat, $HttpRequest$BodyPublisher*, $HttpRequest$BodyPublisherArray*)},
+	{"fromPublisher", "(Ljava/util/concurrent/Flow$Publisher;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/concurrent/Flow$Publisher<+Ljava/nio/ByteBuffer;>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, fromPublisher, $HttpRequest$BodyPublisher*, $Flow$Publisher*)},
+	{"fromPublisher", "(Ljava/util/concurrent/Flow$Publisher;J)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/concurrent/Flow$Publisher<+Ljava/nio/ByteBuffer;>;J)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, fromPublisher, $HttpRequest$BodyPublisher*, $Flow$Publisher*, int64_t)},
+	{"noBody", "()Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, noBody, $HttpRequest$BodyPublisher*)},
+	{"ofByteArray", "([B)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofByteArray, $HttpRequest$BodyPublisher*, $bytes*)},
+	{"ofByteArray", "([BII)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofByteArray, $HttpRequest$BodyPublisher*, $bytes*, int32_t, int32_t)},
+	{"ofByteArrays", "(Ljava/lang/Iterable;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/lang/Iterable<[B>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofByteArrays, $HttpRequest$BodyPublisher*, $Iterable*)},
+	{"ofFile", "(Ljava/nio/file/Path;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofFile, $HttpRequest$BodyPublisher*, $Path*), "java.io.FileNotFoundException"},
+	{"ofInputStream", "(Ljava/util/function/Supplier;)Ljava/net/http/HttpRequest$BodyPublisher;", "(Ljava/util/function/Supplier<+Ljava/io/InputStream;>;)Ljava/net/http/HttpRequest$BodyPublisher;", $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofInputStream, $HttpRequest$BodyPublisher*, $Supplier*)},
+	{"ofString", "(Ljava/lang/String;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofString, $HttpRequest$BodyPublisher*, $String*)},
+	{"ofString", "(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpRequest$BodyPublishers, ofString, $HttpRequest$BodyPublisher*, $String*, $Charset*)},
 	{}
 };
 

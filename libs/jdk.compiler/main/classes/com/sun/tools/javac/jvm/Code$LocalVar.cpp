@@ -38,17 +38,17 @@ $FieldInfo _Code$LocalVar_FieldInfo_[] = {
 };
 
 $MethodInfo _Code$LocalVar_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, 0, $method(static_cast<void(Code$LocalVar::*)($Symbol$VarSymbol*)>(&Code$LocalVar::init$))},
-	{"closeRange", "(C)V", nullptr, $PUBLIC},
-	{"dup", "()Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, $PUBLIC},
-	{"firstRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, 0},
-	{"getWidestRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, $PUBLIC},
-	{"hasOpenRange", "()Z", nullptr, $PUBLIC},
-	{"isLastRangeInitialized", "()Z", nullptr, $PUBLIC},
-	{"lastRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, 0},
-	{"openRange", "(C)V", nullptr, $PUBLIC},
-	{"removeLastRange", "()V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, 0, $method(Code$LocalVar, init$, void, $Symbol$VarSymbol*)},
+	{"closeRange", "(C)V", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, closeRange, void, char16_t)},
+	{"dup", "()Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, dup, Code$LocalVar*)},
+	{"firstRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, 0, $virtualMethod(Code$LocalVar, firstRange, $Code$LocalVar$Range*)},
+	{"getWidestRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, getWidestRange, $Code$LocalVar$Range*)},
+	{"hasOpenRange", "()Z", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, hasOpenRange, bool)},
+	{"isLastRangeInitialized", "()Z", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, isLastRangeInitialized, bool)},
+	{"lastRange", "()Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, 0, $virtualMethod(Code$LocalVar, lastRange, $Code$LocalVar$Range*)},
+	{"openRange", "(C)V", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, openRange, void, char16_t)},
+	{"removeLastRange", "()V", nullptr, 0, $virtualMethod(Code$LocalVar, removeLastRange, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Code$LocalVar, toString, $String*)},
 	{}
 };
 

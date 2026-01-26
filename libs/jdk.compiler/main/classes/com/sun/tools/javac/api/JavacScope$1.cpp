@@ -37,9 +37,9 @@ namespace com {
 				namespace api {
 
 $MethodInfo _JavacScope$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Env;)V", nullptr, 0, $method(static_cast<void(JavacScope$1::*)($Env*)>(&JavacScope$1::init$))},
-	{"getEnclosingScope", "()Lcom/sun/source/tree/Scope;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Env;)V", nullptr, 0, $method(JavacScope$1, init$, void, $Env*)},
+	{"getEnclosingScope", "()Lcom/sun/source/tree/Scope;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacScope$1, getEnclosingScope, $JavacScope*)},
+	{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacScope$1, getLocalElements, $Iterable*)},
 	{}
 };
 

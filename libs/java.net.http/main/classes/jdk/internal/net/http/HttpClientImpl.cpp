@@ -221,8 +221,8 @@ $FieldInfo HttpClientImpl$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HttpClientImpl$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$$Lambda$dbgString::*)(HttpClientImpl*)>(&HttpClientImpl$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$dbgString, init$, void, HttpClientImpl*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo HttpClientImpl$$Lambda$dbgString::classInfo$ = {
@@ -261,8 +261,8 @@ $FieldInfo HttpClientImpl$$Lambda$isSelectorThread$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HttpClientImpl$$Lambda$isSelectorThread$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$$Lambda$isSelectorThread$1::*)(HttpClientImpl*)>(&HttpClientImpl$$Lambda$isSelectorThread$1::init$))},
-	{"getAsBoolean", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$isSelectorThread$1, init$, void, HttpClientImpl*)},
+	{"getAsBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$isSelectorThread$1, getAsBoolean, bool)},
 	{}
 };
 $ClassInfo HttpClientImpl$$Lambda$isSelectorThread$1::classInfo$ = {
@@ -294,8 +294,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpClientImpl$$Lambda$getDefaultProxySelector$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$$Lambda$getDefaultProxySelector$2::*)()>(&HttpClientImpl$$Lambda$getDefaultProxySelector$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$getDefaultProxySelector$2, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$getDefaultProxySelector$2, get, $Object*)},
 	{}
 };
 $ClassInfo HttpClientImpl$$Lambda$getDefaultProxySelector$2::classInfo$ = {
@@ -327,8 +327,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpClientImpl$$Lambda$getDefault$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$$Lambda$getDefault$3::*)()>(&HttpClientImpl$$Lambda$getDefault$3::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$getDefault$3, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$getDefault$3, run, $Object*)},
 	{}
 };
 $ClassInfo HttpClientImpl$$Lambda$getDefault$3::classInfo$ = {
@@ -367,8 +367,8 @@ $FieldInfo HttpClientImpl$$Lambda$lambda$sendAsync$0$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo HttpClientImpl$$Lambda$lambda$sendAsync$0$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$$Lambda$lambda$sendAsync$0$4::*)(HttpClientImpl*)>(&HttpClientImpl$$Lambda$lambda$sendAsync$0$4::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, init$, void, HttpClientImpl*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$lambda$sendAsync$0$4, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo HttpClientImpl$$Lambda$lambda$sendAsync$0$4::classInfo$ = {
@@ -413,8 +413,8 @@ $FieldInfo HttpClientImpl$$Lambda$lambda$sendAsync$1$5::fieldInfos[4] = {
 	{}
 };
 $MethodInfo HttpClientImpl$$Lambda$lambda$sendAsync$1$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;JLjava/net/http/HttpRequest;)V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$$Lambda$lambda$sendAsync$1$5::*)(HttpClientImpl*,int64_t,$HttpRequest*)>(&HttpClientImpl$$Lambda$lambda$sendAsync$1$5::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;JLjava/net/http/HttpRequest;)V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, init$, void, HttpClientImpl*, int64_t, $HttpRequest*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$lambda$sendAsync$1$5, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo HttpClientImpl$$Lambda$lambda$sendAsync$1$5::classInfo$ = {
@@ -446,8 +446,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo HttpClientImpl$$Lambda$lambda$sendAsync$2$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HttpClientImpl$$Lambda$lambda$sendAsync$2$6::*)()>(&HttpClientImpl$$Lambda$lambda$sendAsync$2$6::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpClientImpl$$Lambda$lambda$sendAsync$2$6, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$$Lambda$lambda$sendAsync$2$6, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo HttpClientImpl$$Lambda$lambda$sendAsync$2$6::classInfo$ = {
@@ -505,60 +505,60 @@ $MethodInfo _HttpClientImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljdk/internal/net/http/HttpClientBuilderImpl;Ljdk/internal/net/http/HttpClientImpl$SingleFacadeFactory;)V", nullptr, $PRIVATE, $method(static_cast<void(HttpClientImpl::*)($HttpClientBuilderImpl*,$HttpClientImpl$SingleFacadeFactory*)>(&HttpClientImpl::init$))},
-	{"addFilter", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljdk/internal/net/http/HeaderFilter;>;)V", $PRIVATE, $method(static_cast<void(HttpClientImpl::*)($Class*)>(&HttpClientImpl::addFilter))},
-	{"authenticator", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/Authenticator;>;", $PUBLIC},
-	{"cancelTimer", "(Ljdk/internal/net/http/TimeoutEvent;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(HttpClientImpl::*)($TimeoutEvent*)>(&HttpClientImpl::cancelTimer))},
-	{"client2", "()Ljdk/internal/net/http/Http2ClientImpl;", nullptr, 0, $method(static_cast<$Http2ClientImpl*(HttpClientImpl::*)()>(&HttpClientImpl::client2))},
-	{"connectTimeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC},
-	{"connectionPool", "()Ljdk/internal/net/http/ConnectionPool;", nullptr, 0, $method(static_cast<$ConnectionPool*(HttpClientImpl::*)()>(&HttpClientImpl::connectionPool))},
-	{"cookieHandler", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/CookieHandler;>;", $PUBLIC},
-	{"create", "(Ljdk/internal/net/http/HttpClientBuilderImpl;)Ljdk/internal/net/http/HttpClientFacade;", nullptr, $STATIC, $method(static_cast<$HttpClientFacade*(*)($HttpClientBuilderImpl*)>(&HttpClientImpl::create))},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(HttpClientImpl::*)()>(&HttpClientImpl::dbgString))},
-	{"debugCompleted", "(Ljava/lang/String;JLjava/net/http/HttpRequest;)V", nullptr, $PRIVATE, $method(static_cast<void(HttpClientImpl::*)($String*,int64_t,$HttpRequest*)>(&HttpClientImpl::debugCompleted))},
-	{"debugInterestOps", "(Ljava/nio/channels/SelectableChannel;)Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(HttpClientImpl::*)($SelectableChannel*)>(&HttpClientImpl::debugInterestOps))},
-	{"eventUpdated", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(static_cast<void(HttpClientImpl::*)($AsyncEvent*)>(&HttpClientImpl::eventUpdated)), "java.nio.channels.ClosedChannelException"},
-	{"executor", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/concurrent/Executor;>;", $PUBLIC | $FINAL},
-	{"facade", "()Ljdk/internal/net/http/HttpClientFacade;", nullptr, $FINAL, $method(static_cast<$HttpClientFacade*(HttpClientImpl::*)()>(&HttpClientImpl::facade))},
-	{"filterChain", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljdk/internal/net/http/HeaderFilter;>;", $FINAL, $method(static_cast<$LinkedList*(HttpClientImpl::*)()>(&HttpClientImpl::filterChain))},
-	{"followRedirects", "()Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC},
-	{"getDefaultParams", "(Ljavax/net/ssl/SSLContext;)Ljavax/net/ssl/SSLParameters;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$SSLParameters*(*)($SSLContext*)>(&HttpClientImpl::getDefaultParams))},
-	{"getDefaultProxySelector", "()Ljava/net/ProxySelector;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ProxySelector*(*)()>(&HttpClientImpl::getDefaultProxySelector))},
-	{"getOperationsTracker", "()Ljdk/internal/net/http/common/OperationTrackers$Tracker;", nullptr, $PUBLIC},
-	{"getReceiveBufferSize", "()I", nullptr, 0, $method(static_cast<int32_t(HttpClientImpl::*)()>(&HttpClientImpl::getReceiveBufferSize))},
-	{"getSSLBufferSupplier", "()Ljdk/internal/net/http/common/BufferSupplier;", nullptr, 0, $method(static_cast<$BufferSupplier*(HttpClientImpl::*)()>(&HttpClientImpl::getSSLBufferSupplier))},
-	{"getSendBufferSize", "()I", nullptr, 0, $method(static_cast<int32_t(HttpClientImpl::*)()>(&HttpClientImpl::getSendBufferSize))},
-	{"initFilters", "()V", nullptr, $PRIVATE, $method(static_cast<void(HttpClientImpl::*)()>(&HttpClientImpl::initFilters))},
-	{"isReferenced", "()Z", nullptr, $FINAL, $method(static_cast<bool(HttpClientImpl::*)()>(&HttpClientImpl::isReferenced))},
-	{"isSelectorThread", "()Z", nullptr, 0, $method(static_cast<bool(HttpClientImpl::*)()>(&HttpClientImpl::isSelectorThread))},
-	{"lambda$sendAsync$0", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(HttpClientImpl::*)($HttpResponse*,$Throwable*)>(&HttpClientImpl::lambda$sendAsync$0))},
-	{"lambda$sendAsync$1", "(JLjava/net/http/HttpRequest;Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(HttpClientImpl::*)(int64_t,$HttpRequest*,$HttpResponse*,$Throwable*)>(&HttpClientImpl::lambda$sendAsync$1))},
-	{"lambda$sendAsync$2", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpResponse*,$Throwable*)>(&HttpClientImpl::lambda$sendAsync$2))},
-	{"newWebSocketBuilder", "()Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC},
-	{"proxy", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/ProxySelector;>;", $PUBLIC},
-	{"proxySelector", "()Ljava/net/ProxySelector;", nullptr, 0, $method(static_cast<$ProxySelector*(HttpClientImpl::*)()>(&HttpClientImpl::proxySelector))},
-	{"purgeTimeoutsAndReturnNextDeadline", "()J", nullptr, $PRIVATE, $method(static_cast<int64_t(HttpClientImpl::*)()>(&HttpClientImpl::purgeTimeoutsAndReturnNextDeadline))},
-	{"reference", "()J", nullptr, $FINAL, $method(static_cast<int64_t(HttpClientImpl::*)()>(&HttpClientImpl::reference))},
-	{"referenceCount", "()J", nullptr, $FINAL, $method(static_cast<int64_t(HttpClientImpl::*)()>(&HttpClientImpl::referenceCount))},
-	{"registerEvent", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(static_cast<void(HttpClientImpl::*)($AsyncEvent*)>(&HttpClientImpl::registerEvent)), "java.io.IOException"},
-	{"registerTimer", "(Ljdk/internal/net/http/TimeoutEvent;)V", nullptr, $SYNCHRONIZED, $method(static_cast<void(HttpClientImpl::*)($TimeoutEvent*)>(&HttpClientImpl::registerTimer))},
-	{"send", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/net/http/HttpResponse;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/net/http/HttpResponse<TT;>;", $PUBLIC, nullptr, "java.io.IOException,java.lang.InterruptedException"},
-	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC},
-	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC},
-	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE, $method(static_cast<$CompletableFuture*(HttpClientImpl::*)($HttpRequest*,$HttpResponse$BodyHandler*,$HttpResponse$PushPromiseHandler*,$Executor*)>(&HttpClientImpl::sendAsync))},
-	{"sslContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC},
-	{"sslParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC},
-	{"start", "()V", nullptr, $PRIVATE, $method(static_cast<void(HttpClientImpl::*)()>(&HttpClientImpl::start))},
-	{"stop", "()V", nullptr, $PRIVATE, $method(static_cast<void(HttpClientImpl::*)()>(&HttpClientImpl::stop))},
-	{"streamReference", "()J", nullptr, $FINAL, $method(static_cast<int64_t(HttpClientImpl::*)()>(&HttpClientImpl::streamReference))},
-	{"streamUnreference", "()J", nullptr, $FINAL, $method(static_cast<int64_t(HttpClientImpl::*)()>(&HttpClientImpl::streamUnreference))},
-	{"theExecutor", "()Ljdk/internal/net/http/HttpClientImpl$DelegatingExecutor;", nullptr, $FINAL, $method(static_cast<$HttpClientImpl$DelegatingExecutor*(HttpClientImpl::*)()>(&HttpClientImpl::theExecutor))},
-	{"theSSLContext", "()Ljavax/net/ssl/SSLContext;", nullptr, 0, $method(static_cast<$SSLContext*(HttpClientImpl::*)()>(&HttpClientImpl::theSSLContext))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unreference", "()J", nullptr, $FINAL, $method(static_cast<int64_t(HttpClientImpl::*)()>(&HttpClientImpl::unreference))},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC},
-	{"webSocketClose", "()J", nullptr, $FINAL, $method(static_cast<int64_t(HttpClientImpl::*)()>(&HttpClientImpl::webSocketClose))},
-	{"webSocketOpen", "()J", nullptr, $FINAL, $method(static_cast<int64_t(HttpClientImpl::*)()>(&HttpClientImpl::webSocketOpen))},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientBuilderImpl;Ljdk/internal/net/http/HttpClientImpl$SingleFacadeFactory;)V", nullptr, $PRIVATE, $method(HttpClientImpl, init$, void, $HttpClientBuilderImpl*, $HttpClientImpl$SingleFacadeFactory*)},
+	{"addFilter", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljdk/internal/net/http/HeaderFilter;>;)V", $PRIVATE, $method(HttpClientImpl, addFilter, void, $Class*)},
+	{"authenticator", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/Authenticator;>;", $PUBLIC, $virtualMethod(HttpClientImpl, authenticator, $Optional*)},
+	{"cancelTimer", "(Ljdk/internal/net/http/TimeoutEvent;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl, cancelTimer, void, $TimeoutEvent*)},
+	{"client2", "()Ljdk/internal/net/http/Http2ClientImpl;", nullptr, 0, $method(HttpClientImpl, client2, $Http2ClientImpl*)},
+	{"connectTimeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HttpClientImpl, connectTimeout, $Optional*)},
+	{"connectionPool", "()Ljdk/internal/net/http/ConnectionPool;", nullptr, 0, $method(HttpClientImpl, connectionPool, $ConnectionPool*)},
+	{"cookieHandler", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/CookieHandler;>;", $PUBLIC, $virtualMethod(HttpClientImpl, cookieHandler, $Optional*)},
+	{"create", "(Ljdk/internal/net/http/HttpClientBuilderImpl;)Ljdk/internal/net/http/HttpClientFacade;", nullptr, $STATIC, $staticMethod(HttpClientImpl, create, $HttpClientFacade*, $HttpClientBuilderImpl*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $method(HttpClientImpl, dbgString, $String*)},
+	{"debugCompleted", "(Ljava/lang/String;JLjava/net/http/HttpRequest;)V", nullptr, $PRIVATE, $method(HttpClientImpl, debugCompleted, void, $String*, int64_t, $HttpRequest*)},
+	{"debugInterestOps", "(Ljava/nio/channels/SelectableChannel;)Ljava/lang/String;", nullptr, $FINAL, $method(HttpClientImpl, debugInterestOps, $String*, $SelectableChannel*)},
+	{"eventUpdated", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(HttpClientImpl, eventUpdated, void, $AsyncEvent*), "java.nio.channels.ClosedChannelException"},
+	{"executor", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/concurrent/Executor;>;", $PUBLIC | $FINAL, $virtualMethod(HttpClientImpl, executor, $Optional*)},
+	{"facade", "()Ljdk/internal/net/http/HttpClientFacade;", nullptr, $FINAL, $method(HttpClientImpl, facade, $HttpClientFacade*)},
+	{"filterChain", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljdk/internal/net/http/HeaderFilter;>;", $FINAL, $method(HttpClientImpl, filterChain, $LinkedList*)},
+	{"followRedirects", "()Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, followRedirects, $HttpClient$Redirect*)},
+	{"getDefaultParams", "(Ljavax/net/ssl/SSLContext;)Ljavax/net/ssl/SSLParameters;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpClientImpl, getDefaultParams, $SSLParameters*, $SSLContext*)},
+	{"getDefaultProxySelector", "()Ljava/net/ProxySelector;", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpClientImpl, getDefaultProxySelector, $ProxySelector*)},
+	{"getOperationsTracker", "()Ljdk/internal/net/http/common/OperationTrackers$Tracker;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, getOperationsTracker, $OperationTrackers$Tracker*)},
+	{"getReceiveBufferSize", "()I", nullptr, 0, $method(HttpClientImpl, getReceiveBufferSize, int32_t)},
+	{"getSSLBufferSupplier", "()Ljdk/internal/net/http/common/BufferSupplier;", nullptr, 0, $method(HttpClientImpl, getSSLBufferSupplier, $BufferSupplier*)},
+	{"getSendBufferSize", "()I", nullptr, 0, $method(HttpClientImpl, getSendBufferSize, int32_t)},
+	{"initFilters", "()V", nullptr, $PRIVATE, $method(HttpClientImpl, initFilters, void)},
+	{"isReferenced", "()Z", nullptr, $FINAL, $method(HttpClientImpl, isReferenced, bool)},
+	{"isSelectorThread", "()Z", nullptr, 0, $method(HttpClientImpl, isSelectorThread, bool)},
+	{"lambda$sendAsync$0", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl, lambda$sendAsync$0, void, $HttpResponse*, $Throwable*)},
+	{"lambda$sendAsync$1", "(JLjava/net/http/HttpRequest;Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(HttpClientImpl, lambda$sendAsync$1, void, int64_t, $HttpRequest*, $HttpResponse*, $Throwable*)},
+	{"lambda$sendAsync$2", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClientImpl, lambda$sendAsync$2, void, $HttpResponse*, $Throwable*)},
+	{"newWebSocketBuilder", "()Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, newWebSocketBuilder, $WebSocket$Builder*)},
+	{"proxy", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/ProxySelector;>;", $PUBLIC, $virtualMethod(HttpClientImpl, proxy, $Optional*)},
+	{"proxySelector", "()Ljava/net/ProxySelector;", nullptr, 0, $method(HttpClientImpl, proxySelector, $ProxySelector*)},
+	{"purgeTimeoutsAndReturnNextDeadline", "()J", nullptr, $PRIVATE, $method(HttpClientImpl, purgeTimeoutsAndReturnNextDeadline, int64_t)},
+	{"reference", "()J", nullptr, $FINAL, $method(HttpClientImpl, reference, int64_t)},
+	{"referenceCount", "()J", nullptr, $FINAL, $method(HttpClientImpl, referenceCount, int64_t)},
+	{"registerEvent", "(Ljdk/internal/net/http/AsyncEvent;)V", nullptr, 0, $method(HttpClientImpl, registerEvent, void, $AsyncEvent*), "java.io.IOException"},
+	{"registerTimer", "(Ljdk/internal/net/http/TimeoutEvent;)V", nullptr, $SYNCHRONIZED, $method(HttpClientImpl, registerTimer, void, $TimeoutEvent*)},
+	{"send", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/net/http/HttpResponse;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/net/http/HttpResponse<TT;>;", $PUBLIC, $virtualMethod(HttpClientImpl, send, $HttpResponse*, $HttpRequest*, $HttpResponse$BodyHandler*), "java.io.IOException,java.lang.InterruptedException"},
+	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpClientImpl, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*)},
+	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpClientImpl, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*)},
+	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PRIVATE, $method(HttpClientImpl, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*, $Executor*)},
+	{"sslContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, sslContext, $SSLContext*)},
+	{"sslParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, sslParameters, $SSLParameters*)},
+	{"start", "()V", nullptr, $PRIVATE, $method(HttpClientImpl, start, void)},
+	{"stop", "()V", nullptr, $PRIVATE, $method(HttpClientImpl, stop, void)},
+	{"streamReference", "()J", nullptr, $FINAL, $method(HttpClientImpl, streamReference, int64_t)},
+	{"streamUnreference", "()J", nullptr, $FINAL, $method(HttpClientImpl, streamUnreference, int64_t)},
+	{"theExecutor", "()Ljdk/internal/net/http/HttpClientImpl$DelegatingExecutor;", nullptr, $FINAL, $method(HttpClientImpl, theExecutor, $HttpClientImpl$DelegatingExecutor*)},
+	{"theSSLContext", "()Ljavax/net/ssl/SSLContext;", nullptr, 0, $method(HttpClientImpl, theSSLContext, $SSLContext*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, toString, $String*)},
+	{"unreference", "()J", nullptr, $FINAL, $method(HttpClientImpl, unreference, int64_t)},
+	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl, version, $HttpClient$Version*)},
+	{"webSocketClose", "()J", nullptr, $FINAL, $method(HttpClientImpl, webSocketClose, int64_t)},
+	{"webSocketOpen", "()J", nullptr, $FINAL, $method(HttpClientImpl, webSocketOpen, int64_t)},
 	{}
 };
 

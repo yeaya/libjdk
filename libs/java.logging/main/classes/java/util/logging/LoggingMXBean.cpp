@@ -7,6 +7,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
+using $List = ::java::util::List;
 
 namespace java {
 	namespace util {
@@ -23,10 +24,10 @@ $CompoundAttribute _LoggingMXBean_Annotations_[] = {
 };
 
 $MethodInfo _LoggingMXBean_MethodInfo_[] = {
-	{"getLoggerLevel", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLoggerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
-	{"getParentLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setLoggerLevel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"getLoggerLevel", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, getLoggerLevel, $String*, $String*)},
+	{"getLoggerNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, getLoggerNames, $List*)},
+	{"getParentLoggerName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, getParentLoggerName, $String*, $String*)},
+	{"setLoggerLevel", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LoggingMXBean, setLoggerLevel, void, $String*, $String*)},
 	{}
 };
 

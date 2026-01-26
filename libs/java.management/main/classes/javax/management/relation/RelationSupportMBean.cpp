@@ -2,6 +2,7 @@
 
 #include <jcpp.h>
 
+using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -10,8 +11,8 @@ namespace javax {
 		namespace relation {
 
 $MethodInfo _RelationSupportMBean_MethodInfo_[] = {
-	{"isInRelationService", "()Ljava/lang/Boolean;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setRelationServiceManagementFlag", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.IllegalArgumentException"},
+	{"isInRelationService", "()Ljava/lang/Boolean;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelationSupportMBean, isInRelationService, $Boolean*)},
+	{"setRelationServiceManagementFlag", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RelationSupportMBean, setRelationServiceManagementFlag, void, $Boolean*), "java.lang.IllegalArgumentException"},
 	{}
 };
 

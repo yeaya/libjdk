@@ -18,10 +18,10 @@ $FieldInfo _B4769350$MyAuthenticator_FieldInfo_[] = {
 };
 
 $MethodInfo _B4769350$MyAuthenticator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(B4769350$MyAuthenticator::*)()>(&B4769350$MyAuthenticator::init$))},
-	{"getCount", "()I", nullptr, $PUBLIC},
-	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC},
-	{"resetCount", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(B4769350$MyAuthenticator, init$, void)},
+	{"getCount", "()I", nullptr, $PUBLIC, $virtualMethod(B4769350$MyAuthenticator, getCount, int32_t)},
+	{"getPasswordAuthentication", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(B4769350$MyAuthenticator, getPasswordAuthentication, $PasswordAuthentication*)},
+	{"resetCount", "()V", nullptr, $PUBLIC, $virtualMethod(B4769350$MyAuthenticator, resetCount, void)},
 	{}
 };
 

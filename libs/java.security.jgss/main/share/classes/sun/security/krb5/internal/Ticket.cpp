@@ -47,14 +47,14 @@ $FieldInfo _Ticket_FieldInfo_[] = {
 };
 
 $MethodInfo _Ticket_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Ticket::*)()>(&Ticket::init$))},
-	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(static_cast<void(Ticket::*)($PrincipalName*,$EncryptedData*)>(&Ticket::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(Ticket::*)($bytes*)>(&Ticket::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(Ticket::*)($DerValue*)>(&Ticket::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(Ticket::*)($DerValue*)>(&Ticket::init)), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/Ticket;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Ticket*(*)($DerInputStream*,int8_t,bool)>(&Ticket::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Ticket, init$, void)},
+	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/EncryptedData;)V", nullptr, $PUBLIC, $method(Ticket, init$, void, $PrincipalName*, $EncryptedData*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(Ticket, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(Ticket, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(Ticket, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Ticket, clone, $Object*)},
+	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(Ticket, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/Ticket;", nullptr, $PUBLIC | $STATIC, $staticMethod(Ticket, parse, Ticket*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException"},
 	{}
 };
 

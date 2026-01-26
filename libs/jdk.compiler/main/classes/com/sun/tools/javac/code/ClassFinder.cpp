@@ -192,8 +192,8 @@ $FieldInfo ClassFinder$$Lambda$complete::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassFinder$$Lambda$complete::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$$Lambda$complete::*)(ClassFinder*)>(&ClassFinder$$Lambda$complete::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;)V", nullptr, $PUBLIC, $method(ClassFinder$$Lambda$complete, init$, void, ClassFinder*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(ClassFinder$$Lambda$complete, complete, void, $Symbol*)},
 	{}
 };
 $ClassInfo ClassFinder$$Lambda$complete::classInfo$ = {
@@ -225,8 +225,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ClassFinder$$Lambda$lambda$new$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$$Lambda$lambda$new$0$1::*)()>(&ClassFinder$$Lambda$lambda$new$0$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFinder$$Lambda$lambda$new$0$1, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassFinder$$Lambda$lambda$new$0$1, get, $Object*)},
 	{}
 };
 $ClassInfo ClassFinder$$Lambda$lambda$new$0$1::classInfo$ = {
@@ -268,8 +268,8 @@ $FieldInfo ClassFinder$$Lambda$lambda$complete$1$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ClassFinder$$Lambda$lambda$complete$1$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$$Lambda$lambda$complete$1$2::*)(ClassFinder*,$IOException*)>(&ClassFinder$$Lambda$lambda$complete$1$2::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(ClassFinder$$Lambda$lambda$complete$1$2, init$, void, ClassFinder*, $IOException*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassFinder$$Lambda$lambda$complete$1$2, get, $Object*)},
 	{}
 };
 $ClassInfo ClassFinder$$Lambda$lambda$complete$1$2::classInfo$ = {
@@ -308,8 +308,8 @@ $FieldInfo ClassFinder$$Lambda$lambda$fillIn$2$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassFinder$$Lambda$lambda$fillIn$2$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$$Lambda$lambda$fillIn$2$3::*)(ClassFinder*)>(&ClassFinder$$Lambda$lambda$fillIn$2$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;)V", nullptr, $PUBLIC, $method(ClassFinder$$Lambda$lambda$fillIn$2$3, init$, void, ClassFinder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassFinder$$Lambda$lambda$fillIn$2$3, get, $Object*)},
 	{}
 };
 $ClassInfo ClassFinder$$Lambda$lambda$fillIn$2$3::classInfo$ = {
@@ -341,8 +341,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ClassFinder$$Lambda$lambda$fillIn$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$$Lambda$lambda$fillIn$3$4::*)()>(&ClassFinder$$Lambda$lambda$fillIn$3$4::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFinder$$Lambda$lambda$fillIn$3$4, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ClassFinder$$Lambda$lambda$fillIn$3$4, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ClassFinder$$Lambda$lambda$fillIn$3$4::classInfo$ = {
@@ -374,8 +374,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ClassFinder$$Lambda$lambda$fillIn$4$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$$Lambda$lambda$fillIn$4$5::*)()>(&ClassFinder$$Lambda$lambda$fillIn$4$5::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFinder$$Lambda$lambda$fillIn$4$5, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ClassFinder$$Lambda$lambda$fillIn$4$5, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ClassFinder$$Lambda$lambda$fillIn$4$5::classInfo$ = {
@@ -417,8 +417,8 @@ $FieldInfo ClassFinder$$Lambda$lambda$classFileNotFound$5$6::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ClassFinder$$Lambda$lambda$classFileNotFound$5$6::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$$Lambda$lambda$classFileNotFound$5$6::*)(ClassFinder*,$Symbol$ClassSymbol*)>(&ClassFinder$$Lambda$lambda$classFileNotFound$5$6::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $method(ClassFinder$$Lambda$lambda$classFileNotFound$5$6, init$, void, ClassFinder*, $Symbol$ClassSymbol*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassFinder$$Lambda$lambda$classFileNotFound$5$6, get, $Object*)},
 	{}
 };
 $ClassInfo ClassFinder$$Lambda$lambda$classFileNotFound$5$6::classInfo$ = {
@@ -460,8 +460,8 @@ $FieldInfo ClassFinder$$Lambda$lambda$loadClass$6$7::fieldInfos[3] = {
 	{}
 };
 $MethodInfo ClassFinder$$Lambda$lambda$loadClass$6$7::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$$Lambda$lambda$loadClass$6$7::*)($Symbol$ModuleSymbol*,$Name*)>(&ClassFinder$$Lambda$lambda$loadClass$6$7::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(ClassFinder$$Lambda$lambda$loadClass$6$7, init$, void, $Symbol$ModuleSymbol*, $Name*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassFinder$$Lambda$lambda$loadClass$6$7, get, $Object*)},
 	{}
 };
 $ClassInfo ClassFinder$$Lambda$lambda$loadClass$6$7::classInfo$ = {
@@ -500,8 +500,8 @@ $FieldInfo ClassFinder$$Lambda$toString$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassFinder$$Lambda$toString$8::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$$Lambda$toString$8::*)($Symbol$PackageSymbol*)>(&ClassFinder$$Lambda$toString$8::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PUBLIC, $method(ClassFinder$$Lambda$toString$8, init$, void, $Symbol$PackageSymbol*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassFinder$$Lambda$toString$8, get, $Object*)},
 	{}
 };
 $ClassInfo ClassFinder$$Lambda$toString$8::classInfo$ = {
@@ -549,8 +549,8 @@ $FieldInfo ClassFinder$$Lambda$lambda$list$7$9::fieldInfos[5] = {
 	{}
 };
 $MethodInfo ClassFinder$$Lambda$lambda$list$7$9::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;Ljava/lang/Iterable;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$$Lambda$lambda$list$7$9::*)(ClassFinder*,$Iterable*,$Symbol$PackageSymbol*,$Set*)>(&ClassFinder$$Lambda$lambda$list$7$9::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;Ljava/lang/Iterable;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(ClassFinder$$Lambda$lambda$list$7$9, init$, void, ClassFinder*, $Iterable*, $Symbol$PackageSymbol*, $Set*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(ClassFinder$$Lambda$lambda$list$7$9, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo ClassFinder$$Lambda$lambda$list$7$9::classInfo$ = {
@@ -598,35 +598,35 @@ $FieldInfo _ClassFinder_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassFinder_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(ClassFinder::*)($Context*)>(&ClassFinder::init$))},
-	{"classFileNotFound", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/code/Symbol$CompletionFailure;", nullptr, $PRIVATE, $method(static_cast<$Symbol$CompletionFailure*(ClassFinder::*)($Symbol$ClassSymbol*)>(&ClassFinder::classFileNotFound))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassFinder::*)($Symbol*)>(&ClassFinder::complete)), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"completeEnclosing", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassFinder::*)($Symbol$ClassSymbol*)>(&ClassFinder::completeEnclosing))},
-	{"completeOwners", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassFinder::*)($Symbol*)>(&ClassFinder::completeOwners))},
-	{"extraFileActions", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljavax/tools/JavaFileObject;)V", nullptr, $PROTECTED},
-	{"fillIn", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0},
-	{"fillIn", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassFinder::*)($Symbol$PackageSymbol*)>(&ClassFinder::fillIn)), "java.io.IOException"},
-	{"fillIn", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable;)V", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;)V", $PRIVATE, $method(static_cast<void(ClassFinder::*)($Symbol$PackageSymbol*,$JavaFileManager$Location*,$Iterable*)>(&ClassFinder::fillIn))},
-	{"getCompleter", "()Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC},
-	{"getPackageFileKinds", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Ljavax/tools/JavaFileObject$Kind;>;", $PROTECTED},
-	{"getSupplementaryFlags", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)J", nullptr, 0},
-	{"includeClassFile", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljavax/tools/JavaFileObject;)V", nullptr, $PROTECTED},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/ClassFinder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClassFinder*(*)($Context*)>(&ClassFinder::instance))},
-	{"lambda$classFileNotFound$5", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$JCDiagnostic*(ClassFinder::*)($Symbol$ClassSymbol*)>(&ClassFinder::lambda$classFileNotFound$5))},
-	{"lambda$complete$1", "(Ljava/io/IOException;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$JCDiagnostic*(ClassFinder::*)($IOException*)>(&ClassFinder::lambda$complete$1))},
-	{"lambda$fillIn$2", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$JCDiagnostic*(ClassFinder::*)()>(&ClassFinder::lambda$fillIn$2))},
-	{"lambda$fillIn$3", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*)>(&ClassFinder::lambda$fillIn$3))},
-	{"lambda$fillIn$4", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Symbol*)>(&ClassFinder::lambda$fillIn$4))},
-	{"lambda$list$7", "(Ljava/lang/Iterable;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/util/Set;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterator*(ClassFinder::*)($Iterable*,$Symbol$PackageSymbol*,$Set*)>(&ClassFinder::lambda$list$7))},
-	{"lambda$loadClass$6", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Symbol$ModuleSymbol*,$Name*)>(&ClassFinder::lambda$loadClass$6))},
-	{"lambda$new$0", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCDiagnostic*(*)()>(&ClassFinder::lambda$new$0))},
-	{"list", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/lang/String;Ljava/util/Set;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", 0, nullptr, "java.io.IOException"},
-	{"loadClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"newCompletionFailure", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/util/function/Supplier;)Lcom/sun/tools/javac/code/Symbol$CompletionFailure;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic;>;)Lcom/sun/tools/javac/code/Symbol$CompletionFailure;", $PRIVATE, $method(static_cast<$Symbol$CompletionFailure*(ClassFinder::*)($Symbol$TypeSymbol*,$Supplier*)>(&ClassFinder::newCompletionFailure))},
-	{"preferredFileObject", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PROTECTED},
-	{"scanModulePaths", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassFinder::*)($Symbol$PackageSymbol*,$Symbol$ModuleSymbol*)>(&ClassFinder::scanModulePaths)), "java.io.IOException"},
-	{"scanPlatformPath", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassFinder::*)($Symbol$PackageSymbol*)>(&ClassFinder::scanPlatformPath)), "java.io.IOException"},
-	{"scanUserPaths", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Z)V", nullptr, $PRIVATE, $method(static_cast<void(ClassFinder::*)($Symbol$PackageSymbol*,bool)>(&ClassFinder::scanUserPaths)), "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ClassFinder, init$, void, $Context*)},
+	{"classFileNotFound", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/code/Symbol$CompletionFailure;", nullptr, $PRIVATE, $method(ClassFinder, classFileNotFound, $Symbol$CompletionFailure*, $Symbol$ClassSymbol*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(ClassFinder, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"completeEnclosing", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(ClassFinder, completeEnclosing, void, $Symbol$ClassSymbol*)},
+	{"completeOwners", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(ClassFinder, completeOwners, void, $Symbol*)},
+	{"extraFileActions", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljavax/tools/JavaFileObject;)V", nullptr, $PROTECTED, $virtualMethod(ClassFinder, extraFileActions, void, $Symbol$PackageSymbol*, $JavaFileObject*)},
+	{"fillIn", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(ClassFinder, fillIn, void, $Symbol$ClassSymbol*)},
+	{"fillIn", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE, $method(ClassFinder, fillIn, void, $Symbol$PackageSymbol*), "java.io.IOException"},
+	{"fillIn", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable;)V", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljavax/tools/JavaFileManager$Location;Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;)V", $PRIVATE, $method(ClassFinder, fillIn, void, $Symbol$PackageSymbol*, $JavaFileManager$Location*, $Iterable*)},
+	{"getCompleter", "()Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC, $virtualMethod(ClassFinder, getCompleter, $Symbol$Completer*)},
+	{"getPackageFileKinds", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<Ljavax/tools/JavaFileObject$Kind;>;", $PROTECTED, $virtualMethod(ClassFinder, getPackageFileKinds, $EnumSet*)},
+	{"getSupplementaryFlags", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)J", nullptr, 0, $virtualMethod(ClassFinder, getSupplementaryFlags, int64_t, $Symbol$ClassSymbol*)},
+	{"includeClassFile", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljavax/tools/JavaFileObject;)V", nullptr, $PROTECTED, $virtualMethod(ClassFinder, includeClassFile, void, $Symbol$PackageSymbol*, $JavaFileObject*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/ClassFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassFinder, instance, ClassFinder*, $Context*)},
+	{"lambda$classFileNotFound$5", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassFinder, lambda$classFileNotFound$5, $JCDiagnostic*, $Symbol$ClassSymbol*)},
+	{"lambda$complete$1", "(Ljava/io/IOException;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassFinder, lambda$complete$1, $JCDiagnostic*, $IOException*)},
+	{"lambda$fillIn$2", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassFinder, lambda$fillIn$2, $JCDiagnostic*)},
+	{"lambda$fillIn$3", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassFinder, lambda$fillIn$3, bool, $Symbol*)},
+	{"lambda$fillIn$4", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassFinder, lambda$fillIn$4, void, $Symbol*)},
+	{"lambda$list$7", "(Ljava/lang/Iterable;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/util/Set;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassFinder, lambda$list$7, $Iterator*, $Iterable*, $Symbol$PackageSymbol*, $Set*)},
+	{"lambda$loadClass$6", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassFinder, lambda$loadClass$6, $String*, $Symbol$ModuleSymbol*, $Name*)},
+	{"lambda$new$0", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassFinder, lambda$new$0, $JCDiagnostic*)},
+	{"list", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/lang/String;Ljava/util/Set;)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", 0, $virtualMethod(ClassFinder, list, $Iterable*, $JavaFileManager$Location*, $Symbol$PackageSymbol*, $String*, $Set*), "java.io.IOException"},
+	{"loadClass", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(ClassFinder, loadClass, $Symbol$ClassSymbol*, $Symbol$ModuleSymbol*, $Name*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"newCompletionFailure", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/util/function/Supplier;)Lcom/sun/tools/javac/code/Symbol$CompletionFailure;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic;>;)Lcom/sun/tools/javac/code/Symbol$CompletionFailure;", $PRIVATE, $method(ClassFinder, newCompletionFailure, $Symbol$CompletionFailure*, $Symbol$TypeSymbol*, $Supplier*)},
+	{"preferredFileObject", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileObject;)Ljavax/tools/JavaFileObject;", nullptr, $PROTECTED, $virtualMethod(ClassFinder, preferredFileObject, $JavaFileObject*, $JavaFileObject*, $JavaFileObject*)},
+	{"scanModulePaths", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(ClassFinder, scanModulePaths, void, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*), "java.io.IOException"},
+	{"scanPlatformPath", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE, $method(ClassFinder, scanPlatformPath, void, $Symbol$PackageSymbol*), "java.io.IOException"},
+	{"scanUserPaths", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Z)V", nullptr, $PRIVATE, $method(ClassFinder, scanUserPaths, void, $Symbol$PackageSymbol*, bool), "java.io.IOException"},
 	{}
 };
 

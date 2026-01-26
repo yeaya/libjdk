@@ -24,7 +24,7 @@ $FieldInfo _Level$RbAccess_FieldInfo_[] = {
 };
 
 $MethodInfo _Level$RbAccess_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Level$RbAccess::*)()>(&Level$RbAccess::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Level$RbAccess, init$, void)},
 	{}
 };
 

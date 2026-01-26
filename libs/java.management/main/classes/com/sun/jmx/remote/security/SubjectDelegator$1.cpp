@@ -31,8 +31,8 @@ $FieldInfo _SubjectDelegator$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SubjectDelegator$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/security/SubjectDelegator;Ljava/util/Collection;)V", "()V", 0, $method(static_cast<void(SubjectDelegator$1::*)($SubjectDelegator*,$Collection*)>(&SubjectDelegator$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/remote/security/SubjectDelegator;Ljava/util/Collection;)V", "()V", 0, $method(SubjectDelegator$1, init$, void, $SubjectDelegator*, $Collection*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(SubjectDelegator$1, run, $Object*)},
 	{}
 };
 

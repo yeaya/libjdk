@@ -19,10 +19,10 @@ $FieldInfo _JMXProviderException_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXProviderException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JMXProviderException::*)()>(&JMXProviderException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(JMXProviderException::*)($String*)>(&JMXProviderException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(JMXProviderException::*)($String*,$Throwable*)>(&JMXProviderException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JMXProviderException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMXProviderException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(JMXProviderException, init$, void, $String*, $Throwable*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(JMXProviderException, getCause, $Throwable*)},
 	{}
 };
 

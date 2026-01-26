@@ -19,8 +19,8 @@ $FieldInfo _RowSetProvider$2_FieldInfo_[] = {
 };
 
 $MethodInfo _RowSetProvider$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(RowSetProvider$2::*)($String*)>(&RowSetProvider$2::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(RowSetProvider$2, init$, void, $String*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RowSetProvider$2, run, $Object*)},
 	{}
 };
 

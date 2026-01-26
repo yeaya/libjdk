@@ -7,6 +7,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Number = ::java::lang::Number;
+using $ObjectName = ::javax::management::ObjectName;
 
 namespace javax {
 	namespace management {
@@ -33,23 +35,23 @@ $CompoundAttribute _CounterMonitorMBean_MethodAnnotations_setThreshold16[] = {
 };
 
 $MethodInfo _CounterMonitorMBean_MethodInfo_[] = {
-	{"getDerivedGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _CounterMonitorMBean_MethodAnnotations_getDerivedGauge0},
-	{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _CounterMonitorMBean_MethodAnnotations_getDerivedGaugeTimeStamp2},
-	{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDifferenceMode", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInitThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getModulus", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNotify", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOffset", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _CounterMonitorMBean_MethodAnnotations_getThreshold9},
-	{"getThreshold", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setDifferenceMode", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setInitThreshold", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.IllegalArgumentException"},
-	{"setModulus", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.IllegalArgumentException"},
-	{"setNotify", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setOffset", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.IllegalArgumentException"},
-	{"setThreshold", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.lang.IllegalArgumentException", nullptr, _CounterMonitorMBean_MethodAnnotations_setThreshold16},
+	{"getDerivedGauge", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(CounterMonitorMBean, getDerivedGauge, $Number*), nullptr, nullptr, _CounterMonitorMBean_MethodAnnotations_getDerivedGauge0},
+	{"getDerivedGauge", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, getDerivedGauge, $Number*, $ObjectName*)},
+	{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(CounterMonitorMBean, getDerivedGaugeTimeStamp, int64_t), nullptr, nullptr, _CounterMonitorMBean_MethodAnnotations_getDerivedGaugeTimeStamp2},
+	{"getDerivedGaugeTimeStamp", "(Ljavax/management/ObjectName;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, getDerivedGaugeTimeStamp, int64_t, $ObjectName*)},
+	{"getDifferenceMode", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, getDifferenceMode, bool)},
+	{"getInitThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, getInitThreshold, $Number*)},
+	{"getModulus", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, getModulus, $Number*)},
+	{"getNotify", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, getNotify, bool)},
+	{"getOffset", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, getOffset, $Number*)},
+	{"getThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(CounterMonitorMBean, getThreshold, $Number*), nullptr, nullptr, _CounterMonitorMBean_MethodAnnotations_getThreshold9},
+	{"getThreshold", "(Ljavax/management/ObjectName;)Ljava/lang/Number;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, getThreshold, $Number*, $ObjectName*)},
+	{"setDifferenceMode", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, setDifferenceMode, void, bool)},
+	{"setInitThreshold", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, setInitThreshold, void, $Number*), "java.lang.IllegalArgumentException"},
+	{"setModulus", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, setModulus, void, $Number*), "java.lang.IllegalArgumentException"},
+	{"setNotify", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, setNotify, void, bool)},
+	{"setOffset", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CounterMonitorMBean, setOffset, void, $Number*), "java.lang.IllegalArgumentException"},
+	{"setThreshold", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(CounterMonitorMBean, setThreshold, void, $Number*), "java.lang.IllegalArgumentException", nullptr, _CounterMonitorMBean_MethodAnnotations_setThreshold16},
 	{}
 };
 

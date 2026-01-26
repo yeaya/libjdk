@@ -32,11 +32,11 @@ $FieldInfo _JavaCompiler$CompilePolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaCompiler$CompilePolicy_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavaCompiler$CompilePolicyArray*(*)()>(&JavaCompiler$CompilePolicy::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JavaCompiler$CompilePolicy::*)($String*,int32_t)>(&JavaCompiler$CompilePolicy::init$))},
-	{"decode", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $STATIC, $method(static_cast<JavaCompiler$CompilePolicy*(*)($String*)>(&JavaCompiler$CompilePolicy::decode))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavaCompiler$CompilePolicy*(*)($String*)>(&JavaCompiler$CompilePolicy::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavaCompiler$CompilePolicyArray*(*)()>(&JavaCompiler$CompilePolicy::values))},
+	{"$values", "()[Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaCompiler$CompilePolicy, $values, $JavaCompiler$CompilePolicyArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavaCompiler$CompilePolicy, init$, void, $String*, int32_t)},
+	{"decode", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $STATIC, $staticMethod(JavaCompiler$CompilePolicy, decode, JavaCompiler$CompilePolicy*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$CompilePolicy, valueOf, JavaCompiler$CompilePolicy*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/main/JavaCompiler$CompilePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$CompilePolicy, values, $JavaCompiler$CompilePolicyArray*)},
 	{}
 };
 

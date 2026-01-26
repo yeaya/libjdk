@@ -112,8 +112,8 @@ $FieldInfo TransportImpl$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TransportImpl$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TransportImpl$$Lambda$toString::*)($String*)>(&TransportImpl$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransportImpl$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TransportImpl$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo TransportImpl$$Lambda$toString::classInfo$ = {
@@ -157,19 +157,19 @@ $FieldInfo _TransportImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _TransportImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/MessageQueue;Ljdk/internal/net/http/websocket/MessageStreamConsumer;Ljdk/internal/net/http/websocket/RawChannel;)V", nullptr, $PUBLIC, $method(static_cast<void(TransportImpl::*)($MessageQueue*,$MessageStreamConsumer*,$RawChannel*)>(&TransportImpl::init$))},
-	{"acknowledgeReception", "()V", nullptr, $PUBLIC},
-	{"closeInput", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"closeOutput", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createWriteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(TransportImpl::*)()>(&TransportImpl::createWriteBuffer))},
-	{"request", "(J)V", nullptr, $PUBLIC},
-	{"sendBinary", "(Ljava/nio/ByteBuffer;ZLjava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC},
-	{"sendClose", "(ILjava/lang/String;Ljava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(ILjava/lang/String;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC},
-	{"sendPing", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC},
-	{"sendPong", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC},
-	{"sendPong", "(Ljava/util/function/Supplier;Ljava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC},
-	{"sendText", "(Ljava/lang/CharSequence;ZLjava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/lang/CharSequence;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC},
-	{"write", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(TransportImpl::*)()>(&TransportImpl::write)), "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/net/http/websocket/MessageQueue;Ljdk/internal/net/http/websocket/MessageStreamConsumer;Ljdk/internal/net/http/websocket/RawChannel;)V", nullptr, $PUBLIC, $method(TransportImpl, init$, void, $MessageQueue*, $MessageStreamConsumer*, $RawChannel*)},
+	{"acknowledgeReception", "()V", nullptr, $PUBLIC, $virtualMethod(TransportImpl, acknowledgeReception, void)},
+	{"closeInput", "()V", nullptr, $PUBLIC, $virtualMethod(TransportImpl, closeInput, void), "java.io.IOException"},
+	{"closeOutput", "()V", nullptr, $PUBLIC, $virtualMethod(TransportImpl, closeOutput, void), "java.io.IOException"},
+	{"createWriteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(TransportImpl, createWriteBuffer, $ByteBuffer*)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(TransportImpl, request, void, int64_t)},
+	{"sendBinary", "(Ljava/nio/ByteBuffer;ZLjava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(TransportImpl, sendBinary, $CompletableFuture*, $ByteBuffer*, bool, Object$*, $BiConsumer*)},
+	{"sendClose", "(ILjava/lang/String;Ljava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(ILjava/lang/String;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(TransportImpl, sendClose, $CompletableFuture*, int32_t, $String*, Object$*, $BiConsumer*)},
+	{"sendPing", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(TransportImpl, sendPing, $CompletableFuture*, $ByteBuffer*, Object$*, $BiConsumer*)},
+	{"sendPong", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(TransportImpl, sendPong, $CompletableFuture*, $ByteBuffer*, Object$*, $BiConsumer*)},
+	{"sendPong", "(Ljava/util/function/Supplier;Ljava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;TT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(TransportImpl, sendPong, $CompletableFuture*, $Supplier*, Object$*, $BiConsumer*)},
+	{"sendText", "(Ljava/lang/CharSequence;ZLjava/lang/Object;Ljava/util/function/BiConsumer;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/lang/CharSequence;ZTT;Ljava/util/function/BiConsumer<-TT;-Ljava/lang/Throwable;>;)Ljava/util/concurrent/CompletableFuture<TT;>;", $PUBLIC, $virtualMethod(TransportImpl, sendText, $CompletableFuture*, $CharSequence*, bool, Object$*, $BiConsumer*)},
+	{"write", "()Z", nullptr, $PRIVATE, $method(TransportImpl, write, bool), "java.io.IOException"},
 	{}
 };
 

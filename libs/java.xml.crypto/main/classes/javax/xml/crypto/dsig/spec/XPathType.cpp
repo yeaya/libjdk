@@ -32,11 +32,11 @@ $FieldInfo _XPathType_FieldInfo_[] = {
 };
 
 $MethodInfo _XPathType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;)V", nullptr, $PUBLIC, $method(static_cast<void(XPathType::*)($String*,$XPathType$Filter*)>(&XPathType::init$))},
-	{"<init>", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;Ljava/util/Map;)V", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(XPathType::*)($String*,$XPathType$Filter*,$Map*)>(&XPathType::init$))},
-	{"getExpression", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getFilter", "()Ljavax/xml/crypto/dsig/spec/XPathType$Filter;", nullptr, $PUBLIC},
-	{"getNamespaceMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;)V", nullptr, $PUBLIC, $method(XPathType, init$, void, $String*, $XPathType$Filter*)},
+	{"<init>", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;Ljava/util/Map;)V", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/XPathType$Filter;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(XPathType, init$, void, $String*, $XPathType$Filter*, $Map*)},
+	{"getExpression", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XPathType, getExpression, $String*)},
+	{"getFilter", "()Ljavax/xml/crypto/dsig/spec/XPathType$Filter;", nullptr, $PUBLIC, $virtualMethod(XPathType, getFilter, $XPathType$Filter*)},
+	{"getNamespaceMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(XPathType, getNamespaceMap, $Map*)},
 	{}
 };
 

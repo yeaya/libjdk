@@ -14,8 +14,8 @@ namespace jdk {
 				namespace common {
 
 $MethodInfo _FlowTube$TubeSubscriber_MethodInfo_[] = {
-	{"dropSubscription", "()V", nullptr, $PUBLIC},
-	{"supportsRecycling", "()Z", nullptr, $PUBLIC},
+	{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(FlowTube$TubeSubscriber, dropSubscription, void)},
+	{"supportsRecycling", "()Z", nullptr, $PUBLIC, $virtualMethod(FlowTube$TubeSubscriber, supportsRecycling, bool)},
 	{}
 };
 

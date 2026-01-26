@@ -18,11 +18,11 @@ $FieldInfo _MethodInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;JI)V", nullptr, 0, $method(static_cast<void(MethodInfo::*)($String*,int64_t,int32_t)>(&MethodInfo::init$))},
-	{"getCompileSize", "()I", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getType", "()J", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;JI)V", nullptr, 0, $method(MethodInfo, init$, void, $String*, int64_t, int32_t)},
+	{"getCompileSize", "()I", nullptr, $PUBLIC, $virtualMethod(MethodInfo, getCompileSize, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodInfo, getName, $String*)},
+	{"getType", "()J", nullptr, $PUBLIC, $virtualMethod(MethodInfo, getType, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodInfo, toString, $String*)},
 	{}
 };
 

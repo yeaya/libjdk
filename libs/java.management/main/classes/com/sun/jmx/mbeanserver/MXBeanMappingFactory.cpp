@@ -8,9 +8,11 @@
 #undef DEFAULT
 
 using $DefaultMXBeanMappingFactory = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory;
+using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Type = ::java::lang::reflect::Type;
 
 namespace com {
 	namespace sun {
@@ -23,8 +25,8 @@ $FieldInfo _MXBeanMappingFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _MXBeanMappingFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(MXBeanMappingFactory::*)()>(&MXBeanMappingFactory::init$))},
-	{"mappingForType", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.openmbean.OpenDataException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(MXBeanMappingFactory, init$, void)},
+	{"mappingForType", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MXBeanMappingFactory, mappingForType, $MXBeanMapping*, $Type*, MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
 	{}
 };
 

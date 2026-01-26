@@ -25,13 +25,13 @@ $FieldInfo _TransformService$MechanismMapEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _TransformService$MechanismMapEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(TransformService$MechanismMapEntry::*)($String*,$String*)>(&TransformService$MechanismMapEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(TransformService$MechanismMapEntry, init$, void, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TransformService$MechanismMapEntry, equals, bool, Object$*)},
+	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TransformService$MechanismMapEntry, getKey, $Object*)},
+	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TransformService$MechanismMapEntry, getValue, $Object*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TransformService$MechanismMapEntry, hashCode, int32_t)},
+	{"setValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TransformService$MechanismMapEntry, setValue, $String*, $String*)},
+	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TransformService$MechanismMapEntry, setValue, $Object*, Object$*)},
 	{}
 };
 

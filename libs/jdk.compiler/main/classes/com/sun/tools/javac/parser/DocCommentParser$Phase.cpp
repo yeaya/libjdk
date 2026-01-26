@@ -30,10 +30,10 @@ $FieldInfo _DocCommentParser$Phase_FieldInfo_[] = {
 };
 
 $MethodInfo _DocCommentParser$Phase_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$Phase;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DocCommentParser$PhaseArray*(*)()>(&DocCommentParser$Phase::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(DocCommentParser$Phase::*)($String*,int32_t)>(&DocCommentParser$Phase::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/DocCommentParser$Phase;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DocCommentParser$Phase*(*)($String*)>(&DocCommentParser$Phase::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$Phase;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DocCommentParser$PhaseArray*(*)()>(&DocCommentParser$Phase::values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$Phase;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocCommentParser$Phase, $values, $DocCommentParser$PhaseArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocCommentParser$Phase, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/DocCommentParser$Phase;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$Phase, valueOf, DocCommentParser$Phase*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$Phase;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$Phase, values, $DocCommentParser$PhaseArray*)},
 	{}
 };
 

@@ -32,11 +32,11 @@ $FieldInfo _TypeMetadata$Annotations_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeMetadata$Annotations_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $method(static_cast<void(TypeMetadata$Annotations::*)($List*)>(&TypeMetadata$Annotations::init$))},
-	{"combine", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)Lcom/sun/tools/javac/code/TypeMetadata$Annotations;", nullptr, $PUBLIC},
-	{"getAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC},
-	{"kind", "()Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $method(TypeMetadata$Annotations, init$, void, $List*)},
+	{"combine", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)Lcom/sun/tools/javac/code/TypeMetadata$Annotations;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata$Annotations, combine, TypeMetadata$Annotations*, $TypeMetadata$Entry*)},
+	{"getAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(TypeMetadata$Annotations, getAnnotations, $List*)},
+	{"kind", "()Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata$Annotations, kind, $TypeMetadata$Entry$Kind*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata$Annotations, toString, $String*)},
 	{}
 };
 

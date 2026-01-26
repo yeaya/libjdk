@@ -75,8 +75,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DGCAckHandler$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCAckHandler$$Lambda$lambda$static$0::*)()>(&DGCAckHandler$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCAckHandler$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCAckHandler$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo DGCAckHandler$$Lambda$lambda$static$0::classInfo$ = {
@@ -105,12 +105,12 @@ $FieldInfo _DGCAckHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCAckHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/server/UID;)V", nullptr, 0, $method(static_cast<void(DGCAckHandler::*)($UID*)>(&DGCAckHandler::init$))},
-	{"add", "(Ljava/lang/Object;)V", nullptr, $SYNCHRONIZED},
-	{"lambda$static$0", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)()>(&DGCAckHandler::lambda$static$0))},
-	{"received", "(Ljava/rmi/server/UID;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($UID*)>(&DGCAckHandler::received))},
-	{"release", "()V", nullptr, $SYNCHRONIZED},
-	{"startTimer", "()V", nullptr, $SYNCHRONIZED},
+	{"<init>", "(Ljava/rmi/server/UID;)V", nullptr, 0, $method(DGCAckHandler, init$, void, $UID*)},
+	{"add", "(Ljava/lang/Object;)V", nullptr, $SYNCHRONIZED, $virtualMethod(DGCAckHandler, add, void, Object$*)},
+	{"lambda$static$0", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCAckHandler, lambda$static$0, $Long*)},
+	{"received", "(Ljava/rmi/server/UID;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DGCAckHandler, received, void, $UID*)},
+	{"release", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(DGCAckHandler, release, void)},
+	{"startTimer", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(DGCAckHandler, startTimer, void)},
 	{}
 };
 

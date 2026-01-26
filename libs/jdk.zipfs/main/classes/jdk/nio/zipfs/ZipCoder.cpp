@@ -46,13 +46,13 @@ $FieldInfo _ZipCoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipCoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(static_cast<void(ZipCoder::*)($Charset*)>(&ZipCoder::init$))},
-	{"decoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE, $method(static_cast<$CharsetDecoder*(ZipCoder::*)()>(&ZipCoder::decoder))},
-	{"encoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $method(static_cast<$CharsetEncoder*(ZipCoder::*)()>(&ZipCoder::encoder))},
-	{"get", "(Ljava/lang/String;)Ljdk/nio/zipfs/ZipCoder;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ZipCoder*(*)($String*)>(&ZipCoder::get))},
-	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0},
-	{"isUTF8", "()Z", nullptr, 0},
-	{"toString", "([B)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ZipCoder, init$, void, $Charset*)},
+	{"decoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE, $method(ZipCoder, decoder, $CharsetDecoder*)},
+	{"encoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $method(ZipCoder, encoder, $CharsetEncoder*)},
+	{"get", "(Ljava/lang/String;)Ljdk/nio/zipfs/ZipCoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipCoder, get, ZipCoder*, $String*)},
+	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(ZipCoder, getBytes, $bytes*, $String*)},
+	{"isUTF8", "()Z", nullptr, 0, $virtualMethod(ZipCoder, isUTF8, bool)},
+	{"toString", "([B)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder, toString, $String*, $bytes*)},
 	{}
 };
 

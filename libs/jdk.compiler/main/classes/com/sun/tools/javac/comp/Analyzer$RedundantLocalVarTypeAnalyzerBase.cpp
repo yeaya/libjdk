@@ -53,10 +53,10 @@ $FieldInfo _Analyzer$RedundantLocalVarTypeAnalyzerBase_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$RedundantLocalVarTypeAnalyzerBase_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Analyzer$RedundantLocalVarTypeAnalyzerBase::*)($Analyzer*,$JCTree$Tag*)>(&Analyzer$RedundantLocalVarTypeAnalyzerBase::init$))},
-	{"isImplicitlyTyped", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0},
-	{"processVar", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Z)V", nullptr, 0},
-	{"rewriteVarType", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Analyzer$RedundantLocalVarTypeAnalyzerBase, init$, void, $Analyzer*, $JCTree$Tag*)},
+	{"isImplicitlyTyped", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Z", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerBase, isImplicitlyTyped, bool, $JCTree$JCVariableDecl*)},
+	{"processVar", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Z)V", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerBase, processVar, void, $JCTree$JCVariableDecl*, $JCTree$JCVariableDecl*, bool)},
+	{"rewriteVarType", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, 0, $virtualMethod(Analyzer$RedundantLocalVarTypeAnalyzerBase, rewriteVarType, $JCTree$JCVariableDecl*, $JCTree$JCVariableDecl*)},
 	{}
 };
 

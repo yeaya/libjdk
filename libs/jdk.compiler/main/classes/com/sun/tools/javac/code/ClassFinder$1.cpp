@@ -48,9 +48,9 @@ $FieldInfo _ClassFinder$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassFinder$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;Ljava/lang/Iterable;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/util/Set;)V", "()V", 0, $method(static_cast<void(ClassFinder$1::*)($ClassFinder*,$Iterable*,$Symbol$PackageSymbol*,$Set*)>(&ClassFinder$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/ClassFinder;Ljava/lang/Iterable;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Ljava/util/Set;)V", "()V", 0, $method(ClassFinder$1, init$, void, $ClassFinder*, $Iterable*, $Symbol$PackageSymbol*, $Set*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ClassFinder$1, hasNext, bool)},
+	{"next", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(ClassFinder$1, next, $Object*)},
 	{}
 };
 

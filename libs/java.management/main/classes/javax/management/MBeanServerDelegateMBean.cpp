@@ -9,13 +9,13 @@ namespace javax {
 	namespace management {
 
 $MethodInfo _MBeanServerDelegateMBean_MethodInfo_[] = {
-	{"getImplementationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getImplementationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getImplementationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMBeanServerId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSpecificationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSpecificationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSpecificationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getImplementationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerDelegateMBean, getImplementationName, $String*)},
+	{"getImplementationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerDelegateMBean, getImplementationVendor, $String*)},
+	{"getImplementationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerDelegateMBean, getImplementationVersion, $String*)},
+	{"getMBeanServerId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerDelegateMBean, getMBeanServerId, $String*)},
+	{"getSpecificationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerDelegateMBean, getSpecificationName, $String*)},
+	{"getSpecificationVendor", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerDelegateMBean, getSpecificationVendor, $String*)},
+	{"getSpecificationVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerDelegateMBean, getSpecificationVersion, $String*)},
 	{}
 };
 

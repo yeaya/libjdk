@@ -25,8 +25,8 @@ $FieldInfo _XMLParserImpl$2_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLParserImpl$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "()V", 0, $method(static_cast<void(XMLParserImpl$2::*)($Class*)>(&XMLParserImpl$2::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", "()V", 0, $method(XMLParserImpl$2, init$, void, $Class*)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(XMLParserImpl$2, run, $Object*)},
 	{}
 };
 

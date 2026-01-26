@@ -20,10 +20,10 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _PlainProxyConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(static_cast<void(PlainProxyConnection::*)($InetSocketAddress*,$HttpClientImpl*)>(&PlainProxyConnection::init$))},
-	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0},
-	{"isProxied", "()Z", nullptr, $PUBLIC},
-	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0},
+	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(PlainProxyConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*)},
+	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0, $virtualMethod(PlainProxyConnection, cacheKey, $ConnectionPool$CacheKey*)},
+	{"isProxied", "()Z", nullptr, $PUBLIC, $virtualMethod(PlainProxyConnection, isProxied, bool)},
+	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(PlainProxyConnection, proxy, $InetSocketAddress*)},
 	{}
 };
 

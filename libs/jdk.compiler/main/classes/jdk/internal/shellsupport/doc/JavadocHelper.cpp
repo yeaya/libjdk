@@ -27,6 +27,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $Collection = ::java::util::Collection;
 using $Locale = ::java::util::Locale;
+using $Element = ::javax::lang::model::element::Element;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
 using $JavaCompiler = ::javax::tools::JavaCompiler;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
@@ -48,10 +49,10 @@ $FieldInfo _JavadocHelper_FieldInfo_[] = {
 
 $MethodInfo _JavadocHelper_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavadocHelper::*)()>(&JavadocHelper::init$))},
-	{"create", "(Lcom/sun/source/util/JavacTask;Ljava/util/Collection;)Ljdk/internal/shellsupport/doc/JavadocHelper;", "(Lcom/sun/source/util/JavacTask;Ljava/util/Collection<+Ljava/nio/file/Path;>;)Ljdk/internal/shellsupport/doc/JavadocHelper;", $PUBLIC | $STATIC, $method(static_cast<JavadocHelper*(*)($JavacTask*,$Collection*)>(&JavadocHelper::create))},
-	{"getResolvedDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getSourceElement", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavadocHelper, init$, void)},
+	{"create", "(Lcom/sun/source/util/JavacTask;Ljava/util/Collection;)Ljdk/internal/shellsupport/doc/JavadocHelper;", "(Lcom/sun/source/util/JavacTask;Ljava/util/Collection<+Ljava/nio/file/Path;>;)Ljdk/internal/shellsupport/doc/JavadocHelper;", $PUBLIC | $STATIC, $staticMethod(JavadocHelper, create, JavadocHelper*, $JavacTask*, $Collection*)},
+	{"getResolvedDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavadocHelper, getResolvedDocComment, $String*, $Element*), "java.io.IOException"},
+	{"getSourceElement", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavadocHelper, getSourceElement, $Element*, $Element*), "java.io.IOException"},
 	{}
 };
 

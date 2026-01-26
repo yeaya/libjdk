@@ -5,6 +5,9 @@
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <jcpp.h>
 
+using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
+using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
+using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -15,10 +18,10 @@ namespace com {
 				namespace parser {
 
 $MethodInfo _Parser_MethodInfo_[] = {
-	{"parseCompilationUnit", "()Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC | $ABSTRACT},
-	{"parseExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT},
-	{"parseStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC | $ABSTRACT},
-	{"parseType", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT},
+	{"parseCompilationUnit", "()Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseCompilationUnit, $JCTree$JCCompilationUnit*)},
+	{"parseExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseExpression, $JCTree$JCExpression*)},
+	{"parseStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseStatement, $JCTree$JCStatement*)},
+	{"parseType", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseType, $JCTree$JCExpression*)},
 	{}
 };
 

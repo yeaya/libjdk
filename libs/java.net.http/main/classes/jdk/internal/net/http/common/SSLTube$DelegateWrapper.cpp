@@ -61,8 +61,8 @@ $FieldInfo SSLTube$DelegateWrapper$$Lambda$onSubscribe::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SSLTube$DelegateWrapper$$Lambda$onSubscribe::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLTube$DelegateWrapper$$Lambda$onSubscribe::*)($Flow$Subscriber*)>(&SSLTube$DelegateWrapper$$Lambda$onSubscribe::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PUBLIC, $method(SSLTube$DelegateWrapper$$Lambda$onSubscribe, init$, void, $Flow$Subscriber*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper$$Lambda$onSubscribe, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SSLTube$DelegateWrapper$$Lambda$onSubscribe::classInfo$ = {
@@ -91,15 +91,15 @@ $FieldInfo _SSLTube$DelegateWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLTube$DelegateWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;Ljdk/internal/net/http/common/Logger;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljdk/internal/net/http/common/Logger;)V", 0, $method(static_cast<void(SSLTube$DelegateWrapper::*)($Flow$Subscriber*,$Logger*)>(&SSLTube$DelegateWrapper::init$))},
-	{"dropSubscription", "()V", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(SSLTube$DelegateWrapper::*)($List*)>(&SSLTube$DelegateWrapper::onNext))},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"onSubscribe", "(Ljava/util/function/Consumer;Ljava/util/concurrent/Flow$Subscription;)V", "(Ljava/util/function/Consumer<Ljava/util/concurrent/Flow$Subscription;>;Ljava/util/concurrent/Flow$Subscription;)V", $PRIVATE, $method(static_cast<void(SSLTube$DelegateWrapper::*)($Consumer*,$Flow$Subscription*)>(&SSLTube$DelegateWrapper::onSubscribe))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;Ljdk/internal/net/http/common/Logger;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljdk/internal/net/http/common/Logger;)V", 0, $method(SSLTube$DelegateWrapper, init$, void, $Flow$Subscriber*, $Logger*)},
+	{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, dropSubscription, void)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SSLTube$DelegateWrapper, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SSLTube$DelegateWrapper, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, onSubscribe, void, $Flow$Subscription*)},
+	{"onSubscribe", "(Ljava/util/function/Consumer;Ljava/util/concurrent/Flow$Subscription;)V", "(Ljava/util/function/Consumer<Ljava/util/concurrent/Flow$Subscription;>;Ljava/util/concurrent/Flow$Subscription;)V", $PRIVATE, $method(SSLTube$DelegateWrapper, onSubscribe, void, $Consumer*, $Flow$Subscription*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, toString, $String*)},
 	{}
 };
 

@@ -78,22 +78,22 @@ $FieldInfo _SearchFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _SearchFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SearchFilter::*)($String*)>(&SearchFilter::init$)), "javax.naming.directory.InvalidSearchFilterException"},
-	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"consumeChar", "()V", nullptr, $PROTECTED},
-	{"consumeChars", "(I)V", nullptr, $PROTECTED},
-	{"createNextFilter", "()Lcom/sun/jndi/toolkit/dir/SearchFilter$StringFilter;", nullptr, $PROTECTED, nullptr, "javax.naming.directory.InvalidSearchFilterException"},
-	{"findUnescaped", "(CLjava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(char16_t,$String*,int32_t)>(&SearchFilter::findUnescaped))},
-	{"format", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Attributes*)>(&SearchFilter::format)), "javax.naming.NamingException"},
-	{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$ObjectArray*)>(&SearchFilter::format)), "javax.naming.NamingException"},
-	{"getCurrentChar", "()C", nullptr, $PROTECTED},
-	{"getEncodedStringRep", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(Object$*)>(&SearchFilter::getEncodedStringRep)), "javax.naming.NamingException"},
-	{"normalizeFilter", "()V", nullptr, $PROTECTED},
-	{"relCharAt", "(I)C", nullptr, $PROTECTED},
-	{"relIndexOf", "(I)I", nullptr, $PROTECTED},
-	{"relSubstring", "(II)Ljava/lang/String;", nullptr, $PROTECTED},
-	{"selectAttributes", "(Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Attributes*(*)($Attributes*,$StringArray*)>(&SearchFilter::selectAttributes)), "javax.naming.NamingException"},
-	{"skipWhiteSpace", "()V", nullptr, $PRIVATE, $method(static_cast<void(SearchFilter::*)()>(&SearchFilter::skipWhiteSpace))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SearchFilter, init$, void, $String*), "javax.naming.directory.InvalidSearchFilterException"},
+	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, $virtualMethod(SearchFilter, check, bool, $Attributes*), "javax.naming.NamingException"},
+	{"consumeChar", "()V", nullptr, $PROTECTED, $virtualMethod(SearchFilter, consumeChar, void)},
+	{"consumeChars", "(I)V", nullptr, $PROTECTED, $virtualMethod(SearchFilter, consumeChars, void, int32_t)},
+	{"createNextFilter", "()Lcom/sun/jndi/toolkit/dir/SearchFilter$StringFilter;", nullptr, $PROTECTED, $virtualMethod(SearchFilter, createNextFilter, $SearchFilter$StringFilter*), "javax.naming.directory.InvalidSearchFilterException"},
+	{"findUnescaped", "(CLjava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, findUnescaped, int32_t, char16_t, $String*, int32_t)},
+	{"format", "(Ljavax/naming/directory/Attributes;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, format, $String*, $Attributes*), "javax.naming.NamingException"},
+	{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, format, $String*, $String*, $ObjectArray*), "javax.naming.NamingException"},
+	{"getCurrentChar", "()C", nullptr, $PROTECTED, $virtualMethod(SearchFilter, getCurrentChar, char16_t)},
+	{"getEncodedStringRep", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SearchFilter, getEncodedStringRep, $String*, Object$*), "javax.naming.NamingException"},
+	{"normalizeFilter", "()V", nullptr, $PROTECTED, $virtualMethod(SearchFilter, normalizeFilter, void)},
+	{"relCharAt", "(I)C", nullptr, $PROTECTED, $virtualMethod(SearchFilter, relCharAt, char16_t, int32_t)},
+	{"relIndexOf", "(I)I", nullptr, $PROTECTED, $virtualMethod(SearchFilter, relIndexOf, int32_t, int32_t)},
+	{"relSubstring", "(II)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SearchFilter, relSubstring, $String*, int32_t, int32_t)},
+	{"selectAttributes", "(Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC | $STATIC, $staticMethod(SearchFilter, selectAttributes, $Attributes*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+	{"skipWhiteSpace", "()V", nullptr, $PRIVATE, $method(SearchFilter, skipWhiteSpace, void)},
 	{}
 };
 

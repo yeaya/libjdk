@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _HpackEncoderDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HpackEncoderDriver::*)()>(&HpackEncoderDriver::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HpackEncoderDriver, init$, void)},
 	{}
 };
 

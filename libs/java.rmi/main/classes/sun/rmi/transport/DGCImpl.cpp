@@ -119,8 +119,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DGCImpl$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCImpl$$Lambda$lambda$static$0::*)()>(&DGCImpl$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo DGCImpl$$Lambda$lambda$static$0::classInfo$ = {
@@ -152,8 +152,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DGCImpl$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCImpl$$Lambda$lambda$static$1$1::*)()>(&DGCImpl$$Lambda$lambda$static$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$lambda$static$1$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$lambda$static$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo DGCImpl$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -185,8 +185,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DGCImpl$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCImpl$$Lambda$lambda$static$2$2::*)()>(&DGCImpl$$Lambda$lambda$static$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$lambda$static$2$2, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$lambda$static$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo DGCImpl$$Lambda$lambda$static$2$2::classInfo$ = {
@@ -218,8 +218,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DGCImpl$$Lambda$initDgcFilter$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCImpl$$Lambda$initDgcFilter$3::*)()>(&DGCImpl$$Lambda$initDgcFilter$3::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$initDgcFilter$3, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$initDgcFilter$3, run, $Object*)},
 	{}
 };
 $ClassInfo DGCImpl$$Lambda$initDgcFilter$3::classInfo$ = {
@@ -252,18 +252,18 @@ $FieldInfo _DGCImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DGCImpl::*)()>(&DGCImpl::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ObjectInputFilter$Status*(*)($ObjectInputFilter$FilterInfo*)>(&DGCImpl::checkInput))},
-	{"checkLeases", "()V", nullptr, $PRIVATE, $method(static_cast<void(DGCImpl::*)()>(&DGCImpl::checkLeases))},
-	{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC},
-	{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC},
-	{"getDGCImpl", "()Lsun/rmi/transport/DGCImpl;", nullptr, $STATIC, $method(static_cast<DGCImpl*(*)()>(&DGCImpl::getDGCImpl))},
-	{"initDgcFilter", "()Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ObjectInputFilter*(*)()>(&DGCImpl::initDgcFilter))},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&DGCImpl::lambda$static$0))},
-	{"lambda$static$1", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)()>(&DGCImpl::lambda$static$1))},
-	{"lambda$static$2", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)()>(&DGCImpl::lambda$static$2))},
-	{"registerTarget", "(Ljava/rmi/dgc/VMID;Lsun/rmi/transport/Target;)V", nullptr, 0, $method(static_cast<void(DGCImpl::*)($VMID*,$Target*)>(&DGCImpl::registerTarget))},
-	{"unregisterTarget", "(Ljava/rmi/dgc/VMID;Lsun/rmi/transport/Target;)V", nullptr, 0, $method(static_cast<void(DGCImpl::*)($VMID*,$Target*)>(&DGCImpl::unregisterTarget))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DGCImpl, init$, void)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC, $staticMethod(DGCImpl, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+	{"checkLeases", "()V", nullptr, $PRIVATE, $method(DGCImpl, checkLeases, void)},
+	{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC, $virtualMethod(DGCImpl, clean, void, $ObjIDArray*, int64_t, $VMID*, bool)},
+	{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC, $virtualMethod(DGCImpl, dirty, $Lease*, $ObjIDArray*, int64_t, $Lease*)},
+	{"getDGCImpl", "()Lsun/rmi/transport/DGCImpl;", nullptr, $STATIC, $staticMethod(DGCImpl, getDGCImpl, DGCImpl*)},
+	{"initDgcFilter", "()Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC, $staticMethod(DGCImpl, initDgcFilter, $ObjectInputFilter*)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCImpl, lambda$static$0, $String*)},
+	{"lambda$static$1", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCImpl, lambda$static$1, $Long*)},
+	{"lambda$static$2", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCImpl, lambda$static$2, $Long*)},
+	{"registerTarget", "(Ljava/rmi/dgc/VMID;Lsun/rmi/transport/Target;)V", nullptr, 0, $method(DGCImpl, registerTarget, void, $VMID*, $Target*)},
+	{"unregisterTarget", "(Ljava/rmi/dgc/VMID;Lsun/rmi/transport/Target;)V", nullptr, 0, $method(DGCImpl, unregisterTarget, void, $VMID*, $Target*)},
 	{}
 };
 

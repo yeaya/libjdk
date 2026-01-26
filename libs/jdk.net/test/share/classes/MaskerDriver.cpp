@@ -6,7 +6,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _MaskerDriver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MaskerDriver::*)()>(&MaskerDriver::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MaskerDriver, init$, void)},
 	{}
 };
 

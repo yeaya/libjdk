@@ -19,9 +19,9 @@ $FieldInfo _DirContextStringPair_FieldInfo_[] = {
 };
 
 $MethodInfo _DirContextStringPair_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/directory/DirContext;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(DirContextStringPair::*)($DirContext*,$String*)>(&DirContextStringPair::init$))},
-	{"getDirContext", "()Ljavax/naming/directory/DirContext;", nullptr, 0},
-	{"getString", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljavax/naming/directory/DirContext;Ljava/lang/String;)V", nullptr, 0, $method(DirContextStringPair, init$, void, $DirContext*, $String*)},
+	{"getDirContext", "()Ljavax/naming/directory/DirContext;", nullptr, 0, $virtualMethod(DirContextStringPair, getDirContext, $DirContext*)},
+	{"getString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DirContextStringPair, getString, $String*)},
 	{}
 };
 

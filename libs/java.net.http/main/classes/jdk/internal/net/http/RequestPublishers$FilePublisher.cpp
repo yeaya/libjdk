@@ -107,8 +107,8 @@ $FieldInfo RequestPublishers$FilePublisher$$Lambda$lambda$create$0::fieldInfos[4
 	{}
 };
 $MethodInfo RequestPublishers$FilePublisher$$Lambda$lambda$create$0::methodInfos[3] = {
-	{"<init>", "(Ljava/security/AccessControlContext;Ljava/security/Permission;Z)V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$FilePublisher$$Lambda$lambda$create$0::*)($AccessControlContext*,$Permission*,bool)>(&RequestPublishers$FilePublisher$$Lambda$lambda$create$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/security/AccessControlContext;Ljava/security/Permission;Z)V", nullptr, $PUBLIC, $method(RequestPublishers$FilePublisher$$Lambda$lambda$create$0, init$, void, $AccessControlContext*, $Permission*, bool)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$FilePublisher$$Lambda$lambda$create$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo RequestPublishers$FilePublisher$$Lambda$lambda$create$0::classInfo$ = {
@@ -147,8 +147,8 @@ $FieldInfo RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$1$1:
 	{}
 };
 $MethodInfo RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$1$1::*)($Path*)>(&RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$1$1, init$, void, $Path*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$1$1::classInfo$ = {
@@ -187,8 +187,8 @@ $FieldInfo RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$2$2:
 	{}
 };
 $MethodInfo RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$2$2::*)($Path*)>(&RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$2$2, init$, void, $Path*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo RequestPublishers$FilePublisher$$Lambda$lambda$createInputStream$2$2::classInfo$ = {
@@ -227,8 +227,8 @@ $FieldInfo RequestPublishers$FilePublisher$$Lambda$lambda$subscribe$3$3::fieldIn
 	{}
 };
 $MethodInfo RequestPublishers$FilePublisher$$Lambda$lambda$subscribe$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$FilePublisher$$Lambda$lambda$subscribe$3$3::*)($InputStream*)>(&RequestPublishers$FilePublisher$$Lambda$lambda$subscribe$3$3::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(RequestPublishers$FilePublisher$$Lambda$lambda$subscribe$3$3, init$, void, $InputStream*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$FilePublisher$$Lambda$lambda$subscribe$3$3, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo RequestPublishers$FilePublisher$$Lambda$lambda$subscribe$3$3::classInfo$ = {
@@ -254,17 +254,17 @@ $FieldInfo _RequestPublishers$FilePublisher_FieldInfo_[] = {
 };
 
 $MethodInfo _RequestPublishers$FilePublisher_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;JLjava/util/function/Function;)V", "(Ljava/nio/file/Path;JLjava/util/function/Function<Ljava/nio/file/Path;Ljava/io/InputStream;>;)V", $PRIVATE, $method(static_cast<void(RequestPublishers$FilePublisher::*)($Path*,int64_t,$Function*)>(&RequestPublishers$FilePublisher::init$))},
-	{"contentLength", "()J", nullptr, $PUBLIC},
-	{"create", "(Ljava/nio/file/Path;)Ljdk/internal/net/http/RequestPublishers$FilePublisher;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RequestPublishers$FilePublisher*(*)($Path*)>(&RequestPublishers$FilePublisher::create)), "java.io.FileNotFoundException"},
-	{"createInputStream", "(Ljava/nio/file/Path;Ljava/security/AccessControlContext;Ljava/security/Permission;Z)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$InputStream*(*)($Path*,$AccessControlContext*,$Permission*,bool)>(&RequestPublishers$FilePublisher::createInputStream))},
-	{"lambda$create$0", "(Ljava/security/AccessControlContext;Ljava/security/Permission;ZLjava/nio/file/Path;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InputStream*(*)($AccessControlContext*,$Permission*,bool,$Path*)>(&RequestPublishers$FilePublisher::lambda$create$0))},
-	{"lambda$createInputStream$1", "(Ljava/nio/file/Path;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InputStream*(*)($Path*)>(&RequestPublishers$FilePublisher::lambda$createInputStream$1)), "java.lang.Exception"},
-	{"lambda$createInputStream$2", "(Ljava/nio/file/Path;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InputStream*(*)($Path*)>(&RequestPublishers$FilePublisher::lambda$createInputStream$2)), "java.lang.Exception"},
-	{"lambda$subscribe$3", "(Ljava/io/InputStream;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Iterator*(*)($InputStream*)>(&RequestPublishers$FilePublisher::lambda$subscribe$3))},
-	{"pathForSecurityCheck", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Path*)>(&RequestPublishers$FilePublisher::pathForSecurityCheck))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"toUncheckedException", "(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$RuntimeException*(*)($Throwable*)>(&RequestPublishers$FilePublisher::toUncheckedException))},
+	{"<init>", "(Ljava/nio/file/Path;JLjava/util/function/Function;)V", "(Ljava/nio/file/Path;JLjava/util/function/Function<Ljava/nio/file/Path;Ljava/io/InputStream;>;)V", $PRIVATE, $method(RequestPublishers$FilePublisher, init$, void, $Path*, int64_t, $Function*)},
+	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$FilePublisher, contentLength, int64_t)},
+	{"create", "(Ljava/nio/file/Path;)Ljdk/internal/net/http/RequestPublishers$FilePublisher;", nullptr, $PUBLIC | $STATIC, $staticMethod(RequestPublishers$FilePublisher, create, RequestPublishers$FilePublisher*, $Path*), "java.io.FileNotFoundException"},
+	{"createInputStream", "(Ljava/nio/file/Path;Ljava/security/AccessControlContext;Ljava/security/Permission;Z)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(RequestPublishers$FilePublisher, createInputStream, $InputStream*, $Path*, $AccessControlContext*, $Permission*, bool)},
+	{"lambda$create$0", "(Ljava/security/AccessControlContext;Ljava/security/Permission;ZLjava/nio/file/Path;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RequestPublishers$FilePublisher, lambda$create$0, $InputStream*, $AccessControlContext*, $Permission*, bool, $Path*)},
+	{"lambda$createInputStream$1", "(Ljava/nio/file/Path;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RequestPublishers$FilePublisher, lambda$createInputStream$1, $InputStream*, $Path*), "java.lang.Exception"},
+	{"lambda$createInputStream$2", "(Ljava/nio/file/Path;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RequestPublishers$FilePublisher, lambda$createInputStream$2, $InputStream*, $Path*), "java.lang.Exception"},
+	{"lambda$subscribe$3", "(Ljava/io/InputStream;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RequestPublishers$FilePublisher, lambda$subscribe$3, $Iterator*, $InputStream*)},
+	{"pathForSecurityCheck", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RequestPublishers$FilePublisher, pathForSecurityCheck, $String*, $Path*)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$FilePublisher, subscribe, void, $Flow$Subscriber*)},
+	{"toUncheckedException", "(Ljava/lang/Throwable;)Ljava/lang/RuntimeException;", nullptr, $PRIVATE | $STATIC, $staticMethod(RequestPublishers$FilePublisher, toUncheckedException, $RuntimeException*, $Throwable*)},
 	{}
 };
 

@@ -25,8 +25,8 @@ $CompoundAttribute _ElementScanner8_Annotations_[] = {
 };
 
 $MethodInfo _ElementScanner8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(ElementScanner8::*)()>(&ElementScanner8::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(ElementScanner8::*)(Object$*)>(&ElementScanner8::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(ElementScanner8, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(ElementScanner8, init$, void, Object$*)},
 	{}
 };
 

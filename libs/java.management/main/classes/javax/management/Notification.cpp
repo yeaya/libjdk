@@ -52,22 +52,22 @@ $FieldInfo _Notification_FieldInfo_[] = {
 };
 
 $MethodInfo _Notification_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;J)V", nullptr, $PUBLIC, $method(static_cast<void(Notification::*)($String*,Object$*,int64_t)>(&Notification::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Notification::*)($String*,Object$*,int64_t,$String*)>(&Notification::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJ)V", nullptr, $PUBLIC, $method(static_cast<void(Notification::*)($String*,Object$*,int64_t,int64_t)>(&Notification::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Notification::*)($String*,Object$*,int64_t,int64_t,$String*)>(&Notification::init$))},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSequenceNumber", "()J", nullptr, $PUBLIC},
-	{"getTimeStamp", "()J", nullptr, $PUBLIC},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getUserData", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Notification::*)($ObjectInputStream*)>(&Notification::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setSequenceNumber", "(J)V", nullptr, $PUBLIC},
-	{"setSource", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"setTimeStamp", "(J)V", nullptr, $PUBLIC},
-	{"setUserData", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Notification::*)($ObjectOutputStream*)>(&Notification::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;J)V", nullptr, $PUBLIC, $method(Notification, init$, void, $String*, Object$*, int64_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JLjava/lang/String;)V", nullptr, $PUBLIC, $method(Notification, init$, void, $String*, Object$*, int64_t, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJ)V", nullptr, $PUBLIC, $method(Notification, init$, void, $String*, Object$*, int64_t, int64_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;)V", nullptr, $PUBLIC, $method(Notification, init$, void, $String*, Object$*, int64_t, int64_t, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Notification, getMessage, $String*)},
+	{"getSequenceNumber", "()J", nullptr, $PUBLIC, $virtualMethod(Notification, getSequenceNumber, int64_t)},
+	{"getTimeStamp", "()J", nullptr, $PUBLIC, $virtualMethod(Notification, getTimeStamp, int64_t)},
+	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Notification, getType, $String*)},
+	{"getUserData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Notification, getUserData, $Object*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Notification, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"setSequenceNumber", "(J)V", nullptr, $PUBLIC, $virtualMethod(Notification, setSequenceNumber, void, int64_t)},
+	{"setSource", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Notification, setSource, void, Object$*)},
+	{"setTimeStamp", "(J)V", nullptr, $PUBLIC, $virtualMethod(Notification, setTimeStamp, void, int64_t)},
+	{"setUserData", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Notification, setUserData, void, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Notification, toString, $String*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Notification, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

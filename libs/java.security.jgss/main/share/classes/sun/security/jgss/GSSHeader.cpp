@@ -38,19 +38,19 @@ $FieldInfo _GSSHeader_FieldInfo_[] = {
 };
 
 $MethodInfo _GSSHeader_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;I)V", nullptr, $PUBLIC, $method(static_cast<void(GSSHeader::*)($ObjectIdentifier*,int32_t)>(&GSSHeader::init$)), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(GSSHeader::*)($InputStream*)>(&GSSHeader::init$)), "java.io.IOException,org.ietf.jgss.GSSException"},
-	{"debug", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(GSSHeader::*)($String*)>(&GSSHeader::debug))},
-	{"encode", "(Ljava/io/OutputStream;)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getHexBytes", "([BI)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(GSSHeader::*)($bytes*,int32_t)>(&GSSHeader::getHexBytes)), "java.io.IOException"},
-	{"getLenFieldSize", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(GSSHeader::*)(int32_t)>(&GSSHeader::getLenFieldSize))},
-	{"getLength", "()I", nullptr, $PUBLIC},
-	{"getLength", "(Ljava/io/InputStream;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(GSSHeader::*)($InputStream*)>(&GSSHeader::getLength)), "java.io.IOException"},
-	{"getLength", "(ILjava/io/InputStream;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(GSSHeader::*)(int32_t,$InputStream*)>(&GSSHeader::getLength)), "java.io.IOException"},
-	{"getMaxMechTokenSize", "(Lsun/security/util/ObjectIdentifier;I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($ObjectIdentifier*,int32_t)>(&GSSHeader::getMaxMechTokenSize))},
-	{"getMechTokenLength", "()I", nullptr, $PUBLIC},
-	{"getOid", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC},
-	{"putLength", "(ILjava/io/OutputStream;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(GSSHeader::*)(int32_t,$OutputStream*)>(&GSSHeader::putLength)), "java.io.IOException"},
+	{"<init>", "(Lsun/security/util/ObjectIdentifier;I)V", nullptr, $PUBLIC, $method(GSSHeader, init$, void, $ObjectIdentifier*, int32_t), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(GSSHeader, init$, void, $InputStream*), "java.io.IOException,org.ietf.jgss.GSSException"},
+	{"debug", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(GSSHeader, debug, void, $String*)},
+	{"encode", "(Ljava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(GSSHeader, encode, int32_t, $OutputStream*), "java.io.IOException"},
+	{"getHexBytes", "([BI)Ljava/lang/String;", nullptr, $PRIVATE, $method(GSSHeader, getHexBytes, $String*, $bytes*, int32_t), "java.io.IOException"},
+	{"getLenFieldSize", "(I)I", nullptr, $PRIVATE, $method(GSSHeader, getLenFieldSize, int32_t, int32_t)},
+	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(GSSHeader, getLength, int32_t)},
+	{"getLength", "(Ljava/io/InputStream;)I", nullptr, $PRIVATE, $method(GSSHeader, getLength, int32_t, $InputStream*), "java.io.IOException"},
+	{"getLength", "(ILjava/io/InputStream;)I", nullptr, $PRIVATE, $method(GSSHeader, getLength, int32_t, int32_t, $InputStream*), "java.io.IOException"},
+	{"getMaxMechTokenSize", "(Lsun/security/util/ObjectIdentifier;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSHeader, getMaxMechTokenSize, int32_t, $ObjectIdentifier*, int32_t)},
+	{"getMechTokenLength", "()I", nullptr, $PUBLIC, $virtualMethod(GSSHeader, getMechTokenLength, int32_t)},
+	{"getOid", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(GSSHeader, getOid, $ObjectIdentifier*)},
+	{"putLength", "(ILjava/io/OutputStream;)I", nullptr, $PRIVATE, $method(GSSHeader, putLength, int32_t, int32_t, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

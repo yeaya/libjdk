@@ -47,16 +47,16 @@ $FieldInfo _JavacProcessingEnvironment$ComputeAnnotationSet_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacProcessingEnvironment$ComputeAnnotationSet_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/util/Elements;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacProcessingEnvironment$ComputeAnnotationSet::*)($Elements*)>(&JavacProcessingEnvironment$ComputeAnnotationSet::init$))},
-	{"addAnnotations", "(Ljavax/lang/model/element/Element;Ljava/util/Set;)V", "(Ljavax/lang/model/element/Element;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)V", 0},
-	{"scan", "(Ljavax/lang/model/element/Element;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/Element;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC},
-	{"scan", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/ExecutableElement;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC},
-	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/PackageElement;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/TypeElement;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljavax/lang/model/util/Elements;)V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$ComputeAnnotationSet, init$, void, $Elements*)},
+	{"addAnnotations", "(Ljavax/lang/model/element/Element;Ljava/util/Set;)V", "(Ljavax/lang/model/element/Element;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)V", 0, $virtualMethod(JavacProcessingEnvironment$ComputeAnnotationSet, addAnnotations, void, $Element*, $Set*)},
+	{"scan", "(Ljavax/lang/model/element/Element;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/Element;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ComputeAnnotationSet, scan, $Set*, $Element*, $Set*)},
+	{"scan", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacProcessingEnvironment$ComputeAnnotationSet, scan, $Object*, $Element*, Object$*)},
+	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/ExecutableElement;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ComputeAnnotationSet, visitExecutable, $Set*, $ExecutableElement*, $Set*)},
+	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacProcessingEnvironment$ComputeAnnotationSet, visitExecutable, $Object*, $ExecutableElement*, Object$*)},
+	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/PackageElement;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ComputeAnnotationSet, visitPackage, $Set*, $PackageElement*, $Set*)},
+	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacProcessingEnvironment$ComputeAnnotationSet, visitPackage, $Object*, $PackageElement*, Object$*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/util/Set;)Ljava/util/Set;", "(Ljavax/lang/model/element/TypeElement;Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;)Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;", $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ComputeAnnotationSet, visitType, $Set*, $TypeElement*, $Set*)},
+	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacProcessingEnvironment$ComputeAnnotationSet, visitType, $Object*, $TypeElement*, Object$*)},
 	{}
 };
 

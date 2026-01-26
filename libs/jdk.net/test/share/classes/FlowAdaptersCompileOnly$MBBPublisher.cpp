@@ -10,8 +10,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 
 $MethodInfo _FlowAdaptersCompileOnly$MBBPublisher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FlowAdaptersCompileOnly$MBBPublisher::*)()>(&FlowAdaptersCompileOnly$MBBPublisher::init$))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/MappedByteBuffer;>;)V", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FlowAdaptersCompileOnly$MBBPublisher, init$, void)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/MappedByteBuffer;>;)V", $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$MBBPublisher, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

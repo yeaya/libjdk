@@ -33,11 +33,11 @@ $FieldInfo _SerialDatalink_FieldInfo_[] = {
 
 $MethodInfo _SerialDatalink_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(static_cast<void(SerialDatalink::*)($URL*)>(&SerialDatalink::init$)), "javax.sql.rowset.serial.SerialException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getDatalink", "()Ljava/net/URL;", nullptr, $PUBLIC, nullptr, "javax.sql.rowset.serial.SerialException"},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(SerialDatalink, init$, void, $URL*), "javax.sql.rowset.serial.SerialException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, equals, bool, Object$*)},
+	{"getDatalink", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, getDatalink, $URL*), "javax.sql.rowset.serial.SerialException"},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialDatalink, hashCode, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

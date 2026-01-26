@@ -26,9 +26,9 @@ $FieldInfo _NotificationBroadcasterSupport$WildcardListenerInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _NotificationBroadcasterSupport$WildcardListenerInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/NotificationListener;)V", nullptr, 0, $method(static_cast<void(NotificationBroadcasterSupport$WildcardListenerInfo::*)($NotificationListener*)>(&NotificationBroadcasterSupport$WildcardListenerInfo::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/NotificationListener;)V", nullptr, 0, $method(NotificationBroadcasterSupport$WildcardListenerInfo, init$, void, $NotificationListener*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$WildcardListenerInfo, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$WildcardListenerInfo, hashCode, int32_t)},
 	{}
 };
 

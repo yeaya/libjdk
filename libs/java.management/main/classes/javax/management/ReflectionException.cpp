@@ -19,10 +19,10 @@ $FieldInfo _ReflectionException_FieldInfo_[] = {
 };
 
 $MethodInfo _ReflectionException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(ReflectionException::*)($Exception*)>(&ReflectionException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReflectionException::*)($Exception*,$String*)>(&ReflectionException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getTargetException", "()Ljava/lang/Exception;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ReflectionException, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectionException, init$, void, $Exception*, $String*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(ReflectionException, getCause, $Throwable*)},
+	{"getTargetException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(ReflectionException, getTargetException, $Exception*)},
 	{}
 };
 

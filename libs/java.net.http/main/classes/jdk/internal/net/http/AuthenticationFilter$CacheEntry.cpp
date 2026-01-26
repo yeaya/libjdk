@@ -28,9 +28,9 @@ $FieldInfo _AuthenticationFilter$CacheEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthenticationFilter$CacheEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URI;ZLjava/net/PasswordAuthentication;Z)V", nullptr, 0, $method(static_cast<void(AuthenticationFilter$CacheEntry::*)($String*,$URI*,bool,$PasswordAuthentication*,bool)>(&AuthenticationFilter$CacheEntry::init$))},
-	{"equalsKey", "(Ljava/net/URI;Z)Z", nullptr, $PUBLIC, $method(static_cast<bool(AuthenticationFilter$CacheEntry::*)($URI*,bool)>(&AuthenticationFilter$CacheEntry::equalsKey))},
-	{"value", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $method(static_cast<$PasswordAuthentication*(AuthenticationFilter$CacheEntry::*)()>(&AuthenticationFilter$CacheEntry::value))},
+	{"<init>", "(Ljava/lang/String;Ljava/net/URI;ZLjava/net/PasswordAuthentication;Z)V", nullptr, 0, $method(AuthenticationFilter$CacheEntry, init$, void, $String*, $URI*, bool, $PasswordAuthentication*, bool)},
+	{"equalsKey", "(Ljava/net/URI;Z)Z", nullptr, $PUBLIC, $method(AuthenticationFilter$CacheEntry, equalsKey, bool, $URI*, bool)},
+	{"value", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $method(AuthenticationFilter$CacheEntry, value, $PasswordAuthentication*)},
 	{}
 };
 

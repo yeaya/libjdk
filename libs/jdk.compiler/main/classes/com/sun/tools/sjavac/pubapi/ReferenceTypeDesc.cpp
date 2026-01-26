@@ -25,10 +25,10 @@ $FieldInfo _ReferenceTypeDesc_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceTypeDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceTypeDesc::*)($String*)>(&ReferenceTypeDesc::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceTypeDesc, init$, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ReferenceTypeDesc, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ReferenceTypeDesc, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceTypeDesc, toString, $String*)},
 	{}
 };
 

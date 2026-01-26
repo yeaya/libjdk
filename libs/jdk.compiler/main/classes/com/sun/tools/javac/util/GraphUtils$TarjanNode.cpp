@@ -9,6 +9,7 @@ using $GraphUtils$AbstractNode = ::com::sun::tools::javac::util::GraphUtils$Abst
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace com {
@@ -29,10 +30,10 @@ $MethodInfo _GraphUtils$TarjanNode_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;)V", "(TD;)V", $PUBLIC, $method(static_cast<void(GraphUtils$TarjanNode::*)(Object$*)>(&GraphUtils$TarjanNode::init$))},
-	{"compareTo", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)I", "(TN;)I", $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getAllDependencies", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+TN;>;", $PUBLIC | $ABSTRACT},
+	{"<init>", "(Ljava/lang/Object;)V", "(TD;)V", $PUBLIC, $method(GraphUtils$TarjanNode, init$, void, Object$*)},
+	{"compareTo", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)I", "(TN;)I", $PUBLIC, $virtualMethod(GraphUtils$TarjanNode, compareTo, int32_t, GraphUtils$TarjanNode*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GraphUtils$TarjanNode, compareTo, int32_t, Object$*)},
+	{"getAllDependencies", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+TN;>;", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$TarjanNode, getAllDependencies, $Iterable*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

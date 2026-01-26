@@ -24,7 +24,7 @@ $FieldInfo _LazyDocCommentTable$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _LazyDocCommentTable$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, 0, $method(static_cast<void(LazyDocCommentTable$Entry::*)($Tokens$Comment*)>(&LazyDocCommentTable$Entry::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, 0, $method(LazyDocCommentTable$Entry, init$, void, $Tokens$Comment*)},
 	{}
 };
 

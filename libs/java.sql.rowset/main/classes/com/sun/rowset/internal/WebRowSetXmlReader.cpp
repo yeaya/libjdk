@@ -78,11 +78,11 @@ $MethodInfo _WebRowSetXmlReader_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WebRowSetXmlReader::*)()>(&WebRowSetXmlReader::init$))},
-	{"readData", "(Ljavax/sql/RowSetInternal;)V", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(WebRowSetXmlReader::*)($ObjectInputStream*)>(&WebRowSetXmlReader::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/Reader;)V", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
-	{"readXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/InputStream;)V", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WebRowSetXmlReader, init$, void)},
+	{"readData", "(Ljavax/sql/RowSetInternal;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlReader, readData, void, $RowSetInternal*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(WebRowSetXmlReader, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"readXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlReader, readXML, void, $WebRowSet*, $Reader*), "java.sql.SQLException"},
+	{"readXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(WebRowSetXmlReader, readXML, void, $WebRowSet*, $InputStream*), "java.sql.SQLException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

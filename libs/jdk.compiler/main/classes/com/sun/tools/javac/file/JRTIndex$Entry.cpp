@@ -30,7 +30,7 @@ $FieldInfo _JRTIndex$Entry_FieldInfo_[] = {
 };
 
 $MethodInfo _JRTIndex$Entry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/JRTIndex;Ljava/util/Map;Ljava/util/Set;Lcom/sun/tools/javac/file/JRTIndex$CtSym;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/nio/file/Path;>;Ljava/util/Set<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;Lcom/sun/tools/javac/file/JRTIndex$CtSym;)V", $PRIVATE, $method(static_cast<void(JRTIndex$Entry::*)($JRTIndex*,$Map*,$Set*,$JRTIndex$CtSym*)>(&JRTIndex$Entry::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/file/JRTIndex;Ljava/util/Map;Ljava/util/Set;Lcom/sun/tools/javac/file/JRTIndex$CtSym;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/nio/file/Path;>;Ljava/util/Set<Lcom/sun/tools/javac/file/RelativePath$RelativeDirectory;>;Lcom/sun/tools/javac/file/JRTIndex$CtSym;)V", $PRIVATE, $method(JRTIndex$Entry, init$, void, $JRTIndex*, $Map*, $Set*, $JRTIndex$CtSym*)},
 	{}
 };
 

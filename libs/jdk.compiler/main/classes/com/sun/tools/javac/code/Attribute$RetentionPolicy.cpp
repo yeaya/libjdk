@@ -30,10 +30,10 @@ $FieldInfo _Attribute$RetentionPolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute$RetentionPolicy_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Attribute$RetentionPolicyArray*(*)()>(&Attribute$RetentionPolicy::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Attribute$RetentionPolicy::*)($String*,int32_t)>(&Attribute$RetentionPolicy::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Attribute$RetentionPolicy*(*)($String*)>(&Attribute$RetentionPolicy::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Attribute$RetentionPolicyArray*(*)()>(&Attribute$RetentionPolicy::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Attribute$RetentionPolicy, $values, $Attribute$RetentionPolicyArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Attribute$RetentionPolicy, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(Attribute$RetentionPolicy, valueOf, Attribute$RetentionPolicy*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(Attribute$RetentionPolicy, values, $Attribute$RetentionPolicyArray*)},
 	{}
 };
 

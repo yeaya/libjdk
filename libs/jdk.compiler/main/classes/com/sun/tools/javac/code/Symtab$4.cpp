@@ -45,7 +45,7 @@ $FieldInfo _Symtab$4_FieldInfo_[] = {
 };
 
 $MethodInfo _Symtab$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(Symtab$4::*)($Symtab*,$Name*,$Symbol*)>(&Symtab$4::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Symtab$4, init$, void, $Symtab*, $Name*, $Symbol*)},
 	{}
 };
 

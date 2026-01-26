@@ -65,12 +65,12 @@ $FieldInfo _EncKDCRepPart_FieldInfo_[] = {
 };
 
 $MethodInfo _EncKDCRepPart_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/LastReq;ILsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/HostAddresses;[Lsun/security/krb5/internal/PAData;I)V", nullptr, $PUBLIC, $method(static_cast<void(EncKDCRepPart::*)($EncryptionKey*,$LastReq*,int32_t,$KerberosTime*,$TicketFlags*,$KerberosTime*,$KerberosTime*,$KerberosTime*,$KerberosTime*,$PrincipalName*,$HostAddresses*,$PADataArray*,int32_t)>(&EncKDCRepPart::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EncKDCRepPart::*)()>(&EncKDCRepPart::init$))},
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(static_cast<void(EncKDCRepPart::*)($bytes*,int32_t)>(&EncKDCRepPart::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(static_cast<void(EncKDCRepPart::*)($DerValue*,int32_t)>(&EncKDCRepPart::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{"asn1Encode", "(I)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;I)V", nullptr, $PROTECTED, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+	{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/LastReq;ILsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/TicketFlags;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/HostAddresses;[Lsun/security/krb5/internal/PAData;I)V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void, $EncryptionKey*, $LastReq*, int32_t, $KerberosTime*, $TicketFlags*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $PrincipalName*, $HostAddresses*, $PADataArray*, int32_t)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void)},
+	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(EncKDCRepPart, init$, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+	{"asn1Encode", "(I)[B", nullptr, $PUBLIC, $virtualMethod(EncKDCRepPart, asn1Encode, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"init", "(Lsun/security/util/DerValue;I)V", nullptr, $PROTECTED, $virtualMethod(EncKDCRepPart, init, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
 	{}
 };
 

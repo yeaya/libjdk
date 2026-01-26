@@ -23,7 +23,7 @@ $FieldInfo _DGCClient$EndpointEntry$CleanRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCClient$EndpointEntry$CleanRequest_MethodInfo_[] = {
-	{"<init>", "([Ljava/rmi/server/ObjID;JZ)V", nullptr, 0, $method(static_cast<void(DGCClient$EndpointEntry$CleanRequest::*)($ObjIDArray*,int64_t,bool)>(&DGCClient$EndpointEntry$CleanRequest::init$))},
+	{"<init>", "([Ljava/rmi/server/ObjID;JZ)V", nullptr, 0, $method(DGCClient$EndpointEntry$CleanRequest, init$, void, $ObjIDArray*, int64_t, bool)},
 	{}
 };
 

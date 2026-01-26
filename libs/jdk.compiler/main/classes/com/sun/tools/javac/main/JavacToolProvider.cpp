@@ -17,9 +17,9 @@ namespace com {
 				namespace main {
 
 $MethodInfo _JavacToolProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacToolProvider::*)()>(&JavacToolProvider::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"run", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacToolProvider, init$, void)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacToolProvider, name, $String*)},
+	{"run", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacToolProvider, run, int32_t, $PrintWriter*, $PrintWriter*, $StringArray*)},
 	{}
 };
 

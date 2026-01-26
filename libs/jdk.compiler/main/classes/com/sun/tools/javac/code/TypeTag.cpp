@@ -97,17 +97,17 @@ $FieldInfo _TypeTag_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeTag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TypeTagArray*(*)()>(&TypeTag::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(TypeTag::*)($String*,int32_t)>(&TypeTag::init$))},
-	{"<init>", "(Ljava/lang/String;IIIZ)V", "(IIZ)V", $PRIVATE, $method(static_cast<void(TypeTag::*)($String*,int32_t,int32_t,int32_t,bool)>(&TypeTag::init$))},
-	{"checkRange", "(I)Z", nullptr, $PUBLIC, $method(static_cast<bool(TypeTag::*)(int32_t)>(&TypeTag::checkRange))},
-	{"getKindLiteral", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $method(static_cast<$Tree$Kind*(TypeTag::*)()>(&TypeTag::getKindLiteral))},
-	{"getPrimitiveTypeKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $method(static_cast<$TypeKind*(TypeTag::*)()>(&TypeTag::getPrimitiveTypeKind))},
-	{"getTypeTagCount", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&TypeTag::getTypeTagCount))},
-	{"isStrictSubRangeOf", "(Lcom/sun/tools/javac/code/TypeTag;)Z", nullptr, $PUBLIC, $method(static_cast<bool(TypeTag::*)(TypeTag*)>(&TypeTag::isStrictSubRangeOf))},
-	{"isSubRangeOf", "(Lcom/sun/tools/javac/code/TypeTag;)Z", nullptr, $PUBLIC, $method(static_cast<bool(TypeTag::*)(TypeTag*)>(&TypeTag::isSubRangeOf))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeTag*(*)($String*)>(&TypeTag::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TypeTagArray*(*)()>(&TypeTag::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeTag, $values, $TypeTagArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeTag, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;IIIZ)V", "(IIZ)V", $PRIVATE, $method(TypeTag, init$, void, $String*, int32_t, int32_t, int32_t, bool)},
+	{"checkRange", "(I)Z", nullptr, $PUBLIC, $method(TypeTag, checkRange, bool, int32_t)},
+	{"getKindLiteral", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $method(TypeTag, getKindLiteral, $Tree$Kind*)},
+	{"getPrimitiveTypeKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $method(TypeTag, getPrimitiveTypeKind, $TypeKind*)},
+	{"getTypeTagCount", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, getTypeTagCount, int32_t)},
+	{"isStrictSubRangeOf", "(Lcom/sun/tools/javac/code/TypeTag;)Z", nullptr, $PUBLIC, $method(TypeTag, isStrictSubRangeOf, bool, TypeTag*)},
+	{"isSubRangeOf", "(Lcom/sun/tools/javac/code/TypeTag;)Z", nullptr, $PUBLIC, $method(TypeTag, isSubRangeOf, bool, TypeTag*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, valueOf, TypeTag*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, values, $TypeTagArray*)},
 	{}
 };
 

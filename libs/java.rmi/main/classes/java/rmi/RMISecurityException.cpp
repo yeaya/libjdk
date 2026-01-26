@@ -33,8 +33,8 @@ $FieldInfo _RMISecurityException_FieldInfo_[] = {
 };
 
 $MethodInfo _RMISecurityException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(RMISecurityException::*)($String*)>(&RMISecurityException::init$)), nullptr, nullptr, _RMISecurityException_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(RMISecurityException::*)($String*,$String*)>(&RMISecurityException::init$)), nullptr, nullptr, _RMISecurityException_MethodAnnotations_init$1},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(RMISecurityException, init$, void, $String*), nullptr, nullptr, _RMISecurityException_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(RMISecurityException, init$, void, $String*, $String*), nullptr, nullptr, _RMISecurityException_MethodAnnotations_init$1},
 	{}
 };
 

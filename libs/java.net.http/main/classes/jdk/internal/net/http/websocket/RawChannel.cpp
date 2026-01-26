@@ -4,9 +4,12 @@
 #include <jdk/internal/net/http/websocket/RawChannel$RawEvent.h>
 #include <jcpp.h>
 
+using $ByteBufferArray = $Array<::java::nio::ByteBuffer>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
+using $RawChannel$RawEvent = ::jdk::internal::net::http::websocket::RawChannel$RawEvent;
 
 namespace jdk {
 	namespace internal {
@@ -16,12 +19,12 @@ namespace jdk {
 
 $MethodInfo _RawChannel_MethodInfo_[] = {
 	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"initialByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.IllegalStateException"},
-	{"read", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"registerEvent", "(Ljdk/internal/net/http/websocket/RawChannel$RawEvent;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"shutdownInput", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"shutdownOutput", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"initialByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel, initialByteBuffer, $ByteBuffer*), "java.lang.IllegalStateException"},
+	{"read", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel, read, $ByteBuffer*), "java.io.IOException"},
+	{"registerEvent", "(Ljdk/internal/net/http/websocket/RawChannel$RawEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel, registerEvent, void, $RawChannel$RawEvent*), "java.io.IOException"},
+	{"shutdownInput", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel, shutdownInput, void), "java.io.IOException"},
+	{"shutdownOutput", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel, shutdownOutput, void), "java.io.IOException"},
+	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawChannel, write, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

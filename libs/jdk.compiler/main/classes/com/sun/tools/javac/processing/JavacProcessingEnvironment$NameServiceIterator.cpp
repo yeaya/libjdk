@@ -49,9 +49,9 @@ $FieldInfo _JavacProcessingEnvironment$NameServiceIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacProcessingEnvironment$NameServiceIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Ljava/util/ServiceLoader;Lcom/sun/tools/javac/util/Log;Ljava/lang/String;)V", "(Ljava/util/ServiceLoader<Ljavax/annotation/processing/Processor;>;Lcom/sun/tools/javac/util/Log;Ljava/lang/String;)V", $PUBLIC, $method(static_cast<void(JavacProcessingEnvironment$NameServiceIterator::*)($JavacProcessingEnvironment*,$ServiceLoader*,$Log*,$String*)>(&JavacProcessingEnvironment$NameServiceIterator::init$))},
-	{"internalHasNext", "()Z", nullptr, 0},
-	{"internalNext", "()Ljavax/annotation/processing/Processor;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Ljava/util/ServiceLoader;Lcom/sun/tools/javac/util/Log;Ljava/lang/String;)V", "(Ljava/util/ServiceLoader<Ljavax/annotation/processing/Processor;>;Lcom/sun/tools/javac/util/Log;Ljava/lang/String;)V", $PUBLIC, $method(JavacProcessingEnvironment$NameServiceIterator, init$, void, $JavacProcessingEnvironment*, $ServiceLoader*, $Log*, $String*)},
+	{"internalHasNext", "()Z", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$NameServiceIterator, internalHasNext, bool)},
+	{"internalNext", "()Ljavax/annotation/processing/Processor;", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$NameServiceIterator, internalNext, $Processor*)},
 	{}
 };
 

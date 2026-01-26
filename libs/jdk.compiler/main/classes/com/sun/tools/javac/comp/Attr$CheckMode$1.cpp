@@ -16,8 +16,8 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Attr$CheckMode$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Attr$CheckMode$1::*)($String*,int32_t)>(&Attr$CheckMode$1::init$))},
-	{"updateTreeType", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Attr$CheckMode$1, init$, void, $String*, int32_t)},
+	{"updateTreeType", "()Z", nullptr, $PUBLIC, $virtualMethod(Attr$CheckMode$1, updateTreeType, bool)},
 	{}
 };
 

@@ -21,9 +21,9 @@ $FieldInfo _ResponseSubscribers$PublishingBodySubscriber$SubscriberRef_FieldInfo
 };
 
 $MethodInfo _ResponseSubscribers$PublishingBodySubscriber$SubscriberRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef::*)($Flow$Subscriber*)>(&ResponseSubscribers$PublishingBodySubscriber$SubscriberRef::init$))},
-	{"clear", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", 0, $method(static_cast<$Flow$Subscriber*(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef::*)()>(&ResponseSubscribers$PublishingBodySubscriber$SubscriberRef::clear))},
-	{"get", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", 0, $method(static_cast<$Flow$Subscriber*(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef::*)()>(&ResponseSubscribers$PublishingBodySubscriber$SubscriberRef::get))},
+	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, init$, void, $Flow$Subscriber*)},
+	{"clear", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, clear, $Flow$Subscriber*)},
+	{"get", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", 0, $method(ResponseSubscribers$PublishingBodySubscriber$SubscriberRef, get, $Flow$Subscriber*)},
 	{}
 };
 

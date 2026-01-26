@@ -12,8 +12,8 @@ using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _TestPeruCurrencyFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestPeruCurrencyFormat::*)()>(&TestPeruCurrencyFormat::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TestPeruCurrencyFormat::main))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestPeruCurrencyFormat, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestPeruCurrencyFormat, main, void, $StringArray*)},
 	{}
 };
 

@@ -58,10 +58,10 @@ $FieldInfo _JavaCompiler$1ScanNested_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaCompiler$1ScanNested_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;Lcom/sun/tools/javac/comp/Env;)V", "()V", 0, $method(static_cast<void(JavaCompiler$1ScanNested::*)($JavaCompiler*,$Env*)>(&JavaCompiler$1ScanNested::init$))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/JavaCompiler;Lcom/sun/tools/javac/comp/Env;)V", "()V", 0, $method(JavaCompiler$1ScanNested, init$, void, $JavaCompiler*, $Env*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1ScanNested, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1ScanNested, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(JavaCompiler$1ScanNested, visitReference, void, $JCTree$JCMemberReference*)},
 	{}
 };
 

@@ -14,9 +14,9 @@ namespace javax {
 $MethodInfo _OpenMBeanAttributeInfo_MethodInfo_[] = {
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isIs", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isReadable", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isWritable", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isIs", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanAttributeInfo, isIs, bool)},
+	{"isReadable", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanAttributeInfo, isReadable, bool)},
+	{"isWritable", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanAttributeInfo, isWritable, bool)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

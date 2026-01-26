@@ -26,12 +26,12 @@ $FieldInfo _TargetedNotification_FieldInfo_[] = {
 };
 
 $MethodInfo _TargetedNotification_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/Notification;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(static_cast<void(TargetedNotification::*)($Notification*,$Integer*)>(&TargetedNotification::init$))},
-	{"getListenerID", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
-	{"getNotification", "()Ljavax/management/Notification;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(TargetedNotification::*)($ObjectInputStream*)>(&TargetedNotification::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validate", "(Ljavax/management/Notification;Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Notification*,$Integer*)>(&TargetedNotification::validate)), "java.lang.IllegalArgumentException"},
+	{"<init>", "(Ljavax/management/Notification;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $method(TargetedNotification, init$, void, $Notification*, $Integer*)},
+	{"getListenerID", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(TargetedNotification, getListenerID, $Integer*)},
+	{"getNotification", "()Ljavax/management/Notification;", nullptr, $PUBLIC, $virtualMethod(TargetedNotification, getNotification, $Notification*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(TargetedNotification, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TargetedNotification, toString, $String*)},
+	{"validate", "(Ljavax/management/Notification;Ljava/lang/Integer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TargetedNotification, validate, void, $Notification*, $Integer*), "java.lang.IllegalArgumentException"},
 	{}
 };
 

@@ -37,11 +37,11 @@ $FieldInfo _SaslOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SaslOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/sasl/SaslClient;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(SaslOutputStream::*)($SaslClient*,$OutputStream*)>(&SaslOutputStream::init$)), "javax.security.sasl.SaslException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,$bytes*,int32_t,int32_t)>(&SaslOutputStream::intToNetworkByteOrder))},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljavax/security/sasl/SaslClient;Ljava/io/OutputStream;)V", nullptr, 0, $method(SaslOutputStream, init$, void, $SaslClient*, $OutputStream*), "javax.security.sasl.SaslException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SaslOutputStream, close, void), "java.io.IOException"},
+	{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SaslOutputStream, intToNetworkByteOrder, void, int32_t, $bytes*, int32_t, int32_t)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SaslOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SaslOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

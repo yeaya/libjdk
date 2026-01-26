@@ -19,7 +19,7 @@ $FieldInfo _DriverPropertyInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _DriverPropertyInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DriverPropertyInfo::*)($String*,$String*)>(&DriverPropertyInfo::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DriverPropertyInfo, init$, void, $String*, $String*)},
 	{}
 };
 

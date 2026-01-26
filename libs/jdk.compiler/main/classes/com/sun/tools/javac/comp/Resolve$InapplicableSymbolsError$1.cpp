@@ -30,8 +30,8 @@ $FieldInfo _Resolve$InapplicableSymbolsError$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$InapplicableSymbolsError$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$InapplicableSymbolsError;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/util/Pair;)V", nullptr, 0, $method(static_cast<void(Resolve$InapplicableSymbolsError$1::*)($Resolve$InapplicableSymbolsError*,$Resolve$MethodResolutionContext*,$Pair*)>(&Resolve$InapplicableSymbolsError$1::init$))},
-	{"errCandidate", "()Lcom/sun/tools/javac/util/Pair;", "()Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$InapplicableSymbolsError;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext;Lcom/sun/tools/javac/util/Pair;)V", nullptr, 0, $method(Resolve$InapplicableSymbolsError$1, init$, void, $Resolve$InapplicableSymbolsError*, $Resolve$MethodResolutionContext*, $Pair*)},
+	{"errCandidate", "()Lcom/sun/tools/javac/util/Pair;", "()Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PROTECTED, $virtualMethod(Resolve$InapplicableSymbolsError$1, errCandidate, $Pair*)},
 	{}
 };
 

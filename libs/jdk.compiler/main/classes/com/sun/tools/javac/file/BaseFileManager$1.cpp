@@ -26,8 +26,8 @@ $FieldInfo _BaseFileManager$1_FieldInfo_[] = {
 };
 
 $MethodInfo _BaseFileManager$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(BaseFileManager$1::*)($BaseFileManager*,$String*)>(&BaseFileManager$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/lang/String;)V", nullptr, 0, $method(BaseFileManager$1, init$, void, $BaseFileManager*, $String*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$1, run, void)},
 	{}
 };
 

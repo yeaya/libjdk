@@ -152,31 +152,31 @@ const char* _java$logging_packages_[] = {
 	"sun.util.logging.resources"
 };
 
-void java$logging$PreloadClass(void* eventData) {
-	::java::lang::PreloadClassEvent* event = (::java::lang::PreloadClassEvent*)eventData;
+void java$logging$PreloadClass() {
 	int32_t length = $lengthOf(_java$logging_classes_);
-	for (int i = 0; i < length; i++) {
+	for (int32_t i = 0; i < length; i++) {
 		::java::lang::ClassEntry* classEntry = &_java$logging_classes_[i];
-		if (event->preinit) {
-			if ($hasFlag(classEntry->mark, $PREINIT)) {
-				classEntry->loader(nullptr, true);
-				continue;
-			}
+		if ($hasFlag(classEntry->mark, $PRELOAD) || $hasFlag(classEntry->mark, $PREINIT)) {
+			classEntry->loader(nullptr, false);
 		}
-		if (event->preload) {
-			if ($hasFlag(classEntry->mark, $PRELOAD) || $hasFlag(classEntry->mark, $PREINIT)) {
-				classEntry->loader(nullptr, false);
-			}
+	}
+}
+
+void java$logging$PreinitClass() {
+	int32_t length = $lengthOf(_java$logging_classes_);
+	for (int32_t i = 0; i < length; i++) {
+		::java::lang::ClassEntry* classEntry = &_java$logging_classes_[i];
+		if ($hasFlag(classEntry->mark, $PREINIT)) {
+			classEntry->loader(nullptr, true);
 		}
 	}
 }
 
 void java$logging$LibEventAction(int32_t eventType, void* eventData) {
 	if (eventType == JCPP_LIB_EVENT_TYPE_PRELOAD_CLASS) {
-		java$logging$PreloadClass(eventData);
-	}
-	if (eventType == JCPP_LIB_EVENT_TYPE_THREAD_START) {
-		$onLibThreadStart(eventData);
+		java$logging$PreloadClass();
+	} else if (eventType == JCPP_LIB_EVENT_TYPE_PREINIT_CLASS) {
+		java$logging$PreinitClass();
 	}
 }
 
@@ -223,3 +223,9 @@ void java$logging::init() {
 	};
 	$System::addLibrary(&lib);
 }
+
+#ifdef JCPP_SHARED_BUILD
+extern "C" $export void JCPP_OnLoad() {
+	java$logging::init();
+}
+#endif

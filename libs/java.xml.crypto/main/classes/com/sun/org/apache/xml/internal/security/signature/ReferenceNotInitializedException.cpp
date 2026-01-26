@@ -35,14 +35,14 @@ $FieldInfo _ReferenceNotInitializedException_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceNotInitializedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceNotInitializedException::*)()>(&ReferenceNotInitializedException::init$))},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceNotInitializedException::*)($Exception*)>(&ReferenceNotInitializedException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceNotInitializedException::*)($String*)>(&ReferenceNotInitializedException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceNotInitializedException::*)($String*,$ObjectArray*)>(&ReferenceNotInitializedException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceNotInitializedException::*)($Exception*,$String*)>(&ReferenceNotInitializedException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(ReferenceNotInitializedException::*)($String*,$Exception*)>(&ReferenceNotInitializedException::init$)), nullptr, nullptr, _ReferenceNotInitializedException_MethodAnnotations_init$5},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(ReferenceNotInitializedException::*)($Exception*,$String*,$ObjectArray*)>(&ReferenceNotInitializedException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(ReferenceNotInitializedException::*)($String*,$ObjectArray*,$Exception*)>(&ReferenceNotInitializedException::init$)), nullptr, nullptr, _ReferenceNotInitializedException_MethodAnnotations_init$7},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void)},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $Exception*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ReferenceNotInitializedException, init$, void, $String*, $Exception*), nullptr, nullptr, _ReferenceNotInitializedException_MethodAnnotations_init$5},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ReferenceNotInitializedException, init$, void, $Exception*, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ReferenceNotInitializedException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _ReferenceNotInitializedException_MethodAnnotations_init$7},
 	{}
 };
 

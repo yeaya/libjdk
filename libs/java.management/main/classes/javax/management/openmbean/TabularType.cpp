@@ -42,16 +42,16 @@ $FieldInfo _TabularType_FieldInfo_[] = {
 };
 
 $MethodInfo _TabularType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/CompositeType;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TabularType::*)($String*,$String*,$CompositeType*,$StringArray*)>(&TabularType::init$)), "javax.management.openmbean.OpenDataException"},
-	{"checkForEmptyString", "([Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringArray*,$String*)>(&TabularType::checkForEmptyString))},
-	{"checkForNullElement", "([Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($ObjectArray*,$String*)>(&TabularType::checkForNullElement))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getIndexNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"getRowType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isAssignableFrom", "(Ljavax/management/openmbean/OpenType;)Z", "(Ljavax/management/openmbean/OpenType<*>;)Z", 0},
-	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/CompositeType;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TabularType, init$, void, $String*, $String*, $CompositeType*, $StringArray*), "javax.management.openmbean.OpenDataException"},
+	{"checkForEmptyString", "([Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TabularType, checkForEmptyString, void, $StringArray*, $String*)},
+	{"checkForNullElement", "([Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TabularType, checkForNullElement, void, $ObjectArray*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularType, equals, bool, Object$*)},
+	{"getIndexNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TabularType, getIndexNames, $List*)},
+	{"getRowType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $PUBLIC, $virtualMethod(TabularType, getRowType, $CompositeType*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TabularType, hashCode, int32_t)},
+	{"isAssignableFrom", "(Ljavax/management/openmbean/OpenType;)Z", "(Ljavax/management/openmbean/OpenType<*>;)Z", 0, $virtualMethod(TabularType, isAssignableFrom, bool, $OpenType*)},
+	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularType, isValue, bool, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TabularType, toString, $String*)},
 	{}
 };
 

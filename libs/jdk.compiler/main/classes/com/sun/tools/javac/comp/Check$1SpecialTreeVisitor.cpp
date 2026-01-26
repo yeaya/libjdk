@@ -35,9 +35,9 @@ $FieldInfo _Check$1SpecialTreeVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _Check$1SpecialTreeVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, 0, $method(static_cast<void(Check$1SpecialTreeVisitor::*)($Check*)>(&Check$1SpecialTreeVisitor::init$))},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, 0, $method(Check$1SpecialTreeVisitor, init$, void, $Check*)},
+	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$1SpecialTreeVisitor, visitTree, void, $JCTree*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check$1SpecialTreeVisitor, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

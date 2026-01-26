@@ -8,15 +8,17 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HttpClient$Version = ::java::net::http::HttpClient$Version;
+using $HttpHeaders = ::java::net::http::HttpHeaders;
 
 namespace java {
 	namespace net {
 		namespace http {
 
 $MethodInfo _HttpResponse$ResponseInfo_MethodInfo_[] = {
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC | $ABSTRACT},
-	{"statusCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $ABSTRACT},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$ResponseInfo, headers, $HttpHeaders*)},
+	{"statusCode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$ResponseInfo, statusCode, int32_t)},
+	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$ResponseInfo, version, $HttpClient$Version*)},
 	{}
 };
 

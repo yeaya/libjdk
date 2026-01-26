@@ -27,8 +27,8 @@ $FieldInfo _TransPatterns$BindingDeclarationFenceBindingContext_FieldInfo_[] = {
 };
 
 $MethodInfo _TransPatterns$BindingDeclarationFenceBindingContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;)V", nullptr, $PRIVATE, $method(static_cast<void(TransPatterns$BindingDeclarationFenceBindingContext::*)($TransPatterns*)>(&TransPatterns$BindingDeclarationFenceBindingContext::init$))},
-	{"bindingDeclared", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TransPatterns;)V", nullptr, $PRIVATE, $method(TransPatterns$BindingDeclarationFenceBindingContext, init$, void, $TransPatterns*)},
+	{"bindingDeclared", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(TransPatterns$BindingDeclarationFenceBindingContext, bindingDeclared, $Symbol$VarSymbol*, $Symbol$BindingSymbol*)},
 	{}
 };
 

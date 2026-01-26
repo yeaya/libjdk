@@ -32,12 +32,12 @@ $FieldInfo _LambdaToMethod$L2MSignatureGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaToMethod$L2MSignatureGenerator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;Z)V", nullptr, 0, $method(static_cast<void(LambdaToMethod$L2MSignatureGenerator::*)($LambdaToMethod*,bool)>(&LambdaToMethod$L2MSignatureGenerator::init$))},
-	{"append", "(C)V", nullptr, $PROTECTED},
-	{"append", "([B)V", nullptr, $PROTECTED},
-	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED},
-	{"reportIllegalSignature", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod;Z)V", nullptr, 0, $method(LambdaToMethod$L2MSignatureGenerator, init$, void, $LambdaToMethod*, bool)},
+	{"append", "(C)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, append, void, char16_t)},
+	{"append", "([B)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, append, void, $bytes*)},
+	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, append, void, $Name*)},
+	{"reportIllegalSignature", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, reportIllegalSignature, void, $Type*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$L2MSignatureGenerator, toString, $String*)},
 	{}
 };
 

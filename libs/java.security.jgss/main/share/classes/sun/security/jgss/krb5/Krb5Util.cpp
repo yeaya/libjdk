@@ -60,14 +60,14 @@ $FieldInfo _Krb5Util_FieldInfo_[] = {
 };
 
 $MethodInfo _Krb5Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Krb5Util::*)()>(&Krb5Util::init$))},
-	{"credsToTicket", "(Lsun/security/krb5/Credentials;)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$KerberosTicket*(*)($Credentials*)>(&Krb5Util::credsToTicket))},
-	{"getInitialTicket", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/security/AccessControlContext;)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $STATIC, $method(static_cast<$KerberosTicket*(*)($GSSCaller*,$String*,$AccessControlContext*)>(&Krb5Util::getInitialTicket)), "javax.security.auth.login.LoginException"},
-	{"getServiceCreds", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/security/AccessControlContext;)Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ServiceCreds*(*)($GSSCaller*,$String*,$AccessControlContext*)>(&Krb5Util::getServiceCreds)), "javax.security.auth.login.LoginException"},
-	{"getServiceTicket", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/lang/String;Ljava/security/AccessControlContext;)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $STATIC, $method(static_cast<$KerberosTicket*(*)($GSSCaller*,$String*,$String*,$AccessControlContext*)>(&Krb5Util::getServiceTicket)), "javax.security.auth.login.LoginException"},
-	{"keysFromJavaxKeyTab", "(Ljavax/security/auth/kerberos/KeyTab;Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$EncryptionKeyArray*(*)($KeyTab*,$PrincipalName*)>(&Krb5Util::keysFromJavaxKeyTab))},
-	{"snapshotFromJavaxKeyTab", "(Ljavax/security/auth/kerberos/KeyTab;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$1KeyTab*(*)($KeyTab*)>(&Krb5Util::snapshotFromJavaxKeyTab))},
-	{"ticketToCreds", "(Ljavax/security/auth/kerberos/KerberosTicket;)Lsun/security/krb5/Credentials;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Credentials*(*)($KerberosTicket*)>(&Krb5Util::ticketToCreds)), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Krb5Util, init$, void)},
+	{"credsToTicket", "(Lsun/security/krb5/Credentials;)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5Util, credsToTicket, $KerberosTicket*, $Credentials*)},
+	{"getInitialTicket", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/security/AccessControlContext;)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $STATIC, $staticMethod(Krb5Util, getInitialTicket, $KerberosTicket*, $GSSCaller*, $String*, $AccessControlContext*), "javax.security.auth.login.LoginException"},
+	{"getServiceCreds", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/security/AccessControlContext;)Lsun/security/jgss/krb5/ServiceCreds;", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5Util, getServiceCreds, $ServiceCreds*, $GSSCaller*, $String*, $AccessControlContext*), "javax.security.auth.login.LoginException"},
+	{"getServiceTicket", "(Lsun/security/jgss/GSSCaller;Ljava/lang/String;Ljava/lang/String;Ljava/security/AccessControlContext;)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $STATIC, $staticMethod(Krb5Util, getServiceTicket, $KerberosTicket*, $GSSCaller*, $String*, $String*, $AccessControlContext*), "javax.security.auth.login.LoginException"},
+	{"keysFromJavaxKeyTab", "(Ljavax/security/auth/kerberos/KeyTab;Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5Util, keysFromJavaxKeyTab, $EncryptionKeyArray*, $KeyTab*, $PrincipalName*)},
+	{"snapshotFromJavaxKeyTab", "(Ljavax/security/auth/kerberos/KeyTab;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5Util, snapshotFromJavaxKeyTab, $1KeyTab*, $KeyTab*)},
+	{"ticketToCreds", "(Ljavax/security/auth/kerberos/KerberosTicket;)Lsun/security/krb5/Credentials;", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5Util, ticketToCreds, $Credentials*, $KerberosTicket*), "sun.security.krb5.KrbException,java.io.IOException"},
 	{}
 };
 

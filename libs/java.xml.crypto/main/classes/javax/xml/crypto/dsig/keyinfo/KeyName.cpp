@@ -12,7 +12,7 @@ namespace javax {
 				namespace keyinfo {
 
 $MethodInfo _KeyName_MethodInfo_[] = {
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyName, getName, $String*)},
 	{}
 };
 

@@ -76,20 +76,20 @@ $FieldInfo _HotspotCompilation_FieldInfo_[] = {
 };
 
 $MethodInfo _HotspotCompilation_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(static_cast<void(HotspotCompilation::*)($VMManagement*)>(&HotspotCompilation::init$))},
-	{"getBailoutCompileCount", "()J", nullptr, $PUBLIC},
-	{"getCompiledMethodCodeSize", "()J", nullptr, $PUBLIC},
-	{"getCompiledMethodSize", "()J", nullptr, $PUBLIC},
-	{"getCompilerThreadCount", "()I", nullptr, $PUBLIC},
-	{"getCompilerThreadStats", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/CompilerThreadStat;>;", $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _HotspotCompilation_MethodAnnotations_getCompilerThreadStats5},
-	{"getFailedCompile", "()Lsun/management/MethodInfo;", nullptr, $PUBLIC},
-	{"getInternalCompilerCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC},
-	{"getInvalidatedCompile", "()Lsun/management/MethodInfo;", nullptr, $PUBLIC},
-	{"getInvalidatedCompileCount", "()J", nullptr, $PUBLIC},
-	{"getLastCompile", "()Lsun/management/MethodInfo;", nullptr, $PUBLIC},
-	{"getTotalCompileCount", "()J", nullptr, $PUBLIC},
-	{"initCompilerCounters", "()V", nullptr, $PRIVATE, $method(static_cast<void(HotspotCompilation::*)()>(&HotspotCompilation::initCompilerCounters))},
-	{"lookup", "(Ljava/lang/String;)Lsun/management/counter/Counter;", nullptr, $PRIVATE, $method(static_cast<$Counter*(HotspotCompilation::*)($String*)>(&HotspotCompilation::lookup))},
+	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(HotspotCompilation, init$, void, $VMManagement*)},
+	{"getBailoutCompileCount", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotCompilation, getBailoutCompileCount, int64_t)},
+	{"getCompiledMethodCodeSize", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotCompilation, getCompiledMethodCodeSize, int64_t)},
+	{"getCompiledMethodSize", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotCompilation, getCompiledMethodSize, int64_t)},
+	{"getCompilerThreadCount", "()I", nullptr, $PUBLIC, $virtualMethod(HotspotCompilation, getCompilerThreadCount, int32_t)},
+	{"getCompilerThreadStats", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/CompilerThreadStat;>;", $PUBLIC | $DEPRECATED, $virtualMethod(HotspotCompilation, getCompilerThreadStats, $List*), nullptr, nullptr, _HotspotCompilation_MethodAnnotations_getCompilerThreadStats5},
+	{"getFailedCompile", "()Lsun/management/MethodInfo;", nullptr, $PUBLIC, $virtualMethod(HotspotCompilation, getFailedCompile, $1MethodInfo*)},
+	{"getInternalCompilerCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC, $virtualMethod(HotspotCompilation, getInternalCompilerCounters, $List*)},
+	{"getInvalidatedCompile", "()Lsun/management/MethodInfo;", nullptr, $PUBLIC, $virtualMethod(HotspotCompilation, getInvalidatedCompile, $1MethodInfo*)},
+	{"getInvalidatedCompileCount", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotCompilation, getInvalidatedCompileCount, int64_t)},
+	{"getLastCompile", "()Lsun/management/MethodInfo;", nullptr, $PUBLIC, $virtualMethod(HotspotCompilation, getLastCompile, $1MethodInfo*)},
+	{"getTotalCompileCount", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotCompilation, getTotalCompileCount, int64_t)},
+	{"initCompilerCounters", "()V", nullptr, $PRIVATE, $method(HotspotCompilation, initCompilerCounters, void)},
+	{"lookup", "(Ljava/lang/String;)Lsun/management/counter/Counter;", nullptr, $PRIVATE, $method(HotspotCompilation, lookup, $Counter*, $String*)},
 	{}
 };
 

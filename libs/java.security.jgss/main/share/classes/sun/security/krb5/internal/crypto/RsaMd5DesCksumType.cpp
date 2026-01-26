@@ -34,17 +34,17 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _RsaMd5DesCksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RsaMd5DesCksumType::*)()>(&RsaMd5DesCksumType::init$))},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"calculateRawChecksum", "([BI)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(RsaMd5DesCksumType::*)($bytes*,int32_t)>(&RsaMd5DesCksumType::calculateRawChecksum)), "sun.security.krb5.KrbCryptoException"},
-	{"cksumSize", "()I", nullptr, $PUBLIC},
-	{"cksumType", "()I", nullptr, $PUBLIC},
-	{"confounderSize", "()I", nullptr, $PUBLIC},
-	{"decryptKeyedChecksum", "([B[B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(RsaMd5DesCksumType::*)($bytes*,$bytes*)>(&RsaMd5DesCksumType::decryptKeyedChecksum)), "sun.security.krb5.KrbCryptoException"},
-	{"isKeyed", "()Z", nullptr, $PUBLIC},
-	{"keySize", "()I", nullptr, $PUBLIC},
-	{"keyType", "()I", nullptr, $PUBLIC},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RsaMd5DesCksumType, init$, void)},
+	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(RsaMd5DesCksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"calculateRawChecksum", "([BI)[B", nullptr, $PRIVATE, $method(RsaMd5DesCksumType, calculateRawChecksum, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5DesCksumType, cksumSize, int32_t)},
+	{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5DesCksumType, cksumType, int32_t)},
+	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5DesCksumType, confounderSize, int32_t)},
+	{"decryptKeyedChecksum", "([B[B)[B", nullptr, $PRIVATE, $method(RsaMd5DesCksumType, decryptKeyedChecksum, $bytes*, $bytes*, $bytes*), "sun.security.krb5.KrbCryptoException"},
+	{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(RsaMd5DesCksumType, isKeyed, bool)},
+	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5DesCksumType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(RsaMd5DesCksumType, keyType, int32_t)},
+	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(RsaMd5DesCksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
 	{}
 };
 

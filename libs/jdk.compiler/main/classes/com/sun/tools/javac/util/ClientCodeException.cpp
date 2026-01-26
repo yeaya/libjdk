@@ -19,7 +19,7 @@ $FieldInfo _ClientCodeException_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientCodeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ClientCodeException::*)($Throwable*)>(&ClientCodeException::init$))},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ClientCodeException, init$, void, $Throwable*)},
 	{}
 };
 

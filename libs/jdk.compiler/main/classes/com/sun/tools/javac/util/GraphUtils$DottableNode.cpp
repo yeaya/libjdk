@@ -5,9 +5,11 @@
 #include <java/util/Properties.h>
 #include <jcpp.h>
 
+using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Properties = ::java::util::Properties;
 
 namespace com {
 	namespace sun {
@@ -16,8 +18,8 @@ namespace com {
 				namespace util {
 
 $MethodInfo _GraphUtils$DottableNode_MethodInfo_[] = {
-	{"dependencyAttributes", "(Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", "(TN;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", $PUBLIC | $ABSTRACT},
-	{"nodeAttributes", "()Ljava/util/Properties;", nullptr, $PUBLIC | $ABSTRACT},
+	{"dependencyAttributes", "(Lcom/sun/tools/javac/util/GraphUtils$DottableNode;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", "(TN;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Properties;", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$DottableNode, dependencyAttributes, $Properties*, GraphUtils$DottableNode*, $GraphUtils$DependencyKind*)},
+	{"nodeAttributes", "()Ljava/util/Properties;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$DottableNode, nodeAttributes, $Properties*)},
 	{}
 };
 

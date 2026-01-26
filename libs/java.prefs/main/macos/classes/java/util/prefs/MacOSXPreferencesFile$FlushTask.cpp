@@ -21,8 +21,8 @@ $FieldInfo _MacOSXPreferencesFile$FlushTask_FieldInfo_[] = {
 };
 
 $MethodInfo _MacOSXPreferencesFile$FlushTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/MacOSXPreferencesFile;)V", nullptr, $PRIVATE, $method(static_cast<void(MacOSXPreferencesFile$FlushTask::*)($MacOSXPreferencesFile*)>(&MacOSXPreferencesFile$FlushTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/prefs/MacOSXPreferencesFile;)V", nullptr, $PRIVATE, $method(MacOSXPreferencesFile$FlushTask, init$, void, $MacOSXPreferencesFile*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$FlushTask, run, void)},
 	{}
 };
 

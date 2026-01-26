@@ -9,8 +9,8 @@ namespace java {
 	namespace sql {
 
 $MethodInfo _Savepoint_MethodInfo_[] = {
-	{"getSavepointId", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getSavepointName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getSavepointId", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Savepoint, getSavepointId, int32_t), "java.sql.SQLException"},
+	{"getSavepointName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Savepoint, getSavepointName, $String*), "java.sql.SQLException"},
 	{}
 };
 

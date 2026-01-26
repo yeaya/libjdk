@@ -25,8 +25,8 @@ $FieldInfo _DefaultMBeanServerInterceptor$3_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultMBeanServerInterceptor$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/interceptor/DefaultMBeanServerInterceptor;)V", nullptr, 0, $method(static_cast<void(DefaultMBeanServerInterceptor$3::*)($DefaultMBeanServerInterceptor*)>(&DefaultMBeanServerInterceptor$3::init$))},
-	{"run", "()Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/interceptor/DefaultMBeanServerInterceptor;)V", nullptr, 0, $method(DefaultMBeanServerInterceptor$3, init$, void, $DefaultMBeanServerInterceptor*)},
+	{"run", "()Lcom/sun/jmx/mbeanserver/ModifiableClassLoaderRepository;", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$3, run, $Object*)},
 	{}
 };
 

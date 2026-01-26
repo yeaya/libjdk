@@ -44,9 +44,9 @@ $FieldInfo _PullPublisher$Subscription_FieldInfo_[] = {
 };
 
 $MethodInfo _PullPublisher$Subscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/PullPublisher;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/Iterator;Ljava/lang/Throwable;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;Ljava/util/Iterator<TT;>;Ljava/lang/Throwable;)V", 0, $method(static_cast<void(PullPublisher$Subscription::*)($PullPublisher*,$Flow$Subscriber*,$Iterator*,$Throwable*)>(&PullPublisher$Subscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PullPublisher;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/Iterator;Ljava/lang/Throwable;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;Ljava/util/Iterator<TT;>;Ljava/lang/Throwable;)V", 0, $method(PullPublisher$Subscription, init$, void, $PullPublisher*, $Flow$Subscriber*, $Iterator*, $Throwable*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(PullPublisher$Subscription, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(PullPublisher$Subscription, request, void, int64_t)},
 	{}
 };
 

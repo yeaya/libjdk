@@ -53,11 +53,11 @@ $FieldInfo _SSLStreams$EngineWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLStreams$EngineWrapper_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/SSLStreams;Ljava/nio/channels/SocketChannel;Ljavax/net/ssl/SSLEngine;)V", nullptr, 0, $method(static_cast<void(SSLStreams$EngineWrapper::*)($SSLStreams*,$SocketChannel*,$SSLEngine*)>(&SSLStreams$EngineWrapper::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"recvAndUnwrap", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"wrapAndSend", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"wrapAndSendX", "(Ljava/nio/ByteBuffer;Z)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/SSLStreams;Ljava/nio/channels/SocketChannel;Ljavax/net/ssl/SSLEngine;)V", nullptr, 0, $method(SSLStreams$EngineWrapper, init$, void, $SSLStreams*, $SocketChannel*, $SSLEngine*), "java.io.IOException"},
+	{"close", "()V", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, close, void), "java.io.IOException"},
+	{"recvAndUnwrap", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, recvAndUnwrap, $SSLStreams$WrapperResult*, $ByteBuffer*), "java.io.IOException"},
+	{"wrapAndSend", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, wrapAndSend, $SSLStreams$WrapperResult*, $ByteBuffer*), "java.io.IOException"},
+	{"wrapAndSendX", "(Ljava/nio/ByteBuffer;Z)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, wrapAndSendX, $SSLStreams$WrapperResult*, $ByteBuffer*, bool), "java.io.IOException"},
 	{}
 };
 

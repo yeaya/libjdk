@@ -33,9 +33,9 @@ $FieldInfo _SunProvider_FieldInfo_[] = {
 };
 
 $MethodInfo _SunProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SunProvider::*)()>(&SunProvider::init$))},
-	{"access$000", "(Lsun/security/jgss/SunProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(SunProvider*,$Provider$Service*)>(&SunProvider::access$000))},
-	{"access$100", "(Lsun/security/jgss/SunProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $method(static_cast<void(*)(SunProvider*,$Provider$Service*)>(&SunProvider::access$100))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SunProvider, init$, void)},
+	{"access$000", "(Lsun/security/jgss/SunProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SunProvider, access$000, void, SunProvider*, $Provider$Service*)},
+	{"access$100", "(Lsun/security/jgss/SunProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SunProvider, access$100, void, SunProvider*, $Provider$Service*)},
 	{}
 };
 

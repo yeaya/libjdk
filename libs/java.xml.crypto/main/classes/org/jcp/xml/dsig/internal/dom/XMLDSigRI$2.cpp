@@ -51,8 +51,8 @@ $FieldInfo _XMLDSigRI$2_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLDSigRI$2_MethodInfo_[] = {
-	{"<init>", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider;)V", "()V", 0, $method(static_cast<void(XMLDSigRI$2::*)($XMLDSigRI*,$Provider*)>(&XMLDSigRI$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider;)V", "()V", 0, $method(XMLDSigRI$2, init$, void, $XMLDSigRI*, $Provider*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(XMLDSigRI$2, run, $Object*)},
 	{}
 };
 

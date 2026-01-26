@@ -104,8 +104,8 @@ $FieldInfo ClassReader$24$$Lambda$fromUtf::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassReader$24$$Lambda$fromUtf::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$24$$Lambda$fromUtf::*)($Names*)>(&ClassReader$24$$Lambda$fromUtf::init$))},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, $PUBLIC, $method(ClassReader$24$$Lambda$fromUtf, init$, void, $Names*)},
+	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$24$$Lambda$fromUtf, map, $Object*, $bytes*, int32_t, int32_t)},
 	{}
 };
 $ClassInfo ClassReader$24$$Lambda$fromUtf::classInfo$ = {
@@ -144,8 +144,8 @@ $FieldInfo ClassReader$24$$Lambda$getName$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassReader$24$$Lambda$getName$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolReader;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$24$$Lambda$getName$1::*)($PoolReader*)>(&ClassReader$24$$Lambda$getName$1::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolReader;)V", nullptr, $PUBLIC, $method(ClassReader$24$$Lambda$getName$1, init$, void, $PoolReader*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$24$$Lambda$getName$1, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ClassReader$24$$Lambda$getName$1::classInfo$ = {
@@ -184,8 +184,8 @@ $FieldInfo ClassReader$24$$Lambda$classNameMapper$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassReader$24$$Lambda$classNameMapper$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader$24;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$24$$Lambda$classNameMapper$2::*)(ClassReader$24*)>(&ClassReader$24$$Lambda$classNameMapper$2::init$))},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader$24;)V", nullptr, $PUBLIC, $method(ClassReader$24$$Lambda$classNameMapper$2, init$, void, ClassReader$24*)},
+	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$24$$Lambda$classNameMapper$2, map, $Object*, $bytes*, int32_t, int32_t)},
 	{}
 };
 $ClassInfo ClassReader$24$$Lambda$classNameMapper$2::classInfo$ = {
@@ -208,10 +208,10 @@ $FieldInfo _ClassReader$24_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$24_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(static_cast<void(ClassReader$24::*)($ClassReader*,$Name*,$ClassFile$Version*,$Set*)>(&ClassReader$24::init$))},
-	{"accepts", "(Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;)Z", nullptr, $PROTECTED},
-	{"classNameMapper", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(static_cast<$Name*(ClassReader$24::*)($bytes*,int32_t,int32_t)>(&ClassReader$24::classNameMapper))},
-	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(ClassReader$24, init$, void, $ClassReader*, $Name*, $ClassFile$Version*, $Set*)},
+	{"accepts", "(Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;)Z", nullptr, $PROTECTED, $virtualMethod(ClassReader$24, accepts, bool, $ClassReader$AttributeKind*)},
+	{"classNameMapper", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(ClassReader$24, classNameMapper, $Name*, $bytes*, int32_t, int32_t)},
+	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED, $virtualMethod(ClassReader$24, read, void, $Symbol*, int32_t)},
 	{}
 };
 

@@ -17,8 +17,8 @@ $FieldInfo _AttributeNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributeNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AttributeNotFoundException::*)()>(&AttributeNotFoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AttributeNotFoundException::*)($String*)>(&AttributeNotFoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeNotFoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeNotFoundException, init$, void, $String*)},
 	{}
 };
 

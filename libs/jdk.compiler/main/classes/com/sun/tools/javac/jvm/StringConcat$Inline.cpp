@@ -63,12 +63,12 @@ namespace com {
 				namespace jvm {
 
 $MethodInfo _StringConcat$Inline_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(static_cast<void(StringConcat$Inline::*)($Context*)>(&StringConcat$Inline::init$))},
-	{"appendString", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(static_cast<void(StringConcat$Inline::*)($JCTree*)>(&StringConcat$Inline::appendString))},
-	{"builderToString", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(static_cast<void(StringConcat$Inline::*)($JCDiagnostic$DiagnosticPosition*)>(&StringConcat$Inline::builderToString))},
-	{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC},
-	{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC},
-	{"newStringBuilder", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE, $method(static_cast<$JCDiagnostic$DiagnosticPosition*(StringConcat$Inline::*)($JCTree*)>(&StringConcat$Inline::newStringBuilder))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(StringConcat$Inline, init$, void, $Context*)},
+	{"appendString", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(StringConcat$Inline, appendString, void, $JCTree*)},
+	{"builderToString", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(StringConcat$Inline, builderToString, void, $JCDiagnostic$DiagnosticPosition*)},
+	{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC, $virtualMethod(StringConcat$Inline, makeConcat, $Items$Item*, $JCTree$JCAssignOp*)},
+	{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC, $virtualMethod(StringConcat$Inline, makeConcat, $Items$Item*, $JCTree$JCBinary*)},
+	{"newStringBuilder", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE, $method(StringConcat$Inline, newStringBuilder, $JCDiagnostic$DiagnosticPosition*, $JCTree*)},
 	{}
 };
 

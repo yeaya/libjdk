@@ -77,18 +77,18 @@ $FieldInfo _RMIClassLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(RMIClassLoader::*)()>(&RMIClassLoader::init$))},
-	{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($Class*)>(&RMIClassLoader::getClassAnnotation))},
-	{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClassLoader*(*)($String*)>(&RMIClassLoader::getClassLoader)), "java.net.MalformedURLException,java.lang.SecurityException"},
-	{"getDefaultProviderInstance", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$RMIClassLoaderSpi*(*)()>(&RMIClassLoader::getDefaultProviderInstance))},
-	{"getSecurityContext", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<$Object*(*)($ClassLoader*)>(&RMIClassLoader::getSecurityContext)), nullptr, nullptr, _RMIClassLoader_MethodAnnotations_getSecurityContext4},
-	{"initializeProvider", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$RMIClassLoaderSpi*(*)()>(&RMIClassLoader::initializeProvider))},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<$Class*(*)($String*)>(&RMIClassLoader::loadClass)), "java.net.MalformedURLException,java.lang.ClassNotFoundException", nullptr, _RMIClassLoader_MethodAnnotations_loadClass6},
-	{"loadClass", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($URL*,$String*)>(&RMIClassLoader::loadClass)), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($String*,$String*)>(&RMIClassLoader::loadClass)), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($String*,$String*,$ClassLoader*)>(&RMIClassLoader::loadClass)), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $method(static_cast<$Class*(*)($String*,$StringArray*,$ClassLoader*)>(&RMIClassLoader::loadProxyClass)), "java.lang.ClassNotFoundException,java.net.MalformedURLException"},
-	{"newDefaultProviderInstance", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$RMIClassLoaderSpi*(*)()>(&RMIClassLoader::newDefaultProviderInstance))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(RMIClassLoader, init$, void)},
+	{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, getClassAnnotation, $String*, $Class*)},
+	{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, getClassLoader, $ClassLoader*, $String*), "java.net.MalformedURLException,java.lang.SecurityException"},
+	{"getDefaultProviderInstance", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, getDefaultProviderInstance, $RMIClassLoaderSpi*)},
+	{"getSecurityContext", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(RMIClassLoader, getSecurityContext, $Object*, $ClassLoader*), nullptr, nullptr, _RMIClassLoader_MethodAnnotations_getSecurityContext4},
+	{"initializeProvider", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC, $staticMethod(RMIClassLoader, initializeProvider, $RMIClassLoaderSpi*)},
+	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(RMIClassLoader, loadClass, $Class*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException", nullptr, _RMIClassLoader_MethodAnnotations_loadClass6},
+	{"loadClass", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadClass, $Class*, $URL*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadClass, $Class*, $String*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadClass, $Class*, $String*, $String*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+	{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(RMIClassLoader, loadProxyClass, $Class*, $String*, $StringArray*, $ClassLoader*), "java.lang.ClassNotFoundException,java.net.MalformedURLException"},
+	{"newDefaultProviderInstance", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PRIVATE | $STATIC, $staticMethod(RMIClassLoader, newDefaultProviderInstance, $RMIClassLoaderSpi*)},
 	{}
 };
 

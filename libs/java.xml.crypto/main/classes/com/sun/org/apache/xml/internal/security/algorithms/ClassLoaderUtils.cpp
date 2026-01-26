@@ -34,9 +34,9 @@ $FieldInfo _ClassLoaderUtils_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassLoaderUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClassLoaderUtils::*)()>(&ClassLoaderUtils::init$))},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $STATIC, $method(static_cast<$Class*(*)($String*,$Class*)>(&ClassLoaderUtils::loadClass)), "java.lang.ClassNotFoundException"},
-	{"loadClass2", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($String*,$Class*)>(&ClassLoaderUtils::loadClass2)), "java.lang.ClassNotFoundException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ClassLoaderUtils, init$, void)},
+	{"loadClass", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(ClassLoaderUtils, loadClass, $Class*, $String*, $Class*), "java.lang.ClassNotFoundException"},
+	{"loadClass2", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(ClassLoaderUtils, loadClass2, $Class*, $String*, $Class*), "java.lang.ClassNotFoundException"},
 	{}
 };
 

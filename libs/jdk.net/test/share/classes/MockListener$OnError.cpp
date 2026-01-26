@@ -20,10 +20,10 @@ $FieldInfo _MockListener$OnError_FieldInfo_[] = {
 };
 
 $MethodInfo _MockListener$OnError_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/WebSocket;Ljava/lang/Class;)V", "(Ljava/net/http/WebSocket;Ljava/lang/Class<+Ljava/lang/Throwable;>;)V", $PUBLIC, $method(static_cast<void(MockListener$OnError::*)($WebSocket*,$Class*)>(&MockListener$OnError::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/WebSocket;Ljava/lang/Class;)V", "(Ljava/net/http/WebSocket;Ljava/lang/Class<+Ljava/lang/Throwable;>;)V", $PUBLIC, $method(MockListener$OnError, init$, void, $WebSocket*, $Class*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnError, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnError, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnError, toString, $String*)},
 	{}
 };
 

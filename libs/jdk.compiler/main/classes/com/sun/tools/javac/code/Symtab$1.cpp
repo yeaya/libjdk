@@ -32,9 +32,9 @@ $FieldInfo _Symtab$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Symtab$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Symbol$Completer;)V", "()V", 0, $method(static_cast<void(Symtab$1::*)($Symtab*,$Symbol$Completer*)>(&Symtab$1::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"isTerminal", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Symbol$Completer;)V", "()V", 0, $method(Symtab$1, init$, void, $Symtab*, $Symbol$Completer*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symtab$1, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"isTerminal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symtab$1, isTerminal, bool)},
 	{}
 };
 

@@ -38,14 +38,14 @@ $FieldInfo _TreePath_FieldInfo_[] = {
 };
 
 $MethodInfo _TreePath_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/tree/CompilationUnitTree;)V", nullptr, $PUBLIC, $method(static_cast<void(TreePath::*)($CompilationUnitTree*)>(&TreePath::init$))},
-	{"<init>", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;)V", nullptr, $PUBLIC, $method(static_cast<void(TreePath::*)(TreePath*,$Tree*)>(&TreePath::init$))},
-	{"getCompilationUnit", "()Lcom/sun/source/tree/CompilationUnitTree;", nullptr, $PUBLIC},
-	{"getLeaf", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC},
-	{"getParentPath", "()Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC},
-	{"getPath", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TreePath*(*)($CompilationUnitTree*,$Tree*)>(&TreePath::getPath))},
-	{"getPath", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TreePath*(*)(TreePath*,$Tree*)>(&TreePath::getPath))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/source/tree/Tree;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/source/tree/CompilationUnitTree;)V", nullptr, $PUBLIC, $method(TreePath, init$, void, $CompilationUnitTree*)},
+	{"<init>", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;)V", nullptr, $PUBLIC, $method(TreePath, init$, void, TreePath*, $Tree*)},
+	{"getCompilationUnit", "()Lcom/sun/source/tree/CompilationUnitTree;", nullptr, $PUBLIC, $virtualMethod(TreePath, getCompilationUnit, $CompilationUnitTree*)},
+	{"getLeaf", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC, $virtualMethod(TreePath, getLeaf, $Tree*)},
+	{"getParentPath", "()Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreePath, getParentPath, TreePath*)},
+	{"getPath", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreePath, getPath, TreePath*, $CompilationUnitTree*, $Tree*)},
+	{"getPath", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreePath, getPath, TreePath*, TreePath*, $Tree*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/source/tree/Tree;>;", $PUBLIC, $virtualMethod(TreePath, iterator, $Iterator*)},
 	{}
 };
 

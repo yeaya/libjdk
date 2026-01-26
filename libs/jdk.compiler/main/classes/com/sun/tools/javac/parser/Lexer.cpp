@@ -4,6 +4,8 @@
 #include <com/sun/tools/javac/util/Position$LineMap.h>
 #include <jcpp.h>
 
+using $Tokens$Token = ::com::sun::tools::javac::parser::Tokens$Token;
+using $Position$LineMap = ::com::sun::tools::javac::util::Position$LineMap;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -14,14 +16,14 @@ namespace com {
 				namespace parser {
 
 $MethodInfo _Lexer_MethodInfo_[] = {
-	{"errPos", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"errPos", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC | $ABSTRACT},
-	{"nextToken", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"prevToken", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT},
-	{"split", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT},
-	{"token", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT},
-	{"token", "(I)Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT},
+	{"errPos", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, errPos, int32_t)},
+	{"errPos", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, errPos, void, int32_t)},
+	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, getLineMap, $Position$LineMap*)},
+	{"nextToken", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, nextToken, void)},
+	{"prevToken", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, prevToken, $Tokens$Token*)},
+	{"split", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, split, $Tokens$Token*)},
+	{"token", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, token, $Tokens$Token*)},
+	{"token", "(I)Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, token, $Tokens$Token*, int32_t)},
 	{}
 };
 

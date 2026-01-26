@@ -53,8 +53,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PushGroup$AcceptorImpl$$Lambda$lambda$accept$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0::*)()>(&PushGroup$AcceptorImpl$$Lambda$lambda$accept$0::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0, init$, void)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl$$Lambda$lambda$accept$0, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo PushGroup$AcceptorImpl$$Lambda$lambda$accept$0::classInfo$ = {
@@ -79,12 +79,12 @@ $FieldInfo _PushGroup$AcceptorImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _PushGroup$AcceptorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;)V", nullptr, 0, $method(static_cast<void(PushGroup$AcceptorImpl::*)($Executor*)>(&PushGroup$AcceptorImpl::init$))},
-	{"accept", "(Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", 0},
-	{"accepted", "()Z", nullptr, $PUBLIC},
-	{"bodyHandler", "()Ljava/net/http/HttpResponse$BodyHandler;", "()Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $PUBLIC},
-	{"cf", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC},
-	{"lambda$accept$0", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpResponse*,$Throwable*)>(&PushGroup$AcceptorImpl::lambda$accept$0))},
+	{"<init>", "(Ljava/util/concurrent/Executor;)V", nullptr, 0, $method(PushGroup$AcceptorImpl, init$, void, $Executor*)},
+	{"accept", "(Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", 0, $virtualMethod(PushGroup$AcceptorImpl, accept, $CompletableFuture*, $HttpResponse$BodyHandler*)},
+	{"accepted", "()Z", nullptr, $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl, accepted, bool)},
+	{"bodyHandler", "()Ljava/net/http/HttpResponse$BodyHandler;", "()Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl, bodyHandler, $HttpResponse$BodyHandler*)},
+	{"cf", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(PushGroup$AcceptorImpl, cf, $CompletableFuture*)},
+	{"lambda$accept$0", "(Ljava/net/http/HttpResponse;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PushGroup$AcceptorImpl, lambda$accept$0, void, $HttpResponse*, $Throwable*)},
 	{}
 };
 

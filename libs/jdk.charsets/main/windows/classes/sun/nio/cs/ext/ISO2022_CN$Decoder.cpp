@@ -43,13 +43,13 @@ $FieldInfo _ISO2022_CN$Decoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO2022_CN$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, 0, $method(static_cast<void(ISO2022_CN$Decoder::*)($Charset*)>(&ISO2022_CN$Decoder::init$))},
-	{"SODecode", "(BBB)C", nullptr, $PRIVATE, $method(static_cast<char16_t(ISO2022_CN$Decoder::*)(int8_t,int8_t,int8_t)>(&ISO2022_CN$Decoder::SODecode))},
-	{"cnsDecode", "(BBB)C", nullptr, $PRIVATE, $method(static_cast<char16_t(ISO2022_CN$Decoder::*)(int8_t,int8_t,int8_t)>(&ISO2022_CN$Decoder::cnsDecode))},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISO2022_CN$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&ISO2022_CN$Decoder::decodeArrayLoop))},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISO2022_CN$Decoder::*)($ByteBuffer*,$CharBuffer*)>(&ISO2022_CN$Decoder::decodeBufferLoop))},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implReset", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, 0, $method(ISO2022_CN$Decoder, init$, void, $Charset*)},
+	{"SODecode", "(BBB)C", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, SODecode, char16_t, int8_t, int8_t, int8_t)},
+	{"cnsDecode", "(BBB)C", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, cnsDecode, char16_t, int8_t, int8_t, int8_t)},
+	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022_CN$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022_CN$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(ISO2022_CN$Decoder, implReset, void)},
 	{}
 };
 

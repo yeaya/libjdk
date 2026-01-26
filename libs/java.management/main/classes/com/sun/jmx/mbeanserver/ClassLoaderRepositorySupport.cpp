@@ -64,20 +64,20 @@ $FieldInfo _ClassLoaderRepositorySupport_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassLoaderRepositorySupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ClassLoaderRepositorySupport::*)()>(&ClassLoaderRepositorySupport::init$))},
-	{"add", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<bool(ClassLoaderRepositorySupport::*)($ObjectName*,$ClassLoader*)>(&ClassLoaderRepositorySupport::add))},
-	{"addClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $FINAL},
-	{"addClassLoader", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED},
-	{"getClassLoader", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $FINAL},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, nullptr, "java.lang.ClassNotFoundException"},
-	{"loadClass", "([Lcom/sun/jmx/mbeanserver/ClassLoaderRepositorySupport$LoaderEntry;Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "([Lcom/sun/jmx/mbeanserver/ClassLoaderRepositorySupport$LoaderEntry;Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PRIVATE, $method(static_cast<$Class*(ClassLoaderRepositorySupport::*)($ClassLoaderRepositorySupport$LoaderEntryArray*,$String*,$ClassLoader*,$ClassLoader*)>(&ClassLoaderRepositorySupport::loadClass)), "java.lang.ClassNotFoundException"},
-	{"loadClassBefore", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, nullptr, "java.lang.ClassNotFoundException"},
-	{"loadClassWithout", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, nullptr, "java.lang.ClassNotFoundException"},
-	{"remove", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<bool(ClassLoaderRepositorySupport::*)($ObjectName*,$ClassLoader*)>(&ClassLoaderRepositorySupport::remove))},
-	{"removeClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $FINAL},
-	{"removeClassLoader", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED},
-	{"startValidSearch", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(ClassLoaderRepositorySupport::*)($ClassLoader*,$String*)>(&ClassLoaderRepositorySupport::startValidSearch)), "java.lang.ClassNotFoundException"},
-	{"stopValidSearch", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(ClassLoaderRepositorySupport::*)($ClassLoader*,$String*)>(&ClassLoaderRepositorySupport::stopValidSearch))},
+	{"<init>", "()V", nullptr, 0, $method(ClassLoaderRepositorySupport, init$, void)},
+	{"add", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ClassLoaderRepositorySupport, add, bool, $ObjectName*, $ClassLoader*)},
+	{"addClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ClassLoaderRepositorySupport, addClassLoader, void, $ClassLoader*)},
+	{"addClassLoader", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(ClassLoaderRepositorySupport, addClassLoader, void, $ObjectName*, $ClassLoader*)},
+	{"getClassLoader", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ClassLoaderRepositorySupport, getClassLoader, $ClassLoader*, $ObjectName*)},
+	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(ClassLoaderRepositorySupport, loadClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClass", "([Lcom/sun/jmx/mbeanserver/ClassLoaderRepositorySupport$LoaderEntry;Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "([Lcom/sun/jmx/mbeanserver/ClassLoaderRepositorySupport$LoaderEntry;Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PRIVATE, $method(ClassLoaderRepositorySupport, loadClass, $Class*, $ClassLoaderRepositorySupport$LoaderEntryArray*, $String*, $ClassLoader*, $ClassLoader*), "java.lang.ClassNotFoundException"},
+	{"loadClassBefore", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(ClassLoaderRepositorySupport, loadClassBefore, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
+	{"loadClassWithout", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $virtualMethod(ClassLoaderRepositorySupport, loadClassWithout, $Class*, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
+	{"remove", "(Ljavax/management/ObjectName;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ClassLoaderRepositorySupport, remove, bool, $ObjectName*, $ClassLoader*)},
+	{"removeClassLoader", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ClassLoaderRepositorySupport, removeClassLoader, void, $ClassLoader*)},
+	{"removeClassLoader", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(ClassLoaderRepositorySupport, removeClassLoader, void, $ObjectName*)},
+	{"startValidSearch", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ClassLoaderRepositorySupport, startValidSearch, void, $ClassLoader*, $String*), "java.lang.ClassNotFoundException"},
+	{"stopValidSearch", "(Ljava/lang/ClassLoader;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(ClassLoaderRepositorySupport, stopValidSearch, void, $ClassLoader*, $String*)},
 	{}
 };
 

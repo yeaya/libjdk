@@ -42,14 +42,14 @@ $FieldInfo _Logger$ConfigurationData_FieldInfo_[] = {
 };
 
 $MethodInfo _Logger$ConfigurationData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Logger$ConfigurationData::*)()>(&Logger$ConfigurationData::init$))},
-	{"addHandler", "(Ljava/util/logging/Handler;)V", nullptr, 0, $method(static_cast<void(Logger$ConfigurationData::*)($Handler*)>(&Logger$ConfigurationData::addHandler))},
-	{"merge", "(Ljava/util/logging/Logger;)Ljava/util/logging/Logger$ConfigurationData;", nullptr, 0, $method(static_cast<Logger$ConfigurationData*(Logger$ConfigurationData::*)($Logger*)>(&Logger$ConfigurationData::merge))},
-	{"removeHandler", "(Ljava/util/logging/Handler;)V", nullptr, 0, $method(static_cast<void(Logger$ConfigurationData::*)($Handler*)>(&Logger$ConfigurationData::removeHandler))},
-	{"setFilter", "(Ljava/util/logging/Filter;)V", nullptr, 0, $method(static_cast<void(Logger$ConfigurationData::*)($Filter*)>(&Logger$ConfigurationData::setFilter))},
-	{"setLevelObject", "(Ljava/util/logging/Level;)V", nullptr, 0, $method(static_cast<void(Logger$ConfigurationData::*)($Level*)>(&Logger$ConfigurationData::setLevelObject))},
-	{"setLevelValue", "(I)V", nullptr, 0, $method(static_cast<void(Logger$ConfigurationData::*)(int32_t)>(&Logger$ConfigurationData::setLevelValue))},
-	{"setUseParentHandlers", "(Z)V", nullptr, 0, $method(static_cast<void(Logger$ConfigurationData::*)(bool)>(&Logger$ConfigurationData::setUseParentHandlers))},
+	{"<init>", "()V", nullptr, 0, $method(Logger$ConfigurationData, init$, void)},
+	{"addHandler", "(Ljava/util/logging/Handler;)V", nullptr, 0, $method(Logger$ConfigurationData, addHandler, void, $Handler*)},
+	{"merge", "(Ljava/util/logging/Logger;)Ljava/util/logging/Logger$ConfigurationData;", nullptr, 0, $method(Logger$ConfigurationData, merge, Logger$ConfigurationData*, $Logger*)},
+	{"removeHandler", "(Ljava/util/logging/Handler;)V", nullptr, 0, $method(Logger$ConfigurationData, removeHandler, void, $Handler*)},
+	{"setFilter", "(Ljava/util/logging/Filter;)V", nullptr, 0, $method(Logger$ConfigurationData, setFilter, void, $Filter*)},
+	{"setLevelObject", "(Ljava/util/logging/Level;)V", nullptr, 0, $method(Logger$ConfigurationData, setLevelObject, void, $Level*)},
+	{"setLevelValue", "(I)V", nullptr, 0, $method(Logger$ConfigurationData, setLevelValue, void, int32_t)},
+	{"setUseParentHandlers", "(Z)V", nullptr, 0, $method(Logger$ConfigurationData, setUseParentHandlers, void, bool)},
 	{}
 };
 

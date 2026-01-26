@@ -62,19 +62,19 @@ $FieldInfo _BasicDiagnosticFormatter$BasicConfiguration_FieldInfo_[] = {
 };
 
 $MethodInfo _BasicDiagnosticFormatter$BasicConfiguration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PUBLIC, $method(static_cast<void(BasicDiagnosticFormatter$BasicConfiguration::*)($Options*)>(&BasicDiagnosticFormatter$BasicConfiguration::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BasicDiagnosticFormatter$BasicConfiguration::*)()>(&BasicDiagnosticFormatter$BasicConfiguration::init$))},
-	{"getFormat", "(Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getIndentation", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;)I", nullptr, $PUBLIC},
-	{"getSourcePosition", "()Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC},
-	{"initFormat", "()V", nullptr, $PRIVATE, $method(static_cast<void(BasicDiagnosticFormatter$BasicConfiguration::*)()>(&BasicDiagnosticFormatter$BasicConfiguration::initFormat))},
-	{"initFormats", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(BasicDiagnosticFormatter$BasicConfiguration::*)($String*,$String*,$String*)>(&BasicDiagnosticFormatter$BasicConfiguration::initFormats))},
-	{"initFormats", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(BasicDiagnosticFormatter$BasicConfiguration::*)($String*)>(&BasicDiagnosticFormatter$BasicConfiguration::initFormats))},
-	{"initIndentation", "()V", nullptr, $PRIVATE, $method(static_cast<void(BasicDiagnosticFormatter$BasicConfiguration::*)()>(&BasicDiagnosticFormatter$BasicConfiguration::initIndentation))},
-	{"initOldFormat", "()V", nullptr, $PRIVATE, $method(static_cast<void(BasicDiagnosticFormatter$BasicConfiguration::*)()>(&BasicDiagnosticFormatter$BasicConfiguration::initOldFormat))},
-	{"setFormat", "(Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setIndentation", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;I)V", nullptr, $PUBLIC},
-	{"setSourcePosition", "(Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PUBLIC, $method(BasicDiagnosticFormatter$BasicConfiguration, init$, void, $Options*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicDiagnosticFormatter$BasicConfiguration, init$, void)},
+	{"getFormat", "(Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter$BasicConfiguration, getFormat, $String*, $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind*)},
+	{"getIndentation", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;)I", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter$BasicConfiguration, getIndentation, int32_t, $DiagnosticFormatter$Configuration$DiagnosticPart*)},
+	{"getSourcePosition", "()Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter$BasicConfiguration, getSourcePosition, $BasicDiagnosticFormatter$BasicConfiguration$SourcePosition*)},
+	{"initFormat", "()V", nullptr, $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration, initFormat, void)},
+	{"initFormats", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration, initFormats, void, $String*, $String*, $String*)},
+	{"initFormats", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration, initFormats, void, $String*)},
+	{"initIndentation", "()V", nullptr, $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration, initIndentation, void)},
+	{"initOldFormat", "()V", nullptr, $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration, initOldFormat, void)},
+	{"setFormat", "(Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter$BasicConfiguration, setFormat, void, $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind*, $String*)},
+	{"setIndentation", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;I)V", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter$BasicConfiguration, setIndentation, void, $DiagnosticFormatter$Configuration$DiagnosticPart*, int32_t)},
+	{"setSourcePosition", "(Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$SourcePosition;)V", nullptr, $PUBLIC, $virtualMethod(BasicDiagnosticFormatter$BasicConfiguration, setSourcePosition, void, $BasicDiagnosticFormatter$BasicConfiguration$SourcePosition*)},
 	{}
 };
 

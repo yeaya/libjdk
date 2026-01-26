@@ -18,11 +18,11 @@ $FieldInfo _SortKey_FieldInfo_[] = {
 };
 
 $MethodInfo _SortKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SortKey::*)($String*)>(&SortKey::init$))},
-	{"<init>", "(Ljava/lang/String;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SortKey::*)($String*,bool,$String*)>(&SortKey::init$))},
-	{"getAttributeID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMatchingRuleID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isAscending", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SortKey, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(SortKey, init$, void, $String*, bool, $String*)},
+	{"getAttributeID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SortKey, getAttributeID, $String*)},
+	{"getMatchingRuleID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SortKey, getMatchingRuleID, $String*)},
+	{"isAscending", "()Z", nullptr, $PUBLIC, $virtualMethod(SortKey, isAscending, bool)},
 	{}
 };
 

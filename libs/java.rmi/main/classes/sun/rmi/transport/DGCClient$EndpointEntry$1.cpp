@@ -20,8 +20,8 @@ $FieldInfo _DGCClient$EndpointEntry$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCClient$EndpointEntry$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry;)V", nullptr, 0, $method(static_cast<void(DGCClient$EndpointEntry$1::*)($DGCClient$EndpointEntry*)>(&DGCClient$EndpointEntry$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry;)V", nullptr, 0, $method(DGCClient$EndpointEntry$1, init$, void, $DGCClient$EndpointEntry*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$1, run, $Object*)},
 	{}
 };
 

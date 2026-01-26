@@ -55,11 +55,11 @@ $FieldInfo _Modifier_FieldInfo_[] = {
 };
 
 $MethodInfo _Modifier_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/element/Modifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ModifierArray*(*)()>(&Modifier::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Modifier::*)($String*,int32_t)>(&Modifier::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Modifier*(*)($String*)>(&Modifier::valueOf))},
-	{"values", "()[Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ModifierArray*(*)()>(&Modifier::values))},
+	{"$values", "()[Ljavax/lang/model/element/Modifier;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modifier, $values, $ModifierArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Modifier, init$, void, $String*, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Modifier, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, valueOf, Modifier*, $String*)},
+	{"values", "()[Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(Modifier, values, $ModifierArray*)},
 	{}
 };
 

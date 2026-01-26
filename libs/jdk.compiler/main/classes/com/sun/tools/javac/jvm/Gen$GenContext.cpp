@@ -30,9 +30,9 @@ $FieldInfo _Gen$GenContext_FieldInfo_[] = {
 };
 
 $MethodInfo _Gen$GenContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Gen$GenContext::*)()>(&Gen$GenContext::init$))},
-	{"addCont", "(Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0},
-	{"addExit", "(Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(Gen$GenContext, init$, void)},
+	{"addCont", "(Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0, $virtualMethod(Gen$GenContext, addCont, void, $Code$Chain*)},
+	{"addExit", "(Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, 0, $virtualMethod(Gen$GenContext, addExit, void, $Code$Chain*)},
 	{}
 };
 

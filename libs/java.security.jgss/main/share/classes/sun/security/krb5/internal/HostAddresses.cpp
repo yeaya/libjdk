@@ -85,22 +85,22 @@ $FieldInfo _HostAddresses_FieldInfo_[] = {
 };
 
 $MethodInfo _HostAddresses_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/HostAddress;)V", nullptr, $PUBLIC, $method(static_cast<void(HostAddresses::*)($HostAddressArray*)>(&HostAddresses::init$)), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HostAddresses::*)()>(&HostAddresses::init$)), "java.net.UnknownHostException"},
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(HostAddresses::*)(int32_t)>(&HostAddresses::init$))},
-	{"<init>", "(Lsun/security/krb5/PrincipalName;)V", nullptr, $PUBLIC, $method(static_cast<void(HostAddresses::*)($PrincipalName*)>(&HostAddresses::init$)), "java.net.UnknownHostException,sun.security.krb5.KrbException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(HostAddresses::*)($DerValue*)>(&HostAddresses::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"<init>", "([Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(static_cast<void(HostAddresses::*)($InetAddressArray*)>(&HostAddresses::init$))},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getInetAddresses", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC},
-	{"getLocalAddresses", "()Lsun/security/krb5/internal/HostAddresses;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HostAddresses*(*)()>(&HostAddresses::getLocalAddresses)), "java.io.IOException"},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"inList", "(Lsun/security/krb5/internal/HostAddress;)Z", nullptr, $PUBLIC},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/HostAddresses;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HostAddresses*(*)($DerInputStream*,int8_t,bool)>(&HostAddresses::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeAddrs", "(Lsun/security/krb5/internal/ccache/CCacheOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "([Lsun/security/krb5/internal/HostAddress;)V", nullptr, $PUBLIC, $method(HostAddresses, init$, void, $HostAddressArray*), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HostAddresses, init$, void), "java.net.UnknownHostException"},
+	{"<init>", "(I)V", nullptr, $PRIVATE, $method(HostAddresses, init$, void, int32_t)},
+	{"<init>", "(Lsun/security/krb5/PrincipalName;)V", nullptr, $PUBLIC, $method(HostAddresses, init$, void, $PrincipalName*), "java.net.UnknownHostException,sun.security.krb5.KrbException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(HostAddresses, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "([Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(HostAddresses, init$, void, $InetAddressArray*)},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(HostAddresses, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HostAddresses, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HostAddresses, equals, bool, Object$*)},
+	{"getInetAddresses", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(HostAddresses, getInetAddresses, $InetAddressArray*)},
+	{"getLocalAddresses", "()Lsun/security/krb5/internal/HostAddresses;", nullptr, $PUBLIC | $STATIC, $staticMethod(HostAddresses, getLocalAddresses, HostAddresses*), "java.io.IOException"},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HostAddresses, hashCode, int32_t)},
+	{"inList", "(Lsun/security/krb5/internal/HostAddress;)Z", nullptr, $PUBLIC, $virtualMethod(HostAddresses, inList, bool, $HostAddress*)},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/HostAddresses;", nullptr, $PUBLIC | $STATIC, $staticMethod(HostAddresses, parse, HostAddresses*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostAddresses, toString, $String*)},
+	{"writeAddrs", "(Lsun/security/krb5/internal/ccache/CCacheOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(HostAddresses, writeAddrs, void, $CCacheOutputStream*), "java.io.IOException"},
 	{}
 };
 

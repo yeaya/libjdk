@@ -40,8 +40,8 @@ $FieldInfo _Enter$UnenterScanner_FieldInfo_[] = {
 };
 
 $MethodInfo _Enter$UnenterScanner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Enter;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Enter$UnenterScanner::*)($Enter*,$Symbol$ModuleSymbol*)>(&Enter$UnenterScanner::init$))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Enter;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Enter$UnenterScanner, init$, void, $Enter*, $Symbol$ModuleSymbol*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Enter$UnenterScanner, visitClassDef, void, $JCTree$JCClassDecl*)},
 	{}
 };
 

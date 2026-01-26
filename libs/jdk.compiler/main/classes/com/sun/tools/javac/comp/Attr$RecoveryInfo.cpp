@@ -39,8 +39,8 @@ $FieldInfo _Attr$RecoveryInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$RecoveryInfo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, $PUBLIC, $method(static_cast<void(Attr$RecoveryInfo::*)($Attr*,$DeferredAttr$DeferredAttrContext*)>(&Attr$RecoveryInfo::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Attr$RecoveryInfo::*)($Attr*,$DeferredAttr$DeferredAttrContext*,$Type*)>(&Attr$RecoveryInfo::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, $PUBLIC, $method(Attr$RecoveryInfo, init$, void, $Attr*, $DeferredAttr$DeferredAttrContext*)},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attr$RecoveryInfo, init$, void, $Attr*, $DeferredAttr$DeferredAttrContext*, $Type*)},
 	{}
 };
 

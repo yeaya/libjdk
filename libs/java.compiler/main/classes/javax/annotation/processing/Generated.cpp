@@ -49,9 +49,9 @@ $Attribute _Generated_DefaultValue_date1 = {
 };
 
 $MethodInfo _Generated_MethodInfo_[] = {
-	{"comments", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_Generated_DefaultValue_comments0},
-	{"date", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_Generated_DefaultValue_date1},
-	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"comments", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Generated, comments, $String*), nullptr, &_Generated_DefaultValue_comments0},
+	{"date", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Generated, date, $String*), nullptr, &_Generated_DefaultValue_date1},
+	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Generated, value, $StringArray*)},
 	{}
 };
 

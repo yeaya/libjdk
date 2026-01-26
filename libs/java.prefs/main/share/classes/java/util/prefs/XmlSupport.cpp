@@ -115,17 +115,17 @@ $FieldInfo _XmlSupport_FieldInfo_[] = {
 };
 
 $MethodInfo _XmlSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(XmlSupport::*)()>(&XmlSupport::init$))},
-	{"ImportPrefs", "(Ljava/util/prefs/Preferences;Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Preferences*,$Element*)>(&XmlSupport::ImportPrefs))},
-	{"ImportSubtree", "(Ljava/util/prefs/Preferences;Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Preferences*,$Element*)>(&XmlSupport::ImportSubtree))},
-	{"createPrefsDoc", "(Ljava/lang/String;)Lorg/w3c/dom/Document;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Document*(*)($String*)>(&XmlSupport::createPrefsDoc))},
-	{"export", "(Ljava/io/OutputStream;Ljava/util/prefs/Preferences;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($OutputStream*,$Preferences*,bool)>(&XmlSupport::export$)), "java.io.IOException,java.util.prefs.BackingStoreException"},
-	{"exportMap", "(Ljava/io/OutputStream;Ljava/util/Map;)V", "(Ljava/io/OutputStream;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $STATIC, $method(static_cast<void(*)($OutputStream*,$Map*)>(&XmlSupport::exportMap)), "java.io.IOException"},
-	{"importMap", "(Ljava/io/InputStream;Ljava/util/Map;)V", "(Ljava/io/InputStream;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $STATIC, $method(static_cast<void(*)($InputStream*,$Map*)>(&XmlSupport::importMap)), "java.io.IOException,java.util.prefs.InvalidPreferencesFormatException"},
-	{"importPreferences", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $method(static_cast<void(*)($InputStream*)>(&XmlSupport::importPreferences)), "java.io.IOException,java.util.prefs.InvalidPreferencesFormatException"},
-	{"loadPrefsDoc", "(Ljava/io/InputStream;)Lorg/w3c/dom/Document;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Document*(*)($InputStream*)>(&XmlSupport::loadPrefsDoc)), "org.xml.sax.SAXException,java.io.IOException"},
-	{"putPreferencesInXml", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Document;Ljava/util/prefs/Preferences;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Element*,$Document*,$Preferences*,bool)>(&XmlSupport::putPreferencesInXml)), "java.util.prefs.BackingStoreException"},
-	{"writeDoc", "(Lorg/w3c/dom/Document;Ljava/io/OutputStream;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<void(*)($Document*,$OutputStream*)>(&XmlSupport::writeDoc)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(XmlSupport, init$, void)},
+	{"ImportPrefs", "(Ljava/util/prefs/Preferences;Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XmlSupport, ImportPrefs, void, $Preferences*, $Element*)},
+	{"ImportSubtree", "(Ljava/util/prefs/Preferences;Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XmlSupport, ImportSubtree, void, $Preferences*, $Element*)},
+	{"createPrefsDoc", "(Ljava/lang/String;)Lorg/w3c/dom/Document;", nullptr, $PRIVATE | $STATIC, $staticMethod(XmlSupport, createPrefsDoc, $Document*, $String*)},
+	{"export", "(Ljava/io/OutputStream;Ljava/util/prefs/Preferences;Z)V", nullptr, $STATIC, $staticMethod(XmlSupport, export$, void, $OutputStream*, $Preferences*, bool), "java.io.IOException,java.util.prefs.BackingStoreException"},
+	{"exportMap", "(Ljava/io/OutputStream;Ljava/util/Map;)V", "(Ljava/io/OutputStream;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $STATIC, $staticMethod(XmlSupport, exportMap, void, $OutputStream*, $Map*), "java.io.IOException"},
+	{"importMap", "(Ljava/io/InputStream;Ljava/util/Map;)V", "(Ljava/io/InputStream;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $STATIC, $staticMethod(XmlSupport, importMap, void, $InputStream*, $Map*), "java.io.IOException,java.util.prefs.InvalidPreferencesFormatException"},
+	{"importPreferences", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(XmlSupport, importPreferences, void, $InputStream*), "java.io.IOException,java.util.prefs.InvalidPreferencesFormatException"},
+	{"loadPrefsDoc", "(Ljava/io/InputStream;)Lorg/w3c/dom/Document;", nullptr, $PRIVATE | $STATIC, $staticMethod(XmlSupport, loadPrefsDoc, $Document*, $InputStream*), "org.xml.sax.SAXException,java.io.IOException"},
+	{"putPreferencesInXml", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Document;Ljava/util/prefs/Preferences;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XmlSupport, putPreferencesInXml, void, $Element*, $Document*, $Preferences*, bool), "java.util.prefs.BackingStoreException"},
+	{"writeDoc", "(Lorg/w3c/dom/Document;Ljava/io/OutputStream;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(XmlSupport, writeDoc, void, $Document*, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

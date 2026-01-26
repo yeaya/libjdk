@@ -7,10 +7,13 @@
 #include <java/util/concurrent/Executor.h>
 #include <jcpp.h>
 
+using $HttpContext = ::com::sun::net::httpserver::HttpContext;
+using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $HttpServerProvider = ::com::sun::net::httpserver::spi::HttpServerProvider;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
+using $Executor = ::java::util::concurrent::Executor;
 
 namespace com {
 	namespace sun {
@@ -18,19 +21,19 @@ namespace com {
 			namespace httpserver {
 
 $MethodInfo _HttpServer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(HttpServer::*)()>(&HttpServer::init$))},
-	{"bind", "(Ljava/net/InetSocketAddress;I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"create", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpServer*(*)()>(&HttpServer::create)), "java.io.IOException"},
-	{"create", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<HttpServer*(*)($InetSocketAddress*,int32_t)>(&HttpServer::create)), "java.io.IOException"},
-	{"createContext", "(Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;)Lcom/sun/net/httpserver/HttpContext;", nullptr, $PUBLIC | $ABSTRACT},
-	{"createContext", "(Ljava/lang/String;)Lcom/sun/net/httpserver/HttpContext;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getExecutor", "()Ljava/util/concurrent/Executor;", nullptr, $PUBLIC | $ABSTRACT},
-	{"removeContext", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.IllegalArgumentException"},
-	{"removeContext", "(Lcom/sun/net/httpserver/HttpContext;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setExecutor", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"start", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"stop", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(HttpServer, init$, void)},
+	{"bind", "(Ljava/net/InetSocketAddress;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServer, bind, void, $InetSocketAddress*, int32_t), "java.io.IOException"},
+	{"create", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpServer, create, HttpServer*), "java.io.IOException"},
+	{"create", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpServer, create, HttpServer*, $InetSocketAddress*, int32_t), "java.io.IOException"},
+	{"createContext", "(Ljava/lang/String;Lcom/sun/net/httpserver/HttpHandler;)Lcom/sun/net/httpserver/HttpContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServer, createContext, $HttpContext*, $String*, $HttpHandler*)},
+	{"createContext", "(Ljava/lang/String;)Lcom/sun/net/httpserver/HttpContext;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServer, createContext, $HttpContext*, $String*)},
+	{"getAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServer, getAddress, $InetSocketAddress*)},
+	{"getExecutor", "()Ljava/util/concurrent/Executor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServer, getExecutor, $Executor*)},
+	{"removeContext", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServer, removeContext, void, $String*), "java.lang.IllegalArgumentException"},
+	{"removeContext", "(Lcom/sun/net/httpserver/HttpContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServer, removeContext, void, $HttpContext*)},
+	{"setExecutor", "(Ljava/util/concurrent/Executor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServer, setExecutor, void, $Executor*)},
+	{"start", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServer, start, void)},
+	{"stop", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpServer, stop, void, int32_t)},
 	{}
 };
 

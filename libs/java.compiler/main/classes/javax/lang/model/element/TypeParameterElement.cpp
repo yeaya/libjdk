@@ -1,10 +1,13 @@
 #include <javax/lang/model/element/TypeParameterElement.h>
 
 #include <java/util/List.h>
+#include <javax/lang/model/element/Element.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Element = ::javax::lang::model::element::Element;
 
 namespace javax {
 	namespace lang {
@@ -13,9 +16,9 @@ namespace javax {
 
 $MethodInfo _TypeParameterElement_MethodInfo_[] = {
 	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getBounds", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT},
+	{"getBounds", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/type/TypeMirror;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeParameterElement, getBounds, $List*)},
 	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getGenericElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getGenericElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeParameterElement, getGenericElement, $Element*)},
 	{}
 };
 

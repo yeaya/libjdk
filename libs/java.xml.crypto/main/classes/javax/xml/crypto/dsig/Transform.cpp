@@ -12,9 +12,12 @@
 #undef XPATH2
 #undef XSLT
 
+using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Data = ::javax::xml::crypto::Data;
+using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 
 namespace javax {
@@ -38,8 +41,8 @@ $MethodInfo _Transform_MethodInfo_[] = {
 	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.dsig.TransformException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.dsig.TransformException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transform, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Transform, transform, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
 	{}
 };
 

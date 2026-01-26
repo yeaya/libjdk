@@ -109,8 +109,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$name::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$name::*)()>(&PubApi$$Lambda$name::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$name, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$name, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$name::classInfo$ = {
@@ -142,8 +142,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$toLowerCase$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$toLowerCase$1::*)()>(&PubApi$$Lambda$toLowerCase$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$toLowerCase$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$toLowerCase$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$toLowerCase$1::classInfo$ = {
@@ -182,8 +182,8 @@ $FieldInfo PubApi$$Lambda$addPubType$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PubApi$$Lambda$addPubType$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$addPubType$2::*)(PubApi*)>(&PubApi$$Lambda$addPubType$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)V", nullptr, $PUBLIC, $method(PubApi$$Lambda$addPubType$2, init$, void, PubApi*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$addPubType$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$addPubType$2::classInfo$ = {
@@ -222,8 +222,8 @@ $FieldInfo PubApi$$Lambda$addPubVar$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PubApi$$Lambda$addPubVar$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$addPubVar$3::*)(PubApi*)>(&PubApi$$Lambda$addPubVar$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)V", nullptr, $PUBLIC, $method(PubApi$$Lambda$addPubVar$3, init$, void, PubApi*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$addPubVar$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$addPubVar$3::classInfo$ = {
@@ -262,8 +262,8 @@ $FieldInfo PubApi$$Lambda$addPubMethod$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PubApi$$Lambda$addPubMethod$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$addPubMethod$4::*)(PubApi*)>(&PubApi$$Lambda$addPubMethod$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)V", nullptr, $PUBLIC, $method(PubApi$$Lambda$addPubMethod$4, init$, void, PubApi*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$addPubMethod$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$addPubMethod$4::classInfo$ = {
@@ -295,8 +295,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$lambda$varLine$0$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$lambda$varLine$0$5::*)()>(&PubApi$$Lambda$lambda$varLine$0$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$lambda$varLine$0$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$lambda$varLine$0$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$lambda$varLine$0$5::classInfo$ = {
@@ -328,8 +328,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$asString$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$asString$6::*)()>(&PubApi$$Lambda$asString$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$asString$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$asString$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$asString$6::classInfo$ = {
@@ -361,8 +361,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$typeLine$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$typeLine$7::*)()>(&PubApi$$Lambda$typeLine$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$typeLine$7, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$typeLine$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$typeLine$7::classInfo$ = {
@@ -401,8 +401,8 @@ $FieldInfo PubApi$$Lambda$lambda$asListOfStrings$1$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PubApi$$Lambda$lambda$asListOfStrings$1$8::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$lambda$asListOfStrings$1$8::*)($List*)>(&PubApi$$Lambda$lambda$asListOfStrings$1$8::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(PubApi$$Lambda$lambda$asListOfStrings$1$8, init$, void, $List*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$lambda$asListOfStrings$1$8, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$lambda$asListOfStrings$1$8::classInfo$ = {
@@ -434,8 +434,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$varLine$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$varLine$9::*)()>(&PubApi$$Lambda$varLine$9::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$varLine$9, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$varLine$9, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$varLine$9::classInfo$ = {
@@ -474,8 +474,8 @@ $FieldInfo PubApi$$Lambda$add$10::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PubApi$$Lambda$add$10::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$add$10::*)($List*)>(&PubApi$$Lambda$add$10::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(PubApi$$Lambda$add$10, init$, void, $List*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$add$10, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$add$10::classInfo$ = {
@@ -507,8 +507,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$methodLine$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$methodLine$11::*)()>(&PubApi$$Lambda$methodLine$11::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$methodLine$11, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$methodLine$11, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$methodLine$11::classInfo$ = {
@@ -540,8 +540,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$encodeAsString$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$encodeAsString$12::*)()>(&PubApi$$Lambda$encodeAsString$12::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$encodeAsString$12, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$encodeAsString$12, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$encodeAsString$12::classInfo$ = {
@@ -573,8 +573,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$lambda$asString$2$13::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$lambda$asString$2$13::*)()>(&PubApi$$Lambda$lambda$asString$2$13::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$lambda$asString$2$13, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$lambda$asString$2$13, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$lambda$asString$2$13::classInfo$ = {
@@ -606,8 +606,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$decodeString$14::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$decodeString$14::*)()>(&PubApi$$Lambda$decodeString$14::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$decodeString$14, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$decodeString$14, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$decodeString$14::classInfo$ = {
@@ -639,8 +639,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$parseTypeParam$15::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$parseTypeParam$15::*)()>(&PubApi$$Lambda$parseTypeParam$15::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$parseTypeParam$15, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$parseTypeParam$15, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$parseTypeParam$15::classInfo$ = {
@@ -672,8 +672,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$trim$16::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$trim$16::*)()>(&PubApi$$Lambda$trim$16::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$trim$16, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$trim$16, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$trim$16::classInfo$ = {
@@ -705,8 +705,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$toUpperCase$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$toUpperCase$17::*)()>(&PubApi$$Lambda$toUpperCase$17::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$toUpperCase$17, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$toUpperCase$17, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$toUpperCase$17::classInfo$ = {
@@ -738,8 +738,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$lambda$parseModifiers$3$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$lambda$parseModifiers$3$18::*)()>(&PubApi$$Lambda$lambda$parseModifiers$3$18::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$lambda$parseModifiers$3$18, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$lambda$parseModifiers$3$18, test, bool, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$lambda$parseModifiers$3$18::classInfo$ = {
@@ -771,8 +771,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo PubApi$$Lambda$valueOf$19::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi$$Lambda$valueOf$19::*)()>(&PubApi$$Lambda$valueOf$19::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi$$Lambda$valueOf$19, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PubApi$$Lambda$valueOf$19, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PubApi$$Lambda$valueOf$19::classInfo$ = {
@@ -805,37 +805,37 @@ $FieldInfo _PubApi_FieldInfo_[] = {
 };
 
 $MethodInfo _PubApi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PubApi::*)()>(&PubApi::init$))},
-	{"<init>", "(Ljava/util/Collection;Ljava/util/Collection;Ljava/util/Collection;)V", "(Ljava/util/Collection<Lcom/sun/tools/sjavac/pubapi/PubType;>;Ljava/util/Collection<Lcom/sun/tools/sjavac/pubapi/PubVar;>;Ljava/util/Collection<Lcom/sun/tools/sjavac/pubapi/PubMethod;>;)V", $PUBLIC, $method(static_cast<void(PubApi::*)($Collection*,$Collection*,$Collection*)>(&PubApi::init$))},
-	{"addPubMethod", "(Lcom/sun/tools/sjavac/pubapi/PubMethod;)V", nullptr, $PUBLIC},
-	{"addPubType", "(Lcom/sun/tools/sjavac/pubapi/PubType;)V", nullptr, $PUBLIC},
-	{"addPubVar", "(Lcom/sun/tools/sjavac/pubapi/PubVar;)V", nullptr, $PUBLIC},
-	{"appendItem", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"asListOfStrings", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"asString", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Set*)>(&PubApi::asString))},
-	{"commaSeparated", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($List*)>(&PubApi::commaSeparated))},
-	{"diff", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)Ljava/util/List;", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"diff", "(Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;)Ljava/util/List;", "(Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$List*(PubApi::*)($String*,PubApi*)>(&PubApi::diff))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"findClosingTag", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*,int32_t)>(&PubApi::findClosingTag))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isBackwardCompatibleWith", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)Z", nullptr, $PUBLIC},
-	{"isEmpty", "()Z", nullptr, $PUBLIC},
-	{"lambda$asListOfStrings$1", "(Ljava/util/List;Lcom/sun/tools/sjavac/pubapi/PubType;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($List*,$PubType*)>(&PubApi::lambda$asListOfStrings$1))},
-	{"lambda$asString$2", "(Ljavax/lang/model/element/Modifier;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Modifier*)>(&PubApi::lambda$asString$2))},
-	{"lambda$parseModifiers$3", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&PubApi::lambda$parseModifiers$3))},
-	{"lambda$varLine$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&PubApi::lambda$varLine$0))},
-	{"mergeTypes", "(Lcom/sun/tools/sjavac/pubapi/PubApi;Lcom/sun/tools/sjavac/pubapi/PubApi;)Lcom/sun/tools/sjavac/pubapi/PubApi;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PubApi*(*)(PubApi*,PubApi*)>(&PubApi::mergeTypes))},
-	{"methodLine", "(Lcom/sun/tools/sjavac/pubapi/PubMethod;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($PubMethod*)>(&PubApi::methodLine))},
-	{"parseModifiers", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC},
-	{"parseTypeDescs", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*)>(&PubApi::parseTypeDescs))},
-	{"parseTypeParam", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$PubApiTypeParam*(*)($String*)>(&PubApi::parseTypeParam))},
-	{"parseTypeParams", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*)>(&PubApi::parseTypeParams))},
-	{"splitOnTopLevelChars", "(Ljava/lang/String;C)Ljava/util/List;", "(Ljava/lang/String;C)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $method(static_cast<$List*(*)($String*,char16_t)>(&PubApi::splitOnTopLevelChars))},
-	{"splitOnTopLevelCommas", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"typeLine", "(Lcom/sun/tools/sjavac/pubapi/PubType;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($PubType*)>(&PubApi::typeLine))},
-	{"varLine", "(Lcom/sun/tools/sjavac/pubapi/PubVar;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($PubVar*)>(&PubApi::varLine))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PubApi, init$, void)},
+	{"<init>", "(Ljava/util/Collection;Ljava/util/Collection;Ljava/util/Collection;)V", "(Ljava/util/Collection<Lcom/sun/tools/sjavac/pubapi/PubType;>;Ljava/util/Collection<Lcom/sun/tools/sjavac/pubapi/PubVar;>;Ljava/util/Collection<Lcom/sun/tools/sjavac/pubapi/PubMethod;>;)V", $PUBLIC, $method(PubApi, init$, void, $Collection*, $Collection*, $Collection*)},
+	{"addPubMethod", "(Lcom/sun/tools/sjavac/pubapi/PubMethod;)V", nullptr, $PUBLIC, $virtualMethod(PubApi, addPubMethod, void, $PubMethod*)},
+	{"addPubType", "(Lcom/sun/tools/sjavac/pubapi/PubType;)V", nullptr, $PUBLIC, $virtualMethod(PubApi, addPubType, void, $PubType*)},
+	{"addPubVar", "(Lcom/sun/tools/sjavac/pubapi/PubVar;)V", nullptr, $PUBLIC, $virtualMethod(PubApi, addPubVar, void, $PubVar*)},
+	{"appendItem", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PubApi, appendItem, void, $String*)},
+	{"asListOfStrings", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PubApi, asListOfStrings, $List*)},
+	{"asString", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(PubApi, asString, $String*, $Set*)},
+	{"commaSeparated", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(PubApi, commaSeparated, $String*, $List*)},
+	{"diff", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)Ljava/util/List;", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PubApi, diff, $List*, PubApi*)},
+	{"diff", "(Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;)Ljava/util/List;", "(Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(PubApi, diff, $List*, $String*, PubApi*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PubApi, equals, bool, Object$*)},
+	{"findClosingTag", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PubApi, findClosingTag, int32_t, $String*, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PubApi, hashCode, int32_t)},
+	{"isBackwardCompatibleWith", "(Lcom/sun/tools/sjavac/pubapi/PubApi;)Z", nullptr, $PUBLIC, $virtualMethod(PubApi, isBackwardCompatibleWith, bool, PubApi*)},
+	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(PubApi, isEmpty, bool)},
+	{"lambda$asListOfStrings$1", "(Ljava/util/List;Lcom/sun/tools/sjavac/pubapi/PubType;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PubApi, lambda$asListOfStrings$1, void, $List*, $PubType*)},
+	{"lambda$asString$2", "(Ljavax/lang/model/element/Modifier;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PubApi, lambda$asString$2, $String*, $Modifier*)},
+	{"lambda$parseModifiers$3", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PubApi, lambda$parseModifiers$3, bool, $String*)},
+	{"lambda$varLine$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PubApi, lambda$varLine$0, $String*, $String*)},
+	{"mergeTypes", "(Lcom/sun/tools/sjavac/pubapi/PubApi;Lcom/sun/tools/sjavac/pubapi/PubApi;)Lcom/sun/tools/sjavac/pubapi/PubApi;", nullptr, $PUBLIC | $STATIC, $staticMethod(PubApi, mergeTypes, PubApi*, PubApi*, PubApi*)},
+	{"methodLine", "(Lcom/sun/tools/sjavac/pubapi/PubMethod;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PubApi, methodLine, $String*, $PubMethod*)},
+	{"parseModifiers", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC, $virtualMethod(PubApi, parseModifiers, $Set*, $String*)},
+	{"parseTypeDescs", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/TypeDesc;>;", $PRIVATE | $STATIC, $staticMethod(PubApi, parseTypeDescs, $List*, $List*)},
+	{"parseTypeParam", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;", nullptr, $PRIVATE | $STATIC, $staticMethod(PubApi, parseTypeParam, $PubApiTypeParam*, $String*)},
+	{"parseTypeParams", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Lcom/sun/tools/sjavac/pubapi/PubApiTypeParam;>;", $PRIVATE | $STATIC, $staticMethod(PubApi, parseTypeParams, $List*, $List*)},
+	{"splitOnTopLevelChars", "(Ljava/lang/String;C)Ljava/util/List;", "(Ljava/lang/String;C)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(PubApi, splitOnTopLevelChars, $List*, $String*, char16_t)},
+	{"splitOnTopLevelCommas", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PubApi, splitOnTopLevelCommas, $List*, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubApi, toString, $String*)},
+	{"typeLine", "(Lcom/sun/tools/sjavac/pubapi/PubType;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PubApi, typeLine, $String*, $PubType*)},
+	{"varLine", "(Lcom/sun/tools/sjavac/pubapi/PubVar;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PubApi, varLine, $String*, $PubVar*)},
 	{}
 };
 

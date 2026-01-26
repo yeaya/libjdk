@@ -30,9 +30,9 @@ $CompoundAttribute _SimpleTypeVisitor8_Annotations_[] = {
 };
 
 $MethodInfo _SimpleTypeVisitor8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SimpleTypeVisitor8::*)()>(&SimpleTypeVisitor8::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(SimpleTypeVisitor8::*)(Object$*)>(&SimpleTypeVisitor8::init$))},
-	{"visitIntersection", "(Ljavax/lang/model/type/IntersectionType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/IntersectionType;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SimpleTypeVisitor8, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(SimpleTypeVisitor8, init$, void, Object$*)},
+	{"visitIntersection", "(Ljavax/lang/model/type/IntersectionType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/IntersectionType;TP;)TR;", $PUBLIC, $virtualMethod(SimpleTypeVisitor8, visitIntersection, $Object*, $IntersectionType*, Object$*)},
 	{}
 };
 

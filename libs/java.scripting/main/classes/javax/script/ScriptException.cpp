@@ -19,14 +19,14 @@ $FieldInfo _ScriptException_FieldInfo_[] = {
 };
 
 $MethodInfo _ScriptException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ScriptException::*)($String*)>(&ScriptException::init$))},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(ScriptException::*)($Exception*)>(&ScriptException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(ScriptException::*)($String*,$String*,int32_t)>(&ScriptException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(static_cast<void(ScriptException::*)($String*,$String*,int32_t,int32_t)>(&ScriptException::init$))},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLineNumber", "()I", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $String*, $String*, int32_t, int32_t)},
+	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ScriptException, getColumnNumber, int32_t)},
+	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScriptException, getFileName, $String*)},
+	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ScriptException, getLineNumber, int32_t)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScriptException, getMessage, $String*)},
 	{}
 };
 

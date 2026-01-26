@@ -20,7 +20,7 @@ namespace com {
 				namespace util {
 
 $MethodInfo _JCDiagnostic$Fragment_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $method(static_cast<void(JCDiagnostic$Fragment::*)($String*,$String*,$ObjectArray*)>(&JCDiagnostic$Fragment::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $method(JCDiagnostic$Fragment, init$, void, $String*, $String*, $ObjectArray*)},
 	{}
 };
 

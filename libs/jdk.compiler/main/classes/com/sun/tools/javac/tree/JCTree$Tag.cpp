@@ -238,17 +238,17 @@ $FieldInfo _JCTree$Tag_FieldInfo_[] = {
 };
 
 $MethodInfo _JCTree$Tag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCTree$TagArray*(*)()>(&JCTree$Tag::$values))},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/tree/JCTree$Tag;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)V", $PRIVATE, $method(static_cast<void(JCTree$Tag::*)($String*,int32_t,JCTree$Tag*)>(&JCTree$Tag::init$))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JCTree$Tag::*)($String*,int32_t)>(&JCTree$Tag::init$))},
-	{"getNumberOfOperators", "()I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)()>(&JCTree$Tag::getNumberOfOperators))},
-	{"isAssignop", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(JCTree$Tag::*)()>(&JCTree$Tag::isAssignop))},
-	{"isIncOrDecUnaryOp", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(JCTree$Tag::*)()>(&JCTree$Tag::isIncOrDecUnaryOp))},
-	{"isPostUnaryOp", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(JCTree$Tag::*)()>(&JCTree$Tag::isPostUnaryOp))},
-	{"noAssignOp", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $method(static_cast<JCTree$Tag*(JCTree$Tag::*)()>(&JCTree$Tag::noAssignOp))},
-	{"operatorIndex", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(JCTree$Tag::*)()>(&JCTree$Tag::operatorIndex))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JCTree$Tag*(*)($String*)>(&JCTree$Tag::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$TagArray*(*)()>(&JCTree$Tag::values))},
+	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$Tag, $values, $JCTree$TagArray*)},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/tree/JCTree$Tag;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)V", $PRIVATE, $method(JCTree$Tag, init$, void, $String*, int32_t, JCTree$Tag*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCTree$Tag, init$, void, $String*, int32_t)},
+	{"getNumberOfOperators", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$Tag, getNumberOfOperators, int32_t)},
+	{"isAssignop", "()Z", nullptr, $PUBLIC, $method(JCTree$Tag, isAssignop, bool)},
+	{"isIncOrDecUnaryOp", "()Z", nullptr, $PUBLIC, $method(JCTree$Tag, isIncOrDecUnaryOp, bool)},
+	{"isPostUnaryOp", "()Z", nullptr, $PUBLIC, $method(JCTree$Tag, isPostUnaryOp, bool)},
+	{"noAssignOp", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $method(JCTree$Tag, noAssignOp, JCTree$Tag*)},
+	{"operatorIndex", "()I", nullptr, $PUBLIC, $method(JCTree$Tag, operatorIndex, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$Tag, valueOf, JCTree$Tag*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$Tag, values, $JCTree$TagArray*)},
 	{}
 };
 

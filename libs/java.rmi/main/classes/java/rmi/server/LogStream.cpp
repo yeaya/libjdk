@@ -119,16 +119,16 @@ $FieldInfo _LogStream_FieldInfo_[] = {
 };
 
 $MethodInfo _LogStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PRIVATE | $DEPRECATED, $method(static_cast<void(LogStream::*)($String*,$OutputStream*)>(&LogStream::init$)), nullptr, nullptr, _LogStream_MethodAnnotations_init$0},
-	{"getDefaultStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED | $DEPRECATED, $method(static_cast<$PrintStream*(*)()>(&LogStream::getDefaultStream)), nullptr, nullptr, _LogStream_MethodAnnotations_getDefaultStream1},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, nullptr, nullptr, nullptr, _LogStream_MethodAnnotations_getOutputStream2},
-	{"log", "(Ljava/lang/String;)Ljava/rmi/server/LogStream;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<LogStream*(*)($String*)>(&LogStream::log)), nullptr, nullptr, _LogStream_MethodAnnotations_log3},
-	{"parseLevel", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<int32_t(*)($String*)>(&LogStream::parseLevel)), nullptr, nullptr, _LogStream_MethodAnnotations_parseLevel4},
-	{"setDefaultStream", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED | $DEPRECATED, $method(static_cast<void(*)($PrintStream*)>(&LogStream::setDefaultStream)), nullptr, nullptr, _LogStream_MethodAnnotations_setDefaultStream5},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, nullptr, nullptr, nullptr, _LogStream_MethodAnnotations_setOutputStream6},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _LogStream_MethodAnnotations_toString7},
-	{"write", "(I)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _LogStream_MethodAnnotations_write8},
-	{"write", "([BII)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _LogStream_MethodAnnotations_write9},
+	{"<init>", "(Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PRIVATE | $DEPRECATED, $method(LogStream, init$, void, $String*, $OutputStream*), nullptr, nullptr, _LogStream_MethodAnnotations_init$0},
+	{"getDefaultStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED | $DEPRECATED, $staticMethod(LogStream, getDefaultStream, $PrintStream*), nullptr, nullptr, _LogStream_MethodAnnotations_getDefaultStream1},
+	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(LogStream, getOutputStream, $OutputStream*), nullptr, nullptr, _LogStream_MethodAnnotations_getOutputStream2},
+	{"log", "(Ljava/lang/String;)Ljava/rmi/server/LogStream;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(LogStream, log, LogStream*, $String*), nullptr, nullptr, _LogStream_MethodAnnotations_log3},
+	{"parseLevel", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(LogStream, parseLevel, int32_t, $String*), nullptr, nullptr, _LogStream_MethodAnnotations_parseLevel4},
+	{"setDefaultStream", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED | $DEPRECATED, $staticMethod(LogStream, setDefaultStream, void, $PrintStream*), nullptr, nullptr, _LogStream_MethodAnnotations_setDefaultStream5},
+	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(LogStream, setOutputStream, void, $OutputStream*), nullptr, nullptr, _LogStream_MethodAnnotations_setOutputStream6},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LogStream, toString, $String*), nullptr, nullptr, _LogStream_MethodAnnotations_toString7},
+	{"write", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LogStream, write, void, int32_t), nullptr, nullptr, _LogStream_MethodAnnotations_write8},
+	{"write", "([BII)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(LogStream, write, void, $bytes*, int32_t, int32_t), nullptr, nullptr, _LogStream_MethodAnnotations_write9},
 	{}
 };
 

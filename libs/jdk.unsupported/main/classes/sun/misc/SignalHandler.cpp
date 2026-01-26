@@ -12,8 +12,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Signal = ::jdk::internal::misc::Signal;
+using $1Signal = ::jdk::internal::misc::Signal;
 using $Signal$Handler = ::jdk::internal::misc::Signal$Handler;
+using $Signal = ::sun::misc::Signal;
 using $Signal$SunMiscHandler = ::sun::misc::Signal$SunMiscHandler;
 
 namespace sun {
@@ -26,7 +27,7 @@ $FieldInfo _SignalHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _SignalHandler_MethodInfo_[] = {
-	{"handle", "(Lsun/misc/Signal;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"handle", "(Lsun/misc/Signal;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SignalHandler, handle, void, $Signal*)},
 	{}
 };
 

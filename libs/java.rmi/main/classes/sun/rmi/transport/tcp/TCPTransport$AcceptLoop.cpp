@@ -70,11 +70,11 @@ $FieldInfo _TCPTransport$AcceptLoop_FieldInfo_[] = {
 };
 
 $MethodInfo _TCPTransport$AcceptLoop_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Ljava/net/ServerSocket;)V", nullptr, 0, $method(static_cast<void(TCPTransport$AcceptLoop::*)($TCPTransport*,$ServerSocket*)>(&TCPTransport$AcceptLoop::init$))},
-	{"continueAfterAcceptFailure", "(Ljava/lang/Throwable;)Z", nullptr, $PRIVATE, $method(static_cast<bool(TCPTransport$AcceptLoop::*)($Throwable*)>(&TCPTransport$AcceptLoop::continueAfterAcceptFailure))},
-	{"executeAcceptLoop", "()V", nullptr, $PRIVATE, $method(static_cast<void(TCPTransport$AcceptLoop::*)()>(&TCPTransport$AcceptLoop::executeAcceptLoop))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"throttleLoopOnException", "()V", nullptr, $PRIVATE, $method(static_cast<void(TCPTransport$AcceptLoop::*)()>(&TCPTransport$AcceptLoop::throttleLoopOnException))},
+	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Ljava/net/ServerSocket;)V", nullptr, 0, $method(TCPTransport$AcceptLoop, init$, void, $TCPTransport*, $ServerSocket*)},
+	{"continueAfterAcceptFailure", "(Ljava/lang/Throwable;)Z", nullptr, $PRIVATE, $method(TCPTransport$AcceptLoop, continueAfterAcceptFailure, bool, $Throwable*)},
+	{"executeAcceptLoop", "()V", nullptr, $PRIVATE, $method(TCPTransport$AcceptLoop, executeAcceptLoop, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TCPTransport$AcceptLoop, run, void)},
+	{"throttleLoopOnException", "()V", nullptr, $PRIVATE, $method(TCPTransport$AcceptLoop, throttleLoopOnException, void)},
 	{}
 };
 

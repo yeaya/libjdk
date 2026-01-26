@@ -46,13 +46,13 @@ namespace com {
 				namespace jvm {
 
 $MethodInfo _ClassWriter$StackMapTableFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ClassWriter$StackMapTableFrame::*)()>(&ClassWriter$StackMapTableFrame::init$))},
-	{"compare", "([Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($TypeArray*,$TypeArray*,$Types*)>(&ClassWriter$StackMapTableFrame::compare))},
-	{"getFrameType", "()I", nullptr, $ABSTRACT},
-	{"getInstance", "(Lcom/sun/tools/javac/jvm/Code$StackMapFrame;I[Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame;", nullptr, $STATIC, $method(static_cast<ClassWriter$StackMapTableFrame*(*)($Code$StackMapFrame*,int32_t,$TypeArray*,$Types*)>(&ClassWriter$StackMapTableFrame::getInstance))},
-	{"isInt", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Type*)>(&ClassWriter$StackMapTableFrame::isInt))},
-	{"isSameType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($Type*,$Type*,$Types*)>(&ClassWriter$StackMapTableFrame::isSameType))},
-	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(ClassWriter$StackMapTableFrame, init$, void)},
+	{"compare", "([Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)I", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, compare, int32_t, $TypeArray*, $TypeArray*, $Types*)},
+	{"getFrameType", "()I", nullptr, $ABSTRACT, $virtualMethod(ClassWriter$StackMapTableFrame, getFrameType, int32_t)},
+	{"getInstance", "(Lcom/sun/tools/javac/jvm/Code$StackMapFrame;I[Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame;", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, getInstance, ClassWriter$StackMapTableFrame*, $Code$StackMapFrame*, int32_t, $TypeArray*, $Types*)},
+	{"isInt", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, isInt, bool, $Type*)},
+	{"isSameType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $STATIC, $staticMethod(ClassWriter$StackMapTableFrame, isSameType, bool, $Type*, $Type*, $Types*)},
+	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame, write, void, $ClassWriter*)},
 	{}
 };
 

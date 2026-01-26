@@ -73,8 +73,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Items$ImmediateItem$$Lambda$putConstant::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Items$ImmediateItem$$Lambda$putConstant::*)()>(&Items$ImmediateItem$$Lambda$putConstant::init$))},
-	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Items$ImmediateItem$$Lambda$putConstant, init$, void)},
+	{"applyAsInt", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Items$ImmediateItem$$Lambda$putConstant, applyAsInt, int32_t, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Items$ImmediateItem$$Lambda$putConstant::classInfo$ = {
@@ -98,15 +98,15 @@ $FieldInfo _Items$ImmediateItem_FieldInfo_[] = {
 };
 
 $MethodInfo _Items$ImmediateItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(Items$ImmediateItem::*)($Items*,$Type*,Object$*)>(&Items$ImmediateItem::init$))},
-	{"coerce", "(I)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"isPosZero", "(F)Z", nullptr, $PRIVATE, $method(static_cast<bool(Items$ImmediateItem::*)(float)>(&Items$ImmediateItem::isPosZero))},
-	{"isPosZero", "(D)Z", nullptr, $PRIVATE, $method(static_cast<bool(Items$ImmediateItem::*)(double)>(&Items$ImmediateItem::isPosZero))},
-	{"ldc", "()V", nullptr, $PRIVATE, $method(static_cast<void(Items$ImmediateItem::*)()>(&Items$ImmediateItem::ldc))},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0},
-	{"numericValue", "()Ljava/lang/Number;", nullptr, $PRIVATE, $method(static_cast<$Number*(Items$ImmediateItem::*)()>(&Items$ImmediateItem::numericValue))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)V", nullptr, 0, $method(Items$ImmediateItem, init$, void, $Items*, $Type*, Object$*)},
+	{"coerce", "(I)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$ImmediateItem, coerce, $Items$Item*, int32_t)},
+	{"isPosZero", "(F)Z", nullptr, $PRIVATE, $method(Items$ImmediateItem, isPosZero, bool, float)},
+	{"isPosZero", "(D)Z", nullptr, $PRIVATE, $method(Items$ImmediateItem, isPosZero, bool, double)},
+	{"ldc", "()V", nullptr, $PRIVATE, $method(Items$ImmediateItem, ldc, void)},
+	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$ImmediateItem, load, $Items$Item*)},
+	{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$ImmediateItem, mkCond, $Items$CondItem*)},
+	{"numericValue", "()Ljava/lang/Number;", nullptr, $PRIVATE, $method(Items$ImmediateItem, numericValue, $Number*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$ImmediateItem, toString, $String*)},
 	{}
 };
 

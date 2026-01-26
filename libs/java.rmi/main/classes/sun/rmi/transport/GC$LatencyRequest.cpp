@@ -33,12 +33,12 @@ $FieldInfo _GC$LatencyRequest_FieldInfo_[] = {
 };
 
 $MethodInfo _GC$LatencyRequest_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PRIVATE, $method(static_cast<void(GC$LatencyRequest::*)(int64_t)>(&GC$LatencyRequest::init$))},
-	{"adjustLatencyIfNeeded", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&GC$LatencyRequest::adjustLatencyIfNeeded))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"compareTo", "(Lsun/rmi/transport/GC$LatencyRequest;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, $PRIVATE, $method(GC$LatencyRequest, init$, void, int64_t)},
+	{"adjustLatencyIfNeeded", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(GC$LatencyRequest, adjustLatencyIfNeeded, void)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(GC$LatencyRequest, cancel, void)},
+	{"compareTo", "(Lsun/rmi/transport/GC$LatencyRequest;)I", nullptr, $PUBLIC, $virtualMethod(GC$LatencyRequest, compareTo, int32_t, GC$LatencyRequest*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(GC$LatencyRequest, compareTo, int32_t, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GC$LatencyRequest, toString, $String*)},
 	{}
 };
 

@@ -71,9 +71,9 @@ $FieldInfo _KrbAsReq_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbAsReq_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;[ILsun/security/krb5/internal/HostAddresses;[Lsun/security/krb5/internal/PAData;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbAsReq::*)($EncryptionKey*,$KDCOptions*,$PrincipalName*,$PrincipalName*,$KerberosTime*,$KerberosTime*,$KerberosTime*,$ints*,$HostAddresses*,$PADataArray*)>(&KrbAsReq::init$)), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"encoding", "()[B", nullptr, 0, nullptr, "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"getMessage", "()Lsun/security/krb5/internal/ASReq;", nullptr, 0},
+	{"<init>", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KDCOptions;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/KerberosTime;[ILsun/security/krb5/internal/HostAddresses;[Lsun/security/krb5/internal/PAData;)V", nullptr, $PUBLIC, $method(KrbAsReq, init$, void, $EncryptionKey*, $KDCOptions*, $PrincipalName*, $PrincipalName*, $KerberosTime*, $KerberosTime*, $KerberosTime*, $ints*, $HostAddresses*, $PADataArray*), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"encoding", "()[B", nullptr, 0, $virtualMethod(KrbAsReq, encoding, $bytes*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+	{"getMessage", "()Lsun/security/krb5/internal/ASReq;", nullptr, 0, $virtualMethod(KrbAsReq, getMessage, $ASReq*)},
 	{}
 };
 

@@ -30,11 +30,11 @@ $FieldInfo _JavaCompiler$ImplicitSourcePolicy_FieldInfo_[] = {
 };
 
 $MethodInfo _JavaCompiler$ImplicitSourcePolicy_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavaCompiler$ImplicitSourcePolicyArray*(*)()>(&JavaCompiler$ImplicitSourcePolicy::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JavaCompiler$ImplicitSourcePolicy::*)($String*,int32_t)>(&JavaCompiler$ImplicitSourcePolicy::init$))},
-	{"decode", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $STATIC, $method(static_cast<JavaCompiler$ImplicitSourcePolicy*(*)($String*)>(&JavaCompiler$ImplicitSourcePolicy::decode))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavaCompiler$ImplicitSourcePolicy*(*)($String*)>(&JavaCompiler$ImplicitSourcePolicy::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavaCompiler$ImplicitSourcePolicyArray*(*)()>(&JavaCompiler$ImplicitSourcePolicy::values))},
+	{"$values", "()[Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, $values, $JavaCompiler$ImplicitSourcePolicyArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavaCompiler$ImplicitSourcePolicy, init$, void, $String*, int32_t)},
+	{"decode", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $STATIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, decode, JavaCompiler$ImplicitSourcePolicy*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, valueOf, JavaCompiler$ImplicitSourcePolicy*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/main/JavaCompiler$ImplicitSourcePolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavaCompiler$ImplicitSourcePolicy, values, $JavaCompiler$ImplicitSourcePolicyArray*)},
 	{}
 };
 

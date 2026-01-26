@@ -56,16 +56,16 @@ $FieldInfo _KrbApRep_FieldInfo_[] = {
 };
 
 $MethodInfo _KrbApRep_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/KrbApReq;ZLsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbApRep::*)($KrbApReq*,bool,$EncryptionKey*)>(&KrbApRep::init$)), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"<init>", "([BLsun/security/krb5/Credentials;Lsun/security/krb5/KrbApReq;)V", nullptr, $PUBLIC, $method(static_cast<void(KrbApRep::*)($bytes*,$Credentials*,$KrbApReq*)>(&KrbApRep::init$)), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"<init>", "([BLsun/security/krb5/Credentials;)V", nullptr, $PRIVATE, $method(static_cast<void(KrbApRep::*)($bytes*,$Credentials*)>(&KrbApRep::init$)), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;Lsun/security/krb5/Credentials;)V", nullptr, $PRIVATE, $method(static_cast<void(KrbApRep::*)($DerValue*,$Credentials*)>(&KrbApRep::init$)), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"authenticate", "(Lsun/security/krb5/KrbApReq;)V", nullptr, $PRIVATE, $method(static_cast<void(KrbApRep::*)($KrbApReq*)>(&KrbApRep::authenticate)), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"createMessage", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KerberosTime;ILsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/SeqNumber;)V", nullptr, $PRIVATE, $method(static_cast<void(KrbApRep::*)($EncryptionKey*,$KerberosTime*,int32_t,$EncryptionKey*,$SeqNumber*)>(&KrbApRep::createMessage)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KdcErrException,sun.security.krb5.KrbCryptoException"},
-	{"getMessage", "()[B", nullptr, $PUBLIC},
-	{"getSeqNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC},
-	{"getSubKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC},
-	{"init", "(Lsun/security/krb5/KrbApReq;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/SeqNumber;)V", nullptr, $PRIVATE, $method(static_cast<void(KrbApRep::*)($KrbApReq*,$EncryptionKey*,$SeqNumber*)>(&KrbApRep::init)), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"<init>", "(Lsun/security/krb5/KrbApReq;ZLsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(KrbApRep, init$, void, $KrbApReq*, bool, $EncryptionKey*), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"<init>", "([BLsun/security/krb5/Credentials;Lsun/security/krb5/KrbApReq;)V", nullptr, $PUBLIC, $method(KrbApRep, init$, void, $bytes*, $Credentials*, $KrbApReq*), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"<init>", "([BLsun/security/krb5/Credentials;)V", nullptr, $PRIVATE, $method(KrbApRep, init$, void, $bytes*, $Credentials*), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;Lsun/security/krb5/Credentials;)V", nullptr, $PRIVATE, $method(KrbApRep, init$, void, $DerValue*, $Credentials*), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"authenticate", "(Lsun/security/krb5/KrbApReq;)V", nullptr, $PRIVATE, $method(KrbApRep, authenticate, void, $KrbApReq*), "sun.security.krb5.KrbException,java.io.IOException"},
+	{"createMessage", "(Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KerberosTime;ILsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/SeqNumber;)V", nullptr, $PRIVATE, $method(KrbApRep, createMessage, void, $EncryptionKey*, $KerberosTime*, int32_t, $EncryptionKey*, $SeqNumber*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KdcErrException,sun.security.krb5.KrbCryptoException"},
+	{"getMessage", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbApRep, getMessage, $bytes*)},
+	{"getSeqNumber", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(KrbApRep, getSeqNumber, $Integer*)},
+	{"getSubKey", "()Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(KrbApRep, getSubKey, $EncryptionKey*)},
+	{"init", "(Lsun/security/krb5/KrbApReq;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/SeqNumber;)V", nullptr, $PRIVATE, $method(KrbApRep, init, void, $KrbApReq*, $EncryptionKey*, $SeqNumber*), "sun.security.krb5.KrbException,java.io.IOException"},
 	{}
 };
 

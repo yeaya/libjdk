@@ -30,11 +30,11 @@ $FieldInfo _BaseFileManager$2_FieldInfo_[] = {
 };
 
 $MethodInfo _BaseFileManager$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(static_cast<void(BaseFileManager$2::*)($BaseFileManager*,$Log*)>(&BaseFileManager$2::init$))},
-	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(BaseFileManager$2, init$, void, $BaseFileManager*, $Log*)},
+	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, get, $String*, $Option*)},
+	{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, handleFileManagerOption, bool, $Option*, $String*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, put, void, $String*, $String*)},
+	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, remove, void, $String*)},
 	{}
 };
 

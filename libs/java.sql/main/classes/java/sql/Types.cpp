@@ -93,7 +93,7 @@ $FieldInfo _Types_FieldInfo_[] = {
 };
 
 $MethodInfo _Types_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Types::*)()>(&Types::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Types, init$, void)},
 	{}
 };
 

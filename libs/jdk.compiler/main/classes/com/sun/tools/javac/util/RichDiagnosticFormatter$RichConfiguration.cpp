@@ -40,11 +40,11 @@ $FieldInfo _RichDiagnosticFormatter$RichConfiguration_FieldInfo_[] = {
 };
 
 $MethodInfo _RichDiagnosticFormatter$RichConfiguration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Options;Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter;)V", nullptr, $PUBLIC, $method(static_cast<void(RichDiagnosticFormatter$RichConfiguration::*)($Options*,$AbstractDiagnosticFormatter*)>(&RichDiagnosticFormatter$RichConfiguration::init$))},
-	{"disable", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;)V", nullptr, $PUBLIC},
-	{"enable", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;)V", nullptr, $PUBLIC},
-	{"getAvailableFeatures", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC},
-	{"isEnabled", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Options;Lcom/sun/tools/javac/util/AbstractDiagnosticFormatter;)V", nullptr, $PUBLIC, $method(RichDiagnosticFormatter$RichConfiguration, init$, void, $Options*, $AbstractDiagnosticFormatter*)},
+	{"disable", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;)V", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$RichConfiguration, disable, void, $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature*)},
+	{"enable", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;)V", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$RichConfiguration, enable, void, $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature*)},
+	{"getAvailableFeatures", "()[Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$RichConfiguration, getAvailableFeatures, $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeatureArray*)},
+	{"isEnabled", "(Lcom/sun/tools/javac/util/RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature;)Z", nullptr, $PUBLIC, $virtualMethod(RichDiagnosticFormatter$RichConfiguration, isEnabled, bool, $RichDiagnosticFormatter$RichConfiguration$RichFormatterFeature*)},
 	{}
 };
 

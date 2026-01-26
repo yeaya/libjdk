@@ -61,8 +61,8 @@ $FieldInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$lambda$of$0
 	{}
 };
 $MethodInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$lambda$of$0::methodInfos[3] = {
-	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(static_cast<void(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$lambda$of$0::*)($ServerSocket*)>(&DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$lambda$of$0::init$))},
-	{"accept", "()LDummySecureWebSocketServer$WebSocketChannel;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$lambda$of$0, init$, void, $ServerSocket*)},
+	{"accept", "()LDummySecureWebSocketServer$WebSocketChannel;", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$lambda$of$0, accept, $DummySecureWebSocketServer$WebSocketChannel*)},
 	{}
 };
 $ClassInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$lambda$of$0::classInfo$ = {
@@ -101,8 +101,8 @@ $FieldInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$bind$1::fie
 	{}
 };
 $MethodInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$bind$1::methodInfos[3] = {
-	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(static_cast<void(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$bind$1::*)($ServerSocket*)>(&DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$bind$1::init$))},
-	{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$bind$1, init$, void, $ServerSocket*)},
+	{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$bind$1, bind, void, $SocketAddress*)},
 	{}
 };
 $ClassInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$bind$1::classInfo$ = {
@@ -141,8 +141,8 @@ $FieldInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$getLocalSoc
 	{}
 };
 $MethodInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$getLocalSocketAddress$2::methodInfos[3] = {
-	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(static_cast<void(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$getLocalSocketAddress$2::*)($ServerSocket*)>(&DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$getLocalSocketAddress$2::init$))},
-	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$getLocalSocketAddress$2, init$, void, $ServerSocket*)},
+	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$getLocalSocketAddress$2, getLocalAddress, $SocketAddress*)},
 	{}
 };
 $ClassInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$getLocalSocketAddress$2::classInfo$ = {
@@ -181,8 +181,8 @@ $FieldInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$setOption$3
 	{}
 };
 $MethodInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$setOption$3::methodInfos[3] = {
-	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(static_cast<void(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$setOption$3::*)($ServerSocket*)>(&DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$setOption$3::init$))},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$setOption$3, init$, void, $ServerSocket*)},
+	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$setOption$3, setOption, void, $SocketOption*, Object$*)},
 	{}
 };
 $ClassInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$setOption$3::classInfo$ = {
@@ -221,8 +221,8 @@ $FieldInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$close$4::fi
 	{}
 };
 $MethodInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$close$4::methodInfos[3] = {
-	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(static_cast<void(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$close$4::*)($ServerSocket*)>(&DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$close$4::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/ServerSocket;)V", nullptr, $PUBLIC, $method(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$close$4, init$, void, $ServerSocket*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$close$4, close, void)},
 	{}
 };
 $ClassInfo DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$close$4::classInfo$ = {
@@ -250,15 +250,15 @@ $FieldInfo _DummySecureWebSocketServer$WebServerSocketChannel_FieldInfo_[] = {
 };
 
 $MethodInfo _DummySecureWebSocketServer$WebServerSocketChannel_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/AutoCloseable;LDummySecureWebSocketServer$WebServerSocketChannel$Accepter;LDummySecureWebSocketServer$WebServerSocketChannel$Binder;LDummySecureWebSocketServer$WebServerSocketChannel$Addressable;LDummySecureWebSocketServer$WebServerSocketChannel$Config;LDummySecureWebSocketServer$WebServerSocketChannel$Closer;)V", nullptr, 0, $method(static_cast<void(DummySecureWebSocketServer$WebServerSocketChannel::*)($AutoCloseable*,$DummySecureWebSocketServer$WebServerSocketChannel$Accepter*,$DummySecureWebSocketServer$WebServerSocketChannel$Binder*,$DummySecureWebSocketServer$WebServerSocketChannel$Addressable*,$DummySecureWebSocketServer$WebServerSocketChannel$Config*,$DummySecureWebSocketServer$WebServerSocketChannel$Closer*)>(&DummySecureWebSocketServer$WebServerSocketChannel::init$))},
-	{"accept", "()LDummySecureWebSocketServer$WebSocketChannel;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"lambda$of$0", "(Ljava/net/ServerSocket;)LDummySecureWebSocketServer$WebSocketChannel;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$DummySecureWebSocketServer$WebSocketChannel*(*)($ServerSocket*)>(&DummySecureWebSocketServer$WebServerSocketChannel::lambda$of$0)), "java.io.IOException"},
-	{"of", "(Ljava/net/ServerSocket;)LDummySecureWebSocketServer$WebServerSocketChannel;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DummySecureWebSocketServer$WebServerSocketChannel*(*)($ServerSocket*)>(&DummySecureWebSocketServer$WebServerSocketChannel::of))},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/AutoCloseable;LDummySecureWebSocketServer$WebServerSocketChannel$Accepter;LDummySecureWebSocketServer$WebServerSocketChannel$Binder;LDummySecureWebSocketServer$WebServerSocketChannel$Addressable;LDummySecureWebSocketServer$WebServerSocketChannel$Config;LDummySecureWebSocketServer$WebServerSocketChannel$Closer;)V", nullptr, 0, $method(DummySecureWebSocketServer$WebServerSocketChannel, init$, void, $AutoCloseable*, $DummySecureWebSocketServer$WebServerSocketChannel$Accepter*, $DummySecureWebSocketServer$WebServerSocketChannel$Binder*, $DummySecureWebSocketServer$WebServerSocketChannel$Addressable*, $DummySecureWebSocketServer$WebServerSocketChannel$Config*, $DummySecureWebSocketServer$WebServerSocketChannel$Closer*)},
+	{"accept", "()LDummySecureWebSocketServer$WebSocketChannel;", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel, accept, $DummySecureWebSocketServer$WebSocketChannel*), "java.io.IOException"},
+	{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel, bind, void, $SocketAddress*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel, close, void), "java.io.IOException"},
+	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel, getLocalAddress, $SocketAddress*), "java.io.IOException"},
+	{"lambda$of$0", "(Ljava/net/ServerSocket;)LDummySecureWebSocketServer$WebSocketChannel;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DummySecureWebSocketServer$WebServerSocketChannel, lambda$of$0, $DummySecureWebSocketServer$WebSocketChannel*, $ServerSocket*), "java.io.IOException"},
+	{"of", "(Ljava/net/ServerSocket;)LDummySecureWebSocketServer$WebServerSocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(DummySecureWebSocketServer$WebServerSocketChannel, of, DummySecureWebSocketServer$WebServerSocketChannel*, $ServerSocket*)},
+	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DummySecureWebSocketServer$WebServerSocketChannel, toString, $String*)},
 	{}
 };
 

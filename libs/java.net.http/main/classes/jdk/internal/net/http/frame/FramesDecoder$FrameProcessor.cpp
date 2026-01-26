@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Http2Frame = ::jdk::internal::net::http::frame::Http2Frame;
 
 namespace jdk {
 	namespace internal {
@@ -21,7 +22,7 @@ $CompoundAttribute _FramesDecoder$FrameProcessor_Annotations_[] = {
 };
 
 $MethodInfo _FramesDecoder$FrameProcessor_MethodInfo_[] = {
-	{"processFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"processFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FramesDecoder$FrameProcessor, processFrame, void, $Http2Frame*), "java.io.IOException"},
 	{}
 };
 

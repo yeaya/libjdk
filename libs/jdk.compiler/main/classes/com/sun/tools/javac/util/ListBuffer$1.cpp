@@ -29,10 +29,10 @@ $FieldInfo _ListBuffer$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ListBuffer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(static_cast<void(ListBuffer$1::*)($ListBuffer*)>(&ListBuffer$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TA;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(ListBuffer$1, init$, void, $ListBuffer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ListBuffer$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TA;", $PUBLIC, $virtualMethod(ListBuffer$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ListBuffer$1, remove, void)},
 	{}
 };
 

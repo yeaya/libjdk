@@ -36,9 +36,9 @@ $FieldInfo _AnnotationProxyMaker$ValueVisitor$1AnnotationTypeMismatchExceptionPr
 };
 
 $MethodInfo _AnnotationProxyMaker$ValueVisitor$1AnnotationTypeMismatchExceptionProxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/model/AnnotationProxyMaker$ValueVisitor;Ljava/lang/reflect/Method;Lcom/sun/tools/javac/code/Attribute;)V", "(Ljava/lang/reflect/Method;)V", 0, $method(static_cast<void(AnnotationProxyMaker$ValueVisitor$1AnnotationTypeMismatchExceptionProxy::*)($AnnotationProxyMaker$ValueVisitor*,$Method*,$Attribute*)>(&AnnotationProxyMaker$ValueVisitor$1AnnotationTypeMismatchExceptionProxy::init$))},
-	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/model/AnnotationProxyMaker$ValueVisitor;Ljava/lang/reflect/Method;Lcom/sun/tools/javac/code/Attribute;)V", "(Ljava/lang/reflect/Method;)V", 0, $method(AnnotationProxyMaker$ValueVisitor$1AnnotationTypeMismatchExceptionProxy, init$, void, $AnnotationProxyMaker$ValueVisitor*, $Method*, $Attribute*)},
+	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(AnnotationProxyMaker$ValueVisitor$1AnnotationTypeMismatchExceptionProxy, generateException, $RuntimeException*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$ValueVisitor$1AnnotationTypeMismatchExceptionProxy, toString, $String*)},
 	{}
 };
 

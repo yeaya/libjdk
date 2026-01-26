@@ -30,10 +30,10 @@ $FieldInfo _HeadersTest2$CompareTest_FieldInfo_[] = {
 };
 
 $MethodInfo _HeadersTest2$CompareTest_MethodInfo_[] = {
-	{"<init>", "(ZLjava/util/List;Ljava/util/List;)V", "(ZLjava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(static_cast<void(HeadersTest2$CompareTest::*)(bool,$List*,$List*)>(&HeadersTest2$CompareTest::init$))},
-	{"getRequest", "(Ljava/util/List;)Ljava/net/http/HttpRequest;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/net/http/HttpRequest;", 0},
-	{"print", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $STATIC, $method(static_cast<void(*)($List*)>(&HeadersTest2$CompareTest::print))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(ZLjava/util/List;Ljava/util/List;)V", "(ZLjava/util/List<Ljava/lang/String;>;Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(HeadersTest2$CompareTest, init$, void, bool, $List*, $List*)},
+	{"getRequest", "(Ljava/util/List;)Ljava/net/http/HttpRequest;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/net/http/HttpRequest;", 0, $virtualMethod(HeadersTest2$CompareTest, getRequest, $HttpRequest*, $List*)},
+	{"print", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $STATIC, $staticMethod(HeadersTest2$CompareTest, print, void, $List*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HeadersTest2$CompareTest, run, void)},
 	{}
 };
 

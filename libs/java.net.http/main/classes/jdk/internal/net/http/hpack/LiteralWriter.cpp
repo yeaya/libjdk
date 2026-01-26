@@ -14,7 +14,7 @@ namespace jdk {
 				namespace hpack {
 
 $MethodInfo _LiteralWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LiteralWriter::*)()>(&LiteralWriter::init$))},
+	{"<init>", "()V", nullptr, 0, $method(LiteralWriter, init$, void)},
 	{}
 };
 

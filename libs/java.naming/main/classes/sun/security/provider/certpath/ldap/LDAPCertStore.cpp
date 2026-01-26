@@ -56,10 +56,10 @@ $FieldInfo _LDAPCertStore_FieldInfo_[] = {
 };
 
 $MethodInfo _LDAPCertStore_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(static_cast<void(LDAPCertStore::*)($CertStoreParameters*)>(&LDAPCertStore::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/X509CRL;>;", $PUBLIC | $SYNCHRONIZED, nullptr, "java.security.cert.CertStoreException"},
-	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $SYNCHRONIZED, nullptr, "java.security.cert.CertStoreException"},
-	{"getInstance", "(Ljava/security/cert/LDAPCertStoreParameters;)Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<$LDAPCertStoreImpl*(*)($LDAPCertStoreParameters*)>(&LDAPCertStore::getInstance)), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(LDAPCertStore, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException"},
+	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/X509CRL;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(LDAPCertStore, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
+	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(LDAPCertStore, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
+	{"getInstance", "(Ljava/security/cert/LDAPCertStoreParameters;)Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(LDAPCertStore, getInstance, $LDAPCertStoreImpl*, $LDAPCertStoreParameters*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
 	{}
 };
 

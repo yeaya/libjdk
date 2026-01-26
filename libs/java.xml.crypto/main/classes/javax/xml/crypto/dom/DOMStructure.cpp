@@ -20,9 +20,9 @@ $FieldInfo _DOMStructure_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMStructure_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(static_cast<void(DOMStructure::*)($Node*)>(&DOMStructure::init$))},
-	{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMStructure, init$, void, $Node*)},
+	{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMStructure, getNode, $Node*)},
+	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMStructure, isFeatureSupported, bool, $String*)},
 	{}
 };
 

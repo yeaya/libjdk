@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $CompositeData = ::javax::management::openmbean::CompositeData;
+using $CompositeType = ::javax::management::openmbean::CompositeType;
 
 namespace javax {
 	namespace management {
 		namespace openmbean {
 
 $MethodInfo _CompositeDataView_MethodInfo_[] = {
-	{"toCompositeData", "(Ljavax/management/openmbean/CompositeType;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $ABSTRACT},
+	{"toCompositeData", "(Ljavax/management/openmbean/CompositeType;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompositeDataView, toCompositeData, $CompositeData*, $CompositeType*)},
 	{}
 };
 

@@ -88,21 +88,21 @@ $FieldInfo _MessageToken_v2_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageToken_v2_MethodInfo_[] = {
-	{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, 0, $method(static_cast<void(MessageToken_v2::*)(int32_t,$Krb5Context*,$bytes*,int32_t,int32_t,$MessageProp*)>(&MessageToken_v2::init$)), "org.ietf.jgss.GSSException"},
-	{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, 0, $method(static_cast<void(MessageToken_v2::*)(int32_t,$Krb5Context*,$InputStream*,$MessageProp*)>(&MessageToken_v2::init$)), "org.ietf.jgss.GSSException"},
-	{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;)V", nullptr, 0, $method(static_cast<void(MessageToken_v2::*)(int32_t,$Krb5Context*)>(&MessageToken_v2::init$)), "org.ietf.jgss.GSSException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"encodeHeader", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"genSignAndSeqNumber", "(Lorg/ietf/jgss/MessageProp;[BII)V", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getChecksum", "([BII)[B", nullptr, 0, nullptr, "org.ietf.jgss.GSSException"},
-	{"getConfState", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(MessageToken_v2::*)()>(&MessageToken_v2::getConfState))},
-	{"getKeyUsage", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(MessageToken_v2::*)()>(&MessageToken_v2::getKeyUsage))},
-	{"getSequenceNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(MessageToken_v2::*)()>(&MessageToken_v2::getSequenceNumber))},
-	{"getTokenHeader", "()[B", nullptr, $PROTECTED | $FINAL, $method(static_cast<$bytes*(MessageToken_v2::*)()>(&MessageToken_v2::getTokenHeader))},
-	{"getTokenId", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(MessageToken_v2::*)()>(&MessageToken_v2::getTokenId))},
-	{"init", "(ILsun/security/jgss/krb5/Krb5Context;)V", nullptr, $PRIVATE, $method(static_cast<void(MessageToken_v2::*)(int32_t,$Krb5Context*)>(&MessageToken_v2::init)), "org.ietf.jgss.GSSException"},
-	{"rotate", "()V", nullptr, $PRIVATE, $method(static_cast<void(MessageToken_v2::*)()>(&MessageToken_v2::rotate))},
-	{"verifySign", "([BII)Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(MessageToken_v2::*)($bytes*,int32_t,int32_t)>(&MessageToken_v2::verifySign)), "org.ietf.jgss.GSSException"},
+	{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;[BIILorg/ietf/jgss/MessageProp;)V", nullptr, 0, $method(MessageToken_v2, init$, void, int32_t, $Krb5Context*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+	{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, 0, $method(MessageToken_v2, init$, void, int32_t, $Krb5Context*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+	{"<init>", "(ILsun/security/jgss/krb5/Krb5Context;)V", nullptr, 0, $method(MessageToken_v2, init$, void, int32_t, $Krb5Context*), "org.ietf.jgss.GSSException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageToken_v2, encode, void, $OutputStream*), "java.io.IOException"},
+	{"encodeHeader", "(Ljava/io/OutputStream;)V", nullptr, $PROTECTED, $virtualMethod(MessageToken_v2, encodeHeader, void, $OutputStream*), "java.io.IOException"},
+	{"genSignAndSeqNumber", "(Lorg/ietf/jgss/MessageProp;[BII)V", nullptr, $PUBLIC, $virtualMethod(MessageToken_v2, genSignAndSeqNumber, void, $MessageProp*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+	{"getChecksum", "([BII)[B", nullptr, 0, $virtualMethod(MessageToken_v2, getChecksum, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+	{"getConfState", "()Z", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getConfState, bool)},
+	{"getKeyUsage", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getKeyUsage, int32_t)},
+	{"getSequenceNumber", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getSequenceNumber, int32_t)},
+	{"getTokenHeader", "()[B", nullptr, $PROTECTED | $FINAL, $method(MessageToken_v2, getTokenHeader, $bytes*)},
+	{"getTokenId", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, getTokenId, int32_t)},
+	{"init", "(ILsun/security/jgss/krb5/Krb5Context;)V", nullptr, $PRIVATE, $method(MessageToken_v2, init, void, int32_t, $Krb5Context*), "org.ietf.jgss.GSSException"},
+	{"rotate", "()V", nullptr, $PRIVATE, $method(MessageToken_v2, rotate, void)},
+	{"verifySign", "([BII)Z", nullptr, $PUBLIC | $FINAL, $method(MessageToken_v2, verifySign, bool, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
 	{}
 };
 

@@ -23,16 +23,16 @@ $FieldInfo _SQLWarning_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLWarning_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(SQLWarning::*)($String*,$String*,int32_t)>(&SQLWarning::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLWarning::*)($String*,$String*)>(&SQLWarning::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLWarning::*)($String*)>(&SQLWarning::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SQLWarning::*)()>(&SQLWarning::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLWarning::*)($Throwable*)>(&SQLWarning::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLWarning::*)($String*,$Throwable*)>(&SQLWarning::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLWarning::*)($String*,$String*,$Throwable*)>(&SQLWarning::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(SQLWarning::*)($String*,$String*,int32_t,$Throwable*)>(&SQLWarning::init$))},
-	{"getNextWarning", "()Ljava/sql/SQLWarning;", nullptr, $PUBLIC},
-	{"setNextWarning", "(Ljava/sql/SQLWarning;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLWarning, init$, void)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLWarning, init$, void, $String*, $String*, int32_t, $Throwable*)},
+	{"getNextWarning", "()Ljava/sql/SQLWarning;", nullptr, $PUBLIC, $virtualMethod(SQLWarning, getNextWarning, SQLWarning*)},
+	{"setNextWarning", "(Ljava/sql/SQLWarning;)V", nullptr, $PUBLIC, $virtualMethod(SQLWarning, setNextWarning, void, SQLWarning*)},
 	{}
 };
 

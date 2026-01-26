@@ -64,10 +64,10 @@ $FieldInfo _DefaultMXBeanMappingFactory$TabularMapping_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultMXBeanMappingFactory$TabularMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;ZLjavax/management/openmbean/TabularType;Lcom/sun/jmx/mbeanserver/MXBeanMapping;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", nullptr, 0, $method(static_cast<void(DefaultMXBeanMappingFactory$TabularMapping::*)($Type*,bool,$TabularType*,$MXBeanMapping*,$MXBeanMapping*)>(&DefaultMXBeanMappingFactory$TabularMapping::init$))},
-	{"checkReconstructible", "()V", nullptr, $PUBLIC, nullptr, "java.io.InvalidObjectException"},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, nullptr, "java.io.InvalidObjectException"},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, nullptr, "javax.management.openmbean.OpenDataException"},
+	{"<init>", "(Ljava/lang/reflect/Type;ZLjavax/management/openmbean/TabularType;Lcom/sun/jmx/mbeanserver/MXBeanMapping;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", nullptr, 0, $method(DefaultMXBeanMappingFactory$TabularMapping, init$, void, $Type*, bool, $TabularType*, $MXBeanMapping*, $MXBeanMapping*)},
+	{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMXBeanMappingFactory$TabularMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
+	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$TabularMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$TabularMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
 	{}
 };
 

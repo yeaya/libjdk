@@ -109,8 +109,8 @@ $FieldInfo TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::fieldInfos[2] = 
 	{}
 };
 $MethodInfo TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport$ConnectionHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::*)(TCPTransport$ConnectionHandler*)>(&TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport$ConnectionHandler;)V", nullptr, $PUBLIC, $method(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, init$, void, TCPTransport$ConnectionHandler*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPTransport$ConnectionHandler$$Lambda$lambda$run$0, run, $Object*)},
 	{}
 };
 $ClassInfo TCPTransport$ConnectionHandler$$Lambda$lambda$run$0::classInfo$ = {
@@ -139,12 +139,12 @@ $FieldInfo _TCPTransport$ConnectionHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _TCPTransport$ConnectionHandler_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Ljava/net/Socket;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(TCPTransport$ConnectionHandler::*)($TCPTransport*,$Socket*,$String*)>(&TCPTransport$ConnectionHandler::init$))},
-	{"checkAcceptPermission", "(Ljava/lang/SecurityManager;Ljava/security/AccessControlContext;)V", nullptr, 0},
-	{"getClientHost", "()Ljava/lang/String;", nullptr, 0},
-	{"lambda$run$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(TCPTransport$ConnectionHandler::*)()>(&TCPTransport$ConnectionHandler::lambda$run$0))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"run0", "()V", nullptr, $PRIVATE, $method(static_cast<void(TCPTransport$ConnectionHandler::*)()>(&TCPTransport$ConnectionHandler::run0))},
+	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Ljava/net/Socket;Ljava/lang/String;)V", nullptr, 0, $method(TCPTransport$ConnectionHandler, init$, void, $TCPTransport*, $Socket*, $String*)},
+	{"checkAcceptPermission", "(Ljava/lang/SecurityManager;Ljava/security/AccessControlContext;)V", nullptr, 0, $virtualMethod(TCPTransport$ConnectionHandler, checkAcceptPermission, void, $SecurityManager*, $AccessControlContext*)},
+	{"getClientHost", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TCPTransport$ConnectionHandler, getClientHost, $String*)},
+	{"lambda$run$0", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(TCPTransport$ConnectionHandler, lambda$run$0, $Void*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TCPTransport$ConnectionHandler, run, void)},
+	{"run0", "()V", nullptr, $PRIVATE, $method(TCPTransport$ConnectionHandler, run0, void)},
 	{}
 };
 

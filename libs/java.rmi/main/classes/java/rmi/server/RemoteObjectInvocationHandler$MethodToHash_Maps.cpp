@@ -16,8 +16,8 @@ namespace java {
 		namespace server {
 
 $MethodInfo _RemoteObjectInvocationHandler$MethodToHash_Maps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(RemoteObjectInvocationHandler$MethodToHash_Maps::*)()>(&RemoteObjectInvocationHandler$MethodToHash_Maps::init$))},
-	{"computeValue", "(Ljava/lang/Class;)Ljava/util/Map;", "(Ljava/lang/Class<*>;)Ljava/util/Map<Ljava/lang/reflect/Method;Ljava/lang/Long;>;", $PROTECTED},
+	{"<init>", "()V", nullptr, 0, $method(RemoteObjectInvocationHandler$MethodToHash_Maps, init$, void)},
+	{"computeValue", "(Ljava/lang/Class;)Ljava/util/Map;", "(Ljava/lang/Class<*>;)Ljava/util/Map<Ljava/lang/reflect/Method;Ljava/lang/Long;>;", $PROTECTED, $virtualMethod(RemoteObjectInvocationHandler$MethodToHash_Maps, computeValue, $Object*, $Class*)},
 	{}
 };
 

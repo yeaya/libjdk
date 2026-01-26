@@ -27,8 +27,8 @@ $FieldInfo _KeySelector$Purpose_FieldInfo_[] = {
 };
 
 $MethodInfo _KeySelector$Purpose_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(KeySelector$Purpose::*)($String*)>(&KeySelector$Purpose::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KeySelector$Purpose, init$, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeySelector$Purpose, toString, $String*)},
 	{}
 };
 

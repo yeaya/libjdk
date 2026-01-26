@@ -15,9 +15,9 @@ namespace com {
 			namespace doclint {
 
 $MethodInfo _DocLint$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DocLint$1::*)()>(&DocLint$1::init$))},
-	{"get", "()Lcom/sun/tools/doclint/DocLint;", nullptr, $PUBLIC},
-	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Lcom/sun/tools/doclint/DocLint;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(DocLint$1, init$, void)},
+	{"get", "()Lcom/sun/tools/doclint/DocLint;", nullptr, $PUBLIC, $virtualMethod(DocLint$1, get, $Object*)},
+	{"type", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Lcom/sun/tools/doclint/DocLint;>;", $PUBLIC, $virtualMethod(DocLint$1, type, $Class*)},
 	{}
 };
 

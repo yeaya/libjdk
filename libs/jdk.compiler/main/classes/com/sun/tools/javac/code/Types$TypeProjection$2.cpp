@@ -30,8 +30,8 @@ $FieldInfo _Types$TypeProjection$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$TypeProjection$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(static_cast<void(Types$TypeProjection$2::*)($Types$TypeProjection*,$Type*,$Symbol$TypeSymbol*,$TypeMetadata*)>(&Types$TypeProjection$2::init$))},
-	{"needsStripping", "()Z", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Types$TypeProjection$2, init$, void, $Types$TypeProjection*, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+	{"needsStripping", "()Z", nullptr, $PROTECTED, $virtualMethod(Types$TypeProjection$2, needsStripping, bool)},
 	{}
 };
 

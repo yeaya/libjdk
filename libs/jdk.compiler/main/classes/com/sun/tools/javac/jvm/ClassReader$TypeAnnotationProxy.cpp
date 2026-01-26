@@ -25,7 +25,7 @@ $FieldInfo _ClassReader$TypeAnnotationProxy_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$TypeAnnotationProxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$TypeAnnotationProxy::*)($ClassReader$CompoundAnnotationProxy*,$TypeAnnotationPosition*)>(&ClassReader$TypeAnnotationProxy::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, $PUBLIC, $method(ClassReader$TypeAnnotationProxy, init$, void, $ClassReader$CompoundAnnotationProxy*, $TypeAnnotationPosition*)},
 	{}
 };
 

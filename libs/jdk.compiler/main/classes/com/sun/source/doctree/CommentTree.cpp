@@ -11,7 +11,7 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _CommentTree_MethodInfo_[] = {
-	{"getBody", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getBody", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CommentTree, getBody, $String*)},
 	{}
 };
 

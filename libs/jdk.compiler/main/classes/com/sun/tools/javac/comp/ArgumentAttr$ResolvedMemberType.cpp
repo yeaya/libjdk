@@ -44,10 +44,10 @@ $FieldInfo _ArgumentAttr$ResolvedMemberType_FieldInfo_[] = {
 };
 
 $MethodInfo _ArgumentAttr$ResolvedMemberType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;TE;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(static_cast<void(ArgumentAttr$ResolvedMemberType::*)($ArgumentAttr*,$JCTree$JCExpression*,$Env*,$JCTree$JCExpression*,$Map*)>(&ArgumentAttr$ResolvedMemberType::init$))},
-	{"methodType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $ABSTRACT},
-	{"overloadCheck", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"resultInfo", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $ABSTRACT},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;TE;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(ArgumentAttr$ResolvedMemberType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCExpression*, $Map*)},
+	{"methodType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $ABSTRACT, $virtualMethod(ArgumentAttr$ResolvedMemberType, methodType, $Type*)},
+	{"overloadCheck", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ResolvedMemberType, overloadCheck, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
+	{"resultInfo", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $ABSTRACT, $virtualMethod(ArgumentAttr$ResolvedMemberType, resultInfo, $Attr$ResultInfo*, $Attr$ResultInfo*)},
 	{}
 };
 

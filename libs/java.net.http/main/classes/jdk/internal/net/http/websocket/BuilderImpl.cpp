@@ -61,20 +61,20 @@ $FieldInfo _BuilderImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _BuilderImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpClient;Ljava/net/ProxySelector;)V", nullptr, $PUBLIC, $method(static_cast<void(BuilderImpl::*)($HttpClient*,$ProxySelector*)>(&BuilderImpl::init$))},
-	{"<init>", "(Ljava/net/http/HttpClient;Ljava/net/URI;Ljava/net/http/WebSocket$Listener;Ljava/util/Optional;Ljava/util/Collection;Ljava/util/Collection;Ljava/time/Duration;)V", "(Ljava/net/http/HttpClient;Ljava/net/URI;Ljava/net/http/WebSocket$Listener;Ljava/util/Optional<Ljava/net/ProxySelector;>;Ljava/util/Collection<Ljdk/internal/net/http/common/Pair<Ljava/lang/String;Ljava/lang/String;>;>;Ljava/util/Collection<Ljava/lang/String;>;Ljava/time/Duration;)V", $PRIVATE, $method(static_cast<void(BuilderImpl::*)($HttpClient*,$URI*,$WebSocket$Listener*,$Optional*,$Collection*,$Collection*,$Duration*)>(&BuilderImpl::init$))},
-	{"buildAsync", "(Ljava/net/URI;Ljava/net/http/WebSocket$Listener;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/URI;Ljava/net/http/WebSocket$Listener;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC},
-	{"connectTimeout", "(Ljava/time/Duration;)Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC},
-	{"getClient", "()Ljava/net/http/HttpClient;", nullptr, 0, $method(static_cast<$HttpClient*(BuilderImpl::*)()>(&BuilderImpl::getClient))},
-	{"getConnectTimeout", "()Ljava/time/Duration;", nullptr, 0, $method(static_cast<$Duration*(BuilderImpl::*)()>(&BuilderImpl::getConnectTimeout))},
-	{"getHeaders", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljdk/internal/net/http/common/Pair<Ljava/lang/String;Ljava/lang/String;>;>;", 0, $method(static_cast<$Collection*(BuilderImpl::*)()>(&BuilderImpl::getHeaders))},
-	{"getListener", "()Ljava/net/http/WebSocket$Listener;", nullptr, 0, $method(static_cast<$WebSocket$Listener*(BuilderImpl::*)()>(&BuilderImpl::getListener))},
-	{"getProxySelector", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/ProxySelector;>;", 0, $method(static_cast<$Optional*(BuilderImpl::*)()>(&BuilderImpl::getProxySelector))},
-	{"getSubprotocols", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/String;>;", 0, $method(static_cast<$Collection*(BuilderImpl::*)()>(&BuilderImpl::getSubprotocols))},
-	{"getUri", "()Ljava/net/URI;", nullptr, 0, $method(static_cast<$URI*(BuilderImpl::*)()>(&BuilderImpl::getUri))},
-	{"header", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC},
-	{"immutableCopy", "()Ljdk/internal/net/http/websocket/BuilderImpl;", nullptr, $PRIVATE, $method(static_cast<BuilderImpl*(BuilderImpl::*)()>(&BuilderImpl::immutableCopy))},
-	{"subprotocols", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC | $TRANSIENT},
+	{"<init>", "(Ljava/net/http/HttpClient;Ljava/net/ProxySelector;)V", nullptr, $PUBLIC, $method(BuilderImpl, init$, void, $HttpClient*, $ProxySelector*)},
+	{"<init>", "(Ljava/net/http/HttpClient;Ljava/net/URI;Ljava/net/http/WebSocket$Listener;Ljava/util/Optional;Ljava/util/Collection;Ljava/util/Collection;Ljava/time/Duration;)V", "(Ljava/net/http/HttpClient;Ljava/net/URI;Ljava/net/http/WebSocket$Listener;Ljava/util/Optional<Ljava/net/ProxySelector;>;Ljava/util/Collection<Ljdk/internal/net/http/common/Pair<Ljava/lang/String;Ljava/lang/String;>;>;Ljava/util/Collection<Ljava/lang/String;>;Ljava/time/Duration;)V", $PRIVATE, $method(BuilderImpl, init$, void, $HttpClient*, $URI*, $WebSocket$Listener*, $Optional*, $Collection*, $Collection*, $Duration*)},
+	{"buildAsync", "(Ljava/net/URI;Ljava/net/http/WebSocket$Listener;)Ljava/util/concurrent/CompletableFuture;", "(Ljava/net/URI;Ljava/net/http/WebSocket$Listener;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/WebSocket;>;", $PUBLIC, $virtualMethod(BuilderImpl, buildAsync, $CompletableFuture*, $URI*, $WebSocket$Listener*)},
+	{"connectTimeout", "(Ljava/time/Duration;)Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC, $virtualMethod(BuilderImpl, connectTimeout, $WebSocket$Builder*, $Duration*)},
+	{"getClient", "()Ljava/net/http/HttpClient;", nullptr, 0, $method(BuilderImpl, getClient, $HttpClient*)},
+	{"getConnectTimeout", "()Ljava/time/Duration;", nullptr, 0, $method(BuilderImpl, getConnectTimeout, $Duration*)},
+	{"getHeaders", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljdk/internal/net/http/common/Pair<Ljava/lang/String;Ljava/lang/String;>;>;", 0, $method(BuilderImpl, getHeaders, $Collection*)},
+	{"getListener", "()Ljava/net/http/WebSocket$Listener;", nullptr, 0, $method(BuilderImpl, getListener, $WebSocket$Listener*)},
+	{"getProxySelector", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/ProxySelector;>;", 0, $method(BuilderImpl, getProxySelector, $Optional*)},
+	{"getSubprotocols", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/String;>;", 0, $method(BuilderImpl, getSubprotocols, $Collection*)},
+	{"getUri", "()Ljava/net/URI;", nullptr, 0, $method(BuilderImpl, getUri, $URI*)},
+	{"header", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC, $virtualMethod(BuilderImpl, header, $WebSocket$Builder*, $String*, $String*)},
+	{"immutableCopy", "()Ljdk/internal/net/http/websocket/BuilderImpl;", nullptr, $PRIVATE, $method(BuilderImpl, immutableCopy, BuilderImpl*)},
+	{"subprotocols", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(BuilderImpl, subprotocols, $WebSocket$Builder*, $String*, $StringArray*)},
 	{}
 };
 

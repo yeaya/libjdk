@@ -32,11 +32,11 @@ $FieldInfo _SortResponseControl_FieldInfo_[] = {
 };
 
 $MethodInfo _SortResponseControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(static_cast<void(SortResponseControl::*)($String*,bool,$bytes*)>(&SortResponseControl::init$)), "java.io.IOException"},
-	{"getAttributeID", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(static_cast<$String*(SortResponseControl::*)()>(&SortResponseControl::getAttributeID))},
-	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC, $method(static_cast<$NamingException*(SortResponseControl::*)()>(&SortResponseControl::getException))},
-	{"getResultCode", "()I", nullptr, $PUBLIC, $method(static_cast<int32_t(SortResponseControl::*)()>(&SortResponseControl::getResultCode))},
-	{"isSorted", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(SortResponseControl::*)()>(&SortResponseControl::isSorted))},
+	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(SortResponseControl, init$, void, $String*, bool, $bytes*), "java.io.IOException"},
+	{"getAttributeID", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SortResponseControl, getAttributeID, $String*)},
+	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC, $method(SortResponseControl, getException, $NamingException*)},
+	{"getResultCode", "()I", nullptr, $PUBLIC, $method(SortResponseControl, getResultCode, int32_t)},
+	{"isSorted", "()Z", nullptr, $PUBLIC, $method(SortResponseControl, isSorted, bool)},
 	{}
 };
 

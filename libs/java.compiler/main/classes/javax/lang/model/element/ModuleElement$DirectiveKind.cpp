@@ -33,10 +33,10 @@ $FieldInfo _ModuleElement$DirectiveKind_FieldInfo_[] = {
 };
 
 $MethodInfo _ModuleElement$DirectiveKind_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ModuleElement$DirectiveKindArray*(*)()>(&ModuleElement$DirectiveKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ModuleElement$DirectiveKind::*)($String*,int32_t)>(&ModuleElement$DirectiveKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ModuleElement$DirectiveKind*(*)($String*)>(&ModuleElement$DirectiveKind::valueOf))},
-	{"values", "()[Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ModuleElement$DirectiveKindArray*(*)()>(&ModuleElement$DirectiveKind::values))},
+	{"$values", "()[Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleElement$DirectiveKind, $values, $ModuleElement$DirectiveKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleElement$DirectiveKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleElement$DirectiveKind, valueOf, ModuleElement$DirectiveKind*, $String*)},
+	{"values", "()[Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleElement$DirectiveKind, values, $ModuleElement$DirectiveKindArray*)},
 	{}
 };
 

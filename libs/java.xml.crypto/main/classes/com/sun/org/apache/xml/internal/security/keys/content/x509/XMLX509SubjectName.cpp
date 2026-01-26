@@ -36,13 +36,13 @@ namespace com {
 $MethodInfo _XMLX509SubjectName_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLX509SubjectName::*)($Element*,$String*)>(&XMLX509SubjectName::init$)), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLX509SubjectName::*)($Document*,$String*)>(&XMLX509SubjectName::init$))},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLX509SubjectName::*)($Document*,$X509Certificate*)>(&XMLX509SubjectName::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getSubjectName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509SubjectName, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509SubjectName, init$, void, $Document*, $String*)},
+	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLX509SubjectName, init$, void, $Document*, $X509Certificate*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, equals, bool, Object$*)},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, getBaseLocalName, $String*)},
+	{"getSubjectName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, getSubjectName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509SubjectName, hashCode, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

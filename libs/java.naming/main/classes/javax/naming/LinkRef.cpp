@@ -27,9 +27,9 @@ $FieldInfo _LinkRef_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkRef_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $method(static_cast<void(LinkRef::*)($Name*)>(&LinkRef::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LinkRef::*)($String*)>(&LinkRef::init$))},
-	{"getLinkName", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
+	{"<init>", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $method(LinkRef, init$, void, $Name*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkRef, init$, void, $String*)},
+	{"getLinkName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkRef, getLinkName, $String*), "javax.naming.NamingException"},
 	{}
 };
 

@@ -16,7 +16,7 @@ $MethodInfo _PackageElement_MethodInfo_[] = {
 	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getQualifiedName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isUnnamed", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"isUnnamed", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PackageElement, isUnnamed, bool)},
 	{}
 };
 

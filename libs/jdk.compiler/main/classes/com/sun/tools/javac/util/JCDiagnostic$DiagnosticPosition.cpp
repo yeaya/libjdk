@@ -5,6 +5,8 @@
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <jcpp.h>
 
+using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
+using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -16,10 +18,10 @@ namespace com {
 				namespace util {
 
 $MethodInfo _JCDiagnostic$DiagnosticPosition_MethodInfo_[] = {
-	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPreferredPosition", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getStartPosition", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JCDiagnostic$DiagnosticPosition, getEndPosition, int32_t, $EndPosTable*)},
+	{"getPreferredPosition", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JCDiagnostic$DiagnosticPosition, getPreferredPosition, int32_t)},
+	{"getStartPosition", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JCDiagnostic$DiagnosticPosition, getStartPosition, int32_t)},
+	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JCDiagnostic$DiagnosticPosition, getTree, $JCTree*)},
 	{}
 };
 

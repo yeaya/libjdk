@@ -127,8 +127,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SjavacImpl$$Lambda$lambda$compile$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SjavacImpl$$Lambda$lambda$compile$0::*)()>(&SjavacImpl$$Lambda$lambda$compile$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl$$Lambda$lambda$compile$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SjavacImpl$$Lambda$lambda$compile$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo SjavacImpl$$Lambda$lambda$compile$0::classInfo$ = {
@@ -160,8 +160,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SjavacImpl$$Lambda$lambda$compile$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SjavacImpl$$Lambda$lambda$compile$1$1::*)()>(&SjavacImpl$$Lambda$lambda$compile$1$1::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl$$Lambda$lambda$compile$1$1, init$, void)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SjavacImpl$$Lambda$lambda$compile$1$1, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo SjavacImpl$$Lambda$lambda$compile$1$1::classInfo$ = {
@@ -193,8 +193,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SjavacImpl$$Lambda$error$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SjavacImpl$$Lambda$error$2::*)()>(&SjavacImpl$$Lambda$error$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl$$Lambda$error$2, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SjavacImpl$$Lambda$error$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo SjavacImpl$$Lambda$error$2::classInfo$ = {
@@ -212,17 +212,17 @@ $Class* SjavacImpl$$Lambda$error$2::load$($String* name, bool initialize) {
 $Class* SjavacImpl$$Lambda$error$2::class$ = nullptr;
 
 $MethodInfo _SjavacImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SjavacImpl::*)()>(&SjavacImpl::init$))},
-	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC},
-	{"createIfMissing", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Path*)>(&SjavacImpl::createIfMissing))},
-	{"findSourceFiles", "(Ljava/util/List;Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;Lcom/sun/tools/sjavac/Module;ZZ)V", "(Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;Lcom/sun/tools/sjavac/Module;ZZ)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($List*,$Set*,$Map*,$Map*,$Module*,bool,bool)>(&SjavacImpl::findSourceFiles)), "java.io.IOException"},
-	{"isOverlapping", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Path*,$Path*)>(&SjavacImpl::isOverlapping))},
-	{"lambda$compile$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*)>(&SjavacImpl::lambda$compile$0))},
-	{"lambda$compile$1", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StringArray*(*)(int32_t)>(&SjavacImpl::lambda$compile$1))},
-	{"printRound", "(I)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t)>(&SjavacImpl::printRound))},
-	{"shutdown", "()V", nullptr, $PUBLIC},
-	{"srcDstOverlap", "(Ljava/util/List;Ljava/nio/file/Path;)Z", "(Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;Ljava/nio/file/Path;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($List*,$Path*)>(&SjavacImpl::srcDstOverlap))},
-	{"validateOptions", "(Lcom/sun/tools/sjavac/options/Options;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($Options*)>(&SjavacImpl::validateOptions))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SjavacImpl, init$, void)},
+	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(SjavacImpl, compile, $Main$Result*, $StringArray*)},
+	{"createIfMissing", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, createIfMissing, bool, $Path*)},
+	{"findSourceFiles", "(Ljava/util/List;Ljava/util/Set;Ljava/util/Map;Ljava/util/Map;Lcom/sun/tools/sjavac/Module;ZZ)V", "(Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Module;>;Lcom/sun/tools/sjavac/Module;ZZ)V", $PUBLIC | $STATIC, $staticMethod(SjavacImpl, findSourceFiles, void, $List*, $Set*, $Map*, $Map*, $Module*, bool, bool), "java.io.IOException"},
+	{"isOverlapping", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, isOverlapping, bool, $Path*, $Path*)},
+	{"lambda$compile$0", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SjavacImpl, lambda$compile$0, bool, $String*)},
+	{"lambda$compile$1", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SjavacImpl, lambda$compile$1, $StringArray*, int32_t)},
+	{"printRound", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, printRound, void, int32_t)},
+	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(SjavacImpl, shutdown, void)},
+	{"srcDstOverlap", "(Ljava/util/List;Ljava/nio/file/Path;)Z", "(Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;Ljava/nio/file/Path;)Z", $PRIVATE | $STATIC, $staticMethod(SjavacImpl, srcDstOverlap, bool, $List*, $Path*)},
+	{"validateOptions", "(Lcom/sun/tools/sjavac/options/Options;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SjavacImpl, validateOptions, bool, $Options*)},
 	{}
 };
 

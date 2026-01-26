@@ -34,11 +34,11 @@ $FieldInfo _HotspotRuntime_FieldInfo_[] = {
 };
 
 $MethodInfo _HotspotRuntime_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(static_cast<void(HotspotRuntime::*)($VMManagement*)>(&HotspotRuntime::init$))},
-	{"getInternalRuntimeCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC},
-	{"getSafepointCount", "()J", nullptr, $PUBLIC},
-	{"getSafepointSyncTime", "()J", nullptr, $PUBLIC},
-	{"getTotalSafepointTime", "()J", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(HotspotRuntime, init$, void, $VMManagement*)},
+	{"getInternalRuntimeCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC, $virtualMethod(HotspotRuntime, getInternalRuntimeCounters, $List*)},
+	{"getSafepointCount", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotRuntime, getSafepointCount, int64_t)},
+	{"getSafepointSyncTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotRuntime, getSafepointSyncTime, int64_t)},
+	{"getTotalSafepointTime", "()J", nullptr, $PUBLIC, $virtualMethod(HotspotRuntime, getTotalSafepointTime, int64_t)},
 	{}
 };
 

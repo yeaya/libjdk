@@ -34,9 +34,9 @@ $FieldInfo _S$3$1_FieldInfo_[] = {
 };
 
 $MethodInfo _S$3$1_MethodInfo_[] = {
-	{"<init>", "(LS$3;Ljava/util/concurrent/Flow$Subscriber;)V", "()V", 0, $method(static_cast<void(S$3$1::*)($S$3*,$Flow$Subscriber*)>(&S$3$1::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
+	{"<init>", "(LS$3;Ljava/util/concurrent/Flow$Subscriber;)V", "()V", 0, $method(S$3$1, init$, void, $S$3*, $Flow$Subscriber*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(S$3$1, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(S$3$1, request, void, int64_t)},
 	{}
 };
 

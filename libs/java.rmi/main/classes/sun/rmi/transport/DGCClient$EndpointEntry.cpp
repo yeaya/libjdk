@@ -121,15 +121,15 @@ $FieldInfo _DGCClient$EndpointEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCClient$EndpointEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/Endpoint;)V", nullptr, $PRIVATE, $method(static_cast<void(DGCClient$EndpointEntry::*)($Endpoint*)>(&DGCClient$EndpointEntry::init$))},
-	{"createObjIDArray", "(Ljava/util/Set;)[Ljava/rmi/server/ObjID;", "(Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;)[Ljava/rmi/server/ObjID;", $PRIVATE | $STATIC, $method(static_cast<$ObjIDArray*(*)($Set*)>(&DGCClient$EndpointEntry::createObjIDArray))},
-	{"lookup", "(Lsun/rmi/transport/Endpoint;)Lsun/rmi/transport/DGCClient$EndpointEntry;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DGCClient$EndpointEntry*(*)($Endpoint*)>(&DGCClient$EndpointEntry::lookup))},
-	{"makeCleanCalls", "()V", nullptr, $PRIVATE, $method(static_cast<void(DGCClient$EndpointEntry::*)()>(&DGCClient$EndpointEntry::makeCleanCalls))},
-	{"makeDirtyCall", "(Ljava/util/Set;J)V", "(Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;J)V", $PRIVATE, $method(static_cast<void(DGCClient$EndpointEntry::*)($Set*,int64_t)>(&DGCClient$EndpointEntry::makeDirtyCall))},
-	{"processPhantomRefs", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry$PhantomLiveRef;)V", nullptr, $PRIVATE, $method(static_cast<void(DGCClient$EndpointEntry::*)($DGCClient$EndpointEntry$RefEntry$PhantomLiveRef*)>(&DGCClient$EndpointEntry::processPhantomRefs))},
-	{"registerRefs", "(Ljava/util/List;)Z", "(Ljava/util/List<Lsun/rmi/transport/LiveRef;>;)Z", $PUBLIC},
-	{"removeRefEntry", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;)V", nullptr, $PRIVATE, $method(static_cast<void(DGCClient$EndpointEntry::*)($DGCClient$EndpointEntry$RefEntry*)>(&DGCClient$EndpointEntry::removeRefEntry))},
-	{"setRenewTime", "(J)V", nullptr, $PRIVATE, $method(static_cast<void(DGCClient$EndpointEntry::*)(int64_t)>(&DGCClient$EndpointEntry::setRenewTime))},
+	{"<init>", "(Lsun/rmi/transport/Endpoint;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, init$, void, $Endpoint*)},
+	{"createObjIDArray", "(Ljava/util/Set;)[Ljava/rmi/server/ObjID;", "(Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;)[Ljava/rmi/server/ObjID;", $PRIVATE | $STATIC, $staticMethod(DGCClient$EndpointEntry, createObjIDArray, $ObjIDArray*, $Set*)},
+	{"lookup", "(Lsun/rmi/transport/Endpoint;)Lsun/rmi/transport/DGCClient$EndpointEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(DGCClient$EndpointEntry, lookup, DGCClient$EndpointEntry*, $Endpoint*)},
+	{"makeCleanCalls", "()V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, makeCleanCalls, void)},
+	{"makeDirtyCall", "(Ljava/util/Set;J)V", "(Ljava/util/Set<Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;>;J)V", $PRIVATE, $method(DGCClient$EndpointEntry, makeDirtyCall, void, $Set*, int64_t)},
+	{"processPhantomRefs", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry$PhantomLiveRef;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, processPhantomRefs, void, $DGCClient$EndpointEntry$RefEntry$PhantomLiveRef*)},
+	{"registerRefs", "(Ljava/util/List;)Z", "(Ljava/util/List<Lsun/rmi/transport/LiveRef;>;)Z", $PUBLIC, $virtualMethod(DGCClient$EndpointEntry, registerRefs, bool, $List*)},
+	{"removeRefEntry", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RefEntry;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, removeRefEntry, void, $DGCClient$EndpointEntry$RefEntry*)},
+	{"setRenewTime", "(J)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry, setRenewTime, void, int64_t)},
 	{}
 };
 

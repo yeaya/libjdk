@@ -18,8 +18,8 @@ $FieldInfo _ConnectIOException_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectIOException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ConnectIOException::*)($String*)>(&ConnectIOException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(ConnectIOException::*)($String*,$Exception*)>(&ConnectIOException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConnectIOException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ConnectIOException, init$, void, $String*, $Exception*)},
 	{}
 };
 

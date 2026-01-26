@@ -1,8 +1,11 @@
 #include <com/sun/source/util/SourcePositions.h>
 
 #include <com/sun/source/tree/CompilationUnitTree.h>
+#include <com/sun/source/tree/Tree.h>
 #include <jcpp.h>
 
+using $CompilationUnitTree = ::com::sun::source::tree::CompilationUnitTree;
+using $Tree = ::com::sun::source::tree::Tree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,8 +15,8 @@ namespace com {
 			namespace util {
 
 $MethodInfo _SourcePositions_MethodInfo_[] = {
-	{"getEndPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getStartPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getEndPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SourcePositions, getEndPosition, int64_t, $CompilationUnitTree*, $Tree*)},
+	{"getStartPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SourcePositions, getStartPosition, int64_t, $CompilationUnitTree*, $Tree*)},
 	{}
 };
 

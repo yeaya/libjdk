@@ -30,17 +30,17 @@ namespace com {
 				namespace util {
 
 $MethodInfo _Constants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Constants::*)()>(&Constants::init$))},
-	{"decode", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Object*(*)(Object$*,$Type*)>(&Constants::decode))},
-	{"format", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(Object$*,$Type*)>(&Constants::format))},
-	{"format", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(Object$*)>(&Constants::format))},
-	{"formatByte", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int8_t)>(&Constants::formatByte))},
-	{"formatChar", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(char16_t)>(&Constants::formatChar))},
-	{"formatDouble", "(D)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(double)>(&Constants::formatDouble))},
-	{"formatFloat", "(F)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(float)>(&Constants::formatFloat))},
-	{"formatLong", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int64_t)>(&Constants::formatLong))},
-	{"formatShort", "(S)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int16_t)>(&Constants::formatShort))},
-	{"formatString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&Constants::formatString))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Constants, init$, void)},
+	{"decode", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, decode, $Object*, Object$*, $Type*)},
+	{"format", "(Ljava/lang/Object;Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, format, $String*, Object$*, $Type*)},
+	{"format", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, format, $String*, Object$*)},
+	{"formatByte", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatByte, $String*, int8_t)},
+	{"formatChar", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatChar, $String*, char16_t)},
+	{"formatDouble", "(D)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatDouble, $String*, double)},
+	{"formatFloat", "(F)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatFloat, $String*, float)},
+	{"formatLong", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatLong, $String*, int64_t)},
+	{"formatShort", "(S)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatShort, $String*, int16_t)},
+	{"formatString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, formatString, $String*, $String*)},
 	{}
 };
 

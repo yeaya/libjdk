@@ -90,8 +90,8 @@ $FieldInfo ResponseContent$ChunkedBodyParser$$Lambda$dbgString::fieldInfos[2] = 
 	{}
 };
 $MethodInfo ResponseContent$ChunkedBodyParser$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseContent$ChunkedBodyParser;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseContent$ChunkedBodyParser$$Lambda$dbgString::*)(ResponseContent$ChunkedBodyParser*)>(&ResponseContent$ChunkedBodyParser$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseContent$ChunkedBodyParser;)V", nullptr, $PUBLIC, $method(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, init$, void, ResponseContent$ChunkedBodyParser*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo ResponseContent$ChunkedBodyParser$$Lambda$dbgString::classInfo$ = {
@@ -130,8 +130,8 @@ $FieldInfo ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::
 	{}
 };
 $MethodInfo ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::*)($ByteBuffer*)>(&ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, init$, void, $ByteBuffer*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1, get, $Object*)},
 	{}
 };
 $ClassInfo ResponseContent$ChunkedBodyParser$$Lambda$lambda$tryReadOneHunk$0$1::classInfo$ = {
@@ -169,19 +169,19 @@ $FieldInfo _ResponseContent$ChunkedBodyParser_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseContent$ChunkedBodyParser_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseContent;Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(static_cast<void(ResponseContent$ChunkedBodyParser::*)($ResponseContent*,$Consumer*)>(&ResponseContent$ChunkedBodyParser::init$))},
-	{"accept", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0},
-	{"debugBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(ResponseContent$ChunkedBodyParser::*)($ByteBuffer*)>(&ResponseContent$ChunkedBodyParser::debugBuffer))},
-	{"lambda$tryReadOneHunk$0", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($ByteBuffer*)>(&ResponseContent$ChunkedBodyParser::lambda$tryReadOneHunk$0))},
-	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC},
-	{"toDigit", "(I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ResponseContent$ChunkedBodyParser::*)(int32_t)>(&ResponseContent$ChunkedBodyParser::toDigit)), "java.io.IOException"},
-	{"tryConsumeBytes", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ResponseContent$ChunkedBodyParser::*)($ByteBuffer*)>(&ResponseContent$ChunkedBodyParser::tryConsumeBytes)), "java.io.IOException"},
-	{"tryPushOneHunk", "(Ljava/nio/ByteBuffer;Ljava/util/List;)Z", "(Ljava/nio/ByteBuffer;Ljava/util/List<Ljava/nio/ByteBuffer;>;)Z", $PRIVATE, $method(static_cast<bool(ResponseContent$ChunkedBodyParser::*)($ByteBuffer*,$List*)>(&ResponseContent$ChunkedBodyParser::tryPushOneHunk)), "java.io.IOException"},
-	{"tryReadChunkLen", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ResponseContent$ChunkedBodyParser::*)($ByteBuffer*)>(&ResponseContent$ChunkedBodyParser::tryReadChunkLen)), "java.io.IOException"},
-	{"tryReadOneHunk", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/net/http/ResponseContent;Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(ResponseContent$ChunkedBodyParser, init$, void, $ResponseContent*, $Consumer*)},
+	{"accept", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser, accept, void, $ByteBuffer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseContent$ChunkedBodyParser, accept, void, Object$*)},
+	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser, currentStateMessage, $String*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ResponseContent$ChunkedBodyParser, dbgString, $String*)},
+	{"debugBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, debugBuffer, void, $ByteBuffer*)},
+	{"lambda$tryReadOneHunk$0", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseContent$ChunkedBodyParser, lambda$tryReadOneHunk$0, $String*, $ByteBuffer*)},
+	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$ChunkedBodyParser, onSubscribe, void, $AbstractSubscription*)},
+	{"toDigit", "(I)I", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, toDigit, int32_t, int32_t), "java.io.IOException"},
+	{"tryConsumeBytes", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, tryConsumeBytes, int32_t, $ByteBuffer*), "java.io.IOException"},
+	{"tryPushOneHunk", "(Ljava/nio/ByteBuffer;Ljava/util/List;)Z", "(Ljava/nio/ByteBuffer;Ljava/util/List<Ljava/nio/ByteBuffer;>;)Z", $PRIVATE, $method(ResponseContent$ChunkedBodyParser, tryPushOneHunk, bool, $ByteBuffer*, $List*), "java.io.IOException"},
+	{"tryReadChunkLen", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(ResponseContent$ChunkedBodyParser, tryReadChunkLen, int32_t, $ByteBuffer*), "java.io.IOException"},
+	{"tryReadOneHunk", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, 0, $virtualMethod(ResponseContent$ChunkedBodyParser, tryReadOneHunk, $ByteBuffer*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

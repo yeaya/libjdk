@@ -30,8 +30,8 @@ $FieldInfo _Types$TypeProjection$TypeArgumentProjection$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$TypeProjection$TypeArgumentProjection$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection$TypeArgumentProjection;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(static_cast<void(Types$TypeProjection$TypeArgumentProjection$1::*)($Types$TypeProjection$TypeArgumentProjection*,$Type*,$BoundKind*,$Symbol$TypeSymbol*)>(&Types$TypeProjection$TypeArgumentProjection$1::init$))},
-	{"needsStripping", "()Z", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$TypeProjection$TypeArgumentProjection;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(Types$TypeProjection$TypeArgumentProjection$1, init$, void, $Types$TypeProjection$TypeArgumentProjection*, $Type*, $BoundKind*, $Symbol$TypeSymbol*)},
+	{"needsStripping", "()Z", nullptr, $PROTECTED, $virtualMethod(Types$TypeProjection$TypeArgumentProjection$1, needsStripping, bool)},
 	{}
 };
 

@@ -30,8 +30,8 @@ $FieldInfo _Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunct
 };
 
 $MethodInfo _Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(static_cast<void(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker$1::*)($Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker*,$ListBuffer*)>(&Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker$1::init$))},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, 0, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker$1, init$, void, $Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker*, $ListBuffer*)},
+	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker$1, visitReturn, void, $JCTree$JCReturn*)},
 	{}
 };
 

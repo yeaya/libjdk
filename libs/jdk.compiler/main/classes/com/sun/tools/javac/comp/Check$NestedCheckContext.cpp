@@ -34,12 +34,12 @@ $FieldInfo _Check$NestedCheckContext_FieldInfo_[] = {
 };
 
 $MethodInfo _Check$NestedCheckContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(static_cast<void(Check$NestedCheckContext::*)($Check$CheckContext*)>(&Check$NestedCheckContext::init$))},
-	{"checkWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC},
-	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC},
-	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(Check$NestedCheckContext, init$, void, $Check$CheckContext*)},
+	{"checkWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, checkWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, compatible, bool, $Type*, $Type*, $Warner*)},
+	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
+	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, inferenceContext, $InferenceContext*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Check$NestedCheckContext, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
 	{}
 };
 

@@ -25,9 +25,9 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _SignatureECDSA$SignatureECDSARIPEMD160_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SignatureECDSA$SignatureECDSARIPEMD160::*)()>(&SignatureECDSA$SignatureECDSARIPEMD160::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(static_cast<void(SignatureECDSA$SignatureECDSARIPEMD160::*)($Provider*)>(&SignatureECDSA$SignatureECDSARIPEMD160::init$)), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSARIPEMD160, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(SignatureECDSA$SignatureECDSARIPEMD160, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureECDSA$SignatureECDSARIPEMD160, engineGetURI, $String*)},
 	{}
 };
 

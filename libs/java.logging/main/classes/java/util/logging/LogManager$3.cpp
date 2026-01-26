@@ -24,8 +24,8 @@ $FieldInfo _LogManager$3_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V", "()V", 0, $method(static_cast<void(LogManager$3::*)($LogManager*,$Logger*,$Logger*)>(&LogManager$3::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;Ljava/util/logging/Logger;)V", "()V", 0, $method(LogManager$3, init$, void, $LogManager*, $Logger*, $Logger*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LogManager$3, run, $Object*)},
 	{}
 };
 

@@ -141,8 +141,8 @@ $FieldInfo TypeAnnotations$$Lambda$lambda$organizeTypeAnnotationsSignatures$0::f
 	{}
 };
 $MethodInfo TypeAnnotations$$Lambda$lambda$organizeTypeAnnotationsSignatures$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotations;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotations$$Lambda$lambda$organizeTypeAnnotationsSignatures$0::*)(TypeAnnotations*,$Env*,$JCTree$JCClassDecl*)>(&TypeAnnotations$$Lambda$lambda$organizeTypeAnnotationsSignatures$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotations;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $method(TypeAnnotations$$Lambda$lambda$organizeTypeAnnotationsSignatures$0, init$, void, TypeAnnotations*, $Env*, $JCTree$JCClassDecl*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TypeAnnotations$$Lambda$lambda$organizeTypeAnnotationsSignatures$0, run, void)},
 	{}
 };
 $ClassInfo TypeAnnotations$$Lambda$lambda$organizeTypeAnnotationsSignatures$0::classInfo$ = {
@@ -187,8 +187,8 @@ $FieldInfo TypeAnnotations$$Lambda$lambda$validateTypeAnnotationsSignatures$1$1:
 	{}
 };
 $MethodInfo TypeAnnotations$$Lambda$lambda$validateTypeAnnotationsSignatures$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotations;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotations$$Lambda$lambda$validateTypeAnnotationsSignatures$1$1::*)(TypeAnnotations*,$Env*,$JCTree$JCClassDecl*)>(&TypeAnnotations$$Lambda$lambda$validateTypeAnnotationsSignatures$1$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotations;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $method(TypeAnnotations$$Lambda$lambda$validateTypeAnnotationsSignatures$1$1, init$, void, TypeAnnotations*, $Env*, $JCTree$JCClassDecl*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TypeAnnotations$$Lambda$lambda$validateTypeAnnotationsSignatures$1$1, run, void)},
 	{}
 };
 $ClassInfo TypeAnnotations$$Lambda$lambda$validateTypeAnnotationsSignatures$1$1::classInfo$ = {
@@ -220,8 +220,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TypeAnnotations$$Lambda$lambda$annotationTargets$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotations$$Lambda$lambda$annotationTargets$2$2::*)()>(&TypeAnnotations$$Lambda$lambda$annotationTargets$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeAnnotations$$Lambda$lambda$annotationTargets$2$2, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotations$$Lambda$lambda$annotationTargets$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo TypeAnnotations$$Lambda$lambda$annotationTargets$2$2::classInfo$ = {
@@ -263,8 +263,8 @@ $FieldInfo TypeAnnotations$$Lambda$lambda$annotationTargetType$3$3::fieldInfos[3
 	{}
 };
 $MethodInfo TypeAnnotations$$Lambda$lambda$annotationTargetType$3$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotations;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotations$$Lambda$lambda$annotationTargetType$3$3::*)(TypeAnnotations*,$Symbol*)>(&TypeAnnotations$$Lambda$lambda$annotationTargetType$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotations;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(TypeAnnotations$$Lambda$lambda$annotationTargetType$3$3, init$, void, TypeAnnotations*, $Symbol*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TypeAnnotations$$Lambda$lambda$annotationTargetType$3$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TypeAnnotations$$Lambda$lambda$annotationTargetType$3$3::classInfo$ = {
@@ -303,8 +303,8 @@ $FieldInfo TypeAnnotations$$Lambda$combineAnnotationType$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo TypeAnnotations$$Lambda$combineAnnotationType$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotations;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotations$$Lambda$combineAnnotationType$4::*)(TypeAnnotations*)>(&TypeAnnotations$$Lambda$combineAnnotationType$4::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotations;)V", nullptr, $PUBLIC, $method(TypeAnnotations$$Lambda$combineAnnotationType$4, init$, void, TypeAnnotations*)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TypeAnnotations$$Lambda$combineAnnotationType$4, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo TypeAnnotations$$Lambda$combineAnnotationType$4::classInfo$ = {
@@ -332,19 +332,19 @@ $FieldInfo _TypeAnnotations_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeAnnotations_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(TypeAnnotations::*)($Context*)>(&TypeAnnotations::init$))},
-	{"annotationTargetType", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC},
-	{"annotationTargets", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;", $PUBLIC},
-	{"combineAnnotationType", "(Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE, $method(static_cast<$TypeAnnotations$AnnotationType*(TypeAnnotations::*)($TypeAnnotations$AnnotationType*,$TypeAnnotations$AnnotationType*)>(&TypeAnnotations::combineAnnotationType))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/TypeAnnotations;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeAnnotations*(*)($Context*)>(&TypeAnnotations::instance))},
-	{"lambda$annotationTargetType$3", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$TypeAnnotations$AnnotationType*(TypeAnnotations::*)($Symbol*,$Attribute*)>(&TypeAnnotations::lambda$annotationTargetType$3))},
-	{"lambda$annotationTargets$2", "(Lcom/sun/tools/javac/code/Attribute;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Attribute*)>(&TypeAnnotations::lambda$annotationTargets$2))},
-	{"lambda$organizeTypeAnnotationsSignatures$0", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(TypeAnnotations::*)($Env*,$JCTree$JCClassDecl*)>(&TypeAnnotations::lambda$organizeTypeAnnotationsSignatures$0))},
-	{"lambda$validateTypeAnnotationsSignatures$1", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(TypeAnnotations::*)($Env*,$JCTree$JCClassDecl*)>(&TypeAnnotations::lambda$validateTypeAnnotationsSignatures$1))},
-	{"organizeTypeAnnotationsBodies", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"organizeTypeAnnotationsSignatures", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", $PUBLIC},
-	{"targetToAnnotationType", "(Lcom/sun/tools/javac/code/Attribute;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE, $method(static_cast<$TypeAnnotations$AnnotationType*(TypeAnnotations::*)($Attribute*,$Symbol*)>(&TypeAnnotations::targetToAnnotationType))},
-	{"validateTypeAnnotationsSignatures", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(TypeAnnotations, init$, void, $Context*)},
+	{"annotationTargetType", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PUBLIC, $virtualMethod(TypeAnnotations, annotationTargetType, $TypeAnnotations$AnnotationType*, $Attribute$Compound*, $Symbol*)},
+	{"annotationTargets", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;", $PUBLIC, $virtualMethod(TypeAnnotations, annotationTargets, $List*, $Symbol$TypeSymbol*)},
+	{"combineAnnotationType", "(Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE, $method(TypeAnnotations, combineAnnotationType, $TypeAnnotations$AnnotationType*, $TypeAnnotations$AnnotationType*, $TypeAnnotations$AnnotationType*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/TypeAnnotations;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotations, instance, TypeAnnotations*, $Context*)},
+	{"lambda$annotationTargetType$3", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE | $SYNTHETIC, $method(TypeAnnotations, lambda$annotationTargetType$3, $TypeAnnotations$AnnotationType*, $Symbol*, $Attribute*)},
+	{"lambda$annotationTargets$2", "(Lcom/sun/tools/javac/code/Attribute;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeAnnotations, lambda$annotationTargets$2, bool, $Attribute*)},
+	{"lambda$organizeTypeAnnotationsSignatures$0", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(TypeAnnotations, lambda$organizeTypeAnnotationsSignatures$0, void, $Env*, $JCTree$JCClassDecl*)},
+	{"lambda$validateTypeAnnotationsSignatures$1", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(TypeAnnotations, lambda$validateTypeAnnotationsSignatures$1, void, $Env*, $JCTree$JCClassDecl*)},
+	{"organizeTypeAnnotationsBodies", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(TypeAnnotations, organizeTypeAnnotationsBodies, void, $JCTree$JCClassDecl*)},
+	{"organizeTypeAnnotationsSignatures", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", $PUBLIC, $virtualMethod(TypeAnnotations, organizeTypeAnnotationsSignatures, void, $Env*, $JCTree$JCClassDecl*)},
+	{"targetToAnnotationType", "(Lcom/sun/tools/javac/code/Attribute;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/TypeAnnotations$AnnotationType;", nullptr, $PRIVATE, $method(TypeAnnotations, targetToAnnotationType, $TypeAnnotations$AnnotationType*, $Attribute*, $Symbol*)},
+	{"validateTypeAnnotationsSignatures", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", $PUBLIC, $virtualMethod(TypeAnnotations, validateTypeAnnotationsSignatures, void, $Env*, $JCTree$JCClassDecl*)},
 	{}
 };
 

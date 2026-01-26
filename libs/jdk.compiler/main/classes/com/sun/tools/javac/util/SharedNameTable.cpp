@@ -40,13 +40,13 @@ $FieldInfo _SharedNameTable_FieldInfo_[] = {
 };
 
 $MethodInfo _SharedNameTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Names;II)V", nullptr, $PUBLIC, $method(static_cast<void(SharedNameTable::*)($Names*,int32_t,int32_t)>(&SharedNameTable::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, $PUBLIC, $method(static_cast<void(SharedNameTable::*)($Names*)>(&SharedNameTable::init$))},
-	{"create", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/SharedNameTable;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<SharedNameTable*(*)($Names*)>(&SharedNameTable::create))},
-	{"dispose", "(Lcom/sun/tools/javac/util/SharedNameTable;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)(SharedNameTable*)>(&SharedNameTable::dispose))},
-	{"dispose", "()V", nullptr, $PUBLIC},
-	{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Names;II)V", nullptr, $PUBLIC, $method(SharedNameTable, init$, void, $Names*, int32_t, int32_t)},
+	{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, $PUBLIC, $method(SharedNameTable, init$, void, $Names*)},
+	{"create", "(Lcom/sun/tools/javac/util/Names;)Lcom/sun/tools/javac/util/SharedNameTable;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(SharedNameTable, create, SharedNameTable*, $Names*)},
+	{"dispose", "(Lcom/sun/tools/javac/util/SharedNameTable;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SharedNameTable, dispose, void, SharedNameTable*)},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(SharedNameTable, dispose, void)},
+	{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(SharedNameTable, fromChars, $Name*, $chars*, int32_t, int32_t)},
+	{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(SharedNameTable, fromUtf, $Name*, $bytes*, int32_t, int32_t)},
 	{}
 };
 

@@ -16,8 +16,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Flags$Flag$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IJ)V", nullptr, $PRIVATE, $method(static_cast<void(Flags$Flag$1::*)($String*,int32_t,int64_t)>(&Flags$Flag$1::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;IJ)V", nullptr, $PRIVATE, $method(Flags$Flag$1, init$, void, $String*, int32_t, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Flags$Flag$1, toString, $String*)},
 	{}
 };
 

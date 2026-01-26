@@ -40,11 +40,11 @@ $FieldInfo _Main$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/launcher/Main;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/nio/file/Path;Ljava/lang/StringBuilder;)V", nullptr, 0, $method(static_cast<void(Main$1::*)($Main*,$URI*,$JavaFileObject$Kind*,$Path*,$StringBuilder*)>(&Main$1::init$))},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/launcher/Main;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/nio/file/Path;Ljava/lang/StringBuilder;)V", nullptr, 0, $method(Main$1, init$, void, $Main*, $URI*, $JavaFileObject$Kind*, $Path*, $StringBuilder*)},
+	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(Main$1, getCharContent, $CharSequence*, bool)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$1, getName, $String*)},
+	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(Main$1, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$1, toString, $String*)},
 	{}
 };
 

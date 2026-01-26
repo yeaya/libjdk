@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ConnectionEvent = ::javax::sql::ConnectionEvent;
 
 namespace javax {
 	namespace sql {
 
 $MethodInfo _ConnectionEventListener_MethodInfo_[] = {
-	{"connectionClosed", "(Ljavax/sql/ConnectionEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"connectionErrorOccurred", "(Ljavax/sql/ConnectionEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"connectionClosed", "(Ljavax/sql/ConnectionEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConnectionEventListener, connectionClosed, void, $ConnectionEvent*)},
+	{"connectionErrorOccurred", "(Ljavax/sql/ConnectionEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConnectionEventListener, connectionErrorOccurred, void, $ConnectionEvent*)},
 	{}
 };
 

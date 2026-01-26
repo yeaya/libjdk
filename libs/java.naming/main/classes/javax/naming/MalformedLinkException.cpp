@@ -17,8 +17,8 @@ $FieldInfo _MalformedLinkException_FieldInfo_[] = {
 };
 
 $MethodInfo _MalformedLinkException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MalformedLinkException::*)($String*)>(&MalformedLinkException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MalformedLinkException::*)()>(&MalformedLinkException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedLinkException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedLinkException, init$, void)},
 	{}
 };
 

@@ -27,11 +27,11 @@ $FieldInfo _NodeChangeEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _NodeChangeEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V", nullptr, $PUBLIC, $method(static_cast<void(NodeChangeEvent::*)($Preferences*,$Preferences*)>(&NodeChangeEvent::init$))},
-	{"getChild", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC},
-	{"getParent", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(NodeChangeEvent::*)($ObjectInputStream*)>(&NodeChangeEvent::readObject)), "java.io.NotSerializableException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(NodeChangeEvent::*)($ObjectOutputStream*)>(&NodeChangeEvent::writeObject)), "java.io.NotSerializableException"},
+	{"<init>", "(Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V", nullptr, $PUBLIC, $method(NodeChangeEvent, init$, void, $Preferences*, $Preferences*)},
+	{"getChild", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(NodeChangeEvent, getChild, $Preferences*)},
+	{"getParent", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(NodeChangeEvent, getParent, $Preferences*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(NodeChangeEvent, readObject, void, $ObjectInputStream*), "java.io.NotSerializableException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(NodeChangeEvent, writeObject, void, $ObjectOutputStream*), "java.io.NotSerializableException"},
 	{}
 };
 

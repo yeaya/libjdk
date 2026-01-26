@@ -34,10 +34,10 @@ $FieldInfo _MessageQueue$Type_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageQueue$Type_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MessageQueue$TypeArray*(*)()>(&MessageQueue$Type::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(MessageQueue$Type::*)($String*,int32_t)>(&MessageQueue$Type::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MessageQueue$Type*(*)($String*)>(&MessageQueue$Type::valueOf))},
-	{"values", "()[Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MessageQueue$TypeArray*(*)()>(&MessageQueue$Type::values))},
+	{"$values", "()[Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MessageQueue$Type, $values, $MessageQueue$TypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MessageQueue$Type, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageQueue$Type, valueOf, MessageQueue$Type*, $String*)},
+	{"values", "()[Ljdk/internal/net/http/websocket/MessageQueue$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(MessageQueue$Type, values, $MessageQueue$TypeArray*)},
 	{}
 };
 

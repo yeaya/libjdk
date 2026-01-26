@@ -23,8 +23,8 @@ $FieldInfo _UnicastServerRef$HashToMethod_Maps$1_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicastServerRef$HashToMethod_Maps$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/server/UnicastServerRef$HashToMethod_Maps;Ljava/lang/reflect/Method;)V", "()V", 0, $method(static_cast<void(UnicastServerRef$HashToMethod_Maps$1::*)($UnicastServerRef$HashToMethod_Maps*,$Method*)>(&UnicastServerRef$HashToMethod_Maps$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/server/UnicastServerRef$HashToMethod_Maps;Ljava/lang/reflect/Method;)V", "()V", 0, $method(UnicastServerRef$HashToMethod_Maps$1, init$, void, $UnicastServerRef$HashToMethod_Maps*, $Method*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$HashToMethod_Maps$1, run, $Object*)},
 	{}
 };
 

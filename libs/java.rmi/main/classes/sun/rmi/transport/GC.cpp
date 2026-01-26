@@ -35,11 +35,11 @@ $FieldInfo _GC_FieldInfo_[] = {
 };
 
 $MethodInfo _GC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(GC::*)()>(&GC::init$))},
-	{"currentLatencyTarget", "()J", nullptr, $PUBLIC | $STATIC, $method(static_cast<int64_t(*)()>(&GC::currentLatencyTarget))},
-	{"maxObjectInspectionAge", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $method(static_cast<int64_t(*)()>(&GC::maxObjectInspectionAge))},
-	{"requestLatency", "(J)Lsun/rmi/transport/GC$LatencyRequest;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$GC$LatencyRequest*(*)(int64_t)>(&GC::requestLatency))},
-	{"setLatencyTarget", "(J)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int64_t)>(&GC::setLatencyTarget))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(GC, init$, void)},
+	{"currentLatencyTarget", "()J", nullptr, $PUBLIC | $STATIC, $staticMethod(GC, currentLatencyTarget, int64_t)},
+	{"maxObjectInspectionAge", "()J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(GC, maxObjectInspectionAge, int64_t)},
+	{"requestLatency", "(J)Lsun/rmi/transport/GC$LatencyRequest;", nullptr, $PUBLIC | $STATIC, $staticMethod(GC, requestLatency, $GC$LatencyRequest*, int64_t)},
+	{"setLatencyTarget", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GC, setLatencyTarget, void, int64_t)},
 	{}
 };
 

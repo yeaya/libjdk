@@ -22,9 +22,9 @@ namespace sun {
 		namespace httpserver {
 
 $MethodInfo _DefaultHttpServerProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultHttpServerProvider::*)()>(&DefaultHttpServerProvider::init$))},
-	{"createHttpServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"createHttpsServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpsServer;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultHttpServerProvider, init$, void)},
+	{"createHttpServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC, $virtualMethod(DefaultHttpServerProvider, createHttpServer, $HttpServer*, $InetSocketAddress*, int32_t), "java.io.IOException"},
+	{"createHttpsServer", "(Ljava/net/InetSocketAddress;I)Lcom/sun/net/httpserver/HttpsServer;", nullptr, $PUBLIC, $virtualMethod(DefaultHttpServerProvider, createHttpsServer, $HttpsServer*, $InetSocketAddress*, int32_t), "java.io.IOException"},
 	{}
 };
 

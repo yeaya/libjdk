@@ -28,13 +28,13 @@ $FieldInfo _NaiveHuffman$Node_FieldInfo_[] = {
 };
 
 $MethodInfo _NaiveHuffman$Node_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(NaiveHuffman$Node::*)()>(&NaiveHuffman$Node::init$))},
-	{"addChildIfAbsent", "(I)Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0},
-	{"getChar", "()C", nullptr, 0},
-	{"getChild", "(I)Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0},
-	{"isLeaf", "()Z", nullptr, 0},
-	{"setChar", "(C)V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(NaiveHuffman$Node, init$, void)},
+	{"addChildIfAbsent", "(I)Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $virtualMethod(NaiveHuffman$Node, addChildIfAbsent, NaiveHuffman$Node*, int32_t)},
+	{"getChar", "()C", nullptr, 0, $virtualMethod(NaiveHuffman$Node, getChar, char16_t)},
+	{"getChild", "(I)Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, 0, $virtualMethod(NaiveHuffman$Node, getChild, NaiveHuffman$Node*, int32_t)},
+	{"isLeaf", "()Z", nullptr, 0, $virtualMethod(NaiveHuffman$Node, isLeaf, bool)},
+	{"setChar", "(C)V", nullptr, 0, $virtualMethod(NaiveHuffman$Node, setChar, void, char16_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Node, toString, $String*)},
 	{}
 };
 

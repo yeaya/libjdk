@@ -45,17 +45,17 @@ $FieldInfo _SslRMIServerSocketFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _SslRMIServerSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SslRMIServerSocketFactory::*)()>(&SslRMIServerSocketFactory::init$))},
-	{"<init>", "([Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(SslRMIServerSocketFactory::*)($StringArray*,$StringArray*,bool)>(&SslRMIServerSocketFactory::init$)), "java.lang.IllegalArgumentException"},
-	{"<init>", "(Ljavax/net/ssl/SSLContext;[Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(SslRMIServerSocketFactory::*)($SSLContext*,$StringArray*,$StringArray*,bool)>(&SslRMIServerSocketFactory::init$)), "java.lang.IllegalArgumentException"},
-	{"checkParameters", "(Ljavax/rmi/ssl/SslRMIServerSocketFactory;)Z", nullptr, $PRIVATE, $method(static_cast<bool(SslRMIServerSocketFactory::*)(SslRMIServerSocketFactory*)>(&SslRMIServerSocketFactory::checkParameters))},
-	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getDefaultSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<$SSLSocketFactory*(*)()>(&SslRMIServerSocketFactory::getDefaultSSLSocketFactory))},
-	{"getEnabledCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$StringArray*(SslRMIServerSocketFactory::*)()>(&SslRMIServerSocketFactory::getEnabledCipherSuites))},
-	{"getEnabledProtocols", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$StringArray*(SslRMIServerSocketFactory::*)()>(&SslRMIServerSocketFactory::getEnabledProtocols))},
-	{"getNeedClientAuth", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(SslRMIServerSocketFactory::*)()>(&SslRMIServerSocketFactory::getNeedClientAuth))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SslRMIServerSocketFactory, init$, void)},
+	{"<init>", "([Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SslRMIServerSocketFactory, init$, void, $StringArray*, $StringArray*, bool), "java.lang.IllegalArgumentException"},
+	{"<init>", "(Ljavax/net/ssl/SSLContext;[Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(SslRMIServerSocketFactory, init$, void, $SSLContext*, $StringArray*, $StringArray*, bool), "java.lang.IllegalArgumentException"},
+	{"checkParameters", "(Ljavax/rmi/ssl/SslRMIServerSocketFactory;)Z", nullptr, $PRIVATE, $method(SslRMIServerSocketFactory, checkParameters, bool, SslRMIServerSocketFactory*)},
+	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory, equals, bool, Object$*)},
+	{"getDefaultSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SslRMIServerSocketFactory, getDefaultSSLSocketFactory, $SSLSocketFactory*)},
+	{"getEnabledCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SslRMIServerSocketFactory, getEnabledCipherSuites, $StringArray*)},
+	{"getEnabledProtocols", "()[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SslRMIServerSocketFactory, getEnabledProtocols, $StringArray*)},
+	{"getNeedClientAuth", "()Z", nullptr, $PUBLIC | $FINAL, $method(SslRMIServerSocketFactory, getNeedClientAuth, bool)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory, hashCode, int32_t)},
 	{}
 };
 

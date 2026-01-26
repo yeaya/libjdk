@@ -186,14 +186,14 @@ $FieldInfo _Names_FieldInfo_[] = {
 };
 
 $MethodInfo _Names_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(static_cast<void(Names::*)($Context*)>(&Names::init$))},
-	{"createTable", "(Lcom/sun/tools/javac/util/Options;)Lcom/sun/tools/javac/util/Name$Table;", nullptr, $PROTECTED},
-	{"dispose", "()V", nullptr, $PUBLIC},
-	{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"fromString", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"fromUtf", "([B)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/Names;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Names*(*)($Context*)>(&Names::instance))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $method(Names, init$, void, $Context*)},
+	{"createTable", "(Lcom/sun/tools/javac/util/Options;)Lcom/sun/tools/javac/util/Name$Table;", nullptr, $PROTECTED, $virtualMethod(Names, createTable, $Name$Table*, $Options*)},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Names, dispose, void)},
+	{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Names, fromChars, $Name*, $chars*, int32_t, int32_t)},
+	{"fromString", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Names, fromString, $Name*, $String*)},
+	{"fromUtf", "([B)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Names, fromUtf, $Name*, $bytes*)},
+	{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Names, fromUtf, $Name*, $bytes*, int32_t, int32_t)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/Names;", nullptr, $PUBLIC | $STATIC, $staticMethod(Names, instance, Names*, $Context*)},
 	{}
 };
 

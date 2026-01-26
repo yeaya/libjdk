@@ -10,11 +10,11 @@ namespace java {
 		namespace management {
 
 $MethodInfo _ClassLoadingMXBean_MethodInfo_[] = {
-	{"getLoadedClassCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTotalLoadedClassCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getUnloadedClassCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"isVerbose", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"setVerbose", "(Z)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"getLoadedClassCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClassLoadingMXBean, getLoadedClassCount, int32_t)},
+	{"getTotalLoadedClassCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClassLoadingMXBean, getTotalLoadedClassCount, int64_t)},
+	{"getUnloadedClassCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClassLoadingMXBean, getUnloadedClassCount, int64_t)},
+	{"isVerbose", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClassLoadingMXBean, isVerbose, bool)},
+	{"setVerbose", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClassLoadingMXBean, setVerbose, void, bool)},
 	{}
 };
 

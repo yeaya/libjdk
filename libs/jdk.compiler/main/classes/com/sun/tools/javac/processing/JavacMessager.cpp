@@ -69,19 +69,19 @@ $FieldInfo _JavacMessager_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacMessager_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;)V", nullptr, 0, $method(static_cast<void(JavacMessager::*)($Context*,$JavacProcessingEnvironment*)>(&JavacMessager::init$))},
-	{"errorCount", "()I", nullptr, $PUBLIC},
-	{"errorRaised", "()Z", nullptr, $PUBLIC},
-	{"newRound", "()V", nullptr, $PUBLIC},
-	{"printError", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)V", nullptr, $PUBLIC},
-	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)V", nullptr, $PUBLIC},
-	{"printNotice", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"printWarning", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"warningCount", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;)V", nullptr, 0, $method(JavacMessager, init$, void, $Context*, $JavacProcessingEnvironment*)},
+	{"errorCount", "()I", nullptr, $PUBLIC, $virtualMethod(JavacMessager, errorCount, int32_t)},
+	{"errorRaised", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacMessager, errorRaised, bool)},
+	{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, newRound, void)},
+	{"printError", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printError, void, $String*)},
+	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*)},
+	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*)},
+	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*)},
+	{"printMessage", "(Ljavax/tools/Diagnostic$Kind;Ljava/lang/CharSequence;Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printMessage, void, $Diagnostic$Kind*, $CharSequence*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
+	{"printNotice", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printNotice, void, $String*)},
+	{"printWarning", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacMessager, printWarning, void, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacMessager, toString, $String*)},
+	{"warningCount", "()I", nullptr, $PUBLIC, $virtualMethod(JavacMessager, warningCount, int32_t)},
 	{}
 };
 

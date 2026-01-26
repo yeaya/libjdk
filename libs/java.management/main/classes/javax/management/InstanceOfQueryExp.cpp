@@ -38,11 +38,11 @@ $MethodInfo _InstanceOfQueryExp_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/management/StringValueExp;)V", nullptr, $PUBLIC, $method(static_cast<void(InstanceOfQueryExp::*)($StringValueExp*)>(&InstanceOfQueryExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getClassNameValue", "()Ljavax/management/StringValueExp;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/StringValueExp;)V", nullptr, $PUBLIC, $method(InstanceOfQueryExp, init$, void, $StringValueExp*)},
+	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(InstanceOfQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"getClassNameValue", "()Ljavax/management/StringValueExp;", nullptr, $PUBLIC, $virtualMethod(InstanceOfQueryExp, getClassNameValue, $StringValueExp*)},
 	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstanceOfQueryExp, toString, $String*)},
 	{}
 };
 

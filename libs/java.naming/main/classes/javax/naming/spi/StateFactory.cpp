@@ -7,13 +7,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Hashtable = ::java::util::Hashtable;
+using $Context = ::javax::naming::Context;
+using $Name = ::javax::naming::Name;
 
 namespace javax {
 	namespace naming {
 		namespace spi {
 
 $MethodInfo _StateFactory_MethodInfo_[] = {
-	{"getStateToBind", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"getStateToBind", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC | $ABSTRACT, $virtualMethod(StateFactory, getStateToBind, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "javax.naming.NamingException"},
 	{}
 };
 

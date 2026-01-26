@@ -102,15 +102,15 @@ $FieldInfo _ApacheCanonicalizer_FieldInfo_[] = {
 };
 
 $MethodInfo _ApacheCanonicalizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ApacheCanonicalizer::*)()>(&ApacheCanonicalizer::init$))},
-	{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.dsig.TransformException"},
-	{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.dsig.TransformException"},
-	{"getC14nBytes", "(Ljava/io/OutputStream;Z)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(ApacheCanonicalizer::*)($OutputStream*,bool)>(&ApacheCanonicalizer::getC14nBytes))},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.MarshalException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.dsig.TransformException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ApacheCanonicalizer, init$, void)},
+	{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, canonicalize, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+	{"canonicalize", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, canonicalize, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
+	{"getC14nBytes", "(Ljava/io/OutputStream;Z)[B", nullptr, $PRIVATE, $method(ApacheCanonicalizer, getC14nBytes, $bytes*, $OutputStream*, bool)},
+	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheCanonicalizer, getParameterSpec, $AlgorithmParameterSpec*)},
+	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheCanonicalizer, isFeatureSupported, bool, $String*)},
+	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheCanonicalizer, transform, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
 	{}
 };
 

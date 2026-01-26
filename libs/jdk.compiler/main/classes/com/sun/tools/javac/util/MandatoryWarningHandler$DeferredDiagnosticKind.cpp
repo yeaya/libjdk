@@ -33,11 +33,11 @@ $FieldInfo _MandatoryWarningHandler$DeferredDiagnosticKind_FieldInfo_[] = {
 };
 
 $MethodInfo _MandatoryWarningHandler$DeferredDiagnosticKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$MandatoryWarningHandler$DeferredDiagnosticKindArray*(*)()>(&MandatoryWarningHandler$DeferredDiagnosticKind::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(MandatoryWarningHandler$DeferredDiagnosticKind::*)($String*,int32_t,$String*)>(&MandatoryWarningHandler$DeferredDiagnosticKind::init$))},
-	{"getKey", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(MandatoryWarningHandler$DeferredDiagnosticKind::*)($String*)>(&MandatoryWarningHandler$DeferredDiagnosticKind::getKey))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<MandatoryWarningHandler$DeferredDiagnosticKind*(*)($String*)>(&MandatoryWarningHandler$DeferredDiagnosticKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MandatoryWarningHandler$DeferredDiagnosticKindArray*(*)()>(&MandatoryWarningHandler$DeferredDiagnosticKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MandatoryWarningHandler$DeferredDiagnosticKind, $values, $MandatoryWarningHandler$DeferredDiagnosticKindArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(MandatoryWarningHandler$DeferredDiagnosticKind, init$, void, $String*, int32_t, $String*)},
+	{"getKey", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(MandatoryWarningHandler$DeferredDiagnosticKind, getKey, $String*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MandatoryWarningHandler$DeferredDiagnosticKind, valueOf, MandatoryWarningHandler$DeferredDiagnosticKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MandatoryWarningHandler$DeferredDiagnosticKind, values, $MandatoryWarningHandler$DeferredDiagnosticKindArray*)},
 	{}
 };
 

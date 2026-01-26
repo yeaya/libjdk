@@ -28,8 +28,8 @@ $FieldInfo _FileSystemPreferences$4$1_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemPreferences$4$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences$4;Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JZ)V", nullptr, 0, $method(static_cast<void(FileSystemPreferences$4$1::*)($FileSystemPreferences$4*,$ThreadGroup*,$Runnable*,$String*,int64_t,bool)>(&FileSystemPreferences$4$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/prefs/FileSystemPreferences$4;Ljava/lang/ThreadGroup;Ljava/lang/Runnable;Ljava/lang/String;JZ)V", nullptr, 0, $method(FileSystemPreferences$4$1, init$, void, $FileSystemPreferences$4*, $ThreadGroup*, $Runnable*, $String*, int64_t, bool)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferences$4$1, run, void)},
 	{}
 };
 

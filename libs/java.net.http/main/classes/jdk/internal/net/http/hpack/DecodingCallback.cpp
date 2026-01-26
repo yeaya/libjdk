@@ -20,16 +20,16 @@ $CompoundAttribute _DecodingCallback_Annotations_[] = {
 };
 
 $MethodInfo _DecodingCallback_MethodInfo_[] = {
-	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC},
-	{"onIndexed", "(ILjava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC},
-	{"onLiteral", "(ILjava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC},
-	{"onLiteral", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC},
-	{"onLiteralNeverIndexed", "(ILjava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC},
-	{"onLiteralNeverIndexed", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC},
-	{"onLiteralWithIndexing", "(ILjava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC},
-	{"onLiteralWithIndexing", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC},
-	{"onSizeUpdate", "(I)V", nullptr, $PUBLIC},
+	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DecodingCallback, onDecoded, void, $CharSequence*, $CharSequence*)},
+	{"onDecoded", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $virtualMethod(DecodingCallback, onDecoded, void, $CharSequence*, $CharSequence*, bool)},
+	{"onIndexed", "(ILjava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(DecodingCallback, onIndexed, void, int32_t, $CharSequence*, $CharSequence*)},
+	{"onLiteral", "(ILjava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $virtualMethod(DecodingCallback, onLiteral, void, int32_t, $CharSequence*, $CharSequence*, bool)},
+	{"onLiteral", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $virtualMethod(DecodingCallback, onLiteral, void, $CharSequence*, bool, $CharSequence*, bool)},
+	{"onLiteralNeverIndexed", "(ILjava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $virtualMethod(DecodingCallback, onLiteralNeverIndexed, void, int32_t, $CharSequence*, $CharSequence*, bool)},
+	{"onLiteralNeverIndexed", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $virtualMethod(DecodingCallback, onLiteralNeverIndexed, void, $CharSequence*, bool, $CharSequence*, bool)},
+	{"onLiteralWithIndexing", "(ILjava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $virtualMethod(DecodingCallback, onLiteralWithIndexing, void, int32_t, $CharSequence*, $CharSequence*, bool)},
+	{"onLiteralWithIndexing", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $virtualMethod(DecodingCallback, onLiteralWithIndexing, void, $CharSequence*, bool, $CharSequence*, bool)},
+	{"onSizeUpdate", "(I)V", nullptr, $PUBLIC, $virtualMethod(DecodingCallback, onSizeUpdate, void, int32_t)},
 	{}
 };
 

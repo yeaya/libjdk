@@ -60,15 +60,15 @@ $FieldInfo _PerInterface_FieldInfo_[] = {
 };
 
 $MethodInfo _PerInterface_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanIntrospector;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;Ljavax/management/MBeanInfo;)V", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<TM;>;Ljavax/management/MBeanInfo;)V", 0, $method(static_cast<void(PerInterface::*)($Class*,$MBeanIntrospector*,$MBeanAnalyzer*,$MBeanInfo*)>(&PerInterface::init$))},
-	{"getAttribute", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(static_cast<$Object*(PerInterface::*)(Object$*,$String*,Object$*)>(&PerInterface::getAttribute)), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, 0, $method(static_cast<$MBeanInfo*(PerInterface::*)()>(&PerInterface::getMBeanInfo))},
-	{"getMBeanInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(static_cast<$Class*(PerInterface::*)()>(&PerInterface::getMBeanInterface))},
-	{"invoke", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(static_cast<$Object*(PerInterface::*)(Object$*,$String*,$ObjectArray*,$StringArray*,Object$*)>(&PerInterface::invoke)), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"isMXBean", "()Z", nullptr, 0, $method(static_cast<bool(PerInterface::*)()>(&PerInterface::isMXBean))},
-	{"noSuchMethod", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(PerInterface::*)($String*,Object$*,$String*,$ObjectArray*,$StringArray*,Object$*)>(&PerInterface::noSuchMethod)), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"setAttribute", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(PerInterface::*)(Object$*,$String*,Object$*,Object$*)>(&PerInterface::setAttribute)), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"sigString", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(PerInterface::*)($StringArray*)>(&PerInterface::sigString))},
+	{"<init>", "(Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MBeanIntrospector;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer;Ljavax/management/MBeanInfo;)V", "(Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MBeanIntrospector<TM;>;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer<TM;>;Ljavax/management/MBeanInfo;)V", 0, $method(PerInterface, init$, void, $Class*, $MBeanIntrospector*, $MBeanAnalyzer*, $MBeanInfo*)},
+	{"getAttribute", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(PerInterface, getAttribute, $Object*, Object$*, $String*, Object$*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
+	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, 0, $method(PerInterface, getMBeanInfo, $MBeanInfo*)},
+	{"getMBeanInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $method(PerInterface, getMBeanInterface, $Class*)},
+	{"invoke", "(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(PerInterface, invoke, $Object*, Object$*, $String*, $ObjectArray*, $StringArray*, Object$*), "javax.management.MBeanException,javax.management.ReflectionException"},
+	{"isMXBean", "()Z", nullptr, 0, $method(PerInterface, isMXBean, bool)},
+	{"noSuchMethod", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(PerInterface, noSuchMethod, $Object*, $String*, Object$*, $String*, $ObjectArray*, $StringArray*, Object$*), "javax.management.MBeanException,javax.management.ReflectionException"},
+	{"setAttribute", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(PerInterface, setAttribute, void, Object$*, $String*, Object$*, Object$*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
+	{"sigString", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PerInterface, sigString, $String*, $StringArray*)},
 	{}
 };
 

@@ -28,8 +28,8 @@ namespace com {
 			namespace ldap {
 
 $MethodInfo _DefaultLdapDnsProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultLdapDnsProvider::*)()>(&DefaultLdapDnsProvider::init$))},
-	{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/Map<**>;)Ljava/util/Optional<Ljavax/naming/ldap/spi/LdapDnsProviderResult;>;", $PUBLIC, nullptr, "javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultLdapDnsProvider, init$, void)},
+	{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/Map<**>;)Ljava/util/Optional<Ljavax/naming/ldap/spi/LdapDnsProviderResult;>;", $PUBLIC, $virtualMethod(DefaultLdapDnsProvider, lookupEndpoints, $Optional*, $String*, $Map*), "javax.naming.NamingException"},
 	{}
 };
 

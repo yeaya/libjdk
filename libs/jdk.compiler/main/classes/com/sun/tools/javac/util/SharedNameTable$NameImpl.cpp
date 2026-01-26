@@ -27,14 +27,14 @@ $FieldInfo _SharedNameTable$NameImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _SharedNameTable$NameImpl_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/SharedNameTable;)V", nullptr, 0, $method(static_cast<void(SharedNameTable$NameImpl::*)($SharedNameTable*)>(&SharedNameTable$NameImpl::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getByteArray", "()[B", nullptr, $PUBLIC},
-	{"getByteAt", "(I)B", nullptr, $PUBLIC},
-	{"getByteLength", "()I", nullptr, $PUBLIC},
-	{"getByteOffset", "()I", nullptr, $PUBLIC},
-	{"getIndex", "()I", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/SharedNameTable;)V", nullptr, 0, $method(SharedNameTable$NameImpl, init$, void, $SharedNameTable*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SharedNameTable$NameImpl, equals, bool, Object$*)},
+	{"getByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(SharedNameTable$NameImpl, getByteArray, $bytes*)},
+	{"getByteAt", "(I)B", nullptr, $PUBLIC, $virtualMethod(SharedNameTable$NameImpl, getByteAt, int8_t, int32_t)},
+	{"getByteLength", "()I", nullptr, $PUBLIC, $virtualMethod(SharedNameTable$NameImpl, getByteLength, int32_t)},
+	{"getByteOffset", "()I", nullptr, $PUBLIC, $virtualMethod(SharedNameTable$NameImpl, getByteOffset, int32_t)},
+	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(SharedNameTable$NameImpl, getIndex, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SharedNameTable$NameImpl, hashCode, int32_t)},
 	{}
 };
 

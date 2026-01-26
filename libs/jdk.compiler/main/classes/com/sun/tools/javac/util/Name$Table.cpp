@@ -23,14 +23,14 @@ $FieldInfo _Name$Table_FieldInfo_[] = {
 };
 
 $MethodInfo _Name$Table_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, 0, $method(static_cast<void(Name$Table::*)($Names*)>(&Name$Table::init$))},
-	{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"equals", "([BI[BII)Z", nullptr, $PROTECTED | $STATIC, $method(static_cast<bool(*)($bytes*,int32_t,$bytes*,int32_t,int32_t)>(&Name$Table::equals))},
-	{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"fromString", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"fromUtf", "([B)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashValue", "([BII)I", nullptr, $PROTECTED | $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t,int32_t)>(&Name$Table::hashValue))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Names;)V", nullptr, 0, $method(Name$Table, init$, void, $Names*)},
+	{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name$Table, dispose, void)},
+	{"equals", "([BI[BII)Z", nullptr, $PROTECTED | $STATIC, $staticMethod(Name$Table, equals, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+	{"fromChars", "([CII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name$Table, fromChars, $Name*, $chars*, int32_t, int32_t)},
+	{"fromString", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name$Table, fromString, $Name*, $String*)},
+	{"fromUtf", "([B)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name$Table, fromUtf, $Name*, $bytes*)},
+	{"fromUtf", "([BII)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name$Table, fromUtf, $Name*, $bytes*, int32_t, int32_t)},
+	{"hashValue", "([BII)I", nullptr, $PROTECTED | $STATIC, $staticMethod(Name$Table, hashValue, int32_t, $bytes*, int32_t, int32_t)},
 	{}
 };
 

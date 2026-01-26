@@ -47,12 +47,12 @@ $FieldInfo _CompileStates$CompileState_FieldInfo_[] = {
 };
 
 $MethodInfo _CompileStates$CompileState_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CompileStates$CompileStateArray*(*)()>(&CompileStates$CompileState::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(CompileStates$CompileState::*)($String*,int32_t,int32_t)>(&CompileStates$CompileState::init$))},
-	{"isAfter", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", nullptr, $PUBLIC, $method(static_cast<bool(CompileStates$CompileState::*)(CompileStates$CompileState*)>(&CompileStates$CompileState::isAfter))},
-	{"max", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CompileStates$CompileState*(*)(CompileStates$CompileState*,CompileStates$CompileState*)>(&CompileStates$CompileState::max))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<CompileStates$CompileState*(*)($String*)>(&CompileStates$CompileState::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CompileStates$CompileStateArray*(*)()>(&CompileStates$CompileState::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CompileStates$CompileState, $values, $CompileStates$CompileStateArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(CompileStates$CompileState, init$, void, $String*, int32_t, int32_t)},
+	{"isAfter", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Z", nullptr, $PUBLIC, $method(CompileStates$CompileState, isAfter, bool, CompileStates$CompileState*)},
+	{"max", "(Lcom/sun/tools/javac/comp/CompileStates$CompileState;Lcom/sun/tools/javac/comp/CompileStates$CompileState;)Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates$CompileState, max, CompileStates$CompileState*, CompileStates$CompileState*, CompileStates$CompileState*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates$CompileState, valueOf, CompileStates$CompileState*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/CompileStates$CompileState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CompileStates$CompileState, values, $CompileStates$CompileStateArray*)},
 	{}
 };
 

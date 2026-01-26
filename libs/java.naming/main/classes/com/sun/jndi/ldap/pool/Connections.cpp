@@ -65,20 +65,20 @@ $FieldInfo _Connections_FieldInfo_[] = {
 };
 
 $MethodInfo _Connections_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;IIILcom/sun/jndi/ldap/pool/PooledConnectionFactory;)V", nullptr, 0, $method(static_cast<void(Connections::*)(Object$*,int32_t,int32_t,int32_t,$PooledConnectionFactory*)>(&Connections::init$)), "javax.naming.NamingException"},
-	{"close", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(Connections::*)()>(&Connections::close))},
-	{"d", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(Connections::*)($String*,Object$*)>(&Connections::d))},
-	{"d", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Connections::*)($String*,int32_t)>(&Connections::d))},
-	{"d", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Connections::*)($String*)>(&Connections::d))},
-	{"expire", "(J)Z", nullptr, 0, $method(static_cast<bool(Connections::*)(int64_t)>(&Connections::expire))},
-	{"get", "(JLcom/sun/jndi/ldap/pool/PooledConnectionFactory;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $SYNCHRONIZED, $method(static_cast<$PooledConnection*(Connections::*)(int64_t,$PooledConnectionFactory*)>(&Connections::get)), "javax.naming.NamingException"},
-	{"getOrCreateConnection", "(Lcom/sun/jndi/ldap/pool/PooledConnectionFactory;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PRIVATE, $method(static_cast<$PooledConnection*(Connections::*)($PooledConnectionFactory*)>(&Connections::getOrCreateConnection)), "javax.naming.NamingException"},
-	{"getStats", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(Connections::*)()>(&Connections::getStats))},
-	{"releasePooledConnection", "(Lcom/sun/jndi/ldap/pool/PooledConnection;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"removePooledConnection", "(Lcom/sun/jndi/ldap/pool/PooledConnection;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"td", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(Connections::*)($String*,Object$*,Object$*)>(&Connections::td))},
-	{"td", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(Connections::*)($String*,Object$*)>(&Connections::td))},
-	{"td", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Connections::*)($String*)>(&Connections::td))},
+	{"<init>", "(Ljava/lang/Object;IIILcom/sun/jndi/ldap/pool/PooledConnectionFactory;)V", nullptr, 0, $method(Connections, init$, void, Object$*, int32_t, int32_t, int32_t, $PooledConnectionFactory*), "javax.naming.NamingException"},
+	{"close", "()V", nullptr, $SYNCHRONIZED, $method(Connections, close, void)},
+	{"d", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Connections, d, void, $String*, Object$*)},
+	{"d", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Connections, d, void, $String*, int32_t)},
+	{"d", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Connections, d, void, $String*)},
+	{"expire", "(J)Z", nullptr, 0, $method(Connections, expire, bool, int64_t)},
+	{"get", "(JLcom/sun/jndi/ldap/pool/PooledConnectionFactory;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $SYNCHRONIZED, $method(Connections, get, $PooledConnection*, int64_t, $PooledConnectionFactory*), "javax.naming.NamingException"},
+	{"getOrCreateConnection", "(Lcom/sun/jndi/ldap/pool/PooledConnectionFactory;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PRIVATE, $method(Connections, getOrCreateConnection, $PooledConnection*, $PooledConnectionFactory*), "javax.naming.NamingException"},
+	{"getStats", "()Ljava/lang/String;", nullptr, 0, $method(Connections, getStats, $String*)},
+	{"releasePooledConnection", "(Lcom/sun/jndi/ldap/pool/PooledConnection;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Connections, releasePooledConnection, bool, $PooledConnection*)},
+	{"removePooledConnection", "(Lcom/sun/jndi/ldap/pool/PooledConnection;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Connections, removePooledConnection, bool, $PooledConnection*)},
+	{"td", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Connections, td, void, $String*, Object$*, Object$*)},
+	{"td", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Connections, td, void, $String*, Object$*)},
+	{"td", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Connections, td, void, $String*)},
 	{}
 };
 

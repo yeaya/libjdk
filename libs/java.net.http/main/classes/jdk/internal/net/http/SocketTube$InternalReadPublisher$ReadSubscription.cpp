@@ -49,11 +49,11 @@ $FieldInfo _SocketTube$InternalReadPublisher$ReadSubscription_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketTube$InternalReadPublisher$ReadSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher;Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$InternalReadPublisher$ReadSubscription::*)($SocketTube$InternalReadPublisher*,$SocketTube$InternalReadPublisher$InternalReadSubscription*,$FlowTube$TubeSubscriber*)>(&SocketTube$InternalReadPublisher$ReadSubscription::init$))},
-	{"cancel", "()V", nullptr, $PUBLIC},
-	{"request", "(J)V", nullptr, $PUBLIC},
-	{"signalCompletion", "()V", nullptr, 0, $method(static_cast<void(SocketTube$InternalReadPublisher$ReadSubscription::*)()>(&SocketTube$InternalReadPublisher$ReadSubscription::signalCompletion))},
-	{"signalOnSubscribe", "()V", nullptr, 0, $method(static_cast<void(SocketTube$InternalReadPublisher$ReadSubscription::*)()>(&SocketTube$InternalReadPublisher$ReadSubscription::signalOnSubscribe))},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher;Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;)V", nullptr, $PUBLIC, $method(SocketTube$InternalReadPublisher$ReadSubscription, init$, void, $SocketTube$InternalReadPublisher*, $SocketTube$InternalReadPublisher$InternalReadSubscription*, $FlowTube$TubeSubscriber*)},
+	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$ReadSubscription, cancel, void)},
+	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher$ReadSubscription, request, void, int64_t)},
+	{"signalCompletion", "()V", nullptr, 0, $method(SocketTube$InternalReadPublisher$ReadSubscription, signalCompletion, void)},
+	{"signalOnSubscribe", "()V", nullptr, 0, $method(SocketTube$InternalReadPublisher$ReadSubscription, signalOnSubscribe, void)},
 	{}
 };
 

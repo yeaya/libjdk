@@ -11,20 +11,27 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
+using $Map = ::java::util::Map;
+using $Filer = ::javax::annotation::processing::Filer;
+using $Messager = ::javax::annotation::processing::Messager;
+using $SourceVersion = ::javax::lang::model::SourceVersion;
+using $Elements = ::javax::lang::model::util::Elements;
+using $Types = ::javax::lang::model::util::Types;
 
 namespace javax {
 	namespace annotation {
 		namespace processing {
 
 $MethodInfo _ProcessingEnvironment_MethodInfo_[] = {
-	{"getElementUtils", "()Ljavax/lang/model/util/Elements;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getFiler", "()Ljavax/annotation/processing/Filer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMessager", "()Ljavax/annotation/processing/Messager;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
-	{"getSourceVersion", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTypeUtils", "()Ljavax/lang/model/util/Types;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isPreviewEnabled", "()Z", nullptr, $PUBLIC},
+	{"getElementUtils", "()Ljavax/lang/model/util/Elements;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getElementUtils, $Elements*)},
+	{"getFiler", "()Ljavax/annotation/processing/Filer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getFiler, $Filer*)},
+	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getLocale, $Locale*)},
+	{"getMessager", "()Ljavax/annotation/processing/Messager;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getMessager, $Messager*)},
+	{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getOptions, $Map*)},
+	{"getSourceVersion", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getSourceVersion, $SourceVersion*)},
+	{"getTypeUtils", "()Ljavax/lang/model/util/Types;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessingEnvironment, getTypeUtils, $Types*)},
+	{"isPreviewEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessingEnvironment, isPreviewEnabled, bool)},
 	{}
 };
 

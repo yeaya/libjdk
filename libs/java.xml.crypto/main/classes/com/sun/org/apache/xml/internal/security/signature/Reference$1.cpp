@@ -33,9 +33,9 @@ $FieldInfo _Reference$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Reference$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/Reference;Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Reference$1::*)($Reference*,$Document*,$String*)>(&Reference$1::init$))},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/Reference;Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, 0, $method(Reference$1, init$, void, $Reference*, $Document*, $String*)},
+	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference$1, getBaseLocalName, $String*)},
+	{"getBaseNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Reference$1, getBaseNamespace, $String*)},
 	{}
 };
 

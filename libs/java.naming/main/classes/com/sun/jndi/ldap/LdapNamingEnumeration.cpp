@@ -50,9 +50,9 @@ $FieldInfo _LdapNamingEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapNamingEnumeration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(static_cast<void(LdapNamingEnumeration::*)($LdapCtx*,$LdapResult*,$Name*,$Continuation*)>(&LdapNamingEnumeration::init$)), "javax.naming.NamingException"},
-	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/NameClassPair;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)Ljavax/naming/NameClassPair;", $PROTECTED, nullptr, "javax.naming.NamingException"},
-	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED, nullptr, "javax.naming.NamingException"},
+	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(LdapNamingEnumeration, init$, void, $LdapCtx*, $LdapResult*, $Name*, $Continuation*), "javax.naming.NamingException"},
+	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/NameClassPair;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)Ljavax/naming/NameClassPair;", $PROTECTED, $virtualMethod(LdapNamingEnumeration, createItem, $NameClassPair*, $String*, $Attributes*, $Vector*), "javax.naming.NamingException"},
+	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(LdapNamingEnumeration, getReferredResults, $AbstractLdapNamingEnumeration*, $LdapReferralContext*), "javax.naming.NamingException"},
 	{}
 };
 

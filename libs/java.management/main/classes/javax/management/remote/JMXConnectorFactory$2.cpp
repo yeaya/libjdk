@@ -23,8 +23,8 @@ $FieldInfo _JMXConnectorFactory$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXConnectorFactory$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", "()V", 0, $method(static_cast<void(JMXConnectorFactory$2::*)($ClassLoader*)>(&JMXConnectorFactory$2::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/ClassLoader;)V", "()V", 0, $method(JMXConnectorFactory$2, init$, void, $ClassLoader*)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(JMXConnectorFactory$2, run, $Object*)},
 	{}
 };
 

@@ -50,10 +50,10 @@ $MethodInfo _ApacheNodeSetData_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PUBLIC, $method(static_cast<void(ApacheNodeSetData::*)($XMLSignatureInput*)>(&ApacheNodeSetData::init$))},
-	{"getNodeSet", "(Ljava/util/List;)Ljava/util/Set;", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(static_cast<$Set*(ApacheNodeSetData::*)($List*)>(&ApacheNodeSetData::getNodeSet))},
-	{"getXMLSignatureInput", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PUBLIC, $method(ApacheNodeSetData, init$, void, $XMLSignatureInput*)},
+	{"getNodeSet", "(Ljava/util/List;)Ljava/util/Set;", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(ApacheNodeSetData, getNodeSet, $Set*, $List*)},
+	{"getXMLSignatureInput", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ApacheNodeSetData, getXMLSignatureInput, $XMLSignatureInput*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(ApacheNodeSetData, iterator, $Iterator*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

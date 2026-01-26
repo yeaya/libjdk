@@ -72,12 +72,12 @@ $FieldInfo _Lower$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Lower$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;)V", nullptr, 0, $method(static_cast<void(Lower$1::*)($Lower*)>(&Lower$1::init$))},
-	{"checkConflicts", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0},
-	{"syntheticError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Lower$1::*)($JCDiagnostic$DiagnosticPosition*,$Symbol*)>(&Lower$1::syntheticError))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;)V", nullptr, 0, $method(Lower$1, init$, void, $Lower*)},
+	{"checkConflicts", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $virtualMethod(Lower$1, checkConflicts, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol$TypeSymbol*)},
+	{"syntheticError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(Lower$1, syntheticError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Lower$1, visitVarDef, void, $JCTree$JCVariableDecl*)},
 	{}
 };
 

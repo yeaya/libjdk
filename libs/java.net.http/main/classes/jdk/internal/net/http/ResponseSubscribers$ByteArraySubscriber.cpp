@@ -57,14 +57,14 @@ $FieldInfo _ResponseSubscribers$ByteArraySubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseSubscribers$ByteArraySubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<[BTT;>;)V", $PUBLIC, $method(static_cast<void(ResponseSubscribers$ByteArraySubscriber::*)($Function*)>(&ResponseSubscribers$ByteArraySubscriber::init$))},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC},
-	{"join", "(Ljava/util/List;)[B", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)[B", $PRIVATE | $STATIC, $method(static_cast<$bytes*(*)($List*)>(&ResponseSubscribers$ByteArraySubscriber::join))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<[BTT;>;)V", $PUBLIC, $method(ResponseSubscribers$ByteArraySubscriber, init$, void, $Function*)},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, getBody, $CompletionStage*)},
+	{"join", "(Ljava/util/List;)[B", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)[B", $PRIVATE | $STATIC, $staticMethod(ResponseSubscribers$ByteArraySubscriber, join, $bytes*, $List*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$ByteArraySubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

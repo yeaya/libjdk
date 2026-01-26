@@ -28,9 +28,9 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Infer$InferenceStep$5_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $PRIVATE, $method(static_cast<void(Infer$InferenceStep$5::*)($String*,int32_t,$Type$UndetVar$InferenceBound*)>(&Infer$InferenceStep$5::init$))},
-	{"accepts", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Z", nullptr, $PUBLIC},
-	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $PRIVATE, $method(Infer$InferenceStep$5, init$, void, $String*, int32_t, $Type$UndetVar$InferenceBound*)},
+	{"accepts", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep$5, accepts, bool, $Type$UndetVar*, $InferenceContext*)},
+	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Infer$InferenceStep$5, solve, $Type*, $Type$UndetVar*, $InferenceContext*)},
 	{}
 };
 

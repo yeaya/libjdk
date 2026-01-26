@@ -35,15 +35,15 @@ $FieldInfo _ResponseSubscribers$MappingSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseSubscribers$MappingSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/function/Function;)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/function/Function<-TT;+TU;>;)V", $PUBLIC, $method(static_cast<void(ResponseSubscribers$MappingSubscriber::*)($HttpResponse$BodySubscriber*,$Function*)>(&ResponseSubscribers$MappingSubscriber::init$))},
-	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/function/Function;Z)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/function/Function<-TT;+TU;>;Z)V", 0, $method(static_cast<void(ResponseSubscribers$MappingSubscriber::*)($HttpResponse$BodySubscriber*,$Function*,bool)>(&ResponseSubscribers$MappingSubscriber::init$))},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TU;>;", $PUBLIC},
-	{"needsExecutor", "()Z", nullptr, $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/function/Function;)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/function/Function<-TT;+TU;>;)V", $PUBLIC, $method(ResponseSubscribers$MappingSubscriber, init$, void, $HttpResponse$BodySubscriber*, $Function*)},
+	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/function/Function;Z)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/function/Function<-TT;+TU;>;Z)V", 0, $method(ResponseSubscribers$MappingSubscriber, init$, void, $HttpResponse$BodySubscriber*, $Function*, bool)},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TU;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, getBody, $CompletionStage*)},
+	{"needsExecutor", "()Z", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, needsExecutor, bool)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

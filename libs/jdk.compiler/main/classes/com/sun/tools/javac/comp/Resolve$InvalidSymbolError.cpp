@@ -39,10 +39,10 @@ $FieldInfo _Resolve$InvalidSymbolError_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$InvalidSymbolError_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Kinds$Kind;Lcom/sun/tools/javac/code/Symbol;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Resolve$InvalidSymbolError::*)($Resolve*,$Kinds$Kind*,$Symbol*,$String*)>(&Resolve$InvalidSymbolError::init$))},
-	{"access", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"exists", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Kinds$Kind;Lcom/sun/tools/javac/code/Symbol;Ljava/lang/String;)V", nullptr, 0, $method(Resolve$InvalidSymbolError, init$, void, $Resolve*, $Kinds$Kind*, $Symbol*, $String*)},
+	{"access", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Resolve$InvalidSymbolError, access, $Symbol*, $Name*, $Symbol$TypeSymbol*)},
+	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Resolve$InvalidSymbolError, exists, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$InvalidSymbolError, toString, $String*)},
 	{}
 };
 

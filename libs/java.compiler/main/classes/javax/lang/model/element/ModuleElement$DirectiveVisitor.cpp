@@ -14,6 +14,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ModuleElement$Directive = ::javax::lang::model::element::ModuleElement$Directive;
+using $ModuleElement$ExportsDirective = ::javax::lang::model::element::ModuleElement$ExportsDirective;
+using $ModuleElement$OpensDirective = ::javax::lang::model::element::ModuleElement$OpensDirective;
+using $ModuleElement$ProvidesDirective = ::javax::lang::model::element::ModuleElement$ProvidesDirective;
+using $ModuleElement$RequiresDirective = ::javax::lang::model::element::ModuleElement$RequiresDirective;
+using $ModuleElement$UsesDirective = ::javax::lang::model::element::ModuleElement$UsesDirective;
 using $UnknownDirectiveException = ::javax::lang::model::element::UnknownDirectiveException;
 
 namespace javax {
@@ -22,14 +27,14 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _ModuleElement$DirectiveVisitor_MethodInfo_[] = {
-	{"visit", "(Ljavax/lang/model/element/ModuleElement$Directive;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$Directive;)TR;", $PUBLIC},
-	{"visit", "(Ljavax/lang/model/element/ModuleElement$Directive;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$Directive;TP;)TR;", $PUBLIC},
-	{"visitExports", "(Ljavax/lang/model/element/ModuleElement$ExportsDirective;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$ExportsDirective;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitOpens", "(Ljavax/lang/model/element/ModuleElement$OpensDirective;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$OpensDirective;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitProvides", "(Ljavax/lang/model/element/ModuleElement$ProvidesDirective;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$ProvidesDirective;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitRequires", "(Ljavax/lang/model/element/ModuleElement$RequiresDirective;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$RequiresDirective;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"visitUnknown", "(Ljavax/lang/model/element/ModuleElement$Directive;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$Directive;TP;)TR;", $PUBLIC},
-	{"visitUses", "(Ljavax/lang/model/element/ModuleElement$UsesDirective;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$UsesDirective;TP;)TR;", $PUBLIC | $ABSTRACT},
+	{"visit", "(Ljavax/lang/model/element/ModuleElement$Directive;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$Directive;)TR;", $PUBLIC, $virtualMethod(ModuleElement$DirectiveVisitor, visit, $Object*, $ModuleElement$Directive*)},
+	{"visit", "(Ljavax/lang/model/element/ModuleElement$Directive;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$Directive;TP;)TR;", $PUBLIC, $virtualMethod(ModuleElement$DirectiveVisitor, visit, $Object*, $ModuleElement$Directive*, Object$*)},
+	{"visitExports", "(Ljavax/lang/model/element/ModuleElement$ExportsDirective;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$ExportsDirective;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$DirectiveVisitor, visitExports, $Object*, $ModuleElement$ExportsDirective*, Object$*)},
+	{"visitOpens", "(Ljavax/lang/model/element/ModuleElement$OpensDirective;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$OpensDirective;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$DirectiveVisitor, visitOpens, $Object*, $ModuleElement$OpensDirective*, Object$*)},
+	{"visitProvides", "(Ljavax/lang/model/element/ModuleElement$ProvidesDirective;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$ProvidesDirective;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$DirectiveVisitor, visitProvides, $Object*, $ModuleElement$ProvidesDirective*, Object$*)},
+	{"visitRequires", "(Ljavax/lang/model/element/ModuleElement$RequiresDirective;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$RequiresDirective;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$DirectiveVisitor, visitRequires, $Object*, $ModuleElement$RequiresDirective*, Object$*)},
+	{"visitUnknown", "(Ljavax/lang/model/element/ModuleElement$Directive;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$Directive;TP;)TR;", $PUBLIC, $virtualMethod(ModuleElement$DirectiveVisitor, visitUnknown, $Object*, $ModuleElement$Directive*, Object$*)},
+	{"visitUses", "(Ljavax/lang/model/element/ModuleElement$UsesDirective;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement$UsesDirective;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$DirectiveVisitor, visitUses, $Object*, $ModuleElement$UsesDirective*, Object$*)},
 	{}
 };
 

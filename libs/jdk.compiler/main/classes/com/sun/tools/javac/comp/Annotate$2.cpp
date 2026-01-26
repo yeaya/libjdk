@@ -30,8 +30,8 @@ $FieldInfo _Annotate$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Annotate$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;)V", nullptr, 0, $method(static_cast<void(Annotate$2::*)($Annotate*)>(&Annotate$2::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;)V", nullptr, 0, $method(Annotate$2, init$, void, $Annotate*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Annotate$2, complete, void, $Symbol$ClassSymbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
 	{}
 };
 

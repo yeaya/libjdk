@@ -16,8 +16,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Type$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Type$2::*)()>(&Type$2::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Type$2, init$, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$2, toString, $String*)},
 	{}
 };
 

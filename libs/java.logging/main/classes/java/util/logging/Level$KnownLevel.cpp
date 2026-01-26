@@ -91,8 +91,8 @@ $FieldInfo Level$KnownLevel$$Lambda$lambda$remove$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Level$KnownLevel$$Lambda$lambda$remove$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/logging/Level$KnownLevel;)V", nullptr, $PUBLIC, $method(static_cast<void(Level$KnownLevel$$Lambda$lambda$remove$0::*)(Level$KnownLevel*)>(&Level$KnownLevel$$Lambda$lambda$remove$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/logging/Level$KnownLevel;)V", nullptr, $PUBLIC, $method(Level$KnownLevel$$Lambda$lambda$remove$0, init$, void, Level$KnownLevel*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Level$KnownLevel$$Lambda$lambda$remove$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Level$KnownLevel$$Lambda$lambda$remove$0::classInfo$ = {
@@ -131,8 +131,8 @@ $FieldInfo Level$KnownLevel$$Lambda$getClassLoader$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Level$KnownLevel$$Lambda$getClassLoader$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(Level$KnownLevel$$Lambda$getClassLoader$1::*)($Class*)>(&Level$KnownLevel$$Lambda$getClassLoader$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(Level$KnownLevel$$Lambda$getClassLoader$1, init$, void, $Class*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$KnownLevel$$Lambda$getClassLoader$1, run, $Object*)},
 	{}
 };
 $ClassInfo Level$KnownLevel$$Lambda$getClassLoader$1::classInfo$ = {
@@ -164,8 +164,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Level$KnownLevel$$Lambda$lambda$registerWithClassLoader$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Level$KnownLevel$$Lambda$lambda$registerWithClassLoader$2$2::*)()>(&Level$KnownLevel$$Lambda$lambda$registerWithClassLoader$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Level$KnownLevel$$Lambda$lambda$registerWithClassLoader$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$KnownLevel$$Lambda$lambda$registerWithClassLoader$2$2, apply, $Object*, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Level$KnownLevel$$Lambda$lambda$registerWithClassLoader$2$2::classInfo$ = {
@@ -197,8 +197,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Level$KnownLevel$$Lambda$lambda$add$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Level$KnownLevel$$Lambda$lambda$add$3$3::*)()>(&Level$KnownLevel$$Lambda$lambda$add$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Level$KnownLevel$$Lambda$lambda$add$3$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$KnownLevel$$Lambda$lambda$add$3$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Level$KnownLevel$$Lambda$lambda$add$3$3::classInfo$ = {
@@ -230,8 +230,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Level$KnownLevel$$Lambda$lambda$add$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Level$KnownLevel$$Lambda$lambda$add$4$4::*)()>(&Level$KnownLevel$$Lambda$lambda$add$4$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Level$KnownLevel$$Lambda$lambda$add$4$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$KnownLevel$$Lambda$lambda$add$4$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Level$KnownLevel$$Lambda$lambda$add$4$4::classInfo$ = {
@@ -263,8 +263,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Level$KnownLevel$$Lambda$stream$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Level$KnownLevel$$Lambda$stream$5::*)()>(&Level$KnownLevel$$Lambda$stream$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Level$KnownLevel$$Lambda$stream$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$KnownLevel$$Lambda$stream$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Level$KnownLevel$$Lambda$stream$5::classInfo$ = {
@@ -296,8 +296,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Level$KnownLevel$$Lambda$stream$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Level$KnownLevel$$Lambda$stream$6::*)()>(&Level$KnownLevel$$Lambda$stream$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Level$KnownLevel$$Lambda$stream$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$KnownLevel$$Lambda$stream$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Level$KnownLevel$$Lambda$stream$6::classInfo$ = {
@@ -336,8 +336,8 @@ $FieldInfo Level$KnownLevel$$Lambda$lambda$findByLocalizedLevelName$5$7::fieldIn
 	{}
 };
 $MethodInfo Level$KnownLevel$$Lambda$lambda$findByLocalizedLevelName$5$7::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Level$KnownLevel$$Lambda$lambda$findByLocalizedLevelName$5$7::*)($String*)>(&Level$KnownLevel$$Lambda$lambda$findByLocalizedLevelName$5$7::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Level$KnownLevel$$Lambda$lambda$findByLocalizedLevelName$5$7, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Level$KnownLevel$$Lambda$lambda$findByLocalizedLevelName$5$7, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Level$KnownLevel$$Lambda$lambda$findByLocalizedLevelName$5$7::classInfo$ = {
@@ -364,22 +364,22 @@ $FieldInfo _Level$KnownLevel_FieldInfo_[] = {
 };
 
 $MethodInfo _Level$KnownLevel_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/Level;)V", nullptr, 0, $method(static_cast<void(Level$KnownLevel::*)($Level*)>(&Level$KnownLevel::init$))},
-	{"add", "(Ljava/util/logging/Level;)V", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($Level*)>(&Level$KnownLevel::add))},
-	{"findByLocalizedLevelName", "(Ljava/lang/String;Ljava/util/function/Function;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/function/Function<Ljava/util/logging/Level$KnownLevel;Ljava/util/Optional<Ljava/util/logging/Level;>;>;)Ljava/util/Optional<Ljava/util/logging/Level;>;", $STATIC | $SYNCHRONIZED, $method(static_cast<$Optional*(*)($String*,$Function*)>(&Level$KnownLevel::findByLocalizedLevelName))},
-	{"findByName", "(Ljava/lang/String;Ljava/util/function/Function;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/function/Function<Ljava/util/logging/Level$KnownLevel;Ljava/util/Optional<Ljava/util/logging/Level;>;>;)Ljava/util/Optional<Ljava/util/logging/Level;>;", $STATIC | $SYNCHRONIZED, $method(static_cast<$Optional*(*)($String*,$Function*)>(&Level$KnownLevel::findByName))},
-	{"findByValue", "(ILjava/util/function/Function;)Ljava/util/Optional;", "(ILjava/util/function/Function<Ljava/util/logging/Level$KnownLevel;Ljava/util/Optional<Ljava/util/logging/Level;>;>;)Ljava/util/Optional<Ljava/util/logging/Level;>;", $STATIC | $SYNCHRONIZED, $method(static_cast<$Optional*(*)(int32_t,$Function*)>(&Level$KnownLevel::findByValue))},
-	{"lambda$add$3", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($String*)>(&Level$KnownLevel::lambda$add$3))},
-	{"lambda$add$4", "(Ljava/lang/Integer;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($Integer*)>(&Level$KnownLevel::lambda$add$4))},
-	{"lambda$findByLocalizedLevelName$5", "(Ljava/lang/String;Ljava/util/logging/Level;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$Level*)>(&Level$KnownLevel::lambda$findByLocalizedLevelName$5))},
-	{"lambda$registerWithClassLoader$2", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/ClassLoaderValue;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($ClassLoader*,$ClassLoaderValue*)>(&Level$KnownLevel::lambda$registerWithClassLoader$2))},
-	{"lambda$remove$0", "(Ljava/util/List;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Level$KnownLevel::*)($List*)>(&Level$KnownLevel::lambda$remove$0))},
-	{"matches", "(Ljava/util/logging/Level;)Ljava/util/Optional;", "(Ljava/util/logging/Level;)Ljava/util/Optional<Ljava/util/logging/Level;>;", $STATIC | $SYNCHRONIZED, $method(static_cast<$Optional*(*)($Level*)>(&Level$KnownLevel::matches))},
-	{"mirrored", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/logging/Level;>;", 0, $method(static_cast<$Optional*(Level$KnownLevel::*)()>(&Level$KnownLevel::mirrored))},
-	{"purge", "()V", nullptr, $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&Level$KnownLevel::purge))},
-	{"referent", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/logging/Level;>;", 0, $method(static_cast<$Optional*(Level$KnownLevel::*)()>(&Level$KnownLevel::referent))},
-	{"registerWithClassLoader", "(Ljava/util/logging/Level;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($Level*)>(&Level$KnownLevel::registerWithClassLoader))},
-	{"remove", "()V", nullptr, $PRIVATE, $method(static_cast<void(Level$KnownLevel::*)()>(&Level$KnownLevel::remove))},
+	{"<init>", "(Ljava/util/logging/Level;)V", nullptr, 0, $method(Level$KnownLevel, init$, void, $Level*)},
+	{"add", "(Ljava/util/logging/Level;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(Level$KnownLevel, add, void, $Level*)},
+	{"findByLocalizedLevelName", "(Ljava/lang/String;Ljava/util/function/Function;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/function/Function<Ljava/util/logging/Level$KnownLevel;Ljava/util/Optional<Ljava/util/logging/Level;>;>;)Ljava/util/Optional<Ljava/util/logging/Level;>;", $STATIC | $SYNCHRONIZED, $staticMethod(Level$KnownLevel, findByLocalizedLevelName, $Optional*, $String*, $Function*)},
+	{"findByName", "(Ljava/lang/String;Ljava/util/function/Function;)Ljava/util/Optional;", "(Ljava/lang/String;Ljava/util/function/Function<Ljava/util/logging/Level$KnownLevel;Ljava/util/Optional<Ljava/util/logging/Level;>;>;)Ljava/util/Optional<Ljava/util/logging/Level;>;", $STATIC | $SYNCHRONIZED, $staticMethod(Level$KnownLevel, findByName, $Optional*, $String*, $Function*)},
+	{"findByValue", "(ILjava/util/function/Function;)Ljava/util/Optional;", "(ILjava/util/function/Function<Ljava/util/logging/Level$KnownLevel;Ljava/util/Optional<Ljava/util/logging/Level;>;>;)Ljava/util/Optional<Ljava/util/logging/Level;>;", $STATIC | $SYNCHRONIZED, $staticMethod(Level$KnownLevel, findByValue, $Optional*, int32_t, $Function*)},
+	{"lambda$add$3", "(Ljava/lang/String;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Level$KnownLevel, lambda$add$3, $List*, $String*)},
+	{"lambda$add$4", "(Ljava/lang/Integer;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Level$KnownLevel, lambda$add$4, $List*, $Integer*)},
+	{"lambda$findByLocalizedLevelName$5", "(Ljava/lang/String;Ljava/util/logging/Level;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Level$KnownLevel, lambda$findByLocalizedLevelName$5, bool, $String*, $Level*)},
+	{"lambda$registerWithClassLoader$2", "(Ljava/lang/ClassLoader;Ljdk/internal/loader/ClassLoaderValue;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Level$KnownLevel, lambda$registerWithClassLoader$2, $List*, $ClassLoader*, $ClassLoaderValue*)},
+	{"lambda$remove$0", "(Ljava/util/List;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Level$KnownLevel, lambda$remove$0, void, $List*)},
+	{"matches", "(Ljava/util/logging/Level;)Ljava/util/Optional;", "(Ljava/util/logging/Level;)Ljava/util/Optional<Ljava/util/logging/Level;>;", $STATIC | $SYNCHRONIZED, $staticMethod(Level$KnownLevel, matches, $Optional*, $Level*)},
+	{"mirrored", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/logging/Level;>;", 0, $method(Level$KnownLevel, mirrored, $Optional*)},
+	{"purge", "()V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(Level$KnownLevel, purge, void)},
+	{"referent", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/logging/Level;>;", 0, $method(Level$KnownLevel, referent, $Optional*)},
+	{"registerWithClassLoader", "(Ljava/util/logging/Level;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Level$KnownLevel, registerWithClassLoader, void, $Level*)},
+	{"remove", "()V", nullptr, $PRIVATE, $method(Level$KnownLevel, remove, void)},
 	{}
 };
 

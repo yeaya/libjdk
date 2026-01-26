@@ -54,15 +54,15 @@ $FieldInfo _Gen$ClassReferenceVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _Gen$ClassReferenceVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;)V", nullptr, 0, $method(static_cast<void(Gen$ClassReferenceVisitor::*)($Gen*)>(&Gen$ClassReferenceVisitor::init$))},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
-	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Gen;)V", nullptr, 0, $method(Gen$ClassReferenceVisitor, init$, void, $Gen*)},
+	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitBinary, void, $JCTree$JCBinary*)},
+	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitConditional, void, $JCTree$JCConditional*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitIdent, void, $JCTree$JCIdent*)},
+	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitParens, void, $JCTree$JCParens*)},
+	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitSelect, void, $JCTree$JCFieldAccess*)},
+	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitTree, void, $JCTree*)},
+	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitTypeCast, void, $JCTree$JCTypeCast*)},
+	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Gen$ClassReferenceVisitor, visitUnary, void, $JCTree$JCUnary*)},
 	{}
 };
 

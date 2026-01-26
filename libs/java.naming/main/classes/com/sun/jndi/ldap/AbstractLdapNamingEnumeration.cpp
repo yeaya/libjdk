@@ -49,6 +49,7 @@ using $Name = ::javax::naming::Name;
 using $NameClassPair = ::javax::naming::NameClassPair;
 using $NamingException = ::javax::naming::NamingException;
 using $PartialResultException = ::javax::naming::PartialResultException;
+using $Attributes = ::javax::naming::directory::Attributes;
 
 namespace com {
 	namespace sun {
@@ -73,25 +74,25 @@ $FieldInfo _AbstractLdapNamingEnumeration_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractLdapNamingEnumeration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(static_cast<void(AbstractLdapNamingEnumeration::*)($LdapCtx*,$LdapResult*,$Name*,$Continuation*)>(&AbstractLdapNamingEnumeration::init$)), "javax.naming.NamingException"},
-	{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)V", nullptr, $PUBLIC},
-	{"cleanup", "()V", nullptr, $PROTECTED | $FINAL, $method(static_cast<void(AbstractLdapNamingEnumeration::*)()>(&AbstractLdapNamingEnumeration::cleanup))},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/NameClassPair;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)TT;", $PROTECTED | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"getAtom", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(static_cast<$String*(AbstractLdapNamingEnumeration::*)($String*)>(&AbstractLdapNamingEnumeration::getAtom))},
-	{"getNextBatch", "()V", nullptr, $PRIVATE, $method(static_cast<void(AbstractLdapNamingEnumeration::*)()>(&AbstractLdapNamingEnumeration::getNextBatch)), "javax.naming.NamingException"},
-	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"hasMore", "()Z", nullptr, $PUBLIC | $FINAL, nullptr, "javax.naming.NamingException"},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"hasMoreImpl", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(AbstractLdapNamingEnumeration::*)()>(&AbstractLdapNamingEnumeration::hasMoreImpl)), "javax.naming.NamingException"},
-	{"hasMoreReferrals", "()Z", nullptr, $PROTECTED | $FINAL, $method(static_cast<bool(AbstractLdapNamingEnumeration::*)()>(&AbstractLdapNamingEnumeration::hasMoreReferrals)), "javax.naming.NamingException"},
-	{"next", "()Ljavax/naming/NameClassPair;", "()TT;", $PUBLIC | $FINAL, nullptr, "javax.naming.NamingException"},
-	{"nextAux", "()Ljavax/naming/NameClassPair;", "()TT;", $PRIVATE, $method(static_cast<$NameClassPair*(AbstractLdapNamingEnumeration::*)()>(&AbstractLdapNamingEnumeration::nextAux)), "javax.naming.NamingException"},
-	{"nextElement", "()Ljavax/naming/NameClassPair;", "()TT;", $PUBLIC | $FINAL},
-	{"nextImpl", "()Ljavax/naming/NameClassPair;", "()TT;", $PRIVATE, $method(static_cast<$NameClassPair*(AbstractLdapNamingEnumeration::*)()>(&AbstractLdapNamingEnumeration::nextImpl)), "javax.naming.NamingException"},
-	{"setNamingException", "(Ljavax/naming/NamingException;)V", nullptr, $FINAL, $method(static_cast<void(AbstractLdapNamingEnumeration::*)($NamingException*)>(&AbstractLdapNamingEnumeration::setNamingException))},
-	{"update", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;)V", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;)V", $PROTECTED},
+	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, 0, $method(AbstractLdapNamingEnumeration, init$, void, $LdapCtx*, $LdapResult*, $Name*, $Continuation*), "javax.naming.NamingException"},
+	{"appendUnprocessedReferrals", "(Lcom/sun/jndi/ldap/LdapReferralException;)V", nullptr, $PUBLIC, $virtualMethod(AbstractLdapNamingEnumeration, appendUnprocessedReferrals, void, $LdapReferralException*)},
+	{"cleanup", "()V", nullptr, $PROTECTED | $FINAL, $method(AbstractLdapNamingEnumeration, cleanup, void)},
+	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, close, void)},
+	{"createItem", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector;)Ljavax/naming/NameClassPair;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractLdapNamingEnumeration, createItem, $NameClassPair*, $String*, $Attributes*, $Vector*), "javax.naming.NamingException"},
+	{"finalize", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, finalize, void)},
+	{"getAtom", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(AbstractLdapNamingEnumeration, getAtom, $String*, $String*)},
+	{"getNextBatch", "()V", nullptr, $PRIVATE, $method(AbstractLdapNamingEnumeration, getNextBatch, void), "javax.naming.NamingException"},
+	{"getReferredResults", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;", "(Lcom/sun/jndi/ldap/LdapReferralContext;)Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractLdapNamingEnumeration, getReferredResults, AbstractLdapNamingEnumeration*, $LdapReferralContext*), "javax.naming.NamingException"},
+	{"hasMore", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, hasMore, bool), "javax.naming.NamingException"},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, hasMoreElements, bool)},
+	{"hasMoreImpl", "()Z", nullptr, $PRIVATE, $method(AbstractLdapNamingEnumeration, hasMoreImpl, bool), "javax.naming.NamingException"},
+	{"hasMoreReferrals", "()Z", nullptr, $PROTECTED | $FINAL, $method(AbstractLdapNamingEnumeration, hasMoreReferrals, bool), "javax.naming.NamingException"},
+	{"next", "()Ljavax/naming/NameClassPair;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, next, $Object*), "javax.naming.NamingException"},
+	{"nextAux", "()Ljavax/naming/NameClassPair;", "()TT;", $PRIVATE, $method(AbstractLdapNamingEnumeration, nextAux, $NameClassPair*), "javax.naming.NamingException"},
+	{"nextElement", "()Ljavax/naming/NameClassPair;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(AbstractLdapNamingEnumeration, nextElement, $Object*)},
+	{"nextImpl", "()Ljavax/naming/NameClassPair;", "()TT;", $PRIVATE, $method(AbstractLdapNamingEnumeration, nextImpl, $NameClassPair*), "javax.naming.NamingException"},
+	{"setNamingException", "(Ljavax/naming/NamingException;)V", nullptr, $FINAL, $method(AbstractLdapNamingEnumeration, setNamingException, void, $NamingException*)},
+	{"update", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration;)V", "(Lcom/sun/jndi/ldap/AbstractLdapNamingEnumeration<+Ljavax/naming/NameClassPair;>;)V", $PROTECTED, $virtualMethod(AbstractLdapNamingEnumeration, update, void, AbstractLdapNamingEnumeration*)},
 	{}
 };
 

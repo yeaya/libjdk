@@ -5,15 +5,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $NamingEvent = ::javax::naming::event::NamingEvent;
 
 namespace javax {
 	namespace naming {
 		namespace event {
 
 $MethodInfo _NamespaceChangeListener_MethodInfo_[] = {
-	{"objectAdded", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"objectRemoved", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"objectRenamed", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"objectAdded", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceChangeListener, objectAdded, void, $NamingEvent*)},
+	{"objectRemoved", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceChangeListener, objectRemoved, void, $NamingEvent*)},
+	{"objectRenamed", "(Ljavax/naming/event/NamingEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamespaceChangeListener, objectRenamed, void, $NamingEvent*)},
 	{}
 };
 

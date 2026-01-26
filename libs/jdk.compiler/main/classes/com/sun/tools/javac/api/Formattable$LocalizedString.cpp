@@ -23,10 +23,10 @@ $FieldInfo _Formattable$LocalizedString_FieldInfo_[] = {
 };
 
 $MethodInfo _Formattable$LocalizedString_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Formattable$LocalizedString::*)($String*)>(&Formattable$LocalizedString::init$))},
-	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Formattable$LocalizedString, init$, void, $String*)},
+	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formattable$LocalizedString, getKind, $String*)},
+	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formattable$LocalizedString, toString, $String*, $Locale*, $Messages*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formattable$LocalizedString, toString, $String*)},
 	{}
 };
 

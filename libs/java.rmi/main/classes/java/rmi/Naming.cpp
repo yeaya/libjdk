@@ -28,15 +28,15 @@ namespace java {
 	namespace rmi {
 
 $MethodInfo _Naming_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Naming::*)()>(&Naming::init$))},
-	{"bind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$Remote*)>(&Naming::bind)), "java.rmi.AlreadyBoundException,java.net.MalformedURLException,java.rmi.RemoteException"},
-	{"getRegistry", "(Ljava/rmi/Naming$ParsedNamingURL;)Ljava/rmi/registry/Registry;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Registry*(*)($Naming$ParsedNamingURL*)>(&Naming::getRegistry)), "java.rmi.RemoteException"},
-	{"intParseURL", "(Ljava/lang/String;)Ljava/rmi/Naming$ParsedNamingURL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Naming$ParsedNamingURL*(*)($String*)>(&Naming::intParseURL)), "java.net.MalformedURLException,java.net.URISyntaxException"},
-	{"list", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&Naming::list)), "java.rmi.RemoteException,java.net.MalformedURLException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Remote*(*)($String*)>(&Naming::lookup)), "java.rmi.NotBoundException,java.net.MalformedURLException,java.rmi.RemoteException"},
-	{"parseURL", "(Ljava/lang/String;)Ljava/rmi/Naming$ParsedNamingURL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Naming$ParsedNamingURL*(*)($String*)>(&Naming::parseURL)), "java.net.MalformedURLException"},
-	{"rebind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*,$Remote*)>(&Naming::rebind)), "java.rmi.RemoteException,java.net.MalformedURLException"},
-	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&Naming::unbind)), "java.rmi.RemoteException,java.rmi.NotBoundException,java.net.MalformedURLException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Naming, init$, void)},
+	{"bind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Naming, bind, void, $String*, $Remote*), "java.rmi.AlreadyBoundException,java.net.MalformedURLException,java.rmi.RemoteException"},
+	{"getRegistry", "(Ljava/rmi/Naming$ParsedNamingURL;)Ljava/rmi/registry/Registry;", nullptr, $PRIVATE | $STATIC, $staticMethod(Naming, getRegistry, $Registry*, $Naming$ParsedNamingURL*), "java.rmi.RemoteException"},
+	{"intParseURL", "(Ljava/lang/String;)Ljava/rmi/Naming$ParsedNamingURL;", nullptr, $PRIVATE | $STATIC, $staticMethod(Naming, intParseURL, $Naming$ParsedNamingURL*, $String*), "java.net.MalformedURLException,java.net.URISyntaxException"},
+	{"list", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Naming, list, $StringArray*, $String*), "java.rmi.RemoteException,java.net.MalformedURLException"},
+	{"lookup", "(Ljava/lang/String;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $staticMethod(Naming, lookup, $Remote*, $String*), "java.rmi.NotBoundException,java.net.MalformedURLException,java.rmi.RemoteException"},
+	{"parseURL", "(Ljava/lang/String;)Ljava/rmi/Naming$ParsedNamingURL;", nullptr, $PRIVATE | $STATIC, $staticMethod(Naming, parseURL, $Naming$ParsedNamingURL*, $String*), "java.net.MalformedURLException"},
+	{"rebind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Naming, rebind, void, $String*, $Remote*), "java.rmi.RemoteException,java.net.MalformedURLException"},
+	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Naming, unbind, void, $String*), "java.rmi.RemoteException,java.rmi.NotBoundException,java.net.MalformedURLException"},
 	{}
 };
 

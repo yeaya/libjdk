@@ -86,10 +86,10 @@ $FieldInfo _PoolWriter$WriteablePoolHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _PoolWriter$WriteablePoolHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolWriter;)V", nullptr, 0, $method(static_cast<void(PoolWriter$WriteablePoolHelper::*)($PoolWriter*)>(&PoolWriter$WriteablePoolHelper::init$))},
-	{"reset", "()V", nullptr, 0},
-	{"writeConstant", "(Lcom/sun/tools/javac/jvm/PoolConstant;)V", nullptr, 0},
-	{"writeIfNeeded", "(Lcom/sun/tools/javac/jvm/PoolConstant;)I", "<P::Lcom/sun/tools/javac/jvm/PoolConstant;>(TP;)I", $PRIVATE, $method(static_cast<int32_t(PoolWriter$WriteablePoolHelper::*)($PoolConstant*)>(&PoolWriter$WriteablePoolHelper::writeIfNeeded))},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolWriter;)V", nullptr, 0, $method(PoolWriter$WriteablePoolHelper, init$, void, $PoolWriter*)},
+	{"reset", "()V", nullptr, 0, $virtualMethod(PoolWriter$WriteablePoolHelper, reset, void)},
+	{"writeConstant", "(Lcom/sun/tools/javac/jvm/PoolConstant;)V", nullptr, 0, $virtualMethod(PoolWriter$WriteablePoolHelper, writeConstant, void, $PoolConstant*)},
+	{"writeIfNeeded", "(Lcom/sun/tools/javac/jvm/PoolConstant;)I", "<P::Lcom/sun/tools/javac/jvm/PoolConstant;>(TP;)I", $PRIVATE, $method(PoolWriter$WriteablePoolHelper, writeIfNeeded, int32_t, $PoolConstant*)},
 	{}
 };
 

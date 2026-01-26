@@ -25,9 +25,9 @@ $FieldInfo _LdapName$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapName$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/ldap/LdapName;Ljava/util/Iterator;)V", "()V", 0, $method(static_cast<void(LdapName$1::*)($LdapName*,$Iterator*)>(&LdapName$1::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/naming/ldap/LdapName;Ljava/util/Iterator;)V", "()V", 0, $method(LdapName$1, init$, void, $LdapName*, $Iterator*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapName$1, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName$1, nextElement, $Object*)},
 	{}
 };
 

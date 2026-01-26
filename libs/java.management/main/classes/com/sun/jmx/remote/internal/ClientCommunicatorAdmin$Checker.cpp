@@ -33,9 +33,9 @@ $FieldInfo _ClientCommunicatorAdmin$Checker_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientCommunicatorAdmin$Checker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ClientCommunicatorAdmin;)V", nullptr, $PRIVATE, $method(static_cast<void(ClientCommunicatorAdmin$Checker::*)($ClientCommunicatorAdmin*)>(&ClientCommunicatorAdmin$Checker::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"stop", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClientCommunicatorAdmin$Checker::*)()>(&ClientCommunicatorAdmin$Checker::stop))},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ClientCommunicatorAdmin;)V", nullptr, $PRIVATE, $method(ClientCommunicatorAdmin$Checker, init$, void, $ClientCommunicatorAdmin*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClientCommunicatorAdmin$Checker, run, void)},
+	{"stop", "()V", nullptr, $PRIVATE, $method(ClientCommunicatorAdmin$Checker, stop, void)},
 	{}
 };
 

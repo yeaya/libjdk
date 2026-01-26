@@ -22,9 +22,9 @@ $FieldInfo _StringMonitor$StringMonitorObservedObject_FieldInfo_[] = {
 };
 
 $MethodInfo _StringMonitor$StringMonitorObservedObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(static_cast<void(StringMonitor$StringMonitorObservedObject::*)($ObjectName*)>(&StringMonitor$StringMonitorObservedObject::init$))},
-	{"getStatus", "()I", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<int32_t(StringMonitor$StringMonitorObservedObject::*)()>(&StringMonitor$StringMonitorObservedObject::getStatus))},
-	{"setStatus", "(I)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<void(StringMonitor$StringMonitorObservedObject::*)(int32_t)>(&StringMonitor$StringMonitorObservedObject::setStatus))},
+	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(StringMonitor$StringMonitorObservedObject, init$, void, $ObjectName*)},
+	{"getStatus", "()I", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(StringMonitor$StringMonitorObservedObject, getStatus, int32_t)},
+	{"setStatus", "(I)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(StringMonitor$StringMonitorObservedObject, setStatus, void, int32_t)},
 	{}
 };
 

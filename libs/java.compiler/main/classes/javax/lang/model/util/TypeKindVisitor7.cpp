@@ -50,9 +50,9 @@ $CompoundAttribute _TypeKindVisitor7_MethodAnnotations_init$1[] = {
 };
 
 $MethodInfo _TypeKindVisitor7_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(TypeKindVisitor7::*)()>(&TypeKindVisitor7::init$)), nullptr, nullptr, _TypeKindVisitor7_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(static_cast<void(TypeKindVisitor7::*)(Object$*)>(&TypeKindVisitor7::init$)), nullptr, nullptr, _TypeKindVisitor7_MethodAnnotations_init$1},
-	{"visitUnion", "(Ljavax/lang/model/type/UnionType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/UnionType;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(TypeKindVisitor7, init$, void), nullptr, nullptr, _TypeKindVisitor7_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(TypeKindVisitor7, init$, void, Object$*), nullptr, nullptr, _TypeKindVisitor7_MethodAnnotations_init$1},
+	{"visitUnion", "(Ljavax/lang/model/type/UnionType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/UnionType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor7, visitUnion, $Object*, $UnionType*, Object$*)},
 	{}
 };
 

@@ -31,9 +31,9 @@ $FieldInfo _StandardJavaFileManager$2_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardJavaFileManager$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", nullptr, 0, $method(static_cast<void(StandardJavaFileManager$2::*)($Iterable*)>(&StandardJavaFileManager$2::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/io/File;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Iterable;)V", nullptr, 0, $method(StandardJavaFileManager$2, init$, void, $Iterable*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager$2, hasNext, bool)},
+	{"next", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(StandardJavaFileManager$2, next, $Object*)},
 	{}
 };
 

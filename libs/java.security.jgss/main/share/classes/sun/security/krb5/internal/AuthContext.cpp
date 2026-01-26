@@ -34,7 +34,7 @@ $FieldInfo _AuthContext_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AuthContext::*)()>(&AuthContext::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthContext, init$, void)},
 	{}
 };
 

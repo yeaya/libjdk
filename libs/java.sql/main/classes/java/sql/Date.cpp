@@ -105,21 +105,21 @@ $FieldInfo _Date_FieldInfo_[] = {
 };
 
 $MethodInfo _Date_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(Date::*)(int32_t,int32_t,int32_t)>(&Date::init$)), nullptr, nullptr, _Date_MethodAnnotations_init$0},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(Date::*)(int64_t)>(&Date::init$))},
-	{"formatDecimalInt", "(I[CII)V", nullptr, $STATIC, $method(static_cast<void(*)(int32_t,$chars*,int32_t,int32_t)>(&Date::formatDecimalInt))},
-	{"getHours", "()I", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _Date_MethodAnnotations_getHours3},
-	{"getMinutes", "()I", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _Date_MethodAnnotations_getMinutes4},
-	{"getSeconds", "()I", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _Date_MethodAnnotations_getSeconds5},
-	{"setHours", "(I)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _Date_MethodAnnotations_setHours6},
-	{"setMinutes", "(I)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _Date_MethodAnnotations_setMinutes7},
-	{"setSeconds", "(I)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _Date_MethodAnnotations_setSeconds8},
-	{"setTime", "(J)V", nullptr, $PUBLIC},
-	{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC},
-	{"toLocalDate", "()Ljava/time/LocalDate;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/Date;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Date*(*)($String*)>(&Date::valueOf))},
-	{"valueOf", "(Ljava/time/LocalDate;)Ljava/sql/Date;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Date*(*)($LocalDate*)>(&Date::valueOf))},
+	{"<init>", "(III)V", nullptr, $PUBLIC | $DEPRECATED, $method(Date, init$, void, int32_t, int32_t, int32_t), nullptr, nullptr, _Date_MethodAnnotations_init$0},
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(Date, init$, void, int64_t)},
+	{"formatDecimalInt", "(I[CII)V", nullptr, $STATIC, $staticMethod(Date, formatDecimalInt, void, int32_t, $chars*, int32_t, int32_t)},
+	{"getHours", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getHours, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getHours3},
+	{"getMinutes", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getMinutes, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getMinutes4},
+	{"getSeconds", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, getSeconds, int32_t), nullptr, nullptr, _Date_MethodAnnotations_getSeconds5},
+	{"setHours", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setHours, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setHours6},
+	{"setMinutes", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setMinutes, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setMinutes7},
+	{"setSeconds", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Date, setSeconds, void, int32_t), nullptr, nullptr, _Date_MethodAnnotations_setSeconds8},
+	{"setTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(Date, setTime, void, int64_t)},
+	{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Date, toInstant, $Instant*)},
+	{"toLocalDate", "()Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(Date, toLocalDate, $LocalDate*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Date, toString, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/sql/Date;", nullptr, $PUBLIC | $STATIC, $staticMethod(Date, valueOf, Date*, $String*)},
+	{"valueOf", "(Ljava/time/LocalDate;)Ljava/sql/Date;", nullptr, $PUBLIC | $STATIC, $staticMethod(Date, valueOf, Date*, $LocalDate*)},
 	{}
 };
 

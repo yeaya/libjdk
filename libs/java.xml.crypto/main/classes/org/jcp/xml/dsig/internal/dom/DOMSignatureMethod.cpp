@@ -203,19 +203,19 @@ $FieldInfo _DOMSignatureMethod_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMSignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod::*)($AlgorithmParameterSpec*)>(&DOMSignatureMethod::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod::*)($Element*)>(&DOMSignatureMethod::init$)), "javax.xml.crypto.MarshalException"},
-	{"checkKeySize", "(Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Key;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($XMLCryptoContext*,$Key*)>(&DOMSignatureMethod::checkKeySize)), "javax.xml.crypto.dsig.XMLSignatureException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL},
-	{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, nullptr, "java.security.NoSuchAlgorithmException"},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, nullptr, "javax.xml.crypto.MarshalException"},
-	{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, $ABSTRACT, nullptr, "java.io.IOException"},
-	{"sign", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/XMLSignContext;)[B", nullptr, 0, nullptr, "java.security.InvalidKeyException,javax.xml.crypto.dsig.XMLSignatureException"},
-	{"unmarshal", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $STATIC, $method(static_cast<$SignatureMethod*(*)($Element*)>(&DOMSignatureMethod::unmarshal)), "javax.xml.crypto.MarshalException"},
-	{"verify", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;[BLjavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, 0, nullptr, "java.security.InvalidKeyException,java.security.SignatureException,javax.xml.crypto.dsig.XMLSignatureException"},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"checkKeySize", "(Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Key;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMSignatureMethod, checkKeySize, void, $XMLCryptoContext*, $Key*), "javax.xml.crypto.dsig.XMLSignatureException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMSignatureMethod, equals, bool, Object$*)},
+	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMSignatureMethod, getParameterSpec, $AlgorithmParameterSpec*)},
+	{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, $virtualMethod(DOMSignatureMethod, getSignature, $Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMSignatureMethod, hashCode, int32_t)},
+	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMSignatureMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+	{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, $ABSTRACT, $virtualMethod(DOMSignatureMethod, postSignFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
+	{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, $ABSTRACT, $virtualMethod(DOMSignatureMethod, preVerifyFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
+	{"sign", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/XMLSignContext;)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod, sign, $bytes*, $Key*, $SignedInfo*, $XMLSignContext*), "java.security.InvalidKeyException,javax.xml.crypto.dsig.XMLSignatureException"},
+	{"unmarshal", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $STATIC, $staticMethod(DOMSignatureMethod, unmarshal, $SignatureMethod*, $Element*), "javax.xml.crypto.MarshalException"},
+	{"verify", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;[BLjavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, 0, $virtualMethod(DOMSignatureMethod, verify, bool, $Key*, $SignedInfo*, $bytes*, $XMLValidateContext*), "java.security.InvalidKeyException,java.security.SignatureException,javax.xml.crypto.dsig.XMLSignatureException"},
 	{}
 };
 

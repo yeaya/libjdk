@@ -30,7 +30,7 @@ $FieldInfo _Http1ChunkedTest$Data_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1ChunkedTest$Data_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Http1ChunkedTest$Data::*)()>(&Http1ChunkedTest$Data::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Http1ChunkedTest$Data, init$, void)},
 	{}
 };
 

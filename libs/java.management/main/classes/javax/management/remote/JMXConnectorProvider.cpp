@@ -7,13 +7,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
+using $JMXConnector = ::javax::management::remote::JMXConnector;
+using $JMXServiceURL = ::javax::management::remote::JMXServiceURL;
 
 namespace javax {
 	namespace management {
 		namespace remote {
 
 $MethodInfo _JMXConnectorProvider_MethodInfo_[] = {
-	{"newJMXConnector", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"newJMXConnector", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC | $ABSTRACT, $virtualMethod(JMXConnectorProvider, newJMXConnector, $JMXConnector*, $JMXServiceURL*, $Map*), "java.io.IOException"},
 	{}
 };
 

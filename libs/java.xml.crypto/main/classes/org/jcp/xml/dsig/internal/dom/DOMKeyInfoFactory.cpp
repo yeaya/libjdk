@@ -98,21 +98,21 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMKeyInfoFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DOMKeyInfoFactory::*)()>(&DOMKeyInfoFactory::init$))},
-	{"getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"newKeyInfo", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC},
-	{"newKeyInfo", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC},
-	{"newKeyName", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyName;", nullptr, $PUBLIC},
-	{"newKeyValue", "(Ljava/security/PublicKey;)Ljavax/xml/crypto/dsig/keyinfo/KeyValue;", nullptr, $PUBLIC, nullptr, "java.security.KeyException"},
-	{"newPGPData", "([B)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", nullptr, $PUBLIC},
-	{"newPGPData", "([B[BLjava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", nullptr, $PUBLIC},
-	{"newPGPData", "([BLjava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", nullptr, $PUBLIC},
-	{"newRetrievalMethod", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/RetrievalMethod;", nullptr, $PUBLIC},
-	{"newRetrievalMethod", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/RetrievalMethod;", nullptr, $PUBLIC},
-	{"newX509Data", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/X509Data;", nullptr, $PUBLIC},
-	{"newX509IssuerSerial", "(Ljava/lang/String;Ljava/math/BigInteger;)Ljavax/xml/crypto/dsig/keyinfo/X509IssuerSerial;", nullptr, $PUBLIC},
-	{"unmarshalKeyInfo", "(Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.MarshalException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMKeyInfoFactory, init$, void)},
+	{"getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, getURIDereferencer, $URIDereferencer*)},
+	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, isFeatureSupported, bool, $String*)},
+	{"newKeyInfo", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newKeyInfo, $KeyInfo*, $List*)},
+	{"newKeyInfo", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newKeyInfo, $KeyInfo*, $List*, $String*)},
+	{"newKeyName", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/KeyName;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newKeyName, $KeyName*, $String*)},
+	{"newKeyValue", "(Ljava/security/PublicKey;)Ljavax/xml/crypto/dsig/keyinfo/KeyValue;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newKeyValue, $KeyValue*, $PublicKey*), "java.security.KeyException"},
+	{"newPGPData", "([B)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newPGPData, $PGPData*, $bytes*)},
+	{"newPGPData", "([B[BLjava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newPGPData, $PGPData*, $bytes*, $bytes*, $List*)},
+	{"newPGPData", "([BLjava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/PGPData;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newPGPData, $PGPData*, $bytes*, $List*)},
+	{"newRetrievalMethod", "(Ljava/lang/String;)Ljavax/xml/crypto/dsig/keyinfo/RetrievalMethod;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newRetrievalMethod, $RetrievalMethod*, $String*)},
+	{"newRetrievalMethod", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/RetrievalMethod;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newRetrievalMethod, $RetrievalMethod*, $String*, $String*, $List*)},
+	{"newX509Data", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/keyinfo/X509Data;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newX509Data, $X509Data*, $List*)},
+	{"newX509IssuerSerial", "(Ljava/lang/String;Ljava/math/BigInteger;)Ljavax/xml/crypto/dsig/keyinfo/X509IssuerSerial;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, newX509IssuerSerial, $X509IssuerSerial*, $String*, $BigInteger*)},
+	{"unmarshalKeyInfo", "(Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC, $virtualMethod(DOMKeyInfoFactory, unmarshalKeyInfo, $KeyInfo*, $XMLStructure*), "javax.xml.crypto.MarshalException"},
 	{}
 };
 

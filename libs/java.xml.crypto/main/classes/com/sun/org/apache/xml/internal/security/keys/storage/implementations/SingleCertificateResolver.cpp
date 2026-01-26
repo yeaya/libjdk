@@ -32,8 +32,8 @@ $FieldInfo _SingleCertificateResolver_FieldInfo_[] = {
 };
 
 $MethodInfo _SingleCertificateResolver_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(static_cast<void(SingleCertificateResolver::*)($X509Certificate*)>(&SingleCertificateResolver::init$))},
-	{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC},
+	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(SingleCertificateResolver, init$, void, $X509Certificate*)},
+	{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(SingleCertificateResolver, getIterator, $Iterator*)},
 	{}
 };
 

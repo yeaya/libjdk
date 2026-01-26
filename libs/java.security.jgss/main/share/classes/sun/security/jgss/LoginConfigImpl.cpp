@@ -62,10 +62,10 @@ $FieldInfo _LoginConfigImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _LoginConfigImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/GSSCaller;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC, $method(static_cast<void(LoginConfigImpl::*)($GSSCaller*,$Oid*)>(&LoginConfigImpl::init$))},
-	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC},
-	{"getDefaultConfigurationEntry", "()[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PRIVATE, $method(static_cast<$AppConfigurationEntryArray*(LoginConfigImpl::*)()>(&LoginConfigImpl::getDefaultConfigurationEntry))},
-	{"isServerSide", "(Lsun/security/jgss/GSSCaller;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($GSSCaller*)>(&LoginConfigImpl::isServerSide))},
+	{"<init>", "(Lsun/security/jgss/GSSCaller;Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC, $method(LoginConfigImpl, init$, void, $GSSCaller*, $Oid*)},
+	{"getAppConfigurationEntry", "(Ljava/lang/String;)[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PUBLIC, $virtualMethod(LoginConfigImpl, getAppConfigurationEntry, $AppConfigurationEntryArray*, $String*)},
+	{"getDefaultConfigurationEntry", "()[Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, $PRIVATE, $method(LoginConfigImpl, getDefaultConfigurationEntry, $AppConfigurationEntryArray*)},
+	{"isServerSide", "(Lsun/security/jgss/GSSCaller;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LoginConfigImpl, isServerSide, bool, $GSSCaller*)},
 	{}
 };
 

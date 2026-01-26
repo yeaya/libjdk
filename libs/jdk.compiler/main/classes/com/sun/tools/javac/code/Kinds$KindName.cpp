@@ -63,17 +63,17 @@ $FieldInfo _Kinds$KindName_FieldInfo_[] = {
 };
 
 $MethodInfo _Kinds$KindName_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Kinds$KindNameArray*(*)()>(&Kinds$KindName::$values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Kinds$KindName, $values, $Kinds$KindNameArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Kinds$KindName::*)($String*,int32_t,$String*)>(&Kinds$KindName::init$))},
-	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Kinds$KindName*(*)($String*)>(&Kinds$KindName::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Kinds$KindNameArray*(*)()>(&Kinds$KindName::values))},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Kinds$KindName, init$, void, $String*, int32_t, $String*)},
+	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Kinds$KindName, getKind, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Kinds$KindName, toString, $String*)},
+	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Kinds$KindName, toString, $String*, $Locale*, $Messages*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$KindName, valueOf, Kinds$KindName*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$KindName, values, $Kinds$KindNameArray*)},
 	{}
 };
 

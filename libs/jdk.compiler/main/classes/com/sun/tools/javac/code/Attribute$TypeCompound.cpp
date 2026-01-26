@@ -22,8 +22,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Attribute$TypeCompound_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, $PUBLIC, $method(static_cast<void(Attribute$TypeCompound::*)($Attribute$Compound*,$TypeAnnotationPosition*)>(&Attribute$TypeCompound::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", $PUBLIC, $method(static_cast<void(Attribute$TypeCompound::*)($Type*,$List*,$TypeAnnotationPosition*)>(&Attribute$TypeCompound::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, $PUBLIC, $method(Attribute$TypeCompound, init$, void, $Attribute$Compound*, $TypeAnnotationPosition*)},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", $PUBLIC, $method(Attribute$TypeCompound, init$, void, $Type*, $List*, $TypeAnnotationPosition*)},
 	{}
 };
 

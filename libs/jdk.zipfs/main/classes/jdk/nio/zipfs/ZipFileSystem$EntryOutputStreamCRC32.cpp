@@ -33,10 +33,10 @@ $FieldInfo _ZipFileSystem$EntryOutputStreamCRC32_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileSystem$EntryOutputStreamCRC32_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(ZipFileSystem$EntryOutputStreamCRC32::*)($ZipFileSystem*,$ZipFileSystem$Entry*,$OutputStream*)>(&ZipFileSystem$EntryOutputStreamCRC32::init$))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$Entry;Ljava/io/OutputStream;)V", nullptr, 0, $method(ZipFileSystem$EntryOutputStreamCRC32, init$, void, $ZipFileSystem*, $ZipFileSystem$Entry*, $OutputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryOutputStreamCRC32, close, void)},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryOutputStreamCRC32, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$EntryOutputStreamCRC32, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

@@ -41,10 +41,10 @@ $FieldInfo _Attr$RecoveryInfo$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$RecoveryInfo$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Attr$RecoveryInfo$1::*)($Check$CheckContext*,$Attr*,$DeferredAttr$DeferredAttrContext*,$Type*)>(&Attr$RecoveryInfo$1::init$))},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC},
-	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Attr$RecoveryInfo$1, init$, void, $Check$CheckContext*, $Attr*, $DeferredAttr$DeferredAttrContext*, $Type*)},
+	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Attr$RecoveryInfo$1, compatible, bool, $Type*, $Type*, $Warner*)},
+	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC, $virtualMethod(Attr$RecoveryInfo$1, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Attr$RecoveryInfo$1, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
 	{}
 };
 

@@ -53,11 +53,11 @@ $FieldInfo _JarSigner$SignatureFile_FieldInfo_[] = {
 };
 
 $MethodInfo _JarSigner$SignatureFile_MethodInfo_[] = {
-	{"<init>", "([Ljava/security/MessageDigest;Ljava/util/jar/Manifest;Lsun/security/util/ManifestDigester;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(static_cast<void(JarSigner$SignatureFile::*)($MessageDigestArray*,$Manifest*,$ManifestDigester*,$String*,bool)>(&JarSigner$SignatureFile::init$))},
-	{"getBaseSignatureFilesName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&JarSigner$SignatureFile::getBaseSignatureFilesName))},
-	{"getBlockName", "(Ljava/security/PrivateKey;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMetaName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "([Ljava/security/MessageDigest;Ljava/util/jar/Manifest;Lsun/security/util/ManifestDigester;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JarSigner$SignatureFile, init$, void, $MessageDigestArray*, $Manifest*, $ManifestDigester*, $String*, bool)},
+	{"getBaseSignatureFilesName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JarSigner$SignatureFile, getBaseSignatureFilesName, $String*, $String*)},
+	{"getBlockName", "(Ljava/security/PrivateKey;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarSigner$SignatureFile, getBlockName, $String*, $PrivateKey*)},
+	{"getMetaName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarSigner$SignatureFile, getMetaName, $String*)},
+	{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(JarSigner$SignatureFile, write, void, $OutputStream*), "java.io.IOException"},
 	{}
 };
 

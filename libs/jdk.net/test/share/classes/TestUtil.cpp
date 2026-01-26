@@ -36,11 +36,11 @@ $FieldInfo _TestUtil_FieldInfo_[] = {
 };
 
 $MethodInfo _TestUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TestUtil::*)()>(&TestUtil::init$))},
-	{"compareContents", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $STATIC, $method(static_cast<void(*)($Path*,$Path*)>(&TestUtil::compareContents))},
-	{"compareFiles", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/Void;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Void*(*)($Path*,$Path*)>(&TestUtil::compareFiles))},
-	{"getAFile", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Path*(*)(int32_t)>(&TestUtil::getAFile)), "java.io.IOException"},
-	{"tempFile", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Path*(*)()>(&TestUtil::tempFile))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TestUtil, init$, void)},
+	{"compareContents", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $STATIC, $staticMethod(TestUtil, compareContents, void, $Path*, $Path*)},
+	{"compareFiles", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/lang/Void;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtil, compareFiles, $Void*, $Path*, $Path*)},
+	{"getAFile", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtil, getAFile, $Path*, int32_t), "java.io.IOException"},
+	{"tempFile", "()Ljava/nio/file/Path;", nullptr, $PUBLIC | $STATIC, $staticMethod(TestUtil, tempFile, $Path*)},
 	{}
 };
 

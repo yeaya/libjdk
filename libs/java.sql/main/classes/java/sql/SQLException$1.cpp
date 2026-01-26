@@ -27,10 +27,10 @@ $FieldInfo _SQLException$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLException$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/sql/SQLException;)V", nullptr, 0, $method(static_cast<void(SQLException$1::*)($SQLException*)>(&SQLException$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/sql/SQLException;)V", nullptr, 0, $method(SQLException$1, init$, void, $SQLException*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(SQLException$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(SQLException$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(SQLException$1, remove, void)},
 	{}
 };
 

@@ -5,15 +5,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $RowSet = ::javax::sql::RowSet;
 
 namespace javax {
 	namespace sql {
 		namespace rowset {
 
 $MethodInfo _Predicate_MethodInfo_[] = {
-	{"evaluate", "(Ljavax/sql/RowSet;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"evaluate", "(Ljava/lang/Object;I)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"evaluate", "(Ljava/lang/Object;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"evaluate", "(Ljavax/sql/RowSet;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Predicate, evaluate, bool, $RowSet*)},
+	{"evaluate", "(Ljava/lang/Object;I)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Predicate, evaluate, bool, Object$*, int32_t), "java.sql.SQLException"},
+	{"evaluate", "(Ljava/lang/Object;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Predicate, evaluate, bool, Object$*, $String*), "java.sql.SQLException"},
 	{}
 };
 

@@ -61,8 +61,8 @@ $FieldInfo ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::
 	{}
 };
 $MethodInfo ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::*)($Class*)>(&ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::init$))},
-	{"serialClass", "()Ljava/lang/Class;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, init$, void, $Class*)},
+	{"serialClass", "()Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0, serialClass, $Class*)},
 	{}
 };
 $ClassInfo ObjectFactoriesFilter$$Lambda$lambda$canInstantiateObjectsFactory$0::classInfo$ = {
@@ -87,11 +87,11 @@ $FieldInfo _ObjectFactoriesFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjectFactoriesFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ObjectFactoriesFilter::*)()>(&ObjectFactoriesFilter::init$))},
-	{"canInstantiateObjectsFactory", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)($Class*)>(&ObjectFactoriesFilter::canInstantiateObjectsFactory))},
-	{"checkInput", "(Lcom/sun/naming/internal/ObjectFactoriesFilter$FactoryInfo;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($ObjectFactoriesFilter$FactoryInfo*)>(&ObjectFactoriesFilter::checkInput))},
-	{"getFilterPropertyValue", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&ObjectFactoriesFilter::getFilterPropertyValue))},
-	{"lambda$canInstantiateObjectsFactory$0", "(Ljava/lang/Class;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Class*(*)($Class*)>(&ObjectFactoriesFilter::lambda$canInstantiateObjectsFactory$0))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectFactoriesFilter, init$, void)},
+	{"canInstantiateObjectsFactory", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(ObjectFactoriesFilter, canInstantiateObjectsFactory, bool, $Class*)},
+	{"checkInput", "(Lcom/sun/naming/internal/ObjectFactoriesFilter$FactoryInfo;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectFactoriesFilter, checkInput, bool, $ObjectFactoriesFilter$FactoryInfo*)},
+	{"getFilterPropertyValue", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectFactoriesFilter, getFilterPropertyValue, $String*)},
+	{"lambda$canInstantiateObjectsFactory$0", "(Ljava/lang/Class;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjectFactoriesFilter, lambda$canInstantiateObjectsFactory$0, $Class*, $Class*)},
 	{}
 };
 

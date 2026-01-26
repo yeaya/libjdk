@@ -97,18 +97,18 @@ $FieldInfo _NamingEventNotifier_FieldInfo_[] = {
 };
 
 $MethodInfo _NamingEventNotifier_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/EventSupport;Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/NotifierArgs;Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(static_cast<void(NamingEventNotifier::*)($EventSupport*,$LdapCtx*,$NotifierArgs*,$NamingListener*)>(&NamingEventNotifier::init$)), "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(static_cast<void(NamingEventNotifier::*)($NamingListener*)>(&NamingEventNotifier::addNamingListener))},
-	{"cleanup", "()V", nullptr, $PRIVATE, $method(static_cast<void(NamingEventNotifier::*)()>(&NamingEventNotifier::cleanup))},
-	{"fireNamingException", "(Ljavax/naming/NamingException;)V", nullptr, $PRIVATE, $method(static_cast<void(NamingEventNotifier::*)($NamingException*)>(&NamingEventNotifier::fireNamingException))},
-	{"fireObjectAdded", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(static_cast<void(NamingEventNotifier::*)($Binding*,int64_t)>(&NamingEventNotifier::fireObjectAdded))},
-	{"fireObjectChanged", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(static_cast<void(NamingEventNotifier::*)($Binding*,int64_t)>(&NamingEventNotifier::fireObjectChanged))},
-	{"fireObjectRemoved", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(static_cast<void(NamingEventNotifier::*)($Binding*,int64_t)>(&NamingEventNotifier::fireObjectRemoved))},
-	{"fireObjectRenamed", "(Ljavax/naming/Binding;Ljava/lang/String;J)V", nullptr, $PRIVATE, $method(static_cast<void(NamingEventNotifier::*)($Binding*,$String*,int64_t)>(&NamingEventNotifier::fireObjectRenamed))},
-	{"hasNamingListeners", "()Z", nullptr, 0, $method(static_cast<bool(NamingEventNotifier::*)()>(&NamingEventNotifier::hasNamingListeners))},
-	{"removeNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(static_cast<void(NamingEventNotifier::*)($NamingListener*)>(&NamingEventNotifier::removeNamingListener))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"stop", "()V", nullptr, 0, $method(static_cast<void(NamingEventNotifier::*)()>(&NamingEventNotifier::stop))},
+	{"<init>", "(Lcom/sun/jndi/ldap/EventSupport;Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/NotifierArgs;Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NamingEventNotifier, init$, void, $EventSupport*, $LdapCtx*, $NotifierArgs*, $NamingListener*), "javax.naming.NamingException"},
+	{"addNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NamingEventNotifier, addNamingListener, void, $NamingListener*)},
+	{"cleanup", "()V", nullptr, $PRIVATE, $method(NamingEventNotifier, cleanup, void)},
+	{"fireNamingException", "(Ljavax/naming/NamingException;)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireNamingException, void, $NamingException*)},
+	{"fireObjectAdded", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectAdded, void, $Binding*, int64_t)},
+	{"fireObjectChanged", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectChanged, void, $Binding*, int64_t)},
+	{"fireObjectRemoved", "(Ljavax/naming/Binding;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectRemoved, void, $Binding*, int64_t)},
+	{"fireObjectRenamed", "(Ljavax/naming/Binding;Ljava/lang/String;J)V", nullptr, $PRIVATE, $method(NamingEventNotifier, fireObjectRenamed, void, $Binding*, $String*, int64_t)},
+	{"hasNamingListeners", "()Z", nullptr, 0, $method(NamingEventNotifier, hasNamingListeners, bool)},
+	{"removeNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NamingEventNotifier, removeNamingListener, void, $NamingListener*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NamingEventNotifier, run, void)},
+	{"stop", "()V", nullptr, 0, $method(NamingEventNotifier, stop, void)},
 	{}
 };
 

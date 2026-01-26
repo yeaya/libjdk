@@ -30,9 +30,9 @@ $CompoundAttribute _TypeKindVisitor8_Annotations_[] = {
 };
 
 $MethodInfo _TypeKindVisitor8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(TypeKindVisitor8::*)()>(&TypeKindVisitor8::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(TypeKindVisitor8::*)(Object$*)>(&TypeKindVisitor8::init$))},
-	{"visitIntersection", "(Ljavax/lang/model/type/IntersectionType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/IntersectionType;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(TypeKindVisitor8, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(TypeKindVisitor8, init$, void, Object$*)},
+	{"visitIntersection", "(Ljavax/lang/model/type/IntersectionType;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/type/IntersectionType;TP;)TR;", $PUBLIC, $virtualMethod(TypeKindVisitor8, visitIntersection, $Object*, $IntersectionType*, Object$*)},
 	{}
 };
 

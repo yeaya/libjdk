@@ -4,6 +4,7 @@
 #include <com/sun/tools/javac/code/TypeMetadata.h>
 #include <jcpp.h>
 
+using $TypeMetadata$Entry$Kind = ::com::sun::tools::javac::code::TypeMetadata$Entry$Kind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,8 +16,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _TypeMetadata$Entry_MethodInfo_[] = {
-	{"combine", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)Lcom/sun/tools/javac/code/TypeMetadata$Entry;", nullptr, $PUBLIC | $ABSTRACT},
-	{"kind", "()Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $ABSTRACT},
+	{"combine", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)Lcom/sun/tools/javac/code/TypeMetadata$Entry;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeMetadata$Entry, combine, TypeMetadata$Entry*, TypeMetadata$Entry*)},
+	{"kind", "()Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeMetadata$Entry, kind, $TypeMetadata$Entry$Kind*)},
 	{}
 };
 

@@ -29,8 +29,8 @@ $FieldInfo _HttpClientImpl$DefaultThreadFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _HttpClientImpl$DefaultThreadFactory_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(static_cast<void(HttpClientImpl$DefaultThreadFactory::*)(int64_t)>(&HttpClientImpl$DefaultThreadFactory::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, 0, $method(HttpClientImpl$DefaultThreadFactory, init$, void, int64_t)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(HttpClientImpl$DefaultThreadFactory, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

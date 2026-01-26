@@ -25,8 +25,8 @@ $FieldInfo _LogManager$SystemLoggerContext_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$SystemLoggerContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, 0, $method(static_cast<void(LogManager$SystemLoggerContext::*)($LogManager*)>(&LogManager$SystemLoggerContext::init$))},
-	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0},
+	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, 0, $method(LogManager$SystemLoggerContext, init$, void, $LogManager*)},
+	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager$SystemLoggerContext, demandLogger, $Logger*, $String*, $String*, $Module*)},
 	{}
 };
 

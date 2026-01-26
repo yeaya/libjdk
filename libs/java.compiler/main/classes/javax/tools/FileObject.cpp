@@ -4,25 +4,32 @@
 #include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
+#include <java/lang/CharSequence.h>
 #include <java/net/URI.h>
 #include <jcpp.h>
 
+using $InputStream = ::java::io::InputStream;
+using $OutputStream = ::java::io::OutputStream;
+using $Reader = ::java::io::Reader;
+using $Writer = ::java::io::Writer;
+using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URI = ::java::net::URI;
 
 namespace javax {
 	namespace tools {
 
 $MethodInfo _FileObject_MethodInfo_[] = {
-	{"delete", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getLastModified", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT},
+	{"delete", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, delete$, bool)},
+	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+	{"getLastModified", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, getLastModified, int64_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, getName, $String*)},
+	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openInputStream, $InputStream*), "java.io.IOException"},
+	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openReader, $Reader*, bool), "java.io.IOException"},
+	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, openWriter, $Writer*), "java.io.IOException"},
+	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FileObject, toUri, $URI*)},
 	{}
 };
 

@@ -44,11 +44,11 @@ $FieldInfo _Analyzer$AnalyzerMode_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$AnalyzerMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Analyzer$AnalyzerMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Analyzer$AnalyzerModeArray*(*)()>(&Analyzer$AnalyzerMode::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lcom/sun/tools/javac/code/Source$Feature;)V", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Source$Feature;)V", $PRIVATE, $method(static_cast<void(Analyzer$AnalyzerMode::*)($String*,int32_t,$String*,$Source$Feature*)>(&Analyzer$AnalyzerMode::init$))},
-	{"getAnalyzerModes", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Source;)Ljava/util/EnumSet;", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Source;)Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Analyzer$AnalyzerMode;>;", $STATIC, $method(static_cast<$EnumSet*(*)($String*,$Source*)>(&Analyzer$AnalyzerMode::getAnalyzerModes))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Analyzer$AnalyzerMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Analyzer$AnalyzerMode*(*)($String*)>(&Analyzer$AnalyzerMode::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Analyzer$AnalyzerMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Analyzer$AnalyzerModeArray*(*)()>(&Analyzer$AnalyzerMode::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Analyzer$AnalyzerMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Analyzer$AnalyzerMode, $values, $Analyzer$AnalyzerModeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lcom/sun/tools/javac/code/Source$Feature;)V", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Source$Feature;)V", $PRIVATE, $method(Analyzer$AnalyzerMode, init$, void, $String*, int32_t, $String*, $Source$Feature*)},
+	{"getAnalyzerModes", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Source;)Ljava/util/EnumSet;", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Source;)Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Analyzer$AnalyzerMode;>;", $STATIC, $staticMethod(Analyzer$AnalyzerMode, getAnalyzerModes, $EnumSet*, $String*, $Source*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Analyzer$AnalyzerMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Analyzer$AnalyzerMode, valueOf, Analyzer$AnalyzerMode*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Analyzer$AnalyzerMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Analyzer$AnalyzerMode, values, $Analyzer$AnalyzerModeArray*)},
 	{}
 };
 

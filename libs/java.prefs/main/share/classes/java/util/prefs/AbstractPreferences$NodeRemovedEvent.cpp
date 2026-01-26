@@ -24,7 +24,7 @@ $FieldInfo _AbstractPreferences$NodeRemovedEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractPreferences$NodeRemovedEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/AbstractPreferences;Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V", nullptr, 0, $method(static_cast<void(AbstractPreferences$NodeRemovedEvent::*)($AbstractPreferences*,$Preferences*,$Preferences*)>(&AbstractPreferences$NodeRemovedEvent::init$))},
+	{"<init>", "(Ljava/util/prefs/AbstractPreferences;Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V", nullptr, 0, $method(AbstractPreferences$NodeRemovedEvent, init$, void, $AbstractPreferences*, $Preferences*, $Preferences*)},
 	{}
 };
 

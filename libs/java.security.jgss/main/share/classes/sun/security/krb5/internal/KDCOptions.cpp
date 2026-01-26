@@ -85,17 +85,17 @@ $FieldInfo _KDCOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _KDCOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KDCOptions::*)()>(&KDCOptions::init$))},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(KDCOptions::*)(int32_t,$bytes*)>(&KDCOptions::init$)), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(static_cast<void(KDCOptions::*)($booleans*)>(&KDCOptions::init$)), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(KDCOptions::*)($DerValue*)>(&KDCOptions::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(KDCOptions::*)($bytes*)>(&KDCOptions::init$))},
-	{"get", "(I)Z", nullptr, $PUBLIC, nullptr, "java.lang.ArrayIndexOutOfBoundsException"},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/KDCOptions;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KDCOptions*(*)($DerInputStream*,int8_t,bool)>(&KDCOptions::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"set", "(IZ)V", nullptr, $PUBLIC, nullptr, "java.lang.ArrayIndexOutOfBoundsException"},
-	{"setDefault", "()V", nullptr, $PRIVATE, $method(static_cast<void(KDCOptions::*)()>(&KDCOptions::setDefault))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"with", "([I)Lsun/security/krb5/internal/KDCOptions;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<KDCOptions*(*)($ints*)>(&KDCOptions::with))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KDCOptions, init$, void)},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, int32_t, $bytes*), "sun.security.krb5.Asn1Exception"},
+	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, $booleans*), "sun.security.krb5.Asn1Exception"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(KDCOptions, init$, void, $bytes*)},
+	{"get", "(I)Z", nullptr, $PUBLIC, $virtualMethod(KDCOptions, get, bool, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/KDCOptions;", nullptr, $PUBLIC | $STATIC, $staticMethod(KDCOptions, parse, KDCOptions*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"set", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(KDCOptions, set, void, int32_t, bool), "java.lang.ArrayIndexOutOfBoundsException"},
+	{"setDefault", "()V", nullptr, $PRIVATE, $method(KDCOptions, setDefault, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KDCOptions, toString, $String*)},
+	{"with", "([I)Lsun/security/krb5/internal/KDCOptions;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(KDCOptions, with, KDCOptions*, $ints*)},
 	{}
 };
 

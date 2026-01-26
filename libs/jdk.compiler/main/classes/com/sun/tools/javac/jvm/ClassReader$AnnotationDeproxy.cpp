@@ -107,22 +107,22 @@ $FieldInfo _ClassReader$AnnotationDeproxy_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$AnnotationDeproxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $method(static_cast<void(ClassReader$AnnotationDeproxy::*)($ClassReader*,$Symbol$ClassSymbol*)>(&ClassReader$AnnotationDeproxy::init$))},
-	{"deproxy", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/code/Attribute;", nullptr, 0},
-	{"deproxyCompound", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;)Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, 0},
-	{"deproxyCompoundList", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", 0},
-	{"findAccessMethod", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0},
-	{"resolvePossibleProxyType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC},
-	{"visitArrayAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$ArrayAttributeProxy;)V", nullptr, $PUBLIC},
-	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC},
-	{"visitClassAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$ClassAttributeProxy;)V", nullptr, $PUBLIC},
-	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC},
-	{"visitCompoundAnnotationProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;)V", nullptr, $PUBLIC},
-	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC},
-	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC},
-	{"visitEnumAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$EnumAttributeProxy;)V", nullptr, $PUBLIC},
-	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $method(ClassReader$AnnotationDeproxy, init$, void, $ClassReader*, $Symbol$ClassSymbol*)},
+	{"deproxy", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Attribute;)Lcom/sun/tools/javac/code/Attribute;", nullptr, 0, $virtualMethod(ClassReader$AnnotationDeproxy, deproxy, $Attribute*, $Type*, $Attribute*)},
+	{"deproxyCompound", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;)Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, 0, $virtualMethod(ClassReader$AnnotationDeproxy, deproxyCompound, $Attribute$Compound*, $ClassReader$CompoundAnnotationProxy*)},
+	{"deproxyCompoundList", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", 0, $virtualMethod(ClassReader$AnnotationDeproxy, deproxyCompoundList, $List*, $List*)},
+	{"findAccessMethod", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0, $virtualMethod(ClassReader$AnnotationDeproxy, findAccessMethod, $Symbol$MethodSymbol*, $Type*, $Name*)},
+	{"resolvePossibleProxyType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ClassReader$AnnotationDeproxy, resolvePossibleProxyType, $Type*, $Type*)},
+	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDeproxy, visitArray, void, $Attribute$Array*)},
+	{"visitArrayAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$ArrayAttributeProxy;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDeproxy, visitArrayAttributeProxy, void, $ClassReader$ArrayAttributeProxy*)},
+	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDeproxy, visitClass, void, $Attribute$Class*)},
+	{"visitClassAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$ClassAttributeProxy;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDeproxy, visitClassAttributeProxy, void, $ClassReader$ClassAttributeProxy*)},
+	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDeproxy, visitCompound, void, $Attribute$Compound*)},
+	{"visitCompoundAnnotationProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDeproxy, visitCompoundAnnotationProxy, void, $ClassReader$CompoundAnnotationProxy*)},
+	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDeproxy, visitConstant, void, $Attribute$Constant*)},
+	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDeproxy, visitEnum, void, $Attribute$Enum*)},
+	{"visitEnumAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$EnumAttributeProxy;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDeproxy, visitEnumAttributeProxy, void, $ClassReader$EnumAttributeProxy*)},
+	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDeproxy, visitError, void, $Attribute$Error*)},
 	{}
 };
 

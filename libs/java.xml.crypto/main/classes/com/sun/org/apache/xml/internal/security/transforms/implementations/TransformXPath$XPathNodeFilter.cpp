@@ -39,9 +39,9 @@ $FieldInfo _TransformXPath$XPathNodeFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _TransformXPath$XPathNodeFilter_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Node;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;)V", nullptr, 0, $method(static_cast<void(TransformXPath$XPathNodeFilter::*)($Element*,$Node*,$String*,$XPathAPI*)>(&TransformXPath$XPathNodeFilter::init$))},
-	{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC},
-	{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Node;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;)V", nullptr, 0, $method(TransformXPath$XPathNodeFilter, init$, void, $Element*, $Node*, $String*, $XPathAPI*)},
+	{"isNodeInclude", "(Lorg/w3c/dom/Node;)I", nullptr, $PUBLIC, $virtualMethod(TransformXPath$XPathNodeFilter, isNodeInclude, int32_t, $Node*)},
+	{"isNodeIncludeDO", "(Lorg/w3c/dom/Node;I)I", nullptr, $PUBLIC, $virtualMethod(TransformXPath$XPathNodeFilter, isNodeIncludeDO, int32_t, $Node*, int32_t)},
 	{}
 };
 

@@ -10,8 +10,8 @@ namespace sun {
 		namespace counter {
 
 $MethodInfo _ByteArrayCounter_MethodInfo_[] = {
-	{"byteArrayValue", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"byteAt", "(I)B", nullptr, $PUBLIC | $ABSTRACT},
+	{"byteArrayValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ByteArrayCounter, byteArrayValue, $bytes*)},
+	{"byteAt", "(I)B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ByteArrayCounter, byteAt, int8_t, int32_t)},
 	{}
 };
 

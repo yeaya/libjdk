@@ -4,6 +4,8 @@
 #include <java/io/ObjectOutput.h>
 #include <jcpp.h>
 
+using $ObjectInput = ::java::io::ObjectInput;
+using $ObjectOutput = ::java::io::ObjectOutput;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -53,13 +55,13 @@ $CompoundAttribute _RemoteCall_MethodAnnotations_releaseOutputStream6[] = {
 };
 
 $MethodInfo _RemoteCall_MethodInfo_[] = {
-	{"done", "()V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.io.IOException", nullptr, _RemoteCall_MethodAnnotations_done0},
-	{"executeCall", "()V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.lang.Exception", nullptr, _RemoteCall_MethodAnnotations_executeCall1},
-	{"getInputStream", "()Ljava/io/ObjectInput;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.io.IOException", nullptr, _RemoteCall_MethodAnnotations_getInputStream2},
-	{"getOutputStream", "()Ljava/io/ObjectOutput;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.io.IOException", nullptr, _RemoteCall_MethodAnnotations_getOutputStream3},
-	{"getResultStream", "(Z)Ljava/io/ObjectOutput;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.io.IOException,java.io.StreamCorruptedException", nullptr, _RemoteCall_MethodAnnotations_getResultStream4},
-	{"releaseInputStream", "()V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.io.IOException", nullptr, _RemoteCall_MethodAnnotations_releaseInputStream5},
-	{"releaseOutputStream", "()V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.io.IOException", nullptr, _RemoteCall_MethodAnnotations_releaseOutputStream6},
+	{"done", "()V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteCall, done, void), "java.io.IOException", nullptr, _RemoteCall_MethodAnnotations_done0},
+	{"executeCall", "()V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteCall, executeCall, void), "java.lang.Exception", nullptr, _RemoteCall_MethodAnnotations_executeCall1},
+	{"getInputStream", "()Ljava/io/ObjectInput;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteCall, getInputStream, $ObjectInput*), "java.io.IOException", nullptr, _RemoteCall_MethodAnnotations_getInputStream2},
+	{"getOutputStream", "()Ljava/io/ObjectOutput;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteCall, getOutputStream, $ObjectOutput*), "java.io.IOException", nullptr, _RemoteCall_MethodAnnotations_getOutputStream3},
+	{"getResultStream", "(Z)Ljava/io/ObjectOutput;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteCall, getResultStream, $ObjectOutput*, bool), "java.io.IOException,java.io.StreamCorruptedException", nullptr, _RemoteCall_MethodAnnotations_getResultStream4},
+	{"releaseInputStream", "()V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteCall, releaseInputStream, void), "java.io.IOException", nullptr, _RemoteCall_MethodAnnotations_releaseInputStream5},
+	{"releaseOutputStream", "()V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteCall, releaseOutputStream, void), "java.io.IOException", nullptr, _RemoteCall_MethodAnnotations_releaseOutputStream6},
 	{}
 };
 

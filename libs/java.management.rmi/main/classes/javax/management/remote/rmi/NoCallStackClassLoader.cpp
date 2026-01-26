@@ -29,10 +29,10 @@ $FieldInfo _NoCallStackClassLoader_FieldInfo_[] = {
 };
 
 $MethodInfo _NoCallStackClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B[Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(static_cast<void(NoCallStackClassLoader::*)($String*,$bytes*,$StringArray*,$ClassLoader*,$ProtectionDomain*)>(&NoCallStackClassLoader::init$))},
-	{"<init>", "([Ljava/lang/String;[[B[Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(static_cast<void(NoCallStackClassLoader::*)($StringArray*,$byteArray2*,$StringArray*,$ClassLoader*,$ProtectionDomain*)>(&NoCallStackClassLoader::init$))},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
-	{"stringToBytes", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($String*)>(&NoCallStackClassLoader::stringToBytes))},
+	{"<init>", "(Ljava/lang/String;[B[Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(NoCallStackClassLoader, init$, void, $String*, $bytes*, $StringArray*, $ClassLoader*, $ProtectionDomain*)},
+	{"<init>", "([Ljava/lang/String;[[B[Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/security/ProtectionDomain;)V", nullptr, $PUBLIC, $method(NoCallStackClassLoader, init$, void, $StringArray*, $byteArray2*, $StringArray*, $ClassLoader*, $ProtectionDomain*)},
+	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(NoCallStackClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"stringToBytes", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(NoCallStackClassLoader, stringToBytes, $bytes*, $String*)},
 	{}
 };
 

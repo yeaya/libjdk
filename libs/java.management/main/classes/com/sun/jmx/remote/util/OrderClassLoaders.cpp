@@ -24,8 +24,8 @@ $FieldInfo _OrderClassLoaders_FieldInfo_[] = {
 };
 
 $MethodInfo _OrderClassLoaders_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(static_cast<void(OrderClassLoaders::*)($ClassLoader*,$ClassLoader*)>(&OrderClassLoaders::init$))},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(OrderClassLoaders, init$, void, $ClassLoader*, $ClassLoader*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(OrderClassLoaders, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
 	{}
 };
 

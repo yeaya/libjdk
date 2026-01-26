@@ -39,10 +39,10 @@ $FieldInfo _JapaneseTest_FieldInfo_[] = {
 };
 
 $MethodInfo _JapaneseTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JapaneseTest::*)()>(&JapaneseTest::init$))},
-	{"doCompare", "([[Ljava/lang/String;III)V", nullptr, 0},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&JapaneseTest::main)), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JapaneseTest, init$, void)},
+	{"doCompare", "([[Ljava/lang/String;III)V", nullptr, 0, $virtualMethod(JapaneseTest, doCompare, void, $StringArray2*, int32_t, int32_t, int32_t)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JapaneseTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JapaneseTest, run, void)},
 	{}
 };
 

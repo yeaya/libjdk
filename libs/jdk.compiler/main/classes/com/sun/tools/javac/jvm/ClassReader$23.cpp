@@ -37,8 +37,8 @@ $FieldInfo _ClassReader$23_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$23_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(static_cast<void(ClassReader$23::*)($ClassReader*,$Name*,$ClassFile$Version*,$Set*)>(&ClassReader$23::init$))},
-	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(ClassReader$23, init$, void, $ClassReader*, $Name*, $ClassFile$Version*, $Set*)},
+	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED, $virtualMethod(ClassReader$23, read, void, $Symbol*, int32_t)},
 	{}
 };
 

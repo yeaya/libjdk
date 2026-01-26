@@ -36,15 +36,15 @@ $FieldInfo _Flow$Liveness_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$Liveness_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Flow$LivenessArray*(*)()>(&Flow$Liveness::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Flow$Liveness::*)($String*,int32_t)>(&Flow$Liveness::init$))},
-	{"and", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $ABSTRACT},
-	{"and", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC},
-	{"from", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Flow$Liveness*(*)(bool)>(&Flow$Liveness::from))},
-	{"or", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $ABSTRACT},
-	{"or", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Flow$Liveness*(*)($String*)>(&Flow$Liveness::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Flow$LivenessArray*(*)()>(&Flow$Liveness::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$Liveness, $values, $Flow$LivenessArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Flow$Liveness, init$, void, $String*, int32_t)},
+	{"and", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Liveness, and$, Flow$Liveness*, Flow$Liveness*)},
+	{"and", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness, and$, Flow$Liveness*, bool)},
+	{"from", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$Liveness, from, Flow$Liveness*, bool)},
+	{"or", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Liveness, or$, Flow$Liveness*, Flow$Liveness*)},
+	{"or", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness, or$, Flow$Liveness*, bool)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$Liveness, valueOf, Flow$Liveness*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$Liveness, values, $Flow$LivenessArray*)},
 	{}
 };
 

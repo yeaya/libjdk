@@ -18,8 +18,8 @@ $FieldInfo _AttributeInUseException_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributeInUseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AttributeInUseException::*)($String*)>(&AttributeInUseException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AttributeInUseException::*)()>(&AttributeInUseException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeInUseException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeInUseException, init$, void)},
 	{}
 };
 

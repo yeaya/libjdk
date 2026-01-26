@@ -71,8 +71,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Level$$Lambda$mirrored::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Level$$Lambda$mirrored::*)()>(&Level$$Lambda$mirrored::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Level$$Lambda$mirrored, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$$Lambda$mirrored, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Level$$Lambda$mirrored::classInfo$ = {
@@ -104,8 +104,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Level$$Lambda$referent$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Level$$Lambda$referent$1::*)()>(&Level$$Lambda$referent$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Level$$Lambda$referent$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Level$$Lambda$referent$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Level$$Lambda$referent$1::classInfo$ = {
@@ -144,23 +144,23 @@ $FieldInfo _Level_FieldInfo_[] = {
 };
 
 $MethodInfo _Level_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(static_cast<void(Level::*)($String*,int32_t)>(&Level::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PROTECTED, $method(static_cast<void(Level::*)($String*,int32_t,$String*)>(&Level::init$))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", nullptr, $PRIVATE, $method(static_cast<void(Level::*)($String*,int32_t,$String*,bool)>(&Level::init$))},
-	{"computeLocalizedLevelName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Level::*)($Locale*)>(&Level::computeLocalizedLevelName))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"findLevel", "(Ljava/lang/String;)Ljava/util/logging/Level;", nullptr, $STATIC, $method(static_cast<Level*(*)($String*)>(&Level::findLevel))},
-	{"getCachedLocalizedLevelName", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(Level::*)()>(&Level::getCachedLocalizedLevelName))},
-	{"getLevelName", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(Level::*)()>(&Level::getLevelName))},
-	{"getLocalizedLevelName", "()Ljava/lang/String;", nullptr, $FINAL | $SYNCHRONIZED, $method(static_cast<$String*(Level::*)()>(&Level::getLocalizedLevelName))},
-	{"getLocalizedName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getResourceBundleName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"intValue", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(Level::*)()>(&Level::intValue))},
-	{"parse", "(Ljava/lang/String;)Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<Level*(*)($String*)>(&Level::parse)), "java.lang.IllegalArgumentException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(Level::*)()>(&Level::readResolve))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(Level, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PROTECTED, $method(Level, init$, void, $String*, int32_t, $String*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", nullptr, $PRIVATE, $method(Level, init$, void, $String*, int32_t, $String*, bool)},
+	{"computeLocalizedLevelName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Level, computeLocalizedLevelName, $String*, $Locale*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Level, equals, bool, Object$*)},
+	{"findLevel", "(Ljava/lang/String;)Ljava/util/logging/Level;", nullptr, $STATIC, $staticMethod(Level, findLevel, Level*, $String*)},
+	{"getCachedLocalizedLevelName", "()Ljava/lang/String;", nullptr, $FINAL, $method(Level, getCachedLocalizedLevelName, $String*)},
+	{"getLevelName", "()Ljava/lang/String;", nullptr, $FINAL, $method(Level, getLevelName, $String*)},
+	{"getLocalizedLevelName", "()Ljava/lang/String;", nullptr, $FINAL | $SYNCHRONIZED, $method(Level, getLocalizedLevelName, $String*)},
+	{"getLocalizedName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Level, getLocalizedName, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Level, getName, $String*)},
+	{"getResourceBundleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Level, getResourceBundleName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Level, hashCode, int32_t)},
+	{"intValue", "()I", nullptr, $PUBLIC | $FINAL, $method(Level, intValue, int32_t)},
+	{"parse", "(Ljava/lang/String;)Ljava/util/logging/Level;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Level, parse, Level*, $String*), "java.lang.IllegalArgumentException"},
+	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Level, readResolve, $Object*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Level, toString, $String*)},
 	{}
 };
 

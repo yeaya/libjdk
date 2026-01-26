@@ -21,7 +21,7 @@ $FieldInfo _DocCommentParser$ParseException_FieldInfo_[] = {
 };
 
 $MethodInfo _DocCommentParser$ParseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(DocCommentParser$ParseException::*)($String*)>(&DocCommentParser$ParseException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(DocCommentParser$ParseException, init$, void, $String*)},
 	{}
 };
 

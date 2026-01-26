@@ -48,8 +48,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RegistryImpl$2$$Lambda$registryFilter::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RegistryImpl$2$$Lambda$registryFilter::*)()>(&RegistryImpl$2$$Lambda$registryFilter::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RegistryImpl$2$$Lambda$registryFilter, init$, void)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$2$$Lambda$registryFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
 	{}
 };
 $ClassInfo RegistryImpl$2$$Lambda$registryFilter::classInfo$ = {
@@ -73,8 +73,8 @@ $FieldInfo _RegistryImpl$2_FieldInfo_[] = {
 };
 
 $MethodInfo _RegistryImpl$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/registry/RegistryImpl;I)V", "()V", 0, $method(static_cast<void(RegistryImpl$2::*)($RegistryImpl*,int32_t)>(&RegistryImpl$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
+	{"<init>", "(Lsun/rmi/registry/RegistryImpl;I)V", "()V", 0, $method(RegistryImpl$2, init$, void, $RegistryImpl*, int32_t)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$2, run, $Object*), "java.rmi.RemoteException"},
 	{}
 };
 

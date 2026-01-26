@@ -30,9 +30,9 @@ $FieldInfo _FilterFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _FilterFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FilterFactory::*)()>(&FilterFactory::init$))},
-	{"addFilter", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljdk/internal/net/http/HeaderFilter;>;)V", $PUBLIC},
-	{"getFilterChain", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljdk/internal/net/http/HeaderFilter;>;", 0},
+	{"<init>", "()V", nullptr, 0, $method(FilterFactory, init$, void)},
+	{"addFilter", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljdk/internal/net/http/HeaderFilter;>;)V", $PUBLIC, $virtualMethod(FilterFactory, addFilter, void, $Class*)},
+	{"getFilterChain", "()Ljava/util/LinkedList;", "()Ljava/util/LinkedList<Ljdk/internal/net/http/HeaderFilter;>;", 0, $virtualMethod(FilterFactory, getFilterChain, $LinkedList*)},
 	{}
 };
 

@@ -56,8 +56,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ObjID$$Lambda$lambda$useRandomIDs$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjID$$Lambda$lambda$useRandomIDs$0::*)()>(&ObjID$$Lambda$lambda$useRandomIDs$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjID$$Lambda$lambda$useRandomIDs$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjID$$Lambda$lambda$useRandomIDs$0, run, $Object*)},
 	{}
 };
 $ClassInfo ObjID$$Lambda$lambda$useRandomIDs$0::classInfo$ = {
@@ -88,16 +88,16 @@ $FieldInfo _ObjID_FieldInfo_[] = {
 };
 
 $MethodInfo _ObjID_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ObjID::*)()>(&ObjID::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(ObjID::*)(int32_t)>(&ObjID::init$))},
-	{"<init>", "(JLjava/rmi/server/UID;)V", nullptr, $PRIVATE, $method(static_cast<void(ObjID::*)(int64_t,$UID*)>(&ObjID::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"lambda$useRandomIDs$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&ObjID::lambda$useRandomIDs$0))},
-	{"read", "(Ljava/io/ObjectInput;)Ljava/rmi/server/ObjID;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ObjID*(*)($ObjectInput*)>(&ObjID::read)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"useRandomIDs", "()Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)()>(&ObjID::useRandomIDs))},
-	{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $method(static_cast<void(ObjID::*)($ObjectOutput*)>(&ObjID::write)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjID, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ObjID, init$, void, int32_t)},
+	{"<init>", "(JLjava/rmi/server/UID;)V", nullptr, $PRIVATE, $method(ObjID, init$, void, int64_t, $UID*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjID, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjID, hashCode, int32_t)},
+	{"lambda$useRandomIDs$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjID, lambda$useRandomIDs$0, $String*)},
+	{"read", "(Ljava/io/ObjectInput;)Ljava/rmi/server/ObjID;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjID, read, ObjID*, $ObjectInput*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjID, toString, $String*)},
+	{"useRandomIDs", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjID, useRandomIDs, bool)},
+	{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $method(ObjID, write, void, $ObjectOutput*), "java.io.IOException"},
 	{}
 };
 

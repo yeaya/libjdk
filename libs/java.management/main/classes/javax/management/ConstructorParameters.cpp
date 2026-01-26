@@ -34,7 +34,7 @@ $CompoundAttribute _ConstructorParameters_Annotations_[] = {
 };
 
 $MethodInfo _ConstructorParameters_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ConstructorParameters, value, $StringArray*)},
 	{}
 };
 

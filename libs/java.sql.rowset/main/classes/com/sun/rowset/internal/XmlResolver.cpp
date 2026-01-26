@@ -14,8 +14,8 @@ namespace com {
 			namespace internal {
 
 $MethodInfo _XmlResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XmlResolver::*)()>(&XmlResolver::init$))},
-	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XmlResolver, init$, void)},
+	{"resolveEntity", "(Ljava/lang/String;Ljava/lang/String;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC, $virtualMethod(XmlResolver, resolveEntity, $InputSource*, $String*, $String*)},
 	{}
 };
 

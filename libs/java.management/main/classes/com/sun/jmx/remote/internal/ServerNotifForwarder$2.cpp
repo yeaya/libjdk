@@ -27,8 +27,8 @@ $FieldInfo _ServerNotifForwarder$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerNotifForwarder$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", "()V", 0, $method(static_cast<void(ServerNotifForwarder$2::*)($MBeanServer*,$ObjectName*)>(&ServerNotifForwarder$2::init$))},
-	{"run", "()Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, nullptr, "javax.management.InstanceNotFoundException"},
+	{"<init>", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", "()V", 0, $method(ServerNotifForwarder$2, init$, void, $MBeanServer*, $ObjectName*)},
+	{"run", "()Ljavax/management/ObjectInstance;", nullptr, $PUBLIC, $virtualMethod(ServerNotifForwarder$2, run, $Object*), "javax.management.InstanceNotFoundException"},
 	{}
 };
 

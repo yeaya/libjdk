@@ -25,11 +25,11 @@ $FieldInfo _PubType_FieldInfo_[] = {
 };
 
 $MethodInfo _PubType_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;)V", $PUBLIC, $method(static_cast<void(PubType::*)($Set*,$String*,$PubApi*)>(&PubType::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getFqName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;)V", "(Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;)V", $PUBLIC, $method(PubType, init$, void, $Set*, $String*, $PubApi*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PubType, equals, bool, Object$*)},
+	{"getFqName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubType, getFqName, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PubType, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PubType, toString, $String*)},
 	{}
 };
 

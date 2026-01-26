@@ -52,12 +52,14 @@ using $Types = ::com::sun::tools::javac::code::Types;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Gen = ::com::sun::tools::javac::jvm::Gen;
+using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
 using $StringConcat$Indy = ::com::sun::tools::javac::jvm::StringConcat$Indy;
 using $StringConcat$IndyConstants = ::com::sun::tools::javac::jvm::StringConcat$IndyConstants;
 using $StringConcat$IndyPlain = ::com::sun::tools::javac::jvm::StringConcat$IndyPlain;
 using $StringConcat$Inline = ::com::sun::tools::javac::jvm::StringConcat$Inline;
 using $Target = ::com::sun::tools::javac::jvm::Target;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
+using $JCTree$JCAssignOp = ::com::sun::tools::javac::tree::JCTree$JCAssignOp;
 using $JCTree$JCBinary = ::com::sun::tools::javac::tree::JCTree$JCBinary;
 using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
@@ -101,15 +103,15 @@ $FieldInfo _StringConcat_FieldInfo_[] = {
 };
 
 $MethodInfo _StringConcat_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(StringConcat::*)($Context*)>(&StringConcat::init$))},
-	{"collect", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE, $method(static_cast<$List*(StringConcat::*)($JCTree*,$List*)>(&StringConcat::collect))},
-	{"collectAll", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PROTECTED},
-	{"collectAll", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PROTECTED},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/StringConcat;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StringConcat*(*)($Context*)>(&StringConcat::instance))},
-	{"makeConcat", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/StringConcat;", nullptr, $PRIVATE | $STATIC, $method(static_cast<StringConcat*(*)($Context*)>(&StringConcat::makeConcat))},
-	{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC | $ABSTRACT},
-	{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC | $ABSTRACT},
-	{"sharpestAccessible", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(StringConcat, init$, void, $Context*)},
+	{"collect", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PRIVATE, $method(StringConcat, collect, $List*, $JCTree*, $List*)},
+	{"collectAll", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PROTECTED, $virtualMethod(StringConcat, collectAll, $List*, $JCTree*)},
+	{"collectAll", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree;>;", $PROTECTED, $virtualMethod(StringConcat, collectAll, $List*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/StringConcat;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringConcat, instance, StringConcat*, $Context*)},
+	{"makeConcat", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/StringConcat;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcat, makeConcat, StringConcat*, $Context*)},
+	{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringConcat, makeConcat, $Items$Item*, $JCTree$JCAssignOp*)},
+	{"makeConcat", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringConcat, makeConcat, $Items$Item*, $JCTree$JCBinary*)},
+	{"sharpestAccessible", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(StringConcat, sharpestAccessible, $Type*, $Type*)},
 	{}
 };
 

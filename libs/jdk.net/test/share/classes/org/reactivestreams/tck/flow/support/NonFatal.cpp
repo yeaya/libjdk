@@ -22,8 +22,8 @@ namespace org {
 				namespace support {
 
 $MethodInfo _NonFatal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(NonFatal::*)()>(&NonFatal::init$))},
-	{"isNonFatal", "(Ljava/lang/Throwable;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Throwable*)>(&NonFatal::isNonFatal))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(NonFatal, init$, void)},
+	{"isNonFatal", "(Ljava/lang/Throwable;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(NonFatal, isNonFatal, bool, $Throwable*)},
 	{}
 };
 

@@ -65,16 +65,16 @@ $FieldInfo _MonitorInfoCompositeData_FieldInfo_[] = {
 };
 
 $MethodInfo _MonitorInfoCompositeData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/management/MonitorInfo;)V", nullptr, $PRIVATE, $method(static_cast<void(MonitorInfoCompositeData::*)($MonitorInfo*)>(&MonitorInfoCompositeData::init$))},
-	{"getClassName", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($CompositeData*)>(&MonitorInfoCompositeData::getClassName))},
-	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED},
-	{"getIdentityHashCode", "(Ljavax/management/openmbean/CompositeData;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($CompositeData*)>(&MonitorInfoCompositeData::getIdentityHashCode))},
-	{"getLockedStackDepth", "(Ljavax/management/openmbean/CompositeData;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($CompositeData*)>(&MonitorInfoCompositeData::getLockedStackDepth))},
-	{"getLockedStackFrame", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StackTraceElement*(*)($CompositeData*)>(&MonitorInfoCompositeData::getLockedStackFrame))},
-	{"getMonitorInfo", "()Ljava/lang/management/MonitorInfo;", nullptr, $PUBLIC},
-	{"toCompositeData", "(Ljava/lang/management/MonitorInfo;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$CompositeData*(*)($MonitorInfo*)>(&MonitorInfoCompositeData::toCompositeData))},
-	{"v6CompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $method(static_cast<$CompositeType*(*)()>(&MonitorInfoCompositeData::v6CompositeType))},
-	{"validateCompositeData", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($CompositeData*)>(&MonitorInfoCompositeData::validateCompositeData))},
+	{"<init>", "(Ljava/lang/management/MonitorInfo;)V", nullptr, $PRIVATE, $method(MonitorInfoCompositeData, init$, void, $MonitorInfo*)},
+	{"getClassName", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(MonitorInfoCompositeData, getClassName, $String*, $CompositeData*)},
+	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED, $virtualMethod(MonitorInfoCompositeData, getCompositeData, $CompositeData*)},
+	{"getIdentityHashCode", "(Ljavax/management/openmbean/CompositeData;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MonitorInfoCompositeData, getIdentityHashCode, int32_t, $CompositeData*)},
+	{"getLockedStackDepth", "(Ljavax/management/openmbean/CompositeData;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(MonitorInfoCompositeData, getLockedStackDepth, int32_t, $CompositeData*)},
+	{"getLockedStackFrame", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $STATIC, $staticMethod(MonitorInfoCompositeData, getLockedStackFrame, $StackTraceElement*, $CompositeData*)},
+	{"getMonitorInfo", "()Ljava/lang/management/MonitorInfo;", nullptr, $PUBLIC, $virtualMethod(MonitorInfoCompositeData, getMonitorInfo, $MonitorInfo*)},
+	{"toCompositeData", "(Ljava/lang/management/MonitorInfo;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(MonitorInfoCompositeData, toCompositeData, $CompositeData*, $MonitorInfo*)},
+	{"v6CompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(MonitorInfoCompositeData, v6CompositeType, $CompositeType*)},
+	{"validateCompositeData", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MonitorInfoCompositeData, validateCompositeData, void, $CompositeData*)},
 	{}
 };
 

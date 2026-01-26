@@ -26,8 +26,8 @@ $FieldInfo _ConnectionsWeakRef_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionsWeakRef_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/pool/ConnectionsRef;Ljava/lang/ref/ReferenceQueue;)V", "(Lcom/sun/jndi/ldap/pool/ConnectionsRef;Ljava/lang/ref/ReferenceQueue<-Lcom/sun/jndi/ldap/pool/ConnectionsRef;>;)V", 0, $method(static_cast<void(ConnectionsWeakRef::*)($ConnectionsRef*,$ReferenceQueue*)>(&ConnectionsWeakRef::init$))},
-	{"getConnections", "()Lcom/sun/jndi/ldap/pool/Connections;", nullptr, 0},
+	{"<init>", "(Lcom/sun/jndi/ldap/pool/ConnectionsRef;Ljava/lang/ref/ReferenceQueue;)V", "(Lcom/sun/jndi/ldap/pool/ConnectionsRef;Ljava/lang/ref/ReferenceQueue<-Lcom/sun/jndi/ldap/pool/ConnectionsRef;>;)V", 0, $method(ConnectionsWeakRef, init$, void, $ConnectionsRef*, $ReferenceQueue*)},
+	{"getConnections", "()Lcom/sun/jndi/ldap/pool/Connections;", nullptr, 0, $virtualMethod(ConnectionsWeakRef, getConnections, $Connections*)},
 	{}
 };
 

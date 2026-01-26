@@ -57,12 +57,12 @@ $FieldInfo _TypeDesc_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeDesc_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/type/TypeKind;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeDesc::*)($TypeKind*)>(&TypeDesc::init$))},
-	{"decodeString", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeDesc*(*)($String*)>(&TypeDesc::decodeString))},
-	{"encodeAsString", "(Lcom/sun/tools/sjavac/pubapi/TypeDesc;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(TypeDesc*)>(&TypeDesc::encodeAsString))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"fromType", "(Ljavax/lang/model/type/TypeMirror;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeDesc*(*)($TypeMirror*)>(&TypeDesc::fromType))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/lang/model/type/TypeKind;)V", nullptr, $PUBLIC, $method(TypeDesc, init$, void, $TypeKind*)},
+	{"decodeString", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeDesc, decodeString, TypeDesc*, $String*)},
+	{"encodeAsString", "(Lcom/sun/tools/sjavac/pubapi/TypeDesc;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeDesc, encodeAsString, $String*, TypeDesc*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeDesc, equals, bool, Object$*)},
+	{"fromType", "(Ljavax/lang/model/type/TypeMirror;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeDesc, fromType, TypeDesc*, $TypeMirror*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TypeDesc, hashCode, int32_t)},
 	{}
 };
 

@@ -57,8 +57,8 @@ $FieldInfo MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::fi
 	{}
 };
 $MethodInfo MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/rmi/MarshalledObject$MarshalledObjectInputStream;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(static_cast<void(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::*)(MarshalledObject$MarshalledObjectInputStream*,$ObjectInputFilter*)>(&MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/rmi/MarshalledObject$MarshalledObjectInputStream;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, init$, void, MarshalledObject$MarshalledObjectInputStream*, $ObjectInputFilter*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0, run, $Object*)},
 	{}
 };
 $ClassInfo MarshalledObject$MarshalledObjectInputStream$$Lambda$lambda$new$0::classInfo$ = {
@@ -81,9 +81,9 @@ $FieldInfo _MarshalledObject$MarshalledObjectInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _MarshalledObject$MarshalledObjectInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/io/InputStream;Ljava/io/ObjectInputFilter;)V", nullptr, 0, $method(static_cast<void(MarshalledObject$MarshalledObjectInputStream::*)($InputStream*,$InputStream*,$ObjectInputFilter*)>(&MarshalledObject$MarshalledObjectInputStream::init$)), "java.io.IOException"},
-	{"lambda$new$0", "(Ljava/io/ObjectInputFilter;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(MarshalledObject$MarshalledObjectInputStream::*)($ObjectInputFilter*)>(&MarshalledObject$MarshalledObjectInputStream::lambda$new$0))},
-	{"readLocation", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/io/InputStream;Ljava/io/InputStream;Ljava/io/ObjectInputFilter;)V", nullptr, 0, $method(MarshalledObject$MarshalledObjectInputStream, init$, void, $InputStream*, $InputStream*, $ObjectInputFilter*), "java.io.IOException"},
+	{"lambda$new$0", "(Ljava/io/ObjectInputFilter;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(MarshalledObject$MarshalledObjectInputStream, lambda$new$0, $Void*, $ObjectInputFilter*)},
+	{"readLocation", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MarshalledObject$MarshalledObjectInputStream, readLocation, $Object*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

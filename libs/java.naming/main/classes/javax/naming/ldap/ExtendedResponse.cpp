@@ -10,8 +10,8 @@ namespace javax {
 		namespace ldap {
 
 $MethodInfo _ExtendedResponse_MethodInfo_[] = {
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getEncodedValue", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedResponse, getEncodedValue, $bytes*)},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedResponse, getID, $String*)},
 	{}
 };
 

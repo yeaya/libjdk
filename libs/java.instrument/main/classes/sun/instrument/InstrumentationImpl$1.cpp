@@ -21,8 +21,8 @@ $FieldInfo _InstrumentationImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _InstrumentationImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/AccessibleObject;Z)V", "()V", 0, $method(static_cast<void(InstrumentationImpl$1::*)($AccessibleObject*,bool)>(&InstrumentationImpl$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/reflect/AccessibleObject;Z)V", "()V", 0, $method(InstrumentationImpl$1, init$, void, $AccessibleObject*, bool)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InstrumentationImpl$1, run, $Object*)},
 	{}
 };
 

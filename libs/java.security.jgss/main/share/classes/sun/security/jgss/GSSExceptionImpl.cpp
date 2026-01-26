@@ -22,11 +22,11 @@ $FieldInfo _GSSExceptionImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _GSSExceptionImpl_MethodInfo_[] = {
-	{"<init>", "(ILorg/ietf/jgss/Oid;)V", nullptr, 0, $method(static_cast<void(GSSExceptionImpl::*)(int32_t,$Oid*)>(&GSSExceptionImpl::init$))},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(GSSExceptionImpl::*)(int32_t,$String*)>(&GSSExceptionImpl::init$))},
-	{"<init>", "(ILjava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(GSSExceptionImpl::*)(int32_t,$Exception*)>(&GSSExceptionImpl::init$))},
-	{"<init>", "(ILjava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(GSSExceptionImpl::*)(int32_t,$String*,$Exception*)>(&GSSExceptionImpl::init$))},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILorg/ietf/jgss/Oid;)V", nullptr, 0, $method(GSSExceptionImpl, init$, void, int32_t, $Oid*)},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(GSSExceptionImpl, init$, void, int32_t, $String*)},
+	{"<init>", "(ILjava/lang/Exception;)V", nullptr, $PUBLIC, $method(GSSExceptionImpl, init$, void, int32_t, $Exception*)},
+	{"<init>", "(ILjava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(GSSExceptionImpl, init$, void, int32_t, $String*, $Exception*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSExceptionImpl, getMessage, $String*)},
 	{}
 };
 

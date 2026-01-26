@@ -76,8 +76,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LdapDnsProviderService$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LdapDnsProviderService$$Lambda$lambda$new$0::*)()>(&LdapDnsProviderService$$Lambda$lambda$new$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapDnsProviderService$$Lambda$lambda$new$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapDnsProviderService$$Lambda$lambda$new$0, run, $Object*)},
 	{}
 };
 $ClassInfo LdapDnsProviderService$$Lambda$lambda$new$0::classInfo$ = {
@@ -109,8 +109,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::*)()>(&LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo LdapDnsProviderService$$Lambda$lambda$lookupEndpoints$1$1::classInfo$ = {
@@ -135,11 +135,11 @@ $FieldInfo _LdapDnsProviderService_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapDnsProviderService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LdapDnsProviderService::*)()>(&LdapDnsProviderService::init$))},
-	{"getInstance", "()Lcom/sun/jndi/ldap/LdapDnsProviderService;", nullptr, $STATIC, $method(static_cast<LdapDnsProviderService*(*)()>(&LdapDnsProviderService::getInstance))},
-	{"lambda$lookupEndpoints$1", "(Ljavax/naming/ldap/spi/LdapDnsProviderResult;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($LdapDnsProviderResult*)>(&LdapDnsProviderService::lambda$lookupEndpoints$1))},
-	{"lambda$new$0", "()Ljava/util/ServiceLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ServiceLoader*(*)()>(&LdapDnsProviderService::lambda$new$0))},
-	{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/ldap/spi/LdapDnsProviderResult;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/ldap/spi/LdapDnsProviderResult;", 0, $method(static_cast<$LdapDnsProviderResult*(LdapDnsProviderService::*)($String*,$Hashtable*)>(&LdapDnsProviderService::lookupEndpoints)), "javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LdapDnsProviderService, init$, void)},
+	{"getInstance", "()Lcom/sun/jndi/ldap/LdapDnsProviderService;", nullptr, $STATIC, $staticMethod(LdapDnsProviderService, getInstance, LdapDnsProviderService*)},
+	{"lambda$lookupEndpoints$1", "(Ljavax/naming/ldap/spi/LdapDnsProviderResult;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapDnsProviderService, lambda$lookupEndpoints$1, bool, $LdapDnsProviderResult*)},
+	{"lambda$new$0", "()Ljava/util/ServiceLoader;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapDnsProviderService, lambda$new$0, $ServiceLoader*)},
+	{"lookupEndpoints", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/ldap/spi/LdapDnsProviderResult;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/ldap/spi/LdapDnsProviderResult;", 0, $method(LdapDnsProviderService, lookupEndpoints, $LdapDnsProviderResult*, $String*, $Hashtable*), "javax.naming.NamingException"},
 	{}
 };
 

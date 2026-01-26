@@ -10,16 +10,16 @@ namespace javax {
 		namespace rowset {
 
 $MethodInfo _Joinable_MethodInfo_[] = {
-	{"getMatchColumnIndexes", "()[I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getMatchColumnNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"setMatchColumn", "(I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"setMatchColumn", "([I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"setMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"setMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"unsetMatchColumn", "(I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"unsetMatchColumn", "([I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"unsetMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"unsetMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getMatchColumnIndexes", "()[I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Joinable, getMatchColumnIndexes, $ints*), "java.sql.SQLException"},
+	{"getMatchColumnNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Joinable, getMatchColumnNames, $StringArray*), "java.sql.SQLException"},
+	{"setMatchColumn", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Joinable, setMatchColumn, void, int32_t), "java.sql.SQLException"},
+	{"setMatchColumn", "([I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Joinable, setMatchColumn, void, $ints*), "java.sql.SQLException"},
+	{"setMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Joinable, setMatchColumn, void, $String*), "java.sql.SQLException"},
+	{"setMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Joinable, setMatchColumn, void, $StringArray*), "java.sql.SQLException"},
+	{"unsetMatchColumn", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Joinable, unsetMatchColumn, void, int32_t), "java.sql.SQLException"},
+	{"unsetMatchColumn", "([I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Joinable, unsetMatchColumn, void, $ints*), "java.sql.SQLException"},
+	{"unsetMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Joinable, unsetMatchColumn, void, $String*), "java.sql.SQLException"},
+	{"unsetMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Joinable, unsetMatchColumn, void, $StringArray*), "java.sql.SQLException"},
 	{}
 };
 

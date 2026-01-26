@@ -72,22 +72,22 @@ $FieldInfo _Krb5NameElement_FieldInfo_[] = {
 };
 
 $MethodInfo _Krb5NameElement_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;Lorg/ietf/jgss/Oid;)V", nullptr, $PRIVATE, $method(static_cast<void(Krb5NameElement::*)($PrincipalName*,$String*,$Oid*)>(&Krb5NameElement::init$))},
-	{"equals", "(Lsun/security/jgss/spi/GSSNameSpi;)Z", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"export", "()[B", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getComponents", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($String*)>(&Krb5NameElement::getComponents)), "org.ietf.jgss.GSSException"},
-	{"getGSSNameType", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC},
-	{"getHostBasedInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&Krb5NameElement::getHostBasedInstance)), "org.ietf.jgss.GSSException"},
-	{"getInstance", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $STATIC, $method(static_cast<Krb5NameElement*(*)($String*,$Oid*)>(&Krb5NameElement::getInstance)), "org.ietf.jgss.GSSException"},
-	{"getInstance", "(Lsun/security/krb5/PrincipalName;)Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Krb5NameElement*(*)($PrincipalName*)>(&Krb5NameElement::getInstance))},
-	{"getKrb5PrincipalName", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$PrincipalName*(Krb5NameElement::*)()>(&Krb5NameElement::getKrb5PrincipalName))},
-	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC},
-	{"getStringNameType", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isAnonymousName", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;Lorg/ietf/jgss/Oid;)V", nullptr, $PRIVATE, $method(Krb5NameElement, init$, void, $PrincipalName*, $String*, $Oid*)},
+	{"equals", "(Lsun/security/jgss/spi/GSSNameSpi;)Z", nullptr, $PUBLIC, $virtualMethod(Krb5NameElement, equals, bool, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Krb5NameElement, equals, bool, Object$*)},
+	{"export", "()[B", nullptr, $PUBLIC, $virtualMethod(Krb5NameElement, export$, $bytes*), "org.ietf.jgss.GSSException"},
+	{"getComponents", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5NameElement, getComponents, $StringArray*, $String*), "org.ietf.jgss.GSSException"},
+	{"getGSSNameType", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(Krb5NameElement, getGSSNameType, $Oid*)},
+	{"getHostBasedInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5NameElement, getHostBasedInstance, $String*, $String*, $String*), "org.ietf.jgss.GSSException"},
+	{"getInstance", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $STATIC, $staticMethod(Krb5NameElement, getInstance, Krb5NameElement*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
+	{"getInstance", "(Lsun/security/krb5/PrincipalName;)Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5NameElement, getInstance, Krb5NameElement*, $PrincipalName*)},
+	{"getKrb5PrincipalName", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC | $FINAL, $method(Krb5NameElement, getKrb5PrincipalName, $PrincipalName*)},
+	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(Krb5NameElement, getMechanism, $Oid*)},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(Krb5NameElement, getProvider, $Provider*)},
+	{"getStringNameType", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(Krb5NameElement, getStringNameType, $Oid*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5NameElement, hashCode, int32_t)},
+	{"isAnonymousName", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5NameElement, isAnonymousName, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Krb5NameElement, toString, $String*)},
 	{}
 };
 

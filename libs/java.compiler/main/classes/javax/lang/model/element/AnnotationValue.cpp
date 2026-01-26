@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $AnnotationValueVisitor = ::javax::lang::model::element::AnnotationValueVisitor;
 
 namespace javax {
 	namespace lang {
@@ -12,8 +13,8 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _AnnotationValue_MethodInfo_[] = {
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationValue, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationValue, getValue, $Object*)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

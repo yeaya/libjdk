@@ -40,9 +40,9 @@ $FieldInfo _PolicyUtils_FieldInfo_[] = {
 };
 
 $MethodInfo _PolicyUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PolicyUtils::*)()>(&PolicyUtils::init$))},
-	{"checkPolicy", "(ILjava/util/Map;)Z", "(ILjava/util/Map<Ljava/lang/String;*>;)Z", $PUBLIC | $STATIC, $method(static_cast<bool(*)(int32_t,$Map*)>(&PolicyUtils::checkPolicy))},
-	{"filterMechs", "([Ljava/lang/String;[ILjava/util/Map;)[Ljava/lang/String;", "([Ljava/lang/String;[ILjava/util/Map<Ljava/lang/String;*>;)[Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$StringArray*(*)($StringArray*,$ints*,$Map*)>(&PolicyUtils::filterMechs))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PolicyUtils, init$, void)},
+	{"checkPolicy", "(ILjava/util/Map;)Z", "(ILjava/util/Map<Ljava/lang/String;*>;)Z", $PUBLIC | $STATIC, $staticMethod(PolicyUtils, checkPolicy, bool, int32_t, $Map*)},
+	{"filterMechs", "([Ljava/lang/String;[ILjava/util/Map;)[Ljava/lang/String;", "([Ljava/lang/String;[ILjava/util/Map<Ljava/lang/String;*>;)[Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(PolicyUtils, filterMechs, $StringArray*, $StringArray*, $ints*, $Map*)},
 	{}
 };
 

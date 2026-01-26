@@ -34,10 +34,10 @@ $FieldInfo _JNIWriter$EncoderType_FieldInfo_[] = {
 };
 
 $MethodInfo _JNIWriter$EncoderType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JNIWriter$EncoderTypeArray*(*)()>(&JNIWriter$EncoderType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JNIWriter$EncoderType::*)($String*,int32_t)>(&JNIWriter$EncoderType::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JNIWriter$EncoderType*(*)($String*)>(&JNIWriter$EncoderType::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JNIWriter$EncoderTypeArray*(*)()>(&JNIWriter$EncoderType::values))},
+	{"$values", "()[Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JNIWriter$EncoderType, $values, $JNIWriter$EncoderTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JNIWriter$EncoderType, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JNIWriter$EncoderType, valueOf, JNIWriter$EncoderType*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/jvm/JNIWriter$EncoderType;", nullptr, $PUBLIC | $STATIC, $staticMethod(JNIWriter$EncoderType, values, $JNIWriter$EncoderTypeArray*)},
 	{}
 };
 

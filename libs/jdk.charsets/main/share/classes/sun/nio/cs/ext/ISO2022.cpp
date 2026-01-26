@@ -14,7 +14,7 @@ namespace sun {
 			namespace ext {
 
 $MethodInfo _ISO2022_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ISO2022::*)($String*,$StringArray*)>(&ISO2022::init$))},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ISO2022, init$, void, $String*, $StringArray*)},
 	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $ABSTRACT},
 	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

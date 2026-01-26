@@ -31,8 +31,8 @@ $FieldInfo _Check$1AnnotationValidator_FieldInfo_[] = {
 };
 
 $MethodInfo _Check$1AnnotationValidator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, 0, $method(static_cast<void(Check$1AnnotationValidator::*)($Check*)>(&Check$1AnnotationValidator::init$))},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, 0, $method(Check$1AnnotationValidator, init$, void, $Check*)},
+	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(Check$1AnnotationValidator, visitAnnotation, void, $JCTree$JCAnnotation*)},
 	{}
 };
 

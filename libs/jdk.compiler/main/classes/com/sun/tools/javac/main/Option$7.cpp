@@ -67,8 +67,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Option$7$$Lambda$lambda$process$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Option$7$$Lambda$lambda$process$0::*)()>(&Option$7$$Lambda$lambda$process$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Option$7$$Lambda$lambda$process$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$7$$Lambda$lambda$process$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Option$7$$Lambda$lambda$process$0::classInfo$ = {
@@ -86,10 +86,10 @@ $Class* Option$7$$Lambda$lambda$process$0::load$($String* name, bool initialize)
 $Class* Option$7$$Lambda$lambda$process$0::class$ = nullptr;
 
 $MethodInfo _Option$7_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(static_cast<void(Option$7::*)($String*,int32_t,$String*,$String*,$String*,$Option$OptionKind*,$Option$OptionGroup*)>(&Option$7::init$))},
-	{"getPattern", "()Ljava/util/regex/Pattern;", nullptr, $PUBLIC},
-	{"lambda$process$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Option$7::lambda$process$0))},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.main.Option$InvalidValueException"},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$7, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+	{"getPattern", "()Ljava/util/regex/Pattern;", nullptr, $PUBLIC, $virtualMethod(Option$7, getPattern, $Pattern*)},
+	{"lambda$process$0", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$7, lambda$process$0, $String*, $String*)},
+	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$7, process, void, $OptionHelper*, $String*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
 	{}
 };
 

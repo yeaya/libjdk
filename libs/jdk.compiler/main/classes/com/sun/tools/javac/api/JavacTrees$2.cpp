@@ -29,9 +29,9 @@ $FieldInfo _JavacTrees$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTrees$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;[Lcom/sun/source/doctree/DocTree;)V", nullptr, 0, $method(static_cast<void(JavacTrees$2::*)($JavacTrees*,$DocTreeArray*)>(&JavacTrees$2::init$))},
-	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;[Lcom/sun/source/doctree/DocTree;)V", nullptr, 0, $method(JavacTrees$2, init$, void, $JavacTrees*, $DocTreeArray*)},
+	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$2, scan, $Void*, $DocTree*, $Void*)},
+	{"scan", "(Lcom/sun/source/doctree/DocTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTrees$2, scan, $Object*, $DocTree*, Object$*)},
 	{}
 };
 

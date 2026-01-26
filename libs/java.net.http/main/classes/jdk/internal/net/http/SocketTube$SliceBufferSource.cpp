@@ -49,8 +49,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SocketTube$SliceBufferSource$$Lambda$getBuffer::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$SliceBufferSource$$Lambda$getBuffer::*)()>(&SocketTube$SliceBufferSource$$Lambda$getBuffer::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketTube$SliceBufferSource$$Lambda$getBuffer, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketTube$SliceBufferSource$$Lambda$getBuffer, get, $Object*)},
 	{}
 };
 $ClassInfo SocketTube$SliceBufferSource$$Lambda$getBuffer::classInfo$ = {
@@ -75,10 +75,10 @@ $FieldInfo _SocketTube$SliceBufferSource_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketTube$SliceBufferSource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$SliceBufferSource::*)()>(&SocketTube$SliceBufferSource::init$))},
-	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(static_cast<void(SocketTube$SliceBufferSource::*)($Supplier*)>(&SocketTube$SliceBufferSource::init$))},
-	{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $FINAL},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketTube$SliceBufferSource, init$, void)},
+	{"<init>", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SocketTube$SliceBufferSource, init$, void, $Supplier*)},
+	{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $FINAL, $virtualMethod(SocketTube$SliceBufferSource, append, $List*, $List*, $ByteBuffer*, int32_t)},
+	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SliceBufferSource, getBuffer, $ByteBuffer*)},
 	{}
 };
 

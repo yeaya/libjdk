@@ -8,6 +8,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SequentialScheduler$DeferredCompleter = ::jdk::internal::net::http::common::SequentialScheduler$DeferredCompleter;
 
 namespace jdk {
 	namespace internal {
@@ -21,7 +22,7 @@ $CompoundAttribute _SequentialScheduler$RestartableTask_Annotations_[] = {
 };
 
 $MethodInfo _SequentialScheduler$RestartableTask_MethodInfo_[] = {
-	{"run", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"run", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SequentialScheduler$RestartableTask, run, void, $SequentialScheduler$DeferredCompleter*)},
 	{}
 };
 

@@ -39,14 +39,14 @@ $FieldInfo _UID_FieldInfo_[] = {
 };
 
 $MethodInfo _UID_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UID::*)()>(&UID::init$))},
-	{"<init>", "(S)V", nullptr, $PUBLIC, $method(static_cast<void(UID::*)(int16_t)>(&UID::init$))},
-	{"<init>", "(IJS)V", nullptr, $PRIVATE, $method(static_cast<void(UID::*)(int32_t,int64_t,int16_t)>(&UID::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"read", "(Ljava/io/DataInput;)Ljava/rmi/server/UID;", nullptr, $PUBLIC | $STATIC, $method(static_cast<UID*(*)($DataInput*)>(&UID::read)), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(Ljava/io/DataOutput;)V", nullptr, $PUBLIC, $method(static_cast<void(UID::*)($DataOutput*)>(&UID::write)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UID, init$, void)},
+	{"<init>", "(S)V", nullptr, $PUBLIC, $method(UID, init$, void, int16_t)},
+	{"<init>", "(IJS)V", nullptr, $PRIVATE, $method(UID, init$, void, int32_t, int64_t, int16_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UID, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UID, hashCode, int32_t)},
+	{"read", "(Ljava/io/DataInput;)Ljava/rmi/server/UID;", nullptr, $PUBLIC | $STATIC, $staticMethod(UID, read, UID*, $DataInput*), "java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UID, toString, $String*)},
+	{"write", "(Ljava/io/DataOutput;)V", nullptr, $PUBLIC, $method(UID, write, void, $DataOutput*), "java.io.IOException"},
 	{}
 };
 

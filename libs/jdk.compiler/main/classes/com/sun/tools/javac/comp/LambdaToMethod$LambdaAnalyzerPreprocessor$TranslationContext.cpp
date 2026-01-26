@@ -46,11 +46,11 @@ $FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext_FieldIn
 };
 
 $MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree$JCFunctionalExpression;)V", "(TT;)V", 0, $method(static_cast<void(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext::*)($LambdaToMethod$LambdaAnalyzerPreprocessor*,$JCTree$JCFunctionalExpression*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext::init$))},
-	{"enclosingMethodName", "()Ljava/lang/String;", nullptr, 0},
-	{"isSerializable", "()Z", nullptr, 0},
-	{"needsAltMetafactory", "()Z", nullptr, 0},
-	{"syntheticMethodNameComponent", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/tree/JCTree$JCFunctionalExpression;)V", "(TT;)V", 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $JCTree$JCFunctionalExpression*)},
+	{"enclosingMethodName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, enclosingMethodName, $String*)},
+	{"isSerializable", "()Z", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, isSerializable, bool)},
+	{"needsAltMetafactory", "()Z", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, needsAltMetafactory, bool)},
+	{"syntheticMethodNameComponent", "(Lcom/sun/tools/javac/util/Name;)Ljava/lang/String;", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, syntheticMethodNameComponent, $String*, $Name*)},
 	{}
 };
 

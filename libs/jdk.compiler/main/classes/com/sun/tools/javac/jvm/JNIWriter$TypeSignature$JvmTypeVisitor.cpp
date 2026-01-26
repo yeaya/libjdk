@@ -42,15 +42,15 @@ $FieldInfo _JNIWriter$TypeSignature$JvmTypeVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _JNIWriter$TypeSignature$JvmTypeVisitor_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(JNIWriter$TypeSignature$JvmTypeVisitor::*)(bool)>(&JNIWriter$TypeSignature$JvmTypeVisitor::init$))},
-	{"getJvmPrimitiveSignature", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(JNIWriter$TypeSignature$JvmTypeVisitor::*)($Type*)>(&JNIWriter$TypeSignature$JvmTypeVisitor::getJvmPrimitiveSignature))},
-	{"setDeclaredType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(static_cast<void(JNIWriter$TypeSignature$JvmTypeVisitor::*)($Type*,$StringBuilder*)>(&JNIWriter$TypeSignature$JvmTypeVisitor::setDeclaredType))},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/StringBuilder;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/StringBuilder;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/StringBuilder;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Z)V", nullptr, 0, $method(JNIWriter$TypeSignature$JvmTypeVisitor, init$, void, bool)},
+	{"getJvmPrimitiveSignature", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JNIWriter$TypeSignature$JvmTypeVisitor, getJvmPrimitiveSignature, $String*, $Type*)},
+	{"setDeclaredType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(JNIWriter$TypeSignature$JvmTypeVisitor, setDeclaredType, void, $Type*, $StringBuilder*)},
+	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/StringBuilder;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(JNIWriter$TypeSignature$JvmTypeVisitor, visitArrayType, $Type*, $Type$ArrayType*, $StringBuilder*)},
+	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JNIWriter$TypeSignature$JvmTypeVisitor, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/StringBuilder;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(JNIWriter$TypeSignature$JvmTypeVisitor, visitClassType, $Type*, $Type$ClassType*, $StringBuilder*)},
+	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JNIWriter$TypeSignature$JvmTypeVisitor, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/StringBuilder;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(JNIWriter$TypeSignature$JvmTypeVisitor, visitType, $Type*, $Type*, $StringBuilder*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JNIWriter$TypeSignature$JvmTypeVisitor, visitType, $Object*, $Type*, Object$*)},
 	{}
 };
 

@@ -43,12 +43,12 @@ $CompoundAttribute _AbstractElementVisitor6_MethodAnnotations_init$0[] = {
 };
 
 $MethodInfo _AbstractElementVisitor6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(AbstractElementVisitor6::*)()>(&AbstractElementVisitor6::init$)), nullptr, nullptr, _AbstractElementVisitor6_MethodAnnotations_init$0},
-	{"visit", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC | $FINAL},
-	{"visit", "(Ljavax/lang/model/element/Element;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;)TR;", $PUBLIC | $FINAL},
-	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement;TP;)TR;", $PUBLIC},
-	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/RecordComponentElement;TP;)TR;", $PUBLIC},
-	{"visitUnknown", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(AbstractElementVisitor6, init$, void), nullptr, nullptr, _AbstractElementVisitor6_MethodAnnotations_init$0},
+	{"visit", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC | $FINAL, $virtualMethod(AbstractElementVisitor6, visit, $Object*, $Element*, Object$*)},
+	{"visit", "(Ljavax/lang/model/element/Element;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;)TR;", $PUBLIC | $FINAL, $virtualMethod(AbstractElementVisitor6, visit, $Object*, $Element*)},
+	{"visitModule", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ModuleElement;TP;)TR;", $PUBLIC, $virtualMethod(AbstractElementVisitor6, visitModule, $Object*, $ModuleElement*, Object$*)},
+	{"visitRecordComponent", "(Ljavax/lang/model/element/RecordComponentElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/RecordComponentElement;TP;)TR;", $PUBLIC, $virtualMethod(AbstractElementVisitor6, visitRecordComponent, $Object*, $RecordComponentElement*, Object$*)},
+	{"visitUnknown", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC, $virtualMethod(AbstractElementVisitor6, visitUnknown, $Object*, $Element*, Object$*)},
 	{}
 };
 

@@ -39,9 +39,9 @@ $MethodInfo _AttrCompare_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AttrCompare::*)()>(&AttrCompare::init$))},
-	{"compare", "(Lorg/w3c/dom/Attr;Lorg/w3c/dom/Attr;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AttrCompare, init$, void)},
+	{"compare", "(Lorg/w3c/dom/Attr;Lorg/w3c/dom/Attr;)I", nullptr, $PUBLIC, $virtualMethod(AttrCompare, compare, int32_t, $Attr*, $Attr*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AttrCompare, compare, int32_t, Object$*, Object$*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

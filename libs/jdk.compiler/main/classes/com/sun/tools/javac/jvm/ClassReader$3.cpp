@@ -49,9 +49,9 @@ $FieldInfo _ClassReader$3_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(static_cast<void(ClassReader$3::*)($ClassReader*,$Name*,$ClassFile$Version*,$Set*)>(&ClassReader$3::init$))},
-	{"checkType", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Class;Ljava/lang/Object;)V", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Class<*>;Ljava/lang/Object;)V", 0},
-	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/jvm/ClassFile$Version;Ljava/util/Set;)V", nullptr, 0, $method(ClassReader$3, init$, void, $ClassReader*, $Name*, $ClassFile$Version*, $Set*)},
+	{"checkType", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Class;Ljava/lang/Object;)V", "(Lcom/sun/tools/javac/code/Symbol;Ljava/lang/Class<*>;Ljava/lang/Object;)V", 0, $virtualMethod(ClassReader$3, checkType, void, $Symbol*, $Class*, Object$*)},
+	{"read", "(Lcom/sun/tools/javac/code/Symbol;I)V", nullptr, $PROTECTED, $virtualMethod(ClassReader$3, read, void, $Symbol*, int32_t)},
 	{}
 };
 

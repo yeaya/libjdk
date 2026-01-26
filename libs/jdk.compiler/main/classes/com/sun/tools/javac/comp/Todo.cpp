@@ -52,19 +52,19 @@ $FieldInfo _Todo_FieldInfo_[] = {
 };
 
 $MethodInfo _Todo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(Todo::*)($Context*)>(&Todo::init$))},
-	{"addByFile", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(static_cast<void(Todo::*)($Env*)>(&Todo::addByFile))},
-	{"append", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC},
-	{"groupByFile", "()Ljava/util/Queue;", "()Ljava/util/Queue<Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;>;", $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Todo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Todo*(*)($Context*)>(&Todo::instance))},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC},
-	{"offer", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PUBLIC},
-	{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"peek", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC},
-	{"poll", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC},
-	{"removeByFile", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(static_cast<void(Todo::*)($Env*)>(&Todo::removeByFile))},
-	{"retainFiles", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+Ljavax/tools/JavaFileObject;>;)V", $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Todo, init$, void, $Context*)},
+	{"addByFile", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Todo, addByFile, void, $Env*)},
+	{"append", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(Todo, append, void, $Env*)},
+	{"groupByFile", "()Ljava/util/Queue;", "()Ljava/util/Queue<Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;>;", $PUBLIC, $virtualMethod(Todo, groupByFile, $Queue*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Todo;", nullptr, $PUBLIC | $STATIC, $staticMethod(Todo, instance, Todo*, $Context*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(Todo, iterator, $Iterator*)},
+	{"offer", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PUBLIC, $virtualMethod(Todo, offer, bool, $Env*)},
+	{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Todo, offer, bool, Object$*)},
+	{"peek", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo, peek, $Object*)},
+	{"poll", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo, poll, $Object*)},
+	{"removeByFile", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Todo, removeByFile, void, $Env*)},
+	{"retainFiles", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(Todo, retainFiles, void, $Collection*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Todo, size, int32_t)},
 	{}
 };
 

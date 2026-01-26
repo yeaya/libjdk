@@ -35,13 +35,13 @@ $FieldInfo _JavadocTokenizer$OffsetMap_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocTokenizer$OffsetMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JavadocTokenizer$OffsetMap::*)()>(&JavadocTokenizer$OffsetMap::init$))},
-	{"add", "(II)V", nullptr, 0},
-	{"ensure", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(JavadocTokenizer$OffsetMap::*)(int32_t)>(&JavadocTokenizer$OffsetMap::ensure))},
-	{"getSourcePos", "(I)I", nullptr, 0},
-	{"lastPosOffset", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(JavadocTokenizer$OffsetMap::*)()>(&JavadocTokenizer$OffsetMap::lastPosOffset))},
-	{"lastSBOffset", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(JavadocTokenizer$OffsetMap::*)()>(&JavadocTokenizer$OffsetMap::lastSBOffset))},
-	{"shouldAdd", "(II)Z", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(JavadocTokenizer$OffsetMap, init$, void)},
+	{"add", "(II)V", nullptr, 0, $virtualMethod(JavadocTokenizer$OffsetMap, add, void, int32_t, int32_t)},
+	{"ensure", "(I)V", nullptr, $PRIVATE, $method(JavadocTokenizer$OffsetMap, ensure, void, int32_t)},
+	{"getSourcePos", "(I)I", nullptr, 0, $virtualMethod(JavadocTokenizer$OffsetMap, getSourcePos, int32_t, int32_t)},
+	{"lastPosOffset", "()I", nullptr, $PRIVATE, $method(JavadocTokenizer$OffsetMap, lastPosOffset, int32_t)},
+	{"lastSBOffset", "()I", nullptr, $PRIVATE, $method(JavadocTokenizer$OffsetMap, lastSBOffset, int32_t)},
+	{"shouldAdd", "(II)Z", nullptr, 0, $virtualMethod(JavadocTokenizer$OffsetMap, shouldAdd, bool, int32_t, int32_t)},
 	{}
 };
 

@@ -25,8 +25,8 @@ $CompoundAttribute _SimpleTypeVisitor14_Annotations_[] = {
 };
 
 $MethodInfo _SimpleTypeVisitor14_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SimpleTypeVisitor14::*)()>(&SimpleTypeVisitor14::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(SimpleTypeVisitor14::*)(Object$*)>(&SimpleTypeVisitor14::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SimpleTypeVisitor14, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(SimpleTypeVisitor14, init$, void, Object$*)},
 	{}
 };
 

@@ -24,8 +24,8 @@ $FieldInfo _JMXConnectorFactory$2$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXConnectorFactory$2$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/JMXConnectorFactory$2;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(static_cast<void(JMXConnectorFactory$2$1::*)($JMXConnectorFactory$2*,$ClassLoader*)>(&JMXConnectorFactory$2$1::init$))},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, nullptr, "java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljavax/management/remote/JMXConnectorFactory$2;Ljava/lang/ClassLoader;)V", nullptr, 0, $method(JMXConnectorFactory$2$1, init$, void, $JMXConnectorFactory$2*, $ClassLoader*)},
+	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(JMXConnectorFactory$2$1, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
 	{}
 };
 

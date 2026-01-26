@@ -58,16 +58,16 @@ $FieldInfo _Role_FieldInfo_[] = {
 };
 
 $MethodInfo _Role_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $method(static_cast<void(Role::*)($String*,$List*)>(&Role::init$)), "java.lang.IllegalArgumentException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getRoleName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRoleValue", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Role::*)($ObjectInputStream*)>(&Role::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"roleValueToString", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Ljavax/management/ObjectName;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $method(static_cast<$String*(*)($List*)>(&Role::roleValueToString)), "java.lang.IllegalArgumentException"},
-	{"setRoleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException"},
-	{"setRoleValue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, nullptr, "java.lang.IllegalArgumentException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(Role::*)($ObjectOutputStream*)>(&Role::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Ljava/util/List;)V", "(Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $method(Role, init$, void, $String*, $List*), "java.lang.IllegalArgumentException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Role, clone, $Object*)},
+	{"getRoleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Role, getRoleName, $String*)},
+	{"getRoleValue", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(Role, getRoleValue, $List*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Role, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"roleValueToString", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Ljavax/management/ObjectName;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Role, roleValueToString, $String*, $List*), "java.lang.IllegalArgumentException"},
+	{"setRoleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Role, setRoleName, void, $String*), "java.lang.IllegalArgumentException"},
+	{"setRoleValue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $virtualMethod(Role, setRoleValue, void, $List*), "java.lang.IllegalArgumentException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Role, toString, $String*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Role, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

@@ -67,18 +67,18 @@ $FieldInfo _DOMTransform_FieldInfo_[] = {
 $MethodInfo _DOMTransform_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljavax/xml/crypto/dsig/TransformService;)V", nullptr, $PUBLIC, $method(static_cast<void(DOMTransform::*)($TransformService*)>(&DOMTransform::init$))},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(static_cast<void(DOMTransform::*)($Element*,$XMLCryptoContext*,$Provider*)>(&DOMTransform::init$)), "javax.xml.crypto.MarshalException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/xml/crypto/dsig/TransformService;)V", nullptr, $PUBLIC, $method(DOMTransform, init$, void, $TransformService*)},
+	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMTransform, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMTransform, equals, bool, Object$*)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMTransform, getAlgorithm, $String*)},
+	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMTransform, getParameterSpec, $AlgorithmParameterSpec*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMTransform, hashCode, int32_t)},
 	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.MarshalException"},
+	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMTransform, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.dsig.TransformException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.dsig.TransformException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljavax/xml/crypto/dsig/dom/DOMSignContext;)Ljavax/xml/crypto/Data;", nullptr, 0, nullptr, "javax.xml.crypto.MarshalException,javax.xml.crypto.dsig.TransformException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMTransform, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMTransform, transform, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljavax/xml/crypto/dsig/dom/DOMSignContext;)Ljavax/xml/crypto/Data;", nullptr, 0, $virtualMethod(DOMTransform, transform, $Data*, $Data*, $XMLCryptoContext*, $DOMSignContext*), "javax.xml.crypto.MarshalException,javax.xml.crypto.dsig.TransformException"},
 	{}
 };
 

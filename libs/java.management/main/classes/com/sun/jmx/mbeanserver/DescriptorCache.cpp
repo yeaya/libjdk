@@ -28,11 +28,11 @@ $FieldInfo _DescriptorCache_FieldInfo_[] = {
 };
 
 $MethodInfo _DescriptorCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DescriptorCache::*)()>(&DescriptorCache::init$))},
-	{"get", "(Ljavax/management/ImmutableDescriptor;)Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC},
-	{"getInstance", "()Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $STATIC, $method(static_cast<DescriptorCache*(*)()>(&DescriptorCache::getInstance))},
-	{"getInstance", "(Ljavax/management/JMX;)Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DescriptorCache*(*)($JMX*)>(&DescriptorCache::getInstance))},
-	{"union", "([Ljavax/management/Descriptor;)Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC | $TRANSIENT},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DescriptorCache, init$, void)},
+	{"get", "(Ljavax/management/ImmutableDescriptor;)Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC, $virtualMethod(DescriptorCache, get, $ImmutableDescriptor*, $ImmutableDescriptor*)},
+	{"getInstance", "()Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $STATIC, $staticMethod(DescriptorCache, getInstance, DescriptorCache*)},
+	{"getInstance", "(Ljavax/management/JMX;)Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(DescriptorCache, getInstance, DescriptorCache*, $JMX*)},
+	{"union", "([Ljavax/management/Descriptor;)Ljavax/management/ImmutableDescriptor;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DescriptorCache, union$, $ImmutableDescriptor*, $DescriptorArray*)},
 	{}
 };
 

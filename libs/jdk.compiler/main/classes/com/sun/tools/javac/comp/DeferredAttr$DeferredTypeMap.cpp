@@ -52,9 +52,9 @@ $FieldInfo _DeferredAttr$DeferredTypeMap_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$DeferredTypeMap_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PROTECTED, $method(static_cast<void(DeferredAttr$DeferredTypeMap::*)($DeferredAttr*,$DeferredAttr$AttrMode*,$Symbol*,$Resolve$MethodResolutionPhase*)>(&DeferredAttr$DeferredTypeMap::init$))},
-	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;TT;)Lcom/sun/tools/javac/code/Type;", $PROTECTED},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;TT;)Lcom/sun/tools/javac/code/Type;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, $PROTECTED, $method(DeferredAttr$DeferredTypeMap, init$, void, $DeferredAttr*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*)},
+	{"typeOf", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;TT;)Lcom/sun/tools/javac/code/Type;", $PROTECTED, $virtualMethod(DeferredAttr$DeferredTypeMap, typeOf, $Type*, $DeferredAttr$DeferredType*, Object$*)},
+	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;TT;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(DeferredAttr$DeferredTypeMap, visitType, $Object*, $Type*, Object$*)},
 	{}
 };
 

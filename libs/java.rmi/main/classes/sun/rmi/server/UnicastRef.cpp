@@ -101,8 +101,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo UnicastRef$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicastRef$$Lambda$lambda$static$0::*)()>(&UnicastRef$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastRef$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastRef$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo UnicastRef$$Lambda$lambda$static$0::classInfo$ = {
@@ -128,25 +128,25 @@ $FieldInfo _UnicastRef_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicastRef_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicastRef::*)()>(&UnicastRef::init$))},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastRef::*)($LiveRef*)>(&UnicastRef::init$))},
-	{"done", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"free", "(Ljava/rmi/server/RemoteCall;Z)V", nullptr, $PRIVATE, $method(static_cast<void(UnicastRef::*)($RemoteCall*,bool)>(&UnicastRef::free)), "java.rmi.RemoteException"},
-	{"getLiveRef", "()Lsun/rmi/transport/LiveRef;", nullptr, $PUBLIC},
-	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&UnicastRef::lambda$static$0))},
-	{"logClientCall", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0},
-	{"marshalCustomCallData", "(Ljava/io/ObjectOutput;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
-	{"marshalValue", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/io/ObjectOutput;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/io/ObjectOutput;)V", $PROTECTED | $STATIC, $method(static_cast<void(*)($Class*,Object$*,$ObjectOutput*)>(&UnicastRef::marshalValue)), "java.io.IOException"},
-	{"newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC},
-	{"remoteHashCode", "()I", nullptr, $PUBLIC},
-	{"remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unmarshalValue", "(Ljava/lang/Class;Ljava/io/ObjectInput;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/io/ObjectInput;)Ljava/lang/Object;", $PROTECTED | $STATIC, $method(static_cast<$Object*(*)($Class*,$ObjectInput*)>(&UnicastRef::unmarshalValue)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastRef, init$, void)},
+	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(UnicastRef, init$, void, $LiveRef*)},
+	{"done", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC, $virtualMethod(UnicastRef, done, void, $RemoteCall*), "java.rmi.RemoteException"},
+	{"free", "(Ljava/rmi/server/RemoteCall;Z)V", nullptr, $PRIVATE, $method(UnicastRef, free, void, $RemoteCall*, bool), "java.rmi.RemoteException"},
+	{"getLiveRef", "()Lsun/rmi/transport/LiveRef;", nullptr, $PUBLIC, $virtualMethod(UnicastRef, getLiveRef, $LiveRef*)},
+	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastRef, getRefClass, $String*, $ObjectOutput*)},
+	{"invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastRef, invoke, $Object*, $Remote*, $Method*, $ObjectArray*, int64_t), "java.lang.Exception"},
+	{"invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC, $virtualMethod(UnicastRef, invoke, void, $RemoteCall*), "java.lang.Exception"},
+	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicastRef, lambda$static$0, $Boolean*)},
+	{"logClientCall", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(UnicastRef, logClientCall, void, Object$*, Object$*)},
+	{"marshalCustomCallData", "(Ljava/io/ObjectOutput;)V", nullptr, $PROTECTED, $virtualMethod(UnicastRef, marshalCustomCallData, void, $ObjectOutput*), "java.io.IOException"},
+	{"marshalValue", "(Ljava/lang/Class;Ljava/lang/Object;Ljava/io/ObjectOutput;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;Ljava/io/ObjectOutput;)V", $PROTECTED | $STATIC, $staticMethod(UnicastRef, marshalValue, void, $Class*, Object$*, $ObjectOutput*), "java.io.IOException"},
+	{"newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC, $virtualMethod(UnicastRef, newCall, $RemoteCall*, $RemoteObject*, $OperationArray*, int32_t, int64_t), "java.rmi.RemoteException"},
+	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastRef, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC, $virtualMethod(UnicastRef, remoteEquals, bool, $RemoteRef*)},
+	{"remoteHashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnicastRef, remoteHashCode, int32_t)},
+	{"remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastRef, remoteToString, $String*)},
+	{"unmarshalValue", "(Ljava/lang/Class;Ljava/io/ObjectInput;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/io/ObjectInput;)Ljava/lang/Object;", $PROTECTED | $STATIC, $staticMethod(UnicastRef, unmarshalValue, $Object*, $Class*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastRef, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
 	{}
 };
 

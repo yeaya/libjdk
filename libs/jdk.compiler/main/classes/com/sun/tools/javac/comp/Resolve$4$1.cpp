@@ -41,8 +41,8 @@ $FieldInfo _Resolve$4$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$4$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$4;ZLcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;Z)V", nullptr, 0, $method(static_cast<void(Resolve$4$1::*)($Resolve$4*,bool,$DeferredAttr$DeferredAttrContext*,$Warner*,bool)>(&Resolve$4$1::init$))},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$4;ZLcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;Z)V", nullptr, 0, $method(Resolve$4$1, init$, void, $Resolve$4*, bool, $DeferredAttr$DeferredAttrContext*, $Warner*, bool)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$4$1, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*)},
 	{}
 };
 

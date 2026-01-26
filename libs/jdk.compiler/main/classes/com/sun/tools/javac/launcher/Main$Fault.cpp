@@ -25,7 +25,7 @@ $FieldInfo _Main$Fault_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$Fault_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/launcher/Main;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, 0, $method(static_cast<void(Main$Fault::*)($Main*,$JCDiagnostic$Error*)>(&Main$Fault::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/launcher/Main;Lcom/sun/tools/javac/util/JCDiagnostic$Error;)V", nullptr, 0, $method(Main$Fault, init$, void, $Main*, $JCDiagnostic$Error*)},
 	{}
 };
 

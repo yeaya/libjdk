@@ -72,8 +72,8 @@ $FieldInfo Option$6$$Lambda$lambda$process$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Option$6$$Lambda$lambda$process$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(static_cast<void(Option$6$$Lambda$lambda$process$0::*)($Pattern*)>(&Option$6$$Lambda$lambda$process$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Option$6$$Lambda$lambda$process$0, init$, void, $Pattern*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Option$6$$Lambda$lambda$process$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Option$6$$Lambda$lambda$process$0::classInfo$ = {
@@ -105,8 +105,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Option$6$$Lambda$lambda$process$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Option$6$$Lambda$lambda$process$1$1::*)()>(&Option$6$$Lambda$lambda$process$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Option$6$$Lambda$lambda$process$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$6$$Lambda$lambda$process$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Option$6$$Lambda$lambda$process$1$1::classInfo$ = {
@@ -145,8 +145,8 @@ $FieldInfo Option$6$$Lambda$lambda$process$2$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Option$6$$Lambda$lambda$process$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Option$6$$Lambda$lambda$process$2$2::*)($String*)>(&Option$6$$Lambda$lambda$process$2$2::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Option$6$$Lambda$lambda$process$2$2, init$, void, $String*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Option$6$$Lambda$lambda$process$2$2, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Option$6$$Lambda$lambda$process$2$2::classInfo$ = {
@@ -185,8 +185,8 @@ $FieldInfo Option$6$$Lambda$lambda$process$3$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Option$6$$Lambda$lambda$process$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(static_cast<void(Option$6$$Lambda$lambda$process$3$3::*)($Pattern*)>(&Option$6$$Lambda$lambda$process$3$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Option$6$$Lambda$lambda$process$3$3, init$, void, $Pattern*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Option$6$$Lambda$lambda$process$3$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Option$6$$Lambda$lambda$process$3$3::classInfo$ = {
@@ -204,13 +204,13 @@ $Class* Option$6$$Lambda$lambda$process$3$3::load$($String* name, bool initializ
 $Class* Option$6$$Lambda$lambda$process$3$3::class$ = nullptr;
 
 $MethodInfo _Option$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(static_cast<void(Option$6::*)($String*,int32_t,$String*,$String*,$String*,$Option$OptionKind*,$Option$OptionGroup*)>(&Option$6::init$))},
-	{"getPattern", "()Ljava/util/regex/Pattern;", nullptr, $PUBLIC},
-	{"lambda$process$0", "(Ljava/util/regex/Pattern;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Pattern*,$String*)>(&Option$6::lambda$process$0))},
-	{"lambda$process$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*)>(&Option$6::lambda$process$1))},
-	{"lambda$process$2", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&Option$6::lambda$process$2))},
-	{"lambda$process$3", "(Ljava/util/regex/Pattern;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Pattern*,$String*)>(&Option$6::lambda$process$3))},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.main.Option$InvalidValueException"},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$6, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+	{"getPattern", "()Ljava/util/regex/Pattern;", nullptr, $PUBLIC, $virtualMethod(Option$6, getPattern, $Pattern*)},
+	{"lambda$process$0", "(Ljava/util/regex/Pattern;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$6, lambda$process$0, bool, $Pattern*, $String*)},
+	{"lambda$process$1", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$6, lambda$process$1, $String*, $String*)},
+	{"lambda$process$2", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$6, lambda$process$2, bool, $String*, $String*)},
+	{"lambda$process$3", "(Ljava/util/regex/Pattern;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option$6, lambda$process$3, bool, $Pattern*, $String*)},
+	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$6, process, void, $OptionHelper*, $String*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
 	{}
 };
 

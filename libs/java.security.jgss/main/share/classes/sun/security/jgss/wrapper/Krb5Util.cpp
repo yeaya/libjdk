@@ -21,9 +21,9 @@ namespace sun {
 			namespace wrapper {
 
 $MethodInfo _Krb5Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Krb5Util::*)()>(&Krb5Util::init$))},
-	{"checkServicePermission", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*,$String*)>(&Krb5Util::checkServicePermission))},
-	{"getTGSName", "(Lsun/security/jgss/wrapper/GSSNameElement;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($GSSNameElement*)>(&Krb5Util::getTGSName)), "org.ietf.jgss.GSSException"},
+	{"<init>", "()V", nullptr, 0, $method(Krb5Util, init$, void)},
+	{"checkServicePermission", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Krb5Util, checkServicePermission, void, $String*, $String*)},
+	{"getTGSName", "(Lsun/security/jgss/wrapper/GSSNameElement;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Krb5Util, getTGSName, $String*, $GSSNameElement*), "org.ietf.jgss.GSSException"},
 	{}
 };
 

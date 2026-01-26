@@ -54,14 +54,14 @@ $FieldInfo _SpNegoToken_FieldInfo_[] = {
 };
 
 $MethodInfo _SpNegoToken_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(static_cast<void(SpNegoToken::*)(int32_t)>(&SpNegoToken::init$))},
-	{"checkNextField", "(II)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&SpNegoToken::checkNextField)), "org.ietf.jgss.GSSException"},
-	{"encode", "()[B", nullptr, $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getEncoded", "()[B", nullptr, 0, nullptr, "java.io.IOException,org.ietf.jgss.GSSException"},
-	{"getNegoResultString", "(I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int32_t)>(&SpNegoToken::getNegoResultString))},
-	{"getNegoResultType", "(I)Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $STATIC, $method(static_cast<$SpNegoToken$NegoResult*(*)(int32_t)>(&SpNegoToken::getNegoResultType))},
-	{"getTokenName", "(I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(int32_t)>(&SpNegoToken::getTokenName))},
-	{"getType", "()I", nullptr, $FINAL, $method(static_cast<int32_t(SpNegoToken::*)()>(&SpNegoToken::getType))},
+	{"<init>", "(I)V", nullptr, $PROTECTED, $method(SpNegoToken, init$, void, int32_t)},
+	{"checkNextField", "(II)I", nullptr, $STATIC, $staticMethod(SpNegoToken, checkNextField, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+	{"encode", "()[B", nullptr, $ABSTRACT, $virtualMethod(SpNegoToken, encode, $bytes*), "org.ietf.jgss.GSSException"},
+	{"getEncoded", "()[B", nullptr, 0, $virtualMethod(SpNegoToken, getEncoded, $bytes*), "java.io.IOException,org.ietf.jgss.GSSException"},
+	{"getNegoResultString", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SpNegoToken, getNegoResultString, $String*, int32_t)},
+	{"getNegoResultType", "(I)Lsun/security/jgss/spnego/SpNegoToken$NegoResult;", nullptr, $STATIC, $staticMethod(SpNegoToken, getNegoResultType, $SpNegoToken$NegoResult*, int32_t)},
+	{"getTokenName", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SpNegoToken, getTokenName, $String*, int32_t)},
+	{"getType", "()I", nullptr, $FINAL, $method(SpNegoToken, getType, int32_t)},
 	{}
 };
 

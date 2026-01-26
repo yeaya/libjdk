@@ -22,9 +22,9 @@ $MethodInfo _JCTree$JCPattern_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCTree$JCPattern::*)()>(&JCTree$JCPattern::init$))},
-	{"isExpression", "()Z", nullptr, $PUBLIC},
-	{"isPattern", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCPattern, init$, void)},
+	{"isExpression", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPattern, isExpression, bool)},
+	{"isPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPattern, isPattern, bool)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

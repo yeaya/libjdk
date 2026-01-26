@@ -31,8 +31,8 @@ $FieldInfo _ArrayNotificationBuffer$3_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayNotificationBuffer$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;Ljavax/management/ObjectName;Ljavax/management/QueryExp;)V", "()V", 0, $method(static_cast<void(ArrayNotificationBuffer$3::*)($ArrayNotificationBuffer*,$ObjectName*,$QueryExp*)>(&ArrayNotificationBuffer$3::init$))},
-	{"run", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/management/ObjectName;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ArrayNotificationBuffer;Ljavax/management/ObjectName;Ljavax/management/QueryExp;)V", "()V", 0, $method(ArrayNotificationBuffer$3, init$, void, $ArrayNotificationBuffer*, $ObjectName*, $QueryExp*)},
+	{"run", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(ArrayNotificationBuffer$3, run, $Object*)},
 	{}
 };
 

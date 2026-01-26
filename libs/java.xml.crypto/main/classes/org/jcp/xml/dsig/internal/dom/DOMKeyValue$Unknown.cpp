@@ -34,9 +34,9 @@ $FieldInfo _DOMKeyValue$Unknown_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMKeyValue$Unknown_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMKeyValue$Unknown::*)($Element*)>(&DOMKeyValue$Unknown::init$)), "javax.xml.crypto.MarshalException"},
-	{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, nullptr, "javax.xml.crypto.MarshalException"},
-	{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/PublicKey;", nullptr, 0, nullptr, "javax.xml.crypto.MarshalException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMKeyValue$Unknown, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, $virtualMethod(DOMKeyValue$Unknown, marshalPublicKey, void, $Node*, $Document*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+	{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/PublicKey;", nullptr, 0, $virtualMethod(DOMKeyValue$Unknown, unmarshalKeyValue, $PublicKey*, $Element*), "javax.xml.crypto.MarshalException"},
 	{}
 };
 

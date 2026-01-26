@@ -99,15 +99,15 @@ $FieldInfo _FileLoginModule_FieldInfo_[] = {
 };
 
 $MethodInfo _FileLoginModule_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FileLoginModule::*)()>(&FileLoginModule::init$))},
-	{"abort", "()Z", nullptr, $PUBLIC, nullptr, "javax.security.auth.login.LoginException"},
-	{"attemptAuthentication", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(FileLoginModule::*)(bool)>(&FileLoginModule::attemptAuthentication)), "javax.security.auth.login.LoginException"},
-	{"cleanState", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileLoginModule::*)()>(&FileLoginModule::cleanState))},
-	{"commit", "()Z", nullptr, $PUBLIC, nullptr, "javax.security.auth.login.LoginException"},
-	{"getUsernamePassword", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(FileLoginModule::*)(bool)>(&FileLoginModule::getUsernamePassword)), "javax.security.auth.login.LoginException"},
-	{"initialize", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;Ljava/util/Map;Ljava/util/Map;)V", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;Ljava/util/Map<Ljava/lang/String;*>;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC},
-	{"login", "()Z", nullptr, $PUBLIC, nullptr, "javax.security.auth.login.LoginException"},
-	{"logout", "()Z", nullptr, $PUBLIC, nullptr, "javax.security.auth.login.LoginException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FileLoginModule, init$, void)},
+	{"abort", "()Z", nullptr, $PUBLIC, $virtualMethod(FileLoginModule, abort, bool), "javax.security.auth.login.LoginException"},
+	{"attemptAuthentication", "(Z)V", nullptr, $PRIVATE, $method(FileLoginModule, attemptAuthentication, void, bool), "javax.security.auth.login.LoginException"},
+	{"cleanState", "()V", nullptr, $PRIVATE, $method(FileLoginModule, cleanState, void)},
+	{"commit", "()Z", nullptr, $PUBLIC, $virtualMethod(FileLoginModule, commit, bool), "javax.security.auth.login.LoginException"},
+	{"getUsernamePassword", "(Z)V", nullptr, $PRIVATE, $method(FileLoginModule, getUsernamePassword, void, bool), "javax.security.auth.login.LoginException"},
+	{"initialize", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;Ljava/util/Map;Ljava/util/Map;)V", "(Ljavax/security/auth/Subject;Ljavax/security/auth/callback/CallbackHandler;Ljava/util/Map<Ljava/lang/String;*>;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $virtualMethod(FileLoginModule, initialize, void, $Subject*, $CallbackHandler*, $Map*, $Map*)},
+	{"login", "()Z", nullptr, $PUBLIC, $virtualMethod(FileLoginModule, login, bool), "javax.security.auth.login.LoginException"},
+	{"logout", "()Z", nullptr, $PUBLIC, $virtualMethod(FileLoginModule, logout, bool), "javax.security.auth.login.LoginException"},
 	{}
 };
 

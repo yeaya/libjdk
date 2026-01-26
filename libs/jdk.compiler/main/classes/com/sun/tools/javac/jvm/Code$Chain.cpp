@@ -24,7 +24,7 @@ $FieldInfo _Code$Chain_FieldInfo_[] = {
 };
 
 $MethodInfo _Code$Chain_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$State;)V", nullptr, $PUBLIC, $method(static_cast<void(Code$Chain::*)(int32_t,Code$Chain*,$Code$State*)>(&Code$Chain::init$))},
+	{"<init>", "(ILcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$State;)V", nullptr, $PUBLIC, $method(Code$Chain, init$, void, int32_t, Code$Chain*, $Code$State*)},
 	{}
 };
 

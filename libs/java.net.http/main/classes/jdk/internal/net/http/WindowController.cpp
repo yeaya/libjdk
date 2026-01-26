@@ -84,8 +84,8 @@ $FieldInfo WindowController$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo WindowController$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(WindowController$$Lambda$toString::*)($String*)>(&WindowController$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(WindowController$$Lambda$toString, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowController$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo WindowController$$Lambda$toString::classInfo$ = {
@@ -117,8 +117,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo WindowController$$Lambda$signalWindowUpdate$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(WindowController$$Lambda$signalWindowUpdate$1::*)()>(&WindowController$$Lambda$signalWindowUpdate$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowController$$Lambda$signalWindowUpdate$1, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(WindowController$$Lambda$signalWindowUpdate$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo WindowController$$Lambda$signalWindowUpdate$1::classInfo$ = {
@@ -147,15 +147,15 @@ $FieldInfo _WindowController_FieldInfo_[] = {
 };
 
 $MethodInfo _WindowController_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(WindowController::*)()>(&WindowController::init$))},
-	{"adjustActiveStreams", "(I)V", nullptr, 0, $method(static_cast<void(WindowController::*)(int32_t)>(&WindowController::adjustActiveStreams))},
-	{"connectionWindowSize", "()I", nullptr, 0, $method(static_cast<int32_t(WindowController::*)()>(&WindowController::connectionWindowSize))},
-	{"increaseConnectionWindow", "(I)Z", nullptr, 0, $method(static_cast<bool(WindowController::*)(int32_t)>(&WindowController::increaseConnectionWindow))},
-	{"increaseStreamWindow", "(II)Z", nullptr, 0, $method(static_cast<bool(WindowController::*)(int32_t,int32_t)>(&WindowController::increaseStreamWindow))},
-	{"registerStream", "(II)V", nullptr, 0, $method(static_cast<void(WindowController::*)(int32_t,int32_t)>(&WindowController::registerStream))},
-	{"removeStream", "(I)V", nullptr, 0, $method(static_cast<void(WindowController::*)(int32_t)>(&WindowController::removeStream))},
-	{"streamWindowSize", "(I)I", nullptr, 0, $method(static_cast<int32_t(WindowController::*)(int32_t)>(&WindowController::streamWindowSize))},
-	{"tryAcquire", "(IILjdk/internal/net/http/Stream;)I", "(IILjdk/internal/net/http/Stream<*>;)I", 0, $method(static_cast<int32_t(WindowController::*)(int32_t,int32_t,$Stream*)>(&WindowController::tryAcquire))},
+	{"<init>", "()V", nullptr, 0, $method(WindowController, init$, void)},
+	{"adjustActiveStreams", "(I)V", nullptr, 0, $method(WindowController, adjustActiveStreams, void, int32_t)},
+	{"connectionWindowSize", "()I", nullptr, 0, $method(WindowController, connectionWindowSize, int32_t)},
+	{"increaseConnectionWindow", "(I)Z", nullptr, 0, $method(WindowController, increaseConnectionWindow, bool, int32_t)},
+	{"increaseStreamWindow", "(II)Z", nullptr, 0, $method(WindowController, increaseStreamWindow, bool, int32_t, int32_t)},
+	{"registerStream", "(II)V", nullptr, 0, $method(WindowController, registerStream, void, int32_t, int32_t)},
+	{"removeStream", "(I)V", nullptr, 0, $method(WindowController, removeStream, void, int32_t)},
+	{"streamWindowSize", "(I)I", nullptr, 0, $method(WindowController, streamWindowSize, int32_t, int32_t)},
+	{"tryAcquire", "(IILjdk/internal/net/http/Stream;)I", "(IILjdk/internal/net/http/Stream<*>;)I", 0, $method(WindowController, tryAcquire, int32_t, int32_t, int32_t, $Stream*)},
 	{}
 };
 

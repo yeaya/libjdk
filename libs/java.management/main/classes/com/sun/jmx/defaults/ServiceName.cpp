@@ -33,7 +33,7 @@ $FieldInfo _ServiceName_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServiceName::*)()>(&ServiceName::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServiceName, init$, void)},
 	{}
 };
 

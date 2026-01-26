@@ -30,8 +30,8 @@ namespace sun {
 			namespace wrapper {
 
 $MethodInfo _SunNativeProvider$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(SunNativeProvider$1::*)()>(&SunNativeProvider$1::init$))},
-	{"run", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(SunNativeProvider$1, init$, void)},
+	{"run", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SunNativeProvider$1, run, $Object*)},
 	{}
 };
 

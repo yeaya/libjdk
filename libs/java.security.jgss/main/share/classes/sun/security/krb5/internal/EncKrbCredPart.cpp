@@ -51,11 +51,11 @@ $FieldInfo _EncKrbCredPart_FieldInfo_[] = {
 };
 
 $MethodInfo _EncKrbCredPart_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/KrbCredInfo;Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Ljava/lang/Integer;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddresses;)V", nullptr, $PUBLIC, $method(static_cast<void(EncKrbCredPart::*)($KrbCredInfoArray*,$KerberosTime*,$Integer*,$Integer*,$HostAddress*,$HostAddresses*)>(&EncKrbCredPart::init$)), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(EncKrbCredPart::*)($bytes*)>(&EncKrbCredPart::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(EncKrbCredPart::*)($DerValue*)>(&EncKrbCredPart::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(EncKrbCredPart::*)($DerValue*)>(&EncKrbCredPart::init)), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+	{"<init>", "([Lsun/security/krb5/internal/KrbCredInfo;Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Ljava/lang/Integer;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddresses;)V", nullptr, $PUBLIC, $method(EncKrbCredPart, init$, void, $KrbCredInfoArray*, $KerberosTime*, $Integer*, $Integer*, $HostAddress*, $HostAddresses*), "java.io.IOException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncKrbCredPart, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EncKrbCredPart, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(EncKrbCredPart, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(EncKrbCredPart, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.RealmException"},
 	{}
 };
 

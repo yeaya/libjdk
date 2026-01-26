@@ -22,8 +22,8 @@ namespace sun {
 			namespace tcp {
 
 $MethodInfo _TCPTransport$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(TCPTransport$1::*)()>(&TCPTransport$1::init$))},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(TCPTransport$1, init$, void)},
+	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(TCPTransport$1, newThread, $Thread*, $Runnable*)},
 	{}
 };
 

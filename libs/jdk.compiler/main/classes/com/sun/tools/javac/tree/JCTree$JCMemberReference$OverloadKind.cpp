@@ -31,10 +31,10 @@ $FieldInfo _JCTree$JCMemberReference$OverloadKind_FieldInfo_[] = {
 };
 
 $MethodInfo _JCTree$JCMemberReference$OverloadKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCTree$JCMemberReference$OverloadKindArray*(*)()>(&JCTree$JCMemberReference$OverloadKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JCTree$JCMemberReference$OverloadKind::*)($String*,int32_t)>(&JCTree$JCMemberReference$OverloadKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JCTree$JCMemberReference$OverloadKind*(*)($String*)>(&JCTree$JCMemberReference$OverloadKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$JCMemberReference$OverloadKindArray*(*)()>(&JCTree$JCMemberReference$OverloadKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$JCMemberReference$OverloadKind, $values, $JCTree$JCMemberReference$OverloadKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCTree$JCMemberReference$OverloadKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCMemberReference$OverloadKind, valueOf, JCTree$JCMemberReference$OverloadKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCMemberReference$OverloadKind, values, $JCTree$JCMemberReference$OverloadKindArray*)},
 	{}
 };
 

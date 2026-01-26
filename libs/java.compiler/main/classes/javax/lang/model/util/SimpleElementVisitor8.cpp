@@ -25,8 +25,8 @@ $CompoundAttribute _SimpleElementVisitor8_Annotations_[] = {
 };
 
 $MethodInfo _SimpleElementVisitor8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(SimpleElementVisitor8::*)()>(&SimpleElementVisitor8::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(static_cast<void(SimpleElementVisitor8::*)(Object$*)>(&SimpleElementVisitor8::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(SimpleElementVisitor8, init$, void)},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED, $method(SimpleElementVisitor8, init$, void, Object$*)},
 	{}
 };
 

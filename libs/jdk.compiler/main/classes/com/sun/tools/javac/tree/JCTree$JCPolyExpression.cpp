@@ -27,9 +27,9 @@ $FieldInfo _JCTree$JCPolyExpression_FieldInfo_[] = {
 };
 
 $MethodInfo _JCTree$JCPolyExpression_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JCTree$JCPolyExpression::*)()>(&JCTree$JCPolyExpression::init$))},
-	{"isPoly", "()Z", nullptr, $PUBLIC},
-	{"isStandalone", "()Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JCTree$JCPolyExpression, init$, void)},
+	{"isPoly", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPolyExpression, isPoly, bool)},
+	{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCPolyExpression, isStandalone, bool)},
 	{}
 };
 

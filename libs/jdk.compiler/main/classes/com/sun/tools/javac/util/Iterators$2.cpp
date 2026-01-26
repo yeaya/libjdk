@@ -27,10 +27,10 @@ $FieldInfo _Iterators$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Iterators$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;Ljava/util/function/Predicate;)V", "()V", 0, $method(static_cast<void(Iterators$2::*)($Iterator*,$Predicate*)>(&Iterators$2::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC},
-	{"update", "()Ljava/lang/Object;", "()TE;", $PRIVATE, $method(static_cast<$Object*(Iterators$2::*)()>(&Iterators$2::update))},
+	{"<init>", "(Ljava/util/Iterator;Ljava/util/function/Predicate;)V", "()V", 0, $method(Iterators$2, init$, void, $Iterator*, $Predicate*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Iterators$2, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Iterators$2, next, $Object*)},
+	{"update", "()Ljava/lang/Object;", "()TE;", $PRIVATE, $method(Iterators$2, update, $Object*)},
 	{}
 };
 

@@ -69,8 +69,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DGCClient$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCClient$$Lambda$lambda$static$0::*)()>(&DGCClient$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCClient$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCClient$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo DGCClient$$Lambda$lambda$static$0::classInfo$ = {
@@ -102,8 +102,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DGCClient$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCClient$$Lambda$lambda$static$1$1::*)()>(&DGCClient$$Lambda$lambda$static$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCClient$$Lambda$lambda$static$1$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCClient$$Lambda$lambda$static$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo DGCClient$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -135,8 +135,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DGCClient$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DGCClient$$Lambda$lambda$static$2$2::*)()>(&DGCClient$$Lambda$lambda$static$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCClient$$Lambda$lambda$static$2$2, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCClient$$Lambda$lambda$static$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo DGCClient$$Lambda$lambda$static$2$2::classInfo$ = {
@@ -168,13 +168,13 @@ $FieldInfo _DGCClient_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCClient_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DGCClient::*)()>(&DGCClient::init$))},
-	{"computeRenewTime", "(JJ)J", nullptr, $PRIVATE | $STATIC, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&DGCClient::computeRenewTime))},
-	{"getNextSequenceNum", "()J", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<int64_t(*)()>(&DGCClient::getNextSequenceNum))},
-	{"lambda$static$0", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)()>(&DGCClient::lambda$static$0))},
-	{"lambda$static$1", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)()>(&DGCClient::lambda$static$1))},
-	{"lambda$static$2", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)()>(&DGCClient::lambda$static$2))},
-	{"registerRefs", "(Lsun/rmi/transport/Endpoint;Ljava/util/List;)V", "(Lsun/rmi/transport/Endpoint;Ljava/util/List<Lsun/rmi/transport/LiveRef;>;)V", $STATIC, $method(static_cast<void(*)($Endpoint*,$List*)>(&DGCClient::registerRefs))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DGCClient, init$, void)},
+	{"computeRenewTime", "(JJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(DGCClient, computeRenewTime, int64_t, int64_t, int64_t)},
+	{"getNextSequenceNum", "()J", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(DGCClient, getNextSequenceNum, int64_t)},
+	{"lambda$static$0", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCClient, lambda$static$0, $Long*)},
+	{"lambda$static$1", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCClient, lambda$static$1, $Long*)},
+	{"lambda$static$2", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCClient, lambda$static$2, $Long*)},
+	{"registerRefs", "(Lsun/rmi/transport/Endpoint;Ljava/util/List;)V", "(Lsun/rmi/transport/Endpoint;Ljava/util/List<Lsun/rmi/transport/LiveRef;>;)V", $STATIC, $staticMethod(DGCClient, registerRefs, void, $Endpoint*, $List*)},
 	{}
 };
 

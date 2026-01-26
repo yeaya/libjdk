@@ -43,11 +43,11 @@ $FieldInfo _EncKrbPrivPart_FieldInfo_[] = {
 };
 
 $MethodInfo _EncKrbPrivPart_MethodInfo_[] = {
-	{"<init>", "([BLsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Ljava/lang/Integer;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;)V", nullptr, $PUBLIC, $method(static_cast<void(EncKrbPrivPart::*)($bytes*,$KerberosTime*,$Integer*,$Integer*,$HostAddress*,$HostAddress*)>(&EncKrbPrivPart::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(EncKrbPrivPart::*)($bytes*)>(&EncKrbPrivPart::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(EncKrbPrivPart::*)($DerValue*)>(&EncKrbPrivPart::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(static_cast<void(EncKrbPrivPart::*)($DerValue*)>(&EncKrbPrivPart::init)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "([BLsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Ljava/lang/Integer;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;)V", nullptr, $PUBLIC, $method(EncKrbPrivPart, init$, void, $bytes*, $KerberosTime*, $Integer*, $Integer*, $HostAddress*, $HostAddress*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(EncKrbPrivPart, init$, void, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EncKrbPrivPart, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(EncKrbPrivPart, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"init", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(EncKrbPrivPart, init, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
 	{}
 };
 

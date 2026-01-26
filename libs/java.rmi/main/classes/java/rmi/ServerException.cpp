@@ -18,8 +18,8 @@ $FieldInfo _ServerException_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(ServerException::*)($String*)>(&ServerException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(ServerException::*)($String*,$Exception*)>(&ServerException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ServerException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ServerException, init$, void, $String*, $Exception*)},
 	{}
 };
 

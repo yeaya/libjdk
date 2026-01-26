@@ -37,9 +37,9 @@ $FieldInfo _Symbol$OperatorSymbol_FieldInfo_[] = {
 };
 
 $MethodInfo _Symbol$OperatorSymbol_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;ILcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$OperatorSymbol::*)($Name*,$Type*,int32_t,$Symbol*)>(&Symbol$OperatorSymbol::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"getAccessCode", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)I", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;ILcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$OperatorSymbol, init$, void, $Name*, $Type*, int32_t, $Symbol*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$OperatorSymbol, accept, $Object*, $Symbol$Visitor*, Object$*)},
+	{"getAccessCode", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)I", nullptr, $PUBLIC, $virtualMethod(Symbol$OperatorSymbol, getAccessCode, int32_t, $JCTree$Tag*)},
 	{}
 };
 

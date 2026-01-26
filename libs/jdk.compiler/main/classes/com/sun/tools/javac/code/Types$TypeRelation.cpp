@@ -16,7 +16,7 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Types$TypeRelation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Types$TypeRelation::*)()>(&Types$TypeRelation::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Types$TypeRelation, init$, void)},
 	{}
 };
 

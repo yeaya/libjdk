@@ -35,10 +35,10 @@ $FieldInfo _MBeanServerPermissionCollection_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerPermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MBeanServerPermissionCollection::*)()>(&MBeanServerPermissionCollection::init$))},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC | $SYNCHRONIZED},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, 0, $method(MBeanServerPermissionCollection, init$, void)},
+	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerPermissionCollection, add, void, $Permission*)},
+	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerPermissionCollection, elements, $Enumeration*)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MBeanServerPermissionCollection, implies, bool, $Permission*)},
 	{}
 };
 

@@ -41,18 +41,18 @@ $FieldInfo _Attr$ResultInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$ResultInfo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Kinds$KindSelector;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Attr$ResultInfo::*)($Attr*,$Kinds$KindSelector*,$Type*)>(&Attr$ResultInfo::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Kinds$KindSelector;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Attr$CheckMode;)V", nullptr, 0, $method(static_cast<void(Attr$ResultInfo::*)($Attr*,$Kinds$KindSelector*,$Type*,$Attr$CheckMode*)>(&Attr$ResultInfo::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Kinds$KindSelector;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PROTECTED, $method(static_cast<void(Attr$ResultInfo::*)($Attr*,$Kinds$KindSelector*,$Type*,$Check$CheckContext*)>(&Attr$ResultInfo::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Kinds$KindSelector;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/Attr$CheckMode;)V", nullptr, $PROTECTED, $method(static_cast<void(Attr$ResultInfo::*)($Attr*,$Kinds$KindSelector*,$Type*,$Check$CheckContext*,$Attr$CheckMode*)>(&Attr$ResultInfo::init$))},
-	{"check", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED},
-	{"dup", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED},
-	{"dup", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED},
-	{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED},
-	{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/Attr$CheckMode;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED},
-	{"dup", "(Lcom/sun/tools/javac/comp/Attr$CheckMode;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED},
-	{"needsArgumentAttr", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PROTECTED},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Kinds$KindSelector;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Attr$ResultInfo, init$, void, $Attr*, $Kinds$KindSelector*, $Type*)},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Kinds$KindSelector;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Attr$CheckMode;)V", nullptr, 0, $method(Attr$ResultInfo, init$, void, $Attr*, $Kinds$KindSelector*, $Type*, $Attr$CheckMode*)},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Kinds$KindSelector;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PROTECTED, $method(Attr$ResultInfo, init$, void, $Attr*, $Kinds$KindSelector*, $Type*, $Check$CheckContext*)},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Kinds$KindSelector;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/Attr$CheckMode;)V", nullptr, $PROTECTED, $method(Attr$ResultInfo, init$, void, $Attr*, $Kinds$KindSelector*, $Type*, $Check$CheckContext*, $Attr$CheckMode*)},
+	{"check", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(Attr$ResultInfo, check, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$ResultInfo, dup, Attr$ResultInfo*, $Type*)},
+	{"dup", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$ResultInfo, dup, Attr$ResultInfo*, $Check$CheckContext*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$ResultInfo, dup, Attr$ResultInfo*, $Type*, $Check$CheckContext*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/Attr$CheckMode;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$ResultInfo, dup, Attr$ResultInfo*, $Type*, $Check$CheckContext*, $Attr$CheckMode*)},
+	{"dup", "(Lcom/sun/tools/javac/comp/Attr$CheckMode;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Attr$ResultInfo, dup, Attr$ResultInfo*, $Attr$CheckMode*)},
+	{"needsArgumentAttr", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PROTECTED, $virtualMethod(Attr$ResultInfo, needsArgumentAttr, bool, $JCTree*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attr$ResultInfo, toString, $String*)},
 	{}
 };
 

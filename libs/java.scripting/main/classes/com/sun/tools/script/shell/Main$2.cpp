@@ -26,8 +26,8 @@ $FieldInfo _Main$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/script/ScriptEngine;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(Main$2::*)($ScriptEngine*,$String*,$String*)>(&Main$2::init$))},
-	{"run", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/script/ScriptEngine;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(Main$2, init$, void, $ScriptEngine*, $String*, $String*)},
+	{"run", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Main$2, run, void, $StringArray*)},
 	{}
 };
 

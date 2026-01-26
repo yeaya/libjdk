@@ -26,9 +26,9 @@ $FieldInfo _Items$SelfItem_FieldInfo_[] = {
 };
 
 $MethodInfo _Items$SelfItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Z)V", nullptr, 0, $method(static_cast<void(Items$SelfItem::*)($Items*,bool)>(&Items$SelfItem::init$))},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Z)V", nullptr, 0, $method(Items$SelfItem, init$, void, $Items*, bool)},
+	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$SelfItem, load, $Items$Item*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$SelfItem, toString, $String*)},
 	{}
 };
 

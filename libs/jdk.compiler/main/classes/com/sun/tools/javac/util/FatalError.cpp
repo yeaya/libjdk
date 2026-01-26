@@ -22,9 +22,9 @@ $FieldInfo _FatalError_FieldInfo_[] = {
 };
 
 $MethodInfo _FatalError_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $method(static_cast<void(FatalError::*)($JCDiagnostic*)>(&FatalError::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(FatalError::*)($JCDiagnostic*,$Throwable*)>(&FatalError::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(FatalError::*)($String*)>(&FatalError::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $method(FatalError, init$, void, $JCDiagnostic*)},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(FatalError, init$, void, $JCDiagnostic*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FatalError, init$, void, $String*)},
 	{}
 };
 

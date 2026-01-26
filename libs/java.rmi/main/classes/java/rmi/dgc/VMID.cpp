@@ -32,11 +32,11 @@ $FieldInfo _VMID_FieldInfo_[] = {
 };
 
 $MethodInfo _VMID_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(VMID::*)()>(&VMID::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isUnique", "()Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<bool(*)()>(&VMID::isUnique)), nullptr, nullptr, _VMID_MethodAnnotations_isUnique3},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(VMID, init$, void)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(VMID, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(VMID, hashCode, int32_t)},
+	{"isUnique", "()Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(VMID, isUnique, bool), nullptr, nullptr, _VMID_MethodAnnotations_isUnique3},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VMID, toString, $String*)},
 	{}
 };
 

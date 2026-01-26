@@ -61,22 +61,22 @@ $FieldInfo _LogManager$LoggerContext_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$LoggerContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager$LoggerContext::*)($LogManager*)>(&LogManager$LoggerContext::init$))},
-	{"addLocalLogger", "(Ljava/util/logging/Logger;)Z", nullptr, 0},
-	{"addLocalLogger", "(Ljava/util/logging/Logger;Z)Z", nullptr, $SYNCHRONIZED},
-	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0},
-	{"ensureAllDefaultLoggers", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager$LoggerContext::*)($Logger*)>(&LogManager$LoggerContext::ensureAllDefaultLoggers))},
-	{"ensureDefaultLogger", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(static_cast<void(LogManager$LoggerContext::*)($Logger*)>(&LogManager$LoggerContext::ensureDefaultLogger))},
-	{"ensureInitialized", "()V", nullptr, $PRIVATE, $method(static_cast<void(LogManager$LoggerContext::*)()>(&LogManager$LoggerContext::ensureInitialized))},
-	{"findLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, 0},
-	{"getGlobalLogger", "()Ljava/util/logging/Logger;", nullptr, $FINAL, $method(static_cast<$Logger*(LogManager$LoggerContext::*)()>(&LogManager$LoggerContext::getGlobalLogger))},
-	{"getLoggerNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $SYNCHRONIZED},
-	{"getNode", "(Ljava/lang/String;)Ljava/util/logging/LogManager$LogNode;", nullptr, 0},
-	{"getOwner", "()Ljava/util/logging/LogManager;", nullptr, $FINAL, $method(static_cast<$LogManager*(LogManager$LoggerContext::*)()>(&LogManager$LoggerContext::getOwner))},
-	{"getRootLogger", "()Ljava/util/logging/Logger;", nullptr, $FINAL, $method(static_cast<$Logger*(LogManager$LoggerContext::*)()>(&LogManager$LoggerContext::getRootLogger))},
-	{"processParentHandlers", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/util/function/Predicate;)V", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/util/function/Predicate<Ljava/util/logging/Logger;>;)V", $PRIVATE, $method(static_cast<void(LogManager$LoggerContext::*)($Logger*,$String*,$Predicate*)>(&LogManager$LoggerContext::processParentHandlers))},
-	{"removeLoggerRef", "(Ljava/lang/String;Ljava/util/logging/LogManager$LoggerWeakRef;)V", nullptr, 0},
-	{"requiresDefaultLoggers", "()Z", nullptr, $FINAL, $method(static_cast<bool(LogManager$LoggerContext::*)()>(&LogManager$LoggerContext::requiresDefaultLoggers))},
+	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, init$, void, $LogManager*)},
+	{"addLocalLogger", "(Ljava/util/logging/Logger;)Z", nullptr, 0, $virtualMethod(LogManager$LoggerContext, addLocalLogger, bool, $Logger*)},
+	{"addLocalLogger", "(Ljava/util/logging/Logger;Z)Z", nullptr, $SYNCHRONIZED, $virtualMethod(LogManager$LoggerContext, addLocalLogger, bool, $Logger*, bool)},
+	{"demandLogger", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager$LoggerContext, demandLogger, $Logger*, $String*, $String*, $Module*)},
+	{"ensureAllDefaultLoggers", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, ensureAllDefaultLoggers, void, $Logger*)},
+	{"ensureDefaultLogger", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, ensureDefaultLogger, void, $Logger*)},
+	{"ensureInitialized", "()V", nullptr, $PRIVATE, $method(LogManager$LoggerContext, ensureInitialized, void)},
+	{"findLogger", "(Ljava/lang/String;)Ljava/util/logging/Logger;", nullptr, 0, $virtualMethod(LogManager$LoggerContext, findLogger, $Logger*, $String*)},
+	{"getGlobalLogger", "()Ljava/util/logging/Logger;", nullptr, $FINAL, $method(LogManager$LoggerContext, getGlobalLogger, $Logger*)},
+	{"getLoggerNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $SYNCHRONIZED, $virtualMethod(LogManager$LoggerContext, getLoggerNames, $Enumeration*)},
+	{"getNode", "(Ljava/lang/String;)Ljava/util/logging/LogManager$LogNode;", nullptr, 0, $virtualMethod(LogManager$LoggerContext, getNode, $LogManager$LogNode*, $String*)},
+	{"getOwner", "()Ljava/util/logging/LogManager;", nullptr, $FINAL, $method(LogManager$LoggerContext, getOwner, $LogManager*)},
+	{"getRootLogger", "()Ljava/util/logging/Logger;", nullptr, $FINAL, $method(LogManager$LoggerContext, getRootLogger, $Logger*)},
+	{"processParentHandlers", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/util/function/Predicate;)V", "(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/util/function/Predicate<Ljava/util/logging/Logger;>;)V", $PRIVATE, $method(LogManager$LoggerContext, processParentHandlers, void, $Logger*, $String*, $Predicate*)},
+	{"removeLoggerRef", "(Ljava/lang/String;Ljava/util/logging/LogManager$LoggerWeakRef;)V", nullptr, 0, $virtualMethod(LogManager$LoggerContext, removeLoggerRef, void, $String*, $LogManager$LoggerWeakRef*)},
+	{"requiresDefaultLoggers", "()Z", nullptr, $FINAL, $method(LogManager$LoggerContext, requiresDefaultLoggers, bool)},
 	{}
 };
 

@@ -63,8 +63,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ServerMain$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ServerMain$$Lambda$lambda$run$0::*)()>(&ServerMain$$Lambda$lambda$run$0::init$))},
-	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ServerMain$$Lambda$lambda$run$0, init$, void)},
+	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ServerMain$$Lambda$lambda$run$0, uncaughtException, void, $Thread*, $Throwable*)},
 	{}
 };
 $ClassInfo ServerMain$$Lambda$lambda$run$0::classInfo$ = {
@@ -87,10 +87,10 @@ $FieldInfo _ServerMain_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerMain_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ServerMain::*)()>(&ServerMain::init$))},
-	{"getErrorLog", "()Lcom/sun/tools/sjavac/server/log/LazyInitFileLog;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LazyInitFileLog*(*)()>(&ServerMain::getErrorLog))},
-	{"lambda$run$0", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Thread*,$Throwable*)>(&ServerMain::lambda$run$0))},
-	{"run", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($StringArray*)>(&ServerMain::run))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ServerMain, init$, void)},
+	{"getErrorLog", "()Lcom/sun/tools/sjavac/server/log/LazyInitFileLog;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServerMain, getErrorLog, $LazyInitFileLog*)},
+	{"lambda$run$0", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ServerMain, lambda$run$0, void, $Thread*, $Throwable*)},
+	{"run", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ServerMain, run, int32_t, $StringArray*)},
 	{}
 };
 

@@ -13,8 +13,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 $MethodInfo _ZeroRedirects$Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ZeroRedirects$Handler::*)()>(&ZeroRedirects$Handler::init$))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(ZeroRedirects$Handler, init$, void)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ZeroRedirects$Handler, handle, void, $HttpExchange*), "java.io.IOException"},
 	{}
 };
 

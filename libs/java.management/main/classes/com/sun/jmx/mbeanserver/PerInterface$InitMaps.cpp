@@ -37,9 +37,9 @@ $FieldInfo _PerInterface$InitMaps_FieldInfo_[] = {
 };
 
 $MethodInfo _PerInterface$InitMaps_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/PerInterface;)V", nullptr, $PRIVATE, $method(static_cast<void(PerInterface$InitMaps::*)($PerInterface*)>(&PerInterface$InitMaps::init$))},
-	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;TM;)V", $PUBLIC},
-	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;)V", $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/mbeanserver/PerInterface;)V", nullptr, $PRIVATE, $method(PerInterface$InitMaps, init$, void, $PerInterface*)},
+	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;TM;)V", $PUBLIC, $virtualMethod(PerInterface$InitMaps, visitAttribute, void, $String*, Object$*, Object$*)},
+	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;)V", $PUBLIC, $virtualMethod(PerInterface$InitMaps, visitOperation, void, $String*, Object$*)},
 	{}
 };
 

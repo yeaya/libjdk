@@ -27,10 +27,10 @@ $FieldInfo _CompileChunk_FieldInfo_[] = {
 };
 
 $MethodInfo _CompileChunk_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompileChunk::*)()>(&CompileChunk::init$))},
-	{"compareTo", "(Lcom/sun/tools/sjavac/CompileChunk;)I", nullptr, $PUBLIC},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"equal", "(Lcom/sun/tools/sjavac/CompileChunk;)Z", nullptr, 0},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompileChunk, init$, void)},
+	{"compareTo", "(Lcom/sun/tools/sjavac/CompileChunk;)I", nullptr, $PUBLIC, $virtualMethod(CompileChunk, compareTo, int32_t, CompileChunk*)},
+	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CompileChunk, compareTo, int32_t, Object$*)},
+	{"equal", "(Lcom/sun/tools/sjavac/CompileChunk;)Z", nullptr, 0, $virtualMethod(CompileChunk, equal, bool, CompileChunk*)},
 	{}
 };
 

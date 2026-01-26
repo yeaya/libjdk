@@ -38,11 +38,11 @@ $FieldInfo _XMLParseException_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLParseException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLParseException::*)()>(&XMLParseException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLParseException::*)($String*)>(&XMLParseException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLParseException::*)($Exception*,$String*)>(&XMLParseException::init$))},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(XMLParseException::*)($ObjectInputStream*)>(&XMLParseException::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(XMLParseException::*)($ObjectOutputStream*)>(&XMLParseException::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLParseException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLParseException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLParseException, init$, void, $Exception*, $String*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(XMLParseException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(XMLParseException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

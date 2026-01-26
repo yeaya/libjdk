@@ -36,13 +36,13 @@ $FieldInfo _AuthorizationDataEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthorizationDataEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(AuthorizationDataEntry::*)()>(&AuthorizationDataEntry::init$))},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(AuthorizationDataEntry::*)(int32_t,$bytes*)>(&AuthorizationDataEntry::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(AuthorizationDataEntry::*)($DerValue*)>(&AuthorizationDataEntry::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeEntry", "(Lsun/security/krb5/internal/ccache/CCacheOutputStream;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AuthorizationDataEntry, init$, void)},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(AuthorizationDataEntry, init$, void, int32_t, $bytes*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(AuthorizationDataEntry, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, clone, $Object*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, toString, $String*)},
+	{"writeEntry", "(Lsun/security/krb5/internal/ccache/CCacheOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, writeEntry, void, $CCacheOutputStream*), "java.io.IOException"},
 	{}
 };
 

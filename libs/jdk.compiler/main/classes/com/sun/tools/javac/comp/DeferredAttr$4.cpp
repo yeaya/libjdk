@@ -26,10 +26,10 @@ $FieldInfo _DeferredAttr$4_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$4::*)($DeferredAttr*)>(&DeferredAttr$4::init$))},
-	{"depVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC},
-	{"isStuck", "()Z", nullptr, $PUBLIC},
-	{"stuckVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;)V", nullptr, 0, $method(DeferredAttr$4, init$, void, $DeferredAttr*)},
+	{"depVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(DeferredAttr$4, depVars, $Set*)},
+	{"isStuck", "()Z", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$4, isStuck, bool)},
+	{"stuckVars", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(DeferredAttr$4, stuckVars, $Set*)},
 	{}
 };
 

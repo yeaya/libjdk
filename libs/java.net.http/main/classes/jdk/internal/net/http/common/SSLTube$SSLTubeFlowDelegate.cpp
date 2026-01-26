@@ -58,10 +58,10 @@ $FieldInfo _SSLTube$SSLTubeFlowDelegate_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLTube$SSLTubeFlowDelegate_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLTube;Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljdk/internal/net/http/common/SSLTube$SSLSubscriberWrapper;Ljdk/internal/net/http/common/FlowTube;)V", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;Ljdk/internal/net/http/common/SSLTube$SSLSubscriberWrapper;Ljdk/internal/net/http/common/FlowTube;)V", 0, $method(static_cast<void(SSLTube$SSLTubeFlowDelegate::*)($SSLTube*,$SSLEngine*,$Executor*,$Consumer*,$SSLTube$SSLSubscriberWrapper*,$FlowTube*)>(&SSLTube$SSLTubeFlowDelegate::init$))},
-	{"checkForHandshake", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PROTECTED},
-	{"connect", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0},
-	{"enterReadScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED},
+	{"<init>", "(Ljdk/internal/net/http/common/SSLTube;Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljdk/internal/net/http/common/SSLTube$SSLSubscriberWrapper;Ljdk/internal/net/http/common/FlowTube;)V", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;Ljdk/internal/net/http/common/SSLTube$SSLSubscriberWrapper;Ljdk/internal/net/http/common/FlowTube;)V", 0, $method(SSLTube$SSLTubeFlowDelegate, init$, void, $SSLTube*, $SSLEngine*, $Executor*, $Consumer*, $SSLTube$SSLSubscriberWrapper*, $FlowTube*)},
+	{"checkForHandshake", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PROTECTED, $virtualMethod(SSLTube$SSLTubeFlowDelegate, checkForHandshake, $Throwable*, $Throwable*)},
+	{"connect", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $virtualMethod(SSLTube$SSLTubeFlowDelegate, connect, void, $Flow$Subscriber*, $Flow$Subscriber*)},
+	{"enterReadScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SSLTube$SSLTubeFlowDelegate, enterReadScheduling, $SubscriberWrapper$SchedulingAction*)},
 	{}
 };
 

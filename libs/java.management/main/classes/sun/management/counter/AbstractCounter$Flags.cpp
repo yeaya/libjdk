@@ -22,7 +22,7 @@ $FieldInfo _AbstractCounter$Flags_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractCounter$Flags_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/counter/AbstractCounter;)V", nullptr, 0, $method(static_cast<void(AbstractCounter$Flags::*)($AbstractCounter*)>(&AbstractCounter$Flags::init$))},
+	{"<init>", "(Lsun/management/counter/AbstractCounter;)V", nullptr, 0, $method(AbstractCounter$Flags, init$, void, $AbstractCounter*)},
 	{}
 };
 

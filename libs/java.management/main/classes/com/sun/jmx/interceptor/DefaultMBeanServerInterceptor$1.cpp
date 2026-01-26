@@ -21,8 +21,8 @@ $FieldInfo _DefaultMBeanServerInterceptor$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultMBeanServerInterceptor$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "()V", 0, $method(static_cast<void(DefaultMBeanServerInterceptor$1::*)($Class*)>(&DefaultMBeanServerInterceptor$1::init$))},
-	{"run", "()Ljava/security/ProtectionDomain;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", "()V", 0, $method(DefaultMBeanServerInterceptor$1, init$, void, $Class*)},
+	{"run", "()Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$1, run, $Object*)},
 	{}
 };
 

@@ -23,14 +23,14 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _Http1Exchange$Http1BodySubscriber$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/Logger;)V", nullptr, 0, $method(static_cast<void(Http1Exchange$Http1BodySubscriber$1::*)($Logger*)>(&Http1Exchange$Http1BodySubscriber$1::init$))},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, 0},
-	{"error", "()V", nullptr, $PRIVATE, $method(static_cast<void(Http1Exchange$Http1BodySubscriber$1::*)()>(&Http1Exchange$Http1BodySubscriber$1::error))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/Logger;)V", nullptr, 0, $method(Http1Exchange$Http1BodySubscriber$1, init$, void, $Logger*)},
+	{"currentStateMessage", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, currentStateMessage, $String*)},
+	{"error", "()V", nullptr, $PRIVATE, $method(Http1Exchange$Http1BodySubscriber$1, error, void)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onNext, void, $ByteBuffer*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$Http1BodySubscriber$1, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

@@ -36,9 +36,9 @@ namespace com {
 				namespace ldap {
 
 $MethodInfo _ldapURLContextFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ldapURLContextFactory::*)()>(&ldapURLContextFactory::init$))},
-	{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC, nullptr, "java.lang.Exception"},
-	{"getUsingURLIgnoreRootDN", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/spi/ResolveResult;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/ResolveResult;", $STATIC, $method(static_cast<$ResolveResult*(*)($String*,$Hashtable*)>(&ldapURLContextFactory::getUsingURLIgnoreRootDN)), "javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ldapURLContextFactory, init$, void)},
+	{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(ldapURLContextFactory, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*), "java.lang.Exception"},
+	{"getUsingURLIgnoreRootDN", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/naming/spi/ResolveResult;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)Ljavax/naming/spi/ResolveResult;", $STATIC, $staticMethod(ldapURLContextFactory, getUsingURLIgnoreRootDN, $ResolveResult*, $String*, $Hashtable*), "javax.naming.NamingException"},
 	{}
 };
 

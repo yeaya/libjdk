@@ -17,8 +17,8 @@ $FieldInfo _NetworkPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _NetworkPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NetworkPermission::*)($String*)>(&NetworkPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NetworkPermission::*)($String*,$String*)>(&NetworkPermission::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetworkPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetworkPermission, init$, void, $String*, $String*)},
 	{}
 };
 

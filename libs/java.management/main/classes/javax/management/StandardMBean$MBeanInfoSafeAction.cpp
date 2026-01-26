@@ -23,8 +23,8 @@ $FieldInfo _StandardMBean$MBeanInfoSafeAction_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardMBean$MBeanInfoSafeAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(static_cast<void(StandardMBean$MBeanInfoSafeAction::*)($Class*)>(&StandardMBean$MBeanInfoSafeAction::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(StandardMBean$MBeanInfoSafeAction, init$, void, $Class*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(StandardMBean$MBeanInfoSafeAction, run, $Object*)},
 	{}
 };
 

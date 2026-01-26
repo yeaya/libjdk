@@ -6,7 +6,10 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
+using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
+using $TypeElement = ::javax::lang::model::element::TypeElement;
 
 namespace com {
 	namespace sun {
@@ -14,10 +17,10 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _Scope_MethodInfo_[] = {
-	{"getEnclosingClass", "()Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEnclosingMethod", "()Ljavax/lang/model/element/ExecutableElement;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEnclosingScope", "()Lcom/sun/source/tree/Scope;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT},
+	{"getEnclosingClass", "()Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope, getEnclosingClass, $TypeElement*)},
+	{"getEnclosingMethod", "()Ljavax/lang/model/element/ExecutableElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope, getEnclosingMethod, $ExecutableElement*)},
+	{"getEnclosingScope", "()Lcom/sun/source/tree/Scope;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Scope, getEnclosingScope, Scope*)},
+	{"getLocalElements", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Scope, getLocalElements, $Iterable*)},
 	{}
 };
 

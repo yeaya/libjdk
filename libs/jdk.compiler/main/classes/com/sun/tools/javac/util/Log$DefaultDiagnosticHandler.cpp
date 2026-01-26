@@ -37,8 +37,8 @@ $FieldInfo _Log$DefaultDiagnosticHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Log$DefaultDiagnosticHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PRIVATE, $method(static_cast<void(Log$DefaultDiagnosticHandler::*)($Log*)>(&Log$DefaultDiagnosticHandler::init$))},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PRIVATE, $method(Log$DefaultDiagnosticHandler, init$, void, $Log*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Log$DefaultDiagnosticHandler, report, void, $JCDiagnostic*)},
 	{}
 };
 

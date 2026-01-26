@@ -35,11 +35,11 @@ $FieldInfo _DefaultPlatformMBeanProvider$11_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultPlatformMBeanProvider$11_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/management/DefaultPlatformMBeanProvider;)V", nullptr, 0, $method(static_cast<void(DefaultPlatformMBeanProvider$11::*)($DefaultPlatformMBeanProvider*)>(&DefaultPlatformMBeanProvider$11::init$))},
-	{"getObjectNamePattern", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"mbeanInterfaceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"mbeanInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/management/OperatingSystemMXBean;>;>;", $PUBLIC},
-	{"nameToMBeanMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/management/OperatingSystemMXBean;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/management/DefaultPlatformMBeanProvider;)V", nullptr, 0, $method(DefaultPlatformMBeanProvider$11, init$, void, $DefaultPlatformMBeanProvider*)},
+	{"getObjectNamePattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$11, getObjectNamePattern, $String*)},
+	{"mbeanInterfaceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$11, mbeanInterfaceNames, $Set*)},
+	{"mbeanInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/management/OperatingSystemMXBean;>;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$11, mbeanInterfaces, $Set*)},
+	{"nameToMBeanMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/management/OperatingSystemMXBean;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$11, nameToMBeanMap, $Map*)},
 	{}
 };
 

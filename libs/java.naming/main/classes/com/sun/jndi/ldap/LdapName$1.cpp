@@ -26,9 +26,9 @@ $FieldInfo _LdapName$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapName$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapName;Ljava/util/Enumeration;)V", "()V", 0, $method(static_cast<void(LdapName$1::*)($LdapName*,$Enumeration*)>(&LdapName$1::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jndi/ldap/LdapName;Ljava/util/Enumeration;)V", "()V", 0, $method(LdapName$1, init$, void, $LdapName*, $Enumeration*)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapName$1, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName$1, nextElement, $Object*)},
 	{}
 };
 

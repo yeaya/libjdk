@@ -65,8 +65,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Analyzer$2$$Lambda$lambda$queue$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Analyzer$2$$Lambda$lambda$queue$0::*)()>(&Analyzer$2$$Lambda$lambda$queue$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Analyzer$2$$Lambda$lambda$queue$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Analyzer$2$$Lambda$lambda$queue$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Analyzer$2$$Lambda$lambda$queue$0::classInfo$ = {
@@ -90,10 +90,10 @@ $FieldInfo _Analyzer$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(static_cast<void(Analyzer$2::*)($Analyzer*)>(&Analyzer$2::init$))},
-	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC},
-	{"lambda$queue$0", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Queue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Queue*(*)($Symbol$ClassSymbol*)>(&Analyzer$2::lambda$queue$0))},
-	{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$2, init$, void, $Analyzer*)},
+	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(Analyzer$2, flush, void, $Env*)},
+	{"lambda$queue$0", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Queue;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Analyzer$2, lambda$queue$0, $Queue*, $Symbol$ClassSymbol*)},
+	{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$2, queue, void, $Analyzer$RewritingContext*)},
 	{}
 };
 

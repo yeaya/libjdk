@@ -27,10 +27,10 @@ $FieldInfo _DOMSubTreeData_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMSubTreeData_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(static_cast<void(DOMSubTreeData::*)($Node*,bool)>(&DOMSubTreeData::init$))},
-	{"excludeComments", "()Z", nullptr, $PUBLIC},
-	{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, $PUBLIC, $method(DOMSubTreeData, init$, void, $Node*, bool)},
+	{"excludeComments", "()Z", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData, excludeComments, bool)},
+	{"getRoot", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData, getRoot, $Node*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(DOMSubTreeData, iterator, $Iterator*)},
 	{}
 };
 

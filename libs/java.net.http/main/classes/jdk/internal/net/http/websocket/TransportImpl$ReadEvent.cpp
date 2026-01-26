@@ -32,9 +32,9 @@ $FieldInfo _TransportImpl$ReadEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _TransportImpl$ReadEvent_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/TransportImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(TransportImpl$ReadEvent::*)($TransportImpl*)>(&TransportImpl$ReadEvent::init$))},
-	{"handle", "()V", nullptr, $PUBLIC},
-	{"interestOps", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/TransportImpl;)V", nullptr, $PRIVATE, $method(TransportImpl$ReadEvent, init$, void, $TransportImpl*)},
+	{"handle", "()V", nullptr, $PUBLIC, $virtualMethod(TransportImpl$ReadEvent, handle, void)},
+	{"interestOps", "()I", nullptr, $PUBLIC, $virtualMethod(TransportImpl$ReadEvent, interestOps, int32_t)},
 	{}
 };
 

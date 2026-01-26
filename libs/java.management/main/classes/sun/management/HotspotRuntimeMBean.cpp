@@ -5,15 +5,16 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace sun {
 	namespace management {
 
 $MethodInfo _HotspotRuntimeMBean_MethodInfo_[] = {
-	{"getInternalRuntimeCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $ABSTRACT},
-	{"getSafepointCount", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSafepointSyncTime", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTotalSafepointTime", "()J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getInternalRuntimeCounters", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/counter/Counter;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getInternalRuntimeCounters, $List*)},
+	{"getSafepointCount", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getSafepointCount, int64_t)},
+	{"getSafepointSyncTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getSafepointSyncTime, int64_t)},
+	{"getTotalSafepointTime", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HotspotRuntimeMBean, getTotalSafepointTime, int64_t)},
 	{}
 };
 

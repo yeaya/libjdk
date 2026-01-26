@@ -64,17 +64,17 @@ $FieldInfo _RoleUnresolved_FieldInfo_[] = {
 };
 
 $MethodInfo _RoleUnresolved_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;I)V", "(Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;I)V", $PUBLIC, $method(static_cast<void(RoleUnresolved::*)($String*,$List*,int32_t)>(&RoleUnresolved::init$)), "java.lang.IllegalArgumentException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getProblemType", "()I", nullptr, $PUBLIC},
-	{"getRoleName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getRoleValue", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(RoleUnresolved::*)($ObjectInputStream*)>(&RoleUnresolved::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setProblemType", "(I)V", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException"},
-	{"setRoleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException"},
-	{"setRoleValue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(RoleUnresolved::*)($ObjectOutputStream*)>(&RoleUnresolved::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;Ljava/util/List;I)V", "(Ljava/lang/String;Ljava/util/List<Ljavax/management/ObjectName;>;I)V", $PUBLIC, $method(RoleUnresolved, init$, void, $String*, $List*, int32_t), "java.lang.IllegalArgumentException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RoleUnresolved, clone, $Object*)},
+	{"getProblemType", "()I", nullptr, $PUBLIC, $virtualMethod(RoleUnresolved, getProblemType, int32_t)},
+	{"getRoleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RoleUnresolved, getRoleName, $String*)},
+	{"getRoleValue", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/management/ObjectName;>;", $PUBLIC, $virtualMethod(RoleUnresolved, getRoleValue, $List*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RoleUnresolved, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"setProblemType", "(I)V", nullptr, $PUBLIC, $virtualMethod(RoleUnresolved, setProblemType, void, int32_t), "java.lang.IllegalArgumentException"},
+	{"setRoleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RoleUnresolved, setRoleName, void, $String*), "java.lang.IllegalArgumentException"},
+	{"setRoleValue", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/management/ObjectName;>;)V", $PUBLIC, $virtualMethod(RoleUnresolved, setRoleValue, void, $List*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RoleUnresolved, toString, $String*)},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RoleUnresolved, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

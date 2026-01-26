@@ -11,7 +11,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Set = ::java::util::Set;
 using $AnnotatedConstruct = ::javax::lang::model::AnnotatedConstruct;
+using $ElementKind = ::javax::lang::model::element::ElementKind;
+using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
+using $Name = ::javax::lang::model::element::Name;
+using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 
 namespace javax {
 	namespace lang {
@@ -19,17 +25,17 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _Element_MethodInfo_[] = {
-	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT},
-	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Element, accept, $Object*, $ElementVisitor*, Object$*)},
+	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, asType, $TypeMirror*)},
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getEnclosedElements", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT},
-	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getModifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC | $ABSTRACT},
-	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getEnclosedElements", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Element, getEnclosedElements, $List*)},
+	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getEnclosingElement, Element*)},
+	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getKind, $ElementKind*)},
+	{"getModifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Element, getModifiers, $Set*)},
+	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Element, getSimpleName, $Name*)},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

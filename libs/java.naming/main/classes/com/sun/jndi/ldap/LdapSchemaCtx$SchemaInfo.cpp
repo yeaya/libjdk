@@ -35,11 +35,11 @@ $FieldInfo _LdapSchemaCtx$SchemaInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapSchemaCtx$SchemaInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapSchemaParser;)V", nullptr, 0, $method(static_cast<void(LdapSchemaCtx$SchemaInfo::*)($String*,$LdapCtx*,$LdapSchemaParser*)>(&LdapSchemaCtx$SchemaInfo::init$))},
-	{"close", "()V", nullptr, $SYNCHRONIZED, $method(static_cast<void(LdapSchemaCtx$SchemaInfo::*)()>(&LdapSchemaCtx$SchemaInfo::close)), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/util/Hashtable;[Ljavax/naming/directory/ModificationItem;)V", "(Ljava/util/Hashtable<**>;[Ljavax/naming/directory/ModificationItem;)V", $SYNCHRONIZED, $method(static_cast<void(LdapSchemaCtx$SchemaInfo::*)($Hashtable*,$ModificationItemArray*)>(&LdapSchemaCtx$SchemaInfo::modifyAttributes)), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/util/Hashtable;ILjavax/naming/directory/Attributes;)V", "(Ljava/util/Hashtable<**>;ILjavax/naming/directory/Attributes;)V", $SYNCHRONIZED, $method(static_cast<void(LdapSchemaCtx$SchemaInfo::*)($Hashtable*,int32_t,$Attributes*)>(&LdapSchemaCtx$SchemaInfo::modifyAttributes)), "javax.naming.NamingException"},
-	{"reopenEntry", "(Ljava/util/Hashtable;)Lcom/sun/jndi/ldap/LdapCtx;", "(Ljava/util/Hashtable<**>;)Lcom/sun/jndi/ldap/LdapCtx;", $PRIVATE, $method(static_cast<$LdapCtx*(LdapSchemaCtx$SchemaInfo::*)($Hashtable*)>(&LdapSchemaCtx$SchemaInfo::reopenEntry)), "javax.naming.NamingException"},
+	{"<init>", "(Ljava/lang/String;Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapSchemaParser;)V", nullptr, 0, $method(LdapSchemaCtx$SchemaInfo, init$, void, $String*, $LdapCtx*, $LdapSchemaParser*)},
+	{"close", "()V", nullptr, $SYNCHRONIZED, $method(LdapSchemaCtx$SchemaInfo, close, void), "javax.naming.NamingException"},
+	{"modifyAttributes", "(Ljava/util/Hashtable;[Ljavax/naming/directory/ModificationItem;)V", "(Ljava/util/Hashtable<**>;[Ljavax/naming/directory/ModificationItem;)V", $SYNCHRONIZED, $method(LdapSchemaCtx$SchemaInfo, modifyAttributes, void, $Hashtable*, $ModificationItemArray*), "javax.naming.NamingException"},
+	{"modifyAttributes", "(Ljava/util/Hashtable;ILjavax/naming/directory/Attributes;)V", "(Ljava/util/Hashtable<**>;ILjavax/naming/directory/Attributes;)V", $SYNCHRONIZED, $method(LdapSchemaCtx$SchemaInfo, modifyAttributes, void, $Hashtable*, int32_t, $Attributes*), "javax.naming.NamingException"},
+	{"reopenEntry", "(Ljava/util/Hashtable;)Lcom/sun/jndi/ldap/LdapCtx;", "(Ljava/util/Hashtable<**>;)Lcom/sun/jndi/ldap/LdapCtx;", $PRIVATE, $method(LdapSchemaCtx$SchemaInfo, reopenEntry, $LdapCtx*, $Hashtable*), "javax.naming.NamingException"},
 	{}
 };
 

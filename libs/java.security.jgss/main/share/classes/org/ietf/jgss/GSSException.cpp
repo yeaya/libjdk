@@ -67,17 +67,17 @@ $FieldInfo _GSSException_FieldInfo_[] = {
 };
 
 $MethodInfo _GSSException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(GSSException::*)(int32_t)>(&GSSException::init$))},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(static_cast<void(GSSException::*)(int32_t,$String*)>(&GSSException::init$))},
-	{"<init>", "(IILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(GSSException::*)(int32_t,int32_t,$String*)>(&GSSException::init$))},
-	{"getMajor", "()I", nullptr, $PUBLIC},
-	{"getMajorString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMinor", "()I", nullptr, $PUBLIC},
-	{"getMinorString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setMinor", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validateMajor", "(I)Z", nullptr, $PRIVATE, $method(static_cast<bool(GSSException::*)(int32_t)>(&GSSException::validateMajor))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(GSSException, init$, void, int32_t)},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(GSSException, init$, void, int32_t, $String*)},
+	{"<init>", "(IILjava/lang/String;)V", nullptr, $PUBLIC, $method(GSSException, init$, void, int32_t, int32_t, $String*)},
+	{"getMajor", "()I", nullptr, $PUBLIC, $virtualMethod(GSSException, getMajor, int32_t)},
+	{"getMajorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, getMajorString, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, getMessage, $String*)},
+	{"getMinor", "()I", nullptr, $PUBLIC, $virtualMethod(GSSException, getMinor, int32_t)},
+	{"getMinorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, getMinorString, $String*)},
+	{"setMinor", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(GSSException, setMinor, void, int32_t, $String*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSException, toString, $String*)},
+	{"validateMajor", "(I)Z", nullptr, $PRIVATE, $method(GSSException, validateMajor, bool, int32_t)},
 	{}
 };
 

@@ -17,8 +17,8 @@ $FieldInfo _MalformedObjectNameException_FieldInfo_[] = {
 };
 
 $MethodInfo _MalformedObjectNameException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MalformedObjectNameException::*)()>(&MalformedObjectNameException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MalformedObjectNameException::*)($String*)>(&MalformedObjectNameException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MalformedObjectNameException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MalformedObjectNameException, init$, void, $String*)},
 	{}
 };
 

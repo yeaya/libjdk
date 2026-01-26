@@ -18,8 +18,8 @@ $FieldInfo _MarshalException_FieldInfo_[] = {
 };
 
 $MethodInfo _MarshalException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MarshalException::*)($String*)>(&MarshalException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(MarshalException::*)($String*,$Exception*)>(&MarshalException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*, $Exception*)},
 	{}
 };
 

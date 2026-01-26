@@ -59,13 +59,13 @@ $FieldInfo _XmlAttrStack_FieldInfo_[] = {
 };
 
 $MethodInfo _XmlAttrStack_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(XmlAttrStack::*)(bool)>(&XmlAttrStack::init$))},
-	{"addXmlnsAttr", "(Lorg/w3c/dom/Attr;)V", nullptr, 0},
-	{"getXmlnsAttr", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Lorg/w3c/dom/Attr;>;)V", 0},
-	{"joinURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*,$String*)>(&XmlAttrStack::joinURI)), "java.net.URISyntaxException"},
-	{"printStep", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,$String*)>(&XmlAttrStack::printStep))},
-	{"push", "(I)V", nullptr, 0},
-	{"removeDotSegments", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&XmlAttrStack::removeDotSegments))},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(XmlAttrStack, init$, void, bool)},
+	{"addXmlnsAttr", "(Lorg/w3c/dom/Attr;)V", nullptr, 0, $virtualMethod(XmlAttrStack, addXmlnsAttr, void, $Attr*)},
+	{"getXmlnsAttr", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Lorg/w3c/dom/Attr;>;)V", 0, $virtualMethod(XmlAttrStack, getXmlnsAttr, void, $Collection*)},
+	{"joinURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(XmlAttrStack, joinURI, $String*, $String*, $String*), "java.net.URISyntaxException"},
+	{"printStep", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XmlAttrStack, printStep, void, $String*, $String*, $String*)},
+	{"push", "(I)V", nullptr, 0, $virtualMethod(XmlAttrStack, push, void, int32_t)},
+	{"removeDotSegments", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(XmlAttrStack, removeDotSegments, $String*, $String*)},
 	{}
 };
 

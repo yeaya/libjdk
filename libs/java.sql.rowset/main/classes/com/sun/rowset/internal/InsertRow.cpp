@@ -38,13 +38,13 @@ $FieldInfo _InsertRow_FieldInfo_[] = {
 };
 
 $MethodInfo _InsertRow_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(InsertRow::*)(int32_t)>(&InsertRow::init$))},
-	{"getColumnObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
-	{"initInsertRow", "()V", nullptr, $PUBLIC},
-	{"isCompleteRow", "(Ljavax/sql/RowSetMetaData;)Z", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
-	{"markColInserted", "(I)V", nullptr, $PROTECTED},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(InsertRow::*)($ObjectInputStream*)>(&InsertRow::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setColumnObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(InsertRow, init$, void, int32_t)},
+	{"getColumnObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(InsertRow, getColumnObject, $Object*, int32_t), "java.sql.SQLException"},
+	{"initInsertRow", "()V", nullptr, $PUBLIC, $virtualMethod(InsertRow, initInsertRow, void)},
+	{"isCompleteRow", "(Ljavax/sql/RowSetMetaData;)Z", nullptr, $PUBLIC, $virtualMethod(InsertRow, isCompleteRow, bool, $RowSetMetaData*), "java.sql.SQLException"},
+	{"markColInserted", "(I)V", nullptr, $PROTECTED, $virtualMethod(InsertRow, markColInserted, void, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InsertRow, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"setColumnObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InsertRow, setColumnObject, void, int32_t, Object$*)},
 	{}
 };
 

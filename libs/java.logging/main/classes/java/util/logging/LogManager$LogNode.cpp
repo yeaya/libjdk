@@ -35,8 +35,8 @@ $FieldInfo _LogManager$LogNode_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$LogNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager$LogNode;Ljava/util/logging/LogManager$LoggerContext;)V", nullptr, 0, $method(static_cast<void(LogManager$LogNode::*)(LogManager$LogNode*,$LogManager$LoggerContext*)>(&LogManager$LogNode::init$))},
-	{"walkAndSetParent", "(Ljava/util/logging/Logger;)V", nullptr, 0},
+	{"<init>", "(Ljava/util/logging/LogManager$LogNode;Ljava/util/logging/LogManager$LoggerContext;)V", nullptr, 0, $method(LogManager$LogNode, init$, void, LogManager$LogNode*, $LogManager$LoggerContext*)},
+	{"walkAndSetParent", "(Ljava/util/logging/Logger;)V", nullptr, 0, $virtualMethod(LogManager$LogNode, walkAndSetParent, void, $Logger*)},
 	{}
 };
 

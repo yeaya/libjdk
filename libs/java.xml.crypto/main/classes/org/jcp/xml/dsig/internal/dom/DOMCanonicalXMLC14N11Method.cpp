@@ -41,9 +41,9 @@ $FieldInfo _DOMCanonicalXMLC14N11Method_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMCanonicalXMLC14N11Method_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DOMCanonicalXMLC14N11Method::*)()>(&DOMCanonicalXMLC14N11Method::init$))},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.dsig.TransformException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMCanonicalXMLC14N11Method, init$, void)},
+	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14N11Method, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14N11Method, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
 	{}
 };
 

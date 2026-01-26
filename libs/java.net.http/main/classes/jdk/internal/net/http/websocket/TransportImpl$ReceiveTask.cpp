@@ -54,8 +54,8 @@ $FieldInfo _TransportImpl$ReceiveTask_FieldInfo_[] = {
 };
 
 $MethodInfo _TransportImpl$ReceiveTask_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/TransportImpl;)V", nullptr, $PRIVATE, $method(static_cast<void(TransportImpl$ReceiveTask::*)($TransportImpl*)>(&TransportImpl$ReceiveTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/TransportImpl;)V", nullptr, $PRIVATE, $method(TransportImpl$ReceiveTask, init$, void, $TransportImpl*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TransportImpl$ReceiveTask, run, void)},
 	{}
 };
 

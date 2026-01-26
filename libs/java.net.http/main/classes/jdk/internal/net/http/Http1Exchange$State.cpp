@@ -35,10 +35,10 @@ $FieldInfo _Http1Exchange$State_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Exchange$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Http1Exchange$StateArray*(*)()>(&Http1Exchange$State::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Http1Exchange$State::*)($String*,int32_t)>(&Http1Exchange$State::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Http1Exchange$State*(*)($String*)>(&Http1Exchange$State::valueOf))},
-	{"values", "()[Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Http1Exchange$StateArray*(*)()>(&Http1Exchange$State::values))},
+	{"$values", "()[Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http1Exchange$State, $values, $Http1Exchange$StateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Http1Exchange$State, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1Exchange$State, valueOf, Http1Exchange$State*, $String*)},
+	{"values", "()[Ljdk/internal/net/http/Http1Exchange$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1Exchange$State, values, $Http1Exchange$StateArray*)},
 	{}
 };
 

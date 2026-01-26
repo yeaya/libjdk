@@ -33,11 +33,11 @@ $FieldInfo _Type$ArrayType$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$ArrayType$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(static_cast<void(Type$ArrayType$2::*)($Type$ArrayType*,$Type*,$Symbol$TypeSymbol*,$TypeMetadata*)>(&Type$ArrayType$2::init$))},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getComponentType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"isVarargs", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$ArrayType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$ArrayType$2, init$, void, $Type$ArrayType*, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType$2, cloneWithMetadata, $Type$ArrayType*, $TypeMetadata*)},
+	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType$2, getAnnotationMirrors, $List*)},
+	{"getComponentType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType$2, getComponentType, $TypeMirror*)},
+	{"isVarargs", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType$2, isVarargs, bool)},
 	{}
 };
 

@@ -68,8 +68,8 @@ $FieldInfo InterruptedBlockingSend$$Lambda$lambda$main$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo InterruptedBlockingSend$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpClient;Ljava/net/http/HttpRequest;)V", nullptr, $PUBLIC, $method(static_cast<void(InterruptedBlockingSend$$Lambda$lambda$main$0::*)($HttpClient*,$HttpRequest*)>(&InterruptedBlockingSend$$Lambda$lambda$main$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/HttpClient;Ljava/net/http/HttpRequest;)V", nullptr, $PUBLIC, $method(InterruptedBlockingSend$$Lambda$lambda$main$0, init$, void, $HttpClient*, $HttpRequest*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InterruptedBlockingSend$$Lambda$lambda$main$0, run, void)},
 	{}
 };
 $ClassInfo InterruptedBlockingSend$$Lambda$lambda$main$0::classInfo$ = {
@@ -92,9 +92,9 @@ $FieldInfo _InterruptedBlockingSend_FieldInfo_[] = {
 };
 
 $MethodInfo _InterruptedBlockingSend_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InterruptedBlockingSend::*)()>(&InterruptedBlockingSend::init$))},
-	{"lambda$main$0", "(Ljava/net/http/HttpClient;Ljava/net/http/HttpRequest;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpClient*,$HttpRequest*)>(&InterruptedBlockingSend::lambda$main$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&InterruptedBlockingSend::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptedBlockingSend, init$, void)},
+	{"lambda$main$0", "(Ljava/net/http/HttpClient;Ljava/net/http/HttpRequest;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(InterruptedBlockingSend, lambda$main$0, void, $HttpClient*, $HttpRequest*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InterruptedBlockingSend, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

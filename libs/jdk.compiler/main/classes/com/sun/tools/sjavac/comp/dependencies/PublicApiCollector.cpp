@@ -85,8 +85,8 @@ $FieldInfo PublicApiCollector$$Lambda$visitPubapi::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PublicApiCollector$$Lambda$visitPubapi::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/comp/PubAPIs;)V", nullptr, $PUBLIC, $method(static_cast<void(PublicApiCollector$$Lambda$visitPubapi::*)($PubAPIs*)>(&PublicApiCollector$$Lambda$visitPubapi::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/comp/PubAPIs;)V", nullptr, $PUBLIC, $method(PublicApiCollector$$Lambda$visitPubapi, init$, void, $PubAPIs*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PublicApiCollector$$Lambda$visitPubapi, accept, void, Object$*)},
 	{}
 };
 $ClassInfo PublicApiCollector$$Lambda$visitPubapi::classInfo$ = {
@@ -113,11 +113,11 @@ $FieldInfo _PublicApiCollector_FieldInfo_[] = {
 };
 
 $MethodInfo _PublicApiCollector_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $method(static_cast<void(PublicApiCollector::*)($Context*,$Collection*)>(&PublicApiCollector::init$))},
-	{"collectClassSymbols", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PRIVATE, $method(static_cast<void(PublicApiCollector::*)($JCTree$JCCompilationUnit*)>(&PublicApiCollector::collectClassSymbols))},
-	{"extractPubApis", "()V", nullptr, $PRIVATE, $method(static_cast<void(PublicApiCollector::*)()>(&PublicApiCollector::extractPubApis))},
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC},
-	{"getPubApis", "(Z)Ljava/util/Map;", "(Z)Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $method(PublicApiCollector, init$, void, $Context*, $Collection*)},
+	{"collectClassSymbols", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PRIVATE, $method(PublicApiCollector, collectClassSymbols, void, $JCTree$JCCompilationUnit*)},
+	{"extractPubApis", "()V", nullptr, $PRIVATE, $method(PublicApiCollector, extractPubApis, void)},
+	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(PublicApiCollector, finished, void, $TaskEvent*)},
+	{"getPubApis", "(Z)Ljava/util/Map;", "(Z)Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/pubapi/PubApi;>;", $PUBLIC, $virtualMethod(PublicApiCollector, getPubApis, $Map*, bool)},
 	{}
 };
 

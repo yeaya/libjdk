@@ -28,7 +28,7 @@ $FieldInfo _Flow$FlowAnalyzer$ThrownPendingExit_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$FlowAnalyzer$ThrownPendingExit_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow$FlowAnalyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Flow$FlowAnalyzer$ThrownPendingExit::*)($Flow$FlowAnalyzer*,$JCTree*,$Type*)>(&Flow$FlowAnalyzer$ThrownPendingExit::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Flow$FlowAnalyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Flow$FlowAnalyzer$ThrownPendingExit, init$, void, $Flow$FlowAnalyzer*, $JCTree*, $Type*)},
 	{}
 };
 

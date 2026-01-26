@@ -26,15 +26,15 @@ $FieldInfo _IntHashTable_FieldInfo_[] = {
 };
 
 $MethodInfo _IntHashTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IntHashTable::*)()>(&IntHashTable::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(IntHashTable::*)(int32_t)>(&IntHashTable::init$))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"get", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
-	{"hash", "(Ljava/lang/Object;)I", nullptr, $PROTECTED},
-	{"lookup", "(Ljava/lang/Object;)I", nullptr, $PROTECTED},
-	{"put", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC},
-	{"rehash", "()V", nullptr, $PROTECTED},
-	{"remove", "(Ljava/lang/Object;)I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IntHashTable, init$, void)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntHashTable, init$, void, int32_t)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IntHashTable, clear, void)},
+	{"get", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IntHashTable, get, int32_t, Object$*)},
+	{"hash", "(Ljava/lang/Object;)I", nullptr, $PROTECTED, $virtualMethod(IntHashTable, hash, int32_t, Object$*)},
+	{"lookup", "(Ljava/lang/Object;)I", nullptr, $PROTECTED, $virtualMethod(IntHashTable, lookup, int32_t, Object$*)},
+	{"put", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC, $virtualMethod(IntHashTable, put, int32_t, Object$*, int32_t)},
+	{"rehash", "()V", nullptr, $PROTECTED, $virtualMethod(IntHashTable, rehash, void)},
+	{"remove", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IntHashTable, remove, int32_t, Object$*)},
 	{}
 };
 

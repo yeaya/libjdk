@@ -31,8 +31,8 @@ $FieldInfo _SslRMIServerSocketFactory$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SslRMIServerSocketFactory$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/rmi/ssl/SslRMIServerSocketFactory;ILjavax/net/ssl/SSLSocketFactory;)V", nullptr, 0, $method(static_cast<void(SslRMIServerSocketFactory$1::*)($SslRMIServerSocketFactory*,int32_t,$SSLSocketFactory*)>(&SslRMIServerSocketFactory$1::init$)), "java.io.IOException"},
-	{"accept", "()Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljavax/rmi/ssl/SslRMIServerSocketFactory;ILjavax/net/ssl/SSLSocketFactory;)V", nullptr, 0, $method(SslRMIServerSocketFactory$1, init$, void, $SslRMIServerSocketFactory*, int32_t, $SSLSocketFactory*), "java.io.IOException"},
+	{"accept", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SslRMIServerSocketFactory$1, accept, $Socket*), "java.io.IOException"},
 	{}
 };
 

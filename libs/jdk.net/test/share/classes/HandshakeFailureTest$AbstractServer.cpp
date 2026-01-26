@@ -33,10 +33,10 @@ $MethodInfo _HandshakeFailureTest$AbstractServer_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/net/ServerSocket;)V", nullptr, 0, $method(static_cast<void(HandshakeFailureTest$AbstractServer::*)($String*,$ServerSocket*)>(&HandshakeFailureTest$AbstractServer::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"getAuthority", "()Ljava/lang/String;", nullptr, 0},
-	{"getPort", "()I", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;Ljava/net/ServerSocket;)V", nullptr, 0, $method(HandshakeFailureTest$AbstractServer, init$, void, $String*, $ServerSocket*), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(HandshakeFailureTest$AbstractServer, close, void)},
+	{"getAuthority", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(HandshakeFailureTest$AbstractServer, getAuthority, $String*)},
+	{"getPort", "()I", nullptr, 0, $virtualMethod(HandshakeFailureTest$AbstractServer, getPort, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

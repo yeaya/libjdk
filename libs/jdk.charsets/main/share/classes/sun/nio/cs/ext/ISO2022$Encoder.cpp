@@ -66,13 +66,13 @@ $FieldInfo _ISO2022$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO2022$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(static_cast<void(ISO2022$Encoder::*)($Charset*)>(&ISO2022$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISO2022$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&ISO2022$Encoder::encodeArrayLoop))},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(static_cast<$CoderResult*(ISO2022$Encoder::*)($CharBuffer*,$ByteBuffer*)>(&ISO2022$Encoder::encodeBufferLoop))},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED},
-	{"implReset", "()V", nullptr, $PROTECTED},
-	{"unicodeToNative", "(C[B)I", nullptr, $PRIVATE, $method(static_cast<int32_t(ISO2022$Encoder::*)(char16_t,$bytes*)>(&ISO2022$Encoder::unicodeToNative))},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(ISO2022$Encoder, init$, void, $Charset*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022$Encoder, canEncode, bool, char16_t)},
+	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO2022$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO2022$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(ISO2022$Encoder, implReset, void)},
+	{"unicodeToNative", "(C[B)I", nullptr, $PRIVATE, $method(ISO2022$Encoder, unicodeToNative, int32_t, char16_t, $bytes*)},
 	{}
 };
 

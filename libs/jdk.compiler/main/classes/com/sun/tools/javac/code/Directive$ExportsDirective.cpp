@@ -53,13 +53,13 @@ $MethodInfo _Directive$ExportsDirective_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)V", $PUBLIC, $method(static_cast<void(Directive$ExportsDirective::*)($Symbol$PackageSymbol*,$List*)>(&Directive$ExportsDirective::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/List;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$ExportsFlag;>;)V", $PUBLIC, $method(static_cast<void(Directive$ExportsDirective::*)($Symbol$PackageSymbol*,$List*,$Set*)>(&Directive$ExportsDirective::init$))},
-	{"accept", "(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"getKind", "()Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC},
-	{"getPackage", "()Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC},
-	{"getTargetModules", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)V", $PUBLIC, $method(Directive$ExportsDirective, init$, void, $Symbol$PackageSymbol*, $List*)},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/List;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$ExportsFlag;>;)V", $PUBLIC, $method(Directive$ExportsDirective, init$, void, $Symbol$PackageSymbol*, $List*, $Set*)},
+	{"accept", "(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Directive$ExportsDirective, accept, $Object*, $ModuleElement$DirectiveVisitor*, Object$*)},
+	{"getKind", "()Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC, $virtualMethod(Directive$ExportsDirective, getKind, $ModuleElement$DirectiveKind*)},
+	{"getPackage", "()Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Directive$ExportsDirective, getPackage, $PackageElement*)},
+	{"getTargetModules", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PUBLIC, $virtualMethod(Directive$ExportsDirective, getTargetModules, $1List*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Directive$ExportsDirective, toString, $String*)},
 	{}
 };
 

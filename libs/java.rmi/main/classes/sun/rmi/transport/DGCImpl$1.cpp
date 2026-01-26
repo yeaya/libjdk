@@ -20,8 +20,8 @@ $FieldInfo _DGCImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DGCImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/DGCImpl;)V", nullptr, 0, $method(static_cast<void(DGCImpl$1::*)($DGCImpl*)>(&DGCImpl$1::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/transport/DGCImpl;)V", nullptr, 0, $method(DGCImpl$1, init$, void, $DGCImpl*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DGCImpl$1, run, void)},
 	{}
 };
 

@@ -45,10 +45,10 @@ $FieldInfo _DeferredAttr$DeferredAttrContext$StuckNode_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$DeferredAttrContext$StuckNode_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$DeferredAttrContext$StuckNode::*)($DeferredAttr$DeferredAttrContext*,$DeferredAttr$DeferredAttrNode*)>(&DeferredAttr$DeferredAttrContext$StuckNode::init$))},
-	{"getAllDependencies", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", $PUBLIC},
-	{"getDependenciesByKind", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection<+Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", $PUBLIC},
-	{"getSupportedDependencyKinds", "()[Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrContext$StuckNode, init$, void, $DeferredAttr$DeferredAttrContext*, $DeferredAttr$DeferredAttrNode*)},
+	{"getAllDependencies", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$StuckNode, getAllDependencies, $Iterable*)},
+	{"getDependenciesByKind", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection<+Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$StuckNode, getDependenciesByKind, $Collection*, $GraphUtils$DependencyKind*)},
+	{"getSupportedDependencyKinds", "()[Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$StuckNode, getSupportedDependencyKinds, $GraphUtils$DependencyKindArray*)},
 	{}
 };
 

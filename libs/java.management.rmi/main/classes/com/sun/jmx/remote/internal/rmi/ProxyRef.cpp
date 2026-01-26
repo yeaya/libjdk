@@ -53,17 +53,17 @@ $FieldInfo _ProxyRef_FieldInfo_[] = {
 };
 
 $MethodInfo _ProxyRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(static_cast<void(ProxyRef::*)($RemoteRef*)>(&ProxyRef::init$))},
-	{"done", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, "java.rmi.RemoteException", nullptr, _ProxyRef_MethodAnnotations_done1},
-	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, "java.lang.Exception", nullptr, _ProxyRef_MethodAnnotations_invoke3},
-	{"invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC | $DEPRECATED, nullptr, "java.rmi.RemoteException", nullptr, _ProxyRef_MethodAnnotations_newCall5},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC},
-	{"remoteHashCode", "()I", nullptr, $PUBLIC},
-	{"remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(ProxyRef, init$, void, $RemoteRef*)},
+	{"done", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ProxyRef, done, void, $RemoteCall*), "java.rmi.RemoteException", nullptr, _ProxyRef_MethodAnnotations_done1},
+	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProxyRef, getRefClass, $String*, $ObjectOutput*)},
+	{"invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ProxyRef, invoke, void, $RemoteCall*), "java.lang.Exception", nullptr, _ProxyRef_MethodAnnotations_invoke3},
+	{"invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProxyRef, invoke, $Object*, $Remote*, $Method*, $ObjectArray*, int64_t), "java.lang.Exception"},
+	{"newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ProxyRef, newCall, $RemoteCall*, $RemoteObject*, $OperationArray*, int32_t, int64_t), "java.rmi.RemoteException", nullptr, _ProxyRef_MethodAnnotations_newCall5},
+	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(ProxyRef, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyRef, remoteEquals, bool, $RemoteRef*)},
+	{"remoteHashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProxyRef, remoteHashCode, int32_t)},
+	{"remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProxyRef, remoteToString, $String*)},
+	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(ProxyRef, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
 	{}
 };
 

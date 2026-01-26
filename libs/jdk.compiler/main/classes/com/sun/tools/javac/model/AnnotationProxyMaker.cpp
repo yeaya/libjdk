@@ -69,12 +69,12 @@ $FieldInfo _AnnotationProxyMaker_FieldInfo_[] = {
 };
 
 $MethodInfo _AnnotationProxyMaker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Attribute$Compound;Ljava/lang/Class;)V", "(Lcom/sun/tools/javac/code/Attribute$Compound;Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)V", $PRIVATE, $method(static_cast<void(AnnotationProxyMaker::*)($Attribute$Compound*,$Class*)>(&AnnotationProxyMaker::init$))},
-	{"generateAnnotation", "(Lcom/sun/tools/javac/code/Attribute$Compound;Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Lcom/sun/tools/javac/code/Attribute$Compound;Ljava/lang/Class<TA;>;)TA;", $PUBLIC | $STATIC, $method(static_cast<$Annotation*(*)($Attribute$Compound*,$Class*)>(&AnnotationProxyMaker::generateAnnotation))},
-	{"generateAnnotation", "()Ljava/lang/annotation/Annotation;", nullptr, $PRIVATE, $method(static_cast<$Annotation*(AnnotationProxyMaker::*)()>(&AnnotationProxyMaker::generateAnnotation))},
-	{"generateValue", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(AnnotationProxyMaker::*)($Symbol$MethodSymbol*,$Attribute*)>(&AnnotationProxyMaker::generateValue))},
-	{"getAllReflectedValues", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $method(static_cast<$Map*(AnnotationProxyMaker::*)()>(&AnnotationProxyMaker::getAllReflectedValues))},
-	{"getAllValues", "()Ljava/util/Map;", "()Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;", $PRIVATE, $method(static_cast<$Map*(AnnotationProxyMaker::*)()>(&AnnotationProxyMaker::getAllValues))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Attribute$Compound;Ljava/lang/Class;)V", "(Lcom/sun/tools/javac/code/Attribute$Compound;Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;)V", $PRIVATE, $method(AnnotationProxyMaker, init$, void, $Attribute$Compound*, $Class*)},
+	{"generateAnnotation", "(Lcom/sun/tools/javac/code/Attribute$Compound;Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Lcom/sun/tools/javac/code/Attribute$Compound;Ljava/lang/Class<TA;>;)TA;", $PUBLIC | $STATIC, $staticMethod(AnnotationProxyMaker, generateAnnotation, $Annotation*, $Attribute$Compound*, $Class*)},
+	{"generateAnnotation", "()Ljava/lang/annotation/Annotation;", nullptr, $PRIVATE, $method(AnnotationProxyMaker, generateAnnotation, $Annotation*)},
+	{"generateValue", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(AnnotationProxyMaker, generateValue, $Object*, $Symbol$MethodSymbol*, $Attribute*)},
+	{"getAllReflectedValues", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $method(AnnotationProxyMaker, getAllReflectedValues, $Map*)},
+	{"getAllValues", "()Ljava/util/Map;", "()Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;", $PRIVATE, $method(AnnotationProxyMaker, getAllValues, $Map*)},
 	{}
 };
 

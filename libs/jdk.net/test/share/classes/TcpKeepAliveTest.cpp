@@ -42,9 +42,9 @@ $FieldInfo _TcpKeepAliveTest_FieldInfo_[] = {
 };
 
 $MethodInfo _TcpKeepAliveTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TcpKeepAliveTest::*)()>(&TcpKeepAliveTest::init$))},
-	{"boundServer", "(Ljava/net/InetAddress;)Ljava/net/ServerSocket;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ServerSocket*(*)($InetAddress*)>(&TcpKeepAliveTest::boundServer)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&TcpKeepAliveTest::main)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TcpKeepAliveTest, init$, void)},
+	{"boundServer", "(Ljava/net/InetAddress;)Ljava/net/ServerSocket;", nullptr, $PRIVATE | $STATIC, $staticMethod(TcpKeepAliveTest, boundServer, $ServerSocket*, $InetAddress*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TcpKeepAliveTest, main, void, $StringArray*), "java.io.IOException"},
 	{}
 };
 

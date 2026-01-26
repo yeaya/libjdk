@@ -30,14 +30,14 @@ $FieldInfo _KerberosFlags_FieldInfo_[] = {
 };
 
 $MethodInfo _KerberosFlags_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(KerberosFlags::*)(int32_t)>(&KerberosFlags::init$)), "java.lang.IllegalArgumentException"},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(KerberosFlags::*)(int32_t,$bytes*)>(&KerberosFlags::init$)), "java.lang.IllegalArgumentException"},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(static_cast<void(KerberosFlags::*)($booleans*)>(&KerberosFlags::init$))},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"get", "(I)Z", nullptr, $PUBLIC},
-	{"set", "(IZ)V", nullptr, $PUBLIC},
-	{"toBooleanArray", "()[Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(KerberosFlags, init$, void, int32_t), "java.lang.IllegalArgumentException"},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(KerberosFlags, init$, void, int32_t, $bytes*), "java.lang.IllegalArgumentException"},
+	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(KerberosFlags, init$, void, $booleans*)},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, asn1Encode, $bytes*), "java.io.IOException"},
+	{"get", "(I)Z", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, get, bool, int32_t)},
+	{"set", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, set, void, int32_t, bool)},
+	{"toBooleanArray", "()[Z", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, toBooleanArray, $booleans*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosFlags, toString, $String*)},
 	{}
 };
 

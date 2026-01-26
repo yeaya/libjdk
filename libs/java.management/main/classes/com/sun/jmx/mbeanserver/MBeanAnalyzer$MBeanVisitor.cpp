@@ -13,8 +13,8 @@ namespace com {
 			namespace mbeanserver {
 
 $MethodInfo _MBeanAnalyzer$MBeanVisitor_MethodInfo_[] = {
-	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;TM;)V", $PUBLIC | $ABSTRACT},
-	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;)V", $PUBLIC | $ABSTRACT},
+	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;TM;)V", $PUBLIC | $ABSTRACT, $virtualMethod(MBeanAnalyzer$MBeanVisitor, visitAttribute, void, $String*, Object$*, Object$*)},
+	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", "(Ljava/lang/String;TM;)V", $PUBLIC | $ABSTRACT, $virtualMethod(MBeanAnalyzer$MBeanVisitor, visitOperation, void, $String*, Object$*)},
 	{}
 };
 

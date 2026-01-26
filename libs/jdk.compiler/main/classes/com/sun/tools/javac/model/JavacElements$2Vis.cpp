@@ -60,13 +60,13 @@ $FieldInfo _JavacElements$2Vis_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacElements$2Vis_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Attribute;)V", "()V", 0, $method(static_cast<void(JavacElements$2Vis::*)($JavacElements*,$JCTree*,$Attribute*)>(&JavacElements$2Vis::init$))},
-	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC},
-	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC},
-	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC},
-	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC},
-	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC},
-	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Attribute;)V", "()V", 0, $method(JavacElements$2Vis, init$, void, $JavacElements*, $JCTree*, $Attribute*)},
+	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$2Vis, visitArray, void, $Attribute$Array*)},
+	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$2Vis, visitClass, void, $Attribute$Class*)},
+	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$2Vis, visitCompound, void, $Attribute$Compound*)},
+	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$2Vis, visitConstant, void, $Attribute$Constant*)},
+	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$2Vis, visitEnum, void, $Attribute$Enum*)},
+	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$2Vis, visitError, void, $Attribute$Error*)},
 	{}
 };
 

@@ -23,9 +23,9 @@ $FieldInfo _Monitor$SchedulerTask_FieldInfo_[] = {
 };
 
 $MethodInfo _Monitor$SchedulerTask_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/monitor/Monitor;)V", nullptr, $PUBLIC, $method(static_cast<void(Monitor$SchedulerTask::*)($Monitor*)>(&Monitor$SchedulerTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"setMonitorTask", "(Ljavax/management/monitor/Monitor$MonitorTask;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/monitor/Monitor;)V", nullptr, $PUBLIC, $method(Monitor$SchedulerTask, init$, void, $Monitor*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Monitor$SchedulerTask, run, void)},
+	{"setMonitorTask", "(Ljavax/management/monitor/Monitor$MonitorTask;)V", nullptr, $PUBLIC, $virtualMethod(Monitor$SchedulerTask, setMonitorTask, void, $Monitor$MonitorTask*)},
 	{}
 };
 

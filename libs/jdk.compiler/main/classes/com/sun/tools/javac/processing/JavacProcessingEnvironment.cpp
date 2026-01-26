@@ -173,7 +173,7 @@ using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
-using $Types = ::com::sun::tools::javac::code::Types;
+using $1Types = ::com::sun::tools::javac::code::Types;
 using $Annotate = ::com::sun::tools::javac::comp::Annotate;
 using $Check = ::com::sun::tools::javac::comp::Check;
 using $CompileStates$CompileState = ::com::sun::tools::javac::comp::CompileStates$CompileState;
@@ -280,7 +280,7 @@ using $Name = ::javax::lang::model::element::Name;
 using $Parameterizable = ::javax::lang::model::element::Parameterizable;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
 using $Elements = ::javax::lang::model::util::Elements;
-using $1Types = ::javax::lang::model::util::Types;
+using $Types = ::javax::lang::model::util::Types;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
@@ -308,8 +308,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacProcessingEnvironment$$Lambda$getPlugin::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacProcessingEnvironment$$Lambda$getPlugin::*)()>(&JavacProcessingEnvironment$$Lambda$getPlugin::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$$Lambda$getPlugin, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$$Lambda$getPlugin, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavacProcessingEnvironment$$Lambda$getPlugin::classInfo$ = {
@@ -341,8 +341,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacProcessingEnvironment$$Lambda$lambda$initProcessorIterator$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacProcessingEnvironment$$Lambda$lambda$initProcessorIterator$0$1::*)()>(&JavacProcessingEnvironment$$Lambda$lambda$initProcessorIterator$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$$Lambda$lambda$initProcessorIterator$0$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$$Lambda$lambda$initProcessorIterator$0$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavacProcessingEnvironment$$Lambda$lambda$initProcessorIterator$0$1::classInfo$ = {
@@ -408,50 +408,50 @@ $MethodInfo _JavacProcessingEnvironment_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(JavacProcessingEnvironment::*)($Context*)>(&JavacProcessingEnvironment::init$))},
-	{"atLeastOneProcessor", "()Z", nullptr, $PUBLIC},
-	{"callProcessor", "(Ljavax/annotation/processing/Processor;Ljava/util/Set;Ljavax/annotation/processing/RoundEnvironment;)Z", "(Ljavax/annotation/processing/Processor;Ljava/util/Set<+Ljavax/lang/model/element/TypeElement;>;Ljavax/annotation/processing/RoundEnvironment;)Z", $PRIVATE, $method(static_cast<bool(JavacProcessingEnvironment::*)($Processor*,$Set*,$RoundEnvironment*)>(&JavacProcessingEnvironment::callProcessor))},
-	{"close", "()V", nullptr, $PUBLIC},
-	{"discoverAndRunProcs", "(Ljava/util/Set;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)V", $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment::*)($Set*,$List*,$List*,$List*)>(&JavacProcessingEnvironment::discoverAndRunProcs))},
-	{"doProcessing", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Ljava/lang/Iterable;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;Ljava/lang/Iterable<+Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)Z", $PUBLIC},
-	{"getContext", "()Lcom/sun/tools/javac/util/Context;", nullptr, $PUBLIC},
-	{"getElementUtils", "()Lcom/sun/tools/javac/model/JavacElements;", nullptr, $PUBLIC},
-	{"getFiler", "()Lcom/sun/tools/javac/processing/JavacFiler;", nullptr, $PUBLIC},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC},
-	{"getMessager", "()Ljavax/annotation/processing/Messager;", nullptr, $PUBLIC},
-	{"getModuleInfoFiles", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(static_cast<$List*(JavacProcessingEnvironment::*)($List*)>(&JavacProcessingEnvironment::getModuleInfoFiles))},
-	{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC},
-	{"getPackageInfoFiles", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;", $PRIVATE, $method(static_cast<$List*(JavacProcessingEnvironment::*)($List*)>(&JavacProcessingEnvironment::getPackageInfoFiles))},
-	{"getPackageInfoFilesFromClasses", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;", $PRIVATE, $method(static_cast<$List*(JavacProcessingEnvironment::*)($List*)>(&JavacProcessingEnvironment::getPackageInfoFilesFromClasses))},
-	{"getProcessorClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
-	{"getServiceLoader", "(Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC},
-	{"getSourceVersion", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC},
-	{"getSpecifiedPackages", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;", $PUBLIC},
-	{"getTopLevelClasses", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE, $method(static_cast<$List*(JavacProcessingEnvironment::*)($List*)>(&JavacProcessingEnvironment::getTopLevelClasses))},
-	{"getTopLevelClassesFromClasses", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE, $method(static_cast<$List*(JavacProcessingEnvironment::*)($List*)>(&JavacProcessingEnvironment::getTopLevelClassesFromClasses))},
-	{"getTypeUtils", "()Lcom/sun/tools/javac/model/JavacTypes;", nullptr, $PUBLIC},
-	{"handleException", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment::*)($String*,$Exception*)>(&JavacProcessingEnvironment::handleException))},
-	{"handleServiceLoaderUnavailability", "(Ljava/lang/String;Ljava/lang/Exception;)Ljava/util/Iterator;", "(Ljava/lang/String;Ljava/lang/Exception;)Ljava/util/Iterator<Ljavax/annotation/processing/Processor;>;", $PRIVATE, $method(static_cast<$Iterator*(JavacProcessingEnvironment::*)($String*,$Exception*)>(&JavacProcessingEnvironment::handleServiceLoaderUnavailability))},
-	{"importStringToPattern", "(ZLjava/lang/String;Ljavax/annotation/processing/Processor;Lcom/sun/tools/javac/util/Log;Z)Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Pattern*(*)(bool,$String*,$Processor*,$Log*,bool)>(&JavacProcessingEnvironment::importStringToPattern))},
-	{"initPlatformAnnotations", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(JavacProcessingEnvironment::*)()>(&JavacProcessingEnvironment::initPlatformAnnotations))},
-	{"initProcessorIterator", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;)V", $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment::*)($Iterable*)>(&JavacProcessingEnvironment::initProcessorIterator))},
-	{"initProcessorLoader", "()V", nullptr, $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment::*)()>(&JavacProcessingEnvironment::initProcessorLoader))},
-	{"initProcessorOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Map*(JavacProcessingEnvironment::*)()>(&JavacProcessingEnvironment::initProcessorOptions))},
-	{"initUnmatchedProcessorOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$Set*(JavacProcessingEnvironment::*)()>(&JavacProcessingEnvironment::initUnmatchedProcessorOptions))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavacProcessingEnvironment*(*)($Context*)>(&JavacProcessingEnvironment::instance))},
-	{"isModuleInfo", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PRIVATE, $method(static_cast<bool(JavacProcessingEnvironment::*)($JavaFileObject*,$JavaFileObject$Kind*)>(&JavacProcessingEnvironment::isModuleInfo))},
-	{"isPkgInfo", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PRIVATE, $method(static_cast<bool(JavacProcessingEnvironment::*)($JavaFileObject*,$JavaFileObject$Kind*)>(&JavacProcessingEnvironment::isPkgInfo))},
-	{"isPkgInfo", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PRIVATE, $method(static_cast<bool(JavacProcessingEnvironment::*)($Symbol$ClassSymbol*)>(&JavacProcessingEnvironment::isPkgInfo))},
-	{"isPreviewEnabled", "()Z", nullptr, $PUBLIC},
-	{"isValidOptionName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&JavacProcessingEnvironment::isValidOptionName))},
-	{"join", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/util/List<TT;>;)Lcom/sun/tools/javac/util/List<TT;>;", $PRIVATE | $STATIC, $method(static_cast<$List*(*)($List*,$List*)>(&JavacProcessingEnvironment::join))},
-	{"lambda$initProcessorIterator$0", "(Ljava/util/Iterator;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Iterator*(*)($Iterator*)>(&JavacProcessingEnvironment::lambda$initProcessorIterator$0))},
-	{"moreToDo", "()Z", nullptr, $PRIVATE, $method(static_cast<bool(JavacProcessingEnvironment::*)()>(&JavacProcessingEnvironment::moreToDo))},
-	{"needClassLoader", "(Ljava/lang/String;Ljava/lang/Iterable;)Z", "(Ljava/lang/String;Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Z", $PRIVATE, $method(static_cast<bool(JavacProcessingEnvironment::*)($String*,$Iterable*)>(&JavacProcessingEnvironment::needClassLoader))},
-	{"setProcessors", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;)V", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"warnAndNoMatches", "(Ljava/lang/String;Ljavax/annotation/processing/Processor;Lcom/sun/tools/javac/util/Log;Z)Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Pattern*(*)($String*,$Processor*,$Log*,bool)>(&JavacProcessingEnvironment::warnAndNoMatches))},
-	{"warnIfUnmatchedOptions", "()V", nullptr, $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment::*)()>(&JavacProcessingEnvironment::warnIfUnmatchedOptions))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(JavacProcessingEnvironment, init$, void, $Context*)},
+	{"atLeastOneProcessor", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, atLeastOneProcessor, bool)},
+	{"callProcessor", "(Ljavax/annotation/processing/Processor;Ljava/util/Set;Ljavax/annotation/processing/RoundEnvironment;)Z", "(Ljavax/annotation/processing/Processor;Ljava/util/Set<+Ljavax/lang/model/element/TypeElement;>;Ljavax/annotation/processing/RoundEnvironment;)Z", $PRIVATE, $method(JavacProcessingEnvironment, callProcessor, bool, $Processor*, $Set*, $RoundEnvironment*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, close, void)},
+	{"discoverAndRunProcs", "(Ljava/util/Set;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)V", "(Ljava/util/Set<Ljavax/lang/model/element/TypeElement;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;)V", $PRIVATE, $method(JavacProcessingEnvironment, discoverAndRunProcs, void, $Set*, $List*, $List*, $List*)},
+	{"doProcessing", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Ljava/lang/Iterable;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;Ljava/lang/Iterable<+Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)Z", $PUBLIC, $virtualMethod(JavacProcessingEnvironment, doProcessing, bool, $List*, $List*, $Iterable*, $Log$DeferredDiagnosticHandler*)},
+	{"getContext", "()Lcom/sun/tools/javac/util/Context;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getContext, $Context*)},
+	{"getElementUtils", "()Lcom/sun/tools/javac/model/JavacElements;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getElementUtils, $Elements*)},
+	{"getFiler", "()Lcom/sun/tools/javac/processing/JavacFiler;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getFiler, $Filer*)},
+	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getLocale, $Locale*)},
+	{"getMessager", "()Ljavax/annotation/processing/Messager;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getMessager, $Messager*)},
+	{"getModuleInfoFiles", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;>;", $PRIVATE, $method(JavacProcessingEnvironment, getModuleInfoFiles, $List*, $List*)},
+	{"getOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getOptions, $Map*)},
+	{"getPackageInfoFiles", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;", $PRIVATE, $method(JavacProcessingEnvironment, getPackageInfoFiles, $List*, $List*)},
+	{"getPackageInfoFilesFromClasses", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;", $PRIVATE, $method(JavacProcessingEnvironment, getPackageInfoFilesFromClasses, $List*, $List*)},
+	{"getProcessorClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getProcessorClassLoader, $ClassLoader*)},
+	{"getServiceLoader", "(Ljava/lang/Class;)Ljava/util/ServiceLoader;", "<S:Ljava/lang/Object;>(Ljava/lang/Class<TS;>;)Ljava/util/ServiceLoader<TS;>;", $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getServiceLoader, $ServiceLoader*, $Class*)},
+	{"getSourceVersion", "()Ljavax/lang/model/SourceVersion;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getSourceVersion, $SourceVersion*)},
+	{"getSpecifiedPackages", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$PackageSymbol;>;", $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getSpecifiedPackages, $Set*)},
+	{"getTopLevelClasses", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE, $method(JavacProcessingEnvironment, getTopLevelClasses, $List*, $List*)},
+	{"getTopLevelClassesFromClasses", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE, $method(JavacProcessingEnvironment, getTopLevelClassesFromClasses, $List*, $List*)},
+	{"getTypeUtils", "()Lcom/sun/tools/javac/model/JavacTypes;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, getTypeUtils, $Types*)},
+	{"handleException", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PRIVATE, $method(JavacProcessingEnvironment, handleException, void, $String*, $Exception*)},
+	{"handleServiceLoaderUnavailability", "(Ljava/lang/String;Ljava/lang/Exception;)Ljava/util/Iterator;", "(Ljava/lang/String;Ljava/lang/Exception;)Ljava/util/Iterator<Ljavax/annotation/processing/Processor;>;", $PRIVATE, $method(JavacProcessingEnvironment, handleServiceLoaderUnavailability, $Iterator*, $String*, $Exception*)},
+	{"importStringToPattern", "(ZLjava/lang/String;Ljavax/annotation/processing/Processor;Lcom/sun/tools/javac/util/Log;Z)Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavacProcessingEnvironment, importStringToPattern, $Pattern*, bool, $String*, $Processor*, $Log*, bool)},
+	{"initPlatformAnnotations", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(JavacProcessingEnvironment, initPlatformAnnotations, $Set*)},
+	{"initProcessorIterator", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;)V", $PRIVATE, $method(JavacProcessingEnvironment, initProcessorIterator, void, $Iterable*)},
+	{"initProcessorLoader", "()V", nullptr, $PRIVATE, $method(JavacProcessingEnvironment, initProcessorLoader, void)},
+	{"initProcessorOptions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(JavacProcessingEnvironment, initProcessorOptions, $Map*)},
+	{"initUnmatchedProcessorOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(JavacProcessingEnvironment, initUnmatchedProcessorOptions, $Set*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacProcessingEnvironment, instance, JavacProcessingEnvironment*, $Context*)},
+	{"isModuleInfo", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PRIVATE, $method(JavacProcessingEnvironment, isModuleInfo, bool, $JavaFileObject*, $JavaFileObject$Kind*)},
+	{"isPkgInfo", "(Ljavax/tools/JavaFileObject;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PRIVATE, $method(JavacProcessingEnvironment, isPkgInfo, bool, $JavaFileObject*, $JavaFileObject$Kind*)},
+	{"isPkgInfo", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PRIVATE, $method(JavacProcessingEnvironment, isPkgInfo, bool, $Symbol$ClassSymbol*)},
+	{"isPreviewEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, isPreviewEnabled, bool)},
+	{"isValidOptionName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacProcessingEnvironment, isValidOptionName, bool, $String*)},
+	{"join", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "<T:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/util/List<TT;>;)Lcom/sun/tools/javac/util/List<TT;>;", $PRIVATE | $STATIC, $staticMethod(JavacProcessingEnvironment, join, $List*, $List*, $List*)},
+	{"lambda$initProcessorIterator$0", "(Ljava/util/Iterator;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacProcessingEnvironment, lambda$initProcessorIterator$0, $Iterator*, $Iterator*)},
+	{"moreToDo", "()Z", nullptr, $PRIVATE, $method(JavacProcessingEnvironment, moreToDo, bool)},
+	{"needClassLoader", "(Ljava/lang/String;Ljava/lang/Iterable;)Z", "(Ljava/lang/String;Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Z", $PRIVATE, $method(JavacProcessingEnvironment, needClassLoader, bool, $String*, $Iterable*)},
+	{"setProcessors", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;)V", $PUBLIC, $virtualMethod(JavacProcessingEnvironment, setProcessors, void, $Iterable*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment, toString, $String*)},
+	{"warnAndNoMatches", "(Ljava/lang/String;Ljavax/annotation/processing/Processor;Lcom/sun/tools/javac/util/Log;Z)Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavacProcessingEnvironment, warnAndNoMatches, $Pattern*, $String*, $Processor*, $Log*, bool)},
+	{"warnIfUnmatchedOptions", "()V", nullptr, $PRIVATE, $method(JavacProcessingEnvironment, warnIfUnmatchedOptions, void)},
 	{}
 };
 
@@ -548,7 +548,7 @@ void JavacProcessingEnvironment::init$($Context* context) {
 	$set(this, elementUtils, $JavacElements::instance(context));
 	$set(this, typeUtils, $JavacTypes::instance(context));
 	$set(this, modules, $Modules::instance(context));
-	$set(this, types, $Types::instance(context));
+	$set(this, types, $1Types::instance(context));
 	$set(this, annotate, $Annotate::instance(context));
 	$set(this, processorOptions, initProcessorOptions());
 	$set(this, unmatchedProcessorOptions, initUnmatchedProcessorOptions());
@@ -1163,7 +1163,7 @@ $Elements* JavacProcessingEnvironment::getElementUtils() {
 	return this->elementUtils;
 }
 
-$1Types* JavacProcessingEnvironment::getTypeUtils() {
+$Types* JavacProcessingEnvironment::getTypeUtils() {
 	return this->typeUtils;
 }
 

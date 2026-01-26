@@ -22,14 +22,14 @@ $FieldInfo _TransformException_FieldInfo_[] = {
 };
 
 $MethodInfo _TransformException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TransformException::*)()>(&TransformException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(TransformException::*)($String*)>(&TransformException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(TransformException::*)($String*,$Throwable*)>(&TransformException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(TransformException::*)($Throwable*)>(&TransformException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"printStackTrace", "()V", nullptr, $PUBLIC},
-	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC},
-	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransformException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TransformException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TransformException, init$, void, $Throwable*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(TransformException, getCause, $Throwable*)},
+	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(TransformException, printStackTrace, void)},
+	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(TransformException, printStackTrace, void, $PrintStream*)},
+	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(TransformException, printStackTrace, void, $PrintWriter*)},
 	{}
 };
 

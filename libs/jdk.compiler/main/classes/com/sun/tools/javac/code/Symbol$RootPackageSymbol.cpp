@@ -28,7 +28,7 @@ $FieldInfo _Symbol$RootPackageSymbol_FieldInfo_[] = {
 };
 
 $MethodInfo _Symbol$RootPackageSymbol_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/MissingInfoHandler;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$RootPackageSymbol::*)($Name*,$Symbol*,$MissingInfoHandler*,bool)>(&Symbol$RootPackageSymbol::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/MissingInfoHandler;Z)V", nullptr, $PUBLIC, $method(Symbol$RootPackageSymbol, init$, void, $Name*, $Symbol*, $MissingInfoHandler*, bool)},
 	{}
 };
 

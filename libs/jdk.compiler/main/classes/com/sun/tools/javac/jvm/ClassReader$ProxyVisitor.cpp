@@ -7,6 +7,10 @@
 #include <com/sun/tools/javac/jvm/ClassReader.h>
 #include <jcpp.h>
 
+using $ClassReader$ArrayAttributeProxy = ::com::sun::tools::javac::jvm::ClassReader$ArrayAttributeProxy;
+using $ClassReader$ClassAttributeProxy = ::com::sun::tools::javac::jvm::ClassReader$ClassAttributeProxy;
+using $ClassReader$CompoundAnnotationProxy = ::com::sun::tools::javac::jvm::ClassReader$CompoundAnnotationProxy;
+using $ClassReader$EnumAttributeProxy = ::com::sun::tools::javac::jvm::ClassReader$EnumAttributeProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -18,10 +22,10 @@ namespace com {
 				namespace jvm {
 
 $MethodInfo _ClassReader$ProxyVisitor_MethodInfo_[] = {
-	{"visitArrayAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$ArrayAttributeProxy;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"visitClassAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$ClassAttributeProxy;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"visitCompoundAnnotationProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"visitEnumAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$EnumAttributeProxy;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"visitArrayAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$ArrayAttributeProxy;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClassReader$ProxyVisitor, visitArrayAttributeProxy, void, $ClassReader$ArrayAttributeProxy*)},
+	{"visitClassAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$ClassAttributeProxy;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClassReader$ProxyVisitor, visitClassAttributeProxy, void, $ClassReader$ClassAttributeProxy*)},
+	{"visitCompoundAnnotationProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClassReader$ProxyVisitor, visitCompoundAnnotationProxy, void, $ClassReader$CompoundAnnotationProxy*)},
+	{"visitEnumAttributeProxy", "(Lcom/sun/tools/javac/jvm/ClassReader$EnumAttributeProxy;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ClassReader$ProxyVisitor, visitEnumAttributeProxy, void, $ClassReader$EnumAttributeProxy*)},
 	{}
 };
 

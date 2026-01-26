@@ -3,6 +3,7 @@
 #include <javax/management/MBeanParameterInfo.h>
 #include <jcpp.h>
 
+using $MBeanParameterInfoArray = $Array<::javax::management::MBeanParameterInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,9 +13,9 @@ namespace javax {
 
 $MethodInfo _OpenMBeanConstructorInfo_MethodInfo_[] = {
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanConstructorInfo, getDescription, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanConstructorInfo, getName, $String*)},
+	{"getSignature", "()[Ljavax/management/MBeanParameterInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanConstructorInfo, getSignature, $MBeanParameterInfoArray*)},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

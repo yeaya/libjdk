@@ -44,18 +44,18 @@ $FieldInfo _Http2Frame_FieldInfo_[] = {
 };
 
 $MethodInfo _Http2Frame_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Frame::*)(int32_t,int32_t)>(&Http2Frame::init$))},
-	{"asString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&Http2Frame::asString))},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getFlag", "(I)Z", nullptr, $PUBLIC},
-	{"getFlags", "()I", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, 0},
-	{"setFlag", "(I)V", nullptr, $PUBLIC},
-	{"streamid", "()I", nullptr, $PUBLIC},
-	{"streamid", "(I)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()I", nullptr, $PUBLIC},
-	{"typeAsString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(Http2Frame::*)()>(&Http2Frame::typeAsString))},
+	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Http2Frame, init$, void, int32_t, int32_t)},
+	{"asString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Http2Frame, asString, $String*, int32_t)},
+	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Http2Frame, flagAsString, $String*, int32_t)},
+	{"getFlag", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Http2Frame, getFlag, bool, int32_t)},
+	{"getFlags", "()I", nullptr, $PUBLIC, $virtualMethod(Http2Frame, getFlags, int32_t)},
+	{"length", "()I", nullptr, 0, $virtualMethod(Http2Frame, length, int32_t)},
+	{"setFlag", "(I)V", nullptr, $PUBLIC, $virtualMethod(Http2Frame, setFlag, void, int32_t)},
+	{"streamid", "()I", nullptr, $PUBLIC, $virtualMethod(Http2Frame, streamid, int32_t)},
+	{"streamid", "(I)V", nullptr, $PUBLIC, $virtualMethod(Http2Frame, streamid, void, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Http2Frame, toString, $String*)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(Http2Frame, type, int32_t)},
+	{"typeAsString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Http2Frame, typeAsString, $String*)},
 	{}
 };
 

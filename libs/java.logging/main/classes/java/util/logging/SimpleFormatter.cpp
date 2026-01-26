@@ -57,8 +57,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SimpleFormatter$$Lambda$getLoggingProperty::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SimpleFormatter$$Lambda$getLoggingProperty::*)()>(&SimpleFormatter$$Lambda$getLoggingProperty::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleFormatter$$Lambda$getLoggingProperty, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleFormatter$$Lambda$getLoggingProperty, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo SimpleFormatter$$Lambda$getLoggingProperty::classInfo$ = {
@@ -81,9 +81,9 @@ $FieldInfo _SimpleFormatter_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SimpleFormatter::*)()>(&SimpleFormatter::init$))},
-	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLoggingProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&SimpleFormatter::getLoggingProperty))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SimpleFormatter, init$, void)},
+	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleFormatter, format, $String*, $LogRecord*)},
+	{"getLoggingProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SimpleFormatter, getLoggingProperty, $String*, $String*)},
 	{}
 };
 

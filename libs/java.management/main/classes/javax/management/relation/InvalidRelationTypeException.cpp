@@ -18,8 +18,8 @@ $FieldInfo _InvalidRelationTypeException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidRelationTypeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidRelationTypeException::*)()>(&InvalidRelationTypeException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidRelationTypeException::*)($String*)>(&InvalidRelationTypeException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidRelationTypeException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidRelationTypeException, init$, void, $String*)},
 	{}
 };
 

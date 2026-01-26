@@ -31,9 +31,9 @@ $FieldInfo _Http1Response$ClientRefCountTracker_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Response$ClientRefCountTracker_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response;)V", nullptr, $PRIVATE, $method(static_cast<void(Http1Response$ClientRefCountTracker::*)($Http1Response*)>(&Http1Response$ClientRefCountTracker::init$))},
-	{"acquire", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<void(Http1Response$ClientRefCountTracker::*)()>(&Http1Response$ClientRefCountTracker::acquire))},
-	{"tryRelease", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<void(Http1Response$ClientRefCountTracker::*)()>(&Http1Response$ClientRefCountTracker::tryRelease))},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response;)V", nullptr, $PRIVATE, $method(Http1Response$ClientRefCountTracker, init$, void, $Http1Response*)},
+	{"acquire", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Http1Response$ClientRefCountTracker, acquire, void)},
+	{"tryRelease", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Http1Response$ClientRefCountTracker, tryRelease, void)},
 	{}
 };
 

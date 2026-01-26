@@ -37,12 +37,12 @@ $FieldInfo _ConnectionOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/Connection;Z)V", nullptr, 0, $method(static_cast<void(ConnectionOutputStream::*)($Connection*,bool)>(&ConnectionOutputStream::init$)), "java.io.IOException"},
-	{"done", "()V", nullptr, 0},
-	{"getDGCAckHandler", "()Lsun/rmi/transport/DGCAckHandler;", nullptr, 0},
-	{"isResultStream", "()Z", nullptr, 0},
-	{"saveObject", "(Ljava/lang/Object;)V", nullptr, 0},
-	{"writeID", "()V", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/rmi/transport/Connection;Z)V", nullptr, 0, $method(ConnectionOutputStream, init$, void, $Connection*, bool), "java.io.IOException"},
+	{"done", "()V", nullptr, 0, $virtualMethod(ConnectionOutputStream, done, void)},
+	{"getDGCAckHandler", "()Lsun/rmi/transport/DGCAckHandler;", nullptr, 0, $virtualMethod(ConnectionOutputStream, getDGCAckHandler, $DGCAckHandler*)},
+	{"isResultStream", "()Z", nullptr, 0, $virtualMethod(ConnectionOutputStream, isResultStream, bool)},
+	{"saveObject", "(Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(ConnectionOutputStream, saveObject, void, Object$*)},
+	{"writeID", "()V", nullptr, 0, $virtualMethod(ConnectionOutputStream, writeID, void), "java.io.IOException"},
 	{}
 };
 

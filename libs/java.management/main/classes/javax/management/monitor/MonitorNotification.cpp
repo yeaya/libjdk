@@ -45,11 +45,11 @@ $FieldInfo _MonitorNotification_FieldInfo_[] = {
 };
 
 $MethodInfo _MonitorNotification_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(MonitorNotification::*)($String*,Object$*,int64_t,int64_t,$String*,$ObjectName*,$String*,Object$*,Object$*)>(&MonitorNotification::init$))},
-	{"getDerivedGauge", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"getTrigger", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;JJLjava/lang/String;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(MonitorNotification, init$, void, $String*, Object$*, int64_t, int64_t, $String*, $ObjectName*, $String*, Object$*, Object$*)},
+	{"getDerivedGauge", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MonitorNotification, getDerivedGauge, $Object*)},
+	{"getObservedAttribute", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MonitorNotification, getObservedAttribute, $String*)},
+	{"getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MonitorNotification, getObservedObject, $ObjectName*)},
+	{"getTrigger", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MonitorNotification, getTrigger, $Object*)},
 	{}
 };
 

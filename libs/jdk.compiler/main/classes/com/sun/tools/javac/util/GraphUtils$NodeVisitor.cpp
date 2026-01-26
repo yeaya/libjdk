@@ -8,6 +8,7 @@
 #include <java/util/Iterator.h>
 #include <jcpp.h>
 
+using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $GraphUtils$Node = ::com::sun::tools::javac::util::GraphUtils$Node;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -23,10 +24,10 @@ namespace com {
 				namespace util {
 
 $MethodInfo _GraphUtils$NodeVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GraphUtils$NodeVisitor::*)()>(&GraphUtils$NodeVisitor::init$))},
-	{"visit", "(Ljava/util/Collection;Ljava/lang/Object;)V", "(Ljava/util/Collection<+TN;>;TA;)V", $PUBLIC},
-	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;TN;TN;TA;)V", $PUBLIC | $ABSTRACT},
-	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", "(TN;TA;)V", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, 0, $method(GraphUtils$NodeVisitor, init$, void)},
+	{"visit", "(Ljava/util/Collection;Ljava/lang/Object;)V", "(Ljava/util/Collection<+TN;>;TA;)V", $PUBLIC, $virtualMethod(GraphUtils$NodeVisitor, visit, void, $Collection*, Object$*)},
+	{"visitDependency", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;Lcom/sun/tools/javac/util/GraphUtils$Node;Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;TN;TN;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$NodeVisitor, visitDependency, void, $GraphUtils$DependencyKind*, $GraphUtils$Node*, $GraphUtils$Node*, Object$*)},
+	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$Node;Ljava/lang/Object;)V", "(TN;TA;)V", $PUBLIC | $ABSTRACT, $virtualMethod(GraphUtils$NodeVisitor, visitNode, void, $GraphUtils$Node*, Object$*)},
 	{}
 };
 

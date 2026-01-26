@@ -56,9 +56,9 @@ using $ServerSocketFactory = ::javax::net::ServerSocketFactory;
 using $SSLContext = ::javax::net::ssl::SSLContext;
 
 $MethodInfo _ALPNFailureTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ALPNFailureTest::*)()>(&ALPNFailureTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&ALPNFailureTest::main)), "java.lang.Exception"},
-	{"test", "(Ljava/net/ServerSocket;Ljavax/net/ssl/SSLContext;Ljava/net/ProxySelector;[Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $method(static_cast<void(*)($ServerSocket*,$SSLContext*,$ProxySelector*,$StringArray*)>(&ALPNFailureTest::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ALPNFailureTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ALPNFailureTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/net/ServerSocket;Ljavax/net/ssl/SSLContext;Ljava/net/ProxySelector;[Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ALPNFailureTest, test, void, $ServerSocket*, $SSLContext*, $ProxySelector*, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

@@ -29,8 +29,8 @@ $FieldInfo _FileCredentialsCache$2_FieldInfo_[] = {
 };
 
 $MethodInfo _FileCredentialsCache$2_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(FileCredentialsCache$2::*)($StringArray*)>(&FileCredentialsCache$2::init$))},
-	{"run", "()Ljava/lang/Process;", nullptr, $PUBLIC},
+	{"<init>", "([Ljava/lang/String;)V", "()V", 0, $method(FileCredentialsCache$2, init$, void, $StringArray*)},
+	{"run", "()Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache$2, run, $Object*)},
 	{}
 };
 

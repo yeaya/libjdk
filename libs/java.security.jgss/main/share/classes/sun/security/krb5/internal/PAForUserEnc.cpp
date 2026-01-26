@@ -60,12 +60,12 @@ $FieldInfo _PAForUserEnc_FieldInfo_[] = {
 };
 
 $MethodInfo _PAForUserEnc_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(static_cast<void(PAForUserEnc::*)($PrincipalName*,$EncryptionKey*)>(&PAForUserEnc::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(static_cast<void(PAForUserEnc::*)($DerValue*,$EncryptionKey*)>(&PAForUserEnc::init$)), "sun.security.krb5.Asn1Exception,sun.security.krb5.KrbException,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"getName", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC},
-	{"getS4UByteArray", "()[B", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(PAForUserEnc, init$, void, $PrincipalName*, $EncryptionKey*)},
+	{"<init>", "(Lsun/security/util/DerValue;Lsun/security/krb5/EncryptionKey;)V", nullptr, $PUBLIC, $method(PAForUserEnc, init$, void, $DerValue*, $EncryptionKey*), "sun.security.krb5.Asn1Exception,sun.security.krb5.KrbException,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(PAForUserEnc, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"getName", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(PAForUserEnc, getName, $PrincipalName*)},
+	{"getS4UByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(PAForUserEnc, getS4UByteArray, $bytes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PAForUserEnc, toString, $String*)},
 	{}
 };
 

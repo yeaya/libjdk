@@ -66,8 +66,8 @@ $FieldInfo PushGroup$$Lambda$accept::fieldInfos[2] = {
 	{}
 };
 $MethodInfo PushGroup$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/PushGroup$AcceptorImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(PushGroup$$Lambda$accept::*)($PushGroup$AcceptorImpl*)>(&PushGroup$$Lambda$accept::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/PushGroup$AcceptorImpl;)V", nullptr, $PUBLIC, $method(PushGroup$$Lambda$accept, init$, void, $PushGroup$AcceptorImpl*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PushGroup$$Lambda$accept, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo PushGroup$$Lambda$accept::classInfo$ = {
@@ -97,15 +97,15 @@ $FieldInfo _PushGroup_FieldInfo_[] = {
 };
 
 $MethodInfo _PushGroup_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$PushPromiseHandler;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/Executor;)V", "(Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/Executor;)V", 0, $method(static_cast<void(PushGroup::*)($HttpResponse$PushPromiseHandler*,$HttpRequestImpl*,$Executor*)>(&PushGroup::init$))},
-	{"<init>", "(Ljava/net/http/HttpResponse$PushPromiseHandler;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/Executor;)V", "(Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;Ljava/util/concurrent/Executor;)V", $PRIVATE, $method(static_cast<void(PushGroup::*)($HttpResponse$PushPromiseHandler*,$HttpRequestImpl*,$CompletableFuture*,$Executor*)>(&PushGroup::init$))},
-	{"acceptPushRequest", "(Ljava/net/http/HttpRequest;)Ljdk/internal/net/http/PushGroup$Acceptor;", "(Ljava/net/http/HttpRequest;)Ljdk/internal/net/http/PushGroup$Acceptor<TT;>;", 0},
-	{"checkIfCompleted", "()V", nullptr, $SYNCHRONIZED},
-	{"noMorePushes", "(Z)V", nullptr, $SYNCHRONIZED},
-	{"noMorePushes", "()Z", nullptr, $SYNCHRONIZED},
-	{"pushCompleted", "()V", nullptr, $SYNCHRONIZED},
-	{"pushError", "(Ljava/lang/Throwable;)V", nullptr, $SYNCHRONIZED},
-	{"pushesCF", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $SYNCHRONIZED},
+	{"<init>", "(Ljava/net/http/HttpResponse$PushPromiseHandler;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/Executor;)V", "(Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/Executor;)V", 0, $method(PushGroup, init$, void, $HttpResponse$PushPromiseHandler*, $HttpRequestImpl*, $Executor*)},
+	{"<init>", "(Ljava/net/http/HttpResponse$PushPromiseHandler;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/Executor;)V", "(Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;Ljdk/internal/net/http/HttpRequestImpl;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;Ljava/util/concurrent/Executor;)V", $PRIVATE, $method(PushGroup, init$, void, $HttpResponse$PushPromiseHandler*, $HttpRequestImpl*, $CompletableFuture*, $Executor*)},
+	{"acceptPushRequest", "(Ljava/net/http/HttpRequest;)Ljdk/internal/net/http/PushGroup$Acceptor;", "(Ljava/net/http/HttpRequest;)Ljdk/internal/net/http/PushGroup$Acceptor<TT;>;", 0, $virtualMethod(PushGroup, acceptPushRequest, $PushGroup$Acceptor*, $HttpRequest*)},
+	{"checkIfCompleted", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, checkIfCompleted, void)},
+	{"noMorePushes", "(Z)V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, noMorePushes, void, bool)},
+	{"noMorePushes", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, noMorePushes, bool)},
+	{"pushCompleted", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, pushCompleted, void)},
+	{"pushError", "(Ljava/lang/Throwable;)V", nullptr, $SYNCHRONIZED, $virtualMethod(PushGroup, pushError, void, $Throwable*)},
+	{"pushesCF", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $SYNCHRONIZED, $virtualMethod(PushGroup, pushesCF, $CompletableFuture*)},
 	{}
 };
 

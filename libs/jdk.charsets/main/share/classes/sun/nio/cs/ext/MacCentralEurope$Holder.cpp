@@ -24,7 +24,7 @@ $FieldInfo _MacCentralEurope$Holder_FieldInfo_[] = {
 };
 
 $MethodInfo _MacCentralEurope$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MacCentralEurope$Holder::*)()>(&MacCentralEurope$Holder::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MacCentralEurope$Holder, init$, void)},
 	{}
 };
 

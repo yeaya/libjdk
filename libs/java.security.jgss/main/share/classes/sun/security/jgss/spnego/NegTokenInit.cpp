@@ -50,15 +50,15 @@ $FieldInfo _NegTokenInit_FieldInfo_[] = {
 };
 
 $MethodInfo _NegTokenInit_MethodInfo_[] = {
-	{"<init>", "([BLsun/security/util/BitArray;[B[B)V", nullptr, 0, $method(static_cast<void(NegTokenInit::*)($bytes*,$BitArray*,$bytes*,$bytes*)>(&NegTokenInit::init$))},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(NegTokenInit::*)($bytes*)>(&NegTokenInit::init$)), "org.ietf.jgss.GSSException"},
-	{"encode", "()[B", nullptr, $FINAL, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechListMIC", "()[B", nullptr, 0},
-	{"getMechToken", "()[B", nullptr, $PUBLIC},
-	{"getMechTypeList", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC},
-	{"getMechTypes", "()[B", nullptr, 0},
-	{"getReqFlags", "()Lsun/security/util/BitArray;", nullptr, 0},
-	{"parseToken", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(NegTokenInit::*)($bytes*)>(&NegTokenInit::parseToken)), "org.ietf.jgss.GSSException"},
+	{"<init>", "([BLsun/security/util/BitArray;[B[B)V", nullptr, 0, $method(NegTokenInit, init$, void, $bytes*, $BitArray*, $bytes*, $bytes*)},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(NegTokenInit, init$, void, $bytes*), "org.ietf.jgss.GSSException"},
+	{"encode", "()[B", nullptr, $FINAL, $virtualMethod(NegTokenInit, encode, $bytes*), "org.ietf.jgss.GSSException"},
+	{"getMechListMIC", "()[B", nullptr, 0, $virtualMethod(NegTokenInit, getMechListMIC, $bytes*)},
+	{"getMechToken", "()[B", nullptr, $PUBLIC, $virtualMethod(NegTokenInit, getMechToken, $bytes*)},
+	{"getMechTypeList", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(NegTokenInit, getMechTypeList, $OidArray*)},
+	{"getMechTypes", "()[B", nullptr, 0, $virtualMethod(NegTokenInit, getMechTypes, $bytes*)},
+	{"getReqFlags", "()Lsun/security/util/BitArray;", nullptr, 0, $virtualMethod(NegTokenInit, getReqFlags, $BitArray*)},
+	{"parseToken", "([B)V", nullptr, $PRIVATE, $method(NegTokenInit, parseToken, void, $bytes*), "org.ietf.jgss.GSSException"},
 	{}
 };
 

@@ -31,6 +31,8 @@
 #undef EXPLICIT
 #undef RECORD
 
+using $ElementArray = $Array<::javax::lang::model::element::Element>;
+using $Writer = ::java::io::Writer;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -43,6 +45,7 @@ using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
+using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $AnnotatedConstruct = ::javax::lang::model::AnnotatedConstruct;
@@ -52,6 +55,7 @@ using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $ModuleElement$Directive = ::javax::lang::model::element::ModuleElement$Directive;
+using $Name = ::javax::lang::model::element::Name;
 using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $RecordComponentElement = ::javax::lang::model::element::RecordComponentElement;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
@@ -64,34 +68,34 @@ namespace javax {
 			namespace util {
 
 $MethodInfo _Elements_MethodInfo_[] = {
-	{"getAllAnnotationMirrors", "(Ljavax/lang/model/element/Element;)Ljava/util/List;", "(Ljavax/lang/model/element/Element;)Ljava/util/List<+Ljavax/lang/model/element/AnnotationMirror;>;", $PUBLIC | $ABSTRACT},
-	{"getAllMembers", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/List;", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/List<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT},
-	{"getAllModuleElements", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC},
-	{"getAllPackageElements", "(Ljava/lang/CharSequence;)Ljava/util/Set;", "(Ljava/lang/CharSequence;)Ljava/util/Set<+Ljavax/lang/model/element/PackageElement;>;", $PUBLIC},
-	{"getAllTypeElements", "(Ljava/lang/CharSequence;)Ljava/util/Set;", "(Ljava/lang/CharSequence;)Ljava/util/Set<+Ljavax/lang/model/element/TypeElement;>;", $PUBLIC},
-	{"getBinaryName", "(Ljavax/lang/model/element/TypeElement;)Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getConstantExpression", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getElementValuesWithDefaults", "(Ljavax/lang/model/element/AnnotationMirror;)Ljava/util/Map;", "(Ljavax/lang/model/element/AnnotationMirror;)Ljava/util/Map<+Ljavax/lang/model/element/ExecutableElement;+Ljavax/lang/model/element/AnnotationValue;>;", $PUBLIC | $ABSTRACT},
-	{"getModuleElement", "(Ljava/lang/CharSequence;)Ljavax/lang/model/element/ModuleElement;", nullptr, $PUBLIC},
-	{"getModuleOf", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/ModuleElement;", nullptr, $PUBLIC},
-	{"getName", "(Ljava/lang/CharSequence;)Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOrigin", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC},
-	{"getOrigin", "(Ljavax/lang/model/AnnotatedConstruct;Ljavax/lang/model/element/AnnotationMirror;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC},
-	{"getOrigin", "(Ljavax/lang/model/element/ModuleElement;Ljavax/lang/model/element/ModuleElement$Directive;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC},
-	{"getPackageElement", "(Ljava/lang/CharSequence;)Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPackageElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC},
-	{"getPackageOf", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTypeElement", "(Ljava/lang/CharSequence;)Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTypeElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC},
-	{"hides", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/Element;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isAutomaticModule", "(Ljavax/lang/model/element/ModuleElement;)Z", nullptr, $PUBLIC},
-	{"isBridge", "(Ljavax/lang/model/element/ExecutableElement;)Z", nullptr, $PUBLIC},
-	{"isDeprecated", "(Ljavax/lang/model/element/Element;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isFunctionalInterface", "(Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"overrides", "(Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"printElements", "(Ljava/io/Writer;[Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT},
-	{"recordComponentFor", "(Ljavax/lang/model/element/ExecutableElement;)Ljavax/lang/model/element/RecordComponentElement;", nullptr, $PUBLIC},
+	{"getAllAnnotationMirrors", "(Ljavax/lang/model/element/Element;)Ljava/util/List;", "(Ljavax/lang/model/element/Element;)Ljava/util/List<+Ljavax/lang/model/element/AnnotationMirror;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Elements, getAllAnnotationMirrors, $List*, $Element*)},
+	{"getAllMembers", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/List;", "(Ljavax/lang/model/element/TypeElement;)Ljava/util/List<+Ljavax/lang/model/element/Element;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Elements, getAllMembers, $List*, $TypeElement*)},
+	{"getAllModuleElements", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC, $virtualMethod(Elements, getAllModuleElements, $Set*)},
+	{"getAllPackageElements", "(Ljava/lang/CharSequence;)Ljava/util/Set;", "(Ljava/lang/CharSequence;)Ljava/util/Set<+Ljavax/lang/model/element/PackageElement;>;", $PUBLIC, $virtualMethod(Elements, getAllPackageElements, $Set*, $CharSequence*)},
+	{"getAllTypeElements", "(Ljava/lang/CharSequence;)Ljava/util/Set;", "(Ljava/lang/CharSequence;)Ljava/util/Set<+Ljavax/lang/model/element/TypeElement;>;", $PUBLIC, $virtualMethod(Elements, getAllTypeElements, $Set*, $CharSequence*)},
+	{"getBinaryName", "(Ljavax/lang/model/element/TypeElement;)Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, getBinaryName, $Name*, $TypeElement*)},
+	{"getConstantExpression", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, getConstantExpression, $String*, Object$*)},
+	{"getDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, getDocComment, $String*, $Element*)},
+	{"getElementValuesWithDefaults", "(Ljavax/lang/model/element/AnnotationMirror;)Ljava/util/Map;", "(Ljavax/lang/model/element/AnnotationMirror;)Ljava/util/Map<+Ljavax/lang/model/element/ExecutableElement;+Ljavax/lang/model/element/AnnotationValue;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Elements, getElementValuesWithDefaults, $Map*, $AnnotationMirror*)},
+	{"getModuleElement", "(Ljava/lang/CharSequence;)Ljavax/lang/model/element/ModuleElement;", nullptr, $PUBLIC, $virtualMethod(Elements, getModuleElement, $ModuleElement*, $CharSequence*)},
+	{"getModuleOf", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/ModuleElement;", nullptr, $PUBLIC, $virtualMethod(Elements, getModuleOf, $ModuleElement*, $Element*)},
+	{"getName", "(Ljava/lang/CharSequence;)Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, getName, $Name*, $CharSequence*)},
+	{"getOrigin", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC, $virtualMethod(Elements, getOrigin, $Elements$Origin*, $Element*)},
+	{"getOrigin", "(Ljavax/lang/model/AnnotatedConstruct;Ljavax/lang/model/element/AnnotationMirror;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC, $virtualMethod(Elements, getOrigin, $Elements$Origin*, $AnnotatedConstruct*, $AnnotationMirror*)},
+	{"getOrigin", "(Ljavax/lang/model/element/ModuleElement;Ljavax/lang/model/element/ModuleElement$Directive;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC, $virtualMethod(Elements, getOrigin, $Elements$Origin*, $ModuleElement*, $ModuleElement$Directive*)},
+	{"getPackageElement", "(Ljava/lang/CharSequence;)Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, getPackageElement, $PackageElement*, $CharSequence*)},
+	{"getPackageElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC, $virtualMethod(Elements, getPackageElement, $PackageElement*, $ModuleElement*, $CharSequence*)},
+	{"getPackageOf", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, getPackageOf, $PackageElement*, $Element*)},
+	{"getTypeElement", "(Ljava/lang/CharSequence;)Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, getTypeElement, $TypeElement*, $CharSequence*)},
+	{"getTypeElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC, $virtualMethod(Elements, getTypeElement, $TypeElement*, $ModuleElement*, $CharSequence*)},
+	{"hides", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/Element;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, hides, bool, $Element*, $Element*)},
+	{"isAutomaticModule", "(Ljavax/lang/model/element/ModuleElement;)Z", nullptr, $PUBLIC, $virtualMethod(Elements, isAutomaticModule, bool, $ModuleElement*)},
+	{"isBridge", "(Ljavax/lang/model/element/ExecutableElement;)Z", nullptr, $PUBLIC, $virtualMethod(Elements, isBridge, bool, $ExecutableElement*)},
+	{"isDeprecated", "(Ljavax/lang/model/element/Element;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, isDeprecated, bool, $Element*)},
+	{"isFunctionalInterface", "(Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, isFunctionalInterface, bool, $TypeElement*)},
+	{"overrides", "(Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Elements, overrides, bool, $ExecutableElement*, $ExecutableElement*, $TypeElement*)},
+	{"printElements", "(Ljava/io/Writer;[Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Elements, printElements, void, $Writer*, $ElementArray*)},
+	{"recordComponentFor", "(Ljavax/lang/model/element/ExecutableElement;)Ljavax/lang/model/element/RecordComponentElement;", nullptr, $PUBLIC, $virtualMethod(Elements, recordComponentFor, $RecordComponentElement*, $ExecutableElement*)},
 	{}
 };
 

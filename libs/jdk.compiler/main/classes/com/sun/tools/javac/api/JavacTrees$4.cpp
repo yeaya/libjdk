@@ -34,11 +34,11 @@ $FieldInfo _JavacTrees$4_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTrees$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Ljavax/tools/FileObject;)V", "()V", 0, $method(static_cast<void(JavacTrees$4::*)($JavacTrees*,$FileObject*)>(&JavacTrees$4::init$))},
-	{"getSourcePos", "(I)I", nullptr, $PUBLIC},
-	{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Ljavax/tools/FileObject;)V", "()V", 0, $method(JavacTrees$4, init$, void, $JavacTrees*, $FileObject*)},
+	{"getSourcePos", "(I)I", nullptr, $PUBLIC, $virtualMethod(JavacTrees$4, getSourcePos, int32_t, int32_t)},
+	{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$4, getStyle, $Tokens$Comment$CommentStyle*)},
+	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$4, getText, $String*)},
+	{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacTrees$4, isDeprecated, bool)},
 	{}
 };
 

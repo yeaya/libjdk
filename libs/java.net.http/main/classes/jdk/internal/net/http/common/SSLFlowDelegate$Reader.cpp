@@ -104,8 +104,8 @@ $FieldInfo SSLFlowDelegate$Reader$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo SSLFlowDelegate$Reader$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Reader;)V", nullptr, $PUBLIC, $method(static_cast<void(SSLFlowDelegate$Reader$$Lambda$dbgString::*)(SSLFlowDelegate$Reader*)>(&SSLFlowDelegate$Reader$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Reader;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$Reader$$Lambda$dbgString, init$, void, SSLFlowDelegate$Reader*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo SSLFlowDelegate$Reader$$Lambda$dbgString::classInfo$ = {
@@ -138,22 +138,22 @@ $FieldInfo _SSLFlowDelegate$Reader_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLFlowDelegate$Reader_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, 0, $method(static_cast<void(SSLFlowDelegate$Reader::*)($SSLFlowDelegate*)>(&SSLFlowDelegate$Reader::init$))},
-	{"addToReadBuf", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PRIVATE, $method(static_cast<void(SSLFlowDelegate$Reader::*)($List*,bool)>(&SSLFlowDelegate$Reader::addToReadBuf))},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"enterScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED},
-	{"errorCommon", "(Ljava/lang/Throwable;)Z", nullptr, $PROTECTED},
-	{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PUBLIC},
-	{"needsMoreData", "()Z", nullptr, 0, $method(static_cast<bool(SSLFlowDelegate$Reader::*)()>(&SSLFlowDelegate$Reader::needsMoreData))},
-	{"processData", "()V", nullptr, $FINAL, $method(static_cast<void(SSLFlowDelegate$Reader::*)()>(&SSLFlowDelegate$Reader::processData))},
-	{"reallocReadBuf", "()V", nullptr, $PRIVATE, $method(static_cast<void(SSLFlowDelegate$Reader::*)()>(&SSLFlowDelegate$Reader::reallocReadBuf))},
-	{"requestMoreDataIfNeeded", "()V", nullptr, 0, $method(static_cast<void(SSLFlowDelegate$Reader::*)()>(&SSLFlowDelegate$Reader::requestMoreDataIfNeeded))},
-	{"schedule", "()V", nullptr, 0, $method(static_cast<void(SSLFlowDelegate$Reader::*)()>(&SSLFlowDelegate$Reader::schedule))},
-	{"stop", "()V", nullptr, 0, $method(static_cast<void(SSLFlowDelegate$Reader::*)()>(&SSLFlowDelegate$Reader::stop))},
-	{"supportsRecycling", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unwrapBuffer", "(Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;", nullptr, 0, $method(static_cast<$SSLFlowDelegate$EngineResult*(SSLFlowDelegate$Reader::*)($ByteBuffer*)>(&SSLFlowDelegate$Reader::unwrapBuffer)), "java.io.IOException"},
-	{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED},
+	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, 0, $method(SSLFlowDelegate$Reader, init$, void, $SSLFlowDelegate*)},
+	{"addToReadBuf", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PRIVATE, $method(SSLFlowDelegate$Reader, addToReadBuf, void, $List*, bool)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SSLFlowDelegate$Reader, dbgString, $String*)},
+	{"enterScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Reader, enterScheduling, $SubscriberWrapper$SchedulingAction*)},
+	{"errorCommon", "(Ljava/lang/Throwable;)Z", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Reader, errorCommon, bool, $Throwable*)},
+	{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader, incoming, void, $List*, bool)},
+	{"needsMoreData", "()Z", nullptr, 0, $method(SSLFlowDelegate$Reader, needsMoreData, bool)},
+	{"processData", "()V", nullptr, $FINAL, $method(SSLFlowDelegate$Reader, processData, void)},
+	{"reallocReadBuf", "()V", nullptr, $PRIVATE, $method(SSLFlowDelegate$Reader, reallocReadBuf, void)},
+	{"requestMoreDataIfNeeded", "()V", nullptr, 0, $method(SSLFlowDelegate$Reader, requestMoreDataIfNeeded, void)},
+	{"schedule", "()V", nullptr, 0, $method(SSLFlowDelegate$Reader, schedule, void)},
+	{"stop", "()V", nullptr, 0, $method(SSLFlowDelegate$Reader, stop, void)},
+	{"supportsRecycling", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader, supportsRecycling, bool)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Reader, toString, $String*)},
+	{"unwrapBuffer", "(Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;", nullptr, 0, $method(SSLFlowDelegate$Reader, unwrapBuffer, $SSLFlowDelegate$EngineResult*, $ByteBuffer*), "java.io.IOException"},
+	{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Reader, upstreamWindowUpdate, int64_t, int64_t, int64_t)},
 	{}
 };
 

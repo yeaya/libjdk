@@ -36,14 +36,14 @@ $FieldInfo _I18n_FieldInfo_[] = {
 };
 
 $MethodInfo _I18n_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(I18n::*)()>(&I18n::init$))},
-	{"getExceptionMessage", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&I18n::getExceptionMessage))},
-	{"getExceptionMessage", "(Ljava/lang/String;Ljava/lang/Exception;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$Exception*)>(&I18n::getExceptionMessage))},
-	{"getExceptionMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$ObjectArray*)>(&I18n::getExceptionMessage))},
-	{"init", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($String*,$String*)>(&I18n::init))},
-	{"init", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($ResourceBundle*)>(&I18n::init))},
-	{"translate", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*,$ObjectArray*)>(&I18n::translate))},
-	{"translate", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&I18n::translate))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(I18n, init$, void)},
+	{"getExceptionMessage", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, getExceptionMessage, $String*, $String*)},
+	{"getExceptionMessage", "(Ljava/lang/String;Ljava/lang/Exception;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, getExceptionMessage, $String*, $String*, $Exception*)},
+	{"getExceptionMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, getExceptionMessage, $String*, $String*, $ObjectArray*)},
+	{"init", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(I18n, init, void, $String*, $String*)},
+	{"init", "(Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(I18n, init, void, $ResourceBundle*)},
+	{"translate", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, translate, $String*, $String*, $ObjectArray*)},
+	{"translate", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(I18n, translate, $String*, $String*)},
 	{}
 };
 

@@ -1,10 +1,13 @@
 #include <com/sun/source/tree/MethodInvocationTree.h>
 
+#include <com/sun/source/tree/ExpressionTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -12,9 +15,9 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _MethodInvocationTree_MethodInfo_[] = {
-	{"getArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT},
-	{"getMethodSelect", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT},
+	{"getArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(MethodInvocationTree, getArguments, $List*)},
+	{"getMethodSelect", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodInvocationTree, getMethodSelect, $ExpressionTree*)},
+	{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(MethodInvocationTree, getTypeArguments, $List*)},
 	{}
 };
 

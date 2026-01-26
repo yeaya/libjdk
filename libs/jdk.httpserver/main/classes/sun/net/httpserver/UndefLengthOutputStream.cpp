@@ -35,10 +35,10 @@ $FieldInfo _UndefLengthOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _UndefLengthOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(UndefLengthOutputStream::*)($ExchangeImpl*,$OutputStream*)>(&UndefLengthOutputStream::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;Ljava/io/OutputStream;)V", nullptr, 0, $method(UndefLengthOutputStream, init$, void, $ExchangeImpl*, $OutputStream*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(UndefLengthOutputStream, close, void), "java.io.IOException"},
+	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UndefLengthOutputStream, write, void, int32_t), "java.io.IOException"},
+	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(UndefLengthOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
 	{}
 };
 

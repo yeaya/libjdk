@@ -19,8 +19,8 @@ namespace com {
 							namespace parser {
 
 $MethodInfo _XMLParserImpl$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(XMLParserImpl$1::*)()>(&XMLParserImpl$1::init$))},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(XMLParserImpl$1, init$, void)},
+	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(XMLParserImpl$1, run, $Object*)},
 	{}
 };
 

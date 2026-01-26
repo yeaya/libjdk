@@ -23,8 +23,8 @@ namespace sun {
 		namespace runtime {
 
 $MethodInfo _Log$LoggerLog$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Log$LoggerLog$1::*)()>(&Log$LoggerLog$1::init$))},
-	{"run", "()Ljava/util/logging/Handler;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Log$LoggerLog$1, init$, void)},
+	{"run", "()Ljava/util/logging/Handler;", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog$1, run, $Object*)},
 	{}
 };
 

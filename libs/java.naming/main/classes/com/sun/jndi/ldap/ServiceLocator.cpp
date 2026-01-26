@@ -53,12 +53,12 @@ $FieldInfo _ServiceLocator_FieldInfo_[] = {
 };
 
 $MethodInfo _ServiceLocator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ServiceLocator::*)()>(&ServiceLocator::init$))},
-	{"extractHostports", "([Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StringArray*(*)($ServiceLocator$SrvRecordArray*)>(&ServiceLocator::extractHostports))},
-	{"getLdapService", "(Ljava/lang/String;Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Map<**>;)[Ljava/lang/String;", $STATIC, $method(static_cast<$StringArray*(*)($String*,$Map*)>(&ServiceLocator::getLdapService))},
-	{"getLdapService", "(Ljava/lang/String;Ljava/util/Hashtable;)[Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)[Ljava/lang/String;", $STATIC, $method(static_cast<$StringArray*(*)($String*,$Hashtable*)>(&ServiceLocator::getLdapService))},
-	{"mapDnToDomainName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&ServiceLocator::mapDnToDomainName)), "javax.naming.InvalidNameException"},
-	{"selectHostport", "([Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($ServiceLocator$SrvRecordArray*,int32_t,int32_t)>(&ServiceLocator::selectHostport))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ServiceLocator, init$, void)},
+	{"extractHostports", "([Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceLocator, extractHostports, $StringArray*, $ServiceLocator$SrvRecordArray*)},
+	{"getLdapService", "(Ljava/lang/String;Ljava/util/Map;)[Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Map<**>;)[Ljava/lang/String;", $STATIC, $staticMethod(ServiceLocator, getLdapService, $StringArray*, $String*, $Map*)},
+	{"getLdapService", "(Ljava/lang/String;Ljava/util/Hashtable;)[Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/Hashtable<**>;)[Ljava/lang/String;", $STATIC, $staticMethod(ServiceLocator, getLdapService, $StringArray*, $String*, $Hashtable*)},
+	{"mapDnToDomainName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ServiceLocator, mapDnToDomainName, $String*, $String*), "javax.naming.InvalidNameException"},
+	{"selectHostport", "([Lcom/sun/jndi/ldap/ServiceLocator$SrvRecord;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ServiceLocator, selectHostport, $String*, $ServiceLocator$SrvRecordArray*, int32_t, int32_t)},
 	{}
 };
 

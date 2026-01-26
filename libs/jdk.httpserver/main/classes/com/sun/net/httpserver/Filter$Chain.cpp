@@ -29,8 +29,8 @@ $FieldInfo _Filter$Chain_FieldInfo_[] = {
 };
 
 $MethodInfo _Filter$Chain_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Lcom/sun/net/httpserver/HttpHandler;)V", "(Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;Lcom/sun/net/httpserver/HttpHandler;)V", $PUBLIC, $method(static_cast<void(Filter$Chain::*)($List*,$HttpHandler*)>(&Filter$Chain::init$))},
-	{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/util/List;Lcom/sun/net/httpserver/HttpHandler;)V", "(Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;Lcom/sun/net/httpserver/HttpHandler;)V", $PUBLIC, $method(Filter$Chain, init$, void, $List*, $HttpHandler*)},
+	{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(Filter$Chain, doFilter, void, $HttpExchange*), "java.io.IOException"},
 	{}
 };
 

@@ -35,14 +35,14 @@ $FieldInfo _XMLSignatureException_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLSignatureException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XMLSignatureException::*)()>(&XMLSignatureException::init$))},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLSignatureException::*)($Exception*)>(&XMLSignatureException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLSignatureException::*)($String*)>(&XMLSignatureException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLSignatureException::*)($String*,$ObjectArray*)>(&XMLSignatureException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLSignatureException::*)($Exception*,$String*)>(&XMLSignatureException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(XMLSignatureException::*)($String*,$Exception*)>(&XMLSignatureException::init$)), nullptr, nullptr, _XMLSignatureException_MethodAnnotations_init$5},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(XMLSignatureException::*)($Exception*,$String*,$ObjectArray*)>(&XMLSignatureException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(XMLSignatureException::*)($String*,$ObjectArray*,$Exception*)>(&XMLSignatureException::init$)), nullptr, nullptr, _XMLSignatureException_MethodAnnotations_init$7},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void)},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $Exception*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(XMLSignatureException, init$, void, $String*, $Exception*), nullptr, nullptr, _XMLSignatureException_MethodAnnotations_init$5},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLSignatureException, init$, void, $Exception*, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(XMLSignatureException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _XMLSignatureException_MethodAnnotations_init$7},
 	{}
 };
 

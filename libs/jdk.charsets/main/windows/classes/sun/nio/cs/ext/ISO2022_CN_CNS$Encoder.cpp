@@ -39,9 +39,9 @@ $FieldInfo _ISO2022_CN_CNS$Encoder_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO2022_CN_CNS$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(ISO2022_CN_CNS$Encoder::*)($Charset*)>(&ISO2022_CN_CNS$Encoder::init$))},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ISO2022_CN_CNS$Encoder, init$, void, $Charset*)},
+	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS$Encoder, canEncode, bool, char16_t)},
+	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS$Encoder, isLegalReplacement, bool, $bytes*)},
 	{}
 };
 

@@ -21,13 +21,13 @@ $FieldInfo _SearchResult_FieldInfo_[] = {
 };
 
 $MethodInfo _SearchResult_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(static_cast<void(SearchResult::*)($String*,Object$*,$Attributes*)>(&SearchResult::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z)V", nullptr, $PUBLIC, $method(static_cast<void(SearchResult::*)($String*,Object$*,$Attributes*,bool)>(&SearchResult::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(static_cast<void(SearchResult::*)($String*,$String*,Object$*,$Attributes*)>(&SearchResult::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z)V", nullptr, $PUBLIC, $method(static_cast<void(SearchResult::*)($String*,$String*,Object$*,$Attributes*,bool)>(&SearchResult::init$))},
-	{"getAttributes", "()Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC},
-	{"setAttributes", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(SearchResult, init$, void, $String*, Object$*, $Attributes*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z)V", nullptr, $PUBLIC, $method(SearchResult, init$, void, $String*, Object$*, $Attributes*, bool)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $method(SearchResult, init$, void, $String*, $String*, Object$*, $Attributes*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Z)V", nullptr, $PUBLIC, $method(SearchResult, init$, void, $String*, $String*, Object$*, $Attributes*, bool)},
+	{"getAttributes", "()Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(SearchResult, getAttributes, $Attributes*)},
+	{"setAttributes", "(Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SearchResult, setAttributes, void, $Attributes*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SearchResult, toString, $String*)},
 	{}
 };
 

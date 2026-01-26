@@ -234,8 +234,8 @@ $FieldInfo Http2Connection$$Lambda$dbgString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$dbgString::*)(Http2Connection*)>(&Http2Connection$$Lambda$dbgString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$dbgString, init$, void, Http2Connection*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$dbgString, get, $Object*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$dbgString::classInfo$ = {
@@ -274,8 +274,8 @@ $FieldInfo Http2Connection$$Lambda$toString$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$toString$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$toString$1::*)($String*)>(&Http2Connection$$Lambda$toString$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$toString$1, init$, void, $String*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$toString$1, get, $Object*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$toString$1::classInfo$ = {
@@ -314,8 +314,8 @@ $FieldInfo Http2Connection$$Lambda$processFrame$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$processFrame$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$processFrame$2::*)(Http2Connection*)>(&Http2Connection$$Lambda$processFrame$2::init$))},
-	{"processFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$processFrame$2, init$, void, Http2Connection*)},
+	{"processFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$processFrame$2, processFrame, void, $Http2Frame*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$processFrame$2::classInfo$ = {
@@ -363,8 +363,8 @@ $FieldInfo Http2Connection$$Lambda$lambda$createAsync$0$3::fieldInfos[5] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$lambda$createAsync$0$3::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$lambda$createAsync$0$3::*)($HttpConnection*,$Http2ClientImpl*,$Exchange*,$Supplier*)>(&Http2Connection$$Lambda$lambda$createAsync$0$3::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$lambda$createAsync$0$3, init$, void, $HttpConnection*, $Http2ClientImpl*, $Exchange*, $Supplier*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$lambda$createAsync$0$3, get, $Object*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$lambda$createAsync$0$3::classInfo$ = {
@@ -403,8 +403,8 @@ $FieldInfo Http2Connection$$Lambda$lambda$createAsync$1$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$lambda$createAsync$1$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$lambda$createAsync$1$4::*)($AbstractAsyncSSLConnection*)>(&Http2Connection$$Lambda$lambda$createAsync$1$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$lambda$createAsync$1$4, init$, void, $AbstractAsyncSSLConnection*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$lambda$createAsync$1$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$lambda$createAsync$1$4::classInfo$ = {
@@ -443,8 +443,8 @@ $FieldInfo Http2Connection$$Lambda$lambda$createAsync$2$5::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$lambda$createAsync$2$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$lambda$createAsync$2$5::*)($AbstractAsyncSSLConnection*)>(&Http2Connection$$Lambda$lambda$createAsync$2$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$lambda$createAsync$2$5, init$, void, $AbstractAsyncSSLConnection*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$lambda$createAsync$2$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$lambda$createAsync$2$5::classInfo$ = {
@@ -489,8 +489,8 @@ $FieldInfo Http2Connection$$Lambda$lambda$createAsync$3$6::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$lambda$createAsync$3$6::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$lambda$createAsync$3$6::*)($HttpRequestImpl*,$Http2ClientImpl*,$AbstractAsyncSSLConnection*)>(&Http2Connection$$Lambda$lambda$createAsync$3$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$lambda$createAsync$3$6, init$, void, $HttpRequestImpl*, $Http2ClientImpl*, $AbstractAsyncSSLConnection*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$lambda$createAsync$3$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$lambda$createAsync$3$6::classInfo$ = {
@@ -529,8 +529,8 @@ $FieldInfo Http2Connection$$Lambda$lambda$checkSSLConfig$4$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$lambda$checkSSLConfig$4$7::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$lambda$checkSSLConfig$4$7::*)($AbstractAsyncSSLConnection*)>(&Http2Connection$$Lambda$lambda$checkSSLConfig$4$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$lambda$checkSSLConfig$4$7, init$, void, $AbstractAsyncSSLConnection*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$lambda$checkSSLConfig$4$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$lambda$checkSSLConfig$4$7::classInfo$ = {
@@ -569,8 +569,8 @@ $FieldInfo Http2Connection$$Lambda$lambda$checkSSLConfig$5$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$lambda$checkSSLConfig$5$8::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$lambda$checkSSLConfig$5$8::*)($AbstractAsyncSSLConnection*)>(&Http2Connection$$Lambda$lambda$checkSSLConfig$5$8::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$lambda$checkSSLConfig$5$8, init$, void, $AbstractAsyncSSLConnection*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$lambda$checkSSLConfig$5$8, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$lambda$checkSSLConfig$5$8::classInfo$ = {
@@ -612,8 +612,8 @@ $FieldInfo Http2Connection$$Lambda$lambda$asyncReceive$6$9::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$lambda$asyncReceive$6$9::methodInfos[3] = {
-	{"<init>", "(JLjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$lambda$asyncReceive$6$9::*)(int64_t,$ByteBuffer*)>(&Http2Connection$$Lambda$lambda$asyncReceive$6$9::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(JLjava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$lambda$asyncReceive$6$9, init$, void, int64_t, $ByteBuffer*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$lambda$asyncReceive$6$9, get, $Object*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$lambda$asyncReceive$6$9::classInfo$ = {
@@ -655,8 +655,8 @@ $FieldInfo Http2Connection$$Lambda$lambda$shutdown$7$10::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$lambda$shutdown$7$10::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http2Connection;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$lambda$shutdown$7$10::*)(Http2Connection*,$Throwable*)>(&Http2Connection$$Lambda$lambda$shutdown$7$10::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http2Connection;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$lambda$shutdown$7$10, init$, void, Http2Connection*, $Throwable*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$lambda$shutdown$7$10, get, $Object*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$lambda$shutdown$7$10::classInfo$ = {
@@ -695,8 +695,8 @@ $FieldInfo Http2Connection$$Lambda$lambda$processFrame$8$11::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Http2Connection$$Lambda$lambda$processFrame$8$11::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$lambda$processFrame$8$11::*)($Http2Frame*)>(&Http2Connection$$Lambda$lambda$processFrame$8$11::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$lambda$processFrame$8$11, init$, void, $Http2Frame*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$lambda$processFrame$8$11, get, $Object*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$lambda$processFrame$8$11::classInfo$ = {
@@ -728,8 +728,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Http2Connection$$Lambda$lambda$encodeFrames$9$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Http2Connection$$Lambda$lambda$encodeFrames$9$12::*)()>(&Http2Connection$$Lambda$lambda$encodeFrames$9$12::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Http2Connection$$Lambda$lambda$encodeFrames$9$12, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Http2Connection$$Lambda$lambda$encodeFrames$9$12, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Http2Connection$$Lambda$lambda$encodeFrames$9$12::classInfo$ = {
@@ -788,77 +788,77 @@ $FieldInfo _Http2Connection_FieldInfo_[] = {
 };
 
 $MethodInfo _Http2Connection_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;ILjava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)($HttpConnection*,$Http2ClientImpl*,int32_t,$String*)>(&Http2Connection::init$))},
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange;Ljava/util/function/Supplier;)V", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)V", $PRIVATE, $method(static_cast<void(Http2Connection::*)($HttpConnection*,$Http2ClientImpl*,$Exchange*,$Supplier*)>(&Http2Connection::init$)), "java.io.IOException,java.lang.InterruptedException"},
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)($HttpRequestImpl*,$Http2ClientImpl*,$HttpConnection*)>(&Http2Connection::init$)), "java.io.IOException"},
-	{"asyncReceive", "(Ljava/nio/ByteBuffer;)V", nullptr, $FINAL, $method(static_cast<void(Http2Connection::*)($ByteBuffer*)>(&Http2Connection::asyncReceive))},
-	{"checkSSLConfig", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)Ljava/util/concurrent/CompletableFuture<*>;", $PRIVATE | $STATIC, $method(static_cast<$CompletableFuture*(*)($AbstractAsyncSSLConnection*)>(&Http2Connection::checkSSLConfig))},
-	{"client", "()Ljdk/internal/net/http/HttpClientImpl;", nullptr, $FINAL, $method(static_cast<$HttpClientImpl*(Http2Connection::*)()>(&Http2Connection::client))},
-	{"close", "()V", nullptr, 0},
-	{"closeStream", "(I)V", nullptr, 0},
-	{"connectFlows", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)($HttpConnection*)>(&Http2Connection::connectFlows))},
-	{"createAsync", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange;Ljava/util/function/Supplier;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http2Connection;>;", $STATIC, $method(static_cast<$CompletableFuture*(*)($HttpConnection*,$Http2ClientImpl*,$Exchange*,$Supplier*)>(&Http2Connection::createAsync))},
-	{"createAsync", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http2Connection;>;", $STATIC, $method(static_cast<$CompletableFuture*(*)($HttpRequestImpl*,$Http2ClientImpl*,$Exchange*)>(&Http2Connection::createAsync))},
-	{"createPushStream", "(Ljdk/internal/net/http/Stream;Ljdk/internal/net/http/Exchange;)Ljdk/internal/net/http/Stream$PushedStream;", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/Stream<TT;>;Ljdk/internal/net/http/Exchange<TT;>;)Ljdk/internal/net/http/Stream$PushedStream<TT;>;", 0},
-	{"createStream", "(Ljdk/internal/net/http/Exchange;)Ljdk/internal/net/http/Stream;", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/Exchange<TT;>;)Ljdk/internal/net/http/Stream<TT;>;", $FINAL, $method(static_cast<$Stream*(Http2Connection::*)($Exchange*)>(&Http2Connection::createStream))},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(static_cast<$String*(Http2Connection::*)()>(&Http2Connection::dbgString))},
-	{"decodeHeaders", "(Ljdk/internal/net/http/frame/HeaderFrame;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)($HeaderFrame*,$DecodingCallback*)>(&Http2Connection::decodeHeaders)), "java.io.IOException"},
-	{"decrementStreamsCount", "(I)V", nullptr, $SYNCHRONIZED},
-	{"dropDataFrame", "(Ljdk/internal/net/http/frame/DataFrame;)V", nullptr, $FINAL, $method(static_cast<void(Http2Connection::*)($DataFrame*)>(&Http2Connection::dropDataFrame))},
-	{"encodeFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)Ljava/util/List;", "(Ljdk/internal/net/http/frame/Http2Frame;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(static_cast<$List*(Http2Connection::*)($Http2Frame*)>(&Http2Connection::encodeFrame))},
-	{"encodeFrames", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljdk/internal/net/http/frame/HeaderFrame;>;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(static_cast<$List*(Http2Connection::*)($List*)>(&Http2Connection::encodeFrames))},
-	{"encodeHeaders", "(Ljdk/internal/net/http/frame/OutgoingHeaders;)Ljava/util/List;", "(Ljdk/internal/net/http/frame/OutgoingHeaders<Ljdk/internal/net/http/Stream<*>;>;)Ljava/util/List<Ljdk/internal/net/http/frame/HeaderFrame;>;", $PRIVATE, $method(static_cast<$List*(Http2Connection::*)($OutgoingHeaders*)>(&Http2Connection::encodeHeaders))},
-	{"encodeHeaders", "(Ljdk/internal/net/http/frame/OutgoingHeaders;Ljdk/internal/net/http/Stream;)Ljava/util/List;", "(Ljdk/internal/net/http/frame/OutgoingHeaders<Ljdk/internal/net/http/Stream<*>;>;Ljdk/internal/net/http/Stream<*>;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(static_cast<$List*(Http2Connection::*)($OutgoingHeaders*,$Stream*)>(&Http2Connection::encodeHeaders))},
-	{"encodeHeadersImpl", "(I[Ljava/net/http/HttpHeaders;)Ljava/util/List;", "(I[Ljava/net/http/HttpHeaders;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $TRANSIENT, $method(static_cast<$List*(Http2Connection::*)(int32_t,$HttpHeadersArray*)>(&Http2Connection::encodeHeadersImpl))},
-	{"ensureWindowUpdated", "(Ljdk/internal/net/http/frame/DataFrame;)V", nullptr, $FINAL, $method(static_cast<void(Http2Connection::*)($DataFrame*)>(&Http2Connection::ensureWindowUpdated))},
-	{"finalStream", "()Z", nullptr, $SYNCHRONIZED},
-	{"getHeaderBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(Http2Connection::*)(int32_t)>(&Http2Connection::getHeaderBuffer))},
-	{"getInitialSendWindowSize", "()I", nullptr, $FINAL, $method(static_cast<int32_t(Http2Connection::*)()>(&Http2Connection::getInitialSendWindowSize))},
-	{"getMaxReceiveFrameSize", "()I", nullptr, $PUBLIC},
-	{"getMaxSendFrameSize", "()I", nullptr, $PUBLIC},
-	{"getRecordedCause", "()Ljava/lang/Throwable;", nullptr, 0},
-	{"getStream", "(I)Ljdk/internal/net/http/Stream;", "<T:Ljava/lang/Object;>(I)Ljdk/internal/net/http/Stream<TT;>;", 0},
-	{"handleConnectionFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)($Http2Frame*)>(&Http2Connection::handleConnectionFrame)), "java.io.IOException"},
-	{"handleGoAway", "(Ljdk/internal/net/http/frame/GoAwayFrame;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)($GoAwayFrame*)>(&Http2Connection::handleGoAway)), "java.io.IOException"},
-	{"handlePing", "(Ljdk/internal/net/http/frame/PingFrame;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)($PingFrame*)>(&Http2Connection::handlePing)), "java.io.IOException"},
-	{"handlePushPromise", "(Ljdk/internal/net/http/Stream;Ljdk/internal/net/http/frame/PushPromiseFrame;)V", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/Stream<TT;>;Ljdk/internal/net/http/frame/PushPromiseFrame;)V", $PRIVATE, $method(static_cast<void(Http2Connection::*)($Stream*,$PushPromiseFrame*)>(&Http2Connection::handlePushPromise)), "java.io.IOException"},
-	{"handleSettings", "(Ljdk/internal/net/http/frame/SettingsFrame;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)($SettingsFrame*)>(&Http2Connection::handleSettings)), "java.io.IOException"},
-	{"handleWindowUpdate", "(Ljdk/internal/net/http/frame/WindowUpdateFrame;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)($WindowUpdateFrame*)>(&Http2Connection::handleWindowUpdate)), "java.io.IOException"},
-	{"isActive", "()Z", nullptr, $SYNCHRONIZED},
-	{"isServerInitiatedStream", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<bool(*)(int32_t)>(&Http2Connection::isServerInitiatedStream))},
-	{"key", "()Ljava/lang/String;", nullptr, 0},
-	{"keyFor", "(Ljdk/internal/net/http/HttpConnection;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($HttpConnection*)>(&Http2Connection::keyFor))},
-	{"keyFor", "(Ljava/net/URI;Ljava/net/InetSocketAddress;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($URI*,$InetSocketAddress*)>(&Http2Connection::keyFor))},
-	{"keyString", "(ZLjava/net/InetSocketAddress;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)(bool,$InetSocketAddress*,$String*,int32_t)>(&Http2Connection::keyString))},
-	{"lambda$asyncReceive$6", "(JLjava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)(int64_t,$ByteBuffer*)>(&Http2Connection::lambda$asyncReceive$6))},
-	{"lambda$checkSSLConfig$4", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CompletableFuture*(*)($AbstractAsyncSSLConnection*,$String*)>(&Http2Connection::lambda$checkSSLConfig$4))},
-	{"lambda$checkSSLConfig$5", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($AbstractAsyncSSLConnection*,$String*,$Throwable*)>(&Http2Connection::lambda$checkSSLConfig$5))},
-	{"lambda$createAsync$0", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange;Ljava/util/function/Supplier;)Ljdk/internal/net/http/Http2Connection;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<Http2Connection*(*)($HttpConnection*,$Http2ClientImpl*,$Exchange*,$Supplier*)>(&Http2Connection::lambda$createAsync$0)), "java.lang.Throwable"},
-	{"lambda$createAsync$1", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CompletionStage*(*)($AbstractAsyncSSLConnection*,$Void*)>(&Http2Connection::lambda$createAsync$1))},
-	{"lambda$createAsync$2", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CompletionStage*(*)($AbstractAsyncSSLConnection*,$Void*)>(&Http2Connection::lambda$createAsync$2))},
-	{"lambda$createAsync$3", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/AbstractAsyncSSLConnection;Ljava/lang/Object;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$CompletionStage*(*)($HttpRequestImpl*,$Http2ClientImpl*,$AbstractAsyncSSLConnection*,Object$*)>(&Http2Connection::lambda$createAsync$3))},
-	{"lambda$encodeFrames$9", "(Ljdk/internal/net/http/frame/HeaderFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HeaderFrame*)>(&Http2Connection::lambda$encodeFrames$9))},
-	{"lambda$processFrame$8", "(Ljdk/internal/net/http/frame/Http2Frame;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($Http2Frame*)>(&Http2Connection::lambda$processFrame$8))},
-	{"lambda$shutdown$7", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$String*(Http2Connection::*)($Throwable*)>(&Http2Connection::lambda$shutdown$7))},
-	{"markStream", "(II)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)(int32_t,int32_t)>(&Http2Connection::markStream))},
-	{"maxConcurrentClientInitiatedStreams", "()I", nullptr, $FINAL, $method(static_cast<int32_t(Http2Connection::*)()>(&Http2Connection::maxConcurrentClientInitiatedStreams))},
-	{"maxConcurrentServerInitiatedStreams", "()I", nullptr, $FINAL, $method(static_cast<int32_t(Http2Connection::*)()>(&Http2Connection::maxConcurrentServerInitiatedStreams))},
-	{"offerConnection", "()Z", nullptr, 0},
-	{"processFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"protocolError", "(I)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)(int32_t)>(&Http2Connection::protocolError)), "java.io.IOException"},
-	{"protocolError", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)(int32_t,$String*)>(&Http2Connection::protocolError)), "java.io.IOException"},
-	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, $PRIVATE, $method(static_cast<$HttpConnection$HttpPublisher*(Http2Connection::*)()>(&Http2Connection::publisher))},
-	{"putStream", "(Ljdk/internal/net/http/Stream;I)V", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/Stream<TT;>;I)V", 0},
-	{"registerNewStream", "(Ljdk/internal/net/http/frame/OutgoingHeaders;)Ljdk/internal/net/http/Stream;", "(Ljdk/internal/net/http/frame/OutgoingHeaders<Ljdk/internal/net/http/Stream<*>;>;)Ljdk/internal/net/http/Stream<*>;", $PRIVATE, $method(static_cast<$Stream*(Http2Connection::*)($OutgoingHeaders*)>(&Http2Connection::registerNewStream))},
-	{"reserveStream", "(Z)Z", nullptr, $SYNCHRONIZED, nullptr, "java.io.IOException"},
-	{"resetStream", "(II)V", nullptr, 0},
-	{"sendConnectionPreface", "()V", nullptr, $PRIVATE, $method(static_cast<void(Http2Connection::*)()>(&Http2Connection::sendConnectionPreface)), "java.io.IOException"},
-	{"sendDataFrame", "(Ljdk/internal/net/http/frame/DataFrame;)V", nullptr, 0},
-	{"sendFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, 0},
-	{"sendUnorderedFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, 0},
-	{"setFinalStream", "()V", nullptr, $SYNCHRONIZED},
-	{"shutdown", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;ILjava/lang/String;)V", nullptr, $PRIVATE, $method(Http2Connection, init$, void, $HttpConnection*, $Http2ClientImpl*, int32_t, $String*)},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange;Ljava/util/function/Supplier;)V", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)V", $PRIVATE, $method(Http2Connection, init$, void, $HttpConnection*, $Http2ClientImpl*, $Exchange*, $Supplier*), "java.io.IOException,java.lang.InterruptedException"},
+	{"<init>", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PRIVATE, $method(Http2Connection, init$, void, $HttpRequestImpl*, $Http2ClientImpl*, $HttpConnection*), "java.io.IOException"},
+	{"asyncReceive", "(Ljava/nio/ByteBuffer;)V", nullptr, $FINAL, $method(Http2Connection, asyncReceive, void, $ByteBuffer*)},
+	{"checkSSLConfig", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;)Ljava/util/concurrent/CompletableFuture<*>;", $PRIVATE | $STATIC, $staticMethod(Http2Connection, checkSSLConfig, $CompletableFuture*, $AbstractAsyncSSLConnection*)},
+	{"client", "()Ljdk/internal/net/http/HttpClientImpl;", nullptr, $FINAL, $method(Http2Connection, client, $HttpClientImpl*)},
+	{"close", "()V", nullptr, 0, $virtualMethod(Http2Connection, close, void)},
+	{"closeStream", "(I)V", nullptr, 0, $virtualMethod(Http2Connection, closeStream, void, int32_t)},
+	{"connectFlows", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, $PRIVATE, $method(Http2Connection, connectFlows, void, $HttpConnection*)},
+	{"createAsync", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange;Ljava/util/function/Supplier;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange<*>;Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http2Connection;>;", $STATIC, $staticMethod(Http2Connection, createAsync, $CompletableFuture*, $HttpConnection*, $Http2ClientImpl*, $Exchange*, $Supplier*)},
+	{"createAsync", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange;)Ljava/util/concurrent/CompletableFuture;", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange<*>;)Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http2Connection;>;", $STATIC, $staticMethod(Http2Connection, createAsync, $CompletableFuture*, $HttpRequestImpl*, $Http2ClientImpl*, $Exchange*)},
+	{"createPushStream", "(Ljdk/internal/net/http/Stream;Ljdk/internal/net/http/Exchange;)Ljdk/internal/net/http/Stream$PushedStream;", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/Stream<TT;>;Ljdk/internal/net/http/Exchange<TT;>;)Ljdk/internal/net/http/Stream$PushedStream<TT;>;", 0, $virtualMethod(Http2Connection, createPushStream, $Stream$PushedStream*, $Stream*, $Exchange*)},
+	{"createStream", "(Ljdk/internal/net/http/Exchange;)Ljdk/internal/net/http/Stream;", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/Exchange<TT;>;)Ljdk/internal/net/http/Stream<TT;>;", $FINAL, $method(Http2Connection, createStream, $Stream*, $Exchange*)},
+	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(Http2Connection, dbgString, $String*)},
+	{"decodeHeaders", "(Ljdk/internal/net/http/frame/HeaderFrame;Ljdk/internal/net/http/hpack/DecodingCallback;)V", nullptr, $PRIVATE, $method(Http2Connection, decodeHeaders, void, $HeaderFrame*, $DecodingCallback*), "java.io.IOException"},
+	{"decrementStreamsCount", "(I)V", nullptr, $SYNCHRONIZED, $virtualMethod(Http2Connection, decrementStreamsCount, void, int32_t)},
+	{"dropDataFrame", "(Ljdk/internal/net/http/frame/DataFrame;)V", nullptr, $FINAL, $method(Http2Connection, dropDataFrame, void, $DataFrame*)},
+	{"encodeFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)Ljava/util/List;", "(Ljdk/internal/net/http/frame/Http2Frame;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(Http2Connection, encodeFrame, $List*, $Http2Frame*)},
+	{"encodeFrames", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljdk/internal/net/http/frame/HeaderFrame;>;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(Http2Connection, encodeFrames, $List*, $List*)},
+	{"encodeHeaders", "(Ljdk/internal/net/http/frame/OutgoingHeaders;)Ljava/util/List;", "(Ljdk/internal/net/http/frame/OutgoingHeaders<Ljdk/internal/net/http/Stream<*>;>;)Ljava/util/List<Ljdk/internal/net/http/frame/HeaderFrame;>;", $PRIVATE, $method(Http2Connection, encodeHeaders, $List*, $OutgoingHeaders*)},
+	{"encodeHeaders", "(Ljdk/internal/net/http/frame/OutgoingHeaders;Ljdk/internal/net/http/Stream;)Ljava/util/List;", "(Ljdk/internal/net/http/frame/OutgoingHeaders<Ljdk/internal/net/http/Stream<*>;>;Ljdk/internal/net/http/Stream<*>;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(Http2Connection, encodeHeaders, $List*, $OutgoingHeaders*, $Stream*)},
+	{"encodeHeadersImpl", "(I[Ljava/net/http/HttpHeaders;)Ljava/util/List;", "(I[Ljava/net/http/HttpHeaders;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $TRANSIENT, $method(Http2Connection, encodeHeadersImpl, $List*, int32_t, $HttpHeadersArray*)},
+	{"ensureWindowUpdated", "(Ljdk/internal/net/http/frame/DataFrame;)V", nullptr, $FINAL, $method(Http2Connection, ensureWindowUpdated, void, $DataFrame*)},
+	{"finalStream", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(Http2Connection, finalStream, bool)},
+	{"getHeaderBuffer", "(I)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(Http2Connection, getHeaderBuffer, $ByteBuffer*, int32_t)},
+	{"getInitialSendWindowSize", "()I", nullptr, $FINAL, $method(Http2Connection, getInitialSendWindowSize, int32_t)},
+	{"getMaxReceiveFrameSize", "()I", nullptr, $PUBLIC, $virtualMethod(Http2Connection, getMaxReceiveFrameSize, int32_t)},
+	{"getMaxSendFrameSize", "()I", nullptr, $PUBLIC, $virtualMethod(Http2Connection, getMaxSendFrameSize, int32_t)},
+	{"getRecordedCause", "()Ljava/lang/Throwable;", nullptr, 0, $virtualMethod(Http2Connection, getRecordedCause, $Throwable*)},
+	{"getStream", "(I)Ljdk/internal/net/http/Stream;", "<T:Ljava/lang/Object;>(I)Ljdk/internal/net/http/Stream<TT;>;", 0, $virtualMethod(Http2Connection, getStream, $Stream*, int32_t)},
+	{"handleConnectionFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, $PRIVATE, $method(Http2Connection, handleConnectionFrame, void, $Http2Frame*), "java.io.IOException"},
+	{"handleGoAway", "(Ljdk/internal/net/http/frame/GoAwayFrame;)V", nullptr, $PRIVATE, $method(Http2Connection, handleGoAway, void, $GoAwayFrame*), "java.io.IOException"},
+	{"handlePing", "(Ljdk/internal/net/http/frame/PingFrame;)V", nullptr, $PRIVATE, $method(Http2Connection, handlePing, void, $PingFrame*), "java.io.IOException"},
+	{"handlePushPromise", "(Ljdk/internal/net/http/Stream;Ljdk/internal/net/http/frame/PushPromiseFrame;)V", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/Stream<TT;>;Ljdk/internal/net/http/frame/PushPromiseFrame;)V", $PRIVATE, $method(Http2Connection, handlePushPromise, void, $Stream*, $PushPromiseFrame*), "java.io.IOException"},
+	{"handleSettings", "(Ljdk/internal/net/http/frame/SettingsFrame;)V", nullptr, $PRIVATE, $method(Http2Connection, handleSettings, void, $SettingsFrame*), "java.io.IOException"},
+	{"handleWindowUpdate", "(Ljdk/internal/net/http/frame/WindowUpdateFrame;)V", nullptr, $PRIVATE, $method(Http2Connection, handleWindowUpdate, void, $WindowUpdateFrame*), "java.io.IOException"},
+	{"isActive", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(Http2Connection, isActive, bool)},
+	{"isServerInitiatedStream", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Http2Connection, isServerInitiatedStream, bool, int32_t)},
+	{"key", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Http2Connection, key, $String*)},
+	{"keyFor", "(Ljdk/internal/net/http/HttpConnection;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Http2Connection, keyFor, $String*, $HttpConnection*)},
+	{"keyFor", "(Ljava/net/URI;Ljava/net/InetSocketAddress;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Http2Connection, keyFor, $String*, $URI*, $InetSocketAddress*)},
+	{"keyString", "(ZLjava/net/InetSocketAddress;Ljava/lang/String;I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Http2Connection, keyString, $String*, bool, $InetSocketAddress*, $String*, int32_t)},
+	{"lambda$asyncReceive$6", "(JLjava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection, lambda$asyncReceive$6, $String*, int64_t, $ByteBuffer*)},
+	{"lambda$checkSSLConfig$4", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection, lambda$checkSSLConfig$4, $CompletableFuture*, $AbstractAsyncSSLConnection*, $String*)},
+	{"lambda$checkSSLConfig$5", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection, lambda$checkSSLConfig$5, void, $AbstractAsyncSSLConnection*, $String*, $Throwable*)},
+	{"lambda$createAsync$0", "(Ljdk/internal/net/http/HttpConnection;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/Exchange;Ljava/util/function/Supplier;)Ljdk/internal/net/http/Http2Connection;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection, lambda$createAsync$0, Http2Connection*, $HttpConnection*, $Http2ClientImpl*, $Exchange*, $Supplier*), "java.lang.Throwable"},
+	{"lambda$createAsync$1", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection, lambda$createAsync$1, $CompletionStage*, $AbstractAsyncSSLConnection*, $Void*)},
+	{"lambda$createAsync$2", "(Ljdk/internal/net/http/AbstractAsyncSSLConnection;Ljava/lang/Void;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection, lambda$createAsync$2, $CompletionStage*, $AbstractAsyncSSLConnection*, $Void*)},
+	{"lambda$createAsync$3", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/Http2ClientImpl;Ljdk/internal/net/http/AbstractAsyncSSLConnection;Ljava/lang/Object;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection, lambda$createAsync$3, $CompletionStage*, $HttpRequestImpl*, $Http2ClientImpl*, $AbstractAsyncSSLConnection*, Object$*)},
+	{"lambda$encodeFrames$9", "(Ljdk/internal/net/http/frame/HeaderFrame;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection, lambda$encodeFrames$9, void, $HeaderFrame*)},
+	{"lambda$processFrame$8", "(Ljdk/internal/net/http/frame/Http2Frame;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Http2Connection, lambda$processFrame$8, $String*, $Http2Frame*)},
+	{"lambda$shutdown$7", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Http2Connection, lambda$shutdown$7, $String*, $Throwable*)},
+	{"markStream", "(II)V", nullptr, $PRIVATE, $method(Http2Connection, markStream, void, int32_t, int32_t)},
+	{"maxConcurrentClientInitiatedStreams", "()I", nullptr, $FINAL, $method(Http2Connection, maxConcurrentClientInitiatedStreams, int32_t)},
+	{"maxConcurrentServerInitiatedStreams", "()I", nullptr, $FINAL, $method(Http2Connection, maxConcurrentServerInitiatedStreams, int32_t)},
+	{"offerConnection", "()Z", nullptr, 0, $virtualMethod(Http2Connection, offerConnection, bool)},
+	{"processFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, 0, $virtualMethod(Http2Connection, processFrame, void, $Http2Frame*), "java.io.IOException"},
+	{"protocolError", "(I)V", nullptr, $PRIVATE, $method(Http2Connection, protocolError, void, int32_t), "java.io.IOException"},
+	{"protocolError", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(Http2Connection, protocolError, void, int32_t, $String*), "java.io.IOException"},
+	{"publisher", "()Ljdk/internal/net/http/HttpConnection$HttpPublisher;", nullptr, $PRIVATE, $method(Http2Connection, publisher, $HttpConnection$HttpPublisher*)},
+	{"putStream", "(Ljdk/internal/net/http/Stream;I)V", "<T:Ljava/lang/Object;>(Ljdk/internal/net/http/Stream<TT;>;I)V", 0, $virtualMethod(Http2Connection, putStream, void, $Stream*, int32_t)},
+	{"registerNewStream", "(Ljdk/internal/net/http/frame/OutgoingHeaders;)Ljdk/internal/net/http/Stream;", "(Ljdk/internal/net/http/frame/OutgoingHeaders<Ljdk/internal/net/http/Stream<*>;>;)Ljdk/internal/net/http/Stream<*>;", $PRIVATE, $method(Http2Connection, registerNewStream, $Stream*, $OutgoingHeaders*)},
+	{"reserveStream", "(Z)Z", nullptr, $SYNCHRONIZED, $virtualMethod(Http2Connection, reserveStream, bool, bool), "java.io.IOException"},
+	{"resetStream", "(II)V", nullptr, 0, $virtualMethod(Http2Connection, resetStream, void, int32_t, int32_t)},
+	{"sendConnectionPreface", "()V", nullptr, $PRIVATE, $method(Http2Connection, sendConnectionPreface, void), "java.io.IOException"},
+	{"sendDataFrame", "(Ljdk/internal/net/http/frame/DataFrame;)V", nullptr, 0, $virtualMethod(Http2Connection, sendDataFrame, void, $DataFrame*)},
+	{"sendFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, 0, $virtualMethod(Http2Connection, sendFrame, void, $Http2Frame*)},
+	{"sendUnorderedFrame", "(Ljdk/internal/net/http/frame/Http2Frame;)V", nullptr, 0, $virtualMethod(Http2Connection, sendUnorderedFrame, void, $Http2Frame*)},
+	{"setFinalStream", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(Http2Connection, setFinalStream, void)},
+	{"shutdown", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Http2Connection, shutdown, void, $Throwable*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Http2Connection, toString, $String*)},
 	{}
 };
 

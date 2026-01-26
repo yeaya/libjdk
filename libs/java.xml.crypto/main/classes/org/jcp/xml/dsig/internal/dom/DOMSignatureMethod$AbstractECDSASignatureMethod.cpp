@@ -33,10 +33,10 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMSignatureMethod$AbstractECDSASignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$AbstractECDSASignatureMethod::*)($AlgorithmParameterSpec*)>(&DOMSignatureMethod$AbstractECDSASignatureMethod::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMSignatureMethod$AbstractECDSASignatureMethod::*)($Element*)>(&DOMSignatureMethod$AbstractECDSASignatureMethod::init$)), "javax.xml.crypto.MarshalException"},
-	{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, nullptr, "java.io.IOException"},
-	{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractECDSASignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractECDSASignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractECDSASignatureMethod, postSignFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
+	{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractECDSASignatureMethod, preVerifyFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
 	{}
 };
 

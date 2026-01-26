@@ -22,9 +22,9 @@ $FieldInfo _QueryEval_FieldInfo_[] = {
 };
 
 $MethodInfo _QueryEval_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(QueryEval::*)()>(&QueryEval::init$))},
-	{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MBeanServer*(*)()>(&QueryEval::getMBeanServer))},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(QueryEval, init$, void)},
+	{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(QueryEval, getMBeanServer, $MBeanServer*)},
+	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $virtualMethod(QueryEval, setMBeanServer, void, $MBeanServer*)},
 	{}
 };
 

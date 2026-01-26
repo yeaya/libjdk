@@ -80,13 +80,13 @@ $FieldInfo _ResolverDirectHTTP_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolverDirectHTTP_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResolverDirectHTTP::*)()>(&ResolverDirectHTTP::init$))},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(static_cast<void(ResolverDirectHTTP::*)($Map*)>(&ResolverDirectHTTP::init$))},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
-	{"getNewURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URI*(*)($String*,$String*)>(&ResolverDirectHTTP::getNewURI)), "java.net.URISyntaxException"},
-	{"getProperty", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(ResolverDirectHTTP::*)($ResourceResolverContext*,$String*)>(&ResolverDirectHTTP::getProperty))},
-	{"openConnection", "(Ljava/net/URL;Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Ljava/net/URLConnection;", nullptr, $PRIVATE, $method(static_cast<$URLConnection*(ResolverDirectHTTP::*)($URL*,$ResourceResolverContext*)>(&ResolverDirectHTTP::openConnection)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverDirectHTTP, init$, void)},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(ResolverDirectHTTP, init$, void, $Map*)},
+	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverDirectHTTP, engineCanResolveURI, bool, $ResourceResolverContext*)},
+	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverDirectHTTP, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+	{"getNewURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverDirectHTTP, getNewURI, $URI*, $String*, $String*), "java.net.URISyntaxException"},
+	{"getProperty", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ResolverDirectHTTP, getProperty, $String*, $ResourceResolverContext*, $String*)},
+	{"openConnection", "(Ljava/net/URL;Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Ljava/net/URLConnection;", nullptr, $PRIVATE, $method(ResolverDirectHTTP, openConnection, $URLConnection*, $URL*, $ResourceResolverContext*), "java.io.IOException"},
 	{}
 };
 

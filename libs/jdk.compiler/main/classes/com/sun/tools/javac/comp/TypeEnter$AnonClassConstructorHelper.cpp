@@ -74,8 +74,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TypeEnter$AnonClassConstructorHelper$$Lambda$lambda$superArgs$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$AnonClassConstructorHelper$$Lambda$lambda$superArgs$0::*)()>(&TypeEnter$AnonClassConstructorHelper$$Lambda$lambda$superArgs$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TypeEnter$AnonClassConstructorHelper$$Lambda$lambda$superArgs$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AnonClassConstructorHelper$$Lambda$lambda$superArgs$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo TypeEnter$AnonClassConstructorHelper$$Lambda$lambda$superArgs$0::classInfo$ = {
@@ -101,12 +101,12 @@ $FieldInfo _TypeEnter$AnonClassConstructorHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$AnonClassConstructorHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, 0, $method(static_cast<void(TypeEnter$AnonClassConstructorHelper::*)($TypeEnter*,$Symbol$TypeSymbol*,$Symbol$MethodSymbol*,$JCTree$JCExpression*)>(&TypeEnter$AnonClassConstructorHelper::init$))},
-	{"constructorSymbol", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC},
-	{"constructorType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"enclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"lambda$superArgs$0", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Name*(*)($JCTree$JCVariableDecl*)>(&TypeEnter$AnonClassConstructorHelper::lambda$superArgs$0))},
-	{"superArgs", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, 0, $method(TypeEnter$AnonClassConstructorHelper, init$, void, $TypeEnter*, $Symbol$TypeSymbol*, $Symbol$MethodSymbol*, $JCTree$JCExpression*)},
+	{"constructorSymbol", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AnonClassConstructorHelper, constructorSymbol, $Symbol$MethodSymbol*)},
+	{"constructorType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AnonClassConstructorHelper, constructorType, $Type*)},
+	{"enclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AnonClassConstructorHelper, enclosingType, $Type*)},
+	{"lambda$superArgs$0", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeEnter$AnonClassConstructorHelper, lambda$superArgs$0, $Name*, $JCTree$JCVariableDecl*)},
+	{"superArgs", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC, $virtualMethod(TypeEnter$AnonClassConstructorHelper, superArgs, $List*)},
 	{}
 };
 

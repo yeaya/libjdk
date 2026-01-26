@@ -20,16 +20,16 @@ $FieldInfo _SQLClientInfoException_FieldInfo_[] = {
 };
 
 $MethodInfo _SQLClientInfoException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SQLClientInfoException::*)()>(&SQLClientInfoException::init$))},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;)V", $PUBLIC, $method(static_cast<void(SQLClientInfoException::*)($Map*)>(&SQLClientInfoException::init$))},
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Throwable;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;Ljava/lang/Throwable;)V", $PUBLIC, $method(static_cast<void(SQLClientInfoException::*)($Map*,$Throwable*)>(&SQLClientInfoException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;)V", $PUBLIC, $method(static_cast<void(SQLClientInfoException::*)($String*,$Map*)>(&SQLClientInfoException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;Ljava/lang/Throwable;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;Ljava/lang/Throwable;)V", $PUBLIC, $method(static_cast<void(SQLClientInfoException::*)($String*,$Map*,$Throwable*)>(&SQLClientInfoException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;)V", $PUBLIC, $method(static_cast<void(SQLClientInfoException::*)($String*,$String*,$Map*)>(&SQLClientInfoException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/Throwable;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;Ljava/lang/Throwable;)V", $PUBLIC, $method(static_cast<void(SQLClientInfoException::*)($String*,$String*,$Map*,$Throwable*)>(&SQLClientInfoException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Map;)V", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;)V", $PUBLIC, $method(static_cast<void(SQLClientInfoException::*)($String*,$String*,int32_t,$Map*)>(&SQLClientInfoException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Map;Ljava/lang/Throwable;)V", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;Ljava/lang/Throwable;)V", $PUBLIC, $method(static_cast<void(SQLClientInfoException::*)($String*,$String*,int32_t,$Map*,$Throwable*)>(&SQLClientInfoException::init$))},
-	{"getFailedProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLClientInfoException, init$, void)},
+	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;)V", $PUBLIC, $method(SQLClientInfoException, init$, void, $Map*)},
+	{"<init>", "(Ljava/util/Map;Ljava/lang/Throwable;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;Ljava/lang/Throwable;)V", $PUBLIC, $method(SQLClientInfoException, init$, void, $Map*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;)V", $PUBLIC, $method(SQLClientInfoException, init$, void, $String*, $Map*)},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Map;Ljava/lang/Throwable;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;Ljava/lang/Throwable;)V", $PUBLIC, $method(SQLClientInfoException, init$, void, $String*, $Map*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;)V", $PUBLIC, $method(SQLClientInfoException, init$, void, $String*, $String*, $Map*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/Throwable;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;Ljava/lang/Throwable;)V", $PUBLIC, $method(SQLClientInfoException, init$, void, $String*, $String*, $Map*, $Throwable*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Map;)V", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;)V", $PUBLIC, $method(SQLClientInfoException, init$, void, $String*, $String*, int32_t, $Map*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Map;Ljava/lang/Throwable;)V", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;Ljava/lang/Throwable;)V", $PUBLIC, $method(SQLClientInfoException, init$, void, $String*, $String*, int32_t, $Map*, $Throwable*)},
+	{"getFailedProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/sql/ClientInfoStatus;>;", $PUBLIC, $virtualMethod(SQLClientInfoException, getFailedProperties, $Map*)},
 	{}
 };
 

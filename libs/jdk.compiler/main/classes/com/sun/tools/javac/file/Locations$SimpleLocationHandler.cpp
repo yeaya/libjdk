@@ -49,13 +49,13 @@ $FieldInfo _Locations$SimpleLocationHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Locations$SimpleLocationHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations;Ljavax/tools/JavaFileManager$Location;[Lcom/sun/tools/javac/main/Option;)V", nullptr, $TRANSIENT, $method(static_cast<void(Locations$SimpleLocationHandler::*)($Locations*,$JavaFileManager$Location*,$OptionArray*)>(&Locations$SimpleLocationHandler::init$))},
-	{"computePath", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED},
-	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, nullptr, "java.io.IOException"},
-	{"createPath", "()Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED},
-	{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0},
-	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, 0},
-	{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0},
+	{"<init>", "(Lcom/sun/tools/javac/file/Locations;Ljavax/tools/JavaFileManager$Location;[Lcom/sun/tools/javac/main/Option;)V", nullptr, $TRANSIENT, $method(Locations$SimpleLocationHandler, init$, void, $Locations*, $JavaFileManager$Location*, $OptionArray*)},
+	{"computePath", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED, $virtualMethod(Locations$SimpleLocationHandler, computePath, $Locations$SearchPath*, $String*)},
+	{"contains", "(Ljava/nio/file/Path;)Z", nullptr, 0, $virtualMethod(Locations$SimpleLocationHandler, contains, bool, $Path*), "java.io.IOException"},
+	{"createPath", "()Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED, $virtualMethod(Locations$SimpleLocationHandler, createPath, $Locations$SearchPath*)},
+	{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0, $virtualMethod(Locations$SimpleLocationHandler, getPaths, $Collection*)},
+	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(Locations$SimpleLocationHandler, handleOption, bool, $Option*, $String*)},
+	{"setPaths", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)V", 0, $virtualMethod(Locations$SimpleLocationHandler, setPaths, void, $Iterable*)},
 	{}
 };
 

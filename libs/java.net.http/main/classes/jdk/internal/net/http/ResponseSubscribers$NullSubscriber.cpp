@@ -40,13 +40,13 @@ $FieldInfo _ResponseSubscribers$NullSubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseSubscribers$NullSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Optional;)V", "(Ljava/util/Optional<TT;>;)V", $PUBLIC, $method(static_cast<void(ResponseSubscribers$NullSubscriber::*)($Optional*)>(&ResponseSubscribers$NullSubscriber::init$))},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Optional;)V", "(Ljava/util/Optional<TT;>;)V", $PUBLIC, $method(ResponseSubscribers$NullSubscriber, init$, void, $Optional*)},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TT;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$NullSubscriber, getBody, $CompletionStage*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$NullSubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$NullSubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$NullSubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$NullSubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$NullSubscriber, onSubscribe, void, $Flow$Subscription*)},
 	{}
 };
 

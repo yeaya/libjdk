@@ -59,22 +59,22 @@ $FieldInfo _Code$State_FieldInfo_[] = {
 };
 
 $MethodInfo _Code$State_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0, $method(static_cast<void(Code$State::*)($Code*)>(&Code$State::init$))},
-	{"dump", "()V", nullptr, 0},
-	{"dump", "(I)V", nullptr, 0},
-	{"dup", "()Lcom/sun/tools/javac/jvm/Code$State;", nullptr, 0},
-	{"error", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"forceStackTop", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"join", "(Lcom/sun/tools/javac/jvm/Code$State;)Lcom/sun/tools/javac/jvm/Code$State;", nullptr, 0},
-	{"lock", "(I)V", nullptr, 0},
-	{"markInitialized", "(Lcom/sun/tools/javac/jvm/UninitializedType;)V", nullptr, 0},
-	{"peek", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"pop", "(I)V", nullptr, 0},
-	{"pop", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"pop1", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"pop2", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"push", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"unlock", "(I)V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0, $method(Code$State, init$, void, $Code*)},
+	{"dump", "()V", nullptr, 0, $virtualMethod(Code$State, dump, void)},
+	{"dump", "(I)V", nullptr, 0, $virtualMethod(Code$State, dump, void, int32_t)},
+	{"dup", "()Lcom/sun/tools/javac/jvm/Code$State;", nullptr, 0, $virtualMethod(Code$State, dup, Code$State*)},
+	{"error", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, error, $Type*)},
+	{"forceStackTop", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Code$State, forceStackTop, void, $Type*)},
+	{"join", "(Lcom/sun/tools/javac/jvm/Code$State;)Lcom/sun/tools/javac/jvm/Code$State;", nullptr, 0, $virtualMethod(Code$State, join, Code$State*, Code$State*)},
+	{"lock", "(I)V", nullptr, 0, $virtualMethod(Code$State, lock, void, int32_t)},
+	{"markInitialized", "(Lcom/sun/tools/javac/jvm/UninitializedType;)V", nullptr, 0, $virtualMethod(Code$State, markInitialized, void, $UninitializedType*)},
+	{"peek", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, peek, $Type*)},
+	{"pop", "(I)V", nullptr, 0, $virtualMethod(Code$State, pop, void, int32_t)},
+	{"pop", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Code$State, pop, void, $Type*)},
+	{"pop1", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, pop1, $Type*)},
+	{"pop2", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, pop2, $Type*)},
+	{"push", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Code$State, push, void, $Type*)},
+	{"unlock", "(I)V", nullptr, 0, $virtualMethod(Code$State, unlock, void, int32_t)},
 	{}
 };
 

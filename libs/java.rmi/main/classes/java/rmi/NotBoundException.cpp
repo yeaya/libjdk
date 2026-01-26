@@ -16,8 +16,8 @@ $FieldInfo _NotBoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _NotBoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NotBoundException::*)()>(&NotBoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NotBoundException::*)($String*)>(&NotBoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NotBoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotBoundException, init$, void, $String*)},
 	{}
 };
 

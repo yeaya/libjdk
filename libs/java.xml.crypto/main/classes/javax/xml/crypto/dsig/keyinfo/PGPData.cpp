@@ -8,6 +8,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace javax {
 	namespace xml {
@@ -21,9 +22,9 @@ $FieldInfo _PGPData_FieldInfo_[] = {
 };
 
 $MethodInfo _PGPData_MethodInfo_[] = {
-	{"getExternalElements", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT},
-	{"getKeyId", "()[B", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKeyPacket", "()[B", nullptr, $PUBLIC | $ABSTRACT},
+	{"getExternalElements", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/XMLStructure;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PGPData, getExternalElements, $List*)},
+	{"getKeyId", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PGPData, getKeyId, $bytes*)},
+	{"getKeyPacket", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PGPData, getKeyPacket, $bytes*)},
 	{}
 };
 

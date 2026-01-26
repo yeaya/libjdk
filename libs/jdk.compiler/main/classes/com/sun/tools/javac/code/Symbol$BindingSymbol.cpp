@@ -33,11 +33,11 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Symbol$BindingSymbol_MethodInfo_[] = {
-	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$BindingSymbol::*)(int64_t,$Name*,$Type*,$Symbol*)>(&Symbol$BindingSymbol::init$))},
-	{"aliases", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;", 0},
-	{"isAliasFor", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Z", nullptr, $PUBLIC},
-	{"isPreserved", "()Z", nullptr, $PUBLIC},
-	{"preserveBinding", "()V", nullptr, $PUBLIC},
+	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$BindingSymbol, init$, void, int64_t, $Name*, $Type*, $Symbol*)},
+	{"aliases", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$BindingSymbol;>;", 0, $virtualMethod(Symbol$BindingSymbol, aliases, $List*)},
+	{"isAliasFor", "(Lcom/sun/tools/javac/code/Symbol$BindingSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$BindingSymbol, isAliasFor, bool, Symbol$BindingSymbol*)},
+	{"isPreserved", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$BindingSymbol, isPreserved, bool)},
+	{"preserveBinding", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$BindingSymbol, preserveBinding, void)},
 	{}
 };
 

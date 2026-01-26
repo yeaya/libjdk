@@ -28,11 +28,11 @@ $FieldInfo _PingFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _PingFrame_MethodInfo_[] = {
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(PingFrame::*)(int32_t,$bytes*)>(&PingFrame::init$))},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getData", "()[B", nullptr, $PUBLIC},
-	{"length", "()I", nullptr, 0},
-	{"type", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(PingFrame, init$, void, int32_t, $bytes*)},
+	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PingFrame, flagAsString, $String*, int32_t)},
+	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(PingFrame, getData, $bytes*)},
+	{"length", "()I", nullptr, 0, $virtualMethod(PingFrame, length, int32_t)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(PingFrame, type, int32_t)},
 	{}
 };
 

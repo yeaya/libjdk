@@ -21,14 +21,14 @@ $FieldInfo _NoSuchMechanismException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoSuchMechanismException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchMechanismException::*)()>(&NoSuchMechanismException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchMechanismException::*)($String*)>(&NoSuchMechanismException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchMechanismException::*)($String*,$Throwable*)>(&NoSuchMechanismException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchMechanismException::*)($Throwable*)>(&NoSuchMechanismException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"printStackTrace", "()V", nullptr, $PUBLIC},
-	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC},
-	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchMechanismException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchMechanismException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(NoSuchMechanismException, init$, void, $String*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(NoSuchMechanismException, init$, void, $Throwable*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(NoSuchMechanismException, getCause, $Throwable*)},
+	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(NoSuchMechanismException, printStackTrace, void)},
+	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(NoSuchMechanismException, printStackTrace, void, $PrintStream*)},
+	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(NoSuchMechanismException, printStackTrace, void, $PrintWriter*)},
 	{}
 };
 

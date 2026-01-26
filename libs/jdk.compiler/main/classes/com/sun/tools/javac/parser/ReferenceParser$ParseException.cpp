@@ -21,7 +21,7 @@ $FieldInfo _ReferenceParser$ParseException_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferenceParser$ParseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ReferenceParser$ParseException::*)($String*)>(&ReferenceParser$ParseException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ReferenceParser$ParseException, init$, void, $String*)},
 	{}
 };
 

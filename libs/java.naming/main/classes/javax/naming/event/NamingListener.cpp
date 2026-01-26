@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $NamingExceptionEvent = ::javax::naming::event::NamingExceptionEvent;
 
 namespace javax {
 	namespace naming {
 		namespace event {
 
 $MethodInfo _NamingListener_MethodInfo_[] = {
-	{"namingExceptionThrown", "(Ljavax/naming/event/NamingExceptionEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"namingExceptionThrown", "(Ljavax/naming/event/NamingExceptionEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NamingListener, namingExceptionThrown, void, $NamingExceptionEvent*)},
 	{}
 };
 

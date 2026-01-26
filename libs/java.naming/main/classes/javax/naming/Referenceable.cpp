@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Reference = ::javax::naming::Reference;
 
 namespace javax {
 	namespace naming {
 
 $MethodInfo _Referenceable_MethodInfo_[] = {
-	{"getReference", "()Ljavax/naming/Reference;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"getReference", "()Ljavax/naming/Reference;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Referenceable, getReference, $Reference*), "javax.naming.NamingException"},
 	{}
 };
 

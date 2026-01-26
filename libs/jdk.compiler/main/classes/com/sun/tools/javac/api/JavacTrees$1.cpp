@@ -77,11 +77,11 @@ $FieldInfo _JavacTrees$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTrees$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;)V", nullptr, 0, $method(static_cast<void(JavacTrees$1::*)($JavacTrees*)>(&JavacTrees$1::init$))},
-	{"getEndPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC},
-	{"getEndPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/DocTree;)J", nullptr, $PUBLIC},
-	{"getStartPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC},
-	{"getStartPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/DocTree;)J", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;)V", nullptr, 0, $method(JavacTrees$1, init$, void, $JavacTrees*)},
+	{"getEndPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC, $virtualMethod(JavacTrees$1, getEndPosition, int64_t, $CompilationUnitTree*, $Tree*)},
+	{"getEndPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/DocTree;)J", nullptr, $PUBLIC, $virtualMethod(JavacTrees$1, getEndPosition, int64_t, $CompilationUnitTree*, $DocCommentTree*, $DocTree*)},
+	{"getStartPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)J", nullptr, $PUBLIC, $virtualMethod(JavacTrees$1, getStartPosition, int64_t, $CompilationUnitTree*, $Tree*)},
+	{"getStartPosition", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/DocTree;)J", nullptr, $PUBLIC, $virtualMethod(JavacTrees$1, getStartPosition, int64_t, $CompilationUnitTree*, $DocCommentTree*, $DocTree*)},
 	{}
 };
 

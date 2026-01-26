@@ -12,7 +12,7 @@ namespace sun {
 		namespace transport {
 
 $MethodInfo _GC$LatencyLock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(GC$LatencyLock::*)()>(&GC$LatencyLock::init$))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(GC$LatencyLock, init$, void)},
 	{}
 };
 

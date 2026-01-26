@@ -28,10 +28,10 @@ $FieldInfo _Scope$LookupKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Scope$LookupKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Scope$LookupKindArray*(*)()>(&Scope$LookupKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Scope$LookupKind::*)($String*,int32_t)>(&Scope$LookupKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Scope$LookupKind*(*)($String*)>(&Scope$LookupKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Scope$LookupKindArray*(*)()>(&Scope$LookupKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Scope$LookupKind, $values, $Scope$LookupKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Scope$LookupKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Scope$LookupKind, valueOf, Scope$LookupKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Scope$LookupKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Scope$LookupKind, values, $Scope$LookupKindArray*)},
 	{}
 };
 

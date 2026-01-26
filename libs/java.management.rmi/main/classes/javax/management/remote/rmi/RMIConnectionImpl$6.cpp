@@ -27,8 +27,8 @@ $FieldInfo _RMIConnectionImpl$6_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnectionImpl$6_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;Ljavax/management/ObjectName;)V", "()V", 0, $method(static_cast<void(RMIConnectionImpl$6::*)($RMIConnectionImpl*,$ObjectName*)>(&RMIConnectionImpl$6::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "javax.management.InstanceNotFoundException"},
+	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;Ljavax/management/ObjectName;)V", "()V", 0, $method(RMIConnectionImpl$6, init$, void, $RMIConnectionImpl*, $ObjectName*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl$6, run, $Object*), "javax.management.InstanceNotFoundException"},
 	{}
 };
 

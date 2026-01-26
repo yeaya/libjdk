@@ -58,11 +58,11 @@ $FieldInfo _MappedMXBeanType$MapMXBeanType_FieldInfo_[] = {
 };
 
 $MethodInfo _MappedMXBeanType$MapMXBeanType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/ParameterizedType;)V", nullptr, 0, $method(static_cast<void(MappedMXBeanType$MapMXBeanType::*)($ParameterizedType*)>(&MappedMXBeanType$MapMXBeanType::init$)), "javax.management.openmbean.OpenDataException"},
-	{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0},
-	{"getName", "()Ljava/lang/String;", nullptr, 0},
-	{"toJavaTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "javax.management.openmbean.OpenDataException,java.io.InvalidObjectException"},
-	{"toOpenTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "javax.management.openmbean.OpenDataException"},
+	{"<init>", "(Ljava/lang/reflect/ParameterizedType;)V", nullptr, 0, $method(MappedMXBeanType$MapMXBeanType, init$, void, $ParameterizedType*), "javax.management.openmbean.OpenDataException"},
+	{"getJavaType", "()Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(MappedMXBeanType$MapMXBeanType, getJavaType, $Type*)},
+	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MappedMXBeanType$MapMXBeanType, getName, $String*)},
+	{"toJavaTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$MapMXBeanType, toJavaTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException,java.io.InvalidObjectException"},
+	{"toOpenTypeData", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$MapMXBeanType, toOpenTypeData, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
 	{}
 };
 

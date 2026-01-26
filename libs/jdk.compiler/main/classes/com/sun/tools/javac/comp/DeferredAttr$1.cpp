@@ -42,10 +42,10 @@ $FieldInfo _DeferredAttr$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$1::*)($DeferredAttr*,$DeferredAttr$AttrMode*,$Symbol*,$Resolve$MethodResolutionPhase*,$InferenceContext*,$DeferredAttr$DeferredAttrContext*,$Warner*)>(&DeferredAttr$1::init$))},
-	{"addDeferredAttrNode", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)V", nullptr, 0},
-	{"complete", "()V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(DeferredAttr$1, init$, void, $DeferredAttr*, $DeferredAttr$AttrMode*, $Symbol*, $Resolve$MethodResolutionPhase*, $InferenceContext*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
+	{"addDeferredAttrNode", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy;)V", nullptr, 0, $virtualMethod(DeferredAttr$1, addDeferredAttrNode, void, $DeferredAttr$DeferredType*, $Attr$ResultInfo*, $DeferredAttr$DeferredStuckPolicy*)},
+	{"complete", "()V", nullptr, 0, $virtualMethod(DeferredAttr$1, complete, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$1, toString, $String*)},
 	{}
 };
 

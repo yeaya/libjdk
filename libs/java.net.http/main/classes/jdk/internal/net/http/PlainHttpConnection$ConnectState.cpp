@@ -27,10 +27,10 @@ $FieldInfo _PlainHttpConnection$ConnectState_FieldInfo_[] = {
 };
 
 $MethodInfo _PlainHttpConnection$ConnectState_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/PlainHttpConnection$ConnectState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PlainHttpConnection$ConnectStateArray*(*)()>(&PlainHttpConnection$ConnectState::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(PlainHttpConnection$ConnectState::*)($String*,int32_t)>(&PlainHttpConnection$ConnectState::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/PlainHttpConnection$ConnectState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PlainHttpConnection$ConnectState*(*)($String*)>(&PlainHttpConnection$ConnectState::valueOf))},
-	{"values", "()[Ljdk/internal/net/http/PlainHttpConnection$ConnectState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PlainHttpConnection$ConnectStateArray*(*)()>(&PlainHttpConnection$ConnectState::values))},
+	{"$values", "()[Ljdk/internal/net/http/PlainHttpConnection$ConnectState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlainHttpConnection$ConnectState, $values, $PlainHttpConnection$ConnectStateArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PlainHttpConnection$ConnectState, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/PlainHttpConnection$ConnectState;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainHttpConnection$ConnectState, valueOf, PlainHttpConnection$ConnectState*, $String*)},
+	{"values", "()[Ljdk/internal/net/http/PlainHttpConnection$ConnectState;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlainHttpConnection$ConnectState, values, $PlainHttpConnection$ConnectStateArray*)},
 	{}
 };
 

@@ -14,9 +14,9 @@ namespace sun {
 		namespace jar {
 
 $MethodInfo _JarToolProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JarToolProvider::*)()>(&JarToolProvider::init$))},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"run", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JarToolProvider, init$, void)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarToolProvider, name, $String*)},
+	{"run", "(Ljava/io/PrintWriter;Ljava/io/PrintWriter;[Ljava/lang/String;)I", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JarToolProvider, run, int32_t, $PrintWriter*, $PrintWriter*, $StringArray*)},
 	{}
 };
 

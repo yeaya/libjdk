@@ -38,17 +38,17 @@ $FieldInfo _CramMD5Base_FieldInfo_[] = {
 };
 
 $MethodInfo _CramMD5Base_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(CramMD5Base::*)()>(&CramMD5Base::init$))},
-	{"HMAC_MD5", "([B[B)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $method(static_cast<$String*(*)($bytes*,$bytes*)>(&CramMD5Base::HMAC_MD5)), "java.security.NoSuchAlgorithmException"},
-	{"clearPassword", "()V", nullptr, $PROTECTED},
-	{"dispose", "()V", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"finalize", "()V", nullptr, $PROTECTED},
-	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"initLogger", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&CramMD5Base::initLogger))},
-	{"isComplete", "()Z", nullptr, $PUBLIC},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(CramMD5Base, init$, void)},
+	{"HMAC_MD5", "([B[B)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(CramMD5Base, HMAC_MD5, $String*, $bytes*, $bytes*), "java.security.NoSuchAlgorithmException"},
+	{"clearPassword", "()V", nullptr, $PROTECTED, $virtualMethod(CramMD5Base, clearPassword, void)},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, dispose, void), "javax.security.sasl.SaslException"},
+	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(CramMD5Base, finalize, void)},
+	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, getMechanismName, $String*)},
+	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, getNegotiatedProperty, $Object*, $String*)},
+	{"initLogger", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(CramMD5Base, initLogger, void)},
+	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, isComplete, bool)},
+	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
 	{}
 };
 

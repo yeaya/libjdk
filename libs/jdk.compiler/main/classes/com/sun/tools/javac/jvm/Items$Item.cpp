@@ -30,18 +30,18 @@ $FieldInfo _Items$Item_FieldInfo_[] = {
 };
 
 $MethodInfo _Items$Item_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;I)V", nullptr, 0, $method(static_cast<void(Items$Item::*)($Items*,int32_t)>(&Items$Item::init$))},
-	{"coerce", "(I)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"coerce", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"drop", "()V", nullptr, 0},
-	{"duplicate", "()V", nullptr, 0},
-	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0},
-	{"stash", "(I)V", nullptr, 0},
-	{"store", "()V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;I)V", nullptr, 0, $method(Items$Item, init$, void, $Items*, int32_t)},
+	{"coerce", "(I)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, coerce, Items$Item*, int32_t)},
+	{"coerce", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, coerce, Items$Item*, $Type*)},
+	{"drop", "()V", nullptr, 0, $virtualMethod(Items$Item, drop, void)},
+	{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$Item, duplicate, void)},
+	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, invoke, Items$Item*)},
+	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$Item, load, Items$Item*)},
+	{"mkCond", "()Lcom/sun/tools/javac/jvm/Items$CondItem;", nullptr, 0, $virtualMethod(Items$Item, mkCond, $Items$CondItem*)},
+	{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$Item, stash, void, int32_t)},
+	{"store", "()V", nullptr, 0, $virtualMethod(Items$Item, store, void)},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"width", "()I", nullptr, 0},
+	{"width", "()I", nullptr, 0, $virtualMethod(Items$Item, width, int32_t)},
 	{}
 };
 

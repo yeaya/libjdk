@@ -102,15 +102,15 @@ $FieldInfo _JavadocFormatter_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocFormatter_MethodInfo_[] = {
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(static_cast<void(JavadocFormatter::*)(int32_t,bool)>(&JavadocFormatter::init$))},
-	{"addNewLineIfNeeded", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringBuilder*)>(&JavadocFormatter::addNewLineIfNeeded))},
-	{"addSpaceIfNeeded", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringBuilder*)>(&JavadocFormatter::addSpaceIfNeeded))},
-	{"countTableColumns", "(Lcom/sun/source/doctree/DocCommentTree;)Ljava/util/Map;", "(Lcom/sun/source/doctree/DocCommentTree;)Ljava/util/Map<Lcom/sun/source/doctree/StartElementTree;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $method(static_cast<$Map*(*)($DocCommentTree*)>(&JavadocFormatter::countTableColumns))},
-	{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(JavadocFormatter::*)($String*)>(&JavadocFormatter::escape))},
-	{"formatJavadoc", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHtmlTag", "(Ljavax/lang/model/element/Name;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$JavadocFormatter$HtmlTag*(*)($Name*)>(&JavadocFormatter::getHtmlTag))},
-	{"indentString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)(int32_t)>(&JavadocFormatter::indentString))},
-	{"reflow", "(Ljava/lang/StringBuilder;III)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($StringBuilder*,int32_t,int32_t,int32_t)>(&JavadocFormatter::reflow))},
+	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(JavadocFormatter, init$, void, int32_t, bool)},
+	{"addNewLineIfNeeded", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, addNewLineIfNeeded, void, $StringBuilder*)},
+	{"addSpaceIfNeeded", "(Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, addSpaceIfNeeded, void, $StringBuilder*)},
+	{"countTableColumns", "(Lcom/sun/source/doctree/DocCommentTree;)Ljava/util/Map;", "(Lcom/sun/source/doctree/DocCommentTree;)Ljava/util/Map<Lcom/sun/source/doctree/StartElementTree;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, countTableColumns, $Map*, $DocCommentTree*)},
+	{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JavadocFormatter, escape, $String*, $String*)},
+	{"formatJavadoc", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter, formatJavadoc, $String*, $String*, $String*)},
+	{"getHtmlTag", "(Ljavax/lang/model/element/Name;)Ljdk/internal/shellsupport/doc/JavadocFormatter$HtmlTag;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, getHtmlTag, $JavadocFormatter$HtmlTag*, $Name*)},
+	{"indentString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, indentString, $String*, int32_t)},
+	{"reflow", "(Ljava/lang/StringBuilder;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JavadocFormatter, reflow, void, $StringBuilder*, int32_t, int32_t, int32_t)},
 	{}
 };
 

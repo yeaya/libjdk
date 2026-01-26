@@ -22,10 +22,10 @@ $FieldInfo _ZipFileSystem$ParentLookup_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileSystem$ParentLookup_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ZipFileSystem$ParentLookup::*)()>(&ZipFileSystem$ParentLookup::init$))},
-	{"as", "([BI)Ljdk/nio/zipfs/ZipFileSystem$ParentLookup;", nullptr, $FINAL, $method(static_cast<ZipFileSystem$ParentLookup*(ZipFileSystem$ParentLookup::*)($bytes*,int32_t)>(&ZipFileSystem$ParentLookup::as))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"name", "([BI)V", nullptr, 0},
+	{"<init>", "()V", nullptr, 0, $method(ZipFileSystem$ParentLookup, init$, void)},
+	{"as", "([BI)Ljdk/nio/zipfs/ZipFileSystem$ParentLookup;", nullptr, $FINAL, $method(ZipFileSystem$ParentLookup, as, ZipFileSystem$ParentLookup*, $bytes*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$ParentLookup, equals, bool, Object$*)},
+	{"name", "([BI)V", nullptr, 0, $virtualMethod(ZipFileSystem$ParentLookup, name, void, $bytes*, int32_t)},
 	{}
 };
 

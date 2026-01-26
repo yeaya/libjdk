@@ -66,17 +66,17 @@ $FieldInfo _PAData_FieldInfo_[] = {
 };
 
 $MethodInfo _PAData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(PAData::*)()>(&PAData::init$))},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(static_cast<void(PAData::*)(int32_t,$bytes*)>(&PAData::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(PAData::*)($DerValue*)>(&PAData::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getPreferredEType", "([Lsun/security/krb5/internal/PAData;I)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($PADataArray*,int32_t)>(&PAData::getPreferredEType)), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"getSaltAndParams", "(I[Lsun/security/krb5/internal/PAData;)Lsun/security/krb5/internal/PAData$SaltAndParams;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PAData$SaltAndParams*(*)(int32_t,$PADataArray*)>(&PAData::getSaltAndParams)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"getType", "()I", nullptr, $PUBLIC},
-	{"getValue", "()[B", nullptr, $PUBLIC},
-	{"parseSequence", "(Lsun/security/util/DerInputStream;BZ)[Lsun/security/krb5/internal/PAData;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PADataArray*(*)($DerInputStream*,int8_t,bool)>(&PAData::parseSequence)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(PAData, init$, void)},
+	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(PAData, init$, void, int32_t, $bytes*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PAData, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(PAData, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PAData, clone, $Object*)},
+	{"getPreferredEType", "([Lsun/security/krb5/internal/PAData;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(PAData, getPreferredEType, int32_t, $PADataArray*, int32_t), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+	{"getSaltAndParams", "(I[Lsun/security/krb5/internal/PAData;)Lsun/security/krb5/internal/PAData$SaltAndParams;", nullptr, $PUBLIC | $STATIC, $staticMethod(PAData, getSaltAndParams, $PAData$SaltAndParams*, int32_t, $PADataArray*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(PAData, getType, int32_t)},
+	{"getValue", "()[B", nullptr, $PUBLIC, $virtualMethod(PAData, getValue, $bytes*)},
+	{"parseSequence", "(Lsun/security/util/DerInputStream;BZ)[Lsun/security/krb5/internal/PAData;", nullptr, $PUBLIC | $STATIC, $staticMethod(PAData, parseSequence, $PADataArray*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PAData, toString, $String*)},
 	{}
 };
 

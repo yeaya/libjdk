@@ -41,9 +41,9 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Scope$ImportScope_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Scope$ImportScope::*)($Symbol*)>(&Scope$ImportScope::init$))},
-	{"finalizeScope", "()V", nullptr, $PUBLIC},
-	{"finalizeSingleScope", "(Lcom/sun/tools/javac/code/Scope;)Lcom/sun/tools/javac/code/Scope;", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Scope$ImportScope, init$, void, $Symbol*)},
+	{"finalizeScope", "()V", nullptr, $PUBLIC, $virtualMethod(Scope$ImportScope, finalizeScope, void)},
+	{"finalizeSingleScope", "(Lcom/sun/tools/javac/code/Scope;)Lcom/sun/tools/javac/code/Scope;", nullptr, $PROTECTED, $virtualMethod(Scope$ImportScope, finalizeSingleScope, $Scope*, $Scope*)},
 	{}
 };
 

@@ -15,8 +15,8 @@ namespace com {
 				namespace resources {
 
 $MethodInfo _version_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(version::*)()>(&version::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(version, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(version, getContents, $ObjectArray2*)},
 	{}
 };
 

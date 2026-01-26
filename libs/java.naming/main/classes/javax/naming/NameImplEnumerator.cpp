@@ -21,9 +21,9 @@ $FieldInfo _NameImplEnumerator_FieldInfo_[] = {
 };
 
 $MethodInfo _NameImplEnumerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Vector;II)V", "(Ljava/util/Vector<Ljava/lang/String;>;II)V", 0, $method(static_cast<void(NameImplEnumerator::*)($Vector*,int32_t,int32_t)>(&NameImplEnumerator::init$))},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Vector;II)V", "(Ljava/util/Vector<Ljava/lang/String;>;II)V", 0, $method(NameImplEnumerator, init$, void, $Vector*, int32_t, int32_t)},
+	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(NameImplEnumerator, hasMoreElements, bool)},
+	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NameImplEnumerator, nextElement, $Object*)},
 	{}
 };
 

@@ -34,9 +34,9 @@ $FieldInfo _Pretty$1UsedVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _Pretty$1UsedVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/Pretty;Lcom/sun/tools/javac/code/Symbol;)V", "()V", 0, $method(static_cast<void(Pretty$1UsedVisitor::*)($Pretty*,$Symbol*)>(&Pretty$1UsedVisitor::init$))},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/Pretty;Lcom/sun/tools/javac/code/Symbol;)V", "()V", 0, $method(Pretty$1UsedVisitor, init$, void, $Pretty*, $Symbol*)},
+	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Pretty$1UsedVisitor, scan, void, $JCTree*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Pretty$1UsedVisitor, visitIdent, void, $JCTree$JCIdent*)},
 	{}
 };
 

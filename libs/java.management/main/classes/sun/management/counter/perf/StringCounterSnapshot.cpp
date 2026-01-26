@@ -33,11 +33,11 @@ $MethodInfo _StringCounterSnapshot_MethodInfo_[] = {
 	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
 	{"*getVectorLength", "()I", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;ILjava/lang/String;)V", nullptr, 0, $method(static_cast<void(StringCounterSnapshot::*)($String*,$Units*,$Variability*,int32_t,$String*)>(&StringCounterSnapshot::init$))},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;ILjava/lang/String;)V", nullptr, 0, $method(StringCounterSnapshot, init$, void, $String*, $Units*, $Variability*, int32_t, $String*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StringCounterSnapshot, getValue, $Object*)},
 	{"*isInternal", "()Z", nullptr, $PUBLIC},
 	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringCounterSnapshot, stringValue, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

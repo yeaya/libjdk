@@ -28,8 +28,8 @@ $FieldInfo _TransportFactoryImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _TransportFactoryImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/websocket/RawChannel;)V", nullptr, $PUBLIC, $method(static_cast<void(TransportFactoryImpl::*)($RawChannel*)>(&TransportFactoryImpl::init$))},
-	{"createTransport", "(Ljdk/internal/net/http/websocket/MessageQueue;Ljdk/internal/net/http/websocket/MessageStreamConsumer;)Ljdk/internal/net/http/websocket/Transport;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/websocket/RawChannel;)V", nullptr, $PUBLIC, $method(TransportFactoryImpl, init$, void, $RawChannel*)},
+	{"createTransport", "(Ljdk/internal/net/http/websocket/MessageQueue;Ljdk/internal/net/http/websocket/MessageStreamConsumer;)Ljdk/internal/net/http/websocket/Transport;", nullptr, $PUBLIC, $virtualMethod(TransportFactoryImpl, createTransport, $Transport*, $MessageQueue*, $MessageStreamConsumer*)},
 	{}
 };
 

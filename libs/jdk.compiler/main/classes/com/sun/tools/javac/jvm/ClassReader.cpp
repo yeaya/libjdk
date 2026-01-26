@@ -356,8 +356,8 @@ $FieldInfo ClassReader$$Lambda$getNameAndType::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassReader$$Lambda$getNameAndType::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolReader;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$$Lambda$getNameAndType::*)($PoolReader*)>(&ClassReader$$Lambda$getNameAndType::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolReader;)V", nullptr, $PUBLIC, $method(ClassReader$$Lambda$getNameAndType, init$, void, $PoolReader*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$$Lambda$getNameAndType, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ClassReader$$Lambda$getNameAndType::classInfo$ = {
@@ -396,8 +396,8 @@ $FieldInfo ClassReader$$Lambda$getName$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassReader$$Lambda$getName$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolReader;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$$Lambda$getName$1::*)($PoolReader*)>(&ClassReader$$Lambda$getName$1::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolReader;)V", nullptr, $PUBLIC, $method(ClassReader$$Lambda$getName$1, init$, void, $PoolReader*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$$Lambda$getName$1, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ClassReader$$Lambda$getName$1::classInfo$ = {
@@ -436,8 +436,8 @@ $FieldInfo ClassReader$$Lambda$lambda$readClass$0$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassReader$$Lambda$lambda$readClass$0$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$$Lambda$lambda$readClass$0$2::*)(ClassReader*)>(&ClassReader$$Lambda$lambda$readClass$0$2::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;)V", nullptr, $PUBLIC, $method(ClassReader$$Lambda$lambda$readClass$0$2, init$, void, ClassReader*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$$Lambda$lambda$readClass$0$2, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ClassReader$$Lambda$lambda$readClass$0$2::classInfo$ = {
@@ -469,8 +469,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ClassReader$$Lambda$lambda$lookupMethod$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$$Lambda$lambda$lookupMethod$1$3::*)()>(&ClassReader$$Lambda$lambda$lookupMethod$1$3::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassReader$$Lambda$lambda$lookupMethod$1$3, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ClassReader$$Lambda$lambda$lookupMethod$1$3, test, bool, Object$*)},
 	{}
 };
 $ClassInfo ClassReader$$Lambda$lambda$lookupMethod$1$3::classInfo$ = {
@@ -509,8 +509,8 @@ $FieldInfo ClassReader$$Lambda$getClass$4::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassReader$$Lambda$getClass$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolReader;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$$Lambda$getClass$4::*)($PoolReader*)>(&ClassReader$$Lambda$getClass$4::init$))},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolReader;)V", nullptr, $PUBLIC, $method(ClassReader$$Lambda$getClass$4, init$, void, $PoolReader*)},
+	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$$Lambda$getClass$4, apply, $Object*, int32_t)},
 	{}
 };
 $ClassInfo ClassReader$$Lambda$getClass$4::classInfo$ = {
@@ -583,75 +583,75 @@ $FieldInfo _ClassReader_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(ClassReader::*)($Context*)>(&ClassReader::init$))},
-	{"adjustClassFlags", "(J)J", nullptr, 0},
-	{"adjustFieldFlags", "(J)J", nullptr, 0},
-	{"adjustMethodFlags", "(J)J", nullptr, 0},
-	{"adjustMethodParams", "(JLcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PRIVATE, $method(static_cast<$List*(ClassReader::*)(int64_t,$List*)>(&ClassReader::adjustMethodParams))},
-	{"attachAnnotationDefault", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"attachAnnotations", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"attachAnnotations", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;)V", 0},
-	{"attachTypeAnnotations", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"badClassFile", "(Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/code/ClassFinder$BadClassFile;", nullptr, $PUBLIC | $TRANSIENT},
-	{"badEnclosingMethod", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/ClassFinder$BadEnclosingMethodAttr;", nullptr, $PUBLIC},
-	{"classSigToType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"enterClass", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PROTECTED},
-	{"enterClass", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PROTECTED},
-	{"enterMember", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassReader::*)($Symbol$ClassSymbol*,$Symbol*)>(&ClassReader::enterMember))},
-	{"enterTypevars", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED},
-	{"findMethod", "(Lcom/sun/tools/javac/jvm/PoolConstant$NameAndType;Lcom/sun/tools/javac/code/Scope;J)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $method(static_cast<$Symbol$MethodSymbol*(ClassReader::*)($PoolConstant$NameAndType*,$Scope*,int64_t)>(&ClassReader::findMethod))},
-	{"findTypeVar", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"initAttributeReaders", "()V", nullptr, $PRIVATE, $method(static_cast<void(ClassReader::*)()>(&ClassReader::initAttributeReaders))},
-	{"initParameterNames", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClassReader*(*)($Context*)>(&ClassReader::instance))},
-	{"isAsciiDigit", "(C)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)(char16_t)>(&ClassReader::isAsciiDigit))},
-	{"isSameBinaryType", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/code/Type$MethodType;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ClassReader::*)($Type$MethodType*,$Type$MethodType*)>(&ClassReader::isSameBinaryType))},
-	{"lambda$lookupMethod$1", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*)>(&ClassReader::lambda$lookupMethod$1))},
-	{"lambda$readClass$0", "(I)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Type*(ClassReader::*)(int32_t)>(&ClassReader::lambda$readClass$0))},
-	{"lookupMethod", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", $PRIVATE, $method(static_cast<$Symbol$MethodSymbol*(ClassReader::*)($Symbol$TypeSymbol*,$Name*,$List*)>(&ClassReader::lookupMethod))},
-	{"nextByte", "()I", nullptr, 0},
-	{"nextChar", "()C", nullptr, 0},
-	{"nextInt", "()I", nullptr, 0},
-	{"optPoolEntry", "(ILjava/util/function/IntFunction;Ljava/lang/Object;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILjava/util/function/IntFunction<TZ;>;TZ;)TZ;", 0},
-	{"parameter", "(ILcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/Set;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", "(ILcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", $PRIVATE, $method(static_cast<$Symbol$VarSymbol*(ClassReader::*)(int32_t,$Type*,$Symbol$MethodSymbol*,$Set*)>(&ClassReader::parameter))},
-	{"readAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;", 0},
-	{"readAttributeValue", "()Lcom/sun/tools/javac/code/Attribute;", nullptr, 0},
-	{"readAttrs", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;)V", nullptr, 0},
-	{"readClass", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0},
-	{"readClassAttrs", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0},
-	{"readClassBuffer", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(ClassReader::*)($Symbol$ClassSymbol*)>(&ClassReader::readClassBuffer)), "java.io.IOException"},
-	{"readClassFile", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC},
-	{"readCode", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/jvm/Code;", nullptr, 0},
-	{"readCompoundAnnotation", "()Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;", nullptr, 0},
-	{"readEnclosingMethodAttr", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PROTECTED},
-	{"readExportsFlags", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$ExportsFlag;>;", 0},
-	{"readField", "()Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0},
-	{"readInnerClasses", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0},
-	{"readMemberAttrs", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"readMethod", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0},
-	{"readModuleFlags", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleFlags;>;", 0},
-	{"readModuleResolutionFlags", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;>;", 0},
-	{"readOpensFlags", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$OpensFlag;>;", 0},
-	{"readParameterAnnotations", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"readPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, 0},
-	{"readRequiresFlags", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$RequiresFlag;>;", 0},
-	{"readTypeAnnotation", "()Lcom/sun/tools/javac/jvm/ClassReader$TypeAnnotationProxy;", nullptr, 0},
-	{"readTypeOrClassSymbol", "(I)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"readTypePath", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;", 0},
-	{"readTypeToProxy", "(I)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"setFlagIfAttributeTrue", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;J)V", nullptr, $PRIVATE, $method(static_cast<void(ClassReader::*)($ClassReader$CompoundAnnotationProxy*,$Symbol*,$Name*,int64_t)>(&ClassReader::setFlagIfAttributeTrue))},
-	{"setParameters", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"sigToType", "([BII)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"sigToType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"sigToTypeParam", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"sigToTypeParams", "([BII)Lcom/sun/tools/javac/util/List;", "([BII)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"sigToTypeParams", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"sigToTypes", "(C)Lcom/sun/tools/javac/util/List;", "(C)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"simpleBinaryName", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(static_cast<$Name*(ClassReader::*)($Name*,$Name*)>(&ClassReader::simpleBinaryName))},
-	{"skipBytes", "(I)V", nullptr, 0},
-	{"skipInnerClasses", "()V", nullptr, 0},
-	{"skipMember", "()V", nullptr, 0},
-	{"validateMethodType", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ClassReader, init$, void, $Context*)},
+	{"adjustClassFlags", "(J)J", nullptr, 0, $virtualMethod(ClassReader, adjustClassFlags, int64_t, int64_t)},
+	{"adjustFieldFlags", "(J)J", nullptr, 0, $virtualMethod(ClassReader, adjustFieldFlags, int64_t, int64_t)},
+	{"adjustMethodFlags", "(J)J", nullptr, 0, $virtualMethod(ClassReader, adjustMethodFlags, int64_t, int64_t)},
+	{"adjustMethodParams", "(JLcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PRIVATE, $method(ClassReader, adjustMethodParams, $List*, int64_t, $List*)},
+	{"attachAnnotationDefault", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(ClassReader, attachAnnotationDefault, void, $Symbol*)},
+	{"attachAnnotations", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(ClassReader, attachAnnotations, void, $Symbol*)},
+	{"attachAnnotations", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;)V", 0, $virtualMethod(ClassReader, attachAnnotations, void, $Symbol*, $List*)},
+	{"attachTypeAnnotations", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(ClassReader, attachTypeAnnotations, void, $Symbol*)},
+	{"badClassFile", "(Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/code/ClassFinder$BadClassFile;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ClassReader, badClassFile, $ClassFinder$BadClassFile*, $String*, $ObjectArray*)},
+	{"badEnclosingMethod", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/ClassFinder$BadEnclosingMethodAttr;", nullptr, $PUBLIC, $virtualMethod(ClassReader, badEnclosingMethod, $ClassFinder$BadEnclosingMethodAttr*, $Symbol*)},
+	{"classSigToType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ClassReader, classSigToType, $Type*)},
+	{"enterClass", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PROTECTED, $virtualMethod(ClassReader, enterClass, $Symbol$ClassSymbol*, $Name*)},
+	{"enterClass", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PROTECTED, $virtualMethod(ClassReader, enterClass, $Symbol$ClassSymbol*, $Name*, $Symbol$TypeSymbol*)},
+	{"enterMember", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(ClassReader, enterMember, void, $Symbol$ClassSymbol*, $Symbol*)},
+	{"enterTypevars", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PROTECTED, $virtualMethod(ClassReader, enterTypevars, void, $Symbol*, $Type*)},
+	{"findMethod", "(Lcom/sun/tools/javac/jvm/PoolConstant$NameAndType;Lcom/sun/tools/javac/code/Scope;J)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $method(ClassReader, findMethod, $Symbol$MethodSymbol*, $PoolConstant$NameAndType*, $Scope*, int64_t)},
+	{"findTypeVar", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ClassReader, findTypeVar, $Type*, $Name*)},
+	{"initAttributeReaders", "()V", nullptr, $PRIVATE, $method(ClassReader, initAttributeReaders, void)},
+	{"initParameterNames", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(ClassReader, initParameterNames, void, $Symbol$MethodSymbol*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/ClassReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassReader, instance, ClassReader*, $Context*)},
+	{"isAsciiDigit", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ClassReader, isAsciiDigit, bool, char16_t)},
+	{"isSameBinaryType", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/code/Type$MethodType;)Z", nullptr, $PRIVATE, $method(ClassReader, isSameBinaryType, bool, $Type$MethodType*, $Type$MethodType*)},
+	{"lambda$lookupMethod$1", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassReader, lambda$lookupMethod$1, bool, $Symbol*)},
+	{"lambda$readClass$0", "(I)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassReader, lambda$readClass$0, $Type*, int32_t)},
+	{"lookupMethod", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", $PRIVATE, $method(ClassReader, lookupMethod, $Symbol$MethodSymbol*, $Symbol$TypeSymbol*, $Name*, $List*)},
+	{"nextByte", "()I", nullptr, 0, $virtualMethod(ClassReader, nextByte, int32_t)},
+	{"nextChar", "()C", nullptr, 0, $virtualMethod(ClassReader, nextChar, char16_t)},
+	{"nextInt", "()I", nullptr, 0, $virtualMethod(ClassReader, nextInt, int32_t)},
+	{"optPoolEntry", "(ILjava/util/function/IntFunction;Ljava/lang/Object;)Ljava/lang/Object;", "<Z:Ljava/lang/Object;>(ILjava/util/function/IntFunction<TZ;>;TZ;)TZ;", 0, $virtualMethod(ClassReader, optPoolEntry, $Object*, int32_t, $IntFunction*, Object$*)},
+	{"parameter", "(ILcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/Set;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", "(ILcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", $PRIVATE, $method(ClassReader, parameter, $Symbol$VarSymbol*, int32_t, $Type*, $Symbol$MethodSymbol*, $Set*)},
+	{"readAnnotations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;", 0, $virtualMethod(ClassReader, readAnnotations, $List*)},
+	{"readAttributeValue", "()Lcom/sun/tools/javac/code/Attribute;", nullptr, 0, $virtualMethod(ClassReader, readAttributeValue, $Attribute*)},
+	{"readAttrs", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;)V", nullptr, 0, $virtualMethod(ClassReader, readAttrs, void, $Symbol*, $ClassReader$AttributeKind*)},
+	{"readClass", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(ClassReader, readClass, void, $Symbol$ClassSymbol*)},
+	{"readClassAttrs", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(ClassReader, readClassAttrs, void, $Symbol$ClassSymbol*)},
+	{"readClassBuffer", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(ClassReader, readClassBuffer, void, $Symbol$ClassSymbol*), "java.io.IOException"},
+	{"readClassFile", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader, readClassFile, void, $Symbol$ClassSymbol*)},
+	{"readCode", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/jvm/Code;", nullptr, 0, $virtualMethod(ClassReader, readCode, $Code*, $Symbol*)},
+	{"readCompoundAnnotation", "()Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;", nullptr, 0, $virtualMethod(ClassReader, readCompoundAnnotation, $ClassReader$CompoundAnnotationProxy*)},
+	{"readEnclosingMethodAttr", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PROTECTED, $virtualMethod(ClassReader, readEnclosingMethodAttr, void, $Symbol*)},
+	{"readExportsFlags", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$ExportsFlag;>;", 0, $virtualMethod(ClassReader, readExportsFlags, $Set*, int32_t)},
+	{"readField", "()Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, 0, $virtualMethod(ClassReader, readField, $Symbol$VarSymbol*)},
+	{"readInnerClasses", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(ClassReader, readInnerClasses, void, $Symbol$ClassSymbol*)},
+	{"readMemberAttrs", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(ClassReader, readMemberAttrs, void, $Symbol*)},
+	{"readMethod", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0, $virtualMethod(ClassReader, readMethod, $Symbol$MethodSymbol*)},
+	{"readModuleFlags", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleFlags;>;", 0, $virtualMethod(ClassReader, readModuleFlags, $Set*, int32_t)},
+	{"readModuleResolutionFlags", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleResolutionFlags;>;", 0, $virtualMethod(ClassReader, readModuleResolutionFlags, $Set*, int32_t)},
+	{"readOpensFlags", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$OpensFlag;>;", 0, $virtualMethod(ClassReader, readOpensFlags, $Set*, int32_t)},
+	{"readParameterAnnotations", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(ClassReader, readParameterAnnotations, void, $Symbol*)},
+	{"readPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, 0, $virtualMethod(ClassReader, readPosition, $TypeAnnotationPosition*)},
+	{"readRequiresFlags", "(I)Ljava/util/Set;", "(I)Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$RequiresFlag;>;", 0, $virtualMethod(ClassReader, readRequiresFlags, $Set*, int32_t)},
+	{"readTypeAnnotation", "()Lcom/sun/tools/javac/jvm/ClassReader$TypeAnnotationProxy;", nullptr, 0, $virtualMethod(ClassReader, readTypeAnnotation, $ClassReader$TypeAnnotationProxy*)},
+	{"readTypeOrClassSymbol", "(I)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ClassReader, readTypeOrClassSymbol, $Type*, int32_t)},
+	{"readTypePath", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;>;", 0, $virtualMethod(ClassReader, readTypePath, $List*)},
+	{"readTypeToProxy", "(I)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ClassReader, readTypeToProxy, $Type*, int32_t)},
+	{"setFlagIfAttributeTrue", "(Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;J)V", nullptr, $PRIVATE, $method(ClassReader, setFlagIfAttributeTrue, void, $ClassReader$CompoundAnnotationProxy*, $Symbol*, $Name*, int64_t)},
+	{"setParameters", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(ClassReader, setParameters, void, $Symbol$MethodSymbol*, $Type*)},
+	{"sigToType", "([BII)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ClassReader, sigToType, $Type*, $bytes*, int32_t, int32_t)},
+	{"sigToType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ClassReader, sigToType, $Type*)},
+	{"sigToTypeParam", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ClassReader, sigToTypeParam, $Type*)},
+	{"sigToTypeParams", "([BII)Lcom/sun/tools/javac/util/List;", "([BII)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(ClassReader, sigToTypeParams, $List*, $bytes*, int32_t, int32_t)},
+	{"sigToTypeParams", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(ClassReader, sigToTypeParams, $List*)},
+	{"sigToTypes", "(C)Lcom/sun/tools/javac/util/List;", "(C)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(ClassReader, sigToTypes, $List*, char16_t)},
+	{"simpleBinaryName", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(ClassReader, simpleBinaryName, $Name*, $Name*, $Name*)},
+	{"skipBytes", "(I)V", nullptr, 0, $virtualMethod(ClassReader, skipBytes, void, int32_t)},
+	{"skipInnerClasses", "()V", nullptr, 0, $virtualMethod(ClassReader, skipInnerClasses, void)},
+	{"skipMember", "()V", nullptr, 0, $virtualMethod(ClassReader, skipMember, void)},
+	{"validateMethodType", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(ClassReader, validateMethodType, void, $Name*, $Type*)},
 	{}
 };
 

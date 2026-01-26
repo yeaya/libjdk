@@ -34,17 +34,17 @@ $FieldInfo _ECDSAUtils$ECCurveDefinition_FieldInfo_[] = {
 };
 
 $MethodInfo _ECDSAUtils$ECCurveDefinition_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(ECDSAUtils$ECCurveDefinition::*)($String*,$String*,$String*,$String*,$String*,$String*,$String*,$String*,int32_t)>(&ECDSAUtils$ECCurveDefinition::init$))},
-	{"equals", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getA", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getB", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getField", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getH", "()I", nullptr, $PUBLIC},
-	{"getN", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getOid", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getX", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getY", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ECDSAUtils$ECCurveDefinition, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, $String*, $String*, int32_t)},
+	{"equals", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, equals, $String*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, int32_t)},
+	{"getA", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getA, $String*)},
+	{"getB", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getB, $String*)},
+	{"getField", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getField, $String*)},
+	{"getH", "()I", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getH, int32_t)},
+	{"getN", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getN, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getName, $String*)},
+	{"getOid", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getOid, $String*)},
+	{"getX", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getX, $String*)},
+	{"getY", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ECDSAUtils$ECCurveDefinition, getY, $String*)},
 	{}
 };
 

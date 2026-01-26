@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
+using $ResourceBundle = ::java::util::ResourceBundle;
 
 namespace com {
 	namespace sun {
@@ -16,7 +18,7 @@ namespace com {
 				namespace util {
 
 $MethodInfo _JavacMessages$ResourceBundleHelper_MethodInfo_[] = {
-	{"getResourceBundle", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getResourceBundle", "(Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavacMessages$ResourceBundleHelper, getResourceBundle, $ResourceBundle*, $Locale*)},
 	{}
 };
 

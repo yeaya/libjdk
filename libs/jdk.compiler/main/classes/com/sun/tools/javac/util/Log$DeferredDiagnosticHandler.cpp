@@ -54,8 +54,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Log$DeferredDiagnosticHandler$$Lambda$lambda$reportDeferredDiagnostics$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Log$DeferredDiagnosticHandler$$Lambda$lambda$reportDeferredDiagnostics$0::*)()>(&Log$DeferredDiagnosticHandler$$Lambda$lambda$reportDeferredDiagnostics$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Log$DeferredDiagnosticHandler$$Lambda$lambda$reportDeferredDiagnostics$0, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Log$DeferredDiagnosticHandler$$Lambda$lambda$reportDeferredDiagnostics$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Log$DeferredDiagnosticHandler$$Lambda$lambda$reportDeferredDiagnostics$0::classInfo$ = {
@@ -79,13 +79,13 @@ $FieldInfo _Log$DeferredDiagnosticHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Log$DeferredDiagnosticHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(static_cast<void(Log$DeferredDiagnosticHandler::*)($Log*)>(&Log$DeferredDiagnosticHandler::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;Ljava/util/function/Predicate;)V", "(Lcom/sun/tools/javac/util/Log;Ljava/util/function/Predicate<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $method(static_cast<void(Log$DeferredDiagnosticHandler::*)($Log*,$Predicate*)>(&Log$DeferredDiagnosticHandler::init$))},
-	{"getDiagnostics", "()Ljava/util/Queue;", "()Ljava/util/Queue<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC},
-	{"lambda$reportDeferredDiagnostics$0", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCDiagnostic*)>(&Log$DeferredDiagnosticHandler::lambda$reportDeferredDiagnostics$0))},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC},
-	{"reportDeferredDiagnostics", "()V", nullptr, $PUBLIC},
-	{"reportDeferredDiagnostics", "(Ljava/util/function/Predicate;)V", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(Log$DeferredDiagnosticHandler, init$, void, $Log*)},
+	{"<init>", "(Lcom/sun/tools/javac/util/Log;Ljava/util/function/Predicate;)V", "(Lcom/sun/tools/javac/util/Log;Ljava/util/function/Predicate<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $method(Log$DeferredDiagnosticHandler, init$, void, $Log*, $Predicate*)},
+	{"getDiagnostics", "()Ljava/util/Queue;", "()Ljava/util/Queue<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC, $virtualMethod(Log$DeferredDiagnosticHandler, getDiagnostics, $Queue*)},
+	{"lambda$reportDeferredDiagnostics$0", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log$DeferredDiagnosticHandler, lambda$reportDeferredDiagnostics$0, bool, $JCDiagnostic*)},
+	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $virtualMethod(Log$DeferredDiagnosticHandler, report, void, $JCDiagnostic*)},
+	{"reportDeferredDiagnostics", "()V", nullptr, $PUBLIC, $virtualMethod(Log$DeferredDiagnosticHandler, reportDeferredDiagnostics, void)},
+	{"reportDeferredDiagnostics", "(Ljava/util/function/Predicate;)V", "(Ljava/util/function/Predicate<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $virtualMethod(Log$DeferredDiagnosticHandler, reportDeferredDiagnostics, void, $Predicate*)},
 	{}
 };
 

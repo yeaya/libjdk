@@ -21,8 +21,8 @@ $FieldInfo _FileHandler$InitializationErrorManager_FieldInfo_[] = {
 };
 
 $MethodInfo _FileHandler$InitializationErrorManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(FileHandler$InitializationErrorManager::*)()>(&FileHandler$InitializationErrorManager::init$))},
-	{"error", "(Ljava/lang/String;Ljava/lang/Exception;I)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(FileHandler$InitializationErrorManager, init$, void)},
+	{"error", "(Ljava/lang/String;Ljava/lang/Exception;I)V", nullptr, $PUBLIC, $virtualMethod(FileHandler$InitializationErrorManager, error, void, $String*, $Exception*, int32_t)},
 	{}
 };
 

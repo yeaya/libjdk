@@ -70,8 +70,8 @@ $FieldInfo ClassFinder$BadClassFile$$Lambda$lambda$new$0::fieldInfos[4] = {
 	{}
 };
 $MethodInfo ClassFinder$BadClassFile$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$BadClassFile$$Lambda$lambda$new$0::*)($JavaFileObject*,$JCDiagnostic*,$JCDiagnostic$Factory*)>(&ClassFinder$BadClassFile$$Lambda$lambda$new$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;)V", nullptr, $PUBLIC, $method(ClassFinder$BadClassFile$$Lambda$lambda$new$0, init$, void, $JavaFileObject*, $JCDiagnostic*, $JCDiagnostic$Factory*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassFinder$BadClassFile$$Lambda$lambda$new$0, get, $Object*)},
 	{}
 };
 $ClassInfo ClassFinder$BadClassFile$$Lambda$lambda$new$0::classInfo$ = {
@@ -94,9 +94,9 @@ $FieldInfo _ClassFinder$BadClassFile_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassFinder$BadClassFile_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassFinder$BadClassFile::*)($Symbol$TypeSymbol*,$JavaFileObject*,$JCDiagnostic*,$JCDiagnostic$Factory*,$DeferredCompletionFailureHandler*)>(&ClassFinder$BadClassFile::init$))},
-	{"createBadClassFileDiagnostic", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$JCDiagnostic*(*)($JavaFileObject*,$JCDiagnostic*,$JCDiagnostic$Factory*)>(&ClassFinder$BadClassFile::createBadClassFileDiagnostic))},
-	{"lambda$new$0", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCDiagnostic*(*)($JavaFileObject*,$JCDiagnostic*,$JCDiagnostic$Factory*)>(&ClassFinder$BadClassFile::lambda$new$0))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", nullptr, $PUBLIC, $method(ClassFinder$BadClassFile, init$, void, $Symbol$TypeSymbol*, $JavaFileObject*, $JCDiagnostic*, $JCDiagnostic$Factory*, $DeferredCompletionFailureHandler*)},
+	{"createBadClassFileDiagnostic", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $STATIC, $staticMethod(ClassFinder$BadClassFile, createBadClassFileDiagnostic, $JCDiagnostic*, $JavaFileObject*, $JCDiagnostic*, $JCDiagnostic$Factory*)},
+	{"lambda$new$0", "(Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/JCDiagnostic$Factory;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassFinder$BadClassFile, lambda$new$0, $JCDiagnostic*, $JavaFileObject*, $JCDiagnostic*, $JCDiagnostic$Factory*)},
 	{}
 };
 

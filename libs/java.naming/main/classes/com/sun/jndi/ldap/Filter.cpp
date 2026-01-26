@@ -65,22 +65,22 @@ $FieldInfo _Filter_FieldInfo_[] = {
 };
 
 $MethodInfo _Filter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Filter::*)()>(&Filter::init$))},
-	{"dprint", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Filter::dprint))},
-	{"dprint", "(Ljava/lang/String;[B)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$bytes*)>(&Filter::dprint))},
-	{"dprint", "(Ljava/lang/String;[BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$bytes*,int32_t,int32_t)>(&Filter::dprint))},
-	{"encodeComplexFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BI[II)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BerEncoder*,$bytes*,int32_t,$ints*,int32_t)>(&Filter::encodeComplexFilter)), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeExtensibleMatch", "(Lcom/sun/jndi/ldap/BerEncoder;[BIIII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BerEncoder*,$bytes*,int32_t,int32_t,int32_t,int32_t)>(&Filter::encodeExtensibleMatch)), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BerEncoder*,$bytes*,int32_t,int32_t)>(&Filter::encodeFilter)), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeFilterList", "(Lcom/sun/jndi/ldap/BerEncoder;[BIII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BerEncoder*,$bytes*,int32_t,int32_t,int32_t)>(&Filter::encodeFilterList)), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeFilterString", "(Lcom/sun/jndi/ldap/BerEncoder;Ljava/lang/String;Z)V", nullptr, $STATIC, $method(static_cast<void(*)($BerEncoder*,$String*,bool)>(&Filter::encodeFilterString)), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeSimpleFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BerEncoder*,$bytes*,int32_t,int32_t)>(&Filter::encodeSimpleFilter)), "java.io.IOException,javax.naming.NamingException"},
-	{"encodeSubstringFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BIIII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($BerEncoder*,$bytes*,int32_t,int32_t,int32_t,int32_t)>(&Filter::encodeSubstringFilter)), "java.io.IOException,javax.naming.NamingException"},
-	{"findRightParen", "([B[II)[I", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ints*(*)($bytes*,$ints*,int32_t)>(&Filter::findRightParen)), "java.io.IOException,javax.naming.NamingException"},
-	{"findUnescaped", "([BCII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,char16_t,int32_t,int32_t)>(&Filter::findUnescaped))},
-	{"indexOf", "([BCII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,char16_t,int32_t,int32_t)>(&Filter::indexOf))},
-	{"indexOf", "([BLjava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,$String*,int32_t,int32_t)>(&Filter::indexOf))},
-	{"unescapeFilterValue", "([BII)[B", nullptr, $STATIC, $method(static_cast<$bytes*(*)($bytes*,int32_t,int32_t)>(&Filter::unescapeFilterValue)), "javax.naming.NamingException"},
+	{"<init>", "()V", nullptr, 0, $method(Filter, init$, void)},
+	{"dprint", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, dprint, void, $String*)},
+	{"dprint", "(Ljava/lang/String;[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, dprint, void, $String*, $bytes*)},
+	{"dprint", "(Ljava/lang/String;[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, dprint, void, $String*, $bytes*, int32_t, int32_t)},
+	{"encodeComplexFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BI[II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeComplexFilter, void, $BerEncoder*, $bytes*, int32_t, $ints*, int32_t), "java.io.IOException,javax.naming.NamingException"},
+	{"encodeExtensibleMatch", "(Lcom/sun/jndi/ldap/BerEncoder;[BIIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeExtensibleMatch, void, $BerEncoder*, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
+	{"encodeFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeFilter, void, $BerEncoder*, $bytes*, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
+	{"encodeFilterList", "(Lcom/sun/jndi/ldap/BerEncoder;[BIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeFilterList, void, $BerEncoder*, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
+	{"encodeFilterString", "(Lcom/sun/jndi/ldap/BerEncoder;Ljava/lang/String;Z)V", nullptr, $STATIC, $staticMethod(Filter, encodeFilterString, void, $BerEncoder*, $String*, bool), "java.io.IOException,javax.naming.NamingException"},
+	{"encodeSimpleFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeSimpleFilter, void, $BerEncoder*, $bytes*, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
+	{"encodeSubstringFilter", "(Lcom/sun/jndi/ldap/BerEncoder;[BIIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, encodeSubstringFilter, void, $BerEncoder*, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.io.IOException,javax.naming.NamingException"},
+	{"findRightParen", "([B[II)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, findRightParen, $ints*, $bytes*, $ints*, int32_t), "java.io.IOException,javax.naming.NamingException"},
+	{"findUnescaped", "([BCII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, findUnescaped, int32_t, $bytes*, char16_t, int32_t, int32_t)},
+	{"indexOf", "([BCII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, indexOf, int32_t, $bytes*, char16_t, int32_t, int32_t)},
+	{"indexOf", "([BLjava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Filter, indexOf, int32_t, $bytes*, $String*, int32_t, int32_t)},
+	{"unescapeFilterValue", "([BII)[B", nullptr, $STATIC, $staticMethod(Filter, unescapeFilterValue, $bytes*, $bytes*, int32_t, int32_t), "javax.naming.NamingException"},
 	{}
 };
 

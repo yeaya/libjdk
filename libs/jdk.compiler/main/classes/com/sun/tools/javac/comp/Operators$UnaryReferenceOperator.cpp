@@ -30,10 +30,10 @@ $FieldInfo _Operators$UnaryReferenceOperator_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators$UnaryReferenceOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Operators$UnaryReferenceOperator::*)($Operators*,$JCTree$Tag*)>(&Operators$UnaryReferenceOperator::init$))},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC},
-	{"test", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$UnaryReferenceOperator, init$, void, $Operators*, $JCTree$Tag*)},
+	{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryReferenceOperator, resolve, $Symbol$OperatorSymbol*, $Type*)},
+	{"test", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryReferenceOperator, test, bool, $Type*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$UnaryReferenceOperator, test, bool, Object$*)},
 	{}
 };
 

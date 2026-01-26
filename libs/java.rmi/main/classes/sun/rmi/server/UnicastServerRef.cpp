@@ -136,8 +136,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo UnicastServerRef$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef$$Lambda$lambda$static$0::*)()>(&UnicastServerRef$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo UnicastServerRef$$Lambda$lambda$static$0::classInfo$ = {
@@ -169,8 +169,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo UnicastServerRef$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef$$Lambda$lambda$static$1$1::*)()>(&UnicastServerRef$$Lambda$lambda$static$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$static$1$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$static$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo UnicastServerRef$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -202,8 +202,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo UnicastServerRef$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef$$Lambda$lambda$static$2$2::*)()>(&UnicastServerRef$$Lambda$lambda$static$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$static$2$2, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$static$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo UnicastServerRef$$Lambda$lambda$static$2$2::classInfo$ = {
@@ -245,8 +245,8 @@ $FieldInfo UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::fieldInf
 	{}
 };
 $MethodInfo UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::methodInfos[3] = {
-	{"<init>", "(Lsun/rmi/server/UnicastServerRef;Ljava/io/ObjectInputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::*)(UnicastServerRef*,$ObjectInputStream*)>(&UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/server/UnicastServerRef;Ljava/io/ObjectInputStream;)V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, init$, void, UnicastServerRef*, $ObjectInputStream*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, run, $Object*)},
 	{}
 };
 $ClassInfo UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::classInfo$ = {
@@ -284,36 +284,36 @@ $MethodInfo _UnicastServerRef_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef::*)()>(&UnicastServerRef::init$))},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef::*)($LiveRef*)>(&UnicastServerRef::init$))},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef::*)($LiveRef*,$ObjectInputFilter*)>(&UnicastServerRef::init$))},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef::*)(int32_t)>(&UnicastServerRef::init$))},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(UnicastServerRef::*)(bool)>(&UnicastServerRef::init$))},
-	{"clearStackTraces", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($Throwable*)>(&UnicastServerRef::clearStackTraces))},
-	{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;)Ljava/rmi/server/RemoteStub;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;Z)Ljava/rmi/Remote;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.rmi.server.ServerNotActiveException"},
-	{"getClientRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PROTECTED},
-	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void)},
+	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, $LiveRef*)},
+	{"<init>", "(Lsun/rmi/transport/LiveRef;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, $LiveRef*, $ObjectInputFilter*)},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, int32_t)},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, bool)},
+	{"clearStackTraces", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicastServerRef, clearStackTraces, void, $Throwable*)},
+	{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, dispatch, void, $Remote*, $RemoteCall*), "java.io.IOException"},
+	{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;)Ljava/rmi/server/RemoteStub;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, exportObject, $RemoteStub*, $Remote*, Object$*), "java.rmi.RemoteException"},
+	{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;Z)Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, exportObject, $Remote*, $Remote*, Object$*, bool), "java.rmi.RemoteException"},
+	{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, getClientHost, $String*), "java.rmi.server.ServerNotActiveException"},
+	{"getClientRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PROTECTED, $virtualMethod(UnicastServerRef, getClientRef, $RemoteRef*)},
+	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, getRefClass, $String*, $ObjectOutput*)},
 	{"*invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC},
 	{"*invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&UnicastServerRef::lambda$static$0))},
-	{"lambda$static$1", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&UnicastServerRef::lambda$static$1))},
-	{"lambda$static$2", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&UnicastServerRef::lambda$static$2))},
-	{"lambda$unmarshalCustomCallData$3", "(Ljava/io/ObjectInputStream;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Void*(UnicastServerRef::*)($ObjectInputStream*)>(&UnicastServerRef::lambda$unmarshalCustomCallData$3))},
-	{"logCall", "(Ljava/rmi/Remote;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(UnicastServerRef::*)($Remote*,Object$*)>(&UnicastServerRef::logCall))},
-	{"logCallException", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(static_cast<void(UnicastServerRef::*)($Throwable*)>(&UnicastServerRef::logCallException))},
+	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicastServerRef, lambda$static$0, $Boolean*)},
+	{"lambda$static$1", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicastServerRef, lambda$static$1, $Boolean*)},
+	{"lambda$static$2", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicastServerRef, lambda$static$2, $Boolean*)},
+	{"lambda$unmarshalCustomCallData$3", "(Ljava/io/ObjectInputStream;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(UnicastServerRef, lambda$unmarshalCustomCallData$3, $Void*, $ObjectInputStream*)},
+	{"logCall", "(Ljava/rmi/Remote;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(UnicastServerRef, logCall, void, $Remote*, Object$*)},
+	{"logCallException", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(UnicastServerRef, logCallException, void, $Throwable*)},
 	{"*newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC},
-	{"oldDispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;I)V", nullptr, $PRIVATE, $method(static_cast<void(UnicastServerRef::*)($Remote*,$RemoteCall*,int32_t)>(&UnicastServerRef::oldDispatch)), "java.lang.Exception"},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"oldDispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;I)V", nullptr, $PRIVATE, $method(UnicastServerRef, oldDispatch, void, $Remote*, $RemoteCall*, int32_t), "java.lang.Exception"},
+	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{"*remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC},
 	{"*remoteHashCode", "()I", nullptr, $PUBLIC},
 	{"*remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setSkeleton", "(Ljava/rmi/Remote;)V", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
+	{"setSkeleton", "(Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, setSkeleton, void, $Remote*), "java.rmi.RemoteException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unmarshalCustomCallData", "(Ljava/io/ObjectInput;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"unmarshalCustomCallData", "(Ljava/io/ObjectInput;)V", nullptr, $PROTECTED, $virtualMethod(UnicastServerRef, unmarshalCustomCallData, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
 	{}
 };
 

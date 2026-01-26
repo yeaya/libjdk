@@ -21,8 +21,8 @@ $FieldInfo _Authenticator$Failure_FieldInfo_[] = {
 };
 
 $MethodInfo _Authenticator$Failure_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(Authenticator$Failure::*)(int32_t)>(&Authenticator$Failure::init$))},
-	{"getResponseCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Authenticator$Failure, init$, void, int32_t)},
+	{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(Authenticator$Failure, getResponseCode, int32_t)},
 	{}
 };
 

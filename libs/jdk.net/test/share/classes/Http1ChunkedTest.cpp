@@ -72,10 +72,10 @@ $FieldInfo _Http1ChunkedTest_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1ChunkedTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Http1ChunkedTest::*)()>(&Http1ChunkedTest::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Http1ChunkedTest::main)), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;J)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;J)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*,$List*,int64_t)>(&Http1ChunkedTest::test)), "java.lang.Exception"},
-	{"validate", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Http1ChunkedTest::validate))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Http1ChunkedTest, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Http1ChunkedTest, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List;J)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;J)V", $PRIVATE | $STATIC, $staticMethod(Http1ChunkedTest, test, void, $String*, $String*, $List*, int64_t), "java.lang.Exception"},
+	{"validate", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Http1ChunkedTest, validate, void, $String*)},
 	{}
 };
 

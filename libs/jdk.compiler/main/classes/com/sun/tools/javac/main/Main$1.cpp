@@ -26,9 +26,9 @@ $FieldInfo _Main$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Main;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(static_cast<void(Main$1::*)($Main*,$Log*)>(&Main$1::init$))},
-	{"getOwnName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/Main;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(Main$1, init$, void, $Main*, $Log*)},
+	{"getOwnName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$1, getOwnName, $String*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Main$1, put, void, $String*, $String*)},
 	{}
 };
 

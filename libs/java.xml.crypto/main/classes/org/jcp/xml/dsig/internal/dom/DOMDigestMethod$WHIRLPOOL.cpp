@@ -22,10 +22,10 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMDigestMethod$WHIRLPOOL_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(static_cast<void(DOMDigestMethod$WHIRLPOOL::*)($AlgorithmParameterSpec*)>(&DOMDigestMethod$WHIRLPOOL::init$)), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(static_cast<void(DOMDigestMethod$WHIRLPOOL::*)($Element*)>(&DOMDigestMethod$WHIRLPOOL::init$)), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getMessageDigestAlgorithm", "()Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMDigestMethod$WHIRLPOOL, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMDigestMethod$WHIRLPOOL, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMDigestMethod$WHIRLPOOL, getAlgorithm, $String*)},
+	{"getMessageDigestAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMDigestMethod$WHIRLPOOL, getMessageDigestAlgorithm, $String*)},
 	{}
 };
 

@@ -7,8 +7,14 @@
 #include <sun/security/jgss/spi/GSSNameSpi.h>
 #include <jcpp.h>
 
+using $OidArray = $Array<::org::ietf::jgss::Oid>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Provider = ::java::security::Provider;
+using $Oid = ::org::ietf::jgss::Oid;
+using $GSSContextSpi = ::sun::security::jgss::spi::GSSContextSpi;
+using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
+using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 
 namespace sun {
 	namespace security {
@@ -16,15 +22,15 @@ namespace sun {
 			namespace spi {
 
 $MethodInfo _MechanismFactory_MethodInfo_[] = {
-	{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;III)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getMechanismOid", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getNameElement", "([BLorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getNameTypes", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "org.ietf.jgss.GSSException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;III)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MechanismFactory, getCredentialElement, $GSSCredentialSpi*, $GSSNameSpi*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MechanismFactory, getMechanismContext, $GSSContextSpi*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t), "org.ietf.jgss.GSSException"},
+	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MechanismFactory, getMechanismContext, $GSSContextSpi*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+	{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MechanismFactory, getMechanismContext, $GSSContextSpi*, $bytes*), "org.ietf.jgss.GSSException"},
+	{"getMechanismOid", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MechanismFactory, getMechanismOid, $Oid*)},
+	{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MechanismFactory, getNameElement, $GSSNameSpi*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
+	{"getNameElement", "([BLorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MechanismFactory, getNameElement, $GSSNameSpi*, $bytes*, $Oid*), "org.ietf.jgss.GSSException"},
+	{"getNameTypes", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MechanismFactory, getNameTypes, $OidArray*), "org.ietf.jgss.GSSException"},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MechanismFactory, getProvider, $Provider*)},
 	{}
 };
 

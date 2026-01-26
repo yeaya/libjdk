@@ -34,13 +34,13 @@ $FieldInfo _Frame$Masker_FieldInfo_[] = {
 };
 
 $MethodInfo _Frame$Masker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Frame$Masker::*)()>(&Frame$Masker::init$))},
-	{"begin", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Frame$Masker::*)($ByteBuffer*,$ByteBuffer*)>(&Frame$Masker::begin))},
-	{"end", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Frame$Masker::*)($ByteBuffer*,$ByteBuffer*)>(&Frame$Masker::end))},
-	{"loop", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(static_cast<void(Frame$Masker::*)($ByteBuffer*,$ByteBuffer*)>(&Frame$Masker::loop))},
-	{"mask", "(I)Ljdk/internal/net/http/websocket/Frame$Masker;", nullptr, 0, $method(static_cast<Frame$Masker*(Frame$Masker::*)(int32_t)>(&Frame$Masker::mask))},
-	{"transferMasking", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;I)V", nullptr, $STATIC, $method(static_cast<void(*)($ByteBuffer*,$ByteBuffer*,int32_t)>(&Frame$Masker::transferMasking))},
-	{"transferMasking", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/websocket/Frame$Masker;", nullptr, 0, $method(static_cast<Frame$Masker*(Frame$Masker::*)($ByteBuffer*,$ByteBuffer*)>(&Frame$Masker::transferMasking))},
+	{"<init>", "()V", nullptr, 0, $method(Frame$Masker, init$, void)},
+	{"begin", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Frame$Masker, begin, void, $ByteBuffer*, $ByteBuffer*)},
+	{"end", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Frame$Masker, end, void, $ByteBuffer*, $ByteBuffer*)},
+	{"loop", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Frame$Masker, loop, void, $ByteBuffer*, $ByteBuffer*)},
+	{"mask", "(I)Ljdk/internal/net/http/websocket/Frame$Masker;", nullptr, 0, $method(Frame$Masker, mask, Frame$Masker*, int32_t)},
+	{"transferMasking", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;I)V", nullptr, $STATIC, $staticMethod(Frame$Masker, transferMasking, void, $ByteBuffer*, $ByteBuffer*, int32_t)},
+	{"transferMasking", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/websocket/Frame$Masker;", nullptr, 0, $method(Frame$Masker, transferMasking, Frame$Masker*, $ByteBuffer*, $ByteBuffer*)},
 	{}
 };
 

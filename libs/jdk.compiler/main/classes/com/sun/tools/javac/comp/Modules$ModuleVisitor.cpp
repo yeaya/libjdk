@@ -162,8 +162,8 @@ $FieldInfo Modules$ModuleVisitor$$Lambda$lambda$visitModuleDef$0::fieldInfos[2] 
 	{}
 };
 $MethodInfo Modules$ModuleVisitor$$Lambda$lambda$visitModuleDef$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules$ModuleVisitor;)V", nullptr, $PUBLIC, $method(static_cast<void(Modules$ModuleVisitor$$Lambda$lambda$visitModuleDef$0::*)(Modules$ModuleVisitor*)>(&Modules$ModuleVisitor$$Lambda$lambda$visitModuleDef$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules$ModuleVisitor;)V", nullptr, $PUBLIC, $method(Modules$ModuleVisitor$$Lambda$lambda$visitModuleDef$0, init$, void, Modules$ModuleVisitor*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Modules$ModuleVisitor$$Lambda$lambda$visitModuleDef$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Modules$ModuleVisitor$$Lambda$lambda$visitModuleDef$0::classInfo$ = {
@@ -195,8 +195,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Modules$ModuleVisitor$$Lambda$lambda$visitExports$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Modules$ModuleVisitor$$Lambda$lambda$visitExports$1$1::*)()>(&Modules$ModuleVisitor$$Lambda$lambda$visitExports$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Modules$ModuleVisitor$$Lambda$lambda$visitExports$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Modules$ModuleVisitor$$Lambda$lambda$visitExports$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Modules$ModuleVisitor$$Lambda$lambda$visitExports$1$1::classInfo$ = {
@@ -223,23 +223,23 @@ $FieldInfo _Modules$ModuleVisitor_FieldInfo_[] = {
 };
 
 $MethodInfo _Modules$ModuleVisitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, 0, $method(static_cast<void(Modules$ModuleVisitor::*)($Modules*)>(&Modules$ModuleVisitor::init$))},
-	{"checkDuplicateExportsToModule", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Directive$ExportsDirective;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules$ModuleVisitor::*)($JCTree$JCExpression*,$Symbol$ModuleSymbol*,$Directive$ExportsDirective*)>(&Modules$ModuleVisitor::checkDuplicateExportsToModule))},
-	{"checkDuplicateOpensToModule", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Directive$OpensDirective;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules$ModuleVisitor::*)($JCTree$JCExpression*,$Symbol$ModuleSymbol*,$Directive$OpensDirective*)>(&Modules$ModuleVisitor::checkDuplicateOpensToModule))},
-	{"ensureJavaBase", "()V", nullptr, $PRIVATE, $method(static_cast<void(Modules$ModuleVisitor::*)()>(&Modules$ModuleVisitor::ensureJavaBase))},
-	{"lambda$visitExports$1", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)Lcom/sun/tools/javac/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$List*(*)($Symbol$PackageSymbol*)>(&Modules$ModuleVisitor::lambda$visitExports$1))},
-	{"lambda$visitModuleDef$0", "(Lcom/sun/tools/javac/tree/JCTree$JCDirective;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Modules$ModuleVisitor::*)($JCTree$JCDirective*)>(&Modules$ModuleVisitor::lambda$visitModuleDef$0))},
-	{"lookupModule", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE, $method(static_cast<$Symbol$ModuleSymbol*(Modules$ModuleVisitor::*)($JCTree$JCExpression*)>(&Modules$ModuleVisitor::lookupModule))},
-	{"reportExportsConflict", "(Lcom/sun/tools/javac/tree/JCTree$JCExports;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules$ModuleVisitor::*)($JCTree$JCExports*,$Symbol$PackageSymbol*)>(&Modules$ModuleVisitor::reportExportsConflict))},
-	{"reportExportsConflictToModule", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules$ModuleVisitor::*)($JCTree$JCExpression*,$Symbol$ModuleSymbol*)>(&Modules$ModuleVisitor::reportExportsConflictToModule))},
-	{"reportOpensConflict", "(Lcom/sun/tools/javac/tree/JCTree$JCOpens;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules$ModuleVisitor::*)($JCTree$JCOpens*,$Symbol$PackageSymbol*)>(&Modules$ModuleVisitor::reportOpensConflict))},
-	{"reportOpensConflictToModule", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Modules$ModuleVisitor::*)($JCTree$JCExpression*,$Symbol$ModuleSymbol*)>(&Modules$ModuleVisitor::reportOpensConflictToModule))},
-	{"visitExports", "(Lcom/sun/tools/javac/tree/JCTree$JCExports;)V", nullptr, $PUBLIC},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC},
-	{"visitOpens", "(Lcom/sun/tools/javac/tree/JCTree$JCOpens;)V", nullptr, $PUBLIC},
-	{"visitProvides", "(Lcom/sun/tools/javac/tree/JCTree$JCProvides;)V", nullptr, $PUBLIC},
-	{"visitRequires", "(Lcom/sun/tools/javac/tree/JCTree$JCRequires;)V", nullptr, $PUBLIC},
-	{"visitUses", "(Lcom/sun/tools/javac/tree/JCTree$JCUses;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, 0, $method(Modules$ModuleVisitor, init$, void, $Modules*)},
+	{"checkDuplicateExportsToModule", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Directive$ExportsDirective;)V", nullptr, $PRIVATE, $method(Modules$ModuleVisitor, checkDuplicateExportsToModule, void, $JCTree$JCExpression*, $Symbol$ModuleSymbol*, $Directive$ExportsDirective*)},
+	{"checkDuplicateOpensToModule", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/code/Directive$OpensDirective;)V", nullptr, $PRIVATE, $method(Modules$ModuleVisitor, checkDuplicateOpensToModule, void, $JCTree$JCExpression*, $Symbol$ModuleSymbol*, $Directive$OpensDirective*)},
+	{"ensureJavaBase", "()V", nullptr, $PRIVATE, $method(Modules$ModuleVisitor, ensureJavaBase, void)},
+	{"lambda$visitExports$1", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)Lcom/sun/tools/javac/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Modules$ModuleVisitor, lambda$visitExports$1, $List*, $Symbol$PackageSymbol*)},
+	{"lambda$visitModuleDef$0", "(Lcom/sun/tools/javac/tree/JCTree$JCDirective;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Modules$ModuleVisitor, lambda$visitModuleDef$0, void, $JCTree$JCDirective*)},
+	{"lookupModule", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE, $method(Modules$ModuleVisitor, lookupModule, $Symbol$ModuleSymbol*, $JCTree$JCExpression*)},
+	{"reportExportsConflict", "(Lcom/sun/tools/javac/tree/JCTree$JCExports;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE, $method(Modules$ModuleVisitor, reportExportsConflict, void, $JCTree$JCExports*, $Symbol$PackageSymbol*)},
+	{"reportExportsConflictToModule", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Modules$ModuleVisitor, reportExportsConflictToModule, void, $JCTree$JCExpression*, $Symbol$ModuleSymbol*)},
+	{"reportOpensConflict", "(Lcom/sun/tools/javac/tree/JCTree$JCOpens;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE, $method(Modules$ModuleVisitor, reportOpensConflict, void, $JCTree$JCOpens*, $Symbol$PackageSymbol*)},
+	{"reportOpensConflictToModule", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE, $method(Modules$ModuleVisitor, reportOpensConflictToModule, void, $JCTree$JCExpression*, $Symbol$ModuleSymbol*)},
+	{"visitExports", "(Lcom/sun/tools/javac/tree/JCTree$JCExports;)V", nullptr, $PUBLIC, $virtualMethod(Modules$ModuleVisitor, visitExports, void, $JCTree$JCExports*)},
+	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Modules$ModuleVisitor, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+	{"visitOpens", "(Lcom/sun/tools/javac/tree/JCTree$JCOpens;)V", nullptr, $PUBLIC, $virtualMethod(Modules$ModuleVisitor, visitOpens, void, $JCTree$JCOpens*)},
+	{"visitProvides", "(Lcom/sun/tools/javac/tree/JCTree$JCProvides;)V", nullptr, $PUBLIC, $virtualMethod(Modules$ModuleVisitor, visitProvides, void, $JCTree$JCProvides*)},
+	{"visitRequires", "(Lcom/sun/tools/javac/tree/JCTree$JCRequires;)V", nullptr, $PUBLIC, $virtualMethod(Modules$ModuleVisitor, visitRequires, void, $JCTree$JCRequires*)},
+	{"visitUses", "(Lcom/sun/tools/javac/tree/JCTree$JCUses;)V", nullptr, $PUBLIC, $virtualMethod(Modules$ModuleVisitor, visitUses, void, $JCTree$JCUses*)},
 	{}
 };
 

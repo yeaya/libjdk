@@ -39,11 +39,11 @@ $FieldInfo _SCDynamicStoreConfig_FieldInfo_[] = {
 };
 
 $MethodInfo _SCDynamicStoreConfig_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SCDynamicStoreConfig::*)()>(&SCDynamicStoreConfig::init$))},
-	{"getConfig", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $STATIC, $method(static_cast<$Hashtable*(*)()>(&SCDynamicStoreConfig::getConfig)), "java.io.IOException"},
-	{"getKerberosConfig", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $NATIVE, $method(static_cast<$List*(*)()>(&SCDynamicStoreConfig::getKerberosConfig))},
-	{"installNotificationCallback", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $method(static_cast<void(*)()>(&SCDynamicStoreConfig::installNotificationCallback))},
-	{"v1", "(Ljava/lang/String;)Ljava/util/Vector;", "(Ljava/lang/String;)Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$Vector*(*)($String*)>(&SCDynamicStoreConfig::v1))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SCDynamicStoreConfig, init$, void)},
+	{"getConfig", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(SCDynamicStoreConfig, getConfig, $Hashtable*), "java.io.IOException"},
+	{"getKerberosConfig", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(SCDynamicStoreConfig, getKerberosConfig, $List*)},
+	{"installNotificationCallback", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SCDynamicStoreConfig, installNotificationCallback, void)},
+	{"v1", "(Ljava/lang/String;)Ljava/util/Vector;", "(Ljava/lang/String;)Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SCDynamicStoreConfig, v1, $Vector*, $String*)},
 	{}
 };
 

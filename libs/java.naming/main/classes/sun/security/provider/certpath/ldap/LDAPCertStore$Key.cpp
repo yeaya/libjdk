@@ -26,9 +26,9 @@ $FieldInfo _LDAPCertStore$Key_FieldInfo_[] = {
 };
 
 $MethodInfo _LDAPCertStore$Key_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(LDAPCertStore$Key::*)($String*,int32_t)>(&LDAPCertStore$Key::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(LDAPCertStore$Key, init$, void, $String*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LDAPCertStore$Key, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LDAPCertStore$Key, hashCode, int32_t)},
 	{}
 };
 

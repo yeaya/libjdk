@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
 
 namespace com {
 	namespace sun {
@@ -13,8 +14,8 @@ namespace com {
 				namespace api {
 
 $MethodInfo _Messages_MethodInfo_[] = {
-	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.util.MissingResourceException"},
-	{"getLocalizedString", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT},
+	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Messages, add, void, $String*), "java.util.MissingResourceException"},
+	{"getLocalizedString", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT | $ABSTRACT, $virtualMethod(Messages, getLocalizedString, $String*, $Locale*, $String*, $ObjectArray*)},
 	{}
 };
 

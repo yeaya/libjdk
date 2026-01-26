@@ -34,11 +34,11 @@ $FieldInfo _Resolve$MethodCheckDiag_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$MethodCheckDiag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Resolve$MethodCheckDiagArray*(*)()>(&Resolve$MethodCheckDiag::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Resolve$MethodCheckDiag::*)($String*,int32_t,$String*,$String*)>(&Resolve$MethodCheckDiag::init$))},
-	{"regex", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(Resolve$MethodCheckDiag::*)()>(&Resolve$MethodCheckDiag::regex))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Resolve$MethodCheckDiag*(*)($String*)>(&Resolve$MethodCheckDiag::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Resolve$MethodCheckDiagArray*(*)()>(&Resolve$MethodCheckDiag::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$MethodCheckDiag, $values, $Resolve$MethodCheckDiagArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Resolve$MethodCheckDiag, init$, void, $String*, int32_t, $String*, $String*)},
+	{"regex", "()Ljava/lang/String;", nullptr, 0, $method(Resolve$MethodCheckDiag, regex, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$MethodCheckDiag, valueOf, Resolve$MethodCheckDiag*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$MethodCheckDiag, values, $Resolve$MethodCheckDiagArray*)},
 	{}
 };
 

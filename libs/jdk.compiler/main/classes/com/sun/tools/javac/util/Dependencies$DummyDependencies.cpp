@@ -21,9 +21,9 @@ namespace com {
 				namespace util {
 
 $MethodInfo _Dependencies$DummyDependencies_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(static_cast<void(Dependencies$DummyDependencies::*)($Context*)>(&Dependencies$DummyDependencies::init$))},
-	{"pop", "()V", nullptr, $PUBLIC},
-	{"push", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(Dependencies$DummyDependencies, init$, void, $Context*)},
+	{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(Dependencies$DummyDependencies, pop, void)},
+	{"push", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;)V", nullptr, $PUBLIC, $virtualMethod(Dependencies$DummyDependencies, push, void, $Symbol$ClassSymbol*, $Dependencies$CompletionCause*)},
 	{}
 };
 

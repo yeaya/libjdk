@@ -47,12 +47,12 @@ $FieldInfo _DOMSubTreeData$DelayedNodeIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _DOMSubTreeData$DelayedNodeIterator_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, 0, $method(static_cast<void(DOMSubTreeData$DelayedNodeIterator::*)($Node*,bool)>(&DOMSubTreeData$DelayedNodeIterator::init$))},
-	{"dereferenceSameDocumentURI", "(Lorg/w3c/dom/Node;)Ljava/util/List;", "(Lorg/w3c/dom/Node;)Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(static_cast<$List*(DOMSubTreeData$DelayedNodeIterator::*)($Node*)>(&DOMSubTreeData$DelayedNodeIterator::dereferenceSameDocumentURI))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"nodeSetMinusCommentNodes", "(Lorg/w3c/dom/Node;Ljava/util/List;Lorg/w3c/dom/Node;)V", "(Lorg/w3c/dom/Node;Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;)V", $PRIVATE, $method(static_cast<void(DOMSubTreeData$DelayedNodeIterator::*)($Node*,$List*,$Node*)>(&DOMSubTreeData$DelayedNodeIterator::nodeSetMinusCommentNodes))},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lorg/w3c/dom/Node;Z)V", nullptr, 0, $method(DOMSubTreeData$DelayedNodeIterator, init$, void, $Node*, bool)},
+	{"dereferenceSameDocumentURI", "(Lorg/w3c/dom/Node;)Ljava/util/List;", "(Lorg/w3c/dom/Node;)Ljava/util/List<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(DOMSubTreeData$DelayedNodeIterator, dereferenceSameDocumentURI, $List*, $Node*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData$DelayedNodeIterator, hasNext, bool)},
+	{"next", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData$DelayedNodeIterator, next, $Object*)},
+	{"nodeSetMinusCommentNodes", "(Lorg/w3c/dom/Node;Ljava/util/List;Lorg/w3c/dom/Node;)V", "(Lorg/w3c/dom/Node;Ljava/util/List<Lorg/w3c/dom/Node;>;Lorg/w3c/dom/Node;)V", $PRIVATE, $method(DOMSubTreeData$DelayedNodeIterator, nodeSetMinusCommentNodes, void, $Node*, $List*, $Node*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(DOMSubTreeData$DelayedNodeIterator, remove, void)},
 	{}
 };
 

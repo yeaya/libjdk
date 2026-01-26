@@ -28,10 +28,10 @@ $FieldInfo _TextBlockSupport$WhitespaceChecks_FieldInfo_[] = {
 };
 
 $MethodInfo _TextBlockSupport$WhitespaceChecks_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TextBlockSupport$WhitespaceChecksArray*(*)()>(&TextBlockSupport$WhitespaceChecks::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(TextBlockSupport$WhitespaceChecks::*)($String*,int32_t)>(&TextBlockSupport$WhitespaceChecks::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TextBlockSupport$WhitespaceChecks*(*)($String*)>(&TextBlockSupport$WhitespaceChecks::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TextBlockSupport$WhitespaceChecksArray*(*)()>(&TextBlockSupport$WhitespaceChecks::values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TextBlockSupport$WhitespaceChecks, $values, $TextBlockSupport$WhitespaceChecksArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TextBlockSupport$WhitespaceChecks, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextBlockSupport$WhitespaceChecks, valueOf, TextBlockSupport$WhitespaceChecks*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextBlockSupport$WhitespaceChecks, values, $TextBlockSupport$WhitespaceChecksArray*)},
 	{}
 };
 

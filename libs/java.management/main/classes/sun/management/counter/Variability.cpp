@@ -31,10 +31,10 @@ $FieldInfo _Variability_FieldInfo_[] = {
 };
 
 $MethodInfo _Variability_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Variability::*)($String*,int32_t)>(&Variability::init$))},
-	{"intValue", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toVariability", "(I)Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Variability*(*)(int32_t)>(&Variability::toVariability))},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Variability, init$, void, $String*, int32_t)},
+	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Variability, intValue, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Variability, toString, $String*)},
+	{"toVariability", "(I)Lsun/management/counter/Variability;", nullptr, $PUBLIC | $STATIC, $staticMethod(Variability, toVariability, Variability*, int32_t)},
 	{}
 };
 

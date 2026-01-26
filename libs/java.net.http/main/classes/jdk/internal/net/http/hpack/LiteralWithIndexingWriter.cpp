@@ -30,12 +30,12 @@ $FieldInfo _LiteralWithIndexingWriter_FieldInfo_[] = {
 };
 
 $MethodInfo _LiteralWithIndexingWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LiteralWithIndexingWriter::*)()>(&LiteralWithIndexingWriter::init$))},
-	{"index", "(I)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0},
-	{"name", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0},
-	{"reset", "()Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, $PUBLIC},
-	{"value", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0},
-	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(LiteralWithIndexingWriter, init$, void)},
+	{"index", "(I)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0, $virtualMethod(LiteralWithIndexingWriter, index, LiteralWithIndexingWriter*, int32_t)},
+	{"name", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0, $virtualMethod(LiteralWithIndexingWriter, name, LiteralWithIndexingWriter*, $CharSequence*, bool)},
+	{"reset", "()Ljdk/internal/net/http/hpack/IndexNameValueWriter;", nullptr, $PUBLIC, $virtualMethod(LiteralWithIndexingWriter, reset, $IndexNameValueWriter*)},
+	{"value", "(Ljava/lang/CharSequence;Z)Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, 0, $virtualMethod(LiteralWithIndexingWriter, value, LiteralWithIndexingWriter*, $CharSequence*, bool)},
+	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $virtualMethod(LiteralWithIndexingWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
 	{}
 };
 

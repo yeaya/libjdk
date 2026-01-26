@@ -29,10 +29,10 @@ $FieldInfo _JCTree$JCLambda$ParameterKind_FieldInfo_[] = {
 };
 
 $MethodInfo _JCTree$JCLambda$ParameterKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCLambda$ParameterKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCTree$JCLambda$ParameterKindArray*(*)()>(&JCTree$JCLambda$ParameterKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JCTree$JCLambda$ParameterKind::*)($String*,int32_t)>(&JCTree$JCLambda$ParameterKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCLambda$ParameterKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JCTree$JCLambda$ParameterKind*(*)($String*)>(&JCTree$JCLambda$ParameterKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCLambda$ParameterKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JCTree$JCLambda$ParameterKindArray*(*)()>(&JCTree$JCLambda$ParameterKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCLambda$ParameterKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$JCLambda$ParameterKind, $values, $JCTree$JCLambda$ParameterKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCTree$JCLambda$ParameterKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCLambda$ParameterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCLambda$ParameterKind, valueOf, JCTree$JCLambda$ParameterKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCLambda$ParameterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCLambda$ParameterKind, values, $JCTree$JCLambda$ParameterKindArray*)},
 	{}
 };
 

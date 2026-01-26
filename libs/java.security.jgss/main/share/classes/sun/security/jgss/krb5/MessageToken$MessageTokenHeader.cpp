@@ -34,13 +34,13 @@ $FieldInfo _MessageToken$MessageTokenHeader_FieldInfo_[] = {
 };
 
 $MethodInfo _MessageToken$MessageTokenHeader_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/MessageToken;IZI)V", nullptr, $PUBLIC, $method(static_cast<void(MessageToken$MessageTokenHeader::*)($MessageToken*,int32_t,bool,int32_t)>(&MessageToken$MessageTokenHeader::init$)), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/MessageToken;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(static_cast<void(MessageToken$MessageTokenHeader::*)($MessageToken*,$InputStream*,$MessageProp*)>(&MessageToken$MessageTokenHeader::init$)), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(MessageToken$MessageTokenHeader::*)($OutputStream*)>(&MessageToken$MessageTokenHeader::encode)), "java.io.IOException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(static_cast<$bytes*(MessageToken$MessageTokenHeader::*)()>(&MessageToken$MessageTokenHeader::getBytes))},
-	{"getSealAlg", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(MessageToken$MessageTokenHeader::*)()>(&MessageToken$MessageTokenHeader::getSealAlg))},
-	{"getSignAlg", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(MessageToken$MessageTokenHeader::*)()>(&MessageToken$MessageTokenHeader::getSignAlg))},
-	{"getTokenId", "()I", nullptr, $PUBLIC | $FINAL, $method(static_cast<int32_t(MessageToken$MessageTokenHeader::*)()>(&MessageToken$MessageTokenHeader::getTokenId))},
+	{"<init>", "(Lsun/security/jgss/krb5/MessageToken;IZI)V", nullptr, $PUBLIC, $method(MessageToken$MessageTokenHeader, init$, void, $MessageToken*, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
+	{"<init>", "(Lsun/security/jgss/krb5/MessageToken;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(MessageToken$MessageTokenHeader, init$, void, $MessageToken*, $InputStream*, $MessageProp*), "java.io.IOException"},
+	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, encode, void, $OutputStream*), "java.io.IOException"},
+	{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getBytes, $bytes*)},
+	{"getSealAlg", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getSealAlg, int32_t)},
+	{"getSignAlg", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getSignAlg, int32_t)},
+	{"getTokenId", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getTokenId, int32_t)},
 	{}
 };
 

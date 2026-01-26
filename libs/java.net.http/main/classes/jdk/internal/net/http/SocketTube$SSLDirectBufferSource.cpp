@@ -35,10 +35,10 @@ $FieldInfo _SocketTube$SSLDirectBufferSource_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketTube$SSLDirectBufferSource_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(SocketTube$SSLDirectBufferSource::*)($HttpClientImpl*)>(&SocketTube$SSLDirectBufferSource::init$))},
-	{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $FINAL},
-	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $FINAL},
-	{"returnUnused", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, $PUBLIC, $method(SocketTube$SSLDirectBufferSource, init$, void, $HttpClientImpl*)},
+	{"append", "(Ljava/util/List;Ljava/nio/ByteBuffer;I)Ljava/util/List;", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/nio/ByteBuffer;I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $FINAL, $virtualMethod(SocketTube$SSLDirectBufferSource, append, $List*, $List*, $ByteBuffer*, int32_t)},
+	{"getBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SSLDirectBufferSource, getBuffer, $ByteBuffer*)},
+	{"returnUnused", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SocketTube$SSLDirectBufferSource, returnUnused, void, $ByteBuffer*)},
 	{}
 };
 

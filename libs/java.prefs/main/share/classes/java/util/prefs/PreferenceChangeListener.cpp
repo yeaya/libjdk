@@ -6,6 +6,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $PreferenceChangeEvent = ::java::util::prefs::PreferenceChangeEvent;
 
 namespace java {
 	namespace util {
@@ -17,7 +18,7 @@ $CompoundAttribute _PreferenceChangeListener_Annotations_[] = {
 };
 
 $MethodInfo _PreferenceChangeListener_MethodInfo_[] = {
-	{"preferenceChange", "(Ljava/util/prefs/PreferenceChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"preferenceChange", "(Ljava/util/prefs/PreferenceChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PreferenceChangeListener, preferenceChange, void, $PreferenceChangeEvent*)},
 	{}
 };
 

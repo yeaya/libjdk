@@ -15,8 +15,8 @@ namespace com {
 				namespace resources {
 
 $MethodInfo _launcher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(launcher::*)()>(&launcher::init$))},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(launcher, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(launcher, getContents, $ObjectArray2*)},
 	{}
 };
 

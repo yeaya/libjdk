@@ -29,13 +29,13 @@ $FieldInfo _ContextList_FieldInfo_[] = {
 };
 
 $MethodInfo _ContextList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ContextList::*)()>(&ContextList::init$))},
-	{"add", "(Lsun/net/httpserver/HttpContextImpl;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"findContext", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $SYNCHRONIZED},
-	{"findContext", "(Ljava/lang/String;Ljava/lang/String;Z)Lsun/net/httpserver/HttpContextImpl;", nullptr, $SYNCHRONIZED},
-	{"remove", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.IllegalArgumentException"},
-	{"remove", "(Lsun/net/httpserver/HttpContextImpl;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.IllegalArgumentException"},
-	{"size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "()V", nullptr, 0, $method(ContextList, init$, void)},
+	{"add", "(Lsun/net/httpserver/HttpContextImpl;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ContextList, add, void, $HttpContextImpl*)},
+	{"findContext", "(Ljava/lang/String;Ljava/lang/String;)Lsun/net/httpserver/HttpContextImpl;", nullptr, $SYNCHRONIZED, $virtualMethod(ContextList, findContext, $HttpContextImpl*, $String*, $String*)},
+	{"findContext", "(Ljava/lang/String;Ljava/lang/String;Z)Lsun/net/httpserver/HttpContextImpl;", nullptr, $SYNCHRONIZED, $virtualMethod(ContextList, findContext, $HttpContextImpl*, $String*, $String*, bool)},
+	{"remove", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ContextList, remove, void, $String*, $String*), "java.lang.IllegalArgumentException"},
+	{"remove", "(Lsun/net/httpserver/HttpContextImpl;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ContextList, remove, void, $HttpContextImpl*), "java.lang.IllegalArgumentException"},
+	{"size", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ContextList, size, int32_t)},
 	{}
 };
 

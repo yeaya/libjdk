@@ -53,11 +53,11 @@ $FieldInfo _Resolve$VerboseResolutionMode_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$VerboseResolutionMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$VerboseResolutionMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Resolve$VerboseResolutionModeArray*(*)()>(&Resolve$VerboseResolutionMode::$values))},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(static_cast<void(Resolve$VerboseResolutionMode::*)($String*,int32_t,$String*)>(&Resolve$VerboseResolutionMode::init$))},
-	{"getVerboseResolutionMode", "(Lcom/sun/tools/javac/util/Options;)Ljava/util/EnumSet;", "(Lcom/sun/tools/javac/util/Options;)Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Resolve$VerboseResolutionMode;>;", $STATIC, $method(static_cast<$EnumSet*(*)($Options*)>(&Resolve$VerboseResolutionMode::getVerboseResolutionMode))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$VerboseResolutionMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Resolve$VerboseResolutionMode*(*)($String*)>(&Resolve$VerboseResolutionMode::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$VerboseResolutionMode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Resolve$VerboseResolutionModeArray*(*)()>(&Resolve$VerboseResolutionMode::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$VerboseResolutionMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$VerboseResolutionMode, $values, $Resolve$VerboseResolutionModeArray*)},
+	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Resolve$VerboseResolutionMode, init$, void, $String*, int32_t, $String*)},
+	{"getVerboseResolutionMode", "(Lcom/sun/tools/javac/util/Options;)Ljava/util/EnumSet;", "(Lcom/sun/tools/javac/util/Options;)Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Resolve$VerboseResolutionMode;>;", $STATIC, $staticMethod(Resolve$VerboseResolutionMode, getVerboseResolutionMode, $EnumSet*, $Options*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$VerboseResolutionMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$VerboseResolutionMode, valueOf, Resolve$VerboseResolutionMode*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$VerboseResolutionMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$VerboseResolutionMode, values, $Resolve$VerboseResolutionModeArray*)},
 	{}
 };
 

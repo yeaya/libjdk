@@ -44,9 +44,9 @@ $FieldInfo _JDKPlatformProvider$PlatformDescriptionImpl$1$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JDKPlatformProvider$PlatformDescriptionImpl$1$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1;Ljava/lang/Iterable;Ljava/util/Set;)V", "()V", 0, $method(static_cast<void(JDKPlatformProvider$PlatformDescriptionImpl$1$1::*)($JDKPlatformProvider$PlatformDescriptionImpl$1*,$Iterable*,$Set*)>(&JDKPlatformProvider$PlatformDescriptionImpl$1$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1;Ljava/lang/Iterable;Ljava/util/Set;)V", "()V", 0, $method(JDKPlatformProvider$PlatformDescriptionImpl$1$1, init$, void, $JDKPlatformProvider$PlatformDescriptionImpl$1*, $Iterable*, $Set*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1$1, hasNext, bool)},
+	{"next", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1$1, next, $Object*)},
 	{}
 };
 

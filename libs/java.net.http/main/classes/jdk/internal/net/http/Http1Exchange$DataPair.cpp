@@ -22,8 +22,8 @@ $FieldInfo _Http1Exchange$DataPair_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Exchange$DataPair_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/Throwable;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/lang/Throwable;)V", 0, $method(static_cast<void(Http1Exchange$DataPair::*)($List*,$Throwable*)>(&Http1Exchange$DataPair::init$))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;Ljava/lang/Throwable;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Ljava/lang/Throwable;)V", 0, $method(Http1Exchange$DataPair, init$, void, $List*, $Throwable*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Http1Exchange$DataPair, toString, $String*)},
 	{}
 };
 

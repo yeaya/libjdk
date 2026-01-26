@@ -11,7 +11,7 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _LiteralTree_MethodInfo_[] = {
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LiteralTree, getValue, $Object*)},
 	{}
 };
 

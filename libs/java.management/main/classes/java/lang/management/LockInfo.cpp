@@ -23,12 +23,12 @@ $FieldInfo _LockInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _LockInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(LockInfo::*)($String*,int32_t)>(&LockInfo::init$))},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(LockInfo::*)(Object$*)>(&LockInfo::init$))},
-	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/LockInfo;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LockInfo*(*)($CompositeData*)>(&LockInfo::from))},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getIdentityHashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(LockInfo, init$, void, $String*, int32_t)},
+	{"<init>", "(Ljava/lang/Object;)V", nullptr, 0, $method(LockInfo, init$, void, Object$*)},
+	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/management/LockInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(LockInfo, from, LockInfo*, $CompositeData*)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LockInfo, getClassName, $String*)},
+	{"getIdentityHashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LockInfo, getIdentityHashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LockInfo, toString, $String*)},
 	{}
 };
 

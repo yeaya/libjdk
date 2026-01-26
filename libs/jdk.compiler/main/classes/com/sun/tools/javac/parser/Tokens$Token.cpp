@@ -48,15 +48,15 @@ $FieldInfo _Tokens$Token_FieldInfo_[] = {
 };
 
 $MethodInfo _Tokens$Token_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;)V", 0, $method(static_cast<void(Tokens$Token::*)($Tokens$TokenKind*,int32_t,int32_t,$List*)>(&Tokens$Token::init$))},
-	{"checkKind", "()V", nullptr, $PROTECTED},
-	{"comment", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC},
-	{"deprecatedFlag", "()Z", nullptr, $PUBLIC},
-	{"getComments", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;", $PRIVATE, $method(static_cast<$List*(Tokens$Token::*)($Tokens$Comment$CommentStyle*)>(&Tokens$Token::getComments))},
-	{"name", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"radix", "()I", nullptr, $PUBLIC},
-	{"split", "(Lcom/sun/tools/javac/parser/Tokens;)[Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, 0},
-	{"stringVal", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;)V", 0, $method(Tokens$Token, init$, void, $Tokens$TokenKind*, int32_t, int32_t, $List*)},
+	{"checkKind", "()V", nullptr, $PROTECTED, $virtualMethod(Tokens$Token, checkKind, void)},
+	{"comment", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, comment, $Tokens$Comment*, $Tokens$Comment$CommentStyle*)},
+	{"deprecatedFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, deprecatedFlag, bool)},
+	{"getComments", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;", $PRIVATE, $method(Tokens$Token, getComments, $List*, $Tokens$Comment$CommentStyle*)},
+	{"name", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, name, $Name*)},
+	{"radix", "()I", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, radix, int32_t)},
+	{"split", "(Lcom/sun/tools/javac/parser/Tokens;)[Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, 0, $virtualMethod(Tokens$Token, split, $Tokens$TokenArray*, $Tokens*)},
+	{"stringVal", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, stringVal, $String*)},
 	{}
 };
 

@@ -24,7 +24,7 @@ $FieldInfo _Attribute$UnresolvedClass_FieldInfo_[] = {
 };
 
 $MethodInfo _Attribute$UnresolvedClass_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Attribute$UnresolvedClass::*)($Type*,$Type*)>(&Attribute$UnresolvedClass::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attribute$UnresolvedClass, init$, void, $Type*, $Type*)},
 	{}
 };
 

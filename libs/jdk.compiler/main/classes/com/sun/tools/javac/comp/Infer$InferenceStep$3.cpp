@@ -69,8 +69,8 @@ $FieldInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $method(static_cast<void(Infer$InferenceStep$3$$Lambda$lambda$accepts$0::*)($InferenceContext*)>(&Infer$InferenceStep$3$$Lambda$lambda$accepts$0::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $method(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, init$, void, $InferenceContext*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep$3$$Lambda$lambda$accepts$0, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$0::classInfo$ = {
@@ -112,8 +112,8 @@ $FieldInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(static_cast<void(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::*)($Types*,$Symtab*)>(&Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symtab;)V", nullptr, $PUBLIC, $method(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, init$, void, $Types*, $Symtab*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::classInfo$ = {
@@ -131,11 +131,11 @@ $Class* Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::load$($String* name, b
 $Class* Infer$InferenceStep$3$$Lambda$lambda$accepts$1$1::class$ = nullptr;
 
 $MethodInfo _Infer$InferenceStep$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $PRIVATE, $method(static_cast<void(Infer$InferenceStep$3::*)($String*,int32_t,$Type$UndetVar$InferenceBound*)>(&Infer$InferenceStep$3::init$))},
-	{"accepts", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Z", nullptr, $PUBLIC},
-	{"lambda$accepts$0", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($InferenceContext*,$Type*)>(&Infer$InferenceStep$3::lambda$accepts$0))},
-	{"lambda$accepts$1", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Types*,$Symtab*,$Type*)>(&Infer$InferenceStep$3::lambda$accepts$1))},
-	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $PRIVATE, $method(Infer$InferenceStep$3, init$, void, $String*, int32_t, $Type$UndetVar$InferenceBound*)},
+	{"accepts", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep$3, accepts, bool, $Type$UndetVar*, $InferenceContext*)},
+	{"lambda$accepts$0", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$InferenceStep$3, lambda$accepts$0, bool, $InferenceContext*, $Type*)},
+	{"lambda$accepts$1", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$InferenceStep$3, lambda$accepts$1, bool, $Types*, $Symtab*, $Type*)},
+	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Infer$InferenceStep$3, solve, $Type*, $Type$UndetVar*, $InferenceContext*)},
 	{}
 };
 

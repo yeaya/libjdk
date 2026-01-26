@@ -20,8 +20,8 @@ namespace java {
 		namespace logging {
 
 $MethodInfo _LogManager$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LogManager$1::*)()>(&LogManager$1::init$))},
-	{"run", "()Ljava/util/logging/LogManager;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(LogManager$1, init$, void)},
+	{"run", "()Ljava/util/logging/LogManager;", nullptr, $PUBLIC, $virtualMethod(LogManager$1, run, $Object*)},
 	{}
 };
 

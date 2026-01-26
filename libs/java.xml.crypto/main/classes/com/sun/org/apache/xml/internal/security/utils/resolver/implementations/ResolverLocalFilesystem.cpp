@@ -51,11 +51,11 @@ $FieldInfo _ResolverLocalFilesystem_FieldInfo_[] = {
 };
 
 $MethodInfo _ResolverLocalFilesystem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResolverLocalFilesystem::*)()>(&ResolverLocalFilesystem::init$))},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, nullptr, "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
-	{"getNewURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URI*(*)($String*,$String*)>(&ResolverLocalFilesystem::getNewURI)), "java.net.URISyntaxException"},
-	{"translateUriToFilename", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&ResolverLocalFilesystem::translateUriToFilename))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResolverLocalFilesystem, init$, void)},
+	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC, $virtualMethod(ResolverLocalFilesystem, engineCanResolveURI, bool, $ResourceResolverContext*)},
+	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ResolverLocalFilesystem, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+	{"getNewURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URI;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverLocalFilesystem, getNewURI, $URI*, $String*, $String*), "java.net.URISyntaxException"},
+	{"translateUriToFilename", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResolverLocalFilesystem, translateUriToFilename, $String*, $String*)},
 	{}
 };
 

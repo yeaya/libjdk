@@ -42,12 +42,12 @@ $FieldInfo _NotificationEmitterSupport_FieldInfo_[] = {
 
 $MethodInfo _NotificationEmitterSupport_MethodInfo_[] = {
 	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(NotificationEmitterSupport::*)()>(&NotificationEmitterSupport::init$))},
-	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"hasListeners", "()Z", nullptr, $PUBLIC},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, nullptr, "javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "javax.management.ListenerNotFoundException"},
-	{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(NotificationEmitterSupport, init$, void)},
+	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*)},
+	{"hasListeners", "()Z", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, hasListeners, bool)},
+	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
+	{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, removeNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
+	{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC, $virtualMethod(NotificationEmitterSupport, sendNotification, void, $Notification*)},
 	{}
 };
 

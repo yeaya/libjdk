@@ -74,11 +74,11 @@ $FieldInfo _InitialToken_FieldInfo_[] = {
 };
 
 $MethodInfo _InitialToken_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(InitialToken::*)()>(&InitialToken::init$))},
-	{"computeChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(InitialToken::*)($ChannelBinding*)>(&InitialToken::computeChannelBinding)), "org.ietf.jgss.GSSException"},
-	{"encode", "()[B", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"getAddrBytes", "(Ljava/net/InetAddress;)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(InitialToken::*)($InetAddress*)>(&InitialToken::getAddrBytes)), "org.ietf.jgss.GSSException"},
-	{"getAddrType", "(Ljava/net/InetAddress;I)I", nullptr, $PRIVATE, $method(static_cast<int32_t(InitialToken::*)($InetAddress*,int32_t)>(&InitialToken::getAddrType))},
+	{"<init>", "()V", nullptr, 0, $method(InitialToken, init$, void)},
+	{"computeChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)[B", nullptr, $PRIVATE, $method(InitialToken, computeChannelBinding, $bytes*, $ChannelBinding*), "org.ietf.jgss.GSSException"},
+	{"encode", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InitialToken, encode, $bytes*), "java.io.IOException"},
+	{"getAddrBytes", "(Ljava/net/InetAddress;)[B", nullptr, $PRIVATE, $method(InitialToken, getAddrBytes, $bytes*, $InetAddress*), "org.ietf.jgss.GSSException"},
+	{"getAddrType", "(Ljava/net/InetAddress;I)I", nullptr, $PRIVATE, $method(InitialToken, getAddrType, int32_t, $InetAddress*, int32_t)},
 	{}
 };
 

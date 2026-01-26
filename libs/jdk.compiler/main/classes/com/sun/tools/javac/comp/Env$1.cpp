@@ -27,10 +27,10 @@ $FieldInfo _Env$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Env$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Env;)V", nullptr, 0, $method(static_cast<void(Env$1::*)($Env*)>(&Env$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Env;)V", nullptr, 0, $method(Env$1, init$, void, $Env*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Env$1, hasNext, bool)},
+	{"next", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<TA;>;", $PUBLIC, $virtualMethod(Env$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Env$1, remove, void)},
 	{}
 };
 

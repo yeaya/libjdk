@@ -28,10 +28,10 @@ $FieldInfo _MarshalledObject$MarshalledObjectOutputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _MarshalledObject$MarshalledObjectOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(static_cast<void(MarshalledObject$MarshalledObjectOutputStream::*)($OutputStream*,$OutputStream*)>(&MarshalledObject$MarshalledObjectOutputStream::init$)), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"hadAnnotations", "()Z", nullptr, 0},
-	{"writeLocation", "(Ljava/lang/String;)V", nullptr, $PROTECTED, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/io/OutputStream;Ljava/io/OutputStream;)V", nullptr, 0, $method(MarshalledObject$MarshalledObjectOutputStream, init$, void, $OutputStream*, $OutputStream*), "java.io.IOException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalledObject$MarshalledObjectOutputStream, flush, void), "java.io.IOException"},
+	{"hadAnnotations", "()Z", nullptr, 0, $virtualMethod(MarshalledObject$MarshalledObjectOutputStream, hadAnnotations, bool)},
+	{"writeLocation", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MarshalledObject$MarshalledObjectOutputStream, writeLocation, void, $String*), "java.io.IOException"},
 	{}
 };
 

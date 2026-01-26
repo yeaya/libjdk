@@ -24,10 +24,10 @@ $FieldInfo _Types$UniqueType_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$UniqueType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(static_cast<void(Types$UniqueType::*)($Type*,$Types*)>(&Types$UniqueType::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Types$UniqueType, init$, void, $Type*, $Types*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$UniqueType, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Types$UniqueType, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Types$UniqueType, toString, $String*)},
 	{}
 };
 

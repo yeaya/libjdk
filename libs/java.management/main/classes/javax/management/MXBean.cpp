@@ -38,7 +38,7 @@ $Attribute _MXBean_DefaultValue_value0 = {
 };
 
 $MethodInfo _MXBean_MethodInfo_[] = {
-	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, nullptr, &_MXBean_DefaultValue_value0},
+	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MXBean, value, bool), nullptr, &_MXBean_DefaultValue_value0},
 	{}
 };
 

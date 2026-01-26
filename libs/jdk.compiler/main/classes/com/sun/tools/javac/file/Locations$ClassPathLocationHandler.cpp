@@ -39,11 +39,11 @@ $FieldInfo _Locations$ClassPathLocationHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _Locations$ClassPathLocationHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, 0, $method(static_cast<void(Locations$ClassPathLocationHandler::*)($Locations*)>(&Locations$ClassPathLocationHandler::init$))},
-	{"computePath", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED},
-	{"createPath", "()Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED},
-	{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0},
-	{"lazy", "()V", nullptr, $PRIVATE, $method(static_cast<void(Locations$ClassPathLocationHandler::*)()>(&Locations$ClassPathLocationHandler::lazy))},
+	{"<init>", "(Lcom/sun/tools/javac/file/Locations;)V", nullptr, 0, $method(Locations$ClassPathLocationHandler, init$, void, $Locations*)},
+	{"computePath", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED, $virtualMethod(Locations$ClassPathLocationHandler, computePath, $Locations$SearchPath*, $String*)},
+	{"createPath", "()Lcom/sun/tools/javac/file/Locations$SearchPath;", nullptr, $PROTECTED, $virtualMethod(Locations$ClassPathLocationHandler, createPath, $Locations$SearchPath*)},
+	{"getPaths", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/nio/file/Path;>;", 0, $virtualMethod(Locations$ClassPathLocationHandler, getPaths, $Collection*)},
+	{"lazy", "()V", nullptr, $PRIVATE, $method(Locations$ClassPathLocationHandler, lazy, void)},
 	{}
 };
 

@@ -25,10 +25,10 @@ $FieldInfo _MemoryPoolImpl$PoolSensor_FieldInfo_[] = {
 };
 
 $MethodInfo _MemoryPoolImpl$PoolSensor_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/MemoryPoolImpl;Lsun/management/MemoryPoolImpl;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(MemoryPoolImpl$PoolSensor::*)($MemoryPoolImpl*,$MemoryPoolImpl*,$String*)>(&MemoryPoolImpl$PoolSensor::init$))},
-	{"clearAction", "()V", nullptr, 0},
-	{"triggerAction", "(Ljava/lang/management/MemoryUsage;)V", nullptr, 0},
-	{"triggerAction", "()V", nullptr, 0},
+	{"<init>", "(Lsun/management/MemoryPoolImpl;Lsun/management/MemoryPoolImpl;Ljava/lang/String;)V", nullptr, 0, $method(MemoryPoolImpl$PoolSensor, init$, void, $MemoryPoolImpl*, $MemoryPoolImpl*, $String*)},
+	{"clearAction", "()V", nullptr, 0, $virtualMethod(MemoryPoolImpl$PoolSensor, clearAction, void)},
+	{"triggerAction", "(Ljava/lang/management/MemoryUsage;)V", nullptr, 0, $virtualMethod(MemoryPoolImpl$PoolSensor, triggerAction, void, $MemoryUsage*)},
+	{"triggerAction", "()V", nullptr, 0, $virtualMethod(MemoryPoolImpl$PoolSensor, triggerAction, void)},
 	{}
 };
 

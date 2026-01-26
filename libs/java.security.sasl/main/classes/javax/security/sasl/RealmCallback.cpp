@@ -18,8 +18,8 @@ $FieldInfo _RealmCallback_FieldInfo_[] = {
 };
 
 $MethodInfo _RealmCallback_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RealmCallback::*)($String*)>(&RealmCallback::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RealmCallback::*)($String*,$String*)>(&RealmCallback::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RealmCallback, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RealmCallback, init$, void, $String*, $String*)},
 	{}
 };
 

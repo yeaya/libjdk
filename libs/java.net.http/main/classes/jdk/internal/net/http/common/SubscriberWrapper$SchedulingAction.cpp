@@ -30,10 +30,10 @@ $FieldInfo _SubscriberWrapper$SchedulingAction_FieldInfo_[] = {
 };
 
 $MethodInfo _SubscriberWrapper$SchedulingAction_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$SubscriberWrapper$SchedulingActionArray*(*)()>(&SubscriberWrapper$SchedulingAction::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(SubscriberWrapper$SchedulingAction::*)($String*,int32_t)>(&SubscriberWrapper$SchedulingAction::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SubscriberWrapper$SchedulingAction*(*)($String*)>(&SubscriberWrapper$SchedulingAction::valueOf))},
-	{"values", "()[Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$SubscriberWrapper$SchedulingActionArray*(*)()>(&SubscriberWrapper$SchedulingAction::values))},
+	{"$values", "()[Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SubscriberWrapper$SchedulingAction, $values, $SubscriberWrapper$SchedulingActionArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SubscriberWrapper$SchedulingAction, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(SubscriberWrapper$SchedulingAction, valueOf, SubscriberWrapper$SchedulingAction*, $String*)},
+	{"values", "()[Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(SubscriberWrapper$SchedulingAction, values, $SubscriberWrapper$SchedulingActionArray*)},
 	{}
 };
 

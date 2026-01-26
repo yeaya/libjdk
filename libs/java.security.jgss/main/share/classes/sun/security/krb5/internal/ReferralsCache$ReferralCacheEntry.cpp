@@ -22,9 +22,9 @@ $FieldInfo _ReferralsCache$ReferralCacheEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _ReferralsCache$ReferralCacheEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/Credentials;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ReferralsCache$ReferralCacheEntry::*)($Credentials*,$String*)>(&ReferralsCache$ReferralCacheEntry::init$))},
-	{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, 0, $method(static_cast<$Credentials*(ReferralsCache$ReferralCacheEntry::*)()>(&ReferralsCache$ReferralCacheEntry::getCreds))},
-	{"getToRealm", "()Ljava/lang/String;", nullptr, 0, $method(static_cast<$String*(ReferralsCache$ReferralCacheEntry::*)()>(&ReferralsCache$ReferralCacheEntry::getToRealm))},
+	{"<init>", "(Lsun/security/krb5/Credentials;Ljava/lang/String;)V", nullptr, 0, $method(ReferralsCache$ReferralCacheEntry, init$, void, $Credentials*, $String*)},
+	{"getCreds", "()Lsun/security/krb5/Credentials;", nullptr, 0, $method(ReferralsCache$ReferralCacheEntry, getCreds, $Credentials*)},
+	{"getToRealm", "()Ljava/lang/String;", nullptr, 0, $method(ReferralsCache$ReferralCacheEntry, getToRealm, $String*)},
 	{}
 };
 

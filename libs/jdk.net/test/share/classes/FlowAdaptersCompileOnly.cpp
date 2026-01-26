@@ -78,8 +78,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$lambda$static$0::*)()>(&FlowAdaptersCompileOnly$$Lambda$lambda$static$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$lambda$static$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$lambda$static$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$0::classInfo$ = {
@@ -111,8 +111,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$lambda$static$1$1::*)()>(&FlowAdaptersCompileOnly$$Lambda$lambda$static$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$lambda$static$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$lambda$static$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -144,8 +144,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$lambda$static$2$2::*)()>(&FlowAdaptersCompileOnly$$Lambda$lambda$static$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$lambda$static$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$lambda$static$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$2$2::classInfo$ = {
@@ -177,8 +177,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$lambda$static$3$3::*)()>(&FlowAdaptersCompileOnly$$Lambda$lambda$static$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$lambda$static$3$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$lambda$static$3$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$3$3::classInfo$ = {
@@ -210,8 +210,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$8$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$lambda$static$8$4::*)()>(&FlowAdaptersCompileOnly$$Lambda$lambda$static$8$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$lambda$static$8$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$lambda$static$8$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$8$4::classInfo$ = {
@@ -243,8 +243,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$9$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$lambda$static$9$5::*)()>(&FlowAdaptersCompileOnly$$Lambda$lambda$static$9$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$lambda$static$9$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$lambda$static$9$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$9$5::classInfo$ = {
@@ -276,8 +276,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$10$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$lambda$static$10$6::*)()>(&FlowAdaptersCompileOnly$$Lambda$lambda$static$10$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$lambda$static$10$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$lambda$static$10$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$lambda$static$10$6::classInfo$ = {
@@ -309,8 +309,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$7::*)()>(&FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$7::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$7, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$7, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$7::classInfo$ = {
@@ -342,8 +342,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$8::*)()>(&FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$8::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$8, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$8, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$8::classInfo$ = {
@@ -375,8 +375,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$getIntegerX$9::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$getIntegerX$9::*)()>(&FlowAdaptersCompileOnly$$Lambda$getIntegerX$9::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$getIntegerX$9, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$getIntegerX$9, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$getIntegerX$9::classInfo$ = {
@@ -408,8 +408,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$getInteger$10::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$getInteger$10::*)()>(&FlowAdaptersCompileOnly$$Lambda$getInteger$10::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$getInteger$10, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$getInteger$10, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$getInteger$10::classInfo$ = {
@@ -441,8 +441,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$getNumber$11::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$getNumber$11::*)()>(&FlowAdaptersCompileOnly$$Lambda$getNumber$11::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$getNumber$11, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$getNumber$11, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$getNumber$11::classInfo$ = {
@@ -474,8 +474,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11$12::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11$12::*)()>(&FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11$12::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11$12, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11$12, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo FlowAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11$12::classInfo$ = {
@@ -504,20 +504,20 @@ $FieldInfo _FlowAdaptersCompileOnly_FieldInfo_[] = {
 };
 
 $MethodInfo _FlowAdaptersCompileOnly_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(FlowAdaptersCompileOnly::*)()>(&FlowAdaptersCompileOnly::init$))},
-	{"lambda$makesSureDifferentGenericFunctionSignaturesCompile$4", "(LFlowAdaptersCompileOnly$ListSubscriber;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($FlowAdaptersCompileOnly$ListSubscriber*)>(&FlowAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$4))},
-	{"lambda$makesSureDifferentGenericFunctionSignaturesCompile$5", "(LFlowAdaptersCompileOnly$ListSubscriber;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Number*(*)($FlowAdaptersCompileOnly$ListSubscriber*)>(&FlowAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$5))},
-	{"lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11", "(Ljava/lang/Object;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Number*(*)(Object$*)>(&FlowAdaptersCompileOnly::lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11))},
-	{"lambda$static$0", "(LFlowAdaptersCompileOnly$ListSubscriber;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($FlowAdaptersCompileOnly$ListSubscriber*)>(&FlowAdaptersCompileOnly::lambda$static$0))},
-	{"lambda$static$1", "(LFlowAdaptersCompileOnly$ListSubscriber;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Number*(*)($FlowAdaptersCompileOnly$ListSubscriber*)>(&FlowAdaptersCompileOnly::lambda$static$1))},
-	{"lambda$static$10", "(LFlowAdaptersCompileOnly$LongSubscriber;)Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)($FlowAdaptersCompileOnly$LongSubscriber*)>(&FlowAdaptersCompileOnly::lambda$static$10))},
-	{"lambda$static$2", "(LFlowAdaptersCompileOnly$ListSubscriberX;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($FlowAdaptersCompileOnly$ListSubscriberX*)>(&FlowAdaptersCompileOnly::lambda$static$2))},
-	{"lambda$static$3", "(LFlowAdaptersCompileOnly$ListSubscriberX;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Number*(*)($FlowAdaptersCompileOnly$ListSubscriberX*)>(&FlowAdaptersCompileOnly::lambda$static$3))},
-	{"lambda$static$8", "(LFlowAdaptersCompileOnly$NumberSubscriber;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Number*(*)($FlowAdaptersCompileOnly$NumberSubscriber*)>(&FlowAdaptersCompileOnly::lambda$static$8))},
-	{"lambda$static$9", "(LFlowAdaptersCompileOnly$IntegerSubscriber;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($FlowAdaptersCompileOnly$IntegerSubscriber*)>(&FlowAdaptersCompileOnly::lambda$static$9))},
-	{"makesSureDifferentGenericFunctionSignaturesCompile", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FlowAdaptersCompileOnly::makesSureDifferentGenericFunctionSignaturesCompile))},
-	{"makesSureDifferentGenericSignaturesCompile", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&FlowAdaptersCompileOnly::makesSureDifferentGenericSignaturesCompile))},
-	{"makesSureDifferentGenericSubscriberSignaturesCompile", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowAdaptersCompileOnly, init$, void)},
+	{"lambda$makesSureDifferentGenericFunctionSignaturesCompile$4", "(LFlowAdaptersCompileOnly$ListSubscriber;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FlowAdaptersCompileOnly, lambda$makesSureDifferentGenericFunctionSignaturesCompile$4, $Integer*, $FlowAdaptersCompileOnly$ListSubscriber*)},
+	{"lambda$makesSureDifferentGenericFunctionSignaturesCompile$5", "(LFlowAdaptersCompileOnly$ListSubscriber;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FlowAdaptersCompileOnly, lambda$makesSureDifferentGenericFunctionSignaturesCompile$5, $Number*, $FlowAdaptersCompileOnly$ListSubscriber*)},
+	{"lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11", "(Ljava/lang/Object;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FlowAdaptersCompileOnly, lambda$makesSureDifferentGenericSubscriberSignaturesCompile$11, $Number*, Object$*)},
+	{"lambda$static$0", "(LFlowAdaptersCompileOnly$ListSubscriber;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FlowAdaptersCompileOnly, lambda$static$0, $Integer*, $FlowAdaptersCompileOnly$ListSubscriber*)},
+	{"lambda$static$1", "(LFlowAdaptersCompileOnly$ListSubscriber;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FlowAdaptersCompileOnly, lambda$static$1, $Number*, $FlowAdaptersCompileOnly$ListSubscriber*)},
+	{"lambda$static$10", "(LFlowAdaptersCompileOnly$LongSubscriber;)Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FlowAdaptersCompileOnly, lambda$static$10, $Long*, $FlowAdaptersCompileOnly$LongSubscriber*)},
+	{"lambda$static$2", "(LFlowAdaptersCompileOnly$ListSubscriberX;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FlowAdaptersCompileOnly, lambda$static$2, $Integer*, $FlowAdaptersCompileOnly$ListSubscriberX*)},
+	{"lambda$static$3", "(LFlowAdaptersCompileOnly$ListSubscriberX;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FlowAdaptersCompileOnly, lambda$static$3, $Number*, $FlowAdaptersCompileOnly$ListSubscriberX*)},
+	{"lambda$static$8", "(LFlowAdaptersCompileOnly$NumberSubscriber;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FlowAdaptersCompileOnly, lambda$static$8, $Number*, $FlowAdaptersCompileOnly$NumberSubscriber*)},
+	{"lambda$static$9", "(LFlowAdaptersCompileOnly$IntegerSubscriber;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FlowAdaptersCompileOnly, lambda$static$9, $Integer*, $FlowAdaptersCompileOnly$IntegerSubscriber*)},
+	{"makesSureDifferentGenericFunctionSignaturesCompile", "()V", nullptr, $STATIC, $staticMethod(FlowAdaptersCompileOnly, makesSureDifferentGenericFunctionSignaturesCompile, void)},
+	{"makesSureDifferentGenericSignaturesCompile", "()V", nullptr, $STATIC, $staticMethod(FlowAdaptersCompileOnly, makesSureDifferentGenericSignaturesCompile, void)},
+	{"makesSureDifferentGenericSubscriberSignaturesCompile", "()V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly, makesSureDifferentGenericSubscriberSignaturesCompile, void), "java.lang.Exception"},
 	{}
 };
 

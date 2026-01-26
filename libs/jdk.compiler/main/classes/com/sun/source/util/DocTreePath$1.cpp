@@ -28,10 +28,10 @@ $FieldInfo _DocTreePath$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DocTreePath$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/util/DocTreePath;)V", nullptr, 0, $method(static_cast<void(DocTreePath$1::*)($DocTreePath*)>(&DocTreePath$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lcom/sun/source/doctree/DocTree;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/source/util/DocTreePath;)V", nullptr, 0, $method(DocTreePath$1, init$, void, $DocTreePath*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(DocTreePath$1, hasNext, bool)},
+	{"next", "()Lcom/sun/source/doctree/DocTree;", nullptr, $PUBLIC, $virtualMethod(DocTreePath$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(DocTreePath$1, remove, void)},
 	{}
 };
 

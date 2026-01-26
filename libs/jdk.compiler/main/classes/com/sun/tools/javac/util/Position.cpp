@@ -42,9 +42,9 @@ $FieldInfo _Position_FieldInfo_[] = {
 };
 
 $MethodInfo _Position_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Position::*)()>(&Position::init$))},
-	{"encodePosition", "(II)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)(int32_t,int32_t)>(&Position::encodePosition))},
-	{"makeLineMap", "([CIZ)Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Position$LineMap*(*)($chars*,int32_t,bool)>(&Position::makeLineMap))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Position, init$, void)},
+	{"encodePosition", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Position, encodePosition, int32_t, int32_t, int32_t)},
+	{"makeLineMap", "([CIZ)Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(Position, makeLineMap, $Position$LineMap*, $chars*, int32_t, bool)},
 	{}
 };
 

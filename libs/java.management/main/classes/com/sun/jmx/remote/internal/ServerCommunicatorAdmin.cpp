@@ -36,12 +36,12 @@ $FieldInfo _ServerCommunicatorAdmin_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerCommunicatorAdmin_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(ServerCommunicatorAdmin::*)(int64_t)>(&ServerCommunicatorAdmin::init$))},
-	{"doStop", "()V", nullptr, $PROTECTED | $ABSTRACT},
-	{"logtime", "(Ljava/lang/String;J)V", nullptr, $PRIVATE, $method(static_cast<void(ServerCommunicatorAdmin::*)($String*,int64_t)>(&ServerCommunicatorAdmin::logtime))},
-	{"reqIncoming", "()Z", nullptr, $PUBLIC},
-	{"rspOutgoing", "()Z", nullptr, $PUBLIC},
-	{"terminate", "()V", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(ServerCommunicatorAdmin, init$, void, int64_t)},
+	{"doStop", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ServerCommunicatorAdmin, doStop, void)},
+	{"logtime", "(Ljava/lang/String;J)V", nullptr, $PRIVATE, $method(ServerCommunicatorAdmin, logtime, void, $String*, int64_t)},
+	{"reqIncoming", "()Z", nullptr, $PUBLIC, $virtualMethod(ServerCommunicatorAdmin, reqIncoming, bool)},
+	{"rspOutgoing", "()Z", nullptr, $PUBLIC, $virtualMethod(ServerCommunicatorAdmin, rspOutgoing, bool)},
+	{"terminate", "()V", nullptr, $PUBLIC, $virtualMethod(ServerCommunicatorAdmin, terminate, void)},
 	{}
 };
 

@@ -30,17 +30,17 @@ $FieldInfo _ClientCodeWrapper$DiagnosticSourceUnwrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientCodeWrapper$DiagnosticSourceUnwrapper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(static_cast<void(ClientCodeWrapper$DiagnosticSourceUnwrapper::*)($ClientCodeWrapper*,$JCDiagnostic*)>(&ClientCodeWrapper$DiagnosticSourceUnwrapper::init$))},
-	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getColumnNumber", "()J", nullptr, $PUBLIC},
-	{"getEndPosition", "()J", nullptr, $PUBLIC},
-	{"getKind", "()Ljavax/tools/Diagnostic$Kind;", nullptr, $PUBLIC},
-	{"getLineNumber", "()J", nullptr, $PUBLIC},
-	{"getMessage", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getPosition", "()J", nullptr, $PUBLIC},
-	{"getSource", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC},
-	{"getStartPosition", "()J", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/ClientCodeWrapper;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(ClientCodeWrapper$DiagnosticSourceUnwrapper, init$, void, $ClientCodeWrapper*, $JCDiagnostic*)},
+	{"getCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$DiagnosticSourceUnwrapper, getCode, $String*)},
+	{"getColumnNumber", "()J", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$DiagnosticSourceUnwrapper, getColumnNumber, int64_t)},
+	{"getEndPosition", "()J", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$DiagnosticSourceUnwrapper, getEndPosition, int64_t)},
+	{"getKind", "()Ljavax/tools/Diagnostic$Kind;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$DiagnosticSourceUnwrapper, getKind, $Diagnostic$Kind*)},
+	{"getLineNumber", "()J", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$DiagnosticSourceUnwrapper, getLineNumber, int64_t)},
+	{"getMessage", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$DiagnosticSourceUnwrapper, getMessage, $String*, $Locale*)},
+	{"getPosition", "()J", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$DiagnosticSourceUnwrapper, getPosition, int64_t)},
+	{"getSource", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$DiagnosticSourceUnwrapper, getSource, $Object*)},
+	{"getStartPosition", "()J", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$DiagnosticSourceUnwrapper, getStartPosition, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClientCodeWrapper$DiagnosticSourceUnwrapper, toString, $String*)},
 	{}
 };
 

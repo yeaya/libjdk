@@ -77,8 +77,8 @@ $FieldInfo ClassReader$CompleterDeproxy$$Lambda$lambda$complete$0::fieldInfos[3]
 	{}
 };
 $MethodInfo ClassReader$CompleterDeproxy$$Lambda$lambda$complete$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader$CompleterDeproxy;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$CompleterDeproxy$$Lambda$lambda$complete$0::*)(ClassReader$CompleterDeproxy*,$Exception*)>(&ClassReader$CompleterDeproxy$$Lambda$lambda$complete$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader$CompleterDeproxy;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ClassReader$CompleterDeproxy$$Lambda$lambda$complete$0, init$, void, ClassReader$CompleterDeproxy*, $Exception*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$CompleterDeproxy$$Lambda$lambda$complete$0, get, $Object*)},
 	{}
 };
 $ClassInfo ClassReader$CompleterDeproxy$$Lambda$lambda$complete$0::classInfo$ = {
@@ -104,9 +104,9 @@ $FieldInfo _ClassReader$CompleterDeproxy_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$CompleterDeproxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$CompleterDeproxy::*)($ClassReader*,$Symbol$ClassSymbol*,$ClassReader$CompoundAnnotationProxy*,$ClassReader$CompoundAnnotationProxy*)>(&ClassReader$CompleterDeproxy::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC},
-	{"lambda$complete$0", "(Ljava/lang/Exception;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$JCDiagnostic*(ClassReader$CompleterDeproxy::*)($Exception*)>(&ClassReader$CompleterDeproxy::lambda$complete$0))},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;)V", nullptr, $PUBLIC, $method(ClassReader$CompleterDeproxy, init$, void, $ClassReader*, $Symbol$ClassSymbol*, $ClassReader$CompoundAnnotationProxy*, $ClassReader$CompoundAnnotationProxy*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$CompleterDeproxy, complete, void, $Symbol$ClassSymbol*)},
+	{"lambda$complete$0", "(Ljava/lang/Exception;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassReader$CompleterDeproxy, lambda$complete$0, $JCDiagnostic*, $Exception*)},
 	{}
 };
 

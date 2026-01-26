@@ -7,9 +7,10 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 
 $MethodInfo _DummySecureWebSocketServer$WebSocketChannel$Writer_MethodInfo_[] = {
-	{"write", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
+	{"write", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DummySecureWebSocketServer$WebSocketChannel$Writer, write, void, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

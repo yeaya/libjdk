@@ -48,8 +48,8 @@ $FieldInfo _RequiredModelMBean$2_FieldInfo_[] = {
 };
 
 $MethodInfo _RequiredModelMBean$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/modelmbean/RequiredModelMBean;[Ljava/lang/String;Z[Ljava/lang/Class;Ljava/lang/ClassLoader;[Ljavax/management/ReflectionException;)V", "()V", 0, $method(static_cast<void(RequiredModelMBean$2::*)($RequiredModelMBean*,$StringArray*,bool,$ClassArray*,$ClassLoader*,$ReflectionExceptionArray*)>(&RequiredModelMBean$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/modelmbean/RequiredModelMBean;[Ljava/lang/String;Z[Ljava/lang/Class;Ljava/lang/ClassLoader;[Ljavax/management/ReflectionException;)V", "()V", 0, $method(RequiredModelMBean$2, init$, void, $RequiredModelMBean*, $StringArray*, bool, $ClassArray*, $ClassLoader*, $ReflectionExceptionArray*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(RequiredModelMBean$2, run, $Object*)},
 	{}
 };
 

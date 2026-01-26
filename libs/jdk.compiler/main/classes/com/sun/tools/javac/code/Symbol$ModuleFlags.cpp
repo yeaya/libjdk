@@ -35,11 +35,11 @@ $FieldInfo _Symbol$ModuleFlags_FieldInfo_[] = {
 };
 
 $MethodInfo _Symbol$ModuleFlags_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleFlags;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Symbol$ModuleFlagsArray*(*)()>(&Symbol$ModuleFlags::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(Symbol$ModuleFlags::*)($String*,int32_t,int32_t)>(&Symbol$ModuleFlags::init$))},
-	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleFlags;>;)I", $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($Set*)>(&Symbol$ModuleFlags::value))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$ModuleFlags;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Symbol$ModuleFlags*(*)($String*)>(&Symbol$ModuleFlags::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleFlags;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Symbol$ModuleFlagsArray*(*)()>(&Symbol$ModuleFlags::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleFlags;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Symbol$ModuleFlags, $values, $Symbol$ModuleFlagsArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Symbol$ModuleFlags, init$, void, $String*, int32_t, int32_t)},
+	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ModuleFlags;>;)I", $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleFlags, value, int32_t, $Set*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Symbol$ModuleFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleFlags, valueOf, Symbol$ModuleFlags*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Symbol$ModuleFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$ModuleFlags, values, $Symbol$ModuleFlagsArray*)},
 	{}
 };
 

@@ -32,15 +32,15 @@ $FieldInfo _JavacParser$BasicErrorRecoveryAction_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacParser$BasicErrorRecoveryAction_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavacParser$BasicErrorRecoveryActionArray*(*)()>(&JavacParser$BasicErrorRecoveryAction::$values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$BasicErrorRecoveryAction, $values, $JavacParser$BasicErrorRecoveryActionArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(JavacParser$BasicErrorRecoveryAction::*)($String*,int32_t)>(&JavacParser$BasicErrorRecoveryAction::init$))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacParser$BasicErrorRecoveryAction, init$, void, $String*, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavacParser$BasicErrorRecoveryAction*(*)($String*)>(&JavacParser$BasicErrorRecoveryAction::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavacParser$BasicErrorRecoveryActionArray*(*)()>(&JavacParser$BasicErrorRecoveryAction::values))},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$BasicErrorRecoveryAction, valueOf, JavacParser$BasicErrorRecoveryAction*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$BasicErrorRecoveryAction, values, $JavacParser$BasicErrorRecoveryActionArray*)},
 	{}
 };
 

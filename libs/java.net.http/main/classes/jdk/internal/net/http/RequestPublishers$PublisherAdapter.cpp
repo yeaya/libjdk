@@ -26,9 +26,9 @@ $FieldInfo _RequestPublishers$PublisherAdapter_FieldInfo_[] = {
 };
 
 $MethodInfo _RequestPublishers$PublisherAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Publisher;J)V", "(Ljava/util/concurrent/Flow$Publisher<+Ljava/nio/ByteBuffer;>;J)V", $PUBLIC, $method(static_cast<void(RequestPublishers$PublisherAdapter::*)($Flow$Publisher*,int64_t)>(&RequestPublishers$PublisherAdapter::init$))},
-	{"contentLength", "()J", nullptr, $PUBLIC | $FINAL},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/util/concurrent/Flow$Publisher;J)V", "(Ljava/util/concurrent/Flow$Publisher<+Ljava/nio/ByteBuffer;>;J)V", $PUBLIC, $method(RequestPublishers$PublisherAdapter, init$, void, $Flow$Publisher*, int64_t)},
+	{"contentLength", "()J", nullptr, $PUBLIC | $FINAL, $virtualMethod(RequestPublishers$PublisherAdapter, contentLength, int64_t)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC | $FINAL, $virtualMethod(RequestPublishers$PublisherAdapter, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

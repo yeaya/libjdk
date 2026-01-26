@@ -23,8 +23,8 @@ $FieldInfo _MultiExchange$CancelableRef_FieldInfo_[] = {
 };
 
 $MethodInfo _MultiExchange$CancelableRef_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/Cancelable;)V", nullptr, 0, $method(static_cast<void(MultiExchange$CancelableRef::*)($Cancelable*)>(&MultiExchange$CancelableRef::init$))},
-	{"cancel", "(Z)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/Cancelable;)V", nullptr, 0, $method(MultiExchange$CancelableRef, init$, void, $Cancelable*)},
+	{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(MultiExchange$CancelableRef, cancel, bool, bool)},
 	{}
 };
 

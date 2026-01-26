@@ -21,11 +21,11 @@ namespace java {
 		namespace logging {
 
 $MethodInfo _Formatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Formatter::*)()>(&Formatter::init$))},
-	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"formatMessage", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getHead", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getTail", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Formatter, init$, void)},
+	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formatter, format, $String*, $LogRecord*)},
+	{"formatMessage", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter, formatMessage, $String*, $LogRecord*)},
+	{"getHead", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter, getHead, $String*, $Handler*)},
+	{"getTail", "(Ljava/util/logging/Handler;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter, getTail, $String*, $Handler*)},
 	{}
 };
 

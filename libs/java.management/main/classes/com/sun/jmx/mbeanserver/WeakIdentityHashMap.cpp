@@ -32,14 +32,14 @@ $FieldInfo _WeakIdentityHashMap_FieldInfo_[] = {
 };
 
 $MethodInfo _WeakIdentityHashMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(WeakIdentityHashMap::*)()>(&WeakIdentityHashMap::init$))},
-	{"expunge", "()V", nullptr, $PRIVATE, $method(static_cast<void(WeakIdentityHashMap::*)()>(&WeakIdentityHashMap::expunge))},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", 0},
-	{"make", "()Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap<TK;TV;>;", $STATIC, $method(static_cast<WeakIdentityHashMap*(*)()>(&WeakIdentityHashMap::make))},
-	{"makeReference", "(Ljava/lang/Object;)Ljava/lang/ref/WeakReference;", "(TK;)Ljava/lang/ref/WeakReference<TK;>;", $PRIVATE, $method(static_cast<$WeakReference*(WeakIdentityHashMap::*)(Object$*)>(&WeakIdentityHashMap::makeReference))},
-	{"makeReference", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)Ljava/lang/ref/WeakReference;", "(TK;Ljava/lang/ref/ReferenceQueue<TK;>;)Ljava/lang/ref/WeakReference<TK;>;", $PRIVATE, $method(static_cast<$WeakReference*(WeakIdentityHashMap::*)(Object$*,$ReferenceQueue*)>(&WeakIdentityHashMap::makeReference))},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(WeakIdentityHashMap, init$, void)},
+	{"expunge", "()V", nullptr, $PRIVATE, $method(WeakIdentityHashMap, expunge, void)},
+	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", 0, $virtualMethod(WeakIdentityHashMap, get, $Object*, Object$*)},
+	{"make", "()Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Lcom/sun/jmx/mbeanserver/WeakIdentityHashMap<TK;TV;>;", $STATIC, $staticMethod(WeakIdentityHashMap, make, WeakIdentityHashMap*)},
+	{"makeReference", "(Ljava/lang/Object;)Ljava/lang/ref/WeakReference;", "(TK;)Ljava/lang/ref/WeakReference<TK;>;", $PRIVATE, $method(WeakIdentityHashMap, makeReference, $WeakReference*, Object$*)},
+	{"makeReference", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)Ljava/lang/ref/WeakReference;", "(TK;Ljava/lang/ref/ReferenceQueue<TK;>;)Ljava/lang/ref/WeakReference<TK;>;", $PRIVATE, $method(WeakIdentityHashMap, makeReference, $WeakReference*, Object$*, $ReferenceQueue*)},
+	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, put, $Object*, Object$*, Object$*)},
+	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TV;", $PUBLIC, $virtualMethod(WeakIdentityHashMap, remove, $Object*, Object$*)},
 	{}
 };
 

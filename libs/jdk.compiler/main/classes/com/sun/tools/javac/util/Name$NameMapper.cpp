@@ -14,7 +14,7 @@ namespace com {
 				namespace util {
 
 $MethodInfo _Name$NameMapper_MethodInfo_[] = {
-	{"map", "([BII)Ljava/lang/Object;", "([BII)TX;", $PUBLIC | $ABSTRACT},
+	{"map", "([BII)Ljava/lang/Object;", "([BII)TX;", $PUBLIC | $ABSTRACT, $virtualMethod(Name$NameMapper, map, $Object*, $bytes*, int32_t, int32_t)},
 	{}
 };
 

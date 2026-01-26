@@ -31,10 +31,10 @@ $FieldInfo _DigestClientId_FieldInfo_[] = {
 };
 
 $MethodInfo _DigestClientId_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable;)V", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable<**>;)V", 0, $method(static_cast<void(DigestClientId::*)(int32_t,$String*,int32_t,$String*,$ControlArray*,$OutputStream*,$String*,$String*,Object$*,$Hashtable*)>(&DigestClientId::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable;)V", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable<**>;)V", 0, $method(DigestClientId, init$, void, int32_t, $String*, int32_t, $String*, $ControlArray*, $OutputStream*, $String*, $String*, Object$*, $Hashtable*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DigestClientId, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DigestClientId, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DigestClientId, toString, $String*)},
 	{}
 };
 

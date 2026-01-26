@@ -18,8 +18,8 @@ $FieldInfo _NoSuchAttributeException_FieldInfo_[] = {
 };
 
 $MethodInfo _NoSuchAttributeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchAttributeException::*)($String*)>(&NoSuchAttributeException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NoSuchAttributeException::*)()>(&NoSuchAttributeException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchAttributeException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchAttributeException, init$, void)},
 	{}
 };
 

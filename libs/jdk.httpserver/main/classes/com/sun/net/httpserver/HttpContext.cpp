@@ -7,8 +7,13 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
+using $Authenticator = ::com::sun::net::httpserver::Authenticator;
+using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
+using $HttpServer = ::com::sun::net::httpserver::HttpServer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -16,15 +21,15 @@ namespace com {
 			namespace httpserver {
 
 $MethodInfo _HttpContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(HttpContext::*)()>(&HttpContext::init$))},
-	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $ABSTRACT},
-	{"getAuthenticator", "()Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", $PUBLIC | $ABSTRACT},
-	{"getHandler", "()Lcom/sun/net/httpserver/HttpHandler;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getServer", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setAuthenticator", "(Lcom/sun/net/httpserver/Authenticator;)Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"setHandler", "(Lcom/sun/net/httpserver/HttpHandler;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(HttpContext, init$, void)},
+	{"getAttributes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpContext, getAttributes, $Map*)},
+	{"getAuthenticator", "()Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpContext, getAuthenticator, $Authenticator*)},
+	{"getFilters", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/net/httpserver/Filter;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpContext, getFilters, $List*)},
+	{"getHandler", "()Lcom/sun/net/httpserver/HttpHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpContext, getHandler, $HttpHandler*)},
+	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpContext, getPath, $String*)},
+	{"getServer", "()Lcom/sun/net/httpserver/HttpServer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpContext, getServer, $HttpServer*)},
+	{"setAuthenticator", "(Lcom/sun/net/httpserver/Authenticator;)Lcom/sun/net/httpserver/Authenticator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpContext, setAuthenticator, $Authenticator*, $Authenticator*)},
+	{"setHandler", "(Lcom/sun/net/httpserver/HttpHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpContext, setHandler, void, $HttpHandler*)},
 	{}
 };
 

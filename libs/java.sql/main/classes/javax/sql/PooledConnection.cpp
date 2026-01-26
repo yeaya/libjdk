@@ -7,17 +7,20 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Connection = ::java::sql::Connection;
+using $ConnectionEventListener = ::javax::sql::ConnectionEventListener;
+using $StatementEventListener = ::javax::sql::StatementEventListener;
 
 namespace javax {
 	namespace sql {
 
 $MethodInfo _PooledConnection_MethodInfo_[] = {
-	{"addConnectionEventListener", "(Ljavax/sql/ConnectionEventListener;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"addStatementEventListener", "(Ljavax/sql/StatementEventListener;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"removeConnectionEventListener", "(Ljavax/sql/ConnectionEventListener;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"removeStatementEventListener", "(Ljavax/sql/StatementEventListener;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"addConnectionEventListener", "(Ljavax/sql/ConnectionEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, addConnectionEventListener, void, $ConnectionEventListener*)},
+	{"addStatementEventListener", "(Ljavax/sql/StatementEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, addStatementEventListener, void, $StatementEventListener*)},
+	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, close, void), "java.sql.SQLException"},
+	{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, getConnection, $Connection*), "java.sql.SQLException"},
+	{"removeConnectionEventListener", "(Ljavax/sql/ConnectionEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, removeConnectionEventListener, void, $ConnectionEventListener*)},
+	{"removeStatementEventListener", "(Ljavax/sql/StatementEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, removeStatementEventListener, void, $StatementEventListener*)},
 	{}
 };
 

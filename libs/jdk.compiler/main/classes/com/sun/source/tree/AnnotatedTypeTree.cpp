@@ -1,10 +1,13 @@
 #include <com/sun/source/tree/AnnotatedTypeTree.h>
 
+#include <com/sun/source/tree/ExpressionTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -12,8 +15,8 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _AnnotatedTypeTree_MethodInfo_[] = {
-	{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT},
-	{"getUnderlyingType", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAnnotations", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/AnnotationTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedTypeTree, getAnnotations, $List*)},
+	{"getUnderlyingType", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotatedTypeTree, getUnderlyingType, $ExpressionTree*)},
 	{}
 };
 

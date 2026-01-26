@@ -3,6 +3,7 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
@@ -10,7 +11,7 @@ namespace java {
 		namespace server {
 
 $MethodInfo _RMIFailureHandler_MethodInfo_[] = {
-	{"failure", "(Ljava/lang/Exception;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"failure", "(Ljava/lang/Exception;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIFailureHandler, failure, bool, $Exception*)},
 	{}
 };
 

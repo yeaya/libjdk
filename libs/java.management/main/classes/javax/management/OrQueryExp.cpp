@@ -29,13 +29,13 @@ $MethodInfo _OrQueryExp_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OrQueryExp::*)()>(&OrQueryExp::init$))},
-	{"<init>", "(Ljavax/management/QueryExp;Ljavax/management/QueryExp;)V", nullptr, $PUBLIC, $method(static_cast<void(OrQueryExp::*)($QueryExp*,$QueryExp*)>(&OrQueryExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getLeftExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC},
-	{"getRightExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OrQueryExp, init$, void)},
+	{"<init>", "(Ljavax/management/QueryExp;Ljavax/management/QueryExp;)V", nullptr, $PUBLIC, $method(OrQueryExp, init$, void, $QueryExp*, $QueryExp*)},
+	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"getLeftExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, getLeftExp, $QueryExp*)},
+	{"getRightExp", "()Ljavax/management/QueryExp;", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, getRightExp, $QueryExp*)},
 	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OrQueryExp, toString, $String*)},
 	{}
 };
 

@@ -19,8 +19,8 @@ $FieldInfo _Logger$SystemLoggerHelper$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Logger$SystemLoggerHelper$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(Logger$SystemLoggerHelper$1::*)($String*)>(&Logger$SystemLoggerHelper$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(Logger$SystemLoggerHelper$1, init$, void, $String*)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Logger$SystemLoggerHelper$1, run, $Object*)},
 	{}
 };
 

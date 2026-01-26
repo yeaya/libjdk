@@ -24,10 +24,10 @@ $FieldInfo _MockListener$OnBinary_FieldInfo_[] = {
 };
 
 $MethodInfo _MockListener$OnBinary_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $method(static_cast<void(MockListener$OnBinary::*)($WebSocket*,$ByteBuffer*,bool)>(&MockListener$OnBinary::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $method(MockListener$OnBinary, init$, void, $WebSocket*, $ByteBuffer*, bool)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnBinary, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnBinary, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnBinary, toString, $String*)},
 	{}
 };
 

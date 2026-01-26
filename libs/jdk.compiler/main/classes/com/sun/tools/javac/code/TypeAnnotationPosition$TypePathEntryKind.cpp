@@ -33,10 +33,10 @@ $FieldInfo _TypeAnnotationPosition$TypePathEntryKind_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeAnnotationPosition$TypePathEntryKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$TypeAnnotationPosition$TypePathEntryKindArray*(*)()>(&TypeAnnotationPosition$TypePathEntryKind::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(TypeAnnotationPosition$TypePathEntryKind::*)($String*,int32_t,int32_t)>(&TypeAnnotationPosition$TypePathEntryKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeAnnotationPosition$TypePathEntryKind*(*)($String*)>(&TypeAnnotationPosition$TypePathEntryKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$TypeAnnotationPosition$TypePathEntryKindArray*(*)()>(&TypeAnnotationPosition$TypePathEntryKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeAnnotationPosition$TypePathEntryKind, $values, $TypeAnnotationPosition$TypePathEntryKindArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(TypeAnnotationPosition$TypePathEntryKind, init$, void, $String*, int32_t, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition$TypePathEntryKind, valueOf, TypeAnnotationPosition$TypePathEntryKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition$TypePathEntryKind, values, $TypeAnnotationPosition$TypePathEntryKindArray*)},
 	{}
 };
 

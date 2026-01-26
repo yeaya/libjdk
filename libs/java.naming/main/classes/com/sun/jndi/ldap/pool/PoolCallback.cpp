@@ -3,6 +3,7 @@
 #include <com/sun/jndi/ldap/pool/PooledConnection.h>
 #include <jcpp.h>
 
+using $PooledConnection = ::com::sun::jndi::ldap::pool::PooledConnection;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -13,8 +14,8 @@ namespace com {
 				namespace pool {
 
 $MethodInfo _PoolCallback_MethodInfo_[] = {
-	{"releasePooledConnection", "(Lcom/sun/jndi/ldap/pool/PooledConnection;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"removePooledConnection", "(Lcom/sun/jndi/ldap/pool/PooledConnection;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"releasePooledConnection", "(Lcom/sun/jndi/ldap/pool/PooledConnection;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolCallback, releasePooledConnection, bool, $PooledConnection*)},
+	{"removePooledConnection", "(Lcom/sun/jndi/ldap/pool/PooledConnection;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolCallback, removePooledConnection, bool, $PooledConnection*)},
 	{}
 };
 

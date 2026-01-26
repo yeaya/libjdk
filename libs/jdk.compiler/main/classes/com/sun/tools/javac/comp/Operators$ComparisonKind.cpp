@@ -30,10 +30,10 @@ $FieldInfo _Operators$ComparisonKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators$ComparisonKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Operators$ComparisonKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Operators$ComparisonKindArray*(*)()>(&Operators$ComparisonKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Operators$ComparisonKind::*)($String*,int32_t)>(&Operators$ComparisonKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Operators$ComparisonKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Operators$ComparisonKind*(*)($String*)>(&Operators$ComparisonKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Operators$ComparisonKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Operators$ComparisonKindArray*(*)()>(&Operators$ComparisonKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Operators$ComparisonKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Operators$ComparisonKind, $values, $Operators$ComparisonKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Operators$ComparisonKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Operators$ComparisonKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Operators$ComparisonKind, valueOf, Operators$ComparisonKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Operators$ComparisonKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Operators$ComparisonKind, values, $Operators$ComparisonKindArray*)},
 	{}
 };
 

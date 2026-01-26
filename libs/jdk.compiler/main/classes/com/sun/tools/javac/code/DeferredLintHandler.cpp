@@ -44,12 +44,12 @@ $FieldInfo _DeferredLintHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredLintHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(DeferredLintHandler::*)($Context*)>(&DeferredLintHandler::init$))},
-	{"flush", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC},
-	{"immediate", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/DeferredLintHandler;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DeferredLintHandler*(*)($Context*)>(&DeferredLintHandler::instance))},
-	{"report", "(Lcom/sun/tools/javac/code/DeferredLintHandler$LintLogger;)V", nullptr, $PUBLIC},
-	{"setPos", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(DeferredLintHandler, init$, void, $Context*)},
+	{"flush", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, flush, void, $JCDiagnostic$DiagnosticPosition*)},
+	{"immediate", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, immediate, $JCDiagnostic$DiagnosticPosition*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/DeferredLintHandler;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredLintHandler, instance, DeferredLintHandler*, $Context*)},
+	{"report", "(Lcom/sun/tools/javac/code/DeferredLintHandler$LintLogger;)V", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, report, void, $DeferredLintHandler$LintLogger*)},
+	{"setPos", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(DeferredLintHandler, setPos, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$DiagnosticPosition*)},
 	{}
 };
 

@@ -34,13 +34,13 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _Utils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Utils::*)()>(&Utils::init$))},
-	{"getBoolean", "(Ljavax/xml/crypto/XMLCryptoContext;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($XMLCryptoContext*,$String*)>(&Utils::getBoolean))},
-	{"parseIdFromSameDocumentURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&Utils::parseIdFromSameDocumentURI))},
-	{"readBytesFromStream", "(Ljava/io/InputStream;)[B", nullptr, $PUBLIC | $STATIC, $method(static_cast<$bytes*(*)($InputStream*)>(&Utils::readBytesFromStream)), "java.io.IOException"},
-	{"sameDocumentURI", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&Utils::sameDocumentURI))},
-	{"secureValidation", "(Ljavax/xml/crypto/XMLCryptoContext;)Z", nullptr, $STATIC, $method(static_cast<bool(*)($XMLCryptoContext*)>(&Utils::secureValidation))},
-	{"toNodeSet", "(Ljava/util/Iterator;)Ljava/util/Set;", "(Ljava/util/Iterator<*>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $STATIC, $method(static_cast<$Set*(*)($Iterator*)>(&Utils::toNodeSet))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Utils, init$, void)},
+	{"getBoolean", "(Ljavax/xml/crypto/XMLCryptoContext;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Utils, getBoolean, bool, $XMLCryptoContext*, $String*)},
+	{"parseIdFromSameDocumentURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, parseIdFromSameDocumentURI, $String*, $String*)},
+	{"readBytesFromStream", "(Ljava/io/InputStream;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, readBytesFromStream, $bytes*, $InputStream*), "java.io.IOException"},
+	{"sameDocumentURI", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, sameDocumentURI, bool, $String*)},
+	{"secureValidation", "(Ljavax/xml/crypto/XMLCryptoContext;)Z", nullptr, $STATIC, $staticMethod(Utils, secureValidation, bool, $XMLCryptoContext*)},
+	{"toNodeSet", "(Ljava/util/Iterator;)Ljava/util/Set;", "(Ljava/util/Iterator<*>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $STATIC, $staticMethod(Utils, toNodeSet, $Set*, $Iterator*)},
 	{}
 };
 

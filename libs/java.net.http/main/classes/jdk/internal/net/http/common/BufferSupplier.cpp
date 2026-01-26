@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 
 namespace jdk {
 	namespace internal {
@@ -14,7 +15,7 @@ namespace jdk {
 
 $MethodInfo _BufferSupplier_MethodInfo_[] = {
 	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"recycle", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"recycle", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferSupplier, recycle, void, $ByteBuffer*)},
 	{}
 };
 

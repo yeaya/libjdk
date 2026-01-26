@@ -22,8 +22,8 @@ $FieldInfo _KeySelector$SingletonKeySelector$1_FieldInfo_[] = {
 };
 
 $MethodInfo _KeySelector$SingletonKeySelector$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/crypto/KeySelector$SingletonKeySelector;)V", nullptr, 0, $method(static_cast<void(KeySelector$SingletonKeySelector$1::*)($KeySelector$SingletonKeySelector*)>(&KeySelector$SingletonKeySelector$1::init$))},
-	{"getKey", "()Ljava/security/Key;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/xml/crypto/KeySelector$SingletonKeySelector;)V", nullptr, 0, $method(KeySelector$SingletonKeySelector$1, init$, void, $KeySelector$SingletonKeySelector*)},
+	{"getKey", "()Ljava/security/Key;", nullptr, $PUBLIC, $virtualMethod(KeySelector$SingletonKeySelector$1, getKey, $Key*)},
 	{}
 };
 

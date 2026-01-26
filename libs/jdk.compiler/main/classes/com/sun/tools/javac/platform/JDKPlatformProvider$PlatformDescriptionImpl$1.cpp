@@ -86,8 +86,8 @@ $FieldInfo JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::
 	{}
 };
 $MethodInfo JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1;Ljava/lang/Iterable;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::*)(JDKPlatformProvider$PlatformDescriptionImpl$1*,$Iterable*,$Set*)>(&JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl$1;Ljava/lang/Iterable;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, init$, void, JDKPlatformProvider$PlatformDescriptionImpl$1*, $Iterable*, $Set*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo JDKPlatformProvider$PlatformDescriptionImpl$1$$Lambda$lambda$list$0::classInfo$ = {
@@ -110,12 +110,12 @@ $FieldInfo _JDKPlatformProvider$PlatformDescriptionImpl$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JDKPlatformProvider$PlatformDescriptionImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl;Lcom/sun/tools/javac/util/Context;ZLjava/nio/charset/Charset;)V", nullptr, 0, $method(static_cast<void(JDKPlatformProvider$PlatformDescriptionImpl$1::*)($JDKPlatformProvider$PlatformDescriptionImpl*,$Context*,bool,$Charset*)>(&JDKPlatformProvider$PlatformDescriptionImpl$1::init$))},
-	{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC},
-	{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"lambda$list$0", "(Ljava/lang/Iterable;Ljava/util/Set;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterator*(JDKPlatformProvider$PlatformDescriptionImpl$1::*)($Iterable*,$Set*)>(&JDKPlatformProvider$PlatformDescriptionImpl$1::lambda$list$0))},
-	{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lcom/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl;Lcom/sun/tools/javac/util/Context;ZLjava/nio/charset/Charset;)V", nullptr, 0, $method(JDKPlatformProvider$PlatformDescriptionImpl$1, init$, void, $JDKPlatformProvider$PlatformDescriptionImpl*, $Context*, bool, $Charset*)},
+	{"getJavaFileForInput", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, getJavaFileForInput, $JavaFileObject*, $JavaFileManager$Location*, $String*, $JavaFileObject$Kind*), "java.io.IOException"},
+	{"hasLocation", "(Ljavax/tools/JavaFileManager$Location;)Z", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, hasLocation, bool, $JavaFileManager$Location*)},
+	{"inferBinaryName", "(Ljavax/tools/JavaFileManager$Location;Ljavax/tools/JavaFileObject;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, inferBinaryName, $String*, $JavaFileManager$Location*, $JavaFileObject*)},
+	{"lambda$list$0", "(Ljava/lang/Iterable;Ljava/util/Set;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(JDKPlatformProvider$PlatformDescriptionImpl$1, lambda$list$0, $Iterator*, $Iterable*, $Set*)},
+	{"list", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set;Z)Ljava/lang/Iterable;", "(Ljavax/tools/JavaFileManager$Location;Ljava/lang/String;Ljava/util/Set<Ljavax/tools/JavaFileObject$Kind;>;Z)Ljava/lang/Iterable<Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider$PlatformDescriptionImpl$1, list, $Iterable*, $JavaFileManager$Location*, $String*, $Set*, bool), "java.io.IOException"},
 	{}
 };
 

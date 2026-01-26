@@ -7,20 +7,25 @@
 #include <java/util/function/Supplier.h>
 #include <jcpp.h>
 
+using $DataFlavor = ::java::awt::datatransfer::DataFlavor;
+using $FlavorMap = ::java::awt::datatransfer::FlavorMap;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Runnable = ::java::lang::Runnable;
+using $LinkedHashSet = ::java::util::LinkedHashSet;
+using $Supplier = ::java::util::function::Supplier;
 
 namespace sun {
 	namespace datatransfer {
 
 $MethodInfo _DesktopDatatransferService_MethodInfo_[] = {
-	{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getFlavorMap", "(Ljava/util/function/Supplier;)Ljava/awt/datatransfer/FlavorMap;", "(Ljava/util/function/Supplier<Ljava/awt/datatransfer/FlavorMap;>;)Ljava/awt/datatransfer/FlavorMap;", $PUBLIC | $ABSTRACT},
-	{"getPlatformMappingsForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
-	{"getPlatformMappingsForNative", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $ABSTRACT},
-	{"invokeOnEventThread", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"isDesktopPresent", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"registerTextFlavorProperties", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"getDefaultUnicodeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopDatatransferService, getDefaultUnicodeEncoding, $String*)},
+	{"getFlavorMap", "(Ljava/util/function/Supplier;)Ljava/awt/datatransfer/FlavorMap;", "(Ljava/util/function/Supplier<Ljava/awt/datatransfer/FlavorMap;>;)Ljava/awt/datatransfer/FlavorMap;", $PUBLIC | $ABSTRACT, $virtualMethod(DesktopDatatransferService, getFlavorMap, $FlavorMap*, $Supplier*)},
+	{"getPlatformMappingsForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DesktopDatatransferService, getPlatformMappingsForFlavor, $LinkedHashSet*, $DataFlavor*)},
+	{"getPlatformMappingsForNative", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DesktopDatatransferService, getPlatformMappingsForNative, $LinkedHashSet*, $String*)},
+	{"invokeOnEventThread", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopDatatransferService, invokeOnEventThread, void, $Runnable*)},
+	{"isDesktopPresent", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopDatatransferService, isDesktopPresent, bool)},
+	{"registerTextFlavorProperties", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DesktopDatatransferService, registerTextFlavorProperties, void, $String*, $String*, $String*, $String*)},
 	{}
 };
 

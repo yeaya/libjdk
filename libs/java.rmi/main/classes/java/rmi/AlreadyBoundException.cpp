@@ -16,8 +16,8 @@ $FieldInfo _AlreadyBoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _AlreadyBoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AlreadyBoundException::*)()>(&AlreadyBoundException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AlreadyBoundException::*)($String*)>(&AlreadyBoundException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AlreadyBoundException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlreadyBoundException, init$, void, $String*)},
 	{}
 };
 

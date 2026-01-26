@@ -74,15 +74,15 @@ $FieldInfo _Lint_FieldInfo_[] = {
 };
 
 $MethodInfo _Lint_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(Lint::*)($Context*)>(&Lint::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/Lint;)V", nullptr, $PROTECTED, $method(static_cast<void(Lint::*)(Lint*)>(&Lint::init$))},
-	{"augment", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/code/Lint;", nullptr, $PUBLIC},
-	{"augment", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Lint;", nullptr, $PUBLIC},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/Lint;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Lint*(*)($Context*)>(&Lint::instance))},
-	{"isEnabled", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC},
-	{"isSuppressed", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC},
-	{"suppress", "([Lcom/sun/tools/javac/code/Lint$LintCategory;)Lcom/sun/tools/javac/code/Lint;", nullptr, $PUBLIC | $TRANSIENT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Lint, init$, void, $Context*)},
+	{"<init>", "(Lcom/sun/tools/javac/code/Lint;)V", nullptr, $PROTECTED, $method(Lint, init$, void, Lint*)},
+	{"augment", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Lcom/sun/tools/javac/code/Lint;", nullptr, $PUBLIC, $virtualMethod(Lint, augment, Lint*, $Attribute$Compound*)},
+	{"augment", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Lint;", nullptr, $PUBLIC, $virtualMethod(Lint, augment, Lint*, $Symbol*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/Lint;", nullptr, $PUBLIC | $STATIC, $staticMethod(Lint, instance, Lint*, $Context*)},
+	{"isEnabled", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Lint, isEnabled, bool, $Lint$LintCategory*)},
+	{"isSuppressed", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Lint, isSuppressed, bool, $Lint$LintCategory*)},
+	{"suppress", "([Lcom/sun/tools/javac/code/Lint$LintCategory;)Lcom/sun/tools/javac/code/Lint;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Lint, suppress, Lint*, $Lint$LintCategoryArray*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Lint, toString, $String*)},
 	{}
 };
 

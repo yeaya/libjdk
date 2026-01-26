@@ -23,18 +23,18 @@ $FieldInfo _LinkException_FieldInfo_[] = {
 };
 
 $MethodInfo _LinkException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LinkException::*)($String*)>(&LinkException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LinkException::*)()>(&LinkException::init$))},
-	{"getLinkExplanation", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLinkRemainingName", "()Ljavax/naming/Name;", nullptr, $PUBLIC},
-	{"getLinkResolvedName", "()Ljavax/naming/Name;", nullptr, $PUBLIC},
-	{"getLinkResolvedObj", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"setLinkExplanation", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setLinkRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"setLinkResolvedName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"setLinkResolvedObj", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LinkException, init$, void)},
+	{"getLinkExplanation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkExplanation, $String*)},
+	{"getLinkRemainingName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkRemainingName, $Name*)},
+	{"getLinkResolvedName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkResolvedName, $Name*)},
+	{"getLinkResolvedObj", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinkException, getLinkResolvedObj, $Object*)},
+	{"setLinkExplanation", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkExplanation, void, $String*)},
+	{"setLinkRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkRemainingName, void, $Name*)},
+	{"setLinkResolvedName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkResolvedName, void, $Name*)},
+	{"setLinkResolvedObj", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LinkException, setLinkResolvedObj, void, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkException, toString, $String*)},
+	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinkException, toString, $String*, bool)},
 	{}
 };
 

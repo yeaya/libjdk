@@ -43,9 +43,9 @@ $FieldInfo _Types$DescriptorCache$FunctionDescriptor_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$DescriptorCache$FunctionDescriptor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(Types$DescriptorCache$FunctionDescriptor::*)($Types$DescriptorCache*,$Symbol*)>(&Types$DescriptorCache$FunctionDescriptor::init$))},
-	{"getSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"getType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Types$DescriptorCache$FunctionDescriptor, init$, void, $Types$DescriptorCache*, $Symbol*)},
+	{"getSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$FunctionDescriptor, getSymbol, $Symbol*)},
+	{"getType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$FunctionDescriptor, getType, $Type*, $Type*)},
 	{}
 };
 

@@ -19,9 +19,9 @@ $FieldInfo _BadBinaryOpValueExpException_FieldInfo_[] = {
 };
 
 $MethodInfo _BadBinaryOpValueExpException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(static_cast<void(BadBinaryOpValueExpException::*)($ValueExp*)>(&BadBinaryOpValueExpException::init$))},
-	{"getExp", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/ValueExp;)V", nullptr, $PUBLIC, $method(BadBinaryOpValueExpException, init$, void, $ValueExp*)},
+	{"getExp", "()Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(BadBinaryOpValueExpException, getExp, $ValueExp*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BadBinaryOpValueExpException, toString, $String*)},
 	{}
 };
 

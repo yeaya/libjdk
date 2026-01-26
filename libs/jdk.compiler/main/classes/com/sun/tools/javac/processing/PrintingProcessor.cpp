@@ -67,10 +67,10 @@ $FieldInfo _PrintingProcessor_FieldInfo_[] = {
 };
 
 $MethodInfo _PrintingProcessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(PrintingProcessor::*)()>(&PrintingProcessor::init$))},
-	{"print", "(Ljavax/lang/model/element/Element;)V", nullptr, 0},
-	{"process", "(Ljava/util/Set;Ljavax/annotation/processing/RoundEnvironment;)Z", "(Ljava/util/Set<+Ljavax/lang/model/element/TypeElement;>;Ljavax/annotation/processing/RoundEnvironment;)Z", $PUBLIC},
-	{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(PrintingProcessor, init$, void)},
+	{"print", "(Ljavax/lang/model/element/Element;)V", nullptr, 0, $virtualMethod(PrintingProcessor, print, void, $Element*)},
+	{"process", "(Ljava/util/Set;Ljavax/annotation/processing/RoundEnvironment;)Z", "(Ljava/util/Set<+Ljavax/lang/model/element/TypeElement;>;Ljavax/annotation/processing/RoundEnvironment;)Z", $PUBLIC, $virtualMethod(PrintingProcessor, process, bool, $Set*, $RoundEnvironment*)},
+	{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(PrintingProcessor, setWriter, void, $Writer*)},
 	{}
 };
 

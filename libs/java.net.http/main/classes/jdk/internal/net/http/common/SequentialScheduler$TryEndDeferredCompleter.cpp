@@ -31,8 +31,8 @@ $FieldInfo _SequentialScheduler$TryEndDeferredCompleter_FieldInfo_[] = {
 };
 
 $MethodInfo _SequentialScheduler$TryEndDeferredCompleter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;)V", nullptr, $PRIVATE, $method(static_cast<void(SequentialScheduler$TryEndDeferredCompleter::*)($SequentialScheduler*)>(&SequentialScheduler$TryEndDeferredCompleter::init$))},
-	{"complete", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;)V", nullptr, $PRIVATE, $method(SequentialScheduler$TryEndDeferredCompleter, init$, void, $SequentialScheduler*)},
+	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(SequentialScheduler$TryEndDeferredCompleter, complete, void)},
 	{}
 };
 

@@ -108,8 +108,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Sasl$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Sasl$$Lambda$lambda$static$0::*)()>(&Sasl$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Sasl$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Sasl$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo Sasl$$Lambda$lambda$static$0::classInfo$ = {
@@ -148,15 +148,15 @@ $FieldInfo _Sasl_FieldInfo_[] = {
 };
 
 $MethodInfo _Sasl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(Sasl::*)()>(&Sasl::init$))},
-	{"createSaslClient", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", $PUBLIC | $STATIC, $method(static_cast<$SaslClient*(*)($StringArray*,$String*,$String*,$String*,$Map*,$CallbackHandler*)>(&Sasl::createSaslClient)), "javax.security.sasl.SaslException"},
-	{"createSaslServer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", $PUBLIC | $STATIC, $method(static_cast<$SaslServer*(*)($String*,$String*,$String*,$Map*,$CallbackHandler*)>(&Sasl::createSaslServer)), "javax.security.sasl.SaslException"},
-	{"getFactories", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)($String*)>(&Sasl::getFactories))},
-	{"getSaslClientFactories", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/security/sasl/SaslClientFactory;>;", $PUBLIC | $STATIC, $method(static_cast<$Enumeration*(*)()>(&Sasl::getSaslClientFactories))},
-	{"getSaslServerFactories", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/security/sasl/SaslServerFactory;>;", $PUBLIC | $STATIC, $method(static_cast<$Enumeration*(*)()>(&Sasl::getSaslServerFactories))},
-	{"isDisabled", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&Sasl::isDisabled))},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)()>(&Sasl::lambda$static$0))},
-	{"loadFactory", "(Ljava/security/Provider$Service;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)($Provider$Service*)>(&Sasl::loadFactory)), "javax.security.sasl.SaslException"},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(Sasl, init$, void)},
+	{"createSaslClient", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", $PUBLIC | $STATIC, $staticMethod(Sasl, createSaslClient, $SaslClient*, $StringArray*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+	{"createSaslServer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", $PUBLIC | $STATIC, $staticMethod(Sasl, createSaslServer, $SaslServer*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+	{"getFactories", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(Sasl, getFactories, $Set*, $String*)},
+	{"getSaslClientFactories", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/security/sasl/SaslClientFactory;>;", $PUBLIC | $STATIC, $staticMethod(Sasl, getSaslClientFactories, $Enumeration*)},
+	{"getSaslServerFactories", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/security/sasl/SaslServerFactory;>;", $PUBLIC | $STATIC, $staticMethod(Sasl, getSaslServerFactories, $Enumeration*)},
+	{"isDisabled", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Sasl, isDisabled, bool, $String*)},
+	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Sasl, lambda$static$0, $String*)},
+	{"loadFactory", "(Ljava/security/Provider$Service;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Sasl, loadFactory, $Object*, $Provider$Service*), "javax.security.sasl.SaslException"},
 	{}
 };
 

@@ -43,8 +43,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacTaskPool$ReusableContext$ReusableJavaCompiler$$Lambda$ReusableJavaCompiler::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskPool$ReusableContext$ReusableJavaCompiler$$Lambda$ReusableJavaCompiler::*)()>(&JavacTaskPool$ReusableContext$ReusableJavaCompiler$$Lambda$ReusableJavaCompiler::init$))},
-	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTaskPool$ReusableContext$ReusableJavaCompiler$$Lambda$ReusableJavaCompiler, init$, void)},
+	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$ReusableJavaCompiler$$Lambda$ReusableJavaCompiler, make, $Object*, $Context*)},
 	{}
 };
 $ClassInfo JavacTaskPool$ReusableContext$ReusableJavaCompiler$$Lambda$ReusableJavaCompiler::classInfo$ = {
@@ -67,10 +67,10 @@ $FieldInfo _JavacTaskPool$ReusableContext$ReusableJavaCompiler_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTaskPool$ReusableContext$ReusableJavaCompiler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(static_cast<void(JavacTaskPool$ReusableContext$ReusableJavaCompiler::*)($Context*)>(&JavacTaskPool$ReusableContext$ReusableJavaCompiler::init$))},
-	{"checkReusable", "()V", nullptr, $PROTECTED},
-	{"clear", "()V", nullptr, 0},
-	{"close", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(JavacTaskPool$ReusableContext$ReusableJavaCompiler, init$, void, $Context*)},
+	{"checkReusable", "()V", nullptr, $PROTECTED, $virtualMethod(JavacTaskPool$ReusableContext$ReusableJavaCompiler, checkReusable, void)},
+	{"clear", "()V", nullptr, 0, $virtualMethod(JavacTaskPool$ReusableContext$ReusableJavaCompiler, clear, void)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$ReusableJavaCompiler, close, void)},
 	{}
 };
 

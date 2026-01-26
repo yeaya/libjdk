@@ -42,14 +42,14 @@ $FieldInfo _TypeMetadata_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeMetadata_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(TypeMetadata::*)()>(&TypeMetadata::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeMetadata::*)($TypeMetadata$Entry*)>(&TypeMetadata::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeMetadata::*)(TypeMetadata*)>(&TypeMetadata::init$))},
-	{"add", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;Lcom/sun/tools/javac/code/TypeMetadata$Entry;)V", nullptr, $PRIVATE, $method(static_cast<void(TypeMetadata::*)($TypeMetadata$Entry$Kind*,$TypeMetadata$Entry*)>(&TypeMetadata::add))},
-	{"combine", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC},
-	{"combineAll", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC},
-	{"get", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;)Lcom/sun/tools/javac/code/TypeMetadata$Entry;", nullptr, $PUBLIC},
-	{"without", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(TypeMetadata, init$, void)},
+	{"<init>", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)V", nullptr, $PUBLIC, $method(TypeMetadata, init$, void, $TypeMetadata$Entry*)},
+	{"<init>", "(Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(TypeMetadata, init$, void, TypeMetadata*)},
+	{"add", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;Lcom/sun/tools/javac/code/TypeMetadata$Entry;)V", nullptr, $PRIVATE, $method(TypeMetadata, add, void, $TypeMetadata$Entry$Kind*, $TypeMetadata$Entry*)},
+	{"combine", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, combine, TypeMetadata*, $TypeMetadata$Entry*)},
+	{"combineAll", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, combineAll, TypeMetadata*, TypeMetadata*)},
+	{"get", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;)Lcom/sun/tools/javac/code/TypeMetadata$Entry;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, get, $TypeMetadata$Entry*, $TypeMetadata$Entry$Kind*)},
+	{"without", "(Lcom/sun/tools/javac/code/TypeMetadata$Entry$Kind;)Lcom/sun/tools/javac/code/TypeMetadata;", nullptr, $PUBLIC, $virtualMethod(TypeMetadata, without, TypeMetadata*, $TypeMetadata$Entry$Kind*)},
 	{}
 };
 

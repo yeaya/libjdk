@@ -47,11 +47,11 @@ $FieldInfo _PerfDataType_FieldInfo_[] = {
 };
 
 $MethodInfo _PerfDataType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(PerfDataType::*)($String*,$String*,int32_t)>(&PerfDataType::init$))},
-	{"byteValue", "()B", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC},
-	{"toPerfDataType", "(B)Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PerfDataType*(*)(int8_t)>(&PerfDataType::toPerfDataType))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(PerfDataType, init$, void, $String*, $String*, int32_t)},
+	{"byteValue", "()B", nullptr, $PUBLIC, $virtualMethod(PerfDataType, byteValue, int8_t)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataType, size, int32_t)},
+	{"toPerfDataType", "(B)Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC | $STATIC, $staticMethod(PerfDataType, toPerfDataType, PerfDataType*, int8_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfDataType, toString, $String*)},
 	{}
 };
 

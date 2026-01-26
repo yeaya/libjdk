@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Iterator = ::java::util::Iterator;
 
 namespace com {
 	namespace sun {
@@ -17,8 +18,8 @@ namespace com {
 								namespace storage {
 
 $MethodInfo _StorageResolverSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(StorageResolverSpi::*)()>(&StorageResolverSpi::init$))},
-	{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(StorageResolverSpi, init$, void)},
+	{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(StorageResolverSpi, getIterator, $Iterator*)},
 	{}
 };
 

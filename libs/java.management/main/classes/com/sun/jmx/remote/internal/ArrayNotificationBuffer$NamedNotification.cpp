@@ -25,10 +25,10 @@ $FieldInfo _ArrayNotificationBuffer$NamedNotification_FieldInfo_[] = {
 };
 
 $MethodInfo _ArrayNotificationBuffer$NamedNotification_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;Ljavax/management/Notification;)V", nullptr, 0, $method(static_cast<void(ArrayNotificationBuffer$NamedNotification::*)($ObjectName*,$Notification*)>(&ArrayNotificationBuffer$NamedNotification::init$))},
-	{"getNotification", "()Ljavax/management/Notification;", nullptr, 0},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/ObjectName;Ljavax/management/Notification;)V", nullptr, 0, $method(ArrayNotificationBuffer$NamedNotification, init$, void, $ObjectName*, $Notification*)},
+	{"getNotification", "()Ljavax/management/Notification;", nullptr, 0, $virtualMethod(ArrayNotificationBuffer$NamedNotification, getNotification, $Notification*)},
+	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, 0, $virtualMethod(ArrayNotificationBuffer$NamedNotification, getObjectName, $ObjectName*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$NamedNotification, toString, $String*)},
 	{}
 };
 

@@ -6,6 +6,10 @@
 #include <javax/management/MBeanOperationInfo.h>
 #include <jcpp.h>
 
+using $MBeanAttributeInfoArray = $Array<::javax::management::MBeanAttributeInfo>;
+using $MBeanConstructorInfoArray = $Array<::javax::management::MBeanConstructorInfo>;
+using $MBeanNotificationInfoArray = $Array<::javax::management::MBeanNotificationInfo>;
+using $MBeanOperationInfoArray = $Array<::javax::management::MBeanOperationInfo>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -15,12 +19,12 @@ namespace javax {
 
 $MethodInfo _OpenMBeanInfo_MethodInfo_[] = {
 	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAttributes", "()[Ljavax/management/MBeanAttributeInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getAttributes, $MBeanAttributeInfoArray*)},
+	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getClassName, $String*)},
+	{"getConstructors", "()[Ljavax/management/MBeanConstructorInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getConstructors, $MBeanConstructorInfoArray*)},
+	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getDescription, $String*)},
+	{"getNotifications", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getNotifications, $MBeanNotificationInfoArray*)},
+	{"getOperations", "()[Ljavax/management/MBeanOperationInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanInfo, getOperations, $MBeanOperationInfoArray*)},
 	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
 	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{}

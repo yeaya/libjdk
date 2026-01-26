@@ -38,15 +38,15 @@ $FieldInfo _SSLStreams$InputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLStreams$InputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/SSLStreams;)V", nullptr, 0, $method(static_cast<void(SSLStreams$InputStream::*)($SSLStreams*)>(&SSLStreams$InputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC},
-	{"read", "([BII)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/SSLStreams;)V", nullptr, 0, $method(SSLStreams$InputStream, init$, void, $SSLStreams*)},
+	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(SSLStreams$InputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$InputStream, close, void), "java.io.IOException"},
+	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLStreams$InputStream, markSupported, bool)},
+	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SSLStreams$InputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(SSLStreams$InputStream, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SSLStreams$InputStream, read, int32_t), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$InputStream, reset, void), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(SSLStreams$InputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

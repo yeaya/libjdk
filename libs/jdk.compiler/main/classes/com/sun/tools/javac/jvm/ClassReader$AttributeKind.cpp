@@ -28,10 +28,10 @@ $FieldInfo _ClassReader$AttributeKind_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$AttributeKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ClassReader$AttributeKindArray*(*)()>(&ClassReader$AttributeKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(ClassReader$AttributeKind::*)($String*,int32_t)>(&ClassReader$AttributeKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ClassReader$AttributeKind*(*)($String*)>(&ClassReader$AttributeKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClassReader$AttributeKindArray*(*)()>(&ClassReader$AttributeKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassReader$AttributeKind, $values, $ClassReader$AttributeKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClassReader$AttributeKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassReader$AttributeKind, valueOf, ClassReader$AttributeKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/jvm/ClassReader$AttributeKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassReader$AttributeKind, values, $ClassReader$AttributeKindArray*)},
 	{}
 };
 

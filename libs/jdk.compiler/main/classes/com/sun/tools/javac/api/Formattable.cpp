@@ -4,9 +4,11 @@
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
+using $Messages = ::com::sun::tools::javac::api::Messages;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
 
 namespace com {
 	namespace sun {
@@ -15,8 +17,8 @@ namespace com {
 				namespace api {
 
 $MethodInfo _Formattable_MethodInfo_[] = {
-	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formattable, getKind, $String*)},
+	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formattable, toString, $String*, $Locale*, $Messages*)},
 	{}
 };
 

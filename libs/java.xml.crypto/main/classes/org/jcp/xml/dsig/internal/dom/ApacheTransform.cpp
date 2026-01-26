@@ -88,14 +88,14 @@ $FieldInfo _ApacheTransform_FieldInfo_[] = {
 };
 
 $MethodInfo _ApacheTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ApacheTransform::*)()>(&ApacheTransform::init$))},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.MarshalException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.dsig.TransformException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.dsig.TransformException"},
-	{"transformIt", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PRIVATE, $method(static_cast<$Data*(ApacheTransform::*)($Data*,$XMLCryptoContext*,$OutputStream*)>(&ApacheTransform::transformIt)), "javax.xml.crypto.dsig.TransformException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ApacheTransform, init$, void)},
+	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheTransform, getParameterSpec, $AlgorithmParameterSpec*)},
+	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheTransform, isFeatureSupported, bool, $String*)},
+	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, transform, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
+	{"transformIt", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PRIVATE, $method(ApacheTransform, transformIt, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
 	{}
 };
 

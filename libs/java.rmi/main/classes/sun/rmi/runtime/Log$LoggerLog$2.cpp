@@ -27,8 +27,8 @@ $FieldInfo _Log$LoggerLog$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Log$LoggerLog$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/runtime/Log$LoggerLog;Ljava/util/logging/Logger;Ljava/util/logging/Level;)V", "()V", 0, $method(static_cast<void(Log$LoggerLog$2::*)($Log$LoggerLog*,$Logger*,$Level*)>(&Log$LoggerLog$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/rmi/runtime/Log$LoggerLog;Ljava/util/logging/Logger;Ljava/util/logging/Level;)V", "()V", 0, $method(Log$LoggerLog$2, init$, void, $Log$LoggerLog*, $Logger*, $Level*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Log$LoggerLog$2, run, $Object*)},
 	{}
 };
 

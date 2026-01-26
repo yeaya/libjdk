@@ -26,8 +26,8 @@ $FieldInfo _ServerCommunicatorAdmin$Timeout_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerCommunicatorAdmin$Timeout_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ServerCommunicatorAdmin;)V", nullptr, $PRIVATE, $method(static_cast<void(ServerCommunicatorAdmin$Timeout::*)($ServerCommunicatorAdmin*)>(&ServerCommunicatorAdmin$Timeout::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/remote/internal/ServerCommunicatorAdmin;)V", nullptr, $PRIVATE, $method(ServerCommunicatorAdmin$Timeout, init$, void, $ServerCommunicatorAdmin*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ServerCommunicatorAdmin$Timeout, run, void)},
 	{}
 };
 

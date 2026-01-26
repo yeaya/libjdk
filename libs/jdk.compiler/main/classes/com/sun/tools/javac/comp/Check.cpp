@@ -440,8 +440,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Check$$Lambda$lambda$new$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$new$6::*)()>(&Check$$Lambda$lambda$new$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$new$6, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$new$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$new$6::classInfo$ = {
@@ -492,8 +492,8 @@ $FieldInfo Check$$Lambda$lambda$checkType$0$1::fieldInfos[6] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkType$0$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkType$0$1::*)(Check*,$JCDiagnostic$DiagnosticPosition*,$Type*,$Type*,$Check$CheckContext*)>(&Check$$Lambda$lambda$checkType$0$1::init$))},
-	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkType$0$1, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*)},
+	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkType$0$1, typesInferred, void, $InferenceContext*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkType$0$1::classInfo$ = {
@@ -535,8 +535,8 @@ $FieldInfo Check$$Lambda$lambda$checkRedundantCast$1$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkRedundantCast$1$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkRedundantCast$1$2::*)(Check*,$JCTree$JCTypeCast*)>(&Check$$Lambda$lambda$checkRedundantCast$1$2::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkRedundantCast$1$2, init$, void, Check*, $JCTree$JCTypeCast*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkRedundantCast$1$2, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkRedundantCast$1$2::classInfo$ = {
@@ -593,8 +593,8 @@ $FieldInfo Check$$Lambda$lambda$checkMethod$2$3::fieldInfos[8] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkMethod$2$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkMethod$2$3::*)(Check*,$Type*,$Symbol*,$Env*,$List*,$List*,bool)>(&Check$$Lambda$lambda$checkMethod$2$3::init$))},
-	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Z)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkMethod$2$3, init$, void, Check*, $Type*, $Symbol*, $Env*, $List*, $List*, bool)},
+	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkMethod$2$3, typesInferred, void, $InferenceContext*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkMethod$2$3::classInfo$ = {
@@ -636,8 +636,8 @@ $FieldInfo Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::*)(Check*,$JCDiagnostic$DiagnosticPosition*)>(&Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$warnOnExplicitStrictfp$3$4::classInfo$ = {
@@ -679,8 +679,8 @@ $FieldInfo Check$$Lambda$lambda$checkOverride$4$5::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkOverride$4$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkOverride$4$5::*)($Symbol$MethodSymbol*,$JCTree*)>(&Check$$Lambda$lambda$checkOverride$4$5::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkOverride$4$5, init$, void, $Symbol$MethodSymbol*, $JCTree*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkOverride$4$5, get, $Object*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkOverride$4$5::classInfo$ = {
@@ -719,8 +719,8 @@ $FieldInfo Check$$Lambda$lambda$checkOverride$5$6::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkOverride$5$6::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkOverride$5$6::*)($JCTree$JCMethodDecl*)>(&Check$$Lambda$lambda$checkOverride$5$6::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkOverride$5$6, init$, void, $JCTree$JCMethodDecl*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkOverride$5$6, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkOverride$5$6::classInfo$ = {
@@ -759,8 +759,8 @@ $FieldInfo Check$$Lambda$add$7::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Check$$Lambda$add$7::methodInfos[3] = {
-	{"<init>", "(Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$add$7::*)($ArrayList*)>(&Check$$Lambda$add$7::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(Check$$Lambda$add$7, init$, void, $ArrayList*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$add$7, accept, void, Object$*)},
 	{}
 };
 $ClassInfo Check$$Lambda$add$7::classInfo$ = {
@@ -799,8 +799,8 @@ $FieldInfo Check$$Lambda$lambda$validateAnnotation$8$8::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$validateAnnotation$8$8::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$validateAnnotation$8$8::*)(Check*)>(&Check$$Lambda$lambda$validateAnnotation$8$8::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$validateAnnotation$8$8, init$, void, Check*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$validateAnnotation$8$8, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$validateAnnotation$8$8::classInfo$ = {
@@ -842,8 +842,8 @@ $FieldInfo Check$$Lambda$lambda$isTypeAnnotation$9$9::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$isTypeAnnotation$9$9::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Z)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$isTypeAnnotation$9$9::*)(Check*,bool)>(&Check$$Lambda$lambda$isTypeAnnotation$9$9::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Z)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$isTypeAnnotation$9$9, init$, void, Check*, bool)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$isTypeAnnotation$9$9, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$isTypeAnnotation$9$9::classInfo$ = {
@@ -882,8 +882,8 @@ $FieldInfo Check$$Lambda$lambda$checkDeprecated$10$10::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkDeprecated$10$10::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkDeprecated$10$10::*)($JCDiagnostic$DiagnosticPosition*)>(&Check$$Lambda$lambda$checkDeprecated$10$10::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDeprecated$10$10, init$, void, $JCDiagnostic$DiagnosticPosition*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDeprecated$10$10, get, $Object*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkDeprecated$10$10::classInfo$ = {
@@ -928,8 +928,8 @@ $FieldInfo Check$$Lambda$lambda$checkDeprecated$11$11::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkDeprecated$11$11::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkDeprecated$11$11::*)(Check*,$Supplier*,$Symbol*)>(&Check$$Lambda$lambda$checkDeprecated$11$11::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDeprecated$11$11, init$, void, Check*, $Supplier*, $Symbol*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDeprecated$11$11, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkDeprecated$11$11::classInfo$ = {
@@ -974,8 +974,8 @@ $FieldInfo Check$$Lambda$lambda$checkSunAPI$12$12::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkSunAPI$12$12::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkSunAPI$12$12::*)(Check*,$JCDiagnostic$DiagnosticPosition*,$Symbol*)>(&Check$$Lambda$lambda$checkSunAPI$12$12::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkSunAPI$12$12, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkSunAPI$12$12, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkSunAPI$12$12::classInfo$ = {
@@ -1020,8 +1020,8 @@ $FieldInfo Check$$Lambda$lambda$checkPreview$13$13::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkPreview$13$13::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkPreview$13$13::*)(Check*,$JCDiagnostic$DiagnosticPosition*,$Symbol*)>(&Check$$Lambda$lambda$checkPreview$13$13::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPreview$13$13, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPreview$13$13, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkPreview$13$13::classInfo$ = {
@@ -1066,8 +1066,8 @@ $FieldInfo Check$$Lambda$lambda$checkPreview$14$14::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkPreview$14$14::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkPreview$14$14::*)(Check*,$JCDiagnostic$DiagnosticPosition*,$Symbol*)>(&Check$$Lambda$lambda$checkPreview$14$14::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPreview$14$14, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPreview$14$14, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkPreview$14$14::classInfo$ = {
@@ -1112,8 +1112,8 @@ $FieldInfo Check$$Lambda$lambda$checkPreview$15$15::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkPreview$15$15::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkPreview$15$15::*)(Check*,$JCDiagnostic$DiagnosticPosition*,$Symbol*)>(&Check$$Lambda$lambda$checkPreview$15$15::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPreview$15$15, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPreview$15$15, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkPreview$15$15::classInfo$ = {
@@ -1155,8 +1155,8 @@ $FieldInfo Check$$Lambda$lambda$checkDivZero$16$16::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkDivZero$16$16::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkDivZero$16$16::*)(Check*,$JCDiagnostic$DiagnosticPosition*)>(&Check$$Lambda$lambda$checkDivZero$16$16::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDivZero$16$16, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDivZero$16$16, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkDivZero$16$16::classInfo$ = {
@@ -1188,8 +1188,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Check$$Lambda$lambda$checkImportsUnique$17$17::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkImportsUnique$17$17::*)()>(&Check$$Lambda$lambda$checkImportsUnique$17$17::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkImportsUnique$17$17, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkImportsUnique$17$17, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkImportsUnique$17$17::classInfo$ = {
@@ -1228,8 +1228,8 @@ $FieldInfo Check$$Lambda$lambda$checkUniqueImport$18$18::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkUniqueImport$18$18::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkUniqueImport$18$18::*)($Symbol*)>(&Check$$Lambda$lambda$checkUniqueImport$18$18::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkUniqueImport$18$18, init$, void, $Symbol*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkUniqueImport$18$18, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkUniqueImport$18$18::classInfo$ = {
@@ -1280,8 +1280,8 @@ $FieldInfo Check$$Lambda$lambda$checkDefaultConstructor$19$19::fieldInfos[6] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkDefaultConstructor$19$19::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkDefaultConstructor$19$19::*)(Check*,$JCDiagnostic$DiagnosticPosition*,$Symbol$ClassSymbol*,$Symbol$PackageSymbol*,$Symbol$ModuleSymbol*)>(&Check$$Lambda$lambda$checkDefaultConstructor$19$19::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkDefaultConstructor$19$19, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkDefaultConstructor$19$19, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkDefaultConstructor$19$19::classInfo$ = {
@@ -1326,8 +1326,8 @@ $FieldInfo Check$$Lambda$lambda$checkModuleExists$20$20::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkModuleExists$20$20::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkModuleExists$20$20::*)(Check*,$JCDiagnostic$DiagnosticPosition*,$Symbol$ModuleSymbol*)>(&Check$$Lambda$lambda$checkModuleExists$20$20::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkModuleExists$20$20, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol$ModuleSymbol*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkModuleExists$20$20, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkModuleExists$20$20::classInfo$ = {
@@ -1372,8 +1372,8 @@ $FieldInfo Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::fieldInfos[4] 
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::*)(Check*,$JCDiagnostic$DiagnosticPosition*,$Symbol$PackageSymbol*)>(&Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, init$, void, Check*, $JCDiagnostic$DiagnosticPosition*, $Symbol$PackageSymbol*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkPackageExistsForOpens$21$21, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkPackageExistsForOpens$21$21::classInfo$ = {
@@ -1418,8 +1418,8 @@ $FieldInfo Check$$Lambda$lambda$checkModuleRequires$22$22::fieldInfos[4] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$checkModuleRequires$22$22::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Directive$RequiresDirective;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$checkModuleRequires$22$22::*)(Check*,$Directive$RequiresDirective*,$JCDiagnostic$DiagnosticPosition*)>(&Check$$Lambda$lambda$checkModuleRequires$22$22::init$))},
-	{"report", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/code/Directive$RequiresDirective;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$checkModuleRequires$22$22, init$, void, Check*, $Directive$RequiresDirective*, $JCDiagnostic$DiagnosticPosition*)},
+	{"report", "()V", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$checkModuleRequires$22$22, report, void)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$checkModuleRequires$22$22::classInfo$ = {
@@ -1458,8 +1458,8 @@ $FieldInfo Check$$Lambda$lambda$validateAnnotation$7$23::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Check$$Lambda$lambda$validateAnnotation$7$23::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, $PUBLIC, $method(static_cast<void(Check$$Lambda$lambda$validateAnnotation$7$23::*)(Check*)>(&Check$$Lambda$lambda$validateAnnotation$7$23::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Check;)V", nullptr, $PUBLIC, $method(Check$$Lambda$lambda$validateAnnotation$7$23, init$, void, Check*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Check$$Lambda$lambda$validateAnnotation$7$23, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Check$$Lambda$lambda$validateAnnotation$7$23::classInfo$ = {
@@ -1518,210 +1518,210 @@ $FieldInfo _Check_FieldInfo_[] = {
 };
 
 $MethodInfo _Check_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(Check::*)($Context*)>(&Check::init$))},
-	{"annotationApplicable", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, 0},
-	{"asTypeParam", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(static_cast<$Object*(Check::*)($Type*)>(&Check::asTypeParam))},
-	{"assertConvertible", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($JCTree*,$Type*,$Type*,$Warner*)>(&Check::assertConvertible))},
-	{"belongsToRestrictedPackage", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($Symbol*)>(&Check::belongsToRestrictedPackage))},
-	{"cannotOverride", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0},
-	{"castWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC},
-	{"checkAccessFromSerializableElement", "(Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, 0},
-	{"checkAllDefined", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0},
-	{"checkAnnotationResType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"checkCanonical", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC},
-	{"checkCastable", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkCastable", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkClassBounds", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"checkClassBounds", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/util/Map;Lcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Type;)V", 0},
-	{"checkClassOrArrayType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkClassOverrideEqualsAndHash", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Symbol$ClassSymbol*)>(&Check::checkClassOverrideEqualsAndHash))},
-	{"checkClassOverrideEqualsAndHashIfNeeded", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC},
-	{"checkClassType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkClassType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkCommonOverriderIn", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0},
-	{"checkCompatibleAbstracts", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC},
-	{"checkCompatibleConcretes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC},
-	{"checkCompatibleSupertypes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"checkConstructorRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkCyclicConstructor", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;>;)V", $PRIVATE, $method(static_cast<void(Check::*)($JCTree$JCClassDecl*,$Symbol*,$Map*)>(&Check::checkCyclicConstructor))},
-	{"checkCyclicConstructors", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0},
-	{"checkDefaultConstructor", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0},
-	{"checkDefaultMethodClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"checkDenotable", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC},
-	{"checkDeprecated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"checkDeprecated", "(Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", "(Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", 0},
-	{"checkDeprecatedAnnotation", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"checkDiamond", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkDiamondDenotable", "(Lcom/sun/tools/javac/code/Type$ClassType;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$ClassType;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"checkDisjoint", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;JJJ)Z", nullptr, 0},
-	{"checkDivZero", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"checkEmptyIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, 0},
-	{"checkExtends", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($Type*,$Type*)>(&Check::checkExtends))},
-	{"checkFlags", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;JLcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, 0},
-	{"checkForBadAuxiliaryClassAccess", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", 0},
-	{"checkFunctionalInterface", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC},
-	{"checkHideClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0},
-	{"checkImplementations", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0},
-	{"checkImplementations", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0},
-	{"checkImportedPackagesObservable", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC},
-	{"checkImportsResolvable", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC},
-	{"checkImportsUnique", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, 0},
-	{"checkLeaksNotAccessible", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", $PUBLIC},
-	{"checkLocalVarType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkMethod", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;ZLcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", 0},
-	{"checkModuleExists", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, 0},
-	{"checkModuleName", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC},
-	{"checkModuleRequires", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Directive$RequiresDirective;)V", nullptr, 0},
-	{"checkNameClash", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($Symbol$ClassSymbol*,$Symbol*,$Symbol*)>(&Check::checkNameClash))},
-	{"checkNonCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"checkNonCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type$TypeVar;)V", nullptr, 0},
-	{"checkNonCyclic1", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type$TypeVar;>;)V", $PRIVATE, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Type*,$List*)>(&Check::checkNonCyclic1))},
-	{"checkNonCyclicDecl", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0},
-	{"checkNonCyclicElements", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0},
-	{"checkNonCyclicElementsInternal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0},
-	{"checkNonCyclicInternal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($JCDiagnostic$DiagnosticPosition*,$Type*)>(&Check::checkNonCyclicInternal))},
-	{"checkNonVoid", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkNotRepeated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)V", 0},
-	{"checkNullOrRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkOverride", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0},
-	{"checkOverride", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", 0},
-	{"checkOverride", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0},
-	{"checkOverrideClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0},
-	{"checkPackageExistsForOpens", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, 0},
-	{"checkPotentiallyAmbiguousOverloads", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0},
-	{"checkPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"checkProfile", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"checkRaw", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0},
-	{"checkRedundantCast", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", $PUBLIC},
-	{"checkRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkRefTypes", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"checkSunAPI", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"checkSwitchCaseStructure", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)V", 0},
-	{"checkTransparentClass", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0},
-	{"checkTransparentVar", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$VarSymbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0},
-	{"checkType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"checkType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"checkTypeContainsImportableElement", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/Name;Ljava/util/Set;)Z", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/Name;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)Z", $PRIVATE, $method(static_cast<bool(Check::*)($Symbol$TypeSymbol*,$Symbol$TypeSymbol*,$Symbol$PackageSymbol*,$Name*,$Set*)>(&Check::checkTypeContainsImportableElement))},
-	{"checkUnique", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)Z", nullptr, 0},
-	{"checkUniqueClassName", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Scope;)Z", nullptr, 0},
-	{"checkUniqueImport", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;Z)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($JCDiagnostic$DiagnosticPosition*,$Scope*,$Scope*,$Scope*,$Symbol*,bool)>(&Check::checkUniqueImport))},
-	{"checkValidGenericType", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC},
-	{"checkVarargsMethodDecl", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", 0},
-	{"checkVisible", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Z)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Symbol*,$Symbol$PackageSymbol*,bool)>(&Check::checkVisible))},
-	{"clear", "()V", nullptr, $PUBLIC},
-	{"clearLocalClassNameIndexes", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC},
-	{"closure", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(static_cast<void(Check::*)($Type*,$Map*)>(&Check::closure))},
-	{"closure", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(static_cast<void(Check::*)($Type*,$Map*,$Map*)>(&Check::closure))},
-	{"completionError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"convertWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC},
-	{"defaultTargetMetaInfo", "()[Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(static_cast<$NameArray*(Check::*)()>(&Check::defaultTargetMetaInfo))},
-	{"diff", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"duplicateErasureError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"duplicateError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"earlyRefError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"excl", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"findExport", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)Lcom/sun/tools/javac/code/Directive$ExportsDirective;", nullptr, $PRIVATE, $method(static_cast<$Directive$ExportsDirective*(Check::*)($Symbol$PackageSymbol*)>(&Check::findExport))},
-	{"firstDirectIncompatibility", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(static_cast<$Symbol*(Check::*)($JCDiagnostic$DiagnosticPosition*,$Type*,$Type*,$Type*)>(&Check::firstDirectIncompatibility))},
-	{"firstIncompatibility", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(static_cast<$Symbol*(Check::*)($JCDiagnostic$DiagnosticPosition*,$Type*,$Type*,$Type*)>(&Check::firstIncompatibility))},
-	{"firstIncompatibleTypeArg", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(static_cast<$Type*(Check::*)($Type*)>(&Check::firstIncompatibleTypeArg))},
-	{"getApplicableTargets", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Ljava/util/Optional;", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Ljava/util/Optional<Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;>;", 0},
-	{"getAttributeTargetAttribute", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Attribute$Array;", nullptr, 0},
-	{"getCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC},
-	{"getCompiled", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC},
-	{"getDefaultTargetSet", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;", $PRIVATE, $method(static_cast<$Set*(Check::*)()>(&Check::getDefaultTargetSet))},
-	{"getTargetNames", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)[Lcom/sun/tools/javac/util/Name;", nullptr, 0},
-	{"getTargetNames", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)[Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"implicitEnumFinalFlag", "(Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, $PRIVATE, $method(static_cast<int64_t(Check::*)($JCTree*)>(&Check::implicitEnumFinalFlag))},
-	{"importAccessible", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)Z", nullptr, $PUBLIC},
-	{"incl", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Check;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Check*(*)($Context*)>(&Check::instance))},
-	{"intersect", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC},
-	{"intersects", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0},
-	{"is292targetTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($JCTree$JCTypeCast*)>(&Check::is292targetTypeCast))},
-	{"isAPISymbol", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($Symbol*)>(&Check::isAPISymbol))},
-	{"isCanonical", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($JCTree*)>(&Check::isCanonical))},
-	{"isChecked", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0},
-	{"isDeprecatedOverrideIgnorable", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($Symbol$MethodSymbol*,$Symbol$ClassSymbol*)>(&Check::isDeprecatedOverrideIgnorable))},
-	{"isEffectivelyNonPublic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($Symbol*)>(&Check::isEffectivelyNonPublic))},
-	{"isHandled", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0},
-	{"isOverrider", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, 0},
-	{"isTargetSubsetOf", "(Ljava/util/Set;Ljava/util/Set;)Z", "(Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;)Z", $PRIVATE, $method(static_cast<bool(Check::*)($Set*,$Set*)>(&Check::isTargetSubsetOf))},
-	{"isTrustMeAllowedOnMethod", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($Symbol*)>(&Check::isTrustMeAllowedOnMethod))},
-	{"isTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Z)Z", nullptr, $PROTECTED},
-	{"isTypeAnnotation", "(Lcom/sun/tools/javac/code/Attribute;Z)Z", nullptr, 0},
-	{"isTypeArgErroneous", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0},
-	{"isUnchecked", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, 0},
-	{"isUnchecked", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0},
-	{"isUnchecked", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0},
-	{"lambda$checkDefaultConstructor$19", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Symbol$ClassSymbol*,$Symbol$PackageSymbol*,$Symbol$ModuleSymbol*)>(&Check::lambda$checkDefaultConstructor$19))},
-	{"lambda$checkDeprecated$10", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCDiagnostic$DiagnosticPosition*(*)($JCDiagnostic$DiagnosticPosition*)>(&Check::lambda$checkDeprecated$10))},
-	{"lambda$checkDeprecated$11", "(Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($Supplier*,$Symbol*)>(&Check::lambda$checkDeprecated$11))},
-	{"lambda$checkDivZero$16", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*)>(&Check::lambda$checkDivZero$16))},
-	{"lambda$checkImportsUnique$17", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*)>(&Check::lambda$checkImportsUnique$17))},
-	{"lambda$checkMethod$2", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($Type*,$Symbol*,$Env*,$List*,$List*,bool,$InferenceContext*)>(&Check::lambda$checkMethod$2))},
-	{"lambda$checkModuleExists$20", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Symbol$ModuleSymbol*)>(&Check::lambda$checkModuleExists$20))},
-	{"lambda$checkModuleRequires$22", "(Lcom/sun/tools/javac/code/Directive$RequiresDirective;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($Directive$RequiresDirective*,$JCDiagnostic$DiagnosticPosition*)>(&Check::lambda$checkModuleRequires$22))},
-	{"lambda$checkOverride$4", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JCDiagnostic$DiagnosticPosition*(*)($Symbol$MethodSymbol*,$JCTree*)>(&Check::lambda$checkOverride$4))},
-	{"lambda$checkOverride$5", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$RecordComponent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCTree$JCMethodDecl*,$Symbol$RecordComponent*)>(&Check::lambda$checkOverride$5))},
-	{"lambda$checkPackageExistsForOpens$21", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Symbol$PackageSymbol*)>(&Check::lambda$checkPackageExistsForOpens$21))},
-	{"lambda$checkPreview$13", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Symbol*)>(&Check::lambda$checkPreview$13))},
-	{"lambda$checkPreview$14", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Symbol*)>(&Check::lambda$checkPreview$14))},
-	{"lambda$checkPreview$15", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Symbol*)>(&Check::lambda$checkPreview$15))},
-	{"lambda$checkRedundantCast$1", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCTree$JCTypeCast*)>(&Check::lambda$checkRedundantCast$1))},
-	{"lambda$checkSunAPI$12", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Symbol*)>(&Check::lambda$checkSunAPI$12))},
-	{"lambda$checkType$0", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Type*,$Type*,$Check$CheckContext*,$InferenceContext*)>(&Check::lambda$checkType$0))},
-	{"lambda$checkUniqueImport$18", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*,$Symbol*)>(&Check::lambda$checkUniqueImport$18))},
-	{"lambda$isTypeAnnotation$9", "(ZLcom/sun/tools/javac/code/Attribute;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Check::*)(bool,$Attribute*)>(&Check::lambda$isTypeAnnotation$9))},
-	{"lambda$new$6", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($Symbol*)>(&Check::lambda$new$6))},
-	{"lambda$validateAnnotation$7", "(Lcom/sun/tools/javac/util/Name;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Check::*)($Name*)>(&Check::lambda$validateAnnotation$7))},
-	{"lambda$validateAnnotation$8", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<bool(Check::*)($Attribute$Compound*)>(&Check::lambda$validateAnnotation$8))},
-	{"lambda$warnOnExplicitStrictfp$3", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*)>(&Check::lambda$warnOnExplicitStrictfp$3))},
-	{"localClassName", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"newRound", "()V", nullptr, $PUBLIC},
-	{"noteCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*,$Symbol$ClassSymbol*)>(&Check::noteCyclic))},
-	{"protection", "(J)I", nullptr, $STATIC, $method(static_cast<int32_t(*)(int64_t)>(&Check::protection))},
-	{"putCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC},
-	{"removeCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC},
-	{"reportDeferredDiagnostics", "()V", nullptr, $PUBLIC},
-	{"setLint", "(Lcom/sun/tools/javac/code/Lint;)Lcom/sun/tools/javac/code/Lint;", nullptr, 0},
-	{"setMethod", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0},
-	{"subset", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0},
-	{"typeTagError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"uncheckedOverrides", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0},
-	{"unhandled", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"union", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0},
-	{"validate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0},
-	{"validate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Z)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Z)V", 0},
-	{"validate", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0},
-	{"validateAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($JCTree$JCAnnotation*,$JCTree*,$Symbol*)>(&Check::validateAnnotation))},
-	{"validateAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Check::*)($JCTree$JCAnnotation*)>(&Check::validateAnnotation))},
-	{"validateAnnotationDeferErrors", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, $PUBLIC},
-	{"validateAnnotationMethod", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0},
-	{"validateAnnotationTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0},
-	{"validateAnnotationType", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0},
-	{"validateAnnotationType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0},
-	{"validateAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", $PUBLIC},
-	{"validateDefault", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($Symbol*,$JCDiagnostic$DiagnosticPosition*)>(&Check::validateDefault))},
-	{"validateDocumented", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($Symbol*,$Symbol*,$JCDiagnostic$DiagnosticPosition*)>(&Check::validateDocumented))},
-	{"validateInherited", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($Symbol*,$Symbol*,$JCDiagnostic$DiagnosticPosition*)>(&Check::validateInherited))},
-	{"validateRepeatable", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC},
-	{"validateRetention", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($Symbol$TypeSymbol*,$Symbol$TypeSymbol*,$JCDiagnostic$DiagnosticPosition*)>(&Check::validateRetention))},
-	{"validateTarget", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($Symbol$TypeSymbol*,$Symbol$TypeSymbol*,$JCDiagnostic$DiagnosticPosition*)>(&Check::validateTarget))},
-	{"validateTargetAnnotationValue", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, 0},
-	{"validateTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Z)V", nullptr, $PUBLIC},
-	{"validateTypeAnnotations", "(Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Z)V", $PUBLIC},
-	{"validateValue", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($Symbol$TypeSymbol*,$Symbol$TypeSymbol*,$JCDiagnostic$DiagnosticPosition*)>(&Check::validateValue))},
-	{"varargsDuplicateError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"varargsOverrides", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0},
-	{"warnDeclaredUsingPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC},
-	{"warnDeprecated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
-	{"warnDivZero", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0},
-	{"warnOnExplicitStrictfp", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(static_cast<void(Check::*)($JCDiagnostic$DiagnosticPosition*)>(&Check::warnOnExplicitStrictfp))},
-	{"warnPreviewAPI", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"warnStatic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"warnUnchecked", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC},
-	{"warnUnsafeVararg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, 0},
-	{"withinAnonConstr", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PRIVATE, $method(static_cast<bool(Check::*)($Env*)>(&Check::withinAnonConstr))},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Check, init$, void, $Context*)},
+	{"annotationApplicable", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, 0, $virtualMethod(Check, annotationApplicable, bool, $JCTree$JCAnnotation*, $Symbol*)},
+	{"asTypeParam", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(Check, asTypeParam, $Object*, $Type*)},
+	{"assertConvertible", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)V", nullptr, $PRIVATE, $method(Check, assertConvertible, void, $JCTree*, $Type*, $Type*, $Warner*)},
+	{"belongsToRestrictedPackage", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, belongsToRestrictedPackage, bool, $Symbol*)},
+	{"cannotOverride", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(Check, cannotOverride, $JCDiagnostic$Fragment*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
+	{"castWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $virtualMethod(Check, castWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+	{"checkAccessFromSerializableElement", "(Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, 0, $virtualMethod(Check, checkAccessFromSerializableElement, void, $JCTree*, bool)},
+	{"checkAllDefined", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(Check, checkAllDefined, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
+	{"checkAnnotationResType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkAnnotationResType, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkCanonical", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkCanonical, void, $JCTree*)},
+	{"checkCastable", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkCastable, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+	{"checkCastable", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkCastable, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*)},
+	{"checkClassBounds", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkClassBounds, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkClassBounds", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/util/Map;Lcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Type;)V", 0, $virtualMethod(Check, checkClassBounds, void, $JCDiagnostic$DiagnosticPosition*, $Map*, $Type*)},
+	{"checkClassOrArrayType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkClassOrArrayType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkClassOverrideEqualsAndHash", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(Check, checkClassOverrideEqualsAndHash, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
+	{"checkClassOverrideEqualsAndHashIfNeeded", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkClassOverrideEqualsAndHashIfNeeded, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
+	{"checkClassType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkClassType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkClassType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Z)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkClassType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, bool)},
+	{"checkCommonOverriderIn", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, checkCommonOverriderIn, bool, $Symbol*, $Symbol*, $Type*)},
+	{"checkCompatibleAbstracts", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Check, checkCompatibleAbstracts, bool, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Type*)},
+	{"checkCompatibleConcretes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkCompatibleConcretes, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkCompatibleSupertypes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkCompatibleSupertypes, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkConstructorRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkConstructorRefType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkCyclicConstructor", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;>;)V", $PRIVATE, $method(Check, checkCyclicConstructor, void, $JCTree$JCClassDecl*, $Symbol*, $Map*)},
+	{"checkCyclicConstructors", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkCyclicConstructors, void, $JCTree$JCClassDecl*)},
+	{"checkDefaultConstructor", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0, $virtualMethod(Check, checkDefaultConstructor, void, $Symbol$ClassSymbol*, $JCDiagnostic$DiagnosticPosition*)},
+	{"checkDefaultMethodClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkDefaultMethodClashes, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkDenotable", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Check, checkDenotable, bool, $Type*)},
+	{"checkDeprecated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkDeprecated, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
+	{"checkDeprecated", "(Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", "(Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", 0, $virtualMethod(Check, checkDeprecated, void, $Supplier*, $Symbol*, $Symbol*)},
+	{"checkDeprecatedAnnotation", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkDeprecatedAnnotation, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"checkDiamond", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkDiamond, $Type*, $JCTree$JCNewClass*, $Type*)},
+	{"checkDiamondDenotable", "(Lcom/sun/tools/javac/code/Type$ClassType;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$ClassType;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, checkDiamondDenotable, $List*, $Type$ClassType*)},
+	{"checkDisjoint", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;JJJ)Z", nullptr, 0, $virtualMethod(Check, checkDisjoint, bool, $JCDiagnostic$DiagnosticPosition*, int64_t, int64_t, int64_t)},
+	{"checkDivZero", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkDivZero, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*)},
+	{"checkEmptyIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, 0, $virtualMethod(Check, checkEmptyIf, void, $JCTree$JCIf*)},
+	{"checkExtends", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Check, checkExtends, bool, $Type*, $Type*)},
+	{"checkFlags", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;JLcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, 0, $virtualMethod(Check, checkFlags, int64_t, $JCDiagnostic$DiagnosticPosition*, int64_t, $Symbol*, $JCTree*)},
+	{"checkForBadAuxiliaryClassAccess", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", 0, $virtualMethod(Check, checkForBadAuxiliaryClassAccess, void, $JCDiagnostic$DiagnosticPosition*, $Env*, $Symbol$ClassSymbol*)},
+	{"checkFunctionalInterface", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkFunctionalInterface, void, $JCTree$JCClassDecl*, $Symbol$ClassSymbol*)},
+	{"checkHideClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkHideClashes, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Symbol$MethodSymbol*)},
+	{"checkImplementations", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkImplementations, void, $JCTree$JCClassDecl*)},
+	{"checkImplementations", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(Check, checkImplementations, void, $JCTree*, $Symbol$ClassSymbol*, $Symbol$ClassSymbol*)},
+	{"checkImportedPackagesObservable", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkImportedPackagesObservable, void, $JCTree$JCCompilationUnit*)},
+	{"checkImportsResolvable", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkImportsResolvable, void, $JCTree$JCCompilationUnit*)},
+	{"checkImportsUnique", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, 0, $virtualMethod(Check, checkImportsUnique, void, $JCTree$JCCompilationUnit*)},
+	{"checkLeaksNotAccessible", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", $PUBLIC, $virtualMethod(Check, checkLeaksNotAccessible, void, $Env*, $JCTree$JCClassDecl*)},
+	{"checkLocalVarType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkLocalVarType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Name*)},
+	{"checkMethod", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;ZLcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", 0, $virtualMethod(Check, checkMethod, $Type*, $Type*, $Symbol*, $Env*, $List*, $List*, bool, $InferenceContext*)},
+	{"checkModuleExists", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, 0, $virtualMethod(Check, checkModuleExists, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ModuleSymbol*)},
+	{"checkModuleName", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Check, checkModuleName, void, $JCTree$JCModuleDecl*)},
+	{"checkModuleRequires", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Directive$RequiresDirective;)V", nullptr, 0, $virtualMethod(Check, checkModuleRequires, void, $JCDiagnostic$DiagnosticPosition*, $Directive$RequiresDirective*)},
+	{"checkNameClash", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, checkNameClash, bool, $Symbol$ClassSymbol*, $Symbol*, $Symbol*)},
+	{"checkNonCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclic, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkNonCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type$TypeVar;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclic, void, $JCDiagnostic$DiagnosticPosition*, $Type$TypeVar*)},
+	{"checkNonCyclic1", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type$TypeVar;>;)V", $PRIVATE, $method(Check, checkNonCyclic1, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $List*)},
+	{"checkNonCyclicDecl", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclicDecl, void, $JCTree$JCClassDecl*)},
+	{"checkNonCyclicElements", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclicElements, void, $JCTree$JCClassDecl*)},
+	{"checkNonCyclicElementsInternal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $virtualMethod(Check, checkNonCyclicElementsInternal, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$TypeSymbol*)},
+	{"checkNonCyclicInternal", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Check, checkNonCyclicInternal, bool, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkNonVoid", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkNonVoid, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkNotRepeated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Ljava/util/Set;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Type;>;)V", 0, $virtualMethod(Check, checkNotRepeated, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Set*)},
+	{"checkNullOrRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkNullOrRefType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkOverride", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(Check, checkOverride, void, $JCTree*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*, $Symbol$ClassSymbol*)},
+	{"checkOverride", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", 0, $virtualMethod(Check, checkOverride, void, $Env*, $JCTree$JCMethodDecl*, $Symbol$MethodSymbol*)},
+	{"checkOverride", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkOverride, void, $JCTree*, $Type*, $Symbol$ClassSymbol*, $Symbol$MethodSymbol*)},
+	{"checkOverrideClashes", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkOverrideClashes, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Symbol$MethodSymbol*)},
+	{"checkPackageExistsForOpens", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, 0, $virtualMethod(Check, checkPackageExistsForOpens, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$PackageSymbol*)},
+	{"checkPotentiallyAmbiguousOverloads", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, checkPotentiallyAmbiguousOverloads, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
+	{"checkPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkPreview, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
+	{"checkProfile", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkProfile, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"checkRaw", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Check, checkRaw, void, $JCTree*, $Env*)},
+	{"checkRedundantCast", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", $PUBLIC, $virtualMethod(Check, checkRedundantCast, void, $Env*, $JCTree$JCTypeCast*)},
+	{"checkRefType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkRefType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"checkRefTypes", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, checkRefTypes, $List*, $List*, $List*)},
+	{"checkSunAPI", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, checkSunAPI, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"checkSwitchCaseStructure", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCase;>;)V", 0, $virtualMethod(Check, checkSwitchCaseStructure, void, $List*)},
+	{"checkTransparentClass", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Check, checkTransparentClass, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*, $Scope*)},
+	{"checkTransparentVar", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$VarSymbol;Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(Check, checkTransparentVar, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$VarSymbol*, $Scope*)},
+	{"checkType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Check, checkType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+	{"checkType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, checkType, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*)},
+	{"checkTypeContainsImportableElement", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/Name;Ljava/util/Set;)Z", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/util/Name;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)Z", $PRIVATE, $method(Check, checkTypeContainsImportableElement, bool, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $Symbol$PackageSymbol*, $Name*, $Set*)},
+	{"checkUnique", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Scope;)Z", nullptr, 0, $virtualMethod(Check, checkUnique, bool, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Scope*)},
+	{"checkUniqueClassName", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Scope;)Z", nullptr, 0, $virtualMethod(Check, checkUniqueClassName, bool, $JCDiagnostic$DiagnosticPosition*, $Name*, $Scope*)},
+	{"checkUniqueImport", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Symbol;Z)Z", nullptr, $PRIVATE, $method(Check, checkUniqueImport, bool, $JCDiagnostic$DiagnosticPosition*, $Scope*, $Scope*, $Scope*, $Symbol*, bool)},
+	{"checkValidGenericType", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Check, checkValidGenericType, bool, $Type*)},
+	{"checkVarargsMethodDecl", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", 0, $virtualMethod(Check, checkVarargsMethodDecl, void, $Env*, $JCTree$JCMethodDecl*)},
+	{"checkVisible", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Z)V", nullptr, $PRIVATE, $method(Check, checkVisible, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol$PackageSymbol*, bool)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Check, clear, void)},
+	{"clearLocalClassNameIndexes", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, clearLocalClassNameIndexes, void, $Symbol$ClassSymbol*)},
+	{"closure", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(Check, closure, void, $Type*, $Map*)},
+	{"closure", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;>;)V", $PRIVATE, $method(Check, closure, void, $Type*, $Map*, $Map*)},
+	{"completionError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Check, completionError, $Type*, $JCDiagnostic$DiagnosticPosition*, $Symbol$CompletionFailure*)},
+	{"convertWarner", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/Warner;", nullptr, $PUBLIC, $virtualMethod(Check, convertWarner, $Warner*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*)},
+	{"defaultTargetMetaInfo", "()[Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE, $method(Check, defaultTargetMetaInfo, $NameArray*)},
+	{"diff", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, diff, $List*, $List*, $List*)},
+	{"duplicateErasureError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, duplicateErasureError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
+	{"duplicateError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, duplicateError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"earlyRefError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, earlyRefError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"excl", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, excl, $List*, $Type*, $List*)},
+	{"findExport", "(Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)Lcom/sun/tools/javac/code/Directive$ExportsDirective;", nullptr, $PRIVATE, $method(Check, findExport, $Directive$ExportsDirective*, $Symbol$PackageSymbol*)},
+	{"firstDirectIncompatibility", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Check, firstDirectIncompatibility, $Symbol*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Type*)},
+	{"firstIncompatibility", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Check, firstIncompatibility, $Symbol*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Type*)},
+	{"firstIncompatibleTypeArg", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Check, firstIncompatibleTypeArg, $Type*, $Type*)},
+	{"getApplicableTargets", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Ljava/util/Optional;", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Symbol;)Ljava/util/Optional<Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;>;", 0, $virtualMethod(Check, getApplicableTargets, $Optional*, $JCTree$JCAnnotation*, $Symbol*)},
+	{"getAttributeTargetAttribute", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Attribute$Array;", nullptr, 0, $virtualMethod(Check, getAttributeTargetAttribute, $Attribute$Array*, $Symbol$TypeSymbol*)},
+	{"getCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Check, getCompiled, $Symbol$ClassSymbol*, $Symbol$ClassSymbol*)},
+	{"getCompiled", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Check, getCompiled, $Symbol$ClassSymbol*, $Symbol$ModuleSymbol*, $Name*)},
+	{"getDefaultTargetSet", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;", $PRIVATE, $method(Check, getDefaultTargetSet, $Set*)},
+	{"getTargetNames", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)[Lcom/sun/tools/javac/util/Name;", nullptr, 0, $virtualMethod(Check, getTargetNames, $NameArray*, $JCTree$JCAnnotation*)},
+	{"getTargetNames", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)[Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Check, getTargetNames, $NameArray*, $Symbol$TypeSymbol*)},
+	{"implicitEnumFinalFlag", "(Lcom/sun/tools/javac/tree/JCTree;)J", nullptr, $PRIVATE, $method(Check, implicitEnumFinalFlag, int64_t, $JCTree*)},
+	{"importAccessible", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Check, importAccessible, bool, $Symbol*, $Symbol$PackageSymbol*)},
+	{"incl", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, incl, $List*, $Type*, $List*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Check;", nullptr, $PUBLIC | $STATIC, $staticMethod(Check, instance, Check*, $Context*)},
+	{"intersect", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Check, intersect, $List*, $List*, $List*)},
+	{"intersects", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Check, intersects, bool, $Type*, $List*)},
+	{"is292targetTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)Z", nullptr, $PRIVATE, $method(Check, is292targetTypeCast, bool, $JCTree$JCTypeCast*)},
+	{"isAPISymbol", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, isAPISymbol, bool, $Symbol*)},
+	{"isCanonical", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PRIVATE, $method(Check, isCanonical, bool, $JCTree*)},
+	{"isChecked", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isChecked, bool, $Type*)},
+	{"isDeprecatedOverrideIgnorable", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PRIVATE, $method(Check, isDeprecatedOverrideIgnorable, bool, $Symbol$MethodSymbol*, $Symbol$ClassSymbol*)},
+	{"isEffectivelyNonPublic", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, isEffectivelyNonPublic, bool, $Symbol*)},
+	{"isHandled", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Check, isHandled, bool, $Type*, $List*)},
+	{"isOverrider", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, 0, $virtualMethod(Check, isOverrider, bool, $Symbol*)},
+	{"isTargetSubsetOf", "(Ljava/util/Set;Ljava/util/Set;)Z", "(Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;Ljava/util/Set<Lcom/sun/tools/javac/util/Name;>;)Z", $PRIVATE, $method(Check, isTargetSubsetOf, bool, $Set*, $Set*)},
+	{"isTrustMeAllowedOnMethod", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(Check, isTrustMeAllowedOnMethod, bool, $Symbol*)},
+	{"isTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Z)Z", nullptr, $PROTECTED, $virtualMethod(Check, isTypeAnnotation, bool, $JCTree$JCAnnotation*, bool)},
+	{"isTypeAnnotation", "(Lcom/sun/tools/javac/code/Attribute;Z)Z", nullptr, 0, $virtualMethod(Check, isTypeAnnotation, bool, $Attribute*, bool)},
+	{"isTypeArgErroneous", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isTypeArgErroneous, bool, $Type*)},
+	{"isUnchecked", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, 0, $virtualMethod(Check, isUnchecked, bool, $Symbol$ClassSymbol*)},
+	{"isUnchecked", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isUnchecked, bool, $Type*)},
+	{"isUnchecked", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Z", nullptr, 0, $virtualMethod(Check, isUnchecked, bool, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"lambda$checkDefaultConstructor$19", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkDefaultConstructor$19, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*, $Symbol$PackageSymbol*, $Symbol$ModuleSymbol*)},
+	{"lambda$checkDeprecated$10", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkDeprecated$10, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$DiagnosticPosition*)},
+	{"lambda$checkDeprecated$11", "(Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkDeprecated$11, void, $Supplier*, $Symbol*)},
+	{"lambda$checkDivZero$16", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkDivZero$16, void, $JCDiagnostic$DiagnosticPosition*)},
+	{"lambda$checkImportsUnique$17", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkImportsUnique$17, bool, $Symbol*)},
+	{"lambda$checkMethod$2", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;ZLcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkMethod$2, void, $Type*, $Symbol*, $Env*, $List*, $List*, bool, $InferenceContext*)},
+	{"lambda$checkModuleExists$20", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkModuleExists$20, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ModuleSymbol*)},
+	{"lambda$checkModuleRequires$22", "(Lcom/sun/tools/javac/code/Directive$RequiresDirective;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkModuleRequires$22, void, $Directive$RequiresDirective*, $JCDiagnostic$DiagnosticPosition*)},
+	{"lambda$checkOverride$4", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkOverride$4, $JCDiagnostic$DiagnosticPosition*, $Symbol$MethodSymbol*, $JCTree*)},
+	{"lambda$checkOverride$5", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Lcom/sun/tools/javac/code/Symbol$RecordComponent;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkOverride$5, bool, $JCTree$JCMethodDecl*, $Symbol$RecordComponent*)},
+	{"lambda$checkPackageExistsForOpens$21", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$PackageSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPackageExistsForOpens$21, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$PackageSymbol*)},
+	{"lambda$checkPreview$13", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPreview$13, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"lambda$checkPreview$14", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPreview$14, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"lambda$checkPreview$15", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkPreview$15, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"lambda$checkRedundantCast$1", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkRedundantCast$1, void, $JCTree$JCTypeCast*)},
+	{"lambda$checkSunAPI$12", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkSunAPI$12, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"lambda$checkType$0", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$checkType$0, void, $JCDiagnostic$DiagnosticPosition*, $Type*, $Type*, $Check$CheckContext*, $InferenceContext*)},
+	{"lambda$checkUniqueImport$18", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$checkUniqueImport$18, bool, $Symbol*, $Symbol*)},
+	{"lambda$isTypeAnnotation$9", "(ZLcom/sun/tools/javac/code/Attribute;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$isTypeAnnotation$9, bool, bool, $Attribute*)},
+	{"lambda$new$6", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Check, lambda$new$6, bool, $Symbol*)},
+	{"lambda$validateAnnotation$7", "(Lcom/sun/tools/javac/util/Name;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$validateAnnotation$7, bool, $Name*)},
+	{"lambda$validateAnnotation$8", "(Lcom/sun/tools/javac/code/Attribute$Compound;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$validateAnnotation$8, bool, $Attribute$Compound*)},
+	{"lambda$warnOnExplicitStrictfp$3", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Check, lambda$warnOnExplicitStrictfp$3, void, $JCDiagnostic$DiagnosticPosition*)},
+	{"localClassName", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Check, localClassName, $Name*, $Symbol$ClassSymbol*)},
+	{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(Check, newRound, void)},
+	{"noteCyclic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE, $method(Check, noteCyclic, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
+	{"protection", "(J)I", nullptr, $STATIC, $staticMethod(Check, protection, int32_t, int64_t)},
+	{"putCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, putCompiled, void, $Symbol$ClassSymbol*)},
+	{"removeCompiled", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, removeCompiled, void, $Symbol$ClassSymbol*)},
+	{"reportDeferredDiagnostics", "()V", nullptr, $PUBLIC, $virtualMethod(Check, reportDeferredDiagnostics, void)},
+	{"setLint", "(Lcom/sun/tools/javac/code/Lint;)Lcom/sun/tools/javac/code/Lint;", nullptr, 0, $virtualMethod(Check, setLint, $Lint*, $Lint*)},
+	{"setMethod", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, 0, $virtualMethod(Check, setMethod, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
+	{"subset", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Check, subset, bool, $Type*, $List*)},
+	{"typeTagError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Check, typeTagError, $Type*, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic*, Object$*)},
+	{"uncheckedOverrides", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(Check, uncheckedOverrides, $JCDiagnostic$Fragment*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
+	{"unhandled", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, unhandled, $List*, $List*, $List*)},
+	{"union", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Check, union$, $List*, $List*, $List*)},
+	{"validate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Check, validate, void, $JCTree*, $Env*)},
+	{"validate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Z)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Z)V", 0, $virtualMethod(Check, validate, void, $JCTree*, $Env*, bool)},
+	{"validate", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $virtualMethod(Check, validate, void, $List*, $Env*)},
+	{"validateAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE, $method(Check, validateAnnotation, void, $JCTree$JCAnnotation*, $JCTree*, $Symbol*)},
+	{"validateAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, $PRIVATE, $method(Check, validateAnnotation, bool, $JCTree$JCAnnotation*)},
+	{"validateAnnotationDeferErrors", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, $PUBLIC, $virtualMethod(Check, validateAnnotationDeferErrors, bool, $JCTree$JCAnnotation*)},
+	{"validateAnnotationMethod", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationMethod, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$MethodSymbol*)},
+	{"validateAnnotationTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationTree, void, $JCTree*)},
+	{"validateAnnotationType", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationType, void, $JCTree*)},
+	{"validateAnnotationType", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Check, validateAnnotationType, void, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+	{"validateAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol;)V", $PUBLIC, $virtualMethod(Check, validateAnnotations, void, $List*, $JCTree*, $Symbol*)},
+	{"validateDefault", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateDefault, void, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+	{"validateDocumented", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateDocumented, void, $Symbol*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+	{"validateInherited", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateInherited, void, $Symbol*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+	{"validateRepeatable", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $virtualMethod(Check, validateRepeatable, void, $Symbol$TypeSymbol*, $Attribute$Compound*, $JCDiagnostic$DiagnosticPosition*)},
+	{"validateRetention", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateRetention, void, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $JCDiagnostic$DiagnosticPosition*)},
+	{"validateTarget", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateTarget, void, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $JCDiagnostic$DiagnosticPosition*)},
+	{"validateTargetAnnotationValue", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)Z", nullptr, 0, $virtualMethod(Check, validateTargetAnnotationValue, bool, $JCTree$JCAnnotation*)},
+	{"validateTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Z)V", nullptr, $PUBLIC, $virtualMethod(Check, validateTypeAnnotation, void, $JCTree$JCAnnotation*, bool)},
+	{"validateTypeAnnotations", "(Lcom/sun/tools/javac/util/List;Z)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Z)V", $PUBLIC, $virtualMethod(Check, validateTypeAnnotations, void, $List*, bool)},
+	{"validateValue", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, validateValue, void, $Symbol$TypeSymbol*, $Symbol$TypeSymbol*, $JCDiagnostic$DiagnosticPosition*)},
+	{"varargsDuplicateError", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, varargsDuplicateError, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Symbol*)},
+	{"varargsOverrides", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)Lcom/sun/tools/javac/util/JCDiagnostic$Fragment;", nullptr, 0, $virtualMethod(Check, varargsOverrides, $JCDiagnostic$Fragment*, $Symbol$MethodSymbol*, $Symbol$MethodSymbol*)},
+	{"warnDeclaredUsingPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnDeclaredUsingPreview, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"warnDeprecated", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(Check, warnDeprecated, void, $JCDiagnostic$DiagnosticPosition*, $Symbol*)},
+	{"warnDivZero", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, 0, $virtualMethod(Check, warnDivZero, void, $JCDiagnostic$DiagnosticPosition*)},
+	{"warnOnExplicitStrictfp", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE, $method(Check, warnOnExplicitStrictfp, void, $JCDiagnostic$DiagnosticPosition*)},
+	{"warnPreviewAPI", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnPreviewAPI, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+	{"warnStatic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnStatic, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+	{"warnUnchecked", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Check, warnUnchecked, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+	{"warnUnsafeVararg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, 0, $virtualMethod(Check, warnUnsafeVararg, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+	{"withinAnonConstr", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PRIVATE, $method(Check, withinAnonConstr, bool, $Env*)},
 	{}
 };
 

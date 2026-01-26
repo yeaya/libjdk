@@ -197,8 +197,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RegistryImpl$$Lambda$initRegistryFilter::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RegistryImpl$$Lambda$initRegistryFilter::*)()>(&RegistryImpl$$Lambda$initRegistryFilter::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RegistryImpl$$Lambda$initRegistryFilter, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$$Lambda$initRegistryFilter, run, $Object*)},
 	{}
 };
 $ClassInfo RegistryImpl$$Lambda$initRegistryFilter::classInfo$ = {
@@ -230,8 +230,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RegistryImpl$$Lambda$registryFilter$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RegistryImpl$$Lambda$registryFilter$1::*)()>(&RegistryImpl$$Lambda$registryFilter$1::init$))},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RegistryImpl$$Lambda$registryFilter$1, init$, void)},
+	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl$$Lambda$registryFilter$1, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
 	{}
 };
 $ClassInfo RegistryImpl$$Lambda$registryFilter$1::classInfo$ = {
@@ -267,25 +267,25 @@ $MethodInfo _RegistryImpl_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(static_cast<void(RegistryImpl::*)(int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*)>(&RegistryImpl::init$)), "java.rmi.RemoteException"},
-	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(static_cast<void(RegistryImpl::*)(int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*,$ObjectInputFilter*)>(&RegistryImpl::init$)), "java.rmi.RemoteException"},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(RegistryImpl::*)(int32_t)>(&RegistryImpl::init$)), "java.rmi.RemoteException"},
-	{"bind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException,java.rmi.AlreadyBoundException,java.rmi.AccessException"},
-	{"checkAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($String*)>(&RegistryImpl::checkAccess)), "java.rmi.AccessException"},
-	{"createRegistry", "(I)Lsun/rmi/registry/RegistryImpl;", nullptr, $PUBLIC | $STATIC, $method(static_cast<RegistryImpl*(*)(int32_t)>(&RegistryImpl::createRegistry)), "java.rmi.RemoteException"},
-	{"getAccessControlContext", "(I)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$AccessControlContext*(*)(int32_t)>(&RegistryImpl::getAccessControlContext))},
-	{"getID", "()Ljava/rmi/server/ObjID;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ObjID*(*)()>(&RegistryImpl::getID))},
-	{"getTextResource", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&RegistryImpl::getTextResource))},
-	{"initRegistryFilter", "()Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ObjectInputFilter*(*)()>(&RegistryImpl::initRegistryFilter))},
-	{"list", "()[Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/rmi/Remote;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException,java.rmi.NotBoundException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&RegistryImpl::main))},
-	{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$URLArray*(*)($String*)>(&RegistryImpl::pathToURLs))},
-	{"rebind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException,java.rmi.AccessException"},
-	{"registryFilter", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ObjectInputFilter$Status*(*)($ObjectInputFilter$FilterInfo*)>(&RegistryImpl::registryFilter))},
-	{"setup", "(Lsun/rmi/server/UnicastServerRef;)V", nullptr, $PRIVATE, $method(static_cast<void(RegistryImpl::*)($UnicastServerRef*)>(&RegistryImpl::setup)), "java.rmi.RemoteException"},
+	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(RegistryImpl, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*), "java.rmi.RemoteException"},
+	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(RegistryImpl, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*, $ObjectInputFilter*), "java.rmi.RemoteException"},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(RegistryImpl, init$, void, int32_t), "java.rmi.RemoteException"},
+	{"bind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl, bind, void, $String*, $Remote*), "java.rmi.RemoteException,java.rmi.AlreadyBoundException,java.rmi.AccessException"},
+	{"checkAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RegistryImpl, checkAccess, void, $String*), "java.rmi.AccessException"},
+	{"createRegistry", "(I)Lsun/rmi/registry/RegistryImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(RegistryImpl, createRegistry, RegistryImpl*, int32_t), "java.rmi.RemoteException"},
+	{"getAccessControlContext", "(I)Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $STATIC, $staticMethod(RegistryImpl, getAccessControlContext, $AccessControlContext*, int32_t)},
+	{"getID", "()Ljava/rmi/server/ObjID;", nullptr, $PUBLIC | $STATIC, $staticMethod(RegistryImpl, getID, $ObjID*)},
+	{"getTextResource", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(RegistryImpl, getTextResource, $String*, $String*)},
+	{"initRegistryFilter", "()Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC, $staticMethod(RegistryImpl, initRegistryFilter, $ObjectInputFilter*)},
+	{"list", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl, list, $StringArray*), "java.rmi.RemoteException"},
+	{"lookup", "(Ljava/lang/String;)Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl, lookup, $Remote*, $String*), "java.rmi.RemoteException,java.rmi.NotBoundException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RegistryImpl, main, void, $StringArray*)},
+	{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(RegistryImpl, pathToURLs, $URLArray*, $String*)},
+	{"rebind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl, rebind, void, $String*, $Remote*), "java.rmi.RemoteException,java.rmi.AccessException"},
+	{"registryFilter", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC, $staticMethod(RegistryImpl, registryFilter, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+	{"setup", "(Lsun/rmi/server/UnicastServerRef;)V", nullptr, $PRIVATE, $method(RegistryImpl, setup, void, $UnicastServerRef*), "java.rmi.RemoteException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException,java.rmi.NotBoundException,java.rmi.AccessException"},
+	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl, unbind, void, $String*), "java.rmi.RemoteException,java.rmi.NotBoundException,java.rmi.AccessException"},
 	{}
 };
 

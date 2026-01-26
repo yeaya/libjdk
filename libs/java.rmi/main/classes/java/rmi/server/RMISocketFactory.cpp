@@ -34,12 +34,12 @@ $MethodInfo _RMISocketFactory_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RMISocketFactory::*)()>(&RMISocketFactory::init$))},
-	{"getDefaultSocketFactory", "()Ljava/rmi/server/RMISocketFactory;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<RMISocketFactory*(*)()>(&RMISocketFactory::getDefaultSocketFactory))},
-	{"getFailureHandler", "()Ljava/rmi/server/RMIFailureHandler;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$RMIFailureHandler*(*)()>(&RMISocketFactory::getFailureHandler))},
-	{"getSocketFactory", "()Ljava/rmi/server/RMISocketFactory;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<RMISocketFactory*(*)()>(&RMISocketFactory::getSocketFactory))},
-	{"setFailureHandler", "(Ljava/rmi/server/RMIFailureHandler;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($RMIFailureHandler*)>(&RMISocketFactory::setFailureHandler))},
-	{"setSocketFactory", "(Ljava/rmi/server/RMISocketFactory;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)(RMISocketFactory*)>(&RMISocketFactory::setSocketFactory)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RMISocketFactory, init$, void)},
+	{"getDefaultSocketFactory", "()Ljava/rmi/server/RMISocketFactory;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(RMISocketFactory, getDefaultSocketFactory, RMISocketFactory*)},
+	{"getFailureHandler", "()Ljava/rmi/server/RMIFailureHandler;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(RMISocketFactory, getFailureHandler, $RMIFailureHandler*)},
+	{"getSocketFactory", "()Ljava/rmi/server/RMISocketFactory;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(RMISocketFactory, getSocketFactory, RMISocketFactory*)},
+	{"setFailureHandler", "(Ljava/rmi/server/RMIFailureHandler;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(RMISocketFactory, setFailureHandler, void, $RMIFailureHandler*)},
+	{"setSocketFactory", "(Ljava/rmi/server/RMISocketFactory;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(RMISocketFactory, setSocketFactory, void, RMISocketFactory*), "java.io.IOException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

@@ -18,8 +18,8 @@ $FieldInfo _SchemaViolationException_FieldInfo_[] = {
 };
 
 $MethodInfo _SchemaViolationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SchemaViolationException::*)()>(&SchemaViolationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(SchemaViolationException::*)($String*)>(&SchemaViolationException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaViolationException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SchemaViolationException, init$, void, $String*)},
 	{}
 };
 

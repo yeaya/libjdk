@@ -50,9 +50,9 @@ $CompoundAttribute _ElementKindVisitor7_MethodAnnotations_init$1[] = {
 };
 
 $MethodInfo _ElementKindVisitor7_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(static_cast<void(ElementKindVisitor7::*)()>(&ElementKindVisitor7::init$)), nullptr, nullptr, _ElementKindVisitor7_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(static_cast<void(ElementKindVisitor7::*)(Object$*)>(&ElementKindVisitor7::init$)), nullptr, nullptr, _ElementKindVisitor7_MethodAnnotations_init$1},
-	{"visitVariableAsResourceVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(ElementKindVisitor7, init$, void), nullptr, nullptr, _ElementKindVisitor7_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(ElementKindVisitor7, init$, void, Object$*), nullptr, nullptr, _ElementKindVisitor7_MethodAnnotations_init$1},
+	{"visitVariableAsResourceVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementKindVisitor7, visitVariableAsResourceVariable, $Object*, $VariableElement*, Object$*)},
 	{}
 };
 

@@ -30,9 +30,9 @@ using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 
 $MethodInfo _LocalHostCookie_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LocalHostCookie::*)()>(&LocalHostCookie::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LocalHostCookie::main)), "java.lang.Exception"},
-	{"runTest", "()V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LocalHostCookie, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalHostCookie, main, void, $StringArray*), "java.lang.Exception"},
+	{"runTest", "()V", nullptr, $PUBLIC, $virtualMethod(LocalHostCookie, runTest, void), "java.lang.Exception"},
 	{}
 };
 

@@ -83,10 +83,10 @@ $FieldInfo _DigestMD5Base$DigestPrivacy_FieldInfo_[] = {
 };
 
 $MethodInfo _DigestMD5Base$DigestPrivacy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/security/sasl/digest/DigestMD5Base;Z)V", nullptr, 0, $method(static_cast<void(DigestMD5Base$DigestPrivacy::*)($DigestMD5Base*,bool)>(&DigestMD5Base$DigestPrivacy::init$)), "javax.security.sasl.SaslException"},
-	{"generatePrivacyKeyPair", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(DigestMD5Base$DigestPrivacy::*)(bool)>(&DigestMD5Base$DigestPrivacy::generatePrivacyKeyPair)), "java.io.IOException,java.security.NoSuchAlgorithmException,javax.security.sasl.SaslException"},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, nullptr, "javax.security.sasl.SaslException"},
+	{"<init>", "(Lcom/sun/security/sasl/digest/DigestMD5Base;Z)V", nullptr, 0, $method(DigestMD5Base$DigestPrivacy, init$, void, $DigestMD5Base*, bool), "javax.security.sasl.SaslException"},
+	{"generatePrivacyKeyPair", "(Z)V", nullptr, $PRIVATE, $method(DigestMD5Base$DigestPrivacy, generatePrivacyKeyPair, void, bool), "java.io.IOException,java.security.NoSuchAlgorithmException,javax.security.sasl.SaslException"},
+	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestPrivacy, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestPrivacy, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
 	{}
 };
 

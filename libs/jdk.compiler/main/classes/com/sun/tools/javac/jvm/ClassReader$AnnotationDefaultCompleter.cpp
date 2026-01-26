@@ -46,9 +46,9 @@ $MethodInfo _ClassReader$AnnotationDefaultCompleter_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;)V", nullptr, 0, $method(static_cast<void(ClassReader$AnnotationDefaultCompleter::*)($ClassReader*,$Symbol$MethodSymbol*,$Attribute*)>(&ClassReader$AnnotationDefaultCompleter::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;)V", nullptr, 0, $method(ClassReader$AnnotationDefaultCompleter, init$, void, $ClassReader*, $Symbol$MethodSymbol*, $Attribute*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDefaultCompleter, run, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$AnnotationDefaultCompleter, toString, $String*)},
 	{}
 };
 

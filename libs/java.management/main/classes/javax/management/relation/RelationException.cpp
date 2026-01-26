@@ -18,8 +18,8 @@ $FieldInfo _RelationException_FieldInfo_[] = {
 };
 
 $MethodInfo _RelationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RelationException::*)()>(&RelationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RelationException::*)($String*)>(&RelationException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RelationException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RelationException, init$, void, $String*)},
 	{}
 };
 

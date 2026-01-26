@@ -17,8 +17,8 @@ $FieldInfo _OperationNotSupportedException_FieldInfo_[] = {
 };
 
 $MethodInfo _OperationNotSupportedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OperationNotSupportedException::*)()>(&OperationNotSupportedException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(OperationNotSupportedException::*)($String*)>(&OperationNotSupportedException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OperationNotSupportedException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OperationNotSupportedException, init$, void, $String*)},
 	{}
 };
 

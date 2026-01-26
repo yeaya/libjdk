@@ -64,8 +64,8 @@ $FieldInfo ClassReader$ProxyType$$Lambda$sigToType::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ClassReader$ProxyType$$Lambda$sigToType::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$ProxyType$$Lambda$sigToType::*)($ClassReader*)>(&ClassReader$ProxyType$$Lambda$sigToType::init$))},
-	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;)V", nullptr, $PUBLIC, $method(ClassReader$ProxyType$$Lambda$sigToType, init$, void, $ClassReader*)},
+	{"map", "([BII)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassReader$ProxyType$$Lambda$sigToType, map, $Object*, $bytes*, int32_t, int32_t)},
 	{}
 };
 $ClassInfo ClassReader$ProxyType$$Lambda$sigToType::classInfo$ = {
@@ -89,11 +89,11 @@ $FieldInfo _ClassReader$ProxyType_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$ProxyType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;I)V", nullptr, $PUBLIC, $method(static_cast<void(ClassReader$ProxyType::*)($ClassReader*,int32_t)>(&ClassReader$ProxyType::init$))},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC},
-	{"resolve", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;I)V", nullptr, $PUBLIC, $method(ClassReader$ProxyType, init$, void, $ClassReader*, int32_t)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(ClassReader$ProxyType, cloneWithMetadata, $Type*, $TypeMetadata*)},
+	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(ClassReader$ProxyType, getTag, $TypeTag*)},
+	{"resolve", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(ClassReader$ProxyType, resolve, $Type*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$ProxyType, toString, $String*)},
 	{}
 };
 

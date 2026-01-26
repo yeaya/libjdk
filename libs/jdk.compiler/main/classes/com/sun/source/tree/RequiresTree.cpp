@@ -3,6 +3,7 @@
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
+using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -12,9 +13,9 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _RequiresTree_MethodInfo_[] = {
-	{"getModuleName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"isTransitive", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getModuleName", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RequiresTree, getModuleName, $ExpressionTree*)},
+	{"isStatic", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RequiresTree, isStatic, bool)},
+	{"isTransitive", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RequiresTree, isTransitive, bool)},
 	{}
 };
 

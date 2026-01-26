@@ -50,8 +50,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RequestPublishers$StreamIterator$$Lambda$getBuffer::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$StreamIterator$$Lambda$getBuffer::*)()>(&RequestPublishers$StreamIterator$$Lambda$getBuffer::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPublishers$StreamIterator$$Lambda$getBuffer, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$StreamIterator$$Lambda$getBuffer, get, $Object*)},
 	{}
 };
 $ClassInfo RequestPublishers$StreamIterator$$Lambda$getBuffer::classInfo$ = {
@@ -79,12 +79,12 @@ $FieldInfo _RequestPublishers$StreamIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _RequestPublishers$StreamIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(static_cast<void(RequestPublishers$StreamIterator::*)($InputStream*)>(&RequestPublishers$StreamIterator::init$))},
-	{"<init>", "(Ljava/io/InputStream;Ljava/util/function/Supplier;)V", "(Ljava/io/InputStream;Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;)V", 0, $method(static_cast<void(RequestPublishers$StreamIterator::*)($InputStream*,$Supplier*)>(&RequestPublishers$StreamIterator::init$))},
-	{"closeStream", "()V", nullptr, $PRIVATE, $method(static_cast<void(RequestPublishers$StreamIterator::*)()>(&RequestPublishers$StreamIterator::closeStream))},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"next", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"read", "()I", nullptr, $PRIVATE, $method(static_cast<int32_t(RequestPublishers$StreamIterator::*)()>(&RequestPublishers$StreamIterator::read)), "java.io.IOException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(RequestPublishers$StreamIterator, init$, void, $InputStream*)},
+	{"<init>", "(Ljava/io/InputStream;Ljava/util/function/Supplier;)V", "(Ljava/io/InputStream;Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;)V", 0, $method(RequestPublishers$StreamIterator, init$, void, $InputStream*, $Supplier*)},
+	{"closeStream", "()V", nullptr, $PRIVATE, $method(RequestPublishers$StreamIterator, closeStream, void)},
+	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RequestPublishers$StreamIterator, hasNext, bool)},
+	{"next", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(RequestPublishers$StreamIterator, next, $Object*)},
+	{"read", "()I", nullptr, $PRIVATE, $method(RequestPublishers$StreamIterator, read, int32_t), "java.io.IOException"},
 	{}
 };
 

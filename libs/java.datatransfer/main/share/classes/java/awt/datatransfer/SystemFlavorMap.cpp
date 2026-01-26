@@ -111,8 +111,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SystemFlavorMap$$Lambda$SystemFlavorMap::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SystemFlavorMap$$Lambda$SystemFlavorMap::*)()>(&SystemFlavorMap$$Lambda$SystemFlavorMap::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemFlavorMap$$Lambda$SystemFlavorMap, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemFlavorMap$$Lambda$SystemFlavorMap, get, $Object*)},
 	{}
 };
 $ClassInfo SystemFlavorMap$$Lambda$SystemFlavorMap::classInfo$ = {
@@ -144,8 +144,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::*)()>(&SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1, run, $Object*)},
 	{}
 };
 $ClassInfo SystemFlavorMap$$Lambda$lambda$initSystemFlavorMap$0$1::classInfo$ = {
@@ -181,32 +181,32 @@ $FieldInfo _SystemFlavorMap_FieldInfo_[] = {
 };
 
 $MethodInfo _SystemFlavorMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SystemFlavorMap::*)()>(&SystemFlavorMap::init$))},
-	{"addFlavorForUnencodedNative", "(Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<void(SystemFlavorMap::*)($String*,$DataFlavor*)>(&SystemFlavorMap::addFlavorForUnencodedNative))},
-	{"addUnencodedNativeForFlavor", "(Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<void(SystemFlavorMap::*)($DataFlavor*,$String*)>(&SystemFlavorMap::addUnencodedNativeForFlavor))},
-	{"convertMimeTypeToDataFlavors", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)($String*)>(&SystemFlavorMap::convertMimeTypeToDataFlavors))},
-	{"decodeDataFlavor", "(Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$DataFlavor*(*)($String*)>(&SystemFlavorMap::decodeDataFlavor)), "java.lang.ClassNotFoundException"},
-	{"decodeJavaMIMEType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&SystemFlavorMap::decodeJavaMIMEType))},
-	{"encodeDataFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($DataFlavor*)>(&SystemFlavorMap::encodeDataFlavor))},
-	{"encodeJavaMIMEType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($String*)>(&SystemFlavorMap::encodeJavaMIMEType))},
-	{"flavorToNativeLookup", "(Ljava/awt/datatransfer/DataFlavor;Z)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;Z)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PRIVATE, $method(static_cast<$LinkedHashSet*(SystemFlavorMap::*)($DataFlavor*,bool)>(&SystemFlavorMap::flavorToNativeLookup))},
-	{"getDefaultFlavorMap", "()Ljava/awt/datatransfer/FlavorMap;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$FlavorMap*(*)()>(&SystemFlavorMap::getDefaultFlavorMap))},
-	{"getFlavorToNative", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE | $SYNCHRONIZED, $method(static_cast<$Map*(SystemFlavorMap::*)()>(&SystemFlavorMap::getFlavorToNative))},
-	{"getFlavorsForNative", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $SYNCHRONIZED},
-	{"getFlavorsForNatives", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $SYNCHRONIZED},
-	{"getNativeToFlavor", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;>;", $PRIVATE, $method(static_cast<$Map*(SystemFlavorMap::*)()>(&SystemFlavorMap::getNativeToFlavor))},
-	{"getNativesForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/List;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED},
-	{"getNativesForFlavors", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map;", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED},
-	{"getTextTypeToNative", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE | $SYNCHRONIZED, $method(static_cast<$Map*(SystemFlavorMap::*)()>(&SystemFlavorMap::getTextTypeToNative))},
-	{"handleHtmlMimeTypes", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $method(static_cast<$LinkedHashSet*(*)($String*,$String*)>(&SystemFlavorMap::handleHtmlMimeTypes))},
-	{"initSystemFlavorMap", "()V", nullptr, $PRIVATE, $method(static_cast<void(SystemFlavorMap::*)()>(&SystemFlavorMap::initSystemFlavorMap))},
-	{"isJavaMIMEType", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($String*)>(&SystemFlavorMap::isJavaMIMEType))},
-	{"lambda$initSystemFlavorMap$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$InputStream*(*)()>(&SystemFlavorMap::lambda$initSystemFlavorMap$0))},
-	{"loadConvert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&SystemFlavorMap::loadConvert))},
-	{"nativeToFlavorLookup", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE, $method(static_cast<$LinkedHashSet*(SystemFlavorMap::*)($String*)>(&SystemFlavorMap::nativeToFlavorLookup))},
-	{"setFlavorsForNative", "(Ljava/lang/String;[Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<void(SystemFlavorMap::*)($String*,$DataFlavorArray*)>(&SystemFlavorMap::setFlavorsForNative))},
-	{"setNativesForFlavor", "(Ljava/awt/datatransfer/DataFlavor;[Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(static_cast<void(SystemFlavorMap::*)($DataFlavor*,$StringArray*)>(&SystemFlavorMap::setNativesForFlavor))},
-	{"store", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Map;)V", "<H:Ljava/lang/Object;L:Ljava/lang/Object;>(TH;TL;Ljava/util/Map<TH;Ljava/util/LinkedHashSet<TL;>;>;)V", $PRIVATE, $method(static_cast<void(SystemFlavorMap::*)(Object$*,Object$*,$Map*)>(&SystemFlavorMap::store))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SystemFlavorMap, init$, void)},
+	{"addFlavorForUnencodedNative", "(Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, addFlavorForUnencodedNative, void, $String*, $DataFlavor*)},
+	{"addUnencodedNativeForFlavor", "(Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, addUnencodedNativeForFlavor, void, $DataFlavor*, $String*)},
+	{"convertMimeTypeToDataFlavors", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE | $STATIC, $staticMethod(SystemFlavorMap, convertMimeTypeToDataFlavors, $Set*, $String*)},
+	{"decodeDataFlavor", "(Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, decodeDataFlavor, $DataFlavor*, $String*), "java.lang.ClassNotFoundException"},
+	{"decodeJavaMIMEType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, decodeJavaMIMEType, $String*, $String*)},
+	{"encodeDataFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, encodeDataFlavor, $String*, $DataFlavor*)},
+	{"encodeJavaMIMEType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, encodeJavaMIMEType, $String*, $String*)},
+	{"flavorToNativeLookup", "(Ljava/awt/datatransfer/DataFlavor;Z)Ljava/util/LinkedHashSet;", "(Ljava/awt/datatransfer/DataFlavor;Z)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PRIVATE, $method(SystemFlavorMap, flavorToNativeLookup, $LinkedHashSet*, $DataFlavor*, bool)},
+	{"getDefaultFlavorMap", "()Ljava/awt/datatransfer/FlavorMap;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, getDefaultFlavorMap, $FlavorMap*)},
+	{"getFlavorToNative", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE | $SYNCHRONIZED, $method(SystemFlavorMap, getFlavorToNative, $Map*)},
+	{"getFlavorsForNative", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getFlavorsForNative, $List*, $String*)},
+	{"getFlavorsForNatives", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/awt/datatransfer/DataFlavor;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getFlavorsForNatives, $Map*, $StringArray*)},
+	{"getNativeToFlavor", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;>;", $PRIVATE, $method(SystemFlavorMap, getNativeToFlavor, $Map*)},
+	{"getNativesForFlavor", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/List;", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getNativesForFlavor, $List*, $DataFlavor*)},
+	{"getNativesForFlavors", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map;", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/util/Map<Ljava/awt/datatransfer/DataFlavor;Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SystemFlavorMap, getNativesForFlavors, $Map*, $DataFlavorArray*)},
+	{"getTextTypeToNative", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/LinkedHashSet<Ljava/lang/String;>;>;", $PRIVATE | $SYNCHRONIZED, $method(SystemFlavorMap, getTextTypeToNative, $Map*)},
+	{"handleHtmlMimeTypes", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SystemFlavorMap, handleHtmlMimeTypes, $LinkedHashSet*, $String*, $String*)},
+	{"initSystemFlavorMap", "()V", nullptr, $PRIVATE, $method(SystemFlavorMap, initSystemFlavorMap, void)},
+	{"isJavaMIMEType", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemFlavorMap, isJavaMIMEType, bool, $String*)},
+	{"lambda$initSystemFlavorMap$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SystemFlavorMap, lambda$initSystemFlavorMap$0, $InputStream*)},
+	{"loadConvert", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemFlavorMap, loadConvert, $String*, $String*)},
+	{"nativeToFlavorLookup", "(Ljava/lang/String;)Ljava/util/LinkedHashSet;", "(Ljava/lang/String;)Ljava/util/LinkedHashSet<Ljava/awt/datatransfer/DataFlavor;>;", $PRIVATE, $method(SystemFlavorMap, nativeToFlavorLookup, $LinkedHashSet*, $String*)},
+	{"setFlavorsForNative", "(Ljava/lang/String;[Ljava/awt/datatransfer/DataFlavor;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, setFlavorsForNative, void, $String*, $DataFlavorArray*)},
+	{"setNativesForFlavor", "(Ljava/awt/datatransfer/DataFlavor;[Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(SystemFlavorMap, setNativesForFlavor, void, $DataFlavor*, $StringArray*)},
+	{"store", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Map;)V", "<H:Ljava/lang/Object;L:Ljava/lang/Object;>(TH;TL;Ljava/util/Map<TH;Ljava/util/LinkedHashSet<TL;>;>;)V", $PRIVATE, $method(SystemFlavorMap, store, void, Object$*, Object$*, $Map*)},
 	{}
 };
 

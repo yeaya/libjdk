@@ -6,6 +6,9 @@
 #include <com/sun/tools/javac/code/Symbol$CompletionFailure.h>
 #include <jcpp.h>
 
+using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
+using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
+using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -17,11 +20,11 @@ namespace com {
 				namespace code {
 
 $MethodInfo _DeferredCompletionFailureHandler$Handler_MethodInfo_[] = {
-	{"classSymbolCompleteFailed", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"classSymbolRemoved", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"handleAPICompletionFailure", "(Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"install", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"uninstall", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"classSymbolCompleteFailed", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredCompletionFailureHandler$Handler, classSymbolCompleteFailed, void, $Symbol$ClassSymbol*, $Symbol$Completer*)},
+	{"classSymbolRemoved", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredCompletionFailureHandler$Handler, classSymbolRemoved, void, $Symbol$ClassSymbol*)},
+	{"handleAPICompletionFailure", "(Lcom/sun/tools/javac/code/Symbol$CompletionFailure;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredCompletionFailureHandler$Handler, handleAPICompletionFailure, void, $Symbol$CompletionFailure*)},
+	{"install", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredCompletionFailureHandler$Handler, install, void)},
+	{"uninstall", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredCompletionFailureHandler$Handler, uninstall, void)},
 	{}
 };
 

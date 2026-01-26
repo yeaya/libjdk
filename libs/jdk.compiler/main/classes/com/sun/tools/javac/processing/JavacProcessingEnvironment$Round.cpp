@@ -179,8 +179,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacProcessingEnvironment$Round$$Lambda$lambda$new$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacProcessingEnvironment$Round$$Lambda$lambda$new$1::*)()>(&JavacProcessingEnvironment$Round$$Lambda$lambda$new$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$Round$$Lambda$lambda$new$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$Round$$Lambda$lambda$new$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo JavacProcessingEnvironment$Round$$Lambda$lambda$new$1::classInfo$ = {
@@ -212,8 +212,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacProcessingEnvironment$Round$$Lambda$lambda$new$2$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacProcessingEnvironment$Round$$Lambda$lambda$new$2$1::*)()>(&JavacProcessingEnvironment$Round$$Lambda$lambda$new$2$1::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$Round$$Lambda$lambda$new$2$1, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$Round$$Lambda$lambda$new$2$1, test, bool, Object$*)},
 	{}
 };
 $ClassInfo JavacProcessingEnvironment$Round$$Lambda$lambda$new$2$1::classInfo$ = {
@@ -245,8 +245,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacProcessingEnvironment$Round$$Lambda$lambda$new$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacProcessingEnvironment$Round$$Lambda$lambda$new$0$2::*)()>(&JavacProcessingEnvironment$Round$$Lambda$lambda$new$0$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$Round$$Lambda$lambda$new$0$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$Round$$Lambda$lambda$new$0$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavacProcessingEnvironment$Round$$Lambda$lambda$new$0$2::classInfo$ = {
@@ -280,24 +280,24 @@ $FieldInfo _JavacProcessingEnvironment$Round_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacProcessingEnvironment$Round_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;ILjava/util/Set;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)V", "(ILjava/util/Set<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)V", $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment$Round::*)($JavacProcessingEnvironment*,int32_t,$Set*,$Log$DeferredDiagnosticHandler*)>(&JavacProcessingEnvironment$Round::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Ljava/util/Set;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;Ljava/util/Set<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)V", 0, $method(static_cast<void(JavacProcessingEnvironment$Round::*)($JavacProcessingEnvironment*,$List*,$List*,$Set*,$Log$DeferredDiagnosticHandler*)>(&JavacProcessingEnvironment$Round::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$Round;Ljava/util/Set;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$Round;Ljava/util/Set<Ljavax/tools/JavaFileObject;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Ljava/lang/String;Ljavax/tools/JavaFileObject;>;>;)V", $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment$Round::*)($JavacProcessingEnvironment*,JavacProcessingEnvironment$Round*,$Set*,$Map*)>(&JavacProcessingEnvironment$Round::init$))},
-	{"enterClassFiles", "(Ljava/util/Map;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Ljava/lang/String;Ljavax/tools/JavaFileObject;>;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE, $method(static_cast<$List*(JavacProcessingEnvironment$Round::*)($Map*)>(&JavacProcessingEnvironment$Round::enterClassFiles))},
-	{"enterTrees", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)V", $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment$Round::*)($List*)>(&JavacProcessingEnvironment$Round::enterTrees))},
-	{"errorCount", "()I", nullptr, 0},
-	{"finalCompiler", "()V", nullptr, 0},
-	{"findAnnotationsPresent", "()V", nullptr, 0},
-	{"lambda$new$0", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Map*(*)($Symbol$ModuleSymbol*)>(&JavacProcessingEnvironment$Round::lambda$new$0))},
-	{"lambda$new$1", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCDiagnostic*)>(&JavacProcessingEnvironment$Round::lambda$new$1))},
-	{"lambda$new$2", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($JCDiagnostic*)>(&JavacProcessingEnvironment$Round::lambda$new$2))},
-	{"newRound", "()V", nullptr, $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment$Round::*)()>(&JavacProcessingEnvironment$Round::newRound))},
-	{"next", "(Ljava/util/Set;Ljava/util/Map;)Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$Round;", "(Ljava/util/Set<Ljavax/tools/JavaFileObject;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Ljava/lang/String;Ljavax/tools/JavaFileObject;>;>;)Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$Round;", 0},
-	{"printRoundInfo", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(JavacProcessingEnvironment$Round::*)(bool)>(&JavacProcessingEnvironment$Round::printRoundInfo))},
-	{"run", "(ZZ)V", nullptr, 0},
-	{"showDiagnostics", "(Z)V", nullptr, 0},
-	{"unrecoverableError", "()Z", nullptr, 0},
-	{"warningCount", "()I", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;ILjava/util/Set;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)V", "(ILjava/util/Set<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)V", $PRIVATE, $method(JavacProcessingEnvironment$Round, init$, void, $JavacProcessingEnvironment*, int32_t, $Set*, $Log$DeferredDiagnosticHandler*)},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Ljava/util/Set;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;Ljava/util/Set<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/util/Log$DeferredDiagnosticHandler;)V", 0, $method(JavacProcessingEnvironment$Round, init$, void, $JavacProcessingEnvironment*, $List*, $List*, $Set*, $Log$DeferredDiagnosticHandler*)},
+	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$Round;Ljava/util/Set;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$Round;Ljava/util/Set<Ljavax/tools/JavaFileObject;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Ljava/lang/String;Ljavax/tools/JavaFileObject;>;>;)V", $PRIVATE, $method(JavacProcessingEnvironment$Round, init$, void, $JavacProcessingEnvironment*, JavacProcessingEnvironment$Round*, $Set*, $Map*)},
+	{"enterClassFiles", "(Ljava/util/Map;)Lcom/sun/tools/javac/util/List;", "(Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Ljava/lang/String;Ljavax/tools/JavaFileObject;>;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE, $method(JavacProcessingEnvironment$Round, enterClassFiles, $List*, $Map*)},
+	{"enterTrees", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)V", $PRIVATE, $method(JavacProcessingEnvironment$Round, enterTrees, void, $List*)},
+	{"errorCount", "()I", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$Round, errorCount, int32_t)},
+	{"finalCompiler", "()V", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$Round, finalCompiler, void)},
+	{"findAnnotationsPresent", "()V", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$Round, findAnnotationsPresent, void)},
+	{"lambda$new$0", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/util/Map;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacProcessingEnvironment$Round, lambda$new$0, $Map*, $Symbol$ModuleSymbol*)},
+	{"lambda$new$1", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacProcessingEnvironment$Round, lambda$new$1, bool, $JCDiagnostic*)},
+	{"lambda$new$2", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacProcessingEnvironment$Round, lambda$new$2, bool, $JCDiagnostic*)},
+	{"newRound", "()V", nullptr, $PRIVATE, $method(JavacProcessingEnvironment$Round, newRound, void)},
+	{"next", "(Ljava/util/Set;Ljava/util/Map;)Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$Round;", "(Ljava/util/Set<Ljavax/tools/JavaFileObject;>;Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/util/Map<Ljava/lang/String;Ljavax/tools/JavaFileObject;>;>;)Lcom/sun/tools/javac/processing/JavacProcessingEnvironment$Round;", 0, $virtualMethod(JavacProcessingEnvironment$Round, next, JavacProcessingEnvironment$Round*, $Set*, $Map*)},
+	{"printRoundInfo", "(Z)V", nullptr, $PRIVATE, $method(JavacProcessingEnvironment$Round, printRoundInfo, void, bool)},
+	{"run", "(ZZ)V", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$Round, run, void, bool, bool)},
+	{"showDiagnostics", "(Z)V", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$Round, showDiagnostics, void, bool)},
+	{"unrecoverableError", "()Z", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$Round, unrecoverableError, bool)},
+	{"warningCount", "()I", nullptr, 0, $virtualMethod(JavacProcessingEnvironment$Round, warningCount, int32_t)},
 	{}
 };
 

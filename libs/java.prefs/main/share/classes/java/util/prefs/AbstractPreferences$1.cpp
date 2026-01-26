@@ -23,8 +23,8 @@ $FieldInfo _AbstractPreferences$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractPreferences$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/AbstractPreferences;)V", nullptr, 0, $method(static_cast<void(AbstractPreferences$1::*)($AbstractPreferences*)>(&AbstractPreferences$1::init$))},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/prefs/AbstractPreferences;)V", nullptr, 0, $method(AbstractPreferences$1, init$, void, $AbstractPreferences*)},
+	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(AbstractPreferences$1, run, $Object*)},
 	{}
 };
 

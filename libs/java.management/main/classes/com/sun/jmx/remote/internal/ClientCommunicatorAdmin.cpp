@@ -50,13 +50,13 @@ $FieldInfo _ClientCommunicatorAdmin_FieldInfo_[] = {
 };
 
 $MethodInfo _ClientCommunicatorAdmin_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(static_cast<void(ClientCommunicatorAdmin::*)(int64_t)>(&ClientCommunicatorAdmin::init$))},
-	{"checkConnection", "()V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"doStart", "()V", nullptr, $PROTECTED | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"doStop", "()V", nullptr, $PROTECTED | $ABSTRACT},
-	{"gotIOException", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"restart", "(Ljava/io/IOException;)V", nullptr, $PRIVATE, $method(static_cast<void(ClientCommunicatorAdmin::*)($IOException*)>(&ClientCommunicatorAdmin::restart)), "java.io.IOException"},
-	{"terminate", "()V", nullptr, $PUBLIC},
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(ClientCommunicatorAdmin, init$, void, int64_t)},
+	{"checkConnection", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientCommunicatorAdmin, checkConnection, void), "java.io.IOException"},
+	{"doStart", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientCommunicatorAdmin, doStart, void), "java.io.IOException"},
+	{"doStop", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ClientCommunicatorAdmin, doStop, void)},
+	{"gotIOException", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(ClientCommunicatorAdmin, gotIOException, void, $IOException*), "java.io.IOException"},
+	{"restart", "(Ljava/io/IOException;)V", nullptr, $PRIVATE, $method(ClientCommunicatorAdmin, restart, void, $IOException*), "java.io.IOException"},
+	{"terminate", "()V", nullptr, $PUBLIC, $virtualMethod(ClientCommunicatorAdmin, terminate, void)},
 	{}
 };
 

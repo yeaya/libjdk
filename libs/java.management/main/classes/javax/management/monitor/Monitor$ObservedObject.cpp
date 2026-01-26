@@ -23,14 +23,14 @@ $FieldInfo _Monitor$ObservedObject_FieldInfo_[] = {
 };
 
 $MethodInfo _Monitor$ObservedObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(static_cast<void(Monitor$ObservedObject::*)($ObjectName*)>(&Monitor$ObservedObject::init$))},
-	{"getAlreadyNotified", "()I", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<int32_t(Monitor$ObservedObject::*)()>(&Monitor$ObservedObject::getAlreadyNotified))},
-	{"getDerivedGauge", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<$Object*(Monitor$ObservedObject::*)()>(&Monitor$ObservedObject::getDerivedGauge))},
-	{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<int64_t(Monitor$ObservedObject::*)()>(&Monitor$ObservedObject::getDerivedGaugeTimeStamp))},
-	{"getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$ObjectName*(Monitor$ObservedObject::*)()>(&Monitor$ObservedObject::getObservedObject))},
-	{"setAlreadyNotified", "(I)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<void(Monitor$ObservedObject::*)(int32_t)>(&Monitor$ObservedObject::setAlreadyNotified))},
-	{"setDerivedGauge", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<void(Monitor$ObservedObject::*)(Object$*)>(&Monitor$ObservedObject::setDerivedGauge))},
-	{"setDerivedGaugeTimeStamp", "(J)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(static_cast<void(Monitor$ObservedObject::*)(int64_t)>(&Monitor$ObservedObject::setDerivedGaugeTimeStamp))},
+	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(Monitor$ObservedObject, init$, void, $ObjectName*)},
+	{"getAlreadyNotified", "()I", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Monitor$ObservedObject, getAlreadyNotified, int32_t)},
+	{"getDerivedGauge", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Monitor$ObservedObject, getDerivedGauge, $Object*)},
+	{"getDerivedGaugeTimeStamp", "()J", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Monitor$ObservedObject, getDerivedGaugeTimeStamp, int64_t)},
+	{"getObservedObject", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC | $FINAL, $method(Monitor$ObservedObject, getObservedObject, $ObjectName*)},
+	{"setAlreadyNotified", "(I)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Monitor$ObservedObject, setAlreadyNotified, void, int32_t)},
+	{"setDerivedGauge", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Monitor$ObservedObject, setDerivedGauge, void, Object$*)},
+	{"setDerivedGaugeTimeStamp", "(J)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Monitor$ObservedObject, setDerivedGaugeTimeStamp, void, int64_t)},
 	{}
 };
 

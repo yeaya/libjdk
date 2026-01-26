@@ -34,12 +34,12 @@ $FieldInfo _TypeAnnotationPosition$TypePathEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeAnnotationPosition$TypePathEntry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;)V", nullptr, $PRIVATE, $method(static_cast<void(TypeAnnotationPosition$TypePathEntry::*)($TypeAnnotationPosition$TypePathEntryKind*)>(&TypeAnnotationPosition$TypePathEntry::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;I)V", nullptr, $PUBLIC, $method(static_cast<void(TypeAnnotationPosition$TypePathEntry::*)($TypeAnnotationPosition$TypePathEntryKind*,int32_t)>(&TypeAnnotationPosition$TypePathEntry::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"fromBinary", "(II)Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TypeAnnotationPosition$TypePathEntry*(*)(int32_t,int32_t)>(&TypeAnnotationPosition$TypePathEntry::fromBinary))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;)V", nullptr, $PRIVATE, $method(TypeAnnotationPosition$TypePathEntry, init$, void, $TypeAnnotationPosition$TypePathEntryKind*)},
+	{"<init>", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntryKind;I)V", nullptr, $PUBLIC, $method(TypeAnnotationPosition$TypePathEntry, init$, void, $TypeAnnotationPosition$TypePathEntryKind*, int32_t)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition$TypePathEntry, equals, bool, Object$*)},
+	{"fromBinary", "(II)Lcom/sun/tools/javac/code/TypeAnnotationPosition$TypePathEntry;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotationPosition$TypePathEntry, fromBinary, TypeAnnotationPosition$TypePathEntry*, int32_t, int32_t)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition$TypePathEntry, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeAnnotationPosition$TypePathEntry, toString, $String*)},
 	{}
 };
 

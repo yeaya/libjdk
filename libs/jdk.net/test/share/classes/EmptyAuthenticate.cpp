@@ -61,8 +61,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo EmptyAuthenticate$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EmptyAuthenticate$$Lambda$lambda$main$0::*)()>(&EmptyAuthenticate$$Lambda$lambda$main$0::init$))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyAuthenticate$$Lambda$lambda$main$0, init$, void)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(EmptyAuthenticate$$Lambda$lambda$main$0, handle, void, $HttpExchange*)},
 	{}
 };
 $ClassInfo EmptyAuthenticate$$Lambda$lambda$main$0::classInfo$ = {
@@ -80,9 +80,9 @@ $Class* EmptyAuthenticate$$Lambda$lambda$main$0::load$($String* name, bool initi
 $Class* EmptyAuthenticate$$Lambda$lambda$main$0::class$ = nullptr;
 
 $MethodInfo _EmptyAuthenticate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(EmptyAuthenticate::*)()>(&EmptyAuthenticate::init$))},
-	{"lambda$main$0", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($HttpExchange*)>(&EmptyAuthenticate::lambda$main$0)), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&EmptyAuthenticate::main)), "java.io.IOException,java.net.URISyntaxException,java.lang.InterruptedException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptyAuthenticate, init$, void)},
+	{"lambda$main$0", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(EmptyAuthenticate, lambda$main$0, void, $HttpExchange*), "java.io.IOException"},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EmptyAuthenticate, main, void, $StringArray*), "java.io.IOException,java.net.URISyntaxException,java.lang.InterruptedException"},
 	{}
 };
 

@@ -41,14 +41,14 @@ $FieldInfo _PoolWriter$SharedSignatureGenerator_FieldInfo_[] = {
 };
 
 $MethodInfo _PoolWriter$SharedSignatureGenerator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolWriter;Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(static_cast<void(PoolWriter$SharedSignatureGenerator::*)($PoolWriter*,$Types*)>(&PoolWriter$SharedSignatureGenerator::init$))},
-	{"append", "(C)V", nullptr, $PROTECTED},
-	{"append", "([B)V", nullptr, $PROTECTED},
-	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED},
-	{"assembleSig", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC},
-	{"classReference", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PROTECTED},
-	{"reset", "()V", nullptr, $PROTECTED},
-	{"toName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/PoolWriter;Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(PoolWriter$SharedSignatureGenerator, init$, void, $PoolWriter*, $Types*)},
+	{"append", "(C)V", nullptr, $PROTECTED, $virtualMethod(PoolWriter$SharedSignatureGenerator, append, void, char16_t)},
+	{"append", "([B)V", nullptr, $PROTECTED, $virtualMethod(PoolWriter$SharedSignatureGenerator, append, void, $bytes*)},
+	{"append", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PROTECTED, $virtualMethod(PoolWriter$SharedSignatureGenerator, append, void, $Name*)},
+	{"assembleSig", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(PoolWriter$SharedSignatureGenerator, assembleSig, void, $Type*)},
+	{"classReference", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PROTECTED, $virtualMethod(PoolWriter$SharedSignatureGenerator, classReference, void, $Symbol$ClassSymbol*)},
+	{"reset", "()V", nullptr, $PROTECTED, $virtualMethod(PoolWriter$SharedSignatureGenerator, reset, void)},
+	{"toName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(PoolWriter$SharedSignatureGenerator, toName, $Name*)},
 	{}
 };
 

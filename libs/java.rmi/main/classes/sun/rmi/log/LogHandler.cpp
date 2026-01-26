@@ -22,13 +22,13 @@ namespace sun {
 		namespace log {
 
 $MethodInfo _LogHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LogHandler::*)()>(&LogHandler::init$))},
-	{"applyUpdate", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
-	{"initialSnapshot", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
-	{"readUpdate", "(Lsun/rmi/log/LogInputStream;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"recover", "(Ljava/io/InputStream;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"snapshot", "(Ljava/io/OutputStream;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
-	{"writeUpdate", "(Lsun/rmi/log/LogOutputStream;Ljava/lang/Object;)V", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LogHandler, init$, void)},
+	{"applyUpdate", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LogHandler, applyUpdate, $Object*, Object$*, Object$*), "java.lang.Exception"},
+	{"initialSnapshot", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LogHandler, initialSnapshot, $Object*), "java.lang.Exception"},
+	{"readUpdate", "(Lsun/rmi/log/LogInputStream;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogHandler, readUpdate, $Object*, $LogInputStream*, Object$*), "java.lang.Exception"},
+	{"recover", "(Ljava/io/InputStream;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogHandler, recover, $Object*, $InputStream*), "java.lang.Exception"},
+	{"snapshot", "(Ljava/io/OutputStream;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LogHandler, snapshot, void, $OutputStream*, Object$*), "java.lang.Exception"},
+	{"writeUpdate", "(Lsun/rmi/log/LogOutputStream;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LogHandler, writeUpdate, void, $LogOutputStream*, Object$*), "java.lang.Exception"},
 	{}
 };
 

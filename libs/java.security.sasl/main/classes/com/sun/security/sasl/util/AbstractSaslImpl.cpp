@@ -96,19 +96,19 @@ $FieldInfo _AbstractSaslImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _AbstractSaslImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/String;)V", "(Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/String;)V", $PROTECTED, $method(static_cast<void(AbstractSaslImpl::*)($Map*,$String*)>(&AbstractSaslImpl::init$)), "javax.security.sasl.SaslException"},
-	{"combineMasks", "([B)B", nullptr, $PROTECTED | $STATIC | $FINAL, $method(static_cast<int8_t(*)($bytes*)>(&AbstractSaslImpl::combineMasks))},
-	{"findPreferredMask", "(B[B)B", nullptr, $PROTECTED | $STATIC | $FINAL, $method(static_cast<int8_t(*)(int8_t,$bytes*)>(&AbstractSaslImpl::findPreferredMask))},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PROTECTED | $STATIC | $FINAL, $method(static_cast<void(*)(int32_t,$bytes*,int32_t,int32_t)>(&AbstractSaslImpl::intToNetworkByteOrder))},
-	{"isComplete", "()Z", nullptr, $PUBLIC},
-	{"networkByteOrderToInt", "([BII)I", nullptr, $PROTECTED | $STATIC | $FINAL, $method(static_cast<int32_t(*)($bytes*,int32_t,int32_t)>(&AbstractSaslImpl::networkByteOrderToInt))},
-	{"parseProp", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[B[Ljava/lang/String;Z)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$bytes*(*)($String*,$String*,$StringArray*,$bytes*,$StringArray*,bool)>(&AbstractSaslImpl::parseProp)), "javax.security.sasl.SaslException"},
-	{"parseQop", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$bytes*(*)($String*)>(&AbstractSaslImpl::parseQop)), "javax.security.sasl.SaslException"},
-	{"parseQop", "(Ljava/lang/String;[Ljava/lang/String;Z)[B", nullptr, $PROTECTED | $STATIC | $FINAL, $method(static_cast<$bytes*(*)($String*,$StringArray*,bool)>(&AbstractSaslImpl::parseQop)), "javax.security.sasl.SaslException"},
-	{"parseStrength", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$bytes*(*)($String*)>(&AbstractSaslImpl::parseStrength)), "javax.security.sasl.SaslException"},
-	{"traceOutput", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $PROTECTED | $STATIC | $FINAL, $method(static_cast<void(*)($String*,$String*,$String*,$bytes*)>(&AbstractSaslImpl::traceOutput))},
-	{"traceOutput", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BII)V", nullptr, $PROTECTED | $STATIC | $FINAL, $method(static_cast<void(*)($String*,$String*,$String*,$bytes*,int32_t,int32_t)>(&AbstractSaslImpl::traceOutput))},
+	{"<init>", "(Ljava/util/Map;Ljava/lang/String;)V", "(Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/String;)V", $PROTECTED, $method(AbstractSaslImpl, init$, void, $Map*, $String*), "javax.security.sasl.SaslException"},
+	{"combineMasks", "([B)B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, combineMasks, int8_t, $bytes*)},
+	{"findPreferredMask", "(B[B)B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, findPreferredMask, int8_t, int8_t, $bytes*)},
+	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractSaslImpl, getNegotiatedProperty, $Object*, $String*)},
+	{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, intToNetworkByteOrder, void, int32_t, $bytes*, int32_t, int32_t)},
+	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractSaslImpl, isComplete, bool)},
+	{"networkByteOrderToInt", "([BII)I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, networkByteOrderToInt, int32_t, $bytes*, int32_t, int32_t)},
+	{"parseProp", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[B[Ljava/lang/String;Z)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseProp, $bytes*, $String*, $String*, $StringArray*, $bytes*, $StringArray*, bool), "javax.security.sasl.SaslException"},
+	{"parseQop", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseQop, $bytes*, $String*), "javax.security.sasl.SaslException"},
+	{"parseQop", "(Ljava/lang/String;[Ljava/lang/String;Z)[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseQop, $bytes*, $String*, $StringArray*, bool), "javax.security.sasl.SaslException"},
+	{"parseStrength", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseStrength, $bytes*, $String*), "javax.security.sasl.SaslException"},
+	{"traceOutput", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, traceOutput, void, $String*, $String*, $String*, $bytes*)},
+	{"traceOutput", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BII)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, traceOutput, void, $String*, $String*, $String*, $bytes*, int32_t, int32_t)},
 	{}
 };
 

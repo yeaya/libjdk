@@ -37,10 +37,10 @@ $FieldInfo _BuffersTestingKit$2_FieldInfo_[] = {
 };
 
 $MethodInfo _BuffersTestingKit$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;Ljava/util/function/Supplier;)V", "()V", 0, $method(static_cast<void(BuffersTestingKit$2::*)($Iterable*,$Supplier*)>(&BuffersTestingKit$2::init$))},
-	{"calculateNext", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(BuffersTestingKit$2::*)()>(&BuffersTestingKit$2::calculateNext))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Iterable;Ljava/util/function/Supplier;)V", "()V", 0, $method(BuffersTestingKit$2, init$, void, $Iterable*, $Supplier*)},
+	{"calculateNext", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(BuffersTestingKit$2, calculateNext, $ByteBuffer*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$2, hasNext, bool)},
+	{"next", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$2, next, $Object*)},
 	{}
 };
 

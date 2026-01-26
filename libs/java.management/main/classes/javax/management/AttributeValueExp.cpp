@@ -47,13 +47,13 @@ $FieldInfo _AttributeValueExp_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributeValueExp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(AttributeValueExp::*)()>(&AttributeValueExp::init$)), nullptr, nullptr, _AttributeValueExp_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AttributeValueExp::*)($String*)>(&AttributeValueExp::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, nullptr, "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getAttribute", "(Ljavax/management/ObjectName;)Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"getAttributeName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, nullptr, nullptr, nullptr, _AttributeValueExp_MethodAnnotations_setMBeanServer5},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(AttributeValueExp, init$, void), nullptr, nullptr, _AttributeValueExp_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeValueExp, init$, void, $String*)},
+	{"apply", "(Ljavax/management/ObjectName;)Ljavax/management/ValueExp;", nullptr, $PUBLIC, $virtualMethod(AttributeValueExp, apply, $ValueExp*, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+	{"getAttribute", "(Ljavax/management/ObjectName;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(AttributeValueExp, getAttribute, $Object*, $ObjectName*)},
+	{"getAttributeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeValueExp, getAttributeName, $String*)},
+	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(AttributeValueExp, setMBeanServer, void, $MBeanServer*), nullptr, nullptr, _AttributeValueExp_MethodAnnotations_setMBeanServer5},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeValueExp, toString, $String*)},
 	{}
 };
 

@@ -57,9 +57,9 @@ $FieldInfo _Infer$PartiallyInferredMethodType_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$PartiallyInferredMethodType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/Warner;)V", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/Warner;)V", $PUBLIC, $method(static_cast<void(Infer$PartiallyInferredMethodType::*)($Infer*,$Type$MethodType*,$InferenceContext*,$Env*,$Warner*)>(&Infer$PartiallyInferredMethodType::init$))},
-	{"check", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"isPartial", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/Warner;)V", "(Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/Warner;)V", $PUBLIC, $method(Infer$PartiallyInferredMethodType, init$, void, $Infer*, $Type$MethodType*, $InferenceContext*, $Env*, $Warner*)},
+	{"check", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Infer$PartiallyInferredMethodType, check, $Type*, $Attr$ResultInfo*)},
+	{"isPartial", "()Z", nullptr, $PUBLIC, $virtualMethod(Infer$PartiallyInferredMethodType, isPartial, bool)},
 	{}
 };
 

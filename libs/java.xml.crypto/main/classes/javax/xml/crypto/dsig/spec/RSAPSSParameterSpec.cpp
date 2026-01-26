@@ -22,8 +22,8 @@ $FieldInfo _RSAPSSParameterSpec_FieldInfo_[] = {
 };
 
 $MethodInfo _RSAPSSParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/PSSParameterSpec;)V", nullptr, $PUBLIC, $method(static_cast<void(RSAPSSParameterSpec::*)($PSSParameterSpec*)>(&RSAPSSParameterSpec::init$))},
-	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC, $method(static_cast<$PSSParameterSpec*(RSAPSSParameterSpec::*)()>(&RSAPSSParameterSpec::getPSSParameterSpec))},
+	{"<init>", "(Ljava/security/spec/PSSParameterSpec;)V", nullptr, $PUBLIC, $method(RSAPSSParameterSpec, init$, void, $PSSParameterSpec*)},
+	{"getPSSParameterSpec", "()Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC, $method(RSAPSSParameterSpec, getPSSParameterSpec, $PSSParameterSpec*)},
 	{}
 };
 

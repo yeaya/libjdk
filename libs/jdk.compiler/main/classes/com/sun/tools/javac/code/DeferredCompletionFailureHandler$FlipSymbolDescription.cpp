@@ -35,8 +35,8 @@ $FieldInfo _DeferredCompletionFailureHandler$FlipSymbolDescription_FieldInfo_[] 
 };
 
 $MethodInfo _DeferredCompletionFailureHandler$FlipSymbolDescription_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC, $method(static_cast<void(DeferredCompletionFailureHandler$FlipSymbolDescription::*)($Symbol$ClassSymbol*,$Symbol$Completer*)>(&DeferredCompletionFailureHandler$FlipSymbolDescription::init$))},
-	{"flip", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC, $method(DeferredCompletionFailureHandler$FlipSymbolDescription, init$, void, $Symbol$ClassSymbol*, $Symbol$Completer*)},
+	{"flip", "()V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$FlipSymbolDescription, flip, void)},
 	{}
 };
 

@@ -40,17 +40,17 @@ $FieldInfo _ZipFileStore_FieldInfo_[] = {
 };
 
 $MethodInfo _ZipFileStore_MethodInfo_[] = {
-	{"<init>", "(Ljdk/nio/zipfs/ZipPath;)V", nullptr, 0, $method(static_cast<void(ZipFileStore::*)($ZipPath*)>(&ZipFileStore::init$))},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getFileStoreAttributeView", "(Ljava/lang/Class;)Ljava/nio/file/attribute/FileStoreAttributeView;", "<V::Ljava/nio/file/attribute/FileStoreAttributeView;>(Ljava/lang/Class<TV;>;)TV;", $PUBLIC},
-	{"getTotalSpace", "()J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getUnallocatedSpace", "()J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getUsableSpace", "()J", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC},
-	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"type", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/nio/zipfs/ZipPath;)V", nullptr, 0, $method(ZipFileStore, init$, void, $ZipPath*)},
+	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getAttribute, $Object*, $String*), "java.io.IOException"},
+	{"getFileStoreAttributeView", "(Ljava/lang/Class;)Ljava/nio/file/attribute/FileStoreAttributeView;", "<V::Ljava/nio/file/attribute/FileStoreAttributeView;>(Ljava/lang/Class<TV;>;)TV;", $PUBLIC, $virtualMethod(ZipFileStore, getFileStoreAttributeView, $FileStoreAttributeView*, $Class*)},
+	{"getTotalSpace", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getTotalSpace, int64_t), "java.io.IOException"},
+	{"getUnallocatedSpace", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getUnallocatedSpace, int64_t), "java.io.IOException"},
+	{"getUsableSpace", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, getUsableSpace, int64_t), "java.io.IOException"},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, isReadOnly, bool)},
+	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, name, $String*)},
+	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(ZipFileStore, supportsFileAttributeView, bool, $Class*)},
+	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, supportsFileAttributeView, bool, $String*)},
+	{"type", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileStore, type, $String*)},
 	{}
 };
 

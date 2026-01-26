@@ -42,10 +42,10 @@ $FieldInfo _KRBSafeBody_FieldInfo_[] = {
 };
 
 $MethodInfo _KRBSafeBody_MethodInfo_[] = {
-	{"<init>", "([BLsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Ljava/lang/Integer;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;)V", nullptr, $PUBLIC, $method(static_cast<void(KRBSafeBody::*)($bytes*,$KerberosTime*,$Integer*,$Integer*,$HostAddress*,$HostAddress*)>(&KRBSafeBody::init$))},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(static_cast<void(KRBSafeBody::*)($DerValue*)>(&KRBSafeBody::init$)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/KRBSafeBody;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KRBSafeBody*(*)($DerInputStream*,int8_t,bool)>(&KRBSafeBody::parse)), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"<init>", "([BLsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Ljava/lang/Integer;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;)V", nullptr, $PUBLIC, $method(KRBSafeBody, init$, void, $bytes*, $KerberosTime*, $Integer*, $Integer*, $HostAddress*, $HostAddress*)},
+	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KRBSafeBody, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KRBSafeBody, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/KRBSafeBody;", nullptr, $PUBLIC | $STATIC, $staticMethod(KRBSafeBody, parse, KRBSafeBody*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
 	{}
 };
 

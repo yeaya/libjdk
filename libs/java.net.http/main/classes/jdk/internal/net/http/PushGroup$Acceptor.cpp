@@ -8,6 +8,8 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $HttpResponse$BodyHandler = ::java::net::http::HttpResponse$BodyHandler;
+using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 
 namespace jdk {
 	namespace internal {
@@ -15,9 +17,9 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _PushGroup$Acceptor_MethodInfo_[] = {
-	{"accepted", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"bodyHandler", "()Ljava/net/http/HttpResponse$BodyHandler;", "()Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $PUBLIC | $ABSTRACT},
-	{"cf", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT},
+	{"accepted", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PushGroup$Acceptor, accepted, bool)},
+	{"bodyHandler", "()Ljava/net/http/HttpResponse$BodyHandler;", "()Ljava/net/http/HttpResponse$BodyHandler<TT;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PushGroup$Acceptor, bodyHandler, $HttpResponse$BodyHandler*)},
+	{"cf", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PushGroup$Acceptor, cf, $CompletableFuture*)},
 	{}
 };
 

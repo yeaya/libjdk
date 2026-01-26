@@ -101,8 +101,8 @@ $FieldInfo MBeanServerFactory$$Lambda$toString::fieldInfos[2] = {
 	{}
 };
 $MethodInfo MBeanServerFactory$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanServerFactory$$Lambda$toString::*)($StringBuilder*)>(&MBeanServerFactory$$Lambda$toString::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(MBeanServerFactory$$Lambda$toString, init$, void, $StringBuilder*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanServerFactory$$Lambda$toString, get, $Object*)},
 	{}
 };
 $ClassInfo MBeanServerFactory$$Lambda$toString::classInfo$ = {
@@ -126,22 +126,22 @@ $FieldInfo _MBeanServerFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(MBeanServerFactory::*)()>(&MBeanServerFactory::init$))},
-	{"addMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($MBeanServer*)>(&MBeanServerFactory::addMBeanServer))},
-	{"checkMBeanServerBuilder", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&MBeanServerFactory::checkMBeanServerBuilder))},
-	{"checkPermission", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&MBeanServerFactory::checkPermission)), "java.lang.SecurityException"},
-	{"createMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MBeanServer*(*)()>(&MBeanServerFactory::createMBeanServer))},
-	{"createMBeanServer", "(Ljava/lang/String;)Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MBeanServer*(*)($String*)>(&MBeanServerFactory::createMBeanServer))},
-	{"findMBeanServer", "(Ljava/lang/String;)Ljava/util/ArrayList;", "(Ljava/lang/String;)Ljava/util/ArrayList<Ljavax/management/MBeanServer;>;", $PUBLIC | $STATIC | $SYNCHRONIZED, $method(static_cast<$ArrayList*(*)($String*)>(&MBeanServerFactory::findMBeanServer))},
-	{"getClassLoaderRepository", "(Ljavax/management/MBeanServer;)Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ClassLoaderRepository*(*)($MBeanServer*)>(&MBeanServerFactory::getClassLoaderRepository))},
-	{"getNewMBeanServerBuilder", "()Ljavax/management/MBeanServerBuilder;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<$MBeanServerBuilder*(*)()>(&MBeanServerFactory::getNewMBeanServerBuilder))},
-	{"loadBuilderClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($String*)>(&MBeanServerFactory::loadBuilderClass)), "java.lang.ClassNotFoundException"},
-	{"mBeanServerId", "(Ljavax/management/MBeanServer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($MBeanServer*)>(&MBeanServerFactory::mBeanServerId))},
-	{"newBuilder", "(Ljava/lang/Class;)Ljavax/management/MBeanServerBuilder;", "(Ljava/lang/Class<*>;)Ljavax/management/MBeanServerBuilder;", $PRIVATE | $STATIC, $method(static_cast<$MBeanServerBuilder*(*)($Class*)>(&MBeanServerFactory::newBuilder))},
-	{"newMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MBeanServer*(*)()>(&MBeanServerFactory::newMBeanServer))},
-	{"newMBeanServer", "(Ljava/lang/String;)Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$MBeanServer*(*)($String*)>(&MBeanServerFactory::newMBeanServer))},
-	{"releaseMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($MBeanServer*)>(&MBeanServerFactory::releaseMBeanServer))},
-	{"removeMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($MBeanServer*)>(&MBeanServerFactory::removeMBeanServer))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(MBeanServerFactory, init$, void)},
+	{"addMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MBeanServerFactory, addMBeanServer, void, $MBeanServer*)},
+	{"checkMBeanServerBuilder", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MBeanServerFactory, checkMBeanServerBuilder, void)},
+	{"checkPermission", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerFactory, checkPermission, void, $String*), "java.lang.SecurityException"},
+	{"createMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFactory, createMBeanServer, $MBeanServer*)},
+	{"createMBeanServer", "(Ljava/lang/String;)Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFactory, createMBeanServer, $MBeanServer*, $String*)},
+	{"findMBeanServer", "(Ljava/lang/String;)Ljava/util/ArrayList;", "(Ljava/lang/String;)Ljava/util/ArrayList<Ljavax/management/MBeanServer;>;", $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(MBeanServerFactory, findMBeanServer, $ArrayList*, $String*)},
+	{"getClassLoaderRepository", "(Ljavax/management/MBeanServer;)Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFactory, getClassLoaderRepository, $ClassLoaderRepository*, $MBeanServer*)},
+	{"getNewMBeanServerBuilder", "()Ljavax/management/MBeanServerBuilder;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MBeanServerFactory, getNewMBeanServerBuilder, $MBeanServerBuilder*)},
+	{"loadBuilderClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(MBeanServerFactory, loadBuilderClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+	{"mBeanServerId", "(Ljavax/management/MBeanServer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerFactory, mBeanServerId, $String*, $MBeanServer*)},
+	{"newBuilder", "(Ljava/lang/Class;)Ljavax/management/MBeanServerBuilder;", "(Ljava/lang/Class<*>;)Ljavax/management/MBeanServerBuilder;", $PRIVATE | $STATIC, $staticMethod(MBeanServerFactory, newBuilder, $MBeanServerBuilder*, $Class*)},
+	{"newMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFactory, newMBeanServer, $MBeanServer*)},
+	{"newMBeanServer", "(Ljava/lang/String;)Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFactory, newMBeanServer, $MBeanServer*, $String*)},
+	{"releaseMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MBeanServerFactory, releaseMBeanServer, void, $MBeanServer*)},
+	{"removeMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(MBeanServerFactory, removeMBeanServer, void, $MBeanServer*)},
 	{}
 };
 

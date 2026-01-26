@@ -16,8 +16,8 @@ namespace java {
 		namespace instrument {
 
 $MethodInfo _ClassFileTransformer_MethodInfo_[] = {
-	{"transform", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[B)[B", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/security/ProtectionDomain;[B)[B", $PUBLIC, nullptr, "java.lang.instrument.IllegalClassFormatException"},
-	{"transform", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[B)[B", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/security/ProtectionDomain;[B)[B", $PUBLIC, nullptr, "java.lang.instrument.IllegalClassFormatException"},
+	{"transform", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[B)[B", "(Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/security/ProtectionDomain;[B)[B", $PUBLIC, $virtualMethod(ClassFileTransformer, transform, $bytes*, $ClassLoader*, $String*, $Class*, $ProtectionDomain*, $bytes*), "java.lang.instrument.IllegalClassFormatException"},
+	{"transform", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[B)[B", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/security/ProtectionDomain;[B)[B", $PUBLIC, $virtualMethod(ClassFileTransformer, transform, $bytes*, $Module*, $ClassLoader*, $String*, $Class*, $ProtectionDomain*, $bytes*), "java.lang.instrument.IllegalClassFormatException"},
 	{}
 };
 

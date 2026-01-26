@@ -7,13 +7,15 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Level = ::java::util::logging::Level;
+using $Log = ::sun::rmi::runtime::Log;
 
 namespace sun {
 	namespace rmi {
 		namespace runtime {
 
 $MethodInfo _Log$LogFactory_MethodInfo_[] = {
-	{"createLog", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/logging/Level;)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $ABSTRACT},
+	{"createLog", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/logging/Level;)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log$LogFactory, createLog, $Log*, $String*, $String*, $Level*)},
 	{}
 };
 

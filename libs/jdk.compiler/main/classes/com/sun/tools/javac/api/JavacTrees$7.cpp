@@ -33,12 +33,12 @@ $FieldInfo _JavacTrees$7_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTrees$7_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Lcom/sun/source/doctree/DocCommentTree;)V", "()V", 0, $method(static_cast<void(JavacTrees$7::*)($JavacTrees*,$DocCommentTree*)>(&JavacTrees$7::init$))},
-	{"getComment", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC},
-	{"getCommentText", "(Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getCommentTree", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", nullptr, $PUBLIC},
-	{"hasComment", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC},
-	{"putComment", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTrees;Lcom/sun/source/doctree/DocCommentTree;)V", "()V", 0, $method(JavacTrees$7, init$, void, $JavacTrees*, $DocCommentTree*)},
+	{"getComment", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$7, getComment, $Tokens$Comment*, $JCTree*)},
+	{"getCommentText", "(Lcom/sun/tools/javac/tree/JCTree;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$7, getCommentText, $String*, $JCTree*)},
+	{"getCommentTree", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$7, getCommentTree, $DCTree$DCDocComment*, $JCTree*)},
+	{"hasComment", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $PUBLIC, $virtualMethod(JavacTrees$7, hasComment, bool, $JCTree*)},
+	{"putComment", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, $PUBLIC, $virtualMethod(JavacTrees$7, putComment, void, $JCTree*, $Tokens$Comment*)},
 	{}
 };
 

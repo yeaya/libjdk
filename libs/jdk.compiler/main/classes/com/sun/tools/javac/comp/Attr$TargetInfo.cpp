@@ -25,7 +25,7 @@ $FieldInfo _Attr$TargetInfo_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$TargetInfo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(static_cast<void(Attr$TargetInfo::*)($Attr*,$Type*,$Type*)>(&Attr$TargetInfo::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Attr$TargetInfo, init$, void, $Attr*, $Type*, $Type*)},
 	{}
 };
 

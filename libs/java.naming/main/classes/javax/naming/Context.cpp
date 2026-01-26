@@ -27,6 +27,10 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
+using $Hashtable = ::java::util::Hashtable;
+using $Name = ::javax::naming::Name;
+using $NameParser = ::javax::naming::NameParser;
+using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 
 namespace javax {
 	namespace naming {
@@ -62,35 +66,35 @@ $FieldInfo _Context_FieldInfo_[] = {
 };
 
 $MethodInfo _Context_MethodInfo_[] = {
-	{"addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<**>;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
-	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, addToEnvironment, $Object*, $String*, Object$*), "javax.naming.NamingException"},
+	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, bind, void, $Name*, Object$*), "javax.naming.NamingException"},
+	{"bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, bind, void, $String*, Object$*), "javax.naming.NamingException"},
+	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, close, void), "javax.naming.NamingException"},
+	{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
+	{"composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, composeName, $String*, $String*, $String*), "javax.naming.NamingException"},
+	{"createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, createSubcontext, Context*, $Name*), "javax.naming.NamingException"},
+	{"createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, createSubcontext, Context*, $String*), "javax.naming.NamingException"},
+	{"destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, destroySubcontext, void, $Name*), "javax.naming.NamingException"},
+	{"destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, destroySubcontext, void, $String*), "javax.naming.NamingException"},
+	{"getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<**>;", $PUBLIC | $ABSTRACT, $virtualMethod(Context, getEnvironment, $Hashtable*), "javax.naming.NamingException"},
+	{"getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, getNameInNamespace, $String*), "javax.naming.NamingException"},
+	{"getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, getNameParser, $NameParser*, $Name*), "javax.naming.NamingException"},
+	{"getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, getNameParser, $NameParser*, $String*), "javax.naming.NamingException"},
+	{"list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Context, list, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
+	{"list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Context, list, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+	{"listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Context, listBindings, $NamingEnumeration*, $Name*), "javax.naming.NamingException"},
+	{"listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Context, listBindings, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+	{"lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, lookup, $Object*, $Name*), "javax.naming.NamingException"},
+	{"lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, lookup, $Object*, $String*), "javax.naming.NamingException"},
+	{"lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, lookupLink, $Object*, $Name*), "javax.naming.NamingException"},
+	{"lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, lookupLink, $Object*, $String*), "javax.naming.NamingException"},
+	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, rebind, void, $Name*, Object$*), "javax.naming.NamingException"},
+	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, rebind, void, $String*, Object$*), "javax.naming.NamingException"},
+	{"removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, removeFromEnvironment, $Object*, $String*), "javax.naming.NamingException"},
+	{"rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, rename, void, $Name*, $Name*), "javax.naming.NamingException"},
+	{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, rename, void, $String*, $String*), "javax.naming.NamingException"},
+	{"unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, unbind, void, $Name*), "javax.naming.NamingException"},
+	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Context, unbind, void, $String*), "javax.naming.NamingException"},
 	{}
 };
 

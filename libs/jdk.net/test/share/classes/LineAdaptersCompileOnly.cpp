@@ -60,8 +60,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LineAdaptersCompileOnly$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LineAdaptersCompileOnly$$Lambda$lambda$static$0::*)()>(&LineAdaptersCompileOnly$$Lambda$lambda$static$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LineAdaptersCompileOnly$$Lambda$lambda$static$0, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$$Lambda$lambda$static$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LineAdaptersCompileOnly$$Lambda$lambda$static$0::classInfo$ = {
@@ -93,8 +93,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LineAdaptersCompileOnly$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LineAdaptersCompileOnly$$Lambda$lambda$static$1$1::*)()>(&LineAdaptersCompileOnly$$Lambda$lambda$static$1$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LineAdaptersCompileOnly$$Lambda$lambda$static$1$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$$Lambda$lambda$static$1$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LineAdaptersCompileOnly$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -126,8 +126,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LineAdaptersCompileOnly$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LineAdaptersCompileOnly$$Lambda$lambda$static$2$2::*)()>(&LineAdaptersCompileOnly$$Lambda$lambda$static$2$2::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LineAdaptersCompileOnly$$Lambda$lambda$static$2$2, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$$Lambda$lambda$static$2$2, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LineAdaptersCompileOnly$$Lambda$lambda$static$2$2::classInfo$ = {
@@ -159,8 +159,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LineAdaptersCompileOnly$$Lambda$lambda$static$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LineAdaptersCompileOnly$$Lambda$lambda$static$3$3::*)()>(&LineAdaptersCompileOnly$$Lambda$lambda$static$3$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LineAdaptersCompileOnly$$Lambda$lambda$static$3$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$$Lambda$lambda$static$3$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LineAdaptersCompileOnly$$Lambda$lambda$static$3$3::classInfo$ = {
@@ -192,8 +192,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$4::*)()>(&LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$4::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$4, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$4, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$4$4::classInfo$ = {
@@ -225,8 +225,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$5::*)()>(&LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$5::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$5, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$5, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LineAdaptersCompileOnly$$Lambda$lambda$makesSureDifferentGenericFunctionSignaturesCompile$5$5::classInfo$ = {
@@ -258,8 +258,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo LineAdaptersCompileOnly$$Lambda$getIntegerX$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LineAdaptersCompileOnly$$Lambda$getIntegerX$6::*)()>(&LineAdaptersCompileOnly$$Lambda$getIntegerX$6::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LineAdaptersCompileOnly$$Lambda$getIntegerX$6, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LineAdaptersCompileOnly$$Lambda$getIntegerX$6, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo LineAdaptersCompileOnly$$Lambda$getIntegerX$6::classInfo$ = {
@@ -285,16 +285,16 @@ $FieldInfo _LineAdaptersCompileOnly_FieldInfo_[] = {
 };
 
 $MethodInfo _LineAdaptersCompileOnly_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(LineAdaptersCompileOnly::*)()>(&LineAdaptersCompileOnly::init$))},
-	{"lambda$makesSureDifferentGenericFunctionSignaturesCompile$4", "(LLineAdaptersCompileOnly$StringSubscriber;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($LineAdaptersCompileOnly$StringSubscriber*)>(&LineAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$4))},
-	{"lambda$makesSureDifferentGenericFunctionSignaturesCompile$5", "(LLineAdaptersCompileOnly$StringSubscriber;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Number*(*)($LineAdaptersCompileOnly$StringSubscriber*)>(&LineAdaptersCompileOnly::lambda$makesSureDifferentGenericFunctionSignaturesCompile$5))},
-	{"lambda$static$0", "(LLineAdaptersCompileOnly$StringSubscriber;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($LineAdaptersCompileOnly$StringSubscriber*)>(&LineAdaptersCompileOnly::lambda$static$0))},
-	{"lambda$static$1", "(LLineAdaptersCompileOnly$StringSubscriber;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Number*(*)($LineAdaptersCompileOnly$StringSubscriber*)>(&LineAdaptersCompileOnly::lambda$static$1))},
-	{"lambda$static$2", "(LLineAdaptersCompileOnly$StringSubscriberX;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($LineAdaptersCompileOnly$StringSubscriberX*)>(&LineAdaptersCompileOnly::lambda$static$2))},
-	{"lambda$static$3", "(LLineAdaptersCompileOnly$StringSubscriberX;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Number*(*)($LineAdaptersCompileOnly$StringSubscriberX*)>(&LineAdaptersCompileOnly::lambda$static$3))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&LineAdaptersCompileOnly::main))},
-	{"makesSureDifferentGenericFunctionSignaturesCompile", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&LineAdaptersCompileOnly::makesSureDifferentGenericFunctionSignaturesCompile))},
-	{"makesSureDifferentGenericSignaturesCompile", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&LineAdaptersCompileOnly::makesSureDifferentGenericSignaturesCompile))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(LineAdaptersCompileOnly, init$, void)},
+	{"lambda$makesSureDifferentGenericFunctionSignaturesCompile$4", "(LLineAdaptersCompileOnly$StringSubscriber;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LineAdaptersCompileOnly, lambda$makesSureDifferentGenericFunctionSignaturesCompile$4, $Integer*, $LineAdaptersCompileOnly$StringSubscriber*)},
+	{"lambda$makesSureDifferentGenericFunctionSignaturesCompile$5", "(LLineAdaptersCompileOnly$StringSubscriber;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LineAdaptersCompileOnly, lambda$makesSureDifferentGenericFunctionSignaturesCompile$5, $Number*, $LineAdaptersCompileOnly$StringSubscriber*)},
+	{"lambda$static$0", "(LLineAdaptersCompileOnly$StringSubscriber;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LineAdaptersCompileOnly, lambda$static$0, $Integer*, $LineAdaptersCompileOnly$StringSubscriber*)},
+	{"lambda$static$1", "(LLineAdaptersCompileOnly$StringSubscriber;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LineAdaptersCompileOnly, lambda$static$1, $Number*, $LineAdaptersCompileOnly$StringSubscriber*)},
+	{"lambda$static$2", "(LLineAdaptersCompileOnly$StringSubscriberX;)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LineAdaptersCompileOnly, lambda$static$2, $Integer*, $LineAdaptersCompileOnly$StringSubscriberX*)},
+	{"lambda$static$3", "(LLineAdaptersCompileOnly$StringSubscriberX;)Ljava/lang/Number;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LineAdaptersCompileOnly, lambda$static$3, $Number*, $LineAdaptersCompileOnly$StringSubscriberX*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LineAdaptersCompileOnly, main, void, $StringArray*)},
+	{"makesSureDifferentGenericFunctionSignaturesCompile", "()V", nullptr, $STATIC, $staticMethod(LineAdaptersCompileOnly, makesSureDifferentGenericFunctionSignaturesCompile, void)},
+	{"makesSureDifferentGenericSignaturesCompile", "()V", nullptr, $STATIC, $staticMethod(LineAdaptersCompileOnly, makesSureDifferentGenericSignaturesCompile, void)},
 	{}
 };
 

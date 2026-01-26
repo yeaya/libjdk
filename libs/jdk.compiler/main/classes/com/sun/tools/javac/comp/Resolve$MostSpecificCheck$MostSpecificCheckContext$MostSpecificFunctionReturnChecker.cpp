@@ -70,14 +70,14 @@ $FieldInfo _Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunct
 };
 
 $MethodInfo _Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MostSpecificCheck$MostSpecificCheckContext;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::*)($Resolve$MostSpecificCheck$MostSpecificCheckContext*,$Type*,$Type*)>(&Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::init$))},
-	{"asExpr", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(static_cast<$JCTree$JCExpression*(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::*)($JCTree$JCExpression*)>(&Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::asExpr))},
-	{"lambdaResults", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PRIVATE, $method(static_cast<$List*(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::*)($JCTree$JCLambda*)>(&Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker::lambdaResults))},
-	{"skip", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MostSpecificCheck$MostSpecificCheckContext;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, init$, void, $Resolve$MostSpecificCheck$MostSpecificCheckContext*, $Type*, $Type*)},
+	{"asExpr", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, asExpr, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+	{"lambdaResults", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PRIVATE, $method(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, lambdaResults, $List*, $JCTree$JCLambda*)},
+	{"skip", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, skip, void, $JCTree*)},
+	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitConditional, void, $JCTree$JCConditional*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitParens, void, $JCTree$JCParens*)},
+	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Resolve$MostSpecificCheck$MostSpecificCheckContext$MostSpecificFunctionReturnChecker, visitReference, void, $JCTree$JCMemberReference*)},
 	{}
 };
 

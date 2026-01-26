@@ -27,10 +27,10 @@ $FieldInfo _PseudoColumnUsage_FieldInfo_[] = {
 };
 
 $MethodInfo _PseudoColumnUsage_MethodInfo_[] = {
-	{"$values", "()[Ljava/sql/PseudoColumnUsage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$PseudoColumnUsageArray*(*)()>(&PseudoColumnUsage::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(PseudoColumnUsage::*)($String*,int32_t)>(&PseudoColumnUsage::init$))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC, $method(static_cast<PseudoColumnUsage*(*)($String*)>(&PseudoColumnUsage::valueOf))},
-	{"values", "()[Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$PseudoColumnUsageArray*(*)()>(&PseudoColumnUsage::values))},
+	{"$values", "()[Ljava/sql/PseudoColumnUsage;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PseudoColumnUsage, $values, $PseudoColumnUsageArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PseudoColumnUsage, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(PseudoColumnUsage, valueOf, PseudoColumnUsage*, $String*)},
+	{"values", "()[Ljava/sql/PseudoColumnUsage;", nullptr, $PUBLIC | $STATIC, $staticMethod(PseudoColumnUsage, values, $PseudoColumnUsageArray*)},
 	{}
 };
 

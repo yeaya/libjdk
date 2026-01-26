@@ -50,12 +50,12 @@ $FieldInfo _DflCache_FieldInfo_[] = {
 };
 
 $MethodInfo _DflCache_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DflCache::*)($String*)>(&DflCache::init$))},
-	{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KrbApErrException"},
-	{"checkAndStore0", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(DflCache::*)($KerberosTime*,$AuthTimeWithHash*)>(&DflCache::checkAndStore0)), "java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
-	{"defaultFile", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&DflCache::defaultFile))},
-	{"defaultPath", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)()>(&DflCache::defaultPath))},
-	{"getFileName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Path*(*)($String*,$String*)>(&DflCache::getFileName))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DflCache, init$, void, $String*)},
+	{"checkAndStore", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PUBLIC, $virtualMethod(DflCache, checkAndStore, void, $KerberosTime*, $AuthTimeWithHash*), "sun.security.krb5.internal.KrbApErrException"},
+	{"checkAndStore0", "(Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/rcache/AuthTimeWithHash;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DflCache, checkAndStore0, void, $KerberosTime*, $AuthTimeWithHash*), "java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
+	{"defaultFile", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache, defaultFile, $String*, $String*)},
+	{"defaultPath", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache, defaultPath, $String*)},
+	{"getFileName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(DflCache, getFileName, $Path*, $String*, $String*)},
 	{}
 };
 

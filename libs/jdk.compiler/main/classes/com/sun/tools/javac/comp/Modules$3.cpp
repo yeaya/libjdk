@@ -39,9 +39,9 @@ $FieldInfo _Modules$3_FieldInfo_[] = {
 };
 
 $MethodInfo _Modules$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, 0, $method(static_cast<void(Modules$3::*)($Modules*)>(&Modules$3::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Modules;)V", nullptr, 0, $method(Modules$3, init$, void, $Modules*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Modules$3, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Modules$3, toString, $String*)},
 	{}
 };
 

@@ -33,15 +33,15 @@ $FieldInfo _Oid_FieldInfo_[] = {
 };
 
 $MethodInfo _Oid_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Oid::*)($String*)>(&Oid::init$)), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(static_cast<void(Oid::*)($InputStream*)>(&Oid::init$)), "org.ietf.jgss.GSSException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(static_cast<void(Oid::*)($bytes*)>(&Oid::init$)), "org.ietf.jgss.GSSException"},
-	{"containedIn", "([Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getDER", "()[B", nullptr, $PUBLIC, nullptr, "org.ietf.jgss.GSSException"},
-	{"getInstance", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $STATIC, $method(static_cast<Oid*(*)($String*)>(&Oid::getInstance))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Oid, init$, void, $String*), "org.ietf.jgss.GSSException"},
+	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(Oid, init$, void, $InputStream*), "org.ietf.jgss.GSSException"},
+	{"<init>", "([B)V", nullptr, $PUBLIC, $method(Oid, init$, void, $bytes*), "org.ietf.jgss.GSSException"},
+	{"containedIn", "([Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC, $virtualMethod(Oid, containedIn, bool, $OidArray*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Oid, equals, bool, Object$*)},
+	{"getDER", "()[B", nullptr, $PUBLIC, $virtualMethod(Oid, getDER, $bytes*), "org.ietf.jgss.GSSException"},
+	{"getInstance", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $STATIC, $staticMethod(Oid, getInstance, Oid*, $String*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Oid, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Oid, toString, $String*)},
 	{}
 };
 

@@ -11,7 +11,7 @@ namespace com {
 			namespace doctree {
 
 $MethodInfo _BlockTagTree_MethodInfo_[] = {
-	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BlockTagTree, getTagName, $String*)},
 	{}
 };
 

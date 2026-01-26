@@ -27,8 +27,8 @@ $FieldInfo _RMIConnectionImpl$4_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnectionImpl$4_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;JJI)V", "()V", 0, $method(static_cast<void(RMIConnectionImpl$4::*)($RMIConnectionImpl*,int64_t,int64_t,int32_t)>(&RMIConnectionImpl$4::init$))},
-	{"run", "()Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;JJI)V", "()V", 0, $method(RMIConnectionImpl$4, init$, void, $RMIConnectionImpl*, int64_t, int64_t, int32_t)},
+	{"run", "()Ljavax/management/remote/NotificationResult;", nullptr, $PUBLIC, $virtualMethod(RMIConnectionImpl$4, run, $Object*)},
 	{}
 };
 

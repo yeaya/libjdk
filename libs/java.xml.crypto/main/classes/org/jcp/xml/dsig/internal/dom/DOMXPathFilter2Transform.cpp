@@ -73,11 +73,11 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMXPathFilter2Transform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DOMXPathFilter2Transform::*)()>(&DOMXPathFilter2Transform::init$))},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, nullptr, "javax.xml.crypto.MarshalException"},
-	{"unmarshalParams", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(static_cast<void(DOMXPathFilter2Transform::*)($Element*)>(&DOMXPathFilter2Transform::unmarshalParams)), "javax.xml.crypto.MarshalException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMXPathFilter2Transform, init$, void)},
+	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMXPathFilter2Transform, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXPathFilter2Transform, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMXPathFilter2Transform, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+	{"unmarshalParams", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(DOMXPathFilter2Transform, unmarshalParams, void, $Element*), "javax.xml.crypto.MarshalException"},
 	{}
 };
 

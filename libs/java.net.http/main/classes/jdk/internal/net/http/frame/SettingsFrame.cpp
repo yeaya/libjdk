@@ -57,20 +57,20 @@ $FieldInfo _SettingsFrame_FieldInfo_[] = {
 };
 
 $MethodInfo _SettingsFrame_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(SettingsFrame::*)(int32_t)>(&SettingsFrame::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SettingsFrame::*)()>(&SettingsFrame::init$))},
-	{"<init>", "(Ljdk/internal/net/http/frame/SettingsFrame;)V", nullptr, $PUBLIC, $method(static_cast<void(SettingsFrame::*)(SettingsFrame*)>(&SettingsFrame::init$))},
-	{"defaultRFCSettings", "()Ljdk/internal/net/http/frame/SettingsFrame;", nullptr, $PUBLIC | $STATIC, $method(static_cast<SettingsFrame*(*)()>(&SettingsFrame::defaultRFCSettings))},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getParameter", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"length", "()I", nullptr, 0},
-	{"name", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(static_cast<$String*(SettingsFrame::*)(int32_t)>(&SettingsFrame::name))},
-	{"setParameter", "(II)Ljdk/internal/net/http/frame/SettingsFrame;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"toByteArray", "()[B", nullptr, $PUBLIC},
-	{"toByteBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"type", "()I", nullptr, $PUBLIC},
-	{"update", "(Ljdk/internal/net/http/frame/SettingsFrame;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SettingsFrame, init$, void, int32_t)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SettingsFrame, init$, void)},
+	{"<init>", "(Ljdk/internal/net/http/frame/SettingsFrame;)V", nullptr, $PUBLIC, $method(SettingsFrame, init$, void, SettingsFrame*)},
+	{"defaultRFCSettings", "()Ljdk/internal/net/http/frame/SettingsFrame;", nullptr, $PUBLIC | $STATIC, $staticMethod(SettingsFrame, defaultRFCSettings, SettingsFrame*)},
+	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, flagAsString, $String*, int32_t)},
+	{"getParameter", "(I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SettingsFrame, getParameter, int32_t, int32_t)},
+	{"length", "()I", nullptr, 0, $virtualMethod(SettingsFrame, length, int32_t)},
+	{"name", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(SettingsFrame, name, $String*, int32_t)},
+	{"setParameter", "(II)Ljdk/internal/net/http/frame/SettingsFrame;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SettingsFrame, setParameter, SettingsFrame*, int32_t, int32_t)},
+	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, toByteArray, $bytes*)},
+	{"toByteBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $virtualMethod(SettingsFrame, toByteBuffer, void, $ByteBuffer*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, toString, $String*)},
+	{"type", "()I", nullptr, $PUBLIC, $virtualMethod(SettingsFrame, type, int32_t)},
+	{"update", "(Ljdk/internal/net/http/frame/SettingsFrame;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SettingsFrame, update, void, SettingsFrame*)},
 	{}
 };
 

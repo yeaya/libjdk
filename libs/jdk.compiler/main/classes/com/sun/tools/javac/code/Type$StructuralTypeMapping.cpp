@@ -42,12 +42,12 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Type$StructuralTypeMapping_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Type$StructuralTypeMapping::*)()>(&Type$StructuralTypeMapping::init$))},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ArrayType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ClassType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ForAll;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$MethodType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$WildcardType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Type$StructuralTypeMapping, init$, void)},
+	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ArrayType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ClassType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$ForAll;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitForAll, $Object*, $Type$ForAll*, Object$*)},
+	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$MethodType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/code/Type$WildcardType;TS;)Lcom/sun/tools/javac/code/Type;", $PUBLIC, $virtualMethod(Type$StructuralTypeMapping, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
 	{}
 };
 

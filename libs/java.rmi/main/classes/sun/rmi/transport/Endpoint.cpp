@@ -7,16 +7,19 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Channel = ::sun::rmi::transport::Channel;
+using $Target = ::sun::rmi::transport::Target;
+using $Transport = ::sun::rmi::transport::Transport;
 
 namespace sun {
 	namespace rmi {
 		namespace transport {
 
 $MethodInfo _Endpoint_MethodInfo_[] = {
-	{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.rmi.RemoteException"},
-	{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getInboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getOutboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC | $ABSTRACT},
+	{"exportObject", "(Lsun/rmi/transport/Target;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Endpoint, exportObject, void, $Target*), "java.rmi.RemoteException"},
+	{"getChannel", "()Lsun/rmi/transport/Channel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Endpoint, getChannel, $Channel*)},
+	{"getInboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Endpoint, getInboundTransport, $Transport*)},
+	{"getOutboundTransport", "()Lsun/rmi/transport/Transport;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Endpoint, getOutboundTransport, $Transport*)},
 	{}
 };
 

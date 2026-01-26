@@ -5,9 +5,11 @@
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
+using $ClassLoader = ::java::lang::ClassLoader;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URL = ::java::net::URL;
 
 namespace java {
 	namespace rmi {
@@ -39,9 +41,9 @@ $FieldInfo _LoaderHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _LoaderHandler_MethodInfo_[] = {
-	{"getSecurityContext", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _LoaderHandler_MethodAnnotations_getSecurityContext0},
-	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.net.MalformedURLException,java.lang.ClassNotFoundException", nullptr, _LoaderHandler_MethodAnnotations_loadClass1},
-	{"loadClass", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.net.MalformedURLException,java.lang.ClassNotFoundException", nullptr, _LoaderHandler_MethodAnnotations_loadClass2},
+	{"getSecurityContext", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(LoaderHandler, getSecurityContext, $Object*, $ClassLoader*), nullptr, nullptr, _LoaderHandler_MethodAnnotations_getSecurityContext0},
+	{"loadClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(LoaderHandler, loadClass, $Class*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException", nullptr, _LoaderHandler_MethodAnnotations_loadClass1},
+	{"loadClass", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(LoaderHandler, loadClass, $Class*, $URL*, $String*), "java.net.MalformedURLException,java.lang.ClassNotFoundException", nullptr, _LoaderHandler_MethodAnnotations_loadClass2},
 	{}
 };
 

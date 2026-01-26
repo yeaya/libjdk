@@ -27,7 +27,7 @@ $FieldInfo _IBM943$DecodeHolder_FieldInfo_[] = {
 };
 
 $MethodInfo _IBM943$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(IBM943$DecodeHolder::*)()>(&IBM943$DecodeHolder::init$))},
+	{"<init>", "()V", nullptr, 0, $method(IBM943$DecodeHolder, init$, void)},
 	{}
 };
 

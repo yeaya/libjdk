@@ -33,8 +33,8 @@ $FieldInfo _Main$Hasher$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$Hasher$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/tools/jar/Main$Hasher;Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Lsun/tools/jar/Main;)V", nullptr, 0, $method(static_cast<void(Main$Hasher$1::*)($Main$Hasher*,$ModuleDescriptor*,$URI*,$Main*)>(&Main$Hasher$1::init$))},
-	{"open", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/tools/jar/Main$Hasher;Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;Lsun/tools/jar/Main;)V", nullptr, 0, $method(Main$Hasher$1, init$, void, $Main$Hasher*, $ModuleDescriptor*, $URI*, $Main*)},
+	{"open", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC, $virtualMethod(Main$Hasher$1, open, $ModuleReader*)},
 	{}
 };
 

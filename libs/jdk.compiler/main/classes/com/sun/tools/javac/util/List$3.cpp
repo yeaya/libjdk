@@ -27,10 +27,10 @@ $FieldInfo _List$3_FieldInfo_[] = {
 };
 
 $MethodInfo _List$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(static_cast<void(List$3::*)($List*)>(&List$3::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", "()TA;", $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(List$3, init$, void, $List*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(List$3, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", "()TA;", $PUBLIC, $virtualMethod(List$3, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(List$3, remove, void)},
 	{}
 };
 

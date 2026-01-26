@@ -24,7 +24,7 @@ $FieldInfo _ConnectionPool$ExpiryEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _ConnectionPool$ExpiryEntry_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljava/time/Instant;)V", nullptr, 0, $method(static_cast<void(ConnectionPool$ExpiryEntry::*)($HttpConnection*,$Instant*)>(&ConnectionPool$ExpiryEntry::init$))},
+	{"<init>", "(Ljdk/internal/net/http/HttpConnection;Ljava/time/Instant;)V", nullptr, 0, $method(ConnectionPool$ExpiryEntry, init$, void, $HttpConnection*, $Instant*)},
 	{}
 };
 

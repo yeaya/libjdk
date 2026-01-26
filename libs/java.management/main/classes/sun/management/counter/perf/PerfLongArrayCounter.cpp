@@ -37,14 +37,14 @@ $MethodInfo _PerfLongArrayCounter_MethodInfo_[] = {
 	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
 	{"*getVectorLength", "()I", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;IILjava/nio/LongBuffer;)V", nullptr, 0, $method(static_cast<void(PerfLongArrayCounter::*)($String*,$Units*,$Variability*,int32_t,int32_t,$LongBuffer*)>(&PerfLongArrayCounter::init$))},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;IILjava/nio/LongBuffer;)V", nullptr, 0, $method(PerfLongArrayCounter, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t, $LongBuffer*)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PerfLongArrayCounter, getValue, $Object*)},
 	{"*isInternal", "()Z", nullptr, $PUBLIC},
 	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"longArrayValue", "()[J", nullptr, $PUBLIC},
-	{"longAt", "(I)J", nullptr, $PUBLIC},
+	{"longArrayValue", "()[J", nullptr, $PUBLIC, $virtualMethod(PerfLongArrayCounter, longArrayValue, $longs*)},
+	{"longAt", "(I)J", nullptr, $PUBLIC, $virtualMethod(PerfLongArrayCounter, longAt, int64_t, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.ObjectStreamException"},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PerfLongArrayCounter, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

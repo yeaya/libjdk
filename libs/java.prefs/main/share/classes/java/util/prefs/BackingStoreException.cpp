@@ -17,8 +17,8 @@ $FieldInfo _BackingStoreException_FieldInfo_[] = {
 };
 
 $MethodInfo _BackingStoreException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(BackingStoreException::*)($String*)>(&BackingStoreException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(BackingStoreException::*)($Throwable*)>(&BackingStoreException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BackingStoreException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(BackingStoreException, init$, void, $Throwable*)},
 	{}
 };
 

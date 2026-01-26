@@ -17,7 +17,7 @@ namespace org {
 					namespace dom {
 
 $MethodInfo _DOMXMLSignatureFactory$UnmarshalContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DOMXMLSignatureFactory$UnmarshalContext::*)()>(&DOMXMLSignatureFactory$UnmarshalContext::init$))},
+	{"<init>", "()V", nullptr, 0, $method(DOMXMLSignatureFactory$UnmarshalContext, init$, void)},
 	{}
 };
 

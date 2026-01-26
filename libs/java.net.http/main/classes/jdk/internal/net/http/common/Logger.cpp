@@ -19,13 +19,13 @@ namespace jdk {
 				namespace common {
 
 $MethodInfo _Logger_MethodInfo_[] = {
-	{"log", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"log", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC},
-	{"log", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"log", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"log", "(Ljava/util/function/Supplier;Ljava/lang/Throwable;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/Throwable;)V", $PUBLIC},
-	{"log", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT},
-	{"on", "()Z", nullptr, $PUBLIC},
+	{"log", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $String*)},
+	{"log", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, log, void, $Supplier*)},
+	{"log", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, Object$*)},
+	{"log", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $String*, $Throwable*)},
+	{"log", "(Ljava/util/function/Supplier;Ljava/lang/Throwable;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/Throwable;)V", $PUBLIC, $virtualMethod(Logger, log, void, $Supplier*, $Throwable*)},
+	{"log", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Logger, log, void, $String*, $ObjectArray*)},
+	{"on", "()Z", nullptr, $PUBLIC, $virtualMethod(Logger, on, bool)},
 	{}
 };
 

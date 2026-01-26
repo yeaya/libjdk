@@ -60,19 +60,19 @@ $FieldInfo _UnicastRemoteObject_FieldInfo_[] = {
 };
 
 $MethodInfo _UnicastRemoteObject_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(UnicastRemoteObject::*)()>(&UnicastRemoteObject::init$)), "java.rmi.RemoteException"},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(static_cast<void(UnicastRemoteObject::*)(int32_t)>(&UnicastRemoteObject::init$)), "java.rmi.RemoteException"},
-	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PROTECTED, $method(static_cast<void(UnicastRemoteObject::*)(int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*)>(&UnicastRemoteObject::init$)), "java.rmi.RemoteException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.CloneNotSupportedException"},
-	{"exportObject", "(Ljava/rmi/Remote;)Ljava/rmi/server/RemoteStub;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $method(static_cast<$RemoteStub*(*)($Remote*)>(&UnicastRemoteObject::exportObject)), "java.rmi.RemoteException", nullptr, _UnicastRemoteObject_MethodAnnotations_exportObject4},
-	{"exportObject", "(Ljava/rmi/Remote;I)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Remote*(*)($Remote*,int32_t)>(&UnicastRemoteObject::exportObject)), "java.rmi.RemoteException"},
-	{"exportObject", "(Ljava/rmi/Remote;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Remote*(*)($Remote*,int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*)>(&UnicastRemoteObject::exportObject)), "java.rmi.RemoteException"},
-	{"exportObject", "(Ljava/rmi/Remote;ILjava/io/ObjectInputFilter;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Remote*(*)($Remote*,int32_t,$ObjectInputFilter*)>(&UnicastRemoteObject::exportObject)), "java.rmi.RemoteException"},
-	{"exportObject", "(Ljava/rmi/Remote;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Remote*(*)($Remote*,int32_t,$RMIClientSocketFactory*,$RMIServerSocketFactory*,$ObjectInputFilter*)>(&UnicastRemoteObject::exportObject)), "java.rmi.RemoteException"},
-	{"exportObject", "(Ljava/rmi/Remote;Lsun/rmi/server/UnicastServerRef;)Ljava/rmi/Remote;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Remote*(*)($Remote*,$UnicastServerRef*)>(&UnicastRemoteObject::exportObject)), "java.rmi.RemoteException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(UnicastRemoteObject::*)($ObjectInputStream*)>(&UnicastRemoteObject::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"reexport", "()V", nullptr, $PRIVATE, $method(static_cast<void(UnicastRemoteObject::*)()>(&UnicastRemoteObject::reexport)), "java.rmi.RemoteException"},
-	{"unexportObject", "(Ljava/rmi/Remote;Z)Z", nullptr, $PUBLIC | $STATIC, $method(static_cast<bool(*)($Remote*,bool)>(&UnicastRemoteObject::unexportObject)), "java.rmi.NoSuchObjectException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(UnicastRemoteObject, init$, void), "java.rmi.RemoteException"},
+	{"<init>", "(I)V", nullptr, $PROTECTED, $method(UnicastRemoteObject, init$, void, int32_t), "java.rmi.RemoteException"},
+	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PROTECTED, $method(UnicastRemoteObject, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*), "java.rmi.RemoteException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastRemoteObject, clone, $Object*), "java.lang.CloneNotSupportedException"},
+	{"exportObject", "(Ljava/rmi/Remote;)Ljava/rmi/server/RemoteStub;", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(UnicastRemoteObject, exportObject, $RemoteStub*, $Remote*), "java.rmi.RemoteException", nullptr, _UnicastRemoteObject_MethodAnnotations_exportObject4},
+	{"exportObject", "(Ljava/rmi/Remote;I)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicastRemoteObject, exportObject, $Remote*, $Remote*, int32_t), "java.rmi.RemoteException"},
+	{"exportObject", "(Ljava/rmi/Remote;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicastRemoteObject, exportObject, $Remote*, $Remote*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*), "java.rmi.RemoteException"},
+	{"exportObject", "(Ljava/rmi/Remote;ILjava/io/ObjectInputFilter;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicastRemoteObject, exportObject, $Remote*, $Remote*, int32_t, $ObjectInputFilter*), "java.rmi.RemoteException"},
+	{"exportObject", "(Ljava/rmi/Remote;ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicastRemoteObject, exportObject, $Remote*, $Remote*, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*, $ObjectInputFilter*), "java.rmi.RemoteException"},
+	{"exportObject", "(Ljava/rmi/Remote;Lsun/rmi/server/UnicastServerRef;)Ljava/rmi/Remote;", nullptr, $PRIVATE | $STATIC, $staticMethod(UnicastRemoteObject, exportObject, $Remote*, $Remote*, $UnicastServerRef*), "java.rmi.RemoteException"},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(UnicastRemoteObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"reexport", "()V", nullptr, $PRIVATE, $method(UnicastRemoteObject, reexport, void), "java.rmi.RemoteException"},
+	{"unexportObject", "(Ljava/rmi/Remote;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicastRemoteObject, unexportObject, bool, $Remote*, bool), "java.rmi.NoSuchObjectException"},
 	{}
 };
 

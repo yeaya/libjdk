@@ -41,12 +41,12 @@ $FieldInfo _KdcComm$KdcAccessibility_FieldInfo_[] = {
 };
 
 $MethodInfo _KdcComm$KdcAccessibility_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(KdcComm$KdcAccessibility::*)()>(&KdcComm$KdcAccessibility::init$))},
-	{"addBad", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($String*)>(&KdcComm$KdcAccessibility::addBad))},
-	{"isBad", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<bool(*)($String*)>(&KdcComm$KdcAccessibility::isBad))},
-	{"list", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<$List*(*)($String*)>(&KdcComm$KdcAccessibility::list))},
-	{"removeBad", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)($String*)>(&KdcComm$KdcAccessibility::removeBad))},
-	{"reset", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<void(*)()>(&KdcComm$KdcAccessibility::reset))},
+	{"<init>", "()V", nullptr, 0, $method(KdcComm$KdcAccessibility, init$, void)},
+	{"addBad", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(KdcComm$KdcAccessibility, addBad, void, $String*)},
+	{"isBad", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(KdcComm$KdcAccessibility, isBad, bool, $String*)},
+	{"list", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(KdcComm$KdcAccessibility, list, $List*, $String*)},
+	{"removeBad", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(KdcComm$KdcAccessibility, removeBad, void, $String*)},
+	{"reset", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(KdcComm$KdcAccessibility, reset, void)},
 	{}
 };
 

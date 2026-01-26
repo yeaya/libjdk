@@ -89,20 +89,20 @@ $FieldInfo _SSLStreams_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLStreams_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljavax/net/ssl/SSLContext;Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(static_cast<void(SSLStreams::*)($ServerImpl*,$SSLContext*,$SocketChannel*)>(&SSLStreams::init$)), "java.io.IOException"},
-	{"allocate", "(Lsun/net/httpserver/SSLStreams$BufType;)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(SSLStreams::*)($SSLStreams$BufType*)>(&SSLStreams::allocate))},
-	{"allocate", "(Lsun/net/httpserver/SSLStreams$BufType;I)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(SSLStreams::*)($SSLStreams$BufType*,int32_t)>(&SSLStreams::allocate))},
-	{"beginHandshake", "()V", nullptr, 0, nullptr, "javax.net.ssl.SSLException"},
-	{"close", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"configureEngine", "(Lcom/sun/net/httpserver/HttpsConfigurator;Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(static_cast<void(SSLStreams::*)($HttpsConfigurator*,$InetSocketAddress*)>(&SSLStreams::configureEngine))},
-	{"doClosure", "()V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"doHandshake", "(Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;)V", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getInputStream", "()Lsun/net/httpserver/SSLStreams$InputStream;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getOutputStream", "()Lsun/net/httpserver/SSLStreams$OutputStream;", nullptr, 0, nullptr, "java.io.IOException"},
-	{"getSSLEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, 0},
-	{"realloc", "(Ljava/nio/ByteBuffer;ZLsun/net/httpserver/SSLStreams$BufType;)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(static_cast<$ByteBuffer*(SSLStreams::*)($ByteBuffer*,bool,$SSLStreams$BufType*)>(&SSLStreams::realloc))},
-	{"recvData", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"sendData", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljavax/net/ssl/SSLContext;Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(SSLStreams, init$, void, $ServerImpl*, $SSLContext*, $SocketChannel*), "java.io.IOException"},
+	{"allocate", "(Lsun/net/httpserver/SSLStreams$BufType;)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(SSLStreams, allocate, $ByteBuffer*, $SSLStreams$BufType*)},
+	{"allocate", "(Lsun/net/httpserver/SSLStreams$BufType;I)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(SSLStreams, allocate, $ByteBuffer*, $SSLStreams$BufType*, int32_t)},
+	{"beginHandshake", "()V", nullptr, 0, $virtualMethod(SSLStreams, beginHandshake, void), "javax.net.ssl.SSLException"},
+	{"close", "()V", nullptr, 0, $virtualMethod(SSLStreams, close, void), "java.io.IOException"},
+	{"configureEngine", "(Lcom/sun/net/httpserver/HttpsConfigurator;Ljava/net/InetSocketAddress;)V", nullptr, $PRIVATE, $method(SSLStreams, configureEngine, void, $HttpsConfigurator*, $InetSocketAddress*)},
+	{"doClosure", "()V", nullptr, 0, $virtualMethod(SSLStreams, doClosure, void), "java.io.IOException"},
+	{"doHandshake", "(Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;)V", nullptr, 0, $virtualMethod(SSLStreams, doHandshake, void, $SSLEngineResult$HandshakeStatus*), "java.io.IOException"},
+	{"getInputStream", "()Lsun/net/httpserver/SSLStreams$InputStream;", nullptr, 0, $virtualMethod(SSLStreams, getInputStream, $SSLStreams$InputStream*), "java.io.IOException"},
+	{"getOutputStream", "()Lsun/net/httpserver/SSLStreams$OutputStream;", nullptr, 0, $virtualMethod(SSLStreams, getOutputStream, $SSLStreams$OutputStream*), "java.io.IOException"},
+	{"getSSLEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, 0, $virtualMethod(SSLStreams, getSSLEngine, $SSLEngine*)},
+	{"realloc", "(Ljava/nio/ByteBuffer;ZLsun/net/httpserver/SSLStreams$BufType;)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(SSLStreams, realloc, $ByteBuffer*, $ByteBuffer*, bool, $SSLStreams$BufType*)},
+	{"recvData", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, $PUBLIC, $virtualMethod(SSLStreams, recvData, $SSLStreams$WrapperResult*, $ByteBuffer*), "java.io.IOException"},
+	{"sendData", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, $PUBLIC, $virtualMethod(SSLStreams, sendData, $SSLStreams$WrapperResult*, $ByteBuffer*), "java.io.IOException"},
 	{}
 };
 

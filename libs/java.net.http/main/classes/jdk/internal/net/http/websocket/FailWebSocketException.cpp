@@ -20,10 +20,10 @@ $FieldInfo _FailWebSocketException_FieldInfo_[] = {
 };
 
 $MethodInfo _FailWebSocketException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(FailWebSocketException::*)($String*)>(&FailWebSocketException::init$))},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(static_cast<void(FailWebSocketException::*)($String*,int32_t)>(&FailWebSocketException::init$))},
-	{"getStatusCode", "()I", nullptr, 0, $method(static_cast<int32_t(FailWebSocketException::*)()>(&FailWebSocketException::getStatusCode))},
-	{"initCause", "(Ljava/lang/Throwable;)Ljdk/internal/net/http/websocket/FailWebSocketException;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(FailWebSocketException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(FailWebSocketException, init$, void, $String*, int32_t)},
+	{"getStatusCode", "()I", nullptr, 0, $method(FailWebSocketException, getStatusCode, int32_t)},
+	{"initCause", "(Ljava/lang/Throwable;)Ljdk/internal/net/http/websocket/FailWebSocketException;", nullptr, $PUBLIC, $virtualMethod(FailWebSocketException, initCause, FailWebSocketException*, $Throwable*)},
 	{}
 };
 

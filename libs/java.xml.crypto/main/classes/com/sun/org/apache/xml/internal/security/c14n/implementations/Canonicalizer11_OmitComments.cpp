@@ -20,8 +20,8 @@ namespace com {
 								namespace implementations {
 
 $MethodInfo _Canonicalizer11_OmitComments_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Canonicalizer11_OmitComments::*)()>(&Canonicalizer11_OmitComments::init$))},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Canonicalizer11_OmitComments, init$, void)},
+	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Canonicalizer11_OmitComments, engineGetURI, $String*)},
 	{}
 };
 

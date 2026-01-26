@@ -17,8 +17,8 @@ using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 
 $MethodInfo _B6791927_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6791927::*)()>(&B6791927::init$))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $method(static_cast<void(*)($StringArray*)>(&B6791927::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6791927, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(B6791927, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

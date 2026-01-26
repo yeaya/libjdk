@@ -24,8 +24,8 @@ $FieldInfo _ManagementFactoryHelper$LoggingMXBeanAccess$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ManagementFactoryHelper$LoggingMXBeanAccess$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(ManagementFactoryHelper$LoggingMXBeanAccess$1::*)($String*)>(&ManagementFactoryHelper$LoggingMXBeanAccess$1::init$))},
-	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ManagementFactoryHelper$LoggingMXBeanAccess$1, init$, void, $String*)},
+	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ManagementFactoryHelper$LoggingMXBeanAccess$1, run, $Object*)},
 	{}
 };
 

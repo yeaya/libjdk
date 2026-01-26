@@ -29,16 +29,16 @@ $FieldInfo _TaskEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _TaskEvent_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/util/TaskEvent$Kind;)V", nullptr, $PUBLIC, $method(static_cast<void(TaskEvent::*)($TaskEvent$Kind*)>(&TaskEvent::init$))},
-	{"<init>", "(Lcom/sun/source/util/TaskEvent$Kind;Ljavax/tools/JavaFileObject;)V", nullptr, $PUBLIC, $method(static_cast<void(TaskEvent::*)($TaskEvent$Kind*,$JavaFileObject*)>(&TaskEvent::init$))},
-	{"<init>", "(Lcom/sun/source/util/TaskEvent$Kind;Lcom/sun/source/tree/CompilationUnitTree;)V", nullptr, $PUBLIC, $method(static_cast<void(TaskEvent::*)($TaskEvent$Kind*,$CompilationUnitTree*)>(&TaskEvent::init$))},
-	{"<init>", "(Lcom/sun/source/util/TaskEvent$Kind;Lcom/sun/source/tree/CompilationUnitTree;Ljavax/lang/model/element/TypeElement;)V", nullptr, $PUBLIC, $method(static_cast<void(TaskEvent::*)($TaskEvent$Kind*,$CompilationUnitTree*,$TypeElement*)>(&TaskEvent::init$))},
-	{"<init>", "(Lcom/sun/source/util/TaskEvent$Kind;Ljavax/tools/JavaFileObject;Lcom/sun/source/tree/CompilationUnitTree;Ljavax/lang/model/element/TypeElement;)V", nullptr, $PRIVATE, $method(static_cast<void(TaskEvent::*)($TaskEvent$Kind*,$JavaFileObject*,$CompilationUnitTree*,$TypeElement*)>(&TaskEvent::init$))},
-	{"getCompilationUnit", "()Lcom/sun/source/tree/CompilationUnitTree;", nullptr, $PUBLIC, $method(static_cast<$CompilationUnitTree*(TaskEvent::*)()>(&TaskEvent::getCompilationUnit))},
-	{"getKind", "()Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC, $method(static_cast<$TaskEvent$Kind*(TaskEvent::*)()>(&TaskEvent::getKind))},
-	{"getSourceFile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $method(static_cast<$JavaFileObject*(TaskEvent::*)()>(&TaskEvent::getSourceFile))},
-	{"getTypeElement", "()Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC, $method(static_cast<$TypeElement*(TaskEvent::*)()>(&TaskEvent::getTypeElement))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/source/util/TaskEvent$Kind;)V", nullptr, $PUBLIC, $method(TaskEvent, init$, void, $TaskEvent$Kind*)},
+	{"<init>", "(Lcom/sun/source/util/TaskEvent$Kind;Ljavax/tools/JavaFileObject;)V", nullptr, $PUBLIC, $method(TaskEvent, init$, void, $TaskEvent$Kind*, $JavaFileObject*)},
+	{"<init>", "(Lcom/sun/source/util/TaskEvent$Kind;Lcom/sun/source/tree/CompilationUnitTree;)V", nullptr, $PUBLIC, $method(TaskEvent, init$, void, $TaskEvent$Kind*, $CompilationUnitTree*)},
+	{"<init>", "(Lcom/sun/source/util/TaskEvent$Kind;Lcom/sun/source/tree/CompilationUnitTree;Ljavax/lang/model/element/TypeElement;)V", nullptr, $PUBLIC, $method(TaskEvent, init$, void, $TaskEvent$Kind*, $CompilationUnitTree*, $TypeElement*)},
+	{"<init>", "(Lcom/sun/source/util/TaskEvent$Kind;Ljavax/tools/JavaFileObject;Lcom/sun/source/tree/CompilationUnitTree;Ljavax/lang/model/element/TypeElement;)V", nullptr, $PRIVATE, $method(TaskEvent, init$, void, $TaskEvent$Kind*, $JavaFileObject*, $CompilationUnitTree*, $TypeElement*)},
+	{"getCompilationUnit", "()Lcom/sun/source/tree/CompilationUnitTree;", nullptr, $PUBLIC, $method(TaskEvent, getCompilationUnit, $CompilationUnitTree*)},
+	{"getKind", "()Lcom/sun/source/util/TaskEvent$Kind;", nullptr, $PUBLIC, $method(TaskEvent, getKind, $TaskEvent$Kind*)},
+	{"getSourceFile", "()Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $method(TaskEvent, getSourceFile, $JavaFileObject*)},
+	{"getTypeElement", "()Ljavax/lang/model/element/TypeElement;", nullptr, $PUBLIC, $method(TaskEvent, getTypeElement, $TypeElement*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TaskEvent, toString, $String*)},
 	{}
 };
 

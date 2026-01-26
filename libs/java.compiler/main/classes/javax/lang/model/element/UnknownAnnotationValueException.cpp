@@ -23,9 +23,9 @@ $FieldInfo _UnknownAnnotationValueException_FieldInfo_[] = {
 };
 
 $MethodInfo _UnknownAnnotationValueException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/element/AnnotationValue;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(UnknownAnnotationValueException::*)($AnnotationValue*,Object$*)>(&UnknownAnnotationValueException::init$))},
-	{"getArgument", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getUnknownAnnotationValue", "()Ljavax/lang/model/element/AnnotationValue;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/lang/model/element/AnnotationValue;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UnknownAnnotationValueException, init$, void, $AnnotationValue*, Object$*)},
+	{"getArgument", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnknownAnnotationValueException, getArgument, $Object*)},
+	{"getUnknownAnnotationValue", "()Ljavax/lang/model/element/AnnotationValue;", nullptr, $PUBLIC, $virtualMethod(UnknownAnnotationValueException, getUnknownAnnotationValue, $AnnotationValue*)},
 	{}
 };
 

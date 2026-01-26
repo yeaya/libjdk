@@ -26,12 +26,12 @@ $FieldInfo _NamedObject_FieldInfo_[] = {
 };
 
 $MethodInfo _NamedObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;Ljavax/management/DynamicMBean;)V", nullptr, $PUBLIC, $method(static_cast<void(NamedObject::*)($ObjectName*,$DynamicMBean*)>(&NamedObject::init$))},
-	{"<init>", "(Ljava/lang/String;Ljavax/management/DynamicMBean;)V", nullptr, $PUBLIC, $method(static_cast<void(NamedObject::*)($String*,$DynamicMBean*)>(&NamedObject::init$)), "javax.management.MalformedObjectNameException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"getObject", "()Ljavax/management/DynamicMBean;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/ObjectName;Ljavax/management/DynamicMBean;)V", nullptr, $PUBLIC, $method(NamedObject, init$, void, $ObjectName*, $DynamicMBean*)},
+	{"<init>", "(Ljava/lang/String;Ljavax/management/DynamicMBean;)V", nullptr, $PUBLIC, $method(NamedObject, init$, void, $String*, $DynamicMBean*), "javax.management.MalformedObjectNameException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NamedObject, equals, bool, Object$*)},
+	{"getName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(NamedObject, getName, $ObjectName*)},
+	{"getObject", "()Ljavax/management/DynamicMBean;", nullptr, $PUBLIC, $virtualMethod(NamedObject, getObject, $DynamicMBean*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NamedObject, hashCode, int32_t)},
 	{}
 };
 

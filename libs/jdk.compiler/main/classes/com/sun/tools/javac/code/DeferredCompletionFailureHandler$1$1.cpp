@@ -31,8 +31,8 @@ $FieldInfo _DeferredCompletionFailureHandler$1$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredCompletionFailureHandler$1$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$1;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, 0, $method(static_cast<void(DeferredCompletionFailureHandler$1$1::*)($DeferredCompletionFailureHandler$1*,$Symbol$Completer*)>(&DeferredCompletionFailureHandler$1$1::init$))},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+	{"<init>", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler$1;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, 0, $method(DeferredCompletionFailureHandler$1$1, init$, void, $DeferredCompletionFailureHandler$1*, $Symbol$Completer*)},
+	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$1$1, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
 	{}
 };
 

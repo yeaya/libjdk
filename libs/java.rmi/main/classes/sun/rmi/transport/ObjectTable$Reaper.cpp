@@ -26,8 +26,8 @@ namespace sun {
 		namespace transport {
 
 $MethodInfo _ObjectTable$Reaper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ObjectTable$Reaper::*)()>(&ObjectTable$Reaper::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ObjectTable$Reaper, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ObjectTable$Reaper, run, void)},
 	{}
 };
 

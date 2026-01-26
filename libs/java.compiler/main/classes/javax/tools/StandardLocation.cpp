@@ -57,19 +57,19 @@ $FieldInfo _StandardLocation_FieldInfo_[] = {
 };
 
 $MethodInfo _StandardLocation_MethodInfo_[] = {
-	{"$values", "()[Ljavax/tools/StandardLocation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StandardLocationArray*(*)()>(&StandardLocation::$values))},
+	{"$values", "()[Ljavax/tools/StandardLocation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardLocation, $values, $StandardLocationArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(StandardLocation::*)($String*,int32_t)>(&StandardLocation::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isModuleOrientedLocation", "()Z", nullptr, $PUBLIC},
-	{"isOutputLocation", "()Z", nullptr, $PUBLIC},
-	{"locationFor", "(Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavaFileManager$Location*(*)($String*)>(&StandardLocation::locationFor))},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardLocation, init$, void, $String*, int32_t)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardLocation, getName, $String*)},
+	{"isModuleOrientedLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardLocation, isModuleOrientedLocation, bool)},
+	{"isOutputLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(StandardLocation, isOutputLocation, bool)},
+	{"locationFor", "(Ljava/lang/String;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardLocation, locationFor, $JavaFileManager$Location*, $String*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<StandardLocation*(*)($String*)>(&StandardLocation::valueOf))},
-	{"values", "()[Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$StandardLocationArray*(*)()>(&StandardLocation::values))},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardLocation, valueOf, StandardLocation*, $String*)},
+	{"values", "()[Ljavax/tools/StandardLocation;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardLocation, values, $StandardLocationArray*)},
 	{}
 };
 

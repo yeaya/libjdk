@@ -40,14 +40,14 @@ using $SymbolMetadata = ::com::sun::tools::javac::code::SymbolMetadata;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$PackageType = ::com::sun::tools::javac::code::Type$PackageType;
 using $ClassFile = ::com::sun::tools::javac::jvm::ClassFile;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
-using $List = ::java::util::List;
+using $1List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
@@ -83,22 +83,22 @@ $MethodInfo _Symbol$PackageSymbol_MethodInfo_[] = {
 	{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC},
 	{"*getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $SYNTHETIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$PackageSymbol::*)($Name*,$Type*,$Symbol*)>(&Symbol$PackageSymbol::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$PackageSymbol::*)($Name*,$Symbol*)>(&Symbol$PackageSymbol::init$))},
-	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"exists", "()Z", nullptr, $PUBLIC},
-	{"flags", "()J", nullptr, $PUBLIC},
-	{"getEnclosingElement", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC},
-	{"getQualifiedName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
-	{"getRawAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC},
-	{"isUnnamed", "()Z", nullptr, $PUBLIC},
-	{"members", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC},
-	{"mergeAttributes", "()V", nullptr, $PRIVATE, $method(static_cast<void(Symbol$PackageSymbol::*)()>(&Symbol$PackageSymbol::mergeAttributes))},
-	{"poolTag", "()I", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$PackageSymbol, init$, void, $Name*, $Type*, $Symbol*)},
+	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$PackageSymbol, init$, void, $Name*, $Symbol*)},
+	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$PackageSymbol, accept, $Object*, $ElementVisitor*, Object$*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$PackageSymbol, accept, $Object*, $Symbol$Visitor*, Object$*)},
+	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$PackageSymbol, exists, bool)},
+	{"flags", "()J", nullptr, $PUBLIC, $virtualMethod(Symbol$PackageSymbol, flags, int64_t)},
+	{"getEnclosingElement", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$PackageSymbol, getEnclosingElement, $Element*)},
+	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC, $virtualMethod(Symbol$PackageSymbol, getKind, $ElementKind*)},
+	{"getQualifiedName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$PackageSymbol, getQualifiedName, $Name*)},
+	{"getRawAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(Symbol$PackageSymbol, getRawAttributes, $List*)},
+	{"isUnnamed", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$PackageSymbol, isUnnamed, bool)},
+	{"members", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Symbol$PackageSymbol, members, $Scope$WriteableScope*)},
+	{"mergeAttributes", "()V", nullptr, $PRIVATE, $method(Symbol$PackageSymbol, mergeAttributes, void)},
+	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Symbol$PackageSymbol, poolTag, int32_t)},
+	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol$PackageSymbol, reset, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol$PackageSymbol, toString, $String*)},
 	{}
 };
 
@@ -128,11 +128,11 @@ $Object* allocate$Symbol$PackageSymbol($Class* clazz) {
 	return $of($alloc(Symbol$PackageSymbol));
 }
 
-$List* Symbol$PackageSymbol::getEnclosedElements() {
+$1List* Symbol$PackageSymbol::getEnclosedElements() {
 	 return this->$Symbol$TypeSymbol::getEnclosedElements();
 }
 
-$List* Symbol$PackageSymbol::getAnnotationMirrors() {
+$1List* Symbol$PackageSymbol::getAnnotationMirrors() {
 	 return this->$Symbol$TypeSymbol::getAnnotationMirrors();
 }
 
@@ -188,7 +188,7 @@ $1Name* Symbol$PackageSymbol::MemberClass0$::getSimpleName() {
 	return ((Symbol$PackageSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$PackageSymbol, memberClass0$)))->getSimpleName();
 }
 
-$List* Symbol$PackageSymbol::MemberClass0$::getEnclosedElements() {
+$1List* Symbol$PackageSymbol::MemberClass0$::getEnclosedElements() {
 	return ((Symbol$PackageSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$PackageSymbol, memberClass0$)))->getEnclosedElements();
 }
 
@@ -216,7 +216,7 @@ int32_t Symbol$PackageSymbol::MemberClass0$::hashCode() {
 	return ((Symbol$PackageSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$PackageSymbol, memberClass0$)))->hashCode();
 }
 
-$List* Symbol$PackageSymbol::MemberClass0$::getAnnotationMirrors() {
+$1List* Symbol$PackageSymbol::MemberClass0$::getAnnotationMirrors() {
 	return ((Symbol$PackageSymbol*)(void*)((int8_t*)(void*)this - $offsetof(Symbol$PackageSymbol, memberClass0$)))->getAnnotationMirrors();
 }
 
@@ -282,7 +282,7 @@ int64_t Symbol$PackageSymbol::flags() {
 	return this->flags_field;
 }
 
-$1List* Symbol$PackageSymbol::getRawAttributes() {
+$List* Symbol$PackageSymbol::getRawAttributes() {
 	complete();
 	if (this->package_info != nullptr) {
 		$nc(this->package_info)->complete();

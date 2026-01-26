@@ -23,10 +23,10 @@ $FieldInfo _SecureZipFSProvider$TestPath$1_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureZipFSProvider$TestPath$1_MethodInfo_[] = {
-	{"<init>", "(LSecureZipFSProvider$TestPath;Ljava/util/Iterator;)V", nullptr, 0, $method(static_cast<void(SecureZipFSProvider$TestPath$1::*)($SecureZipFSProvider$TestPath*,$Iterator*)>(&SecureZipFSProvider$TestPath$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(LSecureZipFSProvider$TestPath;Ljava/util/Iterator;)V", nullptr, 0, $method(SecureZipFSProvider$TestPath$1, init$, void, $SecureZipFSProvider$TestPath*, $Iterator*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$TestPath$1, hasNext, bool)},
+	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$TestPath$1, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$TestPath$1, remove, void)},
 	{}
 };
 

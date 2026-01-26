@@ -42,10 +42,10 @@ $FieldInfo _Enter$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Enter$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Enter;)V", nullptr, 0, $method(static_cast<void(Enter$1::*)($Enter*)>(&Enter$1::init$))},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
-	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Enter;)V", nullptr, 0, $method(Enter$1, init$, void, $Enter*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Enter$1, visitIdent, void, $JCTree$JCIdent*)},
+	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(Enter$1, visitPackageDef, void, $JCTree$JCPackageDecl*)},
+	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Enter$1, visitSelect, void, $JCTree$JCFieldAccess*)},
 	{}
 };
 

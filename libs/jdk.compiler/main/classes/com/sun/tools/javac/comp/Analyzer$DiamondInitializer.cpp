@@ -65,13 +65,13 @@ $FieldInfo _Analyzer$DiamondInitializer_FieldInfo_[] = {
 };
 
 $MethodInfo _Analyzer$DiamondInitializer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(static_cast<void(Analyzer$DiamondInitializer::*)($Analyzer*)>(&Analyzer$DiamondInitializer::init$))},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Z", nullptr, 0},
-	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Z)V", nullptr, 0},
-	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;>;", 0},
-	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$DiamondInitializer, init$, void, $Analyzer*)},
+	{"match", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Z", nullptr, 0, $virtualMethod(Analyzer$DiamondInitializer, match, bool, $JCTree$JCNewClass*)},
+	{"match", "(Lcom/sun/tools/javac/tree/JCTree;)Z", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$DiamondInitializer, match, bool, $JCTree*)},
+	{"process", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Z)V", nullptr, 0, $virtualMethod(Analyzer$DiamondInitializer, process, void, $JCTree$JCNewClass*, $JCTree$JCNewClass*, bool)},
+	{"process", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Z)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$DiamondInitializer, process, void, $JCTree*, $JCTree*, bool)},
+	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;>;", 0, $virtualMethod(Analyzer$DiamondInitializer, rewrite, $List*, $JCTree$JCNewClass*)},
+	{"rewrite", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/List;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$DiamondInitializer, rewrite, $List*, $JCTree*)},
 	{}
 };
 

@@ -25,7 +25,7 @@ $CompoundAttribute _AbstractAnnotationValueVisitor8_Annotations_[] = {
 };
 
 $MethodInfo _AbstractAnnotationValueVisitor8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractAnnotationValueVisitor8::*)()>(&AbstractAnnotationValueVisitor8::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractAnnotationValueVisitor8, init$, void)},
 	{}
 };
 

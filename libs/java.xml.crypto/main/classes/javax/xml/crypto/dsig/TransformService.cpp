@@ -21,6 +21,9 @@ using $NoSuchProviderException = ::java::security::NoSuchProviderException;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $Security = ::java::security::Security;
+using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
+using $XMLStructure = ::javax::xml::crypto::XMLStructure;
+using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParameterSpec;
 
 namespace javax {
 	namespace xml {
@@ -35,16 +38,16 @@ $FieldInfo _TransformService_FieldInfo_[] = {
 };
 
 $MethodInfo _TransformService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(TransformService::*)()>(&TransformService::init$))},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TransformService*(*)($String*,$String*)>(&TransformService::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TransformService*(*)($String*,$String*,$Provider*)>(&TransformService::getInstance)), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $method(static_cast<TransformService*(*)($String*,$String*,$String*)>(&TransformService::getInstance)), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getMechanismType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$String*(TransformService::*)()>(&TransformService::getMechanismType))},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(static_cast<$Provider*(TransformService::*)()>(&TransformService::getProvider))},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.security.InvalidAlgorithmParameterException"},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.MarshalException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(TransformService, init$, void)},
+	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(TransformService, getAlgorithm, $String*)},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformService, getInstance, TransformService*, $String*, $String*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/Provider;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformService, getInstance, TransformService*, $String*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformService, getInstance, TransformService*, $String*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+	{"getMechanismType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(TransformService, getMechanismType, $String*)},
+	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(TransformService, getProvider, $Provider*)},
+	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformService, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformService, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TransformService, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
 	{}
 };
 

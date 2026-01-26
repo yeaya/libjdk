@@ -38,10 +38,10 @@ $FieldInfo _SocketTube$InternalReadPublisher$ReadEvent_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketTube$InternalReadPublisher$ReadEvent_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher;Ljava/nio/channels/SocketChannel;Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, 0, $method(static_cast<void(SocketTube$InternalReadPublisher$ReadEvent::*)($SocketTube$InternalReadPublisher*,$SocketChannel*,$SocketTube$InternalReadPublisher$InternalReadSubscription*)>(&SocketTube$InternalReadPublisher$ReadEvent::init$))},
-	{"debug", "()Ljdk/internal/net/http/common/Logger;", nullptr, 0},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PROTECTED | $FINAL},
-	{"signalEvent", "()V", nullptr, $PROTECTED | $FINAL},
+	{"<init>", "(Ljdk/internal/net/http/SocketTube$InternalReadPublisher;Ljava/nio/channels/SocketChannel;Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;)V", nullptr, 0, $method(SocketTube$InternalReadPublisher$ReadEvent, init$, void, $SocketTube$InternalReadPublisher*, $SocketChannel*, $SocketTube$InternalReadPublisher$InternalReadSubscription*)},
+	{"debug", "()Ljdk/internal/net/http/common/Logger;", nullptr, 0, $virtualMethod(SocketTube$InternalReadPublisher$ReadEvent, debug, $Logger*)},
+	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PROTECTED | $FINAL, $virtualMethod(SocketTube$InternalReadPublisher$ReadEvent, signalError, void, $Throwable*)},
+	{"signalEvent", "()V", nullptr, $PROTECTED | $FINAL, $virtualMethod(SocketTube$InternalReadPublisher$ReadEvent, signalEvent, void)},
 	{}
 };
 

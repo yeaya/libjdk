@@ -183,22 +183,22 @@ $FieldInfo _Main_FieldInfo_[] = {
 };
 
 $MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(Main::*)($String*)>(&Main::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(static_cast<void(Main::*)($String*,$PrintWriter*)>(&Main::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(static_cast<void(Main::*)($String*,$PrintWriter*,$PrintWriter*)>(&Main::init$))},
-	{"apMessage", "(Lcom/sun/tools/javac/processing/AnnotationProcessingError;)V", nullptr, 0},
-	{"bugMessage", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC},
-	{"compile", "([Ljava/lang/String;Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC},
-	{"feMessage", "(Ljava/lang/Throwable;Lcom/sun/tools/javac/util/Options;)V", nullptr, 0},
-	{"ioMessage", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"pluginMessage", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"printArgumentsToFile", "([Ljava/lang/String;)V", nullptr, $TRANSIENT},
-	{"reportDiag", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, 0},
-	{"reportHelper", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, 0},
-	{"resourceMessage", "(Ljava/lang/Throwable;)V", nullptr, 0},
-	{"showClass", "(Ljava/lang/String;)V", nullptr, 0},
-	{"twoClassLoadersInUse", "(Ljava/lang/IllegalAccessError;)Z", nullptr, $PRIVATE, $method(static_cast<bool(Main::*)($IllegalAccessError*)>(&Main::twoClassLoadersInUse))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Main, init$, void, $String*, $PrintWriter*)},
+	{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Main, init$, void, $String*, $PrintWriter*, $PrintWriter*)},
+	{"apMessage", "(Lcom/sun/tools/javac/processing/AnnotationProcessingError;)V", nullptr, 0, $virtualMethod(Main, apMessage, void, $AnnotationProcessingError*)},
+	{"bugMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, bugMessage, void, $Throwable*)},
+	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(Main, compile, $Main$Result*, $StringArray*)},
+	{"compile", "([Ljava/lang/String;Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(Main, compile, $Main$Result*, $StringArray*, $Context*)},
+	{"feMessage", "(Ljava/lang/Throwable;Lcom/sun/tools/javac/util/Options;)V", nullptr, 0, $virtualMethod(Main, feMessage, void, $Throwable*, $Options*)},
+	{"ioMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, ioMessage, void, $Throwable*)},
+	{"pluginMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, pluginMessage, void, $Throwable*)},
+	{"printArgumentsToFile", "([Ljava/lang/String;)V", nullptr, $TRANSIENT, $virtualMethod(Main, printArgumentsToFile, void, $StringArray*)},
+	{"reportDiag", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, 0, $virtualMethod(Main, reportDiag, void, $JCDiagnostic$DiagnosticInfo*)},
+	{"reportHelper", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, 0, $virtualMethod(Main, reportHelper, void, $JCDiagnostic$DiagnosticInfo*)},
+	{"resourceMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, resourceMessage, void, $Throwable*)},
+	{"showClass", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, showClass, void, $String*)},
+	{"twoClassLoadersInUse", "(Ljava/lang/IllegalAccessError;)Z", nullptr, $PRIVATE, $method(Main, twoClassLoadersInUse, bool, $IllegalAccessError*)},
 	{}
 };
 

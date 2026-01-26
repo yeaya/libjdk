@@ -24,7 +24,7 @@ $FieldInfo _UnsharedNameTable$HashEntry_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsharedNameTable$HashEntry_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/UnsharedNameTable$NameImpl;)V", nullptr, 0, $method(static_cast<void(UnsharedNameTable$HashEntry::*)($UnsharedNameTable$NameImpl*)>(&UnsharedNameTable$HashEntry::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/util/UnsharedNameTable$NameImpl;)V", nullptr, 0, $method(UnsharedNameTable$HashEntry, init$, void, $UnsharedNameTable$NameImpl*)},
 	{}
 };
 

@@ -29,8 +29,8 @@ $FieldInfo _JavacTaskPool$ReusableContext$ReusableLog$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTaskPool$ReusableContext$ReusableLog$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext$ReusableLog;)V", nullptr, 0, $method(static_cast<void(JavacTaskPool$ReusableContext$ReusableLog$1::*)($JavacTaskPool$ReusableContext$ReusableLog*)>(&JavacTaskPool$ReusableContext$ReusableLog$1::init$))},
-	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+Ljavax/tools/JavaFileObject;>;)V", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext$ReusableLog;)V", nullptr, 0, $method(JavacTaskPool$ReusableContext$ReusableLog$1, init$, void, $JavacTaskPool$ReusableContext$ReusableLog*)},
+	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$ReusableLog$1, report, void, $Diagnostic*)},
 	{}
 };
 

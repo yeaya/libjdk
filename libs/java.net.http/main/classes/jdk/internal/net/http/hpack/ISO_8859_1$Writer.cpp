@@ -56,8 +56,8 @@ $FieldInfo ISO_8859_1$Writer$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ISO_8859_1$Writer$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/ISO_8859_1$Writer;)V", nullptr, $PUBLIC, $method(static_cast<void(ISO_8859_1$Writer$$Lambda$lambda$new$0::*)(ISO_8859_1$Writer*)>(&ISO_8859_1$Writer$$Lambda$lambda$new$0::init$))},
-	{"accept", "(JI)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/ISO_8859_1$Writer;)V", nullptr, $PUBLIC, $method(ISO_8859_1$Writer$$Lambda$lambda$new$0, init$, void, ISO_8859_1$Writer*)},
+	{"accept", "(JI)V", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1$Writer$$Lambda$lambda$new$0, accept, void, int64_t, int32_t)},
 	{}
 };
 $ClassInfo ISO_8859_1$Writer$$Lambda$lambda$new$0::classInfo$ = {
@@ -85,11 +85,11 @@ $FieldInfo _ISO_8859_1$Writer_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO_8859_1$Writer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ISO_8859_1$Writer::*)()>(&ISO_8859_1$Writer::init$))},
-	{"configure", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/ISO_8859_1$Writer;", nullptr, $PUBLIC, $method(static_cast<ISO_8859_1$Writer*(ISO_8859_1$Writer::*)($CharSequence*,int32_t,int32_t)>(&ISO_8859_1$Writer::configure))},
-	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ISO_8859_1$Writer::*)(int64_t,int32_t)>(&ISO_8859_1$Writer::lambda$new$0))},
-	{"reset", "()Ljdk/internal/net/http/hpack/ISO_8859_1$Writer;", nullptr, $PUBLIC, $method(static_cast<ISO_8859_1$Writer*(ISO_8859_1$Writer::*)()>(&ISO_8859_1$Writer::reset))},
-	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $method(static_cast<bool(ISO_8859_1$Writer::*)($ByteBuffer*)>(&ISO_8859_1$Writer::write))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO_8859_1$Writer, init$, void)},
+	{"configure", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/ISO_8859_1$Writer;", nullptr, $PUBLIC, $method(ISO_8859_1$Writer, configure, ISO_8859_1$Writer*, $CharSequence*, int32_t, int32_t)},
+	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ISO_8859_1$Writer, lambda$new$0, void, int64_t, int32_t)},
+	{"reset", "()Ljdk/internal/net/http/hpack/ISO_8859_1$Writer;", nullptr, $PUBLIC, $method(ISO_8859_1$Writer, reset, ISO_8859_1$Writer*)},
+	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC, $method(ISO_8859_1$Writer, write, bool, $ByteBuffer*)},
 	{}
 };
 

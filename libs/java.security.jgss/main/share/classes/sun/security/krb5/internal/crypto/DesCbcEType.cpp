@@ -27,21 +27,21 @@ namespace sun {
 				namespace crypto {
 
 $MethodInfo _DesCbcEType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DesCbcEType::*)()>(&DesCbcEType::init$))},
-	{"blockSize", "()I", nullptr, $PUBLIC},
-	{"calculateChecksum", "([BI)[B", nullptr, $PROTECTED | $ABSTRACT, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"checksumField", "([B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(DesCbcEType::*)($bytes*)>(&DesCbcEType::checksumField))},
-	{"copyChecksumField", "([B[B)V", nullptr, $PRIVATE, $method(static_cast<void(DesCbcEType::*)($bytes*,$bytes*)>(&DesCbcEType::copyChecksumField))},
-	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"generateChecksum", "([B)[B", nullptr, $PRIVATE, $method(static_cast<$bytes*(DesCbcEType::*)($bytes*)>(&DesCbcEType::generateChecksum)), "sun.security.krb5.KrbCryptoException"},
-	{"isChecksumEqual", "([B[B)Z", nullptr, $PRIVATE, $method(static_cast<bool(DesCbcEType::*)($bytes*,$bytes*)>(&DesCbcEType::isChecksumEqual))},
-	{"isChecksumValid", "([B)Z", nullptr, $PROTECTED, nullptr, "sun.security.krb5.KrbCryptoException"},
-	{"keySize", "()I", nullptr, $PUBLIC},
-	{"keyType", "()I", nullptr, $PUBLIC},
-	{"resetChecksumField", "([B)V", nullptr, $PRIVATE, $method(static_cast<void(DesCbcEType::*)($bytes*)>(&DesCbcEType::resetChecksumField))},
+	{"<init>", "()V", nullptr, 0, $method(DesCbcEType, init$, void)},
+	{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, blockSize, int32_t)},
+	{"calculateChecksum", "([BI)[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(DesCbcEType, calculateChecksum, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"checksumField", "([B)[B", nullptr, $PRIVATE, $method(DesCbcEType, checksumField, $bytes*, $bytes*)},
+	{"copyChecksumField", "([B[B)V", nullptr, $PRIVATE, $method(DesCbcEType, copyChecksumField, void, $bytes*, $bytes*)},
+	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+	{"generateChecksum", "([B)[B", nullptr, $PRIVATE, $method(DesCbcEType, generateChecksum, $bytes*, $bytes*), "sun.security.krb5.KrbCryptoException"},
+	{"isChecksumEqual", "([B[B)Z", nullptr, $PRIVATE, $method(DesCbcEType, isChecksumEqual, bool, $bytes*, $bytes*)},
+	{"isChecksumValid", "([B)Z", nullptr, $PROTECTED, $virtualMethod(DesCbcEType, isChecksumValid, bool, $bytes*), "sun.security.krb5.KrbCryptoException"},
+	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, keySize, int32_t)},
+	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(DesCbcEType, keyType, int32_t)},
+	{"resetChecksumField", "([B)V", nullptr, $PRIVATE, $method(DesCbcEType, resetChecksumField, void, $bytes*)},
 	{}
 };
 

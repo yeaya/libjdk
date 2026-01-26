@@ -98,8 +98,8 @@ $FieldInfo Timeout$$Lambda$lambda$test$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo Timeout$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/net/ssl/SSLServerSocket;)V", nullptr, $PUBLIC, $method(static_cast<void(Timeout$$Lambda$lambda$test$0::*)($SSLServerSocket*)>(&Timeout$$Lambda$lambda$test$0::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/net/ssl/SSLServerSocket;)V", nullptr, $PUBLIC, $method(Timeout$$Lambda$lambda$test$0, init$, void, $SSLServerSocket*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Timeout$$Lambda$lambda$test$0, run, void)},
 	{}
 };
 $ClassInfo Timeout$$Lambda$lambda$test$0::classInfo$ = {
@@ -126,12 +126,12 @@ $FieldInfo _Timeout_FieldInfo_[] = {
 };
 
 $MethodInfo _Timeout_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Timeout::*)()>(&Timeout::init$))},
-	{"connect", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Timeout::connect)), "java.lang.Exception"},
-	{"connectAsync", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&Timeout::connectAsync)), "java.lang.Exception"},
-	{"lambda$test$0", "(Ljavax/net/ssl/SSLServerSocket;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($SSLServerSocket*)>(&Timeout::lambda$test$0))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&Timeout::main)), "java.lang.Exception"},
-	{"test", "(Z)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(bool)>(&Timeout::test)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Timeout, init$, void)},
+	{"connect", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Timeout, connect, void, $String*), "java.lang.Exception"},
+	{"connectAsync", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Timeout, connectAsync, void, $String*), "java.lang.Exception"},
+	{"lambda$test$0", "(Ljavax/net/ssl/SSLServerSocket;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Timeout, lambda$test$0, void, $SSLServerSocket*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Timeout, main, void, $StringArray*), "java.lang.Exception"},
+	{"test", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Timeout, test, void, bool), "java.lang.Exception"},
 	{}
 };
 

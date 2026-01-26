@@ -31,8 +31,8 @@ $FieldInfo _LdapPoolManager$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapPoolManager$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LdapPoolManager$1::*)()>(&LdapPoolManager$1::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(LdapPoolManager$1, init$, void)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LdapPoolManager$1, run, $Object*)},
 	{}
 };
 

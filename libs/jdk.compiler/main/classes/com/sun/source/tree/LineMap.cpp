@@ -11,10 +11,10 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _LineMap_MethodInfo_[] = {
-	{"getColumnNumber", "(J)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLineNumber", "(J)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getPosition", "(JJ)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"getStartPosition", "(J)J", nullptr, $PUBLIC | $ABSTRACT},
+	{"getColumnNumber", "(J)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LineMap, getColumnNumber, int64_t, int64_t)},
+	{"getLineNumber", "(J)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LineMap, getLineNumber, int64_t, int64_t)},
+	{"getPosition", "(JJ)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LineMap, getPosition, int64_t, int64_t, int64_t)},
+	{"getStartPosition", "(J)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LineMap, getStartPosition, int64_t, int64_t)},
 	{}
 };
 

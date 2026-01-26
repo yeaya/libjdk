@@ -18,6 +18,7 @@ using $Flow$BaseAnalyzer$JumpKindArray = $Array<::com::sun::tools::javac::comp::
 using $Flow$BaseAnalyzer$JumpKind$1 = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer$JumpKind$1;
 using $Flow$BaseAnalyzer$JumpKind$2 = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer$JumpKind$2;
 using $Flow$BaseAnalyzer$JumpKind$3 = ::com::sun::tools::javac::comp::Flow$BaseAnalyzer$JumpKind$3;
+using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
@@ -41,11 +42,11 @@ $FieldInfo _Flow$BaseAnalyzer$JumpKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Flow$BaseAnalyzer$JumpKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Flow$BaseAnalyzer$JumpKindArray*(*)()>(&Flow$BaseAnalyzer$JumpKind::$values))},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/tree/JCTree$Tag;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)V", $PRIVATE, $method(static_cast<void(Flow$BaseAnalyzer$JumpKind::*)($String*,int32_t,$JCTree$Tag*)>(&Flow$BaseAnalyzer$JumpKind::init$))},
-	{"getTarget", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $ABSTRACT},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Flow$BaseAnalyzer$JumpKind*(*)($String*)>(&Flow$BaseAnalyzer$JumpKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Flow$BaseAnalyzer$JumpKindArray*(*)()>(&Flow$BaseAnalyzer$JumpKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$BaseAnalyzer$JumpKind, $values, $Flow$BaseAnalyzer$JumpKindArray*)},
+	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/tree/JCTree$Tag;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)V", $PRIVATE, $method(Flow$BaseAnalyzer$JumpKind, init$, void, $String*, int32_t, $JCTree$Tag*)},
+	{"getTarget", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $ABSTRACT, $virtualMethod(Flow$BaseAnalyzer$JumpKind, getTarget, $JCTree*, $JCTree*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$BaseAnalyzer$JumpKind, valueOf, Flow$BaseAnalyzer$JumpKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/comp/Flow$BaseAnalyzer$JumpKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$BaseAnalyzer$JumpKind, values, $Flow$BaseAnalyzer$JumpKindArray*)},
 	{}
 };
 

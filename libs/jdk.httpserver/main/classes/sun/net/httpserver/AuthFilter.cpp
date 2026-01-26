@@ -37,11 +37,11 @@ $FieldInfo _AuthFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/net/httpserver/Authenticator;)V", nullptr, $PUBLIC, $method(static_cast<void(AuthFilter::*)($Authenticator*)>(&AuthFilter::init$))},
-	{"consumeInput", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setAuthenticator", "(Lcom/sun/net/httpserver/Authenticator;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/net/httpserver/Authenticator;)V", nullptr, $PUBLIC, $method(AuthFilter, init$, void, $Authenticator*)},
+	{"consumeInput", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(AuthFilter, consumeInput, void, $HttpExchange*), "java.io.IOException"},
+	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthFilter, description, $String*)},
+	{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, $PUBLIC, $virtualMethod(AuthFilter, doFilter, void, $HttpExchange*, $Filter$Chain*), "java.io.IOException"},
+	{"setAuthenticator", "(Lcom/sun/net/httpserver/Authenticator;)V", nullptr, $PUBLIC, $virtualMethod(AuthFilter, setAuthenticator, void, $Authenticator*)},
 	{}
 };
 

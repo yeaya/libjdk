@@ -26,9 +26,9 @@ $FieldInfo _SearchFilter$NotFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _SearchFilter$NotFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/dir/SearchFilter;)V", nullptr, 0, $method(static_cast<void(SearchFilter$NotFilter::*)($SearchFilter*)>(&SearchFilter$NotFilter::init$))},
-	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"parse", "()V", nullptr, $PUBLIC, nullptr, "javax.naming.directory.InvalidSearchFilterException"},
+	{"<init>", "(Lcom/sun/jndi/toolkit/dir/SearchFilter;)V", nullptr, 0, $method(SearchFilter$NotFilter, init$, void, $SearchFilter*)},
+	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, $virtualMethod(SearchFilter$NotFilter, check, bool, $Attributes*), "javax.naming.NamingException"},
+	{"parse", "()V", nullptr, $PUBLIC, $virtualMethod(SearchFilter$NotFilter, parse, void), "javax.naming.directory.InvalidSearchFilterException"},
 	{}
 };
 

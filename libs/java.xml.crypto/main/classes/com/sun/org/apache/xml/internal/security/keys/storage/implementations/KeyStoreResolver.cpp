@@ -47,8 +47,8 @@ $FieldInfo _KeyStoreResolver_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyStoreResolver_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $method(static_cast<void(KeyStoreResolver::*)($KeyStore*)>(&KeyStoreResolver::init$)), "com.sun.org.apache.xml.internal.security.keys.storage.StorageResolverException"},
-	{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC},
+	{"<init>", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $method(KeyStoreResolver, init$, void, $KeyStore*), "com.sun.org.apache.xml.internal.security.keys.storage.StorageResolverException"},
+	{"getIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PUBLIC, $virtualMethod(KeyStoreResolver, getIterator, $Iterator*)},
 	{}
 };
 

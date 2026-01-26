@@ -28,13 +28,13 @@ $FieldInfo _CipherHelper$WrapTokenInputStream_FieldInfo_[] = {
 };
 
 $MethodInfo _CipherHelper$WrapTokenInputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/CipherHelper;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(static_cast<void(CipherHelper$WrapTokenInputStream::*)($CipherHelper*,$InputStream*,int32_t)>(&CipherHelper$WrapTokenInputStream::init$))},
-	{"available", "()I", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC | $FINAL, nullptr, "java.io.IOException"},
+	{"<init>", "(Lsun/security/jgss/krb5/CipherHelper;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(CipherHelper$WrapTokenInputStream, init$, void, $CipherHelper*, $InputStream*, int32_t)},
+	{"available", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, available, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, close, void), "java.io.IOException"},
+	{"read", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, read, int32_t), "java.io.IOException"},
+	{"read", "([B)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+	{"read", "([BII)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+	{"skip", "(J)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(CipherHelper$WrapTokenInputStream, skip, int64_t, int64_t), "java.io.IOException"},
 	{}
 };
 

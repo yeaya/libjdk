@@ -22,8 +22,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Types$MostSpecificReturnCheck$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Types$MostSpecificReturnCheck$1::*)($String*,int32_t)>(&Types$MostSpecificReturnCheck$1::init$))},
-	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Types$MostSpecificReturnCheck$1, init$, void, $String*, int32_t)},
+	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Types$MostSpecificReturnCheck$1, test, bool, $Type*, $Type*, $Types*)},
 	{}
 };
 

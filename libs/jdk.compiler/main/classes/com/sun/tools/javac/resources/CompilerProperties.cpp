@@ -13,7 +13,7 @@ namespace com {
 				namespace resources {
 
 $MethodInfo _CompilerProperties_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompilerProperties::*)()>(&CompilerProperties::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompilerProperties, init$, void)},
 	{}
 };
 

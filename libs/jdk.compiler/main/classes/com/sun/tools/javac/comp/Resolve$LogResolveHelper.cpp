@@ -1,5 +1,6 @@
 #include <com/sun/tools/javac/comp/Resolve$LogResolveHelper.h>
 
+#include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Resolve$ResolveError.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
@@ -7,6 +8,11 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <jcpp.h>
 
+using $Symbol = ::com::sun::tools::javac::code::Symbol;
+using $Type = ::com::sun::tools::javac::code::Type;
+using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
+using $List = ::com::sun::tools::javac::util::List;
+using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -18,8 +24,8 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Resolve$LogResolveHelper_MethodInfo_[] = {
-	{"getArgumentTypes", "(Lcom/sun/tools/javac/comp/Resolve$ResolveError;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/comp/Resolve$ResolveError;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT},
-	{"resolveDiagnosticNeeded", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC | $ABSTRACT},
+	{"getArgumentTypes", "(Lcom/sun/tools/javac/comp/Resolve$ResolveError;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/comp/Resolve$ResolveError;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Resolve$LogResolveHelper, getArgumentTypes, $List*, $Resolve$ResolveError*, $Symbol*, $Name*, $List*)},
+	{"resolveDiagnosticNeeded", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Resolve$LogResolveHelper, resolveDiagnosticNeeded, bool, $Type*, $List*, $List*)},
 	{}
 };
 

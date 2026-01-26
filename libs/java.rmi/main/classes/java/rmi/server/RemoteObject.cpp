@@ -53,15 +53,15 @@ $FieldInfo _RemoteObject_FieldInfo_[] = {
 $MethodInfo _RemoteObject_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(RemoteObject::*)()>(&RemoteObject::init$))},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED, $method(static_cast<void(RemoteObject::*)($RemoteRef*)>(&RemoteObject::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(RemoteObject::*)($ObjectInputStream*)>(&RemoteObject::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toStub", "(Ljava/rmi/Remote;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Remote*(*)($Remote*)>(&RemoteObject::toStub)), "java.rmi.NoSuchObjectException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(RemoteObject::*)($ObjectOutputStream*)>(&RemoteObject::writeObject)), "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(RemoteObject, init$, void)},
+	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PROTECTED, $method(RemoteObject, init$, void, $RemoteRef*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RemoteObject, equals, bool, Object$*)},
+	{"getRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PUBLIC, $virtualMethod(RemoteObject, getRef, $RemoteRef*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RemoteObject, hashCode, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(RemoteObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RemoteObject, toString, $String*)},
+	{"toStub", "(Ljava/rmi/Remote;)Ljava/rmi/Remote;", nullptr, $PUBLIC | $STATIC, $staticMethod(RemoteObject, toStub, $Remote*, $Remote*), "java.rmi.NoSuchObjectException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(RemoteObject, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

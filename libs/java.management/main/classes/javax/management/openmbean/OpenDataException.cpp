@@ -18,8 +18,8 @@ $FieldInfo _OpenDataException_FieldInfo_[] = {
 };
 
 $MethodInfo _OpenDataException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(OpenDataException::*)()>(&OpenDataException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(OpenDataException::*)($String*)>(&OpenDataException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(OpenDataException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OpenDataException, init$, void, $String*)},
 	{}
 };
 

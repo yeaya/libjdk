@@ -44,8 +44,8 @@ $FieldInfo _TypeEnter$AbstractHeaderPhase$1_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$AbstractHeaderPhase$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env;ZLcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, 0, $method(static_cast<void(TypeEnter$AbstractHeaderPhase$1::*)($TypeEnter$AbstractHeaderPhase*,$Type*,$Symbol$TypeSymbol*,$Env*,bool,$JCTree$JCExpression*)>(&TypeEnter$AbstractHeaderPhase$1::init$))},
-	{"getModelType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/comp/Env;ZLcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, 0, $method(TypeEnter$AbstractHeaderPhase$1, init$, void, $TypeEnter$AbstractHeaderPhase*, $Type*, $Symbol$TypeSymbol*, $Env*, bool, $JCTree$JCExpression*)},
+	{"getModelType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$AbstractHeaderPhase$1, getModelType, $Type*)},
 	{}
 };
 

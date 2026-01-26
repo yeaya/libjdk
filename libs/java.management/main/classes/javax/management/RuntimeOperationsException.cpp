@@ -20,10 +20,10 @@ $FieldInfo _RuntimeOperationsException_FieldInfo_[] = {
 };
 
 $MethodInfo _RuntimeOperationsException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/RuntimeException;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeOperationsException::*)($RuntimeException*)>(&RuntimeOperationsException::init$))},
-	{"<init>", "(Ljava/lang/RuntimeException;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RuntimeOperationsException::*)($RuntimeException*,$String*)>(&RuntimeOperationsException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
-	{"getTargetException", "()Ljava/lang/RuntimeException;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/RuntimeException;)V", nullptr, $PUBLIC, $method(RuntimeOperationsException, init$, void, $RuntimeException*)},
+	{"<init>", "(Ljava/lang/RuntimeException;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimeOperationsException, init$, void, $RuntimeException*, $String*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(RuntimeOperationsException, getCause, $Throwable*)},
+	{"getTargetException", "()Ljava/lang/RuntimeException;", nullptr, $PUBLIC, $virtualMethod(RuntimeOperationsException, getTargetException, $RuntimeException*)},
 	{}
 };
 

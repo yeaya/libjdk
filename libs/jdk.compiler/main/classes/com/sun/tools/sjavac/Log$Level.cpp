@@ -33,10 +33,10 @@ $FieldInfo _Log$Level_FieldInfo_[] = {
 };
 
 $MethodInfo _Log$Level_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Log$LevelArray*(*)()>(&Log$Level::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Log$Level::*)($String*,int32_t)>(&Log$Level::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Log$Level*(*)($String*)>(&Log$Level::valueOf))},
-	{"values", "()[Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Log$LevelArray*(*)()>(&Log$Level::values))},
+	{"$values", "()[Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log$Level, $values, $Log$LevelArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Log$Level, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$Level, valueOf, Log$Level*, $String*)},
+	{"values", "()[Lcom/sun/tools/sjavac/Log$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$Level, values, $Log$LevelArray*)},
 	{}
 };
 

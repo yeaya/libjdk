@@ -27,10 +27,10 @@ $FieldInfo _DefaultMBeanServerInterceptor$2_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultMBeanServerInterceptor$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/interceptor/DefaultMBeanServerInterceptor;Ljava/lang/ClassLoader;Ljavax/management/ObjectName;)V", "()V", 0, $method(static_cast<void(DefaultMBeanServerInterceptor$2::*)($DefaultMBeanServerInterceptor*,$ClassLoader*,$ObjectName*)>(&DefaultMBeanServerInterceptor$2::init$))},
-	{"done", "()V", nullptr, $PUBLIC},
-	{"registering", "()V", nullptr, $PUBLIC},
-	{"unregistered", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jmx/interceptor/DefaultMBeanServerInterceptor;Ljava/lang/ClassLoader;Ljavax/management/ObjectName;)V", "()V", 0, $method(DefaultMBeanServerInterceptor$2, init$, void, $DefaultMBeanServerInterceptor*, $ClassLoader*, $ObjectName*)},
+	{"done", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$2, done, void)},
+	{"registering", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$2, registering, void)},
+	{"unregistered", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$2, unregistered, void)},
 	{}
 };
 

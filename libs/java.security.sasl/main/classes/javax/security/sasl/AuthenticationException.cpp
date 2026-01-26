@@ -18,9 +18,9 @@ $FieldInfo _AuthenticationException_FieldInfo_[] = {
 };
 
 $MethodInfo _AuthenticationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationException::*)()>(&AuthenticationException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationException::*)($String*)>(&AuthenticationException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(AuthenticationException::*)($String*,$Throwable*)>(&AuthenticationException::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

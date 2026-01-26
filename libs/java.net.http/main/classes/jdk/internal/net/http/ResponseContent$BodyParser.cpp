@@ -7,6 +7,7 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $AbstractSubscription = ::jdk::internal::net::http::AbstractSubscription;
 
 namespace jdk {
 	namespace internal {
@@ -14,8 +15,8 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _ResponseContent$BodyParser_MethodInfo_[] = {
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResponseContent$BodyParser, currentStateMessage, $String*)},
+	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResponseContent$BodyParser, onSubscribe, void, $AbstractSubscription*)},
 	{}
 };
 

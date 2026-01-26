@@ -24,8 +24,8 @@ $FieldInfo _PoolCleaner_FieldInfo_[] = {
 };
 
 $MethodInfo _PoolCleaner_MethodInfo_[] = {
-	{"<init>", "(J[Lcom/sun/jndi/ldap/pool/Pool;)V", nullptr, $PUBLIC, $method(static_cast<void(PoolCleaner::*)(int64_t,$PoolArray*)>(&PoolCleaner::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(J[Lcom/sun/jndi/ldap/pool/Pool;)V", nullptr, $PUBLIC, $method(PoolCleaner, init$, void, int64_t, $PoolArray*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PoolCleaner, run, void)},
 	{}
 };
 

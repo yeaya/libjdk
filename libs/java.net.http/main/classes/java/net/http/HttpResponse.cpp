@@ -10,20 +10,25 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $URI = ::java::net::URI;
+using $HttpClient$Version = ::java::net::http::HttpClient$Version;
+using $HttpHeaders = ::java::net::http::HttpHeaders;
+using $HttpRequest = ::java::net::http::HttpRequest;
+using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace net {
 		namespace http {
 
 $MethodInfo _HttpResponse_MethodInfo_[] = {
-	{"body", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC | $ABSTRACT},
-	{"previousResponse", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT},
-	{"request", "()Ljava/net/http/HttpRequest;", nullptr, $PUBLIC | $ABSTRACT},
-	{"sslSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC | $ABSTRACT},
-	{"statusCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $ABSTRACT},
+	{"body", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, body, $Object*)},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, headers, $HttpHeaders*)},
+	{"previousResponse", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, previousResponse, $Optional*)},
+	{"request", "()Ljava/net/http/HttpRequest;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, request, $HttpRequest*)},
+	{"sslSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, sslSession, $Optional*)},
+	{"statusCode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, statusCode, int32_t)},
+	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, uri, $URI*)},
+	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse, version, $HttpClient$Version*)},
 	{}
 };
 

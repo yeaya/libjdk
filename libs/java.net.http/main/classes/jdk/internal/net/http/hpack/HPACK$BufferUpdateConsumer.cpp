@@ -20,7 +20,7 @@ $CompoundAttribute _HPACK$BufferUpdateConsumer_Annotations_[] = {
 };
 
 $MethodInfo _HPACK$BufferUpdateConsumer_MethodInfo_[] = {
-	{"accept", "(JI)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"accept", "(JI)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HPACK$BufferUpdateConsumer, accept, void, int64_t, int32_t)},
 	{}
 };
 

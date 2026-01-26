@@ -36,9 +36,9 @@ $FieldInfo _ClassReader$1_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassReader$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(static_cast<void(ClassReader$1::*)($ClassReader*,$Type*,$List*,$Symbol$TypeSymbol*)>(&ClassReader$1::init$))},
-	{"getEnclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"setEnclosingType", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassReader;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, 0, $method(ClassReader$1, init$, void, $ClassReader*, $Type*, $List*, $Symbol$TypeSymbol*)},
+	{"getEnclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(ClassReader$1, getEnclosingType, $Type*)},
+	{"setEnclosingType", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$1, setEnclosingType, void, $Type*)},
 	{}
 };
 

@@ -27,8 +27,8 @@ $FieldInfo _RawDiagnosticFormatter$RawDiagnosticPosHelper_FieldInfo_[] = {
 };
 
 $MethodInfo _RawDiagnosticFormatter$RawDiagnosticPosHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(static_cast<void(RawDiagnosticFormatter$RawDiagnosticPosHelper::*)($JCDiagnostic*)>(&RawDiagnosticFormatter$RawDiagnosticPosHelper::init$))},
-	{"getPosition", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Ljava/lang/String;", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(RawDiagnosticFormatter$RawDiagnosticPosHelper, init$, void, $JCDiagnostic*)},
+	{"getPosition", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Ljava/lang/String;", nullptr, 0, $virtualMethod(RawDiagnosticFormatter$RawDiagnosticPosHelper, getPosition, $String*, $JCTree$JCExpression*)},
 	{}
 };
 

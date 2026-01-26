@@ -39,9 +39,9 @@ $FieldInfo _JavadocHelper$OnDemandJavadocHelper$1$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocHelper$OnDemandJavadocHelper$1$2_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1;Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/String;Ljava/util/List;)V", nullptr, 0, $method(static_cast<void(JavadocHelper$OnDemandJavadocHelper$1$2::*)($JavadocHelper$OnDemandJavadocHelper$1*,$DocCommentTree*,$String*,$List*)>(&JavadocHelper$OnDemandJavadocHelper$1$2::init$))},
-	{"visitThrows", "(Lcom/sun/source/doctree/ThrowsTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC},
-	{"visitThrows", "(Lcom/sun/source/doctree/ThrowsTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1;Lcom/sun/source/doctree/DocCommentTree;Ljava/lang/String;Ljava/util/List;)V", nullptr, 0, $method(JavadocHelper$OnDemandJavadocHelper$1$2, init$, void, $JavadocHelper$OnDemandJavadocHelper$1*, $DocCommentTree*, $String*, $List*)},
+	{"visitThrows", "(Lcom/sun/source/doctree/ThrowsTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$2, visitThrows, $Void*, $ThrowsTree*, $Void*)},
+	{"visitThrows", "(Lcom/sun/source/doctree/ThrowsTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$2, visitThrows, $Object*, $ThrowsTree*, Object$*)},
 	{}
 };
 

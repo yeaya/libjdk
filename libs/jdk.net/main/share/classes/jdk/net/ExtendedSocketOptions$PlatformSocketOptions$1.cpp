@@ -12,8 +12,8 @@ namespace jdk {
 	namespace net {
 
 $MethodInfo _ExtendedSocketOptions$PlatformSocketOptions$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ExtendedSocketOptions$PlatformSocketOptions$1::*)()>(&ExtendedSocketOptions$PlatformSocketOptions$1::init$))},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ExtendedSocketOptions$PlatformSocketOptions$1, init$, void)},
+	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOptions$PlatformSocketOptions$1, run, $Object*)},
 	{}
 };
 

@@ -13,16 +13,21 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Key = ::java::security::Key;
+using $AlgorithmMethod = ::javax::xml::crypto::AlgorithmMethod;
+using $KeySelector$Purpose = ::javax::xml::crypto::KeySelector$Purpose;
 using $KeySelector$SingletonKeySelector = ::javax::xml::crypto::KeySelector$SingletonKeySelector;
+using $KeySelectorResult = ::javax::xml::crypto::KeySelectorResult;
+using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
+using $KeyInfo = ::javax::xml::crypto::dsig::keyinfo::KeyInfo;
 
 namespace javax {
 	namespace xml {
 		namespace crypto {
 
 $MethodInfo _KeySelector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(KeySelector::*)()>(&KeySelector::init$))},
-	{"select", "(Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljavax/xml/crypto/KeySelector$Purpose;Ljavax/xml/crypto/AlgorithmMethod;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/KeySelectorResult;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.KeySelectorException"},
-	{"singletonKeySelector", "(Ljava/security/Key;)Ljavax/xml/crypto/KeySelector;", nullptr, $PUBLIC | $STATIC, $method(static_cast<KeySelector*(*)($Key*)>(&KeySelector::singletonKeySelector))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(KeySelector, init$, void)},
+	{"select", "(Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljavax/xml/crypto/KeySelector$Purpose;Ljavax/xml/crypto/AlgorithmMethod;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/KeySelectorResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeySelector, select, $KeySelectorResult*, $KeyInfo*, $KeySelector$Purpose*, $AlgorithmMethod*, $XMLCryptoContext*), "javax.xml.crypto.KeySelectorException"},
+	{"singletonKeySelector", "(Ljava/security/Key;)Ljavax/xml/crypto/KeySelector;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeySelector, singletonKeySelector, KeySelector*, $Key*)},
 	{}
 };
 

@@ -42,15 +42,15 @@ $FieldInfo _DocTreePath_FieldInfo_[] = {
 };
 
 $MethodInfo _DocTreePath_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;)V", nullptr, $PUBLIC, $method(static_cast<void(DocTreePath::*)($TreePath*,$DocCommentTree*)>(&DocTreePath::init$))},
-	{"<init>", "(Lcom/sun/source/util/DocTreePath;Lcom/sun/source/doctree/DocTree;)V", nullptr, $PUBLIC, $method(static_cast<void(DocTreePath::*)(DocTreePath*,$DocTree*)>(&DocTreePath::init$))},
-	{"getDocComment", "()Lcom/sun/source/doctree/DocCommentTree;", nullptr, $PUBLIC},
-	{"getLeaf", "()Lcom/sun/source/doctree/DocTree;", nullptr, $PUBLIC},
-	{"getParentPath", "()Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC},
-	{"getPath", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/DocTree;)Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DocTreePath*(*)($TreePath*,$DocCommentTree*,$DocTree*)>(&DocTreePath::getPath))},
-	{"getPath", "(Lcom/sun/source/util/DocTreePath;Lcom/sun/source/doctree/DocTree;)Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC | $STATIC, $method(static_cast<DocTreePath*(*)(DocTreePath*,$DocTree*)>(&DocTreePath::getPath))},
-	{"getTreePath", "()Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/source/doctree/DocTree;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;)V", nullptr, $PUBLIC, $method(DocTreePath, init$, void, $TreePath*, $DocCommentTree*)},
+	{"<init>", "(Lcom/sun/source/util/DocTreePath;Lcom/sun/source/doctree/DocTree;)V", nullptr, $PUBLIC, $method(DocTreePath, init$, void, DocTreePath*, $DocTree*)},
+	{"getDocComment", "()Lcom/sun/source/doctree/DocCommentTree;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getDocComment, $DocCommentTree*)},
+	{"getLeaf", "()Lcom/sun/source/doctree/DocTree;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getLeaf, $DocTree*)},
+	{"getParentPath", "()Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getParentPath, DocTreePath*)},
+	{"getPath", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/doctree/DocCommentTree;Lcom/sun/source/doctree/DocTree;)Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTreePath, getPath, DocTreePath*, $TreePath*, $DocCommentTree*, $DocTree*)},
+	{"getPath", "(Lcom/sun/source/util/DocTreePath;Lcom/sun/source/doctree/DocTree;)Lcom/sun/source/util/DocTreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTreePath, getPath, DocTreePath*, DocTreePath*, $DocTree*)},
+	{"getTreePath", "()Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC, $virtualMethod(DocTreePath, getTreePath, $TreePath*)},
+	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DocTreePath, iterator, $Iterator*)},
 	{}
 };
 

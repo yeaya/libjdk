@@ -30,11 +30,11 @@ $FieldInfo _SSLStreams$Parameters_FieldInfo_[] = {
 };
 
 $MethodInfo _SSLStreams$Parameters_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/SSLStreams;Lcom/sun/net/httpserver/HttpsConfigurator;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(static_cast<void(SSLStreams$Parameters::*)($SSLStreams*,$HttpsConfigurator*,$InetSocketAddress*)>(&SSLStreams$Parameters::init$))},
-	{"getClientAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC},
-	{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC},
-	{"getSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, 0},
-	{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lsun/net/httpserver/SSLStreams;Lcom/sun/net/httpserver/HttpsConfigurator;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(SSLStreams$Parameters, init$, void, $SSLStreams*, $HttpsConfigurator*, $InetSocketAddress*)},
+	{"getClientAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(SSLStreams$Parameters, getClientAddress, $InetSocketAddress*)},
+	{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC, $virtualMethod(SSLStreams$Parameters, getHttpsConfigurator, $HttpsConfigurator*)},
+	{"getSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, 0, $virtualMethod(SSLStreams$Parameters, getSSLParameters, $SSLParameters*)},
+	{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$Parameters, setSSLParameters, void, $SSLParameters*)},
 	{}
 };
 

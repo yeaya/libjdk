@@ -4,8 +4,10 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
+using $BlockTree = ::com::sun::source::tree::BlockTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -13,10 +15,10 @@ namespace com {
 			namespace tree {
 
 $MethodInfo _TryTree_MethodInfo_[] = {
-	{"getBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCatches", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/CatchTree;>;", $PUBLIC | $ABSTRACT},
-	{"getFinallyBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getResources", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT},
+	{"getBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getBlock, $BlockTree*)},
+	{"getCatches", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/CatchTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getCatches, $List*)},
+	{"getFinallyBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getFinallyBlock, $BlockTree*)},
+	{"getResources", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TryTree, getResources, $List*)},
 	{}
 };
 

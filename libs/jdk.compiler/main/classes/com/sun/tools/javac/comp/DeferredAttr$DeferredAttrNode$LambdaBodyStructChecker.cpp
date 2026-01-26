@@ -34,11 +34,11 @@ $FieldInfo _DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker_FieldInfo_[] =
 };
 
 $MethodInfo _DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker::*)($DeferredAttr$DeferredAttrNode*)>(&DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker::init$))},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, init$, void, $DeferredAttr$DeferredAttrNode*)},
+	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitClassDef, void, $JCTree$JCClassDecl*)},
+	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitLambda, void, $JCTree$JCLambda*)},
+	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitNewClass, void, $JCTree$JCNewClass*)},
+	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$LambdaBodyStructChecker, visitReturn, void, $JCTree$JCReturn*)},
 	{}
 };
 

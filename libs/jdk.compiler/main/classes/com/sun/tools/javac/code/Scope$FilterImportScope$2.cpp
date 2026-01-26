@@ -39,8 +39,8 @@ $FieldInfo _Scope$FilterImportScope$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Scope$FilterImportScope$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Scope$FilterImportScope;ZLcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)V", nullptr, 0, $method(static_cast<void(Scope$FilterImportScope$2::*)($Scope$FilterImportScope*,bool,$Name*,$Predicate*,$Scope$LookupKind*)>(&Scope$FilterImportScope$2::init$))},
-	{"doLookup", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", 0},
+	{"<init>", "(Lcom/sun/tools/javac/code/Scope$FilterImportScope;ZLcom/sun/tools/javac/util/Name;Ljava/util/function/Predicate;Lcom/sun/tools/javac/code/Scope$LookupKind;)V", nullptr, 0, $method(Scope$FilterImportScope$2, init$, void, $Scope$FilterImportScope*, bool, $Name*, $Predicate*, $Scope$LookupKind*)},
+	{"doLookup", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/lang/Iterable;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/lang/Iterable<Lcom/sun/tools/javac/code/Symbol;>;", 0, $virtualMethod(Scope$FilterImportScope$2, doLookup, $Iterable*, $Symbol$TypeSymbol*)},
 	{}
 };
 

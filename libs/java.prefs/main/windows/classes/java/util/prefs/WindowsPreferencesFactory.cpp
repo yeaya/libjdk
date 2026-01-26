@@ -14,9 +14,9 @@ namespace java {
 		namespace prefs {
 
 $MethodInfo _WindowsPreferencesFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(WindowsPreferencesFactory::*)()>(&WindowsPreferencesFactory::init$))},
-	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC},
-	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(WindowsPreferencesFactory, init$, void)},
+	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(WindowsPreferencesFactory, systemRoot, $Preferences*)},
+	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(WindowsPreferencesFactory, userRoot, $Preferences*)},
 	{}
 };
 

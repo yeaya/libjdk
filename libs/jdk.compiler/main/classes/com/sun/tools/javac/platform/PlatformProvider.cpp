@@ -4,8 +4,10 @@
 #include <java/lang/Iterable.h>
 #include <jcpp.h>
 
+using $PlatformDescription = ::com::sun::tools::javac::platform::PlatformDescription;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace com {
@@ -15,8 +17,8 @@ namespace com {
 				namespace platform {
 
 $MethodInfo _PlatformProvider_MethodInfo_[] = {
-	{"getPlatform", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported"},
-	{"getSupportedPlatformNames", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT},
+	{"getPlatform", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformProvider, getPlatform, $PlatformDescription*, $String*, $String*), "com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported"},
+	{"getSupportedPlatformNames", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformProvider, getSupportedPlatformNames, $Iterable*)},
 	{}
 };
 

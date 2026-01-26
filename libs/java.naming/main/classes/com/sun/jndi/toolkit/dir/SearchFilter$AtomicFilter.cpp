@@ -45,10 +45,10 @@ $FieldInfo _SearchFilter$AtomicFilter_FieldInfo_[] = {
 };
 
 $MethodInfo _SearchFilter$AtomicFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/dir/SearchFilter;)V", nullptr, 0, $method(static_cast<void(SearchFilter$AtomicFilter::*)($SearchFilter*)>(&SearchFilter$AtomicFilter::init$))},
-	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC},
-	{"parse", "()V", nullptr, $PUBLIC, nullptr, "javax.naming.directory.InvalidSearchFilterException"},
-	{"substringMatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(static_cast<bool(SearchFilter$AtomicFilter::*)($String*,$String*)>(&SearchFilter$AtomicFilter::substringMatch))},
+	{"<init>", "(Lcom/sun/jndi/toolkit/dir/SearchFilter;)V", nullptr, 0, $method(SearchFilter$AtomicFilter, init$, void, $SearchFilter*)},
+	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC, $virtualMethod(SearchFilter$AtomicFilter, check, bool, $Attributes*)},
+	{"parse", "()V", nullptr, $PUBLIC, $virtualMethod(SearchFilter$AtomicFilter, parse, void), "javax.naming.directory.InvalidSearchFilterException"},
+	{"substringMatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SearchFilter$AtomicFilter, substringMatch, bool, $String*, $String*)},
 	{}
 };
 

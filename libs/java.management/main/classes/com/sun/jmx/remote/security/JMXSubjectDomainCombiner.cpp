@@ -46,10 +46,10 @@ $FieldInfo _JMXSubjectDomainCombiner_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXSubjectDomainCombiner_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $method(static_cast<void(JMXSubjectDomainCombiner::*)($Subject*)>(&JMXSubjectDomainCombiner::init$))},
-	{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC},
-	{"getContext", "(Ljavax/security/auth/Subject;)Ljava/security/AccessControlContext;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AccessControlContext*(*)($Subject*)>(&JMXSubjectDomainCombiner::getContext))},
-	{"getDomainCombinerContext", "(Ljavax/security/auth/Subject;)Ljava/security/AccessControlContext;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$AccessControlContext*(*)($Subject*)>(&JMXSubjectDomainCombiner::getDomainCombinerContext))},
+	{"<init>", "(Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC, $method(JMXSubjectDomainCombiner, init$, void, $Subject*)},
+	{"combine", "([Ljava/security/ProtectionDomain;[Ljava/security/ProtectionDomain;)[Ljava/security/ProtectionDomain;", nullptr, $PUBLIC, $virtualMethod(JMXSubjectDomainCombiner, combine, $ProtectionDomainArray*, $ProtectionDomainArray*, $ProtectionDomainArray*)},
+	{"getContext", "(Ljavax/security/auth/Subject;)Ljava/security/AccessControlContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(JMXSubjectDomainCombiner, getContext, $AccessControlContext*, $Subject*)},
+	{"getDomainCombinerContext", "(Ljavax/security/auth/Subject;)Ljava/security/AccessControlContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(JMXSubjectDomainCombiner, getDomainCombinerContext, $AccessControlContext*, $Subject*)},
 	{}
 };
 

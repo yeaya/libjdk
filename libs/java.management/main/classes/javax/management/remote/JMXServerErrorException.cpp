@@ -21,8 +21,8 @@ $FieldInfo _JMXServerErrorException_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXServerErrorException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Error;)V", nullptr, $PUBLIC, $method(static_cast<void(JMXServerErrorException::*)($String*,$Error*)>(&JMXServerErrorException::init$))},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Error;)V", nullptr, $PUBLIC, $method(JMXServerErrorException, init$, void, $String*, $Error*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(JMXServerErrorException, getCause, $Throwable*)},
 	{}
 };
 

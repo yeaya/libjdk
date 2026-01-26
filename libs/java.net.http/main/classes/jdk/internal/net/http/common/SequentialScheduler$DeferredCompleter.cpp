@@ -14,8 +14,8 @@ namespace jdk {
 				namespace common {
 
 $MethodInfo _SequentialScheduler$DeferredCompleter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SequentialScheduler$DeferredCompleter::*)()>(&SequentialScheduler$DeferredCompleter::init$))},
-	{"complete", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SequentialScheduler$DeferredCompleter, init$, void)},
+	{"complete", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SequentialScheduler$DeferredCompleter, complete, void)},
 	{}
 };
 

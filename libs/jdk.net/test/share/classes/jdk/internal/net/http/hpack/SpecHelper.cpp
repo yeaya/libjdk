@@ -37,9 +37,9 @@ namespace jdk {
 				namespace hpack {
 
 $MethodInfo _SpecHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(SpecHelper::*)()>(&SpecHelper::init$))},
-	{"toBytes", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)($String*)>(&SpecHelper::toBytes))},
-	{"toHexdump", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$String*(*)($ByteBuffer*)>(&SpecHelper::toHexdump))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(SpecHelper, init$, void)},
+	{"toBytes", "(Ljava/lang/String;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecHelper, toBytes, $ByteBuffer*, $String*)},
+	{"toHexdump", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecHelper, toHexdump, $String*, $ByteBuffer*)},
 	{}
 };
 

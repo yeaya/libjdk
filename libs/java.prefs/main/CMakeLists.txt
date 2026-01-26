@@ -5,7 +5,9 @@ jcpp_add_dependencies(
 	"java.xml:17.35"
 )
 
-add_definitions(-DJCPP_USE_LIB_CURRENT_OBJECT_STACK_CACHE)
+if(BUILD_SHARED_LIB)
+	add_definitions(-DJCPP_SHARED_BUILD)
+endif()
 
 include_directories("share/classes")
 

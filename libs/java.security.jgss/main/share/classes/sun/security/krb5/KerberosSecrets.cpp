@@ -26,9 +26,9 @@ $FieldInfo _KerberosSecrets_FieldInfo_[] = {
 };
 
 $MethodInfo _KerberosSecrets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(KerberosSecrets::*)()>(&KerberosSecrets::init$))},
-	{"getJavaxSecurityAuthKerberosAccess", "()Lsun/security/krb5/JavaxSecurityAuthKerberosAccess;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavaxSecurityAuthKerberosAccess*(*)()>(&KerberosSecrets::getJavaxSecurityAuthKerberosAccess))},
-	{"setJavaxSecurityAuthKerberosAccess", "(Lsun/security/krb5/JavaxSecurityAuthKerberosAccess;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($JavaxSecurityAuthKerberosAccess*)>(&KerberosSecrets::setJavaxSecurityAuthKerberosAccess))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(KerberosSecrets, init$, void)},
+	{"getJavaxSecurityAuthKerberosAccess", "()Lsun/security/krb5/JavaxSecurityAuthKerberosAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosSecrets, getJavaxSecurityAuthKerberosAccess, $JavaxSecurityAuthKerberosAccess*)},
+	{"setJavaxSecurityAuthKerberosAccess", "(Lsun/security/krb5/JavaxSecurityAuthKerberosAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(KerberosSecrets, setJavaxSecurityAuthKerberosAccess, void, $JavaxSecurityAuthKerberosAccess*)},
 	{}
 };
 

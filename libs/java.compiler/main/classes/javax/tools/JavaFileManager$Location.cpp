@@ -11,9 +11,9 @@ namespace javax {
 	namespace tools {
 
 $MethodInfo _JavaFileManager$Location_MethodInfo_[] = {
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isModuleOrientedLocation", "()Z", nullptr, $PUBLIC},
-	{"isOutputLocation", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager$Location, getName, $String*)},
+	{"isModuleOrientedLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaFileManager$Location, isModuleOrientedLocation, bool)},
+	{"isOutputLocation", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager$Location, isOutputLocation, bool)},
 	{}
 };
 

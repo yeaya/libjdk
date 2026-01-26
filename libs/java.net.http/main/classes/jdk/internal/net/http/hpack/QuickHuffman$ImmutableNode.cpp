@@ -32,19 +32,19 @@ $FieldInfo _QuickHuffman$ImmutableNode_FieldInfo_[] = {
 };
 
 $MethodInfo _QuickHuffman$ImmutableNode_MethodInfo_[] = {
-	{"<init>", "(CZI)V", nullptr, $PRIVATE, $method(static_cast<void(QuickHuffman$ImmutableNode::*)(char16_t,bool,int32_t)>(&QuickHuffman$ImmutableNode::init$))},
-	{"<init>", "(ZI[Ljdk/internal/net/http/hpack/QuickHuffman$ImmutableNode;)V", nullptr, $PRIVATE, $method(static_cast<void(QuickHuffman$ImmutableNode::*)(bool,int32_t,$QuickHuffman$ImmutableNodeArray*)>(&QuickHuffman$ImmutableNode::init$))},
-	{"copyOf", "(Ljdk/internal/net/http/hpack/QuickHuffman$Node;)Ljdk/internal/net/http/hpack/QuickHuffman$ImmutableNode;", nullptr, $PUBLIC | $STATIC, $method(static_cast<QuickHuffman$ImmutableNode*(*)($QuickHuffman$Node*)>(&QuickHuffman$ImmutableNode::copyOf))},
-	{"getChild", "(I)Ljdk/internal/net/http/hpack/QuickHuffman$ImmutableNode;", nullptr, $PUBLIC},
-	{"getChildren", "()[Ljdk/internal/net/http/hpack/QuickHuffman$ImmutableNode;", nullptr, $PUBLIC},
-	{"getLength", "()I", nullptr, $PUBLIC},
-	{"getOrCreateChild", "(I)Ljdk/internal/net/http/hpack/QuickHuffman$ImmutableNode;", nullptr, $PUBLIC},
-	{"getSymbol", "()C", nullptr, $PUBLIC},
-	{"isEOSPath", "()Z", nullptr, $PUBLIC},
-	{"isLeaf", "()Z", nullptr, $PUBLIC},
-	{"setEOSPath", "(Z)V", nullptr, $PUBLIC},
-	{"setLength", "(I)V", nullptr, $PUBLIC},
-	{"setSymbol", "(C)V", nullptr, $PUBLIC},
+	{"<init>", "(CZI)V", nullptr, $PRIVATE, $method(QuickHuffman$ImmutableNode, init$, void, char16_t, bool, int32_t)},
+	{"<init>", "(ZI[Ljdk/internal/net/http/hpack/QuickHuffman$ImmutableNode;)V", nullptr, $PRIVATE, $method(QuickHuffman$ImmutableNode, init$, void, bool, int32_t, $QuickHuffman$ImmutableNodeArray*)},
+	{"copyOf", "(Ljdk/internal/net/http/hpack/QuickHuffman$Node;)Ljdk/internal/net/http/hpack/QuickHuffman$ImmutableNode;", nullptr, $PUBLIC | $STATIC, $staticMethod(QuickHuffman$ImmutableNode, copyOf, QuickHuffman$ImmutableNode*, $QuickHuffman$Node*)},
+	{"getChild", "(I)Ljdk/internal/net/http/hpack/QuickHuffman$ImmutableNode;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$ImmutableNode, getChild, QuickHuffman$ImmutableNode*, int32_t)},
+	{"getChildren", "()[Ljdk/internal/net/http/hpack/QuickHuffman$ImmutableNode;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$ImmutableNode, getChildren, $QuickHuffman$NodeArray*)},
+	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$ImmutableNode, getLength, int32_t)},
+	{"getOrCreateChild", "(I)Ljdk/internal/net/http/hpack/QuickHuffman$ImmutableNode;", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$ImmutableNode, getOrCreateChild, QuickHuffman$ImmutableNode*, int32_t)},
+	{"getSymbol", "()C", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$ImmutableNode, getSymbol, char16_t)},
+	{"isEOSPath", "()Z", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$ImmutableNode, isEOSPath, bool)},
+	{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$ImmutableNode, isLeaf, bool)},
+	{"setEOSPath", "(Z)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$ImmutableNode, setEOSPath, void, bool)},
+	{"setLength", "(I)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$ImmutableNode, setLength, void, int32_t)},
+	{"setSymbol", "(C)V", nullptr, $PUBLIC, $virtualMethod(QuickHuffman$ImmutableNode, setSymbol, void, char16_t)},
 	{}
 };
 

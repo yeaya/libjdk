@@ -25,8 +25,8 @@ $FieldInfo _ServerConfig$2_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerConfig$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/System$Logger;)V", "()V", 0, $method(static_cast<void(ServerConfig$2::*)($System$Logger*)>(&ServerConfig$2::init$))},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/System$Logger;)V", "()V", 0, $method(ServerConfig$2, init$, void, $System$Logger*)},
+	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ServerConfig$2, run, $Object*)},
 	{}
 };
 

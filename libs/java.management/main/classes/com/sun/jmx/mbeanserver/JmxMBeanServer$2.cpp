@@ -29,8 +29,8 @@ $FieldInfo _JmxMBeanServer$2_FieldInfo_[] = {
 };
 
 $MethodInfo _JmxMBeanServer$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/JmxMBeanServer;)V", nullptr, 0, $method(static_cast<void(JmxMBeanServer$2::*)($JmxMBeanServer*)>(&JmxMBeanServer$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "java.lang.Exception"},
+	{"<init>", "(Lcom/sun/jmx/mbeanserver/JmxMBeanServer;)V", nullptr, 0, $method(JmxMBeanServer$2, init$, void, $JmxMBeanServer*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JmxMBeanServer$2, run, $Object*), "java.lang.Exception"},
 	{}
 };
 

@@ -119,8 +119,8 @@ $FieldInfo Symbol$VarSymbol$$Lambda$lambda$setLazyConstValue$0::fieldInfos[5] = 
 	{}
 };
 $MethodInfo Symbol$VarSymbol$$Lambda$lambda$setLazyConstValue$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$VarSymbol$$Lambda$lambda$setLazyConstValue$0::*)(Symbol$VarSymbol*,$Attr*,$Env*,$JCTree$JCVariableDecl*)>(&Symbol$VarSymbol$$Lambda$lambda$setLazyConstValue$0::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $method(Symbol$VarSymbol$$Lambda$lambda$setLazyConstValue$0, init$, void, Symbol$VarSymbol*, $Attr*, $Env*, $JCTree$JCVariableDecl*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol$$Lambda$lambda$setLazyConstValue$0, call, $Object*)},
 	{}
 };
 $ClassInfo Symbol$VarSymbol$$Lambda$lambda$setLazyConstValue$0::classInfo$ = {
@@ -153,26 +153,26 @@ $MethodInfo _Symbol$VarSymbol_MethodInfo_[] = {
 	{"*getEnclosedElements", "()Ljava/util/List;", nullptr, $PUBLIC},
 	{"*getModifiers", "()Ljava/util/Set;", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$VarSymbol::*)(int64_t,$Name*,$Type*,$Symbol*)>(&Symbol$VarSymbol::init$))},
-	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC},
-	{"asMemberOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC},
-	{"asMethodHandle", "(Z)Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;", nullptr, $PUBLIC},
-	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"clone", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getConstValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getConstantValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC},
-	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"isExceptionParameter", "()Z", nullptr, $PUBLIC},
-	{"isResourceVariable", "()Z", nullptr, $PUBLIC},
-	{"lambda$setLazyConstValue$0", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Object*(Symbol$VarSymbol::*)($Attr*,$Env*,$JCTree$JCVariableDecl*)>(&Symbol$VarSymbol::lambda$setLazyConstValue$0)), "java.lang.Exception"},
-	{"poolTag", "()I", nullptr, $PUBLIC},
-	{"setData", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"setLazyConstValue", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$VarSymbol, init$, void, int64_t, $Name*, $Type*, $Symbol*)},
+	{"accept", "(Ljavax/lang/model/element/ElementVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ElementVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$VarSymbol, accept, $Object*, $ElementVisitor*, Object$*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$VarSymbol, accept, $Object*, $Symbol$Visitor*, Object$*)},
+	{"asMemberOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, asMemberOf, $Symbol*, $Type*, $Types*)},
+	{"asMethodHandle", "(Z)Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, asMethodHandle, $Symbol$MethodHandleSymbol*, bool)},
+	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol, asType, $TypeMirror*)},
+	{"clone", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, clone, Symbol$VarSymbol*, $Symbol*)},
+	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol, getAnnotationMirrors, $List*)},
+	{"getConstValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, getConstValue, $Object*)},
+	{"getConstantValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, getConstantValue, $Object*)},
+	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol, getEnclosingElement, $Element*)},
+	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, getKind, $ElementKind*)},
+	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$VarSymbol, getSimpleName, $1Name*)},
+	{"isExceptionParameter", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, isExceptionParameter, bool)},
+	{"isResourceVariable", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, isResourceVariable, bool)},
+	{"lambda$setLazyConstValue$0", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Symbol$VarSymbol, lambda$setLazyConstValue$0, $Object*, $Attr*, $Env*, $JCTree$JCVariableDecl*), "java.lang.Exception"},
+	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, poolTag, int32_t)},
+	{"setData", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, setData, void, Object$*)},
+	{"setLazyConstValue", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", $PUBLIC, $virtualMethod(Symbol$VarSymbol, setLazyConstValue, void, $Env*, $Attr*, $JCTree$JCVariableDecl*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol$VarSymbol, toString, $String*)},
 	{}
 };
 

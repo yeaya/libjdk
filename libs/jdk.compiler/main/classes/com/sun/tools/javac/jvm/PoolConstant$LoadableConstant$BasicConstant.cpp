@@ -22,9 +22,9 @@ $FieldInfo _PoolConstant$LoadableConstant$BasicConstant_FieldInfo_[] = {
 };
 
 $MethodInfo _PoolConstant$LoadableConstant$BasicConstant_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;)V", nullptr, $PRIVATE, $method(static_cast<void(PoolConstant$LoadableConstant$BasicConstant::*)(int32_t,Object$*)>(&PoolConstant$LoadableConstant$BasicConstant::init$))},
-	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"poolTag", "()I", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/Object;)V", nullptr, $PRIVATE, $method(PoolConstant$LoadableConstant$BasicConstant, init$, void, int32_t, Object$*)},
+	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolConstant$LoadableConstant$BasicConstant, poolKey, $Object*, $Types*)},
+	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(PoolConstant$LoadableConstant$BasicConstant, poolTag, int32_t)},
 	{}
 };
 

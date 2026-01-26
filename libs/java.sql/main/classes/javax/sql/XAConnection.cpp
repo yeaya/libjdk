@@ -5,12 +5,13 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $XAResource = ::javax::transaction::xa::XAResource;
 
 namespace javax {
 	namespace sql {
 
 $MethodInfo _XAConnection_MethodInfo_[] = {
-	{"getXAResource", "()Ljavax/transaction/xa/XAResource;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"getXAResource", "()Ljavax/transaction/xa/XAResource;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XAConnection, getXAResource, $XAResource*), "java.sql.SQLException"},
 	{}
 };
 

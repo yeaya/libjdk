@@ -14,7 +14,7 @@ namespace com {
 				namespace code {
 
 $MethodInfo _DeferredLintHandler$LintLogger_MethodInfo_[] = {
-	{"report", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"report", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DeferredLintHandler$LintLogger, report, void)},
 	{}
 };
 

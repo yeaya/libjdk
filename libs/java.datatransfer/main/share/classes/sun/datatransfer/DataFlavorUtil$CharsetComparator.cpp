@@ -44,10 +44,10 @@ $FieldInfo _DataFlavorUtil$CharsetComparator_FieldInfo_[] = {
 };
 
 $MethodInfo _DataFlavorUtil$CharsetComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(DataFlavorUtil$CharsetComparator::*)()>(&DataFlavorUtil$CharsetComparator::init$))},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"getEncoding", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$String*(*)($String*)>(&DataFlavorUtil$CharsetComparator::getEncoding))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(DataFlavorUtil$CharsetComparator, init$, void)},
+	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DataFlavorUtil$CharsetComparator, compare, int32_t, $String*, $String*)},
+	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DataFlavorUtil$CharsetComparator, compare, int32_t, Object$*, Object$*)},
+	{"getEncoding", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DataFlavorUtil$CharsetComparator, getEncoding, $String*, $String*)},
 	{}
 };
 

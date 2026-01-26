@@ -18,9 +18,9 @@ using $Constructor = ::java::lang::reflect::Constructor;
 using $UndeclaredThrowableException = ::java::lang::reflect::UndeclaredThrowableException;
 
 $MethodInfo _JavadocExamples$ObjectMapper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(JavadocExamples$ObjectMapper::*)()>(&JavadocExamples$ObjectMapper::init$))},
-	{"map", "([BLjava/lang/Class;)Ljava/lang/Object;", "<W:Ljava/lang/Object;>([BLjava/lang/Class<TW;>;)TW;", $STATIC, $method(static_cast<$Object*(*)($bytes*,$Class*)>(&JavadocExamples$ObjectMapper::map))},
-	{"readValue", "(Ljava/io/InputStream;Ljava/lang/Class;)Ljava/lang/Object;", "<W:Ljava/lang/Object;>(Ljava/io/InputStream;Ljava/lang/Class<TW;>;)TW;", 0, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, 0, $method(JavadocExamples$ObjectMapper, init$, void)},
+	{"map", "([BLjava/lang/Class;)Ljava/lang/Object;", "<W:Ljava/lang/Object;>([BLjava/lang/Class<TW;>;)TW;", $STATIC, $staticMethod(JavadocExamples$ObjectMapper, map, $Object*, $bytes*, $Class*)},
+	{"readValue", "(Ljava/io/InputStream;Ljava/lang/Class;)Ljava/lang/Object;", "<W:Ljava/lang/Object;>(Ljava/io/InputStream;Ljava/lang/Class<TW;>;)TW;", 0, $virtualMethod(JavadocExamples$ObjectMapper, readValue, $Object*, $InputStream*, $Class*), "java.io.IOException"},
 	{}
 };
 

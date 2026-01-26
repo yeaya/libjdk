@@ -10,13 +10,18 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Hashtable = ::java::util::Hashtable;
+using $Context = ::javax::naming::Context;
+using $Name = ::javax::naming::Name;
+using $Attributes = ::javax::naming::directory::Attributes;
+using $DirStateFactory$Result = ::javax::naming::spi::DirStateFactory$Result;
 
 namespace javax {
 	namespace naming {
 		namespace spi {
 
 $MethodInfo _DirStateFactory_MethodInfo_[] = {
-	{"getStateToBind", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"getStateToBind", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", $PUBLIC | $ABSTRACT, $virtualMethod(DirStateFactory, getStateToBind, $DirStateFactory$Result*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "javax.naming.NamingException"},
 	{}
 };
 

@@ -29,9 +29,9 @@ $FieldInfo _ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame_FieldInfo_[
 };
 
 $MethodInfo _ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame::*)(int32_t,$Type*)>(&ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame::init$))},
-	{"getFrameType", "()I", nullptr, 0},
-	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0},
+	{"<init>", "(ILcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, init$, void, int32_t, $Type*)},
+	{"getFrameType", "()I", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, getFrameType, int32_t)},
+	{"write", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, 0, $virtualMethod(ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame, write, void, $ClassWriter*)},
 	{}
 };
 

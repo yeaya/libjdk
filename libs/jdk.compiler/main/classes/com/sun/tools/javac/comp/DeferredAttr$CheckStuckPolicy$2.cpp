@@ -34,8 +34,8 @@ $FieldInfo _DeferredAttr$CheckStuckPolicy$2_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$CheckStuckPolicy$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$CheckStuckPolicy;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$CheckStuckPolicy$2::*)($DeferredAttr$CheckStuckPolicy*)>(&DeferredAttr$CheckStuckPolicy$2::init$))},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$CheckStuckPolicy;)V", nullptr, 0, $method(DeferredAttr$CheckStuckPolicy$2, init$, void, $DeferredAttr$CheckStuckPolicy*)},
+	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$CheckStuckPolicy$2, visitYield, void, $JCTree$JCYield*)},
 	{}
 };
 

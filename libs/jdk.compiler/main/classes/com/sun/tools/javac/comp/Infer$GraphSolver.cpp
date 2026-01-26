@@ -48,8 +48,8 @@ $FieldInfo _Infer$GraphSolver_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$GraphSolver_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(static_cast<void(Infer$GraphSolver::*)($Infer*,$InferenceContext*,$Warner*)>(&Infer$GraphSolver::init$))},
-	{"solve", "(Lcom/sun/tools/javac/comp/Infer$GraphStrategy;)V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $method(Infer$GraphSolver, init$, void, $Infer*, $InferenceContext*, $Warner*)},
+	{"solve", "(Lcom/sun/tools/javac/comp/Infer$GraphStrategy;)V", nullptr, 0, $virtualMethod(Infer$GraphSolver, solve, void, $Infer$GraphStrategy*)},
 	{}
 };
 

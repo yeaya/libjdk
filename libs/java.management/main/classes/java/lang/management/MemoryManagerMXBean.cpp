@@ -10,9 +10,9 @@ namespace java {
 		namespace management {
 
 $MethodInfo _MemoryManagerMXBean_MethodInfo_[] = {
-	{"getMemoryPoolNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isValid", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getMemoryPoolNames", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryManagerMXBean, getMemoryPoolNames, $StringArray*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryManagerMXBean, getName, $String*)},
+	{"isValid", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MemoryManagerMXBean, isValid, bool)},
 	{}
 };
 

@@ -3,6 +3,7 @@
 #include <com/sun/tools/javac/util/Context.h>
 #include <jcpp.h>
 
+using $Context = ::com::sun::tools::javac::util::Context;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -14,7 +15,7 @@ namespace com {
 				namespace util {
 
 $MethodInfo _Context$Factory_MethodInfo_[] = {
-	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/util/Context;)TT;", $PUBLIC | $ABSTRACT},
+	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/util/Context;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(Context$Factory, make, $Object*, $Context*)},
 	{}
 };
 

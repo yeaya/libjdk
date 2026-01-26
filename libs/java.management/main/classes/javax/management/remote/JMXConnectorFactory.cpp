@@ -105,8 +105,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JMXConnectorFactory$$Lambda$isSystemProvider::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JMXConnectorFactory$$Lambda$isSystemProvider::*)()>(&JMXConnectorFactory$$Lambda$isSystemProvider::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JMXConnectorFactory$$Lambda$isSystemProvider, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JMXConnectorFactory$$Lambda$isSystemProvider, test, bool, Object$*)},
 	{}
 };
 $ClassInfo JMXConnectorFactory$$Lambda$isSystemProvider::classInfo$ = {
@@ -148,8 +148,8 @@ $FieldInfo JMXConnectorFactory$$Lambda$lambda$getConnectorAsService$0$1::fieldIn
 	{}
 };
 $MethodInfo JMXConnectorFactory$$Lambda$lambda$getConnectorAsService$0$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(JMXConnectorFactory$$Lambda$lambda$getConnectorAsService$0$1::*)($JMXServiceURL*,$Map*)>(&JMXConnectorFactory$$Lambda$lambda$getConnectorAsService$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(JMXConnectorFactory$$Lambda$lambda$getConnectorAsService$0$1, init$, void, $JMXServiceURL*, $Map*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JMXConnectorFactory$$Lambda$lambda$getConnectorAsService$0$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JMXConnectorFactory$$Lambda$lambda$getConnectorAsService$0$1::classInfo$ = {
@@ -176,22 +176,22 @@ $FieldInfo _JMXConnectorFactory_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXConnectorFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(JMXConnectorFactory::*)()>(&JMXConnectorFactory::init$))},
-	{"connect", "(Ljavax/management/remote/JMXServiceURL;)Ljavax/management/remote/JMXConnector;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JMXConnector*(*)($JMXServiceURL*)>(&JMXConnectorFactory::connect)), "java.io.IOException"},
-	{"connect", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC | $STATIC, $method(static_cast<$JMXConnector*(*)($JMXServiceURL*,$Map*)>(&JMXConnectorFactory::connect)), "java.io.IOException"},
-	{"getConnectorAsService", "(Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljava/util/function/Predicate;)Ljavax/management/remote/JMXConnector;", "(Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljava/util/function/Predicate<Ljava/util/ServiceLoader$Provider<*>;>;)Ljavax/management/remote/JMXConnector;", $PRIVATE | $STATIC, $method(static_cast<$JMXConnector*(*)($ClassLoader*,$JMXServiceURL*,$Map*,$Predicate*)>(&JMXConnectorFactory::getConnectorAsService)), "java.io.IOException"},
-	{"getConnectorAsService", "(Ljava/lang/Class;Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/function/Predicate;Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory;)Ljava/lang/Object;", "<P:Ljava/lang/Object;C:Ljava/lang/Object;>(Ljava/lang/Class<TP;>;Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/function/Predicate<Ljava/util/ServiceLoader$Provider<*>;>;Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory<TP;TC;>;)TC;", $STATIC, $method(static_cast<$Object*(*)($Class*,$ClassLoader*,$JMXServiceURL*,$Predicate*,$JMXConnectorFactory$ConnectorFactory*)>(&JMXConnectorFactory::getConnectorAsService)), "java.io.IOException"},
-	{"getProvider", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Ljava/lang/String;Ljava/lang/Class<TT;>;Ljava/lang/ClassLoader;)TT;", $STATIC, $method(static_cast<$Object*(*)($JMXServiceURL*,$Map*,$String*,$Class*,$ClassLoader*)>(&JMXConnectorFactory::getProvider)), "java.io.IOException"},
-	{"getProvider", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $STATIC, $method(static_cast<$Object*(*)($String*,$String*,$ClassLoader*,$String*,$Class*)>(&JMXConnectorFactory::getProvider)), "java.io.IOException"},
-	{"isSystemProvider", "(Ljava/util/ServiceLoader$Provider;)Z", "(Ljava/util/ServiceLoader$Provider<*>;)Z", $STATIC, $method(static_cast<bool(*)($ServiceLoader$Provider*)>(&JMXConnectorFactory::isSystemProvider))},
-	{"lambda$getConnectorAsService$0", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/remote/JMXConnectorProvider;)Ljavax/management/remote/JMXConnector;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JMXConnector*(*)($JMXServiceURL*,$Map*,$JMXConnectorProvider*)>(&JMXConnectorFactory::lambda$getConnectorAsService$0)), "java.lang.Exception"},
-	{"newHashMap", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $PRIVATE | $STATIC, $method(static_cast<$Map*(*)()>(&JMXConnectorFactory::newHashMap))},
-	{"newHashMap", "(Ljava/util/Map;)Ljava/util/Map;", "<K:Ljava/lang/Object;>(Ljava/util/Map<TK;*>;)Ljava/util/Map<TK;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $method(static_cast<$Map*(*)($Map*)>(&JMXConnectorFactory::newHashMap))},
-	{"newJMXConnector", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC | $STATIC, $method(static_cast<$JMXConnector*(*)($JMXServiceURL*,$Map*)>(&JMXConnectorFactory::newJMXConnector)), "java.io.IOException"},
-	{"protocol2package", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$String*(*)($String*)>(&JMXConnectorFactory::protocol2package))},
-	{"resolveClassLoader", "(Ljava/util/Map;)Ljava/lang/ClassLoader;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljava/lang/ClassLoader;", $STATIC, $method(static_cast<$ClassLoader*(*)($Map*)>(&JMXConnectorFactory::resolveClassLoader))},
-	{"resolvePkgs", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $method(static_cast<$String*(*)($Map*)>(&JMXConnectorFactory::resolvePkgs)), "javax.management.remote.JMXProviderException"},
-	{"wrap", "(Ljava/lang/ClassLoader;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$ClassLoader*(*)($ClassLoader*)>(&JMXConnectorFactory::wrap))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(JMXConnectorFactory, init$, void)},
+	{"connect", "(Ljavax/management/remote/JMXServiceURL;)Ljavax/management/remote/JMXConnector;", nullptr, $PUBLIC | $STATIC, $staticMethod(JMXConnectorFactory, connect, $JMXConnector*, $JMXServiceURL*), "java.io.IOException"},
+	{"connect", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC | $STATIC, $staticMethod(JMXConnectorFactory, connect, $JMXConnector*, $JMXServiceURL*, $Map*), "java.io.IOException"},
+	{"getConnectorAsService", "(Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljava/util/function/Predicate;)Ljavax/management/remote/JMXConnector;", "(Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;Ljava/util/function/Predicate<Ljava/util/ServiceLoader$Provider<*>;>;)Ljavax/management/remote/JMXConnector;", $PRIVATE | $STATIC, $staticMethod(JMXConnectorFactory, getConnectorAsService, $JMXConnector*, $ClassLoader*, $JMXServiceURL*, $Map*, $Predicate*), "java.io.IOException"},
+	{"getConnectorAsService", "(Ljava/lang/Class;Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/function/Predicate;Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory;)Ljava/lang/Object;", "<P:Ljava/lang/Object;C:Ljava/lang/Object;>(Ljava/lang/Class<TP;>;Ljava/lang/ClassLoader;Ljavax/management/remote/JMXServiceURL;Ljava/util/function/Predicate<Ljava/util/ServiceLoader$Provider<*>;>;Ljavax/management/remote/JMXConnectorFactory$ConnectorFactory<TP;TC;>;)TC;", $STATIC, $staticMethod(JMXConnectorFactory, getConnectorAsService, $Object*, $Class*, $ClassLoader*, $JMXServiceURL*, $Predicate*, $JMXConnectorFactory$ConnectorFactory*), "java.io.IOException"},
+	{"getProvider", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;Ljava/lang/String;Ljava/lang/Class<TT;>;Ljava/lang/ClassLoader;)TT;", $STATIC, $staticMethod(JMXConnectorFactory, getProvider, $Object*, $JMXServiceURL*, $Map*, $String*, $Class*, $ClassLoader*), "java.io.IOException"},
+	{"getProvider", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $STATIC, $staticMethod(JMXConnectorFactory, getProvider, $Object*, $String*, $String*, $ClassLoader*, $String*, $Class*), "java.io.IOException"},
+	{"isSystemProvider", "(Ljava/util/ServiceLoader$Provider;)Z", "(Ljava/util/ServiceLoader$Provider<*>;)Z", $STATIC, $staticMethod(JMXConnectorFactory, isSystemProvider, bool, $ServiceLoader$Provider*)},
+	{"lambda$getConnectorAsService$0", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;Ljavax/management/remote/JMXConnectorProvider;)Ljavax/management/remote/JMXConnector;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JMXConnectorFactory, lambda$getConnectorAsService$0, $JMXConnector*, $JMXServiceURL*, $Map*, $JMXConnectorProvider*), "java.lang.Exception"},
+	{"newHashMap", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $PRIVATE | $STATIC, $staticMethod(JMXConnectorFactory, newHashMap, $Map*)},
+	{"newHashMap", "(Ljava/util/Map;)Ljava/util/Map;", "<K:Ljava/lang/Object;>(Ljava/util/Map<TK;*>;)Ljava/util/Map<TK;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(JMXConnectorFactory, newHashMap, $Map*, $Map*)},
+	{"newJMXConnector", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljavax/management/remote/JMXServiceURL;Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC | $STATIC, $staticMethod(JMXConnectorFactory, newJMXConnector, $JMXConnector*, $JMXServiceURL*, $Map*), "java.io.IOException"},
+	{"protocol2package", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXConnectorFactory, protocol2package, $String*, $String*)},
+	{"resolveClassLoader", "(Ljava/util/Map;)Ljava/lang/ClassLoader;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljava/lang/ClassLoader;", $STATIC, $staticMethod(JMXConnectorFactory, resolveClassLoader, $ClassLoader*, $Map*)},
+	{"resolvePkgs", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(JMXConnectorFactory, resolvePkgs, $String*, $Map*), "javax.management.remote.JMXProviderException"},
+	{"wrap", "(Ljava/lang/ClassLoader;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXConnectorFactory, wrap, $ClassLoader*, $ClassLoader*)},
 	{}
 };
 

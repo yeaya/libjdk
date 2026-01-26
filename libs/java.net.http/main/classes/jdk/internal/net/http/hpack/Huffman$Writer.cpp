@@ -9,6 +9,7 @@ using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 
 namespace jdk {
 	namespace internal {
@@ -17,11 +18,11 @@ namespace jdk {
 				namespace hpack {
 
 $MethodInfo _Huffman$Writer_MethodInfo_[] = {
-	{"from", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/Huffman$Writer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"lengthOf", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC},
-	{"reset", "()Ljdk/internal/net/http/hpack/Huffman$Writer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"from", "(Ljava/lang/CharSequence;II)Ljdk/internal/net/http/hpack/Huffman$Writer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Huffman$Writer, from, Huffman$Writer*, $CharSequence*, int32_t, int32_t)},
+	{"lengthOf", "(Ljava/lang/CharSequence;II)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Huffman$Writer, lengthOf, int32_t, $CharSequence*, int32_t, int32_t)},
+	{"lengthOf", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $virtualMethod(Huffman$Writer, lengthOf, int32_t, $CharSequence*)},
+	{"reset", "()Ljdk/internal/net/http/hpack/Huffman$Writer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Huffman$Writer, reset, Huffman$Writer*)},
+	{"write", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Huffman$Writer, write, bool, $ByteBuffer*)},
 	{}
 };
 

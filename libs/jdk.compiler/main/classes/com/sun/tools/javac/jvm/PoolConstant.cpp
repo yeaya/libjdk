@@ -15,8 +15,8 @@ namespace com {
 				namespace jvm {
 
 $MethodInfo _PoolConstant_MethodInfo_[] = {
-	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"poolTag", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PoolConstant, poolKey, $Object*, $Types*)},
+	{"poolTag", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PoolConstant, poolTag, int32_t)},
 	{}
 };
 

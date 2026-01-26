@@ -6,7 +6,9 @@
 #include <com/sun/tools/javac/util/Assert.h>
 #include <jcpp.h>
 
+using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
+using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -19,8 +21,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Type$UndetVar$UndetVarListener_MethodInfo_[] = {
-	{"varBoundChanged", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"varInstantiated", "(Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, $PUBLIC},
+	{"varBoundChanged", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Type$UndetVar$UndetVarListener, varBoundChanged, void, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type*, bool)},
+	{"varInstantiated", "(Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$UndetVarListener, varInstantiated, void, $Type$UndetVar*)},
 	{}
 };
 

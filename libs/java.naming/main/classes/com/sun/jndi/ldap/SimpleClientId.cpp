@@ -27,10 +27,10 @@ $FieldInfo _SimpleClientId_FieldInfo_[] = {
 };
 
 $MethodInfo _SimpleClientId_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(SimpleClientId::*)(int32_t,$String*,int32_t,$String*,$ControlArray*,$OutputStream*,$String*,$String*,Object$*)>(&SimpleClientId::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(ILjava/lang/String;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $method(SimpleClientId, init$, void, int32_t, $String*, int32_t, $String*, $ControlArray*, $OutputStream*, $String*, $String*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleClientId, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SimpleClientId, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleClientId, toString, $String*)},
 	{}
 };
 

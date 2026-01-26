@@ -30,10 +30,10 @@ $FieldInfo _BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind_FieldInf
 };
 
 $MethodInfo _BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKindArray*(*)()>(&BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::*)($String*,int32_t)>(&BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind*(*)($String*)>(&BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKindArray*(*)()>(&BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, $values, $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, init$, void, $String*, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, valueOf, BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/util/BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKind, values, $BasicDiagnosticFormatter$BasicConfiguration$BasicFormatKindArray*)},
 	{}
 };
 

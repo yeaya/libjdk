@@ -56,8 +56,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RequestPublishers$AggregatePublisher$$Lambda$contentLength::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$AggregatePublisher$$Lambda$contentLength::*)()>(&RequestPublishers$AggregatePublisher$$Lambda$contentLength::init$))},
-	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPublishers$AggregatePublisher$$Lambda$contentLength, init$, void)},
+	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher$$Lambda$contentLength, applyAsLong, int64_t, Object$*)},
 	{}
 };
 $ClassInfo RequestPublishers$AggregatePublisher$$Lambda$contentLength::classInfo$ = {
@@ -89,8 +89,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::*)()>(&RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::init$))},
-	{"applyAsLong", "(JJ)J", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1, init$, void)},
+	{"applyAsLong", "(JJ)J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1, applyAsLong, int64_t, int64_t, int64_t)},
 	{}
 };
 $ClassInfo RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::classInfo$ = {
@@ -113,10 +113,10 @@ $FieldInfo _RequestPublishers$AggregatePublisher_FieldInfo_[] = {
 };
 
 $MethodInfo _RequestPublishers$AggregatePublisher_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/net/http/HttpRequest$BodyPublisher;>;)V", 0, $method(static_cast<void(RequestPublishers$AggregatePublisher::*)($List*)>(&RequestPublishers$AggregatePublisher::init$))},
-	{"contentLength", "()J", nullptr, $PUBLIC},
-	{"lambda$contentLength$0", "(JJ)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<int64_t(*)(int64_t,int64_t)>(&RequestPublishers$AggregatePublisher::lambda$contentLength$0))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/net/http/HttpRequest$BodyPublisher;>;)V", 0, $method(RequestPublishers$AggregatePublisher, init$, void, $List*)},
+	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher, contentLength, int64_t)},
+	{"lambda$contentLength$0", "(JJ)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RequestPublishers$AggregatePublisher, lambda$contentLength$0, int64_t, int64_t, int64_t)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

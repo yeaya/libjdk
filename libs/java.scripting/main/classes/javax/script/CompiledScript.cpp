@@ -24,11 +24,11 @@ namespace javax {
 	namespace script {
 
 $MethodInfo _CompiledScript_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CompiledScript::*)()>(&CompiledScript::init$))},
-	{"eval", "(Ljavax/script/ScriptContext;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.script.ScriptException"},
-	{"eval", "(Ljavax/script/Bindings;)Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "javax.script.ScriptException"},
-	{"eval", "()Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "javax.script.ScriptException"},
-	{"getEngine", "()Ljavax/script/ScriptEngine;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CompiledScript, init$, void)},
+	{"eval", "(Ljavax/script/ScriptContext;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompiledScript, eval, $Object*, $ScriptContext*), "javax.script.ScriptException"},
+	{"eval", "(Ljavax/script/Bindings;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompiledScript, eval, $Object*, $Bindings*), "javax.script.ScriptException"},
+	{"eval", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompiledScript, eval, $Object*), "javax.script.ScriptException"},
+	{"getEngine", "()Ljavax/script/ScriptEngine;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompiledScript, getEngine, $ScriptEngine*)},
 	{}
 };
 

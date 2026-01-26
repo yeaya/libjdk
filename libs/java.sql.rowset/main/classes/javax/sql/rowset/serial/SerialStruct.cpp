@@ -67,18 +67,18 @@ $FieldInfo _SerialStruct_FieldInfo_[] = {
 
 $MethodInfo _SerialStruct_MethodInfo_[] = {
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/sql/Struct;Ljava/util/Map;)V", "(Ljava/sql/Struct;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PUBLIC, $method(static_cast<void(SerialStruct::*)($Struct*,$Map*)>(&SerialStruct::init$)), "javax.sql.rowset.serial.SerialException"},
-	{"<init>", "(Ljava/sql/SQLData;Ljava/util/Map;)V", "(Ljava/sql/SQLData;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PUBLIC, $method(static_cast<void(SerialStruct::*)($SQLData*,$Map*)>(&SerialStruct::init$)), "javax.sql.rowset.serial.SerialException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getAttributes", "()[Ljava/lang/Object;", nullptr, $PUBLIC, nullptr, "javax.sql.rowset.serial.SerialException"},
-	{"getAttributes", "(Ljava/util/Map;)[Ljava/lang/Object;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)[Ljava/lang/Object;", $PUBLIC, nullptr, "javax.sql.rowset.serial.SerialException"},
-	{"getSQLTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, nullptr, "javax.sql.rowset.serial.SerialException"},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"mapToSerial", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PRIVATE, $method(static_cast<void(SerialStruct::*)($Map*)>(&SerialStruct::mapToSerial)), "javax.sql.rowset.serial.SerialException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(SerialStruct::*)($ObjectInputStream*)>(&SerialStruct::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/sql/Struct;Ljava/util/Map;)V", "(Ljava/sql/Struct;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PUBLIC, $method(SerialStruct, init$, void, $Struct*, $Map*), "javax.sql.rowset.serial.SerialException"},
+	{"<init>", "(Ljava/sql/SQLData;Ljava/util/Map;)V", "(Ljava/sql/SQLData;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PUBLIC, $method(SerialStruct, init$, void, $SQLData*, $Map*), "javax.sql.rowset.serial.SerialException"},
+	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialStruct, clone, $Object*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialStruct, equals, bool, Object$*)},
+	{"getAttributes", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialStruct, getAttributes, $ObjectArray*), "javax.sql.rowset.serial.SerialException"},
+	{"getAttributes", "(Ljava/util/Map;)[Ljava/lang/Object;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)[Ljava/lang/Object;", $PUBLIC, $virtualMethod(SerialStruct, getAttributes, $ObjectArray*, $Map*), "javax.sql.rowset.serial.SerialException"},
+	{"getSQLTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerialStruct, getSQLTypeName, $String*), "javax.sql.rowset.serial.SerialException"},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialStruct, hashCode, int32_t)},
+	{"mapToSerial", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)V", $PRIVATE, $method(SerialStruct, mapToSerial, void, $Map*), "javax.sql.rowset.serial.SerialException"},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialStruct, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(SerialStruct::*)($ObjectOutputStream*)>(&SerialStruct::writeObject)), "java.io.IOException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialStruct, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

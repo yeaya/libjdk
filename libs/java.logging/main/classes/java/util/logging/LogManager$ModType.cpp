@@ -33,11 +33,11 @@ $FieldInfo _LogManager$ModType_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$ModType_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/logging/LogManager$ModType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$LogManager$ModTypeArray*(*)()>(&LogManager$ModType::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(LogManager$ModType::*)($String*,int32_t)>(&LogManager$ModType::init$))},
-	{"of", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/logging/LogManager$ModType;", nullptr, $STATIC, $method(static_cast<LogManager$ModType*(*)($String*,$String*)>(&LogManager$ModType::of))},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/logging/LogManager$ModType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<LogManager$ModType*(*)($String*)>(&LogManager$ModType::valueOf))},
-	{"values", "()[Ljava/util/logging/LogManager$ModType;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$LogManager$ModTypeArray*(*)()>(&LogManager$ModType::values))},
+	{"$values", "()[Ljava/util/logging/LogManager$ModType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LogManager$ModType, $values, $LogManager$ModTypeArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LogManager$ModType, init$, void, $String*, int32_t)},
+	{"of", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/logging/LogManager$ModType;", nullptr, $STATIC, $staticMethod(LogManager$ModType, of, LogManager$ModType*, $String*, $String*)},
+	{"valueOf", "(Ljava/lang/String;)Ljava/util/logging/LogManager$ModType;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$ModType, valueOf, LogManager$ModType*, $String*)},
+	{"values", "()[Ljava/util/logging/LogManager$ModType;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$ModType, values, $LogManager$ModTypeArray*)},
 	{}
 };
 

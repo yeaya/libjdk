@@ -24,7 +24,7 @@ $FieldInfo _Attr$BreakAttr_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$BreakAttr_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(static_cast<void(Attr$BreakAttr::*)($Env*)>(&Attr$BreakAttr::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Attr$BreakAttr, init$, void, $Env*)},
 	{}
 };
 

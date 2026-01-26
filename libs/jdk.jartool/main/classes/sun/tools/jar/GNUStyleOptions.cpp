@@ -98,8 +98,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo GNUStyleOptions$$Lambda$printUsageTryHelp::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(GNUStyleOptions$$Lambda$printUsageTryHelp::*)()>(&GNUStyleOptions$$Lambda$printUsageTryHelp::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(GNUStyleOptions$$Lambda$printUsageTryHelp, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GNUStyleOptions$$Lambda$printUsageTryHelp, accept, void, Object$*)},
 	{}
 };
 $ClassInfo GNUStyleOptions$$Lambda$printUsageTryHelp::classInfo$ = {
@@ -122,15 +122,15 @@ $FieldInfo _GNUStyleOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _GNUStyleOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(GNUStyleOptions::*)()>(&GNUStyleOptions::init$))},
-	{"getOption", "(Ljava/lang/String;)Lsun/tools/jar/GNUStyleOptions$Option;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$GNUStyleOptions$Option*(*)($String*)>(&GNUStyleOptions::getOption)), "sun.tools.jar.GNUStyleOptions$BadArgs"},
-	{"parseOptions", "(Lsun/tools/jar/Main;[Ljava/lang/String;)I", nullptr, $STATIC, $method(static_cast<int32_t(*)($Main*,$StringArray*)>(&GNUStyleOptions::parseOptions)), "sun.tools.jar.GNUStyleOptions$BadArgs"},
-	{"printCompatHelp", "(Ljava/io/PrintWriter;)V", nullptr, $STATIC, $method(static_cast<void(*)($PrintWriter*)>(&GNUStyleOptions::printCompatHelp))},
-	{"printHelp", "(Ljava/io/PrintWriter;)V", nullptr, $STATIC, $method(static_cast<void(*)($PrintWriter*)>(&GNUStyleOptions::printHelp))},
-	{"printHelp0", "(Ljava/io/PrintWriter;Z)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($PrintWriter*,bool)>(&GNUStyleOptions::printHelp0))},
-	{"printHelpExtra", "(Ljava/io/PrintWriter;)V", nullptr, $STATIC, $method(static_cast<void(*)($PrintWriter*)>(&GNUStyleOptions::printHelpExtra))},
-	{"printUsageTryHelp", "(Ljava/io/PrintWriter;)V", nullptr, $STATIC, $method(static_cast<void(*)($PrintWriter*)>(&GNUStyleOptions::printUsageTryHelp))},
-	{"printVersion", "(Ljava/io/PrintWriter;)V", nullptr, $STATIC, $method(static_cast<void(*)($PrintWriter*)>(&GNUStyleOptions::printVersion))},
+	{"<init>", "()V", nullptr, 0, $method(GNUStyleOptions, init$, void)},
+	{"getOption", "(Ljava/lang/String;)Lsun/tools/jar/GNUStyleOptions$Option;", nullptr, $PRIVATE | $STATIC, $staticMethod(GNUStyleOptions, getOption, $GNUStyleOptions$Option*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
+	{"parseOptions", "(Lsun/tools/jar/Main;[Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(GNUStyleOptions, parseOptions, int32_t, $Main*, $StringArray*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
+	{"printCompatHelp", "(Ljava/io/PrintWriter;)V", nullptr, $STATIC, $staticMethod(GNUStyleOptions, printCompatHelp, void, $PrintWriter*)},
+	{"printHelp", "(Ljava/io/PrintWriter;)V", nullptr, $STATIC, $staticMethod(GNUStyleOptions, printHelp, void, $PrintWriter*)},
+	{"printHelp0", "(Ljava/io/PrintWriter;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GNUStyleOptions, printHelp0, void, $PrintWriter*, bool)},
+	{"printHelpExtra", "(Ljava/io/PrintWriter;)V", nullptr, $STATIC, $staticMethod(GNUStyleOptions, printHelpExtra, void, $PrintWriter*)},
+	{"printUsageTryHelp", "(Ljava/io/PrintWriter;)V", nullptr, $STATIC, $staticMethod(GNUStyleOptions, printUsageTryHelp, void, $PrintWriter*)},
+	{"printVersion", "(Ljava/io/PrintWriter;)V", nullptr, $STATIC, $staticMethod(GNUStyleOptions, printVersion, void, $PrintWriter*)},
 	{}
 };
 

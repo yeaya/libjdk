@@ -83,9 +83,9 @@ $FieldInfo _PubApiExtractor_FieldInfo_[] = {
 };
 
 $MethodInfo _PubApiExtractor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $method(static_cast<void(PubApiExtractor::*)($Options*)>(&PubApiExtractor::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getPubApi", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/pubapi/PubApi;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/options/Options;)V", nullptr, $PUBLIC, $method(PubApiExtractor, init$, void, $Options*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PubApiExtractor, close, void), "java.io.IOException"},
+	{"getPubApi", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/pubapi/PubApi;", nullptr, $PUBLIC, $virtualMethod(PubApiExtractor, getPubApi, $PubApi*, $String*)},
 	{}
 };
 

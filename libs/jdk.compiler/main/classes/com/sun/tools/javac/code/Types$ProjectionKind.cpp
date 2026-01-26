@@ -32,11 +32,11 @@ $FieldInfo _Types$ProjectionKind_FieldInfo_[] = {
 };
 
 $MethodInfo _Types$ProjectionKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Types$ProjectionKindArray*(*)()>(&Types$ProjectionKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(Types$ProjectionKind::*)($String*,int32_t)>(&Types$ProjectionKind::init$))},
-	{"complement", "()Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $ABSTRACT},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Types$ProjectionKind*(*)($String*)>(&Types$ProjectionKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Types$ProjectionKindArray*(*)()>(&Types$ProjectionKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Types$ProjectionKind, $values, $Types$ProjectionKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Types$ProjectionKind, init$, void, $String*, int32_t)},
+	{"complement", "()Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $ABSTRACT, $virtualMethod(Types$ProjectionKind, complement, Types$ProjectionKind*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Types$ProjectionKind, valueOf, Types$ProjectionKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Types$ProjectionKind, values, $Types$ProjectionKindArray*)},
 	{}
 };
 

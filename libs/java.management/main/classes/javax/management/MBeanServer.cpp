@@ -10,11 +10,14 @@
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
+using $ClassLoader = ::java::lang::ClassLoader;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+using $ObjectInstance = ::javax::management::ObjectInstance;
 using $ObjectName = ::javax::management::ObjectName;
+using $ClassLoaderRepository = ::javax::management::loading::ClassLoaderRepository;
 
 namespace javax {
 	namespace management {
@@ -56,29 +59,29 @@ $MethodInfo _MBeanServer_MethodInfo_[] = {
 	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC | $ABSTRACT},
 	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC | $ABSTRACT},
 	{"createMBean", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC | $ABSTRACT},
-	{"deserialize", "(Ljavax/management/ObjectName;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, nullptr, "javax.management.InstanceNotFoundException,javax.management.OperationsException", nullptr, _MBeanServer_MethodAnnotations_deserialize0},
-	{"deserialize", "(Ljava/lang/String;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, nullptr, "javax.management.OperationsException,javax.management.ReflectionException", nullptr, _MBeanServer_MethodAnnotations_deserialize1},
-	{"deserialize", "(Ljava/lang/String;Ljavax/management/ObjectName;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, nullptr, "javax.management.InstanceNotFoundException,javax.management.OperationsException,javax.management.ReflectionException", nullptr, _MBeanServer_MethodAnnotations_deserialize2},
+	{"deserialize", "(Ljavax/management/ObjectName;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MBeanServer, deserialize, $ObjectInputStream*, $ObjectName*, $bytes*), "javax.management.InstanceNotFoundException,javax.management.OperationsException", nullptr, _MBeanServer_MethodAnnotations_deserialize0},
+	{"deserialize", "(Ljava/lang/String;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MBeanServer, deserialize, $ObjectInputStream*, $String*, $bytes*), "javax.management.OperationsException,javax.management.ReflectionException", nullptr, _MBeanServer_MethodAnnotations_deserialize1},
+	{"deserialize", "(Ljava/lang/String;Ljavax/management/ObjectName;[B)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MBeanServer, deserialize, $ObjectInputStream*, $String*, $ObjectName*, $bytes*), "javax.management.InstanceNotFoundException,javax.management.OperationsException,javax.management.ReflectionException", nullptr, _MBeanServer_MethodAnnotations_deserialize2},
 	{"getAttribute", "(Ljavax/management/ObjectName;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getAttributes", "(Ljavax/management/ObjectName;[Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getClassLoader", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.InstanceNotFoundException"},
-	{"getClassLoaderFor", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.InstanceNotFoundException"},
-	{"getClassLoaderRepository", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getClassLoader", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServer, getClassLoader, $ClassLoader*, $ObjectName*), "javax.management.InstanceNotFoundException"},
+	{"getClassLoaderFor", "(Ljavax/management/ObjectName;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServer, getClassLoaderFor, $ClassLoader*, $ObjectName*), "javax.management.InstanceNotFoundException"},
+	{"getClassLoaderRepository", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServer, getClassLoaderRepository, $ClassLoaderRepository*)},
 	{"getDefaultDomain", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getDomains", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getMBeanCount", "()Ljava/lang/Integer;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getMBeanInfo", "(Ljavax/management/ObjectName;)Ljavax/management/MBeanInfo;", nullptr, $PUBLIC | $ABSTRACT},
 	{"getObjectInstance", "(Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC | $ABSTRACT},
-	{"instantiate", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.ReflectionException,javax.management.MBeanException"},
-	{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
-	{"instantiate", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.ReflectionException,javax.management.MBeanException"},
-	{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
+	{"instantiate", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServer, instantiate, $Object*, $String*), "javax.management.ReflectionException,javax.management.MBeanException"},
+	{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServer, instantiate, $Object*, $String*, $ObjectName*), "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
+	{"instantiate", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServer, instantiate, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.ReflectionException,javax.management.MBeanException"},
+	{"instantiate", "(Ljava/lang/String;Ljavax/management/ObjectName;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServer, instantiate, $Object*, $String*, $ObjectName*, $ObjectArray*, $StringArray*), "javax.management.ReflectionException,javax.management.MBeanException,javax.management.InstanceNotFoundException"},
 	{"invoke", "(Ljavax/management/ObjectName;Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{"isInstanceOf", "(Ljavax/management/ObjectName;Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"isRegistered", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC | $ABSTRACT},
 	{"queryMBeans", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set;", nullptr, $PUBLIC | $ABSTRACT},
 	{"queryNames", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set;", nullptr, $PUBLIC | $ABSTRACT},
-	{"registerMBean", "(Ljava/lang/Object;Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException"},
+	{"registerMBean", "(Ljava/lang/Object;Ljavax/management/ObjectName;)Ljavax/management/ObjectInstance;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServer, registerMBean, $ObjectInstance*, Object$*, $ObjectName*), "javax.management.InstanceAlreadyExistsException,javax.management.MBeanRegistrationException,javax.management.NotCompliantMBeanException"},
 	{"unregisterMBean", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"setAttribute", "(Ljavax/management/ObjectName;Ljavax/management/Attribute;)V", nullptr, $PUBLIC | $ABSTRACT},
 	{"setAttributes", "(Ljavax/management/ObjectName;Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC | $ABSTRACT},

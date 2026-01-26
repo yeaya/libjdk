@@ -29,7 +29,7 @@ $FieldInfo _ServerRuntimeException_FieldInfo_[] = {
 };
 
 $MethodInfo _ServerRuntimeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(ServerRuntimeException::*)($String*,$Exception*)>(&ServerRuntimeException::init$)), nullptr, nullptr, _ServerRuntimeException_MethodAnnotations_init$0},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ServerRuntimeException, init$, void, $String*, $Exception*), nullptr, nullptr, _ServerRuntimeException_MethodAnnotations_init$0},
 	{}
 };
 

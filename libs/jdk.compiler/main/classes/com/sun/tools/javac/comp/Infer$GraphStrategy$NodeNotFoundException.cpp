@@ -24,7 +24,7 @@ $FieldInfo _Infer$GraphStrategy$NodeNotFoundException_FieldInfo_[] = {
 };
 
 $MethodInfo _Infer$GraphStrategy$NodeNotFoundException_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)V", nullptr, $PUBLIC, $method(static_cast<void(Infer$GraphStrategy$NodeNotFoundException::*)($Infer$GraphSolver$InferenceGraph*)>(&Infer$GraphStrategy$NodeNotFoundException::init$))},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Infer$GraphSolver$InferenceGraph;)V", nullptr, $PUBLIC, $method(Infer$GraphStrategy$NodeNotFoundException, init$, void, $Infer$GraphSolver$InferenceGraph*)},
 	{}
 };
 

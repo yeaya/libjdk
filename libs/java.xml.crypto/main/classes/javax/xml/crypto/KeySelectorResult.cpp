@@ -5,13 +5,14 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Key = ::java::security::Key;
 
 namespace javax {
 	namespace xml {
 		namespace crypto {
 
 $MethodInfo _KeySelectorResult_MethodInfo_[] = {
-	{"getKey", "()Ljava/security/Key;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getKey", "()Ljava/security/Key;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeySelectorResult, getKey, $Key*)},
 	{}
 };
 

@@ -34,10 +34,10 @@ $FieldInfo _KeyResolver$ResolverIterator_FieldInfo_[] = {
 };
 
 $MethodInfo _KeyResolver$ResolverIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;>;)V", $PUBLIC, $method(static_cast<void(KeyResolver$ResolverIterator::*)($List*)>(&KeyResolver$ResolverIterator::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;", nullptr, $PUBLIC},
-	{"remove", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;>;)V", $PUBLIC, $method(KeyResolver$ResolverIterator, init$, void, $List*)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyResolver$ResolverIterator, hasNext, bool)},
+	{"next", "()Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;", nullptr, $PUBLIC, $virtualMethod(KeyResolver$ResolverIterator, next, $Object*)},
+	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(KeyResolver$ResolverIterator, remove, void)},
 	{}
 };
 

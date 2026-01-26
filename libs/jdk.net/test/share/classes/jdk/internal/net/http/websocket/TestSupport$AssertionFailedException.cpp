@@ -21,8 +21,8 @@ $FieldInfo _TestSupport$AssertionFailedException_FieldInfo_[] = {
 };
 
 $MethodInfo _TestSupport$AssertionFailedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(TestSupport$AssertionFailedException::*)($String*)>(&TestSupport$AssertionFailedException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $method(static_cast<void(TestSupport$AssertionFailedException::*)($String*,$Throwable*)>(&TestSupport$AssertionFailedException::init$))},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TestSupport$AssertionFailedException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, 0, $method(TestSupport$AssertionFailedException, init$, void, $String*, $Throwable*)},
 	{}
 };
 

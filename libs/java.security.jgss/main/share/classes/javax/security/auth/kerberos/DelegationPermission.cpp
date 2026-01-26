@@ -36,15 +36,15 @@ $FieldInfo _DelegationPermission_FieldInfo_[] = {
 };
 
 $MethodInfo _DelegationPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DelegationPermission::*)($String*)>(&DelegationPermission::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(DelegationPermission::*)($String*,$String*)>(&DelegationPermission::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(static_cast<void(DelegationPermission::*)($String*)>(&DelegationPermission::init))},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(DelegationPermission::*)($ObjectInputStream*)>(&DelegationPermission::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(static_cast<void(DelegationPermission::*)($ObjectOutputStream*)>(&DelegationPermission::writeObject)), "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DelegationPermission, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DelegationPermission, init$, void, $String*, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, hashCode, int32_t)},
+	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, implies, bool, $Permission*)},
+	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DelegationPermission, init, void, $String*)},
+	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(DelegationPermission, newPermissionCollection, $PermissionCollection*)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DelegationPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DelegationPermission, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
 	{}
 };
 

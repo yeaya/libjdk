@@ -73,8 +73,8 @@ $FieldInfo DefaultPlatformMBeanProvider$5$$Lambda$isMemoryManager::fieldInfos[2]
 	{}
 };
 $MethodInfo DefaultPlatformMBeanProvider$5$$Lambda$isMemoryManager::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/management/DefaultPlatformMBeanProvider$5;)V", nullptr, $PUBLIC, $method(static_cast<void(DefaultPlatformMBeanProvider$5$$Lambda$isMemoryManager::*)(DefaultPlatformMBeanProvider$5*)>(&DefaultPlatformMBeanProvider$5$$Lambda$isMemoryManager::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/management/DefaultPlatformMBeanProvider$5;)V", nullptr, $PUBLIC, $method(DefaultPlatformMBeanProvider$5$$Lambda$isMemoryManager, init$, void, DefaultPlatformMBeanProvider$5*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$5$$Lambda$isMemoryManager, test, bool, Object$*)},
 	{}
 };
 $ClassInfo DefaultPlatformMBeanProvider$5$$Lambda$isMemoryManager::classInfo$ = {
@@ -106,8 +106,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo DefaultPlatformMBeanProvider$5$$Lambda$lambda$nameToMBeanMap$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(DefaultPlatformMBeanProvider$5$$Lambda$lambda$nameToMBeanMap$0$1::*)()>(&DefaultPlatformMBeanProvider$5$$Lambda$lambda$nameToMBeanMap$0$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultPlatformMBeanProvider$5$$Lambda$lambda$nameToMBeanMap$0$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$5$$Lambda$lambda$nameToMBeanMap$0$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo DefaultPlatformMBeanProvider$5$$Lambda$lambda$nameToMBeanMap$0$1::classInfo$ = {
@@ -131,14 +131,14 @@ $FieldInfo _DefaultPlatformMBeanProvider$5_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultPlatformMBeanProvider$5_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/management/DefaultPlatformMBeanProvider;)V", nullptr, 0, $method(static_cast<void(DefaultPlatformMBeanProvider$5::*)($DefaultPlatformMBeanProvider*)>(&DefaultPlatformMBeanProvider$5::init$))},
-	{"getObjectNamePattern", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isMemoryManager", "(Ljava/lang/management/MemoryManagerMXBean;)Z", nullptr, $PRIVATE, $method(static_cast<bool(DefaultPlatformMBeanProvider$5::*)($MemoryManagerMXBean*)>(&DefaultPlatformMBeanProvider$5::isMemoryManager))},
-	{"isSingleton", "()Z", nullptr, $PUBLIC},
-	{"lambda$nameToMBeanMap$0", "(Ljava/lang/management/MemoryManagerMXBean;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($MemoryManagerMXBean*)>(&DefaultPlatformMBeanProvider$5::lambda$nameToMBeanMap$0))},
-	{"mbeanInterfaceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"mbeanInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/management/MemoryManagerMXBean;>;>;", $PUBLIC},
-	{"nameToMBeanMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/management/MemoryManagerMXBean;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/management/DefaultPlatformMBeanProvider;)V", nullptr, 0, $method(DefaultPlatformMBeanProvider$5, init$, void, $DefaultPlatformMBeanProvider*)},
+	{"getObjectNamePattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$5, getObjectNamePattern, $String*)},
+	{"isMemoryManager", "(Ljava/lang/management/MemoryManagerMXBean;)Z", nullptr, $PRIVATE, $method(DefaultPlatformMBeanProvider$5, isMemoryManager, bool, $MemoryManagerMXBean*)},
+	{"isSingleton", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$5, isSingleton, bool)},
+	{"lambda$nameToMBeanMap$0", "(Ljava/lang/management/MemoryManagerMXBean;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DefaultPlatformMBeanProvider$5, lambda$nameToMBeanMap$0, $String*, $MemoryManagerMXBean*)},
+	{"mbeanInterfaceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$5, mbeanInterfaceNames, $Set*)},
+	{"mbeanInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/management/MemoryManagerMXBean;>;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$5, mbeanInterfaces, $Set*)},
+	{"nameToMBeanMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/management/MemoryManagerMXBean;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$5, nameToMBeanMap, $Map*)},
 	{}
 };
 

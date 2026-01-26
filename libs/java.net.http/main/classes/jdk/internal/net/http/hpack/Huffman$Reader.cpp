@@ -5,9 +5,11 @@
 #include <jdk/internal/net/http/hpack/Huffman.h>
 #include <jcpp.h>
 
+using $Appendable = ::java::lang::Appendable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
 
 namespace jdk {
 	namespace internal {
@@ -16,8 +18,8 @@ namespace jdk {
 				namespace hpack {
 
 $MethodInfo _Huffman$Reader_MethodInfo_[] = {
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;Z)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $ABSTRACT},
+	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Huffman$Reader, read, void, $ByteBuffer*, $Appendable*, bool), "java.io.IOException"},
+	{"reset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Huffman$Reader, reset, void)},
 	{}
 };
 

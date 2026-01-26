@@ -35,12 +35,12 @@ $FieldInfo _HelperNodeList_FieldInfo_[] = {
 };
 
 $MethodInfo _HelperNodeList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(HelperNodeList::*)()>(&HelperNodeList::init$))},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(static_cast<void(HelperNodeList::*)(bool)>(&HelperNodeList::init$))},
-	{"appendChild", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, nullptr, "java.lang.IllegalArgumentException"},
-	{"getLength", "()I", nullptr, $PUBLIC},
-	{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
-	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HelperNodeList, init$, void)},
+	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(HelperNodeList, init$, void, bool)},
+	{"appendChild", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, appendChild, void, $Node*), "java.lang.IllegalArgumentException"},
+	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, getLength, int32_t)},
+	{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, getOwnerDocument, $Document*)},
+	{"item", "(I)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(HelperNodeList, item, $Node*, int32_t)},
 	{}
 };
 

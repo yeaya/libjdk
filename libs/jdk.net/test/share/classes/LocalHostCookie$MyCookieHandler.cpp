@@ -21,8 +21,8 @@ $FieldInfo _LocalHostCookie$MyCookieHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _LocalHostCookie$MyCookieHandler_MethodInfo_[] = {
-	{"<init>", "(LLocalHostCookie;)V", nullptr, 0, $method(static_cast<void(LocalHostCookie$MyCookieHandler::*)($LocalHostCookie*)>(&LocalHostCookie$MyCookieHandler::init$))},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(LLocalHostCookie;)V", nullptr, 0, $method(LocalHostCookie$MyCookieHandler, init$, void, $LocalHostCookie*)},
+	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(LocalHostCookie$MyCookieHandler, handle, void, $HttpExchange*), "java.io.IOException"},
 	{}
 };
 

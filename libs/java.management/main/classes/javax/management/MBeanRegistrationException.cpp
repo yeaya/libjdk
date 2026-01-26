@@ -18,8 +18,8 @@ $FieldInfo _MBeanRegistrationException_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanRegistrationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanRegistrationException::*)($Exception*)>(&MBeanRegistrationException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(MBeanRegistrationException::*)($Exception*,$String*)>(&MBeanRegistrationException::init$))},
+	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(MBeanRegistrationException, init$, void, $Exception*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanRegistrationException, init$, void, $Exception*, $String*)},
 	{}
 };
 

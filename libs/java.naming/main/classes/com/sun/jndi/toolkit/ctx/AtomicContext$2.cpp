@@ -25,8 +25,8 @@ $FieldInfo _AtomicContext$2_FieldInfo_[] = {
 };
 
 $MethodInfo _AtomicContext$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/ctx/AtomicContext;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(AtomicContext$2::*)($AtomicContext*,$String*)>(&AtomicContext$2::init$))},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/jndi/toolkit/ctx/AtomicContext;Ljava/lang/String;)V", nullptr, 0, $method(AtomicContext$2, init$, void, $AtomicContext*, $String*)},
+	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AtomicContext$2, getContent, $Object*)},
 	{}
 };
 

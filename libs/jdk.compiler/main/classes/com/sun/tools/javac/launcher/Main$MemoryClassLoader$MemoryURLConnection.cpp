@@ -31,11 +31,11 @@ $FieldInfo _Main$MemoryClassLoader$MemoryURLConnection_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$MemoryClassLoader$MemoryURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;[B)V", nullptr, 0, $method(static_cast<void(Main$MemoryClassLoader$MemoryURLConnection::*)($URL*,$bytes*)>(&Main$MemoryClassLoader$MemoryURLConnection::init$))},
-	{"connect", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getContentLengthLong", "()J", nullptr, $PUBLIC},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/net/URL;[B)V", nullptr, 0, $method(Main$MemoryClassLoader$MemoryURLConnection, init$, void, $URL*, $bytes*)},
+	{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, connect, void), "java.io.IOException"},
+	{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, getContentLengthLong, int64_t)},
+	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, getContentType, $String*)},
+	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader$MemoryURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
 	{}
 };
 

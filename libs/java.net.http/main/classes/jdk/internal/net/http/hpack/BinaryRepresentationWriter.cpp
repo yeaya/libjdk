@@ -6,6 +6,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $ByteBuffer = ::java::nio::ByteBuffer;
+using $HeaderTable = ::jdk::internal::net::http::hpack::HeaderTable;
 
 namespace jdk {
 	namespace internal {
@@ -14,8 +16,8 @@ namespace jdk {
 				namespace hpack {
 
 $MethodInfo _BinaryRepresentationWriter_MethodInfo_[] = {
-	{"reset", "()Ljdk/internal/net/http/hpack/BinaryRepresentationWriter;", nullptr, $PUBLIC | $ABSTRACT},
-	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"reset", "()Ljdk/internal/net/http/hpack/BinaryRepresentationWriter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryRepresentationWriter, reset, BinaryRepresentationWriter*)},
+	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryRepresentationWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
 	{}
 };
 

@@ -37,14 +37,14 @@ $MethodInfo _PerfByteArrayCounter_MethodInfo_[] = {
 	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
 	{"*getVectorLength", "()I", nullptr, $PUBLIC},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;IILjava/nio/ByteBuffer;)V", nullptr, 0, $method(static_cast<void(PerfByteArrayCounter::*)($String*,$Units*,$Variability*,int32_t,int32_t,$ByteBuffer*)>(&PerfByteArrayCounter::init$))},
-	{"byteArrayValue", "()[B", nullptr, $PUBLIC},
-	{"byteAt", "(I)B", nullptr, $PUBLIC},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;IILjava/nio/ByteBuffer;)V", nullptr, 0, $method(PerfByteArrayCounter, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t, $ByteBuffer*)},
+	{"byteArrayValue", "()[B", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, byteArrayValue, $bytes*)},
+	{"byteAt", "(I)B", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, byteAt, int8_t, int32_t)},
+	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, getValue, $Object*)},
 	{"*isInternal", "()Z", nullptr, $PUBLIC},
 	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, nullptr, "java.io.ObjectStreamException"},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, toString, $String*)},
+	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PerfByteArrayCounter, writeReplace, $Object*), "java.io.ObjectStreamException"},
 	{}
 };
 

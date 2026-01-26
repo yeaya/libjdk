@@ -16,6 +16,7 @@
 #include <com/sun/tools/javac/util/Names.h>
 #include <jcpp.h>
 
+using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Lower = ::com::sun::tools::javac::comp::Lower;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
@@ -43,13 +44,13 @@ $FieldInfo _Lower$BasicFreeVarCollector_FieldInfo_[] = {
 };
 
 $MethodInfo _Lower$BasicFreeVarCollector_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;)V", nullptr, 0, $method(static_cast<void(Lower$BasicFreeVarCollector::*)($Lower*)>(&Lower$BasicFreeVarCollector::init$))},
-	{"addFreeVars", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $ABSTRACT},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $ABSTRACT},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Lower;)V", nullptr, 0, $method(Lower$BasicFreeVarCollector, init$, void, $Lower*)},
+	{"addFreeVars", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $ABSTRACT, $virtualMethod(Lower$BasicFreeVarCollector, addFreeVars, void, $Symbol$ClassSymbol*)},
+	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Lower$BasicFreeVarCollector, visitApply, void, $JCTree$JCMethodInvocation*)},
+	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Lower$BasicFreeVarCollector, visitIdent, void, $JCTree$JCIdent*)},
+	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Lower$BasicFreeVarCollector, visitNewClass, void, $JCTree$JCNewClass*)},
+	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $ABSTRACT, $virtualMethod(Lower$BasicFreeVarCollector, visitSymbol, void, $Symbol*)},
+	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Lower$BasicFreeVarCollector, visitYield, void, $JCTree$JCYield*)},
 	{}
 };
 

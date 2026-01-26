@@ -33,10 +33,10 @@ $FieldInfo _JavacParser$LambdaParameterKind_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacParser$LambdaParameterKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$JavacParser$LambdaParameterKindArray*(*)()>(&JavacParser$LambdaParameterKind::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(JavacParser$LambdaParameterKind::*)($String*,int32_t,int32_t)>(&JavacParser$LambdaParameterKind::init$))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavacParser$LambdaParameterKind*(*)($String*)>(&JavacParser$LambdaParameterKind::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$JavacParser$LambdaParameterKindArray*(*)()>(&JavacParser$LambdaParameterKind::values))},
+	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$LambdaParameterKind, $values, $JavacParser$LambdaParameterKindArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(JavacParser$LambdaParameterKind, init$, void, $String*, int32_t, int32_t)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$LambdaParameterKind, valueOf, JavacParser$LambdaParameterKind*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$LambdaParameterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$LambdaParameterKind, values, $JavacParser$LambdaParameterKindArray*)},
 	{}
 };
 

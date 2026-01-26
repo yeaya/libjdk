@@ -11,11 +11,11 @@ namespace sun {
 			namespace internal {
 
 $MethodInfo _SeqNumber_MethodInfo_[] = {
-	{"current", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"init", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"next", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"randInit", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"step", "()I", nullptr, $PUBLIC | $ABSTRACT},
+	{"current", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SeqNumber, current, int32_t)},
+	{"init", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SeqNumber, init, void, int32_t)},
+	{"next", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SeqNumber, next, int32_t)},
+	{"randInit", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SeqNumber, randInit, void)},
+	{"step", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SeqNumber, step, int32_t)},
 	{}
 };
 

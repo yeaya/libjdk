@@ -2,15 +2,22 @@
 
 #include <java/io/ObjectOutput.h>
 #include <java/lang/reflect/Method.h>
+#include <java/rmi/Remote.h>
 #include <java/rmi/server/Operation.h>
 #include <java/rmi/server/RemoteCall.h>
 #include <java/rmi/server/RemoteObject.h>
 #include <jcpp.h>
 
+using $OperationArray = $Array<::java::rmi::server::Operation>;
+using $ObjectOutput = ::java::io::ObjectOutput;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Method = ::java::lang::reflect::Method;
+using $Remote = ::java::rmi::Remote;
+using $RemoteCall = ::java::rmi::server::RemoteCall;
+using $RemoteObject = ::java::rmi::server::RemoteObject;
 
 namespace java {
 	namespace rmi {
@@ -43,14 +50,14 @@ $FieldInfo _RemoteRef_FieldInfo_[] = {
 };
 
 $MethodInfo _RemoteRef_MethodInfo_[] = {
-	{"done", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.rmi.RemoteException", nullptr, _RemoteRef_MethodAnnotations_done0},
-	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.lang.Exception"},
-	{"invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.lang.Exception", nullptr, _RemoteRef_MethodAnnotations_invoke3},
-	{"newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.rmi.RemoteException", nullptr, _RemoteRef_MethodAnnotations_newCall4},
-	{"remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"remoteHashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"done", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteRef, done, void, $RemoteCall*), "java.rmi.RemoteException", nullptr, _RemoteRef_MethodAnnotations_done0},
+	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, getRefClass, $String*, $ObjectOutput*)},
+	{"invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, invoke, $Object*, $Remote*, $Method*, $ObjectArray*, int64_t), "java.lang.Exception"},
+	{"invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteRef, invoke, void, $RemoteCall*), "java.lang.Exception", nullptr, _RemoteRef_MethodAnnotations_invoke3},
+	{"newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(RemoteRef, newCall, $RemoteCall*, $RemoteObject*, $OperationArray*, int32_t, int64_t), "java.rmi.RemoteException", nullptr, _RemoteRef_MethodAnnotations_newCall4},
+	{"remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, remoteEquals, bool, RemoteRef*)},
+	{"remoteHashCode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, remoteHashCode, int32_t)},
+	{"remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RemoteRef, remoteToString, $String*)},
 	{}
 };
 

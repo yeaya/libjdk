@@ -36,11 +36,11 @@ $FieldInfo _SslRMIClientSocketFactory_FieldInfo_[] = {
 $MethodInfo _SslRMIClientSocketFactory_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(SslRMIClientSocketFactory::*)()>(&SslRMIClientSocketFactory::init$))},
-	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"getDefaultClientSocketFactory", "()Ljavax/net/SocketFactory;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $method(static_cast<$SocketFactory*(*)()>(&SslRMIClientSocketFactory::getDefaultClientSocketFactory))},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SslRMIClientSocketFactory, init$, void)},
+	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(SslRMIClientSocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SslRMIClientSocketFactory, equals, bool, Object$*)},
+	{"getDefaultClientSocketFactory", "()Ljavax/net/SocketFactory;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(SslRMIClientSocketFactory, getDefaultClientSocketFactory, $SocketFactory*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SslRMIClientSocketFactory, hashCode, int32_t)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}
 };

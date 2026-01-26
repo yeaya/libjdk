@@ -7,8 +7,10 @@
 #include <com/sun/tools/javac/util/Dependencies$DummyDependencies.h>
 #include <jcpp.h>
 
+using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
+using $Dependencies$CompletionCause = ::com::sun::tools::javac::util::Dependencies$CompletionCause;
 using $Dependencies$DummyDependencies = ::com::sun::tools::javac::util::Dependencies$DummyDependencies;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -27,10 +29,10 @@ $FieldInfo _Dependencies_FieldInfo_[] = {
 };
 
 $MethodInfo _Dependencies_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(Dependencies::*)($Context*)>(&Dependencies::init$))},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/Dependencies;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Dependencies*(*)($Context*)>(&Dependencies::instance))},
-	{"pop", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"push", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Dependencies, init$, void, $Context*)},
+	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/Dependencies;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies, instance, Dependencies*, $Context*)},
+	{"pop", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dependencies, pop, void)},
+	{"push", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dependencies, push, void, $Symbol$ClassSymbol*, $Dependencies$CompletionCause*)},
 	{}
 };
 

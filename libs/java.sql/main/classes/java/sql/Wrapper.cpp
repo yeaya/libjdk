@@ -9,8 +9,8 @@ namespace java {
 	namespace sql {
 
 $MethodInfo _Wrapper_MethodInfo_[] = {
-	{"isWrapperFor", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"unwrap", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"isWrapperFor", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Wrapper, isWrapperFor, bool, $Class*), "java.sql.SQLException"},
+	{"unwrap", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $ABSTRACT, $virtualMethod(Wrapper, unwrap, $Object*, $Class*), "java.sql.SQLException"},
 	{}
 };
 

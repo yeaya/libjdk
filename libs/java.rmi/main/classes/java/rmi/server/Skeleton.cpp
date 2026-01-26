@@ -5,9 +5,12 @@
 #include <java/rmi/server/RemoteCall.h>
 #include <jcpp.h>
 
+using $OperationArray = $Array<::java::rmi::server::Operation>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Remote = ::java::rmi::Remote;
+using $RemoteCall = ::java::rmi::server::RemoteCall;
 
 namespace java {
 	namespace rmi {
@@ -29,8 +32,8 @@ $CompoundAttribute _Skeleton_MethodAnnotations_getOperations1[] = {
 };
 
 $MethodInfo _Skeleton_MethodInfo_[] = {
-	{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;IJ)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, "java.lang.Exception", nullptr, _Skeleton_MethodAnnotations_dispatch0},
-	{"getOperations", "()[Ljava/rmi/server/Operation;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, nullptr, nullptr, nullptr, _Skeleton_MethodAnnotations_getOperations1},
+	{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;IJ)V", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(Skeleton, dispatch, void, $Remote*, $RemoteCall*, int32_t, int64_t), "java.lang.Exception", nullptr, _Skeleton_MethodAnnotations_dispatch0},
+	{"getOperations", "()[Ljava/rmi/server/Operation;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(Skeleton, getOperations, $OperationArray*), nullptr, nullptr, _Skeleton_MethodAnnotations_getOperations1},
 	{}
 };
 

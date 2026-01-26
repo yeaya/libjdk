@@ -6,21 +6,23 @@
 #include <java/util/logging/Logger.h>
 #include <jcpp.h>
 
+using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SQLFeatureNotSupportedException = ::java::sql::SQLFeatureNotSupportedException;
 using $ShardingKeyBuilder = ::java::sql::ShardingKeyBuilder;
+using $Logger = ::java::util::logging::Logger;
 
 namespace javax {
 	namespace sql {
 
 $MethodInfo _CommonDataSource_MethodInfo_[] = {
-	{"createShardingKeyBuilder", "()Ljava/sql/ShardingKeyBuilder;", nullptr, $PUBLIC, nullptr, "java.sql.SQLException"},
-	{"getLogWriter", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getLoginTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"getParentLogger", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLFeatureNotSupportedException"},
-	{"setLogWriter", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"setLoginTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
+	{"createShardingKeyBuilder", "()Ljava/sql/ShardingKeyBuilder;", nullptr, $PUBLIC, $virtualMethod(CommonDataSource, createShardingKeyBuilder, $ShardingKeyBuilder*), "java.sql.SQLException"},
+	{"getLogWriter", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CommonDataSource, getLogWriter, $PrintWriter*), "java.sql.SQLException"},
+	{"getLoginTimeout", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CommonDataSource, getLoginTimeout, int32_t), "java.sql.SQLException"},
+	{"getParentLogger", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CommonDataSource, getParentLogger, $Logger*), "java.sql.SQLFeatureNotSupportedException"},
+	{"setLogWriter", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CommonDataSource, setLogWriter, void, $PrintWriter*), "java.sql.SQLException"},
+	{"setLoginTimeout", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CommonDataSource, setLoginTimeout, void, int32_t), "java.sql.SQLException"},
 	{}
 };
 

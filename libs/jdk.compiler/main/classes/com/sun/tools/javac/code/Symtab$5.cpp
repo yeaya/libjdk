@@ -28,8 +28,8 @@ $FieldInfo _Symtab$5_FieldInfo_[] = {
 };
 
 $MethodInfo _Symtab$5_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(Symtab$5::*)($Symtab*,$Name*,$Symbol*)>(&Symtab$5::init$))},
-	{"isNoModule", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Symtab$5, init$, void, $Symtab*, $Name*, $Symbol*)},
+	{"isNoModule", "()Z", nullptr, $PUBLIC, $virtualMethod(Symtab$5, isNoModule, bool)},
 	{}
 };
 

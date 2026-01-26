@@ -66,8 +66,8 @@ $FieldInfo DefaultPlatformMBeanProvider$10$$Lambda$lambda$nameToMBeanMap$0::fiel
 	{}
 };
 $MethodInfo DefaultPlatformMBeanProvider$10$$Lambda$lambda$nameToMBeanMap$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(static_cast<void(DefaultPlatformMBeanProvider$10$$Lambda$lambda$nameToMBeanMap$0::*)($Map*)>(&DefaultPlatformMBeanProvider$10$$Lambda$lambda$nameToMBeanMap$0::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(DefaultPlatformMBeanProvider$10$$Lambda$lambda$nameToMBeanMap$0, init$, void, $Map*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$10$$Lambda$lambda$nameToMBeanMap$0, accept, void, Object$*)},
 	{}
 };
 $ClassInfo DefaultPlatformMBeanProvider$10$$Lambda$lambda$nameToMBeanMap$0::classInfo$ = {
@@ -91,13 +91,13 @@ $FieldInfo _DefaultPlatformMBeanProvider$10_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultPlatformMBeanProvider$10_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/management/DefaultPlatformMBeanProvider;)V", nullptr, 0, $method(static_cast<void(DefaultPlatformMBeanProvider$10::*)($DefaultPlatformMBeanProvider*)>(&DefaultPlatformMBeanProvider$10::init$))},
-	{"getObjectNamePattern", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isSingleton", "()Z", nullptr, $PUBLIC},
-	{"lambda$nameToMBeanMap$0", "(Ljava/util/Map;Ljava/lang/management/BufferPoolMXBean;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Map*,$BufferPoolMXBean*)>(&DefaultPlatformMBeanProvider$10::lambda$nameToMBeanMap$0))},
-	{"mbeanInterfaceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"mbeanInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/management/BufferPoolMXBean;>;>;", $PUBLIC},
-	{"nameToMBeanMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/management/BufferPoolMXBean;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/management/DefaultPlatformMBeanProvider;)V", nullptr, 0, $method(DefaultPlatformMBeanProvider$10, init$, void, $DefaultPlatformMBeanProvider*)},
+	{"getObjectNamePattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$10, getObjectNamePattern, $String*)},
+	{"isSingleton", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$10, isSingleton, bool)},
+	{"lambda$nameToMBeanMap$0", "(Ljava/util/Map;Ljava/lang/management/BufferPoolMXBean;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DefaultPlatformMBeanProvider$10, lambda$nameToMBeanMap$0, void, $Map*, $BufferPoolMXBean*)},
+	{"mbeanInterfaceNames", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$10, mbeanInterfaceNames, $Set*)},
+	{"mbeanInterfaces", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Class<+Ljava/lang/management/BufferPoolMXBean;>;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$10, mbeanInterfaces, $Set*)},
+	{"nameToMBeanMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/management/BufferPoolMXBean;>;", $PUBLIC, $virtualMethod(DefaultPlatformMBeanProvider$10, nameToMBeanMap, $Map*)},
 	{}
 };
 

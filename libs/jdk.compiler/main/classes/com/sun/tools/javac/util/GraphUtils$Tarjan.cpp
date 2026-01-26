@@ -34,11 +34,11 @@ $FieldInfo _GraphUtils$Tarjan_FieldInfo_[] = {
 };
 
 $MethodInfo _GraphUtils$Tarjan_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(GraphUtils$Tarjan::*)()>(&GraphUtils$Tarjan::init$))},
-	{"addSCC", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(static_cast<void(GraphUtils$Tarjan::*)($GraphUtils$TarjanNode*)>(&GraphUtils$Tarjan::addSCC))},
-	{"findSCC", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/Iterable<+TN;>;)Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/util/List<+TN;>;>;", $PRIVATE, $method(static_cast<$List*(GraphUtils$Tarjan::*)($Iterable*)>(&GraphUtils$Tarjan::findSCC))},
-	{"findSCC", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(static_cast<void(GraphUtils$Tarjan::*)($GraphUtils$TarjanNode*)>(&GraphUtils$Tarjan::findSCC))},
-	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(static_cast<void(GraphUtils$Tarjan::*)($GraphUtils$TarjanNode*)>(&GraphUtils$Tarjan::visitNode))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(GraphUtils$Tarjan, init$, void)},
+	{"addSCC", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(GraphUtils$Tarjan, addSCC, void, $GraphUtils$TarjanNode*)},
+	{"findSCC", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/List;", "(Ljava/lang/Iterable<+TN;>;)Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/util/List<+TN;>;>;", $PRIVATE, $method(GraphUtils$Tarjan, findSCC, $List*, $Iterable*)},
+	{"findSCC", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(GraphUtils$Tarjan, findSCC, void, $GraphUtils$TarjanNode*)},
+	{"visitNode", "(Lcom/sun/tools/javac/util/GraphUtils$TarjanNode;)V", "(TN;)V", $PRIVATE, $method(GraphUtils$Tarjan, visitNode, void, $GraphUtils$TarjanNode*)},
 	{}
 };
 

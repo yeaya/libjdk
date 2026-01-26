@@ -66,13 +66,13 @@ $FieldInfo _ManagementFactoryHelper$LoggingMXBeanAccess_FieldInfo_[] = {
 };
 
 $MethodInfo _ManagementFactoryHelper$LoggingMXBeanAccess_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ManagementFactoryHelper$LoggingMXBeanAccess::*)()>(&ManagementFactoryHelper$LoggingMXBeanAccess::init$))},
-	{"getMXBeanImplementation", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$Object*(*)()>(&ManagementFactoryHelper$LoggingMXBeanAccess::getMXBeanImplementation))},
-	{"initMethodMap", "(Ljava/lang/Object;)Ljava/util/Map;", "(Ljava/lang/Object;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/reflect/Method;>;", $PRIVATE, $method(static_cast<$Map*(ManagementFactoryHelper$LoggingMXBeanAccess::*)(Object$*)>(&ManagementFactoryHelper$LoggingMXBeanAccess::initMethodMap))},
-	{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;[Ljava/lang/Object;)TT;", $TRANSIENT, $method(static_cast<$Object*(ManagementFactoryHelper$LoggingMXBeanAccess::*)($String*,$ObjectArray*)>(&ManagementFactoryHelper$LoggingMXBeanAccess::invoke))},
-	{"isAvailable", "()Z", nullptr, $STATIC, $method(static_cast<bool(*)()>(&ManagementFactoryHelper$LoggingMXBeanAccess::isAvailable))},
-	{"loadLoggingClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $method(static_cast<$Class*(*)($String*)>(&ManagementFactoryHelper$LoggingMXBeanAccess::loadLoggingClass))},
-	{"unwrap", "(Ljava/lang/reflect/InvocationTargetException;)Ljava/lang/RuntimeException;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$RuntimeException*(*)($InvocationTargetException*)>(&ManagementFactoryHelper$LoggingMXBeanAccess::unwrap))},
+	{"<init>", "()V", nullptr, 0, $method(ManagementFactoryHelper$LoggingMXBeanAccess, init$, void)},
+	{"getMXBeanImplementation", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactoryHelper$LoggingMXBeanAccess, getMXBeanImplementation, $Object*)},
+	{"initMethodMap", "(Ljava/lang/Object;)Ljava/util/Map;", "(Ljava/lang/Object;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/reflect/Method;>;", $PRIVATE, $method(ManagementFactoryHelper$LoggingMXBeanAccess, initMethodMap, $Map*, Object$*)},
+	{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/String;[Ljava/lang/Object;)TT;", $TRANSIENT, $method(ManagementFactoryHelper$LoggingMXBeanAccess, invoke, $Object*, $String*, $ObjectArray*)},
+	{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(ManagementFactoryHelper$LoggingMXBeanAccess, isAvailable, bool)},
+	{"loadLoggingClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(ManagementFactoryHelper$LoggingMXBeanAccess, loadLoggingClass, $Class*, $String*)},
+	{"unwrap", "(Ljava/lang/reflect/InvocationTargetException;)Ljava/lang/RuntimeException;", nullptr, $PRIVATE | $STATIC, $staticMethod(ManagementFactoryHelper$LoggingMXBeanAccess, unwrap, $RuntimeException*, $InvocationTargetException*)},
 	{}
 };
 

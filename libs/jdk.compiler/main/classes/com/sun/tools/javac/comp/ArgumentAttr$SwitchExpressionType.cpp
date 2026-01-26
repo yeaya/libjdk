@@ -105,8 +105,8 @@ $FieldInfo ArgumentAttr$SwitchExpressionType$$Lambda$lambda$yieldExpressions$0::
 	{}
 };
 $MethodInfo ArgumentAttr$SwitchExpressionType$$Lambda$lambda$yieldExpressions$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType;)V", nullptr, $PUBLIC, $method(static_cast<void(ArgumentAttr$SwitchExpressionType$$Lambda$lambda$yieldExpressions$0::*)(ArgumentAttr$SwitchExpressionType*)>(&ArgumentAttr$SwitchExpressionType$$Lambda$lambda$yieldExpressions$0::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType;)V", nullptr, $PUBLIC, $method(ArgumentAttr$SwitchExpressionType$$Lambda$lambda$yieldExpressions$0, init$, void, ArgumentAttr$SwitchExpressionType*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArgumentAttr$SwitchExpressionType$$Lambda$lambda$yieldExpressions$0, get, $Object*)},
 	{}
 };
 $ClassInfo ArgumentAttr$SwitchExpressionType$$Lambda$lambda$yieldExpressions$0::classInfo$ = {
@@ -130,13 +130,13 @@ $FieldInfo _ArgumentAttr$SwitchExpressionType_FieldInfo_[] = {
 };
 
 $MethodInfo _ArgumentAttr$SwitchExpressionType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", 0, $method(static_cast<void(ArgumentAttr$SwitchExpressionType::*)($ArgumentAttr*,$JCTree$JCExpression*,$Env*,$JCTree$JCSwitchExpression*)>(&ArgumentAttr$SwitchExpressionType::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(static_cast<void(ArgumentAttr$SwitchExpressionType::*)($ArgumentAttr*,$JCTree$JCExpression*,$Env*,$JCTree$JCSwitchExpression*,$Map*)>(&ArgumentAttr$SwitchExpressionType::init$))},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;>;", 0},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $VOLATILE | $SYNTHETIC},
-	{"lambda$yieldExpressions$0", "()Lcom/sun/tools/javac/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$List*(ArgumentAttr$SwitchExpressionType::*)()>(&ArgumentAttr$SwitchExpressionType::lambda$yieldExpressions$0))},
-	{"overloadCheck", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0},
-	{"yieldExpressions", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCYield;>;", 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", 0, $method(ArgumentAttr$SwitchExpressionType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCSwitchExpression*)},
+	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(ArgumentAttr$SwitchExpressionType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCSwitchExpression*, $Map*)},
+	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;>;", 0, $virtualMethod(ArgumentAttr$SwitchExpressionType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCSwitchExpression*, $Env*)},
+	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(ArgumentAttr$SwitchExpressionType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
+	{"lambda$yieldExpressions$0", "()Lcom/sun/tools/javac/util/List;", nullptr, $PRIVATE | $SYNTHETIC, $method(ArgumentAttr$SwitchExpressionType, lambda$yieldExpressions$0, $List*)},
+	{"overloadCheck", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$SwitchExpressionType, overloadCheck, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
+	{"yieldExpressions", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCYield;>;", 0, $virtualMethod(ArgumentAttr$SwitchExpressionType, yieldExpressions, $List*)},
 	{}
 };
 

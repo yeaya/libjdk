@@ -6,6 +6,8 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Map = ::java::util::Map;
+using $DeclaredType = ::javax::lang::model::type::DeclaredType;
 
 namespace javax {
 	namespace lang {
@@ -13,8 +15,8 @@ namespace javax {
 			namespace element {
 
 $MethodInfo _AnnotationMirror_MethodInfo_[] = {
-	{"getAnnotationType", "()Ljavax/lang/model/type/DeclaredType;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getElementValues", "()Ljava/util/Map;", "()Ljava/util/Map<+Ljavax/lang/model/element/ExecutableElement;+Ljavax/lang/model/element/AnnotationValue;>;", $PUBLIC | $ABSTRACT},
+	{"getAnnotationType", "()Ljavax/lang/model/type/DeclaredType;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationMirror, getAnnotationType, $DeclaredType*)},
+	{"getElementValues", "()Ljava/util/Map;", "()Ljava/util/Map<+Ljavax/lang/model/element/ExecutableElement;+Ljavax/lang/model/element/AnnotationValue;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationMirror, getElementValues, $Map*)},
 	{}
 };
 

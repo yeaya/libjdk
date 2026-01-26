@@ -24,8 +24,8 @@ $FieldInfo _MLet$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MLet$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/loading/MLet;Ljavax/management/MBeanServer;)V", "()V", 0, $method(static_cast<void(MLet$1::*)($MLet*,$MBeanServer*)>(&MLet$1::init$))},
-	{"run", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/loading/MLet;Ljavax/management/MBeanServer;)V", "()V", 0, $method(MLet$1, init$, void, $MLet*, $MBeanServer*)},
+	{"run", "()Ljavax/management/loading/ClassLoaderRepository;", nullptr, $PUBLIC, $virtualMethod(MLet$1, run, $Object*)},
 	{}
 };
 

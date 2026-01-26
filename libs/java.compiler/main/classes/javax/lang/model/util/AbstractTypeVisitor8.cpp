@@ -27,7 +27,7 @@ $CompoundAttribute _AbstractTypeVisitor8_Annotations_[] = {
 };
 
 $MethodInfo _AbstractTypeVisitor8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(AbstractTypeVisitor8::*)()>(&AbstractTypeVisitor8::init$))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractTypeVisitor8, init$, void)},
 	{"visitIntersection", "(Ljavax/lang/model/type/IntersectionType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
 	{}
 };

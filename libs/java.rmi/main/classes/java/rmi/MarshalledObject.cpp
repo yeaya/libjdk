@@ -36,11 +36,11 @@ $FieldInfo _MarshalledObject_FieldInfo_[] = {
 };
 
 $MethodInfo _MarshalledObject_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $method(static_cast<void(MarshalledObject::*)(Object$*)>(&MarshalledObject::init$)), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(static_cast<$Object*(MarshalledObject::*)()>(&MarshalledObject::get)), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(MarshalledObject::*)($ObjectInputStream*)>(&MarshalledObject::readObject)), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $method(MarshalledObject, init$, void, Object$*), "java.io.IOException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MarshalledObject, equals, bool, Object$*)},
+	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(MarshalledObject, get, $Object*), "java.io.IOException,java.lang.ClassNotFoundException"},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MarshalledObject, hashCode, int32_t)},
+	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MarshalledObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
 	{}
 };
 

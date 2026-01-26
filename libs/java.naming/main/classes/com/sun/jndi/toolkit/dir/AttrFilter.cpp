@@ -5,6 +5,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Attributes = ::javax::naming::directory::Attributes;
 
 namespace com {
 	namespace sun {
@@ -13,7 +14,7 @@ namespace com {
 				namespace dir {
 
 $MethodInfo _AttrFilter_MethodInfo_[] = {
-	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.naming.NamingException"},
+	{"check", "(Ljavax/naming/directory/Attributes;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttrFilter, check, bool, $Attributes*), "javax.naming.NamingException"},
 	{}
 };
 

@@ -72,8 +72,8 @@ $FieldInfo Http1Response$HeadersReader$$Lambda$currentStateMessage::fieldInfos[2
 	{}
 };
 $MethodInfo Http1Response$HeadersReader$$Lambda$currentStateMessage::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1HeaderParser;)V", nullptr, $PUBLIC, $method(static_cast<void(Http1Response$HeadersReader$$Lambda$currentStateMessage::*)($Http1HeaderParser*)>(&Http1Response$HeadersReader$$Lambda$currentStateMessage::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/Http1HeaderParser;)V", nullptr, $PUBLIC, $method(Http1Response$HeadersReader$$Lambda$currentStateMessage, init$, void, $Http1HeaderParser*)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Http1Response$HeadersReader$$Lambda$currentStateMessage, get, $Object*)},
 	{}
 };
 $ClassInfo Http1Response$HeadersReader$$Lambda$currentStateMessage::classInfo$ = {
@@ -102,18 +102,18 @@ $FieldInfo _Http1Response$HeadersReader_FieldInfo_[] = {
 };
 
 $MethodInfo _Http1Response$HeadersReader_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Http1Response;Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljdk/internal/net/http/Http1Response$State;>;)V", 0, $method(static_cast<void(Http1Response$HeadersReader::*)($Http1Response*,$Consumer*)>(&Http1Response$HeadersReader::init$))},
-	{"close", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"completion", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Response$State;>;", 0},
-	{"handle", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/Http1HeaderParser;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/Http1HeaderParser;Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Response$State;>;)V", $FINAL, $method(static_cast<void(Http1Response$HeadersReader::*)($ByteBuffer*,$Http1HeaderParser*,$CompletableFuture*)>(&Http1Response$HeadersReader::handle))},
-	{"handle", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $VOLATILE | $SYNTHETIC},
-	{"onReadError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL},
-	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC},
-	{"reset", "()V", nullptr, 0},
-	{"start", "(Ljdk/internal/net/http/Http1HeaderParser;)V", nullptr, $FINAL, $method(static_cast<void(Http1Response$HeadersReader::*)($Http1HeaderParser*)>(&Http1Response$HeadersReader::start))},
-	{"start", "(Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC},
-	{"subscription", "()Ljdk/internal/net/http/AbstractSubscription;", nullptr, $PUBLIC},
-	{"tryAsyncReceive", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljdk/internal/net/http/Http1Response;Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljdk/internal/net/http/Http1Response$State;>;)V", 0, $method(Http1Response$HeadersReader, init$, void, $Http1Response*, $Consumer*)},
+	{"close", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Http1Response$HeadersReader, close, void, $Throwable*)},
+	{"completion", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Response$State;>;", 0, $virtualMethod(Http1Response$HeadersReader, completion, $CompletableFuture*)},
+	{"handle", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/Http1HeaderParser;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/nio/ByteBuffer;Ljdk/internal/net/http/Http1HeaderParser;Ljava/util/concurrent/CompletableFuture<Ljdk/internal/net/http/Http1Response$State;>;)V", $FINAL, $method(Http1Response$HeadersReader, handle, void, $ByteBuffer*, $Http1HeaderParser*, $CompletableFuture*)},
+	{"handle", "(Ljava/nio/ByteBuffer;Ljava/lang/Object;Ljava/util/concurrent/CompletableFuture;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Http1Response$HeadersReader, handle, void, $ByteBuffer*, Object$*, $CompletableFuture*)},
+	{"onReadError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Http1Response$HeadersReader, onReadError, void, $Throwable*)},
+	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC, $virtualMethod(Http1Response$HeadersReader, onSubscribe, void, $AbstractSubscription*)},
+	{"reset", "()V", nullptr, 0, $virtualMethod(Http1Response$HeadersReader, reset, void)},
+	{"start", "(Ljdk/internal/net/http/Http1HeaderParser;)V", nullptr, $FINAL, $method(Http1Response$HeadersReader, start, void, $Http1HeaderParser*)},
+	{"start", "(Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(Http1Response$HeadersReader, start, void, Object$*)},
+	{"subscription", "()Ljdk/internal/net/http/AbstractSubscription;", nullptr, $PUBLIC, $virtualMethod(Http1Response$HeadersReader, subscription, $AbstractSubscription*)},
+	{"tryAsyncReceive", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Http1Response$HeadersReader, tryAsyncReceive, bool, $ByteBuffer*)},
 	{}
 };
 

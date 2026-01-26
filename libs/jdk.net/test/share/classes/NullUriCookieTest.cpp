@@ -25,10 +25,10 @@ $FieldInfo _NullUriCookieTest_FieldInfo_[] = {
 };
 
 $MethodInfo _NullUriCookieTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(NullUriCookieTest::*)()>(&NullUriCookieTest::init$))},
-	{"checkCookieNullUri", "()V", nullptr, $STATIC, $method(static_cast<void(*)()>(&NullUriCookieTest::checkCookieNullUri)), "java.lang.Exception"},
-	{"checkFail", "(Ljava/lang/String;)V", nullptr, $STATIC, $method(static_cast<void(*)($String*)>(&NullUriCookieTest::checkFail))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&NullUriCookieTest::main)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NullUriCookieTest, init$, void)},
+	{"checkCookieNullUri", "()V", nullptr, $STATIC, $staticMethod(NullUriCookieTest, checkCookieNullUri, void), "java.lang.Exception"},
+	{"checkFail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(NullUriCookieTest, checkFail, void, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullUriCookieTest, main, void, $StringArray*), "java.lang.Exception"},
 	{}
 };
 

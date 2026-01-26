@@ -94,12 +94,12 @@ $FieldInfo _TypeEnter$AbstractHeaderPhase_FieldInfo_[] = {
 };
 
 $MethodInfo _TypeEnter$AbstractHeaderPhase_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;Lcom/sun/tools/javac/comp/TypeEnter$Phase;)V", nullptr, $PUBLIC, $method(static_cast<void(TypeEnter$AbstractHeaderPhase::*)($TypeEnter*,$Dependencies$CompletionCause*,$TypeEnter$Phase*)>(&TypeEnter$AbstractHeaderPhase::init$))},
-	{"attribSuperTypes", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED},
-	{"baseEnv", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PROTECTED},
-	{"clearTypeParams", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED},
-	{"enumBase", "(ILcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED},
-	{"modelMissingTypes", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/code/Type;", $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/comp/TypeEnter;Lcom/sun/tools/javac/util/Dependencies$CompletionCause;Lcom/sun/tools/javac/comp/TypeEnter$Phase;)V", nullptr, $PUBLIC, $method(TypeEnter$AbstractHeaderPhase, init$, void, $TypeEnter*, $Dependencies$CompletionCause*, $TypeEnter$Phase*)},
+	{"attribSuperTypes", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PROTECTED, $virtualMethod(TypeEnter$AbstractHeaderPhase, attribSuperTypes, void, $Env*, $Env*)},
+	{"baseEnv", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PROTECTED, $virtualMethod(TypeEnter$AbstractHeaderPhase, baseEnv, $Env*, $JCTree$JCClassDecl*, $Env*)},
+	{"clearTypeParams", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(TypeEnter$AbstractHeaderPhase, clearTypeParams, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+	{"enumBase", "(ILcom/sun/tools/javac/code/Symbol$ClassSymbol;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PROTECTED, $virtualMethod(TypeEnter$AbstractHeaderPhase, enumBase, $JCTree$JCExpression*, int32_t, $Symbol$ClassSymbol*)},
+	{"modelMissingTypes", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Z)Lcom/sun/tools/javac/code/Type;", $PROTECTED, $virtualMethod(TypeEnter$AbstractHeaderPhase, modelMissingTypes, $Type*, $Env*, $Type*, $JCTree$JCExpression*, bool)},
 	{}
 };
 

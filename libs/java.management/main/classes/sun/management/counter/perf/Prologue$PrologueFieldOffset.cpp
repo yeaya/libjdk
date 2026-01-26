@@ -69,7 +69,7 @@ $FieldInfo _Prologue$PrologueFieldOffset_FieldInfo_[] = {
 };
 
 $MethodInfo _Prologue$PrologueFieldOffset_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/counter/perf/Prologue;)V", nullptr, $PRIVATE, $method(static_cast<void(Prologue$PrologueFieldOffset::*)($Prologue*)>(&Prologue$PrologueFieldOffset::init$))},
+	{"<init>", "(Lsun/management/counter/perf/Prologue;)V", nullptr, $PRIVATE, $method(Prologue$PrologueFieldOffset, init$, void, $Prologue*)},
 	{}
 };
 

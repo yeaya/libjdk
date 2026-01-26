@@ -31,11 +31,11 @@ using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 
 $MethodInfo _B6644726_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(B6644726::*)()>(&B6644726::init$))},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&B6644726::fail)), "java.lang.Exception"},
-	{"isIn", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $method(static_cast<bool(*)($List*,$String*)>(&B6644726::isIn))},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($StringArray*)>(&B6644726::main)), "java.lang.Exception"},
-	{"testCookieStore", "()V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)()>(&B6644726::testCookieStore)), "java.lang.Exception"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(B6644726, init$, void)},
+	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6644726, fail, void, $String*), "java.lang.Exception"},
+	{"isIn", "(Ljava/util/List;Ljava/lang/String;)Z", "(Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(B6644726, isIn, bool, $List*, $String*)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6644726, main, void, $StringArray*), "java.lang.Exception"},
+	{"testCookieStore", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(B6644726, testCookieStore, void), "java.lang.Exception"},
 	{}
 };
 

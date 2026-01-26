@@ -50,8 +50,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo MethodsTest$1$$Lambda$lambda$headers$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MethodsTest$1$$Lambda$lambda$headers$0::*)()>(&MethodsTest$1$$Lambda$lambda$headers$0::init$))},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodsTest$1$$Lambda$lambda$headers$0, init$, void)},
+	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1$$Lambda$lambda$headers$0, test, bool, Object$*, Object$*)},
 	{}
 };
 $ClassInfo MethodsTest$1$$Lambda$lambda$headers$0::classInfo$ = {
@@ -74,15 +74,15 @@ $FieldInfo _MethodsTest$1_FieldInfo_[] = {
 };
 
 $MethodInfo _MethodsTest$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(MethodsTest$1::*)($String*)>(&MethodsTest$1::init$))},
-	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC},
-	{"expectContinue", "()Z", nullptr, $PUBLIC},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC},
-	{"lambda$headers$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<bool(*)($String*,$String*)>(&MethodsTest$1::lambda$headers$0))},
-	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(MethodsTest$1, init$, void, $String*)},
+	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(MethodsTest$1, bodyPublisher, $Optional*)},
+	{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, expectContinue, bool)},
+	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, headers, $HttpHeaders*)},
+	{"lambda$headers$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodsTest$1, lambda$headers$0, bool, $String*, $String*)},
+	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, method, $String*)},
+	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(MethodsTest$1, timeout, $Optional*)},
+	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, uri, $URI*)},
+	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(MethodsTest$1, version, $Optional*)},
 	{}
 };
 

@@ -34,8 +34,8 @@ $FieldInfo _AttrRecover$1$1_FieldInfo_[] = {
 };
 
 $MethodInfo _AttrRecover$1$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/AttrRecover$1;Lcom/sun/tools/javac/tree/JCTree$JCErroneous;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, 0, $method(static_cast<void(AttrRecover$1$1::*)($AttrRecover$1*,$JCTree$JCErroneous*,$JCTree$JCReturn*)>(&AttrRecover$1$1::init$))},
-	{"translate", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/AttrRecover$1;Lcom/sun/tools/javac/tree/JCTree$JCErroneous;Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, 0, $method(AttrRecover$1$1, init$, void, $AttrRecover$1*, $JCTree$JCErroneous*, $JCTree$JCReturn*)},
+	{"translate", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PUBLIC, $virtualMethod(AttrRecover$1$1, translate, $JCTree*, $JCTree*)},
 	{}
 };
 

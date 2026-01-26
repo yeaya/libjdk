@@ -31,6 +31,8 @@
 #undef VERBOSE
 #undef WALKER
 
+using $OutputStream = ::java::io::OutputStream;
+using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -71,8 +73,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Log$$Lambda$lambda$getSource$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Log$$Lambda$lambda$getSource$1::*)()>(&Log$$Lambda$lambda$getSource$1::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Log$$Lambda$lambda$getSource$1, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Log$$Lambda$lambda$getSource$1, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo Log$$Lambda$lambda$getSource$1::classInfo$ = {
@@ -104,8 +106,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Log$$Lambda$lambda$static$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Log$$Lambda$lambda$static$0$1::*)()>(&Log$$Lambda$lambda$static$0$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Log$$Lambda$lambda$static$0$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Log$$Lambda$lambda$static$0$1, run, $Object*)},
 	{}
 };
 $ClassInfo Log$$Lambda$lambda$static$0$1::classInfo$ = {
@@ -131,17 +133,17 @@ $FieldInfo _Log_FieldInfo_[] = {
 };
 
 $MethodInfo _Log_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Log::*)()>(&Log::init$))},
-	{"getLog", "(Ljava/lang/String;Ljava/lang/String;I)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Log*(*)($String*,$String*,int32_t)>(&Log::getLog))},
-	{"getLog", "(Ljava/lang/String;Ljava/lang/String;Z)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Log*(*)($String*,$String*,bool)>(&Log::getLog))},
-	{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSource", "()Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC, $method(static_cast<$StackWalker$StackFrame*(*)()>(&Log::getSource))},
-	{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"lambda$getSource$1", "(Ljava/util/stream/Stream;)Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$StackWalker$StackFrame*(*)($Stream*)>(&Log::lambda$getSource$1))},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)()>(&Log::lambda$static$0))},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Log, init$, void)},
+	{"getLog", "(Ljava/lang/String;Ljava/lang/String;I)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, getLog, Log*, $String*, $String*, int32_t)},
+	{"getLog", "(Ljava/lang/String;Ljava/lang/String;Z)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log, getLog, Log*, $String*, $String*, bool)},
+	{"getPrintStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, getPrintStream, $PrintStream*)},
+	{"getSource", "()Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC, $staticMethod(Log, getSource, $StackWalker$StackFrame*)},
+	{"isLoggable", "(Ljava/util/logging/Level;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, isLoggable, bool, $Level*)},
+	{"lambda$getSource$1", "(Ljava/util/stream/Stream;)Ljava/lang/StackWalker$StackFrame;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log, lambda$getSource$1, $StackWalker$StackFrame*, $Stream*)},
+	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log, lambda$static$0, $Boolean*)},
+	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, log, void, $Level*, $String*)},
+	{"log", "(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, log, void, $Level*, $String*, $Throwable*)},
+	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log, setOutputStream, void, $OutputStream*)},
 	{}
 };
 

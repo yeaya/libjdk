@@ -54,9 +54,9 @@ $FieldInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$1_FieldInfo_[] = {
 };
 
 $MethodInfo _LambdaToMethod$LambdaAnalyzerPreprocessor$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;)V", nullptr, 0, $method(static_cast<void(LambdaToMethod$LambdaAnalyzerPreprocessor$1::*)($LambdaToMethod$LambdaAnalyzerPreprocessor*,$Lower*,$LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext*)>(&LambdaToMethod$LambdaAnalyzerPreprocessor$1::init$))},
-	{"addFreeVars", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0},
-	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;Lcom/sun/tools/javac/comp/Lower;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext;)V", nullptr, 0, $method(LambdaToMethod$LambdaAnalyzerPreprocessor$1, init$, void, $LambdaToMethod$LambdaAnalyzerPreprocessor*, $Lower*, $LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext*)},
+	{"addFreeVars", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$1, addFreeVars, void, $Symbol$ClassSymbol*)},
+	{"visitSymbol", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $virtualMethod(LambdaToMethod$LambdaAnalyzerPreprocessor$1, visitSymbol, void, $Symbol*)},
 	{}
 };
 

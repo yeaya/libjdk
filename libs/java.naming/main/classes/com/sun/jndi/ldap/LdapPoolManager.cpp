@@ -111,8 +111,8 @@ $FieldInfo LdapPoolManager$$Lambda$lambda$getProperty$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LdapPoolManager$$Lambda$lambda$getProperty$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(LdapPoolManager$$Lambda$lambda$getProperty$0::*)($String*,$String*)>(&LdapPoolManager$$Lambda$lambda$getProperty$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LdapPoolManager$$Lambda$lambda$getProperty$0, init$, void, $String*, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapPoolManager$$Lambda$lambda$getProperty$0, run, $Object*)},
 	{}
 };
 $ClassInfo LdapPoolManager$$Lambda$lambda$getProperty$0::classInfo$ = {
@@ -154,8 +154,8 @@ $FieldInfo LdapPoolManager$$Lambda$lambda$getInteger$1$1::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LdapPoolManager$$Lambda$lambda$getInteger$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(static_cast<void(LdapPoolManager$$Lambda$lambda$getInteger$1$1::*)($String*,int32_t)>(&LdapPoolManager$$Lambda$lambda$getInteger$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(LdapPoolManager$$Lambda$lambda$getInteger$1$1, init$, void, $String*, int32_t)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapPoolManager$$Lambda$lambda$getInteger$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo LdapPoolManager$$Lambda$lambda$getInteger$1$1::classInfo$ = {
@@ -197,8 +197,8 @@ $FieldInfo LdapPoolManager$$Lambda$lambda$getLong$2$2::fieldInfos[3] = {
 	{}
 };
 $MethodInfo LdapPoolManager$$Lambda$lambda$getLong$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(static_cast<void(LdapPoolManager$$Lambda$lambda$getLong$2$2::*)($String*,int64_t)>(&LdapPoolManager$$Lambda$lambda$getLong$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $method(LdapPoolManager$$Lambda$lambda$getLong$2$2, init$, void, $String*, int64_t)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapPoolManager$$Lambda$lambda$getLong$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo LdapPoolManager$$Lambda$lambda$getLong$2$2::classInfo$ = {
@@ -246,20 +246,20 @@ $FieldInfo _LdapPoolManager_FieldInfo_[] = {
 };
 
 $MethodInfo _LdapPoolManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(LdapPoolManager::*)()>(&LdapPoolManager::init$))},
-	{"d", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*)>(&LdapPoolManager::d))},
-	{"d", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)($String*,$String*)>(&LdapPoolManager::d))},
-	{"expire", "(J)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)(int64_t)>(&LdapPoolManager::expire))},
-	{"findPool", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($String*)>(&LdapPoolManager::findPool))},
-	{"getInteger", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int32_t(*)($String*,int32_t)>(&LdapPoolManager::getInteger))},
-	{"getLdapClient", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable;)Lcom/sun/jndi/ldap/LdapClient;", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable<**>;)Lcom/sun/jndi/ldap/LdapClient;", $STATIC, $method(static_cast<$LdapClient*(*)($String*,int32_t,$String*,int32_t,int32_t,$OutputStream*,int32_t,$String*,$ControlArray*,$String*,$String*,Object$*,$Hashtable*)>(&LdapPoolManager::getLdapClient)), "javax.naming.NamingException"},
-	{"getLong", "(Ljava/lang/String;J)J", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<int64_t(*)($String*,int64_t)>(&LdapPoolManager::getLong))},
-	{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $method(static_cast<$String*(*)($String*,$String*)>(&LdapPoolManager::getProperty))},
-	{"isPoolingAllowed", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable;)Z", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable<**>;)Z", $STATIC, $method(static_cast<bool(*)($String*,$OutputStream*,$String*,$String*,$Hashtable*)>(&LdapPoolManager::isPoolingAllowed)), "javax.naming.NamingException"},
-	{"lambda$getInteger$1", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)($String*,int32_t)>(&LdapPoolManager::lambda$getInteger$1))},
-	{"lambda$getLong$2", "(Ljava/lang/String;J)Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)($String*,int64_t)>(&LdapPoolManager::lambda$getLong$2))},
-	{"lambda$getProperty$0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$String*(*)($String*,$String*)>(&LdapPoolManager::lambda$getProperty$0))},
-	{"showStats", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($PrintStream*)>(&LdapPoolManager::showStats))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(LdapPoolManager, init$, void)},
+	{"d", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapPoolManager, d, void, $String*)},
+	{"d", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapPoolManager, d, void, $String*, $String*)},
+	{"expire", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapPoolManager, expire, void, int64_t)},
+	{"findPool", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapPoolManager, findPool, int32_t, $String*)},
+	{"getInteger", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapPoolManager, getInteger, int32_t, $String*, int32_t)},
+	{"getLdapClient", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable;)Lcom/sun/jndi/ldap/LdapClient;", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;ILjava/lang/String;[Ljavax/naming/ldap/Control;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/util/Hashtable<**>;)Lcom/sun/jndi/ldap/LdapClient;", $STATIC, $staticMethod(LdapPoolManager, getLdapClient, $LdapClient*, $String*, int32_t, $String*, int32_t, int32_t, $OutputStream*, int32_t, $String*, $ControlArray*, $String*, $String*, Object$*, $Hashtable*), "javax.naming.NamingException"},
+	{"getLong", "(Ljava/lang/String;J)J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapPoolManager, getLong, int64_t, $String*, int64_t)},
+	{"getProperty", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(LdapPoolManager, getProperty, $String*, $String*, $String*)},
+	{"isPoolingAllowed", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable;)Z", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;Ljava/util/Hashtable<**>;)Z", $STATIC, $staticMethod(LdapPoolManager, isPoolingAllowed, bool, $String*, $OutputStream*, $String*, $String*, $Hashtable*), "javax.naming.NamingException"},
+	{"lambda$getInteger$1", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapPoolManager, lambda$getInteger$1, $Integer*, $String*, int32_t)},
+	{"lambda$getLong$2", "(Ljava/lang/String;J)Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapPoolManager, lambda$getLong$2, $Long*, $String*, int64_t)},
+	{"lambda$getProperty$0", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapPoolManager, lambda$getProperty$0, $String*, $String*, $String*)},
+	{"showStats", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapPoolManager, showStats, void, $PrintStream*)},
 	{}
 };
 

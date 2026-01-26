@@ -18,10 +18,10 @@ $FieldInfo _RealmException_FieldInfo_[] = {
 };
 
 $MethodInfo _RealmException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(RealmException::*)(int32_t)>(&RealmException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RealmException::*)($String*)>(&RealmException::init$))},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(RealmException::*)(int32_t,$String*)>(&RealmException::init$))},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(RealmException::*)($Throwable*)>(&RealmException::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(RealmException, init$, void, int32_t)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RealmException, init$, void, $String*)},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(RealmException, init$, void, int32_t, $String*)},
+	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RealmException, init$, void, $Throwable*)},
 	{}
 };
 

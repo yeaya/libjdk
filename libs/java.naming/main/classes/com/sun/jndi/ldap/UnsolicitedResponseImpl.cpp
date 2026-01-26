@@ -30,12 +30,12 @@ $FieldInfo _UnsolicitedResponseImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _UnsolicitedResponseImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[BLjava/util/Vector;ILjava/lang/String;Ljava/lang/String;[Ljavax/naming/ldap/Control;)V", "(Ljava/lang/String;[BLjava/util/Vector<Ljava/util/Vector<Ljava/lang/String;>;>;ILjava/lang/String;Ljava/lang/String;[Ljavax/naming/ldap/Control;)V", 0, $method(static_cast<void(UnsolicitedResponseImpl::*)($String*,$bytes*,$Vector*,int32_t,$String*,$String*,$ControlArray*)>(&UnsolicitedResponseImpl::init$))},
-	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, nullptr, "javax.naming.NamingException"},
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC},
-	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getReferrals", "()[Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;[BLjava/util/Vector;ILjava/lang/String;Ljava/lang/String;[Ljavax/naming/ldap/Control;)V", "(Ljava/lang/String;[BLjava/util/Vector<Ljava/util/Vector<Ljava/lang/String;>;>;ILjava/lang/String;Ljava/lang/String;[Ljavax/naming/ldap/Control;)V", 0, $method(UnsolicitedResponseImpl, init$, void, $String*, $bytes*, $Vector*, int32_t, $String*, $String*, $ControlArray*)},
+	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getControls, $ControlArray*), "javax.naming.NamingException"},
+	{"getEncodedValue", "()[B", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getEncodedValue, $bytes*)},
+	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getException, $NamingException*)},
+	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getID, $String*)},
+	{"getReferrals", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getReferrals, $StringArray*)},
 	{}
 };
 

@@ -63,8 +63,8 @@ $FieldInfo _Ber_FieldInfo_[] = {
 };
 
 $MethodInfo _Ber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Ber::*)()>(&Ber::init$))},
-	{"dumpBER", "(Ljava/io/OutputStream;Ljava/lang/String;[BII)V", nullptr, $PUBLIC | $STATIC, $method(static_cast<void(*)($OutputStream*,$String*,$bytes*,int32_t,int32_t)>(&Ber::dumpBER))},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Ber, init$, void)},
+	{"dumpBER", "(Ljava/io/OutputStream;Ljava/lang/String;[BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Ber, dumpBER, void, $OutputStream*, $String*, $bytes*, int32_t, int32_t)},
 	{}
 };
 

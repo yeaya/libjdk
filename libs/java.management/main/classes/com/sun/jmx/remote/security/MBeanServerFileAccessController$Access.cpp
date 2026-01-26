@@ -27,7 +27,7 @@ $FieldInfo _MBeanServerFileAccessController$Access_FieldInfo_[] = {
 };
 
 $MethodInfo _MBeanServerFileAccessController$Access_MethodInfo_[] = {
-	{"<init>", "(ZZLjava/util/List;)V", "(ZZLjava/util/List<Ljava/lang/String;>;)V", 0, $method(static_cast<void(MBeanServerFileAccessController$Access::*)(bool,bool,$List*)>(&MBeanServerFileAccessController$Access::init$))},
+	{"<init>", "(ZZLjava/util/List;)V", "(ZZLjava/util/List<Ljava/lang/String;>;)V", 0, $method(MBeanServerFileAccessController$Access, init$, void, bool, bool, $List*)},
 	{}
 };
 

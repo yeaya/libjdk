@@ -31,7 +31,7 @@ $FieldInfo _Sockets$KeepAliveOptions_FieldInfo_[] = {
 };
 
 $MethodInfo _Sockets$KeepAliveOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Sockets$KeepAliveOptions::*)()>(&Sockets$KeepAliveOptions::init$))},
+	{"<init>", "()V", nullptr, 0, $method(Sockets$KeepAliveOptions, init$, void)},
 	{}
 };
 

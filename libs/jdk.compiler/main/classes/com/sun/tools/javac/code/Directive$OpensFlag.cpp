@@ -33,11 +33,11 @@ $FieldInfo _Directive$OpensFlag_FieldInfo_[] = {
 };
 
 $MethodInfo _Directive$OpensFlag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Directive$OpensFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Directive$OpensFlagArray*(*)()>(&Directive$OpensFlag::$values))},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(static_cast<void(Directive$OpensFlag::*)($String*,int32_t,int32_t)>(&Directive$OpensFlag::init$))},
-	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$OpensFlag;>;)I", $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($Set*)>(&Directive$OpensFlag::value))},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Directive$OpensFlag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<Directive$OpensFlag*(*)($String*)>(&Directive$OpensFlag::valueOf))},
-	{"values", "()[Lcom/sun/tools/javac/code/Directive$OpensFlag;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$Directive$OpensFlagArray*(*)()>(&Directive$OpensFlag::values))},
+	{"$values", "()[Lcom/sun/tools/javac/code/Directive$OpensFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Directive$OpensFlag, $values, $Directive$OpensFlagArray*)},
+	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Directive$OpensFlag, init$, void, $String*, int32_t, int32_t)},
+	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$OpensFlag;>;)I", $PUBLIC | $STATIC, $staticMethod(Directive$OpensFlag, value, int32_t, $Set*)},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Directive$OpensFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$OpensFlag, valueOf, Directive$OpensFlag*, $String*)},
+	{"values", "()[Lcom/sun/tools/javac/code/Directive$OpensFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$OpensFlag, values, $Directive$OpensFlagArray*)},
 	{}
 };
 

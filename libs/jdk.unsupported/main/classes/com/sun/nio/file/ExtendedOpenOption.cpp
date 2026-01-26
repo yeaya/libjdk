@@ -33,15 +33,15 @@ $FieldInfo _ExtendedOpenOption_FieldInfo_[] = {
 };
 
 $MethodInfo _ExtendedOpenOption_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/nio/file/ExtendedOpenOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ExtendedOpenOptionArray*(*)()>(&ExtendedOpenOption::$values))},
+	{"$values", "()[Lcom/sun/nio/file/ExtendedOpenOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExtendedOpenOption, $values, $ExtendedOpenOptionArray*)},
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
 	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;)V", $PRIVATE, $method(static_cast<void(ExtendedOpenOption::*)($String*,int32_t,$FileSystemOption*)>(&ExtendedOpenOption::init$))},
+	{"<init>", "(Ljava/lang/String;ILjdk/internal/misc/FileSystemOption;)V", "(Ljdk/internal/misc/FileSystemOption<Ljava/lang/Void;>;)V", $PRIVATE, $method(ExtendedOpenOption, init$, void, $String*, int32_t, $FileSystemOption*)},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/ExtendedOpenOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<ExtendedOpenOption*(*)($String*)>(&ExtendedOpenOption::valueOf))},
-	{"values", "()[Lcom/sun/nio/file/ExtendedOpenOption;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ExtendedOpenOptionArray*(*)()>(&ExtendedOpenOption::values))},
+	{"valueOf", "(Ljava/lang/String;)Lcom/sun/nio/file/ExtendedOpenOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedOpenOption, valueOf, ExtendedOpenOption*, $String*)},
+	{"values", "()[Lcom/sun/nio/file/ExtendedOpenOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExtendedOpenOption, values, $ExtendedOpenOptionArray*)},
 	{}
 };
 

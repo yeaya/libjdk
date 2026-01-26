@@ -27,11 +27,11 @@ $FieldInfo _LogManager$VisitedLoggers_FieldInfo_[] = {
 };
 
 $MethodInfo _LogManager$VisitedLoggers_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/IdentityHashMap;)V", "(Ljava/util/IdentityHashMap<Ljava/util/logging/Logger;Ljava/lang/Boolean;>;)V", $PRIVATE, $method(static_cast<void(LogManager$VisitedLoggers::*)($IdentityHashMap*)>(&LogManager$VisitedLoggers::init$))},
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(LogManager$VisitedLoggers::*)()>(&LogManager$VisitedLoggers::init$))},
-	{"clear", "()V", nullptr, $PUBLIC, $method(static_cast<void(LogManager$VisitedLoggers::*)()>(&LogManager$VisitedLoggers::clear))},
-	{"test", "(Ljava/util/logging/Logger;)Z", nullptr, $PUBLIC, $method(static_cast<bool(LogManager$VisitedLoggers::*)($Logger*)>(&LogManager$VisitedLoggers::test))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Ljava/util/IdentityHashMap;)V", "(Ljava/util/IdentityHashMap<Ljava/util/logging/Logger;Ljava/lang/Boolean;>;)V", $PRIVATE, $method(LogManager$VisitedLoggers, init$, void, $IdentityHashMap*)},
+	{"<init>", "()V", nullptr, 0, $method(LogManager$VisitedLoggers, init$, void)},
+	{"clear", "()V", nullptr, $PUBLIC, $method(LogManager$VisitedLoggers, clear, void)},
+	{"test", "(Ljava/util/logging/Logger;)Z", nullptr, $PUBLIC, $method(LogManager$VisitedLoggers, test, bool, $Logger*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LogManager$VisitedLoggers, test, bool, Object$*)},
 	{}
 };
 

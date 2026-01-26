@@ -21,9 +21,9 @@ $FieldInfo _Utils$ServerName_FieldInfo_[] = {
 };
 
 $MethodInfo _Utils$ServerName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(Utils$ServerName::*)($String*,bool)>(&Utils$ServerName::init$))},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"isLiteral", "()Z", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(Utils$ServerName, init$, void, $String*, bool)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Utils$ServerName, getName, $String*)},
+	{"isLiteral", "()Z", nullptr, $PUBLIC, $virtualMethod(Utils$ServerName, isLiteral, bool)},
 	{}
 };
 

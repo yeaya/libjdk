@@ -24,8 +24,8 @@ $FieldInfo _Resolve$InapplicableMethodException_FieldInfo_[] = {
 };
 
 $MethodInfo _Resolve$InapplicableMethodException_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(static_cast<void(Resolve$InapplicableMethodException::*)($JCDiagnostic*)>(&Resolve$InapplicableMethodException::init$))},
-	{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $method(Resolve$InapplicableMethodException, init$, void, $JCDiagnostic*)},
+	{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Resolve$InapplicableMethodException, getDiagnostic, $JCDiagnostic*)},
 	{}
 };
 

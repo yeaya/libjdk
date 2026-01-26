@@ -8,15 +8,18 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $Modifier = ::javax::lang::model::element::Modifier;
+using $NestingKind = ::javax::lang::model::element::NestingKind;
+using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace javax {
 	namespace tools {
 
 $MethodInfo _JavaFileObject_MethodInfo_[] = {
-	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC | $ABSTRACT},
+	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileObject, getAccessLevel, $Modifier*)},
+	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileObject, getKind, $JavaFileObject$Kind*)},
+	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileObject, getNestingKind, $NestingKind*)},
+	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
 	{}
 };
 

@@ -4,6 +4,8 @@
 #include <com/sun/net/httpserver/HttpExchange.h>
 #include <jcpp.h>
 
+using $Authenticator$Result = ::com::sun::net::httpserver::Authenticator$Result;
+using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -14,8 +16,8 @@ namespace com {
 			namespace httpserver {
 
 $MethodInfo _Authenticator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(static_cast<void(Authenticator::*)()>(&Authenticator::init$))},
-	{"authenticate", "(Lcom/sun/net/httpserver/HttpExchange;)Lcom/sun/net/httpserver/Authenticator$Result;", nullptr, $PUBLIC | $ABSTRACT},
+	{"<init>", "()V", nullptr, $PROTECTED, $method(Authenticator, init$, void)},
+	{"authenticate", "(Lcom/sun/net/httpserver/HttpExchange;)Lcom/sun/net/httpserver/Authenticator$Result;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Authenticator, authenticate, $Authenticator$Result*, $HttpExchange*)},
 	{}
 };
 

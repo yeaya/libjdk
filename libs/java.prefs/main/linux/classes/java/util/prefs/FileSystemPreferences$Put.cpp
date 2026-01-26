@@ -25,8 +25,8 @@ $FieldInfo _FileSystemPreferences$Put_FieldInfo_[] = {
 };
 
 $MethodInfo _FileSystemPreferences$Put_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(FileSystemPreferences$Put::*)($FileSystemPreferences*,$String*,$String*)>(&FileSystemPreferences$Put::init$))},
-	{"replay", "()V", nullptr, 0},
+	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(FileSystemPreferences$Put, init$, void, $FileSystemPreferences*, $String*, $String*)},
+	{"replay", "()V", nullptr, 0, $virtualMethod(FileSystemPreferences$Put, replay, void)},
 	{}
 };
 

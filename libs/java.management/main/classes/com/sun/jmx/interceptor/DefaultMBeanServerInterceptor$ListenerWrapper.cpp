@@ -27,10 +27,10 @@ $FieldInfo _DefaultMBeanServerInterceptor$ListenerWrapper_FieldInfo_[] = {
 };
 
 $MethodInfo _DefaultMBeanServerInterceptor$ListenerWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/NotificationListener;Ljavax/management/ObjectName;Ljava/lang/Object;)V", nullptr, 0, $method(static_cast<void(DefaultMBeanServerInterceptor$ListenerWrapper::*)($NotificationListener*,$ObjectName*,Object$*)>(&DefaultMBeanServerInterceptor$ListenerWrapper::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"handleNotification", "(Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljavax/management/NotificationListener;Ljavax/management/ObjectName;Ljava/lang/Object;)V", nullptr, 0, $method(DefaultMBeanServerInterceptor$ListenerWrapper, init$, void, $NotificationListener*, $ObjectName*, Object$*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ListenerWrapper, equals, bool, Object$*)},
+	{"handleNotification", "(Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ListenerWrapper, handleNotification, void, $Notification*, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ListenerWrapper, hashCode, int32_t)},
 	{}
 };
 

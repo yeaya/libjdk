@@ -32,7 +32,7 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _DeferredAttr$PolyScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(DeferredAttr$PolyScanner::*)()>(&DeferredAttr$PolyScanner::init$))},
+	{"<init>", "()V", nullptr, 0, $method(DeferredAttr$PolyScanner, init$, void)},
 	{}
 };
 

@@ -16,8 +16,8 @@ namespace java {
 		namespace prefs {
 
 $MethodInfo _MacOSXPreferencesFile$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MacOSXPreferencesFile$2::*)()>(&MacOSXPreferencesFile$2::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(MacOSXPreferencesFile$2, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$2, run, void)},
 	{}
 };
 

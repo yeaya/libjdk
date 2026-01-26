@@ -30,8 +30,8 @@ $FieldInfo _JavadocFormatter$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JavadocFormatter$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocFormatter;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(JavadocFormatter$1::*)($JavadocFormatter*,$URI*,$JavaFileObject$Kind*,$String*)>(&JavadocFormatter$1::init$))},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocFormatter;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/lang/String;)V", nullptr, 0, $method(JavadocFormatter$1, init$, void, $JavadocFormatter*, $URI*, $JavaFileObject$Kind*, $String*)},
+	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$1, getCharContent, $CharSequence*, bool), "java.io.IOException"},
 	{}
 };
 

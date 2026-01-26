@@ -60,8 +60,8 @@ $FieldInfo ISO_8859_1$Reader$$Lambda$lambda$new$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo ISO_8859_1$Reader$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/ISO_8859_1$Reader;)V", nullptr, $PUBLIC, $method(static_cast<void(ISO_8859_1$Reader$$Lambda$lambda$new$0::*)(ISO_8859_1$Reader*)>(&ISO_8859_1$Reader$$Lambda$lambda$new$0::init$))},
-	{"accept", "(JI)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/hpack/ISO_8859_1$Reader;)V", nullptr, $PUBLIC, $method(ISO_8859_1$Reader$$Lambda$lambda$new$0, init$, void, ISO_8859_1$Reader*)},
+	{"accept", "(JI)V", nullptr, $PUBLIC, $virtualMethod(ISO_8859_1$Reader$$Lambda$lambda$new$0, accept, void, int64_t, int32_t)},
 	{}
 };
 $ClassInfo ISO_8859_1$Reader$$Lambda$lambda$new$0::classInfo$ = {
@@ -87,10 +87,10 @@ $FieldInfo _ISO_8859_1$Reader_FieldInfo_[] = {
 };
 
 $MethodInfo _ISO_8859_1$Reader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ISO_8859_1$Reader::*)()>(&ISO_8859_1$Reader::init$))},
-	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ISO_8859_1$Reader::*)(int64_t,int32_t)>(&ISO_8859_1$Reader::lambda$new$0))},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;)V", nullptr, $PUBLIC, $method(static_cast<void(ISO_8859_1$Reader::*)($ByteBuffer*,$Appendable*)>(&ISO_8859_1$Reader::read)), "java.io.IOException"},
-	{"reset", "()Ljdk/internal/net/http/hpack/ISO_8859_1$Reader;", nullptr, $PUBLIC, $method(static_cast<ISO_8859_1$Reader*(ISO_8859_1$Reader::*)()>(&ISO_8859_1$Reader::reset))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO_8859_1$Reader, init$, void)},
+	{"lambda$new$0", "(JI)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ISO_8859_1$Reader, lambda$new$0, void, int64_t, int32_t)},
+	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;)V", nullptr, $PUBLIC, $method(ISO_8859_1$Reader, read, void, $ByteBuffer*, $Appendable*), "java.io.IOException"},
+	{"reset", "()Ljdk/internal/net/http/hpack/ISO_8859_1$Reader;", nullptr, $PUBLIC, $method(ISO_8859_1$Reader, reset, ISO_8859_1$Reader*)},
 	{}
 };
 

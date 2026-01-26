@@ -19,8 +19,8 @@ $FieldInfo _KdcErrException_FieldInfo_[] = {
 };
 
 $MethodInfo _KdcErrException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(static_cast<void(KdcErrException::*)(int32_t)>(&KdcErrException::init$))},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(KdcErrException::*)(int32_t,$String*)>(&KdcErrException::init$))},
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(KdcErrException, init$, void, int32_t)},
+	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(KdcErrException, init$, void, int32_t, $String*)},
 	{}
 };
 

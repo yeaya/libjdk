@@ -6,13 +6,15 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $SQLType = ::java::sql::SQLType;
+using $ShardingKey = ::java::sql::ShardingKey;
 
 namespace java {
 	namespace sql {
 
 $MethodInfo _ShardingKeyBuilder_MethodInfo_[] = {
-	{"build", "()Ljava/sql/ShardingKey;", nullptr, $PUBLIC | $ABSTRACT, nullptr, "java.sql.SQLException"},
-	{"subkey", "(Ljava/lang/Object;Ljava/sql/SQLType;)Ljava/sql/ShardingKeyBuilder;", nullptr, $PUBLIC | $ABSTRACT},
+	{"build", "()Ljava/sql/ShardingKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShardingKeyBuilder, build, $ShardingKey*), "java.sql.SQLException"},
+	{"subkey", "(Ljava/lang/Object;Ljava/sql/SQLType;)Ljava/sql/ShardingKeyBuilder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShardingKeyBuilder, subkey, ShardingKeyBuilder*, Object$*, $SQLType*)},
 	{}
 };
 

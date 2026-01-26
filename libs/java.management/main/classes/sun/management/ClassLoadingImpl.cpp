@@ -25,14 +25,14 @@ $FieldInfo _ClassLoadingImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _ClassLoadingImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(static_cast<void(ClassLoadingImpl::*)($VMManagement*)>(&ClassLoadingImpl::init$))},
-	{"getLoadedClassCount", "()I", nullptr, $PUBLIC},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC},
-	{"getTotalLoadedClassCount", "()J", nullptr, $PUBLIC},
-	{"getUnloadedClassCount", "()J", nullptr, $PUBLIC},
-	{"isVerbose", "()Z", nullptr, $PUBLIC},
-	{"setVerbose", "(Z)V", nullptr, $PUBLIC},
-	{"setVerboseClass", "(Z)V", nullptr, $STATIC | $NATIVE, $method(static_cast<void(*)(bool)>(&ClassLoadingImpl::setVerboseClass))},
+	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, 0, $method(ClassLoadingImpl, init$, void, $VMManagement*)},
+	{"getLoadedClassCount", "()I", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getLoadedClassCount, int32_t)},
+	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getObjectName, $ObjectName*)},
+	{"getTotalLoadedClassCount", "()J", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getTotalLoadedClassCount, int64_t)},
+	{"getUnloadedClassCount", "()J", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, getUnloadedClassCount, int64_t)},
+	{"isVerbose", "()Z", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, isVerbose, bool)},
+	{"setVerbose", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ClassLoadingImpl, setVerbose, void, bool)},
+	{"setVerboseClass", "(Z)V", nullptr, $STATIC | $NATIVE, $staticMethod(ClassLoadingImpl, setVerboseClass, void, bool)},
 	{}
 };
 

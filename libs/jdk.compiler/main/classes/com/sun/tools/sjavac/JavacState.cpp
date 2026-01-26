@@ -127,8 +127,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo JavacState$$Lambda$stream::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(JavacState$$Lambda$stream::*)()>(&JavacState$$Lambda$stream::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacState$$Lambda$stream, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacState$$Lambda$stream, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo JavacState$$Lambda$stream::classInfo$ = {
@@ -167,8 +167,8 @@ $FieldInfo JavacState$$Lambda$addAll$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavacState$$Lambda$addAll$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacState$$Lambda$addAll$1::*)($Set*)>(&JavacState$$Lambda$addAll$1::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(JavacState$$Lambda$addAll$1, init$, void, $Set*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JavacState$$Lambda$addAll$1, accept, void, Object$*)},
 	{}
 };
 $ClassInfo JavacState$$Lambda$addAll$1::classInfo$ = {
@@ -214,40 +214,40 @@ $FieldInfo _JavacState_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacState_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/options/Options;Z)V", nullptr, 0, $method(static_cast<void(JavacState::*)($Options*,bool)>(&JavacState::init$))},
-	{"addFileToTransform", "(Ljava/util/Map;Lcom/sun/tools/sjavac/Transformer;Lcom/sun/tools/sjavac/Source;)V", "(Ljava/util/Map<Lcom/sun/tools/sjavac/Transformer;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;>;Lcom/sun/tools/sjavac/Transformer;Lcom/sun/tools/sjavac/Source;)V", $PRIVATE, $method(static_cast<void(JavacState::*)($Map*,$Transformer*,$Source*)>(&JavacState::addFileToTransform))},
-	{"calculateAddedSources", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/sjavac/Source;>;", $PRIVATE, $method(static_cast<$Set*(JavacState::*)()>(&JavacState::calculateAddedSources))},
-	{"calculateModifiedSources", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/sjavac/Source;>;", $PRIVATE, $method(static_cast<$Set*(JavacState::*)()>(&JavacState::calculateModifiedSources))},
-	{"calculateRemovedSources", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/sjavac/Source;>;", $PRIVATE, $method(static_cast<$Set*(JavacState::*)()>(&JavacState::calculateRemovedSources))},
-	{"checkSourceStatus", "(Z)V", nullptr, $PUBLIC},
-	{"clearTaintedPackages", "()V", nullptr, $PUBLIC},
-	{"compareWithMakefileList", "(Ljava/io/File;)V", nullptr, $PUBLIC, nullptr, "com.sun.tools.sjavac.ProblemException"},
-	{"deleteClassArtifactsInTaintedPackages", "()V", nullptr, $PUBLIC},
-	{"deleteContents", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(static_cast<void(JavacState::*)($File*)>(&JavacState::deleteContents))},
-	{"fetchPrevArtifacts", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/io/File;>;", $PRIVATE, $method(static_cast<$Map*(JavacState::*)($String*)>(&JavacState::fetchPrevArtifacts))},
-	{"findAllArtifacts", "()V", nullptr, $PUBLIC},
-	{"findAllFiles", "(Ljava/io/File;)Ljava/util/Set;", "(Ljava/io/File;)Ljava/util/Set<Ljava/io/File;>;", $PRIVATE | $STATIC, $method(static_cast<$Set*(*)($File*)>(&JavacState::findAllFiles))},
-	{"getJavaSuffixRule", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;", $PUBLIC},
-	{"isIncremental", "()Z", nullptr, $PUBLIC},
-	{"load", "(Lcom/sun/tools/sjavac/options/Options;)Lcom/sun/tools/sjavac/JavacState;", nullptr, $PUBLIC | $STATIC, $method(static_cast<JavacState*(*)($Options*)>(&JavacState::load))},
-	{"needsSaving", "()V", nullptr, $PRIVATE, $method(static_cast<void(JavacState::*)()>(&JavacState::needsSaving))},
-	{"now", "()Lcom/sun/tools/sjavac/BuildState;", nullptr, $PUBLIC},
-	{"perform", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/io/File;Ljava/util/Map;)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/io/File;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;)Z", $PRIVATE, $method(static_cast<bool(JavacState::*)($CompilationService*,$File*,$Map*)>(&JavacState::perform))},
-	{"performCopying", "(Ljava/io/File;Ljava/util/Map;)V", "(Ljava/io/File;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;)V", $PUBLIC},
-	{"performJavaCompilations", "(Lcom/sun/tools/sjavac/comp/CompilationService;Lcom/sun/tools/sjavac/options/Options;Ljava/util/Set;[Z)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Lcom/sun/tools/sjavac/options/Options;Ljava/util/Set<Ljava/lang/String;>;[Z)Z", $PUBLIC},
-	{"performTranslation", "(Ljava/io/File;Ljava/util/Map;)V", "(Ljava/io/File;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;)V", $PUBLIC},
-	{"prev", "()Lcom/sun/tools/sjavac/BuildState;", nullptr, $PUBLIC},
-	{"recurse", "(Ljava/io/File;Ljava/util/Set;)V", "(Ljava/io/File;Ljava/util/Set<Ljava/io/File;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)($File*,$Set*)>(&JavacState::recurse))},
-	{"removeArgsNotAffectingState", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $method(static_cast<$StringArray*(*)($StringArray*)>(&JavacState::removeArgsNotAffectingState))},
-	{"removeSuperfluousArtifacts", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC},
-	{"removeUnidentifiedArtifacts", "()V", nullptr, $PUBLIC},
-	{"save", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"setVisibleSources", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;)V", $PUBLIC},
-	{"taintPackage", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"taintPackagesDependingOnChangedClasspathPackages", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"taintPackagesDependingOnChangedPackages", "(Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC},
-	{"taintPackagesThatMissArtifacts", "()V", nullptr, $PUBLIC},
-	{"taintedPackages", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/sjavac/options/Options;Z)V", nullptr, 0, $method(JavacState, init$, void, $Options*, bool)},
+	{"addFileToTransform", "(Ljava/util/Map;Lcom/sun/tools/sjavac/Transformer;Lcom/sun/tools/sjavac/Source;)V", "(Ljava/util/Map<Lcom/sun/tools/sjavac/Transformer;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/net/URI;>;>;>;Lcom/sun/tools/sjavac/Transformer;Lcom/sun/tools/sjavac/Source;)V", $PRIVATE, $method(JavacState, addFileToTransform, void, $Map*, $Transformer*, $Source*)},
+	{"calculateAddedSources", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/sjavac/Source;>;", $PRIVATE, $method(JavacState, calculateAddedSources, $Set*)},
+	{"calculateModifiedSources", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/sjavac/Source;>;", $PRIVATE, $method(JavacState, calculateModifiedSources, $Set*)},
+	{"calculateRemovedSources", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/sjavac/Source;>;", $PRIVATE, $method(JavacState, calculateRemovedSources, $Set*)},
+	{"checkSourceStatus", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JavacState, checkSourceStatus, void, bool)},
+	{"clearTaintedPackages", "()V", nullptr, $PUBLIC, $virtualMethod(JavacState, clearTaintedPackages, void)},
+	{"compareWithMakefileList", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(JavacState, compareWithMakefileList, void, $File*), "com.sun.tools.sjavac.ProblemException"},
+	{"deleteClassArtifactsInTaintedPackages", "()V", nullptr, $PUBLIC, $virtualMethod(JavacState, deleteClassArtifactsInTaintedPackages, void)},
+	{"deleteContents", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(JavacState, deleteContents, void, $File*)},
+	{"fetchPrevArtifacts", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/io/File;>;", $PRIVATE, $method(JavacState, fetchPrevArtifacts, $Map*, $String*)},
+	{"findAllArtifacts", "()V", nullptr, $PUBLIC, $virtualMethod(JavacState, findAllArtifacts, void)},
+	{"findAllFiles", "(Ljava/io/File;)Ljava/util/Set;", "(Ljava/io/File;)Ljava/util/Set<Ljava/io/File;>;", $PRIVATE | $STATIC, $staticMethod(JavacState, findAllFiles, $Set*, $File*)},
+	{"getJavaSuffixRule", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;", $PUBLIC, $virtualMethod(JavacState, getJavaSuffixRule, $Map*)},
+	{"isIncremental", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacState, isIncremental, bool)},
+	{"load", "(Lcom/sun/tools/sjavac/options/Options;)Lcom/sun/tools/sjavac/JavacState;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacState, load, JavacState*, $Options*)},
+	{"needsSaving", "()V", nullptr, $PRIVATE, $method(JavacState, needsSaving, void)},
+	{"now", "()Lcom/sun/tools/sjavac/BuildState;", nullptr, $PUBLIC, $virtualMethod(JavacState, now, $BuildState*)},
+	{"perform", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/io/File;Ljava/util/Map;)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Ljava/io/File;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;)Z", $PRIVATE, $method(JavacState, perform, bool, $CompilationService*, $File*, $Map*)},
+	{"performCopying", "(Ljava/io/File;Ljava/util/Map;)V", "(Ljava/io/File;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;)V", $PUBLIC, $virtualMethod(JavacState, performCopying, void, $File*, $Map*)},
+	{"performJavaCompilations", "(Lcom/sun/tools/sjavac/comp/CompilationService;Lcom/sun/tools/sjavac/options/Options;Ljava/util/Set;[Z)Z", "(Lcom/sun/tools/sjavac/comp/CompilationService;Lcom/sun/tools/sjavac/options/Options;Ljava/util/Set<Ljava/lang/String;>;[Z)Z", $PUBLIC, $virtualMethod(JavacState, performJavaCompilations, bool, $CompilationService*, $Options*, $Set*, $booleans*)},
+	{"performTranslation", "(Ljava/io/File;Ljava/util/Map;)V", "(Ljava/io/File;Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;)V", $PUBLIC, $virtualMethod(JavacState, performTranslation, void, $File*, $Map*)},
+	{"prev", "()Lcom/sun/tools/sjavac/BuildState;", nullptr, $PUBLIC, $virtualMethod(JavacState, prev, $BuildState*)},
+	{"recurse", "(Ljava/io/File;Ljava/util/Set;)V", "(Ljava/io/File;Ljava/util/Set<Ljava/io/File;>;)V", $PRIVATE | $STATIC, $staticMethod(JavacState, recurse, void, $File*, $Set*)},
+	{"removeArgsNotAffectingState", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(JavacState, removeArgsNotAffectingState, $StringArray*, $StringArray*)},
+	{"removeSuperfluousArtifacts", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(JavacState, removeSuperfluousArtifacts, void, $Set*)},
+	{"removeUnidentifiedArtifacts", "()V", nullptr, $PUBLIC, $virtualMethod(JavacState, removeUnidentifiedArtifacts, void)},
+	{"save", "()V", nullptr, $PUBLIC, $virtualMethod(JavacState, save, void), "java.io.IOException"},
+	{"setVisibleSources", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Source;>;)V", $PUBLIC, $virtualMethod(JavacState, setVisibleSources, void, $Map*)},
+	{"taintPackage", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JavacState, taintPackage, void, $String*, $String*)},
+	{"taintPackagesDependingOnChangedClasspathPackages", "()V", nullptr, $PUBLIC, $virtualMethod(JavacState, taintPackagesDependingOnChangedClasspathPackages, void), "java.io.IOException"},
+	{"taintPackagesDependingOnChangedPackages", "(Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(JavacState, taintPackagesDependingOnChangedPackages, void, $Set*, $Set*)},
+	{"taintPackagesThatMissArtifacts", "()V", nullptr, $PUBLIC, $virtualMethod(JavacState, taintPackagesThatMissArtifacts, void)},
+	{"taintedPackages", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JavacState, taintedPackages, $Set*)},
 	{}
 };
 

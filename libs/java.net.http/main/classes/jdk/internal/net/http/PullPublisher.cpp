@@ -34,9 +34,9 @@ $FieldInfo _PullPublisher_FieldInfo_[] = {
 };
 
 $MethodInfo _PullPublisher_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;Ljava/lang/Throwable;)V", "(Ljava/lang/Iterable<TT;>;Ljava/lang/Throwable;)V", 0, $method(static_cast<void(PullPublisher::*)($Iterable*,$Throwable*)>(&PullPublisher::init$))},
-	{"<init>", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<TT;>;)V", 0, $method(static_cast<void(PullPublisher::*)($Iterable*)>(&PullPublisher::init$))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC},
+	{"<init>", "(Ljava/lang/Iterable;Ljava/lang/Throwable;)V", "(Ljava/lang/Iterable<TT;>;Ljava/lang/Throwable;)V", 0, $method(PullPublisher, init$, void, $Iterable*, $Throwable*)},
+	{"<init>", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<TT;>;)V", 0, $method(PullPublisher, init$, void, $Iterable*)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC, $virtualMethod(PullPublisher, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 

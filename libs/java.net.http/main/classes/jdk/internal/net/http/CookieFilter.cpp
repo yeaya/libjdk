@@ -45,9 +45,9 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _CookieFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(CookieFilter::*)()>(&CookieFilter::init$))},
-	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC, nullptr, "java.io.IOException"},
-	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CookieFilter, init$, void)},
+	{"request", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange;)V", "(Ljdk/internal/net/http/HttpRequestImpl;Ljdk/internal/net/http/MultiExchange<*>;)V", $PUBLIC, $virtualMethod(CookieFilter, request, void, $HttpRequestImpl*, $MultiExchange*), "java.io.IOException"},
+	{"response", "(Ljdk/internal/net/http/Response;)Ljdk/internal/net/http/HttpRequestImpl;", nullptr, $PUBLIC, $virtualMethod(CookieFilter, response, $HttpRequestImpl*, $Response*), "java.io.IOException"},
 	{}
 };
 

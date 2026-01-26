@@ -27,8 +27,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Symbol$ParamSymbol_MethodInfo_[] = {
-	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(static_cast<void(Symbol$ParamSymbol::*)(int64_t,$Name*,$Type*,$Symbol*)>(&Symbol$ParamSymbol::init$))},
-	{"getSimpleName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC},
+	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$ParamSymbol, init$, void, int64_t, $Name*, $Type*, $Symbol*)},
+	{"getSimpleName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$ParamSymbol, getSimpleName, $1Name*)},
 	{}
 };
 

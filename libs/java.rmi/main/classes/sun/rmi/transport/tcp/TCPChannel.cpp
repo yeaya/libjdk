@@ -116,8 +116,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TCPChannel$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TCPChannel$$Lambda$lambda$static$0::*)()>(&TCPChannel$$Lambda$lambda$static$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TCPChannel$$Lambda$lambda$static$0, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPChannel$$Lambda$lambda$static$0, run, $Object*)},
 	{}
 };
 $ClassInfo TCPChannel$$Lambda$lambda$static$0::classInfo$ = {
@@ -149,8 +149,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TCPChannel$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TCPChannel$$Lambda$lambda$static$1$1::*)()>(&TCPChannel$$Lambda$lambda$static$1$1::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TCPChannel$$Lambda$lambda$static$1$1, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPChannel$$Lambda$lambda$static$1$1, run, $Object*)},
 	{}
 };
 $ClassInfo TCPChannel$$Lambda$lambda$static$1$1::classInfo$ = {
@@ -182,8 +182,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo TCPChannel$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(TCPChannel$$Lambda$lambda$static$2$2::*)()>(&TCPChannel$$Lambda$lambda$static$2$2::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(TCPChannel$$Lambda$lambda$static$2$2, init$, void)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TCPChannel$$Lambda$lambda$static$2$2, run, $Object*)},
 	{}
 };
 $ClassInfo TCPChannel$$Lambda$lambda$static$2$2::classInfo$ = {
@@ -217,18 +217,18 @@ $FieldInfo _TCPChannel_FieldInfo_[] = {
 };
 
 $MethodInfo _TCPChannel_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Lsun/rmi/transport/tcp/TCPEndpoint;)V", nullptr, 0, $method(static_cast<void(TCPChannel::*)($TCPTransport*,$TCPEndpoint*)>(&TCPChannel::init$))},
-	{"checkConnectPermission", "()V", nullptr, $PRIVATE, $method(static_cast<void(TCPChannel::*)()>(&TCPChannel::checkConnectPermission)), "java.lang.SecurityException"},
-	{"createConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PRIVATE, $method(static_cast<$Connection*(TCPChannel::*)()>(&TCPChannel::createConnection)), "java.rmi.RemoteException"},
-	{"free", "(Lsun/rmi/transport/Connection;Z)V", nullptr, $PUBLIC},
-	{"freeCachedConnections", "()V", nullptr, $PRIVATE, $method(static_cast<void(TCPChannel::*)()>(&TCPChannel::freeCachedConnections))},
-	{"getEndpoint", "()Lsun/rmi/transport/Endpoint;", nullptr, $PUBLIC},
-	{"lambda$static$0", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Long*(*)()>(&TCPChannel::lambda$static$0))},
-	{"lambda$static$1", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)()>(&TCPChannel::lambda$static$1))},
-	{"lambda$static$2", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Integer*(*)()>(&TCPChannel::lambda$static$2))},
-	{"newConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC, nullptr, "java.rmi.RemoteException"},
-	{"shedCache", "()V", nullptr, $PUBLIC},
-	{"writeTransportHeader", "(Ljava/io/DataOutputStream;)V", nullptr, $PRIVATE, $method(static_cast<void(TCPChannel::*)($DataOutputStream*)>(&TCPChannel::writeTransportHeader)), "java.rmi.RemoteException"},
+	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;Lsun/rmi/transport/tcp/TCPEndpoint;)V", nullptr, 0, $method(TCPChannel, init$, void, $TCPTransport*, $TCPEndpoint*)},
+	{"checkConnectPermission", "()V", nullptr, $PRIVATE, $method(TCPChannel, checkConnectPermission, void), "java.lang.SecurityException"},
+	{"createConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PRIVATE, $method(TCPChannel, createConnection, $Connection*), "java.rmi.RemoteException"},
+	{"free", "(Lsun/rmi/transport/Connection;Z)V", nullptr, $PUBLIC, $virtualMethod(TCPChannel, free, void, $Connection*, bool)},
+	{"freeCachedConnections", "()V", nullptr, $PRIVATE, $method(TCPChannel, freeCachedConnections, void)},
+	{"getEndpoint", "()Lsun/rmi/transport/Endpoint;", nullptr, $PUBLIC, $virtualMethod(TCPChannel, getEndpoint, $Endpoint*)},
+	{"lambda$static$0", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPChannel, lambda$static$0, $Long*)},
+	{"lambda$static$1", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPChannel, lambda$static$1, $Integer*)},
+	{"lambda$static$2", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TCPChannel, lambda$static$2, $Integer*)},
+	{"newConnection", "()Lsun/rmi/transport/Connection;", nullptr, $PUBLIC, $virtualMethod(TCPChannel, newConnection, $Connection*), "java.rmi.RemoteException"},
+	{"shedCache", "()V", nullptr, $PUBLIC, $virtualMethod(TCPChannel, shedCache, void)},
+	{"writeTransportHeader", "(Ljava/io/DataOutputStream;)V", nullptr, $PRIVATE, $method(TCPChannel, writeTransportHeader, void, $DataOutputStream*), "java.rmi.RemoteException"},
 	{}
 };
 

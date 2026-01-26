@@ -189,8 +189,8 @@ $FieldInfo JavacTaskImpl$$Lambda$lambda$doCall$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavacTaskImpl$$Lambda$lambda$doCall$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskImpl$$Lambda$lambda$doCall$0::*)(JavacTaskImpl*)>(&JavacTaskImpl$$Lambda$lambda$doCall$0::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;)V", nullptr, $PUBLIC, $method(JavacTaskImpl$$Lambda$lambda$doCall$0, init$, void, JavacTaskImpl*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskImpl$$Lambda$lambda$doCall$0, call, $Object*)},
 	{}
 };
 $ClassInfo JavacTaskImpl$$Lambda$lambda$doCall$0::classInfo$ = {
@@ -229,8 +229,8 @@ $FieldInfo JavacTaskImpl$$Lambda$parseInternal$1::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavacTaskImpl$$Lambda$parseInternal$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskImpl$$Lambda$parseInternal$1::*)(JavacTaskImpl*)>(&JavacTaskImpl$$Lambda$parseInternal$1::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;)V", nullptr, $PUBLIC, $method(JavacTaskImpl$$Lambda$parseInternal$1, init$, void, JavacTaskImpl*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskImpl$$Lambda$parseInternal$1, call, $Object*)},
 	{}
 };
 $ClassInfo JavacTaskImpl$$Lambda$parseInternal$1::classInfo$ = {
@@ -269,8 +269,8 @@ $FieldInfo JavacTaskImpl$$Lambda$lambda$analyze$1$2::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavacTaskImpl$$Lambda$lambda$analyze$1$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskImpl$$Lambda$lambda$analyze$1$2::*)(JavacTaskImpl*)>(&JavacTaskImpl$$Lambda$lambda$analyze$1$2::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;)V", nullptr, $PUBLIC, $method(JavacTaskImpl$$Lambda$lambda$analyze$1$2, init$, void, JavacTaskImpl*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskImpl$$Lambda$lambda$analyze$1$2, call, $Object*)},
 	{}
 };
 $ClassInfo JavacTaskImpl$$Lambda$lambda$analyze$1$2::classInfo$ = {
@@ -309,8 +309,8 @@ $FieldInfo JavacTaskImpl$$Lambda$lambda$generate$2$3::fieldInfos[2] = {
 	{}
 };
 $MethodInfo JavacTaskImpl$$Lambda$lambda$generate$2$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;)V", nullptr, $PUBLIC, $method(static_cast<void(JavacTaskImpl$$Lambda$lambda$generate$2$3::*)(JavacTaskImpl*)>(&JavacTaskImpl$$Lambda$lambda$generate$2$3::init$))},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskImpl;)V", nullptr, $PUBLIC, $method(JavacTaskImpl$$Lambda$lambda$generate$2$3, init$, void, JavacTaskImpl*)},
+	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskImpl$$Lambda$lambda$generate$2$3, call, $Object*)},
 	{}
 };
 $ClassInfo JavacTaskImpl$$Lambda$lambda$generate$2$3::classInfo$ = {
@@ -343,31 +343,31 @@ $FieldInfo _JavacTaskImpl_FieldInfo_[] = {
 };
 
 $MethodInfo _JavacTaskImpl_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(static_cast<void(JavacTaskImpl::*)($Context*)>(&JavacTaskImpl::init$))},
-	{"addModules", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/lang/String;>;)V", $PUBLIC},
-	{"analyze", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"analyze", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"call", "()Ljava/lang/Boolean;", nullptr, $PUBLIC},
-	{"cleanup", "()V", nullptr, 0},
-	{"doCall", "()Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC},
-	{"ensureEntered", "()V", nullptr, $PUBLIC},
-	{"enter", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"enter", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/CompilationUnitTree;>;)Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC},
-	{"generate", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC},
-	{"generate", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC},
-	{"handleFlowResults", "(Ljava/util/Queue;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;Lcom/sun/tools/javac/util/ListBuffer<Ljavax/lang/model/element/Element;>;)V", $PRIVATE, $method(static_cast<void(JavacTaskImpl::*)($Queue*,$ListBuffer*)>(&JavacTaskImpl::handleFlowResults))},
-	{"invocationHelper", "(Ljava/util/concurrent/Callable;)Lcom/sun/tools/javac/util/Pair;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)Lcom/sun/tools/javac/util/Pair<TT;Ljava/lang/Throwable;>;", $PRIVATE, $method(static_cast<$Pair*(JavacTaskImpl::*)($Callable*)>(&JavacTaskImpl::invocationHelper))},
-	{"lambda$analyze$1", "()Ljava/lang/Iterable;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterable*(JavacTaskImpl::*)()>(&JavacTaskImpl::lambda$analyze$1)), "java.lang.Exception"},
-	{"lambda$doCall$0", "()Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Main$Result*(JavacTaskImpl::*)()>(&JavacTaskImpl::lambda$doCall$0)), "java.lang.Exception"},
-	{"lambda$generate$2", "()Ljava/lang/Iterable;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$Iterable*(JavacTaskImpl::*)()>(&JavacTaskImpl::lambda$generate$2)), "java.lang.Exception"},
-	{"parse", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/source/tree/CompilationUnitTree;>;", $PUBLIC},
-	{"parseInternal", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/source/tree/CompilationUnitTree;>;", $PRIVATE, $method(static_cast<$Iterable*(JavacTaskImpl::*)()>(&JavacTaskImpl::parseInternal))},
-	{"parseType", "(Ljava/lang/String;Ljavax/lang/model/element/TypeElement;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"pathFor", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)Ljava/lang/Iterable;", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;", $PUBLIC},
-	{"prepareCompiler", "(Z)V", nullptr, $PRIVATE, $method(static_cast<void(JavacTaskImpl::*)(bool)>(&JavacTaskImpl::prepareCompiler))},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC},
-	{"setProcessors", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;)V", $PUBLIC},
-	{"toString", "(Ljava/lang/Iterable;Ljava/lang/String;)Ljava/lang/String;", "<T:Ljava/lang/Object;>(Ljava/lang/Iterable<TT;>;Ljava/lang/String;)Ljava/lang/String;", 0},
+	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(JavacTaskImpl, init$, void, $Context*)},
+	{"addModules", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(JavacTaskImpl, addModules, void, $Iterable*)},
+	{"analyze", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacTaskImpl, analyze, $Iterable*)},
+	{"analyze", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacTaskImpl, analyze, $Iterable*, $Iterable*)},
+	{"call", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(JavacTaskImpl, call, $Object*)},
+	{"cleanup", "()V", nullptr, 0, $virtualMethod(JavacTaskImpl, cleanup, void)},
+	{"doCall", "()Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(JavacTaskImpl, doCall, $Main$Result*)},
+	{"ensureEntered", "()V", nullptr, $PUBLIC, $virtualMethod(JavacTaskImpl, ensureEntered, void)},
+	{"enter", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacTaskImpl, enter, $Iterable*)},
+	{"enter", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Lcom/sun/source/tree/CompilationUnitTree;>;)Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;", $PUBLIC, $virtualMethod(JavacTaskImpl, enter, $Iterable*, $Iterable*)},
+	{"generate", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacTaskImpl, generate, $Iterable*)},
+	{"generate", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;)Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;", $PUBLIC, $virtualMethod(JavacTaskImpl, generate, $Iterable*, $Iterable*)},
+	{"handleFlowResults", "(Ljava/util/Queue;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;Lcom/sun/tools/javac/util/ListBuffer<Ljavax/lang/model/element/Element;>;)V", $PRIVATE, $method(JavacTaskImpl, handleFlowResults, void, $Queue*, $ListBuffer*)},
+	{"invocationHelper", "(Ljava/util/concurrent/Callable;)Lcom/sun/tools/javac/util/Pair;", "<T:Ljava/lang/Object;>(Ljava/util/concurrent/Callable<TT;>;)Lcom/sun/tools/javac/util/Pair<TT;Ljava/lang/Throwable;>;", $PRIVATE, $method(JavacTaskImpl, invocationHelper, $Pair*, $Callable*)},
+	{"lambda$analyze$1", "()Ljava/lang/Iterable;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacTaskImpl, lambda$analyze$1, $Iterable*), "java.lang.Exception"},
+	{"lambda$doCall$0", "()Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacTaskImpl, lambda$doCall$0, $Main$Result*), "java.lang.Exception"},
+	{"lambda$generate$2", "()Ljava/lang/Iterable;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacTaskImpl, lambda$generate$2, $Iterable*), "java.lang.Exception"},
+	{"parse", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/source/tree/CompilationUnitTree;>;", $PUBLIC, $virtualMethod(JavacTaskImpl, parse, $Iterable*)},
+	{"parseInternal", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/source/tree/CompilationUnitTree;>;", $PRIVATE, $method(JavacTaskImpl, parseInternal, $Iterable*)},
+	{"parseType", "(Ljava/lang/String;Ljavax/lang/model/element/TypeElement;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(JavacTaskImpl, parseType, $Type*, $String*, $TypeElement*)},
+	{"pathFor", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)Ljava/lang/Iterable;", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)Ljava/lang/Iterable<+Lcom/sun/source/tree/Tree;>;", $PUBLIC, $virtualMethod(JavacTaskImpl, pathFor, $Iterable*, $CompilationUnitTree*, $Tree*)},
+	{"prepareCompiler", "(Z)V", nullptr, $PRIVATE, $method(JavacTaskImpl, prepareCompiler, void, bool)},
+	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(JavacTaskImpl, setLocale, void, $Locale*)},
+	{"setProcessors", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<+Ljavax/annotation/processing/Processor;>;)V", $PUBLIC, $virtualMethod(JavacTaskImpl, setProcessors, void, $Iterable*)},
+	{"toString", "(Ljava/lang/Iterable;Ljava/lang/String;)Ljava/lang/String;", "<T:Ljava/lang/Object;>(Ljava/lang/Iterable<TT;>;Ljava/lang/String;)Ljava/lang/String;", 0, $virtualMethod(JavacTaskImpl, toString, $String*, $Iterable*, $String*)},
 	{}
 };
 

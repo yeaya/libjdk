@@ -54,16 +54,16 @@ $FieldInfo _MemoryHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _MemoryHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(MemoryHandler::*)()>(&MemoryHandler::init$))},
-	{"<init>", "(Ljava/util/logging/Handler;ILjava/util/logging/Level;)V", nullptr, $PUBLIC, $method(static_cast<void(MemoryHandler::*)($Handler*,int32_t,$Level*)>(&MemoryHandler::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.lang.SecurityException"},
-	{"flush", "()V", nullptr, $PUBLIC},
-	{"getPushLevel", "()Ljava/util/logging/Level;", nullptr, $PUBLIC},
-	{"init", "()V", nullptr, $PRIVATE, $method(static_cast<void(MemoryHandler::*)()>(&MemoryHandler::init))},
-	{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"push", "()V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setPushLevel", "(Ljava/util/logging/Level;)V", nullptr, $PUBLIC | $SYNCHRONIZED, nullptr, "java.lang.SecurityException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MemoryHandler, init$, void)},
+	{"<init>", "(Ljava/util/logging/Handler;ILjava/util/logging/Level;)V", nullptr, $PUBLIC, $method(MemoryHandler, init$, void, $Handler*, int32_t, $Level*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, close, void), "java.lang.SecurityException"},
+	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, flush, void)},
+	{"getPushLevel", "()Ljava/util/logging/Level;", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, getPushLevel, $Level*)},
+	{"init", "()V", nullptr, $PRIVATE, $method(MemoryHandler, init, void)},
+	{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC, $virtualMethod(MemoryHandler, isLoggable, bool, $LogRecord*)},
+	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryHandler, publish, void, $LogRecord*)},
+	{"push", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryHandler, push, void)},
+	{"setPushLevel", "(Ljava/util/logging/Level;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryHandler, setPushLevel, void, $Level*), "java.lang.SecurityException"},
 	{}
 };
 

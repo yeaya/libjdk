@@ -4,6 +4,7 @@
 #include <com/sun/tools/javac/comp/InferenceContext.h>
 #include <jcpp.h>
 
+using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -15,7 +16,7 @@ namespace com {
 				namespace comp {
 
 $MethodInfo _Infer$FreeTypeListener_MethodInfo_[] = {
-	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC | $ABSTRACT},
+	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$FreeTypeListener, typesInferred, void, $InferenceContext*)},
 	{}
 };
 

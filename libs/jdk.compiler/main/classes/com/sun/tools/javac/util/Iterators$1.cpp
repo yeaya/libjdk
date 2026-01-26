@@ -14,9 +14,9 @@ namespace com {
 				namespace util {
 
 $MethodInfo _Iterators$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(Iterators$1::*)()>(&Iterators$1::init$))},
-	{"hasNext", "()Z", nullptr, $PUBLIC},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(Iterators$1, init$, void)},
+	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Iterators$1, hasNext, bool)},
+	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Iterators$1, next, $Object*)},
 	{}
 };
 

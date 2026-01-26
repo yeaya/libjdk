@@ -35,13 +35,13 @@ $FieldInfo _DocCommentParser$TagParser_FieldInfo_[] = {
 };
 
 $MethodInfo _DocCommentParser$TagParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;Lcom/sun/source/doctree/DocTree$Kind;)V", nullptr, 0, $method(static_cast<void(DocCommentParser$TagParser::*)($DocCommentParser$TagParser$Kind*,$DocTree$Kind*)>(&DocCommentParser$TagParser::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;Lcom/sun/source/doctree/DocTree$Kind;Z)V", nullptr, 0, $method(static_cast<void(DocCommentParser$TagParser::*)($DocCommentParser$TagParser$Kind*,$DocTree$Kind*,bool)>(&DocCommentParser$TagParser::init$))},
-	{"allowsBlock", "()Z", nullptr, 0},
-	{"allowsInline", "()Z", nullptr, 0},
-	{"getTreeKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, 0},
-	{"parse", "(ILcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;)Lcom/sun/tools/javac/tree/DCTree;", nullptr, 0, nullptr, "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
-	{"parse", "(I)Lcom/sun/tools/javac/tree/DCTree;", nullptr, 0, nullptr, "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
+	{"<init>", "(Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;Lcom/sun/source/doctree/DocTree$Kind;)V", nullptr, 0, $method(DocCommentParser$TagParser, init$, void, $DocCommentParser$TagParser$Kind*, $DocTree$Kind*)},
+	{"<init>", "(Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;Lcom/sun/source/doctree/DocTree$Kind;Z)V", nullptr, 0, $method(DocCommentParser$TagParser, init$, void, $DocCommentParser$TagParser$Kind*, $DocTree$Kind*, bool)},
+	{"allowsBlock", "()Z", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, allowsBlock, bool)},
+	{"allowsInline", "()Z", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, allowsInline, bool)},
+	{"getTreeKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, getTreeKind, $DocTree$Kind*)},
+	{"parse", "(ILcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;)Lcom/sun/tools/javac/tree/DCTree;", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, parse, $DCTree*, int32_t, $DocCommentParser$TagParser$Kind*), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
+	{"parse", "(I)Lcom/sun/tools/javac/tree/DCTree;", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, parse, $DCTree*, int32_t), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
 	{}
 };
 

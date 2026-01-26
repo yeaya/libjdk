@@ -35,12 +35,12 @@ $FieldInfo _Utils$ProxyHeaders_FieldInfo_[] = {
 };
 
 $MethodInfo _Utils$ProxyHeaders_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpHeaders;Ljava/net/http/HttpHeaders;)V", nullptr, $PUBLIC, $method(static_cast<void(Utils$ProxyHeaders::*)($HttpHeaders*,$HttpHeaders*)>(&Utils$ProxyHeaders::init$))},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"systemHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $method(static_cast<$HttpHeaders*(Utils$ProxyHeaders::*)()>(&Utils$ProxyHeaders::systemHeaders))},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"userHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $method(static_cast<$HttpHeaders*(Utils$ProxyHeaders::*)()>(&Utils$ProxyHeaders::userHeaders))},
+	{"<init>", "(Ljava/net/http/HttpHeaders;Ljava/net/http/HttpHeaders;)V", nullptr, $PUBLIC, $method(Utils$ProxyHeaders, init$, void, $HttpHeaders*, $HttpHeaders*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Utils$ProxyHeaders, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Utils$ProxyHeaders, hashCode, int32_t)},
+	{"systemHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $method(Utils$ProxyHeaders, systemHeaders, $HttpHeaders*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Utils$ProxyHeaders, toString, $String*)},
+	{"userHeaders", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $method(Utils$ProxyHeaders, userHeaders, $HttpHeaders*)},
 	{}
 };
 

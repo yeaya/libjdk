@@ -15,6 +15,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $KeySelectorResult = ::javax::xml::crypto::KeySelectorResult;
+using $SignedInfo = ::javax::xml::crypto::dsig::SignedInfo;
+using $XMLSignContext = ::javax::xml::crypto::dsig::XMLSignContext;
+using $XMLSignature$SignatureValue = ::javax::xml::crypto::dsig::XMLSignature$SignatureValue;
+using $XMLValidateContext = ::javax::xml::crypto::dsig::XMLValidateContext;
+using $KeyInfo = ::javax::xml::crypto::dsig::keyinfo::KeyInfo;
 
 namespace javax {
 	namespace xml {
@@ -27,14 +34,14 @@ $FieldInfo _XMLSignature_FieldInfo_[] = {
 };
 
 $MethodInfo _XMLSignature_MethodInfo_[] = {
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKeyInfo", "()Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getKeySelectorResult", "()Ljavax/xml/crypto/KeySelectorResult;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getObjects", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/XMLObject;>;", $PUBLIC | $ABSTRACT},
-	{"getSignatureValue", "()Ljavax/xml/crypto/dsig/XMLSignature$SignatureValue;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSignedInfo", "()Ljavax/xml/crypto/dsig/SignedInfo;", nullptr, $PUBLIC | $ABSTRACT},
-	{"sign", "(Ljavax/xml/crypto/dsig/XMLSignContext;)V", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.MarshalException,javax.xml.crypto.dsig.XMLSignatureException"},
-	{"validate", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, $PUBLIC | $ABSTRACT, nullptr, "javax.xml.crypto.dsig.XMLSignatureException"},
+	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature, getId, $String*)},
+	{"getKeyInfo", "()Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature, getKeyInfo, $KeyInfo*)},
+	{"getKeySelectorResult", "()Ljavax/xml/crypto/KeySelectorResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature, getKeySelectorResult, $KeySelectorResult*)},
+	{"getObjects", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/XMLObject;>;", $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature, getObjects, $List*)},
+	{"getSignatureValue", "()Ljavax/xml/crypto/dsig/XMLSignature$SignatureValue;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature, getSignatureValue, $XMLSignature$SignatureValue*)},
+	{"getSignedInfo", "()Ljavax/xml/crypto/dsig/SignedInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature, getSignedInfo, $SignedInfo*)},
+	{"sign", "(Ljavax/xml/crypto/dsig/XMLSignContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature, sign, void, $XMLSignContext*), "javax.xml.crypto.MarshalException,javax.xml.crypto.dsig.XMLSignatureException"},
+	{"validate", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLSignature, validate, bool, $XMLValidateContext*), "javax.xml.crypto.dsig.XMLSignatureException"},
 	{}
 };
 

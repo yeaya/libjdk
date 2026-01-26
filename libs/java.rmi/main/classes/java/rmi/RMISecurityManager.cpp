@@ -24,7 +24,7 @@ $CompoundAttribute _RMISecurityManager_Annotations_[] = {
 };
 
 $MethodInfo _RMISecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(RMISecurityManager::*)()>(&RMISecurityManager::init$))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(RMISecurityManager, init$, void)},
 	{}
 };
 

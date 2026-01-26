@@ -37,21 +37,21 @@ $FieldInfo _SecureZipFSProvider$SecureZipFS_FieldInfo_[] = {
 };
 
 $MethodInfo _SecureZipFSProvider$SecureZipFS_MethodInfo_[] = {
-	{"<init>", "(LSecureZipFSProvider;Ljava/nio/file/FileSystem;)V", nullptr, $PUBLIC, $method(static_cast<void(SecureZipFSProvider$SecureZipFS::*)($SecureZipFSProvider*,$FileSystem*)>(&SecureZipFSProvider$SecureZipFS::init$))},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC},
-	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT},
-	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC},
-	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC},
-	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC},
-	{"isOpen", "()Z", nullptr, $PUBLIC},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC},
-	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC},
-	{"unwrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, 0},
-	{"wrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, 0},
+	{"<init>", "(LSecureZipFSProvider;Ljava/nio/file/FileSystem;)V", nullptr, $PUBLIC, $method(SecureZipFSProvider$SecureZipFS, init$, void, $SecureZipFSProvider*, $FileSystem*)},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, close, void), "java.io.IOException"},
+	{"getFileStores", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/FileStore;>;", $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, getFileStores, $Iterable*)},
+	{"getPath", "(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(SecureZipFSProvider$SecureZipFS, getPath, $Path*, $String*, $StringArray*)},
+	{"getPathMatcher", "(Ljava/lang/String;)Ljava/nio/file/PathMatcher;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, getPathMatcher, $PathMatcher*, $String*)},
+	{"getRootDirectories", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, getRootDirectories, $Iterable*)},
+	{"getSeparator", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, getSeparator, $String*)},
+	{"getUserPrincipalLookupService", "()Ljava/nio/file/attribute/UserPrincipalLookupService;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, getUserPrincipalLookupService, $UserPrincipalLookupService*)},
+	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, isOpen, bool)},
+	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, isReadOnly, bool)},
+	{"newWatchService", "()Ljava/nio/file/WatchService;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, newWatchService, $WatchService*), "java.io.IOException"},
+	{"provider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, provider, $FileSystemProvider*)},
+	{"supportedFileAttributeViews", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SecureZipFSProvider$SecureZipFS, supportedFileAttributeViews, $Set*)},
+	{"unwrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(SecureZipFSProvider$SecureZipFS, unwrap, $Path*, $Path*)},
+	{"wrap", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(SecureZipFSProvider$SecureZipFS, wrap, $Path*, $Path*)},
 	{}
 };
 

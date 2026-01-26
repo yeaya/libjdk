@@ -36,8 +36,8 @@ $FieldInfo _JMXPluggableAuthenticator$1_FieldInfo_[] = {
 };
 
 $MethodInfo _JMXPluggableAuthenticator$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/security/JMXPluggableAuthenticator;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(static_cast<void(JMXPluggableAuthenticator$1::*)($JMXPluggableAuthenticator*,$String*,$String*)>(&JMXPluggableAuthenticator$1::init$))},
-	{"run", "()Ljavax/security/auth/login/LoginContext;", nullptr, $PUBLIC, nullptr, "javax.security.auth.login.LoginException"},
+	{"<init>", "(Lcom/sun/jmx/remote/security/JMXPluggableAuthenticator;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(JMXPluggableAuthenticator$1, init$, void, $JMXPluggableAuthenticator*, $String*, $String*)},
+	{"run", "()Ljavax/security/auth/login/LoginContext;", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$1, run, $Object*), "javax.security.auth.login.LoginException"},
 	{}
 };
 

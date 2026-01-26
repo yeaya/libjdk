@@ -24,8 +24,8 @@ $FieldInfo _SequentialScheduler$SchedulableTask_FieldInfo_[] = {
 };
 
 $MethodInfo _SequentialScheduler$SchedulableTask_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;)V", nullptr, $PRIVATE, $method(static_cast<void(SequentialScheduler$SchedulableTask::*)($SequentialScheduler*)>(&SequentialScheduler$SchedulableTask::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;)V", nullptr, $PRIVATE, $method(SequentialScheduler$SchedulableTask, init$, void, $SequentialScheduler*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SequentialScheduler$SchedulableTask, run, void)},
 	{}
 };
 

@@ -47,11 +47,11 @@ $FieldInfo _Items$DynamicItem_FieldInfo_[] = {
 };
 
 $MethodInfo _Items$DynamicItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(static_cast<void(Items$DynamicItem::*)($Items*,$Symbol*)>(&Items$DynamicItem::init$))},
-	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0},
-	{"store", "()V", nullptr, 0},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, 0, $method(Items$DynamicItem, init$, void, $Items*, $Symbol*)},
+	{"invoke", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$DynamicItem, invoke, $Items$Item*)},
+	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$DynamicItem, load, $Items$Item*)},
+	{"store", "()V", nullptr, 0, $virtualMethod(Items$DynamicItem, store, void)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$DynamicItem, toString, $String*)},
 	{}
 };
 

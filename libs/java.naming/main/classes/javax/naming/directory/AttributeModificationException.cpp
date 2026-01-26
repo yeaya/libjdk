@@ -22,11 +22,11 @@ $FieldInfo _AttributeModificationException_FieldInfo_[] = {
 };
 
 $MethodInfo _AttributeModificationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(AttributeModificationException::*)($String*)>(&AttributeModificationException::init$))},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(AttributeModificationException::*)()>(&AttributeModificationException::init$))},
-	{"getUnexecutedModifications", "()[Ljavax/naming/directory/ModificationItem;", nullptr, $PUBLIC},
-	{"setUnexecutedModifications", "([Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeModificationException, init$, void, $String*)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(AttributeModificationException, init$, void)},
+	{"getUnexecutedModifications", "()[Ljavax/naming/directory/ModificationItem;", nullptr, $PUBLIC, $virtualMethod(AttributeModificationException, getUnexecutedModifications, $ModificationItemArray*)},
+	{"setUnexecutedModifications", "([Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(AttributeModificationException, setUnexecutedModifications, void, $ModificationItemArray*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeModificationException, toString, $String*)},
 	{}
 };
 

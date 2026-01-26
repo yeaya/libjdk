@@ -39,9 +39,9 @@ namespace com {
 				namespace client {
 
 $MethodInfo _ClientMain_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ClientMain::*)()>(&ClientMain::init$))},
-	{"run", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($StringArray*)>(&ClientMain::run))},
-	{"run", "([Ljava/lang/String;Ljava/io/Writer;Ljava/io/Writer;)I", nullptr, $PUBLIC | $STATIC, $method(static_cast<int32_t(*)($StringArray*,$Writer*,$Writer*)>(&ClientMain::run))},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ClientMain, init$, void)},
+	{"run", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientMain, run, int32_t, $StringArray*)},
+	{"run", "([Ljava/lang/String;Ljava/io/Writer;Ljava/io/Writer;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientMain, run, int32_t, $StringArray*, $Writer*, $Writer*)},
 	{}
 };
 

@@ -31,8 +31,8 @@ $MethodInfo _ArrayNotificationBuffer$BroadcasterQuery_MethodInfo_[] = {
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ArrayNotificationBuffer$BroadcasterQuery::*)()>(&ArrayNotificationBuffer$BroadcasterQuery::init$))},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ArrayNotificationBuffer$BroadcasterQuery, init$, void)},
+	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$BroadcasterQuery, apply, bool, $ObjectName*)},
 	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

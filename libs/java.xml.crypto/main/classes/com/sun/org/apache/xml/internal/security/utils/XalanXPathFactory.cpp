@@ -21,8 +21,8 @@ namespace com {
 							namespace utils {
 
 $MethodInfo _XalanXPathFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(XalanXPathFactory::*)()>(&XalanXPathFactory::init$))},
-	{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XalanXPathFactory, init$, void)},
+	{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC, $virtualMethod(XalanXPathFactory, newXPathAPI, $XPathAPI*)},
 	{}
 };
 

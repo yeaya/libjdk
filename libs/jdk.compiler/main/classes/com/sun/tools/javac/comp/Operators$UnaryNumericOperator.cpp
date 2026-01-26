@@ -48,8 +48,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo Operators$UnaryNumericOperator$$Lambda$isNumeric::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(Operators$UnaryNumericOperator$$Lambda$isNumeric::*)()>(&Operators$UnaryNumericOperator$$Lambda$isNumeric::init$))},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Operators$UnaryNumericOperator$$Lambda$isNumeric, init$, void)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryNumericOperator$$Lambda$isNumeric, test, bool, Object$*)},
 	{}
 };
 $ClassInfo Operators$UnaryNumericOperator$$Lambda$isNumeric::classInfo$ = {
@@ -73,11 +73,11 @@ $FieldInfo _Operators$UnaryNumericOperator_FieldInfo_[] = {
 };
 
 $MethodInfo _Operators$UnaryNumericOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(static_cast<void(Operators$UnaryNumericOperator::*)($Operators*,$JCTree$Tag*)>(&Operators$UnaryNumericOperator::init$))},
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(static_cast<void(Operators$UnaryNumericOperator::*)($Operators*,$JCTree$Tag*,$Predicate*)>(&Operators$UnaryNumericOperator::init$))},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC},
-	{"test", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$UnaryNumericOperator, init$, void, $Operators*, $JCTree$Tag*)},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(Operators$UnaryNumericOperator, init$, void, $Operators*, $JCTree$Tag*, $Predicate*)},
+	{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryNumericOperator, resolve, $Symbol$OperatorSymbol*, $Type*)},
+	{"test", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryNumericOperator, test, bool, $Type*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$UnaryNumericOperator, test, bool, Object$*)},
 	{}
 };
 

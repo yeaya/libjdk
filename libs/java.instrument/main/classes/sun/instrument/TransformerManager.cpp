@@ -28,16 +28,16 @@ $FieldInfo _TransformerManager_FieldInfo_[] = {
 };
 
 $MethodInfo _TransformerManager_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(static_cast<void(TransformerManager::*)(bool)>(&TransformerManager::init$))},
-	{"addTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"getNativeMethodPrefixes", "()[Ljava/lang/String;", nullptr, 0},
-	{"getSnapshotTransformerList", "()[Lsun/instrument/TransformerManager$TransformerInfo;", nullptr, $PRIVATE, $method(static_cast<$TransformerManager$TransformerInfoArray*(TransformerManager::*)()>(&TransformerManager::getSnapshotTransformerList))},
-	{"getTransformerCount", "()I", nullptr, 0},
-	{"includesTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)Z", nullptr, $SYNCHRONIZED},
-	{"isRetransformable", "()Z", nullptr, 0},
-	{"removeTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setNativeMethodPrefix", "(Ljava/lang/instrument/ClassFileTransformer;Ljava/lang/String;)Z", nullptr, 0},
-	{"transform", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[B)[B", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/security/ProtectionDomain;[B)[B", $PUBLIC},
+	{"<init>", "(Z)V", nullptr, 0, $method(TransformerManager, init$, void, bool)},
+	{"addTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TransformerManager, addTransformer, void, $ClassFileTransformer*)},
+	{"getNativeMethodPrefixes", "()[Ljava/lang/String;", nullptr, 0, $virtualMethod(TransformerManager, getNativeMethodPrefixes, $StringArray*)},
+	{"getSnapshotTransformerList", "()[Lsun/instrument/TransformerManager$TransformerInfo;", nullptr, $PRIVATE, $method(TransformerManager, getSnapshotTransformerList, $TransformerManager$TransformerInfoArray*)},
+	{"getTransformerCount", "()I", nullptr, 0, $virtualMethod(TransformerManager, getTransformerCount, int32_t)},
+	{"includesTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)Z", nullptr, $SYNCHRONIZED, $virtualMethod(TransformerManager, includesTransformer, bool, $ClassFileTransformer*)},
+	{"isRetransformable", "()Z", nullptr, 0, $virtualMethod(TransformerManager, isRetransformable, bool)},
+	{"removeTransformer", "(Ljava/lang/instrument/ClassFileTransformer;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TransformerManager, removeTransformer, bool, $ClassFileTransformer*)},
+	{"setNativeMethodPrefix", "(Ljava/lang/instrument/ClassFileTransformer;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(TransformerManager, setNativeMethodPrefix, bool, $ClassFileTransformer*, $String*)},
+	{"transform", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class;Ljava/security/ProtectionDomain;[B)[B", "(Ljava/lang/Module;Ljava/lang/ClassLoader;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/security/ProtectionDomain;[B)[B", $PUBLIC, $virtualMethod(TransformerManager, transform, $bytes*, $Module*, $ClassLoader*, $String*, $Class*, $ProtectionDomain*, $bytes*)},
 	{}
 };
 

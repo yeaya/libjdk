@@ -30,8 +30,8 @@ $FieldInfo _B4769350$Client_FieldInfo_[] = {
 };
 
 $MethodInfo _B4769350$Client_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(static_cast<void(B4769350$Client::*)($String*,$String*,bool)>(&B4769350$Client::init$))},
-	{"run", "()V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, 0, $method(B4769350$Client, init$, void, $String*, $String*, bool)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(B4769350$Client, run, void)},
 	{}
 };
 

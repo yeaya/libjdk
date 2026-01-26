@@ -31,11 +31,11 @@ $FieldInfo _Arguments$2_FieldInfo_[] = {
 };
 
 $MethodInfo _Arguments$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(static_cast<void(Arguments$2::*)($Arguments*,$Log*)>(&Arguments$2::init$))},
-	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"getLog", "()Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/main/Arguments;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(Arguments$2, init$, void, $Arguments*, $Log*)},
+	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Arguments$2, get, $String*, $Option*)},
+	{"getLog", "()Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $virtualMethod(Arguments$2, getLog, $Log*)},
+	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$2, put, void, $String*, $String*)},
+	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Arguments$2, remove, void, $String*)},
 	{}
 };
 

@@ -18,8 +18,8 @@ namespace com {
 				namespace code {
 
 $MethodInfo _Types$ProjectionKind$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(static_cast<void(Types$ProjectionKind$1::*)($String*,int32_t)>(&Types$ProjectionKind$1::init$))},
-	{"complement", "()Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, 0},
+	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Types$ProjectionKind$1, init$, void, $String*, int32_t)},
+	{"complement", "()Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, 0, $virtualMethod(Types$ProjectionKind$1, complement, $Types$ProjectionKind*)},
 	{}
 };
 

@@ -14,9 +14,9 @@ namespace java {
 		namespace prefs {
 
 $MethodInfo _FileSystemPreferencesFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(FileSystemPreferencesFactory::*)()>(&FileSystemPreferencesFactory::init$))},
-	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC},
-	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(FileSystemPreferencesFactory, init$, void)},
+	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferencesFactory, systemRoot, $Preferences*)},
+	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferencesFactory, userRoot, $Preferences*)},
 	{}
 };
 

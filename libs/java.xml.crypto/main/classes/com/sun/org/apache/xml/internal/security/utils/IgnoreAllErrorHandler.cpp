@@ -61,8 +61,8 @@ $FieldInfo IgnoreAllErrorHandler$$Lambda$lambda$getProperty$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo IgnoreAllErrorHandler$$Lambda$lambda$getProperty$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(IgnoreAllErrorHandler$$Lambda$lambda$getProperty$0::*)($String*)>(&IgnoreAllErrorHandler$$Lambda$lambda$getProperty$0::init$))},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IgnoreAllErrorHandler$$Lambda$lambda$getProperty$0, init$, void, $String*)},
+	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IgnoreAllErrorHandler$$Lambda$lambda$getProperty$0, run, $Object*)},
 	{}
 };
 $ClassInfo IgnoreAllErrorHandler$$Lambda$lambda$getProperty$0::classInfo$ = {
@@ -87,12 +87,12 @@ $FieldInfo _IgnoreAllErrorHandler_FieldInfo_[] = {
 };
 
 $MethodInfo _IgnoreAllErrorHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(IgnoreAllErrorHandler::*)()>(&IgnoreAllErrorHandler::init$))},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, nullptr, "org.xml.sax.SAXException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, nullptr, "org.xml.sax.SAXException"},
-	{"getProperty", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $method(static_cast<bool(*)($String*)>(&IgnoreAllErrorHandler::getProperty))},
-	{"lambda$getProperty$0", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Boolean*(*)($String*)>(&IgnoreAllErrorHandler::lambda$getProperty$0))},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, nullptr, "org.xml.sax.SAXException"},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(IgnoreAllErrorHandler, init$, void)},
+	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(IgnoreAllErrorHandler, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(IgnoreAllErrorHandler, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+	{"getProperty", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IgnoreAllErrorHandler, getProperty, bool, $String*)},
+	{"lambda$getProperty$0", "(Ljava/lang/String;)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IgnoreAllErrorHandler, lambda$getProperty$0, $Boolean*, $String*)},
+	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(IgnoreAllErrorHandler, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
 	{}
 };
 

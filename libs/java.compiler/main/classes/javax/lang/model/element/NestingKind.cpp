@@ -29,11 +29,11 @@ $FieldInfo _NestingKind_FieldInfo_[] = {
 };
 
 $MethodInfo _NestingKind_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/element/NestingKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$NestingKindArray*(*)()>(&NestingKind::$values))},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(static_cast<void(NestingKind::*)($String*,int32_t)>(&NestingKind::init$))},
-	{"isNested", "()Z", nullptr, $PUBLIC, $method(static_cast<bool(NestingKind::*)()>(&NestingKind::isNested))},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<NestingKind*(*)($String*)>(&NestingKind::valueOf))},
-	{"values", "()[Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$NestingKindArray*(*)()>(&NestingKind::values))},
+	{"$values", "()[Ljavax/lang/model/element/NestingKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NestingKind, $values, $NestingKindArray*)},
+	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(NestingKind, init$, void, $String*, int32_t)},
+	{"isNested", "()Z", nullptr, $PUBLIC, $method(NestingKind, isNested, bool)},
+	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(NestingKind, valueOf, NestingKind*, $String*)},
+	{"values", "()[Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(NestingKind, values, $NestingKindArray*)},
 	{}
 };
 

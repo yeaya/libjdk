@@ -32,8 +32,8 @@ $FieldInfo _SocketTube$SocketFlowTask_FieldInfo_[] = {
 };
 
 $MethodInfo _SocketTube$SocketFlowTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(static_cast<void(SocketTube$SocketFlowTask::*)($Runnable*)>(&SocketTube$SocketFlowTask::init$))},
-	{"run", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, $PUBLIC | $FINAL},
+	{"<init>", "(Ljava/lang/Runnable;)V", nullptr, 0, $method(SocketTube$SocketFlowTask, init$, void, $Runnable*)},
+	{"run", "(Ljdk/internal/net/http/common/SequentialScheduler$DeferredCompleter;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowTask, run, void, $SequentialScheduler$DeferredCompleter*)},
 	{}
 };
 

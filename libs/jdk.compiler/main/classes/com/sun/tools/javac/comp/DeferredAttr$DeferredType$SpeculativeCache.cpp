@@ -45,9 +45,9 @@ $FieldInfo _DeferredAttr$DeferredType$SpeculativeCache_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$DeferredType$SpeculativeCache_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$DeferredType$SpeculativeCache::*)($DeferredAttr$DeferredType*)>(&DeferredAttr$DeferredType$SpeculativeCache::init$))},
-	{"get", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType$SpeculativeCache$Entry;", nullptr, 0},
-	{"put", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", nullptr, 0},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType;)V", nullptr, 0, $method(DeferredAttr$DeferredType$SpeculativeCache, init$, void, $DeferredAttr$DeferredType*)},
+	{"get", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredType$SpeculativeCache$Entry;", nullptr, 0, $virtualMethod(DeferredAttr$DeferredType$SpeculativeCache, get, $DeferredAttr$DeferredType$SpeculativeCache$Entry*, $Symbol*, $Resolve$MethodResolutionPhase*)},
+	{"put", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Attr$ResultInfo;)V", nullptr, 0, $virtualMethod(DeferredAttr$DeferredType$SpeculativeCache, put, void, $JCTree*, $Attr$ResultInfo*)},
 	{}
 };
 

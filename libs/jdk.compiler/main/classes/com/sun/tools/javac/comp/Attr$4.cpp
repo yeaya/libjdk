@@ -31,8 +31,8 @@ $FieldInfo _Attr$4_FieldInfo_[] = {
 };
 
 $MethodInfo _Attr$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(static_cast<void(Attr$4::*)($Attr*)>(&Attr$4::init$))},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$4, init$, void, $Attr*)},
+	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Attr$4, visitTypeApply, void, $JCTree$JCTypeApply*)},
 	{}
 };
 

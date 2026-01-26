@@ -27,8 +27,8 @@ namespace java {
 		namespace management {
 
 $MethodInfo _ManagementFactory$PlatformMBeanFinder$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(ManagementFactory$PlatformMBeanFinder$1::*)()>(&ManagementFactory$PlatformMBeanFinder$1::init$))},
-	{"run", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider;>;", $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(ManagementFactory$PlatformMBeanFinder$1, init$, void)},
+	{"run", "()Ljava/util/List;", "()Ljava/util/List<Lsun/management/spi/PlatformMBeanProvider;>;", $PUBLIC, $virtualMethod(ManagementFactory$PlatformMBeanFinder$1, run, $Object*)},
 	{}
 };
 

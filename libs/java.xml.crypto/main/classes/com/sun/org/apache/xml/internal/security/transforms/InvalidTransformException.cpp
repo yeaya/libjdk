@@ -35,13 +35,13 @@ $FieldInfo _InvalidTransformException_FieldInfo_[] = {
 };
 
 $MethodInfo _InvalidTransformException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(InvalidTransformException::*)()>(&InvalidTransformException::init$))},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidTransformException::*)($String*)>(&InvalidTransformException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidTransformException::*)($String*,$ObjectArray*)>(&InvalidTransformException::init$))},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidTransformException::*)($Exception*,$String*)>(&InvalidTransformException::init$))},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(InvalidTransformException::*)($String*,$Exception*)>(&InvalidTransformException::init$)), nullptr, nullptr, _InvalidTransformException_MethodAnnotations_init$4},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(static_cast<void(InvalidTransformException::*)($Exception*,$String*,$ObjectArray*)>(&InvalidTransformException::init$))},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(static_cast<void(InvalidTransformException::*)($String*,$ObjectArray*,$Exception*)>(&InvalidTransformException::init$)), nullptr, nullptr, _InvalidTransformException_MethodAnnotations_init$6},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidTransformException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidTransformException, init$, void, $String*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidTransformException, init$, void, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidTransformException, init$, void, $Exception*, $String*)},
+	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(InvalidTransformException, init$, void, $String*, $Exception*), nullptr, nullptr, _InvalidTransformException_MethodAnnotations_init$4},
+	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InvalidTransformException, init$, void, $Exception*, $String*, $ObjectArray*)},
+	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(InvalidTransformException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _InvalidTransformException_MethodAnnotations_init$6},
 	{}
 };
 

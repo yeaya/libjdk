@@ -112,8 +112,8 @@ $FieldInfo Type$UndetVar$$Lambda$lambda$substBounds$0::fieldInfos[3] = {
 	{}
 };
 $MethodInfo Type$UndetVar$$Lambda$lambda$substBounds$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, $PUBLIC, $method(static_cast<void(Type$UndetVar$$Lambda$lambda$substBounds$0::*)(Type$UndetVar*,$ListBuffer*)>(&Type$UndetVar$$Lambda$lambda$substBounds$0::init$))},
-	{"varBoundChanged", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/util/ListBuffer;)V", nullptr, $PUBLIC, $method(Type$UndetVar$$Lambda$lambda$substBounds$0, init$, void, Type$UndetVar*, $ListBuffer*)},
+	{"varBoundChanged", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$$Lambda$lambda$substBounds$0, varBoundChanged, void, Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type*, bool)},
 	{}
 };
 $ClassInfo Type$UndetVar$$Lambda$lambda$substBounds$0::classInfo$ = {
@@ -142,28 +142,28 @@ $FieldInfo _Type$UndetVar_FieldInfo_[] = {
 };
 
 $MethodInfo _Type$UndetVar_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/Type$UndetVar$UndetVarListener;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(static_cast<void(Type$UndetVar::*)($Type$TypeVar*,$Type$UndetVar$UndetVarListener*,$Types*)>(&Type$UndetVar::init$))},
-	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC},
-	{"addBound", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC | $FINAL, $method(static_cast<void(Type$UndetVar::*)($Type$UndetVar$InferenceBound*,$Type*,$Types*)>(&Type$UndetVar::addBound))},
-	{"addBound", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;Z)V", nullptr, $PRIVATE, $method(static_cast<void(Type$UndetVar::*)($Type$UndetVar$InferenceBound*,$Type*,$Types*,bool)>(&Type$UndetVar::addBound))},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$UndetVar;", nullptr, $PUBLIC},
-	{"debugString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"dup", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type$UndetVar;", nullptr, $PUBLIC},
-	{"dupTo", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC},
-	{"getBounds", "([Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Lcom/sun/tools/javac/util/List;", "([Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $TRANSIENT},
-	{"getDeclaredBounds", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC},
-	{"getInst", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC},
-	{"isCaptured", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(Type$UndetVar::*)()>(&Type$UndetVar::isCaptured))},
-	{"isPartial", "()Z", nullptr, $PUBLIC},
-	{"isThrows", "()Z", nullptr, $PUBLIC | $FINAL, $method(static_cast<bool(Type$UndetVar::*)()>(&Type$UndetVar::isThrows))},
-	{"lambda$substBounds$0", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(Type$UndetVar::*)($ListBuffer*,Type$UndetVar*,$Type$UndetVar$InferenceBound*,$Type*,bool)>(&Type$UndetVar::lambda$substBounds$0))},
-	{"notifyBoundChange", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PRIVATE, $method(static_cast<void(Type$UndetVar::*)($Type$UndetVar$InferenceBound*,$Type*,bool)>(&Type$UndetVar::notifyBoundChange))},
-	{"setBounds", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC},
-	{"setInst", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC},
-	{"setThrow", "()V", nullptr, $PUBLIC},
-	{"substBounds", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Types;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Types;)V", $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/Type$UndetVar$UndetVarListener;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Type$UndetVar, init$, void, $Type$TypeVar*, $Type$UndetVar$UndetVarListener*, $Types*)},
+	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$UndetVar, accept, $Object*, $Type$Visitor*, Object$*)},
+	{"addBound", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC | $FINAL, $method(Type$UndetVar, addBound, void, $Type$UndetVar$InferenceBound*, $Type*, $Types*)},
+	{"addBound", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;Z)V", nullptr, $PRIVATE, $method(Type$UndetVar, addBound, void, $Type$UndetVar$InferenceBound*, $Type*, $Types*, bool)},
+	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar, baseType, $Type*)},
+	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$UndetVar;", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar, cloneWithMetadata, Type$UndetVar*, $TypeMetadata*)},
+	{"debugString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar, debugString, $String*)},
+	{"dup", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type$UndetVar;", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar, dup, Type$UndetVar*, $Types*)},
+	{"dupTo", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar, dupTo, void, Type$UndetVar*, $Types*)},
+	{"getBounds", "([Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Lcom/sun/tools/javac/util/List;", "([Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $TRANSIENT, $virtualMethod(Type$UndetVar, getBounds, $List*, $Type$UndetVar$InferenceBoundArray*)},
+	{"getDeclaredBounds", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$UndetVar, getDeclaredBounds, $List*)},
+	{"getInst", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar, getInst, $Type*)},
+	{"isCaptured", "()Z", nullptr, $PUBLIC | $FINAL, $method(Type$UndetVar, isCaptured, bool)},
+	{"isPartial", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar, isPartial, bool)},
+	{"isThrows", "()Z", nullptr, $PUBLIC | $FINAL, $method(Type$UndetVar, isThrows, bool)},
+	{"lambda$substBounds$0", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Type$UndetVar, lambda$substBounds$0, void, $ListBuffer*, Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type*, bool)},
+	{"notifyBoundChange", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PRIVATE, $method(Type$UndetVar, notifyBoundChange, void, $Type$UndetVar$InferenceBound*, $Type*, bool)},
+	{"setBounds", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $virtualMethod(Type$UndetVar, setBounds, void, $Type$UndetVar$InferenceBound*, $List*)},
+	{"setInst", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar, setInst, void, $Type*)},
+	{"setThrow", "()V", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar, setThrow, void)},
+	{"substBounds", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Types;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/code/Types;)V", $PUBLIC, $virtualMethod(Type$UndetVar, substBounds, void, $List*, $List*, $Types*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar, toString, $String*)},
 	{}
 };
 

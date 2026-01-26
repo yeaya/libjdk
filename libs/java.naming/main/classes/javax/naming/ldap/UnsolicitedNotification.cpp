@@ -6,6 +6,7 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
+using $NamingException = ::javax::naming::NamingException;
 using $ExtendedResponse = ::javax::naming::ldap::ExtendedResponse;
 
 namespace javax {
@@ -16,8 +17,8 @@ $MethodInfo _UnsolicitedNotification_MethodInfo_[] = {
 	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
 	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
 	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getReferrals", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnsolicitedNotification, getException, $NamingException*)},
+	{"getReferrals", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UnsolicitedNotification, getReferrals, $StringArray*)},
 	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
 	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
 	{}

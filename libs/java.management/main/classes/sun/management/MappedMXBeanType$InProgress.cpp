@@ -20,11 +20,11 @@ $FieldInfo _MappedMXBeanType$InProgress_FieldInfo_[] = {
 };
 
 $MethodInfo _MappedMXBeanType$InProgress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(static_cast<void(MappedMXBeanType$InProgress::*)()>(&MappedMXBeanType$InProgress::init$)), "javax.management.openmbean.OpenDataException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"hashCode", "()I", nullptr, $PUBLIC},
-	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, 0, $method(MappedMXBeanType$InProgress, init$, void), "javax.management.openmbean.OpenDataException"},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$InProgress, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$InProgress, hashCode, int32_t)},
+	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$InProgress, isValue, bool, Object$*)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MappedMXBeanType$InProgress, toString, $String*)},
 	{}
 };
 

@@ -35,8 +35,8 @@ $FieldInfo _Main$MemoryFileManager$1_FieldInfo_[] = {
 };
 
 $MethodInfo _Main$MemoryFileManager$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/launcher/Main$MemoryFileManager;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/lang/String;)V", nullptr, 0, $method(static_cast<void(Main$MemoryFileManager$1::*)($Main$MemoryFileManager*,$URI*,$JavaFileObject$Kind*,$String*)>(&Main$MemoryFileManager$1::init$))},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
+	{"<init>", "(Lcom/sun/tools/javac/launcher/Main$MemoryFileManager;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/lang/String;)V", nullptr, 0, $method(Main$MemoryFileManager$1, init$, void, $Main$MemoryFileManager*, $URI*, $JavaFileObject$Kind*, $String*)},
+	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryFileManager$1, openOutputStream, $OutputStream*)},
 	{}
 };
 

@@ -75,8 +75,8 @@ $FieldInfo BuffersTestingKit$$Lambda$lambda$relocateBuffers$0::fieldInfos[2] = {
 	{}
 };
 $MethodInfo BuffersTestingKit$$Lambda$lambda$relocateBuffers$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(static_cast<void(BuffersTestingKit$$Lambda$lambda$relocateBuffers$0::*)($Iterable*)>(&BuffersTestingKit$$Lambda$lambda$relocateBuffers$0::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Iterable;)V", nullptr, $PUBLIC, $method(BuffersTestingKit$$Lambda$lambda$relocateBuffers$0, init$, void, $Iterable*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$$Lambda$lambda$relocateBuffers$0, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo BuffersTestingKit$$Lambda$lambda$relocateBuffers$0::classInfo$ = {
@@ -108,8 +108,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$1$1::*)()>(&BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$1$1::init$))},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$1$1, init$, void)},
+	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$1$1, get, $Object*)},
 	{}
 };
 $ClassInfo BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$1$1::classInfo$ = {
@@ -151,8 +151,8 @@ $FieldInfo BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$2$2::fieldInfos[3
 	{}
 };
 $MethodInfo BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Iterable;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC, $method(static_cast<void(BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$2$2::*)($Iterable*,$Supplier*)>(&BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$2$2::init$))},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/Iterable;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC, $method(BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$2$2, init$, void, $Iterable*, $Supplier*)},
+	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$2$2, iterator, $Iterator*)},
 	{}
 };
 $ClassInfo BuffersTestingKit$$Lambda$lambda$injectEmptyBuffers$2$2::classInfo$ = {
@@ -184,8 +184,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo BuffersTestingKit$$Lambda$allocate$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(BuffersTestingKit$$Lambda$allocate$3::*)()>(&BuffersTestingKit$$Lambda$allocate$3::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(BuffersTestingKit$$Lambda$allocate$3, init$, void)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$$Lambda$allocate$3, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo BuffersTestingKit$$Lambda$allocate$3::classInfo$ = {
@@ -227,8 +227,8 @@ $FieldInfo BuffersTestingKit$$Lambda$lambda$forEachSplit$3$4::fieldInfos[3] = {
 	{}
 };
 $MethodInfo BuffersTestingKit$$Lambda$lambda$forEachSplit$3$4::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(static_cast<void(BuffersTestingKit$$Lambda$lambda$forEachSplit$3$4::*)($ByteBuffer*,$Consumer*)>(&BuffersTestingKit$$Lambda$lambda$forEachSplit$3$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(BuffersTestingKit$$Lambda$lambda$forEachSplit$3$4, init$, void, $ByteBuffer*, $Consumer*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BuffersTestingKit$$Lambda$lambda$forEachSplit$3$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo BuffersTestingKit$$Lambda$lambda$forEachSplit$3$4::classInfo$ = {
@@ -251,20 +251,20 @@ $FieldInfo _BuffersTestingKit_FieldInfo_[] = {
 };
 
 $MethodInfo _BuffersTestingKit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(BuffersTestingKit::*)()>(&BuffersTestingKit::init$))},
-	{"concat", "(Ljava/lang/Iterable;)Ljava/nio/ByteBuffer;", "(Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;)Ljava/nio/ByteBuffer;", $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)($Iterable*)>(&BuffersTestingKit::concat))},
-	{"concat", "(Ljava/lang/Iterable;Ljava/util/function/Function;)Ljava/nio/ByteBuffer;", "(Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;Ljava/util/function/Function<-Ljava/lang/Integer;+Ljava/nio/ByteBuffer;>;)Ljava/nio/ByteBuffer;", $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)($Iterable*,$Function*)>(&BuffersTestingKit::concat))},
-	{"forEachSplit", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;)V", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer<-Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC | $STATIC, $method(static_cast<void(*)($ByteBuffer*,$Consumer*)>(&BuffersTestingKit::forEachSplit))},
-	{"forEachSplit", "(ILjava/util/function/Consumer;)V", "(ILjava/util/function/Consumer<-Ljava/lang/Iterable<+Ljava/lang/Integer;>;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,$Consumer*)>(&BuffersTestingKit::forEachSplit))},
-	{"forEachSplit", "(ILjava/util/Stack;Ljava/util/function/Consumer;)V", "(ILjava/util/Stack<Ljava/lang/Integer;>;Ljava/util/function/Consumer<-Ljava/lang/Iterable<+Ljava/lang/Integer;>;>;)V", $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,$Stack*,$Consumer*)>(&BuffersTestingKit::forEachSplit))},
-	{"injectEmptyBuffers", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;)Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $method(static_cast<$Iterable*(*)($Iterable*)>(&BuffersTestingKit::injectEmptyBuffers))},
-	{"injectEmptyBuffers", "(Ljava/lang/Iterable;Ljava/util/function/Supplier;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;)Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $method(static_cast<$Iterable*(*)($Iterable*,$Supplier*)>(&BuffersTestingKit::injectEmptyBuffers))},
-	{"lambda$forEachSplit$3", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;Ljava/lang/Iterable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($ByteBuffer*,$Consumer*,$Iterable*)>(&BuffersTestingKit::lambda$forEachSplit$3))},
-	{"lambda$injectEmptyBuffers$1", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$ByteBuffer*(*)()>(&BuffersTestingKit::lambda$injectEmptyBuffers$1))},
-	{"lambda$injectEmptyBuffers$2", "(Ljava/lang/Iterable;Ljava/util/function/Supplier;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Iterator*(*)($Iterable*,$Supplier*)>(&BuffersTestingKit::lambda$injectEmptyBuffers$2))},
-	{"lambda$relocateBuffers$0", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<$Iterator*(*)($Iterable*)>(&BuffersTestingKit::lambda$relocateBuffers$0))},
-	{"relocate", "(Ljava/nio/ByteBuffer;II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $method(static_cast<$ByteBuffer*(*)($ByteBuffer*,int32_t,int32_t)>(&BuffersTestingKit::relocate))},
-	{"relocateBuffers", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;)Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $method(static_cast<$Iterable*(*)($Iterable*)>(&BuffersTestingKit::relocateBuffers))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BuffersTestingKit, init$, void)},
+	{"concat", "(Ljava/lang/Iterable;)Ljava/nio/ByteBuffer;", "(Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;)Ljava/nio/ByteBuffer;", $PUBLIC | $STATIC, $staticMethod(BuffersTestingKit, concat, $ByteBuffer*, $Iterable*)},
+	{"concat", "(Ljava/lang/Iterable;Ljava/util/function/Function;)Ljava/nio/ByteBuffer;", "(Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;Ljava/util/function/Function<-Ljava/lang/Integer;+Ljava/nio/ByteBuffer;>;)Ljava/nio/ByteBuffer;", $PUBLIC | $STATIC, $staticMethod(BuffersTestingKit, concat, $ByteBuffer*, $Iterable*, $Function*)},
+	{"forEachSplit", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;)V", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer<-Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC | $STATIC, $staticMethod(BuffersTestingKit, forEachSplit, void, $ByteBuffer*, $Consumer*)},
+	{"forEachSplit", "(ILjava/util/function/Consumer;)V", "(ILjava/util/function/Consumer<-Ljava/lang/Iterable<+Ljava/lang/Integer;>;>;)V", $PRIVATE | $STATIC, $staticMethod(BuffersTestingKit, forEachSplit, void, int32_t, $Consumer*)},
+	{"forEachSplit", "(ILjava/util/Stack;Ljava/util/function/Consumer;)V", "(ILjava/util/Stack<Ljava/lang/Integer;>;Ljava/util/function/Consumer<-Ljava/lang/Iterable<+Ljava/lang/Integer;>;>;)V", $PRIVATE | $STATIC, $staticMethod(BuffersTestingKit, forEachSplit, void, int32_t, $Stack*, $Consumer*)},
+	{"injectEmptyBuffers", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;)Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $staticMethod(BuffersTestingKit, injectEmptyBuffers, $Iterable*, $Iterable*)},
+	{"injectEmptyBuffers", "(Ljava/lang/Iterable;Ljava/util/function/Supplier;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;Ljava/util/function/Supplier<+Ljava/nio/ByteBuffer;>;)Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $staticMethod(BuffersTestingKit, injectEmptyBuffers, $Iterable*, $Iterable*, $Supplier*)},
+	{"lambda$forEachSplit$3", "(Ljava/nio/ByteBuffer;Ljava/util/function/Consumer;Ljava/lang/Iterable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BuffersTestingKit, lambda$forEachSplit$3, void, $ByteBuffer*, $Consumer*, $Iterable*)},
+	{"lambda$injectEmptyBuffers$1", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BuffersTestingKit, lambda$injectEmptyBuffers$1, $ByteBuffer*)},
+	{"lambda$injectEmptyBuffers$2", "(Ljava/lang/Iterable;Ljava/util/function/Supplier;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BuffersTestingKit, lambda$injectEmptyBuffers$2, $Iterator*, $Iterable*, $Supplier*)},
+	{"lambda$relocateBuffers$0", "(Ljava/lang/Iterable;)Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BuffersTestingKit, lambda$relocateBuffers$0, $Iterator*, $Iterable*)},
+	{"relocate", "(Ljava/nio/ByteBuffer;II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(BuffersTestingKit, relocate, $ByteBuffer*, $ByteBuffer*, int32_t, int32_t)},
+	{"relocateBuffers", "(Ljava/lang/Iterable;)Ljava/lang/Iterable;", "(Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;)Ljava/lang/Iterable<+Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $staticMethod(BuffersTestingKit, relocateBuffers, $Iterable*, $Iterable*)},
 	{}
 };
 

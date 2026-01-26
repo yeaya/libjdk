@@ -92,8 +92,8 @@ $FieldInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$0::fi
 	{}
 };
 $MethodInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$0::*)(ResponseSubscribers$PublishingBodySubscriber*)>(&ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$0::init$))},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$0, init$, void, ResponseSubscribers$PublishingBodySubscriber*)},
+	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$0, apply, $Object*, Object$*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$0::classInfo$ = {
@@ -132,8 +132,8 @@ $FieldInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$2$1::
 	{}
 };
 $MethodInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$2$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$2$1::*)(ResponseSubscribers$PublishingBodySubscriber*)>(&ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$2$1::init$))},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$2$1, init$, void, ResponseSubscribers$PublishingBodySubscriber*)},
+	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$2$1, accept, void, Object$*, Object$*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$2$1::classInfo$ = {
@@ -175,8 +175,8 @@ $FieldInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$subscribe
 	{}
 };
 $MethodInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$subscribe$3$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$subscribe$3$2::*)(ResponseSubscribers$PublishingBodySubscriber*,$ResponseSubscribers$PublishingBodySubscriber$SubscriberRef*)>(&ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$subscribe$3$2::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$subscribe$3$2, init$, void, ResponseSubscribers$PublishingBodySubscriber*, $ResponseSubscribers$PublishingBodySubscriber$SubscriberRef*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$subscribe$3$2, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$subscribe$3$2::classInfo$ = {
@@ -208,8 +208,8 @@ public:
 	static $ClassInfo classInfo$;
 };
 $MethodInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$onNext$4$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$onNext$4$3::*)()>(&ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$onNext$4$3::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$onNext$4$3, init$, void)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$onNext$4$3, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$onNext$4$3::classInfo$ = {
@@ -251,8 +251,8 @@ $FieldInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$1$4::
 	{}
 };
 $MethodInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$1$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$1$4::*)(ResponseSubscribers$PublishingBodySubscriber*,$Throwable*)>(&ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$1$4::init$))},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$1$4, init$, void, ResponseSubscribers$PublishingBodySubscriber*, $Throwable*)},
+	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$1$4, accept, void, Object$*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$lambda$new$1$4::classInfo$ = {
@@ -291,8 +291,8 @@ $FieldInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$subscribe$5::fie
 	{}
 };
 $MethodInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$subscribe$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;)V", nullptr, $PUBLIC, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber$$Lambda$subscribe$5::*)(ResponseSubscribers$PublishingBodySubscriber*)>(&ResponseSubscribers$PublishingBodySubscriber$$Lambda$subscribe$5::init$))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PUBLIC},
+	{"<init>", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber;)V", nullptr, $PUBLIC, $method(ResponseSubscribers$PublishingBodySubscriber$$Lambda$subscribe$5, init$, void, ResponseSubscribers$PublishingBodySubscriber*)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber$$Lambda$subscribe$5, subscribe, void, $Flow$Subscriber*)},
 	{}
 };
 $ClassInfo ResponseSubscribers$PublishingBodySubscriber$$Lambda$subscribe$5::classInfo$ = {
@@ -321,23 +321,23 @@ $FieldInfo _ResponseSubscribers$PublishingBodySubscriber_FieldInfo_[] = {
 };
 
 $MethodInfo _ResponseSubscribers$PublishingBodySubscriber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber::*)()>(&ResponseSubscribers$PublishingBodySubscriber::init$))},
-	{"complete", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber::*)($ResponseSubscribers$PublishingBodySubscriber$SubscriberRef*,$Throwable*)>(&ResponseSubscribers$PublishingBodySubscriber::complete))},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;>;", $PUBLIC},
-	{"lambda$new$0", "(Ljava/util/concurrent/Flow$Subscription;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<$CompletionStage*(ResponseSubscribers$PublishingBodySubscriber::*)($Flow$Subscription*)>(&ResponseSubscribers$PublishingBodySubscriber::lambda$new$0))},
-	{"lambda$new$1", "(Ljava/lang/Throwable;Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber::*)($Throwable*,$ResponseSubscribers$PublishingBodySubscriber$SubscriberRef*)>(&ResponseSubscribers$PublishingBodySubscriber::lambda$new$1))},
-	{"lambda$new$2", "(Ljava/lang/Void;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber::*)($Void*,$Throwable*)>(&ResponseSubscribers$PublishingBodySubscriber::lambda$new$2))},
-	{"lambda$onNext$4", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $method(static_cast<void(*)($Flow$Subscription*)>(&ResponseSubscribers$PublishingBodySubscriber::lambda$onNext$4))},
-	{"lambda$subscribe$3", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber::*)($ResponseSubscribers$PublishingBodySubscriber$SubscriberRef*,$Flow$Subscription*)>(&ResponseSubscribers$PublishingBodySubscriber::lambda$subscribe$3))},
-	{"onComplete", "()V", nullptr, $PUBLIC},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC},
-	{"signalComplete", "()V", nullptr, $PRIVATE, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber::*)()>(&ResponseSubscribers$PublishingBodySubscriber::signalComplete))},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber::*)($Throwable*)>(&ResponseSubscribers$PublishingBodySubscriber::signalError))},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PRIVATE, $method(static_cast<void(ResponseSubscribers$PublishingBodySubscriber::*)($Flow$Subscriber*)>(&ResponseSubscribers$PublishingBodySubscriber::subscribe))},
-	{"suppress", "(ZLjava/lang/String;Ljava/lang/Throwable;)Z", nullptr, $PRIVATE, $method(static_cast<bool(ResponseSubscribers$PublishingBodySubscriber::*)(bool,$String*,$Throwable*)>(&ResponseSubscribers$PublishingBodySubscriber::suppress))},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(ResponseSubscribers$PublishingBodySubscriber, init$, void)},
+	{"complete", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(ResponseSubscribers$PublishingBodySubscriber, complete, void, $ResponseSubscribers$PublishingBodySubscriber$SubscriberRef*, $Throwable*)},
+	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber, getBody, $CompletionStage*)},
+	{"lambda$new$0", "(Ljava/util/concurrent/Flow$Subscription;)Ljava/util/concurrent/CompletionStage;", nullptr, $PRIVATE | $SYNTHETIC, $method(ResponseSubscribers$PublishingBodySubscriber, lambda$new$0, $CompletionStage*, $Flow$Subscription*)},
+	{"lambda$new$1", "(Ljava/lang/Throwable;Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ResponseSubscribers$PublishingBodySubscriber, lambda$new$1, void, $Throwable*, $ResponseSubscribers$PublishingBodySubscriber$SubscriberRef*)},
+	{"lambda$new$2", "(Ljava/lang/Void;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ResponseSubscribers$PublishingBodySubscriber, lambda$new$2, void, $Void*, $Throwable*)},
+	{"lambda$onNext$4", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseSubscribers$PublishingBodySubscriber, lambda$onNext$4, void, $Flow$Subscription*)},
+	{"lambda$subscribe$3", "(Ljdk/internal/net/http/ResponseSubscribers$PublishingBodySubscriber$SubscriberRef;Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ResponseSubscribers$PublishingBodySubscriber, lambda$subscribe$3, void, $ResponseSubscribers$PublishingBodySubscriber$SubscriberRef*, $Flow$Subscription*)},
+	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber, onComplete, void)},
+	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber, onError, void, $Throwable*)},
+	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber, onNext, void, $List*)},
+	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber, onNext, void, Object$*)},
+	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$PublishingBodySubscriber, onSubscribe, void, $Flow$Subscription*)},
+	{"signalComplete", "()V", nullptr, $PRIVATE, $method(ResponseSubscribers$PublishingBodySubscriber, signalComplete, void)},
+	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(ResponseSubscribers$PublishingBodySubscriber, signalError, void, $Throwable*)},
+	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PRIVATE, $method(ResponseSubscribers$PublishingBodySubscriber, subscribe, void, $Flow$Subscriber*)},
+	{"suppress", "(ZLjava/lang/String;Ljava/lang/Throwable;)Z", nullptr, $PRIVATE, $method(ResponseSubscribers$PublishingBodySubscriber, suppress, bool, bool, $String*, $Throwable*)},
 	{}
 };
 

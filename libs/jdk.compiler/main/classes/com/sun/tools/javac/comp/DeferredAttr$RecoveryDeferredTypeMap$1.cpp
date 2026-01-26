@@ -36,8 +36,8 @@ $FieldInfo _DeferredAttr$RecoveryDeferredTypeMap$1_FieldInfo_[] = {
 };
 
 $MethodInfo _DeferredAttr$RecoveryDeferredTypeMap$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$RecoveryDeferredTypeMap;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(static_cast<void(DeferredAttr$RecoveryDeferredTypeMap$1::*)($DeferredAttr$RecoveryDeferredTypeMap*,$Attr*,$DeferredAttr$DeferredAttrContext*,$Type*)>(&DeferredAttr$RecoveryDeferredTypeMap$1::init$))},
-	{"check", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED},
+	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$RecoveryDeferredTypeMap;Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(DeferredAttr$RecoveryDeferredTypeMap$1, init$, void, $DeferredAttr$RecoveryDeferredTypeMap*, $Attr*, $DeferredAttr$DeferredAttrContext*, $Type*)},
+	{"check", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(DeferredAttr$RecoveryDeferredTypeMap$1, check, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
 	{}
 };
 

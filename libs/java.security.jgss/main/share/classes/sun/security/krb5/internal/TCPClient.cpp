@@ -46,13 +46,13 @@ $FieldInfo _TCPClient_FieldInfo_[] = {
 };
 
 $MethodInfo _TCPClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(static_cast<void(TCPClient::*)($String*,int32_t,int32_t)>(&TCPClient::init$)), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PRIVATE | $STATIC, $method(static_cast<void(*)(int32_t,$bytes*,int32_t,int32_t)>(&TCPClient::intToNetworkByteOrder))},
-	{"networkByteOrderToInt", "([BII)I", nullptr, $PRIVATE | $STATIC, $method(static_cast<int32_t(*)($bytes*,int32_t,int32_t)>(&TCPClient::networkByteOrderToInt))},
-	{"readFully", "([BI)I", nullptr, $PRIVATE, $method(static_cast<int32_t(TCPClient::*)($bytes*,int32_t)>(&TCPClient::readFully)), "java.io.IOException"},
-	{"receive", "()[B", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
-	{"send", "([B)V", nullptr, $PUBLIC, nullptr, "java.io.IOException"},
+	{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(TCPClient, init$, void, $String*, int32_t, int32_t), "java.io.IOException"},
+	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TCPClient, close, void), "java.io.IOException"},
+	{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPClient, intToNetworkByteOrder, void, int32_t, $bytes*, int32_t, int32_t)},
+	{"networkByteOrderToInt", "([BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TCPClient, networkByteOrderToInt, int32_t, $bytes*, int32_t, int32_t)},
+	{"readFully", "([BI)I", nullptr, $PRIVATE, $method(TCPClient, readFully, int32_t, $bytes*, int32_t), "java.io.IOException"},
+	{"receive", "()[B", nullptr, $PUBLIC, $virtualMethod(TCPClient, receive, $bytes*), "java.io.IOException"},
+	{"send", "([B)V", nullptr, $PUBLIC, $virtualMethod(TCPClient, send, void, $bytes*), "java.io.IOException"},
 	{}
 };
 

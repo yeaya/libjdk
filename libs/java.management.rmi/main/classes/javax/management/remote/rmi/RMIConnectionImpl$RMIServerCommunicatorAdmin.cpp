@@ -27,8 +27,8 @@ $FieldInfo _RMIConnectionImpl$RMIServerCommunicatorAdmin_FieldInfo_[] = {
 };
 
 $MethodInfo _RMIConnectionImpl$RMIServerCommunicatorAdmin_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;J)V", nullptr, $PUBLIC, $method(static_cast<void(RMIConnectionImpl$RMIServerCommunicatorAdmin::*)($RMIConnectionImpl*,int64_t)>(&RMIConnectionImpl$RMIServerCommunicatorAdmin::init$))},
-	{"doStop", "()V", nullptr, $PROTECTED},
+	{"<init>", "(Ljavax/management/remote/rmi/RMIConnectionImpl;J)V", nullptr, $PUBLIC, $method(RMIConnectionImpl$RMIServerCommunicatorAdmin, init$, void, $RMIConnectionImpl*, int64_t)},
+	{"doStop", "()V", nullptr, $PROTECTED, $virtualMethod(RMIConnectionImpl$RMIServerCommunicatorAdmin, doStop, void)},
 	{}
 };
 

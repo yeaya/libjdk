@@ -17,7 +17,7 @@ namespace jdk {
 			namespace http {
 
 $MethodInfo _RequestPublishers$StringPublisher_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(static_cast<void(RequestPublishers$StringPublisher::*)($String*,$Charset*)>(&RequestPublishers$StringPublisher::init$))},
+	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(RequestPublishers$StringPublisher, init$, void, $String*, $Charset*)},
 	{}
 };
 
