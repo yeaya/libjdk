@@ -1,0 +1,108 @@
+#include <javax/swing/JTable$1.h>
+
+#include <javax/swing/JTable.h>
+#include <javax/swing/table/AbstractTableModel.h>
+#include <jcpp.h>
+
+using $ObjectArray2 = $Array<::java::lang::Object, 2>;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
+
+namespace javax {
+	namespace swing {
+
+$FieldInfo _JTable$1_FieldInfo_[] = {
+	{"val$rowData", "[[Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$1, val$rowData)},
+	{"val$columnNames", "[Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(JTable$1, val$columnNames)},
+	{}
+};
+
+$MethodInfo _JTable$1_MethodInfo_[] = {
+	{"<init>", "([Ljava/lang/Object;[[Ljava/lang/Object;)V", nullptr, 0, $method(JTable$1, init$, void, $ObjectArray*, $ObjectArray2*)},
+	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$1, getColumnCount, int32_t)},
+	{"getColumnName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTable$1, getColumnName, $String*, int32_t)},
+	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTable$1, getRowCount, int32_t)},
+	{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JTable$1, getValueAt, $Object*, int32_t, int32_t)},
+	{"isCellEditable", "(II)Z", nullptr, $PUBLIC, $virtualMethod(JTable$1, isCellEditable, bool, int32_t, int32_t)},
+	{"setValueAt", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(JTable$1, setValueAt, void, Object$*, int32_t, int32_t)},
+	{}
+};
+
+$EnclosingMethodInfo _JTable$1_EnclosingMethodInfo_ = {
+	"javax.swing.JTable",
+	"<init>",
+	"([[Ljava/lang/Object;[Ljava/lang/Object;)V"
+};
+
+$InnerClassInfo _JTable$1_InnerClassesInfo_[] = {
+	{"javax.swing.JTable$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _JTable$1_ClassInfo_ = {
+	$ACC_SUPER,
+	"javax.swing.JTable$1",
+	"javax.swing.table.AbstractTableModel",
+	nullptr,
+	_JTable$1_FieldInfo_,
+	_JTable$1_MethodInfo_,
+	nullptr,
+	&_JTable$1_EnclosingMethodInfo_,
+	_JTable$1_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"javax.swing.JTable"
+};
+
+$Object* allocate$JTable$1($Class* clazz) {
+	return $of($alloc(JTable$1));
+}
+
+void JTable$1::init$($ObjectArray* val$columnNames, $ObjectArray2* val$rowData) {
+	$set(this, val$columnNames, val$columnNames);
+	$set(this, val$rowData, val$rowData);
+	$AbstractTableModel::init$();
+}
+
+$String* JTable$1::getColumnName(int32_t column) {
+	return $nc($of($nc(this->val$columnNames)->get(column)))->toString();
+}
+
+int32_t JTable$1::getRowCount() {
+	return $nc(this->val$rowData)->length;
+}
+
+int32_t JTable$1::getColumnCount() {
+	return $nc(this->val$columnNames)->length;
+}
+
+$Object* JTable$1::getValueAt(int32_t row, int32_t col) {
+	return $of($nc($nc(this->val$rowData)->get(row))->get(col));
+}
+
+bool JTable$1::isCellEditable(int32_t row, int32_t column) {
+	return true;
+}
+
+void JTable$1::setValueAt(Object$* value, int32_t row, int32_t col) {
+	$nc($nc(this->val$rowData)->get(row))->set(col, value);
+	fireTableCellUpdated(row, col);
+}
+
+JTable$1::JTable$1() {
+}
+
+$Class* JTable$1::load$($String* name, bool initialize) {
+	$loadClass(JTable$1, name, initialize, &_JTable$1_ClassInfo_, allocate$JTable$1);
+	return class$;
+}
+
+$Class* JTable$1::class$ = nullptr;
+
+	} // swing
+} // javax

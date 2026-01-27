@@ -1,0 +1,80 @@
+#include <java/awt/HeadlessException.h>
+
+#include <java/awt/GraphicsEnvironment.h>
+#include <java/lang/UnsupportedOperationException.h>
+#include <jcpp.h>
+
+using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
+
+namespace java {
+	namespace awt {
+
+$FieldInfo _HeadlessException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HeadlessException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _HeadlessException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HeadlessException, init$, void, $String*)},
+	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeadlessException, getMessage, $String*)},
+	{}
+};
+
+$ClassInfo _HeadlessException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.awt.HeadlessException",
+	"java.lang.UnsupportedOperationException",
+	nullptr,
+	_HeadlessException_FieldInfo_,
+	_HeadlessException_MethodInfo_
+};
+
+$Object* allocate$HeadlessException($Class* clazz) {
+	return $of($alloc(HeadlessException));
+}
+
+void HeadlessException::init$() {
+	$UnsupportedOperationException::init$();
+}
+
+void HeadlessException::init$($String* msg) {
+	$UnsupportedOperationException::init$(msg);
+}
+
+$String* HeadlessException::getMessage() {
+	$useLocalCurrentObjectStackCache();
+	$var($String, superMessage, $UnsupportedOperationException::getMessage());
+	$var($String, headlessMessage, $GraphicsEnvironment::getHeadlessMessage());
+	if (superMessage == nullptr) {
+		return headlessMessage;
+	} else if (headlessMessage == nullptr) {
+		return superMessage;
+	} else {
+		return $str({superMessage, headlessMessage});
+	}
+}
+
+HeadlessException::HeadlessException() {
+}
+
+HeadlessException::HeadlessException(const HeadlessException& e) : $UnsupportedOperationException(e) {
+}
+
+void HeadlessException::throw$() {
+	throw *this;
+}
+
+$Class* HeadlessException::load$($String* name, bool initialize) {
+	$loadClass(HeadlessException, name, initialize, &_HeadlessException_ClassInfo_, allocate$HeadlessException);
+	return class$;
+}
+
+$Class* HeadlessException::class$ = nullptr;
+
+	} // awt
+} // java

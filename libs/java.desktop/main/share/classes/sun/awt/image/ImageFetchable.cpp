@@ -1,0 +1,39 @@
+#include <sun/awt/image/ImageFetchable.h>
+
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace sun {
+	namespace awt {
+		namespace image {
+
+$MethodInfo _ImageFetchable_MethodInfo_[] = {
+	{"doFetch", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageFetchable, doFetch, void)},
+	{}
+};
+
+$ClassInfo _ImageFetchable_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"sun.awt.image.ImageFetchable",
+	nullptr,
+	nullptr,
+	nullptr,
+	_ImageFetchable_MethodInfo_
+};
+
+$Object* allocate$ImageFetchable($Class* clazz) {
+	return $of($alloc(ImageFetchable));
+}
+
+$Class* ImageFetchable::load$($String* name, bool initialize) {
+	$loadClass(ImageFetchable, name, initialize, &_ImageFetchable_ClassInfo_, allocate$ImageFetchable);
+	return class$;
+}
+
+$Class* ImageFetchable::class$ = nullptr;
+
+		} // image
+	} // awt
+} // sun

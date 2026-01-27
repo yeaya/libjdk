@@ -1,0 +1,86 @@
+#include <com/sun/media/sound/AudioFloatConverter$AudioFloatConversion8S.h>
+
+#include <com/sun/media/sound/AudioFloatConverter.h>
+#include <jcpp.h>
+
+using $AudioFloatConverter = ::com::sun::media::sound::AudioFloatConverter;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Float = ::java::lang::Float;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace com {
+	namespace sun {
+		namespace media {
+			namespace sound {
+
+$MethodInfo _AudioFloatConverter$AudioFloatConversion8S_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PRIVATE, $method(AudioFloatConverter$AudioFloatConversion8S, init$, void)},
+	{"toByteArray", "([FII[BI)[B", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatConversion8S, toByteArray, $bytes*, $floats*, int32_t, int32_t, $bytes*, int32_t)},
+	{"toFloatArray", "([BI[FII)[F", nullptr, $PUBLIC, $virtualMethod(AudioFloatConverter$AudioFloatConversion8S, toFloatArray, $floats*, $bytes*, int32_t, $floats*, int32_t, int32_t)},
+	{}
+};
+
+$InnerClassInfo _AudioFloatConverter$AudioFloatConversion8S_InnerClassesInfo_[] = {
+	{"com.sun.media.sound.AudioFloatConverter$AudioFloatConversion8S", "com.sun.media.sound.AudioFloatConverter", "AudioFloatConversion8S", $PRIVATE | $STATIC},
+	{}
+};
+
+$ClassInfo _AudioFloatConverter$AudioFloatConversion8S_ClassInfo_ = {
+	$ACC_SUPER,
+	"com.sun.media.sound.AudioFloatConverter$AudioFloatConversion8S",
+	"com.sun.media.sound.AudioFloatConverter",
+	nullptr,
+	nullptr,
+	_AudioFloatConverter$AudioFloatConversion8S_MethodInfo_,
+	nullptr,
+	nullptr,
+	_AudioFloatConverter$AudioFloatConversion8S_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"com.sun.media.sound.AudioFloatConverter"
+};
+
+$Object* allocate$AudioFloatConverter$AudioFloatConversion8S($Class* clazz) {
+	return $of($alloc(AudioFloatConverter$AudioFloatConversion8S));
+}
+
+void AudioFloatConverter$AudioFloatConversion8S::init$() {
+	$AudioFloatConverter::init$();
+}
+
+$floats* AudioFloatConverter$AudioFloatConversion8S::toFloatArray($bytes* in_buff, int32_t in_offset, $floats* out_buff, int32_t out_offset, int32_t out_len) {
+	int32_t ix = in_offset;
+	int32_t ox = out_offset;
+	for (int32_t i = 0; i < out_len; ++i) {
+		int8_t x = $nc(in_buff)->get(ix++);
+		$nc(out_buff)->set(ox++, x > 0 ? x / 127.0f : x / 128.0f);
+	}
+	return out_buff;
+}
+
+$bytes* AudioFloatConverter$AudioFloatConversion8S::toByteArray($floats* in_buff, int32_t in_offset, int32_t in_len, $bytes* out_buff, int32_t out_offset) {
+	int32_t ix = in_offset;
+	int32_t ox = out_offset;
+	for (int32_t i = 0; i < in_len; ++i) {
+		float x = $nc(in_buff)->get(ix++);
+		$nc(out_buff)->set(ox++, $cast(int8_t, (x > 0 ? x * 127 : x * 128)));
+	}
+	return out_buff;
+}
+
+AudioFloatConverter$AudioFloatConversion8S::AudioFloatConverter$AudioFloatConversion8S() {
+}
+
+$Class* AudioFloatConverter$AudioFloatConversion8S::load$($String* name, bool initialize) {
+	$loadClass(AudioFloatConverter$AudioFloatConversion8S, name, initialize, &_AudioFloatConverter$AudioFloatConversion8S_ClassInfo_, allocate$AudioFloatConverter$AudioFloatConversion8S);
+	return class$;
+}
+
+$Class* AudioFloatConverter$AudioFloatConversion8S::class$ = nullptr;
+
+			} // sound
+		} // media
+	} // sun
+} // com

@@ -1,0 +1,292 @@
+#include <sun/awt/X11/XVisualInfo.h>
+
+#include <jdk/internal/misc/Unsafe.h>
+#include <sun/awt/X11/Native.h>
+#include <sun/awt/X11/XEvent.h>
+#include <sun/awt/X11/XWrapperBase.h>
+#include <sun/awt/X11/XlibWrapper.h>
+#include <sun/util/logging/PlatformLogger.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Unsafe = ::jdk::internal::misc::Unsafe;
+using $Native = ::sun::awt::X11::Native;
+using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
+using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
+using $PlatformLogger = ::sun::util::logging::PlatformLogger;
+
+namespace sun {
+	namespace awt {
+		namespace X11 {
+
+$FieldInfo _XVisualInfo_FieldInfo_[] = {
+	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XVisualInfo, unsafe)},
+	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XVisualInfo, should_free_memory)},
+	{"pData", "J", nullptr, 0, $field(XVisualInfo, pData)},
+	{}
+};
+
+$MethodInfo _XVisualInfo_MethodInfo_[] = {
+	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XVisualInfo, init$, void, int64_t)},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(XVisualInfo, init$, void)},
+	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XVisualInfo, clone, $Object*)},
+	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, dispose, void)},
+	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, getDataSize, int32_t)},
+	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XVisualInfo, getFieldsAsString, $String*)},
+	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XVisualInfo, getName, $String*)},
+	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, getPData, int64_t)},
+	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XVisualInfo, getSize, int32_t)},
+	{"get_bits_per_rgb", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_bits_per_rgb, int32_t)},
+	{"get_blue_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_blue_mask, int64_t)},
+	{"get_class", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_class, int32_t)},
+	{"get_colormap_size", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_colormap_size, int32_t)},
+	{"get_depth", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_depth, int32_t)},
+	{"get_green_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_green_mask, int64_t)},
+	{"get_red_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_red_mask, int64_t)},
+	{"get_screen", "()I", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_screen, int32_t)},
+	{"get_visual", "(I)J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_visual, int64_t, int32_t)},
+	{"get_visual", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_visual, int64_t)},
+	{"get_visualid", "()J", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, get_visualid, int64_t)},
+	{"set_bits_per_rgb", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_bits_per_rgb, void, int32_t)},
+	{"set_blue_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_blue_mask, void, int64_t)},
+	{"set_class", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_class, void, int32_t)},
+	{"set_colormap_size", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_colormap_size, void, int32_t)},
+	{"set_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_depth, void, int32_t)},
+	{"set_green_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_green_mask, void, int64_t)},
+	{"set_red_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_red_mask, void, int64_t)},
+	{"set_screen", "(I)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_screen, void, int32_t)},
+	{"set_visual", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_visual, void, int64_t)},
+	{"set_visualid", "(J)V", nullptr, $PUBLIC, $virtualMethod(XVisualInfo, set_visualid, void, int64_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XVisualInfo, toString, $String*)},
+	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XVisualInfo, zero, void)},
+	{}
+};
+
+$ClassInfo _XVisualInfo_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"sun.awt.X11.XVisualInfo",
+	"sun.awt.X11.XWrapperBase",
+	nullptr,
+	_XVisualInfo_FieldInfo_,
+	_XVisualInfo_MethodInfo_
+};
+
+$Object* allocate$XVisualInfo($Class* clazz) {
+	return $of($alloc(XVisualInfo));
+}
+
+int32_t XVisualInfo::getSize() {
+	$init(XVisualInfo);
+	return 64;
+}
+
+int32_t XVisualInfo::getDataSize() {
+	return getSize();
+}
+
+int64_t XVisualInfo::getPData() {
+	return this->pData;
+}
+
+void XVisualInfo::init$(int64_t addr) {
+	$XWrapperBase::init$();
+	$init($XlibWrapper);
+	$set(this, unsafe, $XlibWrapper::unsafe);
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest("Creating"_s);
+	this->pData = addr;
+	this->should_free_memory = false;
+}
+
+void XVisualInfo::init$() {
+	$XWrapperBase::init$();
+	$init($XlibWrapper);
+	$set(this, unsafe, $XlibWrapper::unsafe);
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest("Creating"_s);
+	this->pData = $nc(this->unsafe)->allocateMemory(getSize());
+	this->should_free_memory = true;
+}
+
+void XVisualInfo::dispose() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest("Disposing"_s);
+	if (this->should_free_memory) {
+		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$nc(this->unsafe)->freeMemory(this->pData);
+	}
+}
+
+int64_t XVisualInfo::get_visual(int32_t index) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	int64_t var$0 = $Native::getLong(this->pData + 0);
+	return var$0 + index * $Native::getLongSize();
+}
+
+int64_t XVisualInfo::get_visual() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	return $Native::getLong(this->pData + 0);
+}
+
+void XVisualInfo::set_visual(int64_t v) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	$Native::putLong(this->pData + 0, v);
+}
+
+int64_t XVisualInfo::get_visualid() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	return ($Native::getLong(this->pData + 8));
+}
+
+void XVisualInfo::set_visualid(int64_t v) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	$Native::putLong(this->pData + 8, v);
+}
+
+int32_t XVisualInfo::get_screen() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	return ($Native::getInt(this->pData + 16));
+}
+
+void XVisualInfo::set_screen(int32_t v) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	$Native::putInt(this->pData + 16, v);
+}
+
+int32_t XVisualInfo::get_depth() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	return ($Native::getInt(this->pData + 20));
+}
+
+void XVisualInfo::set_depth(int32_t v) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	$Native::putInt(this->pData + 20, v);
+}
+
+int32_t XVisualInfo::get_class() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	return ($Native::getInt(this->pData + 24));
+}
+
+void XVisualInfo::set_class(int32_t v) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	$Native::putInt(this->pData + 24, v);
+}
+
+int64_t XVisualInfo::get_red_mask() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	return ($Native::getLong(this->pData + 32));
+}
+
+void XVisualInfo::set_red_mask(int64_t v) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	$Native::putLong(this->pData + 32, v);
+}
+
+int64_t XVisualInfo::get_green_mask() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	return ($Native::getLong(this->pData + 40));
+}
+
+void XVisualInfo::set_green_mask(int64_t v) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	$Native::putLong(this->pData + 40, v);
+}
+
+int64_t XVisualInfo::get_blue_mask() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	return ($Native::getLong(this->pData + 48));
+}
+
+void XVisualInfo::set_blue_mask(int64_t v) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	$Native::putLong(this->pData + 48, v);
+}
+
+int32_t XVisualInfo::get_colormap_size() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	return ($Native::getInt(this->pData + 56));
+}
+
+void XVisualInfo::set_colormap_size(int32_t v) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	$Native::putInt(this->pData + 56, v);
+}
+
+int32_t XVisualInfo::get_bits_per_rgb() {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	return ($Native::getInt(this->pData + 60));
+}
+
+void XVisualInfo::set_bits_per_rgb(int32_t v) {
+	$init($XWrapperBase);
+	$nc($XWrapperBase::log)->finest(""_s);
+	$Native::putInt(this->pData + 60, v);
+}
+
+$String* XVisualInfo::getName() {
+	return "XVisualInfo"_s;
+}
+
+$String* XVisualInfo::getFieldsAsString() {
+	$var($StringBuilder, ret, $new($StringBuilder, 400));
+	ret->append("visual = "_s)->append(get_visual())->append(", "_s);
+	ret->append("visualid = "_s)->append(get_visualid())->append(", "_s);
+	ret->append("screen = "_s)->append(get_screen())->append(", "_s);
+	ret->append("depth = "_s)->append(get_depth())->append(", "_s);
+	ret->append("class = "_s)->append(get_class())->append(", "_s);
+	ret->append("red_mask = "_s)->append(get_red_mask())->append(", "_s);
+	ret->append("green_mask = "_s)->append(get_green_mask())->append(", "_s);
+	ret->append("blue_mask = "_s)->append(get_blue_mask())->append(", "_s);
+	ret->append("colormap_size = "_s)->append(get_colormap_size())->append(", "_s);
+	ret->append("bits_per_rgb = "_s)->append(get_bits_per_rgb())->append(", "_s);
+	return ret->toString();
+}
+
+$Object* XVisualInfo::clone() {
+	return $of($XWrapperBase::clone());
+}
+
+void XVisualInfo::zero() {
+	$XWrapperBase::zero();
+}
+
+$String* XVisualInfo::toString() {
+	return $XWrapperBase::toString();
+}
+
+XVisualInfo::XVisualInfo() {
+}
+
+$Class* XVisualInfo::load$($String* name, bool initialize) {
+	$loadClass(XVisualInfo, name, initialize, &_XVisualInfo_ClassInfo_, allocate$XVisualInfo);
+	return class$;
+}
+
+$Class* XVisualInfo::class$ = nullptr;
+
+		} // X11
+	} // awt
+} // sun

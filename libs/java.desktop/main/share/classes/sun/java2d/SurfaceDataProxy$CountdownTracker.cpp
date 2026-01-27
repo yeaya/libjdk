@@ -1,0 +1,71 @@
+#include <sun/java2d/SurfaceDataProxy$CountdownTracker.h>
+
+#include <sun/java2d/SurfaceDataProxy.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace sun {
+	namespace java2d {
+
+$FieldInfo _SurfaceDataProxy$CountdownTracker_FieldInfo_[] = {
+	{"countdown", "I", nullptr, $PRIVATE, $field(SurfaceDataProxy$CountdownTracker, countdown)},
+	{}
+};
+
+$MethodInfo _SurfaceDataProxy$CountdownTracker_MethodInfo_[] = {
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SurfaceDataProxy$CountdownTracker, init$, void, int32_t)},
+	{"isCurrent", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SurfaceDataProxy$CountdownTracker, isCurrent, bool)},
+	{}
+};
+
+$InnerClassInfo _SurfaceDataProxy$CountdownTracker_InnerClassesInfo_[] = {
+	{"sun.java2d.SurfaceDataProxy$CountdownTracker", "sun.java2d.SurfaceDataProxy", "CountdownTracker", $PUBLIC | $STATIC},
+	{}
+};
+
+$ClassInfo _SurfaceDataProxy$CountdownTracker_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"sun.java2d.SurfaceDataProxy$CountdownTracker",
+	"java.lang.Object",
+	"sun.java2d.StateTracker",
+	_SurfaceDataProxy$CountdownTracker_FieldInfo_,
+	_SurfaceDataProxy$CountdownTracker_MethodInfo_,
+	nullptr,
+	nullptr,
+	_SurfaceDataProxy$CountdownTracker_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.java2d.SurfaceDataProxy"
+};
+
+$Object* allocate$SurfaceDataProxy$CountdownTracker($Class* clazz) {
+	return $of($alloc(SurfaceDataProxy$CountdownTracker));
+}
+
+void SurfaceDataProxy$CountdownTracker::init$(int32_t threshold) {
+	this->countdown = threshold;
+}
+
+bool SurfaceDataProxy$CountdownTracker::isCurrent() {
+	$synchronized(this) {
+		return (--this->countdown >= 0);
+	}
+}
+
+SurfaceDataProxy$CountdownTracker::SurfaceDataProxy$CountdownTracker() {
+}
+
+$Class* SurfaceDataProxy$CountdownTracker::load$($String* name, bool initialize) {
+	$loadClass(SurfaceDataProxy$CountdownTracker, name, initialize, &_SurfaceDataProxy$CountdownTracker_ClassInfo_, allocate$SurfaceDataProxy$CountdownTracker);
+	return class$;
+}
+
+$Class* SurfaceDataProxy$CountdownTracker::class$ = nullptr;
+
+	} // java2d
+} // sun

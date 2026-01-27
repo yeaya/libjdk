@@ -1,0 +1,1084 @@
+#include <com/sun/org/apache/xalan/internal/templates/Constants.h>
+
+#include <com/sun/org/apache/xml/internal/utils/Constants.h>
+#include <jcpp.h>
+
+#undef ATTRNAME_AMOUNT
+#undef ATTRNAME_ANCESTOR
+#undef ATTRNAME_ARCHIVE
+#undef ATTRNAME_ATTRIBUTE
+#undef ATTRNAME_ATTRIBUTE_SET
+#undef ATTRNAME_CASEORDER
+#undef ATTRNAME_CLASS
+#undef ATTRNAME_CLASSID
+#undef ATTRNAME_CODEBASE
+#undef ATTRNAME_CODETYPE
+#undef ATTRNAME_CONDITION
+#undef ATTRNAME_COPYTYPE
+#undef ATTRNAME_COUNT
+#undef ATTRNAME_DATATYPE
+#undef ATTRNAME_DECIMALSEPARATOR
+#undef ATTRNAME_DEFAULT
+#undef ATTRNAME_DEFAULTSPACE
+#undef ATTRNAME_DEPTH
+#undef ATTRNAME_DIGIT
+#undef ATTRNAME_DIGITGROUPSEP
+#undef ATTRNAME_DISABLE_OUTPUT_ESCAPING
+#undef ATTRNAME_ELEMENT
+#undef ATTRNAME_ELEMENTS
+#undef ATTRNAME_EXCLUDE_RESULT_PREFIXES
+#undef ATTRNAME_EXPR
+#undef ATTRNAME_EXTENSIONELEMENTPREFIXES
+#undef ATTRNAME_FORMAT
+#undef ATTRNAME_FROM
+#undef ATTRNAME_GROUPINGSEPARATOR
+#undef ATTRNAME_GROUPINGSIZE
+#undef ATTRNAME_HREF
+#undef ATTRNAME_ID
+#undef ATTRNAME_IMPORTANCE
+#undef ATTRNAME_INDENTRESULT
+#undef ATTRNAME_INFINITY
+#undef ATTRNAME_LANG
+#undef ATTRNAME_LETTERVALUE
+#undef ATTRNAME_LEVEL
+#undef ATTRNAME_MATCH
+#undef ATTRNAME_METHOD
+#undef ATTRNAME_MINUSSIGN
+#undef ATTRNAME_MODE
+#undef ATTRNAME_NAME
+#undef ATTRNAME_NAMESPACE
+#undef ATTRNAME_NAN
+#undef ATTRNAME_NDIGITSPERGROUP
+#undef ATTRNAME_NS
+#undef ATTRNAME_ONLY
+#undef ATTRNAME_ORDER
+#undef ATTRNAME_OUTPUT_CDATA_SECTION_ELEMENTS
+#undef ATTRNAME_OUTPUT_DOCTYPE_PUBLIC
+#undef ATTRNAME_OUTPUT_DOCTYPE_SYSTEM
+#undef ATTRNAME_OUTPUT_ENCODING
+#undef ATTRNAME_OUTPUT_INDENT
+#undef ATTRNAME_OUTPUT_MEDIATYPE
+#undef ATTRNAME_OUTPUT_METHOD
+#undef ATTRNAME_OUTPUT_OMITXMLDECL
+#undef ATTRNAME_OUTPUT_STANDALONE
+#undef ATTRNAME_OUTPUT_VERSION
+#undef ATTRNAME_PATTERNSEPARATOR
+#undef ATTRNAME_PERCENT
+#undef ATTRNAME_PERMILLE
+#undef ATTRNAME_PRIORITY
+#undef ATTRNAME_REFID
+#undef ATTRNAME_RESULTNS
+#undef ATTRNAME_RESULT_PREFIX
+#undef ATTRNAME_SELECT
+#undef ATTRNAME_SEQUENCESRC
+#undef ATTRNAME_STYLE
+#undef ATTRNAME_STYLESHEET_PREFIX
+#undef ATTRNAME_TERMINATE
+#undef ATTRNAME_TEST
+#undef ATTRNAME_TOSTRING
+#undef ATTRNAME_TYPE
+#undef ATTRNAME_USE
+#undef ATTRNAME_USEATTRIBUTESETS
+#undef ATTRNAME_VALUE
+#undef ATTRNAME_VERSION
+#undef ATTRNAME_XMLNS
+#undef ATTRNAME_XMLNSDEF
+#undef ATTRNAME_XMLSPACE
+#undef ATTRNAME_XXXX
+#undef ATTRNAME_ZERODIGIT
+#undef ATTRVAL_ALPHABETIC
+#undef ATTRVAL_ANCESTOR
+#undef ATTRVAL_ANY
+#undef ATTRVAL_CASEORDER_LOWER
+#undef ATTRVAL_CASEORDER_UPPER
+#undef ATTRVAL_DATATYPE_NUMBER
+#undef ATTRVAL_DATATYPE_TEXT
+#undef ATTRVAL_DEFAULT_PREFIX
+#undef ATTRVAL_ID
+#undef ATTRVAL_INFINITY
+#undef ATTRVAL_MULTI
+#undef ATTRVAL_NAN
+#undef ATTRVAL_NO
+#undef ATTRVAL_ORDER_ASCENDING
+#undef ATTRVAL_ORDER_DESCENDING
+#undef ATTRVAL_OTHER
+#undef ATTRVAL_OUTPUT_METHOD_HTML
+#undef ATTRVAL_OUTPUT_METHOD_TEXT
+#undef ATTRVAL_OUTPUT_METHOD_XML
+#undef ATTRVAL_PARENT
+#undef ATTRVAL_PRESERVE
+#undef ATTRVAL_SINGLE
+#undef ATTRVAL_STRIP
+#undef ATTRVAL_THIS
+#undef ATTRVAL_TRADITIONAL
+#undef ATTRVAL_YES
+#undef DEFAULT_DECIMAL_FORMAT
+#undef ELEMNAME_ADDATTRIBUTE
+#undef ELEMNAME_ANCHOR
+#undef ELEMNAME_ANCHOR_STRING
+#undef ELEMNAME_ANY
+#undef ELEMNAME_ANY_STRING
+#undef ELEMNAME_APPLY_IMPORTS
+#undef ELEMNAME_APPLY_IMPORTS_STRING
+#undef ELEMNAME_APPLY_TEMPLATES
+#undef ELEMNAME_APPLY_TEMPLATES_STRING
+#undef ELEMNAME_ARG_STRING
+#undef ELEMNAME_ATTRIBUTE
+#undef ELEMNAME_ATTRIBUTESET_STRING
+#undef ELEMNAME_ATTRIBUTE_STRING
+#undef ELEMNAME_CALL
+#undef ELEMNAME_CALLTEMPLATE
+#undef ELEMNAME_CALLTEMPLATEARG_STRING
+#undef ELEMNAME_CALLTEMPLATE_STRING
+#undef ELEMNAME_CALL_STRING
+#undef ELEMNAME_CHILDREN
+#undef ELEMNAME_CHILDREN_STRING
+#undef ELEMNAME_CHOOSE
+#undef ELEMNAME_CHOOSE_STRING
+#undef ELEMNAME_COMMENT
+#undef ELEMNAME_COMMENT_STRING
+#undef ELEMNAME_COMPONENT
+#undef ELEMNAME_COMPONENT_STRING
+#undef ELEMNAME_CONSTRUCT
+#undef ELEMNAME_CONSTRUCT_STRING
+#undef ELEMNAME_CONTENTS
+#undef ELEMNAME_CONTENTS_STRING
+#undef ELEMNAME_COPY
+#undef ELEMNAME_COPY_OF
+#undef ELEMNAME_COPY_OF_STRING
+#undef ELEMNAME_COPY_STRING
+#undef ELEMNAME_COUNTER
+#undef ELEMNAME_COUNTERINCREMENT
+#undef ELEMNAME_COUNTERINCREMENT_STRING
+#undef ELEMNAME_COUNTERRESET
+#undef ELEMNAME_COUNTERRESET_STRING
+#undef ELEMNAME_COUNTERS
+#undef ELEMNAME_COUNTERSCOPE
+#undef ELEMNAME_COUNTERSCOPE_STRING
+#undef ELEMNAME_COUNTERS_STRING
+#undef ELEMNAME_COUNTER_STRING
+#undef ELEMNAME_CSSSTYLECONVERSION
+#undef ELEMNAME_CSSSTYLECONVERSION_STRING
+#undef ELEMNAME_DECIMALFORMAT
+#undef ELEMNAME_DECIMALFORMAT_STRING
+#undef ELEMNAME_DEFINEATTRIBUTESET
+#undef ELEMNAME_DEFINESCRIPT
+#undef ELEMNAME_DISPLAYIF
+#undef ELEMNAME_DISPLAYIF_STRING
+#undef ELEMNAME_ELEMENT
+#undef ELEMNAME_ELEMENT_STRING
+#undef ELEMNAME_EMPTY
+#undef ELEMNAME_EMPTY_STRING
+#undef ELEMNAME_EVAL
+#undef ELEMNAME_EVAL_STRING
+#undef ELEMNAME_EXPECTEDCHILDREN
+#undef ELEMNAME_EXPECTEDCHILDREN_STRING
+#undef ELEMNAME_EXTENSION
+#undef ELEMNAME_EXTENSIONCALL
+#undef ELEMNAME_EXTENSIONDECL
+#undef ELEMNAME_EXTENSIONHANDLER
+#undef ELEMNAME_EXTENSIONHANDLER_STRING
+#undef ELEMNAME_EXTENSIONSCRIPT
+#undef ELEMNAME_EXTENSION_STRING
+#undef ELEMNAME_FALLBACK
+#undef ELEMNAME_FALLBACK_STRING
+#undef ELEMNAME_FOREACH
+#undef ELEMNAME_FOREACH_STRING
+#undef ELEMNAME_IF
+#undef ELEMNAME_IF_STRING
+#undef ELEMNAME_IMPORT
+#undef ELEMNAME_IMPORT_STRING
+#undef ELEMNAME_INCLUDE
+#undef ELEMNAME_INCLUDE_STRING
+#undef ELEMNAME_KEY
+#undef ELEMNAME_KEY_STRING
+#undef ELEMNAME_LITERALRESULT
+#undef ELEMNAME_LOCALE
+#undef ELEMNAME_LOCALE_STRING
+#undef ELEMNAME_MESSAGE
+#undef ELEMNAME_MESSAGE_STRING
+#undef ELEMNAME_NSALIAS
+#undef ELEMNAME_NSALIAS_STRING
+#undef ELEMNAME_NUMBER
+#undef ELEMNAME_NUMBER_STRING
+#undef ELEMNAME_OTHERWISE
+#undef ELEMNAME_OTHERWISE_STRING
+#undef ELEMNAME_OUTPUT
+#undef ELEMNAME_OUTPUT_STRING
+#undef ELEMNAME_PARAMVARIABLE
+#undef ELEMNAME_PARAMVARIABLE_STRING
+#undef ELEMNAME_PI
+#undef ELEMNAME_PI_OLD_STRING
+#undef ELEMNAME_PI_STRING
+#undef ELEMNAME_PRESERVESPACE
+#undef ELEMNAME_PRESERVESPACE_STRING
+#undef ELEMNAME_REMOVEATTRIBUTE
+#undef ELEMNAME_ROOT
+#undef ELEMNAME_ROOT_STRING
+#undef ELEMNAME_SCRIPT
+#undef ELEMNAME_SCRIPT_STRING
+#undef ELEMNAME_SORT
+#undef ELEMNAME_SORT_STRING
+#undef ELEMNAME_STRIPSPACE
+#undef ELEMNAME_STRIPSPACE_STRING
+#undef ELEMNAME_STYLESHEET
+#undef ELEMNAME_STYLESHEET_STRING
+#undef ELEMNAME_TARGETATTRIBUTE
+#undef ELEMNAME_TARGETATTRIBUTE_STRING
+#undef ELEMNAME_TARGETCOMMENT
+#undef ELEMNAME_TARGETCOMMENT_STRING
+#undef ELEMNAME_TARGETELEMENT
+#undef ELEMNAME_TARGETELEMENT_STRING
+#undef ELEMNAME_TARGETPI
+#undef ELEMNAME_TARGETPI_STRING
+#undef ELEMNAME_TARGETTEXT
+#undef ELEMNAME_TARGETTEXT_STRING
+#undef ELEMNAME_TEMPLATE
+#undef ELEMNAME_TEMPLATE_STRING
+#undef ELEMNAME_TEXT
+#undef ELEMNAME_TEXTLITERALRESULT
+#undef ELEMNAME_TEXT_STRING
+#undef ELEMNAME_TRANSFORM_STRING
+#undef ELEMNAME_UNDEFINED
+#undef ELEMNAME_URL
+#undef ELEMNAME_URL_STRING
+#undef ELEMNAME_USE
+#undef ELEMNAME_USE_STRING
+#undef ELEMNAME_VALUEOF
+#undef ELEMNAME_VALUEOF_STRING
+#undef ELEMNAME_VARIABLE
+#undef ELEMNAME_VARIABLE_STRING
+#undef ELEMNAME_WHEN
+#undef ELEMNAME_WHEN_STRING
+#undef ELEMNAME_WITHPARAM
+#undef ELEMNAME_WITHPARAM_STRING
+#undef EXSLT_ELEMNAME_FUNCRESULT
+#undef EXSLT_ELEMNAME_FUNCRESULT_STRING
+#undef EXSLT_ELEMNAME_FUNCTION
+#undef EXSLT_ELEMNAME_FUNCTION_STRING
+#undef MAX_MULTI_COUNTING_DEPTH
+#undef NUMBERLETTER_ALPHABETIC
+#undef NUMBERLETTER_TRADITIONAL
+#undef NUMBERLEVEL_ANY
+#undef NUMBERLEVEL_MULTI
+#undef NUMBERLEVEL_SINGLE
+#undef SORTCASEORDER_LOWERFIRST
+#undef SORTCASEORDER_UPPERFIRST
+#undef SORTDATATYPE_NUMBER
+#undef SORTDATATYPE_TEXT
+#undef SORTORDER_ASCENDING
+#undef SORTORDER_DESCENDING
+#undef TATTRNAME_AMOUNT
+#undef TATTRNAME_ANCESTOR
+#undef TATTRNAME_ARCHIVE
+#undef TATTRNAME_ATTRIBUTE
+#undef TATTRNAME_ATTRIBUTE_SET
+#undef TATTRNAME_CASEORDER
+#undef TATTRNAME_CLASS
+#undef TATTRNAME_CLASSID
+#undef TATTRNAME_CODEBASE
+#undef TATTRNAME_CODETYPE
+#undef TATTRNAME_CONDITION
+#undef TATTRNAME_COPYTYPE
+#undef TATTRNAME_COUNT
+#undef TATTRNAME_DATATYPE
+#undef TATTRNAME_DEFAULT
+#undef TATTRNAME_DEFAULTSPACE
+#undef TATTRNAME_DEPTH
+#undef TATTRNAME_DIGITGROUPSEP
+#undef TATTRNAME_DISABLE_OUTPUT_ESCAPING
+#undef TATTRNAME_ELEMENT
+#undef TATTRNAME_ELEMENTS
+#undef TATTRNAME_EXCLUDE_RESULT_PREFIXES
+#undef TATTRNAME_EXPR
+#undef TATTRNAME_EXTENSIONELEMENTPREFIXES
+#undef TATTRNAME_FORMAT
+#undef TATTRNAME_FROM
+#undef TATTRNAME_GROUPINGSEPARATOR
+#undef TATTRNAME_GROUPINGSIZE
+#undef TATTRNAME_HREF
+#undef TATTRNAME_ID
+#undef TATTRNAME_IMPORTANCE
+#undef TATTRNAME_INDENTRESULT
+#undef TATTRNAME_LANG
+#undef TATTRNAME_LETTERVALUE
+#undef TATTRNAME_LEVEL
+#undef TATTRNAME_MATCH
+#undef TATTRNAME_METHOD
+#undef TATTRNAME_MODE
+#undef TATTRNAME_NAME
+#undef TATTRNAME_NAMESPACE
+#undef TATTRNAME_NDIGITSPERGROUP
+#undef TATTRNAME_NS
+#undef TATTRNAME_ONLY
+#undef TATTRNAME_ORDER
+#undef TATTRNAME_OUTPUT_CDATA_SECTION_ELEMENTS
+#undef TATTRNAME_OUTPUT_DOCTYPE_PUBLIC
+#undef TATTRNAME_OUTPUT_DOCTYPE_SYSTEM
+#undef TATTRNAME_OUTPUT_ENCODING
+#undef TATTRNAME_OUTPUT_INDENT
+#undef TATTRNAME_OUTPUT_MEDIATYPE
+#undef TATTRNAME_OUTPUT_METHOD
+#undef TATTRNAME_OUTPUT_OMITXMLDECL
+#undef TATTRNAME_OUTPUT_STANDALONE
+#undef TATTRNAME_OUTPUT_VERSION
+#undef TATTRNAME_PRIORITY
+#undef TATTRNAME_REFID
+#undef TATTRNAME_RESULTNS
+#undef TATTRNAME_SELECT
+#undef TATTRNAME_SEQUENCESRC
+#undef TATTRNAME_STYLE
+#undef TATTRNAME_TEST
+#undef TATTRNAME_TOSTRING
+#undef TATTRNAME_TYPE
+#undef TATTRNAME_USE
+#undef TATTRNAME_USEATTRIBUTESETS
+#undef TATTRNAME_VALUE
+#undef TATTRNAME_XMLNS
+#undef TATTRNAME_XMLNSDEF
+#undef TATTRNAME_XMLSPACE
+
+using $Constants = ::com::sun::org::apache::xml::internal::utils::Constants;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace com {
+	namespace sun {
+		namespace org {
+			namespace apache {
+				namespace xalan {
+					namespace internal {
+						namespace templates {
+
+$FieldInfo _Constants_FieldInfo_[] = {
+	{"ELEMNAME_UNDEFINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_UNDEFINED)},
+	{"ELEMNAME_WITHPARAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_WITHPARAM)},
+	{"ELEMNAME_ADDATTRIBUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_ADDATTRIBUTE)},
+	{"ELEMNAME_ANCHOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_ANCHOR)},
+	{"ELEMNAME_APPLY_TEMPLATES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_APPLY_TEMPLATES)},
+	{"ELEMNAME_USE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_USE)},
+	{"ELEMNAME_CHILDREN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_CHILDREN)},
+	{"ELEMNAME_CHOOSE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_CHOOSE)},
+	{"ELEMNAME_COMMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_COMMENT)},
+	{"ELEMNAME_CONSTRUCT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_CONSTRUCT)},
+	{"ELEMNAME_CONTENTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_CONTENTS)},
+	{"ELEMNAME_COPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_COPY)},
+	{"ELEMNAME_COPY_OF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_COPY_OF)},
+	{"ELEMNAME_DECIMALFORMAT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_DECIMALFORMAT)},
+	{"ELEMNAME_DEFINEATTRIBUTESET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_DEFINEATTRIBUTESET)},
+	{"ELEMNAME_DEFINESCRIPT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_DEFINESCRIPT)},
+	{"ELEMNAME_DISPLAYIF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_DISPLAYIF)},
+	{"ELEMNAME_EMPTY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_EMPTY)},
+	{"ELEMNAME_EVAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_EVAL)},
+	{"ELEMNAME_EXPECTEDCHILDREN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_EXPECTEDCHILDREN)},
+	{"ELEMNAME_EXTENSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_EXTENSION)},
+	{"ELEMNAME_EXTENSIONHANDLER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_EXTENSIONHANDLER)},
+	{"ELEMNAME_FOREACH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_FOREACH)},
+	{"ELEMNAME_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_KEY)},
+	{"ELEMNAME_IF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_IF)},
+	{"ELEMNAME_IMPORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_IMPORT)},
+	{"ELEMNAME_INCLUDE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_INCLUDE)},
+	{"ELEMNAME_CALLTEMPLATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_CALLTEMPLATE)},
+	{"ELEMNAME_PARAMVARIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_PARAMVARIABLE)},
+	{"ELEMNAME_NUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_NUMBER)},
+	{"ELEMNAME_NSALIAS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_NSALIAS)},
+	{"ELEMNAME_OTHERWISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_OTHERWISE)},
+	{"ELEMNAME_PI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_PI)},
+	{"ELEMNAME_PRESERVESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_PRESERVESPACE)},
+	{"ELEMNAME_REMOVEATTRIBUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_REMOVEATTRIBUTE)},
+	{"ELEMNAME_TEMPLATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_TEMPLATE)},
+	{"ELEMNAME_SORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_SORT)},
+	{"ELEMNAME_STRIPSPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_STRIPSPACE)},
+	{"ELEMNAME_STYLESHEET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_STYLESHEET)},
+	{"ELEMNAME_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_TEXT)},
+	{"ELEMNAME_VALUEOF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_VALUEOF)},
+	{"ELEMNAME_WHEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_WHEN)},
+	{"ELEMNAME_ROOT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_ROOT)},
+	{"ELEMNAME_ANY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_ANY)},
+	{"ELEMNAME_ELEMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_ELEMENT)},
+	{"ELEMNAME_TARGETELEMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_TARGETELEMENT)},
+	{"ELEMNAME_ATTRIBUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_ATTRIBUTE)},
+	{"ELEMNAME_TARGETATTRIBUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_TARGETATTRIBUTE)},
+	{"ELEMNAME_URL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_URL)},
+	{"ELEMNAME_CALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_CALL)},
+	{"ELEMNAME_FALLBACK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_FALLBACK)},
+	{"ELEMNAME_TARGETPI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_TARGETPI)},
+	{"ELEMNAME_TARGETCOMMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_TARGETCOMMENT)},
+	{"ELEMNAME_TARGETTEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_TARGETTEXT)},
+	{"ELEMNAME_CSSSTYLECONVERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_CSSSTYLECONVERSION)},
+	{"ELEMNAME_COUNTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_COUNTER)},
+	{"ELEMNAME_COUNTERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_COUNTERS)},
+	{"ELEMNAME_COUNTERINCREMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_COUNTERINCREMENT)},
+	{"ELEMNAME_COUNTERRESET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_COUNTERRESET)},
+	{"ELEMNAME_COUNTERSCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_COUNTERSCOPE)},
+	{"ELEMNAME_APPLY_IMPORTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_APPLY_IMPORTS)},
+	{"ELEMNAME_VARIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_VARIABLE)},
+	{"ELEMNAME_MESSAGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_MESSAGE)},
+	{"ELEMNAME_LOCALE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_LOCALE)},
+	{"ELEMNAME_LITERALRESULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_LITERALRESULT)},
+	{"ELEMNAME_TEXTLITERALRESULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_TEXTLITERALRESULT)},
+	{"ELEMNAME_EXTENSIONCALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_EXTENSIONCALL)},
+	{"ELEMNAME_EXTENSIONDECL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_EXTENSIONDECL)},
+	{"ELEMNAME_EXTENSIONSCRIPT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_EXTENSIONSCRIPT)},
+	{"ELEMNAME_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_OUTPUT)},
+	{"ELEMNAME_COMPONENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_COMPONENT)},
+	{"ELEMNAME_SCRIPT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ELEMNAME_SCRIPT)},
+	{"ELEMNAME_ANCHOR_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_ANCHOR_STRING)},
+	{"ELEMNAME_ANY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_ANY_STRING)},
+	{"ELEMNAME_APPLY_IMPORTS_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_APPLY_IMPORTS_STRING)},
+	{"ELEMNAME_APPLY_TEMPLATES_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_APPLY_TEMPLATES_STRING)},
+	{"ELEMNAME_ARG_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_ARG_STRING)},
+	{"ELEMNAME_ATTRIBUTESET_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_ATTRIBUTESET_STRING)},
+	{"ELEMNAME_ATTRIBUTE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_ATTRIBUTE_STRING)},
+	{"ELEMNAME_CALLTEMPLATEARG_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_CALLTEMPLATEARG_STRING)},
+	{"ELEMNAME_CALLTEMPLATE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_CALLTEMPLATE_STRING)},
+	{"ELEMNAME_CALL_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_CALL_STRING)},
+	{"ELEMNAME_CHILDREN_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_CHILDREN_STRING)},
+	{"ELEMNAME_CHOOSE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_CHOOSE_STRING)},
+	{"ELEMNAME_COMMENT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_COMMENT_STRING)},
+	{"ELEMNAME_COMPONENT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_COMPONENT_STRING)},
+	{"ELEMNAME_CONSTRUCT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_CONSTRUCT_STRING)},
+	{"ELEMNAME_CONTENTS_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_CONTENTS_STRING)},
+	{"ELEMNAME_COPY_OF_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_COPY_OF_STRING)},
+	{"ELEMNAME_COPY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_COPY_STRING)},
+	{"ELEMNAME_COUNTERINCREMENT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_COUNTERINCREMENT_STRING)},
+	{"ELEMNAME_COUNTERRESET_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_COUNTERRESET_STRING)},
+	{"ELEMNAME_COUNTERSCOPE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_COUNTERSCOPE_STRING)},
+	{"ELEMNAME_COUNTERS_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_COUNTERS_STRING)},
+	{"ELEMNAME_COUNTER_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_COUNTER_STRING)},
+	{"ELEMNAME_CSSSTYLECONVERSION_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_CSSSTYLECONVERSION_STRING)},
+	{"ELEMNAME_DECIMALFORMAT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_DECIMALFORMAT_STRING)},
+	{"ELEMNAME_DISPLAYIF_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_DISPLAYIF_STRING)},
+	{"ELEMNAME_ELEMENT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_ELEMENT_STRING)},
+	{"ELEMNAME_EMPTY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_EMPTY_STRING)},
+	{"ELEMNAME_EVAL_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_EVAL_STRING)},
+	{"ELEMNAME_EXPECTEDCHILDREN_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_EXPECTEDCHILDREN_STRING)},
+	{"ELEMNAME_EXTENSIONHANDLER_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_EXTENSIONHANDLER_STRING)},
+	{"ELEMNAME_EXTENSION_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_EXTENSION_STRING)},
+	{"ELEMNAME_FALLBACK_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_FALLBACK_STRING)},
+	{"ELEMNAME_FOREACH_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_FOREACH_STRING)},
+	{"ELEMNAME_IF_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_IF_STRING)},
+	{"ELEMNAME_IMPORT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_IMPORT_STRING)},
+	{"ELEMNAME_INCLUDE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_INCLUDE_STRING)},
+	{"ELEMNAME_KEY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_KEY_STRING)},
+	{"ELEMNAME_LOCALE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_LOCALE_STRING)},
+	{"ELEMNAME_MESSAGE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_MESSAGE_STRING)},
+	{"ELEMNAME_NSALIAS_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_NSALIAS_STRING)},
+	{"ELEMNAME_NUMBER_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_NUMBER_STRING)},
+	{"ELEMNAME_OTHERWISE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_OTHERWISE_STRING)},
+	{"ELEMNAME_OUTPUT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_OUTPUT_STRING)},
+	{"ELEMNAME_PARAMVARIABLE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_PARAMVARIABLE_STRING)},
+	{"ELEMNAME_PI_OLD_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_PI_OLD_STRING)},
+	{"ELEMNAME_PI_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_PI_STRING)},
+	{"ELEMNAME_PRESERVESPACE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_PRESERVESPACE_STRING)},
+	{"ELEMNAME_ROOT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_ROOT_STRING)},
+	{"ELEMNAME_SCRIPT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_SCRIPT_STRING)},
+	{"ELEMNAME_SORT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_SORT_STRING)},
+	{"ELEMNAME_STRIPSPACE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_STRIPSPACE_STRING)},
+	{"ELEMNAME_STYLESHEET_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_STYLESHEET_STRING)},
+	{"ELEMNAME_TARGETATTRIBUTE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_TARGETATTRIBUTE_STRING)},
+	{"ELEMNAME_TARGETCOMMENT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_TARGETCOMMENT_STRING)},
+	{"ELEMNAME_TARGETELEMENT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_TARGETELEMENT_STRING)},
+	{"ELEMNAME_TARGETPI_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_TARGETPI_STRING)},
+	{"ELEMNAME_TARGETTEXT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_TARGETTEXT_STRING)},
+	{"ELEMNAME_TEMPLATE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_TEMPLATE_STRING)},
+	{"ELEMNAME_TEXT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_TEXT_STRING)},
+	{"ELEMNAME_TRANSFORM_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_TRANSFORM_STRING)},
+	{"ELEMNAME_URL_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_URL_STRING)},
+	{"ELEMNAME_USE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_USE_STRING)},
+	{"ELEMNAME_VALUEOF_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_VALUEOF_STRING)},
+	{"ELEMNAME_VARIABLE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_VARIABLE_STRING)},
+	{"ELEMNAME_WHEN_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_WHEN_STRING)},
+	{"ELEMNAME_WITHPARAM_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMNAME_WITHPARAM_STRING)},
+	{"EXSLT_ELEMNAME_FUNCTION_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, EXSLT_ELEMNAME_FUNCTION_STRING)},
+	{"EXSLT_ELEMNAME_FUNCRESULT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, EXSLT_ELEMNAME_FUNCRESULT_STRING)},
+	{"EXSLT_ELEMNAME_FUNCTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, EXSLT_ELEMNAME_FUNCTION)},
+	{"EXSLT_ELEMNAME_FUNCRESULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, EXSLT_ELEMNAME_FUNCRESULT)},
+	{"ATTRNAME_AMOUNT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_AMOUNT)},
+	{"ATTRNAME_ANCESTOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_ANCESTOR)},
+	{"ATTRNAME_ARCHIVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_ARCHIVE)},
+	{"ATTRNAME_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_ATTRIBUTE)},
+	{"ATTRNAME_ATTRIBUTE_SET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_ATTRIBUTE_SET)},
+	{"ATTRNAME_CASEORDER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_CASEORDER)},
+	{"ATTRNAME_CLASS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_CLASS)},
+	{"ATTRNAME_CLASSID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_CLASSID)},
+	{"ATTRNAME_CODEBASE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_CODEBASE)},
+	{"ATTRNAME_CODETYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_CODETYPE)},
+	{"ATTRNAME_CONDITION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_CONDITION)},
+	{"ATTRNAME_COPYTYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_COPYTYPE)},
+	{"ATTRNAME_COUNT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_COUNT)},
+	{"ATTRNAME_DATATYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_DATATYPE)},
+	{"ATTRNAME_DECIMALSEPARATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_DECIMALSEPARATOR)},
+	{"ATTRNAME_DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_DEFAULT)},
+	{"ATTRNAME_DEFAULTSPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_DEFAULTSPACE)},
+	{"ATTRNAME_DEPTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_DEPTH)},
+	{"ATTRNAME_DIGIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_DIGIT)},
+	{"ATTRNAME_DIGITGROUPSEP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_DIGITGROUPSEP)},
+	{"ATTRNAME_DISABLE_OUTPUT_ESCAPING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_DISABLE_OUTPUT_ESCAPING)},
+	{"ATTRNAME_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_ELEMENT)},
+	{"ATTRNAME_ELEMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_ELEMENTS)},
+	{"ATTRNAME_EXCLUDE_RESULT_PREFIXES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_EXCLUDE_RESULT_PREFIXES)},
+	{"ATTRNAME_EXPR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_EXPR)},
+	{"ATTRNAME_EXTENSIONELEMENTPREFIXES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_EXTENSIONELEMENTPREFIXES)},
+	{"ATTRNAME_FORMAT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_FORMAT)},
+	{"ATTRNAME_FROM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_FROM)},
+	{"ATTRNAME_GROUPINGSEPARATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_GROUPINGSEPARATOR)},
+	{"ATTRNAME_GROUPINGSIZE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_GROUPINGSIZE)},
+	{"ATTRNAME_HREF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_HREF)},
+	{"ATTRNAME_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_ID)},
+	{"ATTRNAME_IMPORTANCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_IMPORTANCE)},
+	{"ATTRNAME_INDENTRESULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_INDENTRESULT)},
+	{"ATTRNAME_INFINITY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_INFINITY)},
+	{"ATTRNAME_LANG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_LANG)},
+	{"ATTRNAME_LETTERVALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_LETTERVALUE)},
+	{"ATTRNAME_LEVEL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_LEVEL)},
+	{"ATTRNAME_MATCH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_MATCH)},
+	{"ATTRNAME_METHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_METHOD)},
+	{"ATTRNAME_MINUSSIGN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_MINUSSIGN)},
+	{"ATTRNAME_MODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_MODE)},
+	{"ATTRNAME_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_NAME)},
+	{"ATTRNAME_NAMESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_NAMESPACE)},
+	{"ATTRNAME_NAN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_NAN)},
+	{"ATTRNAME_NDIGITSPERGROUP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_NDIGITSPERGROUP)},
+	{"ATTRNAME_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_NS)},
+	{"ATTRNAME_ONLY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_ONLY)},
+	{"ATTRNAME_ORDER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_ORDER)},
+	{"ATTRNAME_OUTPUT_CDATA_SECTION_ELEMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_OUTPUT_CDATA_SECTION_ELEMENTS)},
+	{"ATTRNAME_OUTPUT_DOCTYPE_PUBLIC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_OUTPUT_DOCTYPE_PUBLIC)},
+	{"ATTRNAME_OUTPUT_DOCTYPE_SYSTEM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_OUTPUT_DOCTYPE_SYSTEM)},
+	{"ATTRNAME_OUTPUT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_OUTPUT_ENCODING)},
+	{"ATTRNAME_OUTPUT_INDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_OUTPUT_INDENT)},
+	{"ATTRNAME_OUTPUT_MEDIATYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_OUTPUT_MEDIATYPE)},
+	{"ATTRNAME_OUTPUT_METHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_OUTPUT_METHOD)},
+	{"ATTRNAME_OUTPUT_OMITXMLDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_OUTPUT_OMITXMLDECL)},
+	{"ATTRNAME_OUTPUT_STANDALONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_OUTPUT_STANDALONE)},
+	{"ATTRNAME_OUTPUT_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_OUTPUT_VERSION)},
+	{"ATTRNAME_PATTERNSEPARATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_PATTERNSEPARATOR)},
+	{"ATTRNAME_PERCENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_PERCENT)},
+	{"ATTRNAME_PERMILLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_PERMILLE)},
+	{"ATTRNAME_PRIORITY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_PRIORITY)},
+	{"ATTRNAME_REFID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_REFID)},
+	{"ATTRNAME_RESULTNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_RESULTNS)},
+	{"ATTRNAME_RESULT_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_RESULT_PREFIX)},
+	{"ATTRNAME_SELECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_SELECT)},
+	{"ATTRNAME_SEQUENCESRC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_SEQUENCESRC)},
+	{"ATTRNAME_STYLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_STYLE)},
+	{"ATTRNAME_STYLESHEET_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_STYLESHEET_PREFIX)},
+	{"ATTRNAME_TERMINATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_TERMINATE)},
+	{"ATTRNAME_TEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_TEST)},
+	{"ATTRNAME_TOSTRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_TOSTRING)},
+	{"ATTRNAME_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_TYPE)},
+	{"ATTRNAME_USE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_USE)},
+	{"ATTRNAME_USEATTRIBUTESETS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_USEATTRIBUTESETS)},
+	{"ATTRNAME_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_VALUE)},
+	{"ATTRNAME_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_VERSION)},
+	{"ATTRNAME_XMLNS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_XMLNS)},
+	{"ATTRNAME_XMLNSDEF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_XMLNSDEF)},
+	{"ATTRNAME_XMLSPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_XMLSPACE)},
+	{"ATTRNAME_ZERODIGIT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_ZERODIGIT)},
+	{"TATTRNAME_OUTPUT_METHOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_OUTPUT_METHOD)},
+	{"TATTRNAME_AMOUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_AMOUNT)},
+	{"TATTRNAME_ANCESTOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_ANCESTOR)},
+	{"TATTRNAME_ARCHIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_ARCHIVE)},
+	{"TATTRNAME_ATTRIBUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_ATTRIBUTE)},
+	{"TATTRNAME_ATTRIBUTE_SET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_ATTRIBUTE_SET)},
+	{"TATTRNAME_CASEORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_CASEORDER)},
+	{"TATTRNAME_CLASS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_CLASS)},
+	{"TATTRNAME_CLASSID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_CLASSID)},
+	{"TATTRNAME_CODEBASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_CODEBASE)},
+	{"TATTRNAME_CODETYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_CODETYPE)},
+	{"TATTRNAME_CONDITION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_CONDITION)},
+	{"TATTRNAME_COPYTYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_COPYTYPE)},
+	{"TATTRNAME_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_COUNT)},
+	{"TATTRNAME_DATATYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_DATATYPE)},
+	{"TATTRNAME_DEFAULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_DEFAULT)},
+	{"TATTRNAME_DEFAULTSPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_DEFAULTSPACE)},
+	{"TATTRNAME_DEPTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_DEPTH)},
+	{"TATTRNAME_DIGITGROUPSEP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_DIGITGROUPSEP)},
+	{"TATTRNAME_DISABLE_OUTPUT_ESCAPING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_DISABLE_OUTPUT_ESCAPING)},
+	{"TATTRNAME_ELEMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_ELEMENT)},
+	{"TATTRNAME_ELEMENTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_ELEMENTS)},
+	{"TATTRNAME_EXPR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_EXPR)},
+	{"TATTRNAME_EXTENSIONELEMENTPREFIXES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_EXTENSIONELEMENTPREFIXES)},
+	{"TATTRNAME_FORMAT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_FORMAT)},
+	{"TATTRNAME_FROM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_FROM)},
+	{"TATTRNAME_GROUPINGSEPARATOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_GROUPINGSEPARATOR)},
+	{"TATTRNAME_GROUPINGSIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_GROUPINGSIZE)},
+	{"TATTRNAME_HREF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_HREF)},
+	{"TATTRNAME_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_ID)},
+	{"TATTRNAME_IMPORTANCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_IMPORTANCE)},
+	{"TATTRNAME_INDENTRESULT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_INDENTRESULT)},
+	{"TATTRNAME_LANG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_LANG)},
+	{"TATTRNAME_LETTERVALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_LETTERVALUE)},
+	{"TATTRNAME_LEVEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_LEVEL)},
+	{"TATTRNAME_MATCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_MATCH)},
+	{"TATTRNAME_METHOD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_METHOD)},
+	{"TATTRNAME_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_MODE)},
+	{"TATTRNAME_NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_NAME)},
+	{"TATTRNAME_NAMESPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_NAMESPACE)},
+	{"TATTRNAME_NDIGITSPERGROUP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_NDIGITSPERGROUP)},
+	{"TATTRNAME_NS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_NS)},
+	{"TATTRNAME_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_ONLY)},
+	{"TATTRNAME_ORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_ORDER)},
+	{"TATTRNAME_OUTPUT_CDATA_SECTION_ELEMENTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_OUTPUT_CDATA_SECTION_ELEMENTS)},
+	{"TATTRNAME_OUTPUT_DOCTYPE_PUBLIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_OUTPUT_DOCTYPE_PUBLIC)},
+	{"TATTRNAME_OUTPUT_DOCTYPE_SYSTEM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_OUTPUT_DOCTYPE_SYSTEM)},
+	{"TATTRNAME_OUTPUT_ENCODING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_OUTPUT_ENCODING)},
+	{"TATTRNAME_OUTPUT_INDENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_OUTPUT_INDENT)},
+	{"TATTRNAME_OUTPUT_MEDIATYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_OUTPUT_MEDIATYPE)},
+	{"TATTRNAME_OUTPUT_STANDALONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_OUTPUT_STANDALONE)},
+	{"TATTRNAME_OUTPUT_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_OUTPUT_VERSION)},
+	{"TATTRNAME_OUTPUT_OMITXMLDECL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_OUTPUT_OMITXMLDECL)},
+	{"TATTRNAME_PRIORITY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_PRIORITY)},
+	{"TATTRNAME_REFID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_REFID)},
+	{"TATTRNAME_RESULTNS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_RESULTNS)},
+	{"TATTRNAME_SELECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_SELECT)},
+	{"TATTRNAME_SEQUENCESRC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_SEQUENCESRC)},
+	{"TATTRNAME_STYLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_STYLE)},
+	{"TATTRNAME_TEST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_TEST)},
+	{"TATTRNAME_TOSTRING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_TOSTRING)},
+	{"TATTRNAME_TYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_TYPE)},
+	{"TATTRNAME_USE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_USE)},
+	{"TATTRNAME_USEATTRIBUTESETS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_USEATTRIBUTESETS)},
+	{"TATTRNAME_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_VALUE)},
+	{"TATTRNAME_XMLNSDEF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_XMLNSDEF)},
+	{"TATTRNAME_XMLNS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_XMLNS)},
+	{"TATTRNAME_XMLSPACE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_XMLSPACE)},
+	{"TATTRNAME_EXCLUDE_RESULT_PREFIXES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, TATTRNAME_EXCLUDE_RESULT_PREFIXES)},
+	{"ATTRVAL_OUTPUT_METHOD_HTML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_OUTPUT_METHOD_HTML)},
+	{"ATTRVAL_OUTPUT_METHOD_XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_OUTPUT_METHOD_XML)},
+	{"ATTRVAL_OUTPUT_METHOD_TEXT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_OUTPUT_METHOD_TEXT)},
+	{"ATTRVAL_PRESERVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ATTRVAL_PRESERVE)},
+	{"ATTRVAL_STRIP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ATTRVAL_STRIP)},
+	{"ATTRVAL_YES", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ATTRVAL_YES)},
+	{"ATTRVAL_NO", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, ATTRVAL_NO)},
+	{"ATTRVAL_ALPHABETIC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_ALPHABETIC)},
+	{"ATTRVAL_OTHER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_OTHER)},
+	{"ATTRVAL_TRADITIONAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_TRADITIONAL)},
+	{"ATTRVAL_SINGLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_SINGLE)},
+	{"ATTRVAL_MULTI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_MULTI)},
+	{"ATTRVAL_ANY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_ANY)},
+	{"ATTRVAL_DEFAULT_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_DEFAULT_PREFIX)},
+	{"NUMBERLETTER_ALPHABETIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, NUMBERLETTER_ALPHABETIC)},
+	{"NUMBERLETTER_TRADITIONAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, NUMBERLETTER_TRADITIONAL)},
+	{"NUMBERLEVEL_SINGLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, NUMBERLEVEL_SINGLE)},
+	{"NUMBERLEVEL_MULTI", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, NUMBERLEVEL_MULTI)},
+	{"NUMBERLEVEL_ANY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, NUMBERLEVEL_ANY)},
+	{"MAX_MULTI_COUNTING_DEPTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, MAX_MULTI_COUNTING_DEPTH)},
+	{"ATTRVAL_THIS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_THIS)},
+	{"ATTRVAL_PARENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_PARENT)},
+	{"ATTRVAL_ANCESTOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_ANCESTOR)},
+	{"ATTRVAL_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_ID)},
+	{"ATTRVAL_DATATYPE_TEXT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_DATATYPE_TEXT)},
+	{"ATTRVAL_DATATYPE_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_DATATYPE_NUMBER)},
+	{"ATTRVAL_ORDER_ASCENDING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_ORDER_ASCENDING)},
+	{"ATTRVAL_ORDER_DESCENDING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_ORDER_DESCENDING)},
+	{"ATTRVAL_CASEORDER_UPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_CASEORDER_UPPER)},
+	{"ATTRVAL_CASEORDER_LOWER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_CASEORDER_LOWER)},
+	{"SORTDATATYPE_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SORTDATATYPE_TEXT)},
+	{"SORTDATATYPE_NUMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SORTDATATYPE_NUMBER)},
+	{"SORTORDER_ASCENDING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SORTORDER_ASCENDING)},
+	{"SORTORDER_DESCENDING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SORTORDER_DESCENDING)},
+	{"SORTCASEORDER_UPPERFIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SORTCASEORDER_UPPERFIRST)},
+	{"SORTCASEORDER_LOWERFIRST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SORTCASEORDER_LOWERFIRST)},
+	{"ATTRVAL_INFINITY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_INFINITY)},
+	{"ATTRVAL_NAN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRVAL_NAN)},
+	{"DEFAULT_DECIMAL_FORMAT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DEFAULT_DECIMAL_FORMAT)},
+	{"ATTRNAME_XXXX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRNAME_XXXX)},
+	{}
+};
+
+$MethodInfo _Constants_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(Constants, init$, void)},
+	{}
+};
+
+$ClassInfo _Constants_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"com.sun.org.apache.xalan.internal.templates.Constants",
+	"com.sun.org.apache.xml.internal.utils.Constants",
+	nullptr,
+	_Constants_FieldInfo_,
+	_Constants_MethodInfo_
+};
+
+$Object* allocate$Constants($Class* clazz) {
+	return $of($alloc(Constants));
+}
+
+$String* Constants::ELEMNAME_ANCHOR_STRING = nullptr;
+$String* Constants::ELEMNAME_ANY_STRING = nullptr;
+$String* Constants::ELEMNAME_APPLY_IMPORTS_STRING = nullptr;
+$String* Constants::ELEMNAME_APPLY_TEMPLATES_STRING = nullptr;
+$String* Constants::ELEMNAME_ARG_STRING = nullptr;
+$String* Constants::ELEMNAME_ATTRIBUTESET_STRING = nullptr;
+$String* Constants::ELEMNAME_ATTRIBUTE_STRING = nullptr;
+$String* Constants::ELEMNAME_CALLTEMPLATEARG_STRING = nullptr;
+$String* Constants::ELEMNAME_CALLTEMPLATE_STRING = nullptr;
+$String* Constants::ELEMNAME_CALL_STRING = nullptr;
+$String* Constants::ELEMNAME_CHILDREN_STRING = nullptr;
+$String* Constants::ELEMNAME_CHOOSE_STRING = nullptr;
+$String* Constants::ELEMNAME_COMMENT_STRING = nullptr;
+$String* Constants::ELEMNAME_COMPONENT_STRING = nullptr;
+$String* Constants::ELEMNAME_CONSTRUCT_STRING = nullptr;
+$String* Constants::ELEMNAME_CONTENTS_STRING = nullptr;
+$String* Constants::ELEMNAME_COPY_OF_STRING = nullptr;
+$String* Constants::ELEMNAME_COPY_STRING = nullptr;
+$String* Constants::ELEMNAME_COUNTERINCREMENT_STRING = nullptr;
+$String* Constants::ELEMNAME_COUNTERRESET_STRING = nullptr;
+$String* Constants::ELEMNAME_COUNTERSCOPE_STRING = nullptr;
+$String* Constants::ELEMNAME_COUNTERS_STRING = nullptr;
+$String* Constants::ELEMNAME_COUNTER_STRING = nullptr;
+$String* Constants::ELEMNAME_CSSSTYLECONVERSION_STRING = nullptr;
+$String* Constants::ELEMNAME_DECIMALFORMAT_STRING = nullptr;
+$String* Constants::ELEMNAME_DISPLAYIF_STRING = nullptr;
+$String* Constants::ELEMNAME_ELEMENT_STRING = nullptr;
+$String* Constants::ELEMNAME_EMPTY_STRING = nullptr;
+$String* Constants::ELEMNAME_EVAL_STRING = nullptr;
+$String* Constants::ELEMNAME_EXPECTEDCHILDREN_STRING = nullptr;
+$String* Constants::ELEMNAME_EXTENSIONHANDLER_STRING = nullptr;
+$String* Constants::ELEMNAME_EXTENSION_STRING = nullptr;
+$String* Constants::ELEMNAME_FALLBACK_STRING = nullptr;
+$String* Constants::ELEMNAME_FOREACH_STRING = nullptr;
+$String* Constants::ELEMNAME_IF_STRING = nullptr;
+$String* Constants::ELEMNAME_IMPORT_STRING = nullptr;
+$String* Constants::ELEMNAME_INCLUDE_STRING = nullptr;
+$String* Constants::ELEMNAME_KEY_STRING = nullptr;
+$String* Constants::ELEMNAME_LOCALE_STRING = nullptr;
+$String* Constants::ELEMNAME_MESSAGE_STRING = nullptr;
+$String* Constants::ELEMNAME_NSALIAS_STRING = nullptr;
+$String* Constants::ELEMNAME_NUMBER_STRING = nullptr;
+$String* Constants::ELEMNAME_OTHERWISE_STRING = nullptr;
+$String* Constants::ELEMNAME_OUTPUT_STRING = nullptr;
+$String* Constants::ELEMNAME_PARAMVARIABLE_STRING = nullptr;
+$String* Constants::ELEMNAME_PI_OLD_STRING = nullptr;
+$String* Constants::ELEMNAME_PI_STRING = nullptr;
+$String* Constants::ELEMNAME_PRESERVESPACE_STRING = nullptr;
+$String* Constants::ELEMNAME_ROOT_STRING = nullptr;
+$String* Constants::ELEMNAME_SCRIPT_STRING = nullptr;
+$String* Constants::ELEMNAME_SORT_STRING = nullptr;
+$String* Constants::ELEMNAME_STRIPSPACE_STRING = nullptr;
+$String* Constants::ELEMNAME_STYLESHEET_STRING = nullptr;
+$String* Constants::ELEMNAME_TARGETATTRIBUTE_STRING = nullptr;
+$String* Constants::ELEMNAME_TARGETCOMMENT_STRING = nullptr;
+$String* Constants::ELEMNAME_TARGETELEMENT_STRING = nullptr;
+$String* Constants::ELEMNAME_TARGETPI_STRING = nullptr;
+$String* Constants::ELEMNAME_TARGETTEXT_STRING = nullptr;
+$String* Constants::ELEMNAME_TEMPLATE_STRING = nullptr;
+$String* Constants::ELEMNAME_TEXT_STRING = nullptr;
+$String* Constants::ELEMNAME_TRANSFORM_STRING = nullptr;
+$String* Constants::ELEMNAME_URL_STRING = nullptr;
+$String* Constants::ELEMNAME_USE_STRING = nullptr;
+$String* Constants::ELEMNAME_VALUEOF_STRING = nullptr;
+$String* Constants::ELEMNAME_VARIABLE_STRING = nullptr;
+$String* Constants::ELEMNAME_WHEN_STRING = nullptr;
+$String* Constants::ELEMNAME_WITHPARAM_STRING = nullptr;
+$String* Constants::EXSLT_ELEMNAME_FUNCTION_STRING = nullptr;
+$String* Constants::EXSLT_ELEMNAME_FUNCRESULT_STRING = nullptr;
+$String* Constants::ATTRNAME_AMOUNT = nullptr;
+$String* Constants::ATTRNAME_ANCESTOR = nullptr;
+$String* Constants::ATTRNAME_ARCHIVE = nullptr;
+$String* Constants::ATTRNAME_ATTRIBUTE = nullptr;
+$String* Constants::ATTRNAME_ATTRIBUTE_SET = nullptr;
+$String* Constants::ATTRNAME_CASEORDER = nullptr;
+$String* Constants::ATTRNAME_CLASS = nullptr;
+$String* Constants::ATTRNAME_CLASSID = nullptr;
+$String* Constants::ATTRNAME_CODEBASE = nullptr;
+$String* Constants::ATTRNAME_CODETYPE = nullptr;
+$String* Constants::ATTRNAME_CONDITION = nullptr;
+$String* Constants::ATTRNAME_COPYTYPE = nullptr;
+$String* Constants::ATTRNAME_COUNT = nullptr;
+$String* Constants::ATTRNAME_DATATYPE = nullptr;
+$String* Constants::ATTRNAME_DECIMALSEPARATOR = nullptr;
+$String* Constants::ATTRNAME_DEFAULT = nullptr;
+$String* Constants::ATTRNAME_DEFAULTSPACE = nullptr;
+$String* Constants::ATTRNAME_DEPTH = nullptr;
+$String* Constants::ATTRNAME_DIGIT = nullptr;
+$String* Constants::ATTRNAME_DIGITGROUPSEP = nullptr;
+$String* Constants::ATTRNAME_DISABLE_OUTPUT_ESCAPING = nullptr;
+$String* Constants::ATTRNAME_ELEMENT = nullptr;
+$String* Constants::ATTRNAME_ELEMENTS = nullptr;
+$String* Constants::ATTRNAME_EXCLUDE_RESULT_PREFIXES = nullptr;
+$String* Constants::ATTRNAME_EXPR = nullptr;
+$String* Constants::ATTRNAME_EXTENSIONELEMENTPREFIXES = nullptr;
+$String* Constants::ATTRNAME_FORMAT = nullptr;
+$String* Constants::ATTRNAME_FROM = nullptr;
+$String* Constants::ATTRNAME_GROUPINGSEPARATOR = nullptr;
+$String* Constants::ATTRNAME_GROUPINGSIZE = nullptr;
+$String* Constants::ATTRNAME_HREF = nullptr;
+$String* Constants::ATTRNAME_ID = nullptr;
+$String* Constants::ATTRNAME_IMPORTANCE = nullptr;
+$String* Constants::ATTRNAME_INDENTRESULT = nullptr;
+$String* Constants::ATTRNAME_INFINITY = nullptr;
+$String* Constants::ATTRNAME_LANG = nullptr;
+$String* Constants::ATTRNAME_LETTERVALUE = nullptr;
+$String* Constants::ATTRNAME_LEVEL = nullptr;
+$String* Constants::ATTRNAME_MATCH = nullptr;
+$String* Constants::ATTRNAME_METHOD = nullptr;
+$String* Constants::ATTRNAME_MINUSSIGN = nullptr;
+$String* Constants::ATTRNAME_MODE = nullptr;
+$String* Constants::ATTRNAME_NAME = nullptr;
+$String* Constants::ATTRNAME_NAMESPACE = nullptr;
+$String* Constants::ATTRNAME_NAN = nullptr;
+$String* Constants::ATTRNAME_NDIGITSPERGROUP = nullptr;
+$String* Constants::ATTRNAME_NS = nullptr;
+$String* Constants::ATTRNAME_ONLY = nullptr;
+$String* Constants::ATTRNAME_ORDER = nullptr;
+$String* Constants::ATTRNAME_OUTPUT_CDATA_SECTION_ELEMENTS = nullptr;
+$String* Constants::ATTRNAME_OUTPUT_DOCTYPE_PUBLIC = nullptr;
+$String* Constants::ATTRNAME_OUTPUT_DOCTYPE_SYSTEM = nullptr;
+$String* Constants::ATTRNAME_OUTPUT_ENCODING = nullptr;
+$String* Constants::ATTRNAME_OUTPUT_INDENT = nullptr;
+$String* Constants::ATTRNAME_OUTPUT_MEDIATYPE = nullptr;
+$String* Constants::ATTRNAME_OUTPUT_METHOD = nullptr;
+$String* Constants::ATTRNAME_OUTPUT_OMITXMLDECL = nullptr;
+$String* Constants::ATTRNAME_OUTPUT_STANDALONE = nullptr;
+$String* Constants::ATTRNAME_OUTPUT_VERSION = nullptr;
+$String* Constants::ATTRNAME_PATTERNSEPARATOR = nullptr;
+$String* Constants::ATTRNAME_PERCENT = nullptr;
+$String* Constants::ATTRNAME_PERMILLE = nullptr;
+$String* Constants::ATTRNAME_PRIORITY = nullptr;
+$String* Constants::ATTRNAME_REFID = nullptr;
+$String* Constants::ATTRNAME_RESULTNS = nullptr;
+$String* Constants::ATTRNAME_RESULT_PREFIX = nullptr;
+$String* Constants::ATTRNAME_SELECT = nullptr;
+$String* Constants::ATTRNAME_SEQUENCESRC = nullptr;
+$String* Constants::ATTRNAME_STYLE = nullptr;
+$String* Constants::ATTRNAME_STYLESHEET_PREFIX = nullptr;
+$String* Constants::ATTRNAME_TERMINATE = nullptr;
+$String* Constants::ATTRNAME_TEST = nullptr;
+$String* Constants::ATTRNAME_TOSTRING = nullptr;
+$String* Constants::ATTRNAME_TYPE = nullptr;
+$String* Constants::ATTRNAME_USE = nullptr;
+$String* Constants::ATTRNAME_USEATTRIBUTESETS = nullptr;
+$String* Constants::ATTRNAME_VALUE = nullptr;
+$String* Constants::ATTRNAME_VERSION = nullptr;
+$String* Constants::ATTRNAME_XMLNS = nullptr;
+$String* Constants::ATTRNAME_XMLNSDEF = nullptr;
+$String* Constants::ATTRNAME_XMLSPACE = nullptr;
+$String* Constants::ATTRNAME_ZERODIGIT = nullptr;
+$String* Constants::ATTRVAL_OUTPUT_METHOD_HTML = nullptr;
+$String* Constants::ATTRVAL_OUTPUT_METHOD_XML = nullptr;
+$String* Constants::ATTRVAL_OUTPUT_METHOD_TEXT = nullptr;
+$String* Constants::ATTRVAL_ALPHABETIC = nullptr;
+$String* Constants::ATTRVAL_OTHER = nullptr;
+$String* Constants::ATTRVAL_TRADITIONAL = nullptr;
+$String* Constants::ATTRVAL_SINGLE = nullptr;
+$String* Constants::ATTRVAL_MULTI = nullptr;
+$String* Constants::ATTRVAL_ANY = nullptr;
+$String* Constants::ATTRVAL_DEFAULT_PREFIX = nullptr;
+$String* Constants::ATTRVAL_THIS = nullptr;
+$String* Constants::ATTRVAL_PARENT = nullptr;
+$String* Constants::ATTRVAL_ANCESTOR = nullptr;
+$String* Constants::ATTRVAL_ID = nullptr;
+$String* Constants::ATTRVAL_DATATYPE_TEXT = nullptr;
+$String* Constants::ATTRVAL_DATATYPE_NUMBER = nullptr;
+$String* Constants::ATTRVAL_ORDER_ASCENDING = nullptr;
+$String* Constants::ATTRVAL_ORDER_DESCENDING = nullptr;
+$String* Constants::ATTRVAL_CASEORDER_UPPER = nullptr;
+$String* Constants::ATTRVAL_CASEORDER_LOWER = nullptr;
+$String* Constants::ATTRVAL_INFINITY = nullptr;
+$String* Constants::ATTRVAL_NAN = nullptr;
+$String* Constants::DEFAULT_DECIMAL_FORMAT = nullptr;
+$String* Constants::ATTRNAME_XXXX = nullptr;
+
+void Constants::init$() {
+	$Constants::init$();
+}
+
+Constants::Constants() {
+}
+
+void clinit$Constants($Class* class$) {
+	$assignStatic(Constants::ELEMNAME_ANCHOR_STRING, "anchor"_s);
+	$assignStatic(Constants::ELEMNAME_ANY_STRING, "any"_s);
+	$assignStatic(Constants::ELEMNAME_APPLY_IMPORTS_STRING, "apply-imports"_s);
+	$assignStatic(Constants::ELEMNAME_APPLY_TEMPLATES_STRING, "apply-templates"_s);
+	$assignStatic(Constants::ELEMNAME_ARG_STRING, "arg"_s);
+	$assignStatic(Constants::ELEMNAME_ATTRIBUTESET_STRING, "attribute-set"_s);
+	$assignStatic(Constants::ELEMNAME_ATTRIBUTE_STRING, "attribute"_s);
+	$assignStatic(Constants::ELEMNAME_CALLTEMPLATEARG_STRING, "invoke-arg"_s);
+	$assignStatic(Constants::ELEMNAME_CALLTEMPLATE_STRING, "call-template"_s);
+	$assignStatic(Constants::ELEMNAME_CALL_STRING, "call"_s);
+	$assignStatic(Constants::ELEMNAME_CHILDREN_STRING, "children"_s);
+	$assignStatic(Constants::ELEMNAME_CHOOSE_STRING, "choose"_s);
+	$assignStatic(Constants::ELEMNAME_COMMENT_STRING, "comment"_s);
+	$assignStatic(Constants::ELEMNAME_COMPONENT_STRING, "component"_s);
+	$assignStatic(Constants::ELEMNAME_CONSTRUCT_STRING, "construct"_s);
+	$assignStatic(Constants::ELEMNAME_CONTENTS_STRING, "contents"_s);
+	$assignStatic(Constants::ELEMNAME_COPY_OF_STRING, "copy-of"_s);
+	$assignStatic(Constants::ELEMNAME_COPY_STRING, "copy"_s);
+	$assignStatic(Constants::ELEMNAME_COUNTERINCREMENT_STRING, "counter-increment"_s);
+	$assignStatic(Constants::ELEMNAME_COUNTERRESET_STRING, "counter-reset"_s);
+	$assignStatic(Constants::ELEMNAME_COUNTERSCOPE_STRING, "counter-scope"_s);
+	$assignStatic(Constants::ELEMNAME_COUNTERS_STRING, "counters"_s);
+	$assignStatic(Constants::ELEMNAME_COUNTER_STRING, "counter"_s);
+	$assignStatic(Constants::ELEMNAME_CSSSTYLECONVERSION_STRING, "css-style-conversion"_s);
+	$assignStatic(Constants::ELEMNAME_DECIMALFORMAT_STRING, "decimal-format"_s);
+	$assignStatic(Constants::ELEMNAME_DISPLAYIF_STRING, "display-if"_s);
+	$assignStatic(Constants::ELEMNAME_ELEMENT_STRING, "element"_s);
+	$assignStatic(Constants::ELEMNAME_EMPTY_STRING, "empty"_s);
+	$assignStatic(Constants::ELEMNAME_EVAL_STRING, "eval"_s);
+	$assignStatic(Constants::ELEMNAME_EXPECTEDCHILDREN_STRING, "expectedchildren"_s);
+	$assignStatic(Constants::ELEMNAME_EXTENSIONHANDLER_STRING, "code-dispatcher"_s);
+	$assignStatic(Constants::ELEMNAME_EXTENSION_STRING, "functions"_s);
+	$assignStatic(Constants::ELEMNAME_FALLBACK_STRING, "fallback"_s);
+	$assignStatic(Constants::ELEMNAME_FOREACH_STRING, "for-each"_s);
+	$assignStatic(Constants::ELEMNAME_IF_STRING, "if"_s);
+	$assignStatic(Constants::ELEMNAME_IMPORT_STRING, "import"_s);
+	$assignStatic(Constants::ELEMNAME_INCLUDE_STRING, "include"_s);
+	$assignStatic(Constants::ELEMNAME_KEY_STRING, "key"_s);
+	$assignStatic(Constants::ELEMNAME_LOCALE_STRING, "locale"_s);
+	$assignStatic(Constants::ELEMNAME_MESSAGE_STRING, "message"_s);
+	$assignStatic(Constants::ELEMNAME_NSALIAS_STRING, "namespace-alias"_s);
+	$assignStatic(Constants::ELEMNAME_NUMBER_STRING, "number"_s);
+	$assignStatic(Constants::ELEMNAME_OTHERWISE_STRING, "otherwise"_s);
+	$assignStatic(Constants::ELEMNAME_OUTPUT_STRING, "output"_s);
+	$assignStatic(Constants::ELEMNAME_PARAMVARIABLE_STRING, "param"_s);
+	$assignStatic(Constants::ELEMNAME_PI_OLD_STRING, "pi"_s);
+	$assignStatic(Constants::ELEMNAME_PI_STRING, "processing-instruction"_s);
+	$assignStatic(Constants::ELEMNAME_PRESERVESPACE_STRING, "preserve-space"_s);
+	$assignStatic(Constants::ELEMNAME_ROOT_STRING, "root"_s);
+	$assignStatic(Constants::ELEMNAME_SCRIPT_STRING, "script"_s);
+	$assignStatic(Constants::ELEMNAME_SORT_STRING, "sort"_s);
+	$assignStatic(Constants::ELEMNAME_STRIPSPACE_STRING, "strip-space"_s);
+	$assignStatic(Constants::ELEMNAME_STYLESHEET_STRING, "stylesheet"_s);
+	$assignStatic(Constants::ELEMNAME_TARGETATTRIBUTE_STRING, "target-attribute"_s);
+	$assignStatic(Constants::ELEMNAME_TARGETCOMMENT_STRING, "target-comment"_s);
+	$assignStatic(Constants::ELEMNAME_TARGETELEMENT_STRING, "target-element"_s);
+	$assignStatic(Constants::ELEMNAME_TARGETPI_STRING, "target-pi"_s);
+	$assignStatic(Constants::ELEMNAME_TARGETTEXT_STRING, "target-text"_s);
+	$assignStatic(Constants::ELEMNAME_TEMPLATE_STRING, "template"_s);
+	$assignStatic(Constants::ELEMNAME_TEXT_STRING, "text"_s);
+	$assignStatic(Constants::ELEMNAME_TRANSFORM_STRING, "transform"_s);
+	$assignStatic(Constants::ELEMNAME_URL_STRING, "uri"_s);
+	$assignStatic(Constants::ELEMNAME_USE_STRING, "use"_s);
+	$assignStatic(Constants::ELEMNAME_VALUEOF_STRING, "value-of"_s);
+	$assignStatic(Constants::ELEMNAME_VARIABLE_STRING, "variable"_s);
+	$assignStatic(Constants::ELEMNAME_WHEN_STRING, "when"_s);
+	$assignStatic(Constants::ELEMNAME_WITHPARAM_STRING, "with-param"_s);
+	$assignStatic(Constants::EXSLT_ELEMNAME_FUNCTION_STRING, "function"_s);
+	$assignStatic(Constants::EXSLT_ELEMNAME_FUNCRESULT_STRING, "result"_s);
+	$assignStatic(Constants::ATTRNAME_AMOUNT, "amount"_s);
+	$assignStatic(Constants::ATTRNAME_ANCESTOR, "ancestor"_s);
+	$assignStatic(Constants::ATTRNAME_ARCHIVE, "archive"_s);
+	$assignStatic(Constants::ATTRNAME_ATTRIBUTE, "attribute"_s);
+	$assignStatic(Constants::ATTRNAME_ATTRIBUTE_SET, "attribute-set"_s);
+	$assignStatic(Constants::ATTRNAME_CASEORDER, "case-order"_s);
+	$assignStatic(Constants::ATTRNAME_CLASS, "class"_s);
+	$assignStatic(Constants::ATTRNAME_CLASSID, "classid"_s);
+	$assignStatic(Constants::ATTRNAME_CODEBASE, "codebase"_s);
+	$assignStatic(Constants::ATTRNAME_CODETYPE, "type"_s);
+	$assignStatic(Constants::ATTRNAME_CONDITION, "condition"_s);
+	$assignStatic(Constants::ATTRNAME_COPYTYPE, "copy-type"_s);
+	$assignStatic(Constants::ATTRNAME_COUNT, "count"_s);
+	$assignStatic(Constants::ATTRNAME_DATATYPE, "data-type"_s);
+	$assignStatic(Constants::ATTRNAME_DECIMALSEPARATOR, "decimal-separator"_s);
+	$assignStatic(Constants::ATTRNAME_DEFAULT, "default"_s);
+	$assignStatic(Constants::ATTRNAME_DEFAULTSPACE, "default-space"_s);
+	$assignStatic(Constants::ATTRNAME_DEPTH, "with-children"_s);
+	$assignStatic(Constants::ATTRNAME_DIGIT, "digit"_s);
+	$assignStatic(Constants::ATTRNAME_DIGITGROUPSEP, "digit-group-sep"_s);
+	$assignStatic(Constants::ATTRNAME_DISABLE_OUTPUT_ESCAPING, "disable-output-escaping"_s);
+	$assignStatic(Constants::ATTRNAME_ELEMENT, "element"_s);
+	$assignStatic(Constants::ATTRNAME_ELEMENTS, "elements"_s);
+	$assignStatic(Constants::ATTRNAME_EXCLUDE_RESULT_PREFIXES, "exclude-result-prefixes"_s);
+	$assignStatic(Constants::ATTRNAME_EXPR, "expr"_s);
+	$assignStatic(Constants::ATTRNAME_EXTENSIONELEMENTPREFIXES, "extension-element-prefixes"_s);
+	$assignStatic(Constants::ATTRNAME_FORMAT, "format"_s);
+	$assignStatic(Constants::ATTRNAME_FROM, "from"_s);
+	$assignStatic(Constants::ATTRNAME_GROUPINGSEPARATOR, "grouping-separator"_s);
+	$assignStatic(Constants::ATTRNAME_GROUPINGSIZE, "grouping-size"_s);
+	$assignStatic(Constants::ATTRNAME_HREF, "href"_s);
+	$assignStatic(Constants::ATTRNAME_ID, "id"_s);
+	$assignStatic(Constants::ATTRNAME_IMPORTANCE, "importance"_s);
+	$assignStatic(Constants::ATTRNAME_INDENTRESULT, "indent-result"_s);
+	$assignStatic(Constants::ATTRNAME_INFINITY, "infinity"_s);
+	$assignStatic(Constants::ATTRNAME_LANG, "lang"_s);
+	$assignStatic(Constants::ATTRNAME_LETTERVALUE, "letter-value"_s);
+	$assignStatic(Constants::ATTRNAME_LEVEL, "level"_s);
+	$assignStatic(Constants::ATTRNAME_MATCH, "match"_s);
+	$assignStatic(Constants::ATTRNAME_METHOD, "calls"_s);
+	$assignStatic(Constants::ATTRNAME_MINUSSIGN, "minus-sign"_s);
+	$assignStatic(Constants::ATTRNAME_MODE, "mode"_s);
+	$assignStatic(Constants::ATTRNAME_NAME, "name"_s);
+	$assignStatic(Constants::ATTRNAME_NAMESPACE, "namespace"_s);
+	$assignStatic(Constants::ATTRNAME_NAN, "NaN"_s);
+	$assignStatic(Constants::ATTRNAME_NDIGITSPERGROUP, "n-digits-per-group"_s);
+	$assignStatic(Constants::ATTRNAME_NS, "ns"_s);
+	$assignStatic(Constants::ATTRNAME_ONLY, "only"_s);
+	$assignStatic(Constants::ATTRNAME_ORDER, "order"_s);
+	$assignStatic(Constants::ATTRNAME_OUTPUT_CDATA_SECTION_ELEMENTS, "cdata-section-elements"_s);
+	$assignStatic(Constants::ATTRNAME_OUTPUT_DOCTYPE_PUBLIC, "doctype-public"_s);
+	$assignStatic(Constants::ATTRNAME_OUTPUT_DOCTYPE_SYSTEM, "doctype-system"_s);
+	$assignStatic(Constants::ATTRNAME_OUTPUT_ENCODING, "encoding"_s);
+	$assignStatic(Constants::ATTRNAME_OUTPUT_INDENT, "indent"_s);
+	$assignStatic(Constants::ATTRNAME_OUTPUT_MEDIATYPE, "media-type"_s);
+	$assignStatic(Constants::ATTRNAME_OUTPUT_METHOD, "method"_s);
+	$assignStatic(Constants::ATTRNAME_OUTPUT_OMITXMLDECL, "omit-xml-declaration"_s);
+	$assignStatic(Constants::ATTRNAME_OUTPUT_STANDALONE, "standalone"_s);
+	$assignStatic(Constants::ATTRNAME_OUTPUT_VERSION, "version"_s);
+	$assignStatic(Constants::ATTRNAME_PATTERNSEPARATOR, "pattern-separator"_s);
+	$assignStatic(Constants::ATTRNAME_PERCENT, "percent"_s);
+	$assignStatic(Constants::ATTRNAME_PERMILLE, "per-mille"_s);
+	$assignStatic(Constants::ATTRNAME_PRIORITY, "priority"_s);
+	$assignStatic(Constants::ATTRNAME_REFID, "refID"_s);
+	$assignStatic(Constants::ATTRNAME_RESULTNS, "result-ns"_s);
+	$assignStatic(Constants::ATTRNAME_RESULT_PREFIX, "result-prefix"_s);
+	$assignStatic(Constants::ATTRNAME_SELECT, "select"_s);
+	$assignStatic(Constants::ATTRNAME_SEQUENCESRC, "sequence-src"_s);
+	$assignStatic(Constants::ATTRNAME_STYLE, "style"_s);
+	$assignStatic(Constants::ATTRNAME_STYLESHEET_PREFIX, "stylesheet-prefix"_s);
+	$assignStatic(Constants::ATTRNAME_TERMINATE, "terminate"_s);
+	$assignStatic(Constants::ATTRNAME_TEST, "test"_s);
+	$assignStatic(Constants::ATTRNAME_TOSTRING, "to-string"_s);
+	$assignStatic(Constants::ATTRNAME_TYPE, "type"_s);
+	$assignStatic(Constants::ATTRNAME_USE, "use"_s);
+	$assignStatic(Constants::ATTRNAME_USEATTRIBUTESETS, "use-attribute-sets"_s);
+	$assignStatic(Constants::ATTRNAME_VALUE, "value"_s);
+	$assignStatic(Constants::ATTRNAME_VERSION, "version"_s);
+	$assignStatic(Constants::ATTRNAME_XMLNS, "xmlns:"_s);
+	$assignStatic(Constants::ATTRNAME_XMLNSDEF, "xmlns"_s);
+	$assignStatic(Constants::ATTRNAME_XMLSPACE, "xml:space"_s);
+	$assignStatic(Constants::ATTRNAME_ZERODIGIT, "zero-digit"_s);
+	$assignStatic(Constants::ATTRVAL_OUTPUT_METHOD_HTML, "html"_s);
+	$assignStatic(Constants::ATTRVAL_OUTPUT_METHOD_XML, "xml"_s);
+	$assignStatic(Constants::ATTRVAL_OUTPUT_METHOD_TEXT, "text"_s);
+	$assignStatic(Constants::ATTRVAL_ALPHABETIC, "alphabetic"_s);
+	$assignStatic(Constants::ATTRVAL_OTHER, "other"_s);
+	$assignStatic(Constants::ATTRVAL_TRADITIONAL, "traditional"_s);
+	$assignStatic(Constants::ATTRVAL_SINGLE, "single"_s);
+	$assignStatic(Constants::ATTRVAL_MULTI, "multiple"_s);
+	$assignStatic(Constants::ATTRVAL_ANY, "any"_s);
+	$assignStatic(Constants::ATTRVAL_DEFAULT_PREFIX, "#default"_s);
+	$assignStatic(Constants::ATTRVAL_THIS, "."_s);
+	$assignStatic(Constants::ATTRVAL_PARENT, ".."_s);
+	$assignStatic(Constants::ATTRVAL_ANCESTOR, "ancestor"_s);
+	$assignStatic(Constants::ATTRVAL_ID, "id"_s);
+	$assignStatic(Constants::ATTRVAL_DATATYPE_TEXT, "text"_s);
+	$assignStatic(Constants::ATTRVAL_DATATYPE_NUMBER, "number"_s);
+	$assignStatic(Constants::ATTRVAL_ORDER_ASCENDING, "ascending"_s);
+	$assignStatic(Constants::ATTRVAL_ORDER_DESCENDING, "descending"_s);
+	$assignStatic(Constants::ATTRVAL_CASEORDER_UPPER, "upper-first"_s);
+	$assignStatic(Constants::ATTRVAL_CASEORDER_LOWER, "lower-first"_s);
+	$assignStatic(Constants::ATTRVAL_INFINITY, "Infinity"_s);
+	$assignStatic(Constants::ATTRVAL_NAN, "NaN"_s);
+	$assignStatic(Constants::DEFAULT_DECIMAL_FORMAT, "#default"_s);
+	$assignStatic(Constants::ATTRNAME_XXXX, "XXXX"_s);
+}
+
+$Class* Constants::load$($String* name, bool initialize) {
+	$loadClass(Constants, name, initialize, &_Constants_ClassInfo_, clinit$Constants, allocate$Constants);
+	return class$;
+}
+
+$Class* Constants::class$ = nullptr;
+
+						} // templates
+					} // internal
+				} // xalan
+			} // apache
+		} // org
+	} // sun
+} // com

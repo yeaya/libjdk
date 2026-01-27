@@ -1,0 +1,29 @@
+#ifndef _sun_util_resources_cldr_ext_TimeZoneNames_no_h_
+#define _sun_util_resources_cldr_ext_TimeZoneNames_no_h_
+//$ class sun.util.resources.cldr.ext.TimeZoneNames_no
+//$ extends sun.util.resources.TimeZoneNamesBundle
+
+#include <java/lang/Array.h>
+#include <sun/util/resources/TimeZoneNamesBundle.h>
+
+namespace sun {
+	namespace util {
+		namespace resources {
+			namespace cldr {
+				namespace ext {
+
+class TimeZoneNames_no : public ::sun::util::resources::TimeZoneNamesBundle {
+	$class(TimeZoneNames_no, $NO_CLASS_INIT, ::sun::util::resources::TimeZoneNamesBundle)
+public:
+	TimeZoneNames_no();
+	void init$();
+	virtual $Array<::java::lang::Object, 2>* getContents() override;
+};
+
+				} // ext
+			} // cldr
+		} // resources
+	} // util
+} // sun
+
+#endif // _sun_util_resources_cldr_ext_TimeZoneNames_no_h_

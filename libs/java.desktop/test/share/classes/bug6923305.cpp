@@ -1,0 +1,70 @@
+#include <bug6923305.h>
+
+#include <bug6923305$1.h>
+#include <java/lang/Runnable.h>
+#include <javax/swing/LookAndFeel.h>
+#include <javax/swing/SwingUtilities.h>
+#include <javax/swing/UIManager.h>
+#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
+#include <javax/swing/plaf/synth/SynthLookAndFeel.h>
+#include <jcpp.h>
+
+using $bug6923305$1 = ::bug6923305$1;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Runnable = ::java::lang::Runnable;
+using $LookAndFeel = ::javax::swing::LookAndFeel;
+using $SwingUtilities = ::javax::swing::SwingUtilities;
+using $UIManager = ::javax::swing::UIManager;
+using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
+using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
+
+$MethodInfo _bug6923305_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6923305, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6923305, main, void, $StringArray*), "java.lang.Exception"},
+	{}
+};
+
+$InnerClassInfo _bug6923305_InnerClassesInfo_[] = {
+	{"bug6923305$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _bug6923305_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"bug6923305",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_bug6923305_MethodInfo_,
+	nullptr,
+	nullptr,
+	_bug6923305_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"bug6923305$1,bug6923305$1$1"
+};
+
+$Object* allocate$bug6923305($Class* clazz) {
+	return $of($alloc(bug6923305));
+}
+
+void bug6923305::init$() {
+}
+
+void bug6923305::main($StringArray* args) {
+	$useLocalCurrentObjectStackCache();
+	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($SynthLookAndFeel)));
+	$SwingUtilities::invokeAndWait($$new($bug6923305$1));
+}
+
+bug6923305::bug6923305() {
+}
+
+$Class* bug6923305::load$($String* name, bool initialize) {
+	$loadClass(bug6923305, name, initialize, &_bug6923305_ClassInfo_, allocate$bug6923305);
+	return class$;
+}
+
+$Class* bug6923305::class$ = nullptr;

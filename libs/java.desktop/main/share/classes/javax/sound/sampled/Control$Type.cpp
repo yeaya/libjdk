@@ -1,0 +1,81 @@
+#include <javax/sound/sampled/Control$Type.h>
+
+#include <javax/sound/sampled/Control.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace javax {
+	namespace sound {
+		namespace sampled {
+
+$FieldInfo _Control$Type_FieldInfo_[] = {
+	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Control$Type, name)},
+	{}
+};
+
+$MethodInfo _Control$Type_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Control$Type, init$, void, $String*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Control$Type, equals, bool, Object$*)},
+	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Control$Type, hashCode, int32_t)},
+	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Control$Type, toString, $String*)},
+	{}
+};
+
+$InnerClassInfo _Control$Type_InnerClassesInfo_[] = {
+	{"javax.sound.sampled.Control$Type", "javax.sound.sampled.Control", "Type", $PUBLIC | $STATIC},
+	{}
+};
+
+$ClassInfo _Control$Type_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"javax.sound.sampled.Control$Type",
+	"java.lang.Object",
+	nullptr,
+	_Control$Type_FieldInfo_,
+	_Control$Type_MethodInfo_,
+	nullptr,
+	nullptr,
+	_Control$Type_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"javax.sound.sampled.Control"
+};
+
+$Object* allocate$Control$Type($Class* clazz) {
+	return $of($alloc(Control$Type));
+}
+
+void Control$Type::init$($String* name) {
+	$set(this, name, name);
+}
+
+bool Control$Type::equals(Object$* obj) {
+	return $Object::equals(obj);
+}
+
+int32_t Control$Type::hashCode() {
+	return $Object::hashCode();
+}
+
+$String* Control$Type::toString() {
+	return this->name;
+}
+
+Control$Type::Control$Type() {
+}
+
+$Class* Control$Type::load$($String* name, bool initialize) {
+	$loadClass(Control$Type, name, initialize, &_Control$Type_ClassInfo_, allocate$Control$Type);
+	return class$;
+}
+
+$Class* Control$Type::class$ = nullptr;
+
+		} // sampled
+	} // sound
+} // javax

@@ -1,0 +1,238 @@
+#include <sun/awt/image/ImageDecoder.h>
+
+#include <java/awt/image/ColorModel.h>
+#include <java/awt/image/ImageConsumer.h>
+#include <java/io/IOException.h>
+#include <java/io/InputStream.h>
+#include <java/security/AccessController.h>
+#include <java/security/PrivilegedAction.h>
+#include <java/util/Hashtable.h>
+#include <sun/awt/image/ImageConsumerQueue.h>
+#include <sun/awt/image/ImageDecoder$1.h>
+#include <sun/awt/image/ImageFetcher.h>
+#include <sun/awt/image/InputStreamImageSource.h>
+#include <jcpp.h>
+
+#undef LOW_PRIORITY
+
+using $ColorModel = ::java::awt::image::ColorModel;
+using $ImageConsumer = ::java::awt::image::ImageConsumer;
+using $IOException = ::java::io::IOException;
+using $InputStream = ::java::io::InputStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $AccessController = ::java::security::AccessController;
+using $PrivilegedAction = ::java::security::PrivilegedAction;
+using $Hashtable = ::java::util::Hashtable;
+using $ImageConsumerQueue = ::sun::awt::image::ImageConsumerQueue;
+using $ImageDecoder$1 = ::sun::awt::image::ImageDecoder$1;
+using $ImageFetcher = ::sun::awt::image::ImageFetcher;
+using $InputStreamImageSource = ::sun::awt::image::InputStreamImageSource;
+
+namespace sun {
+	namespace awt {
+		namespace image {
+
+$FieldInfo _ImageDecoder_FieldInfo_[] = {
+	{"source", "Lsun/awt/image/InputStreamImageSource;", nullptr, 0, $field(ImageDecoder, source)},
+	{"input", "Ljava/io/InputStream;", nullptr, 0, $field(ImageDecoder, input)},
+	{"feeder", "Ljava/lang/Thread;", nullptr, 0, $field(ImageDecoder, feeder)},
+	{"aborted", "Z", nullptr, $PROTECTED, $field(ImageDecoder, aborted)},
+	{"finished", "Z", nullptr, $PROTECTED, $field(ImageDecoder, finished)},
+	{"queue", "Lsun/awt/image/ImageConsumerQueue;", nullptr, 0, $field(ImageDecoder, queue)},
+	{"next", "Lsun/awt/image/ImageDecoder;", nullptr, 0, $field(ImageDecoder, next)},
+	{}
+};
+
+$MethodInfo _ImageDecoder_MethodInfo_[] = {
+	{"<init>", "(Lsun/awt/image/InputStreamImageSource;Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(ImageDecoder, init$, void, $InputStreamImageSource*, $InputStream*)},
+	{"abort", "()V", nullptr, $PUBLIC, $virtualMethod(ImageDecoder, abort, void)},
+	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageDecoder, close, void)},
+	{"headerComplete", "()V", nullptr, $PROTECTED, $virtualMethod(ImageDecoder, headerComplete, void)},
+	{"imageComplete", "(IZ)I", nullptr, $PROTECTED, $virtualMethod(ImageDecoder, imageComplete, int32_t, int32_t, bool)},
+	{"isConsumer", "(Ljava/awt/image/ImageConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(ImageDecoder, isConsumer, bool, $ImageConsumer*)},
+	{"nextConsumer", "(Lsun/awt/image/ImageConsumerQueue;)Lsun/awt/image/ImageConsumerQueue;", nullptr, $PROTECTED, $virtualMethod(ImageDecoder, nextConsumer, $ImageConsumerQueue*, $ImageConsumerQueue*)},
+	{"produceImage", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageDecoder, produceImage, void), "java.io.IOException,sun.awt.image.ImageFormatException"},
+	{"removeConsumer", "(Ljava/awt/image/ImageConsumer;)V", nullptr, $PUBLIC, $virtualMethod(ImageDecoder, removeConsumer, void, $ImageConsumer*)},
+	{"setColorModel", "(Ljava/awt/image/ColorModel;)I", nullptr, $PROTECTED, $virtualMethod(ImageDecoder, setColorModel, int32_t, $ColorModel*)},
+	{"setDimensions", "(II)I", nullptr, $PROTECTED, $virtualMethod(ImageDecoder, setDimensions, int32_t, int32_t, int32_t)},
+	{"setHints", "(I)I", nullptr, $PROTECTED, $virtualMethod(ImageDecoder, setHints, int32_t, int32_t)},
+	{"setPixels", "(IIIILjava/awt/image/ColorModel;[BII)I", nullptr, $PROTECTED, $virtualMethod(ImageDecoder, setPixels, int32_t, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $bytes*, int32_t, int32_t)},
+	{"setPixels", "(IIIILjava/awt/image/ColorModel;[III)I", nullptr, $PROTECTED, $virtualMethod(ImageDecoder, setPixels, int32_t, int32_t, int32_t, int32_t, int32_t, $ColorModel*, $ints*, int32_t, int32_t)},
+	{"setProperties", "(Ljava/util/Hashtable;)I", "(Ljava/util/Hashtable<**>;)I", $PROTECTED, $virtualMethod(ImageDecoder, setProperties, int32_t, $Hashtable*)},
+	{}
+};
+
+$InnerClassInfo _ImageDecoder_InnerClassesInfo_[] = {
+	{"sun.awt.image.ImageDecoder$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _ImageDecoder_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER | $ABSTRACT,
+	"sun.awt.image.ImageDecoder",
+	"java.lang.Object",
+	nullptr,
+	_ImageDecoder_FieldInfo_,
+	_ImageDecoder_MethodInfo_,
+	nullptr,
+	nullptr,
+	_ImageDecoder_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	"sun.awt.image.ImageDecoder$1"
+};
+
+$Object* allocate$ImageDecoder($Class* clazz) {
+	return $of($alloc(ImageDecoder));
+}
+
+void ImageDecoder::init$($InputStreamImageSource* src, $InputStream* is) {
+	$set(this, source, src);
+	$set(this, input, is);
+	$set(this, feeder, $Thread::currentThread());
+}
+
+bool ImageDecoder::isConsumer($ImageConsumer* ic) {
+	return $ImageConsumerQueue::isConsumer(this->queue, ic);
+}
+
+void ImageDecoder::removeConsumer($ImageConsumer* ic) {
+	$set(this, queue, $ImageConsumerQueue::removeConsumer(this->queue, ic, false));
+	if (!this->finished && this->queue == nullptr) {
+		abort();
+	}
+}
+
+$ImageConsumerQueue* ImageDecoder::nextConsumer($ImageConsumerQueue* cq$renamed) {
+	$var($ImageConsumerQueue, cq, cq$renamed);
+	$synchronized(this->source) {
+		if (this->aborted) {
+			return nullptr;
+		}
+		$assign(cq, (cq == nullptr) ? this->queue : $nc(cq)->next);
+		while (cq != nullptr) {
+			if (cq->interested) {
+				return cq;
+			}
+			$assign(cq, cq->next);
+		}
+	}
+	return nullptr;
+}
+
+int32_t ImageDecoder::setDimensions(int32_t w, int32_t h) {
+	$var($ImageConsumerQueue, cq, nullptr);
+	int32_t count = 0;
+	while (($assign(cq, nextConsumer(cq))) != nullptr) {
+		$nc($nc(cq)->consumer)->setDimensions(w, h);
+		++count;
+	}
+	return count;
+}
+
+int32_t ImageDecoder::setProperties($Hashtable* props) {
+	$var($ImageConsumerQueue, cq, nullptr);
+	int32_t count = 0;
+	while (($assign(cq, nextConsumer(cq))) != nullptr) {
+		$nc($nc(cq)->consumer)->setProperties(props);
+		++count;
+	}
+	return count;
+}
+
+int32_t ImageDecoder::setColorModel($ColorModel* model) {
+	$var($ImageConsumerQueue, cq, nullptr);
+	int32_t count = 0;
+	while (($assign(cq, nextConsumer(cq))) != nullptr) {
+		$nc($nc(cq)->consumer)->setColorModel(model);
+		++count;
+	}
+	return count;
+}
+
+int32_t ImageDecoder::setHints(int32_t hints) {
+	$var($ImageConsumerQueue, cq, nullptr);
+	int32_t count = 0;
+	while (($assign(cq, nextConsumer(cq))) != nullptr) {
+		$nc($nc(cq)->consumer)->setHints(hints);
+		++count;
+	}
+	return count;
+}
+
+void ImageDecoder::headerComplete() {
+	$nc(this->feeder)->setPriority($ImageFetcher::LOW_PRIORITY);
+}
+
+int32_t ImageDecoder::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, $ColorModel* model, $bytes* pix, int32_t off, int32_t scansize) {
+	$nc(this->source)->latchConsumers(this);
+	$var($ImageConsumerQueue, cq, nullptr);
+	int32_t count = 0;
+	while (($assign(cq, nextConsumer(cq))) != nullptr) {
+		$nc($nc(cq)->consumer)->setPixels(x, y, w, h, model, pix, off, scansize);
+		++count;
+	}
+	return count;
+}
+
+int32_t ImageDecoder::setPixels(int32_t x, int32_t y, int32_t w, int32_t h, $ColorModel* model, $ints* pix, int32_t off, int32_t scansize) {
+	$nc(this->source)->latchConsumers(this);
+	$var($ImageConsumerQueue, cq, nullptr);
+	int32_t count = 0;
+	while (($assign(cq, nextConsumer(cq))) != nullptr) {
+		$nc($nc(cq)->consumer)->setPixels(x, y, w, h, model, pix, off, scansize);
+		++count;
+	}
+	return count;
+}
+
+int32_t ImageDecoder::imageComplete(int32_t status, bool done) {
+	$nc(this->source)->latchConsumers(this);
+	if (done) {
+		this->finished = true;
+		$nc(this->source)->doneDecoding(this);
+	}
+	$var($ImageConsumerQueue, cq, nullptr);
+	int32_t count = 0;
+	while (($assign(cq, nextConsumer(cq))) != nullptr) {
+		$nc($nc(cq)->consumer)->imageComplete(status);
+		++count;
+	}
+	return count;
+}
+
+void ImageDecoder::abort() {
+	$beforeCallerSensitive();
+	this->aborted = true;
+	$nc(this->source)->doneDecoding(this);
+	close();
+	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ImageDecoder$1, this)));
+}
+
+void ImageDecoder::close() {
+	$synchronized(this) {
+		if (this->input != nullptr) {
+			try {
+				$nc(this->input)->close();
+			} catch ($IOException& e) {
+			}
+		}
+	}
+}
+
+ImageDecoder::ImageDecoder() {
+}
+
+$Class* ImageDecoder::load$($String* name, bool initialize) {
+	$loadClass(ImageDecoder, name, initialize, &_ImageDecoder_ClassInfo_, allocate$ImageDecoder);
+	return class$;
+}
+
+$Class* ImageDecoder::class$ = nullptr;
+
+		} // image
+	} // awt
+} // sun

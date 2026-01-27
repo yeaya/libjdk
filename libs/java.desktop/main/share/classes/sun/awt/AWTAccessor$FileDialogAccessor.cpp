@@ -1,0 +1,58 @@
+#include <sun/awt/AWTAccessor$FileDialogAccessor.h>
+
+#include <java/awt/FileDialog.h>
+#include <java/io/File.h>
+#include <sun/awt/AWTAccessor.h>
+#include <jcpp.h>
+
+using $FileArray = $Array<::java::io::File>;
+using $FileDialog = ::java::awt::FileDialog;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace sun {
+	namespace awt {
+
+$MethodInfo _AWTAccessor$FileDialogAccessor_MethodInfo_[] = {
+	{"isMultipleMode", "(Ljava/awt/FileDialog;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, isMultipleMode, bool, $FileDialog*)},
+	{"setDirectory", "(Ljava/awt/FileDialog;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, setDirectory, void, $FileDialog*, $String*)},
+	{"setFile", "(Ljava/awt/FileDialog;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, setFile, void, $FileDialog*, $String*)},
+	{"setFiles", "(Ljava/awt/FileDialog;[Ljava/io/File;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$FileDialogAccessor, setFiles, void, $FileDialog*, $FileArray*)},
+	{}
+};
+
+$InnerClassInfo _AWTAccessor$FileDialogAccessor_InnerClassesInfo_[] = {
+	{"sun.awt.AWTAccessor$FileDialogAccessor", "sun.awt.AWTAccessor", "FileDialogAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _AWTAccessor$FileDialogAccessor_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"sun.awt.AWTAccessor$FileDialogAccessor",
+	nullptr,
+	nullptr,
+	nullptr,
+	_AWTAccessor$FileDialogAccessor_MethodInfo_,
+	nullptr,
+	nullptr,
+	_AWTAccessor$FileDialogAccessor_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.awt.AWTAccessor"
+};
+
+$Object* allocate$AWTAccessor$FileDialogAccessor($Class* clazz) {
+	return $of($alloc(AWTAccessor$FileDialogAccessor));
+}
+
+$Class* AWTAccessor$FileDialogAccessor::load$($String* name, bool initialize) {
+	$loadClass(AWTAccessor$FileDialogAccessor, name, initialize, &_AWTAccessor$FileDialogAccessor_ClassInfo_, allocate$AWTAccessor$FileDialogAccessor);
+	return class$;
+}
+
+$Class* AWTAccessor$FileDialogAccessor::class$ = nullptr;
+
+	} // awt
+} // sun

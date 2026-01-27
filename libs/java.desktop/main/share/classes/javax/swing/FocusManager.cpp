@@ -1,0 +1,120 @@
+#include <javax/swing/FocusManager.h>
+
+#include <java/awt/ContainerOrderFocusTraversalPolicy.h>
+#include <java/awt/DefaultFocusTraversalPolicy.h>
+#include <java/awt/DefaultKeyboardFocusManager.h>
+#include <java/awt/FocusTraversalPolicy.h>
+#include <java/awt/KeyboardFocusManager.h>
+#include <javax/swing/DefaultFocusManager.h>
+#include <javax/swing/DelegatingDefaultFocusManager.h>
+#include <jcpp.h>
+
+#undef FOCUS_MANAGER_CLASS_PROPERTY
+
+using $ContainerOrderFocusTraversalPolicy = ::java::awt::ContainerOrderFocusTraversalPolicy;
+using $DefaultFocusTraversalPolicy = ::java::awt::DefaultFocusTraversalPolicy;
+using $DefaultKeyboardFocusManager = ::java::awt::DefaultKeyboardFocusManager;
+using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
+using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $DefaultFocusManager = ::javax::swing::DefaultFocusManager;
+using $DelegatingDefaultFocusManager = ::javax::swing::DelegatingDefaultFocusManager;
+
+namespace javax {
+	namespace swing {
+
+$CompoundAttribute _FocusManager_MethodAnnotations_disableSwingFocusManager1[] = {
+	{"Ljava/lang/Deprecated;", nullptr},
+	{}
+};
+
+$CompoundAttribute _FocusManager_MethodAnnotations_isFocusManagerEnabled3[] = {
+	{"Ljava/lang/Deprecated;", nullptr},
+	{}
+};
+
+$FieldInfo _FocusManager_FieldInfo_[] = {
+	{"FOCUS_MANAGER_CLASS_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FocusManager, FOCUS_MANAGER_CLASS_PROPERTY)},
+	{"enabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(FocusManager, enabled)},
+	{}
+};
+
+$MethodInfo _FocusManager_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PROTECTED, $method(FocusManager, init$, void)},
+	{"disableSwingFocusManager", "()V", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(FocusManager, disableSwingFocusManager, void), nullptr, nullptr, _FocusManager_MethodAnnotations_disableSwingFocusManager1},
+	{"getCurrentManager", "()Ljavax/swing/FocusManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(FocusManager, getCurrentManager, FocusManager*)},
+	{"isFocusManagerEnabled", "()Z", nullptr, $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(FocusManager, isFocusManagerEnabled, bool), nullptr, nullptr, _FocusManager_MethodAnnotations_isFocusManagerEnabled3},
+	{"setCurrentManager", "(Ljavax/swing/FocusManager;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FocusManager, setCurrentManager, void, FocusManager*), "java.lang.SecurityException"},
+	{}
+};
+
+$ClassInfo _FocusManager_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER | $ABSTRACT,
+	"javax.swing.FocusManager",
+	"java.awt.DefaultKeyboardFocusManager",
+	nullptr,
+	_FocusManager_FieldInfo_,
+	_FocusManager_MethodInfo_
+};
+
+$Object* allocate$FocusManager($Class* clazz) {
+	return $of($alloc(FocusManager));
+}
+
+$String* FocusManager::FOCUS_MANAGER_CLASS_PROPERTY = nullptr;
+bool FocusManager::enabled = false;
+
+void FocusManager::init$() {
+	$DefaultKeyboardFocusManager::init$();
+}
+
+FocusManager* FocusManager::getCurrentManager() {
+	$init(FocusManager);
+	$var($KeyboardFocusManager, manager, $KeyboardFocusManager::getCurrentKeyboardFocusManager());
+	if ($instanceOf(FocusManager, manager)) {
+		return $cast(FocusManager, manager);
+	} else {
+		return $new($DelegatingDefaultFocusManager, manager);
+	}
+}
+
+void FocusManager::setCurrentManager(FocusManager* aFocusManager) {
+	$init(FocusManager);
+	$var($KeyboardFocusManager, toSet, ($instanceOf($DelegatingDefaultFocusManager, aFocusManager)) ? $nc(($cast($DelegatingDefaultFocusManager, aFocusManager)))->getDelegate() : static_cast<$KeyboardFocusManager*>(aFocusManager));
+	$KeyboardFocusManager::setCurrentKeyboardFocusManager(toSet);
+}
+
+void FocusManager::disableSwingFocusManager() {
+	$init(FocusManager);
+	$useLocalCurrentObjectStackCache();
+	if (FocusManager::enabled) {
+		FocusManager::enabled = false;
+		$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->setDefaultFocusTraversalPolicy($$new($DefaultFocusTraversalPolicy));
+	}
+}
+
+bool FocusManager::isFocusManagerEnabled() {
+	$init(FocusManager);
+	return FocusManager::enabled;
+}
+
+void clinit$FocusManager($Class* class$) {
+	$assignStatic(FocusManager::FOCUS_MANAGER_CLASS_PROPERTY, "FocusManagerClassName"_s);
+	FocusManager::enabled = true;
+}
+
+FocusManager::FocusManager() {
+}
+
+$Class* FocusManager::load$($String* name, bool initialize) {
+	$loadClass(FocusManager, name, initialize, &_FocusManager_ClassInfo_, clinit$FocusManager, allocate$FocusManager);
+	return class$;
+}
+
+$Class* FocusManager::class$ = nullptr;
+
+	} // swing
+} // javax

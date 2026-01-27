@@ -1,0 +1,75 @@
+#include <sun/java2d/opengl/OGLTextRenderer$Tracer.h>
+
+#include <sun/font/GlyphList.h>
+#include <sun/java2d/SunGraphics2D.h>
+#include <sun/java2d/loops/GraphicsPrimitive.h>
+#include <sun/java2d/opengl/OGLTextRenderer.h>
+#include <sun/java2d/pipe/BufferedTextPipe.h>
+#include <sun/java2d/pipe/RenderQueue.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $GlyphList = ::sun::font::GlyphList;
+using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
+using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
+using $OGLTextRenderer = ::sun::java2d::opengl::OGLTextRenderer;
+
+namespace sun {
+	namespace java2d {
+		namespace opengl {
+
+$MethodInfo _OGLTextRenderer$Tracer_MethodInfo_[] = {
+	{"<init>", "(Lsun/java2d/opengl/OGLTextRenderer;)V", nullptr, 0, $method(OGLTextRenderer$Tracer, init$, void, $OGLTextRenderer*)},
+	{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(OGLTextRenderer$Tracer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
+	{}
+};
+
+$InnerClassInfo _OGLTextRenderer$Tracer_InnerClassesInfo_[] = {
+	{"sun.java2d.opengl.OGLTextRenderer$Tracer", "sun.java2d.opengl.OGLTextRenderer", "Tracer", $PRIVATE | $STATIC},
+	{}
+};
+
+$ClassInfo _OGLTextRenderer$Tracer_ClassInfo_ = {
+	$ACC_SUPER,
+	"sun.java2d.opengl.OGLTextRenderer$Tracer",
+	"sun.java2d.opengl.OGLTextRenderer",
+	nullptr,
+	nullptr,
+	_OGLTextRenderer$Tracer_MethodInfo_,
+	nullptr,
+	nullptr,
+	_OGLTextRenderer$Tracer_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.java2d.opengl.OGLTextRenderer"
+};
+
+$Object* allocate$OGLTextRenderer$Tracer($Class* clazz) {
+	return $of($alloc(OGLTextRenderer$Tracer));
+}
+
+void OGLTextRenderer$Tracer::init$($OGLTextRenderer* ogltr) {
+	$OGLTextRenderer::init$($($OGLTextRenderer::access$000(ogltr)));
+}
+
+void OGLTextRenderer$Tracer::drawGlyphList($SunGraphics2D* sg2d, $GlyphList* gl) {
+	$GraphicsPrimitive::tracePrimitive("OGLDrawGlyphs"_s);
+	$OGLTextRenderer::drawGlyphList(sg2d, gl);
+}
+
+OGLTextRenderer$Tracer::OGLTextRenderer$Tracer() {
+}
+
+$Class* OGLTextRenderer$Tracer::load$($String* name, bool initialize) {
+	$loadClass(OGLTextRenderer$Tracer, name, initialize, &_OGLTextRenderer$Tracer_ClassInfo_, allocate$OGLTextRenderer$Tracer);
+	return class$;
+}
+
+$Class* OGLTextRenderer$Tracer::class$ = nullptr;
+
+		} // opengl
+	} // java2d
+} // sun

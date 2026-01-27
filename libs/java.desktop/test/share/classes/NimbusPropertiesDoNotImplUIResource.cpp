@@ -1,0 +1,143 @@
+#include <NimbusPropertiesDoNotImplUIResource.h>
+
+#include <java/awt/Color.h>
+#include <javax/swing/LookAndFeel.h>
+#include <javax/swing/UIManager$LookAndFeelInfo.h>
+#include <javax/swing/UIManager.h>
+#include <javax/swing/UnsupportedLookAndFeelException.h>
+#include <javax/swing/plaf/UIResource.h>
+#include <javax/swing/plaf/nimbus/NimbusLookAndFeel.h>
+#include <jcpp.h>
+
+#undef LF
+
+using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
+using $Color = ::java::awt::Color;
+using $PrintStream = ::java::io::PrintStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $UIManager = ::javax::swing::UIManager;
+using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
+using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
+using $UIResource = ::javax::swing::plaf::UIResource;
+using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
+
+$FieldInfo _NimbusPropertiesDoNotImplUIResource_FieldInfo_[] = {
+	{"defPropertyKeys", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NimbusPropertiesDoNotImplUIResource, defPropertyKeys)},
+	{"failedKeys", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(NimbusPropertiesDoNotImplUIResource, failedKeys)},
+	{}
+};
+
+$MethodInfo _NimbusPropertiesDoNotImplUIResource_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(NimbusPropertiesDoNotImplUIResource, init$, void)},
+	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NimbusPropertiesDoNotImplUIResource, main, void, $StringArray*), "java.lang.Exception"},
+	{"verifyProperty", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NimbusPropertiesDoNotImplUIResource, verifyProperty, void, $String*)},
+	{}
+};
+
+$ClassInfo _NimbusPropertiesDoNotImplUIResource_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"NimbusPropertiesDoNotImplUIResource",
+	"java.lang.Object",
+	nullptr,
+	_NimbusPropertiesDoNotImplUIResource_FieldInfo_,
+	_NimbusPropertiesDoNotImplUIResource_MethodInfo_
+};
+
+$Object* allocate$NimbusPropertiesDoNotImplUIResource($Class* clazz) {
+	return $of($alloc(NimbusPropertiesDoNotImplUIResource));
+}
+
+$StringArray* NimbusPropertiesDoNotImplUIResource::defPropertyKeys = nullptr;
+$String* NimbusPropertiesDoNotImplUIResource::failedKeys = nullptr;
+
+void NimbusPropertiesDoNotImplUIResource::init$() {
+}
+
+void NimbusPropertiesDoNotImplUIResource::main($StringArray* args) {
+	$init(NimbusPropertiesDoNotImplUIResource);
+	$useLocalCurrentObjectStackCache();
+	$var($UIManager$LookAndFeelInfoArray, installedLookAndFeels, nullptr);
+	$assign(installedLookAndFeels, $UIManager::getInstalledLookAndFeels());
+	{
+		$var($UIManager$LookAndFeelInfoArray, arr$, installedLookAndFeels);
+		int32_t len$ = $nc(arr$)->length;
+		int32_t i$ = 0;
+		for (; i$ < len$; ++i$) {
+			$var($UIManager$LookAndFeelInfo, LF, arr$->get(i$));
+			{
+				try {
+					$UIManager::setLookAndFeel($($nc(LF)->getClassName()));
+					$assignStatic(NimbusPropertiesDoNotImplUIResource::failedKeys, nullptr);
+					{
+						$var($StringArray, arr$, NimbusPropertiesDoNotImplUIResource::defPropertyKeys);
+						int32_t len$ = arr$->length;
+						int32_t i$ = 0;
+						for (; i$ < len$; ++i$) {
+							$var($String, propertyKey, arr$->get(i$));
+							{
+								verifyProperty(propertyKey);
+							}
+						}
+					}
+					if (NimbusPropertiesDoNotImplUIResource::failedKeys != nullptr) {
+						$throwNew($RuntimeException, $$str({"JTree renderer Properties "_s, NimbusPropertiesDoNotImplUIResource::failedKeys, " are not instance of UIResource for "_s, $($nc(LF)->getClassName())}));
+					}
+				} catch ($UnsupportedLookAndFeelException& e) {
+					$nc($System::out)->println($$str({"Note: LookAndFeel "_s, $($nc(LF)->getClassName()), " is not supported on this configuration"_s}));
+				}
+			}
+		}
+	}
+	$UIManager::setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel"_s);
+	$var($Color, color1, $nc(($cast($NimbusLookAndFeel, $($UIManager::getLookAndFeel()))))->getDerivedColor("text"_s, (float)0, (float)0, (float)0, 0, false));
+	if ($instanceOf($UIResource, color1)) {
+		$throwNew($RuntimeException, "color1 should not be instance of UIResource"_s);
+	}
+	$var($Color, color2, $nc(($cast($NimbusLookAndFeel, $($UIManager::getLookAndFeel()))))->getDerivedColor("text"_s, (float)0, (float)0, (float)0, 0, true));
+	if (!($instanceOf($UIResource, color2))) {
+		$throwNew($RuntimeException, "color2 should be instance of UIResource"_s);
+	}
+}
+
+void NimbusPropertiesDoNotImplUIResource::verifyProperty($String* propertyKey) {
+	$init(NimbusPropertiesDoNotImplUIResource);
+	$useLocalCurrentObjectStackCache();
+	$var($Object, property, $UIManager::get(propertyKey));
+	if (property == nullptr) {
+		return;
+	}
+	if (!($instanceOf($UIResource, property))) {
+		if (NimbusPropertiesDoNotImplUIResource::failedKeys == nullptr) {
+			$assignStatic(NimbusPropertiesDoNotImplUIResource::failedKeys, $str({":"_s, propertyKey}));
+		} else {
+			$plusAssignStatic(NimbusPropertiesDoNotImplUIResource::failedKeys, $$str({","_s, propertyKey}));
+		}
+	}
+}
+
+void clinit$NimbusPropertiesDoNotImplUIResource($Class* class$) {
+	$assignStatic(NimbusPropertiesDoNotImplUIResource::defPropertyKeys, $new($StringArray, {
+		"Tree.leafIcon"_s,
+		"Tree.closedIcon"_s,
+		"Tree.openIcon"_s,
+		"Tree.selectionForeground"_s,
+		"Tree.textForeground"_s,
+		"Tree.selectionBackground"_s,
+		"Tree.textBackground"_s,
+		"Tree.selectionBorderColor"_s
+	}));
+	$assignStatic(NimbusPropertiesDoNotImplUIResource::failedKeys, nullptr);
+}
+
+NimbusPropertiesDoNotImplUIResource::NimbusPropertiesDoNotImplUIResource() {
+}
+
+$Class* NimbusPropertiesDoNotImplUIResource::load$($String* name, bool initialize) {
+	$loadClass(NimbusPropertiesDoNotImplUIResource, name, initialize, &_NimbusPropertiesDoNotImplUIResource_ClassInfo_, clinit$NimbusPropertiesDoNotImplUIResource, allocate$NimbusPropertiesDoNotImplUIResource);
+	return class$;
+}
+
+$Class* NimbusPropertiesDoNotImplUIResource::class$ = nullptr;

@@ -1,0 +1,111 @@
+#include <bug8158734$MyEditorKit.h>
+
+#include <bug8158734.h>
+#include <java/io/InputStream.h>
+#include <java/io/OutputStream.h>
+#include <java/io/Reader.h>
+#include <java/io/Writer.h>
+#include <javax/swing/Action.h>
+#include <javax/swing/text/Caret.h>
+#include <javax/swing/text/Document.h>
+#include <javax/swing/text/EditorKit.h>
+#include <javax/swing/text/ViewFactory.h>
+#include <jcpp.h>
+
+using $ActionArray = $Array<::javax::swing::Action>;
+using $InputStream = ::java::io::InputStream;
+using $OutputStream = ::java::io::OutputStream;
+using $Reader = ::java::io::Reader;
+using $Writer = ::java::io::Writer;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Caret = ::javax::swing::text::Caret;
+using $Document = ::javax::swing::text::Document;
+using $EditorKit = ::javax::swing::text::EditorKit;
+using $ViewFactory = ::javax::swing::text::ViewFactory;
+
+$MethodInfo _bug8158734$MyEditorKit_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, 0, $method(bug8158734$MyEditorKit, init$, void)},
+	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC, $virtualMethod(bug8158734$MyEditorKit, createCaret, $Caret*)},
+	{"createDefaultDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(bug8158734$MyEditorKit, createDefaultDocument, $Document*)},
+	{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(bug8158734$MyEditorKit, getActions, $ActionArray*)},
+	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug8158734$MyEditorKit, getContentType, $String*)},
+	{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(bug8158734$MyEditorKit, getViewFactory, $ViewFactory*)},
+	{"read", "(Ljava/io/InputStream;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(bug8158734$MyEditorKit, read, void, $InputStream*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+	{"read", "(Ljava/io/Reader;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(bug8158734$MyEditorKit, read, void, $Reader*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+	{"write", "(Ljava/io/OutputStream;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(bug8158734$MyEditorKit, write, void, $OutputStream*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+	{"write", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(bug8158734$MyEditorKit, write, void, $Writer*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+	{}
+};
+
+$InnerClassInfo _bug8158734$MyEditorKit_InnerClassesInfo_[] = {
+	{"bug8158734$MyEditorKit", "bug8158734", "MyEditorKit", $STATIC},
+	{}
+};
+
+$ClassInfo _bug8158734$MyEditorKit_ClassInfo_ = {
+	$ACC_SUPER,
+	"bug8158734$MyEditorKit",
+	"javax.swing.text.EditorKit",
+	nullptr,
+	nullptr,
+	_bug8158734$MyEditorKit_MethodInfo_,
+	nullptr,
+	nullptr,
+	_bug8158734$MyEditorKit_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"bug8158734"
+};
+
+$Object* allocate$bug8158734$MyEditorKit($Class* clazz) {
+	return $of($alloc(bug8158734$MyEditorKit));
+}
+
+void bug8158734$MyEditorKit::init$() {
+	$EditorKit::init$();
+}
+
+$String* bug8158734$MyEditorKit::getContentType() {
+	return nullptr;
+}
+
+$ViewFactory* bug8158734$MyEditorKit::getViewFactory() {
+	return nullptr;
+}
+
+$ActionArray* bug8158734$MyEditorKit::getActions() {
+	return $new($ActionArray, 0);
+}
+
+$Caret* bug8158734$MyEditorKit::createCaret() {
+	return nullptr;
+}
+
+$Document* bug8158734$MyEditorKit::createDefaultDocument() {
+	return nullptr;
+}
+
+void bug8158734$MyEditorKit::read($InputStream* in, $Document* doc, int32_t pos) {
+}
+
+void bug8158734$MyEditorKit::write($OutputStream* out, $Document* doc, int32_t pos, int32_t len) {
+}
+
+void bug8158734$MyEditorKit::read($Reader* in, $Document* doc, int32_t pos) {
+}
+
+void bug8158734$MyEditorKit::write($Writer* out, $Document* doc, int32_t pos, int32_t len) {
+}
+
+bug8158734$MyEditorKit::bug8158734$MyEditorKit() {
+}
+
+$Class* bug8158734$MyEditorKit::load$($String* name, bool initialize) {
+	$loadClass(bug8158734$MyEditorKit, name, initialize, &_bug8158734$MyEditorKit_ClassInfo_, allocate$bug8158734$MyEditorKit);
+	return class$;
+}
+
+$Class* bug8158734$MyEditorKit::class$ = nullptr;

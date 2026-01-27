@@ -1,0 +1,176 @@
+#include <javax/swing/plaf/multi/MultiSliderUI.h>
+
+#include <java/awt/Dimension.h>
+#include <java/awt/Graphics.h>
+#include <java/util/Vector.h>
+#include <javax/accessibility/Accessible.h>
+#include <javax/swing/JComponent.h>
+#include <javax/swing/plaf/ComponentUI.h>
+#include <javax/swing/plaf/SliderUI.h>
+#include <javax/swing/plaf/multi/MultiLookAndFeel.h>
+#include <jcpp.h>
+
+using $ComponentUIArray = $Array<::javax::swing::plaf::ComponentUI>;
+using $Dimension = ::java::awt::Dimension;
+using $Graphics = ::java::awt::Graphics;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Vector = ::java::util::Vector;
+using $Accessible = ::javax::accessibility::Accessible;
+using $JComponent = ::javax::swing::JComponent;
+using $ComponentUI = ::javax::swing::plaf::ComponentUI;
+using $SliderUI = ::javax::swing::plaf::SliderUI;
+using $MultiLookAndFeel = ::javax::swing::plaf::multi::MultiLookAndFeel;
+
+namespace javax {
+	namespace swing {
+		namespace plaf {
+			namespace multi {
+
+$FieldInfo _MultiSliderUI_FieldInfo_[] = {
+	{"uis", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;", $PROTECTED, $field(MultiSliderUI, uis)},
+	{}
+};
+
+$MethodInfo _MultiSliderUI_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiSliderUI, init$, void)},
+	{"contains", "(Ljavax/swing/JComponent;II)Z", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, contains, bool, $JComponent*, int32_t, int32_t)},
+	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiSliderUI, createUI, $ComponentUI*, $JComponent*)},
+	{"getAccessibleChild", "(Ljavax/swing/JComponent;I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, getAccessibleChild, $Accessible*, $JComponent*, int32_t)},
+	{"getAccessibleChildrenCount", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, getAccessibleChildrenCount, int32_t, $JComponent*)},
+	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, getMaximumSize, $Dimension*, $JComponent*)},
+	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, getMinimumSize, $Dimension*, $JComponent*)},
+	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, getPreferredSize, $Dimension*, $JComponent*)},
+	{"getUIs", "()[Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, getUIs, $ComponentUIArray*)},
+	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, installUI, void, $JComponent*)},
+	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, paint, void, $Graphics*, $JComponent*)},
+	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, uninstallUI, void, $JComponent*)},
+	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MultiSliderUI, update, void, $Graphics*, $JComponent*)},
+	{}
+};
+
+$ClassInfo _MultiSliderUI_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"javax.swing.plaf.multi.MultiSliderUI",
+	"javax.swing.plaf.SliderUI",
+	nullptr,
+	_MultiSliderUI_FieldInfo_,
+	_MultiSliderUI_MethodInfo_
+};
+
+$Object* allocate$MultiSliderUI($Class* clazz) {
+	return $of($alloc(MultiSliderUI));
+}
+
+void MultiSliderUI::init$() {
+	$SliderUI::init$();
+	$set(this, uis, $new($Vector));
+}
+
+$ComponentUIArray* MultiSliderUI::getUIs() {
+	return $MultiLookAndFeel::uisToArray(this->uis);
+}
+
+bool MultiSliderUI::contains($JComponent* a, int32_t b, int32_t c) {
+	$useLocalCurrentObjectStackCache();
+	bool returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->contains(a, b, c);
+	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
+		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->contains(a, b, c);
+	}
+	return returnValue;
+}
+
+void MultiSliderUI::update($Graphics* a, $JComponent* b) {
+	$useLocalCurrentObjectStackCache();
+	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
+		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->update(a, b);
+	}
+}
+
+$ComponentUI* MultiSliderUI::createUI($JComponent* a) {
+	$init(MultiSliderUI);
+	$var(MultiSliderUI, mui, $new(MultiSliderUI));
+	return $MultiLookAndFeel::createUIs(mui, mui->uis, a);
+}
+
+void MultiSliderUI::installUI($JComponent* a) {
+	$useLocalCurrentObjectStackCache();
+	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
+		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->installUI(a);
+	}
+}
+
+void MultiSliderUI::uninstallUI($JComponent* a) {
+	$useLocalCurrentObjectStackCache();
+	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
+		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->uninstallUI(a);
+	}
+}
+
+void MultiSliderUI::paint($Graphics* a, $JComponent* b) {
+	$useLocalCurrentObjectStackCache();
+	for (int32_t i = 0; i < $nc(this->uis)->size(); ++i) {
+		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->paint(a, b);
+	}
+}
+
+$Dimension* MultiSliderUI::getPreferredSize($JComponent* a) {
+	$useLocalCurrentObjectStackCache();
+	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getPreferredSize(a));
+	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
+		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getPreferredSize(a);
+	}
+	return returnValue;
+}
+
+$Dimension* MultiSliderUI::getMinimumSize($JComponent* a) {
+	$useLocalCurrentObjectStackCache();
+	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMinimumSize(a));
+	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
+		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMinimumSize(a);
+	}
+	return returnValue;
+}
+
+$Dimension* MultiSliderUI::getMaximumSize($JComponent* a) {
+	$useLocalCurrentObjectStackCache();
+	$var($Dimension, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getMaximumSize(a));
+	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
+		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getMaximumSize(a);
+	}
+	return returnValue;
+}
+
+int32_t MultiSliderUI::getAccessibleChildrenCount($JComponent* a) {
+	$useLocalCurrentObjectStackCache();
+	int32_t returnValue = $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChildrenCount(a);
+	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
+		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChildrenCount(a);
+	}
+	return returnValue;
+}
+
+$Accessible* MultiSliderUI::getAccessibleChild($JComponent* a, int32_t b) {
+	$useLocalCurrentObjectStackCache();
+	$var($Accessible, returnValue, $nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(0)))))->getAccessibleChild(a, b));
+	for (int32_t i = 1; i < $nc(this->uis)->size(); ++i) {
+		$nc(($cast($ComponentUI, $($nc(this->uis)->elementAt(i)))))->getAccessibleChild(a, b);
+	}
+	return returnValue;
+}
+
+MultiSliderUI::MultiSliderUI() {
+}
+
+$Class* MultiSliderUI::load$($String* name, bool initialize) {
+	$loadClass(MultiSliderUI, name, initialize, &_MultiSliderUI_ClassInfo_, allocate$MultiSliderUI);
+	return class$;
+}
+
+$Class* MultiSliderUI::class$ = nullptr;
+
+			} // multi
+		} // plaf
+	} // swing
+} // javax

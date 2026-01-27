@@ -1,0 +1,197 @@
+#include <java/awt/image/BandCombineOp.h>
+
+#include <java/awt/Rectangle.h>
+#include <java/awt/RenderingHints.h>
+#include <java/awt/geom/Point2D$Float.h>
+#include <java/awt/geom/Point2D.h>
+#include <java/awt/geom/Rectangle2D.h>
+#include <java/awt/image/Raster.h>
+#include <java/awt/image/RasterOp.h>
+#include <java/awt/image/WritableRaster.h>
+#include <java/lang/IndexOutOfBoundsException.h>
+#include <java/util/Arrays.h>
+#include <sun/awt/image/ImagingLib.h>
+#include <jcpp.h>
+
+using $floatArray2 = $Array<float, 2>;
+using $RenderingHints = ::java::awt::RenderingHints;
+using $Point2D = ::java::awt::geom::Point2D;
+using $Point2D$Float = ::java::awt::geom::Point2D$Float;
+using $Rectangle2D = ::java::awt::geom::Rectangle2D;
+using $Raster = ::java::awt::image::Raster;
+using $RasterOp = ::java::awt::image::RasterOp;
+using $WritableRaster = ::java::awt::image::WritableRaster;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $Float = ::java::lang::Float;
+using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
+using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Arrays = ::java::util::Arrays;
+using $ImagingLib = ::sun::awt::image::ImagingLib;
+
+namespace java {
+	namespace awt {
+		namespace image {
+
+$FieldInfo _BandCombineOp_FieldInfo_[] = {
+	{"matrix", "[[F", nullptr, 0, $field(BandCombineOp, matrix)},
+	{"nrows", "I", nullptr, 0, $field(BandCombineOp, nrows)},
+	{"ncols", "I", nullptr, 0, $field(BandCombineOp, ncols)},
+	{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(BandCombineOp, hints)},
+	{}
+};
+
+$MethodInfo _BandCombineOp_MethodInfo_[] = {
+	{"<init>", "([[FLjava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(BandCombineOp, init$, void, $floatArray2*, $RenderingHints*)},
+	{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BandCombineOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
+	{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BandCombineOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
+	{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BandCombineOp, getBounds2D, $Rectangle2D*, $Raster*)},
+	{"getMatrix", "()[[F", nullptr, $PUBLIC | $FINAL, $method(BandCombineOp, getMatrix, $floatArray2*)},
+	{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BandCombineOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
+	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(BandCombineOp, getRenderingHints, $RenderingHints*)},
+	{}
+};
+
+$ClassInfo _BandCombineOp_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.awt.image.BandCombineOp",
+	"java.lang.Object",
+	"java.awt.image.RasterOp",
+	_BandCombineOp_FieldInfo_,
+	_BandCombineOp_MethodInfo_
+};
+
+$Object* allocate$BandCombineOp($Class* clazz) {
+	return $of($alloc(BandCombineOp));
+}
+
+void BandCombineOp::init$($floatArray2* matrix, $RenderingHints* hints) {
+	$useLocalCurrentObjectStackCache();
+	this->nrows = 0;
+	this->ncols = 0;
+	this->nrows = $nc(matrix)->length;
+	this->ncols = $nc(matrix->get(0))->length;
+	$set(this, matrix, $new($floatArray2, this->nrows));
+	for (int32_t i = 0; i < this->nrows; ++i) {
+		if (this->ncols > $nc(matrix->get(i))->length) {
+			$throwNew($IndexOutOfBoundsException, $$str({"row "_s, $$str(i), " too short"_s}));
+		}
+		$nc(this->matrix)->set(i, $($Arrays::copyOf(matrix->get(i), this->ncols)));
+	}
+	$set(this, hints, hints);
+}
+
+$floatArray2* BandCombineOp::getMatrix() {
+	$useLocalCurrentObjectStackCache();
+	$var($floatArray2, ret, $new($floatArray2, this->nrows));
+	for (int32_t i = 0; i < this->nrows; ++i) {
+		ret->set(i, $($Arrays::copyOf($nc(this->matrix)->get(i), this->ncols)));
+	}
+	return ret;
+}
+
+$WritableRaster* BandCombineOp::filter($Raster* src, $WritableRaster* dst$renamed) {
+	$useLocalCurrentObjectStackCache();
+	$var($WritableRaster, dst, dst$renamed);
+	int32_t nBands = $nc(src)->getNumBands();
+	if (this->ncols != nBands && this->ncols != (nBands + 1)) {
+		$throwNew($IllegalArgumentException, $$str({"Number of columns in the matrix ("_s, $$str(this->ncols), ") must be equal to the number of bands ([+1]) in src ("_s, $$str(nBands), ")."_s}));
+	}
+	if (dst == nullptr) {
+		$assign(dst, createCompatibleDestRaster(src));
+	} else if (this->nrows != $nc(dst)->getNumBands()) {
+		$throwNew($IllegalArgumentException, $$str({"Number of rows in the matrix ("_s, $$str(this->nrows), ") must be equal to the number of bands ([+1]) in dst ("_s, $$str(nBands), ")."_s}));
+	}
+	if ($ImagingLib::filter(static_cast<$RasterOp*>(this), src, dst) != nullptr) {
+		return dst;
+	}
+	$var($ints, pixel, nullptr);
+	$var($ints, dstPixel, $new($ints, $nc(dst)->getNumBands()));
+	float accum = 0.0;
+	int32_t sminX = src->getMinX();
+	int32_t sY = src->getMinY();
+	int32_t dminX = dst->getMinX();
+	int32_t dY = dst->getMinY();
+	int32_t sX = 0;
+	int32_t dX = 0;
+	if (this->ncols == nBands) {
+		for (int32_t y = 0; y < src->getHeight(); ++y, ++sY, ++dY) {
+			dX = dminX;
+			sX = sminX;
+			for (int32_t x = 0; x < src->getWidth(); ++x, ++sX, ++dX) {
+				$assign(pixel, src->getPixel(sX, sY, pixel));
+				for (int32_t r = 0; r < this->nrows; ++r) {
+					accum = 0.0f;
+					for (int32_t c = 0; c < this->ncols; ++c) {
+						accum += $nc($nc(this->matrix)->get(r))->get(c) * $nc(pixel)->get(c);
+					}
+					dstPixel->set(r, $cast(int32_t, accum));
+				}
+				dst->setPixel(dX, dY, dstPixel);
+			}
+		}
+	} else {
+		for (int32_t y = 0; y < src->getHeight(); ++y, ++sY, ++dY) {
+			dX = dminX;
+			sX = sminX;
+			for (int32_t x = 0; x < src->getWidth(); ++x, ++sX, ++dX) {
+				$assign(pixel, src->getPixel(sX, sY, pixel));
+				for (int32_t r = 0; r < this->nrows; ++r) {
+					accum = 0.0f;
+					for (int32_t c = 0; c < nBands; ++c) {
+						accum += $nc($nc(this->matrix)->get(r))->get(c) * $nc(pixel)->get(c);
+					}
+					dstPixel->set(r, $cast(int32_t, (accum + $nc($nc(this->matrix)->get(r))->get(nBands))));
+				}
+				dst->setPixel(dX, dY, dstPixel);
+			}
+		}
+	}
+	return dst;
+}
+
+$Rectangle2D* BandCombineOp::getBounds2D($Raster* src) {
+	return $nc(src)->getBounds();
+}
+
+$WritableRaster* BandCombineOp::createCompatibleDestRaster($Raster* src) {
+	$useLocalCurrentObjectStackCache();
+	int32_t nBands = $nc(src)->getNumBands();
+	if ((this->ncols != nBands) && (this->ncols != (nBands + 1))) {
+		$throwNew($IllegalArgumentException, $$str({"Number of columns in the matrix ("_s, $$str(this->ncols), ") must be equal to the number of bands ([+1]) in src ("_s, $$str(nBands), ")."_s}));
+	}
+	if (src->getNumBands() == this->nrows) {
+		return src->createCompatibleWritableRaster();
+	} else {
+		$throwNew($IllegalArgumentException, $$str({"Don\'t know how to create a  compatible Raster with "_s, $$str(this->nrows), " bands."_s}));
+	}
+}
+
+$Point2D* BandCombineOp::getPoint2D($Point2D* srcPt, $Point2D* dstPt$renamed) {
+	$var($Point2D, dstPt, dstPt$renamed);
+	if (dstPt == nullptr) {
+		$assign(dstPt, $new($Point2D$Float));
+	}
+	double var$0 = $nc(srcPt)->getX();
+	$nc(dstPt)->setLocation(var$0, srcPt->getY());
+	return dstPt;
+}
+
+$RenderingHints* BandCombineOp::getRenderingHints() {
+	return this->hints;
+}
+
+BandCombineOp::BandCombineOp() {
+}
+
+$Class* BandCombineOp::load$($String* name, bool initialize) {
+	$loadClass(BandCombineOp, name, initialize, &_BandCombineOp_ClassInfo_, allocate$BandCombineOp);
+	return class$;
+}
+
+$Class* BandCombineOp::class$ = nullptr;
+
+		} // image
+	} // awt
+} // java

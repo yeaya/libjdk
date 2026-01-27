@@ -1,0 +1,66 @@
+#include <org/xml/sax/SAXNotRecognizedException.h>
+
+#include <org/xml/sax/SAXException.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $SAXException = ::org::xml::sax::SAXException;
+
+namespace org {
+	namespace xml {
+		namespace sax {
+
+$FieldInfo _SAXNotRecognizedException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SAXNotRecognizedException, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _SAXNotRecognizedException_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(SAXNotRecognizedException, init$, void)},
+	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SAXNotRecognizedException, init$, void, $String*)},
+	{}
+};
+
+$ClassInfo _SAXNotRecognizedException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"org.xml.sax.SAXNotRecognizedException",
+	"org.xml.sax.SAXException",
+	nullptr,
+	_SAXNotRecognizedException_FieldInfo_,
+	_SAXNotRecognizedException_MethodInfo_
+};
+
+$Object* allocate$SAXNotRecognizedException($Class* clazz) {
+	return $of($alloc(SAXNotRecognizedException));
+}
+
+void SAXNotRecognizedException::init$() {
+	$SAXException::init$();
+}
+
+void SAXNotRecognizedException::init$($String* message) {
+	$SAXException::init$(message);
+}
+
+SAXNotRecognizedException::SAXNotRecognizedException() {
+}
+
+SAXNotRecognizedException::SAXNotRecognizedException(const SAXNotRecognizedException& e) : $SAXException(e) {
+}
+
+void SAXNotRecognizedException::throw$() {
+	throw *this;
+}
+
+$Class* SAXNotRecognizedException::load$($String* name, bool initialize) {
+	$loadClass(SAXNotRecognizedException, name, initialize, &_SAXNotRecognizedException_ClassInfo_, allocate$SAXNotRecognizedException);
+	return class$;
+}
+
+$Class* SAXNotRecognizedException::class$ = nullptr;
+
+		} // sax
+	} // xml
+} // org

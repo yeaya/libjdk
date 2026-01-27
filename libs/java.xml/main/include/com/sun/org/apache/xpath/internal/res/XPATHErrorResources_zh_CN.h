@@ -1,0 +1,645 @@
+#ifndef _com_sun_org_apache_xpath_internal_res_XPATHErrorResources_zh_CN_h_
+#define _com_sun_org_apache_xpath_internal_res_XPATHErrorResources_zh_CN_h_
+//$ class com.sun.org.apache.xpath.internal.res.XPATHErrorResources_zh_CN
+//$ extends java.util.ListResourceBundle
+
+#include <java/lang/Array.h>
+#include <java/util/ListResourceBundle.h>
+
+#pragma push_macro("BAD_CODE")
+#undef BAD_CODE
+#pragma push_macro("ERROR_HEADER")
+#undef ERROR_HEADER
+#pragma push_macro("ERROR_RESOURCES")
+#undef ERROR_RESOURCES
+#pragma push_macro("ERROR_STRING")
+#undef ERROR_STRING
+#pragma push_macro("ER_ARG_CANNOT_BE_NULL")
+#undef ER_ARG_CANNOT_BE_NULL
+#pragma push_macro("ER_ASNODEITERATOR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#undef ER_ASNODEITERATOR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER
+#pragma push_macro("ER_AXES_NOT_ALLOWED")
+#undef ER_AXES_NOT_ALLOWED
+#pragma push_macro("ER_BOOLEAN_ARG_NO_LONGER_OPTIONAL")
+#undef ER_BOOLEAN_ARG_NO_LONGER_OPTIONAL
+#pragma push_macro("ER_CANNOT_CALL_SETSHOULDCACHENODE")
+#undef ER_CANNOT_CALL_SETSHOULDCACHENODE
+#pragma push_macro("ER_CANNOT_CREATE_URL")
+#undef ER_CANNOT_CREATE_URL
+#pragma push_macro("ER_CANNOT_DEAL_XPATH_TYPE")
+#undef ER_CANNOT_DEAL_XPATH_TYPE
+#pragma push_macro("ER_CANNOT_WRITE_TO_EMPTYNODELISTIMPL")
+#undef ER_CANNOT_WRITE_TO_EMPTYNODELISTIMPL
+#pragma push_macro("ER_CANT_CONVERT_TO_BOOLEAN")
+#undef ER_CANT_CONVERT_TO_BOOLEAN
+#pragma push_macro("ER_CANT_CONVERT_TO_MUTABLENODELIST")
+#undef ER_CANT_CONVERT_TO_MUTABLENODELIST
+#pragma push_macro("ER_CANT_CONVERT_TO_NODELIST")
+#undef ER_CANT_CONVERT_TO_NODELIST
+#pragma push_macro("ER_CANT_CONVERT_TO_NUMBER")
+#undef ER_CANT_CONVERT_TO_NUMBER
+#pragma push_macro("ER_CANT_CONVERT_TO_SINGLENODE")
+#undef ER_CANT_CONVERT_TO_SINGLENODE
+#pragma push_macro("ER_CANT_CONVERT_TO_STRING")
+#undef ER_CANT_CONVERT_TO_STRING
+#pragma push_macro("ER_CANT_CONVERT_TO_TYPE")
+#undef ER_CANT_CONVERT_TO_TYPE
+#pragma push_macro("ER_CANT_CONVERT_XPATHRESULTTYPE_TO_NUMBER")
+#undef ER_CANT_CONVERT_XPATHRESULTTYPE_TO_NUMBER
+#pragma push_macro("ER_CANT_GET_SNAPSHOT_LENGTH")
+#undef ER_CANT_GET_SNAPSHOT_LENGTH
+#pragma push_macro("ER_COMPILATION_TOO_MANY_OPERATION")
+#undef ER_COMPILATION_TOO_MANY_OPERATION
+#pragma push_macro("ER_CONTEXT_CAN_NOT_BE_NULL")
+#undef ER_CONTEXT_CAN_NOT_BE_NULL
+#pragma push_macro("ER_CONTEXT_HAS_NO_OWNERDOC")
+#undef ER_CONTEXT_HAS_NO_OWNERDOC
+#pragma push_macro("ER_COULDNOT_BE_FORMATTED_TO_NUMBER")
+#undef ER_COULDNOT_BE_FORMATTED_TO_NUMBER
+#pragma push_macro("ER_COULDNOT_CREATE_XMLPROCESSORLIAISON")
+#undef ER_COULDNOT_CREATE_XMLPROCESSORLIAISON
+#pragma push_macro("ER_COULDNOT_FIND_ENDOP_AFTER_OPLOCATIONPATH")
+#undef ER_COULDNOT_FIND_ENDOP_AFTER_OPLOCATIONPATH
+#pragma push_macro("ER_COULDNOT_FIND_FUNCTION")
+#undef ER_COULDNOT_FIND_FUNCTION
+#pragma push_macro("ER_COULDNOT_GET_VAR_NAMED")
+#undef ER_COULDNOT_GET_VAR_NAMED
+#pragma push_macro("ER_COULD_NOT_FIND_VAR")
+#undef ER_COULD_NOT_FIND_VAR
+#pragma push_macro("ER_COUNT_TAKES_1_ARG")
+#undef ER_COUNT_TAKES_1_ARG
+#pragma push_macro("ER_CURRENT_NOT_ALLOWED_IN_MATCH")
+#undef ER_CURRENT_NOT_ALLOWED_IN_MATCH
+#pragma push_macro("ER_CURRENT_TAKES_NO_ARGS")
+#undef ER_CURRENT_TAKES_NO_ARGS
+#pragma push_macro("ER_DETACH_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#undef ER_DETACH_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER
+#pragma push_macro("ER_DIDNOT_FIND_XPATH_SELECT_EXP")
+#undef ER_DIDNOT_FIND_XPATH_SELECT_EXP
+#pragma push_macro("ER_DOCUMENT_REPLACED")
+#undef ER_DOCUMENT_REPLACED
+#pragma push_macro("ER_DOC_MUTATED")
+#undef ER_DOC_MUTATED
+#pragma push_macro("ER_DTM_CANNOT_HANDLE_NODES")
+#undef ER_DTM_CANNOT_HANDLE_NODES
+#pragma push_macro("ER_EMPTY_EXPRESSION")
+#undef ER_EMPTY_EXPRESSION
+#pragma push_macro("ER_EMPTY_XPATH_RESULT")
+#undef ER_EMPTY_XPATH_RESULT
+#pragma push_macro("ER_ERROR_OCCURED")
+#undef ER_ERROR_OCCURED
+#pragma push_macro("ER_EXPECTED_BUT_FOUND")
+#undef ER_EXPECTED_BUT_FOUND
+#pragma push_macro("ER_EXPECTED_DOUBLE_QUOTE")
+#undef ER_EXPECTED_DOUBLE_QUOTE
+#pragma push_macro("ER_EXPECTED_LOC_PATH")
+#undef ER_EXPECTED_LOC_PATH
+#pragma push_macro("ER_EXPECTED_LOC_PATH_AT_END_EXPR")
+#undef ER_EXPECTED_LOC_PATH_AT_END_EXPR
+#pragma push_macro("ER_EXPECTED_LOC_STEP")
+#undef ER_EXPECTED_LOC_STEP
+#pragma push_macro("ER_EXPECTED_MATCH_PATTERN")
+#undef ER_EXPECTED_MATCH_PATTERN
+#pragma push_macro("ER_EXPECTED_NODE_TEST")
+#undef ER_EXPECTED_NODE_TEST
+#pragma push_macro("ER_EXPECTED_REL_LOC_PATH")
+#undef ER_EXPECTED_REL_LOC_PATH
+#pragma push_macro("ER_EXPECTED_REL_PATH_PATTERN")
+#undef ER_EXPECTED_REL_PATH_PATTERN
+#pragma push_macro("ER_EXPECTED_SINGLE_QUOTE")
+#undef ER_EXPECTED_SINGLE_QUOTE
+#pragma push_macro("ER_EXPECTED_STEP_PATTERN")
+#undef ER_EXPECTED_STEP_PATTERN
+#pragma push_macro("ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED")
+#undef ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED
+#pragma push_macro("ER_EXTRA_ILLEGAL_TOKENS")
+#undef ER_EXTRA_ILLEGAL_TOKENS
+#pragma push_macro("ER_FASTSTRINGBUFFER_CANNOT_BE_NULL")
+#undef ER_FASTSTRINGBUFFER_CANNOT_BE_NULL
+#pragma push_macro("ER_FEATURE_NAME_NULL")
+#undef ER_FEATURE_NAME_NULL
+#pragma push_macro("ER_FEATURE_UNKNOWN")
+#undef ER_FEATURE_UNKNOWN
+#pragma push_macro("ER_FOUND_COMMA_BUT_NO_FOLLOWING_ARG")
+#undef ER_FOUND_COMMA_BUT_NO_FOLLOWING_ARG
+#pragma push_macro("ER_FOUND_COMMA_BUT_NO_PRECEDING_ARG")
+#undef ER_FOUND_COMMA_BUT_NO_PRECEDING_ARG
+#pragma push_macro("ER_FSB_CANNOT_TAKE_STRING")
+#undef ER_FSB_CANNOT_TAKE_STRING
+#pragma push_macro("ER_FSB_NOT_SUPPORTED_XSTRINGFORCHARS")
+#undef ER_FSB_NOT_SUPPORTED_XSTRINGFORCHARS
+#pragma push_macro("ER_FUNCTION_TOKEN_NOT_FOUND")
+#undef ER_FUNCTION_TOKEN_NOT_FOUND
+#pragma push_macro("ER_GETTING_NULL_FEATURE")
+#undef ER_GETTING_NULL_FEATURE
+#pragma push_macro("ER_GETTING_UNKNOWN_FEATURE")
+#undef ER_GETTING_UNKNOWN_FEATURE
+#pragma push_macro("ER_IGNORABLE_WHITESPACE_NOT_HANDLED")
+#undef ER_IGNORABLE_WHITESPACE_NOT_HANDLED
+#pragma push_macro("ER_ILLEGAL_AXIS_NAME")
+#undef ER_ILLEGAL_AXIS_NAME
+#pragma push_macro("ER_ILLEGAL_VARIABLE_REFERENCE")
+#undef ER_ILLEGAL_VARIABLE_REFERENCE
+#pragma push_macro("ER_INCOMPATIBLE_TYPES")
+#undef ER_INCOMPATIBLE_TYPES
+#pragma push_macro("ER_INCORRECT_ARG_LENGTH")
+#undef ER_INCORRECT_ARG_LENGTH
+#pragma push_macro("ER_INCORRECT_PROGRAMMER_ASSERTION")
+#undef ER_INCORRECT_PROGRAMMER_ASSERTION
+#pragma push_macro("ER_INVALID_UTF16_SURROGATE")
+#undef ER_INVALID_UTF16_SURROGATE
+#pragma push_macro("ER_INVALID_XPATH_TYPE")
+#undef ER_INVALID_XPATH_TYPE
+#pragma push_macro("ER_KEY_HAS_TOO_MANY_ARGS")
+#undef ER_KEY_HAS_TOO_MANY_ARGS
+#pragma push_macro("ER_LOCALNAME_HAS_TOO_MANY_ARGS")
+#undef ER_LOCALNAME_HAS_TOO_MANY_ARGS
+#pragma push_macro("ER_NAMESPACEAXIS_NOT_IMPLEMENTED")
+#undef ER_NAMESPACEAXIS_NOT_IMPLEMENTED
+#pragma push_macro("ER_NAMESPACEURI_HAS_TOO_MANY_ARGS")
+#undef ER_NAMESPACEURI_HAS_TOO_MANY_ARGS
+#pragma push_macro("ER_NAME_HAS_TOO_MANY_ARGS")
+#undef ER_NAME_HAS_TOO_MANY_ARGS
+#pragma push_macro("ER_NODESETDTM_CANNOT_INDEX")
+#undef ER_NODESETDTM_CANNOT_INDEX
+#pragma push_macro("ER_NODESETDTM_CANNOT_ITERATE")
+#undef ER_NODESETDTM_CANNOT_ITERATE
+#pragma push_macro("ER_NODESETDTM_NOT_MUTABLE")
+#undef ER_NODESETDTM_NOT_MUTABLE
+#pragma push_macro("ER_NODESET_CANNOT_INDEX")
+#undef ER_NODESET_CANNOT_INDEX
+#pragma push_macro("ER_NODESET_CANNOT_ITERATE")
+#undef ER_NODESET_CANNOT_ITERATE
+#pragma push_macro("ER_NODESET_NOT_MUTABLE")
+#undef ER_NODESET_NOT_MUTABLE
+#pragma push_macro("ER_NON_ITERATOR_TYPE")
+#undef ER_NON_ITERATOR_TYPE
+#pragma push_macro("ER_NON_SNAPSHOT_TYPE")
+#undef ER_NON_SNAPSHOT_TYPE
+#pragma push_macro("ER_NORMALIZESPACE_HAS_TOO_MANY_ARGS")
+#undef ER_NORMALIZESPACE_HAS_TOO_MANY_ARGS
+#pragma push_macro("ER_NULL_ERROR_HANDLER")
+#undef ER_NULL_ERROR_HANDLER
+#pragma push_macro("ER_NULL_RESOLVER")
+#undef ER_NULL_RESOLVER
+#pragma push_macro("ER_NULL_XPATH_FUNCTION_RESOLVER")
+#undef ER_NULL_XPATH_FUNCTION_RESOLVER
+#pragma push_macro("ER_NULL_XPATH_VARIABLE_RESOLVER")
+#undef ER_NULL_XPATH_VARIABLE_RESOLVER
+#pragma push_macro("ER_NUMBER_HAS_TOO_MANY_ARGS")
+#undef ER_NUMBER_HAS_TOO_MANY_ARGS
+#pragma push_macro("ER_NUM_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#undef ER_NUM_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER
+#pragma push_macro("ER_OBJECT_MODEL_EMPTY")
+#undef ER_OBJECT_MODEL_EMPTY
+#pragma push_macro("ER_OBJECT_MODEL_NULL")
+#undef ER_OBJECT_MODEL_NULL
+#pragma push_macro("ER_OIERROR")
+#undef ER_OIERROR
+#pragma push_macro("ER_ONLY_ALLOWS")
+#undef ER_ONLY_ALLOWS
+#pragma push_macro("ER_PARSE_NOT_SUPPORTED")
+#undef ER_PARSE_NOT_SUPPORTED
+#pragma push_macro("ER_PATTERN_LITERAL_NEEDS_BE_QUOTED")
+#undef ER_PATTERN_LITERAL_NEEDS_BE_QUOTED
+#pragma push_macro("ER_PREDICATE_ILLEGAL_SYNTAX")
+#undef ER_PREDICATE_ILLEGAL_SYNTAX
+#pragma push_macro("ER_PREDICATE_TOO_MANY_OPEN")
+#undef ER_PREDICATE_TOO_MANY_OPEN
+#pragma push_macro("ER_PREFIX_MUST_RESOLVE")
+#undef ER_PREFIX_MUST_RESOLVE
+#pragma push_macro("ER_PROBLEM_IN_DTM_NEXTSIBLING")
+#undef ER_PROBLEM_IN_DTM_NEXTSIBLING
+#pragma push_macro("ER_PROG_ASSERT_UNKNOWN_OPCODE")
+#undef ER_PROG_ASSERT_UNKNOWN_OPCODE
+#pragma push_macro("ER_RESOLVE_VARIABLE_RETURNS_NULL")
+#undef ER_RESOLVE_VARIABLE_RETURNS_NULL
+#pragma push_macro("ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#undef ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER
+#pragma push_macro("ER_SAX_API_NOT_HANDLED")
+#undef ER_SAX_API_NOT_HANDLED
+#pragma push_macro("ER_SECUREPROCESSING_FEATURE")
+#undef ER_SECUREPROCESSING_FEATURE
+#pragma push_macro("ER_SETDOMFACTORY_NOT_SUPPORTED")
+#undef ER_SETDOMFACTORY_NOT_SUPPORTED
+#pragma push_macro("ER_SETTING_WALKER_ROOT_TO_NULL")
+#undef ER_SETTING_WALKER_ROOT_TO_NULL
+#pragma push_macro("ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL")
+#undef ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL
+#pragma push_macro("ER_STRINGLENGTH_HAS_TOO_MANY_ARGS")
+#undef ER_STRINGLENGTH_HAS_TOO_MANY_ARGS
+#pragma push_macro("ER_STRING_HAS_TOO_MANY_ARGS")
+#undef ER_STRING_HAS_TOO_MANY_ARGS
+#pragma push_macro("ER_STR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#undef ER_STR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER
+#pragma push_macro("ER_TRANSLATE_TAKES_3_ARGS")
+#undef ER_TRANSLATE_TAKES_3_ARGS
+#pragma push_macro("ER_TWO_OR_THREE")
+#undef ER_TWO_OR_THREE
+#pragma push_macro("ER_UNKNOWN_AXIS")
+#undef ER_UNKNOWN_AXIS
+#pragma push_macro("ER_UNKNOWN_MATCH_OPERATION")
+#undef ER_UNKNOWN_MATCH_OPERATION
+#pragma push_macro("ER_UNKNOWN_NODETYPE")
+#undef ER_UNKNOWN_NODETYPE
+#pragma push_macro("ER_UNKNOWN_OPCODE")
+#undef ER_UNKNOWN_OPCODE
+#pragma push_macro("ER_UNKNOWN_STEP")
+#undef ER_UNKNOWN_STEP
+#pragma push_macro("ER_UNPARSEDENTITYURI_TAKES_1_ARG")
+#undef ER_UNPARSEDENTITYURI_TAKES_1_ARG
+#pragma push_macro("ER_UNSUPPORTED_ENCODING")
+#undef ER_UNSUPPORTED_ENCODING
+#pragma push_macro("ER_UNSUPPORTED_RETURN_TYPE")
+#undef ER_UNSUPPORTED_RETURN_TYPE
+#pragma push_macro("ER_VARIABLE_ACCESSED_BEFORE_BIND")
+#undef ER_VARIABLE_ACCESSED_BEFORE_BIND
+#pragma push_macro("ER_VAR_NOT_RESOLVABLE")
+#undef ER_VAR_NOT_RESOLVABLE
+#pragma push_macro("ER_WRONG_DOCUMENT")
+#undef ER_WRONG_DOCUMENT
+#pragma push_macro("ER_WRONG_NODETYPE")
+#undef ER_WRONG_NODETYPE
+#pragma push_macro("ER_XERCES_CANNOT_HANDLE_NODES")
+#undef ER_XERCES_CANNOT_HANDLE_NODES
+#pragma push_macro("ER_XERCES_PARSE_ERROR")
+#undef ER_XERCES_PARSE_ERROR
+#pragma push_macro("ER_XERCES_PARSE_ERROR_DETAILS")
+#undef ER_XERCES_PARSE_ERROR_DETAILS
+#pragma push_macro("ER_XPATH_ERROR")
+#undef ER_XPATH_ERROR
+#pragma push_macro("ER_XPATH_READOBJECT")
+#undef ER_XPATH_READOBJECT
+#pragma push_macro("ER_XSTRINGFORCHARS_CANNOT_TAKE_STRING")
+#undef ER_XSTRINGFORCHARS_CANNOT_TAKE_STRING
+#pragma push_macro("ER_XSTR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#undef ER_XSTR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER
+#pragma push_macro("ER_ZERO_OR_ONE")
+#undef ER_ZERO_OR_ONE
+#pragma push_macro("FORMAT_FAILED")
+#undef FORMAT_FAILED
+#pragma push_macro("QUERY_HEADER")
+#undef QUERY_HEADER
+#pragma push_macro("WARNING_HEADER")
+#undef WARNING_HEADER
+#pragma push_macro("WG_CANNOT_MAKE_URL_FROM")
+#undef WG_CANNOT_MAKE_URL_FROM
+#pragma push_macro("WG_COULDNOT_FIND_FUNCTION")
+#undef WG_COULDNOT_FIND_FUNCTION
+#pragma push_macro("WG_DONT_DO_ANYTHING_WITH_NS")
+#undef WG_DONT_DO_ANYTHING_WITH_NS
+#pragma push_macro("WG_EXPAND_ENTITIES_NOT_SUPPORTED")
+#undef WG_EXPAND_ENTITIES_NOT_SUPPORTED
+#pragma push_macro("WG_FUNCTION_TOKEN_NOT_FOUND")
+#undef WG_FUNCTION_TOKEN_NOT_FOUND
+#pragma push_macro("WG_ILLEGAL_VARIABLE_REFERENCE")
+#undef WG_ILLEGAL_VARIABLE_REFERENCE
+#pragma push_macro("WG_LOCALE_NAME_NOT_HANDLED")
+#undef WG_LOCALE_NAME_NOT_HANDLED
+#pragma push_macro("WG_NEED_DERIVED_OBJECT_TO_IMPLEMENT_NODETEST")
+#undef WG_NEED_DERIVED_OBJECT_TO_IMPLEMENT_NODETEST
+#pragma push_macro("WG_PROPERTY_NOT_SUPPORTED")
+#undef WG_PROPERTY_NOT_SUPPORTED
+#pragma push_macro("WG_QUO_NO_LONGER_DEFINED")
+#undef WG_QUO_NO_LONGER_DEFINED
+#pragma push_macro("WG_SECURITY_EXCEPTION")
+#undef WG_SECURITY_EXCEPTION
+#pragma push_macro("WG_UNSUPPORTED_ENCODING")
+#undef WG_UNSUPPORTED_ENCODING
+#pragma push_macro("XML_HEADER")
+#undef XML_HEADER
+#pragma push_macro("XSL_HEADER")
+#undef XSL_HEADER
+
+namespace com {
+	namespace sun {
+		namespace org {
+			namespace apache {
+				namespace xpath {
+					namespace internal {
+						namespace res {
+
+class $import XPATHErrorResources_zh_CN : public ::java::util::ListResourceBundle {
+	$class(XPATHErrorResources_zh_CN, 0, ::java::util::ListResourceBundle)
+public:
+	XPATHErrorResources_zh_CN();
+	void init$();
+	virtual $Array<::java::lang::Object, 2>* getContents() override;
+	static $String* ERROR0000;
+	static $String* ER_CURRENT_NOT_ALLOWED_IN_MATCH;
+	static $String* ER_CURRENT_TAKES_NO_ARGS;
+	static $String* ER_DOCUMENT_REPLACED;
+	static $String* ER_CONTEXT_CAN_NOT_BE_NULL;
+	static $String* ER_CONTEXT_HAS_NO_OWNERDOC;
+	static $String* ER_LOCALNAME_HAS_TOO_MANY_ARGS;
+	static $String* ER_NAMESPACEURI_HAS_TOO_MANY_ARGS;
+	static $String* ER_NORMALIZESPACE_HAS_TOO_MANY_ARGS;
+	static $String* ER_NUMBER_HAS_TOO_MANY_ARGS;
+	static $String* ER_NAME_HAS_TOO_MANY_ARGS;
+	static $String* ER_STRING_HAS_TOO_MANY_ARGS;
+	static $String* ER_STRINGLENGTH_HAS_TOO_MANY_ARGS;
+	static $String* ER_TRANSLATE_TAKES_3_ARGS;
+	static $String* ER_UNPARSEDENTITYURI_TAKES_1_ARG;
+	static $String* ER_NAMESPACEAXIS_NOT_IMPLEMENTED;
+	static $String* ER_UNKNOWN_AXIS;
+	static $String* ER_UNKNOWN_MATCH_OPERATION;
+	static $String* ER_INCORRECT_ARG_LENGTH;
+	static $String* ER_CANT_CONVERT_TO_NUMBER;
+	static $String* ER_CANT_CONVERT_XPATHRESULTTYPE_TO_NUMBER;
+	static $String* ER_CANT_CONVERT_TO_NODELIST;
+	static $String* ER_CANT_CONVERT_TO_MUTABLENODELIST;
+	static $String* ER_CANT_CONVERT_TO_TYPE;
+	static $String* ER_EXPECTED_MATCH_PATTERN;
+	static $String* ER_COULDNOT_GET_VAR_NAMED;
+	static $String* ER_UNKNOWN_OPCODE;
+	static $String* ER_EXTRA_ILLEGAL_TOKENS;
+	static $String* ER_EXPECTED_DOUBLE_QUOTE;
+	static $String* ER_EXPECTED_SINGLE_QUOTE;
+	static $String* ER_EMPTY_EXPRESSION;
+	static $String* ER_EXPECTED_BUT_FOUND;
+	static $String* ER_INCORRECT_PROGRAMMER_ASSERTION;
+	static $String* ER_BOOLEAN_ARG_NO_LONGER_OPTIONAL;
+	static $String* ER_FOUND_COMMA_BUT_NO_PRECEDING_ARG;
+	static $String* ER_FOUND_COMMA_BUT_NO_FOLLOWING_ARG;
+	static $String* ER_PREDICATE_ILLEGAL_SYNTAX;
+	static $String* ER_PREDICATE_TOO_MANY_OPEN;
+	static $String* ER_COMPILATION_TOO_MANY_OPERATION;
+	static $String* ER_ILLEGAL_AXIS_NAME;
+	static $String* ER_UNKNOWN_NODETYPE;
+	static $String* ER_PATTERN_LITERAL_NEEDS_BE_QUOTED;
+	static $String* ER_COULDNOT_BE_FORMATTED_TO_NUMBER;
+	static $String* ER_COULDNOT_CREATE_XMLPROCESSORLIAISON;
+	static $String* ER_DIDNOT_FIND_XPATH_SELECT_EXP;
+	static $String* ER_COULDNOT_FIND_ENDOP_AFTER_OPLOCATIONPATH;
+	static $String* ER_ERROR_OCCURED;
+	static $String* ER_ILLEGAL_VARIABLE_REFERENCE;
+	static $String* ER_AXES_NOT_ALLOWED;
+	static $String* ER_KEY_HAS_TOO_MANY_ARGS;
+	static $String* ER_COUNT_TAKES_1_ARG;
+	static $String* ER_COULDNOT_FIND_FUNCTION;
+	static $String* ER_UNSUPPORTED_ENCODING;
+	static $String* ER_PROBLEM_IN_DTM_NEXTSIBLING;
+	static $String* ER_CANNOT_WRITE_TO_EMPTYNODELISTIMPL;
+	static $String* ER_SETDOMFACTORY_NOT_SUPPORTED;
+	static $String* ER_PREFIX_MUST_RESOLVE;
+	static $String* ER_PARSE_NOT_SUPPORTED;
+	static $String* ER_SAX_API_NOT_HANDLED;
+	static $String* ER_IGNORABLE_WHITESPACE_NOT_HANDLED;
+	static $String* ER_DTM_CANNOT_HANDLE_NODES;
+	static $String* ER_XERCES_CANNOT_HANDLE_NODES;
+	static $String* ER_XERCES_PARSE_ERROR_DETAILS;
+	static $String* ER_XERCES_PARSE_ERROR;
+	static $String* ER_INVALID_UTF16_SURROGATE;
+	static $String* ER_OIERROR;
+	static $String* ER_CANNOT_CREATE_URL;
+	static $String* ER_XPATH_READOBJECT;
+	static $String* ER_FUNCTION_TOKEN_NOT_FOUND;
+	static $String* ER_CANNOT_DEAL_XPATH_TYPE;
+	static $String* ER_NODESET_NOT_MUTABLE;
+	static $String* ER_NODESETDTM_NOT_MUTABLE;
+	static $String* ER_VAR_NOT_RESOLVABLE;
+	static $String* ER_NULL_ERROR_HANDLER;
+	static $String* ER_PROG_ASSERT_UNKNOWN_OPCODE;
+	static $String* ER_ZERO_OR_ONE;
+	static $String* ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER;
+	static $String* ER_ASNODEITERATOR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER;
+	static $String* ER_FSB_NOT_SUPPORTED_XSTRINGFORCHARS;
+	static $String* ER_COULD_NOT_FIND_VAR;
+	static $String* ER_XSTRINGFORCHARS_CANNOT_TAKE_STRING;
+	static $String* ER_FASTSTRINGBUFFER_CANNOT_BE_NULL;
+	static $String* ER_TWO_OR_THREE;
+	static $String* ER_VARIABLE_ACCESSED_BEFORE_BIND;
+	static $String* ER_FSB_CANNOT_TAKE_STRING;
+	static $String* ER_SETTING_WALKER_ROOT_TO_NULL;
+	static $String* ER_NODESETDTM_CANNOT_ITERATE;
+	static $String* ER_NODESET_CANNOT_ITERATE;
+	static $String* ER_NODESETDTM_CANNOT_INDEX;
+	static $String* ER_NODESET_CANNOT_INDEX;
+	static $String* ER_CANNOT_CALL_SETSHOULDCACHENODE;
+	static $String* ER_ONLY_ALLOWS;
+	static $String* ER_UNKNOWN_STEP;
+	static $String* ER_EXPECTED_REL_LOC_PATH;
+	static $String* ER_EXPECTED_LOC_PATH;
+	static $String* ER_EXPECTED_LOC_PATH_AT_END_EXPR;
+	static $String* ER_EXPECTED_LOC_STEP;
+	static $String* ER_EXPECTED_NODE_TEST;
+	static $String* ER_EXPECTED_STEP_PATTERN;
+	static $String* ER_EXPECTED_REL_PATH_PATTERN;
+	static $String* ER_CANT_CONVERT_TO_BOOLEAN;
+	static $String* ER_CANT_CONVERT_TO_SINGLENODE;
+	static $String* ER_CANT_GET_SNAPSHOT_LENGTH;
+	static $String* ER_NON_ITERATOR_TYPE;
+	static $String* ER_DOC_MUTATED;
+	static $String* ER_INVALID_XPATH_TYPE;
+	static $String* ER_EMPTY_XPATH_RESULT;
+	static $String* ER_INCOMPATIBLE_TYPES;
+	static $String* ER_NULL_RESOLVER;
+	static $String* ER_CANT_CONVERT_TO_STRING;
+	static $String* ER_NON_SNAPSHOT_TYPE;
+	static $String* ER_WRONG_DOCUMENT;
+	static $String* ER_WRONG_NODETYPE;
+	static $String* ER_XPATH_ERROR;
+	static $String* ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED;
+	static $String* ER_RESOLVE_VARIABLE_RETURNS_NULL;
+	static $String* ER_UNSUPPORTED_RETURN_TYPE;
+	static $String* ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL;
+	static $String* ER_ARG_CANNOT_BE_NULL;
+	static $String* ER_OBJECT_MODEL_NULL;
+	static $String* ER_OBJECT_MODEL_EMPTY;
+	static $String* ER_FEATURE_NAME_NULL;
+	static $String* ER_FEATURE_UNKNOWN;
+	static $String* ER_GETTING_NULL_FEATURE;
+	static $String* ER_GETTING_UNKNOWN_FEATURE;
+	static $String* ER_SECUREPROCESSING_FEATURE;
+	static $String* ER_NULL_XPATH_FUNCTION_RESOLVER;
+	static $String* ER_NULL_XPATH_VARIABLE_RESOLVER;
+	static $String* WG_LOCALE_NAME_NOT_HANDLED;
+	static $String* WG_PROPERTY_NOT_SUPPORTED;
+	static $String* WG_DONT_DO_ANYTHING_WITH_NS;
+	static $String* WG_SECURITY_EXCEPTION;
+	static $String* WG_QUO_NO_LONGER_DEFINED;
+	static $String* WG_NEED_DERIVED_OBJECT_TO_IMPLEMENT_NODETEST;
+	static $String* WG_FUNCTION_TOKEN_NOT_FOUND;
+	static $String* WG_COULDNOT_FIND_FUNCTION;
+	static $String* WG_CANNOT_MAKE_URL_FROM;
+	static $String* WG_EXPAND_ENTITIES_NOT_SUPPORTED;
+	static $String* WG_ILLEGAL_VARIABLE_REFERENCE;
+	static $String* WG_UNSUPPORTED_ENCODING;
+	static $String* ER_DETACH_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER;
+	static $String* ER_NUM_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER;
+	static $String* ER_XSTR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER;
+	static $String* ER_STR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER;
+	static $Array<::java::lang::Object, 2>* _contents;
+	static $String* BAD_CODE;
+	static $String* FORMAT_FAILED;
+	static $String* ERROR_RESOURCES;
+	static $String* ERROR_STRING;
+	static $String* ERROR_HEADER;
+	static $String* WARNING_HEADER;
+	static $String* XSL_HEADER;
+	static $String* XML_HEADER;
+	static $String* QUERY_HEADER;
+};
+
+						} // res
+					} // internal
+				} // xpath
+			} // apache
+		} // org
+	} // sun
+} // com
+
+#pragma pop_macro("BAD_CODE")
+#pragma pop_macro("ERROR_HEADER")
+#pragma pop_macro("ERROR_RESOURCES")
+#pragma pop_macro("ERROR_STRING")
+#pragma pop_macro("ER_ARG_CANNOT_BE_NULL")
+#pragma pop_macro("ER_ASNODEITERATOR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#pragma pop_macro("ER_AXES_NOT_ALLOWED")
+#pragma pop_macro("ER_BOOLEAN_ARG_NO_LONGER_OPTIONAL")
+#pragma pop_macro("ER_CANNOT_CALL_SETSHOULDCACHENODE")
+#pragma pop_macro("ER_CANNOT_CREATE_URL")
+#pragma pop_macro("ER_CANNOT_DEAL_XPATH_TYPE")
+#pragma pop_macro("ER_CANNOT_WRITE_TO_EMPTYNODELISTIMPL")
+#pragma pop_macro("ER_CANT_CONVERT_TO_BOOLEAN")
+#pragma pop_macro("ER_CANT_CONVERT_TO_MUTABLENODELIST")
+#pragma pop_macro("ER_CANT_CONVERT_TO_NODELIST")
+#pragma pop_macro("ER_CANT_CONVERT_TO_NUMBER")
+#pragma pop_macro("ER_CANT_CONVERT_TO_SINGLENODE")
+#pragma pop_macro("ER_CANT_CONVERT_TO_STRING")
+#pragma pop_macro("ER_CANT_CONVERT_TO_TYPE")
+#pragma pop_macro("ER_CANT_CONVERT_XPATHRESULTTYPE_TO_NUMBER")
+#pragma pop_macro("ER_CANT_GET_SNAPSHOT_LENGTH")
+#pragma pop_macro("ER_COMPILATION_TOO_MANY_OPERATION")
+#pragma pop_macro("ER_CONTEXT_CAN_NOT_BE_NULL")
+#pragma pop_macro("ER_CONTEXT_HAS_NO_OWNERDOC")
+#pragma pop_macro("ER_COULDNOT_BE_FORMATTED_TO_NUMBER")
+#pragma pop_macro("ER_COULDNOT_CREATE_XMLPROCESSORLIAISON")
+#pragma pop_macro("ER_COULDNOT_FIND_ENDOP_AFTER_OPLOCATIONPATH")
+#pragma pop_macro("ER_COULDNOT_FIND_FUNCTION")
+#pragma pop_macro("ER_COULDNOT_GET_VAR_NAMED")
+#pragma pop_macro("ER_COULD_NOT_FIND_VAR")
+#pragma pop_macro("ER_COUNT_TAKES_1_ARG")
+#pragma pop_macro("ER_CURRENT_NOT_ALLOWED_IN_MATCH")
+#pragma pop_macro("ER_CURRENT_TAKES_NO_ARGS")
+#pragma pop_macro("ER_DETACH_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#pragma pop_macro("ER_DIDNOT_FIND_XPATH_SELECT_EXP")
+#pragma pop_macro("ER_DOCUMENT_REPLACED")
+#pragma pop_macro("ER_DOC_MUTATED")
+#pragma pop_macro("ER_DTM_CANNOT_HANDLE_NODES")
+#pragma pop_macro("ER_EMPTY_EXPRESSION")
+#pragma pop_macro("ER_EMPTY_XPATH_RESULT")
+#pragma pop_macro("ER_ERROR_OCCURED")
+#pragma pop_macro("ER_EXPECTED_BUT_FOUND")
+#pragma pop_macro("ER_EXPECTED_DOUBLE_QUOTE")
+#pragma pop_macro("ER_EXPECTED_LOC_PATH")
+#pragma pop_macro("ER_EXPECTED_LOC_PATH_AT_END_EXPR")
+#pragma pop_macro("ER_EXPECTED_LOC_STEP")
+#pragma pop_macro("ER_EXPECTED_MATCH_PATTERN")
+#pragma pop_macro("ER_EXPECTED_NODE_TEST")
+#pragma pop_macro("ER_EXPECTED_REL_LOC_PATH")
+#pragma pop_macro("ER_EXPECTED_REL_PATH_PATTERN")
+#pragma pop_macro("ER_EXPECTED_SINGLE_QUOTE")
+#pragma pop_macro("ER_EXPECTED_STEP_PATTERN")
+#pragma pop_macro("ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED")
+#pragma pop_macro("ER_EXTRA_ILLEGAL_TOKENS")
+#pragma pop_macro("ER_FASTSTRINGBUFFER_CANNOT_BE_NULL")
+#pragma pop_macro("ER_FEATURE_NAME_NULL")
+#pragma pop_macro("ER_FEATURE_UNKNOWN")
+#pragma pop_macro("ER_FOUND_COMMA_BUT_NO_FOLLOWING_ARG")
+#pragma pop_macro("ER_FOUND_COMMA_BUT_NO_PRECEDING_ARG")
+#pragma pop_macro("ER_FSB_CANNOT_TAKE_STRING")
+#pragma pop_macro("ER_FSB_NOT_SUPPORTED_XSTRINGFORCHARS")
+#pragma pop_macro("ER_FUNCTION_TOKEN_NOT_FOUND")
+#pragma pop_macro("ER_GETTING_NULL_FEATURE")
+#pragma pop_macro("ER_GETTING_UNKNOWN_FEATURE")
+#pragma pop_macro("ER_IGNORABLE_WHITESPACE_NOT_HANDLED")
+#pragma pop_macro("ER_ILLEGAL_AXIS_NAME")
+#pragma pop_macro("ER_ILLEGAL_VARIABLE_REFERENCE")
+#pragma pop_macro("ER_INCOMPATIBLE_TYPES")
+#pragma pop_macro("ER_INCORRECT_ARG_LENGTH")
+#pragma pop_macro("ER_INCORRECT_PROGRAMMER_ASSERTION")
+#pragma pop_macro("ER_INVALID_UTF16_SURROGATE")
+#pragma pop_macro("ER_INVALID_XPATH_TYPE")
+#pragma pop_macro("ER_KEY_HAS_TOO_MANY_ARGS")
+#pragma pop_macro("ER_LOCALNAME_HAS_TOO_MANY_ARGS")
+#pragma pop_macro("ER_NAMESPACEAXIS_NOT_IMPLEMENTED")
+#pragma pop_macro("ER_NAMESPACEURI_HAS_TOO_MANY_ARGS")
+#pragma pop_macro("ER_NAME_HAS_TOO_MANY_ARGS")
+#pragma pop_macro("ER_NODESETDTM_CANNOT_INDEX")
+#pragma pop_macro("ER_NODESETDTM_CANNOT_ITERATE")
+#pragma pop_macro("ER_NODESETDTM_NOT_MUTABLE")
+#pragma pop_macro("ER_NODESET_CANNOT_INDEX")
+#pragma pop_macro("ER_NODESET_CANNOT_ITERATE")
+#pragma pop_macro("ER_NODESET_NOT_MUTABLE")
+#pragma pop_macro("ER_NON_ITERATOR_TYPE")
+#pragma pop_macro("ER_NON_SNAPSHOT_TYPE")
+#pragma pop_macro("ER_NORMALIZESPACE_HAS_TOO_MANY_ARGS")
+#pragma pop_macro("ER_NULL_ERROR_HANDLER")
+#pragma pop_macro("ER_NULL_RESOLVER")
+#pragma pop_macro("ER_NULL_XPATH_FUNCTION_RESOLVER")
+#pragma pop_macro("ER_NULL_XPATH_VARIABLE_RESOLVER")
+#pragma pop_macro("ER_NUMBER_HAS_TOO_MANY_ARGS")
+#pragma pop_macro("ER_NUM_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#pragma pop_macro("ER_OBJECT_MODEL_EMPTY")
+#pragma pop_macro("ER_OBJECT_MODEL_NULL")
+#pragma pop_macro("ER_OIERROR")
+#pragma pop_macro("ER_ONLY_ALLOWS")
+#pragma pop_macro("ER_PARSE_NOT_SUPPORTED")
+#pragma pop_macro("ER_PATTERN_LITERAL_NEEDS_BE_QUOTED")
+#pragma pop_macro("ER_PREDICATE_ILLEGAL_SYNTAX")
+#pragma pop_macro("ER_PREDICATE_TOO_MANY_OPEN")
+#pragma pop_macro("ER_PREFIX_MUST_RESOLVE")
+#pragma pop_macro("ER_PROBLEM_IN_DTM_NEXTSIBLING")
+#pragma pop_macro("ER_PROG_ASSERT_UNKNOWN_OPCODE")
+#pragma pop_macro("ER_RESOLVE_VARIABLE_RETURNS_NULL")
+#pragma pop_macro("ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#pragma pop_macro("ER_SAX_API_NOT_HANDLED")
+#pragma pop_macro("ER_SECUREPROCESSING_FEATURE")
+#pragma pop_macro("ER_SETDOMFACTORY_NOT_SUPPORTED")
+#pragma pop_macro("ER_SETTING_WALKER_ROOT_TO_NULL")
+#pragma pop_macro("ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL")
+#pragma pop_macro("ER_STRINGLENGTH_HAS_TOO_MANY_ARGS")
+#pragma pop_macro("ER_STRING_HAS_TOO_MANY_ARGS")
+#pragma pop_macro("ER_STR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#pragma pop_macro("ER_TRANSLATE_TAKES_3_ARGS")
+#pragma pop_macro("ER_TWO_OR_THREE")
+#pragma pop_macro("ER_UNKNOWN_AXIS")
+#pragma pop_macro("ER_UNKNOWN_MATCH_OPERATION")
+#pragma pop_macro("ER_UNKNOWN_NODETYPE")
+#pragma pop_macro("ER_UNKNOWN_OPCODE")
+#pragma pop_macro("ER_UNKNOWN_STEP")
+#pragma pop_macro("ER_UNPARSEDENTITYURI_TAKES_1_ARG")
+#pragma pop_macro("ER_UNSUPPORTED_ENCODING")
+#pragma pop_macro("ER_UNSUPPORTED_RETURN_TYPE")
+#pragma pop_macro("ER_VARIABLE_ACCESSED_BEFORE_BIND")
+#pragma pop_macro("ER_VAR_NOT_RESOLVABLE")
+#pragma pop_macro("ER_WRONG_DOCUMENT")
+#pragma pop_macro("ER_WRONG_NODETYPE")
+#pragma pop_macro("ER_XERCES_CANNOT_HANDLE_NODES")
+#pragma pop_macro("ER_XERCES_PARSE_ERROR")
+#pragma pop_macro("ER_XERCES_PARSE_ERROR_DETAILS")
+#pragma pop_macro("ER_XPATH_ERROR")
+#pragma pop_macro("ER_XPATH_READOBJECT")
+#pragma pop_macro("ER_XSTRINGFORCHARS_CANNOT_TAKE_STRING")
+#pragma pop_macro("ER_XSTR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER")
+#pragma pop_macro("ER_ZERO_OR_ONE")
+#pragma pop_macro("FORMAT_FAILED")
+#pragma pop_macro("QUERY_HEADER")
+#pragma pop_macro("WARNING_HEADER")
+#pragma pop_macro("WG_CANNOT_MAKE_URL_FROM")
+#pragma pop_macro("WG_COULDNOT_FIND_FUNCTION")
+#pragma pop_macro("WG_DONT_DO_ANYTHING_WITH_NS")
+#pragma pop_macro("WG_EXPAND_ENTITIES_NOT_SUPPORTED")
+#pragma pop_macro("WG_FUNCTION_TOKEN_NOT_FOUND")
+#pragma pop_macro("WG_ILLEGAL_VARIABLE_REFERENCE")
+#pragma pop_macro("WG_LOCALE_NAME_NOT_HANDLED")
+#pragma pop_macro("WG_NEED_DERIVED_OBJECT_TO_IMPLEMENT_NODETEST")
+#pragma pop_macro("WG_PROPERTY_NOT_SUPPORTED")
+#pragma pop_macro("WG_QUO_NO_LONGER_DEFINED")
+#pragma pop_macro("WG_SECURITY_EXCEPTION")
+#pragma pop_macro("WG_UNSUPPORTED_ENCODING")
+#pragma pop_macro("XML_HEADER")
+#pragma pop_macro("XSL_HEADER")
+
+#endif // _com_sun_org_apache_xpath_internal_res_XPATHErrorResources_zh_CN_h_

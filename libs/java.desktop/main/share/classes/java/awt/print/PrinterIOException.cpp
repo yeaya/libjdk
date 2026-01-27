@@ -1,0 +1,77 @@
+#include <java/awt/print/PrinterIOException.h>
+
+#include <java/awt/print/PrinterException.h>
+#include <java/io/IOException.h>
+#include <jcpp.h>
+
+using $PrinterException = ::java::awt::print::PrinterException;
+using $IOException = ::java::io::IOException;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $Exception = ::java::lang::Exception;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace java {
+	namespace awt {
+		namespace print {
+
+$FieldInfo _PrinterIOException_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterIOException, serialVersionUID)},
+	{"mException", "Ljava/io/IOException;", nullptr, $PRIVATE, $field(PrinterIOException, mException)},
+	{}
+};
+
+$MethodInfo _PrinterIOException_MethodInfo_[] = {
+	{"<init>", "(Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(PrinterIOException, init$, void, $IOException*)},
+	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(PrinterIOException, getCause, $Throwable*)},
+	{"getIOException", "()Ljava/io/IOException;", nullptr, $PUBLIC, $virtualMethod(PrinterIOException, getIOException, $IOException*)},
+	{}
+};
+
+$ClassInfo _PrinterIOException_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"java.awt.print.PrinterIOException",
+	"java.awt.print.PrinterException",
+	nullptr,
+	_PrinterIOException_FieldInfo_,
+	_PrinterIOException_MethodInfo_
+};
+
+$Object* allocate$PrinterIOException($Class* clazz) {
+	return $of($alloc(PrinterIOException));
+}
+
+void PrinterIOException::init$($IOException* exception) {
+	$PrinterException::init$();
+	initCause(nullptr);
+	$set(this, mException, exception);
+}
+
+$IOException* PrinterIOException::getIOException() {
+	return this->mException;
+}
+
+$Throwable* PrinterIOException::getCause() {
+	return this->mException;
+}
+
+PrinterIOException::PrinterIOException() {
+}
+
+PrinterIOException::PrinterIOException(const PrinterIOException& e) : $PrinterException(e) {
+}
+
+void PrinterIOException::throw$() {
+	throw *this;
+}
+
+$Class* PrinterIOException::load$($String* name, bool initialize) {
+	$loadClass(PrinterIOException, name, initialize, &_PrinterIOException_ClassInfo_, allocate$PrinterIOException);
+	return class$;
+}
+
+$Class* PrinterIOException::class$ = nullptr;
+
+		} // print
+	} // awt
+} // java

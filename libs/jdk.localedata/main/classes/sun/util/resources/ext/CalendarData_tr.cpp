@@ -1,0 +1,66 @@
+#include <sun/util/resources/ext/CalendarData_tr.h>
+
+#include <sun/util/resources/LocaleNamesBundle.h>
+#include <jcpp.h>
+
+using $ObjectArray2 = $Array<::java::lang::Object, 2>;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $LocaleNamesBundle = ::sun::util::resources::LocaleNamesBundle;
+
+namespace sun {
+	namespace util {
+		namespace resources {
+			namespace ext {
+
+$MethodInfo _CalendarData_tr_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(CalendarData_tr, init$, void)},
+	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CalendarData_tr, getContents, $ObjectArray2*)},
+	{}
+};
+
+$ClassInfo _CalendarData_tr_ClassInfo_ = {
+	$PUBLIC | $FINAL | $ACC_SUPER,
+	"sun.util.resources.ext.CalendarData_tr",
+	"sun.util.resources.LocaleNamesBundle",
+	nullptr,
+	nullptr,
+	_CalendarData_tr_MethodInfo_
+};
+
+$Object* allocate$CalendarData_tr($Class* clazz) {
+	return $of($alloc(CalendarData_tr));
+}
+
+void CalendarData_tr::init$() {
+	$LocaleNamesBundle::init$();
+}
+
+$ObjectArray2* CalendarData_tr::getContents() {
+	$useLocalCurrentObjectStackCache();
+	return $new($ObjectArray2, {
+		$$new($ObjectArray, {
+			$of("firstDayOfWeek"_s),
+			$of("2"_s)
+		}),
+		$$new($ObjectArray, {
+			$of("minimalDaysInFirstWeek"_s),
+			$of("1"_s)
+		})
+	});
+}
+
+CalendarData_tr::CalendarData_tr() {
+}
+
+$Class* CalendarData_tr::load$($String* name, bool initialize) {
+	$loadClass(CalendarData_tr, name, initialize, &_CalendarData_tr_ClassInfo_, allocate$CalendarData_tr);
+	return class$;
+}
+
+$Class* CalendarData_tr::class$ = nullptr;
+
+			} // ext
+		} // resources
+	} // util
+} // sun

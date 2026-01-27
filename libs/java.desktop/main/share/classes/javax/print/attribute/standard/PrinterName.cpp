@@ -1,0 +1,93 @@
+#include <javax/print/attribute/standard/PrinterName.h>
+
+#include <java/util/Locale.h>
+#include <javax/print/attribute/TextSyntax.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Locale = ::java::util::Locale;
+using $TextSyntax = ::javax::print::attribute::TextSyntax;
+
+namespace javax {
+	namespace print {
+		namespace attribute {
+			namespace standard {
+
+$FieldInfo _PrinterName_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterName, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _PrinterName_MethodInfo_[] = {
+	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+	{"*hashCode", "()I", nullptr, $PUBLIC},
+	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(PrinterName, init$, void, $String*, $Locale*)},
+	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrinterName, equals, bool, Object$*)},
+	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterName, getCategory, $Class*)},
+	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterName, getName, $String*)},
+	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{}
+};
+
+$ClassInfo _PrinterName_ClassInfo_ = {
+	$PUBLIC | $FINAL | $ACC_SUPER,
+	"javax.print.attribute.standard.PrinterName",
+	"javax.print.attribute.TextSyntax",
+	"javax.print.attribute.PrintServiceAttribute",
+	_PrinterName_FieldInfo_,
+	_PrinterName_MethodInfo_
+};
+
+$Object* allocate$PrinterName($Class* clazz) {
+	return $of($alloc(PrinterName));
+}
+
+int32_t PrinterName::hashCode() {
+	 return this->$TextSyntax::hashCode();
+}
+
+$String* PrinterName::toString() {
+	 return this->$TextSyntax::toString();
+}
+
+$Object* PrinterName::clone() {
+	 return this->$TextSyntax::clone();
+}
+
+void PrinterName::finalize() {
+	this->$TextSyntax::finalize();
+}
+
+void PrinterName::init$($String* printerName, $Locale* locale) {
+	$TextSyntax::init$(printerName, locale);
+}
+
+bool PrinterName::equals(Object$* object) {
+	return ($TextSyntax::equals(object) && $instanceOf(PrinterName, object));
+}
+
+$Class* PrinterName::getCategory() {
+	return PrinterName::class$;
+}
+
+$String* PrinterName::getName() {
+	return "printer-name"_s;
+}
+
+PrinterName::PrinterName() {
+}
+
+$Class* PrinterName::load$($String* name, bool initialize) {
+	$loadClass(PrinterName, name, initialize, &_PrinterName_ClassInfo_, allocate$PrinterName);
+	return class$;
+}
+
+$Class* PrinterName::class$ = nullptr;
+
+			} // standard
+		} // attribute
+	} // print
+} // javax

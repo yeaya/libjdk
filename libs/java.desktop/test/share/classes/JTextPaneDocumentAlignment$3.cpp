@@ -1,0 +1,80 @@
+#include <JTextPaneDocumentAlignment$3.h>
+
+#include <JTextPaneDocumentAlignment.h>
+#include <java/awt/Rectangle.h>
+#include <java/awt/Window.h>
+#include <javax/swing/JFrame.h>
+#include <javax/swing/JTextPane.h>
+#include <javax/swing/text/BadLocationException.h>
+#include <javax/swing/text/JTextComponent.h>
+#include <jcpp.h>
+
+using $JTextPaneDocumentAlignment = ::JTextPaneDocumentAlignment;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $JFrame = ::javax::swing::JFrame;
+using $JTextPane = ::javax::swing::JTextPane;
+using $BadLocationException = ::javax::swing::text::BadLocationException;
+
+$MethodInfo _JTextPaneDocumentAlignment$3_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, 0, $method(JTextPaneDocumentAlignment$3, init$, void)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JTextPaneDocumentAlignment$3, run, void)},
+	{}
+};
+
+$EnclosingMethodInfo _JTextPaneDocumentAlignment$3_EnclosingMethodInfo_ = {
+	"JTextPaneDocumentAlignment",
+	"main",
+	"([Ljava/lang/String;)V"
+};
+
+$InnerClassInfo _JTextPaneDocumentAlignment$3_InnerClassesInfo_[] = {
+	{"JTextPaneDocumentAlignment$3", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _JTextPaneDocumentAlignment$3_ClassInfo_ = {
+	$ACC_SUPER,
+	"JTextPaneDocumentAlignment$3",
+	"java.lang.Object",
+	"java.lang.Runnable",
+	nullptr,
+	_JTextPaneDocumentAlignment$3_MethodInfo_,
+	nullptr,
+	&_JTextPaneDocumentAlignment$3_EnclosingMethodInfo_,
+	_JTextPaneDocumentAlignment$3_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"JTextPaneDocumentAlignment"
+};
+
+$Object* allocate$JTextPaneDocumentAlignment$3($Class* clazz) {
+	return $of($alloc(JTextPaneDocumentAlignment$3));
+}
+
+void JTextPaneDocumentAlignment$3::init$() {
+}
+
+void JTextPaneDocumentAlignment$3::run() {
+	try {
+		$init($JTextPaneDocumentAlignment);
+		$JTextPaneDocumentAlignment::position = $nc($($nc($JTextPaneDocumentAlignment::jTextPane)->modelToView(1)))->x;
+	} catch ($BadLocationException& e) {
+		e->printStackTrace();
+	}
+	$init($JTextPaneDocumentAlignment);
+	$nc($JTextPaneDocumentAlignment::frame)->dispose();
+}
+
+JTextPaneDocumentAlignment$3::JTextPaneDocumentAlignment$3() {
+}
+
+$Class* JTextPaneDocumentAlignment$3::load$($String* name, bool initialize) {
+	$loadClass(JTextPaneDocumentAlignment$3, name, initialize, &_JTextPaneDocumentAlignment$3_ClassInfo_, allocate$JTextPaneDocumentAlignment$3);
+	return class$;
+}
+
+$Class* JTextPaneDocumentAlignment$3::class$ = nullptr;

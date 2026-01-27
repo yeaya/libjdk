@@ -1,0 +1,151 @@
+#include <javax/swing/plaf/metal/MetalCheckBoxIcon.h>
+
+#include <java/awt/Color.h>
+#include <java/awt/Component.h>
+#include <java/awt/Graphics.h>
+#include <javax/swing/AbstractButton.h>
+#include <javax/swing/ButtonModel.h>
+#include <javax/swing/Icon.h>
+#include <javax/swing/JCheckBox.h>
+#include <javax/swing/plaf/ColorUIResource.h>
+#include <javax/swing/plaf/metal/MetalLookAndFeel.h>
+#include <javax/swing/plaf/metal/MetalUtils.h>
+#include <jcpp.h>
+
+using $Color = ::java::awt::Color;
+using $Component = ::java::awt::Component;
+using $Graphics = ::java::awt::Graphics;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $ButtonModel = ::javax::swing::ButtonModel;
+using $Icon = ::javax::swing::Icon;
+using $JCheckBox = ::javax::swing::JCheckBox;
+using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
+using $MetalUtils = ::javax::swing::plaf::metal::MetalUtils;
+
+namespace javax {
+	namespace swing {
+		namespace plaf {
+			namespace metal {
+
+$MethodInfo _MetalCheckBoxIcon_MethodInfo_[] = {
+	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalCheckBoxIcon, init$, void)},
+	{"drawCheck", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(MetalCheckBoxIcon, drawCheck, void, $Component*, $Graphics*, int32_t, int32_t)},
+	{"getControlSize", "()I", nullptr, $PROTECTED, $virtualMethod(MetalCheckBoxIcon, getControlSize, int32_t)},
+	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxIcon, getIconHeight, int32_t)},
+	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxIcon, getIconWidth, int32_t)},
+	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{}
+};
+
+$ClassInfo _MetalCheckBoxIcon_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"javax.swing.plaf.metal.MetalCheckBoxIcon",
+	"java.lang.Object",
+	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+	nullptr,
+	_MetalCheckBoxIcon_MethodInfo_
+};
+
+$Object* allocate$MetalCheckBoxIcon($Class* clazz) {
+	return $of($alloc(MetalCheckBoxIcon));
+}
+
+int32_t MetalCheckBoxIcon::hashCode() {
+	 return this->$Icon::hashCode();
+}
+
+bool MetalCheckBoxIcon::equals(Object$* arg0) {
+	 return this->$Icon::equals(arg0);
+}
+
+$Object* MetalCheckBoxIcon::clone() {
+	 return this->$Icon::clone();
+}
+
+$String* MetalCheckBoxIcon::toString() {
+	 return this->$Icon::toString();
+}
+
+void MetalCheckBoxIcon::finalize() {
+	this->$Icon::finalize();
+}
+
+void MetalCheckBoxIcon::init$() {
+}
+
+int32_t MetalCheckBoxIcon::getControlSize() {
+	return 13;
+}
+
+void MetalCheckBoxIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
+	$useLocalCurrentObjectStackCache();
+	$var($JCheckBox, cb, $cast($JCheckBox, c));
+	$var($ButtonModel, model, $nc(cb)->getModel());
+	int32_t controlSize = getControlSize();
+	bool drawCheck = $nc(model)->isSelected();
+	if (model->isEnabled()) {
+		if (cb->isBorderPaintedFlat()) {
+			$nc(g)->setColor($($MetalLookAndFeel::getControlDarkShadow()));
+			g->drawRect(x + 1, y, controlSize - 1, controlSize - 1);
+		}
+		bool var$0 = model->isPressed();
+		if (var$0 && model->isArmed()) {
+			if (cb->isBorderPaintedFlat()) {
+				$nc(g)->setColor($($MetalLookAndFeel::getControlShadow()));
+				g->fillRect(x + 2, y + 1, controlSize - 2, controlSize - 2);
+			} else {
+				$nc(g)->setColor($($MetalLookAndFeel::getControlShadow()));
+				g->fillRect(x, y, controlSize - 1, controlSize - 1);
+				$MetalUtils::drawPressed3DBorder(g, x, y, controlSize, controlSize);
+			}
+		} else if (!cb->isBorderPaintedFlat()) {
+			$MetalUtils::drawFlush3DBorder(g, x, y, controlSize, controlSize);
+		}
+		$nc(g)->setColor($($MetalLookAndFeel::getControlInfo()));
+	} else {
+		$nc(g)->setColor($($MetalLookAndFeel::getControlShadow()));
+		g->drawRect(x, y, controlSize - 1, controlSize - 1);
+	}
+	if (drawCheck) {
+		if (cb->isBorderPaintedFlat()) {
+			++x;
+		}
+		this->drawCheck(c, g, x, y);
+	}
+}
+
+void MetalCheckBoxIcon::drawCheck($Component* c, $Graphics* g, int32_t x, int32_t y) {
+	int32_t controlSize = getControlSize();
+	$nc(g)->fillRect(x + 3, y + 5, 2, controlSize - 8);
+	g->drawLine(x + (controlSize - 4), y + 3, x + 5, y + (controlSize - 6));
+	g->drawLine(x + (controlSize - 4), y + 4, x + 5, y + (controlSize - 5));
+}
+
+int32_t MetalCheckBoxIcon::getIconWidth() {
+	return getControlSize();
+}
+
+int32_t MetalCheckBoxIcon::getIconHeight() {
+	return getControlSize();
+}
+
+MetalCheckBoxIcon::MetalCheckBoxIcon() {
+}
+
+$Class* MetalCheckBoxIcon::load$($String* name, bool initialize) {
+	$loadClass(MetalCheckBoxIcon, name, initialize, &_MetalCheckBoxIcon_ClassInfo_, allocate$MetalCheckBoxIcon);
+	return class$;
+}
+
+$Class* MetalCheckBoxIcon::class$ = nullptr;
+
+			} // metal
+		} // plaf
+	} // swing
+} // javax

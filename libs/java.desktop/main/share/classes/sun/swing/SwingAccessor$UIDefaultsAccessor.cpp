@@ -1,0 +1,53 @@
+#include <sun/swing/SwingAccessor$UIDefaultsAccessor.h>
+
+#include <javax/swing/UIDefaults.h>
+#include <sun/swing/SwingAccessor.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $UIDefaults = ::javax::swing::UIDefaults;
+
+namespace sun {
+	namespace swing {
+
+$MethodInfo _SwingAccessor$UIDefaultsAccessor_MethodInfo_[] = {
+	{"addInternalBundle", "(Ljavax/swing/UIDefaults;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingAccessor$UIDefaultsAccessor, addInternalBundle, void, $UIDefaults*, $String*)},
+	{}
+};
+
+$InnerClassInfo _SwingAccessor$UIDefaultsAccessor_InnerClassesInfo_[] = {
+	{"sun.swing.SwingAccessor$UIDefaultsAccessor", "sun.swing.SwingAccessor", "UIDefaultsAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _SwingAccessor$UIDefaultsAccessor_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"sun.swing.SwingAccessor$UIDefaultsAccessor",
+	nullptr,
+	nullptr,
+	nullptr,
+	_SwingAccessor$UIDefaultsAccessor_MethodInfo_,
+	nullptr,
+	nullptr,
+	_SwingAccessor$UIDefaultsAccessor_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.swing.SwingAccessor"
+};
+
+$Object* allocate$SwingAccessor$UIDefaultsAccessor($Class* clazz) {
+	return $of($alloc(SwingAccessor$UIDefaultsAccessor));
+}
+
+$Class* SwingAccessor$UIDefaultsAccessor::load$($String* name, bool initialize) {
+	$loadClass(SwingAccessor$UIDefaultsAccessor, name, initialize, &_SwingAccessor$UIDefaultsAccessor_ClassInfo_, allocate$SwingAccessor$UIDefaultsAccessor);
+	return class$;
+}
+
+$Class* SwingAccessor$UIDefaultsAccessor::class$ = nullptr;
+
+	} // swing
+} // sun

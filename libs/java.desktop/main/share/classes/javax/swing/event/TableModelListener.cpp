@@ -1,0 +1,41 @@
+#include <javax/swing/event/TableModelListener.h>
+
+#include <javax/swing/event/TableModelEvent.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $TableModelEvent = ::javax::swing::event::TableModelEvent;
+
+namespace javax {
+	namespace swing {
+		namespace event {
+
+$MethodInfo _TableModelListener_MethodInfo_[] = {
+	{"tableChanged", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableModelListener, tableChanged, void, $TableModelEvent*)},
+	{}
+};
+
+$ClassInfo _TableModelListener_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"javax.swing.event.TableModelListener",
+	nullptr,
+	"java.util.EventListener",
+	nullptr,
+	_TableModelListener_MethodInfo_
+};
+
+$Object* allocate$TableModelListener($Class* clazz) {
+	return $of($alloc(TableModelListener));
+}
+
+$Class* TableModelListener::load$($String* name, bool initialize) {
+	$loadClass(TableModelListener, name, initialize, &_TableModelListener_ClassInfo_, allocate$TableModelListener);
+	return class$;
+}
+
+$Class* TableModelListener::class$ = nullptr;
+
+		} // event
+	} // swing
+} // javax

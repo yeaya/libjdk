@@ -1,0 +1,108 @@
+#include <KeyBoardNavigation$1.h>
+
+#include <KeyBoardNavigation.h>
+#include <javax/swing/table/AbstractTableModel.h>
+#include <jcpp.h>
+
+using $ObjectArray2 = $Array<::java::lang::Object, 2>;
+using $PrintStream = ::java::io::PrintStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
+
+$FieldInfo _KeyBoardNavigation$1_FieldInfo_[] = {
+	{"val$data", "[[Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(KeyBoardNavigation$1, val$data)},
+	{"val$names", "[Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(KeyBoardNavigation$1, val$names)},
+	{}
+};
+
+$MethodInfo _KeyBoardNavigation$1_MethodInfo_[] = {
+	{"<init>", "([Ljava/lang/String;[[Ljava/lang/Object;)V", nullptr, 0, $method(KeyBoardNavigation$1, init$, void, $StringArray*, $ObjectArray2*)},
+	{"getColumnClass", "(I)Ljava/lang/Class;", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation$1, getColumnClass, $Class*, int32_t)},
+	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation$1, getColumnCount, int32_t)},
+	{"getColumnName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation$1, getColumnName, $String*, int32_t)},
+	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation$1, getRowCount, int32_t)},
+	{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation$1, getValueAt, $Object*, int32_t, int32_t)},
+	{"isCellEditable", "(II)Z", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation$1, isCellEditable, bool, int32_t, int32_t)},
+	{"setValueAt", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(KeyBoardNavigation$1, setValueAt, void, Object$*, int32_t, int32_t)},
+	{}
+};
+
+$EnclosingMethodInfo _KeyBoardNavigation$1_EnclosingMethodInfo_ = {
+	"KeyBoardNavigation",
+	"initTest",
+	"(Ljava/awt/Container;)V"
+};
+
+$InnerClassInfo _KeyBoardNavigation$1_InnerClassesInfo_[] = {
+	{"KeyBoardNavigation$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _KeyBoardNavigation$1_ClassInfo_ = {
+	$ACC_SUPER,
+	"KeyBoardNavigation$1",
+	"javax.swing.table.AbstractTableModel",
+	nullptr,
+	_KeyBoardNavigation$1_FieldInfo_,
+	_KeyBoardNavigation$1_MethodInfo_,
+	nullptr,
+	&_KeyBoardNavigation$1_EnclosingMethodInfo_,
+	_KeyBoardNavigation$1_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"KeyBoardNavigation"
+};
+
+$Object* allocate$KeyBoardNavigation$1($Class* clazz) {
+	return $of($alloc(KeyBoardNavigation$1));
+}
+
+void KeyBoardNavigation$1::init$($StringArray* val$names, $ObjectArray2* val$data) {
+	$set(this, val$names, val$names);
+	$set(this, val$data, val$data);
+	$AbstractTableModel::init$();
+}
+
+int32_t KeyBoardNavigation$1::getColumnCount() {
+	return $nc(this->val$names)->length;
+}
+
+int32_t KeyBoardNavigation$1::getRowCount() {
+	return $nc(this->val$data)->length;
+}
+
+$Object* KeyBoardNavigation$1::getValueAt(int32_t row, int32_t col) {
+	return $of($nc($nc(this->val$data)->get(row))->get(col));
+}
+
+$String* KeyBoardNavigation$1::getColumnName(int32_t column) {
+	return $nc(this->val$names)->get(column);
+}
+
+$Class* KeyBoardNavigation$1::getColumnClass(int32_t c) {
+	return $nc($of($(getValueAt(0, c))))->getClass();
+}
+
+bool KeyBoardNavigation$1::isCellEditable(int32_t row, int32_t col) {
+	return true;
+}
+
+void KeyBoardNavigation$1::setValueAt(Object$* aValue, int32_t row, int32_t column) {
+	$nc($System::out)->println($$str({"Setting value to: "_s, aValue}));
+	$nc($nc(this->val$data)->get(row))->set(column, aValue);
+}
+
+KeyBoardNavigation$1::KeyBoardNavigation$1() {
+}
+
+$Class* KeyBoardNavigation$1::load$($String* name, bool initialize) {
+	$loadClass(KeyBoardNavigation$1, name, initialize, &_KeyBoardNavigation$1_ClassInfo_, allocate$KeyBoardNavigation$1);
+	return class$;
+}
+
+$Class* KeyBoardNavigation$1::class$ = nullptr;

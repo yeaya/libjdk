@@ -1,0 +1,156 @@
+#include <com/sun/org/apache/xpath/internal/functions/FuncHere.h>
+
+#include <com/sun/org/apache/xml/internal/dtm/DTM.h>
+#include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
+#include <com/sun/org/apache/xpath/internal/NodeSetDTM.h>
+#include <com/sun/org/apache/xpath/internal/XPathContext.h>
+#include <com/sun/org/apache/xpath/internal/axes/NodeSequence.h>
+#include <com/sun/org/apache/xpath/internal/functions/Function.h>
+#include <com/sun/org/apache/xpath/internal/objects/XNodeSet.h>
+#include <com/sun/org/apache/xpath/internal/objects/XObject.h>
+#include <com/sun/org/apache/xpath/internal/res/XPATHErrorResources.h>
+#include <java/util/List.h>
+#include <javax/xml/transform/TransformerException.h>
+#include <org/w3c/dom/Document.h>
+#include <org/w3c/dom/Node.h>
+#include <jcpp.h>
+
+#undef ATTRIBUTE_NODE
+#undef DOCUMENT_NODE
+#undef ER_CONTEXT_HAS_NO_OWNERDOC
+#undef NULL
+#undef PROCESSING_INSTRUCTION_NODE
+#undef TEXT_NODE
+
+using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
+using $NodeSetDTM = ::com::sun::org::apache::xpath::internal::NodeSetDTM;
+using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
+using $NodeSequence = ::com::sun::org::apache::xpath::internal::axes::NodeSequence;
+using $Function = ::com::sun::org::apache::xpath::internal::functions::Function;
+using $XNodeSet = ::com::sun::org::apache::xpath::internal::objects::XNodeSet;
+using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
+using $XPATHErrorResources = ::com::sun::org::apache::xpath::internal::res::XPATHErrorResources;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $List = ::java::util::List;
+using $TransformerException = ::javax::xml::transform::TransformerException;
+using $Document = ::org::w3c::dom::Document;
+using $Node = ::org::w3c::dom::Node;
+
+namespace com {
+	namespace sun {
+		namespace org {
+			namespace apache {
+				namespace xpath {
+					namespace internal {
+						namespace functions {
+
+$FieldInfo _FuncHere_FieldInfo_[] = {
+	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FuncHere, serialVersionUID)},
+	{}
+};
+
+$MethodInfo _FuncHere_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncHere, init$, void)},
+	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncHere, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FuncHere, fixupVariables, void, $List*, int32_t)},
+	{"getOwnerDocument", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Document;", nullptr, $PRIVATE | $STATIC, $staticMethod(FuncHere, getOwnerDocument, $Document*, $Node*)},
+	{}
+};
+
+$ClassInfo _FuncHere_ClassInfo_ = {
+	$PUBLIC | $FINAL | $ACC_SUPER,
+	"com.sun.org.apache.xpath.internal.functions.FuncHere",
+	"com.sun.org.apache.xpath.internal.functions.Function",
+	nullptr,
+	_FuncHere_FieldInfo_,
+	_FuncHere_MethodInfo_
+};
+
+$Object* allocate$FuncHere($Class* clazz) {
+	return $of($alloc(FuncHere));
+}
+
+void FuncHere::init$() {
+	$Function::init$();
+}
+
+$XObject* FuncHere::execute($XPathContext* xctxt) {
+	$useLocalCurrentObjectStackCache();
+	$var($Node, xpathOwnerNode, $cast($Node, $nc(xctxt)->getOwnerObject()));
+	if (xpathOwnerNode == nullptr) {
+		return nullptr;
+	}
+	int32_t xpathOwnerNodeDTM = xctxt->getDTMHandleFromNode(xpathOwnerNode);
+	int32_t currentNode = xctxt->getCurrentNode();
+	$var($DTM, dtm, xctxt->getDTM(currentNode));
+	int32_t docContext = $nc(dtm)->getDocument();
+	if (docContext == $DTM::NULL) {
+		$init($XPATHErrorResources);
+		error(xctxt, $XPATHErrorResources::ER_CONTEXT_HAS_NO_OWNERDOC, nullptr);
+	}
+	$var($Document, currentDoc, getOwnerDocument($(dtm->getNode(currentNode))));
+	$var($Document, xpathOwnerDoc, getOwnerDocument(xpathOwnerNode));
+	if (currentDoc != xpathOwnerDoc) {
+		$throwNew($TransformerException, "Owner documents differ"_s);
+	}
+	$var($XNodeSet, nodes, $new($XNodeSet, $(xctxt->getDTMManager())));
+	$var($NodeSetDTM, nodeSet, nodes->mutableNodeset());
+	int32_t hereNode = $DTM::NULL;
+	switch (dtm->getNodeType(xpathOwnerNodeDTM)) {
+	case $Node::ATTRIBUTE_NODE:
+		{}
+	case $Node::PROCESSING_INSTRUCTION_NODE:
+		{
+			{
+				hereNode = xpathOwnerNodeDTM;
+				$nc(nodeSet)->addNode(hereNode);
+				break;
+			}
+		}
+	case $Node::TEXT_NODE:
+		{
+			{
+				hereNode = dtm->getParent(xpathOwnerNodeDTM);
+				$nc(nodeSet)->addNode(hereNode);
+				break;
+			}
+		}
+	default:
+		{
+			break;
+		}
+	}
+	$nc(nodeSet)->detach();
+	return nodes;
+}
+
+$Document* FuncHere::getOwnerDocument($Node* node) {
+	$init(FuncHere);
+	if ($nc(node)->getNodeType() == $Node::DOCUMENT_NODE) {
+		return $cast($Document, node);
+	}
+	return $nc(node)->getOwnerDocument();
+}
+
+void FuncHere::fixupVariables($List* vars, int32_t globalsSize) {
+}
+
+FuncHere::FuncHere() {
+}
+
+$Class* FuncHere::load$($String* name, bool initialize) {
+	$loadClass(FuncHere, name, initialize, &_FuncHere_ClassInfo_, allocate$FuncHere);
+	return class$;
+}
+
+$Class* FuncHere::class$ = nullptr;
+
+						} // functions
+					} // internal
+				} // xpath
+			} // apache
+		} // org
+	} // sun
+} // com

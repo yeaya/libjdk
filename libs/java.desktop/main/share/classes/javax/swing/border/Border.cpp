@@ -1,0 +1,47 @@
+#include <javax/swing/border/Border.h>
+
+#include <java/awt/Component.h>
+#include <java/awt/Graphics.h>
+#include <java/awt/Insets.h>
+#include <jcpp.h>
+
+using $Component = ::java::awt::Component;
+using $Graphics = ::java::awt::Graphics;
+using $Insets = ::java::awt::Insets;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace javax {
+	namespace swing {
+		namespace border {
+
+$MethodInfo _Border_MethodInfo_[] = {
+	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Border, getBorderInsets, $Insets*, $Component*)},
+	{"isBorderOpaque", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Border, isBorderOpaque, bool)},
+	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Border, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+	{}
+};
+
+$ClassInfo _Border_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"javax.swing.border.Border",
+	nullptr,
+	nullptr,
+	nullptr,
+	_Border_MethodInfo_
+};
+
+$Object* allocate$Border($Class* clazz) {
+	return $of($alloc(Border));
+}
+
+$Class* Border::load$($String* name, bool initialize) {
+	$loadClass(Border, name, initialize, &_Border_ClassInfo_, allocate$Border);
+	return class$;
+}
+
+$Class* Border::class$ = nullptr;
+
+		} // border
+	} // swing
+} // javax

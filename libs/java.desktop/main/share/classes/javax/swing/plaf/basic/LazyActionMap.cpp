@@ -1,0 +1,198 @@
+#include <javax/swing/plaf/basic/LazyActionMap.h>
+
+#include <java/lang/AssertionError.h>
+#include <java/lang/IllegalAccessException.h>
+#include <java/lang/NoSuchMethodException.h>
+#include <java/lang/reflect/InvocationTargetException.h>
+#include <java/lang/reflect/Method.h>
+#include <javax/swing/Action.h>
+#include <javax/swing/ActionMap.h>
+#include <javax/swing/JComponent.h>
+#include <javax/swing/SwingUtilities.h>
+#include <javax/swing/UIDefaults.h>
+#include <javax/swing/UIManager.h>
+#include <javax/swing/plaf/ActionMapUIResource.h>
+#include <jcpp.h>
+
+#undef NAME
+
+using $AssertionError = ::java::lang::AssertionError;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $IllegalAccessException = ::java::lang::IllegalAccessException;
+using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
+using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
+using $Method = ::java::lang::reflect::Method;
+using $Action = ::javax::swing::Action;
+using $ActionMap = ::javax::swing::ActionMap;
+using $JComponent = ::javax::swing::JComponent;
+using $SwingUtilities = ::javax::swing::SwingUtilities;
+using $UIDefaults = ::javax::swing::UIDefaults;
+using $UIManager = ::javax::swing::UIManager;
+using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
+
+namespace javax {
+	namespace swing {
+		namespace plaf {
+			namespace basic {
+
+$FieldInfo _LazyActionMap_FieldInfo_[] = {
+	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LazyActionMap, $assertionsDisabled)},
+	{"_loader", "Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(LazyActionMap, _loader)},
+	{}
+};
+
+$MethodInfo _LazyActionMap_MethodInfo_[] = {
+	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(LazyActionMap, init$, void, $Class*)},
+	{"allKeys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LazyActionMap, allKeys, $ObjectArray*)},
+	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(LazyActionMap, clear, void)},
+	{"get", "(Ljava/lang/Object;)Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(LazyActionMap, get, $Action*, Object$*)},
+	{"getActionMap", "(Ljava/lang/Class;Ljava/lang/String;)Ljavax/swing/ActionMap;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljavax/swing/ActionMap;", $STATIC, $staticMethod(LazyActionMap, getActionMap, $ActionMap*, $Class*, $String*)},
+	{"installLazyActionMap", "(Ljavax/swing/JComponent;Ljava/lang/Class;Ljava/lang/String;)V", "(Ljavax/swing/JComponent;Ljava/lang/Class<*>;Ljava/lang/String;)V", $STATIC, $staticMethod(LazyActionMap, installLazyActionMap, void, $JComponent*, $Class*, $String*)},
+	{"keys", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LazyActionMap, keys, $ObjectArray*)},
+	{"loadIfNecessary", "()V", nullptr, $PRIVATE, $method(LazyActionMap, loadIfNecessary, void)},
+	{"put", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(LazyActionMap, put, void, $Action*)},
+	{"put", "(Ljava/lang/Object;Ljavax/swing/Action;)V", nullptr, $PUBLIC, $virtualMethod(LazyActionMap, put, void, Object$*, $Action*)},
+	{"remove", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LazyActionMap, remove, void, Object$*)},
+	{"setParent", "(Ljavax/swing/ActionMap;)V", nullptr, $PUBLIC, $virtualMethod(LazyActionMap, setParent, void, $ActionMap*)},
+	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LazyActionMap, size, int32_t)},
+	{}
+};
+
+$ClassInfo _LazyActionMap_ClassInfo_ = {
+	$ACC_SUPER,
+	"javax.swing.plaf.basic.LazyActionMap",
+	"javax.swing.plaf.ActionMapUIResource",
+	nullptr,
+	_LazyActionMap_FieldInfo_,
+	_LazyActionMap_MethodInfo_
+};
+
+$Object* allocate$LazyActionMap($Class* clazz) {
+	return $of($alloc(LazyActionMap));
+}
+
+bool LazyActionMap::$assertionsDisabled = false;
+
+void LazyActionMap::installLazyActionMap($JComponent* c, $Class* loaderClass, $String* defaultsKey) {
+	$init(LazyActionMap);
+	$useLocalCurrentObjectStackCache();
+	$var($ActionMap, map, $cast($ActionMap, $UIManager::get(defaultsKey)));
+	if (map == nullptr) {
+		$assign(map, $new(LazyActionMap, loaderClass));
+		$nc($($UIManager::getLookAndFeelDefaults()))->put(defaultsKey, map);
+	}
+	$SwingUtilities::replaceUIActionMap(c, map);
+}
+
+$ActionMap* LazyActionMap::getActionMap($Class* loaderClass, $String* defaultsKey) {
+	$init(LazyActionMap);
+	$useLocalCurrentObjectStackCache();
+	$var($ActionMap, map, $cast($ActionMap, $UIManager::get(defaultsKey)));
+	if (map == nullptr) {
+		$assign(map, $new(LazyActionMap, loaderClass));
+		$nc($($UIManager::getLookAndFeelDefaults()))->put(defaultsKey, map);
+	}
+	return map;
+}
+
+void LazyActionMap::init$($Class* loader) {
+	$ActionMapUIResource::init$();
+	$set(this, _loader, loader);
+}
+
+void LazyActionMap::put($Action* action) {
+	$init($Action);
+	put($($nc(action)->getValue($Action::NAME)), action);
+}
+
+void LazyActionMap::put(Object$* key, $Action* action) {
+	loadIfNecessary();
+	$ActionMapUIResource::put(key, action);
+}
+
+$Action* LazyActionMap::get(Object$* key) {
+	loadIfNecessary();
+	return $ActionMapUIResource::get(key);
+}
+
+void LazyActionMap::remove(Object$* key) {
+	loadIfNecessary();
+	$ActionMapUIResource::remove(key);
+}
+
+void LazyActionMap::clear() {
+	loadIfNecessary();
+	$ActionMapUIResource::clear();
+}
+
+$ObjectArray* LazyActionMap::keys() {
+	loadIfNecessary();
+	return $ActionMapUIResource::keys();
+}
+
+int32_t LazyActionMap::size() {
+	loadIfNecessary();
+	return $ActionMapUIResource::size();
+}
+
+$ObjectArray* LazyActionMap::allKeys() {
+	loadIfNecessary();
+	return $ActionMapUIResource::allKeys();
+}
+
+void LazyActionMap::setParent($ActionMap* map) {
+	loadIfNecessary();
+	$ActionMapUIResource::setParent(map);
+}
+
+void LazyActionMap::loadIfNecessary() {
+	$useLocalCurrentObjectStackCache();
+	$beforeCallerSensitive();
+	if (this->_loader != nullptr) {
+		$var($Object, loader, this->_loader);
+		$set(this, _loader, nullptr);
+		$Class* klass = $cast($Class, loader);
+		try {
+			$var($Method, method, $nc(klass)->getDeclaredMethod("loadActionMap"_s, $$new($ClassArray, {LazyActionMap::class$})));
+			$nc(method)->invoke(klass, $$new($ObjectArray, {$of(this)}));
+		} catch ($NoSuchMethodException& nsme) {
+			if (!LazyActionMap::$assertionsDisabled) {
+				$throwNew($AssertionError, $of($$str({"LazyActionMap unable to load actions "_s, klass})));
+			}
+		} catch ($IllegalAccessException& iae) {
+			if (!LazyActionMap::$assertionsDisabled) {
+				$throwNew($AssertionError, $of($$str({"LazyActionMap unable to load actions "_s, iae})));
+			}
+		} catch ($InvocationTargetException& ite) {
+			if (!LazyActionMap::$assertionsDisabled) {
+				$throwNew($AssertionError, $of($$str({"LazyActionMap unable to load actions "_s, ite})));
+			}
+		} catch ($IllegalArgumentException& iae) {
+			if (!LazyActionMap::$assertionsDisabled) {
+				$throwNew($AssertionError, $of($$str({"LazyActionMap unable to load actions "_s, iae})));
+			}
+		}
+	}
+}
+
+void clinit$LazyActionMap($Class* class$) {
+	LazyActionMap::$assertionsDisabled = !LazyActionMap::class$->desiredAssertionStatus();
+}
+
+LazyActionMap::LazyActionMap() {
+}
+
+$Class* LazyActionMap::load$($String* name, bool initialize) {
+	$loadClass(LazyActionMap, name, initialize, &_LazyActionMap_ClassInfo_, clinit$LazyActionMap, allocate$LazyActionMap);
+	return class$;
+}
+
+$Class* LazyActionMap::class$ = nullptr;
+
+			} // basic
+		} // plaf
+	} // swing
+} // javax

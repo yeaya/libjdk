@@ -1,0 +1,144 @@
+#include <javax/swing/border/SoftBevelBorder.h>
+
+#include <java/awt/Color.h>
+#include <java/awt/Component.h>
+#include <java/awt/Graphics.h>
+#include <java/awt/Insets.h>
+#include <javax/swing/border/BevelBorder.h>
+#include <jcpp.h>
+
+#undef LOWERED
+#undef RAISED
+
+using $Color = ::java::awt::Color;
+using $Component = ::java::awt::Component;
+using $Graphics = ::java::awt::Graphics;
+using $Insets = ::java::awt::Insets;
+using $Attribute = ::java::lang::Attribute;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $CompoundAttribute = ::java::lang::CompoundAttribute;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $NamedAttribute = ::java::lang::NamedAttribute;
+using $BevelBorder = ::javax::swing::border::BevelBorder;
+
+namespace javax {
+	namespace swing {
+		namespace border {
+
+$Attribute SoftBevelBorder_Attribute_var$1[] = {
+	{'s', "bevelType"},
+	{'s', "highlightOuterColor"},
+	{'s', "highlightInnerColor"},
+	{'s', "shadowOuterColor"},
+	{'s', "shadowInnerColor"},
+	{'-'}
+};
+
+$NamedAttribute SoftBevelBorder_Attribute_var$0[] = {
+	{"value", '[', SoftBevelBorder_Attribute_var$1},
+	{}
+};
+
+$CompoundAttribute _SoftBevelBorder_MethodAnnotations_init$2[] = {
+	{"Ljava/beans/ConstructorProperties;", SoftBevelBorder_Attribute_var$0},
+	{}
+};
+
+$MethodInfo _SoftBevelBorder_MethodInfo_[] = {
+	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SoftBevelBorder, init$, void, int32_t)},
+	{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(SoftBevelBorder, init$, void, int32_t, $Color*, $Color*)},
+	{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(SoftBevelBorder, init$, void, int32_t, $Color*, $Color*, $Color*, $Color*), nullptr, nullptr, _SoftBevelBorder_MethodAnnotations_init$2},
+	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(SoftBevelBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(SoftBevelBorder, isBorderOpaque, bool)},
+	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SoftBevelBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+	{}
+};
+
+$ClassInfo _SoftBevelBorder_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER,
+	"javax.swing.border.SoftBevelBorder",
+	"javax.swing.border.BevelBorder",
+	nullptr,
+	nullptr,
+	_SoftBevelBorder_MethodInfo_
+};
+
+$Object* allocate$SoftBevelBorder($Class* clazz) {
+	return $of($alloc(SoftBevelBorder));
+}
+
+void SoftBevelBorder::init$(int32_t bevelType) {
+	$BevelBorder::init$(bevelType);
+}
+
+void SoftBevelBorder::init$(int32_t bevelType, $Color* highlight, $Color* shadow) {
+	$BevelBorder::init$(bevelType, highlight, shadow);
+}
+
+void SoftBevelBorder::init$(int32_t bevelType, $Color* highlightOuterColor, $Color* highlightInnerColor, $Color* shadowOuterColor, $Color* shadowInnerColor) {
+	$BevelBorder::init$(bevelType, highlightOuterColor, highlightInnerColor, shadowOuterColor, shadowInnerColor);
+}
+
+void SoftBevelBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
+	$useLocalCurrentObjectStackCache();
+	$var($Color, oldColor, $nc(g)->getColor());
+	g->translate(x, y);
+	if (this->bevelType == $BevelBorder::RAISED) {
+		g->setColor($(getHighlightOuterColor(c)));
+		g->drawLine(0, 0, width - 2, 0);
+		g->drawLine(0, 0, 0, height - 2);
+		g->drawLine(1, 1, 1, 1);
+		g->setColor($(getHighlightInnerColor(c)));
+		g->drawLine(2, 1, width - 2, 1);
+		g->drawLine(1, 2, 1, height - 2);
+		g->drawLine(2, 2, 2, 2);
+		g->drawLine(0, height - 1, 0, height - 2);
+		g->drawLine(width - 1, 0, width - 1, 0);
+		g->setColor($(getShadowOuterColor(c)));
+		g->drawLine(2, height - 1, width - 1, height - 1);
+		g->drawLine(width - 1, 2, width - 1, height - 1);
+		g->setColor($(getShadowInnerColor(c)));
+		g->drawLine(width - 2, height - 2, width - 2, height - 2);
+	} else if (this->bevelType == $BevelBorder::LOWERED) {
+		g->setColor($(getShadowOuterColor(c)));
+		g->drawLine(0, 0, width - 2, 0);
+		g->drawLine(0, 0, 0, height - 2);
+		g->drawLine(1, 1, 1, 1);
+		g->setColor($(getShadowInnerColor(c)));
+		g->drawLine(2, 1, width - 2, 1);
+		g->drawLine(1, 2, 1, height - 2);
+		g->drawLine(2, 2, 2, 2);
+		g->drawLine(0, height - 1, 0, height - 2);
+		g->drawLine(width - 1, 0, width - 1, 0);
+		g->setColor($(getHighlightOuterColor(c)));
+		g->drawLine(2, height - 1, width - 1, height - 1);
+		g->drawLine(width - 1, 2, width - 1, height - 1);
+		g->setColor($(getHighlightInnerColor(c)));
+		g->drawLine(width - 2, height - 2, width - 2, height - 2);
+	}
+	g->translate(-x, -y);
+	g->setColor(oldColor);
+}
+
+$Insets* SoftBevelBorder::getBorderInsets($Component* c, $Insets* insets) {
+	$nc(insets)->set(3, 3, 3, 3);
+	return insets;
+}
+
+bool SoftBevelBorder::isBorderOpaque() {
+	return false;
+}
+
+SoftBevelBorder::SoftBevelBorder() {
+}
+
+$Class* SoftBevelBorder::load$($String* name, bool initialize) {
+	$loadClass(SoftBevelBorder, name, initialize, &_SoftBevelBorder_ClassInfo_, allocate$SoftBevelBorder);
+	return class$;
+}
+
+$Class* SoftBevelBorder::class$ = nullptr;
+
+		} // border
+	} // swing
+} // javax

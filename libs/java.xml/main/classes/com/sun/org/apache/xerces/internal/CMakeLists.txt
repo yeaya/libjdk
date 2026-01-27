@@ -1,0 +1,21 @@
+#machine generated
+
+add_subdirectory("dom")
+add_subdirectory("impl")
+add_subdirectory("jaxp")
+add_subdirectory("parsers")
+add_subdirectory("util")
+add_subdirectory("utils")
+add_subdirectory("xinclude")
+add_subdirectory("xni")
+add_subdirectory("xpointer")
+add_subdirectory("xs")
+
+aux_source_directory(. SRCS)
+file(GLOB HEADERS *.h *.hpp)
+source_group("Include" FILES ${HEADERS}) 
+list(LENGTH SRCS SRCS_LENGTH)
+if(SRCS_LENGTH)
+	add_library(com.sun.org.apache.xerces.inte OBJECT ${SRCS} ${HEADERS})
+	jcpp_enable_bigobj(com.sun.org.apache.xerces.inte)
+endif()

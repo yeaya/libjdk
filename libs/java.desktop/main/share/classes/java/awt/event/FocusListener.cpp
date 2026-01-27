@@ -1,0 +1,42 @@
+#include <java/awt/event/FocusListener.h>
+
+#include <java/awt/event/FocusEvent.h>
+#include <jcpp.h>
+
+using $FocusEvent = ::java::awt::event::FocusEvent;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+
+namespace java {
+	namespace awt {
+		namespace event {
+
+$MethodInfo _FocusListener_MethodInfo_[] = {
+	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FocusListener, focusGained, void, $FocusEvent*)},
+	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FocusListener, focusLost, void, $FocusEvent*)},
+	{}
+};
+
+$ClassInfo _FocusListener_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"java.awt.event.FocusListener",
+	nullptr,
+	"java.util.EventListener",
+	nullptr,
+	_FocusListener_MethodInfo_
+};
+
+$Object* allocate$FocusListener($Class* clazz) {
+	return $of($alloc(FocusListener));
+}
+
+$Class* FocusListener::load$($String* name, bool initialize) {
+	$loadClass(FocusListener, name, initialize, &_FocusListener_ClassInfo_, allocate$FocusListener);
+	return class$;
+}
+
+$Class* FocusListener::class$ = nullptr;
+
+		} // event
+	} // awt
+} // java

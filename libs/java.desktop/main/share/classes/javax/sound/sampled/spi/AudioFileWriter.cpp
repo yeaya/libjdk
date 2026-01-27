@@ -1,0 +1,132 @@
+#include <javax/sound/sampled/spi/AudioFileWriter.h>
+
+#include <java/io/File.h>
+#include <java/io/OutputStream.h>
+#include <java/io/Serializable.h>
+#include <java/lang/invoke/CallSite.h>
+#include <java/lang/invoke/LambdaMetafactory.h>
+#include <java/lang/invoke/MethodHandle.h>
+#include <java/lang/invoke/MethodHandles$Lookup.h>
+#include <java/lang/invoke/MethodType.h>
+#include <java/util/Arrays.h>
+#include <java/util/function/Predicate.h>
+#include <java/util/stream/Stream.h>
+#include <javax/sound/sampled/AudioFileFormat$Type.h>
+#include <javax/sound/sampled/AudioInputStream.h>
+#include <jcpp.h>
+
+using $AudioFileFormat$TypeArray = $Array<::javax::sound::sampled::AudioFileFormat$Type>;
+using $File = ::java::io::File;
+using $OutputStream = ::java::io::OutputStream;
+using $Serializable = ::java::io::Serializable;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $MethodHandle = ::java::lang::invoke::MethodHandle;
+using $Arrays = ::java::util::Arrays;
+using $Predicate = ::java::util::function::Predicate;
+using $Stream = ::java::util::stream::Stream;
+using $AudioFileFormat$Type = ::javax::sound::sampled::AudioFileFormat$Type;
+using $AudioInputStream = ::javax::sound::sampled::AudioInputStream;
+
+namespace javax {
+	namespace sound {
+		namespace sampled {
+			namespace spi {
+
+class AudioFileWriter$$Lambda$equals : public $Predicate {
+	$class(AudioFileWriter$$Lambda$equals, $NO_CLASS_INIT, $Predicate)
+public:
+	void init$($AudioFileFormat$Type* inst) {
+		$set(this, inst$, inst);
+	}
+	virtual bool test(Object$* obj) override {
+		 return $nc(inst$)->equals(obj);
+	}
+	static $Object* allocate$($Class* clazz) {
+		return $of($alloc<AudioFileWriter$$Lambda$equals>());
+	}
+	$AudioFileFormat$Type* inst$ = nullptr;
+	static $FieldInfo fieldInfos[2];
+	static $MethodInfo methodInfos[3];
+	static $ClassInfo classInfo$;
+};
+$FieldInfo AudioFileWriter$$Lambda$equals::fieldInfos[2] = {
+	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(AudioFileWriter$$Lambda$equals, inst$)},
+	{}
+};
+$MethodInfo AudioFileWriter$$Lambda$equals::methodInfos[3] = {
+	{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;)V", nullptr, $PUBLIC, $method(AudioFileWriter$$Lambda$equals, init$, void, $AudioFileFormat$Type*)},
+	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AudioFileWriter$$Lambda$equals, test, bool, Object$*)},
+	{}
+};
+$ClassInfo AudioFileWriter$$Lambda$equals::classInfo$ = {
+	$PUBLIC | $FINAL,
+	"javax.sound.sampled.spi.AudioFileWriter$$Lambda$equals",
+	"java.lang.Object",
+	"java.util.function.Predicate",
+	fieldInfos,
+	methodInfos
+};
+$Class* AudioFileWriter$$Lambda$equals::load$($String* name, bool initialize) {
+	$loadClass(AudioFileWriter$$Lambda$equals, name, initialize, &classInfo$, allocate$);
+	return class$;
+}
+$Class* AudioFileWriter$$Lambda$equals::class$ = nullptr;
+
+$MethodInfo _AudioFileWriter_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, $PROTECTED, $method(AudioFileWriter, init$, void)},
+	{"getAudioFileTypes", "()[Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFileWriter, getAudioFileTypes, $AudioFileFormat$TypeArray*)},
+	{"getAudioFileTypes", "(Ljavax/sound/sampled/AudioInputStream;)[Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFileWriter, getAudioFileTypes, $AudioFileFormat$TypeArray*, $AudioInputStream*)},
+	{"isFileTypeSupported", "(Ljavax/sound/sampled/AudioFileFormat$Type;)Z", nullptr, $PUBLIC, $virtualMethod(AudioFileWriter, isFileTypeSupported, bool, $AudioFileFormat$Type*)},
+	{"isFileTypeSupported", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioInputStream;)Z", nullptr, $PUBLIC, $virtualMethod(AudioFileWriter, isFileTypeSupported, bool, $AudioFileFormat$Type*, $AudioInputStream*)},
+	{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/OutputStream;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $OutputStream*), "java.io.IOException"},
+	{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/File;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AudioFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $File*), "java.io.IOException"},
+	{}
+};
+
+$ClassInfo _AudioFileWriter_ClassInfo_ = {
+	$PUBLIC | $ACC_SUPER | $ABSTRACT,
+	"javax.sound.sampled.spi.AudioFileWriter",
+	"java.lang.Object",
+	nullptr,
+	nullptr,
+	_AudioFileWriter_MethodInfo_
+};
+
+$Object* allocate$AudioFileWriter($Class* clazz) {
+	return $of($alloc(AudioFileWriter));
+}
+
+void AudioFileWriter::init$() {
+}
+
+bool AudioFileWriter::isFileTypeSupported($AudioFileFormat$Type* fileType) {
+	$useLocalCurrentObjectStackCache();
+	return $nc($($Arrays::stream($(getAudioFileTypes()))))->anyMatch(static_cast<$Predicate*>($$new(AudioFileWriter$$Lambda$equals, static_cast<$AudioFileFormat$Type*>($nc(fileType)))));
+}
+
+bool AudioFileWriter::isFileTypeSupported($AudioFileFormat$Type* fileType, $AudioInputStream* stream) {
+	$useLocalCurrentObjectStackCache();
+	return $nc($($Arrays::stream($(getAudioFileTypes(stream)))))->anyMatch(static_cast<$Predicate*>($$new(AudioFileWriter$$Lambda$equals, static_cast<$AudioFileFormat$Type*>($nc(fileType)))));
+}
+
+AudioFileWriter::AudioFileWriter() {
+}
+
+$Class* AudioFileWriter::load$($String* name, bool initialize) {
+	if (name != nullptr) {
+		if (name->equals(AudioFileWriter$$Lambda$equals::classInfo$.name)) {
+			return AudioFileWriter$$Lambda$equals::load$(name, initialize);
+		}
+	}
+	$loadClass(AudioFileWriter, name, initialize, &_AudioFileWriter_ClassInfo_, allocate$AudioFileWriter);
+	return class$;
+}
+
+$Class* AudioFileWriter::class$ = nullptr;
+
+			} // spi
+		} // sampled
+	} // sound
+} // javax

@@ -1,0 +1,87 @@
+#include <JEditorPaneTest$1.h>
+
+#include <JEditorPaneTest.h>
+#include <java/io/File.h>
+#include <java/io/IOException.h>
+#include <java/net/URI.h>
+#include <java/net/URL.h>
+#include <javax/swing/JEditorPane.h>
+#include <jcpp.h>
+
+using $File = ::java::io::File;
+using $IOException = ::java::io::IOException;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
+using $FieldInfo = ::java::lang::FieldInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $URI = ::java::net::URI;
+using $JEditorPane = ::javax::swing::JEditorPane;
+
+$FieldInfo _JEditorPaneTest$1_FieldInfo_[] = {
+	{"val$file", "Ljava/io/File;", nullptr, $FINAL | $SYNTHETIC, $field(JEditorPaneTest$1, val$file)},
+	{}
+};
+
+$MethodInfo _JEditorPaneTest$1_MethodInfo_[] = {
+	{"<init>", "(Ljava/io/File;)V", "()V", 0, $method(JEditorPaneTest$1, init$, void, $File*)},
+	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JEditorPaneTest$1, run, void)},
+	{}
+};
+
+$EnclosingMethodInfo _JEditorPaneTest$1_EnclosingMethodInfo_ = {
+	"JEditorPaneTest",
+	"main",
+	"([Ljava/lang/String;)V"
+};
+
+$InnerClassInfo _JEditorPaneTest$1_InnerClassesInfo_[] = {
+	{"JEditorPaneTest$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _JEditorPaneTest$1_ClassInfo_ = {
+	$ACC_SUPER,
+	"JEditorPaneTest$1",
+	"java.lang.Object",
+	"java.lang.Runnable",
+	_JEditorPaneTest$1_FieldInfo_,
+	_JEditorPaneTest$1_MethodInfo_,
+	nullptr,
+	&_JEditorPaneTest$1_EnclosingMethodInfo_,
+	_JEditorPaneTest$1_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"JEditorPaneTest"
+};
+
+$Object* allocate$JEditorPaneTest$1($Class* clazz) {
+	return $of($alloc(JEditorPaneTest$1));
+}
+
+void JEditorPaneTest$1::init$($File* val$file) {
+	$set(this, val$file, val$file);
+}
+
+void JEditorPaneTest$1::run() {
+	$useLocalCurrentObjectStackCache();
+	$var($JEditorPane, editorPane, $new($JEditorPane));
+	try {
+		editorPane->setPage($($nc($($nc(this->val$file)->toURI()))->toURL()));
+	} catch ($IOException& ex) {
+		$nc(this->val$file)->delete$();
+		$throwNew($RuntimeException, $$str({"Test Failed"_s, ex}));
+	}
+}
+
+JEditorPaneTest$1::JEditorPaneTest$1() {
+}
+
+$Class* JEditorPaneTest$1::load$($String* name, bool initialize) {
+	$loadClass(JEditorPaneTest$1, name, initialize, &_JEditorPaneTest$1_ClassInfo_, allocate$JEditorPaneTest$1);
+	return class$;
+}
+
+$Class* JEditorPaneTest$1::class$ = nullptr;

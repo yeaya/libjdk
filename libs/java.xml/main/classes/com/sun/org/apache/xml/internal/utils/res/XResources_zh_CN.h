@@ -1,0 +1,36 @@
+#ifndef _com_sun_org_apache_xml_internal_utils_res_XResources_zh_CN_h_
+#define _com_sun_org_apache_xml_internal_utils_res_XResources_zh_CN_h_
+//$ class com.sun.org.apache.xml.internal.utils.res.XResources_zh_CN
+//$ extends com.sun.org.apache.xml.internal.utils.res.XResourceBundle
+
+#include <com/sun/org/apache/xml/internal/utils/res/XResourceBundle.h>
+#include <java/lang/Array.h>
+
+namespace com {
+	namespace sun {
+		namespace org {
+			namespace apache {
+				namespace xml {
+					namespace internal {
+						namespace utils {
+							namespace res {
+
+class XResources_zh_CN : public ::com::sun::org::apache::xml::internal::utils::res::XResourceBundle {
+	$class(XResources_zh_CN, 0, ::com::sun::org::apache::xml::internal::utils::res::XResourceBundle)
+public:
+	XResources_zh_CN();
+	void init$();
+	virtual $Array<::java::lang::Object, 2>* getContents() override;
+	static $Array<::java::lang::Object, 2>* _contents;
+};
+
+							} // res
+						} // utils
+					} // internal
+				} // xml
+			} // apache
+		} // org
+	} // sun
+} // com
+
+#endif // _com_sun_org_apache_xml_internal_utils_res_XResources_zh_CN_h_

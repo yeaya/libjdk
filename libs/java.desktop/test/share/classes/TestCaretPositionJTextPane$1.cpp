@@ -1,0 +1,108 @@
+#include <TestCaretPositionJTextPane$1.h>
+
+#include <TestCaretPositionJTextPane.h>
+#include <java/awt/Point.h>
+#include <java/awt/event/MouseEvent.h>
+#include <java/awt/geom/Rectangle2D.h>
+#include <java/lang/Math.h>
+#include <javax/swing/JTextPane.h>
+#include <javax/swing/text/BadLocationException.h>
+#include <javax/swing/text/Caret.h>
+#include <javax/swing/text/JTextComponent.h>
+#include <jcpp.h>
+
+using $TestCaretPositionJTextPane = ::TestCaretPositionJTextPane;
+using $MouseEvent = ::java::awt::event::MouseEvent;
+using $Rectangle2D = ::java::awt::geom::Rectangle2D;
+using $PrintStream = ::java::io::PrintStream;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $Math = ::java::lang::Math;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $RuntimeException = ::java::lang::RuntimeException;
+using $JTextPane = ::javax::swing::JTextPane;
+using $BadLocationException = ::javax::swing::text::BadLocationException;
+using $Caret = ::javax::swing::text::Caret;
+
+$MethodInfo _TestCaretPositionJTextPane$1_MethodInfo_[] = {
+	{"<init>", "()V", nullptr, 0, $method(TestCaretPositionJTextPane$1, init$, void)},
+	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestCaretPositionJTextPane$1, mouseClicked, void, $MouseEvent*)},
+	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestCaretPositionJTextPane$1, mouseEntered, void, $MouseEvent*)},
+	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestCaretPositionJTextPane$1, mouseExited, void, $MouseEvent*)},
+	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestCaretPositionJTextPane$1, mousePressed, void, $MouseEvent*)},
+	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestCaretPositionJTextPane$1, mouseReleased, void, $MouseEvent*)},
+	{}
+};
+
+$EnclosingMethodInfo _TestCaretPositionJTextPane$1_EnclosingMethodInfo_ = {
+	"TestCaretPositionJTextPane",
+	"createUI",
+	"()V"
+};
+
+$InnerClassInfo _TestCaretPositionJTextPane$1_InnerClassesInfo_[] = {
+	{"TestCaretPositionJTextPane$1", nullptr, nullptr, 0},
+	{}
+};
+
+$ClassInfo _TestCaretPositionJTextPane$1_ClassInfo_ = {
+	$ACC_SUPER,
+	"TestCaretPositionJTextPane$1",
+	"java.lang.Object",
+	"java.awt.event.MouseListener",
+	nullptr,
+	_TestCaretPositionJTextPane$1_MethodInfo_,
+	nullptr,
+	&_TestCaretPositionJTextPane$1_EnclosingMethodInfo_,
+	_TestCaretPositionJTextPane$1_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"TestCaretPositionJTextPane"
+};
+
+$Object* allocate$TestCaretPositionJTextPane$1($Class* clazz) {
+	return $of($alloc(TestCaretPositionJTextPane$1));
+}
+
+void TestCaretPositionJTextPane$1::init$() {
+}
+
+void TestCaretPositionJTextPane$1::mouseClicked($MouseEvent* e) {
+}
+
+void TestCaretPositionJTextPane$1::mousePressed($MouseEvent* e) {
+	$useLocalCurrentObjectStackCache();
+	try {
+		$init($TestCaretPositionJTextPane);
+		$var($Caret, caret, $nc($TestCaretPositionJTextPane::textPane)->getCaret());
+		$var($Rectangle2D, rect, $nc($TestCaretPositionJTextPane::textPane)->modelToView2D($nc(caret)->getDot()));
+		int32_t var$0 = $nc($($nc(e)->getPoint()))->x;
+		if ($Math::abs(var$0 - $nc(rect)->getX()) > 5) {
+			$nc($System::out)->println($$str({"mouse point "_s, $($nc(e)->getPoint())}));
+			$nc($System::out)->println($$str({"caret position "_s, rect}));
+			$throwNew($RuntimeException, " Wrong caret position"_s);
+		}
+	} catch ($BadLocationException& ex) {
+	}
+}
+
+void TestCaretPositionJTextPane$1::mouseReleased($MouseEvent* e) {
+}
+
+void TestCaretPositionJTextPane$1::mouseEntered($MouseEvent* e) {
+}
+
+void TestCaretPositionJTextPane$1::mouseExited($MouseEvent* e) {
+}
+
+TestCaretPositionJTextPane$1::TestCaretPositionJTextPane$1() {
+}
+
+$Class* TestCaretPositionJTextPane$1::load$($String* name, bool initialize) {
+	$loadClass(TestCaretPositionJTextPane$1, name, initialize, &_TestCaretPositionJTextPane$1_ClassInfo_, allocate$TestCaretPositionJTextPane$1);
+	return class$;
+}
+
+$Class* TestCaretPositionJTextPane$1::class$ = nullptr;

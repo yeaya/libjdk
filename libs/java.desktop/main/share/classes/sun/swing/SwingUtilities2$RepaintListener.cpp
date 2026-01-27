@@ -1,0 +1,53 @@
+#include <sun/swing/SwingUtilities2$RepaintListener.h>
+
+#include <javax/swing/JComponent.h>
+#include <sun/swing/SwingUtilities2.h>
+#include <jcpp.h>
+
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $JComponent = ::javax::swing::JComponent;
+
+namespace sun {
+	namespace swing {
+
+$MethodInfo _SwingUtilities2$RepaintListener_MethodInfo_[] = {
+	{"repaintPerformed", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingUtilities2$RepaintListener, repaintPerformed, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
+	{}
+};
+
+$InnerClassInfo _SwingUtilities2$RepaintListener_InnerClassesInfo_[] = {
+	{"sun.swing.SwingUtilities2$RepaintListener", "sun.swing.SwingUtilities2", "RepaintListener", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+	{}
+};
+
+$ClassInfo _SwingUtilities2$RepaintListener_ClassInfo_ = {
+	$PUBLIC | $INTERFACE | $ABSTRACT,
+	"sun.swing.SwingUtilities2$RepaintListener",
+	nullptr,
+	nullptr,
+	nullptr,
+	_SwingUtilities2$RepaintListener_MethodInfo_,
+	nullptr,
+	nullptr,
+	_SwingUtilities2$RepaintListener_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"sun.swing.SwingUtilities2"
+};
+
+$Object* allocate$SwingUtilities2$RepaintListener($Class* clazz) {
+	return $of($alloc(SwingUtilities2$RepaintListener));
+}
+
+$Class* SwingUtilities2$RepaintListener::load$($String* name, bool initialize) {
+	$loadClass(SwingUtilities2$RepaintListener, name, initialize, &_SwingUtilities2$RepaintListener_ClassInfo_, allocate$SwingUtilities2$RepaintListener);
+	return class$;
+}
+
+$Class* SwingUtilities2$RepaintListener::class$ = nullptr;
+
+	} // swing
+} // sun

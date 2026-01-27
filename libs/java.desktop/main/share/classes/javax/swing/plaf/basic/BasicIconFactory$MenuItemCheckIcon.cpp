@@ -1,0 +1,106 @@
+#include <javax/swing/plaf/basic/BasicIconFactory$MenuItemCheckIcon.h>
+
+#include <java/awt/Component.h>
+#include <java/awt/Graphics.h>
+#include <javax/swing/Icon.h>
+#include <javax/swing/plaf/basic/BasicIconFactory.h>
+#include <jcpp.h>
+
+using $Component = ::java::awt::Component;
+using $Graphics = ::java::awt::Graphics;
+using $ClassInfo = ::java::lang::ClassInfo;
+using $InnerClassInfo = ::java::lang::InnerClassInfo;
+using $MethodInfo = ::java::lang::MethodInfo;
+using $Icon = ::javax::swing::Icon;
+
+namespace javax {
+	namespace swing {
+		namespace plaf {
+			namespace basic {
+
+$MethodInfo _BasicIconFactory$MenuItemCheckIcon_MethodInfo_[] = {
+	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+	{"<init>", "()V", nullptr, $PRIVATE, $method(BasicIconFactory$MenuItemCheckIcon, init$, void)},
+	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuItemCheckIcon, getIconHeight, int32_t)},
+	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuItemCheckIcon, getIconWidth, int32_t)},
+	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(BasicIconFactory$MenuItemCheckIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+	{}
+};
+
+$InnerClassInfo _BasicIconFactory$MenuItemCheckIcon_InnerClassesInfo_[] = {
+	{"javax.swing.plaf.basic.BasicIconFactory$MenuItemCheckIcon", "javax.swing.plaf.basic.BasicIconFactory", "MenuItemCheckIcon", $PRIVATE | $STATIC},
+	{}
+};
+
+$ClassInfo _BasicIconFactory$MenuItemCheckIcon_ClassInfo_ = {
+	$ACC_SUPER,
+	"javax.swing.plaf.basic.BasicIconFactory$MenuItemCheckIcon",
+	"java.lang.Object",
+	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+	nullptr,
+	_BasicIconFactory$MenuItemCheckIcon_MethodInfo_,
+	nullptr,
+	nullptr,
+	_BasicIconFactory$MenuItemCheckIcon_InnerClassesInfo_,
+	nullptr,
+	nullptr,
+	nullptr,
+	"javax.swing.plaf.basic.BasicIconFactory"
+};
+
+$Object* allocate$BasicIconFactory$MenuItemCheckIcon($Class* clazz) {
+	return $of($alloc(BasicIconFactory$MenuItemCheckIcon));
+}
+
+int32_t BasicIconFactory$MenuItemCheckIcon::hashCode() {
+	 return this->$Icon::hashCode();
+}
+
+bool BasicIconFactory$MenuItemCheckIcon::equals(Object$* arg0) {
+	 return this->$Icon::equals(arg0);
+}
+
+$Object* BasicIconFactory$MenuItemCheckIcon::clone() {
+	 return this->$Icon::clone();
+}
+
+$String* BasicIconFactory$MenuItemCheckIcon::toString() {
+	 return this->$Icon::toString();
+}
+
+void BasicIconFactory$MenuItemCheckIcon::finalize() {
+	this->$Icon::finalize();
+}
+
+void BasicIconFactory$MenuItemCheckIcon::init$() {
+}
+
+void BasicIconFactory$MenuItemCheckIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
+}
+
+int32_t BasicIconFactory$MenuItemCheckIcon::getIconWidth() {
+	return 9;
+}
+
+int32_t BasicIconFactory$MenuItemCheckIcon::getIconHeight() {
+	return 9;
+}
+
+BasicIconFactory$MenuItemCheckIcon::BasicIconFactory$MenuItemCheckIcon() {
+}
+
+$Class* BasicIconFactory$MenuItemCheckIcon::load$($String* name, bool initialize) {
+	$loadClass(BasicIconFactory$MenuItemCheckIcon, name, initialize, &_BasicIconFactory$MenuItemCheckIcon_ClassInfo_, allocate$BasicIconFactory$MenuItemCheckIcon);
+	return class$;
+}
+
+$Class* BasicIconFactory$MenuItemCheckIcon::class$ = nullptr;
+
+			} // basic
+		} // plaf
+	} // swing
+} // javax
