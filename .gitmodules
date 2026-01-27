@@ -3,18 +3,3 @@
 	url = ../java.base
 	fetchRecurseSubmodules = on-demand
 	branch = .
-[submodule "java.desktop"]
-	path = libs/java.desktop
-	url = ../java.desktop
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "java.xml"]
-	path = libs/java.xml
-	url = ../java.xml
-	fetchRecurseSubmodules = on-demand
-	branch = .
-[submodule "jdk.localedata"]
-	path = libs/jdk.localedata
-	url = ../jdk.localedata
-	fetchRecurseSubmodules = on-demand
-	branch = .
