@@ -28,7 +28,7 @@ The project includes implementations of the following Java modules:
 - [**java.base**](https://github.com/libjdk/java.base) - Core Java classes and utilities
 - [**java.compiler**](https://github.com/libjdk/libjdk/libs/java.compiler) - Java compiler API
 - [**java.logging**](https://github.com/libjdk/libjdk/libs/java.logging) - Logging framework
-- [**java.xml**](https://github.com/libjdk/java.xml) - XML processing
+- [**java.xml**](https://github.com/libjdk/libjdk/libs/java.xml) - XML processing
 - [**java.xml.crypto**](https://github.com/libjdk/libjdk/libs/java.xml.crypto) - XML cryptography
 
 ### Networking & Communication
@@ -44,7 +44,7 @@ The project includes implementations of the following Java modules:
 - [**java.transaction.xa**](https://github.com/libjdk/libjdk/libs/java.transaction.xa) - XA transaction support
 
 ### Desktop & UI
-- [**java.desktop**](https://github.com/libjdk/java.desktop) - Desktop applications
+- [**java.desktop**](https://github.com/libjdk/libjdk/libs/java.desktop) - Desktop applications
 - [**java.datatransfer**](https://github.com/libjdk/libjdk/libs/java.datatransfer) - Data transfer operations
 - [**java.prefs**](https://github.com/libjdk/libjdk/libs/java.prefs) - User preferences
 
@@ -58,7 +58,7 @@ The project includes implementations of the following Java modules:
 - [**jdk.compiler**](https://github.com/libjdk/libjdk/libs/jdk.compiler) - JDK compiler tools
 - [**jdk.httpserver**](https://github.com/libjdk/libjdk/libs/jdk.httpserver) - HTTP server
 - [**jdk.charsets**](https://github.com/libjdk/libjdk/libs/jdk.charsets) - Character set support
-- [**jdk.localedata**](https://github.com/libjdk/jdk.localedata) - Locale data
+- [**jdk.localedata**](https://github.com/libjdk/libjdk/libs/jdk.localedata) - Locale data
 - [**jdk.net**](https://github.com/libjdk/libjdk/libs/jdk.net) - Network utilities
 - [**jdk.unsupported**](https://github.com/libjdk/libjdk/libs/jdk.unsupported) - Unsupported APIs
 - [**jdk.jartool**](https://github.com/libjdk/libjdk/libs/jdk.jartool) - jar tool
@@ -148,7 +148,7 @@ After building and installing, you can use the libraries in your C++ projects:
 #include <jcpp.h>
 
 int main(int argc, char** argv) {
-	return $System::launch(argc, argv, false, nullptr, []($StringArray* args)->void {
+	return $System::launch(argc, argv, nullptr, []($StringArray* args)->void {
 		$System::out->println("hello, world"_s);
 	});
 }
